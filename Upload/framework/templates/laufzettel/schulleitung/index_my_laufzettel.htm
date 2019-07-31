@@ -1,0 +1,63 @@
+<tr>
+	<td>{$art}</td>
+	<td>{$zettel['laufzettelTitel']}</td>
+	<td>	
+	<if($zettel['laufzettelZustimmungSchulleitung'] == 1)>
+	
+	<then>
+		<label class="label label-success"><i class="fa fa-check"></i> Genehmigt</label>
+	</then>
+	
+	<else>
+	
+	<if($zettel['laufzettelZustimmungSchulleitung'] == 2)>
+	
+	<then>
+		<label class="label label-danger"><i class="fa fa-ban"></i> Nicht genehmigt</label>
+	</then>
+	
+	<else>
+		<label class="label label-info"><i class="fa fa-question-circle"></i> Offen</label>
+	</else>
+	
+	</if>
+	
+	</else></if>
+	
+	<br /><br />
+	<button type="button" class="btn btn-xs btn-success" onclick="$('#genehmigungLaufzettelID').val({$zettel['laufzettelID']});$('#slGenehmigung').modal('show');"><i class="fa fa-check"></i> Genehmigen</button>
+	<button type="button" class="btn btn-xs btn-danger" onclick="$('#NichtgenehmigungLaufzettelID').val({$zettel['laufzettelID']});$('#slNichtGenehmigung').modal('show');"><i class="fa fa-ban"></i> Nicht Genehmigen</button>
+	</td>
+	<td>$lehrer</td>
+	<td>$datum</td>
+	<td><if($zettel['laufzettelNachricht'] != "")><then>
+	
+	<button type="button" class="btn btn-xs" onclick="$('#kommentar{$zettel['laufzettelID']}').toggle()">...</button>
+	<div id="kommentar{$zettel['laufzettelID']}" style="display:none">{$zettel['laufzettelNachricht']}</div>
+	
+	</then></if>
+	</td>
+	<td>
+		Bisher $perCentDone % Zustimmung        
+        <div class="progress">
+          	<div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="{$perCentDone}" aria-valuemin="0" aria-valuemax="100" style="width: {$perCentDone}%"></div>
+        </div>
+        
+        <button type="button" class="btn btn-xs" onclick="$('#zettelDetails{$zettel['laufzettelID']}').toggle()">Details anzeigen</button>
+        
+		<table class="table table-striped" id="zettelDetails{$zettel['laufzettelID']}" style="display:none">
+		
+			<tr>
+				<th>Stunde</th>
+				<th>Lehrer</th>
+				<th>Klasse</th>
+				<th>Fach</th>
+				<th>Zustimmung</th>
+			</tr>
+			
+			$stundenHTML
+		
+		</table>
+	</td>
+</tr>
+

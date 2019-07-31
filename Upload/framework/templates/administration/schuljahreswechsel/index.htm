@@ -1,0 +1,41 @@
+
+<if($_GET['success'] > 0)><then>
+	<div class="callout callout-info">Schuljahreswechsel erfolgreich</div>
+</then></if>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-pencil"></i> Schuljahreswechsel durchführen</h3>
+	</div>
+	<div class="box-body">
+		<form action="$selfURL&action=doChange" method="post">
+		<b>ACHTUNG: Bitte genau durchlesen und sorgfältig arbeiten!</b><br /><br />
+		<b>1. Wählen Sie bitte hier den ersten Schultag aus:</b><br />
+		<input type="text" name="ersterSchultag" id="ersterschultag">
+		<smalL>Überprüfen Sie die Auswahl bitte zweimal!</smalL>
+		<script>
+		
+		$(function() {
+			$("#ersterschultag").datepicker({
+				format: 'dd.mm.yyyy',
+		        language: "de",
+		        autoclose: true
+			});
+		});
+		
+		</script>
+		
+		<BR /><br />
+		<b>2. Folgende Aktionen werden durchgeführt:</b><br />
+		<table class="table table-striped table-bordered">
+		$htmlActions
+		</table>
+		
+		<b>3. Geben Sie das neue Schuljahr im Format 2016/17 an:</b><br />
+		<input type="text" name="neuesSchuljahr" value="<expression>DB::getSettings()->getValue('general-schuljahr')</expression>" /><br /><br />
+		
+		<b>3. Aktionen durchführen</b><br />
+		<button type="submit" class="btn btn-danger"><i class="fa fa-play"></i> Schuljahreswechsel durchführen</button>
+		</form>
+	</div>
+</div>

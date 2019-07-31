@@ -1,0 +1,9 @@
+<h4 style="text-align: center"><expression>self::$currentSprechtag['sprechtagName']</expression> am <expression>DateFunctions::getNaturalDateFromMySQLDate(self::$currentSprechtag['sprechtagDate'])</expression></h4>
+
+<div  style="text-align: center"><b>{$lehrerMitSlots[$i]['lehrerName']}, {$lehrerMitSlots[$i]['lehrerRufname']} ({$lehrerMitSlots[$i]['lehrerKuerzel']})</b> - Raum: {$rooms[$lehrerMitSlots[$i]['lehrerKuerzel']]}</div><br />
+<table border="1" cellpadding="2" cellspacing="0" style="width:100%">
+
+$table
+
+</table><div style="text-align:right">
+Stand: <expression>DateFunctions::getTodayAsNaturalDate()</expression></div>

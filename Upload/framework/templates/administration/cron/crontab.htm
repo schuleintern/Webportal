@@ -1,0 +1,17 @@
+<div class="tab-pane<if($i==0)><then> active</then></if>" id="{$allCrons[$i]}">
+<b>{$cronObject->getDescription()}</b>
+<br />
+Ausführung: Alle $executeEveryMinutes Minuten
+<br />
+<i>Es werden nur die letzten 20 Ausführungen angezeigt.</i>
+<table class="table table-striped table-hover">
+	<tr>
+		<th>Startzeit</th>
+		<th>Endzeit</th>
+		<th>Erfolg</th>
+		<th>Ergebnis</th>
+	</tr>
+	{$executionHTML}
+</table>
+
+</div>

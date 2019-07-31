@@ -1,0 +1,30 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-info-circle"></i> Datenschutzerklärung - Einverständnis</h3><br />
+	</div>
+	<div class="box-body">
+		<b>Bitte lesen Sie die unten stehende Datenschutzerklärung aufmerksam durch und bestätigen Sie, dass Sie diese gelesen haben und damit einverstanden sind.</b><br />
+		Sollen Sie bereits einmal zugestimmt haben, dann ist die Datenschutzerklärung verändert worden und erfordert erneut Ihre Zustimmung.<br />Wenn Sie nicht mit der Datenschutzerklärung einverstanden sind, können Sie die Seite nicht nutzen. Über das Benutzerprofil können Sie Ihr Konto löschen.<br />
+		
+		<form action="index.php?page=datenschutz&action=confirm" method="post">
+		<div class="radio icheck">
+		   	<label>
+				<input type="checkbox" name="confirm" value="1" id="radioHeute" required="required"> Ich habe die unten stehende Datenschutzerklärung und die Hinweise zur Auftragsdatenverarbeitung gelesen und bin damit einverstanden.
+		   	</label>
+	   	</div>
+	   	
+	   	<button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Einverständnis geben</button>
+		</form>
+	</div>
+	
+</div>
+
+<script>
+	$(function() {
+	   $('input').iCheck({
+	            checkboxClass: 'icheckbox_square-blue',
+	            radioClass: 'iradio_square-blue',
+	            increaseArea: '20%' // optional
+	    });
+	});
+</script>

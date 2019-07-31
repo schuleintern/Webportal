@@ -1,0 +1,27 @@
+<tr>
+	<td><input type="text" name="kg_{$kategorien[$k]->getID()}_name" class="form-control" value="<expression>addslashes($kategorien[$k]->getKategorieName())</expression>"></td>
+	<td>
+		<input type="text" name="kg_{$kategorien[$k]->getID()}_color" id="kg_{$kategorien[$k]->getID()}_color" class="form-control" value="<expression>addslashes($kategorien[$k]->getFarbe())</expression>">
+					
+			
+		<span style="background-color: {$kategorien[$k]->getFarbe()}; color: #FFFFFF; width: 30%" id="kg_{$kategorien[$k]->getID()}_color-sample">#################</span>
+			
+		<script>
+			$("#kg_{$kategorien[$k]->getID()}_color").colorpicker().on('changeColor', function() {
+			      $("#kg_{$kategorien[$k]->getID()}_color-sample").css('background-color', $(this).val() );
+			});
+		</script>
+		
+		</td>
+		
+	<td>
+	
+		<select id="kg_{$kategorien[$k]->getID()}_icon" name="kg_{$kategorien[$k]->getID()}_icon" onchange="$('#sample_{$kategorien[$k]->getID()}').removeClass($('#sample_{$kategorien[$k]->getID()}').attr('class')).addClass($('#kg_{$kategorien[$k]->getID()}_icon').val());">$iconSelect</select>
+		<i class="{$kategorien[$k]->geticon()}" id="sample_{$kategorien[$k]->getID()}"></i>
+		<br />
+		<a href="cssjs/pdf/Font Awesome Cheatsheet.pdf" target="_blank"><i class="fa fa-file-o"></i> Übersicht über alle Icons</a>
+	
+	</td>
+	<td><button type="button" class="btn btn-xs btn-danger" onclick="confirmAction('Soll die Kategorie wirklich gelöscht werden? Vorhandene Termine in dieser Kategorie werden in die Standardkategorie verschoben.','$selfURL&action=editKategorien&deleteKG=1&kategorieID={$kategorien[$k]->getID()}')"><i class="fa fa-trash"></i></button>
+</tr>
+

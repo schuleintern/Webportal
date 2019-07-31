@@ -1,0 +1,21 @@
+<tr>
+	<td>{$user['schuelerKlasse']}</td>
+	<td>-</td>
+	<td>{$user['schuelerName']}</td>
+	<td>{$user['schuelerRufname']}</td>
+	<td>
+		Elternbenutzer
+	</td>
+	<td>{$user['codeText']}
+		<br />
+		<if($user['codeUserID'] != "" && $user['codeUserID'] != 0)>
+			<then>Verwendet</then>
+			<else>Noch nicht verwendet</else>
+		</if>
+		<br />
+		<button class="btn btn-danger btn-xs" onclick="confirmAction('Sollen wirklich dieser Registrierungscode (für {$user['schuelerRufname']} {$user['schuelerName']}) neu generiert werden?','$selfURL&network=ELTRERN&action=regenerateCode&schuelerAsvID={$user['schuelerAsvID']}')"><i class="fa fa-refresh"></i> Widerrufen und neu generieren</button>
+	</td>
+	<td><if($user['codePrinted'] > 0)><then>Gedruckt</then><else>Noch nicht gedruckt</else></if></td>
+	
+	<td><a href="$selfURL&action=printLetter&schuelerAsvID={$user['schuelerAsvID']}"><i class="fa fa-file-pdf-o"></i> Code Brief ausdrucken</a></td>
+</tr>

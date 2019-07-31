@@ -1,0 +1,50 @@
+{$this->header}
+
+<script>
+$(function() {
+	$("#briefdatum").datepicker({
+		format: 'yyyy-mm-dd',
+        monthNames: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+        monthNamesShort: ['Jan','Feb','März','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
+        dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+        dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+        dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+	});
+});
+
+
+</script>
+
+		<form enctype="multipart/form-data" action="index.php?page=elternbriefe&mode=edit&briefID={$brief['briefID']}&doSave=1" method="POST">
+		
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title"><i class="fa fa-pencil"></i> Elternbrief &quot;{$brief['briefTitel']}&quot; bearbeiten</h3>
+            </div>
+           <div class="box-body no-padding">
+           	<table class="table table-striped">
+           		<tr>
+           			<td style="width:10%"><b>Brieftitel</b></td>
+           			<td><input type="text" name="briefTitel" value="{$brief['briefTitel']}" class="form-control" placeholder="z.B. 2. Elternbrief im Schuljahr 2015/2016" />
+           			</td>
+           		</tr>
+           		
+           		<tr>
+           			<td style="width:10%"><b>Veröffentlichungsdatum</b></td>
+           			<td><input type="text" name="briefDatum" value="{$brief['briefDatum']}" id="briefdatum" class="form-control" placeholder="z.B. 2. Elternbrief im Schuljahr 2015/2016" />
+           			</td>
+           		</tr>
+           		<tr>
+           			<td><b><i class="fa fa-file-pdf-o"></i> PDF Datei zum Brief ersetzen</b></td>
+           			<td><input type="file" name="newBriefFile" accept="application/pdf" class="form-control"/>
+           			<br />Wenn Sie hier eine Datei auswählen, wird die vorhandene Datei ersetzt.</td>
+           		</tr>
+           	</table>
+           	<button type="submit"class="form-control"><i class="fa fa-save"></i> Änderungen speichern</button>
+           	<input type="button" onclick="location.href='index.php?page=elternbriefe'"class="form-control" value="Bearbeiten abbrechen / Änderungen nicht speichern" />
+           </div>
+         </div>
+         
+         </form>
+         
+{$this->footer}

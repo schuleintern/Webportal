@@ -1,0 +1,49 @@
+{$this->header}
+
+Hier werden alle aktiven Logins angezeigt.<br />
+Hier können gespeicherte Sitzungen auch aus der ferne beendet werden, wenn kein Zugriff mehr auf das System besteht.<br /><br />
+
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Aktuelle Sitzung</h3>
+            </div>
+            <div class="box-body no-padding">
+				<table class="table table-condensed">
+					<tr>
+						<th>Letzte Aktivität</th>
+						<th>Letzte IP-Adresse<br><small>(Nur die ersten 16 Bit)</small></th>
+						<th>Browser</th>
+						<th>&nbsp;</th>
+					</tr>
+					<tr>
+						<td>$thisSessionLastActivity</td>
+						<td>$thisSessionIp</td>
+						<td>$thisSessionBrowser</td>
+						<td><i class="fa fa-sign-out"></i> <a href="index.php?page=logout">Sitzung Beenden</a>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+<br /><br />
+
+<div class="box">
+            <div class="box-header">
+              <h3 class="box-title"><i class="fa fa-floppy-o"></i> Gespeicherte Sitzungen</h3> -  
+              <a href="#" onclick="javascript:if(confirm('Sollen wirklich alle gespeicherten Sitzungen beendet werden?')) document.location.href='index.php?page=userprofilemylogins&deleteAllSavedSessions=1';"><i class="fa fa-sign-out"></i> Alle gespeicherten Sitzungen Beenden</a>
+            </div>
+            <div class="box-body no-padding">
+				<table class="table table-condensed">
+				<tr>
+					<th>Letzte Aktivität</th>
+					<th>Letzte IP-Adresse<br><small>(Nur die ersten 16 Bit)</small></th>
+					<th>Browser</th>
+					<th>&nbsp;</th>
+				</tr>
+				$sessionHTML
+			</table>
+			</div>
+			</div>
+
+
+{$this->footer}

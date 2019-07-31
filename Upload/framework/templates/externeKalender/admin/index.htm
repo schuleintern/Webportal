@@ -1,0 +1,92 @@
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-calendar"></i> Externe Kalender</h3>
+	</div>
+	<div class="box-body">
+		Bei externen Kalender können Sie Kalender einbinden, die ein iCAL / ICS Feed haben.
+		
+		<if(DB::getSettings()->getBoolean('office365-active'))><then>
+		
+		<b>Da Sie die Office 365 Anbindung aktiviert haben, können Sie auch den Kalender eines Benutzers als Kalender einbinden. Geben Sie dazu bitte keine ICS Feed URL ein, sondern stattdessen bei Office 365 Benutzer den kompletten Office365 Benutzernamen. (z.B. Terminkalender@demo-schule.de)
+		</b>
+		
+		
+		</then></if><br /><br />
+		Diese Kalender werden im Portal nur lesend angezeigt. Termine können nicht über das Portal eingetragen werden.
+		Die Aktualisierung des Kalenders erfolgt ca. alle 15 Minuten.	
+	</div>	
+</div>
+
+<if($kalenderHTML == '')><then>
+	<div class="callout callout-info">Bisher sind keine externen Kalender angelegt.</div>
+</then>
+</if>
+
+$kalenderHTML
+
+<form action="$selfURL&action=addKalender" method="post">
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-calendar"></i> Kalender anlegen</h3>
+	</div>
+	<div class="box-body">
+		<table class="table">
+			<tr>
+				<td style="width:10%"><b>Name:</b></td>
+				<td><input name="kalenderName" class="form-control" placeholder="z.B. Schultermine"></td>
+			</tr>
+			<tr>
+				<td style="width:10%"><b>ICS Feed URL:</b></td>
+				<td><input name="kalenderIcalFeed" class="form-control" placeholder="https://www.beispiel.de/feed.ics"></td>
+			</tr>
+			<if(DB::getSettings()->getBoolean('office365-active'))><then>
+			
+			<tr>
+				<td style="width:10%"><b>Office 365 Benutzername:</b></td>
+				<td><input name="kalenderOffice365Username" class="form-control" placeholder="terminkalender@demoschule.de"></td>
+			</tr>
+			
+			</then></if>
+			<tr>
+				<td style="width:10%"><b>Zugriff für Lehrer:</b></td>
+				<td>	
+					<div class="onoffswitch">
+					    <input type="checkbox" name="kalenderZugriffLehrer" value="1" class="onoffswitch-checkbox" id="kalenderZugriffLehrer">
+					    <label class="onoffswitch-label" for="kalenderZugriffLehrer">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:10%"><b>Zugriff für Schüler:</b></td>
+				<td>	
+					<div class="onoffswitch">
+					    <input type="checkbox" name="kalenderZugriffSchueler" value="1" class="onoffswitch-checkbox" id="kalenderZugriffSchueler">
+					    <label class="onoffswitch-label" for="kalenderZugriffSchueler">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:10%"><b>Zugriff für Eltern:</b></td>
+				<td>	
+					<div class="onoffswitch">
+					    <input type="checkbox" name="kalenderZugriffEltern" value="1" class="onoffswitch-checkbox" id="kalenderZugriffEltern">
+					    <label class="onoffswitch-label" for="kalenderZugriffEltern">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<button type="submit" class="form-control"><i class="fa fa-save"></i> Kalender anlegen</button>
+	</div>	
+</div>

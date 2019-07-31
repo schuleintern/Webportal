@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Abteilung innerhalb der Schule" pl_key="3108">
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[Modell]]></kurzform>
+    <anzeigeform><![CDATA[Modellklassen]]></anzeigeform>
+    <langform><![CDATA[Modellklassen]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+</werteliste>

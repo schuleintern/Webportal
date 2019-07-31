@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Geschlecht" pl_key="2067">
+  <eintrag>
+    <schluessel><![CDATA[2]]></schluessel>
+    <kurzform><![CDATA[W]]></kurzform>
+    <anzeigeform><![CDATA[Weiblich]]></anzeigeform>
+    <langform><![CDATA[Weiblich]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=W#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[1]]></schluessel>
+    <kurzform><![CDATA[M]]></kurzform>
+    <anzeigeform><![CDATA[Männlich]]></anzeigeform>
+    <langform><![CDATA[Männlich]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=M#]]></bemerkung>
+  </eintrag>
+</werteliste>

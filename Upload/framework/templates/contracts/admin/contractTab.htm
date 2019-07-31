@@ -1,0 +1,131 @@
+<div class="tab-pane$isActive" id="contract{$contracts[$i]->getID()}">
+
+	<if($contracts[$i]->isPaperWork())><then>
+		Dieser Vertrag wird schriftlich auf Papier geschlossen.<br />
+		Status:
+		
+		<if($contracts[$i]->isPaperWorkSigned())><then>
+			<i class="fa fa-check"></i> Gezeichnet
+		</then>
+		<else>
+			<i class="fa fa-check"></i> Noch nicht gezeichnet.
+		</else></if>
+		
+		<if(DB::getSession()->getUserID() == 1)><then>
+		<form><button type="button" class="btn btn-sm" onclick="window.location.href='$selfURL&contractID={$contracts[$i]->getID()}&action=setIsNoPaperWork'"><i class="fa fa-pencil"></i> Als Onlinevertrag festlegen</button></form>
+		
+		<if(!$contracts[$i]->isPaperWorkSigned())><then>
+		
+			<form><button type="button" class="btn btn-sm" onclick="window.location.href='$selfURL&contractID={$contracts[$i]->getID()}&action=setIsSigned'"><i class="fa fa-pencil"></i>Als unterzeichnet festlegen</button></form>
+		</then>
+		<else>
+		
+			<form><button type="button" class="btn btn-sm" onclick="window.location.href='$selfURL&contractID={$contracts[$i]->getID()}&action=setIsNotSigned'"><i class="fa fa-pencil"></i>Als nicht unterzeichnet festlegen</button></form>
+		
+		</else></if>
+		
+		</then>
+		</if>
+	</then>
+	<else>
+	
+		<if(DB::getSession()->getUserID() == 1)><then>
+			<hr>
+				<form><button type="button" class="btn btn-sm" onclick="window.location.href='$selfURL&contractID={$contracts[$i]->getID()}&action=setIsPaperWork'"><i class="fa fa-pencil"></i> Als Papiervertrag festlegen</button></form>
+			
+				
+			<hr>
+			
+		</then>
+		</if>
+
+
+	<h4>Vertragspartner</h4>
+	
+	<if($contracts[$i]->isSignedBySchool() && $contracts[$i]->isSignedBySpitschka())><then>
+
+		<pre>{$contracts[$i]->getContractPartner()}</pre>
+	</then><else>
+	
+	<form action="$selfURL&contractID={$contracts[$i]->getID()}&action=setContractPartner" method="post">
+	
+		<textarea name="contractPartner" rows="6" class="form-control" placeholder="TestSchule
+Testweg 11
+80000 Testort
+Vertreten durch Christian Test">{$contracts[$i]->getContractPartner()}</textarea>
+		Geben Sie hier bitte den Vertragspartner ein. (Namen der Schule oder des Sachaufwandsträgers und den Vertreter (vertreten durch XYZ)<br />
+		<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> Vertragspartner festlegen</button>
+	</form>
+	
+	</else></if>
+
+	<h4>Vertragstext</h4>
+	
+	
+	<if($contracts[$i]->isSignedBySchool() && $contracts[$i]->isSignedBySpitschka())><then>
+	
+	<form><button type="button" class="btn btn-sm" onclick="window.location.href='$selfURL&contractID={$contracts[$i]->getID()}&action=getFinalPDF'"><i class="fa fa-file-pdf-o"></i> Druckversion (Finale, gezeichnete Version)</button></form>
+	
+	</then><else>
+	
+		<form><button type="button" class="btn btn-sm" onclick="window.location.href='$selfURL&contractID={$contracts[$i]->getID()}&action=preViewPDF'"><i class="fa fa-file-pdf-o"></i> Druckversion (Vorschau)</button></form>
+	</else>
+	
+	</if>
+	
+	<div style='overflow:auto; width:100%;height:400px;border:1px solid;padding:10px'>{$contracts[$i]->getText()}</div>
+	
+	
+	<h4>Zeichnungen</h4>
+	
+		<b>Spitschka IT Solutions</b><br />
+		<i class="fa fa-check"></i> Vertrag gezeichnet<br />
+		({$contracts[$i]->data['contractSignSpitschkaOrt']}, <expression>DateFunctions::getNaturalDateFromMySQLDate($contracts[$i]->data['contractSignSpitschkaDate'])</expression><br />{$contracts[$i]->data['contractSignSpitschkaName']})
+		<br /><br />
+		<b>Vertragspartner</b><br />
+		
+		<if($contracts[$i]->getContractPartner() != "")><then>
+		
+		<if($contracts[$i]->isSignedBySchool())><then>
+			<i class="fa fa-check"></i> Vertrag gezeichnet<br />
+			({$contracts[$i]->data['contractSignSchoolOrt']}, <expression>DateFunctions::getNaturalDateFromMySQLDate($contracts[$i]->data['contractSignSchoolDate'])</expression><br />{$contracts[$i]->data['contractSignSchoolName']})
+		</then><else>
+			
+			<if($contracts[$i]->signKeyRequested() != "")><then>
+				An die Adresse {$contracts[$i]->signKeyRequested()} wurde ein Zeichnungsschlüssel gesendet. Sie können den Vertrag nun zeichnen:<br /><br />
+				
+				<b>Ich bin mit den Bedingungen des Vertrages einverstanden.</b>
+				<br />
+				
+				<form action="$selfURL&contractID={$contracts[$i]->getID()}&action=signContract" method="post">
+					<input type="number" class="form-control" placeholder="Zeichnungscode" name="signKey">
+					<expression>DateFunctions::getTodayAsNaturalDate()</expression>, <input type="text" class="form-control" placeholder="Ort" name="ort">
+					<input type="text" class="form-control" placeholder="Ihr Name" name="name">
+					<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> Vertrag zeichnen</button>
+				
+				</form>
+				
+				<hr>
+				Neuen Zugangscode zusenden:<br />
+				
+			</then>
+			</if>
+			
+				Fordern Sie einen Zeichnungsschlüssel an. Geben Sie dazu bitte hier Ihre dienstliche E-Mailadresse an:
+				
+				<form action="$selfURL&contractID={$contracts[$i]->getID()}&action=signContractRequestSignKey" method="post">
+					<input type="email" class="form-control" placeholder="info@schule.de" name="mail"><br />
+					<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> Zeichnungscode anfordern</button>
+				
+				</form>
+			
+		</else>
+		</if>
+		
+		</then>
+		<else><b>Bitte geben Sie zuerst einen Vertragspartner an!</b></else></if>
+		
+	</else>
+	</if>
+	
+</div>

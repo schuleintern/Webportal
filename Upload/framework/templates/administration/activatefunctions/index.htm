@@ -1,0 +1,30 @@
+{$this->header}
+
+<div class="box box-primary box-solid">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-check"></i> Module aktivieren / deaktivieren</h3>
+	</div>
+	<div class="box-body">
+		
+		<if(!DB::checkDemoAccess())>
+			<then>
+			
+		<div class="callout callout-info"><i class="fa fa-info-circle"></i> In der Demo Version können keine Funktionen deaktiviert werden.</div>
+		
+		</then></if>
+		
+	
+		Wenn eine Funktion deaktiviert wird, dann bleiben alle darun enthaltenen Daten erhalten und stehen bei einer späteren Aktivierung wieder zur Verfügung.
+		<table class="table table-bordered table-hover">
+			<tr>
+				<th style="width:30%">Modul</th>
+				<th>Status</th>
+			</tr>
+			$pageStatus
+		</table>
+	</div>
+
+</div>
+
+
+{$this->footer}

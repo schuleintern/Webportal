@@ -1,0 +1,17 @@
+{$this->header}
+
+<form action="?page=editPicture&save=1&personID={$pID}" method="post" enctype="multipart/form-data">
+
+<b>Bild für Person "{$person['personNachname']}, {$person['personVorname']}" bearbeiten</b><br /><br />
+
+<b>Aktuelles Bild</b>:<br />
+{$currentPicture}<br /><br />
+
+<br />
+<b>Neues Bild auswählen:</b> <br/>
+<input name="image" type="file" size="50" accept="image/*" class="form-control"> <font color=red>{$error}</font><br /><br />
+<input type="checkbox" name="delete" value="1"> Bild löschen
+<input type="submit" value="Bild speichern oder löschen"class="form-control"></form><br />
+	
+
+{$this->footer}

@@ -1,0 +1,22 @@
+
+			<tr>
+				<td>{$userSync['syncName']}<br /><span class="label label-info">{$userSync['syncDirType']}</span></td>
+				<td>{$userSync['syncLoginDomain']}</td>
+				<td>{$userSync['syncSecret']}</td>
+				<td>{$userSync['syncURL']}</td>
+				<td><if($userSync['syncIsActive'] > 0)><then>Ja</then><else>Nein</else></if></td>
+				<td>
+					<if($userSync['syncLastSync'] > 0)><then><expression>functions::makeDateFromTimestamp($userSync['syncLastSync'])</expression><br /><if($userSync['syncSuccessfull'] == 1)><then><span class="label label-success">Erfolgreich</span></then><else><span class="label label-danger">Nicht erfolgreich</span></else></if></then><else>Noch nicht synchronisiert</else></if>
+					
+				</td>
+				
+				
+				<td><code>{$userSync['syncLastSyncResult']}</code></td>				
+				
+				<td>
+					<a href="{$selfURL}&action=editUserSync&syncID={$userSync['syncID']}"><i class="fa fa-pencil"></i> Bearbeiten</a><br />
+					<a href="javascript:if(confirm('Soll der Sync wirklich gelöscht werden?')) window.location.href='{$selfURL}&action=deleteUserSync&syncID={$userSync['syncID']}'"><i class="fa fa-trash"></i> Löschen</a><br />
+					<a href="{$selfURL}&action=doUserSync&syncID={$userSync['syncID']}"><i class="fa fa-refresh"></i> Manuell synchronisieren</a><br />
+				
+				</td>
+			</tr>

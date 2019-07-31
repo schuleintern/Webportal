@@ -1,0 +1,96 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-users"></i> {$gruppen[$i]->getName()}</h3><br />
+		<button class="btn btn-xs btn-danger" onclick="confirmAction('Soll die Gruppe wirklich gelöscht werden?','$selfURL&action=delete&name={$checksumName}')"><i class="fa fa-trash"></i> Gruppe löschen</button>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<div class="row">
+			<div class="col-md-6">
+				<p>Einstellungen der Gruppe</p>
+				
+				<form action="$selfURL&action=editGroup&groupName={$checksumName}" method="post">
+				
+					<table class="table">
+						<tr>
+							<td>Nachrichtenempfang für diese Gruppe aktivieren?<br /><small>Wenn aktiviert, dann können den Mitgleidern Nachrichten gesendet werden. Mitglieder können dann immer unabhängig von den Sendeberechtigungen unten der Gruppe eine Nachricht senden. Benutzer, die im Nachrichtenmodul komplett freigeschaltet sind, können auch alle Gruppen kontaktieren.</small></td>
+							<td>
+								<div class="onoffswitch">
+								    <input type="checkbox" name="{$checksumName}-messagerecipient" value="1" class="onoffswitch-checkbox" id="{$checksumName}-messagerecipient"{$checked['messageRecipient']}>
+								    <label class="onoffswitch-label" for="{$checksumName}-messagerecipient">
+								        <span class="onoffswitch-inner"></span>
+								        <span class="onoffswitch-switch"></span>
+								    </label>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Gruppe von Lehrern kontaktierbar?</td>
+							<td>
+								<div class="onoffswitch">
+								    <input type="checkbox" name="{$checksumName}-contact-teacher" value="1" class="onoffswitch-checkbox" id="{$checksumName}-contact-teacher"{$checked['lehrer']}>
+								    <label class="onoffswitch-label" for="{$checksumName}-contact-teacher">
+								        <span class="onoffswitch-inner"></span>
+								        <span class="onoffswitch-switch"></span>
+								    </label>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Gruppe von Schülern kontaktierbar?</td>
+							<td>
+								<div class="onoffswitch">
+								    <input type="checkbox" name="{$checksumName}-contact-pupils" value="1" class="onoffswitch-checkbox" id="{$checksumName}-contact-pupils"{$checked['schueler']}>
+								    <label class="onoffswitch-label" for="{$checksumName}-contact-pupils">
+								        <span class="onoffswitch-inner"></span>
+								        <span class="onoffswitch-switch"></span>
+								    </label>
+								</div>
+							</td>
+						</tr>
+						
+						
+												
+						<tr>
+							<td>Gruppe von Eltern kontaktierbar?</td>
+							<td>
+								<div class="onoffswitch">
+								    <input type="checkbox" name="{$checksumName}-contact-parents" value="1" class="onoffswitch-checkbox" id="{$checksumName}-contact-parents"{$checked['eltern']}>
+								    <label class="onoffswitch-label" for="{$checksumName}-contact-parents">
+								        <span class="onoffswitch-inner"></span>
+								        <span class="onoffswitch-switch"></span>
+								    </label>
+								</div>
+							</td>
+						</tr>
+						
+						
+						<tr>
+							<td>Nextcloud Tauschordner für diese Gruppe aktivieren? <br /><small>Nur, wenn Nextcloud aktiviert ist.</small></td>
+							<td>
+								<div class="onoffswitch">
+								    <input type="checkbox" name="{$checksumName}-contact-nextcloud" value="1" class="onoffswitch-checkbox" id="{$checksumName}-contact-nextcloud"{$checked['nextcloud']}>
+								    <label class="onoffswitch-label" for="{$checksumName}-contact-nextcloud">
+								        <span class="onoffswitch-inner"></span>
+								        <span class="onoffswitch-switch"></span>
+								    </label>
+								</div>
+							</td>
+						</tr>
+					</table>
+				
+					<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Speichern</button>
+					
+				</form>
+				
+			</div>
+			
+			<div class="col-md-6">
+				$membersBox
+							</div>
+		</div>
+	</div>
+	
+</div>

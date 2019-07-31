@@ -1,0 +1,103 @@
+{$this->header}
+
+<div class="row">
+	<div class="col-md-9">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-group"></i> 
+				<if($_REQUEST['klasse'] == 'ANDEREKLASSE')><then>
+				Wahl- / Zusatzunterricht
+				</then><else>
+				<if($currentUnterricht != null)><then>
+					Klasse $currentUnterrichtKlassen
+				</then>
+				<else>
+				
+				Klasse {$klasse->getKlassenName()}
+				
+				</else></if>
+				
+				</else></if>
+				</h3><br />
+				<a href="index.php?page=schuelerinfo"><i class="fa fa-step-backward"></i> Zurück zur Klassenübersicht</a><br />
+				
+				Für weitere Informationen (Adressen, Dokumente, etc..) auf den Schülernamen klicken.
+			</div>
+			<div class="box-body">
+				<if($showUnterrichtListe)><then>
+					<div class="callout callout-info"><b>Unterricht {$currentUnterricht->getBezeichnung()}</b> (<a href="index.php?page=schuelerinfo&mode=klasse&klasse={$klasse->getKlassenname()}">Alle Schüler anzeigen</a>)</div>
+				</then>
+				</if>
+				<table class="table table-striped">
+					<tr>
+						<th style="width:5%">#</th>
+						<if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren'))><then>
+							<th style="width:70px"><i class="fa fa-picture-o"></i></th>
+						</then></if>
+						<th style="width:30%">Schülername</th>
+						<th>Aktionen</th>
+					</tr>
+					$schuelerListe
+				</table>
+			</div>
+		</div>
+	
+	</div>
+	
+	<div class="col-md-3">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-print"></i> Listen zum Ausdrucken</h3><br />
+			</div>
+			<div class="box-body">
+								<if($currentUnterricht != null)><then>
+					Klasse $currentUnterrichtKlassen
+				</then>
+				<else>
+				
+				Klasse {$klasse->getKlassenName()}
+				
+				</else></if> 
+				
+				<if($showUnterrichtListe)><then>
+					(Unterricht {$currentUnterricht->getBezeichnung()})</then></if>
+				
+				drucken:<br />
+				<a href="index.php?page=schuelerinfo&mode=klasse&klasse={$klasse->getKlassenname()}&unterrichtID=<expression>intval($_REQUEST['unterrichtID'])</expression>&doPrint=simpleList"><i class="fa fa-file-pdf-o"></i> Namensliste</a><br />
+				<a href="index.php?page=schuelerinfo&mode=klasse&klasse={$klasse->getKlassenname()}&unterrichtID=<expression>intval($_REQUEST['unterrichtID'])</expression>&doPrint=listWithNA"><i class="fa fa-file-pdf-o"></i> Namensliste mit Nachteilsausgleich</a><br />
+				
+				
+				<if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren'))>
+                      <then>
+                       <a href="index.php?page=schuelerinfo&mode=getFotoUebersicht&klasse={$klasse->getKlassenname()}"><i class="fa fa-file-pdf-o"></i> Fotoübersicht</a><br />
+                       <a href="index.php?page=schuelerinfo&mode=getFotoZip&klasse={$klasse->getKlassenname()}"><i class="fa fa-file-archive-o"></i> Alle Fotos der Klasse als ZIP Datei</a><br />
+                </then></if>
+			
+			</div>
+		</div>
+	
+		<if(!DB::getSettings()->getBoolean('schuelerinfo-disable-unterricht'))><then>
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-group"></i> Unterricht</h3><br />
+			
+				Für weitere Informationen (Schülerliste), bitte auf das Fach klicken.
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+					<tr>
+						<th>Fach</th>
+						<th>Lehrer</th>
+					</tr>
+					$faecherHTML
+				</table>
+			</div>
+		</div>
+		</then></if>
+	</div>
+
+</div>
+
+
+
+{$this->footer}

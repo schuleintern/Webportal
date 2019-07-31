@@ -1,0 +1,40 @@
+		<script>
+$(function() {
+	$("#briefdatum").datepicker({
+		format: 'dd.mm.yyyy',
+        language: "de",
+        autoclose: true
+	});
+});
+
+
+</script>
+		
+		<form enctype="multipart/form-data" action="index.php?page=elternbriefe&mode=upload" method="POST">
+		
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Dokument hochladen</h3>
+            </div>
+           <div class="box-body no-padding">
+           	<table class="table table-striped">
+           		<tr>
+           			<td><b>Titel</b></td>
+           			<td><input type="text" name="newBriefTitel" value="" class="form-control" placeholder="z.B. 2. Elternbrief im Schuljahr 2015/2016" />
+           			</td>
+           		</tr>
+           		<tr>
+           			<td style="width:10%"><b>Veröffentlichungsdatum</b></td>
+           			<td><input type="text" name="briefDatum" value="$today" id="briefdatum" class="form-control" placeholder="z.B. 2. Elternbrief im Schuljahr 2015/2016" />
+           			</td>
+           		</tr>
+           		<tr>
+           			<td><b>PDF Datei zum Brief</b></td>
+           			<td><input type="file" name="newBriefFile" accept="application/pdf" class="form-control"/></td>
+           		</tr>
+           	</table>
+           	<input type="submit" value="Elternbrief einstellen" class="form-control">
+           </div>
+         </div>
+         
+         </form>

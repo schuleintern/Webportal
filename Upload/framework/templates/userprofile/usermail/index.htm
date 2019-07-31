@@ -1,0 +1,34 @@
+{$this->header}
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-envelope-o"></i> E-Mailadresse</h3>
+	</div>
+	<div class="box-body">
+		<p>Die aktuelle E-Mailadresse lautet:<br />
+		<pre>$currentMail</pre>
+	</div>
+</div>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-envelope-o"></i> E-Mailadresse ändern</h3>
+	</div>
+	<div class="box-body">
+		Zum Ändern der E-Mailadresse geben Sie bitte hier Ihre E-Mailadresse ein.<br /><strong>Sie erhalten einen Bestätigungscode an die neue E-Mailadresse zugesendet, den Sie bitte im nächsten Schritt eingeben.</strong>
+		<br /><br />
+		<form action="index.php?page=userprofileemail&action=changeStep1" method="post">
+		
+			<div class="form-group">
+				<label>E-Mailadresse</label>
+				<input type="email" class="form-control" placeholder="jemand@irgendwo.de">
+			</div>
+		
+			<button class="btn btn-primary" type="submit"><i class="fa fa-refresh"></i> Bestätigungscode anfordern</button>
+		
+		</form>
+	</div>
+</div>
+
+
+{$this->footer}

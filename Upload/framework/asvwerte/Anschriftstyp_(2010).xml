@@ -1,0 +1,108 @@
+^<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Anschriftstyp" pl_key="2010">
+  <eintrag>
+    <schluessel><![CDATA[30]]></schluessel>
+    <kurzform><![CDATA[GH]]></kurzform>
+    <anzeigeform><![CDATA[Hauptanschrift Gebäude]]></anzeigeform>
+    <langform><![CDATA[Hauptanschrift - Datenbereich: Gebäude]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[GW]]></kurzform>
+    <anzeigeform><![CDATA[weitere Anschrift Gebäude]]></anzeigeform>
+    <langform><![CDATA[weitere Anschrift - Datenbereich: Gebäude]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[GA]]></kurzform>
+    <anzeigeform><![CDATA[gewöhnlicher Aufenthalt]]></anzeigeform>
+    <langform><![CDATA[Wie bei gewöhnlicher Aufenthalt Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[VA]]></kurzform>
+    <anzeigeform><![CDATA[Vor Antritt der Ausbildung]]></anzeigeform>
+    <langform><![CDATA[Vor Antritt der Ausbildung Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[EW]]></kurzform>
+    <anzeigeform><![CDATA[Eine Wohnung]]></anzeigeform>
+    <langform><![CDATA[Eine Wohnung Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[EH]]></kurzform>
+    <anzeigeform><![CDATA[Ein Wohnheim]]></anzeigeform>
+    <langform><![CDATA[Ein Wohnheim Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[SO]]></kurzform>
+    <anzeigeform><![CDATA[in einer sonstigen Wohnung]]></anzeigeform>
+    <langform><![CDATA[in einer sonstigen Wohnung, ggf. Unterbringung bei (Oma, Gastfamilie, ..) Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[WO]]></kurzform>
+    <anzeigeform><![CDATA[in einem Wohnheim]]></anzeigeform>
+    <langform><![CDATA[in einem Wohnheim Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[WE]]></kurzform>
+    <anzeigeform><![CDATA[weit. Erziehungsberechtigten]]></anzeigeform>
+    <langform><![CDATA[beim weiteren Erziehungsberechtigten Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[GE]]></kurzform>
+    <anzeigeform><![CDATA[gem. Erziehungsberechtigten]]></anzeigeform>
+    <langform><![CDATA[beim Erziehungsberechtigten bzw. bei den gemeinsamen Erziehungsberechtigten Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[EA]]></kurzform>
+    <anzeigeform><![CDATA[Eigene Anschrift]]></anzeigeform>
+    <langform><![CDATA[Eigene Anschrift Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[WZ]]></kurzform>
+    <anzeigeform><![CDATA[Wie bei Erziehungsberechtigter]]></anzeigeform>
+    <langform><![CDATA[Wie bei Erziehungsberechtigter Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[EZ]]></kurzform>
+    <anzeigeform><![CDATA[Erziehungsberechtigter]]></anzeigeform>
+    <langform><![CDATA[Erziehungsberechtigter Datenbereich: Schüler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[DW]]></kurzform>
+    <anzeigeform><![CDATA[weitere Anschrift Schule]]></anzeigeform>
+    <langform><![CDATA[weitere Anschrift - Datenbereich: Schule]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[DH]]></kurzform>
+    <anzeigeform><![CDATA[Hauptanschrift Schule]]></anzeigeform>
+    <langform><![CDATA[Hauptanschrift - Datenbereich: Schule]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+</werteliste>

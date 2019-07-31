@@ -1,0 +1,49 @@
+{$this->header}
+
+  	<script src="cssjs/js/moment-with-locales.js"></script>
+    <script src="cssjs/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="cssjs/plugins/fullcalendar/de.js"></script>
+	<script>
+	
+	$(document).ready(function() {
+		
+
+		$('#schulkalender').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			views: {
+		        month: { // name of view
+		            titleFormat: 'MMMM YYYY'
+		        },
+		        basicWeek: { // name of view
+		            titleFormat: 'MMMM YYYY'
+		        },
+				
+		    },
+			defaultDate: '{$currentDateAsSQLDate}',
+            
+			editable: false,
+			eventLimit: true,
+			events: [
+				$events
+			]
+		});
+		
+	});
+
+	
+</script>
+
+	<div class="box">
+		<div class="box-body">
+		<div id='schulkalender'></div>
+		</div>
+	</div>
+
+
+
+
+{$this->footer}

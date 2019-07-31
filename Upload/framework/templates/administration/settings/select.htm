@@ -1,0 +1,17 @@
+<tr>
+	<td><b>{$settings[$s]['titel']}</b><br /><small>{$settings[$s]['text']}</small></td>
+	<td>
+		<select name="{$settings[$s]['name']}$mutlipleAddToName" id="{$settings[$s]['name']}" class="form-control"$mutliple>$selectOptions</select>
+		
+		<script>
+			$(function () {
+			  $("#{$settings[$s]['name']}").select2();
+			});
+		
+	
+		</script>
+		
+		
+	
+	</td>
+</tr>

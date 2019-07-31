@@ -1,0 +1,170 @@
+{$this->header}
+
+    <script src="cssjs/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src='cssjs/plugins/fullcalendar/de.js'></script>
+
+	<script>
+	
+	$(document).ready(function() {
+
+		$('#schulkalender').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month'
+			},
+			defaultDate: '$today',
+			selectable: false,
+			
+            eventClick: function(calEvent, jsEvent, view) {
+            	
+            	var termintitel = calEvent.title;
+            	
+            	if(calEvent.betrifft != "") termintitel = termintitel + " (Betrifft: " + calEvent.betrifft + ")";
+            	
+            	var beschriftung = "<strong>" + termintitel + "</strong><br />Datum: " + (calEvent.start._d.getDate())+ "." + (calEvent.start._d.getMonth()+1) + "." + calEvent.start._d.getFullYear();
+            	
+            	if(calEvent.end != null && calEvent.end != calEvent.start) beschriftung = beschriftung + ' bis ' + (calEvent.end._d.getDate()-1)+ "." + (calEvent.end._d.getMonth()+1) + "." + calEvent.end._d.getFullYear();
+            	
+           	 	$("#eventTitleShow").html(beschriftung);
+           	 	
+            	$("#showevent").html("<div class=\"row\"><div class=\"col-md-12\"><form><button type=\"button\"  class=\"form-control\" data-dismiss=\"modal\"><i class=\"fa fa-times\"></i> Schließen</button></form></div></div>");
+            	
+            	if(calEvent.stunden != "") {
+            		$("#stunden").html("Stunden: " + calEvent.stunden);
+            	}
+            	
+            	if(calEvent.klassen != "") {
+            		$("#klassen").html("Klassen: " + calEvent.klassen);
+            	}
+            	
+            	if(calEvent.ort != "") {
+            		$("#ort").html("Ort: " + calEvent.ort);
+            	}
+            	
+            	$("#terminicon").html("<i class=\"" + calEvent.icon + "\"></i>");
+            	
+            	$('#anzeigen').modal('show');
+            	            	
+            },
+			
+			editable: false,
+			eventLimit: true,
+			events: 'index.php?page=klassenkalender&grade={$_REQUEST['grade']}&action=getJSONData',
+			eventAfterAllRender: function(view) {
+				$("#isloading").hide();
+			},
+			loading: function(isLoading,view) {
+				if(isLoading) $("#isloading").show();
+			}
+		});
+		
+	});
+	
+	
+	function openICSFeed() {
+		  $("#buttonics").prop("disabled",true);
+		  
+		  $("#buttonics").html("<i class=\"fa fa-refresh fa-spin\"></i> Wird abgerufen");
+	
+		$.ajax({
+			type: "POST",
+			url: 'index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&action=getICSFeedURL',
+			data: {
+				
+			},
+			success: function(data, textStatus, jqXHR) {
+				$("#icsfeedurl").val(data.feedURL);
+				$("#icsfeed").modal("show");
+			},
+			dataType: 'json'
+		});
+		
+		
+		$("#buttonics").html('<i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small>');
+		$("#buttonics").prop("disabled",false);
+	}
+
+</script>
+	<style>
+	.fc-time {
+    	display:none;
+	}
+	
+</style>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title">Kalender Klasse $grade</h3>
+	</div>
+	<div class="box-body">
+			<div class="row">
+
+			<div class="col-md-12" style="text-align:right">
+				<button type="button" class="btn btn-primary" onclick="openICSFeed()" id="buttonics"><i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small></button>
+			
+				<button type="button" class="btn btn-success" onclick="window.location.href='index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&mode=print'"><i class="fa fa-print"></i> Druckversion<br /><small>PDF Datei</small></button></form>			
+						
+			</div>
+		</div>
+	<div id='schulkalender' style="width:100%"></div>
+	</div>
+		<div class="overlay" id="isloading">
+		<i class="fa fa-refresh fa-spin"></i>
+	</div>
+</div>
+
+
+	<div class="modal fade" id="icsfeed" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    
+	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+	    	<h4 class="modal-title" id="eventTitle"><i class="fa fa-calendar-plus-o"></i> ICS Feed der Termine ($gradeDisplay)</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+	      	Die können diese URLs verwenden, um die Termine in Programme zu importieren oder auf Ihrem Mobiltelefon abzurufen.
+	      	<br />
+	      	Hinweis:
+	      	<ul>
+	      		<li>Es werden alle Termine für die nächsten 365 Tage abgerufen.</li>
+	      	</ul>
+	      	<b>Diese Links sind persönlich und dürfen nicht weiter gegeben werden.</b>
+	      	<hr>
+	      	
+	      	<form>
+	      	<div class="form-group">
+	      		<input type="text" id="icsfeedurl" class="form-control" onClick="this.select();">
+	      	</div>
+	      	</form>
+	      </div>
+	     </div>
+	    </div>
+	   </div>
+
+	<div class="modal fade" id="anzeigen" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    
+	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+	    	<h4 class="modal-title" id="eventTitleShow">Details</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+	      	<div id="stunden"></div>
+	      	<div id="klassen"></div>
+	      	<div id="ort"></div>
+	      	<div id="betrifft"></div>
+	      	<div id="showevent"></div>
+	      </div>
+	     </div>
+	    </div>
+	   </div>
+	
+	
+{$this->footer}

@@ -1,0 +1,9 @@
+{
+    "require": {
+        "eluceo/ical": "^0.14.0",
+        "spomky-labs/otphp": "^9.1",
+        "wazaari/kasapi-php": "dev-master"
+        
+    }
+    
+}

@@ -1,0 +1,176 @@
+{$this->header}
+
+<script type="text/javascript" src="cssjs/plugins/select2/select2.min.js"></script>
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-briefcase"></i> Digitale Respizienz und Archivierung von Leistungsnachweisen</h3>
+		<if($isSchulleitung)><then><br />
+			<h3 class="box-title"> <b>Schulleitung</b></h3>
+		</then></if>
+		
+		<if($isFachbetreuer)><then><br />
+			<h3 class="box-title"> <b>Fachschaftsleitung</b></h3>
+		</then></if>
+	</div>
+	<div class="box-body">
+		<table class="table table-striped" id="lnws">
+			<thead>
+				<tr>
+					<th>Leistungsnachweis</th>
+					<th>Klasse</th>
+					<th>Datum</th>
+					<th>Fach</th>
+					<th>Lehrer</th>
+					<th>Digitale Archivierung</th>
+					<th>Respizienz Fachschaftsleitung</th>
+					<th>Respizienz Schulleitung</th>
+					<th>Aktionen</th>
+				</tr>
+			</thead>
+			<tbody>$meineHTML</tbody>			
+		</table>
+	
+	</div>
+</div>
+
+$dialoge
+
+<div class="modal fade"id="uploadFile" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-upload"></i> Dokument hochladen</h4>
+      </div>
+      <div class="modal-body">
+      
+       <form action="index.php?page=respizienz&action=uploadFile{$mode}" method="post" enctype="multipart/form-data">
+      
+      <input type="hidden" name="respizienzID" value="" id="respid">
+      	
+      	<div class="form-group">
+      		<label>PDF Datei / Zip Datei</label>   
+      		
+				<if($isFachbetreuer || $isSchulleitung)><then> 
+					<input type="file" name="pdfFile" accept=".pdf,.zip" class="form-control">
+				</then><else>
+					<input type="file" name="pdfFile" accept=".pdf,.zip" class="form-control" required>
+				</else></if>
+				
+				
+
+      	</div>
+      	
+      	<if(!$isFachbetreuer && !$isSchulleitung)><then>
+      	
+      	
+      	
+      	<div class="form-group" id="schuelerAuswahl">
+      		<label>Schüler<br /><small>Wenn es sich um eine Nachholschulaufgabe handelt, geben Sie bitte hier die Namen der Naschreiber an.</small></label><br />
+      		<select name="schuelerAsvIDs[]" id="schuelerSelect" style="width:100%" placeholder="Leer lassen für alle Schüler." multiple></select>
+      	</div>
+      	
+      	
+      	<div class="form-group">
+      		<label>Notendurchschnitt</label>   
+      		<input type="text" name="schnitt" placeholder="z.B. 3,49" class="form-control" required>
+      	</div>
+
+      	
+      	
+      	</then>
+      	</if>
+      	
+      	<div class="form-group">
+      		<label>Kommentar</label>   
+      		<textarea name="kommentar" placeholder="" class="form-control" rows="10"></textarea>
+      	</div>
+      	
+      	<button type="submit" class="btn btn-success"><i class="fa fa-upload"></i> Datei hochladen</button>
+      	
+      	<if($isFachbetreuer || $isSchulleitung)><then> <button type="submit" class="btn btn-primary" name="noFile" value="1"><i class="fa fa-upload"></i> Ohne Datei fortfahren</button> </then></if>
+      	
+      	</form>
+      
+      </div>
+   </div>
+ </div>
+</div>
+
+<div class="modal fade" id="kommentarModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-upload"></i> Kommentar zur Datei</h4>
+      </div>
+      <div class="modal-body" id="kommentarText">
+      
+       
+      
+      </div>
+   </div>
+ </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="cssjs/plugins/datatables/datatables.min.css"/>
+ 
+<script type="text/javascript" src="cssjs/plugins/datatables/datatables.min.js"></script>
+
+<script>
+	function uploadFileTeacher(respID, klasse, isNoEx) {
+		$("#respid").val(respID);
+      	      	
+      	$("#schuelerSelect").select2(
+      		{
+      		  ajax: {
+      		    url: "index.php?page=jsonApi&mode=getPupilNamesForGrade&grade=" + klasse,
+      		    dataType: 'json',
+      		    delay: 250,
+      		    cache: true
+      		  }
+      		}
+      	);
+      	
+      	if(!isNoEx) {
+      		$("#schuelerAuswahl").hide();
+      	}
+      	else {
+      		$("#schuelerAuswahl").show();
+      	}
+      	
+      	
+      	$('#schuelerSelect').val(null).trigger('change');
+      	
+		$('#uploadFile').modal('show');
+	}
+	
+	function uploadFile(respID) {
+		$("#respid").val(respID);
+		
+		$("#schuelerAuswahl").show();
+      	
+		$('#uploadFile').modal('show');
+	}
+	
+	function showKommentar(kommentar) {
+		$("#kommentarText").html(kommentar);
+		$('#kommentarModal').modal('show');
+	}
+	
+	$(document).ready(function() {
+	    $('#lnws').DataTable({
+	    	"language": {
+                "url": "cssjs/plugins/datatables/german.lang.json"
+	    	}
+	    });
+	 });
+
+</script>
+
+
+
+{$this->footer}

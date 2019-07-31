@@ -1,0 +1,22 @@
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title"><i class="fa fa-envelope$readUnread"></i> <a id="message{$message['messageID']}" name="message{$message['messageID']}"></a>$preReadUnread{$message['messageSubject']}$postReadUnread</h3>
+            	<br /><small>Gelesen am: {$message['messageRead']}</small>
+            </div>
+            <div class="box-body no-padding">
+				<table class="table table-condensed">
+					<tr>
+						<td width="10%"><b>Empfangen:</b></td>
+						<td>{$message['messageTime']}</td>
+					</tr>
+					<tr>
+						<td><b>Absender:</b></td>
+						<td>{$message['messageSenderUserID']}</td>
+					</tr>
+					<tr>
+						<td colspan="2">{$message['messageBody']}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<br />

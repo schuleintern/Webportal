@@ -1,0 +1,26 @@
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-child"></i> {$schueler->getCompleteSchuelerName()} (Klasse {$schueler->getKlasse()})</h3>
+	</div>
+	
+	<div class="box-body">
+		<div class="callout">
+			<expression>AbsenzenSekretariat::getSchriftlicheEntschuldigungPolicy()</expression>
+		</div>
+	
+	<p><a href="index.php?page=absenzenschueler&action=generateEntschuldigung&schuelerID={$schueler->getASVID()}" class="btn btn-primary btn-block"><i class="fa fa-print"></i> Vorausgefüllte Entschuldigung ausdrucken für alle fehlenden Entschuldigungen</a>
+		</p>
+		<table class="table table-striped table-hover">
+			<tr>
+				<th>Datum</th>
+				<th>Bis Datum</th>
+				<th>Ist Beurlaubung?</th>
+				<th>Ist Befreiung?</th>
+				<th>&nbsp;</th>
+			</tr>
+			$absentenHTML
+		</table>
+	</div>
+
+</div>

@@ -1,0 +1,47 @@
+<p>An:<br /><b><expression>DB::getSettings()->getValue("schulinfo-name")</expression></b><br />
+Klassenleitung $klasse:<br />$klassenleitung</p>
+
+<div style="text-align: center">
+<h1>Schriftliche Entschuldigung</h1>
+</div>
+<p>Hiermit entschuldige folgende Fehlzeiten meiner Tochter:</p>
+
+
+<table border="0" width="100%" cellpadding="4">
+	<tr>
+		<td width="40%"><b>Name</b></td>
+		<td width="20%"><b>Klasse</b></td>
+	</tr>
+	<tr>
+		<td>$name</td>
+		<td>$klasse</td>
+	</tr>
+</table>
+
+<br /><br />
+
+
+<table width="100%" border="1" cellpadding="4">
+	<tr>
+		<th width="25%"><b>Datum</b></th>
+		<th width="25%"><b>Bis</b></th>
+		<th width="50%"><b>Grund</b><br /><small>Bitte keine Krankheiten / Diagnosen angeben</small></th>
+	</tr>
+	$entschuldigungHTML
+</table>
+
+
+<br /><br /><br /><br /><br /><br />
+
+<table border="0" width="100%">
+	<tr>
+		<td width="50%">_________________________________________</td>
+		<td width="50%">_________________________________________</td>
+	</tr>
+	<tr>
+		<td>Ort, Datum</td>
+		<td>Unterschrift eines Sorgebrechtigten</td>
+	</tr>
+</table>
+<if($this->needAttest)><then><br />
+<br /><b>Wichtiger Hinweis: Bei mindestens einer der Absenzen muss ein ärztliches Attest vorgelegt werden.</b></then></if>

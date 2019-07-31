@@ -1,0 +1,106 @@
+
+
+
+
+				   <div class="nav-tabs-custom">
+				        <ul class="nav nav-tabs">
+				        	
+				        	<li class="active">
+				        		<a href="#adminwlangroup" data-toggle="tab"><i class="fa fa-group"></i> Berechtigungen</a></li>
+				        	
+				        	<li>
+				        		
+				        		<a href="#adminwlanimport" data-toggle="tab"><i class="fa fa-user"></i> Tickets importieren</a></li>	
+				        	
+				        	<li>
+				        		
+				        		<a href="#adminwlankennungen" data-toggle="tab"><i class="fa fa-page-o"></i> Kennungen</a></li>	        
+				        </ul>
+				        <div class="tab-content">
+				        	<div class="tab-pane active" id="adminwlangroup">
+					        
+					        $currentUserBlock
+
+					        
+					        </div>
+					        <div class="tab-pane" id="adminwlanimport">
+					        
+					        <if($success != "")><then>
+					        	<div class="callout callout-success">$success</div>
+					        </then></if>
+					        
+					        
+					        <if($successDelete != "")><then>
+					        	<div class="callout callout-danger"><i class="fa fa-check"></i> Alle vorhandenen Kennungen wurden gelöscht. Bitte jetzt wieder aus den CSV Dateien importieren:</div>
+					        </then></if>
+
+							<form action="$selfURL&action=upload" enctype="multipart/form-data" method="post">
+							
+							<div class="form-group">
+								<label>Typ</label>
+								<select name="type" class="form-control">
+									<option value="SCHUELER">Schüler</option>
+									<option value="GAST">Gast</option>
+								</select>
+							</div>
+							
+							
+							<div class="form-group">
+								<label>Vouchers (Sophos Firwall - <b>Achtung: Angabe der Gültigkeit in der CSV Datei immer in Minuten!</b>)</label>
+								<input type="file" name="csvfilesophos" accept=".csv" />
+							</div>
+														
+														
+							<button type="submit" class="btn btn-primary"><i class="fa fa-upload"></i> CSV Datei importieren</button>
+							oder 
+							<button type="button" class="btn btn-danger" onclick="confirmAction('Sollen alle vorhandenen Tickets gelöscht werden? Danach müssen wieder alle Kennungen aus den CSV Datein importiert werden!','$selfURL&action=deleteAll')"><i class="fa fa-trash"></i> Alle vorhandenen Tickets löschen</button>
+							
+							
+							</form>
+
+
+					        
+					        </div>
+					        
+					        
+					        <div class="tab-pane" id="adminwlankennungen">
+					        
+					        
+					        <table id="wlantickets" class="table table-striped" style="width:100%">
+						        <thead>
+						            <tr>
+						                <th>Typ</th>
+						                <th>Ticket</th>
+						                <th>Gültigkeit</th>
+						                <th>Ausgegeben</th>
+						            </tr>
+						        </thead>
+						        <tbody>
+						        
+						        $ticketHTML
+						        
+						        </tbody>
+						   </table>
+					        	
+					        	
+					        <script src="cssjs/plugins/datatables/jquery.dataTables.min.js"></script>
+							<script src="cssjs/plugins/datatables/dataTables.bootstrap.min.js"></script>
+					        
+					        <script>
+					        
+					        $(document).ready(function() {
+					            $('#wlantickets').DataTable();
+					        } );
+					        
+					        </script>
+					        
+					        
+					        </div>
+					     </div>
+					     
+					     </div>
+					     
+					     
+
+
+

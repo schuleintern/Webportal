@@ -1,0 +1,164 @@
+{$this->header}
+
+<style>
+.datepicker{z-index:1151 !important;}
+</style>
+
+
+    <script src="cssjs/plugins/fullcalendar/fullcalendar.js"></script>
+    <script src="cssjs/plugins/fullcalendar/de.js"></script>
+
+  <script>
+  
+
+  $(document).ready(function() {
+
+    $('#schulkalender').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'listDay,listWeek,listMonth,month,agendaWeek,agendaDay'
+      },
+      locale: 'de',
+		views: {
+	        month: { // name of view
+	            titleFormat: 'MMMM YYYY'
+	        },
+	        basicWeek: { // name of view
+	            titleFormat: 'MMMM YYYY'
+	        },
+	        listDay: { buttonText: 'Tagesliste' },
+	        listMonth: { buttonText: 'Monatsliste' },
+	        listWeek: { buttonText: 'Wochenliste' }
+	    },
+      defaultDate: '$today',
+      title: 'Tagesübersicht',
+
+
+      
+      
+      slotDuration: '01:00:00',
+      slotLabelFormat: 'h(:mm)a',
+
+      nowIndicator: true,
+      selectable: true,
+            selectHelper: false,
+            eventClick: function(calEvent, jsEvent, view) {
+
+              var termintitel = calEvent.title;
+
+              var beschriftung = "<strong>" + termintitel + "</strong><br />Datum: " + (calEvent.start._d.getDate())+ "." + (calEvent.start._d.getMonth()+1) + "." + calEvent.start._d.getFullYear();
+
+              if(calEvent.end != null && calEvent.end != calEvent.start) beschriftung = beschriftung + ' bis ' + (calEvent.end._d.getDate()-1)+ "." + (calEvent.end._d.getMonth()+1) + "." + calEvent.end._d.getFullYear();
+
+                $("#eventTitle").html(beschriftung);
+
+              if(calEvent.canDelete == 1) {
+                $("#showevent").html("Eingetragen am: " + calEvent.eintragZeitpunkt + "<br /><br /><div class=\"row\"><div class=\"col-md-6\"><form><button type=\"button\"  class=\"form-control\" data-dismiss=\"modal\"><i class=\"fa fa-times\"></i> Schließen</button></form></div><div class=\"col-md-6\"><form><button type=\"button\" class=\"form-control\" onclick=\"javascript: if(confirm('Soll der Eintrag wirklich gelöscht werden?')) document.location.href='index.php?page={$_REQUEST['page']}&eintragID=" + calEvent.eventID + "&action=delete&kalenderID={$this->kalenderID}'\"><i class=\"fa fa-trash\"></i> Löschen</button></form></div></div>");
+              }
+              else {
+                $("#showevent").html("Eingetragen am: " + calEvent.eintragZeitpunkt + "<br /><br /><div class=\"row\"><div class=\"col-md-6\"><form><button type=\"button\"  class=\"form-control\" data-dismiss=\"modal\"><i class=\"fa fa-times\"></i> Schließen</button></form></div></div>");
+              }
+
+              if(calEvent.kommentar != "") {
+                $("#kommentar").html(calEvent.kommentar);
+              }
+              else {
+            	  $("#kommentar").html("");
+              }
+              
+              if(calEvent.kategorieName != "") {
+            	$("#kategorieName").html(calEvent.kategorieName);
+              }
+              else {
+            	  $("#kategorieName").html(""); 
+              }
+
+              if(calEvent.ort) {
+                $("#ort").html("Ort: " + calEvent.ort);
+              }
+
+              $("#terminicon").html("<i class=\"" + calEvent.icon + "\"></i>");
+
+              $('#anzeigen').modal('show');
+
+            },
+			eventRender: function(event, element) {
+					element.find(".fc-title").prepend("<i class='" + event.icon + "'></i> ");
+				
+			},
+			eventAfterAllRender: function(view) {
+				$("#isloading").hide();
+			},
+			loading: function(isLoading,view) {
+				if(isLoading) $("#isloading").show();
+			},
+			eventDurationEditable: false,
+			eventStartEditable: false,
+
+		      editable: false,
+		      eventLimit: false,
+		      eventSources: [
+				     $calFeeds
+				    ]
+    });
+
+  });
+
+</script>
+<style>
+
+  .fc-time {
+      display:none;
+  }
+
+</style>
+
+<div class="box">
+  <div class="box-header"><h3 class="box-title"><i class="fa fa-calendar"></i> Terminübersicht</h3></div>
+  <div class="box-body">
+  In dieser Ansicht sehen Sie alle Kalender, auf die Sie Zugriff haben. ICS Feeds und Druckversionen können Sie nur bei den einzelnen Kalender abonieren oder ausdrucken.
+  <div id="schulkalender"></div></div>
+  	<div class="overlay" id="isloading">
+		<i class="fa fa-refresh fa-spin"></i>
+	</div>
+</div>
+
+  <div class="modal fade" id="anzeigen" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+        <h4 class="modal-title" id="eventTitle">Details</h4>
+		<div id="kategorieName"></div>
+        </div>
+        <div class="modal-body">
+          <div id="kommentar"></div>
+          <div id="ort"></div>
+          <div id="showevent"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+
+  <script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+  function uhrzeitChanged()
+  {
+      if($('#isganzertag').iCheck('update')[0].checked) {
+          $("#uhrzeit2").show();
+          $("#uhrzeit").hide();
+      }
+      else {
+        $("#uhrzeit").show();
+          $("#uhrzeit2").hide();
+      }
+  }
+  
+</script>
+
+  {$this->footer}

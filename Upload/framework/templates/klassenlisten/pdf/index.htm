@@ -1,0 +1,8 @@
+<h3><if($_POST['ueberschrift'] != "")><then><expression>htmlspecialchars(str_replace("{KLASSE}",$grade,$_POST['ueberschrift']))</expression></then><else>Klassenliste $grade</else></if>
+
+
+<br /><small>$klassenleitung</small><br /></h3>
+
+
+
+{$printContent}

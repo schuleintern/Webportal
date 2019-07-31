@@ -1,0 +1,73 @@
+
+
+
+<center>
+
+<h3>Sofortige Befreiung vom Unterricht</h3>
+
+<table border="1" width="100%" cellspacing="0" cellpadding="10">
+	<tr>
+		<td width="20%">Name:</td>
+		<td>{$absenz->getSchueler()->getCompleteSchuelerName()}</td>
+	</tr>
+	
+	<tr>
+		<td>Klasse:</td>
+		<td>{$absenz->getSchueler()->getKlasse()}</td>
+	</tr>
+	<tr>
+		<td>Klassenleitung:</td>
+		<td>{$absenz->getSchueler()->getKlassenleitungAsText()}</td>
+	</tr>
+	<tr>
+		<td>Datum:</td>
+		<td><expression>DateFunctions::getNaturalDateFromMySQLDate($absenz->getDateAsSQLDate())</expression></td>
+	</tr>
+	
+	<tr>
+		<td>Uhrzeit:</td>
+		<td>{$absenz->getBefreiung()->getUhrzeit()} Uhr</td>
+	</tr>
+	
+	<tr>
+		<td>Kommentar:</td>
+		<td><expression>nl2br($absenz->getBemerkung())</expression></td>
+	</tr>
+</table>
+
+<br /><br />
+
+<b>Unterschriften:</b><br /><br /><br />
+
+<table border="0">
+	<tr>
+		<td>_____________________________________________<br />Lehrkraft</td>
+	</tr>
+	<tr>
+		<td><br /><br /><br />_____________________________________________<br />Sekretariat / Schulleitung</td>
+	</tr>
+	
+	<tr>
+		<td><br /><br /><br />_____________________________________________<br />Sorgeberechtigte</td>
+	</tr>
+</table>
+<br />
+Bitte unterschrieben an die Klassenleitung zurückleiten!
+
+</center>
+
+
+<if($_GET['printRettungsDienst'] > 0)><then>
+
+	<div style="page-break-before: always;">
+	
+	<h2>{$absenz->getSchueler()->getCompleteSchuelerName()}</h2>
+	<h3>Kontaktinformationen für den Rettungsdienst</h3>
+	
+	
+	
+	$adressenHTML
+	
+	</div>
+
+</then></if>

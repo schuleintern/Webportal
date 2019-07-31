@@ -1,0 +1,128 @@
+{$this->header}
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-file-pdf-o"></i> PDF Export der Klassentagebücher</h3>
+	</div>
+	<div class="box-body">
+
+		<p>Die PDFs für die Klassentagebücher, werden nach Beantragung im Hintergrund erstellt. (Kann bis zu 4 Stunden benötigen.)<br />
+		Wenn Sie eine PDF nochmals beantragen, wird eine neue PDF erstellt.</p>
+		
+		<p><button class="btn btn-default btn-block" type="button" data-target="#antrag" data-toggle="modal"><i class="fa fa-sign-in"></i> PDFs beantragen</button>
+
+
+
+		<p><b>Folgende PDFs wurden beantragt:</b></p>
+
+		<table id="fehl" class="table table-striped table-hover">
+			<thead>
+			<tr>
+				<th>Klasse</th>
+				<th>Jahr</th>
+				<th>Monat</th>
+				<th>Download</th>
+			</tr>
+			</thead>
+			<tbody>$html</tbody>
+			
+		</table>
+	
+	
+		<p><a href="index.php?page=klassentagebuchauswertung&mode=pdfexport&action=alleInZip" class="btn btn-default btn-block"><i class="fa fa-file-archive-o"></i> Alle PDFs in einer ZIP Datei downloaden</a>
+		<p><button type="button" onclick="confirmAction('Alle vorhandenen PDFs löschen?','index.php?page=klassentagebuchauswertung&mode=pdfexport&action=removeAll')" class="btn btn-danger btn-block"><i class="fa fa-trash"></i> Alle PDFs löschen</button>
+	</p>
+	</div>
+</div>
+
+<script src="cssjs/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="cssjs/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+  $(function () {
+ 
+    $('#fehl').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "order": [
+    	  [ 0, "desc" ]
+      ],
+      "autoWidth": false,
+      "pageLength": 20,
+      "language": {
+    		"sEmptyTable":   	"Keine Daten in der Tabelle vorhanden",
+    		"sInfo":         	"_START_ bis _END_ von _TOTAL_ Einträgen",
+    		"sInfoEmpty":    	"0 bis 0 von 0 Einträgen",
+    		"sInfoFiltered": 	"(gefiltert von _MAX_ Einträgen)",
+    		"sInfoPostFix":  	"",
+    		"sInfoThousands":  	".",
+    		"sLengthMenu":   	"_MENU_ Einträge anzeigen",
+    		"sLoadingRecords": 	"Wird geladen...",
+    		"sProcessing":   	"Bitte warten...",
+    		"sSearch":       	"Einträge suchen",
+    		"sZeroRecords":  	"Keine Einträge vorhanden.",
+    		"oPaginate": {
+    			"sFirst":    	"Erste",
+    			"sPrevious": 	"Zurück",
+    			"sNext":     	"Nächste",
+    			"sLast":     	"Letzte"
+    		},
+    		"oAria": {
+    			"sSortAscending":  ": aktivieren, um Spalte aufsteigend zu sortieren",
+    			"sSortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
+    		}
+      }
+    });
+  });
+  
+  
+  </script>
+  
+  
+  <div class="modal fade" id="antrag" tabindex="-1" role="dialog">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content" style="height: auto; min-height: 95%; border-radius: 0;">
+				    <div class="modal-header">	    
+				    	<h4 class="modal-title"><i class="fa fa-sign-in"></i> PDFs beantragen
+				    	</h4>
+				      </div>
+					<div class="modal-body">
+						<form action="index.php?page=klassentagebuchauswertung&mode=pdfexport&action=antrag" method="post">
+						<div class="form-group">
+							<label>Klassen</label><br />
+							<select name="grades[]" multiple="multiple" class="form-control" id="selectGrade">
+								{$optionsGrades}
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Monate</label><br />
+							<select name="months[]" multiple="multiple" class="form-control" id="selectMonth">
+								{$optionsMonths}
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Jahr</label><br />
+							<select name="year" class="form-control" id="selectYear">
+								{$optionsYear}
+							</select>
+						</div>
+						<button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-in"></i> PDFs beantragen<br /><small>Die PDFs stehen in den nächsten Stunden zum Download zur Verfügung.</small></button>
+						</form>
+					</div>
+	</div>
+</div>
+</div>
+
+<script>
+  $(function () {
+	$("#selectGrade").select2();
+	$("#selectMonth").select2();
+	$("#selectYear").select2();
+  });
+</script>
+	
+{$this->footer}

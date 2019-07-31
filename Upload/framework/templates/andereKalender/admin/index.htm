@@ -1,0 +1,107 @@
+<script src="cssjs/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-calendar"></i> Andere Kalender</h3>
+	</div>
+	<div class="box-body">
+		An dieser Stelle werden andere Kalender verwaltet. So können z.B. Kalender für die Schulleitung oder Kalender für einzelne Gruppen erstellt werden.
+	</div>	
+</div>
+
+<if($kalenderHTML == '')><then>
+	<div class="callout callout-info">Bisher sind keine anderen Kalender angelegt.</div>
+</then>
+</if>
+
+$kalenderHTML
+
+<form action="$selfURL&action=addKalender" method="post">
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-calendar"></i> Kalender anlegen</h3>
+	</div>
+	<div class="box-body">
+		<table class="table">
+			<tr>
+				<td style="width:10%"><b>Name:</b></td>
+				<td><input name="kalenderName" class="form-control" placeholder="z.B. Schultermine"></td>
+			</tr>
+			<tr>
+				<td style="width:10%"><b>Zugriff für Lehrer:</b></td>
+				<td>	
+					<div class="onoffswitch">
+					    <input type="checkbox" name="kalenderZugriffLehrer" value="1" class="onoffswitch-checkbox" id="kalenderZugriffLehrer">
+					    <label class="onoffswitch-label" for="kalenderZugriffLehrer">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:10%"><b>Zugriff für Schüler:</b></td>
+				<td>	
+					<div class="onoffswitch">
+					    <input type="checkbox" name="kalenderZugriffSchueler" value="1" class="onoffswitch-checkbox" id="kalenderZugriffSchueler">
+					    <label class="onoffswitch-label" for="kalenderZugriffSchueler">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:10%"><b>Zugriff für Eltern:</b></td>
+				<td>	
+					<div class="onoffswitch">
+					    <input type="checkbox" name="kalenderZugriffEltern" value="1" class="onoffswitch-checkbox" id="kalenderZugriffEltern">
+					    <label class="onoffswitch-label" for="kalenderZugriffEltern">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+				</td>
+			</tr>
+						<tr>
+				<td style="width:10%"><b>Schreibzugriff für Lehrer:</b></td>
+				<td>	
+					<div class="onoffswitch">
+					    <input type="checkbox" name="kalenderZugriffLehrerSchreiben" value="1" class="onoffswitch-checkbox" id="kalenderZugriffLehrerSchreiben">
+					    <label class="onoffswitch-label" for="kalenderZugriffLehrerSchreiben">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:10%"><b>Schreibzugriff für Schüler:</b></td>
+				<td>	
+					<div class="onoffswitch">
+					    <input type="checkbox" name="kalenderZugriffSchuelerSchreiben" value="1" class="onoffswitch-checkbox" id="kalenderZugriffSchuelerSchreiben">
+					    <label class="onoffswitch-label" for="kalenderZugriffSchuelerSchreiben">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:10%"><b>Schreibzugriff für Eltern:</b></td>
+				<td>	
+					<div class="onoffswitch">
+					    <input type="checkbox" name="kalenderZugriffElternSchreiben" value="1" class="onoffswitch-checkbox" id="kalenderZugriffElternSchreiben">
+					    <label class="onoffswitch-label" for="kalenderZugriffElternSchreiben">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<button type="submit" class="form-control"><i class="fa fa-save"></i> Kalender anlegen</button>
+	</div>	
+</div>

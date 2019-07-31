@@ -1,0 +1,48 @@
+
+<tr>
+	<td width="10%"><expression>functions::makeDateFromTimestamp($mailData[$i]['mailTime'])</expression></td>
+	<td width="20%">
+		<b>{$mailData[$i]['mailTitle']}</b><br />
+		<button id="button{$mailData[$i]['mailID']}">Text anzeigen</button>
+		
+		<p style="display: none" id="text{$mailData[$i]['mailID']}"><expression>nl2br($mailData[$i]['mailText'])</expression></p>
+		
+		
+		<script>
+		$( "#button{$mailData[$i]['mailID']}" ).click(function() {
+		  $( "#text{$mailData[$i]['mailID']}" ).show( "slow" );
+		  $( "#button{$mailData[$i]['mailID']}" ).hide( "slow" );
+		});
+		</script>	
+	</td>
+	<td width="10%">
+		<if($mailData[$i]['mailRequireConfirmation'] > 0)>
+			<then>
+				<if($mailData[$i]['mailConfirmed'] > 0)>
+					<then>
+						<font color="green"><i class="fa fa-check"></i> Empfang bestätigt</font>
+						<if($mailData[$i]['hasFormElements'] > 0)><then><br />
+							<a href="index.php?page=confirmelternmail&mailID={$mailData[$i]['mailID']}&a={$mailData[$i]['mailConfirmLinkSecret']}"><i class="fa fa-pencil"></i> Eingegebene Daten ändern</a>
+						</then></if>
+					</then>
+					<else>
+						<font color="red"><i class="fa fa-ban"></i> Empfang noch nicht bestätigt</font><br />
+						
+						<if($mailData[$i]['hasFormElements'] > 0)><then>
+							<a href="index.php?page=confirmelternmail&mailID={$mailData[$i]['mailID']}&a={$mailData[$i]['mailConfirmLinkSecret']}">Empfang bestätigen und Fragen beantworten</a>
+						</then>
+						
+						<else>
+							<a href="index.php?page=confirmelternmail&mailID={$mailData[$i]['mailID']}&a={$mailData[$i]['mailConfirmLinkSecret']}">Empfang bestätigen</a>
+						</else>
+						</if>
+					</else>
+				</if>
+			</then>
+			<else>
+				Für diese Mail ist keine Lesebestätigung erforderlich
+			</else>
+		</if>
+
+	</td>
+</tr>

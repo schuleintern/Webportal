@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+<html>
+  
+  <head>
+     <meta charset="UTF-8">
+  
+    <title><expression>DB::getGlobalSettings()->siteNamePlain</expression> - Anmeldung</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link href="cssjs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="cssjs/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="cssjs/font/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="cssjs/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="cssjs/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body class="login-page">
+  
+  
+  	<if(DB::getGlobalSettings()->schulnummer == "9400")><then>
+  	
+  	<div class="modal fade" id="zugangsdatendemo" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title" id="eventTitle"><i class="fa fa-user"></i> Zugangsdaten zur Demoversion</h4>
+	    	Es werden pro Bereich 10 zufällige Zugangsdaten angezeigt. Wenn Sie mit einem Benutzer mehrfach testen wollen, dann notieren Sie sich bitte die Zugangsdaten.
+	      </div>
+	      <div class="modal-body">
+            <div class="tabbable">
+		        <ul class="nav nav-tabs">
+		        	<li class="active"><a href="#lehrer" data-toggle="tab"><i class="fa fa-user"></i> Lehrer</a></li>
+		        	<li><a href="#schueler" data-toggle="tab"><i class="fa fa-child"></i> Schüler</a></li>
+		        	<li><a href="#eltern" data-toggle="tab"><i class="fa fa-id-badge"></i> Eltern</a></li>
+		        	<li><a href="#adminsek" data-toggle="tab"><i class="fa fa-check"></i> Administratoren und Sonstige</a></li>
+		        
+		        </ul>
+		        <div class="tab-content">
+			        <div class="tab-pane active" id="lehrer">
+					   	<table class="table table-striped" id="lehrerzugangsdaten">
+					   		<tr>
+					   			<th>Name</th>
+					   			<th>Benutzername</th>
+					   			<th>Passwort</th>
+					   			<th>Direkt anmelden</th>
+					   		</tr>
+					   		<expression>login::getLehrerZugangsdaten()</expression>
+				      	</table>
+			        </div>
+			        
+			        <div class="tab-pane" id="schueler">
+					   	<table class="table table-striped" id="schuelerzugangsdaten">
+					   		<tr>
+					   			<th>Name</th>
+					   			<th>Benutzername</th>
+					   			<th>Passwort</th>
+					   			<th>Direkt anmelden</th>
+					   		</tr>
+					   		<expression>login::getSchuelerZugangsdaten()</expression>
+				      	</table>
+			        </div>
+			        
+			        <div class="tab-pane" id="eltern">
+			        	Um einen Elternaccount zu bekommen, registrieren Sie sich bitte. Sie können jede beliebige (auch nicht existierende) E-Mailadresse verwenden. Die Registrierung wird in der Demoversion sofort aktiv.
+					   	<table class="table table-striped" id="elternzugangsdaten">
+					   		<tr>
+					   			<th>Schüler</th>
+					   			<th>Registrierungscode</th>
+					   			<th>Direkt zur Registrierung</th>
+					   		</tr>
+					   		<expression>login::getElternCodes()</expression>
+				      	</table>
+			        </div>
+			        
+			       <div class="tab-pane" id="adminsek">
+					   	<table class="table table-striped" id="sonstigezugangsdaten">
+					   		<tr>
+					   			<th>Funktion</th>
+					   			<th>Benutzername</th>
+					   			<th>Passwort</th>
+					   			<th>Direkt anmelden</th>
+					   		</tr>
+					   		<tr>
+					   			<td>Sekretariat</td>
+					   			<td>sekretariat</td>
+					   			<td>demo</td>
+					   			<td><form><button type="button" class="btn" onclick="javascript:simlogin('sekretariat','demo');"><i class="fa fa-sign-in"></i></buton></form></td>
+					   		</tr>
+					   		<tr>
+					   			<td>Administrator</td>
+					   			<td>admin</td>
+					   			<td>demo</td>
+					   			<td><form><button type="button" class="btn" onclick="javascript:simlogin('admin','demo');"><i class="fa fa-sign-in"></i></buton></form></td>
+					   		</tr>
+				      	</table>
+			        </div>
+			    </div>
+			</div>
+		
+
+	      	
+	      </div>
+	      </div>
+	     </div>
+	    </div>  	
+  	</then></if>
+  	  	
+  	<div class="login-box" id="noJSWarning">
+      <div class="login-logo">
+        <a href="index.php"><img src="imagesSchool/Icon.png" width="150" border="0"></a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+      <b>Sie haben in Ihrem Browser kein JavaScript aktiviert.</b><br />
+      Ohne JavaScript funktioniert das Portal nicht. Bitte aktivieren Sie Javascript und aktualisieren Sie die Seite.
+            	<hr noshade="noshade">
+      
+      	<div style="text-align:center">	
+      		<a href="index.php?page=impressum"><i class="fa fa-info"></i> Impressum</a> | <a href="index.php?page=impressum#Datenschutz"><i class="fa fa-info"></i> Datenschutz</a>
+      </div>
+      
+     </div>
+    </div>
+      
+        	
+  	
+    <div class="login-box" id="loginboxmain" style="display:none">
+      <div class="login-logo">
+        <a href="index.php"><img src="imagesSchool/Icon.png" width="150" border="0"></a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+      	$message
+      	
+      	
+      	<div class="callout callout-danger" style="display:none" id="loginerror"><i class="fa fa-exclamation-triangle"></i> Anmeldung nicht erfolgreich!</div>
+      	
+        <p class="login-box-msg">Bitte anmelden, um <expression>DB::getGlobalSettings()->siteNameHTMLDisplay</expression> nutzen zu können.</p>
+          
+        
+           
+        <form id="loginform">
+          <input type="hidden" name="redirectPage" value="$redirectPage" />
+          <div class="form-group has-feedback">
+            <input type="text" class="form-control" name="username" placeholder="Benutzername oder E-Mail (für Eltern)" value="$valueusername" required="required" autofocus="autofocus" id="usernamefield" />
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" class="form-control" placeholder="Passwort" name="password" required="required"  id="passwordfield"/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          
+          
+          <div class="row" id="mathCaptcha" style="display:none">
+          	<div class="col-xs-12">
+          		<p style="text-align: justify">Da das Passwort mehr als zweimal falsch eingegeben wurde, müssen Sie folgende Aufgabe lösen, um nachzuweisen, dass Sie kein Roboter sind:</p>
+          		<div id="mathCaptchaContent"></div>
+          	</div>
+          </div>
+          
+          
+          <div class="row">
+	            <div class="col-xs-12">    
+	              <div class="checkbox icheck">
+	                <label>
+	                  <input type="checkbox" name="keeplogin" value="1"> Anmeldung speichern<br/><small>Nicht auf gemeinsam genutzten Geräten aktivieren.</small>
+	                </label>
+	              </div>                      
+	            </div>
+          </div>
+          
+          
+          <div class="row">
+
+	            
+		        <div class="col-xs-12">
+	              <button type="button" onclick="javascript:login()" class="btn btn-primary btn-block btn-flat" id="loginbutton"><i class="fa fa-lock"></i> Anmelden / Login</button>
+	            </div><!-- /.col -->
+	            
+          </div>
+        </form>
+        
+        <if(DB::getGlobalSettings()->schulnummer == "9400")><then><br />
+        	<form><button type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#zugangsdatendemo"><i class="fa fa-flask"></i> <strong>Demoversion</strong><br />Hier klicken, um die Zugangsdaten anzuzeigen.</button></form>
+        </then></if>
+        
+        
+        <if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE")><then>
+        	<hr noshade>
+        	<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#elternregister"><i class="fa fa-user-plus"></i> Registrierung für Eltern</button>  
+        </then></if>
+                
+        <hr noshade>
+        	<button type="submit" class="btn btn-primary btn-block " data-toggle="modal" data-target="#elternforgotPW"><i class="fa fa-question"></i> Ich habe mein Passwort vergessen</button>  
+
+      	
+      	<hr noshade>
+
+      
+        <div class="row">
+      		<div class="col-xs-12" style="text-align: center">Schule und Betreiber des Angebotes:<br /><expression>DB::getGlobalSettings()->schoolName</expression></div>
+      	</div>
+      
+      	<hr noshade="noshade">
+      
+      	<div style="text-align:center">	
+      		<a href="index.php?page=impressum"><i class="fa fa-info"></i> Impressum</a> | <a href="index.php?page=impressum#Datenschutz"><i class="fa fa-info"></i> Datenschutz</a>
+
+      	</div>
+
+      </div><!-- /.login-box-body -->
+
+    </div><!-- /.login-box -->
+    
+    <script src="cssjs/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="cssjs/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="cssjs/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    
+
+	<if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE")><then>
+
+		<div class="modal fade" id="elternregister" tabindex="-1"
+			role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="eventTitle">
+							<i class="fa fa-user"></i> Registrierung für Eltern
+						</h4>
+						
+					</div>
+					<div class="modal-body">
+					
+						<div id="registerFormHTML">
+					
+					    <p>Bei <expression>DB::getGlobalSettings()->siteNameHTMLDisplay</expression> als Eltern registrieren.</p>
+				        <p>Geben Sie bitte Ihren Namen, Ihre E-Mailadresse, den Registrierungscode aus dem Elternbrief und ein von Ihnen gewähltes Passwort (zweimal) ein.</p>
+				
+				 		<if(DB::getGlobalSettings()->schulnummer=="9400")><then>
+				 			<div class="callout callout-info">In der Demoversion wird die Registrierung sofort aktiv. Sie müssen keine echte E-Mailadresse eingeben. Bitte merken Sie sich die Zugangsdaten oder registrieren Sie sich später erneut für einen Account.</div>
+				 		</then>
+				 		<else>
+				
+				 		<p>Sie erhalten im nächsten Schritt eine Nachricht an Ihren E-Mailaccount mit einem Link zur Bestätigung der E-Mailadersse.</p>
+				
+				 		</else>
+				 		</if>
+				 		
+				 		<div class="callout callout-danger" style="display:none" id="registerErrorMessage"></div>
+				
+				        <form id="registerform">
+				        
+				        <div class="form-group">
+				        	<label>
+				        		Vorname
+				        	</label>
+				        	<input type="text" class="form-control" name="vorname" placeholder="Ihr Vorname" value="" id="registerVorname"/>
+				        </div>
+
+
+				        <div class="form-group">
+				        	<label>
+				        		Nachname
+				        	</label>
+				        	<input type="text" class="form-control" name="nachname" placeholder="Ihr Nachname" value="" id="registerNachname"/>
+				        </div>
+				        
+				        
+				         <div class="form-group">
+				        	<label>
+				        		E-Mailadresse
+				        	</label>
+				        	<input type="text" class="form-control" name="email" placeholder="Ihre E-Mailadresse" value="" id="registerEMail"/>
+				        </div>
+				        
+				        <div class="form-group">
+				        	<label>
+				        		Registrierungscode
+				        	</label>
+				       		<input type="text" class="form-control" name="code" placeholder="Aus dem Elternbrief (XXXXX-XXXXXXXXXX)" id="registerCode" value=""/>
+				       		
+				       		<div id="KindName"></div>
+				       		<br />
+				       		<b>Falls Sie mehrere Kinder an der Schule haben, können Sie nach der Registrierung mit dem Code des ersten Kindes einen weiteren Code im Benutzerprofil hinzufügen.</b>
+				        </div>
+	
+				         <div class="form-group">
+				        	<label>
+				        		Wählen Sie ein Passwort für den Zugang zum Portal
+				        	</label>
+				       		<input type="password" class="form-control" name="password1" placeholder="Passwort (mind. 6 Zeichen)" pattern=".{6,}" id="registerpassword1"/>
+				        </div>
+				        
+				        
+				        <div class="form-group">
+				        	<label>
+				        		Wiederholen Sie bitte das Passwort
+				        	</label>
+				        	<input type="password" class="form-control" name="password2" placeholder="Passwort erneut eingeben" pattern=".{6,}" id="registerpassword2"/>
+				        </div>
+				        
+				        <div class="form-group">
+				        	<label>
+				        		Datenschutzbestimmungen (<a href="index.php?page=impressum#Datenschutz" target="_blank">Lesen; öffnet neues Fenster</a>)
+				        	</label><br />
+				        	<label><input type="checkbox" name="dsOK" id="registerDS"> Ich habe die Datenschutzbestimmungen gelesen und akzeptiere sie.</label>
+				        </div>
+				        
+
+					    <button type="button" class="btn btn-primary btn-block btn-flat" disabled id="registerButtonSubmit" onclick="register()"><i class="fa fa-user-plus"></i> Registrieren</button>
+					
+						</form>
+						
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+	<script>
+	
+	$('#registerCode').on('input', function() {
+		var value = $(this).val();
+	    if ( value.length == 16) {
+	    	$("#KindName").html("<i class=\"fa fa-refresh fa-spin\"></i> Der Code wird überprüft...");
+	    	
+    		$.ajax({
+    			type: "POST",
+    			url: 'index.php?page=elternregister&mode=checkRegisterCode',
+    			data: {
+    				'code': value
+    			},
+    			success: function(data, textStatus, jqXHR) {
+    				if(data.codeOK) {
+    					$("#KindName").html("<i class=\"fa fa-check\"></i> Kind: " + data.schuelerName + ", " + data.schuelerVorname + "(" + data.schuelerKlasse + ")");
+    					$("#registerButtonSubmit").prop("disabled",false);
+    				}
+    				else {
+    					$("#KindName").html("<i class=\"fa fa-ban\"></i> Code ungültig</i>");
+    					$("#registerButtonSubmit").prop("disabled",true);
+    				}
+    			},
+    			dataType: 'json'
+    		});
+	    }
+	    else {
+			$("#registerButtonSubmit").prop("disabled",true);
+			$("#KindName").html("");
+
+	    }
+	});
+	
+	
+	function register() {
+		var errorMessages = [];
+								
+
+		if($("#registerVorname").val() == '') {
+			errorMessages.push('Bitte geben Sie einen Vornamen an.');
+		}
+		
+		if($("#registerNachname").val() == '') {
+			errorMessages.push('Bitte geben Sie einen Nachnamen an.');
+		}
+		
+		if($("#registerEMail").val() == '') {
+			errorMessages.push('Bitte geben Sie eine E-Mailadresse an.');
+		}
+		else if(!validateEmail($("#registerEMail").val())) {
+			errorMessages.push('Bitte geben Sie eine gültige E-Mailadresse an.');
+		}
+		
+		if($("#registerpassword1").val() == '') {
+			errorMessages.push('Bitte geben Sie ein Passwort an.');
+		}
+		else {
+			if($("#registerpassword1").val().length < 6) {
+				errorMessages.push('Das Passwort muss mindestens 6 Zeichen beinhalten.');
+			}
+			else {
+				if($("#registerpassword1").val() != $("#registerpassword2").val()) {
+					errorMessages.push('Die Passwortbestätigung stimmt nicht überein.');
+				}
+			}
+		}
+		
+		if(!$('#registerDS').iCheck('update')[0].checked) {
+			errorMessages.push('Bitte akzeptieren Sie die Datenschutzbestimmungen.');
+
+		}
+		
+		if(errorMessages.length > 0) {
+			$("#registerErrorMessage").html(errorMessages.join("<br />"));
+			$("#registerErrorMessage").fadeIn();
+		}
+		else {
+			$("#registerErrorMessage").html("");
+			
+	    	var oldHTML = $("#registerButtonSubmit").text();	
+	    	
+	    	
+			$("#registerButtonSubmit").prop("disabled", true);
+
+	    	$("#registerButtonSubmit").html('<i class="fa fa-refresh fa-spin"></i> Bitte warten ...');	
+	    	
+    		$.ajax({
+    			type: "POST",
+    			url: 'index.php?page=elternregister&mode=step1',
+    			data: $("#registerform").serialize(),
+    			success: function(data, textStatus, jqXHR) {
+    				if(data.success) {
+    					// Erfolgreich
+    					$("#registerFormHTML").html("<b>Vielen Dank!</b><br />Wir haben eine E-Mail an Ihre Adresse gesendet. Klicken Sie dort bitte auf den Bestätigungslink, um Ihren Account zu aktivieren.<br />Falls Sie keine E-Mail erhalten haben, sehen Sie bitte auch im Spamorder nach. Der Absender der E-Mail ist <expression>DB::getGlobalSettings()->smtpSettings['sender']</expression>");
+    				}
+    				else {
+    					if(data.mailAlreadyRegistered) $("#registerErrorMessage").html("Diese E-Mailadresse ist bereits registriert.");
+    					else $("#registerErrorMessage").html("Es ist ein Fehler aufgetreten.");
+    					$("#registerErrorMessage").fadeIn();
+    					
+    					$("#registerButtonSubmit").html(oldHTML);
+    					$("#registerButtonSubmit").prop("disabled", false);
+    				}
+    			},
+    			dataType: 'json'
+    		});
+		}
+		
+	}
+	
+	
+	function validateEmail(email) {
+		  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		  return re.test(email);
+	}
+	
+	</script>
+	
+
+	</then></if>
+	
+	<if($openForgotPWStep2)><then>
+	
+		<div class="modal fade" id="forgotPWStep2" tabindex="-1"
+			role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="eventTitle">
+							<i class="fa fa-key"></i> Passwort vergessen
+						</h4>
+						
+					</div>
+					<div class="modal-body">
+					
+					
+						<div class="callout callout-success" style="display:none" id="forgotPWSuccess2"><i class="fa fa-check"></i> Das Passwort wurde erfolgreich geändert. Sie können sich jetzt mit dem neuen Passwort anmelden.</div>
+					
+					
+					
+						<div id="forgotPWStep2HTMLContent">
+					
+						<div class="callout callout-danger" style="display:none" id="forgotPWError2"></div>
+					
+					
+					
+					
+						Geben Sie bitte hier Ihr neues Passwort zweimal ein:
+				 						
+				        <form id="pwforgotform2">
+	
+						<input type="hidden" name="code" value="{$_REQUEST['code']}">
+	
+				         <div class="form-group">
+				        	<label>
+				        		Neues Passwort
+				        	</label>
+				        	<input type="password" class="form-control" name="password1" placeholder="Neues Passwort (mind. 6 Zeichen)" value="" id="forgotPWStep2Password1"/>
+				        </div>
+				        
+				        
+				        <div class="form-group">
+				        	<label>
+				        		Neues Passwort (Wiederholung)
+				        	</label>
+				        	<input type="password" class="form-control" name="password2" placeholder="Neues Passwort (mind. 6 Zeichen)" value="" id="forgotPWStep2Password2"/>
+				        </div>
+				        
+					    <button type="button" class="btn btn-primary btn-block btn-flat" id="forgotPWButton2" onclick="forgotPW2()"><i class="fa fa-key"></i> Passwort ändern</button>
+					
+						</form>
+						
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+		
+		$("#forgotPWStep2").modal("show");
+		
+		
+		function forgotPW2() {
+			
+			var errorMessages = [];
+			
+			if($("#forgotPWStep2Password1").val() == '') {
+				errorMessages.push('Bitte geben Sie ein Passwort an.');
+			}
+			else {
+				if($("#forgotPWStep2Password1").val().length < 6) {
+					errorMessages.push('Das Passwort muss mindestens 6 Zeichen beinhalten.');
+				}
+				else {
+					if($("#forgotPWStep2Password1").val() != $("#forgotPWStep2Password2").val()) {
+						errorMessages.push('Die Passwortbestätigung stimmt nicht überein.');
+					}
+				}
+			}
+			
+			if(errorMessages.length > 0) {
+				$("#forgotPWError2").html(errorMessages.join("<br />"));
+				$("#forgotPWError2").fadeIn();
+			}
+			else {
+			
+	    		$.ajax({
+	    			type: "POST",
+	    			url: 'index.php?page=forgotPassword&action=step3',
+	    			data: $("#pwforgotform2").serialize(),
+	    			success: function(data, textStatus, jqXHR) {
+	    				if(data.success) {
+	    					$("#forgotPWStep2HTMLContent").hide();
+	    					$("#forgotPWSuccess2").fadeIn();
+	    				}
+	    				else {
+	    					$("#forgotPWError2").html("Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es noch einmal.");
+	    					$("#forgotPWError2").fadeIn();
+	    				}
+	    			},
+	    			dataType: 'json'
+	    		});
+    		
+			}
+		
+		
+	}
+		
+		
+    	var input = document.getElementById("forgotPWStep2Password2");
+    	input.addEventListener("keyup", function(event) {
+    	    event.preventDefault();
+    	    if (event.keyCode === 13) {
+    	    	forgotPW2();
+    	    }
+    	});
+		
+		</script>
+	
+	
+	
+	</then></if>
+	
+	<div class="modal fade" id="elternforgotPW" tabindex="-1"
+			role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="eventTitle">
+							<i class="fa fa-key"></i> Passwort vergessen
+						</h4>
+						
+					</div>
+					<div class="modal-body">
+					
+						<div id="forgotPWFormHTML">
+					
+					    <p>Falls Sie Ihr Passwort vergessen haben, geben Sie bitte hier Ihre E-Mailadresse ein. Sie erhalten danach einen Link zur Bestätigung an Ihre E-Mailadresse gesandt.</p>
+				        <p>Klicken Sie diesen Link bitte an. Danach können Sie ein neues Passwort vergeben.</p>
+
+				 		
+				 		<div class="callout callout-success" style="display:none" id="forgotPWSuccess"><i class="fa fa-check"></i> Falls die E-Mailadresse gütltig ist, ist Ihnen soeben ein Bestätigungslink zugesendet worden.</div>
+				
+				        <form id="pwforgotform">
+	
+				         <div class="form-group">
+				        	<label>
+				        		E-Mailadresse
+				        	</label>
+				        	<input type="text" class="form-control" name="email" placeholder="Ihre E-Mailadresse" value="" id="forgotPWMail"/>
+				        </div>
+				        
+					    <button type="button" class="btn btn-primary btn-block btn-flat" id="forgotPWButton" onclick="forgotPW()"><i class="fa fa-key"></i> Bestätigungslink zusenden</button>
+					
+						</form>
+						
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<script>
+		
+		function forgotPW() {
+	    		$.ajax({
+	    			type: "POST",
+	    			url: 'index.php?page=forgotPassword&action=step1',
+	    			data: $("#pwforgotform").serialize(),
+	    			success: function(data, textStatus, jqXHR) {
+	    				$("#pwforgotform").hide();
+	    				$("#forgotPWSuccess").fadeIn();
+	    			},
+	    			dataType: 'json'
+	    		});
+			
+			
+		}
+		
+    	var input = document.getElementById("forgotPWMail");
+    	input.addEventListener("keyup", function(event) {
+    	    event.preventDefault();
+    	    if (event.keyCode === 13) {
+    	    	forgotPW();
+    	    }
+    	});
+		
+		
+		</script>
+
+
+    <script>
+      $(function () {
+        $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+      });
+    </script>
+    
+    
+    <script>
+        
+    	function login() {
+
+    		$("#loginbutton").prop("disabled",true);
+    		$("#loginbutton").html("<i class=\"fa fa-refresh fa-spin\"></i> Bitte warten ...");
+    		// fa fa-refresh fa-spin
+    		
+    		
+    		$.ajax({
+    			type: "POST",
+    			url: 'index.php?page=login&authorize=1',
+    			data: $( "#loginform" ).serialize(),
+    			success: function(data, textStatus, jqXHR) {
+    				if(data.success) {
+    					window.location.href='index.php';
+    				}
+    				else if(data.captchaHTML != ""){
+    					
+    					$("#mathCaptchaContent").html(data.captchaHTML);
+    					$("#mathCaptcha").fadeIn();
+    					
+    					
+    					$("#loginbutton").prop("disabled",false);
+    					
+    					$("#loginbutton").html('<i class="fa fa-lock"></i> Anmelden / Login');
+    				}
+    				else {
+    					$("#loginerror").fadeIn(400);
+    					
+    					$("#loginbutton").prop("disabled",false);
+    					
+    					$("#loginbutton").html('<i class="fa fa-lock"></i> Anmelden / Login');
+    					
+    					
+    				}
+    			},
+    			fail: function(xhr, textStatus, errorThrown) {
+    				$("#loginerror").fadeIn(400);
+					
+					$("#loginbutton").prop("disabled",false);
+					
+					$("#loginbutton").html('<i class="fa fa-lock"></i> Anmelden / Login');
+				},
+    			dataType: 'json'
+    		});
+    		
+    		
+    	}
+    	
+    	
+    	var input = document.getElementById("passwordfield");
+    	input.addEventListener("keyup", function(event) {
+    	    event.preventDefault();
+    	    if (event.keyCode === 13) {
+    	        login();
+    	    }
+    	});
+    	
+    	
+    	$(function() {
+    		$("#noJSWarning").hide();
+    		$("#loginboxmain").fadeIn(800);
+    	});
+    
+    </script>
+    
+    <if(DB::getGlobalSettings()->schulnummer == "9400")><then>
+    
+
+
+    <script>
+    	function simlogin(user, pass) {
+    		$("#usernamefield").val(user);
+    		$("#passwordfield").val(pass);
+    		$('#zugangsdatendemo').modal('toggle');
+    		
+    		login();
+    	}
+   
+    </script>
+    
+    
+    
+    </then></if>
+  </body>
+</html>

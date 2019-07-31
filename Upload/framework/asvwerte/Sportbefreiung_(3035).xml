@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Sportbefreiung" pl_key="3035">
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[keine]]></kurzform>
+    <anzeigeform><![CDATA[keine]]></anzeigeform>
+    <langform><![CDATA[Keine Sportbefreiung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=-#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[keine]]></kurzform>
+    <anzeigeform><![CDATA[keine]]></anzeigeform>
+    <langform><![CDATA[Keine Sportbefreiung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=-#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[keine]]></kurzform>
+    <anzeigeform><![CDATA[keine]]></anzeigeform>
+    <langform><![CDATA[Keine Sportbefreiung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=-#]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[keine]]></kurzform>
+    <anzeigeform><![CDATA[keine]]></anzeigeform>
+    <langform><![CDATA[Keine Sportbefreiung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=-#]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[AA]]></kurzform>
+    <anzeigeform><![CDATA[Sportbefreiung für AA]]></anzeigeform>
+    <langform><![CDATA[Sportbefreiung für die Dauer eines Ausbildungsabschnitts (§ 50 Abs. 6 Satz 1)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[AA]]></kurzform>
+    <anzeigeform><![CDATA[Sportbefreiung für AA]]></anzeigeform>
+    <langform><![CDATA[Sportbefreiung für die Dauer eines Ausbildungsabschnitts (§ 50 Abs. 6 Satz 1)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[AA]]></kurzform>
+    <anzeigeform><![CDATA[Sportbefreiung für AA]]></anzeigeform>
+    <langform><![CDATA[Sportbefreiung für die Dauer eines Ausbildungsabschnitts (§ 50 Abs. 6 Satz 1)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[BD]]></kurzform>
+    <anzeigeform><![CDATA[Sportbefr. (Beh.) auf Dauer]]></anzeigeform>
+    <langform><![CDATA[Sportbefreiung wegen Behinderung auf Dauer (§ 50 Abs. 6 Satz 2).]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=B#]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[BD]]></kurzform>
+    <anzeigeform><![CDATA[Sportbefr. (Beh.) auf Dauer]]></anzeigeform>
+    <langform><![CDATA[Sportbefreiung wegen Behinderung auf Dauer (§ 50 Abs. 6 Satz 2).]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=B#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[BD]]></kurzform>
+    <anzeigeform><![CDATA[Sportbefr. (Beh.) auf Dauer]]></anzeigeform>
+    <langform><![CDATA[Sportbefreiung wegen Behinderung auf Dauer (§ 50 Abs. 6 Satz 2).]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=B#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[BD]]></kurzform>
+    <anzeigeform><![CDATA[Sportbefr. (Beh.) auf Dauer]]></anzeigeform>
+    <langform><![CDATA[Sportbefreiung wegen Behinderung auf Dauer (§ 50 Abs. 6 Satz 2).]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=B#]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[AA]]></kurzform>
+    <anzeigeform><![CDATA[Sportbefreiung für AA]]></anzeigeform>
+    <langform><![CDATA[Sportbefreiung für die Dauer eines Ausbildungsabschnitts (§ 50 Abs. 6 Satz 1)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

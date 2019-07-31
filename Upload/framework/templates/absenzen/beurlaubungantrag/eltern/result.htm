@@ -1,0 +1,58 @@
+{$this->header}
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-bed"></i> Ihr Beurlaubungsantrag</h3>
+	</div>
+	<div class="box-body">
+	
+		Ihre eingegeben Daten: <br />
+		<table class="table table-bordered">
+			<tr>
+				<td>Schüler</td>
+				<td>{$schueler->getCompleteSchuelerName()}</td>
+			</tr>
+			<tr>
+				<td>Zeitraum</td>
+				<td>{$_POST['bu_zeit']}</td>
+			</tr>
+			<tr>
+				<td>Stunden</td>
+				<td>$stundenDisplay</td>
+			</tr>
+			<tr>
+				<td>Begründung</td>
+				<td>$begruendung</td>
+			</tr>
+		</table>
+		<br /><br />
+		
+		
+				
+		<if($success)><then>
+			<div class="callout callout-success"><i class="fa fa-check"></i> <b>Antrag erfolgreich abgeben.</b></div>
+		</then></if>
+		
+		<if(!$success && $termineHTML != '')><then>
+			<div class="callout callout-danger"><i class="fa fa-ban"></i> <b>Beurlaubungsantrag NICHT möglich</b><br >Ein Beurlaubungsantrag ist nicht möglich, da folgende Termine angesetzt sind: <ul>$termineHTML</ul></div>
+		</then></if>
+		
+		<if($success && $termineHTML != '')><then>
+			<div class="callout callout-danger"><i class="fa fa-ban"></i> <b>Beurlaubungsantrag eingereicht</b><br >Der Beurlaubungsantrag wird gesondert geprüft, da folgende Termine angesetzt sind: <ul>$termineHTML</ul></div>
+		</then></if>
+
+		
+		<if($success && $needPrint)><then>
+			<div class="callout callout-danger"><i class="fa fa-print"></i> <a href="index.php?page=beurlaubungantrag&mode=printBeurlaubung&antragID=$newID">Drucken Sie bitte im nächsten Schritt den Antrag aus und reichen Sie ihn unterschrieben im Sekretariat ein.</a></b></div>
+		</then></if>
+		
+		<if($success && $needZustimmung)><then>
+			<div class="callout callout-info"><i class="fa fa-info"></i> <b>Beachten Sie bitte, dass der Antrag noch geprüft werden muss.</b></div>
+		</then></if>
+	
+
+		
+	</div>
+</div>
+
+{$this->footer}

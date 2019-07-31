@@ -1,0 +1,36 @@
+{$this->header}
+
+<p>An dieser Stelle werden die Sektionen bearbeitet. Für jede Sektion können die Attribute festgelegt werden.<br />
+Mit der Ordnungsnummer werden die Sektionen auf der Foto - Seite sortiert.<br />
+<b>Wenn eine Sektion gelöscht wird, werden alle darin gespeicherten Personen gelöscht!</b><br /><br /></p>
+
+<form action="?page=editSections&action=edit" method="post">
+<table border="1" style="width:100%">
+<tr>
+	<td width="30%"><b>Name</b></td>
+	<td width="30%"><b>Ordnungsnummer</b></td>
+	<td width="40%"><b>Löschen?</b><br /><small>Datensatz zum Löschen markieren</small></td>
+</tr>
+
+{$htmlSections}
+
+</table>
+<br /><input type="submit" value="Änderungen speichern / Markierte Datensätze löschen" class="form-control"></form>
+
+<br /><br />
+<form action="?page=editSections&action=new" method="post">
+<b>Eine neue Sektion anlegen</b>
+<br />
+<table border="1" style="width:100%">
+	<tr>
+		<td style="width:20%"><b>Name</b></td>
+		<td><input type="text" name="new_name" value="" size="15" class="form-control"></td>
+	</tr>
+	<tr>
+		<td><b>Ordnungsnummer</b></td>
+		<td><input type="text" name="new_order" value="" size="15" class="form-control"></td>
+	</tr>
+</table><br /><input type="submit" value="Neue Sektion anlegen" class="form-control"></form>
+	
+
+{$this->footer}

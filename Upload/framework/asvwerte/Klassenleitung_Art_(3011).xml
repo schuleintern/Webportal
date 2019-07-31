@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Klassenleitung Art" pl_key="3011">
+  <eintrag>
+    <schluessel><![CDATA[K]]></schluessel>
+    <kurzform><![CDATA[Kl-Leitung]]></kurzform>
+    <anzeigeform><![CDATA[Klassenleitung]]></anzeigeform>
+    <langform><![CDATA[Klassenleitung]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[S]]></schluessel>
+    <kurzform><![CDATA[St-Leitung]]></kurzform>
+    <anzeigeform><![CDATA[Stellvertr. Klassenleitung]]></anzeigeform>
+    <langform><![CDATA[Stellvertretende Klassenleitung]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+</werteliste>

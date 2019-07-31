@@ -1,0 +1,62 @@
+{$this->header}
+
+		<form action="index.php?page=aufeinenblick&mode=settings&save=1" method="post">
+
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title"><i class="fa fa-wrench"></i> Einstellungen für "Auf einen Blick"</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+            	<table class="table table-striped">
+            		<tr>
+            			<th style="width:30%">Einstellung</th>
+            			<th>Wert</th>
+            		</tr>
+            		<tr>
+            			<td>"Heute" ausblenden ab dieser Uhrzeit<br /><small>Ab dieser Uhrzeit werden die nächsten Zwei Tage angezeigt.</small></td>
+            			<td>
+            				<select name="canceltoday" class="form-control">
+            					{$hourSelect}
+            				</select>
+            			</td>
+            		</tr>
+            		<if(DB::getSession()->isTeacher() || DB::getSettings()->getValue("vplan-schueleractive") != 0)><then>
+            		<tr>
+            			<td>Vertretungsplan ein-/ausklappen</td>
+            			<td>
+            			  	<select name="vplanShow" class="form-control">
+            					{$vplanShowSelect}
+            				</select>
+            			</td>
+            		</tr>
+            		</then></if>
+            	    <tr>
+            			<td>Klassenkalender ein-/ausklappen</td>
+            			<td>
+            			  	<select name="calendarShow" class="form-control">
+            					{$calendarShowSelect}
+            				</select>
+            			</td>
+            		</tr>
+            		<tr>
+            			<td>Stundenplan ein-/ausklappen</td>
+            			<td>
+            			  	<select name="stundenplanShow" class="form-control">
+            					{$stundenplanShowSelect}
+            				</select>
+            			</td>
+            		</tr>
+            	</table>
+            	<input type="submit" value="Einstellungen speichern" class="form-control">       
+            </div>
+           </div>
+           
+           </form>
+
+{$this->footer}

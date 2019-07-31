@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Klassenziel" pl_key="2185">
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[61]]></schluessel>
+    <kurzform><![CDATA[ao]]></kurzform>
+    <anzeigeform><![CDATA[Abschlussprüfung ohne Erfolg]]></anzeigeform>
+    <langform><![CDATA[Abschlussprüfung ohne Erfolg abgelegt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=61#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[70]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=70#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[70]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=70#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[70]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=70#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[70]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=70#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[70]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=70#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[61]]></schluessel>
+    <kurzform><![CDATA[ao]]></kurzform>
+    <anzeigeform><![CDATA[Abschlussprüfung ohne Erfolg]]></anzeigeform>
+    <langform><![CDATA[Abschlussprüfung ohne Erfolg abgelegt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=61#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[61]]></schluessel>
+    <kurzform><![CDATA[ao]]></kurzform>
+    <anzeigeform><![CDATA[Abschlussprüfung ohne Erfolg]]></anzeigeform>
+    <langform><![CDATA[Abschlussprüfung ohne Erfolg abgelegt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=61#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[61]]></schluessel>
+    <kurzform><![CDATA[ao]]></kurzform>
+    <anzeigeform><![CDATA[Abschlussprüfung ohne Erfolg]]></anzeigeform>
+    <langform><![CDATA[Abschlussprüfung ohne Erfolg abgelegt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=61#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[70]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=70#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[61]]></schluessel>
+    <kurzform><![CDATA[ao]]></kurzform>
+    <anzeigeform><![CDATA[Abschlussprüfung ohne Erfolg]]></anzeigeform>
+    <langform><![CDATA[Abschlussprüfung ohne Erfolg abgelegt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=61#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[61]]></schluessel>
+    <kurzform><![CDATA[ao]]></kurzform>
+    <anzeigeform><![CDATA[Abschlussprüfung ohne Erfolg]]></anzeigeform>
+    <langform><![CDATA[Abschlussprüfung ohne Erfolg abgelegt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=61#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[27]]></schluessel>
+    <kurzform><![CDATA[kln]]></kurzform>
+    <anzeigeform><![CDATA[Ziel Vorklasse nicht erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Vorklasse nicht erreicht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[27]]></schluessel>
+    <kurzform><![CDATA[kln]]></kurzform>
+    <anzeigeform><![CDATA[Ziel Vorklasse nicht erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Vorklasse nicht erreicht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[69]]></schluessel>
+    <kurzform><![CDATA[kun]]></kurzform>
+    <anzeigeform><![CDATA[Ziel Vorkurs nicht erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel des Vorkurses nicht erreicht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[69]]></schluessel>
+    <kurzform><![CDATA[kun]]></kurzform>
+    <anzeigeform><![CDATA[Ziel Vorkurs nicht erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel des Vorkurses nicht erreicht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[68]]></schluessel>
+    <kurzform><![CDATA[kue]]></kurzform>
+    <anzeigeform><![CDATA[Ziel des Vorkurses erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel des Vorkurses erreicht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[68]]></schluessel>
+    <kurzform><![CDATA[kue]]></kurzform>
+    <anzeigeform><![CDATA[Ziel des Vorkurses erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel des Vorkurses erreicht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[67]]></schluessel>
+    <kurzform><![CDATA[kle]]></kurzform>
+    <anzeigeform><![CDATA[Ziel der Vorklasse erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Vorklasse erreicht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[67]]></schluessel>
+    <kurzform><![CDATA[kle]]></kurzform>
+    <anzeigeform><![CDATA[Ziel der Vorklasse erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Vorklasse erreicht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[61]]></schluessel>
+    <kurzform><![CDATA[ao]]></kurzform>
+    <anzeigeform><![CDATA[Abschlussprüfung ohne Erfolg]]></anzeigeform>
+    <langform><![CDATA[Abschlussprüfung ohne Erfolg abgelegt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=61#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[61]]></schluessel>
+    <kurzform><![CDATA[ao]]></kurzform>
+    <anzeigeform><![CDATA[Abschlussprüfung ohne Erfolg]]></anzeigeform>
+    <langform><![CDATA[Abschlussprüfung ohne Erfolg abgelegt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=61#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[np]]></kurzform>
+    <anzeigeform><![CDATA[mit Nachprüfung vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nach erfolgreicher Nachprüfung vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[22]]></schluessel>
+    <kurzform><![CDATA[pl]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück.a.Pr. nicht gestattet]]></anzeigeform>
+    <langform><![CDATA[Formale Voraussetzungen für das Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO erfüllt, aber Lehrerkonferenz gestattet das Vorrücken auf Probe nicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=22#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[pv]]></kurzform>
+    <anzeigeform><![CDATA[Einverst. m.Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Erziehungsberechtigte sind mit dem Votum der Lehrerkonferenz für Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO einverstanden]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=20#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[22]]></schluessel>
+    <kurzform><![CDATA[pl]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück.a.Pr. nicht gestattet]]></anzeigeform>
+    <langform><![CDATA[Formale Voraussetzungen für das Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO erfüllt, aber Lehrerkonferenz gestattet das Vorrücken auf Probe nicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=22#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[p2]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück. a. Pr. Art. 53(6)2]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gemäß Art. 53 (6), Satz 2 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=26#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[22]]></schluessel>
+    <kurzform><![CDATA[pl]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück.a.Pr. nicht gestattet]]></anzeigeform>
+    <langform><![CDATA[Formale Voraussetzungen für das Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO erfüllt, aber Lehrerkonferenz gestattet das Vorrücken auf Probe nicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=22#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[pv]]></kurzform>
+    <anzeigeform><![CDATA[Einverst. m.Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Erziehungsberechtigte sind mit dem Votum der Lehrerkonferenz für Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO einverstanden]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=20#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[22]]></schluessel>
+    <kurzform><![CDATA[pl]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück.a.Pr. nicht gestattet]]></anzeigeform>
+    <langform><![CDATA[Formale Voraussetzungen für das Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO erfüllt, aber Lehrerkonferenz gestattet das Vorrücken auf Probe nicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=22#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[22]]></schluessel>
+    <kurzform><![CDATA[pl]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück.a.Pr. nicht gestattet]]></anzeigeform>
+    <langform><![CDATA[Formale Voraussetzungen für das Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO erfüllt, aber Lehrerkonferenz gestattet das Vorrücken auf Probe nicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=22#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[23]]></schluessel>
+    <kurzform><![CDATA[pg]]></kurzform>
+    <anzeigeform><![CDATA[Vorrücken auf Probe gestattet]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO gestattet]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=23#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[23]]></schluessel>
+    <kurzform><![CDATA[pg]]></kurzform>
+    <anzeigeform><![CDATA[Vorrücken auf Probe gestattet]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO gestattet]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=23#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[23]]></schluessel>
+    <kurzform><![CDATA[pg]]></kurzform>
+    <anzeigeform><![CDATA[Vorrücken auf Probe gestattet]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO gestattet]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=23#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[23]]></schluessel>
+    <kurzform><![CDATA[pg]]></kurzform>
+    <anzeigeform><![CDATA[Vorrücken auf Probe gestattet]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO gestattet]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=23#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[23]]></schluessel>
+    <kurzform><![CDATA[pg]]></kurzform>
+    <anzeigeform><![CDATA[Vorrücken auf Probe gestattet]]></anzeigeform>
+    <langform><![CDATA[Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO gestattet]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=23#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[24]]></schluessel>
+    <kurzform><![CDATA[pb]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück.a.Pr. nicht bewilligt]]></anzeigeform>
+    <langform><![CDATA[Antrag auf Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO gestellt, aber nicht bewilligt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=24#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[24]]></schluessel>
+    <kurzform><![CDATA[pb]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück.a.Pr. nicht bewilligt]]></anzeigeform>
+    <langform><![CDATA[Antrag auf Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO gestellt, aber nicht bewilligt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=24#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[24]]></schluessel>
+    <kurzform><![CDATA[pb]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück.a.Pr. nicht bewilligt]]></anzeigeform>
+    <langform><![CDATA[Antrag auf Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO gestellt, aber nicht bewilligt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=24#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[24]]></schluessel>
+    <kurzform><![CDATA[pb]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück.a.Pr. nicht bewilligt]]></anzeigeform>
+    <langform><![CDATA[Antrag auf Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO gestellt, aber nicht bewilligt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=24#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[24]]></schluessel>
+    <kurzform><![CDATA[pb]]></kurzform>
+    <anzeigeform><![CDATA[Vorrück.a.Pr. nicht bewilligt]]></anzeigeform>
+    <langform><![CDATA[Antrag auf Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO gestellt, aber nicht bewilligt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=24#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=40#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[pv]]></kurzform>
+    <anzeigeform><![CDATA[Einverst. m.Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Erziehungsberechtigte sind mit dem Votum der Lehrerkonferenz für Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO einverstanden]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=20#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[pv]]></kurzform>
+    <anzeigeform><![CDATA[Einverst. m.Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Erziehungsberechtigte sind mit dem Votum der Lehrerkonferenz für Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO einverstanden]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=20#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[pv]]></kurzform>
+    <anzeigeform><![CDATA[Einverst. m.Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Erziehungsberechtigte sind mit dem Votum der Lehrerkonferenz für Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO einverstanden]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=20#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[64]]></schluessel>
+    <kurzform><![CDATA[bok]]></kurzform>
+    <anzeigeform><![CDATA[BGJ ohne Erfolg, keine Anrech.]]></anzeigeform>
+    <langform><![CDATA[BGJ ohne Erfolg abgelegt (keine Anrechnung auf die Ausbildungszeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=64#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[64]]></schluessel>
+    <kurzform><![CDATA[bok]]></kurzform>
+    <anzeigeform><![CDATA[BGJ ohne Erfolg, keine Anrech.]]></anzeigeform>
+    <langform><![CDATA[BGJ ohne Erfolg abgelegt (keine Anrechnung auf die Ausbildungszeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=64#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[np]]></kurzform>
+    <anzeigeform><![CDATA[mit Nachprüfung vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nach erfolgreicher Nachprüfung vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[pn]]></kurzform>
+    <anzeigeform><![CDATA[k. Einverst. m.Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Lehrerkonferenz spricht sich für Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO aus, Erziehungsberechtigte jedoch nicht einverstanden]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=21#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[np]]></kurzform>
+    <anzeigeform><![CDATA[mit Nachprüfung vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nach erfolgreicher Nachprüfung vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[np]]></kurzform>
+    <anzeigeform><![CDATA[mit Nachprüfung vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nach erfolgreicher Nachprüfung vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[62]]></schluessel>
+    <kurzform><![CDATA[bma]]></kurzform>
+    <anzeigeform><![CDATA[BGJ mit Erfolg, Anrechnung]]></anzeigeform>
+    <langform><![CDATA[BGJ mit Erfolg abgelegt (Anrechnung auf die Ausbildungszeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=62#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[62]]></schluessel>
+    <kurzform><![CDATA[bma]]></kurzform>
+    <anzeigeform><![CDATA[BGJ mit Erfolg, Anrechnung]]></anzeigeform>
+    <langform><![CDATA[BGJ mit Erfolg abgelegt (Anrechnung auf die Ausbildungszeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=62#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[np]]></kurzform>
+    <anzeigeform><![CDATA[mit Nachprüfung vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nach erfolgreicher Nachprüfung vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[63]]></schluessel>
+    <kurzform><![CDATA[boa]]></kurzform>
+    <anzeigeform><![CDATA[BGJ ohne Erfolg, Anrechnung]]></anzeigeform>
+    <langform><![CDATA[BGJ ohne Erfolg abgelegt (trotzdem Anrechnung auf die Ausbildungszeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=63#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[63]]></schluessel>
+    <kurzform><![CDATA[boa]]></kurzform>
+    <anzeigeform><![CDATA[BGJ ohne Erfolg, Anrechnung]]></anzeigeform>
+    <langform><![CDATA[BGJ ohne Erfolg abgelegt (trotzdem Anrechnung auf die Ausbildungszeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=63#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[np]]></kurzform>
+    <anzeigeform><![CDATA[mit Nachprüfung vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nach erfolgreicher Nachprüfung vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[np]]></kurzform>
+    <anzeigeform><![CDATA[mit Nachprüfung vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nach erfolgreicher Nachprüfung vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[pn]]></kurzform>
+    <anzeigeform><![CDATA[k. Einverst. m.Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Lehrerkonferenz spricht sich für Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO aus, Erziehungsberechtigte jedoch nicht einverstanden]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=21#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[pn]]></kurzform>
+    <anzeigeform><![CDATA[k. Einverst. m.Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Lehrerkonferenz spricht sich für Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO aus, Erziehungsberechtigte jedoch nicht einverstanden]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=21#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[pn]]></kurzform>
+    <anzeigeform><![CDATA[k. Einverst. m.Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Lehrerkonferenz spricht sich für Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO aus, Erziehungsberechtigte jedoch nicht einverstanden]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=21#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[70]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=70#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[70]]></schluessel>
+    <kurzform><![CDATA[nv]]></kurzform>
+    <anzeigeform><![CDATA[nicht vorgerückt]]></anzeigeform>
+    <langform><![CDATA[nicht vorgerückt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=70#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[25]]></schluessel>
+    <kurzform><![CDATA[pe]]></kurzform>
+    <anzeigeform><![CDATA[kein Antrag auf Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Voraussetzung für Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO erfüllt, aber kein Antrag gestellt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=25#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[25]]></schluessel>
+    <kurzform><![CDATA[pe]]></kurzform>
+    <anzeigeform><![CDATA[kein Antrag auf Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Voraussetzung für Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO erfüllt, aber kein Antrag gestellt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=25#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[25]]></schluessel>
+    <kurzform><![CDATA[pe]]></kurzform>
+    <anzeigeform><![CDATA[kein Antrag auf Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Voraussetzung für Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO erfüllt, aber kein Antrag gestellt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=25#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[25]]></schluessel>
+    <kurzform><![CDATA[pe]]></kurzform>
+    <anzeigeform><![CDATA[kein Antrag auf Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Voraussetzung für Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO erfüllt, aber kein Antrag gestellt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=25#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[25]]></schluessel>
+    <kurzform><![CDATA[pe]]></kurzform>
+    <anzeigeform><![CDATA[kein Antrag auf Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Voraussetzung für Vorrücken auf Probe gem. §44 Abs 2 WSO/§ 34 Abs 2 FOBOSO erfüllt, aber kein Antrag gestellt]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=25#nur WS, FOS, BOS]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenziel erreicht]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=50#nicht BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenz. erreicht (nicht BGJ)]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht (nicht anzuwenden bei BGJ Schülern)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=60#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[e]]></kurzform>
+    <anzeigeform><![CDATA[Klassenz. erreicht (nicht BGJ)]]></anzeigeform>
+    <langform><![CDATA[Ziel der Jahrgangsstufe erreicht (nicht anzuwenden bei BGJ Schülern)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=60#nur BS/BSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[pn]]></kurzform>
+    <anzeigeform><![CDATA[k. Einverst. m.Vorrück.a.Pr.]]></anzeigeform>
+    <langform><![CDATA[Lehrerkonferenz spricht sich für Vorrücken auf Probe gem. § 58 Abs 1 RSO/§ 63 Abs 1 GSO/§ 47 Abs 1 VSO aus, Erziehungsberechtigte jedoch nicht einverstanden]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=21#nur RS, RSF, GY, VS]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

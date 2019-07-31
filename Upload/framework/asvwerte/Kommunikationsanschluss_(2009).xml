@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Kommunikationsanschluss" pl_key="2009">
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Fax]]></kurzform>
+    <anzeigeform><![CDATA[Fax]]></anzeigeform>
+    <langform><![CDATA[Fax]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[Mob]]></kurzform>
+    <anzeigeform><![CDATA[Mobiltelefon]]></anzeigeform>
+    <langform><![CDATA[Mobiltelefon]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[Tel]]></kurzform>
+    <anzeigeform><![CDATA[Telefon]]></anzeigeform>
+    <langform><![CDATA[Telefon]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[Home]]></kurzform>
+    <anzeigeform><![CDATA[Internet (Homepage)]]></anzeigeform>
+    <langform><![CDATA[URL der Internetadresse (Homepage)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[Mail]]></kurzform>
+    <anzeigeform><![CDATA[E-Mail]]></anzeigeform>
+    <langform><![CDATA[E-Mail]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+</werteliste>

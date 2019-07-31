@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="KlassenBesonderheit" pl_key="2150">
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[PKAFZ]]></kurzform>
+    <anzeigeform><![CDATA[Partnerkl. and. Förders. (FZ)]]></anzeigeform>
+    <langform><![CDATA[Partnerklasse nach Art. 30a Abs. 7 Nr. 2 BayEUG - Klasse eines Förderzentrums an einer anderen Förderschulart]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=87#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[PKSFZ]]></kurzform>
+    <anzeigeform><![CDATA[Partnerkl. sonst. (FZ)]]></anzeigeform>
+    <langform><![CDATA[Partnerklasse nach Art. 30a Abs. 7 Nr. 2 BayEUG - Klasse eines Förderzentrums an einer sonstigen allgemeinen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=17#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[TK]]></kurzform>
+    <anzeigeform><![CDATA[Tandemklasse]]></anzeigeform>
+    <langform><![CDATA[Tandemklasse nach Art. 30b Abs. 5, Satz 1 ff. BayEUG]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[PKFZ]]></kurzform>
+    <anzeigeform><![CDATA[Partnerkl. (FZ)]]></anzeigeform>
+    <langform><![CDATA[Partnerklasse nach Art. 30a Abs. 7 Nr. 2 BayEUG - Klasse eines Förderzentrums an einer Grundschule bzw. Mittel-/Hauptschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=19#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[O]]></kurzform>
+    <anzeigeform><![CDATA[geöffnete Klasse]]></anzeigeform>
+    <langform><![CDATA[Klasse auch für Schüler ohne sonderpädagogischen Förderbedarf]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=18#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[KOOP]]></kurzform>
+    <anzeigeform><![CDATA[Kooperationsklasse]]></anzeigeform>
+    <langform><![CDATA[Kooperationsklasse nach Art. 30a Abs. 7, Nr. 1 BayEUG]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=14#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[KWM]]></kurzform>
+    <anzeigeform><![CDATA[Klasse i. Kooperation WISU MHS]]></anzeigeform>
+    <langform><![CDATA[Klasse im Kooperationsmodell Wirtschaftsschule/Mittel-/Hauptschule]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[GebGTK]]></kurzform>
+    <anzeigeform><![CDATA[gebundene Ganztagsklasse]]></anzeigeform>
+    <langform><![CDATA[gebundene Ganztagsklasse]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[O]]></kurzform>
+    <anzeigeform><![CDATA[geöffnete Klasse]]></anzeigeform>
+    <langform><![CDATA[Klasse auch für Schüler ohne sonderpädagogischen Förderbedarf]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=18#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[PKGMS]]></kurzform>
+    <anzeigeform><![CDATA[Partnerklasse (GMS)]]></anzeigeform>
+    <langform><![CDATA[Partnerklasse nach Art. 30a Abs. 7 Nr. 2 BayEUG - Klasse der Grundschule bzw. Mittel-/Hauptschule an einem Förderzentrum]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=19#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[KfG]]></kurzform>
+    <anzeigeform><![CDATA[Klasse d. flex. Grundschule]]></anzeigeform>
+    <langform><![CDATA[Klasse der flexiblen Grundschule]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[StützFö]]></kurzform>
+    <anzeigeform><![CDATA[Sonderpäd. Stütz- u. Förderkl.]]></anzeigeform>
+    <langform><![CDATA[Sonderpädagogische Stütz- und Förderklasse]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

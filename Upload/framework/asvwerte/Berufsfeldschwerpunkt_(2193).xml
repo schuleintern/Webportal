@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Berufsfeldschwerpunkt" pl_key="2193">
+  <eintrag>
+    <schluessel><![CDATA[L]]></schluessel>
+    <kurzform><![CDATA[L]]></kurzform>
+    <anzeigeform><![CDATA[Lagerpflege]]></anzeigeform>
+    <langform><![CDATA[Lagerpflege]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[L]]></schluessel>
+    <kurzform><![CDATA[L]]></kurzform>
+    <anzeigeform><![CDATA[Lagerpflege]]></anzeigeform>
+    <langform><![CDATA[Lagerpflege]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[L]]></schluessel>
+    <kurzform><![CDATA[L]]></kurzform>
+    <anzeigeform><![CDATA[Lagerpflege]]></anzeigeform>
+    <langform><![CDATA[Lagerpflege]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

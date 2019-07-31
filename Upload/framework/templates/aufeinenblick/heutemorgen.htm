@@ -1,0 +1,137 @@
+          <div class="box box-solid box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title" data-widget="collapse"><i class="fa fa-calendar"></i> $title - $datumShow</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+            <if(DB::getSession()->isTeacher() || DB::getSettings()->getValue("vplan-schueleractive") != 0)><then>
+               <div class="box box-success{$vplanCollapse}">
+				  <div class="box-header with-border">
+				    <h3 class="box-title" data-widget="collapse"><i class="fa fa-check"></i> Vertretungsplan $update</h3>
+				    <div class="box-tools pull-right">
+				      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa {$faVplanIcon}"></i></button>
+				    </div>
+				  </div>
+				  <div class="box-body">
+	           
+	           		$vertretungsplanHTML
+	           				  </div><!-- /.box-body -->
+				</div><!-- /.box -->
+	           </then></if>
+	           <div class="row">
+	           <div class="col-md-6">
+	           <div class="box box-success{$calendarCollapse}">
+				  <div class="box-header with-border">
+				    <h3 class="box-title" data-widget="collapse"><i class="fa fa-calendar"></i> Kalender</h3>
+				    <div class="box-tools pull-right">
+				      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa {$faCalendarIcon}"></i></button>
+				    </div><!-- /.box-tools -->
+				  </div><!-- /.box-header -->
+				  <div class="box-body">
+				  
+				  
+				  
+				  <if(DB::getSession()->isTeacher())><then>
+				  
+
+				  <label><input type="checkbox" id="showUnangekuendigt" class="ichecklnwtype"> Unangekündigte Leistungsnachweise anzeigen</label>
+				  				  <div id="cal$datum"></div>
+				  
+				  
+				  <script>
+				  
+				  $('#cal$datum').fullCalendar({
+						header: {
+							right: 'listDay'
+						},
+						views: {
+					        listDay: { buttonText: 'Terminliste' }
+					    },
+					    defaultView: 'listDay',
+					    defaultDate: '$datum',
+						title: '',
+						selectable: false,     
+						editable: false,
+						eventLimit: false,
+						eventRender: function(event, element) {
+							if(event.eventType == 'lnw') {
+								if(event.lnwtype == 'STEGREIFAUFGABE' && !$("#showUnangekuendigt").prop('checked')) return false;
+								if(event.lnwtype == 'PLNW' && !$("#showUnangekuendigt").prop('checked')) return false;				
+							}
+						},
+					  eventSources: [
+					    $calFeeds
+					  ]
+					});
+				  
+				  
+			        $('.ichecklnwtype').on('ifChecked', function(event){
+			        	  $('#cal$datum').fullCalendar('rerenderEvents');
+			        	});
+			          
+			          $('.ichecklnwtype').on('ifUnchecked', function(event){
+			        	  $('#cal$datum').fullCalendar('rerenderEvents');
+			        	});
+				  
+				  </script>
+
+				</then>
+				
+				<else>
+				
+								  				  <div id="cal$datum"></div>
+				
+								  <script>
+				  
+				  $('#cal$datum').fullCalendar({
+						header: {
+							right: 'listDay'
+						},
+						views: {
+					        listDay: { buttonText: 'Terminliste' }
+					    },
+					    defaultView: 'listDay',
+					    defaultDate: '$datum',
+						title: '',
+						selectable: false,     
+						editable: false,
+						eventLimit: false,
+					    eventSources: [
+					     $calFeeds
+					    ]
+					});
+				  
+				  </script>
+				  
+				  </else>
+				
+				</if>
+	           		
+	           	
+				  </div><!-- /.box-body -->
+				</div><!-- /.box -->
+				</div>
+				<div class="col-md-6">
+					 <div class="box box-success{$stundenplanCollapse}">
+					  <div class="box-header with-border">
+					    <h3 class="box-title" data-widget="collapse"><i class="fa fa-table"></i> Stundenplan</h3>
+					    <div class="box-tools pull-right">
+					      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa {$faStundenplanIcon}"></i></button>
+					    </div><!-- /.box-tools -->
+					  </div><!-- /.box-header -->
+					  <div class="box-body">
+		           			
+		           		$stundenplanHTML
+		           	
+					  </div><!-- /.box-body -->
+					</div><!-- /.box -->
+				</div>
+				</div>
+            </div>
+            <!-- ./box-body -->
+          <!-- /.box -->
+        </div>

@@ -1,0 +1,9 @@
+<tr>
+	<td><input type="checkbox" name="user_{$user['userID']}" value="1"<if(in_array($user['userID'],$selectedUserIDs))><then>checked="checked"</then></if>></td>
+	<td>{$user['userName']}
+		<if($user['schuelerKlasse'] != "")><then><br />Klasse {$user['schuelerKlasse']}</then></if>
+	</td>
+	<td>{$user['userFirstName']}</td>
+	<td>{$user['userLastName']}</td>
+	<td>{$user['userEMail']}</td>
+</tr>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Lastschrifteinzug" pl_key="3050">
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[SK]]></kurzform>
+    <anzeigeform><![CDATA[Schulkosten]]></anzeigeform>
+    <langform><![CDATA[Schulkosten]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+</werteliste>

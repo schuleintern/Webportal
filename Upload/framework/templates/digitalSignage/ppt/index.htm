@@ -1,0 +1,65 @@
+
+<if($_GET['uploaded'] > 0)><then>
+	<div class="callout callout-success"><i class="fa fa-check"></i> Die Powerpoint datei wurde erfolgreich hochgeladen.</div>
+</then></if>
+
+
+<if($_GET['deleted'] > 0)><then>
+	<div class="callout callout-success"><i class="fa fa-check"></i> Die Powerpoint datei wurde erfolgreich gelöscht.</div>
+</then></if>
+
+<if($_GET['error'] > 0)><then>
+	<div class="callout callout-danger"><i class="fa fa-exclamation-triangle"></i> Die Powerpoint datei wurde nicht erfolgreich hochgeladen!</div>
+</then></if>
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-television"></i> Powerpoints</h3>
+	</div>
+	<div class="box-body">
+		<b>Powerpoints sind nur im Layout 1 möglich.</b>
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+				<th>Letzes Update</th>
+				<th>Download</th>
+				<th>Neue Datei hochladen</th>
+				<th>Löschen</th>
+			</tr>
+			$pHTML
+		</table>
+	
+	</div>
+
+</div>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-television"></i> Powerpoint hochladen</h3>
+	</div>
+	<div class="box-body">
+		<b>Hinweise:</b>
+		
+		<ul>
+			<li>Erstellen Sie eine Powertpoint Datei (.pptx)</li>
+			<li>Die Folien müssen selbstständig zur nächsten Folie wechseln</li>
+			<li>Die Präsentation soll endlos (Am Ende zum Anfang springen)</li>
+		</ul>
+		
+		<form action="$selfURL&action=upload" method="post" enctype="multipart/form-data">
+		<table class="table">
+			<tr>
+				<td><b>Name</b></td>
+				<td><input type="text" name="pptName" placeholder="z.B. Infos SMV" class="form-control"></td>
+			</tr>
+			<tr>
+				<td><b>Datei</b></td>
+				<td><input type="file" name="newFile" accept=".pptx" class="form-control"></td>
+			</tr>
+		</table>
+		<button type="submit" class="btn"><i class="fa fa-upload"></i> Datei hochladen</button>
+		</form>
+	</div>
+
+</div>

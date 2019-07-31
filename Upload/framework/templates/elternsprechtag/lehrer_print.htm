@@ -1,0 +1,12 @@
+<h6 style="text-align: center"><expression>$this->currentSprechtag['sprechtagName']</expression> am <expression>DateFunctions::getNaturalDateFromMySQLDate($this->currentSprechtag['sprechtagDate'])</expression> | Lehrer <expression>DB::getSession()->getTeacherObject()->getKuerzel()</expression> - Raum $raum</h6>
+
+<table border="1" cellpadding="1" cellspacing="0" style="width:100%">
+
+$table
+
+</table>
+<div style="text-align: right">Stand: <expression>DateFunctions::getTodayAsNaturalDate()</expression></div>
+
+</body>
+
+</html>

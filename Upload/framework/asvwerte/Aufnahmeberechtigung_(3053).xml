@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Aufnahmeberechtigung" pl_key="3053">
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[Aufnahmeprüfung]]></anzeigeform>
+    <langform><![CDATA[Aufnahmeprüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[Aufnahmeprüfung]]></anzeigeform>
+    <langform><![CDATA[Aufnahmeprüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[Aufnahmeprüfung]]></anzeigeform>
+    <langform><![CDATA[Aufnahmeprüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[Aufnahmeprüfung]]></anzeigeform>
+    <langform><![CDATA[Aufnahmeprüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[Aufnahmeprüfung]]></anzeigeform>
+    <langform><![CDATA[Aufnahmeprüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[Aufnahmeprüfung]]></anzeigeform>
+    <langform><![CDATA[Aufnahmeprüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Elternwille]]></anzeigeform>
+    <langform><![CDATA[Elternwille]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[B]]></kurzform>
+    <anzeigeform><![CDATA[Beratungsgespräch]]></anzeigeform>
+    <langform><![CDATA[Beratungsgespräch]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=B#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[Az]]></kurzform>
+    <anzeigeform><![CDATA[Zulassung z. Aufn.Pr]]></anzeigeform>
+    <langform><![CDATA[Zulassung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[B]]></kurzform>
+    <anzeigeform><![CDATA[Beratungsgespräch]]></anzeigeform>
+    <langform><![CDATA[Beratungsgespräch]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=B#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[Aa]]></kurzform>
+    <anzeigeform><![CDATA[Ablehnung z. Aufn.Pr.]]></anzeigeform>
+    <langform><![CDATA[Ablehnung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=L#]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[Az]]></kurzform>
+    <anzeigeform><![CDATA[Zulassung z. Aufn.Pr]]></anzeigeform>
+    <langform><![CDATA[Zulassung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Jahreszeugnis HS Jgst. 9]]></anzeigeform>
+    <langform><![CDATA[Jahreszeugnis Hauptschule Jgst. 9]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=J#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Jahreszeugnis HS Jgst. 9]]></anzeigeform>
+    <langform><![CDATA[Jahreszeugnis Hauptschule Jgst. 9]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=J#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Jahreszeugnis HS Jgst. 9]]></anzeigeform>
+    <langform><![CDATA[Jahreszeugnis Hauptschule Jgst. 9]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=J#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Jahreszeugnis HS Jgst. 9]]></anzeigeform>
+    <langform><![CDATA[Jahreszeugnis Hauptschule Jgst. 9]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=J#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Jahreszeugnis HS Jgst. 9]]></anzeigeform>
+    <langform><![CDATA[Jahreszeugnis Hauptschule Jgst. 9]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=J#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Jahreszeugnis HS Jgst. 9]]></anzeigeform>
+    <langform><![CDATA[Jahreszeugnis Hauptschule Jgst. 9]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=J#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Jahreszeugnis HS Jgst. 9]]></anzeigeform>
+    <langform><![CDATA[Jahreszeugnis Hauptschule Jgst. 9]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=J#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Jahreszeugnis HS Jgst. 9]]></anzeigeform>
+    <langform><![CDATA[Jahreszeugnis Hauptschule Jgst. 9]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=J#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Jahreszeugnis HS Jgst. 9]]></anzeigeform>
+    <langform><![CDATA[Jahreszeugnis Hauptschule Jgst. 9]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=J#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[Az]]></kurzform>
+    <anzeigeform><![CDATA[Zulassung z. Aufn.Pr]]></anzeigeform>
+    <langform><![CDATA[Zulassung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[Az]]></kurzform>
+    <anzeigeform><![CDATA[Zulassung z. Aufn.Pr]]></anzeigeform>
+    <langform><![CDATA[Zulassung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[Az]]></kurzform>
+    <anzeigeform><![CDATA[Zulassung z. Aufn.Pr]]></anzeigeform>
+    <langform><![CDATA[Zulassung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[Q]]></kurzform>
+    <anzeigeform><![CDATA[Quali]]></anzeigeform>
+    <langform><![CDATA[Qualifizierender Hauptschulabschluss]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Q#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[Az]]></kurzform>
+    <anzeigeform><![CDATA[Zulassung z. Aufn.Pr]]></anzeigeform>
+    <langform><![CDATA[Zulassung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Elternwille]]></anzeigeform>
+    <langform><![CDATA[Elternwille]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Elternwille]]></anzeigeform>
+    <langform><![CDATA[Elternwille]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Elternwille]]></anzeigeform>
+    <langform><![CDATA[Elternwille]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[Az]]></kurzform>
+    <anzeigeform><![CDATA[Zulassung z. Aufn.Pr]]></anzeigeform>
+    <langform><![CDATA[Zulassung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[Az]]></kurzform>
+    <anzeigeform><![CDATA[Zulassung z. Aufn.Pr]]></anzeigeform>
+    <langform><![CDATA[Zulassung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Realschulzeugnis]]></anzeigeform>
+    <langform><![CDATA[Realschulzeugnis]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[B]]></kurzform>
+    <anzeigeform><![CDATA[Beratungsgespräch]]></anzeigeform>
+    <langform><![CDATA[Beratungsgespräch]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=B#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Probeunterricht]]></anzeigeform>
+    <langform><![CDATA[Probeunterricht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Probeunterricht]]></anzeigeform>
+    <langform><![CDATA[Probeunterricht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Ü]]></kurzform>
+    <anzeigeform><![CDATA[Übertrittszeugnis]]></anzeigeform>
+    <langform><![CDATA[Übertrittszeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ü#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Ü]]></kurzform>
+    <anzeigeform><![CDATA[Übertrittszeugnis]]></anzeigeform>
+    <langform><![CDATA[Übertrittszeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ü#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Ü]]></kurzform>
+    <anzeigeform><![CDATA[Übertrittszeugnis]]></anzeigeform>
+    <langform><![CDATA[Übertrittszeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ü#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Ü]]></kurzform>
+    <anzeigeform><![CDATA[Übertrittszeugnis]]></anzeigeform>
+    <langform><![CDATA[Übertrittszeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ü#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Ü]]></kurzform>
+    <anzeigeform><![CDATA[Übertrittszeugnis]]></anzeigeform>
+    <langform><![CDATA[Übertrittszeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ü#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Ü]]></kurzform>
+    <anzeigeform><![CDATA[Übertrittszeugnis]]></anzeigeform>
+    <langform><![CDATA[Übertrittszeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ü#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[Aa]]></kurzform>
+    <anzeigeform><![CDATA[Ablehnung z. Aufn.Pr.]]></anzeigeform>
+    <langform><![CDATA[Ablehnung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=L#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[Aa]]></kurzform>
+    <anzeigeform><![CDATA[Ablehnung z. Aufn.Pr.]]></anzeigeform>
+    <langform><![CDATA[Ablehnung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=L#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Realschulzeugnis]]></anzeigeform>
+    <langform><![CDATA[Realschulzeugnis]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Realschulzeugnis]]></anzeigeform>
+    <langform><![CDATA[Realschulzeugnis]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Realschulzeugnis]]></anzeigeform>
+    <langform><![CDATA[Realschulzeugnis]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasialzeugnis]]></anzeigeform>
+    <langform><![CDATA[Gymnasialzeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[Q]]></kurzform>
+    <anzeigeform><![CDATA[Quali]]></anzeigeform>
+    <langform><![CDATA[Qualifizierender Hauptschulabschluss]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Q#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[Q]]></kurzform>
+    <anzeigeform><![CDATA[Quali]]></anzeigeform>
+    <langform><![CDATA[Qualifizierender Hauptschulabschluss]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Q#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[Q]]></kurzform>
+    <anzeigeform><![CDATA[Quali]]></anzeigeform>
+    <langform><![CDATA[Qualifizierender Hauptschulabschluss]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Q#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasialzeugnis]]></anzeigeform>
+    <langform><![CDATA[Gymnasialzeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[Q]]></kurzform>
+    <anzeigeform><![CDATA[Quali]]></anzeigeform>
+    <langform><![CDATA[Qualifizierender Hauptschulabschluss]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Q#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasialzeugnis]]></anzeigeform>
+    <langform><![CDATA[Gymnasialzeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[Q]]></kurzform>
+    <anzeigeform><![CDATA[Quali]]></anzeigeform>
+    <langform><![CDATA[Qualifizierender Hauptschulabschluss]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Q#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasialzeugnis]]></anzeigeform>
+    <langform><![CDATA[Gymnasialzeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasialzeugnis]]></anzeigeform>
+    <langform><![CDATA[Gymnasialzeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[Q]]></kurzform>
+    <anzeigeform><![CDATA[Quali]]></anzeigeform>
+    <langform><![CDATA[Qualifizierender Hauptschulabschluss]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Q#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[Q]]></kurzform>
+    <anzeigeform><![CDATA[Quali]]></anzeigeform>
+    <langform><![CDATA[Qualifizierender Hauptschulabschluss]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Q#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[B]]></kurzform>
+    <anzeigeform><![CDATA[Beratungsgespräch]]></anzeigeform>
+    <langform><![CDATA[Beratungsgespräch]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=B#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasialzeugnis]]></anzeigeform>
+    <langform><![CDATA[Gymnasialzeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasialzeugnis]]></anzeigeform>
+    <langform><![CDATA[Gymnasialzeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasialzeugnis]]></anzeigeform>
+    <langform><![CDATA[Gymnasialzeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Realschulzeugnis]]></anzeigeform>
+    <langform><![CDATA[Realschulzeugnis]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Realschulzeugnis]]></anzeigeform>
+    <langform><![CDATA[Realschulzeugnis]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Realschulzeugnis]]></anzeigeform>
+    <langform><![CDATA[Realschulzeugnis]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Probeunterricht]]></anzeigeform>
+    <langform><![CDATA[Probeunterricht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Probeunterricht]]></anzeigeform>
+    <langform><![CDATA[Probeunterricht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Probeunterricht]]></anzeigeform>
+    <langform><![CDATA[Probeunterricht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[Aa]]></kurzform>
+    <anzeigeform><![CDATA[Ablehnung z. Aufn.Pr.]]></anzeigeform>
+    <langform><![CDATA[Ablehnung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=L#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Jahreszeugnis HS Jgst. 9]]></anzeigeform>
+    <langform><![CDATA[Jahreszeugnis Hauptschule Jgst. 9]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=J#]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Ü]]></kurzform>
+    <anzeigeform><![CDATA[Übertrittszeugnis]]></anzeigeform>
+    <langform><![CDATA[Übertrittszeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ü#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Ü]]></kurzform>
+    <anzeigeform><![CDATA[Übertrittszeugnis]]></anzeigeform>
+    <langform><![CDATA[Übertrittszeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ü#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Ü]]></kurzform>
+    <anzeigeform><![CDATA[Übertrittszeugnis]]></anzeigeform>
+    <langform><![CDATA[Übertrittszeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ü#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[Aa]]></kurzform>
+    <anzeigeform><![CDATA[Ablehnung z. Aufn.Pr.]]></anzeigeform>
+    <langform><![CDATA[Ablehnung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=L#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[Aa]]></kurzform>
+    <anzeigeform><![CDATA[Ablehnung z. Aufn.Pr.]]></anzeigeform>
+    <langform><![CDATA[Ablehnung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=L#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Realschulzeugnis]]></anzeigeform>
+    <langform><![CDATA[Realschulzeugnis]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Probeunterricht]]></anzeigeform>
+    <langform><![CDATA[Probeunterricht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Realschulzeugnis]]></anzeigeform>
+    <langform><![CDATA[Realschulzeugnis]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[Aufnahmeprüfung]]></anzeigeform>
+    <langform><![CDATA[Aufnahmeprüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[Aa]]></kurzform>
+    <anzeigeform><![CDATA[Ablehnung z. Aufn.Pr.]]></anzeigeform>
+    <langform><![CDATA[Ablehnung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=L#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[Aa]]></kurzform>
+    <anzeigeform><![CDATA[Ablehnung z. Aufn.Pr.]]></anzeigeform>
+    <langform><![CDATA[Ablehnung zur Aufnahme Prüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=L#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[Aufnahmeprüfung]]></anzeigeform>
+    <langform><![CDATA[Aufnahmeprüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[Aufnahmeprüfung]]></anzeigeform>
+    <langform><![CDATA[Aufnahmeprüfung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Probeunterricht]]></anzeigeform>
+    <langform><![CDATA[Probeunterricht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Probeunterricht]]></anzeigeform>
+    <langform><![CDATA[Probeunterricht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Realschulzeugnis]]></anzeigeform>
+    <langform><![CDATA[Realschulzeugnis]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Probeunterricht]]></anzeigeform>
+    <langform><![CDATA[Probeunterricht]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasialzeugnis]]></anzeigeform>
+    <langform><![CDATA[Gymnasialzeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasialzeugnis]]></anzeigeform>
+    <langform><![CDATA[Gymnasialzeugnis]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[Q]]></kurzform>
+    <anzeigeform><![CDATA[Quali]]></anzeigeform>
+    <langform><![CDATA[Qualifizierender Hauptschulabschluss]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Q#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

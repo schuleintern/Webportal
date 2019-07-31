@@ -1,0 +1,22 @@
+{$this->header}
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-pencil"></i> Vorhandene Listen</h3><br />
+		<a href="index.php?page=elternmaillists&mode=add"><i class="fa fa-plus"></i> Neue Liste anlegen</a>
+	</div>
+	<div class="box-body no-padding">
+<table class="table table-striped">
+	<tr>
+		<th>Listenname</th>
+		<th>Mitglieder</th>
+		<th>Mitglieder bearbeiten</th>
+		<th>Liste löschen</th>
+	</tr>
+	$listHTML
+</table>
+</div></div>
+
+{$this->footer}

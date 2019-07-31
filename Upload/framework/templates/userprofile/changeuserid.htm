@@ -1,0 +1,45 @@
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title"><i class="fa fa-user"></i> Als anderer Benutzer anmelden</h3>              
+            </div>
+           <div class="box-body">
+				An dieser Stelle kann man sich als ein anderer Benutzer anmelden, ohne dessen Passwort zu kennen.<br />
+				
+				<strong>Diese Funktion steht nur Administratoren zur Verfügung!</strong><br />Die Funktion dient dazu neue Funktionen zu Testen oder Einstellungen zu Überprüfen. Achten Sie bitte den Datenschutz!
+				
+				<br />
+				<strong>Um wieder zurück zu kommen, müssen Sie sich beim neuen Benutzer abmelden und sich wieder normal anmelden.</strong>
+				
+				<hr>
+				
+				<div class="callout callout-danger"><b>Achtung:</b> Der Benutzer wird über diese Aktion informiert. Sie sollten sich daher einen Pool von Benutzern zusammenstellen, den Sie benutzen können, indem Sie mit den entsprechenden Personen vorher Kontakt aufnehmen.</div>
+				
+				
+				<form action="$selfURL&changeIt=1" method="post">
+				
+				<div class="form-group">
+					<label>Als folgender Benutzer anmelden:</label>
+					<select name="newUserID" class="form-control" id="newUserID">
+						$select
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label>Nachricht an den Benutzer:</label>
+					<textarea name="message" class="form-control" placeholder="Kurze Begründung, durchgeführte Aktionen."></textarea>
+				</div>
+				
+
+					
+					<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+					
+					
+					<script type="text/javascript">
+					  $('#newUserID').select2();
+					</script>
+					
+					<button type="submit" class="btn btn-primary"><i class="fa fa-refresh"></i> Als dieser Benutzer anmelden</button>
+				
+				</form>
+			</div>
+		</div>

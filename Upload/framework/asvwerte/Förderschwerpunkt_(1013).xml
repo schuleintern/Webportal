@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Förderschwerpunkt" pl_key="1013">
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[geist. Entw. (einsch.Autismus)]]></anzeigeform>
+    <langform><![CDATA[Geistige Entwicklung (einschließlich Autismus)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=GB#KlassenFSP bei VSF, BSF, BFF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[Sp]]></kurzform>
+    <anzeigeform><![CDATA[Sprache]]></anzeigeform>
+    <langform><![CDATA[Sprache]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=Sp#KlassenFSP bei VSF, BSF, BFF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[15]]></schluessel>
+    <kurzform><![CDATA[G/W]]></kurzform>
+    <anzeigeform><![CDATA[geistigbeh. u. weiterer]]></anzeigeform>
+    <langform><![CDATA[Geistige Entwicklung und weiterer Förderschwerpunkt (z. B. Sehen, Hören oder körperliche und motorische Entwicklung)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=15##kuerzel_alt=GBS#KlassenFSP bei VSF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[17]]></schluessel>
+    <kurzform><![CDATA[gh/bl]]></kurzform>
+    <anzeigeform><![CDATA[Taubblinde]]></anzeigeform>
+    <langform><![CDATA[Sehen und Hören (Taubblinde)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=17##kuerzel_alt=TBL#KlassenFSP bei VSF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[SFZ]]></kurzform>
+    <anzeigeform><![CDATA[Fschwpkt. übergr. Kl./Gr. SFZ]]></anzeigeform>
+    <langform><![CDATA[Förderschwerpunkt übergreifende Klasse an Sonderpädagogischem Förderzentrum (SFZ) (nur soweit nicht einem der vorstehenden Förderschwerpunkte zuordenbar)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=11#KlassenFSP bei VSF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[99]]></schluessel>
+    <kurzform><![CDATA[SÜ]]></kurzform>
+    <anzeigeform><![CDATA[so. Fschwpkt. übergr. Kl./Gr.]]></anzeigeform>
+    <langform><![CDATA[sonstige Förderschwerpunkt übergreifende Klasse / Gruppe]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=99#KlassenFSP bei VSF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[DiaFö]]></kurzform>
+    <anzeigeform><![CDATA[Ohne Zuordnung, DiaFö]]></anzeigeform>
+    <langform><![CDATA[ohne Zuordnung, Sonderpädagogische Diagnose- und Förderklassen der Jahrgangsstufen 01, 1A, 02]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=OZ#KlassenFSP bei VSF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Hören]]></anzeigeform>
+    <langform><![CDATA[Hören]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=SH#KlassenFSP bei VSF, RSF, BSF, BFF, FOF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[K]]></kurzform>
+    <anzeigeform><![CDATA[Körp. u. mot. Entw.]]></anzeigeform>
+    <langform><![CDATA[Körperliche und motorische Entwicklung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=KB#KlassenFSP bei VSF, RSF, BSF, BFF, WSF, FOF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[L]]></kurzform>
+    <anzeigeform><![CDATA[Lernen]]></anzeigeform>
+    <langform><![CDATA[Lernen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=LB#KlassenFSP bei VSF, BSF, BFF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Emot. u. soz. Entw.]]></anzeigeform>
+    <langform><![CDATA[Emotionale und soziale Entwicklung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=EH#KlassenFSP bei VSF, BSF, BFF, GYF, RSF]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[E/Sp]]></kurzform>
+    <anzeigeform><![CDATA[Entw. verz./Sprach.]]></anzeigeform>
+    <langform><![CDATA[Entwicklungsverzögerung und Sprachauffälligkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ES#KlassenFSP bei /]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[18]]></schluessel>
+    <kurzform><![CDATA[-]]></kurzform>
+    <anzeigeform><![CDATA[kein Förderbedarf]]></anzeigeform>
+    <langform><![CDATA[kein sonderpädagogischer Förderbedarf]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=18##kuerzel_alt=-#KlassenFSP bei /]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[Kr]]></kurzform>
+    <anzeigeform><![CDATA[Ohne Zuordnung,Unterr.f.Kranke]]></anzeigeform>
+    <langform><![CDATA[ohne Zuordnung, Unterricht für Kranke]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=Kr#KlassenFSP bei VSF, KRS]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Sehen]]></anzeigeform>
+    <langform><![CDATA[Sehen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=SB#KlassenFSP bei VSF, RSF, BSF, BFF]]></bemerkung>
+  </eintrag>
+</werteliste>

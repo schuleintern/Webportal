@@ -1,0 +1,49 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-mobile"></i> SMS Versand</h3>
+	</div>
+	<div class="box-body">
+		<if($smsStatus)>
+			<then>
+				
+				<div class="callout callout-success"><i class="fa fa-check"></i> SMS Funktion ist aktiviert
+				
+				<form action="$selfURL&action=deactiveSMS" method="post">
+					<button type="submit" value="1" class="form-control"><i class="fa fa-check"></i> SMS Funktion deaktivieren</button>
+				</form>
+				</div>				
+						
+			</then>
+			<else>
+				<div class="callout callout-danger"><i class="fa fa-ban"></i> SMS Funktion nicht aktiviert
+				
+				<br />
+				<form action="$selfURL&action=activeSMS" method="post">
+					<input type="checkbox" name="ok" value="1" required="required"> Ich möchte die SMS Funktion aktivieren. Mir ist bewusst, dass dadurch weitere Kosten entstehen.
+					<button type="submit" value="1" class="form-control"><i class="fa fa-check"></i> SMS Funktion aktivieren</button>
+				</form>
+				</div>
+			</else>
+		</if>
+		
+		Hinweise:
+		<ul>
+			<li>Wird die SMS Funktion aktiviert, können Benutzer ihre SMS im Benutzerprofil hinterlegen.</li>
+			<li>Welche Benutzergruppen ihre Handynummer hinterlegen können, können Sie in den Einstellungen festlegen. (Schüler, Eltern oder Lehrer)</li>
+			<li>Die Nummer kann z.B. für schnelle Nachrichten (z.B. Unterrichtsausfall wegen Wasserschaden) verwendet werden.</li>
+			<li>Die Handynummern sind für andere Personen nicht sichtbar.</li>
+			<li>Weiterer Nutzen der SMS sind in Zukunft: Zwei-Faktor-Authentifizierung</li>
+			<li>Benachrichtigungen über neue Vertretungen etc. können nicht per SMS erfolgen. (zu teuer)</li>		
+		</ul>
+		
+		Kosten:
+		<ul>
+			<li>Der SMS Versand ist nicht im Portalpreis enthalten. Die Abrechnung erfolgt nutzungsabhängig.</li>
+			<li>Eine einzelne SMS kostet &euro; 0,085 pro Stück (zzgl. Mehrwertsteuer)</li>
+			<li>Das hinterlegen einer SMS benötigt eine SMS Nachricht zur Verifizierung pro Benutzer.</li>
+			<li>Es muss ein Guthaben im Voraus gebucht werden.</li>
+			<li>Sie können hier einfach Guthaben aufladen, wie Sie möchten. Sie erhalten dann in den nächsten 1-2 Wochen eine Rechnung über den Betrag.</li>
+		</ul>
+	</div>
+
+</div>

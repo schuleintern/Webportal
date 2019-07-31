@@ -1,0 +1,21 @@
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">
+              <i class="fa fa-envelope$readUnread"></i> 
+              <a id="message{$message['messageID']}" name ="message{$message['messageID']}" href="index.php?page=infomessages&readMessage={$message['messageID']}#message{$message['messageID']}">$preReadUnread{$message['messageSubject']}$postReadUnread</a></h3>
+            	<br /><small>$infoText</small>
+            </div>
+           <!--  <div class="box-body no-padding">
+				<table class="table table-condensed">
+					<tr>
+						<td width="10%"><b>Empfangen:</b></td>
+						<td>{$message['messageTime']}</td>
+					</tr>
+					<tr>
+						<td><b>Absender:</b></td>
+						<td>{$message['messageSenderUserID']}</td>
+					</tr>
+				</table>
+			</div> -->
+		</div>
+		<br />

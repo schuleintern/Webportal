@@ -1,0 +1,44 @@
+<form action="{$selfURL}&action=editUserSync&syncID={$userSync['syncID']}&doSave=1" method="post">
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-refresh"></i> Synchronisation bearbeiten</h3>
+	</div>
+	<div class="box-body">
+		<table class="table table-striped">
+			<tr>
+				<td width="20%">SyncName</td>
+				<td><input type="hidden" name="syncName" class="form-control" value="{$userSync['syncName']}">{$userSync['syncName']}<br /><small>Nicht änderbar!</small></td>
+			</tr>
+			<tr>
+				<td>Login Domäne<br ><small>Die Login Domäne muss von einem Benutzer nach dem Benutzernamen mit @DOMAIN angegeben werden.</small></td>
+				<td><input type="text" name="syncLoginDomain" class="form-control" value="{$userSync['syncLoginDomain']}"><small>Bitte ohne das '@' angeben!</small></td>
+			</tr>
+			<tr>
+				<td>Sync Passwort</td>
+				<td><input type="text" name="syncSecret" class="form-control" value="{$userSync['syncSecret']}"></td>
+			</tr>
+			<tr>
+				<td>URL zum SyncServer</td>
+				<td><input type="text" name="syncURL" class="form-control" value="{$userSync['syncURL']}"></td>
+			</tr>
+			<tr>
+				<td>Verzeichnistyp</td>
+				<td><select name="syncDirType" class="form-control">
+					<option value="ACTIVEDIRECTORY"<if($userSync['syncDirType'] == 'ACTIVEDIRECTORY')><then>selected="seletcted"</then></if>>Microsoft Active Directory</option>
+					<option value="EDIRECTORY"<if($userSync['syncDirType'] == 'EDIRECTORY')><then>selected="seletcted"</then></if>>Novell eDirectory</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Sync aktiv</td>
+				<td><select name="syncIsActive" class="form-control">
+					<option value="1"<if($userSync['syncIsActive'] == 1)><then>selected="seletcted"</then></if>>Ja</option>
+					<option value="0"<if($userSync['syncIsActive'] == 0)><then>selected="seletcted"</then></if>>Nein</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="Sync bearbeiten" class="form-control">
+	</div>
+</div>
+</form>

@@ -1,0 +1,951 @@
+<if($_REQUEST['saved'] > 0)><then>
+	<div class="callout callout-success"><i class="fa fa-check"></i> Einstellungen gespeichert!</div>
+</then></if>
+
+<div class="row">
+	<div class="col-md-9">
+	
+	Hinweis:<br />
+	Unabhängig von diesen Versandberechtigungen ist ein Antworten auf eine Nachricht immer möglich. (Außer der Sender hat dies verhindert.)
+
+<form action="$selfURL&action=SavePermissions" method="post">
+<div class="tabbable">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#lehrer" data-toggle="tab"><i class="fa fa-bed"></i> Lehrerberechtigungen</a></li>
+		<li><a href="#schueler" data-toggle="tab"><i class="fa fa-child"></i> Schüler</a></li>
+		<li><a href="#eltern" data-toggle="tab"><i class="fa fa-users"></i> Eltern</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="lehrer">
+			<table class="table table-striped table-bordered">
+				<tr>
+					<th colspan="2">Kontakt zu Lehrern</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Einzelne Lehrer</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_single_teachers" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_single_teachers']} id="teacher_single_teachers">
+					    <label class="onoffswitch-label" for="teacher_single_teachers">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Alle Lehrer auf einmal</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_all_teachers" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_all_teachers']} id="teacher_all_teachers">
+					    <label class="onoffswitch-label" for="teacher_all_teachers">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Fachschaften</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_fachschaften" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_fachschaften']} id="teacher_fachschaften">
+					    <label class="onoffswitch-label" for="teacher_fachschaften">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Klassenteams</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_klassenteams" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_klassenteams']} id="teacher_klassenteams">
+					    <label class="onoffswitch-label" for="teacher_klassenteams">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Klassenleitungen</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_klassenleitung" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_klassenleitung']} id="teacher_klassenleitung">
+					    <label class="onoffswitch-label" for="teacher_klassenleitung">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Lehrer einer ganzen Jahrgangsstufe</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_jahrsgangsstufen" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_jahrsgangsstufen']} id="teacher_jahrsgangsstufen">
+					    <label class="onoffswitch-label" for="teacher_jahrsgangsstufen">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">Kontakt zu Unterricht<br /><small>Kontakt zu Schülern des Unterrichts und Eltern der Schüler des Unterrichts</small></th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Alle Unterrichte der Schule</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_allow_unterricht_all" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_allow_unterricht_all']} id="teacher_allow_unterricht_all">
+					    <label class="onoffswitch-label" for="teacher_allow_unterricht_all">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Eigene Unterrichte</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_allow_unterricht_own" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_allow_unterricht_own']} id="teacher_allow_unterricht_own">
+					    <label class="onoffswitch-label" for="teacher_allow_unterricht_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">Kontakt zu Schülern</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Einzelne Schüler</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_single_pupils" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_single_pupils']} id="teacher_single_pupils">
+					    <label class="onoffswitch-label" for="teacher_single_pupils">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Ganze Klassen</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_whole_grades" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_whole_grades']} id="teacher_whole_grades">
+					    <label class="onoffswitch-label" for="teacher_whole_grades">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Klassen beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_whole_grades_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_whole_grades_only_own']} id="teacher_whole_grades_only_own">
+					    <label class="onoffswitch-label" for="teacher_whole_grades_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">Kontakt zu Eltern</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Einzelne Eltern</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_single_parents" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_single_parents']} id="teacher_single_parents">
+					    <label class="onoffswitch-label" for="teacher_single_parents">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Eltern ganzer Klassen</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_whole_grades_parents" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_whole_grades_parents']} id="teacher_whole_grades_parents">
+					    <label class="onoffswitch-label" for="teacher_whole_grades_parents">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Klassen beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_whole_grades_parents_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_whole_grades_parents_only_own']} id="teacher_whole_grades_parents_only_own">
+					    <label class="onoffswitch-label" for="teacher_whole_grades_parents_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+					</td>
+				</tr>
+			</table>
+						
+			<table class="table table-striped table-bordered">
+				<tr>
+					<th colspan="2">Verwaltung / Schulleitung / Hausmeister / Personalrat</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Schulleitung</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_allow_schulleitung" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_allow_schulleitung']} id="teacher_allow_schulleitung">
+					    <label class="onoffswitch-label" for="teacher_allow_schulleitung">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 20%">Personalrat</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_allow_personalrat" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_allow_personalrat']} id="teacher_allow_personalrat">
+					    <label class="onoffswitch-label" for="teacher_allow_personalrat">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 20%">Verwaltung</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_allow_verwaltung" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_allow_verwaltung']} id="teacher_allow_verwaltung">
+					    <label class="onoffswitch-label" for="teacher_allow_verwaltung">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 20%">Hausmeister</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_allow_hausmeister" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_allow_hausmeister']} id="teacher_allow_hausmeister">
+					    <label class="onoffswitch-label" for="teacher_allow_hausmeister">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+			</table>
+			
+			<table class="table table-striped table-bordered">
+				<tr>
+					<th colspan="2">Sonstige Berechtigungen</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Lehrer dürfen Lesebestätigungen anfordern</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_allow_reading_check" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_allow_reading_check']} id="teacher_allow_reading_check">
+					    <label class="onoffswitch-label" for="teacher_allow_reading_check">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Lehrer dürfen Daten abfragen</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_allow_data_question" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_allow_data_question']} id="teacher_allow_data_question">
+					    <label class="onoffswitch-label" for="teacher_allow_data_question">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">"Alle Antworten" erlauben?<br><small>Achtung: Sollte nur bei Personal aktiviert werden, da Einzelempfänger bei Gruppen sichtbar werden. -> Datenschutz!)</small></td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="teacher_reply_all" value="1" class="onoffswitch-checkbox" {$currentSettings['teacher_reply_all']} id="teacher_reply_all">
+					    <label class="onoffswitch-label" for="teacher_reply_all">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="tab-pane" id="schueler">
+			<table class="table table-striped table-bordered">
+				<tr>
+					<th colspan="2">Kontakt zu Lehrern</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Einzelne Lehrer</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_single_teachers" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_single_teachers']} id="pupils_single_teachers">
+					    <label class="onoffswitch-label" for="pupils_single_teachers">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Lehrer beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_single_teachers_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_single_teachers_only_own']} id="pupils_single_teachers_only_own">
+					    <label class="onoffswitch-label" for="pupils_single_teachers_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Alle Lehrer auf einmal</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_all_teachers" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_all_teachers']} id="pupils_all_teachers">
+					    <label class="onoffswitch-label" for="pupils_all_teachers">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Fachschaften</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_fachschaften" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_fachschaften']} id="pupils_fachschaften">
+					    <label class="onoffswitch-label" for="pupils_fachschaften">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Klassenteams</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_klassenteams" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_klassenteams']} id="pupils_klassenteams">
+					    <label class="onoffswitch-label" for="pupils_klassenteams">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Klassenleitung</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_klassenleitung" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_klassenleitung']} id="pupils_klassenleitung">
+					    <label class="onoffswitch-label" for="pupils_klassenleitung">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Lehrer beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_klassenleitung_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_klassenleitung_only_own']} id="pupils_klassenleitung_only_own">
+					    <label class="onoffswitch-label" for="pupils_klassenleitung_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Lehrer einer ganzen Jahrgangsstufe</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_jahrsgangsstufen" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_jahrsgangsstufen']} id="pupils_jahrsgangsstufen">
+					    <label class="onoffswitch-label" for="pupils_jahrsgangsstufen">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+								<tr>
+					<th colspan="2">Kontakt zu Unterricht<br /><small>Kontakt zu Schülern des Unterrichts und Eltern der Schüler des Unterrichts</small></th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Alle Unterrichte der Schule</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_allow_unterricht_all" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_allow_unterricht_all']} id="pupils_allow_unterricht_all">
+					    <label class="onoffswitch-label" for="pupils_allow_unterricht_all">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Eigene Unterrichte</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_allow_unterricht_own" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_allow_unterricht_own']} id="pupils_allow_unterricht_own">
+					    <label class="onoffswitch-label" for="pupils_allow_unterricht_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">Kontakt zu Schülern</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Einzelne Schüler</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_single_pupils" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_single_pupils']} id="pupils_single_pupils">
+					    <label class="onoffswitch-label" for="pupils_single_pupils">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Klasse beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_single_pupils_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_single_pupils_only_own']} id="pupils_single_pupils_only_own">
+					    <label class="onoffswitch-label" for="pupils_single_pupils_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Ganze Klassen</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_whole_grades" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_whole_grades']} id="pupils_whole_grades">
+					    <label class="onoffswitch-label" for="pupils_whole_grades">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Klasse beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_whole_grades_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_whole_grades_only_own']} id="pupils_whole_grades_only_own">
+					    <label class="onoffswitch-label" for="pupils_whole_grades_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">Kontakt zu Eltern</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Einzelne Eltern</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_single_parents" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_single_parents']} id="pupils_single_parents">
+					    <label class="onoffswitch-label" for="pupils_single_parents">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						
+						Auf eigene Klassen beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_single_parents_only_own_grades" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_single_parents_only_own_grades']} id="pupils_single_parents_only_own_grades">
+					    <label class="onoffswitch-label" for="pupils_single_parents_only_own_grades">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Eltern ganzer Klassen</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_whole_grades_parents" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_whole_grades_parents']} id="pupils_whole_grades_parents">
+					    <label class="onoffswitch-label" for="pupils_whole_grades_parents">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Klassen beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_whole_grades_parents_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_whole_grades_parents_only_own']} id="pupils_whole_grades_parents_only_own">
+					    <label class="onoffswitch-label" for="pupils_whole_grades_parents_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+					</td>
+				</tr>
+			</table>
+			
+						<table class="table table-striped table-bordered">
+				<tr>
+					<th colspan="2">Verwaltung / Schulleitung / Hausmeister / Personalrat</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Schulleitung</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_allow_schulleitung" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_allow_schulleitung']} id="pupils_allow_schulleitung">
+					    <label class="onoffswitch-label" for="pupils_allow_schulleitung">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 20%">Personalrat</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_allow_personalrat" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_allow_personalrat']} id="pupils_allow_personalrat">
+					    <label class="onoffswitch-label" for="pupils_allow_personalrat">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 20%">Verwaltung</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_allow_verwaltung" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_allow_verwaltung']} id="pupils_allow_verwaltung">
+					    <label class="onoffswitch-label" for="pupils_allow_verwaltung">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 20%">Hausmeister</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_allow_hausmeister" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_allow_hausmeister']} id="pupils_allow_hausmeister">
+					    <label class="onoffswitch-label" for="pupils_allow_hausmeister">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+			</table>
+		
+			<table class="table table-striped table-bordered">
+				<tr>
+					<th colspan="2">Sonstige Berechtigungen</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Schüler dürfen Lesebestätigungen anfordern</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_allow_reading_check" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_allow_reading_check']} id="pupils_allow_reading_check">
+					    <label class="onoffswitch-label" for="pupils_allow_reading_check">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Schüler dürfen Daten abfragen</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_allow_data_question" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_allow_data_question']} id="pupils_allow_data_question">
+					    <label class="onoffswitch-label" for="pupils_allow_data_question">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+								<tr>
+					<td style="width: 20%">"Alle Antworten" erlauben?<br><small>Achtung: Sollte nur bei Personal aktiviert werden, da Einzelempfänger bei Gruppen sichtbar werden. -> Datenschutz!)</small></td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="pupils_reply_all" value="1" class="onoffswitch-checkbox" {$currentSettings['pupils_reply_all']} id="pupils_reply_all">
+					    <label class="onoffswitch-label" for="pupils_reply_all">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="tab-pane" id="eltern">
+		<table class="table table-striped table-bordered">
+				<tr>
+					<th colspan="2">Kontakt zu Lehrern</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Einzelne Lehrer</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_single_teachers" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_single_teachers']} id="parents_single_teachers">
+					    <label class="onoffswitch-label" for="parents_single_teachers">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Lehrer beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_single_teachers_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_single_teachers_only_own']} id="parents_single_teachers_only_own">
+					    <label class="onoffswitch-label" for="parents_single_teachers_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Alle Lehrer auf einmal</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_all_teachers" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_all_teachers']} id="parents_all_teachers">
+					    <label class="onoffswitch-label" for="parents_all_teachers">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Fachschaften</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_fachschaften" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_fachschaften']} id="parents_fachschaften">
+					    <label class="onoffswitch-label" for="parents_fachschaften">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Klassenteams</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_klassenteams" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_klassenteams']} id="parents_klassenteams">
+					    <label class="onoffswitch-label" for="parents_klassenteams">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+
+						</div>
+						
+						Auf eigene Klasse beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_klassenteams_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_klassenteams_only_own']} id="parents_klassenteams_only_own">
+					    <label class="onoffswitch-label" for="parents_klassenteams_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					    </div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Lehrer einer ganzen Jahrgangsstufe</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_jahrsgangsstufen" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_jahrsgangsstufen']} id="parents_jahrsgangsstufen">
+					    <label class="onoffswitch-label" for="parents_jahrsgangsstufen">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Klassenleitung</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_klassenleitung" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_klassenleitung']} id="parents_klassenleitung">
+					    <label class="onoffswitch-label" for="parents_klassenleitung">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Lehrer beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_klassenleitung_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_klassenleitung_only_own']} id="parents_klassenleitung_only_own">
+					    <label class="onoffswitch-label" for="parents_klassenleitung_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>					</td>
+				</tr>
+												<tr>
+					<th colspan="2">Kontakt zu Unterricht<br /><small>Kontakt zu Schülern des Unterrichts und Eltern der Schüler des Unterrichts</small></th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Alle Unterrichte der Schule</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_allow_unterricht_all" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_allow_unterricht_all']} id="parents_allow_unterricht_all">
+					    <label class="onoffswitch-label" for="parents_allow_unterricht_all">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Eigene Unterrichte</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_allow_unterricht_own" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_allow_unterricht_own']} id="parents_allow_unterricht_own">
+					    <label class="onoffswitch-label" for="parents_allow_unterricht_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<th colspan="2">Kontakt zu Schülern</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Einzelne Schüler</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_single_pupils" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_single_pupils']} id="parents_single_pupils">
+					    <label class="onoffswitch-label" for="parents_single_pupils">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Klasse beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_single_parents_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_single_parents_only_own']} id="parents_single_parents_only_own">
+					    <label class="onoffswitch-label" for="parents_single_parents_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					    </div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Ganze Klassen</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_whole_grades" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_whole_grades']} id="parents_whole_grades">
+					    <label class="onoffswitch-label" for="parents_whole_grades">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Klasse beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_whole_grades_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_whole_grades_only_own']} id="parents_whole_grades_only_own">
+					    <label class="onoffswitch-label" for="parents_whole_grades_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">Kontakt zu Eltern</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Einzelne Eltern</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_single_parents" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_single_parents']} id="parents_single_parents">
+					    <label class="onoffswitch-label" for="parents_single_parents"">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						
+						Auf eigene Klassen beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_single_parents_only_own_grades" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_single_parents_only_own_grades']} id="parents_single_parents_only_own_grades">
+					    <label class="onoffswitch-label" for="parents_single_parents_only_own_grades">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Eltern ganzer Klassen</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_whole_grades_parents" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_whole_grades_parents']} id="parents_whole_grades_parents">
+					    <label class="onoffswitch-label" for="parents_whole_grades_parents">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+						Auf eigene Klassen beschränken:
+						<br />
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_whole_grades_parents_only_own" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_whole_grades_parents_only_own']} id="parents_whole_grades_parents_only_own">
+					    <label class="onoffswitch-label" for="parents_whole_grades_parents_only_own">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+						</div>
+					</td>
+				</tr>
+			</table>
+			
+									<table class="table table-striped table-bordered">
+				<tr>
+					<th colspan="2">Verwaltung / Schulleitung / Hausmeister / Personalrat</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Schulleitung</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_allow_schulleitung" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_allow_schulleitung']} id="parents_allow_schulleitung">
+					    <label class="onoffswitch-label" for="parents_allow_schulleitung">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 20%">Personalrat</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_allow_personalrat" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_allow_personalrat']} id="parents_allow_personalrat">
+					    <label class="onoffswitch-label" for="parents_allow_personalrat">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 20%">Verwaltung</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_allow_verwaltung" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_allow_verwaltung']} id="parents_allow_verwaltung">
+					    <label class="onoffswitch-label" for="parents_allow_verwaltung">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 20%">Hausmeister</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_allow_hausmeister" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_allow_hausmeister']} id="parents_allow_hausmeister">
+					    <label class="onoffswitch-label" for="parents_allow_hausmeister">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				
+			</table>
+		
+			
+			<br />
+			<table class="table table-striped table-bordered">
+				<tr>
+					<th colspan="2">Sonstige Berechtigungen</th>
+				</tr>
+				<tr>
+					<td style="width: 20%">Eltern dürfen Lesebestätigungen anfordern</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_allow_reading_check" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_allow_reading_check']} id="parents_allow_reading_check">
+					    <label class="onoffswitch-label" for="parents_allow_reading_check">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 20%">Eltern dürfen Daten abfragen</td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_allow_data_question" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_allow_data_question']} id="parents_allow_data_question">
+					    <label class="onoffswitch-label" for="parents_allow_data_question">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+												<tr>
+					<td style="width: 20%">"Alle Antworten" erlauben?<br><small>Achtung: Sollte nur bei Personal aktiviert werden, da Einzelempfänger bei Gruppen sichtbar werden. -> Datenschutz!)</small></td>
+					<td>
+						<div class="onoffswitch">
+					    <input type="checkbox" name="parents_reply_all" value="1" class="onoffswitch-checkbox" {$currentSettings['parents_reply_all']} id="parents_reply_all">
+					    <label class="onoffswitch-label" for="parents_reply_all">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="tab-pane" id="andere">
+		</div>
+	</div>
+</div>
+
+<br />
+<button type="submit" class="form-control"><i class="fa fa-save"></i> Berechtigungen speichern</button></form>
+
+	</div>
+	<div class="col-md-3">
+		$currentUserBlock	
+	</div>
+
+</div>

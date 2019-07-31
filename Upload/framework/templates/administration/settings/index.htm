@@ -1,0 +1,28 @@
+{$this->header}
+<script src="cssjs/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
+<form action="index.php?page=administrationsettings&mode=save"
+	method="post">
+
+	<div class="box">
+
+		<div class="box-body">
+
+
+			<div class="tabbable">
+				<ul class="nav nav-tabs">
+					{$sectionsSelections}
+				</ul>
+				<div class="tab-content">{$sections}</div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<button type="submit" class="form-control"><i class="fa fa-save"></i> Einstellungen speichern</button>
+
+</form>
+
+{$this->footer}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Störung/Schwäche" pl_key="2154">
+  <eintrag>
+    <schluessel><![CDATA[2]]></schluessel>
+    <kurzform><![CDATA[LRS]]></kurzform>
+    <anzeigeform><![CDATA[LRS]]></anzeigeform>
+    <langform><![CDATA[Lese- und Rechtschreibschwäche]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[1]]></schluessel>
+    <kurzform><![CDATA[LRSt]]></kurzform>
+    <anzeigeform><![CDATA[Legasthenie]]></anzeigeform>
+    <langform><![CDATA[Lese- und Rechtschreibstörung (Legasthenie)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+</werteliste>

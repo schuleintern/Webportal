@@ -1,0 +1,55 @@
+{$this->header}
+
+<form action="?page=editPersons&action=edit" method="post">
+<table border="1" width="100%">
+<tr>
+	<td><b>Foto</b></td>
+	<td><b>Nachname</b></td>
+	<td><b>Vorname</b></td>
+	<td><b>Kürzel</b></td>
+	<td><b>Fächer</b></td>
+	<td><b>Funktion</b></td>
+	<td style="width:10%"><b>Ist Aktiv?</b><br><small>Nicht aktive Lehrer werden nicht gedruckt</small></td>
+		<td style="width:10%"><b>Bereich</b></td>
+	
+	<td style="width:10%"><b>Löschen?</b><br /><small>Datensatz zum Löschen markieren</small></td>
+</tr>
+
+{$personsList}
+
+</table>
+<br /><input type="submit" value="Änderungen speichern / Datensätze löschen" class="form-control"></form>
+
+<br /><br />
+<form action="?page=editPersons&action=new" method="post">
+<b>Eine neue Person anlegen</b>
+<br />
+<table border="1" style="width:100%">
+	<tr>
+		<td><b>Nachname</b></td>
+		<td><input type="text" name="new_nachname" value="" size="15" class="form-control" ></td>
+	</tr>
+	<tr>
+		<td><b>Vorname</b></td>
+		<td><input type="text" name="new_vorname" value="" size="15" class="form-control"></td>
+	</tr>
+	<tr>
+		<td><b>Kürzel</b></td>
+		<td><input type="text" name="new_kuerzel" value="" size="15" class="form-control"></td>
+	</tr>
+	<tr>
+		<td><b>Fächer</b></td>
+		<td><input type="text" name="new_faecher" value="" size="15" class="form-control"></td>
+	</tr>
+	<tr>
+		<td><b>Funktion</b></td>
+		<td><input type="text" name="new_funktion" value="" size="15" class="form-control"></td>
+	</tr>
+	<tr>
+		<td><b>Bereich</b></td>
+		<td>$select</td>
+	</tr>
+</table><br /><input type="submit" value="Neue Person anlegen" class="form-control"></form>
+	
+
+{$this->footer}

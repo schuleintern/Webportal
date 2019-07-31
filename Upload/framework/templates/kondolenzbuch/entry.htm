@@ -1,0 +1,28 @@
+<div style="background-color: black; padding-top: 10px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px;border-radius: 20px;">
+
+<font color="#FFFFFF" face="Ranga" size="+2">
+
+<div style="letter-spacing: 2px;">
+
+
+<img src="cssjs/images/kerzen.jpg" height="50"  />
+
+<b>{$e['eintragName']}</b>
+<br /><small>am $datum</small>
+
+<if($this->canDelete)><then>
+
+	<button class="btn btn-danger btn-xs" type="button" onclick="confirmAction('Eintrag wirklich löschen?','index.php?page=kondolenzbuch&action=delete&eintragID={$e['eintragID']}')"><i class="fa fa-trash"></i></button>
+
+</then></if>
+
+<hr noshade>
+{$e['eintragText']}
+
+
+</div>
+
+</font>
+
+</div>
+<p>&nbsp;</p>

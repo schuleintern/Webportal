@@ -1,0 +1,32 @@
+<tr>
+	<td>{$art}</td>
+	<td>{$zettel['laufzettelTitel']}</td>
+	<td>$lehrer</td>
+	<td>$datum</td>
+	<td>{$zettel['laufzettelNachricht']}</td>
+	<td>
+		Bisher $perCentDone % Zustimmung        
+        <div class="progress">
+          	<div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="{$perCentDone}" aria-valuemin="0" aria-valuemax="100" style="width: {$perCentDone}%"></div>
+        </div>
+        
+		<table class="table table-striped">
+		
+			<tr>
+				<th>Stunde</th>
+				<th>Lehrer</th>
+				<th>Klasse</th>
+				<th>Fach</th>
+				<th>Zustimmung</th>
+			</tr>
+			
+			$stundenHTML
+		
+		</table>
+	</td>
+	<td>
+		{$optionenUnterrichtsgang}
+		
+				<form><button type="button" class="btn btn-danger btn-xs" onclick="javascript: confirmAction('Soll der Laufzettel wirklich gelöscht werden?','index.php?page=laufzettel&mode=deleteLaufzettel&laufzettelID={$zettel['laufzettelID']}');"><i class="fa fa-ban"></i> Laufzettel löschen</button></form><br />
+		
+</tr>

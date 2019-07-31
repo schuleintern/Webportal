@@ -1,0 +1,20 @@
+{$this->header}
+
+<form action="index.php?page=absenzensekretariat&mode=klassenanwesenheit&action=save" method="post">
+
+
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-wrench"></i> fpA Zeiten (Praktikum)</h3>
+			</div>
+			<div class="box-body">
+			An dieser Stelle werden Tage angegeben, bei denen die Klasse <b>nicht anwesend</b> ist. (Außerhalb der Ferien.) (z.B. Durch Praktikum)
+			<br />
+			Geben Sie jeden Tag in eine eigene Zeile ein. Verwenden Sie das deutsche Datumsformat mit führenden Nullen. (z.B. 05.12.2017)<br />
+			$htmlKlassen
+			<button type="submit" class="form-control"><i class="fa fa-save"></i> Speichern</button>
+			</div>
+		</div>
+
+		
+		{$this->footer}

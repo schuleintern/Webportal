@@ -1,0 +1,158 @@
+<expression>self::$showMessage</expression>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-users"></i> Benutzerverwaltung</h3>
+		<button type="button" class="btn btn-primary pull-right" onclick="confirmAction('Gehen Sie mit der erzeugten Exportdatei sorgsam um. Sie enthält alle Benutzer und deren gehashte Passwörter.','$selfURL&action=exportUsers')"><i class="fa fa-download"></i> Benutzer exportieren</button>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<div class="tabbable">
+	        <ul class="nav nav-tabs">
+	        	{$tabs}
+	        </ul>
+	        <div class="tab-content">
+	        	<p><b>Hinweise (Wichtig!):</b>
+	        	
+	        	<ul>
+	        	
+	        	<li>Die Mailadressen können nur bei Benutzern aktualisiert werden, die nicht mit einem lokalen Verzeichnis (AD, Novell) synchronisiert werden. Für diese Nutzer muss die E-Mailadresse im Verzeichnis eingetragen werden.</li>
+	        	<li>Hier können Sie einzelne Benutzer zu Administratoren machen. Beachten Sie: Ein Administrator hat Zugriff auf alle Moduleinstellungen und alle Funktionen (z.B. auch Schulleitungsfunktionen)</li>
+	        	<li>Möchten Sie alle Administratoren sehen, geben Sie "Entfernen" in die Suche ein.</li>
+	        	<li>Fügen Sie zu diesem Modul einen anderen Benutzer als Administrator hinzu kann dieser jeden anderen Benutzer (und sich selbst) zum globalen Admin machen. Daher sollten Sie diese Aufgabe nicht deligieren.</li>
+	        	<li>Benutzerberechtigungen für einzelne Module (z.B. Zugriff auf die Absenzenverwaltung) werden in der Moduladministration vergeben.</li>
+	        	<li>Funktionen (Schulleitung, Fachbetreuer, etc...) werden im Administrationsmodul "Schulinformationen / Personal" vergeben.</li>
+	        	<li>Initialpasswörter werden im Bereich "Benutzerverwaltung / Initialpasswörter" vergeben.</li>
+	        
+	        	</ul></p>
+	        	
+	        	</div>
+	        	
+	        	<if($network == "SCHULEINTERN" && DB::checkDemoAccess())>
+	        		<then>
+	        		
+	        			
+			        	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addUser"><i class="fa fa-user-plus"></i> Benutzer hinzufügen</a></button>
+			        	
+			        	<div class="modal fade" id="addUser" tabindex="-1" role="dialog">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-pencil"></i> Benutzer hinzufügen</h4>
+						      </div>
+						      <div class="modal-body">
+			        	
+			        	
+			        	<form action="{$selfURL}&network={$network}&action=addUser" method="post">
+			        	
+			        	<table class="table table-bordered">
+			        		<tr>
+			        			<td style="width:20%">Benutzername:</td>
+			        			<td><input type="text" name="userName" class="form-control" placeholder="Benutzername"></td>
+			        		</tr>
+			        		<tr>
+			        			<td>Vorname:</td>
+			        			<td><input type="text" name="firstName" class="form-control" placeholder="Vorname"></td>
+			        		</tr>
+			        		<tr>
+			        			<td>Nachname:</td>
+			        			<td><input type="text" name="lastName" class="form-control" placeholder="Nachname"></td>
+			        		</tr>
+			        		<tr>
+			        			<td>Passwort:</td>
+			        			<td><input type="text" name="password" class="form-control" placeholder="Passwort"></td>
+			        		</tr>
+			        	</table>
+			        	
+			        	
+			        	<button type="submit" class="form-control"><i class="fa fa-user-plus"></i> Benutzer anlegen</button>
+			        	
+			        	</form>
+			        	
+			        	</div></div></div></div>
+			        	
+			        </then>
+			    </if>
+	        	
+	        	
+	        	<br />
+				<table id="users" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Benutzername</th>
+							<th>Rufname</th>
+							<th>Name</th>
+							<th>Ursprung</th>
+							<th>Fehlgeschlagene Logins</th>
+							<th>E-Mail</th>
+							<th>Aktionen</th>
+							<th>Passwort ändern</th>
+						</tr>
+					</thead>
+					<tbody>
+						{$userHTML}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+<script src="cssjs/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="cssjs/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+  $(function () {
+    $('#users').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "pageLength": 20,
+      "language": {
+    		"sEmptyTable":   	"Keine Daten in der Tabelle vorhanden",
+    		"sInfo":         	"_START_ bis _END_ von _TOTAL_ Einträgen",
+    		"sInfoEmpty":    	"0 bis 0 von 0 Einträgen",
+    		"sInfoFiltered": 	"(gefiltert von _MAX_ Einträgen)",
+    		"sInfoPostFix":  	"",
+    		"sInfoThousands":  	".",
+    		"sLengthMenu":   	"_MENU_ Einträge anzeigen",
+    		"sLoadingRecords": 	"Wird geladen...",
+    		"sProcessing":   	"Bitte warten...",
+    		"sSearch":       	"Einträge suchen",
+    		"sZeroRecords":  	"Keine Einträge vorhanden.",
+    		"oPaginate": {
+    			"sFirst":    	"Erste",
+    			"sPrevious": 	"Zurück",
+    			"sNext":     	"Nächste",
+    			"sLast":     	"Letzte"
+    		},
+    		"oAria": {
+    			"sSortAscending":  ": aktivieren, um Spalte aufsteigend zu sortieren",
+    			"sSortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
+    		}
+      }
+    });
+  });
+  
+  $( "#buttonShowFilter" ).click(function() {
+	  $( "#filter" ).show( "slow" );
+	  $( "#buttonShowFilter" ).hide( "slow" );
+	});
+  
+  <if($network == "SCHULEINTERN")>
+  	<then>
+    $( "#buttonAddUserUser" ).click(function() {
+  	  $( "#addUserUser" ).show( "slow" );
+  	  $( "#buttonAddUser" ).hide( "slow" );
+  	});
+  	</then>
+  </if>
+</script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>

@@ -1,0 +1,93 @@
+
+
+
+
+				   <div class="nav-tabs-custom">
+				        <ul class="nav nav-tabs">
+				        	
+				        	<li class="active">
+				        	<a href="#adminmebisimport" data-toggle="tab"><i class="fa fa-upload"></i> Importieren</a></li>
+				        	
+				        	<li>
+				        		
+				        	<a href="#adminmebiskennungen" data-toggle="tab"><i class="fa fa-user"></i> Kennungen</a></li>	        
+				        </ul>
+				        <div class="tab-content">
+					        <div class="tab-pane active" id="adminmebisimport">
+					        
+					        <if($success != "")><then>
+					        	<div class="callout callout-success">$success</div>
+					        </then></if>
+					        
+					        
+					        <if($successDelete != "")><then>
+					        	<div class="callout callout-danger"><i class="fa fa-check"></i> Alle vorhandenen Kennungen wurden gelöscht. Bitte jetzt wieder aus den CSV Dateien importieren:</div>
+					        </then></if>
+
+							<form action="$selfURL&action=upload" enctype="multipart/form-data" method="post">
+							
+							<div class="form-group">
+								<label>CSV Datei Lehrerkennungen</label>
+								<input type="file" name="csvdatei" accept=".csv" />
+							</div>
+							
+							<div class="form-group">
+								<label>CSV Datei Schülerkennungen (optional)</label>
+								<input type="file" name="csvdateischueler" accept=".csv" />
+							</div>
+							
+							Die Dateien werden zusätzlich zu den vorhandenen importiert. Bei bereits vorhandenem Mebis Benutzernamen werden die Informationen aktualisiert.<br />
+							
+							<button type="submit" class="btn btn-primary"><i class="fa fa-upload"></i> CSV Dateien importieren</button>
+							oder 
+							<button type="button" class="btn btn-danger" onclick="confirmAction('Sollen alle vorhandenen Kennungen gelöscht werden? Danach müssen wieder alle Kennungen aus den CSV Datein importiert werden!','$selfURL&action=deleteAll')"><i class="fa fa-trash"></i> Alle vorhandenen Kennungen löschen</button>
+							
+							
+							</form>
+
+
+					        
+					        </div>
+					        
+					        
+					        <div class="tab-pane" id="adminmebiskennungen">
+					        
+					        
+					        <table id="mebiskennungen" class="table table-striped" style="width:100%">
+						        <thead>
+						            <tr>
+						                <th>Benutzername</th>
+						                <th>Vorname</th>
+						                <th>Nachname</th>
+						                <th>Passwort</th>
+						            </tr>
+						        </thead>
+						        <tbody>
+						        
+						        $mebisKennungenHTML
+						        
+						        </tbody>
+						   </table>
+					        	
+					        	
+					        <script src="cssjs/plugins/datatables/jquery.dataTables.min.js"></script>
+							<script src="cssjs/plugins/datatables/dataTables.bootstrap.min.js"></script>
+					        
+					        <script>
+					        
+					        $(document).ready(function() {
+					            $('#mebiskennungen').DataTable();
+					        } );
+					        
+					        </script>
+					        
+					        
+					        </div>
+					     </div>
+					     
+					     </div>
+					     
+					     
+
+
+

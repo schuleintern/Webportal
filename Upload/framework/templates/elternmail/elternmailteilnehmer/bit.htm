@@ -1,0 +1,39 @@
+<tr>
+	<td>{$klassen[$i]}</td>
+	<td>$anzahlSchueler Schüler</td>
+	<td>$anzahlEltern von $anzahlSchueler angemeldet ($percent %)
+	
+		<div class="progress">
+                <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="{$percent}" aria-valuemin="0" aria-valuemax="100" style="width: {$percent}%">
+                  <span class="sr-only">{$percent} angemeldet</span>
+                </div>
+              </div>
+		</td>
+	<td>
+		<button type="button" class="btn" data-toggle="modal" data-target="#{$klassen[$i]}angemeldet">Angemeldete / nicht angemeldete</button>
+		
+		
+		<div class="modal fade" id="{$klassen[$i]}angemeldet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Angemeldete / nicht angemeldete Eltern Klasse {$klassen[$i]}</h4>
+		      </div>
+		      <div class="modal-body">
+		        <table class="table table-bordered">
+		        	<tr>
+		        		<th>Schüler</th>
+		        		<th>E-Mailadresse(n)</th>
+		        	</tr>
+		        	$angemeldetData
+		        </table>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</td>
+</tr>

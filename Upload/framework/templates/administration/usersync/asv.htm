@@ -1,0 +1,50 @@
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-refresh"></i> Aktualisierung der Schüler / Eltern und Lehrerdaten aus der ASV</h3>
+		
+	</div>
+	<div class="box-body">
+		<b>Benötigter Export: "Export für eine Notenverwaltung"</b>
+		
+		Der Import aktuslisiert folgende Daten:
+		<ul>
+			<li>Schülerdaten</li>
+			<li>Elterndaten / Kontaktdaten</li>
+			<li>Lehrerdaten (Kürzel, Amtsbezeichnungen, Unterricht)</li>
+			<li>Unterrichtsübersicht</li>
+		</ul>
+		
+		<p>Bitte die Exportdatei hier hochladen.</p>
+		
+		<p>Der Export kann jederzeit vorgenommen werden.</p>
+		
+		<p>Letzter ASV Import: $lastImport</p>
+		
+		<if(DB::checkDemoAccess())><then>
+		
+		<form action="{$selfURL}&action=syncasv" method="post" enctype="multipart/form-data" id="asvsyncform">
+		<p>Datei: <input type="file" class="form-control" name="asvexportfile" accept=".zip"></p>
+		
+		<p>Passwort: <input type="password" name="asvexportfilepassword" class="form-control"></p>
+		
+		<p><button type="button" class="form-control" onclick="document.getElementById('asvsyncform').submit(); document.getElementById('submitform').disabled = true;document.getElementById('submitform').innerHTML = 'Synchronisation wird durchgeführt. Bitte warten. (Kann bis zu einer Minute benötigen!)';" id="submitform"><i class="fa fa-upload"></i> Zur Klassenauswahl</button></p>		
+		</form>
+		
+		</then>
+		<else>
+		
+		<div class="callout callout-info">In der Demo Version kann kein ASV Import durchgeführt werden.</div>
+		
+		<form>
+		<p>Datei: <input type="file" class="form-control" name="asvexportfile" accept=".zip" disabled="disabled"></p>
+		
+		<p>Passwort: <input type="password" name="asvexportfilepassword" class="form-control" disabled="disabled"></p>
+		
+		<p><button type="button" class="form-control"  disabled="disabled"><i class="fa fa-upload"></i> Zur Klassenauswahl</button></p>		
+		</form>
+		
+		</else></if>
+	</div>
+</div>
+

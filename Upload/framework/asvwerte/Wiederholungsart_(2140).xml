@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Wiederholungsart" pl_key="2140">
+  <eintrag>
+    <schluessel><![CDATA[15]]></schluessel>
+    <kurzform><![CDATA[FL]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Flexibilisierungsjahr]]></anzeigeform>
+    <langform><![CDATA[Schüler im Flexibilisierungsjahr nach §66a Abs. 3 GSO (nur Schüler der Jahrgangsstufen 8, 9 oder 10)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=1#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[15]]></schluessel>
+    <kurzform><![CDATA[FL]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Flexibilisierungsjahr]]></anzeigeform>
+    <langform><![CDATA[Schüler im Flexibilisierungsjahr nach §66a Abs. 3 GSO (nur Schüler der Jahrgangsstufen 8, 9 oder 10)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=1#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[46]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFG]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[ZE]]></kurzform>
+    <anzeigeform><![CDATA[Wh m.erneuter Probezeit]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat / das Ziel der Jahrgangsstufe nicht erreicht hat (mit erneuter Probezeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[ZE]]></kurzform>
+    <anzeigeform><![CDATA[Wh m.erneuter Probezeit]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat / das Ziel der Jahrgangsstufe nicht erreicht hat (mit erneuter Probezeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[46]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFG]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[ZE]]></kurzform>
+    <anzeigeform><![CDATA[Wh m.erneuter Probezeit]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat / das Ziel der Jahrgangsstufe nicht erreicht hat (mit erneuter Probezeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[ZE]]></kurzform>
+    <anzeigeform><![CDATA[Wh m.erneuter Probezeit]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat / das Ziel der Jahrgangsstufe nicht erreicht hat (mit erneuter Probezeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[ZN]]></kurzform>
+    <anzeigeform><![CDATA[Wh Probezeit, da diese n. best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die Probezeit, weil er im Vorjahr die Probezeit nicht bestanden hat / weil er erstmalig die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[ZN]]></kurzform>
+    <anzeigeform><![CDATA[Wh Probezeit, da diese n. best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die Probezeit, weil er im Vorjahr die Probezeit nicht bestanden hat / weil er erstmalig die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[46]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFG]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[ZN]]></kurzform>
+    <anzeigeform><![CDATA[Wh Probezeit, da diese n. best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die Probezeit, weil er im Vorjahr die Probezeit nicht bestanden hat / weil er erstmalig die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[ZN]]></kurzform>
+    <anzeigeform><![CDATA[Wh Probezeit, da diese n. best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die Probezeit, weil er im Vorjahr die Probezeit nicht bestanden hat / weil er erstmalig die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[46]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFG]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[Wh d. Vorkl (Vollzeitangebot)]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Vorklasse (Vollzeitangebot)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=U#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Z]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probezeit nicht best.]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Z]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probezeit nicht best.]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[46]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFG]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Z]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probezeit nicht best.]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Z]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probezeit nicht best.]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Z]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probezeit nicht best.]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Z]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probezeit nicht best.]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[46]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFG]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[14]]></schluessel>
+    <kurzform><![CDATA[ZB]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez Art.53(6)1 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe gemäß Art. 53 Abs. 6 Satz 2 BayEUG die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=34##kuerzel_alt=I#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[14]]></schluessel>
+    <kurzform><![CDATA[ZB]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez Art.53(6)1 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe gemäß Art. 53 Abs. 6 Satz 2 BayEUG die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=34##kuerzel_alt=I#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[14]]></schluessel>
+    <kurzform><![CDATA[ZB]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez Art.53(6)1 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe gemäß Art. 53 Abs. 6 Satz 2 BayEUG die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=34##kuerzel_alt=I#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[MS]]></kurzform>
+    <anzeigeform><![CDATA[Wh da in MS zurückgekehrt]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er (vorübergehend) in die Mittelschule zurückgekehrt ist]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=31##kuerzel_alt=C#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[MS]]></kurzform>
+    <anzeigeform><![CDATA[Wh da in MS zurückgekehrt]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er (vorübergehend) in die Mittelschule zurückgekehrt ist]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=31##kuerzel_alt=C#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[MS]]></kurzform>
+    <anzeigeform><![CDATA[Wh da in MS zurückgekehrt]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er (vorübergehend) in die Mittelschule zurückgekehrt ist]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=31##kuerzel_alt=C#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[MS]]></kurzform>
+    <anzeigeform><![CDATA[Wh da in MS zurückgekehrt]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er (vorübergehend) in die Mittelschule zurückgekehrt ist]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=31##kuerzel_alt=C#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[P]]></kurzform>
+    <anzeigeform><![CDATA[Erl. z. Vorr. liegt n. vor]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=P#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[ZE]]></kurzform>
+    <anzeigeform><![CDATA[Wh m.erneuter Probezeit]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat / das Ziel der Jahrgangsstufe nicht erreicht hat (mit erneuter Probezeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[ZE]]></kurzform>
+    <anzeigeform><![CDATA[Wh m.erneuter Probezeit]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat / das Ziel der Jahrgangsstufe nicht erreicht hat (mit erneuter Probezeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[ZE]]></kurzform>
+    <anzeigeform><![CDATA[Wh m.erneuter Probezeit]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr (oder früher) die Erlaubnis zum Vorrücken nicht erhalten hat / das Ziel der Jahrgangsstufe nicht erreicht hat (mit erneuter Probezeit)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[ZN]]></kurzform>
+    <anzeigeform><![CDATA[Wh Probezeit, da diese n. best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die Probezeit, weil er im Vorjahr die Probezeit nicht bestanden hat / weil er erstmalig die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[ZN]]></kurzform>
+    <anzeigeform><![CDATA[Wh Probezeit, da diese n. best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die Probezeit, weil er im Vorjahr die Probezeit nicht bestanden hat / weil er erstmalig die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[ZN]]></kurzform>
+    <anzeigeform><![CDATA[Wh Probezeit, da diese n. best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die Probezeit, weil er im Vorjahr die Probezeit nicht bestanden hat / weil er erstmalig die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Wh nach Zurückstellung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt nach Zurückstellung gemäß Art. 37, Abs. 2, Satz 2 BayEUG (nur Schüler die bereits eingeschult waren und vom 1. Oktober bis 30. November des Vorjahres wieder zurückgestellt wurden)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Wh nach Zurückstellung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt nach Zurückstellung gemäß Art. 37, Abs. 2, Satz 2 BayEUG (nur Schüler die bereits eingeschult waren und vom 1. Oktober bis 30. November des Vorjahres wieder zurückgestellt wurden)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Wh nach Zurückstellung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt nach Zurückstellung gemäß Art. 37, Abs. 2, Satz 2 BayEUG (nur Schüler die bereits eingeschult waren und vom 1. Oktober bis 30. November des Vorjahres wieder zurückgestellt wurden)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Wh aus sonstigem Grund]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, aus sonstigen Gründen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[ZZ]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez.n.best (Vorrück.)]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=33##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[ZZ]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez.n.best (Vorrück.)]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=33##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[ZZ]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez.n.best (Vorrück.)]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=33##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[ZZ]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez.n.best (Vorrück.)]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=33##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[ZW]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez.n. Wechsel n.best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nach Schulartwechsel nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=32##kuerzel_alt=D#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[ZW]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez.n. Wechsel n.best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nach Schulartwechsel nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=32##kuerzel_alt=D#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[ZW]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez.n. Wechsel n.best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nach Schulartwechsel nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=32##kuerzel_alt=D#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[ZW]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez.n. Wechsel n.best]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nach Schulartwechsel nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=32##kuerzel_alt=D#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[ZA]]></kurzform>
+    <anzeigeform><![CDATA[Wh m. Probezeit (nach Abbruch)]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe mit erneuter Probezeit, da nach bestandener Probezeit der Besuch der Fachoberschule abgebrochen wurde.]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=W#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[ZA]]></kurzform>
+    <anzeigeform><![CDATA[Wh m. Probezeit (nach Abbruch)]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe mit erneuter Probezeit, da nach bestandener Probezeit der Besuch der Fachoberschule abgebrochen wurde.]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=W#]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[ZA]]></kurzform>
+    <anzeigeform><![CDATA[Wh m. Probezeit (nach Abbruch)]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe mit erneuter Probezeit, da nach bestandener Probezeit der Besuch der Fachoberschule abgebrochen wurde.]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=W#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[Wh d. Vorkl (Vollzeitangebot)]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Vorklasse (Vollzeitangebot)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=U#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Z]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probezeit nicht best.]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Z]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probezeit nicht best.]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Z]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probezeit nicht best.]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[Z]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probezeit nicht best.]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er im Vorjahr die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=Z#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[AB]]></kurzform>
+    <anzeigeform><![CDATA[Wh Abschlussprüfung befreit]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er auf Antrag von der Abschlussprüfung befreit war (gemäß § 53 Satz 3 WSO)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=X#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[AB]]></kurzform>
+    <anzeigeform><![CDATA[Wh Abschlussprüfung befreit]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er auf Antrag von der Abschlussprüfung befreit war (gemäß § 53 Satz 3 WSO)]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=X#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[freiwillige Wiederholung]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe freiwillig]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=F#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[14]]></schluessel>
+    <kurzform><![CDATA[ZB]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez Art.53(6)1 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe gemäß Art. 53 Abs. 6 Satz 2 BayEUG die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=34##kuerzel_alt=I#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[14]]></schluessel>
+    <kurzform><![CDATA[ZB]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez Art.53(6)1 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe gemäß Art. 53 Abs. 6 Satz 2 BayEUG die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=34##kuerzel_alt=I#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[14]]></schluessel>
+    <kurzform><![CDATA[ZB]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez Art.53(6)1 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe gemäß Art. 53 Abs. 6 Satz 2 BayEUG die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=34##kuerzel_alt=I#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[14]]></schluessel>
+    <kurzform><![CDATA[ZB]]></kurzform>
+    <anzeigeform><![CDATA[Wh da Probez Art.53(6)1 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Schüler wiederholt die derzeit besuchte Jahrgangsstufe, weil er nach Vorrücken auf Probe gemäß Art. 53 Abs. 6 Satz 2 BayEUG die Probezeit nicht bestanden hat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=34##kuerzel_alt=I#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

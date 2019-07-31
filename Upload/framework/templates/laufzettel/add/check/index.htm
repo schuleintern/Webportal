@@ -1,0 +1,87 @@
+{$this->header}
+
+          
+          <form action="index.php?page=laufzettel&mode=create" method="post">
+          <div class="box">
+          	<div class="box-header">
+          		<h3 class="box-title"><i class="fa fa-plus"></i> Neuen Laufzettel erstellen</h3>
+          	</div>
+          	<div class="box-body">
+          	          	
+          	          	          
+          <div class="callout callout-info">
+			<h4>Daten überprüfen</h4>
+			<p>Bitte überprüfen Sie die angegebenen Daten. Falls alle Daten korrekt sind, klicken Sie auf "Laufzettel erstellen". Ansonsten klicken Sie auf "Angaben korrigieren" und verbessern Sie Ihre Angaben.</p>
+		</div>
+          		<p><b>Art</b></p>
+          					<input type="hidden" name="laufzettelArt" value="{$_POST['laufzettelArt']}">
+          		<p><if($_POST['laufzettelArt'] == 'UG')><then>Unterrichtsgang</then><else>Schulaufgabe</else></if></p>
+          		
+          		<p><b>Titel</b></p>
+          		<p>{$_POST['laufzettelTitel']}</p>
+          					<input type="hidden" value="{$_POST['laufzettelTitel']}" name="laufzettelTitel"">
+          		<p><b>Datum</b></p>
+          		<p>{$_POST['laufzettelDatum']}</p>
+          				 	<input type="hidden" name="laufzettelDatum" value="{$_POST['laufzettelDatum']}">
+          		<p><b>Klassen</b></p>
+          		<p>$listKlassen</p>
+	          				<select name="klassen[]" multiple="multiple" data-placeholder="Alle betroffenen Klassen auswählen" style="display:none">
+			                  {$optionsGrades}
+			                </select>
+			    <p><b>Stunden</b></p>
+			    
+			    <p><expression>implode(", ",$_POST['stunden'])</expression></p>
+	          				<select name="stunden[]" multiple="multiple" data-placeholder="Alle betroffenen Stunden auswählen" style="display:none">
+			                  <option value="1"{$selected['s1']}>1. Stunde</option>
+			                  <option value="2"{$selected['s2']}>2. Stunde</option>
+			                  <option value="3"{$selected['s3']}>3. Stunde</option>
+			                  <option value="4"{$selected['s4']}>4. Stunde</option>
+			                  <option value="5"{$selected['s5']}>5. Stunde</option>
+			                  <option value="6"{$selected['s6']}>6. Stunde</option>
+			                  <option value="7"{$selected['s7']}>7. Stunde</option>
+			                  <option value="8"{$selected['s8']}>8. Stunde</option>
+			                  <option value="9"{$selected['s9']}>9. Stunde</option>
+			                  <option value="10"{$selected['s10']}>10. Stunde</option>
+			                  <option value="11"{$selected['s11']}>Klassenleiterstunde</option>
+			    <p><b>Nachricht an die Kollegen</b></p>
+			    <p>{$_POST['laufzettelNachricht']}</p>
+			          		<input name="laufzettelNachricht" type="hidden" name="<expression>addslashes($_POST['laufzettelNachricht'])</expression>">
+          				
+          		          		
+          		<p><b>Betroffene KollegInnen</b></p>
+          	
+          					<table class="table table-striped">
+          						<tr>
+          							<th>Stunde</th>
+          							<th>Klasse</th>
+          							<th>Lehrer</th>
+          							<th>Fach</th>
+          						</tr>
+          						{$teachers}
+          					</table>
+          					<br />
+          		<button type="submit" class="btn btn-success" name="action" value="save" style="font-color: green"><i class="fa fa-check"></i> Laufzettel erstellen</button>
+          	    <button type="submit" class="btn btn-warning" name="action" value="correct"><i class="fa fa-arrow-left"></i> Angaben korrigieren</button>
+          	
+          	</div>
+          </div>
+
+		</form>
+
+
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+$(function () {
+  $(".select2").select2();
+});
+
+	$(function() {
+		$("#laufzettelDatum").datepicker({
+			format: 'yyyy-mm-dd',
+	        language: "de",
+	        autoclose: true
+		});
+	});
+	</script>
+{$this->footer}

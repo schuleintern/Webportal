@@ -1,0 +1,659 @@
+{$this->header}
+
+<style>
+.datepicker{z-index:1151 !important;}
+</style>
+
+
+
+    <script src="cssjs/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="cssjs/plugins/fullcalendar/de.js"></script>
+	<script>
+	
+	$(document).ready(function() {
+		
+
+		$('#schulkalender').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'listDay,listWeek,listMonth,month,basicWeek,basicDay'
+			},
+			views: {
+		        month: { // name of view
+		            titleFormat: 'MMMM YYYY'
+		        },
+		        basicWeek: { // name of view
+		            titleFormat: 'MMMM YYYY'
+		        },
+		        listDay: { buttonText: 'Tagesliste' },
+		        listMonth: { buttonText: 'Monatsliste' },
+		        listWeek: { buttonText: 'Wochenliste' }
+		    },
+			defaultDate: '$today',
+			title: '$gradeDisplay',
+			weekNumbers: true,
+			selectable: true,
+            selectHelper: true,
+            dayClick: function(start, jsEvent, view) {
+					if($canAdd == 1) {
+							document.getElementById("datum").innerHTML = start._d.getDate() + "." + (start._d.getMonth()+1) + "." + start._d.getFullYear();
+							document.getElementById("datumStart2").innerHTML = start._d.getDate() + "." + (start._d.getMonth()+1) + "." + start._d.getFullYear();
+							document.getElementById("dateForm").value = start._d.getFullYear() + "-" + (start._d.getMonth()+1) + "-" + (start._d.getDate());
+							document.getElementById("dateForm2").value = start._d.getFullYear() + "-" + (start._d.getMonth()+1) + "-" + (start._d.getDate());
+							// document.getElementById("datepickerend").value = start._d.getDate() + "." +  (start._d.getMonth()+1) + "." + start._d.getFullYear(); 
+
+							$('#addevent').modal('show');
+							
+					}
+				
+            },
+            eventClick: function(calEvent, jsEvent, view) {
+            	if(!calEvent.isFerien) {
+            	
+	            	var termintitel = calEvent.title;
+	            	
+	            	if(calEvent.betrifft != "") termintitel = termintitel + " (Betrifft: " + calEvent.betrifft + ")";
+	            	
+	            	var beschriftung = "<strong>" + termintitel + "</strong><br />Datum: " + (calEvent.start._d.getDate())+ "." + (calEvent.start._d.getMonth()+1) + "." + calEvent.start._d.getFullYear();
+	            	
+	            	// if(calEvent.end != null && calEvent.end != calEvent.start) beschriftung = beschriftung + ' bis ' + (calEvent.end._d.getDate()-1)+ "." + (calEvent.end._d.getMonth()+1) + "." + calEvent.end._d.getFullYear();
+	            	
+	           	 	$("#eventTitle").html(beschriftung);
+	
+	            	if(calEvent.canDelete == 1) {
+	            		$("#showevent").html("Eingetragen am: " + calEvent.eintragZeitpunkt + "<br /><br /><div class=\"row\"><div class=\"col-md-6\"><form><button type=\"button\"  class=\"form-control\" data-dismiss=\"modal\"><i class=\"fa fa-times\"></i> Schließen</button></form></div><div class=\"col-md-6\"><form><button type=\"button\" class=\"form-control\" onclick=\"confirmAction('Soll der Eintrag wirklich gelöscht werden?','index.php?page=klassenkalender&grade={$grade}&eintragID=" + calEvent.eventID + "&eventType=" + calEvent.eventType + "&action=delete')\"><i class=\"fa fa-trash\"></i> Löschen</button></form></div></div>");
+	            	}
+	            	else {
+	            		$("#showevent").html("Eingetragen am: " + calEvent.eintragZeitpunkt + "<br /><br /><div class=\"row\"><div class=\"col-md-6\"><form><button type=\"button\"  class=\"form-control\" data-dismiss=\"modal\"><i class=\"fa fa-times\"></i> Schließen</button></form></div></div>");
+	            	}
+	            	
+	            	if(calEvent.stunden != "") {
+	            		$("#stunden").html("Stunden: " + calEvent.stunden);
+	            	}
+	            	else $("#stunden").html("");
+	            	
+	            	if(calEvent.klassen != "") {
+	            		$("#klassen").html("Klassen: " + calEvent.klassen);
+	            	}
+	            	else $("#klassen").html("");
+	            	
+	            	$("#terminicon").html("<i class=\"" + calEvent.icon + "\"></i>");
+	            	
+	            	$('#anzeigen').modal('show');
+            	}
+            	            	
+            },
+            
+			editable: false,
+			eventLimit: false,
+			events: 'index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&action=getJSONData{$addFachID}',
+			eventAfterAllRender: function(view) {
+				$("#isloading").hide();
+			},
+			loading: function(isLoading,view) {
+				if(isLoading) $("#isloading").show();
+			},
+			eventRender: function(event, element) {
+				if(event.eventType == 'lnw') {
+					if(event.lnwtype == 'SCHULAUFGABE' && !$("#showSCHULAUFGABE").prop('checked')) return false;
+					if(event.lnwtype == 'NACHHOLSCHULAUFGABE' && !$("#showNACHHOLSCHULAUFGABE").prop('checked')) return false;
+					if(event.lnwtype == 'STEGREIFAUFGABE' && !$("#showSTEGREIFAUFGABE").prop('checked')) return false;
+					if(event.lnwtype == 'KURZARBEIT' && !$("#showKURZARBEIT").prop('checked')) return false;
+					if(event.lnwtype == 'PLNW' && !$("#showPLNW").prop('checked')) return false;
+					if(event.lnwtype == 'MODUSTEST' && !$("#showMODUSTEST").prop('checked')) return false;
+					
+				}
+				
+				if(event.eventType == 'ferien') {
+					if(!$("#showFerien").prop('checked')) return false;					
+				}
+				
+				if(event.eventType == 'termin') {
+					if(!$("#showKlassentermine").prop('checked')) return false;					
+				}
+								
+				element.find(".fc-title").prepend("<i class='" + event.icon + "'></i> ");
+				
+			},
+			eventDrop: function(event, delta, revertFunc) {
+				if(event.canDelete) {
+					if(event.eventType == 'lnw') {
+						$.ajax({
+							type: "POST",
+							url: 'index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&action=editLNW&lnwID=' + event.eventID,
+							data: {
+								"newDate": event.start.format()
+							},
+							success: function(data, textStatus, jqXHR) {
+								if(data.success) {
+									$("#changeSuccessTerminName").html('"' + event.title + '"');
+									$('#changesSuccess').fadeIn('slow', function () {
+									    $(this).delay(3000).fadeOut('slow');
+									  });
+									
+								}
+								else {
+									$("#changeSuccessTerminNameFail").html('"' + event.title + '"');
+									$('#changesSuccessFail').fadeIn('slow', function () {
+									    $(this).delay(3000).fadeOut('slow');
+									  });
+									revertFunc();
+								}
+							},
+							dataType: 'json'
+						});
+					} else {
+						$.ajax({
+							type: "POST",
+							url: 'index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&action=editKlassentermin&terminID=' + event.eventID,
+							data: {
+								"newStartDate": event.start.format(),
+								"newEndDate": event.end.format()
+
+							},
+							success: function(data, textStatus, jqXHR) {
+								if(data.success) {
+									$("#changeSuccessTerminName").html('"' + event.title + '"');
+									$('#changesSuccess').fadeIn('slow', function () {
+									    $(this).delay(3000).fadeOut('slow');
+									  });
+									
+								}
+								else {
+									$("#changeSuccessTerminNameFail").html('"' + event.title + '"');
+									$('#changesSuccessFail').fadeIn('slow', function () {
+									    $(this).delay(3000).fadeOut('slow');
+									  });
+									revertFunc();
+								}
+							},
+							dataType: 'json'
+						});
+					}
+				}
+			},
+			
+			 eventResize: function(event, delta, revertFunc) {
+				if(event.eventType != 'termin') revertFunc();
+				else {
+					if(event.canDelete) {
+						$.ajax({
+							type: "POST",
+							url: 'index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&action=editKlassentermin&terminID=' + event.eventID,
+							data: {
+								"newStartDate": event.start.format(),
+								"newEndDate": event.end.format(),
+							},
+							success: function(data, textStatus, jqXHR) {
+								if(data.success) {
+									$("#changeSuccessTerminName").html('"' + event.title + '"');
+									$('#changesSuccess').fadeIn('slow', function () {
+									    $(this).delay(3000).fadeOut('slow');
+									  });
+									
+								}
+								else {
+									$("#changeSuccessTerminNameFail").html('"' + event.title + '"');
+									$('#changesSuccessFail').fadeIn('slow', function () {
+									    $(this).delay(3000).fadeOut('slow');
+									  });
+									revertFunc();
+								}
+							},
+							dataType: 'json'
+						});
+					}
+				}
+			}
+		});
+		
+	});
+	
+	$(function() {
+		$("#datepickerend").datepicker({
+			format: 'dd.mm.yyyy',
+	        language: "de",
+	        autoclose: true
+		});
+	});
+	
+	function openICSFeed() {
+		  $("#buttonics").prop("disabled",true);
+		  
+		  $("#buttonics").html("<i class=\"fa fa-refresh fa-spin\"></i> Wird abgerufen");
+	
+		$.ajax({
+			type: "POST",
+			url: 'index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&action=getICSFeedURL',
+			data: {
+				
+			},
+			success: function(data, textStatus, jqXHR) {
+				$("#icsmitex").val(data.feedURL);
+				$("#icsohneex").val(data.feedURL2);
+				$("#icsfeed").modal("show");
+			},
+			dataType: 'json'
+		});
+		
+		
+		$("#buttonics").html('<i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small>');
+		$("#buttonics").prop("disabled",false);
+	}
+
+</script>
+<style>
+
+	.fc-time {
+    	display:none;
+	}
+	
+</style>
+
+<div class="box box-solid box-primary">
+	<div class="box-header"><h3 class="box-title"><i class="fa fa-group"></i> $gradeDisplay</h3></div>
+	<div class="box-body">
+		<div class="row">
+			<div class="col-md-3">
+				<form><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#selectGrade"><i class="fa fa-refresh"></i> Klasse wechseln</button></form>
+			</div>
+			<div class="col-md-3">
+				<form><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterEvents"><i class="fa fa-filter"></i> Termine filtern</button></form>
+				
+			</div>
+			<div class="col-md-6" style="text-align:right">
+			
+			<if($_REQUEST['grade'] != 'fachbetreuer')><then>
+			
+				<form>
+				<button type="button" class="btn btn-primary" onclick="openICSFeed()" id="buttonics"><i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small></button>
+				
+				<button type="button" class="btn btn-danger" onclick="window.location.href='index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&mode=print{$addFachID}'"><i class="fa fa-print"></i> Druckversion<br><small>Mit Stegreifaufgaben</small></button>
+				<button type="button" class="btn btn-success" onclick="window.location.href='index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&mode=print&noEx=1{$addFachID}'"><i class="fa fa-print"></i> Druckversion <br><small>Ohne Stegreifaufgaben</small></button>
+				
+				</form>			
+					</then></if>	
+			</div>
+		</div>
+		
+		<div id="changesSuccess" style="display: none">
+			<div class="callout callout-success"><i class="fa fa-check"></i> Das neue Datum für <span id="changeSuccessTerminName">XXX</span> wurde gespeichert.</div>
+		</div>
+		
+		<div id="changesSuccessFail" style="display: none">
+			<div class="callout callout-danger"><i class="fa fa-ban"></i> Das neue Datum für <span id="changeSuccessTerminNameFail">XXX</span> wurde nicht gespeichert!</div>
+		</div>
+
+		<div id="schulkalender"></div>
+
+	</div>
+	
+	<div class="overlay" id="isloading">
+		<i class="fa fa-refresh fa-spin"></i>
+	</div>
+</div>
+
+
+	<div class="modal fade" id="icsfeed" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    
+	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+	    	<h4 class="modal-title" id="eventTitleICS"><i class="fa fa-calendar-plus-o"></i> ICS Feed der Termine ($gradeDisplay)</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+	      	Die können diese URLs verwenden, um die Termine in Programme zu importieren oder auf Ihrem Mobiltelefon abzurufen.
+	      	<br />
+	      	Hinweis:
+	      	<ul>
+	      		<li>Es werden alle Termine für die nächsten 365 Tage abgerufen.</li>
+	      	</ul>
+	      	<b>Diese Links sind persönlich und dürfen nicht weiter gegeben werden.</b>
+	      	<hr>
+	      	
+	      	<form>
+	      	<div class="form-group">
+	      		<label>Mit Stegreifaufgaben:</label>
+	      		<input type="text" id="icsmitex" class="form-control" onClick="this.select();">
+	      	</div>
+	      	
+	      	<div class="form-group">
+	      		<label>Ohne Stegreifaufgaben:</label>
+	      		<input type="text" id="icsohneex" class="form-control" onClick="this.select();">
+	      	</div>
+	      	</form>
+	      </div>
+	     </div>
+	    </div>
+	   </div>
+
+	
+	<div class="modal fade" id="anzeigen" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    
+	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+	    	<h4 class="modal-title" id="eventTitle">Details</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+	      	<div id="stunden"></div>
+	      	<div id="klassen"></div>
+	      	<div id="betrifft"></div>
+	      	<div id="showevent"></div>
+	      </div>
+	     </div>
+	    </div>
+	   </div>
+
+	<div class="modal fade" id="filterEvents" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    
+	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+	    	<h4 class="modal-title"><i class="fa fa-filter"></i> Termine Filtern</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+			<form>
+				<label><input type="checkbox" id="showSCHULAUFGABE" checked="checked" class="ichecklnwtype"> Schulaufgaben</label><br />
+				<label><input type="checkbox" id="showNACHHOLSCHULAUFGABE" checked="checked" class="ichecklnwtype"> Nachholschulaufgaben</label><br />
+				<label><input type="checkbox" id="showMODUSTEST" checked="checked" class="ichecklnwtype"> Modus Teste</label><br />
+				<label><input type="checkbox" id="showKURZARBEIT" checked="checked" class="ichecklnwtype"> Kurzarbeiten</label><br />
+				<hr noshade>
+				<label><input type="checkbox" id="showPLNW" checked="checked" class="ichecklnwtype"> Praktische Leistungsnachweise</label><br />
+				<label><input type="checkbox" id="showSTEGREIFAUFGABE" checked="checked" class="ichecklnwtype"> Stegreifaufgaben</label>
+				<hr noshade>
+				<label><input type="checkbox" id="showKlassentermine" checked="checked" class="ichecklnwtype"> Klassentermine</label><br />
+				<hr noshade>
+				<label><input type="checkbox" id="showFerien" checked="checked" class="ichecklnwtype"> Ferien</label>
+				<hr noshade>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Schließen</button>
+				
+			</form>
+	      </div>
+	     </div>
+	    </div>
+	   </div>
+
+		
+
+
+
+	<div class="modal fade" id="addevent" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+
+					<h4 class="modal-title" id="myModalLabel"><i class="fa fa-calendar"></i> Termin hinzufügen</h4>
+				</div>
+				<div class="modal-body">
+
+					<div class="nav-tabs-custom">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#leistungserhebung"
+								data-toggle="tab"><i class="fa fa-graduation-cap"></i>
+									Leistungserhebung</a></li>
+							<li><a href="#klassentermintab" data-toggle="tab"><i
+									class="fa fa-calendar-o"></i> Klassentermin</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="leistungserhebung">
+								<form name="addData" id="addData"
+									action="index.php?page=klassenkalender&action=addln"
+									method="post">
+									
+									<div class="row">
+										<div class="col-md-3">
+										
+											<div class="form-group">
+												<label>Termin:</label>
+												<input type="hidden" name="date" id="dateForm" class="form-control"/>
+												<div id="datum" style="font-size: 15pt;">XX.XX.XXXX</div>
+											</div>
+											
+											
+									
+										</div>
+										
+										<div class="col-md-9">
+											<div class="form-group">
+												<label>Klasse(n):</label>
+												$selectGrade
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Art:</label>
+													<select name="art" style="width: 100%" class="form-control" id="lnwart">
+														<option value="SCHULAUFGABE" style="color: blue">Schulaufgabe</option>
+														<option value="NACHHOLSCHULAUFGABE" style="color: blue">Nachholschulaufgabe</option>
+														<option value="MODUSTEST" style="color: MediumPurple">Modus Test</option>
+														<option value="KURZARBEIT" style="color: purple">Kurzarbeit</option>
+														<option value="PLNW" style="color: red">Praktischer Leistungsnachweis</option>
+														<option value="STEGREIFAUFGABE" style="color: red">Stegreifaufgabe</option>
+													</select>
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Fach:</label>
+												
+												<select name="fach" style="width: 100%"
+														class="form-control"> {$selectMySubjects}
+												</select>
+											</div>
+										</div>
+									
+									</div>
+									
+
+									
+									
+									
+									
+									<script>
+									
+										$("#lnwart").change(function(){
+									        $('#showEx').hide();
+									        if($(this).val() == 'PLNW' || $(this).val() == 'STEGREIFAUFGABE') $('#showEx').show();
+									    });
+									
+									</script>
+									
+									
+									<div class="form-group" style="display:none" id="showEx">
+										<label>Den Schülern trotzdem ankündigen?<br /><small>(Im Kalender bei Eltern und Schülern anzeigen)</small></label><br />
+										<input type="checkbox" name="alwaysShow" value="1" id="isAngekuendigt">
+									</div>
+									
+									
+									<div class="row">
+										<div class="col-md-6">
+										
+											<div class="form-group">
+												<label>Betrifft:</label>
+												<input type="text" name="betrifft" class="form-control" placeholder="Optional. z.B. &quot;Nur Evangelisch&quot;" />
+											</div>
+											
+										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Stunden:</label>
+												<select id="stundenSelect" name="stunden[]" class="form-control select2" multiple="multiple" data-placeholder="Optional" style="width: 90%;">
+													$stundenSelectOptions
+							                	</select>
+							                </div>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label>Lehrer:</label>
+										<br />
+										$selectLehrer
+									</div>
+									
+												<button type="submit" style="width: 100%"
+													class="btn btn-primary">
+													<i class="fa fa-save"></i> Leistungsnachweis eintragen
+												</button>
+									<small><b>Hinweis:</b> Stegreifaufgaben und praktische Leistungsnachweise sind für die Schüler und Eltern nicht sichtbar.</small>
+								</form>
+							</div>
+							<div class="tab-pane" id="klassentermintab">
+								<form name="addData" id="addData"
+									action="index.php?page=klassenkalender&action=addkt"
+									method="post">
+
+									<input type="hidden" name="date" id="dateForm2" />
+
+
+									<div class="row">
+										<div class="col-md-3">
+										
+											<div class="form-group">
+												<label>Termin:</label>
+												<div id="datumStart2" style="font-size: 15pt;">XX.XX.XXXX</div>
+											</div>
+											
+																			
+										</div>
+										
+										
+										<div class="col-md-9">
+											<div class="form-group">
+												<label>Enddatum:</label>
+												<input type="text" name="enddatum"
+												placeholder="optional" style="width: 100%" autocomplete="off"
+												id="datepickerend">
+											</div>
+										
+										</div>
+
+									</div>
+
+
+
+									<div class="row">
+										
+										<div class="col-md-9">
+											<div class="form-group">
+												<label>Klasse(n):</label>
+												$selectGrade2
+											</div>
+										</div>
+										
+										<div class="col-md-3">
+										
+											<div class="form-group">
+													<label>Stunden(n):</label>
+													<select id="stundenSelect2" name="stunden[]" class="form-control select2" multiple="multiple" data-placeholder="Optional" style="width: 100%;">
+														$stundenSelectOptions
+								               		 </select>
+								            </div>
+										</div>
+										
+									</div>
+
+									<div class="form-group">
+										<label>Titel</label>
+										<input type="text" name="titel" class="form-control">				
+									
+									</div>
+									
+									<div class="form-group">
+										<label>Betrifft:</label>
+										<input type="text" name="betrifft" class="form-control" placeholder="Optional. z.B. &quot;Nur Evangelisch&quot;" />
+									</div>
+									
+									<div class="form-group">
+										<label>Ort:</label>
+										<input type="text" name="ort" class="form-control" placeholder="Optional. z.B. &quot;Raum Deutsch1&quot;" />
+									</div>
+									<div class="form-group">
+										<label>Lehrer:</label>
+										<br />
+										$selectLehrer
+									</div>
+									
+									<button type="submit" class="btn btn-primary" style="width: 100%"><i class="fa fa-save"></i> Klassentermin eintragen</button>
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- <div class="box">
+		<div class="box-body">
+		<div id='schulkalender'></div>
+		</div>
+	</div>  --->
+	
+	<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+    <script src="cssjs/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+
+<script>
+$(function () {
+  $("#gradeSelect").select2({
+	  allowClear: true
+  });
+  
+  $("#gradeSelect2").select2({
+	  allowClear: true
+  });
+  
+  $("#stundenSelect").select2({
+	  allowClear: true
+  });
+  
+  $("#stundenSelect2").select2({
+	  allowClear: true
+  });
+  
+  $('.icheck').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    });
+  $('.ichecklnwtype').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+    });
+  
+  $('.ichecklnwtype').on('ifChecked', function(event){
+	  $('#schulkalender').fullCalendar('rerenderEvents');
+	});
+  
+  $('.ichecklnwtype').on('ifUnchecked', function(event){
+	  $('#schulkalender').fullCalendar('rerenderEvents');
+	});
+  
+});
+
+</script>
+
+$selectMenuModals
+
+	
+	{$this->footer}

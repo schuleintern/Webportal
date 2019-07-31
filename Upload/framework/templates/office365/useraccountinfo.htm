@@ -1,0 +1,22 @@
+{$this->header}
+
+<div class="box">
+<div class="box-body">
+
+<img src="cssjs/images/office2016logo.jpg" width="10%" style="float: right;margin: 10px;">
+
+<if($loginName != "")><then>
+<ul>
+	<li>Besuchen Sie <a href="http://portal.office.com" target="_blank">http://portal.office.com</a></li>
+	<li>Melden Sie sich bitte mit folgenden Benutzerdaten an:<br />
+	
+		<table><tr><td style="padding:10px">Benutzername:</td><td style="padding:10px">$loginName</td></tr><tr><td>Passwort:</td><td>Selbes Passwort, wie hier.</td></table>
+	<li>Klicken Sie auf "Office installieren" nach dem Anmelden.</li>
+</ul>
+</then><else>Leider ist für Sie kein Office Account hinterlegt.</else></if>
+
+</div>
+</div>
+
+						
+{$this->footer}

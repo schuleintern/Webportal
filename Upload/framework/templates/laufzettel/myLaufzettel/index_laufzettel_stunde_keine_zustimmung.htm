@@ -1,0 +1,32 @@
+	<p>{$stunde['laufzettelStunde']}. Stunde in {$stunde['laufzettelFach']} bei {$stunde['laufzettelKlasse']}</b></p>
+	<label class="label label-danger">Nicht zugestimmt <small>Am {$zustmmungDatum}</small></label>
+<if($stunde['laufzettelZustimmungKommentar'] != "")><then>
+<br /><code>{$stunde['laufzettelZustimmungKommentar']}</code></then></if>
+
+<p><button class="btn btn-success" data-toggle="modal" data-target="#handeZustimmung{$stunde['laufzettelStundeID']}"><i class="fa fa-check"></i> Meinung ändern ...</button></p>
+
+	<div class="modal fade" id="handeZustimmung{$stunde['laufzettelStundeID']}" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    
+	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+	    	<h4 class="modal-title"><i class="fa fa-check"></i> Zustimmen</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+			<form action="index.php?page=laufzettel&mode=zustimmung&stundeID={$stunde['laufzettelStundeID']}" method="post">
+	              <input type="hidden" name="zustimmung" value="1" >
+	              <p>{$stunde['laufzettelStunde']}. Stunde in {$stunde['laufzettelFach']} bei {$stunde['laufzettelKlasse']}</b></p>
+	              
+	              <div class="form-group">
+	              	<label>Kommentar an den Laufzettelersteller</label>
+	             	<input type="text" name="kommentar" class="form-control" placeholder="Kommentar">
+	              </div>
+				  <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Zustimmung speichern</button>
+			</form>
+	      </div>
+	     </div>
+	    </div>
+	   </div>

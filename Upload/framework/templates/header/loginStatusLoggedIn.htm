@@ -1,0 +1,53 @@
+
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="{$this->userImage}" class="user-image" alt="User Image">
+              <span class="hidden-xs">$displayName 
+              
+              <if(DB::getSession()->is2FactorActive())><then><i class="fa fa-lock"></i></then></if>
+                            
+              <i class="fa fa-angle-down"></i></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="{$this->userImage}" class="img-circle" alt="User Image">
+
+                <p>
+                  $displayName
+                  <small>{$mainGroup}
+                
+                <if(DB::getSession()->is2FactorActive() && !DB::getSession()->getUser()->isCurrentDeviceTrusted())><then><br /><i class="fa fa-lock"></i> Zweiten Faktor eingegeben - <a href="index.php?page=TwoFactor&action=endSession" class="btn btn-xs"><i class="fa fa-ban"></i> Beenden</a></then></if>
+                
+                <if(DB::getSession()->is2FactorActive() && DB::getSession()->getUser()->isCurrentDeviceTrusted())><then><br /><i class="fa fa-lock"></i> Verauenswürdiges Gerät - <a href="index.php?page=TwoFactor&action=removeTrustedDevice" class="btn btn-xs"><i class="fa fa-ban"></i> Entfernen</a></then></if>
+                
+                </small>
+                </p>
+              </li>
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <a href="index.php?page=userprofilesettings" class="btn btn-app" style="width:100%"><i class="fa fa-gears"></i> <br />Seiteneinstellungen</a>
+                  </div>
+                  
+                  <div class="col-xs-6">
+                  	<a href="index.php?page=userprofile" class="btn btn-app" style="width:100%"><i class="fa fa-user"></i> <br />Benutzerprofil</a>
+                  
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-xs-6">
+                	<a href="#"onclick="javascript:location.reload()" class="btn btn-app" style="width:100%"><i class="fa fa-refresh"></i><br/>Neu Laden</a>
+                  </div>
+                  
+                  <div class="col-xs-6">
+                  <a href="index.php?page=logout" class="btn btn-app" style="width:100%"><i class="fa fa-sign-out"></i><br />Logout</a>
+                  
+                  </div>
+                </div>
+
+              </li>
+            </ul>
+          </li>

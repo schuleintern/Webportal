@@ -1,0 +1,24 @@
+{$this->header}
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"><i class="fa fa-file-text-o"></i> Meine eigenen Laufzettel (von mir erstellt)</h3>         
+            	<form><button type="button" class="btn btn-success btn-sm" onclick="window.location.href='index.php?page=laufzettel&mode=addLaufzettel'"><i class="fa fa-plus"></i> Laufzettel anlegen</button></form>
+            </div>
+           <div class="box-body no-padding">
+           	<table class="table table-striped">
+           		<tr>
+           			<th>Art</th>
+           			<th>Name</th>
+           			<th>Lehrer</th>
+           			<th>Datum</th>
+           			<th>Nachricht</th>
+           			<th>Zustimmungen</th>
+           			<th>Aktionen</th>
+           		</tr>
+           		$myOwnData
+           	</table>
+           	</div>
+          </div>
+          
+{$this->footer}

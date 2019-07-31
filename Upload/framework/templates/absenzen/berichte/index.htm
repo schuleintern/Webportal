@@ -1,0 +1,61 @@
+{$this->header}
+
+
+<style>
+.datepicker{z-index:1151 !important;}
+</style>
+
+<style>
+.timepicker{z-index:1151 !important;}
+</style>
+
+<form action="index.php?page=absenzenberichte&mode=day" method="post">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title"><i class="fa fa-print"></i> Tagesberichte</h3>
+		</div>
+		<div class="box-body">
+			<p>Datum auswählen und Form des Berichtes auswählen.</p>
+			<p>Der Bericht wird als PDF - Datei zum Download angeboten.</p>
+			<input type="text" class="form-control" id="dayDate" value="$dayName, {$currentDate}" name="dayDate">
+			
+			<button type="submit" name="tagesbericht" value="1" class="form-control"><i class="fa fa-print"></i> Tagesbericht ohne Details</button>
+			<button type="submit" name="tagesbericht" value="2" class="form-control"><i class="fa fa-print"></i> Tagesbericht mit Details</button>
+		</div>
+	</div>
+</form>
+
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title"><i class="fa fa-briefcase"></i> Notenmanager</h3>
+		</div>
+		<div class="box-body">
+			<a href="index.php?page=absenzenberichte&mode=notenmanagerExport"><i class="fa fa-code"></i> Fehltage für Notenmanager exportieren (XML Datei)</small>
+		</div>
+	</div>
+
+
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title"><i class="fa fa-print"></i> Klassenberichte</h3>
+		</div>
+		<div class="box-body">
+			<a href="index.php?page=absenzenberichte&mode=gradeStat"><i class="fa fa-file-pdf-o"></i> Klassenstatistik (Pro Klasse eine Seite)</a> <small>Die Erstellung des Berichtes kann einige Sekunden benötigen</small>
+		</div>
+	</div>
+
+
+<script>
+	$(function() {
+		$("#dayDate").datepicker({
+			format: 'DD, dd.mm.yyyy',
+	        language: "de",
+	        autoclose: true,
+	        showButtonPanel: true
+	    });
+	});
+	
+	</script>
+
+
+{$this->footer}

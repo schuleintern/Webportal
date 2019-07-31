@@ -1,0 +1,49 @@
+
+	<div class="modal fade" id="unreadinfomail" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title" id="eventTitle">Ungelesene Nachrichten der Schule</h4>
+	      </div>
+	      <div class="modal-body">
+
+				<b>Folgende Nachrichten wurden noch nicht bestätigt. Bitte lesen Sie die Nachrichten und bestätigen Sie den Empfang.</b>
+				<table class="table table-bordered">
+					<tr>
+						<th>Datum</th>
+						<th>Nachricht</th>
+						<th>Status</th>
+					</tr>
+					{$sentMailData}
+				</table>
+	      	
+	      	<form><button type="button"  class="form-control" onclick="javascript: dismissFor30()"><i class="fa fa-times"></i> Für 30 Minuten schließen</button></form>
+	      	</div>
+	      </div>
+	     </div>
+	    </div>
+	   
+	   <script>
+	   	function dismissFor30() {
+	   		$('#unreadinfomail').modal('hide');
+		   	 var date = new Date();
+		   	 var minutes = 30;
+		   	 date.setTime(date.getTime() + (minutes * 60 * 1000));
+		   	 $.cookie("schuleinterndismisselternmail", "1", { expires: date });
+	   	}
+	   
+	   
+	   </script>
+	   
+	   
+	   <if($_REQUEST['page'] != "confirmelternmail")><then>
+	   
+	   	   <script>
+			    $(window).load(function(){
+			    	if($.cookie('schuleinterndismisselternmail') == null) {
+			        	$('#unreadinfomail').modal('show');
+			    	}
+			    });
+		   </script>
+	    </then>
+	   </if>

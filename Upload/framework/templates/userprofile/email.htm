@@ -1,0 +1,24 @@
+{$this->header}
+
+
+An dieser Stelle kann eine E-Mailadresse hinterlegt werden. Dies hat folgende Vorteile:
+<ul>
+<li>Du kannst dein Passwort mit Hilfe dieser E-Mail zurücksetzen, falls du es vergessen haben solltest.</li>
+<li>Du Erhältst automatisch eine Nachricht, wenn dein Passwort abgelaufen ist. (Dein Passwort muss mindestens einmal im halben Jahr geändert werden.)</li>
+<li>Datenschutz: Wir verwenden die E-Mailadresse nur für die oben genannten Zwecke. Kein anderer Schüler, Eltern oder Lehrer sehen deine E-Mailadresse. Sie wird nur intern im System gespeichert.
+
+</li></ul>
+{$message}
+
+<form action="index.php?page=userprofileemail&save=1&gplsession={$_REQUEST['gplsession']}" method="post">
+<table style="width:100%">
+<tr>
+	<td width="100">E-Mailadresse</td>
+	<td><input type="text" name="email" class="form-control" placeholder="E-Mailadresse" value="{$mail['userEMail']}" />{$mailStatus}</td>
+</tr>
+{$enterConfirmCode}
+</table>
+<input type="submit" value="E-Mail speichern" class="form-control" />
+<small>Um sicher zu gehen, dass dir wirklich die E-Mailadresse gehört, wird dir eine Bestätigungsemail zugesendet. Darin ist ein Link, auf den du klicken musst.</small>
+</form>
+{$this->footer}

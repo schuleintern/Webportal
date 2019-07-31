@@ -1,0 +1,43 @@
+<html>
+
+<head><title>Lehrermemory</title>
+
+
+<style>
+
+body {
+	font-family: "Arial";
+}
+
+</style>
+
+</head>
+
+<body>
+<div align="center">
+<img src="images/40jahrersu/logo.png">
+
+<h1>Personenmemory</h1>
+
+<h3>Bisher richtig: {$puzzle['correct']} (Runde {$puzzle['roundNr']} von 5)</h3>
+
+<form action="index.php?page=puzzle&accesskey={$this->key}&puzzleID={$puzzle['puzzleID']}&correctAnswer=$correctAnswer" method="post">
+
+<table border="0">
+
+<tr>
+	<td><img src="index.php?page=getPicturePuzzle&personID=$correctAnswer" width="300" /></td>
+	<td>$buttons</td>
+</tr>
+<tr>
+	<td colspan="2"><h3><a href="index.php?page=puzzle&accesskey={$this->key}">Neues Puzzle starten</a></h3></td>
+</tr>
+</table>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+{$this->header}
+
+<div class="callout callout-info"><a href="index.php?page=schulbuecher&mode=bestand"><i class="fa fa-arrow-left"></i> Zurück zur Übersicht</a></div>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-book"></i> {$book->getName()}</h3><br />
+		Exemplare zur Ausleihe an Schüler
+	</div>
+	<div class="box-body">
+		<table class="table table-striped">
+			<tr>
+				<th style="width:10%">Barocode</th>
+				<th>Infos</th>
+				<th>Verliehen</th>
+				<th>Aktionen</th>
+			</tr>
+			$exemplareHTML
+		</table>
+	</div>
+</div>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-book"></i> {$book->getName()}</h3><br />
+		Bankbücher
+	</div>
+	<div class="box-body">
+		<table class="table table-striped">
+			<tr>
+				<th style="width:10%">Barocode</th>
+				<th>Infos</th>
+				<th>Verliehen</th>
+				<th>Aktionen</th>
+			</tr>
+			$exemplareHTMLBankbuch
+		</table>
+	</div>
+</div>
+
+
+{$this->footer}

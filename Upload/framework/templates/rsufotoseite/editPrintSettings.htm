@@ -1,0 +1,26 @@
+{$this->header}
+
+<form action="?page=editPrintSettings&save=1" method="post">
+$message<br />
+Einstellungen für den Druck:<br />
+
+<table border="1" width="100%">
+<tr>
+	<td width="20%"><b>Option</b></td>
+	<td><b>Wert</b></td>
+</tr>
+<tr>
+	<td>Titel der Seite</td>
+	<td><input type="text" value="{$settings['printHeading']}" name="printHeading" size="20" class="form-control"></td>
+</tR>
+<tr>
+	<td>Personen pro Zeile</td>
+	<td><input type="text" value="{$settings['printPerRow']}" name="printPerRow" size="20" class="form-control"></td>
+</tR>
+
+</table>
+
+<input type="submit" value="Einstellungen speichern" class="form-control"></form><br />
+	
+
+{$this->footer}

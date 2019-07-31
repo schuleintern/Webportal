@@ -1,0 +1,93 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-folder-open-o"></i> {$gruppen[$i]->getName()} - 
+		<a href="#" onclick="confirmAction('Soll der Bereich inkl. aller Dateien wirklich gelöscht werden?','$selfURL&action=deleteBereich&bereichID={$gruppen[$i]->getID()}')"><i class="fa fa-trash"></i></a>
+		<a href="#editBereich{$gruppen[$i]->getID()}" data-toggle="modal"><i class="fa fa-edit"></i></a>
+		
+		</h3>
+	</div>
+	
+	<div class="box-body">
+		<table class="table table-bordered">
+			<tr>
+				<th>Dokumentname</th>
+				<th>Kommentar</th>
+				<th>Verfügbar ab / Veröffentlichung</th>
+				<th>Downloads</th>
+				<th>Aktionen</th>
+			</tr>
+			<if($fileListe == "")><then>
+				<tr>
+					<td colspan="5"><i>Keine Dateien</i></td>
+				</tr>
+			</then></if>
+			$fileListe
+		</table>
+		<br />
+		<form><button class="btn btn-success" type="button" data-toggle="modal" data-target="#uploadFile{$gruppen[$i]->getID()}"><i class="fa fa-upload"></i> Datei in die Gruppe "{$gruppen[$i]->getName()}" hochladen</button></form>
+	</div>
+</div>
+
+	<div class="modal fade" id="editBereich{$gruppen[$i]->getID()}" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title">"{$gruppen[$i]->getName()}" bearbeiten</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+	      	<form action="$selfURL&action=editBereich&bereichID={$gruppen[$i]->getID()}" method="post">
+	      		<input type="text" name="bereichName" class="form-control" placeholder="Gruppenname" value="{$gruppen[$i]->getName()}"/>
+				<button type="submit" class="form-control"><i class="fa fa-save"></i> Gruppe bearbeiten</button>
+	      	</form>
+	      </div>
+	      </div>
+	     </div>
+	    </div>
+
+	  <div class="modal fade" id="uploadFile{$gruppen[$i]->getID()}" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title"><i class="fa fa-upload"></i>Datei in Gruppe "{$gruppen[$i]->getName()}" hochladen</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<form action="$selfURL&action=uploadFile&bereichID={$gruppen[$i]->getID()}" method="post" enctype="multipart/form-data" >
+	      		<table class="table table-bordered">
+	      			<tr>
+	      				<td>Datei</td>
+	      				<td><input type="file" class="form-control" name="newFile" required="required">
+	      				<small>Zulässige Endungen: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, ZIP</small>
+	      				</td>
+	      			</tr>
+	      			<tr>
+	      				<td>Name</td>
+	      				<td><input type="text" name="fileName" class="form-control" placeholder="z.B. Elternbrief NR 4"  required="required"/></td>
+	      			</tr>
+	      			<tr>
+	      				<td>Verfügbar ab / Veröffentlichungsdatum</td>
+	      				<td><input type="text" name="fileDate" id="dateNewFile{$gruppen[$i]->getID()}" class="form-control"  required="required" value="<expression>DateFunctions::getTodayAsNaturalDate()</expression>"/></td>
+	      			</tr>
+	      			
+	      			<tr>
+	      				<td>Kommentar</td>
+	      				<td><input type="text" name="fileKommentar" class="form-control" placeholder="z.B. auf türkisch" /></td>
+	      			</tr>
+	      		</table>
+	      		<button type="submit" class="form-control"><i class="fa fa-upload"></i> Datei hochladen</button>
+	      	</form>
+	      </div>
+	      </div>
+	     </div>
+	    </div>
+	    
+	    <script>
+	    
+	    	$(function() {
+		$("#dateNewFile{$gruppen[$i]->getID()}").datepicker({
+			format: 'dd.mm.yyyy',
+	        language: "de",
+	        autoclose: true
+		});
+	});
+	    </script>

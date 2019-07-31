@@ -1,0 +1,76 @@
+<tr>
+	<td>{$user['userName']}
+	<if(($user['userNetwork'] == "SCHULEINTERN" && $user['userName'] != "spitschka_admin") || ($user['userNetwork'] == 'SCHULEINTERN_ELTERN' && DB::getGlobalSettings()->elternUserMode == "ASV_CODE"))>
+		<then>
+			<br /><button class="btn btn-danger btn-xs" onclick="confirmAction('Soll der Benutzer wirklich gelöscht werden?','index.php?page=administrationmodule&module=administrationusers&network=SCHULEINTERN&action=deleteUser&userID={$user['userID']}')"><i class="fa fa-trash"></i> Benutzer löschen</button>
+		</then>
+	</if>
+	<if($user['userNetwork'] == "SCHULEINTERN" && $user['userName'] == "spitschka_admin")>
+		<then>
+			<br /><i>Kann nicht gelöscht werden</i>
+		</then>
+	</if>
+	</td>
+	<td>{$user['userFirstName']}</td>
+	<td>{$user['userLastName']}</td>
+	<td>
+		<if(!in_array($user['userNetwork'],DB::getInternalNetworks()))><then>{$user['userNetwork']} (Synchronisiert)</then></if>
+		<if($user['userNetwork'] == 'SCHULEINTERN_ELTERN')><then>Elternbenutzer</then></if>
+	
+	</td>
+	<td>{$user['userFailedLoginCount']}</td>
+	<td>
+		<if(self::isNetworkSynced($user['userNetwork']) || $user['userNetwork'] == 'SCHULEINTERN_ELTERN' || $user['userID'] == 1)><then>
+			{$user['userEMail']}
+			</then>
+			<else>
+				<form action="index.php?page=administrationmodule&module=administrationusers&action=updateMail&userID={$user['userID']}" method="post"><a>
+					<input type="text" name="mail" value="{$user['userEMail']}" class="form-control"/>
+					<input type="submit" value="Mailadresse aktualisieren" class="form-control">	
+				</form>
+			</else>
+		</if>
+					
+	</td>
+	<td>
+		<if($isAdmin)><then>
+			<b>Ist Administrator</b><br />
+			<if($user['userID'] == DB::getUserID() || $user['userID'] == 1)><then>
+				Sie können diese Adminrechte nicht entfernen.
+			</then>
+			<else>
+			<form action="index.php?page=administrationmodule&module=administrationusers&network={$user['userNetwork']}&action=deleteUserAsAdmin&userID={$user['userID']}" method="post">
+			<button type="submit" class="form-control"><i class="fa fa-trash"></i> Administratorrechte entfernen</button>
+			</form>
+			</else>
+			</if>
+		</then>
+		<else>
+			
+			<form action="index.php?page=administrationmodule&module=administrationusers&network={$user['userNetwork']}&action=addUserAsAdmin&userID={$user['userID']}" method="post">
+			<button type="submit" class="form-control"><i class="fa fa-plus"></i> Benutzer zum globalen Administrator machen</button>
+		</form>
+		</else></if>
+
+	</td>
+	<td>
+		<if($user['userRemoteUserID'] == "" && $user['userID'] != 1)><then>
+			<form action="index.php?page=administrationmodule&module=administrationusers&action=resetPassword&userID={$user['userID']}" method="post"><a>
+			<input type="text" class="form-control" name="password" pattern=".{6,}"   required title="Mindestens 6 Zeichen">
+			<input type="submit" value="Passwort ändern" class="form-control">	
+		</form>
+		</then>
+		<else>
+			<if($user['userID'] == 1)><then>
+				Keine Passwortänderung für diesen Benutzer möglich!
+			</then>
+			
+			<else>
+				<i>Nicht möglich, da Benutzer aus OnSite Verzeichnis. Passwort dort ändern.</i>
+			
+			</else></if>
+			
+		</else>
+		</if>
+	</td>
+</tr>

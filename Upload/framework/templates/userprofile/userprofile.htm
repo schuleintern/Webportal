@@ -1,0 +1,324 @@
+{$this->header}
+
+
+		<if($_REQUEST['notifyNoMail'] > 0)><then>
+			<div class="callout callout-success"><i class="fa fa-check"></i> Sie erhalten nun keine E-Mails mehr.</div>
+		</then></if>
+		
+
+		<if($_REQUEST['notifyMail'] > 0)><then>
+			<div class="callout callout-success"><i class="fa fa-check"></i> Sie erhalten nun wieder E-Mails.</div>
+		</then></if>
+
+<if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE" && DB::getSession()->isEltern())>
+			<then>
+			
+<div class="modal fade" id="changename" tabindex="-1" role="dialog">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content" style="height: auto; min-height: 95%; border-radius: 0;">
+				    <div class="modal-header">	    
+				    	<h4 class="modal-title"><i class="fa fa-question-circle"></i> Namen ändern</h4>
+				      </div>
+					<div class="modal-body" style="height: auto; min-height: 95%; border-radius: 0;">
+						<p>Die Angabe des Namens dient dazu, dass Sie direkt abesprochen werden und Lehrer Sie besser kontaktieren können. Die Angabe des Namens ist freiwillig, wird aber empfohlen.</p>
+				      	<form action="index.php?page=userprofile&action=changeName" method="post">
+				      		<table class="table table-striped">
+				      			<tr>
+				      				<td>Vorname</td>
+				      				<td><input type="text" name="vorname" class="form-control" placeholder="Vorname" value="$vorname"/></td>
+				      			</tr>
+				      			<tr>
+				      				<td>Nachname</td>
+				      				<td><input type="text" name="name" class="form-control" placeholder="Vorname" value="$name" /></td>
+				      			</tr>
+				      		</table>
+				      		<button type="submit" class="form-control"><i class="fa fa-save"></i> Namen ändern</button>
+				      	</form>
+					</div>
+	</div>
+</div>
+</div>		
+			
+			</then>
+</if>
+
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title"><i class="fa fa-user"></i> {$realname}</h3>              
+            </div>
+           <div class="box-body">
+<table class="table table-striped">
+	<tr>
+		<td width="15%"><p><strong>Benutzername</strong></p></td>
+		<td><p>{$username}<br />
+<if(DB::getSession()->getUser()->isEltern() && DB::getGlobalSettings()->elternUserMode == 'ASV_CODE')><then>
+
+<button class="btn btn-danger btn-xs" onclick="confirmAction('Wollen Sie wirklich Ihren Account löschen? Sie können diesen Schritt nicht rückgängig machen!','index.php?page=userprofile&action=deleteAccount')"><i class="fa fa-trash"></i> Account löschen</button>
+
+</then>
+<else>
+<button class="btn btn-danger btn-xs" disabled="disabled"><i class="fa fa-trash"></i> Account löschen</button><small> Leider nicht selbst möglich. Wenden Sie sich bitte an Ihre Schule</small>
+
+
+</else></if></p></td>
+	</tr>
+	<tr>
+		<td><p><strong>Name</strong></p></td>
+		<td><p>{$realname}</p>
+			<if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE" && DB::getSession()->isEltern())>
+			<then>
+				<form><button type="button" class="btn" data-toggle="modal" data-target="#changename"><i class="fa fa-pencil"></i> Namen ändern</button></form>
+			</then></if>
+		
+		</td>
+	</tr>
+	$elternHTML
+	<tr>
+		<td><p><strong>E-Mail</strong></p>			<button class="btn btn-default btn-xs" id="changemail" type="button" onclick="mailAendern()" hidden><i class="fa fa-at"></i> E-Mailadresse aktualisieren</button>
+		</td>
+		<td>
+			<div id="mailAdresse"><i class="fa fa-refresh fa-spin"></i> Wird geladen</div><br />
+			<div id="mailAdresseNotChangeable" hidden="hidden" class="callout callout-info">Sie können die Adresse leider nicht selbst ändern. Wenden Sie sich dazu bitte direkt an die Schule.</div>
+			
+			<div id="mailOptions" hidden>
+			
+				<span class="label" id="statusMailNotification"></span>
+				<button class="btn btn-success btn-xs" id="bnaktiv" type="button" onclick="bnSetzen(1)" hidden><i class="fa fa-check"></i> Benachrichtigungen aktivieren</button>
+				<button class="btn btn-danger btn-xs" id="bnnaktiv" type="button" onclick="bnSetzen(0)" hidden><i class="fa fa-ban"></i> Benachrichtigungen deaktivieren</button>
+			
+			</div>
+			
+			
+			<script>
+			
+			$( document ).ready(function() {
+				updateMail();
+			});
+			
+			function bnSetzen(status) {
+	    		$.ajax({
+	    			type: "POST",
+	    			url: 'index.php?page=userprofile&action=changeNotification',
+	    			data: {
+	    				'newstatus': status
+	    			},
+	    			success: function(data, textStatus, jqXHR) {
+	    				updateMail();
+	    			},
+	    			dataType: 'json'
+	    		});
+			}
+			
+			function updateMail() {
+	    		$.ajax({
+	    			type: "GET",
+	    			url: 'index.php?page=userprofile&action=getMailJson',
+	    			data: {
+	    			},
+	    			success: function(data, textStatus, jqXHR) {
+	    				if(data.success) {
+	    					$("#mailAdresse").html(data.mail);
+	    					
+	    					$("#mailOptions").show();
+	    					
+	    					if(data.userReceiveMail) {
+	    						$("#statusMailNotification").html("<i class=\"fa fa-check\"></i> E-Mailbenachrichtigungen bei neuen Nachrichten aktiv").addClass("label-success").removeClass("label-danger");
+	    						
+	    						$("#bnaktiv").hide();
+	    						$("#bnnaktiv").show();
+	    					}
+	    					
+	    					else {
+	    						$("#statusMailNotification").html("<i class=\"fa fa-ban\"></i> E-Mailbenachrichtigungen bei neuen Nachrichten nicht aktiv").addClass("label-danger").removeClass("label-success");
+	    						$("#bnnaktiv").hide();
+	    						$("#bnaktiv").show();
+	    					}
+	    					
+	    					if(data.canChangeMail) {
+	    						$("#changemail").show();
+	    					}
+	    					else {
+	    						$("#mailAdresseNotChangeable").show();
+	    						$("#changemail").hide();
+	    					}
+	    				}
+	    				else {
+	    					$("#mailAdresse").html("Fehler beim Abruf der E-Mailadresse.");
+	    				}
+	    			},
+	    			dataType: 'json'
+	    		});
+			}
+
+			var code = "";
+			var newMailCrypt = "";
+			
+			function mailAendern() {
+				$("#errorMessage").hide();
+				$("#changeMailModal").modal("show");
+				$('#buttonNewMailCode').hide();
+
+			}
+			
+			function requestCode() {
+				if(!validateEmail($("#newMail").val())) {
+					$("#errorMessage").html("Die angegebene E-Mailadresse scheint keine gültige E-Mailadresse zu sein.");
+					$("#errorMessage").show();
+				}
+				else {
+					$("#errorMessage").hide();
+										
+		    		$.ajax({
+		    			type: "POST",
+		    			url: 'index.php?page=userprofile&action=changeMailStep1',
+		    			data: {
+		    				'newMail': $("#newMail").val()
+		    			},
+		    			success: function(data, textStatus, jqXHR) {
+		    				if(data.result) {
+		    					code = data.code;
+		    					newMailCrypt = data.newMail;
+		    					
+		    					$('#newMailFormElement').hide();
+		    					$('#buttonNewMail').hide();
+
+		    					$('#buttonNewMailCode').show();
+
+		    					$('#newMailCodeFormElement').show();
+		    				}
+		    				else {
+		    					$("#errorMessage").html("Beim Ändern der E-Mailadresse ist ein Fehler aufgetreten:<br />" + data.error);
+		    					$("#errorMessage").show();
+		    				}
+		    				console.log(data);
+		    			},
+		    			dataType: 'json'
+		    		});
+					
+				}
+			}
+			
+			
+			function sendCode() {
+		
+		    		$.ajax({
+		    			type: "POST",
+		    			url: 'index.php?page=userprofile&action=changeMailStep2',
+		    			data: {
+		    				'code': $("#newMailCode").val(),
+		    				'codeCryptedValue': code,
+		    				'newMailCrypt': newMailCrypt
+		    			},
+		    			success: function(data, textStatus, jqXHR) {
+		    				console.log(data);
+		    				if(data.result) {
+		    					updateMail();
+		    					location.reload();
+		    				}
+		    				else {
+		    					$("#errorMessage").html("Der Code ist ungültig!");
+		    					$("#errorMessage").show();
+		    				}
+		    			},
+		    			dataType: 'json'
+		    		});
+					
+			}
+			
+			function validateEmail(email) {
+				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				return re.test(email);
+			}
+			
+			</script>
+	</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<b>Signatur</b><br />
+			<small>Wird beim Verfassen von Nachrichten angehängt.</small>
+			<button class="btn btn-default btn-xs" type="button" data-toggle="modal" data-target="#editSignature"><i class="fa fa-pencil"></i> Bearbeiten</button>
+		</td>
+		<td>
+			{$data->getUser()->getSignature()}<br />
+			
+		</td>
+	</tr>
+	
+	
+	<if(DB::getSettings()->getBoolean('mobile-activated'))><then>
+	<tr>
+		<td><p><strong>Handynummer</strong></p></td>
+		<td>
+			<if($data->getUser()->getMobile() != "")>
+				<then>
+					<p>{$data->getUser()->getMobile()}</p>
+					
+				</then>
+				
+				<else><p><i>Keine Nummer hinterlegt.</i></p></else>
+			</if></td>
+	</tr>
+	
+	</then></if>
+	<tr>
+		<td><p><strong>Benutzerbild</strong></p></td>
+		<td><img src="{$this->userImage}" width="100"/><br /><form><button type="button" class="btn" onclick="window.location.href='index.php?page=userprofileuserimage'"><i class="fa fa-image"></i> Ändern</button></form></td>
+	</tr>
+</table>
+
+
+<br /><br /><small><font color="#FFFFFF">UserID: $userID</font></small>
+
+</div></div>
+
+
+<div class="modal fade" id="changeMailModal" tabindex="-1" role="dialog">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content" style="height: auto; min-height: 95%; border-radius: 0;">
+				    <div class="modal-header">	    
+				    	<h4 class="modal-title"><i class="fa fa-envelope-o"></i> E-Mailadresse ändern</h4>
+				      </div>
+					<div class="modal-body">
+						<div class="callout callout-danger" id="errorMessage" hidden></div>
+						<div class="form-group" id="newMailFormElement">
+							<label>Neue E-Mailadresse</label>
+							<input type="email" id="newMail" placeholder="jemand@irgdnwo.de" class="form-control">
+						</div>
+						
+						<div class="form-group" id="newMailCodeFormElement" hidden="hidden">
+							<label>Bitte geben Sie den Bestätigungscode ein, den Sie soeben per E-Mail an die neue Adresse bekommen haben</label>
+							<input type="number" placeholder="123456" class="form-control" id="newMailCode">
+						</div>
+						
+						<button class="btn btn-primary" type="button" id="buttonNewMail" onclick="requestCode()"><i class="fa fa-refresh"></i> E-Mailadresse aktualisieren</button>
+						<button class="btn btn-primary" type="button" id="buttonNewMailCode" onclick="sendCode()" hidden="hidden"><i class="fa fa-check"></i> Code eingeben</button>
+					</div>
+	</div>
+</div>
+</div>	
+
+
+<div class="modal fade" id="editSignature" tabindex="-1" role="dialog">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content" style="height: auto; min-height: 95%; border-radius: 0;">
+				    <div class="modal-header">	    
+				    	<h4 class="modal-title"><i class="fa fa-envelope-o"></i> Signatur bearbeiten<br />						 <small>Kein HTML erlaubt</small>
+				    	</h4>
+				      </div>
+					<div class="modal-body">
+						<form action="index.php?page=userprofile&action=updateSig" method="post">
+						<div class="form-group">
+							<label>Signatur</small></label>
+							<textarea name="sig" class="form-control" rows="10">{$data->getUser()->getRawSignature()}</textarea>
+						</div>
+						
+						<button class="btn btn-primary btn-block" type="submit" id="buttonNewMail" onclick="requestCode()"><i class="fa fa-save"></i> Speichern</button>
+						</form>
+					</div>
+	</div>
+</div>
+</div>	
+
+{$this->footer}

@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="FörderschwerpunktDiff" pl_key="2152">
+  <eintrag>
+    <schluessel><![CDATA[07117]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Emot. u.soz. Entw.]]></anzeigeform>
+    <langform><![CDATA[Emotionale und soziale Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 5.1 (SVE), BSF, BFF, GYF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07117]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Emot. u.soz. Entw.]]></anzeigeform>
+    <langform><![CDATA[Emotionale und soziale Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 5.1 (SVE), BSF, BFF, GYF]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04119]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[geistige Entwicklung]]></anzeigeform>
+    <langform><![CDATA[geistige Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 7, (SVE), BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04119]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[geistige Entwicklung]]></anzeigeform>
+    <langform><![CDATA[geistige Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 7, (SVE), BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[99018]]></schluessel>
+    <kurzform><![CDATA[StützFö]]></kurzform>
+    <anzeigeform><![CDATA[Stütz- und Förderklassen]]></anzeigeform>
+    <langform><![CDATA[sonderpädagogische Stütz- und Förderklasse]]></langform>
+    <bemerkung><![CDATA[VSF-UP 6 "Stütz- und Förderklasse" auch bei der Klassenbesonderheit zu erfassen]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02010]]></schluessel>
+    <kurzform><![CDATA[hö]]></kurzform>
+    <anzeigeform><![CDATA[Hörgeschädigte]]></anzeigeform>
+    <langform><![CDATA[Hörgeschädigte]]></langform>
+    <bemerkung><![CDATA[VSF-UP 2.4]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08024]]></schluessel>
+    <kurzform><![CDATA[DiaFö]]></kurzform>
+    <anzeigeform><![CDATA[Diagnose- und Förderklassen]]></anzeigeform>
+    <langform><![CDATA[Förderschulformunabhängige Sonderpädagogische Diagnose- und Förderklassen]]></langform>
+    <bemerkung><![CDATA[VSF-UP 10 "Diag" auch bei der Klassenart zu erfassen]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[99011]]></schluessel>
+    <kurzform><![CDATA[L/hö]]></kurzform>
+    <anzeigeform><![CDATA[Lernen und Hörgeschädigt]]></anzeigeform>
+    <langform><![CDATA[Lernen und Hörgeschädigt]]></langform>
+    <bemerkung><![CDATA[VSF-UP 2.5]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05112]]></schluessel>
+    <kurzform><![CDATA[Sp]]></kurzform>
+    <anzeigeform><![CDATA[Sprache]]></anzeigeform>
+    <langform><![CDATA[Sprache]]></langform>
+    <bemerkung><![CDATA[VSF-UP 3, (SVE), BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05112]]></schluessel>
+    <kurzform><![CDATA[Sp]]></kurzform>
+    <anzeigeform><![CDATA[Sprache]]></anzeigeform>
+    <langform><![CDATA[Sprache]]></langform>
+    <bemerkung><![CDATA[VSF-UP 3, (SVE), BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05112]]></schluessel>
+    <kurzform><![CDATA[Sp]]></kurzform>
+    <anzeigeform><![CDATA[Sprache]]></anzeigeform>
+    <langform><![CDATA[Sprache]]></langform>
+    <bemerkung><![CDATA[VSF-UP 3, (SVE), BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03113]]></schluessel>
+    <kurzform><![CDATA[K]]></kurzform>
+    <anzeigeform><![CDATA[Körp. u. mot. Entw.]]></anzeigeform>
+    <langform><![CDATA[Körperliche und motorische Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 4.1,(SVE), RSF, BSF, BFF, FOF, WSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03113]]></schluessel>
+    <kurzform><![CDATA[K]]></kurzform>
+    <anzeigeform><![CDATA[Körp. u. mot. Entw.]]></anzeigeform>
+    <langform><![CDATA[Körperliche und motorische Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 4.1,(SVE), RSF, BSF, BFF, FOF, WSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03113]]></schluessel>
+    <kurzform><![CDATA[K]]></kurzform>
+    <anzeigeform><![CDATA[Körp. u. mot. Entw.]]></anzeigeform>
+    <langform><![CDATA[Körperliche und motorische Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 4.1,(SVE), RSF, BSF, BFF, FOF, WSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03113]]></schluessel>
+    <kurzform><![CDATA[K]]></kurzform>
+    <anzeigeform><![CDATA[Körp. u. mot. Entw.]]></anzeigeform>
+    <langform><![CDATA[Körperliche und motorische Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 4.1,(SVE), RSF, BSF, BFF, FOF, WSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03113]]></schluessel>
+    <kurzform><![CDATA[K]]></kurzform>
+    <anzeigeform><![CDATA[Körp. u. mot. Entw.]]></anzeigeform>
+    <langform><![CDATA[Körperliche und motorische Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 4.1,(SVE), RSF, BSF, BFF, FOF, WSF]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09125]]></schluessel>
+    <kurzform><![CDATA[L]]></kurzform>
+    <anzeigeform><![CDATA[SVE-Lernen]]></anzeigeform>
+    <langform><![CDATA[SVE-Lernen (Entwicklungsverzögerung und Sprachauffälligkeit)]]></langform>
+    <bemerkung><![CDATA[(SVE) ("Lernen" am Excel-Blatt)]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06022]]></schluessel>
+    <kurzform><![CDATA[SFZ-L]]></kurzform>
+    <anzeigeform><![CDATA[SZF-Klasse Lernen]]></anzeigeform>
+    <langform><![CDATA[SFZ-Klasse in Jgst 3-9: Lernen]]></langform>
+    <bemerkung><![CDATA[VSF-UP 9.1]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[99008]]></schluessel>
+    <kurzform><![CDATA[L/ge]]></kurzform>
+    <anzeigeform><![CDATA[Lernen und Gehörlos]]></anzeigeform>
+    <langform><![CDATA[Lernen und Gehörlos]]></langform>
+    <bemerkung><![CDATA[VSF-UP 2.2]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07117]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Emot. u.soz. Entw.]]></anzeigeform>
+    <langform><![CDATA[Emotionale und soziale Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 5.1 (SVE), BSF, BFF, GYF]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07117]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[Emot. u.soz. Entw.]]></anzeigeform>
+    <langform><![CDATA[Emotionale und soziale Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 5.1 (SVE), BSF, BFF, GYF]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11023]]></schluessel>
+    <kurzform><![CDATA[SFZ-GS/HS]]></kurzform>
+    <anzeigeform><![CDATA[SZF-Klasse GS/HS]]></anzeigeform>
+    <langform><![CDATA[SFZ-Klasse in Jgst 3-9: GS/HS]]></langform>
+    <bemerkung><![CDATA[VSF-UP 9.2]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06020]]></schluessel>
+    <kurzform><![CDATA[L]]></kurzform>
+    <anzeigeform><![CDATA[Lernen]]></anzeigeform>
+    <langform><![CDATA[Lernen]]></langform>
+    <bemerkung><![CDATA[VSF-UP 8, BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06020]]></schluessel>
+    <kurzform><![CDATA[L]]></kurzform>
+    <anzeigeform><![CDATA[Lernen]]></anzeigeform>
+    <langform><![CDATA[Lernen]]></langform>
+    <bemerkung><![CDATA[VSF-UP 8, BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06020]]></schluessel>
+    <kurzform><![CDATA[L]]></kurzform>
+    <anzeigeform><![CDATA[Lernen]]></anzeigeform>
+    <langform><![CDATA[Lernen]]></langform>
+    <bemerkung><![CDATA[VSF-UP 8, BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01101]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Sehen]]></anzeigeform>
+    <langform><![CDATA[Sehen]]></langform>
+    <bemerkung><![CDATA[(SVE), RSF, BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01101]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Sehen]]></anzeigeform>
+    <langform><![CDATA[Sehen]]></langform>
+    <bemerkung><![CDATA[(SVE), RSF, BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01101]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[Sehen]]></anzeigeform>
+    <langform><![CDATA[Sehen]]></langform>
+    <bemerkung><![CDATA[(SVE), RSF, BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02007]]></schluessel>
+    <kurzform><![CDATA[ge]]></kurzform>
+    <anzeigeform><![CDATA[Gehörlose]]></anzeigeform>
+    <langform><![CDATA[Gehörlose]]></langform>
+    <bemerkung><![CDATA[VSF-UP 2.1]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[15003]]></schluessel>
+    <kurzform><![CDATA[G/bl-G/se]]></kurzform>
+    <anzeigeform><![CDATA[geist.Entw. u.Blind/Sehgesch.]]></anzeigeform>
+    <langform><![CDATA[geistige Entwicklung und Blind oder geistige Entwicklung und Sehgeschädigt]]></langform>
+    <bemerkung><![CDATA[VSF-UP 1.2]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[15009]]></schluessel>
+    <kurzform><![CDATA[G/ge-G/hö]]></kurzform>
+    <anzeigeform><![CDATA[geist.Entw.u.Gehörl./Hörgesch.]]></anzeigeform>
+    <langform><![CDATA[geistige Entwicklung und Gehörlos oder geistige Entwicklung und Hörgeschädigt]]></langform>
+    <bemerkung><![CDATA[VSF-UP 2.3]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09121]]></schluessel>
+    <kurzform><![CDATA[SFZ]]></kurzform>
+    <anzeigeform><![CDATA[SFZ-Gruppen]]></anzeigeform>
+    <langform><![CDATA[Sprache, Lernen und ggf. emotionale und soziale Entwicklung (SFZ)]]></langform>
+    <bemerkung><![CDATA[(SVE)]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01002]]></schluessel>
+    <kurzform><![CDATA[bl]]></kurzform>
+    <anzeigeform><![CDATA[Blinde]]></anzeigeform>
+    <langform><![CDATA[Blinde]]></langform>
+    <bemerkung><![CDATA[VSF-UP 1.1]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04119]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[geistige Entwicklung]]></anzeigeform>
+    <langform><![CDATA[geistige Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 7, (SVE), BSF, BFF]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12016]]></schluessel>
+    <kurzform><![CDATA[Kr]]></kurzform>
+    <anzeigeform><![CDATA[Klasse für Kranke]]></anzeigeform>
+    <langform><![CDATA[Klasse für Kranke]]></langform>
+    <bemerkung><![CDATA[VSF-UP 4.3, 5.2, 9.3 "Klasse für Kranke" auch bei der Klassenart zu erfassen]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12028]]></schluessel>
+    <kurzform><![CDATA[Kr]]></kurzform>
+    <anzeigeform><![CDATA[Ohne Zuordnung,Unterr.f.Kranke]]></anzeigeform>
+    <langform><![CDATA[Ohne Zuordnung, Unterricht für Kranke]]></langform>
+    <bemerkung><![CDATA[KRS]]></bemerkung>
+    <schulart_schluessel><![CDATA[29]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KRS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schule für Kranke]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12028]]></schluessel>
+    <kurzform><![CDATA[Kr]]></kurzform>
+    <anzeigeform><![CDATA[Ohne Zuordnung,Unterr.f.Kranke]]></anzeigeform>
+    <langform><![CDATA[Ohne Zuordnung, Unterricht für Kranke]]></langform>
+    <bemerkung><![CDATA[KRS]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[15015]]></schluessel>
+    <kurzform><![CDATA[G/K]]></kurzform>
+    <anzeigeform><![CDATA[geist.Entw.u.körp.u.mot.Entw.]]></anzeigeform>
+    <langform><![CDATA[geistige Entwicklung und körperliche und motorische Entwicklung]]></langform>
+    <bemerkung><![CDATA[VSF-UP 4.2]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02106]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Hören]]></anzeigeform>
+    <langform><![CDATA[Hören]]></langform>
+    <bemerkung><![CDATA[(SVE), RSF, BSF, BFF, FOF]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[15126]]></schluessel>
+    <kurzform><![CDATA[G/W]]></kurzform>
+    <anzeigeform><![CDATA[geist.Entw. u weit.Förderschw.]]></anzeigeform>
+    <langform><![CDATA[Geistige Entwicklung und weiterer Förderschwerpunkt]]></langform>
+    <bemerkung><![CDATA[(SVE)]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[99127]]></schluessel>
+    <kurzform><![CDATA[SÜ]]></kurzform>
+    <anzeigeform><![CDATA[so. Fschwpkt. übergr. Gr.]]></anzeigeform>
+    <langform><![CDATA[sonstige Förderschwerpunkt übergreifende Gruppe]]></langform>
+    <bemerkung><![CDATA[(SVE)]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[17004]]></schluessel>
+    <kurzform><![CDATA[ge/bl]]></kurzform>
+    <anzeigeform><![CDATA[Taubblinde]]></anzeigeform>
+    <langform><![CDATA[Taubblinde]]></langform>
+    <bemerkung><![CDATA[VSF-UP 1.3]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01005]]></schluessel>
+    <kurzform><![CDATA[se]]></kurzform>
+    <anzeigeform><![CDATA[Sehgeschädigte]]></anzeigeform>
+    <langform><![CDATA[Sehgeschägigte]]></langform>
+    <bemerkung><![CDATA[VSF-UP 1.4]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02106]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Hören]]></anzeigeform>
+    <langform><![CDATA[Hören]]></langform>
+    <bemerkung><![CDATA[(SVE), RSF, BSF, BFF, FOF]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02106]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Hören]]></anzeigeform>
+    <langform><![CDATA[Hören]]></langform>
+    <bemerkung><![CDATA[(SVE), RSF, BSF, BFF, FOF]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02106]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Hören]]></anzeigeform>
+    <langform><![CDATA[Hören]]></langform>
+    <bemerkung><![CDATA[(SVE), RSF, BSF, BFF, FOF]]></bemerkung>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

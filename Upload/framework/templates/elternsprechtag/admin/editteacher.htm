@@ -1,0 +1,47 @@
+<div class="box"> 
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-sign-language"></i> Administration Sprechtage</h3>
+	</div>
+	<div class="box-body">
+		<h3><expression>self::$currentSprechtag['sprechtagName']</expression> (<expression>DateFunctions::getNaturalDateFromMySQLDate(self::$currentSprechtag['sprechtagDate'])</expression>)</h3>
+		
+		<div class="callout callout-danger"><i class="fa fa-exclamation-triangle"></i> Gehen Sie hier bitte vorsichtig um! Änderungen löschen auch dahinter liegende Buchungen!</div>
+		
+		<form action="$selfURL&mode=massEditTeacher&sprechtagID=$sprechtagID" method="post">
+		
+				
+		<table class="table table-bordered">
+		
+		$table
+		
+		</table>
+		
+		<br />
+		<b>Für die ausgewählten Lehrer übernehmen:</b>
+		<b>Ein ausgewähltes Feld bedeutet, dass der Lehrer in diesem Slot verfügbar ist.</b>
+		<table class="table table-bordered">
+		
+		$formTable
+		
+		</table>
+		
+		<br />
+		<button type="submit" class="form-control"><i class="fa fa-save"></i> Slots für ausgewählte Lehrer und Räume für alle Lehrer speichern</button>
+		</form>
+	</div>
+</div>
+
+<script>
+
+		$('.icheckteacher').iCheck({
+		    checkboxClass: 'icheckbox_square-blue',
+		    radioClass: 'iradio_square-blue',
+		    increaseArea: '20%' // optional
+		  });
+		
+		
+		$('#checkAllTeacher').on('ifChanged', function(event){
+			$('.icheckteacher').iCheck('check');
+		});
+		
+</script>

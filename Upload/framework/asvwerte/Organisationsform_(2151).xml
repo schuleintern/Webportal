@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Organisationsform" pl_key="2151">
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[halbtags]]></anzeigeform>
+    <langform><![CDATA[halbtags]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[VZ]]></kurzform>
+    <anzeigeform><![CDATA[Vollzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Vollzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[VZ]]></kurzform>
+    <anzeigeform><![CDATA[Vollzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Vollzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[25]]></schluessel>
+    <kurzform><![CDATA[TZB]]></kurzform>
+    <anzeigeform><![CDATA[TZ-unter.-Blockunter.]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht - Blockunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=25##kuerzel_alt=B#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[TZ]]></kurzform>
+    <anzeigeform><![CDATA[Teilzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=20##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[62]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FSLF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMELF]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[TZ]]></kurzform>
+    <anzeigeform><![CDATA[Teilzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=20##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[ganztags]]></anzeigeform>
+    <langform><![CDATA[ganztags]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=40##kuerzel_alt=G#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[TZ]]></kurzform>
+    <anzeigeform><![CDATA[Teilzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=20##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[TZ]]></kurzform>
+    <anzeigeform><![CDATA[Teilzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=20##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[TZ]]></kurzform>
+    <anzeigeform><![CDATA[Teilzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=20##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[TZ]]></kurzform>
+    <anzeigeform><![CDATA[Teilzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=20##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[46]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFG]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[TZ]]></kurzform>
+    <anzeigeform><![CDATA[Teilzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=20##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[TZ]]></kurzform>
+    <anzeigeform><![CDATA[Teilzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=20##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[54]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FALF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMELF]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[TZE]]></kurzform>
+    <anzeigeform><![CDATA[TZ-Untr. Wöchentl. E-untr.]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht - wöchentlicher Einzeltagesunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=26##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[TZE]]></kurzform>
+    <anzeigeform><![CDATA[TZ-Untr. Wöchentl. E-untr.]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht - wöchentlicher Einzeltagesunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=26##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[25]]></schluessel>
+    <kurzform><![CDATA[TZB]]></kurzform>
+    <anzeigeform><![CDATA[TZ-unter.-Blockunter.]]></anzeigeform>
+    <langform><![CDATA[Teilzeitunterricht - Blockunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=25##kuerzel_alt=B#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[VZ]]></kurzform>
+    <anzeigeform><![CDATA[Vollzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Vollzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[VZ]]></kurzform>
+    <anzeigeform><![CDATA[Vollzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Vollzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[VZ]]></kurzform>
+    <anzeigeform><![CDATA[Vollzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Vollzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[VZ]]></kurzform>
+    <anzeigeform><![CDATA[Vollzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Vollzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[VZ]]></kurzform>
+    <anzeigeform><![CDATA[Vollzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Vollzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[VZ]]></kurzform>
+    <anzeigeform><![CDATA[Vollzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Vollzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[46]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFG]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[VZ]]></kurzform>
+    <anzeigeform><![CDATA[Vollzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Vollzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[62]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FSLF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMELF]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[VZ]]></kurzform>
+    <anzeigeform><![CDATA[Vollzeitunterricht]]></anzeigeform>
+    <langform><![CDATA[Vollzeitunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=V#]]></bemerkung>
+    <schulart_schluessel><![CDATA[54]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FALF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMELF]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

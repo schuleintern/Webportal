@@ -1,0 +1,1693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Jahrgangsstufe" pl_key="1015">
+  <eintrag>
+    <schluessel><![CDATA[012]]></schluessel>
+    <kurzform><![CDATA[1A]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 1A]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 1A]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[022]]></schluessel>
+    <kurzform><![CDATA[2A]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 2A]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 2A]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 5]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 5]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=5,05#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[022]]></schluessel>
+    <kurzform><![CDATA[2A]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 2A]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 2A]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[012]]></schluessel>
+    <kurzform><![CDATA[1A]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 1A]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 1A]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[9.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[9.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[9.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[9.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[9.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[9.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[9.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[9.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[9.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[9.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[9.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[9.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[9.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[9.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[9.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[9.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[9.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[092]]></schluessel>
+    <kurzform><![CDATA[9A]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9A]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9A]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[092]]></schluessel>
+    <kurzform><![CDATA[9A]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9A]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9A]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[9.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[8.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[8.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[8.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[8.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[8.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[8.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[8.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[8.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[9.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[9.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 9.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 9.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[8.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[8.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[8.2]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.2]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.2 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[8.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[8.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[8.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[8.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[8.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[8.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[8.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[8.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[8.1]]></kurzform>
+    <anzeigeform><![CDATA[Teiljgst 8.1]]></anzeigeform>
+    <langform><![CDATA[Teiljahrgangsstufe 8.1 im Flexibilisierungsjahr]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[13]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[12]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[111]]></schluessel>
+    <kurzform><![CDATA[11]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 11]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 11]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=11##kuerzel_alt=11#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[104]]></schluessel>
+    <kurzform><![CDATA[VKB]]></kurzform>
+    <anzeigeform><![CDATA[Vorklasse FOS]]></anzeigeform>
+    <langform><![CDATA[Vorklasse FOS (Vollzeitangebot)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=VS##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[12]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[111]]></schluessel>
+    <kurzform><![CDATA[11]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 11]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 11]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=11##kuerzel_alt=11#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[994]]></schluessel>
+    <kurzform><![CDATA[VKU]]></kurzform>
+    <anzeigeform><![CDATA[Vorkurs]]></anzeigeform>
+    <langform><![CDATA[Vorkurs (FOS/BOS/spätberufenen Gymnasien/Aussiedlerabiturienten/Abendgymnasien)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=VK#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[10]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 10]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 10]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 8]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 8]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=8,08#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[9]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=9,09#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[13]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[116]]></schluessel>
+    <kurzform><![CDATA[VORKURoE]]></kurzform>
+    <anzeigeform><![CDATA[Ohne Erfolg einen Vorkurs (TZ)]]></anzeigeform>
+    <langform><![CDATA[Ohne Erfolg einen Vorkurs (Teilzeitangebot) an einer Berufsoberschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=20#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[031]]></schluessel>
+    <kurzform><![CDATA[3]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 3]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 3]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=3,03#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[12]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[9]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=9,09#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[13]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[111]]></schluessel>
+    <kurzform><![CDATA[11]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 11]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 11]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=11##kuerzel_alt=11#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[10]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 10]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 10]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[7]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 7]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 7]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=7,07#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[7]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 7]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 7]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=7,07#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 8]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 8]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=8,08#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[021]]></schluessel>
+    <kurzform><![CDATA[2]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 2]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 2]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=2,02#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[011]]></schluessel>
+    <kurzform><![CDATA[1]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 1]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 1]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=1,01#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[4]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 4]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 4]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=4,04#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[4]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 4]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 4]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=4,04#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[031]]></schluessel>
+    <kurzform><![CDATA[3]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 3]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 3]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=3,03#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 5]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 5]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=5,05#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 5]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 5]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=5,05#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[113]]></schluessel>
+    <kurzform><![CDATA[VORKL mE]]></kurzform>
+    <anzeigeform><![CDATA[Mit Erfolg die Vorklasse (VZ)]]></anzeigeform>
+    <langform><![CDATA[Mit Erfolg die Vorklasse (Vollzeitangebot) an einer Berufsoberschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=31#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[114]]></schluessel>
+    <kurzform><![CDATA[VORKLoE]]></kurzform>
+    <anzeigeform><![CDATA[Ohne Erfolg die Vorklasse (VZ)]]></anzeigeform>
+    <langform><![CDATA[Ohne Erfolg die Vorklasse (Vollzeitangebot) an einer Berufsoberschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=30#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[115]]></schluessel>
+    <kurzform><![CDATA[VORKURmE]]></kurzform>
+    <anzeigeform><![CDATA[Mit Erfolg einen Vorkurs (TZ)]]></anzeigeform>
+    <langform><![CDATA[Mit Erfolg einen Vorkurs (Teilzeitangebot) an einer Berufsoberschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=21#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[022]]></schluessel>
+    <kurzform><![CDATA[2A]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 2A]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 2A]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[12]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[111]]></schluessel>
+    <kurzform><![CDATA[11]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 11]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 11]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=11##kuerzel_alt=11#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[137]]></schluessel>
+    <kurzform><![CDATA[13/2]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13 / Tz 2]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13 in Teilzeit (2)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[7]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 7]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 7]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=7,07#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[13]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[13]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[12]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[127]]></schluessel>
+    <kurzform><![CDATA[12/2]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12 / Tz 2]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12 in Teilzeit (2)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[126]]></schluessel>
+    <kurzform><![CDATA[12/1]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12 / Tz 1]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12 in Teilzeit (1)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[10]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 10]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 10]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[994]]></schluessel>
+    <kurzform><![CDATA[VKU]]></kurzform>
+    <anzeigeform><![CDATA[Vorkurs]]></anzeigeform>
+    <langform><![CDATA[Vorkurs (FOS/BOS/spätberufenen Gymnasien/Aussiedlerabiturienten/Abendgymnasien)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=VK#]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[9]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=9,09#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[136]]></schluessel>
+    <kurzform><![CDATA[13/1]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13 / Tz 1]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13 in Teilzeit (1)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 8]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 8]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=8,08#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[10]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 10]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 10]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[9]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=9,09#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[111]]></schluessel>
+    <kurzform><![CDATA[11]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 11]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 11]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=11##kuerzel_alt=11#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[4]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 4]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 4]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=4,04#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[10]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 10]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 10]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[9]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=9,09#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[111]]></schluessel>
+    <kurzform><![CDATA[11]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 11]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 11]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=11##kuerzel_alt=11#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[7]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 7]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 7]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=7,07#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[7]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 7]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 7]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=7,07#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 5]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 5]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=5,05#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[13]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[13]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 8]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 8]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=8,08#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 8]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 8]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=8,08#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[12]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[012]]></schluessel>
+    <kurzform><![CDATA[1A]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 1A]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 1A]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[12]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[021]]></schluessel>
+    <kurzform><![CDATA[2]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 2]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 2]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=2,02#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[13]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[4]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 4]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 4]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=4,04#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[111]]></schluessel>
+    <kurzform><![CDATA[11]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 11]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 11]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=11##kuerzel_alt=11#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 8]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 8]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=8,08#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[011]]></schluessel>
+    <kurzform><![CDATA[1]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 1]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 1]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=1,01#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[011]]></schluessel>
+    <kurzform><![CDATA[1]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 1]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 1]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=1,01#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 5]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 5]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=5,05#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[031]]></schluessel>
+    <kurzform><![CDATA[3]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 3]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 3]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=3,03#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[031]]></schluessel>
+    <kurzform><![CDATA[3]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 3]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 3]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=3,03#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[9]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=9,09#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[7]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 7]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 7]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=7,07#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[13]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[12]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[12]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[021]]></schluessel>
+    <kurzform><![CDATA[2]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 2]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 2]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=2,02#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[10]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 10]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 10]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[111]]></schluessel>
+    <kurzform><![CDATA[11]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 11]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 11]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=11##kuerzel_alt=11#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[9]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=9,09#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[10]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 10]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 10]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[10]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 10]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 10]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[9]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=9,09#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[7]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 7]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 7]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=7,07#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[7]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 7]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 7]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=7,07#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[12]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 12]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 12]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=12#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 8]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 8]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=8,08#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 8]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 8]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=8,08#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[4]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 4]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 4]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=4,04#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[4]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 4]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 4]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=4,04#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 5]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 5]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=5,05#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 5]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 5]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=5,05#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[13]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 13]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 13]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=13#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[111]]></schluessel>
+    <kurzform><![CDATA[11]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 11]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 11]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=11##kuerzel_alt=11#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[9]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=9,09#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[10]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 10]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 10]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[4]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 4]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 4]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=4,04#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[4]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 4]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 4]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=4,04#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[4]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 4]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 4]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=4,04#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 5]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 5]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=5,05#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[10]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 10]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 10]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=10##kuerzel_alt=10#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 5]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 5]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=5,05#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 5]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 5]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=5,05#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 8]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 8]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=8,08#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 8]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 8]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=8,08#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[7]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 7]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 7]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=7,07#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[7]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 7]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 7]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=7,07#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[9]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 9]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 9]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=9,09#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[031]]></schluessel>
+    <kurzform><![CDATA[3]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 3]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 3]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=3,03#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[6]]></kurzform>
+    <anzeigeform><![CDATA[Jgst 6]]></anzeigeform>
+    <langform><![CDATA[Jahrgangsstufe 6]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=6,06#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

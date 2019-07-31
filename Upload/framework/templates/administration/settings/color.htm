@@ -1,0 +1,18 @@
+<tr>
+	<td><b>{$settings[$s]['titel']}</b><br /><small>{$settings[$s]['text']}</small></td>
+	<td>
+	
+		<input type="text" name="{$settings[$s]['name']}" value="{$value}" id="colorpicker-{$settings[$s]['name']}"/>
+			
+			
+		<span style="background-color: $value; color: #FFFFFF; width: 30%" id="colorpicker-sample-{$settings[$s]['name']}">#################</span>
+			
+		<script>
+			$("#colorpicker-{$settings[$s]['name']}").colorpicker().on('changeColor', function() {
+			      $("#colorpicker-sample-{$settings[$s]['name']}").css('background-color', $(this).val() );
+			});
+		</script>
+	
+	
+	</td>
+</tr>

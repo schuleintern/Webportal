@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Anrede" pl_key="2008">
+  <eintrag>
+    <schluessel><![CDATA[3]]></schluessel>
+    <kurzform><![CDATA[K]]></kurzform>
+    <anzeigeform><![CDATA[keine]]></anzeigeform>
+    <langform><![CDATA[keine]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=K#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[1]]></schluessel>
+    <kurzform><![CDATA[F]]></kurzform>
+    <anzeigeform><![CDATA[Frau]]></anzeigeform>
+    <langform><![CDATA[Frau]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=F#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[2]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[Herr]]></anzeigeform>
+    <langform><![CDATA[Herr]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=H#]]></bemerkung>
+  </eintrag>
+</werteliste>

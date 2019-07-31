@@ -1,0 +1,10 @@
+<if($deleted)><then><div class="callout callout-success"><i class="fa fa-check"></i> Alle Einträge wurden gelöscht.</div>
+</then></if>
+
+<p>Das Kondolenzbuch erscheint, sobald das Modul aktiviert ist. Es erscheint im Menü an erster Stelle.</p>
+<p>Es kann z.B. beim Tod einer Schülerin / eines Schülers  bzw. einer Lehrerin oder Lehrers zum Einsatz kommen.</p>
+<p>Ins Kondolenzbuch können sich alle Benutzer eintragen. Die Eintragung erfolgt anonym. Globale Administratoren und Administratoren dieses Modules können Einträge löschen.</p>
+<hr>
+Anzahl der Einträge aktuell: $anzahlEntries
+<hr>
+<form><button type="button" class="btn btn-danger" onclick="confirmAction('Sollen wirklich alle Einträge im Kondolenzbuch gelöscht werden?','$selfURL&action=deleteAllEntries')"><i class="fa fa-trash"></i> Alle vorhandenen Einträge löschen</button></form>

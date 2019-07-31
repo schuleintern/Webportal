@@ -1,0 +1,100 @@
+{$this->header}
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-database"></i> Datenbanken für den IT Unterricht</h3>
+	</div>
+	<div class="box-body">
+
+
+<p>Hier können MySQL - Datenbanken für den Unterricht oder für
+	Projekte verwaltet werden.</p>
+<p><b>Der Server ist nicht für persönliche Daten gedacht, da er nicht speziell abgesichert ist. Es handelt sich um einen "Spielserver" zum Erlernen von SQL.</b></p>
+<p>Jeder Datenbank können dazu beliebig viele Benutzer zugeordnet
+	werden. Bei der Zuordnung wird angegeben, welche Rechte der Benutzer
+	haben soll.</p>
+<p>Es können beliebig viele Benutzer und Datenbanken erstellt
+	werden.</p>
+<p>
+	Auf die Datenbanken kann hier zugegriffen werden: <a href="http://databaseserver.schule-intern.de/"
+		target="_blank">http://databaseserver.schule-intern.de/</a> (PHPMyAdmin)
+</p>
+<table class="table table-bordered">
+	<tr>
+		<td align="center" width="50%"><h4><i class="fa fa-database"></i> Vorhandene
+				Datenbanken</h4></td>
+		<td
+			align="center"><h4><i class="fa fa-user"></i> Vorhandene Benutzer</h4></td>
+	</tr>
+	<tr>
+		<td valign="top"><ul>{$dbList}</ul></td>
+		<td valign="top"><ul>{$userList}</ul></td>
+	</tr>
+	<tr>
+		<td valign="top" align="center"><br />
+		<br />
+			<h4>Datenbank anlegen</h4>
+			<form
+				action="index.php?page=database&action=addDatabase"
+				method="post">
+				<p>
+					<input type="text" name="databaseName" maxlength="30"
+						id="textfield" placeholder="Tabellenkommentar (z.B. Projektarbeit Züge)" class="form-control">
+				</p>
+				<p>
+					<input type="submit" value="Datenbank anlegen" id="button" class="form-control">
+				</p>
+			</form></td>
+		<td valign="top" align="center"><br />
+		<br />
+			<h4>Benutzer anlegen</h4>
+			<p>Es wird ein 4-stelliges Zufallspasswort erzeugt.</p>
+			<form
+				action="index.php?page=database&action=addUser"
+				method="post">
+				<p>
+					<input type="submit" value="Neuen Benutzer durck Klicken anlegen" id="button" class="form-control">
+				</p>
+			</form></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2">
+			<table border="0" width="100%">
+				<tr>
+					<td colspan="2" align="center"><h4>Rechte auf eine
+							Datenbank erteilen</h4></td>
+				</tr>
+				<form action="index.php?page=database&action=addRights" method="post">
+					<tr>
+						<td style="width:20%">Datenbank:</td>
+						<td><select name="dbID"
+							style="margin-bottom: 10px; width: 100%; border: 2; padding: 10px;">{$selectDB}
+						</select></td>
+					</tr>
+					<tr>
+						<td>Benutzer:</td>
+						<td><select name="userID"
+							style="margin-bottom: 10px; width: 100%; border: 2; padding: 10px;">{$selectUser}
+						</select></td>
+					</tr>
+					<tr>
+						<td>Rechte:</td>
+						<td><select name="write" class="form-control">
+								<option value="0">Leserechte</option>
+								<option value="1">Schreibrechte</option>
+							</select></td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><button type="submit" class="form-control"><i class="fa fa-lock"></i> Rechte erteilen</button></td>
+					</tr>
+			</table>
+			</form>
+</table>
+
+	
+	</div>
+</div>
+
+{$this->footer}

@@ -1,0 +1,553 @@
+{$this->header}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title"><i class="fa fa-child"></i> {$schueler->getCompleteSchuelerName()} (Klasse {$schueler->getKlasse()})</h3><br />
+        <a href="index.php?page=schuelerinfo&mode=klasse&klasse={$schueler->getKlasse()}"><i class="fa fa-step-backward"></i> Zurück zur Klasse</a>
+      </div>
+      <div class="box-body">
+        <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <if($_REQUEST['uploadOK'] == '' && $_REQUEST['uploadFail'] == '' && $_REQUEST['nsOK'] == '' && $_REQUEST['openLetter'] == '')><then>
+                  <li class="active">
+                  </then><else>
+                  <li>
+                  </else></if><a href="#allginfos" data-toggle="tab"><i class="fa fa-address-card-o"></i> Allgemeine Informationen</a></li>
+                  <li><a href="#adressen" data-toggle="tab"><i class="fa fa-address-card-o"></i> Adressen</a></li>
+                  <if($_REQUEST['uploadOK'] != '' || $_REQUEST['uploadFail'] != '')><then>
+                  <li class="active">
+                  </then><else>
+                  <li>
+                  </else></if><a href="#dokumente" data-toggle="tab"><i class="fa fa-files-o"></i> Dokumente</a></li>
+                  <if($_REQUEST['nsOK'] != '')><then>
+                  <li class="active">
+                  </then><else>
+                  <li>
+                  </else></if><a href="#nachteilsausgleich" data-toggle="tab"><i class="fa fa-handshake-o"></i> Nachteilsausgleich</a></li>
+                  <if($withNoten)><then>
+                  	<li><a href="#noten" data-toggle="tab"><i class="fa fa-check"></i> Aktuelles Notenbild</a></li>
+                  </then></if>
+                  <li><a href="#fehlzeiten" data-toggle="tab"><i class="fa fa-user-md"></i> Fehlzeiten</a></li>
+                  <li><a href="#unterricht" data-toggle="tab"><i class="fa fa-graduation-cap"></i> Unterrichtsbesuch</a></li>
+                  <if($schulbuecherActive)><then><li><a href="#schulbuecher" data-toggle="tab"><i class="fa fa-book"></i> Ausgeliehene Schulbücher</a></li></then></if>
+                  <if($_REQUEST['openLetter'] != '')><then><li class="active"></then><else><li></else></if><a href="#aktionen" data-toggle="tab"><i class="fa fa-play"></i> Vorgänge / Briefe</a></li>
+                </ul>
+                <div class="tab-content">
+                  <if($_REQUEST['uploadOK'] == '' && $_REQUEST['uploadFail'] == '' && $_REQUEST['nsOK'] == '' && $_REQUEST['openLetter'] == '')><then>
+                  <div class="tab-pane active" id="allginfos">
+                  </then><else>
+                  <div class="tab-pane" id="allginfos">
+                  </else></if>
+                    $austrittInfo
+                <table class="table">
+                  <tr>
+                    <td rowspan="10" style="width:10%">
+                      <if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren'))>
+                      <then>
+                            <img src="index.php?page=schuelerinfo&mode=getFoto&schuelerAsvID={$schueler->getAsvID()}" width="180"/><br />
+                     		<form>
+
+
+                     			<button type="button" class="btn btn-sm" data-target="#modalUploadFoto" data-toggle="modal"><i class="fa fa-camera-retro"></i> Bild ändern</button>
+                     			<if($schueler->getFoto() != null)><then>
+                     												<button type="button" class="btn btn-sm" onclick="window.location.href='{$schueler->getFoto()->getURLToFile(true)}'"><i class="fa fa-download"></i></button>
+                     				
+                     				<button type="button" class="btn btn-danger btn-sm"
+                     					onclick="confirmAction('Soll das Foto wirklich entfernt werden?','index.php?page=schuelerinfo&mode=removeFoto&schuelerAsvID={$schueler->getAsvID()}')"><i class="fa fa-trash"></i></button>
+                     			</then>
+                     			</if>
+
+                     		</form>
+
+                      </then>
+
+                      <else>
+                            <img src="cssjs/images/userimages/default.png" height="150"/><br />
+
+                      </else>
+
+                      </if>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:10%">Name:</td>
+                    <td>{$schueler->getName()}</td>
+                  </tr>
+                  <tr>
+                    <td style="width:10%">Rufname:</td>
+                    <td>{$schueler->getRufname()}</td>
+                  </tr>
+
+                  <tr>
+                    <td style="width:10%">Vornamen:</td>
+                    <td>{$schueler->getVornamen()}</td>
+                  </tr>
+                  <tr>
+                    <td style="width:10%">Geburtstag:</td>
+                    <td>{$schueler->getGeburtstagAsNaturalDate()} in {$schueler->getGeburtsort()} ({$schueler->getGeburtsland()})</td>
+                  </tr>
+
+                  <tr>
+                    <td>Alter:</td>
+                    <td>{$schueler->getAlter()}</td>
+                  </tr>
+
+                  <tr>
+                    <td>Geschlecht:</td>
+                    <td><if($schueler->getGeschlecht() == 'm')><then><i class="fa fa-mars"></i></then><else><i class="fa fa-venus"></i></else></if></td>
+
+                  </tr>
+
+                  <tr>
+                    <td>Wohnort:</td>
+                    <td>{$schueler->getWohnort()}</td>
+                  </tr>
+
+                   <tr>
+                    <td>Bekenntnis:</td>
+                    <td>{$schueler->getBekenntnis()}</td>
+                  </tr>
+
+                  <tr>
+                    <td>Ausbildungsrichtung:</td>
+                    <td>{$schueler->getAusbildungsrichtung()}</td>
+                  </tr>
+                </table>
+                  </div>
+                  <div class="tab-pane" id="adressen">
+
+                    $adressenHTML
+                  </div>
+                  <if($_REQUEST['uploadOK'] != '' || $_REQUEST['uploadFail'] != '')><then>
+                  <div class="tab-pane active" id="dokumente">
+                  </then><else>
+                  <div class="tab-pane" id="dokumente">
+                  </else></if>
+
+                      <if($_GET['uploadOK'] > 0)><then>
+                        <div class="callout callout-success">Das Dokument wurde erfolgreich abgelegt!</div>
+                      </then></if>
+
+                      <if($_GET['uploadFail'] > 0)><then>
+                        <div class="callout callout-danger">Beim Hochladen des Dokumentes gab es einen Fehler! Eventuell haben Sie ein nicht unterstütztes Dateiformat hochgeladen.</div>
+                      </then></if>
+
+                      <form>
+                      <button type="button" class="btn" data-toggle="modal" data-target="#modaluplaodfile"><i class="fa fa-upload"></i> Dokument hochladen</button>
+                      <button type="button" class="btn" data-toggle="modal" data-target="#modaladdnotiz"><i class="fa fa-sticky-note-o"></i> Notiz ablegen</button>
+                      
+                      
+                      </form><br />
+                    <table class="table table-striped">
+                      <tr>
+                        <th style="width:15%">Datum</th>
+                        <th>Dokument / Download</th>
+                        <th>&nbsp;</th>
+                      </tr>
+                      $dokumenteHTML
+                    </table>
+                  </div>
+
+                  <div class="tab-pane" id="fehlzeiten">
+                    <div class="box">
+  <div class="box-header">
+    <h3 class="box-title">
+      <i class="fa fa-info"></i> Zusammenfassung
+    </h3>
+  </div>
+  <div class="box-body">
+    <table class="table table-striped">
+      <tr>
+        <td width="10%">Anzahl der Fehltage:</td>
+        <td>				<if(DB::getSettings()->getBoolean('absenzen-has-fpa'))><then>
+					$total Tage außerhalb der fpA
+					<br />$totalfpA Tage in der fpA
+					<br />Summe: <expression>($total+$totalfpA)</expression>
+				</then>
+				<else>
+
+				$total Tage
+				</else>
+				</if></td>
+      </tr>
+      <tr>
+        <td>Beurlaubte Tage:</td>
+        <td>$beurlaubt Tage</td>
+      </tr>
+      <tr>
+        <td>Verspätungen</td>
+        <td>$verspaetungenTotal (Summe: $verspaetungenMinutenTotal Minuten)</td>
+      </tr>
+      <tr>
+        <td>Krankenzimmeraufenthalte</td>
+        <td>$sanizimmerTotal (Summe: $sanizimmerMinutenTotal Minuten)</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">
+      <i class="fa fa-pie-chart"></i> Statistik
+    </h3>
+  </div>
+  <div class="box-body">
+    <p>Verteilung der Absenzentage</p>
+    <table class="table table-bordered">
+      <tr>
+        <th>Montag</th>
+        <th>Dienstag</th>
+        <th>Mittwoch</th>
+        <th>Donnerstag</th>
+        <th>Freitag</th>
+      </tr>
+      <tr>
+        <td>{$absenzenStat[0]} Tage</td>
+        <td>{$absenzenStat[1]} Tage</td>
+        <td>{$absenzenStat[2]} Tage</td>
+        <td>{$absenzenStat[3]} Tage</td>
+        <td>{$absenzenStat[4]} Tage</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">
+      <i class="fa fa-bed"></i> Absenzen
+    </h3>
+  </div>
+  <div class="box-body">
+    <table class="table table-striped">
+      <tr>
+        <th width="10%">Datum</th>
+        <th width="10%">Bis</th>
+        <th width="10%">Hinweis</th>
+        $stundenHeader
+      </tr>
+      <if($absenzenHTML == "")><then><tr><td colspan="8"><i>Keine</i></td></tr></then><else>
+      $absenzenHTML</else></if>
+
+    </table>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">
+      <i class="fa fa-ambulance"></i> Krankenzimmeraufenthalte
+    </h3>
+  </div>
+  <div class="box-body">
+    <table class="table table-striped">
+      <tr>
+        <th width="10%">Datum</th>
+        <th width="10%">Von</th>
+        <th width="10%">Bis</th>
+        <th>Ergebnis</th>
+        <th>Grund</th>
+      </tr>
+      <if($krankenzimmerHTML == "")><then><tr><td colspan="4"><i>Keine</i></td></tr></then><else>
+      $krankenzimmerHTML</else></if>
+    </table>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">
+      <i class="fa fa-clock-o"></i> Verspätungen
+    </h3>
+  </div>
+  <div class="box-body">
+    <table class="table table-striped">
+      <tr>
+        <th width="10%">Datum</th>
+        <th width="10%">Minunten</th>
+        <th width="10%">Kommentar</th>
+      </tr>
+      <if($verspaetungHTML == "")><then><tr><td colspan="4"><i>Keine</i></td></tr></then><else>
+      $verspaetungHTML</else></if>
+    </table>
+  </div>
+</div>
+                  </div>
+
+                   <if($_REQUEST['openLetter'] != '')><then>
+                  <div class="tab-pane active" id="aktionen">
+                  </then><else>
+                  <div class="tab-pane" id="aktionen">
+                  </else></if>
+                  	<form><button type="button" class="btn" data-toggle="modal" data-target="#modalwriteLetter"><i class="fa fa-pencil"></i> Brief an die Eltern des Schülers schreiben</button></form><br />
+                    <table class="table table-striped">
+                    	<tr>
+                    		<th>#</th>
+                    		<th>Lehrer</th>
+                    		<th>Betreff</th>
+                    		<th>Gedruckt</th>
+                    		<th>Erledigt</th>
+                    		<th>Aktionen</th>
+                    	</tr>
+                    	$briefHTML
+
+                    </table>
+
+                    <if($_REQUEST['downloadLetter'] != '')><then>
+                    <iframe width="1" height="1" frameborder="0" src="index.php?page=schuelerinfo&mode=editLetter&letterID={$_REQUEST['downloadLetter']}&action=downloadLetter"></iframe>
+
+                    </then></if>
+            	  </div>
+
+
+			<if($schulbuecherActive)><then>
+
+            <div class="tab-pane" id="schulbuecher">
+               <table class="table table-striped">
+               	<tr>
+               		<th style="width:10%">Barcode</th>
+               		<th>Buch</th>
+               	</tr>
+               	$buecherHTML
+               </table>
+            </div>
+			</then></if>
+
+            <div class="tab-pane" id="unterricht">
+               <table class="table table-striped">
+               	<tr>
+               		<th style="width:10%">Fach</th>
+               		<th>Lehrer</th>
+               	</tr>
+               	$unterrichtHTML
+               </table>
+            </div>
+            
+            <if($withNoten)><then>
+            <div class="tab-pane" id="noten">
+            	<table class="table table-bordered">
+            		$notentabelle
+            	</table>            
+            </div>
+            </then></if>
+            
+            <if($_REQUEST['nsOK'] == 1)><then>
+                  <div class="tab-pane active" id="nachteilsausgleich">
+                  </then><else>
+                  <div class="tab-pane" id="nachteilsausgleich">
+                  </else></if>
+                    <if($hasNA)><then>
+                      <div class="callout callout-danger"><i class="fa fa-exclamation-triangle"></i> Nachteilsausgleich eingetragen</div>
+
+					  <table class="table">
+					  	<tr>
+					  		<td style="width:10%"><b>Art</b></td>
+					  		<td>{$na->getArt()}</td>
+					  	</tr>
+					  	<tr>
+					  		<td><b>Arbeitszeitverlängerung</b></td>
+					  		<td>{$na->getArbeitszeitverlaengerung()}</td>
+					  	</tr>
+					  	<tr>
+					  		<td><b>Notenschutz beantragt</b></td>
+					  		<td><if($na->hasNotenschutz())><then>Ja</then><else>Nein</else></if></td>
+					  	</tr>
+					  	<tr>
+					  		<td><b>Kommentar</b></td>
+					  		<td>{$na->getKommentar()}</td>
+					  	</tr>
+					  	<tr>
+					  		<td><b>Gültig bis</b></td>
+					  		<td><if($na->hasEnd())><then>Gültig bis: <expression>DateFunctions::getNaturalDateFromMySQLDate($na->getEndDatumAsMySQLDate())</expression></then><else>Kein Enddatum</else></if></td>
+					  	</tr>
+					  	
+					  	<tr>
+					  		<td><b>Gewichtung der Noten</b></td>
+					  		<td>{$na->getGewichtungAsText()}</td>
+					  	</tr>
+					  </table>
+
+					  <br /><form><button type="button" class="btn btn-danger" onclick="javascript:confirmAction('Soll der Eintrag wirklich gelöscht werden?','index.php?page=schuelerinfo&mode=deleteNA&schuelerAsvID={$schueler->getAsvID()}')"><i class="fa fa-trash"></i> Nachteilsausgleich löschen</button></form>
+
+                    </then>
+                    <else>
+                      <div class="callout callout-success"><i class="fa fa-info"></i> Kein Nachteilsausgleich eingetragen</div>
+
+                      <b>Nachteilsausgleich eintragen:</b><br /><br />
+                      <form action="index.php?page=schuelerinfo&mode=addNA&schuelerAsvID={$schueler->getAsvID()}" method="post">
+
+                      <table class="table table-striped">
+                        <tr>
+                          <td style="width:10%"><b>Art</b></td>
+                          <td><select name="art" class="form-control">
+                            <option value="ls">Lesestörung</option>
+                            <option value="lrs">Lese- / Rechtschreibstörung</option>
+                            <option value="rs">Rechtschreibstörung</option>
+                            <option value="sonst">Sonstige (Siehe Kommentar)</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td><b>Arbeitszeitverlängerung</b></td>
+                          <td><input type="text" name="azv" class="form-control" placeholder="z.B. Bis zu 20%"></td>
+                        </tr>
+                        <tr>
+                          <td><b>Notenschutz</b><br><small>Nur, wenn beantragt</small></td>
+                          <td><select name="ns" class="form-control">
+                            <option value="0">Nein</option>
+                            <option value="1">Ja</option>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td><b>Kommentar</b></td>
+                          <td><textarea name="kommentar" rows="4" class="form-control" placeholder=""></textarea></td>
+                        </tr>
+                        <tr>
+                          <td><b>Gültig bis</b></td>
+                          <td>
+                            <input type="text" id="datumbis" name="gueltigbis" placeholder="Kein Enddatum">
+                            <br /><button type="button" id="buttonnodate" class="btn btn-sm" onclick="$('#datumbis').val('')"><i class="fa fa-ban"></i> Kein Enddatum setzen</button>
+                          </td>
+                         </tr>
+                          <tr>
+                          <td><b>Gewichtung der Noten</b></td>
+                          <td><select name="gewichtung" class="form-control">
+                          	<option value="">Normal</option>
+                            <option value="12">1:2</option>
+                            <option value="21">2:1</option>
+                            <option value="11">1:1</option>
+                          </select></td>
+                        </tr>
+                      </table>
+                      <button type="submit" class="form-control"><i class="fa fa-save"></i> Speichern</button>
+                      </form>
+
+                      <script>
+
+                      $(function() {
+                        $("#datumbis").datepicker({
+                          format: 'dd.mm.yyyy',
+                              language: "de",
+                              autoclose: true,
+                        });
+                      });
+
+
+                      </script>
+                    </else></if>
+            </div>
+                </div>
+            </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="modal fade" id="modaluplaodfile" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="width:70%" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-upload"></i> Dokument hochladen</h4>
+
+      </div>
+      <div class="modal-body">
+
+            <form action="index.php?page=schuelerinfo&mode=uploadDokument&schuelerAsvID={$schueler->getAsvID()}" method="Post" enctype="multipart/form-data">
+
+      <expression>DB::getSettings()->getValue('schuelerinfo-upload-hinweis')</expression><br /><br />
+
+          <p><input type="file" name="dokumentFile" class="form-control">
+          <small>Sie können folgende Dateien hochladen: PDF, Bilder und Office Dokumente</small></p>
+
+          <p><input type="text" name="dokumentName" class="form-control" placeholder="Name des Dokumentes (z.B. Antrag Sportbefreiung)"></p>
+          <p><textarea name="dokumentKommentar" class="form-control" rows="10" placeholder="Kommentar"></textarea></p>
+
+          <button type="submit" class="btn"><i class="fa fa-upload"></i> Datei hochladen</button>
+        </form>
+      </div>
+     </div>
+    </div>
+    </div>
+
+<div class="modal fade" id="modaladdnotiz" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="width:70%" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-sticky-note-o"></i> Notiz ablegen</h4>
+
+      </div>
+      <div class="modal-body">
+
+           <form action="index.php?page=schuelerinfo&mode=addNotiz&schuelerAsvID={$schueler->getAsvID()}" method="Post" enctype="multipart/form-data">
+
+      	  <expression>DB::getSettings()->getValue('schuelerinfo-upload-hinweis')</expression><br /><br />
+
+          <p><input type="text" name="dokumentName" class="form-control" placeholder="Art der Notiz (z.B. Gesprächsnotiz)" required="required"></p>
+          
+          <p><textarea name="dokumentKommentar" class="form-control" rows="10" placeholder="Notiz" required="required"></textarea></p>
+
+          <button type="submit" class="btn"><i class="fa fa-sticky-note-o"></i> Notiz ablegen</button>
+        </form>
+      </div>
+     </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="modalwriteLetter" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="width:70%" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-pencil"></i> Brief schreiben - Schritt 1</h4>
+
+      </div>
+      <div class="modal-body">
+
+            <form action="index.php?page=schuelerinfo&mode=writeNewLetter&schuelerAsvID={$schueler->getAsvID()}" method="Post">
+
+			<p>Bitte die Empfängeradresse auswählen: (Die Hauptadresse ist bereits ausgewählt)</p>
+			$adressenHTMLSelect
+			<p>Brief länger als 30 Minuten speichern?</p>
+			<p><small>Beachten Sie bitte, dass Sie Ordnungsmaßnahmen nicht längerfristig speichern dürfen!</small></p>
+			<p><select name="saveLetter" class="form-control"><option value="1">Ja</option><option value="0">Nein</option></select>
+
+			<br />
+
+          <button type="submit" class="btn"><i class="fa fa-pencil"></i> Zu Schritt 2</button>
+        </form>
+      </div>
+     </div>
+    </div>
+    </div>
+
+  <div class="modal fade" id="modalUploadFoto" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="width:70%" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-camera-retro"></i> Foto des Schüler hochladen</h4>
+
+      </div>
+      <div class="modal-body">
+
+            <form action="index.php?page=schuelerinfo&mode=uploadFoto&schuelerAsvID={$schueler->getAsvID()}" method="Post" enctype="multipart/form-data">
+
+			<input type="file" name="schuelerFoto" accept="image/*" required="required">
+
+          <button type="submit" class="btn"><i class="fa fa-pencil"></i> Foto hochladen</button>
+        </form>
+      </div>
+     </div>
+    </div>
+    </div>
+
+
+
+{$this->footer}

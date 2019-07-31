@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<style>
+			.td {
+				font-family: "Arial";
+			
+			}
+			
+			.body {
+				font-family: "Arial";
+			}
+			
+			@page { margin: 0; }
+			
+			@media print {
+			  @page { margin: 0; }
+			  body { margin: 1.6cm; }
+			}
+		
+		</style>
+		<meta charset="utf-8">  
+		
+	</head>
+	<body>
+		<if($printHeader)><then>
+		
+				<if(DB::getGlobalSettings()->printLetterWithFullBackgroundImage)><then>
+					<p align="center"><img src="imagesSchool/Briefkopf_2.jpg" style="width:90%"></p>
+				</then>
+				<else>
+				<p align="center"><img src="imagesSchool/Briefkopf.jpg" style="width:90%"></p>
+				</else></if>
+		
+				
+				
+		
+		</then></if>
+		
+		
+		$printContent
+		
+		
+		<script>
+	    window.print();
+	    setTimeout(function () { window.close(); }, 100);
+
+		</script>
+	
+	</body>
+
+
+</html>

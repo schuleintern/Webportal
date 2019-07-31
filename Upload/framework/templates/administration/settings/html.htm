@@ -1,0 +1,15 @@
+<tr>
+	<td><b>{$settings[$s]['titel']}</b><br /><small>{$settings[$s]['text']}</small></td>
+	<td>
+		<textarea id="{$settings[$s]['name']}" class="textarea" placeholder="" name="{$settings[$s]['name']}" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{$value}</textarea>
+	</td>
+</tr>
+
+<script>tinymce.init({
+    selector: 'textarea#{$settings[$s]['name']}',
+    valid_elements: "p,br,b,i,u,strong,em",
+    toolbar: "bold italic underline",
+    menubar: false,
+    statusbar: false
+});
+</script>

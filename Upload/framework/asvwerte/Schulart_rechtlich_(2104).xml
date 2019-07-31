@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Schulart rechtlich" pl_key="2104">
+  <eintrag>
+    <schluessel><![CDATA[26]]></schluessel>
+    <kurzform><![CDATA[WSF]]></kurzform>
+    <anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></anzeigeform>
+    <langform><![CDATA[Wirtschaftsschule zur sonderpädagogischen Förderung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=98#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[IGS]]></kurzform>
+    <anzeigeform><![CDATA[Integrierte Gesamtschule]]></anzeigeform>
+    <langform><![CDATA[Integrierte Gesamtschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=SBA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[52]]></schluessel>
+    <kurzform><![CDATA[FOS]]></kurzform>
+    <anzeigeform><![CDATA[Fachoberschule]]></anzeigeform>
+    <langform><![CDATA[Fachoberschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=FOS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[27]]></schluessel>
+    <kurzform><![CDATA[FOF]]></kurzform>
+    <anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></anzeigeform>
+    <langform><![CDATA[Fachoberschule zur sonderpädagogischen Förderung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=99#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[51]]></schluessel>
+    <kurzform><![CDATA[BOS]]></kurzform>
+    <anzeigeform><![CDATA[Berufsoberschule]]></anzeigeform>
+    <langform><![CDATA[Berufsoberschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=BOS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[23]]></schluessel>
+    <kurzform><![CDATA[BSF]]></kurzform>
+    <anzeigeform><![CDATA[Berufsschule z. sp. F.]]></anzeigeform>
+    <langform><![CDATA[Berufsschule zur sonderpädagogischen Förderung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=23##kuerzel_alt=BSF#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[41]]></schluessel>
+    <kurzform><![CDATA[BFS]]></kurzform>
+    <anzeigeform><![CDATA[Berufsfachschule]]></anzeigeform>
+    <langform><![CDATA[Berufsfachschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=41,42,43,44,45,47,48,49##kuerzel_alt=BFS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[24]]></schluessel>
+    <kurzform><![CDATA[BFF]]></kurzform>
+    <anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></anzeigeform>
+    <langform><![CDATA[Berufsfachschule zur sonderpädagogischen Förderung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=24##kuerzel_alt=BFSF#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[46]]></schluessel>
+    <kurzform><![CDATA[BFG]]></kurzform>
+    <anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></anzeigeform>
+    <langform><![CDATA[Berufsfachschule des Gesundheitswesens]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=46##kuerzel_alt=BFS-Gw#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[FWS]]></kurzform>
+    <anzeigeform><![CDATA[Freie Waldorfschule]]></anzeigeform>
+    <langform><![CDATA[Freie Waldorfschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=Fwal#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[WS]]></kurzform>
+    <anzeigeform><![CDATA[Wirtschaftsschule]]></anzeigeform>
+    <langform><![CDATA[Wirtschaftsschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=40##kuerzel_alt=WS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[KOL]]></kurzform>
+    <anzeigeform><![CDATA[Kolleg]]></anzeigeform>
+    <langform><![CDATA[Kolleg]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=13##kuerzel_alt=Koll#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[AGY]]></kurzform>
+    <anzeigeform><![CDATA[Abendgymnasium]]></anzeigeform>
+    <langform><![CDATA[Abendgymnasium]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=12##kuerzel_alt=Agym#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[RS]]></kurzform>
+    <anzeigeform><![CDATA[Realschule]]></anzeigeform>
+    <langform><![CDATA[Realschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=RS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[ARS]]></kurzform>
+    <anzeigeform><![CDATA[Abendrealschule]]></anzeigeform>
+    <langform><![CDATA[Abendrealschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=03##kuerzel_alt=ARS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[25]]></schluessel>
+    <kurzform><![CDATA[GYF]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasium z. sp. F.]]></anzeigeform>
+    <langform><![CDATA[Gymnasium zur sonderpädagogischen Förderung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=97#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[GMS]]></kurzform>
+    <anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></anzeigeform>
+    <langform><![CDATA[Grundschule sowie Mittelschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=VS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[62]]></schluessel>
+    <kurzform><![CDATA[FSLF]]></kurzform>
+    <anzeigeform><![CDATA[Fachschule StMELF]]></anzeigeform>
+    <langform><![CDATA[Fachschule StMELF]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=67#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[54]]></schluessel>
+    <kurzform><![CDATA[FALF]]></kurzform>
+    <anzeigeform><![CDATA[Fachakademie StMELF]]></anzeigeform>
+    <langform><![CDATA[Fachakademie StMELF]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=54#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[61]]></schluessel>
+    <kurzform><![CDATA[FS]]></kurzform>
+    <anzeigeform><![CDATA[Fachschule StMUK]]></anzeigeform>
+    <langform><![CDATA[Fachschule StMUK]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=61,62,63,64,65,66,68,69##kuerzel_alt=FS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[53]]></schluessel>
+    <kurzform><![CDATA[FAK]]></kurzform>
+    <anzeigeform><![CDATA[Fachakademie StMUK]]></anzeigeform>
+    <langform><![CDATA[Fachakademie StMUK]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=53##kuerzel_alt=FAK#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[AIS]]></kurzform>
+    <anzeigeform><![CDATA[Ausl. und int. Schulen]]></anzeigeform>
+    <langform><![CDATA[Ausländische und internationale Schulen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=Ausl.S#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[22]]></schluessel>
+    <kurzform><![CDATA[RSF]]></kurzform>
+    <anzeigeform><![CDATA[Realschule z. sp. F.]]></anzeigeform>
+    <langform><![CDATA[Realschule zur sonderpädagogischen Förderung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=22##kuerzel_alt=RSF#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[21]]></schluessel>
+    <kurzform><![CDATA[FZ]]></kurzform>
+    <anzeigeform><![CDATA[Förderzentrum]]></anzeigeform>
+    <langform><![CDATA[Förderzentrum]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=21##kuerzel_alt=VSF#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[29]]></schluessel>
+    <kurzform><![CDATA[KRS]]></kurzform>
+    <anzeigeform><![CDATA[Schule für Kranke]]></anzeigeform>
+    <langform><![CDATA[Schule für Kranke]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[GY]]></kurzform>
+    <anzeigeform><![CDATA[Gymnasium]]></anzeigeform>
+    <langform><![CDATA[Gymnasium]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=Gym#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[OS]]></kurzform>
+    <anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></anzeigeform>
+    <langform><![CDATA[Schulartunabhängige Orientierungsstufe]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=SBA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[30]]></schluessel>
+    <kurzform><![CDATA[BS]]></kurzform>
+    <anzeigeform><![CDATA[Berufsschule]]></anzeigeform>
+    <langform><![CDATA[Berufsschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=30##kuerzel_alt=BS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[90]]></schluessel>
+    <kurzform><![CDATA[PSA]]></kurzform>
+    <anzeigeform><![CDATA[Pseudoschule für Absolventen]]></anzeigeform>
+    <langform><![CDATA[Pseudoschularten (Telekolleg, Begabtenprüfung, Staatsinstitut zur Ausbildung von Fachlehrern)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+</werteliste>

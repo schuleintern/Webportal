@@ -1,0 +1,151 @@
+{$this->header}
+
+
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-wifi"></i> Meine W-Lan Tickets</h3>
+	</div>
+	<div class="box-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Ticket</th>
+					<th>Typ</th>
+					<th>Erhalten am
+					<th>Gültig für</th>
+				</tr>
+			</thead>
+			<tbody>
+					$ticketHTML
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<if($this->canAssignSchuelerCode)><then>
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-wifi"></i> W-Lan Ticket an Schüler ausgeben</h3>
+	</div>
+	<div class="box-body">
+		<form action="index.php?page=WLanTickets&action=assignSchuelerTicket" method="post">
+			
+			<if($_REQUEST['successSchueler'])><then>
+				<div class="callout callout-success"><i class="fa fa-check"></i> Die Tickets wurden zugewiesen</div>
+			</then></if>
+		
+			<div class="form-group">
+				<label>Einzelne Schüler</label>
+				<select name="schuelerAsvIDs[]" multiple="multiple" id="singleStudent" style="width:100%"></select>
+				<script>
+					$('#singleStudent')
+							.select2(
+									{
+										placeholder : "Schüler suchen ...",
+										ajax : {
+											url : 'index.php?page=WLanTickets&action=getSchuelerJSON',
+											dataType : 'json'
+										}
+									}
+
+							);
+				</script>
+			</div>
+			
+			<p>Und /oder:</p>
+			
+			<div class="form-group">
+				<label>Ganze Klassen</label>
+				<select name="klassen[]" multiple="multiple" id="klassen" style="width:100%">$selectKlassen</select>
+				<script>
+					$('#klassen')
+							.select2(
+									{
+										placeholder : "Klassen suchen ..."
+									}
+
+							);
+				</script>
+			</div>
+			
+			<div class="form-group">
+				<label>Gültigkeit</label>
+				<select name="duration" id="duration" style="width:100%">$selectDurationSchueler</select>
+				<script>
+					$('#duration')
+							.select2(
+									{
+										placeholder : "Gültigkeit auswählen..."
+									}
+
+							);
+				</script>
+			</div>
+			
+			<if($selectDurationSchueler == "")><then>
+				<button type="submit" disabled class="btn btn-primary"><i class="fa fa-wifi"></i> Ticket zuweisen (Im Moment stehen leider keine Tickets zur Verfügung.)</button>
+			</then>
+			<else>
+			
+				<button type="submit" class="btn btn-primary"><i class="fa fa-wifi"></i> Ticket zuweisen</button>
+				oder
+				<button type="submit" name="selfAssign" value="1" class="btn btn-primary"><i class="fa fa-wifi"></i> Ein Ticket mit selbst zuweisen (Für den Unterricht)</button>
+				
+				
+			</else></if>
+		
+		</form>
+	</div>
+</div>
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-wifi"></i> W-Lan Ticket für einen Gast beziehen</h3>
+	</div>
+	<div class="box-body">
+		<form action="index.php?page=WLanTickets&action=getGastTicket" method="post">
+			
+			Das W-Lan Ticket sehen Sie bei Ihren W_Lan Tickets oben als "GAST" markiert.
+			
+			<div class="form-group">
+				<label>Name des Gastes</label>
+				<input type="text" name="name" class="form-control" placeholder="Max Mustermann / Seminar / RLFB">
+			</div>
+			
+			<div class="form-group">
+				<label>Gültigkeit</label>
+				<select name="duration" id="duration2" style="width:100%">$selectDurationGast</select>
+				<script>
+					$('#duration2')
+							.select2(
+									{
+										placeholder : "Gültigkeit auswählen..."
+									}
+
+							);
+				</script>
+			</div>
+			
+			<if($selectDurationGast == "")><then>
+				<button type="submit" disabled class="btn btn-primary"><i class="fa fa-wifi"></i> Ticket beziehen (Im Moment stehen leider keine Tickets zur Verfügung.)</button>
+			</then>
+			<else>
+			
+				<button type="submit" class="btn btn-primary"><i class="fa fa-wifi"></i> Ticket beziehen</button>
+			</else></if>
+		
+		</form>
+	</div>
+</div>
+
+
+</then></if>
+
+{$this->footer}

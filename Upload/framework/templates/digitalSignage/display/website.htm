@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body style="margin:0">
+
+<IFRAME NAME="1" width="100%" height="100%" SRC="{$websiteURL}" frameborder="0"></IFRAME>
+
+<if($doReload)><then>
+
+
+<script>
+
+setTimeout(function(){
+	   window.location.reload(1);
+	}, {$milliseconds});
+	
+	
+</script>
+
+
+</then></if>
+
+
+</body>
+</html>

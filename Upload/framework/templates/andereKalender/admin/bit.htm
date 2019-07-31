@@ -1,0 +1,136 @@
+<form action="$selfURL&action=editKalender&kalenderID={$kalender['kalenderID']}" method="post">
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-calendar"></i> Kalender "{$kalender['kalenderName']}" bearbeiten</h3>
+		<button type="button" class="btn btn-danger btn-xs" onclick="confirmAction('Soll der Kalender wirklich gelöscht werden?','$selfURL&action=deleteKalender&kalenderID={$kalender['kalenderID']}')"><i class="fa fa-trash"></i> Kalender löschen</button>
+	</div>
+	<div class="box-body">
+		<div class="row">
+			<div class="col-md-4">
+					
+				<table class="table">
+					<tr>
+						<td style="width:10%"><b>Name:</b></td>
+						<td><input name="kalenderName" class="form-control" placeholder="z.B. Schultermine" value="{$kalender['kalenderName']}"></td>
+					</tr>
+					<tr>
+						<td style="width:10%"><b>Zugriff für Lehrer:</b></td>
+						<td>	
+							<div class="onoffswitch">
+							    <input type="checkbox" name="kalenderZugriffLehrer" value="1" class="onoffswitch-checkbox" id="kalenderZugriffLehrer{$kalender['kalenderID']}"$checkedLehrer>
+							    <label class="onoffswitch-label" for="kalenderZugriffLehrer{$kalender['kalenderID']}">
+							        <span class="onoffswitch-inner"></span>
+							        <span class="onoffswitch-switch"></span>
+							    </label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:10%"><b>Zugriff für Schüler:</b></td>
+						<td>	
+							<div class="onoffswitch">
+							    <input type="checkbox" name="kalenderZugriffSchueler" value="1" class="onoffswitch-checkbox" id="kalenderZugriffSchueler{$kalender['kalenderID']}"$checkedSchueler>
+							    <label class="onoffswitch-label" for="kalenderZugriffSchueler{$kalender['kalenderID']}">
+							        <span class="onoffswitch-inner"></span>
+							        <span class="onoffswitch-switch"></span>
+							    </label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:10%"><b>Zugriff für Eltern:</b></td>
+						<td>	
+							<div class="onoffswitch">
+							    <input type="checkbox" name="kalenderZugriffEltern" value="1" class="onoffswitch-checkbox" id="kalenderZugriffEltern{$kalender['kalenderID']}"$checkedEltern>
+							    <label class="onoffswitch-label" for="kalenderZugriffEltern{$kalender['kalenderID']}">
+							        <span class="onoffswitch-inner"></span>
+							        <span class="onoffswitch-switch"></span>
+							    </label>
+							</div>
+						</td>
+					</tr>
+					
+										<tr>
+						<td style="width:10%"><b>Schreibzugriff für Lehrer:</b></td>
+						<td>	
+							<div class="onoffswitch">
+							    <input type="checkbox" name="kalenderZugriffLehrerSchreiben" value="1" class="onoffswitch-checkbox" id="kalenderZugriffLehrerSchreiben{$kalender['kalenderID']}"$checkedLehrerSchreiben>
+							    <label class="onoffswitch-label" for="kalenderZugriffLehrerSchreiben{$kalender['kalenderID']}">
+							        <span class="onoffswitch-inner"></span>
+							        <span class="onoffswitch-switch"></span>
+							    </label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:10%"><b>Schreibzugriff für Schüler:</b></td>
+						<td>	
+							<div class="onoffswitch">
+							    <input type="checkbox" name="kalenderZugriffSchuelerSchreiben" value="1" class="onoffswitch-checkbox" id="kalenderZugriffSchuelerSchreiben{$kalender['kalenderID']}"$checkedSchuelerSchreiben>
+							    <label class="onoffswitch-label" for="kalenderZugriffSchuelerSchreiben{$kalender['kalenderID']}">
+							        <span class="onoffswitch-inner"></span>
+							        <span class="onoffswitch-switch"></span>
+							    </label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:10%"><b>Schreibzugriff für Eltern:</b></td>
+						<td>	
+							<div class="onoffswitch">
+							    <input type="checkbox" name="kalenderZugriffElternSchreiben" value="1" class="onoffswitch-checkbox" id="kalenderZugriffElternSchreiben{$kalender['kalenderID']}"$checkedElternSchreiben>
+							    <label class="onoffswitch-label" for="kalenderZugriffElternSchreiben{$kalender['kalenderID']}">
+							        <span class="onoffswitch-inner"></span>
+							        <span class="onoffswitch-switch"></span>
+							    </label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:10%"><b>Nur eigene Termine löschen lassen:</b> (Admin immer alle)</td>
+						<td>	
+							<div class="onoffswitch">
+							    <input type="checkbox" name="kalenderDeleteOnlyOwn" value="1" class="onoffswitch-checkbox" id="kalenderDeleteOnlyOwn{$kalender['kalenderID']}"$checkedDeleteOnlyOwn>
+							    <label class="onoffswitch-label" for="kalenderDeleteOnlyOwn{$kalender['kalenderID']}">
+							        <span class="onoffswitch-inner"></span>
+							        <span class="onoffswitch-switch"></span>
+							    </label>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Kalender bearbeiten</button>
+				</form>
+			</div>
+			<div class="col-md-5">
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title"><i class="fa fa-puzzle-piece"></i> Kategorien</h3>
+					</div>
+					<div class="box-body">
+						<form action="$selfURL&action=editKategorien&kalenderID={$kalender['kalenderID']}" method="post">
+						<table class="table table-striped">
+							<tr>
+								<th>Name</th>
+								<th>Farbe</th>
+								<th>Icon</th>
+								<th><i class="fa fa-trash"></i></th>
+							</tr>
+							<if($kategorienHTML != "")><then>$kategorienHTML</then><else>
+							<tr><td colspan="3"><i>Keine Kategorien</i></td></tr>
+							</else></if>
+						</table>
+						<if($kategorienHTML != "")><then><button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Kategorien speichern</button></then></if>
+						
+						<button type="submit" class="btn btn-success" name="addKG" value="1"><i class="fa fa-plus"></i> Kategorie hinzufügen</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				$userBox
+				$userBox2
+			</div>
+		</div>
+	</div>	
+</div>

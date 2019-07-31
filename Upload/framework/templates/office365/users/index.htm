@@ -1,0 +1,37 @@
+{$this->header}
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-file-word-o"></i> Office 365 - Benutzer</h3>
+	</div>
+	<div class="box-body">
+		Die Office365 Anbindung ermöglicht in Zukunft weitere Möglichkeiten zur Integration in Office 365. Die Integration bleibt optional.
+		
+		<if($isOffice365Active)><then>
+			<div class="callout callout-success"><i class="fa fa-plug"></i> <b>Das Portal ist erfolgreich mit Office 365 verbunden.</b><br />
+			
+			Tenant: $tenant / $tenantID<br /><br />
+			Um die Verbindung aufzuheben, klicken Sie bitte auf "Von Office 365 trennen". <b>Wichtig: Entfernen Sie die App "SchuleIntern" noch aus Ihrem Azure Portal!</b>
+			<form action="$selfURL&action=disconnect" method="post">
+				<button type="submit" class="form-control"><i class="fa fa-plug"></i> Von Office 365 trennen</button>
+			</form>
+			</div>
+		</then>
+		<else>
+			<hr>
+			Bisher ist keine Verbindung mit Ihrem Office 365 Tenant herstellt worden.
+			<br />
+			Um eine Verbindung mit einem Tenant herzustellen, benötigen Sie einen Administratorzugang zu Ihrem Office 365 Tenant.<br />
+			Geben Sie bitte hier den Namen Ihres Tenant (z.B. testschule.onmicrosoft.com oder eine registrierte Domäne in Office 365) ein und klicken Sie auf registrieren. Sie werden dann zu einem Anmeldebildschirm von Office 365 weitergeleitet, bei dem Sie die Berechtigungen bestätigen müssen und dann wieder hier zurück geleitet werden.
+			<br /><i>Hinweis: Die große Anzahl von Berechtigungen beruht auf der Tatsache, dass mit der Office 365 Anbindung in Zukunft mehr Funktionen kommen werden. (z.B. Abruf von Mails oder Dateien)</i>
+			<form action="$selfURL&action=connect" method="post">
+				<input type="text" name="tenant" placeholder="testschule.onmicrosoft.com" class="form-control">
+				<button type="submit" class="form-control"><i class="fa fa-plug"></i> Mit Office 365 verbinden</button>
+			</form>
+		</else></if>
+	</div>
+</div>
+
+
+{$this->footer}

@@ -1,0 +1,123 @@
+{$this->header}
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"><i class="fa fa-hand-o-up"></i> Schulleitung - Übersicht über alle Laufzettel</h3>         
+            </div>
+           <div class="box-body no-padding">
+           	<table class="table table-striped" id="schulleitungLaufzettel">
+           		<thead>
+           		<tr>
+           			<th>Art</th>
+           			<th>Name</th>
+           			<th>Genehmigung Schulleitung</th>
+           			<th>Lehrer</th>
+           			<th>Datum</th>
+           			<th>Nachricht</th>
+           			<th>Zustimmungen</th>
+           		</tr>
+           		</thead>
+           		$myOwnData
+           	</table>
+           	</div>
+          </div>
+          
+          
+          
+          
+     <div class="modal fade" id="slGenehmigung" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    
+	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+	    	<h4 class="modal-title">Genehmigung erteilen</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+	      	<form action="index.php?page=laufzettel&mode=schulleitungGenehmigung&zustimmung=1" method="post">
+	      		<input type="hidden" name="laufzettelID" value="" id="genehmigungLaufzettelID">
+	      		
+	      		<button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Genehmigen und Nachricht an die Lehrkraft schreiben</button>
+	      	
+	      	</form>
+	      	
+	      </div>
+	     </div>
+	    </div>
+	   </div>
+	   
+	        <div class="modal fade" id="slNichtGenehmigung" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    
+	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+	    	<h4 class="modal-title">Genehmigung nicht erteilen</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+	      	<form action="index.php?page=laufzettel&mode=schulleitungGenehmigung&zustimmung=2" method="post">
+	      		<input type="hidden" name="laufzettelID" value="" id="NichtgenehmigungLaufzettelID">
+	      		
+	      		<button type="submit" class="btn btn-danger"><i class="fa fa-ban"></i> Nicht genehmigen und Nachricht an die Lehrkraft schreiben</button>
+	      	
+	      	</form>
+	      	
+	      </div>
+	     </div>
+	    </div>
+	   </div>
+          
+          
+          
+<script src="cssjs/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="cssjs/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+  $(function () {
+    $('#schulleitungLaufzettel').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "pageLength": 20,
+      "language": {
+    		"sEmptyTable":   	"Keine Daten in der Tabelle vorhanden",
+    		"sInfo":         	"_START_ bis _END_ von _TOTAL_ Einträgen",
+    		"sInfoEmpty":    	"0 bis 0 von 0 Einträgen",
+    		"sInfoFiltered": 	"(gefiltert von _MAX_ Einträgen)",
+    		"sInfoPostFix":  	"",
+    		"sInfoThousands":  	".",
+    		"sLengthMenu":   	"_MENU_ Einträge anzeigen",
+    		"sLoadingRecords": 	"Wird geladen...",
+    		"sProcessing":   	"Bitte warten...",
+    		"sSearch":       	"Einträge suchen",
+    		"sZeroRecords":  	"Keine Einträge vorhanden.",
+    		"oPaginate": {
+    			"sFirst":    	"Erste",
+    			"sPrevious": 	"Zurück",
+    			"sNext":     	"Nächste",
+    			"sLast":     	"Letzte"
+    		},
+    		"oAria": {
+    			"sSortAscending":  ": aktivieren, um Spalte aufsteigend zu sortieren",
+    			"sSortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
+    		}
+      }
+    });
+  });
+  
+  $( "#buttonShowFilter" ).click(function() {
+	  $( "#filter" ).show( "slow" );
+	  $( "#buttonShowFilter" ).hide( "slow" );
+	});
+  
+  
+</script>
+          
+          
+{$this->footer}

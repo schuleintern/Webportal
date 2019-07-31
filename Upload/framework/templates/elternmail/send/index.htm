@@ -1,0 +1,141 @@
+{$this->header}
+
+$errorHTML
+
+<script>
+
+function selectAllKlassen() {
+	$('#select_all').click(function() {
+	    $('#klassen option').prop('selected', true);
+	});
+}
+
+</script>
+
+<form action="index.php?page=elternmailsender&mode=send&doSend=1" method="post" enctype="multipart/form-data">
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-envelope"></i> Neue Infomail versenden</h3>
+	</div>
+	<div class="box-body no-padding">
+		<table class="table table-bordered">
+			<tr>
+				<td style="width:10%">Eltern</td>
+				<td>
+					<strong>Eltern</strong>
+					$gradeSelectHTML
+			    </td>
+			 </tr>
+			<tr>
+				<td style="width:10%">Schüler</td>
+				<td>
+				<strong>Schüler</strong>
+					$gradeSelectHTMLPupil
+			    </td>
+			 </tr>
+			 <tr>
+				<td style="width:10%">Lehrer</td>
+				<td>
+					<input type="checkbox" name="sendTeacher" value="1"> An alle Lehrer senden
+			    </td>
+			 </tr>
+			 <tr>
+				<td style="width:10%">Andere Listen</td>
+				<td>
+					$groupHTML
+			    </td>
+			 </tr>
+			 <tr>
+			 	<td>Betreff der E-Mail</td>
+			 	<td><input type="text" name="mailSubject" placeholder="Betreff der Mail" class="form-control"></td>
+			 </tr>
+			 
+			 <tr>
+			 	<td>Text der Mail</td>
+			 	<td><textarea name="mailText" rows="10" placeholder="Text der E-Mails an die Empfänger" class="form-control">$message</textarea></td>
+			 </tr>
+			 
+			 <tr>
+			 	<td>Anhänge<br /><small>Die Anhänge werden nicht an die E-Mail angehängt, sondern mit einem kurzen Link oberhalb der Mail verlinkt.</small><br />Es können nur PDF Dateien verschickt werden! (SPAM Gründe)</td>
+			 	<td>
+			 		Anhang 1:<br />
+			 		<input type="file" name="mailattachment1" class="form-control" accept=".pdf">
+			 		Anhang 2:<br />
+			 		<input type="file" name="mailattachment2" class="form-control" accept=".pdf">
+			 		Anhang 3:<br />
+			 		<input type="file" name="mailattachment3" class="form-control" accept=".pdf">
+			 		Anhang 4:<br />
+			 		<input type="file" name="mailattachment4" class="form-control" accept=".pdf">
+			 		Anhang 5:<br />
+			 		<input type="file" name="mailattachment5" class="form-control" accept=".pdf">
+			 		Anhang 6:<br />
+			 		<input type="file" name="mailattachment6" class="form-control" accept=".pdf">
+			 		Anhang 7:<br />
+			 		<input type="file" name="mailattachment7" class="form-control" accept=".pdf">
+			 		Anhang 8:<br />
+			 		<input type="file" name="mailattachment8" class="form-control" accept=".pdf">
+			 		Anhang 9:<br />
+			 		<input type="file" name="mailattachment9" class="form-control" accept=".pdf">
+			 		Anhang 10:<br />
+			 		<input type="file" name="mailattachment10" class="form-control" accept=".pdf">
+			 	</td>
+			 </tr>
+			 
+			 <tr>
+			 	<td>Lesebestätigung erforderlich?<br /><small>Sobald Fragen hinzufügt werden, ist diese Einstellung nicht mehr aktiv, da dann immer eine Bestätigung nötig ist!</small></td>
+			 	<td><select name="mailNeedConfirmation" class="form-control"><option value="1">Ja</option><option value="0">Nein</option></select></td>
+			 </tr>
+			 
+			 <tr>
+			 	<td>Zugriff der Klassenleitungen auf die Bestätigungslisten erlauben?</td>
+			 	<td><select name="mailAccessKlassenleitung" class="form-control"><option value="1">Ja</option><option value="0">Nein</option></select></td>
+			 </tr>
+			 
+			 <tr>
+			 	<td>Daten abfragen?<br />Geben Sie bitte die Fragen, die die Eltern bei der Bestätigung eingeben sollen ein! Die Antworten erscheinen auf der Auswertungsseite.<br /><br />
+			 	Achtung: Wenn diese Funktion genutzt wird, ist eine Bestätigung per Antworten / Lesebestätigung nicht möglich. Die Empfänger müssen den Link verwenden, der in der E-Mail automaisch oberhalb angezeigt wird!</td>
+			 	<td>
+			 		<table class="table tablestriped">
+			 			<tr>
+			 				<th style="width:5%">Nummer</th>
+			 				<th style="width:10%"">Typ</th>
+			 				<th>Frage</th>
+			 			</tr>
+			 			$questionHTML
+			 		</table>			 		
+			 	</td>
+			 
+			 <tr>
+			 	<td colspan="2"><button type="submit" class="form-control"><i class="fa fa-paper-plane"></i> Nachrichten senden - Die Bestätigung kann bis zu 10 Sekunden dauern</button>
+		</table>
+			
+	</div>
+</div>
+
+</form>
+
+
+
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+
+$(function () {
+  $(".select2").select2();
+});
+
+$(document).ready(function() {
+    $("#checkboxSelectAll").click(function(){
+      if($("#checkboxSelectAll").is(':checked') ){ //select all
+        $("#klassen").find('option').prop("selected",true);
+        $("#klassen").trigger('change');
+      } else { //deselect all
+        $("#klassen").find('option').prop("selected",false);
+        $("#klassen").trigger('change');
+      }
+  });
+});
+
+</script>
+
+{$this->footer}

@@ -1,0 +1,90 @@
+{$this->header}
+
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-group"></i> Brief bearbeiten</h3><br />
+				<a href="index.php?page=schuelerinfo&mode=schueler&schuelerAsvID={$schueler->getAsvID()}"><i class="fa fa-step-backward"></i> Zurück zum Schüler</a>
+			</div>
+			<div class="box-body">
+				<form action="index.php?page=schuelerinfo&mode=editLetter&letterID={$letter->getID()}&action=saveLetter" method="post">
+				<table class="table table-striped">
+					<tr>
+						<td><b>Schüler/in:</b></td>
+						<td>{$schueler->getCompleteSchuelerName()}</td>
+					</tr>
+					<tr>
+						<td style="width: 10%"><b>Anschrift</b></td>
+						<td><textarea name="briefAdresse" class="form-control" rows="8">{$letter->getAdresse()}</textarea></td>
+					</tr>
+					<tr>
+						<td><b>Ort, Datum</b>
+						<td><expression>DB::getSettings()->getValue("schulinfo-ort")</expression>, <input type="text" id="briefDatum" name="briefDatum" value="{$letter->getDatum()}">
+						
+						<script>
+
+                      $(function() {
+                        $("#briefDatum").datepicker({
+                          format: 'dd.mm.yyyy',
+                              language: "de",
+                              autoclose: true,
+                        });
+                      });
+
+
+                      </script>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 10%"><b>Betreff</b></td>
+						<td><input type="text" name="briefBetreff" class="form-control" value="{$letter->getBetreff()}"></td>
+					</tr>
+					<tr>
+						<td style="width: 10%"><b>Anrede</b></td>
+						<td><textarea name="briefAnrede" class="form-control" rows="3">{$letter->getAnrede()}</textarea></td>
+					</tr>
+					
+					<tr>
+						<td style="width: 10%"><b>Text</b></td>
+						<td><textarea name="briefText" class="form-control" rows="15" id="briefText">{$letter->getText()}</textarea></td>
+					</tr>
+					
+					<tr>
+						<td style="width: 10%"><b>Signatur</b></td>
+						<td><textarea name="briefUnterschrift" id="briefUnterschrift" class="form-control" rows="5">{$letter->getUnterschrift()}</textarea></td>
+					</tr>
+					
+					<tr>
+						<td style="width: 10%"><b>Kopie des Briefes bei den Schülerdokumenten hinterlegen (nur wenn der Brief auch gedruckt wird)</b></td>
+						<td><select name="saveToDoks" class="form-control"><option value="1">Ja</option><option value="0">Nein</option></select></td>
+					</tr>
+					
+				</table>
+				<button type="submit" name="save" value="1"><i class="fa fa-save"></i> Speichern</button>
+				<button type="submit" name="save" value="2"><i class="fa fa-print"></i> Speichern und Ausdrucken</button>
+				</form>
+			</div>
+		</div>
+
+
+			<script src="cssjs/plugins/tinymce/tinymce.min.js"></script>
+          
+			<script>
+			tinymce.init({
+			    selector: '#briefText',
+			    valid_elements: "p,br,b,i,u,strong,em",
+			    toolbar: "bold italic underline",
+			    menubar: false,
+			    statusbar: false
+			});
+			
+			tinymce.init({
+			    selector: '#briefUnterschrift',
+			    valid_elements: "p,br,b,i,u,strong,em",
+			    toolbar: "bold italic underline",
+			    menubar: false,
+			    statusbar: false
+			});
+			</script>
+
+
+{$this->footer}

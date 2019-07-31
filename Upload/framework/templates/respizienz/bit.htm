@@ -1,0 +1,34 @@
+			<tr>
+				<td>{$meine[$i]->getLangname()}</td>
+				<td>{$meine[$i]->getKlasse()}</td>
+				<td>{$meine[$i]->getDatumAsNaturalDate()}</td>
+				<td>{$meine[$i]->getFach()}</td>
+				<td>{$meine[$i]->getLehrer()}</td>
+				<if($meine[$i]->isAnalog())><then>
+					<td style="text-align: center"><b>Analoge Archivierung</b></td>
+					<td> </td>
+					<td> </td>
+					<td>
+									<if(!$isFachbetreuer && !$isSchulleitung)><then>
+					
+					
+					<form><button class="btn btn-sm" type="button" onclick="confirmAction('Leistungsnachweis digital archivieren?','index.php?page=respizienz&action=setDigital&respizienzID={$meine[$i]->getID()}{$mode}');"><i class="fa fa-file-o"></i> Digital archivieren</button></form>
+										
+					</then></if>
+					</td>
+					
+				</then><else>
+				<td>$downloadFile</td>
+				<td>$downloadFileFSL</td>
+				<td>$downloadFileSL</td>
+				
+				<td>
+				<if(!$isFachbetreuer && !$isSchulleitung)><then>
+				
+					<form><button class="btn btn-sm" type="button" onclick="confirmAction('Leistungsnachweis analog archivieren?','index.php?page=respizienz&action=setAnalog&respizienzID={$meine[$i]->getID()}{$mode}');"><i class="fa fa-file-o"></i> Analog archivieren</button></form>
+					
+					</then></if>
+				</else></if>
+				</td>
+			</tr>
+		

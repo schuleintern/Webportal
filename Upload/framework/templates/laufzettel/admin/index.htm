@@ -1,0 +1,17 @@
+<div class="box">
+	<div class="box-header"><h3 class="box-title"><i class="fa fa-check"></i> Elektronisches Genehmigungsverfahren für Laufzettel durch die Schulleitung</div>
+	<div class="box-body">
+		Wenn Sie die elektronische Genehmigung durch die Schulleitung aktivieren wollen, gehen Sie bitte in die Einstellungen und aktivieren Sie die entsprechende Optionen.
+		
+		<if($isElektroSchulleitung)><then>
+			<div class="callout callout-success"><i class="fa fa-check"></i> Elektronische Genehmigungen sind aktiviert</div>
+		</then>
+		<else>
+			<div class="callout callout-danger"><i class="fa fa-ban"></i> Elektronische Genehmigungen sind nicht aktiviert.<br />Aktivieren Sie die Option bitte in den Einstellungen, wenn Sie die Funktion nutzen wollen.</div>
+		</else>
+		</if>
+		
+		$currentUserBlock
+		
+	</div>
+</div>

@@ -1,0 +1,77 @@
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-refresh"></i> Update des Vertretungsplanes</h3>
+	</div>
+	<div class="box-body">
+		
+		Der Import aktualisiert folgende Daten:
+		<ul>
+			<li>Vertretungsplan für die nächsten zwei Schultage. (Heute, wenn ein Schultag und morgen / nächster Schultag)</li>
+		</ul>
+		
+		Hinweise:
+		<ul>
+			<li>Datumsformat: TT.MM.YYYY als DATUM</li>
+		</ul>
+
+		<form action="{$selfURL}&action=doimportvplan" method="post" enctype="multipart/form-data" id="asvsyncform3">
+		<p>Datei: <input type="file" class="form-control" name="importfile" accept=".xlsx"></p>
+				
+		<p><button type="button" class="form-control" onclick="document.getElementById('asvsyncform3').submit(); document.getElementById('submitform3').disabled = true;document.getElementById('submitform3').innerHTML = 'Synchronisation wird durchgeführt. Bitte warten. (Kann bis zu einer Minute benötigen!)';" id="submitform3"><i class="fa fa-upload"></i> Import starten</button></p>		
+		</form>
+	</div>
+</div>
+
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-refresh"></i> Aktualisierung der Schüler-/Eltern Daten aus Excellisten der Schule</h3>
+	</div>
+	<div class="box-body">
+		
+		Der Import aktualisiert folgende Daten:
+		<ul>
+			<li>Schülerdaten</li>
+			<li>Elterndaten / Kontaktdaten</li>
+		</ul>
+		
+		<p>Bitte die Exportdatei hier hochladen.</p>
+		
+		<p>Der Import kann jederzeit vorgenommen werden.</p>
+
+		<form action="{$selfURL}&action=doimport" method="post" enctype="multipart/form-data" id="asvsyncform">
+		<p>Datei: <input type="file" class="form-control" name="importfile" accept=".xlsx"></p>
+				
+		<p><button type="button" class="form-control" onclick="document.getElementById('asvsyncform').submit(); document.getElementById('submitform').disabled = true;document.getElementById('submitform').innerHTML = 'Synchronisation wird durchgeführt. Bitte warten. (Kann bis zu einer Minute benötigen!)';" id="submitform"><i class="fa fa-upload"></i> Import starten</button></p>		
+		</form>
+	</div>
+</div>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-refresh"></i> Aktualisierung der Lehrerdaten</h3>
+	</div>
+	<div class="box-body">
+		
+		Der Import aktualisiert folgende Daten:
+		<ul>
+			<li>Lehrerdaten</li>
+		</ul>
+		
+		<p>Bitte die Exportdatei hier hochladen.</p>
+		
+		<p>Der Import kann jederzeit vorgenommen werden.</p>
+
+		<form action="{$selfURL}&action=doimportLehrer" method="post" enctype="multipart/form-data" id="asvsyncform2">
+		<p>Datei: <input type="file" class="form-control" name="importfile" accept=".xlsx"></p>
+				
+		<p><button type="button" class="form-control" onclick="document.getElementById('asvsyncform2').submit(); document.getElementById('submitform2').disabled = true;document.getElementById('submitform2').innerHTML = 'Synchronisation wird durchgeführt. Bitte warten. (Kann bis zu einer Minute benötigen!)';" id="submitform2"><i class="fa fa-upload"></i> Import starten</button></p>		
+		</form>
+	</div>
+</div>
+
+

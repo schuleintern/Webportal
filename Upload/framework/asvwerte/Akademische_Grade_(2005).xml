@@ -1,0 +1,1438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Akademische Grade" pl_key="2005">
+  <eintrag>
+    <schluessel><![CDATA[187]]></schluessel>
+    <kurzform><![CDATA[Praesident]]></kurzform>
+    <anzeigeform><![CDATA[Präsident]]></anzeigeform>
+    <langform><![CDATA[Präsident]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[168]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. sc. techn.]]></anzeigeform>
+    <langform><![CDATA[Dr. sc. techn.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[PD Dr. habil.]]></anzeigeform>
+    <langform><![CDATA[PD Dr. habil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[097]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[PD Dr. phil.]]></anzeigeform>
+    <langform><![CDATA[PD Dr. phil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[030]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Soz. paed.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Soz. paed.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[086]]></schluessel>
+    <kurzform><![CDATA[M.A.]]></kurzform>
+    <anzeigeform><![CDATA[M. A.]]></anzeigeform>
+    <langform><![CDATA[M. A.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=M.A.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[054]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. M. A.]]></anzeigeform>
+    <langform><![CDATA[Dr. M. A.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[107]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. Dr. h. c.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. Dr. h. c.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[013]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Inf.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Inf.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[111]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. Ing.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. Ing.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[019]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Kfm.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Kfm.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[042]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Dipl. Ing.]]></anzeigeform>
+    <langform><![CDATA[Dr. Dipl. Ing.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[188]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dott.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dott.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[045]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Dr.]]></anzeigeform>
+    <langform><![CDATA[Dr. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[002]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[apl. Prof. Dr. Dr.]]></anzeigeform>
+    <langform><![CDATA[apl. Prof. Dr. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[008]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. biol.]]></anzeigeform>
+    <langform><![CDATA[Dipl. biol.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[003]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[apl. Prof. Dr. nat.]]></anzeigeform>
+    <langform><![CDATA[apl. Prof. Dr. nat.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[082]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Ing. Dr.]]></anzeigeform>
+    <langform><![CDATA[Ing. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[166]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. rer. soc.]]></anzeigeform>
+    <langform><![CDATA[Dr. rer. soc.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[204]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[MS]]></anzeigeform>
+    <langform><![CDATA[MS]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[033]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Volksw.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Volksw.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[152]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Ökonom(U)]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Ökonom(U)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[044]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Dipl. psych.]]></anzeigeform>
+    <langform><![CDATA[Dr. Dipl. psych.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[034]]></schluessel>
+    <kurzform><![CDATA[Dott.]]></kurzform>
+    <anzeigeform><![CDATA[Dott.]]></anzeigeform>
+    <langform><![CDATA[Dott.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Dott.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[179]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[M.Ed.]]></anzeigeform>
+    <langform><![CDATA[M.Ed.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[115]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. phil.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. phil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[119]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Ph.]]></anzeigeform>
+    <langform><![CDATA[Prof. Ph.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[040]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. dent.]]></anzeigeform>
+    <langform><![CDATA[Dr. dent.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[145]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Holzwirt]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Holzwirt]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[039]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. biol. hum.]]></anzeigeform>
+    <langform><![CDATA[Dr. biol. hum.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[046]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Dr. habil.]]></anzeigeform>
+    <langform><![CDATA[Dr. Dr. habil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[095]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[PD Dr. med.]]></anzeigeform>
+    <langform><![CDATA[PD Dr. med.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[169]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. techn.]]></anzeigeform>
+    <langform><![CDATA[Dr. techn.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[146]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Inf.(FH)]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Inf.(FH)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[128]]></schluessel>
+    <kurzform><![CDATA[B.Sc.]]></kurzform>
+    <anzeigeform><![CDATA[B.Sc.]]></anzeigeform>
+    <langform><![CDATA[B.Sc.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[127]]></schluessel>
+    <kurzform><![CDATA[B.A.]]></kurzform>
+    <anzeigeform><![CDATA[B.A.]]></anzeigeform>
+    <langform><![CDATA[B.A.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[038]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. agr.]]></anzeigeform>
+    <langform><![CDATA[Dr. agr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[205]]></schluessel>
+    <kurzform><![CDATA[Ph.D.]]></kurzform>
+    <anzeigeform><![CDATA[Ph.D. Mc Gill M]]></anzeigeform>
+    <langform><![CDATA[Ph.D. Mc Gill M]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[079]]></schluessel>
+    <kurzform><![CDATA[H.]]></kurzform>
+    <anzeigeform><![CDATA[H.]]></anzeigeform>
+    <langform><![CDATA[H.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=H.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[055]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. med.]]></anzeigeform>
+    <langform><![CDATA[Dr. med.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[198]]></schluessel>
+    <kurzform><![CDATA[Magister]]></kurzform>
+    <anzeigeform><![CDATA[Magister of Art]]></anzeigeform>
+    <langform><![CDATA[Magister of Art]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[155]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.Rel.Päd.]]></anzeigeform>
+    <langform><![CDATA[Dipl.Rel.Päd.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[088]]></schluessel>
+    <kurzform><![CDATA[Mag.]]></kurzform>
+    <anzeigeform><![CDATA[Mag.]]></anzeigeform>
+    <langform><![CDATA[Mag.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Mag.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[089]]></schluessel>
+    <kurzform><![CDATA[Mag.]]></kurzform>
+    <anzeigeform><![CDATA[Mag. rer. nat.]]></anzeigeform>
+    <langform><![CDATA[Mag. rer. nat.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[074]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. rer. silv.]]></anzeigeform>
+    <langform><![CDATA[Dr. rer. silv.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. V.]]></anzeigeform>
+    <langform><![CDATA[Prof. V.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[196]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[M.F.A]]></anzeigeform>
+    <langform><![CDATA[M.F.A]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[004]]></schluessel>
+    <kurzform><![CDATA[Ass.jur.]]></kurzform>
+    <anzeigeform><![CDATA[Ass. jur.]]></anzeigeform>
+    <langform><![CDATA[Ass. jur.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ass.jur.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[020]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. math.]]></anzeigeform>
+    <langform><![CDATA[Dipl. math.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[023]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Phys.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Phys.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[Ing.]]></kurzform>
+    <anzeigeform><![CDATA[Ing.]]></anzeigeform>
+    <langform><![CDATA[Ing.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Ing.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[197]]></schluessel>
+    <kurzform><![CDATA[Magister]]></kurzform>
+    <anzeigeform><![CDATA[Magister Artium]]></anzeigeform>
+    <langform><![CDATA[Magister Artium]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[143]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Gärtner]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Gärtner]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[175]]></schluessel>
+    <kurzform><![CDATA[Lic. theol]]></kurzform>
+    <anzeigeform><![CDATA[Lic. theol]]></anzeigeform>
+    <langform><![CDATA[Lic. theol]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[142]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Demograph]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Demograph]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[012]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Germ. Univ.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Germ. Univ.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[178]]></schluessel>
+    <kurzform><![CDATA[Magister]]></kurzform>
+    <anzeigeform><![CDATA[LL.M. Eur.]]></anzeigeform>
+    <langform><![CDATA[LL.M. Eur.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[029]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. sc. pol. Uni]]></anzeigeform>
+    <langform><![CDATA[Dipl. sc. pol. Uni]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[011]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Geol.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Geol.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[036]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr.]]></anzeigeform>
+    <langform><![CDATA[Dr.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Dr.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[087]]></schluessel>
+    <kurzform><![CDATA[M.H.]]></kurzform>
+    <anzeigeform><![CDATA[M. H.]]></anzeigeform>
+    <langform><![CDATA[M. H.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=M.H.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[005]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[De. Dr.]]></anzeigeform>
+    <langform><![CDATA[De. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[144]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Geograph]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Geograph]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. phil. nat.]]></anzeigeform>
+    <langform><![CDATA[Dr. phil. nat.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[150]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Ökologe]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Ökologe]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[092]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[PD Dr. Dr.]]></anzeigeform>
+    <langform><![CDATA[PD Dr. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[090]]></schluessel>
+    <kurzform><![CDATA[PD]]></kurzform>
+    <anzeigeform><![CDATA[PD]]></anzeigeform>
+    <langform><![CDATA[PD]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=PD#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[085]]></schluessel>
+    <kurzform><![CDATA[M. Edu]]></kurzform>
+    <anzeigeform><![CDATA[M. Edu.]]></anzeigeform>
+    <langform><![CDATA[M. Edu.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=M. Edu#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[172]]></schluessel>
+    <kurzform><![CDATA[Hon.-Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Honorarprof.]]></anzeigeform>
+    <langform><![CDATA[Honorarprof.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[151]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Ökonom]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Ökonom]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[165]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. oec.]]></anzeigeform>
+    <langform><![CDATA[Dr. oec.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[078]]></schluessel>
+    <kurzform><![CDATA[Drs.]]></kurzform>
+    <anzeigeform><![CDATA[Drs.]]></anzeigeform>
+    <langform><![CDATA[Drs.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Drs.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[009]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. chem.]]></anzeigeform>
+    <langform><![CDATA[Dipl. chem.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[140]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Biblioth.]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Biblioth.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[058]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. med. Dr. dent.]]></anzeigeform>
+    <langform><![CDATA[Dr. med. Dr. dent.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[153]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.Önol.]]></anzeigeform>
+    <langform><![CDATA[Dipl.Önol.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[083]]></schluessel>
+    <kurzform><![CDATA[jun.]]></kurzform>
+    <anzeigeform><![CDATA[jun.]]></anzeigeform>
+    <langform><![CDATA[jun.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[076]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Univ. Kronst.]]></anzeigeform>
+    <langform><![CDATA[Dr. Univ. Kronst.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[186]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Ph.Dr.]]></anzeigeform>
+    <langform><![CDATA[Ph.Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[047]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Dr. med.]]></anzeigeform>
+    <langform><![CDATA[Dr. Dr. med.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[PD Dr.]]></anzeigeform>
+    <langform><![CDATA[PD Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[160]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. h.c.]]></anzeigeform>
+    <langform><![CDATA[Dr. h.c.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[069]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. phil. habil.]]></anzeigeform>
+    <langform><![CDATA[Dr. phil. habil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[164]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. mult.]]></anzeigeform>
+    <langform><![CDATA[Dr. mult.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[068]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. phil. Dr.]]></anzeigeform>
+    <langform><![CDATA[Dr. phil. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[163]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. iur.]]></anzeigeform>
+    <langform><![CDATA[Dr. iur.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[139]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.sc.pol.]]></anzeigeform>
+    <langform><![CDATA[Dipl.sc.pol.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[138]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[D.Eng]]></anzeigeform>
+    <langform><![CDATA[D.Eng]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[137]]></schluessel>
+    <kurzform><![CDATA[Assessor]]></kurzform>
+    <anzeigeform><![CDATA[Assessor]]></anzeigeform>
+    <langform><![CDATA[Assessor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[125]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Univ. Prof. Dr.]]></anzeigeform>
+    <langform><![CDATA[Univ. Prof. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[022]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Min. Univ.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Min. Univ.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[136]]></schluessel>
+    <kurzform><![CDATA[RI]]></kurzform>
+    <anzeigeform><![CDATA[RI]]></anzeigeform>
+    <langform><![CDATA[RI]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[135]]></schluessel>
+    <kurzform><![CDATA[Ph.D.]]></kurzform>
+    <anzeigeform><![CDATA[Ph.D.]]></anzeigeform>
+    <langform><![CDATA[Ph.D.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[016]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Ing. (FH)]]></anzeigeform>
+    <langform><![CDATA[Dipl. Ing. (FH)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[014]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Inf. Univ.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Inf. Univ.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[010]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Forstwirt]]></anzeigeform>
+    <langform><![CDATA[Dipl. Forstwirt]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[126]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Univ. Prof. Dr. Dr.]]></anzeigeform>
+    <langform><![CDATA[Univ. Prof. Dr. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[132]]></schluessel>
+    <kurzform><![CDATA[D.P.S.]]></kurzform>
+    <anzeigeform><![CDATA[D.P.S.]]></anzeigeform>
+    <langform><![CDATA[D.P.S.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[124]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Univ. Prof.]]></anzeigeform>
+    <langform><![CDATA[Univ. Prof.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[123]]></schluessel>
+    <kurzform><![CDATA[Sr.]]></kurzform>
+    <anzeigeform><![CDATA[Sr.]]></anzeigeform>
+    <langform><![CDATA[Sr.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Sr.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[122]]></schluessel>
+    <kurzform><![CDATA[RA]]></kurzform>
+    <anzeigeform><![CDATA[RA]]></anzeigeform>
+    <langform><![CDATA[RA]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=RA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[120]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Ph. D.]]></anzeigeform>
+    <langform><![CDATA[Prof. Ph. D.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[018]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Ing. Univ.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Ing. Univ.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[118]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. M. A.]]></anzeigeform>
+    <langform><![CDATA[Prof. M. A.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[185]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[PD Prof.Dr.]]></anzeigeform>
+    <langform><![CDATA[PD Prof.Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[035]]></schluessel>
+    <kurzform><![CDATA[Dott.]]></kurzform>
+    <anzeigeform><![CDATA[Dott. arch.]]></anzeigeform>
+    <langform><![CDATA[Dott. arch.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[182]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[M.Mus.]]></anzeigeform>
+    <langform><![CDATA[M.Mus.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[181]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[M.F.A.]]></anzeigeform>
+    <langform><![CDATA[M.F.A.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[176]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[LL.M.]]></anzeigeform>
+    <langform><![CDATA[LL.M.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[177]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[LL.M. (VUW)]]></anzeigeform>
+    <langform><![CDATA[LL.M. (VUW)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[173]]></schluessel>
+    <kurzform><![CDATA[Jun.-Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Juniorprofessor]]></anzeigeform>
+    <langform><![CDATA[Juniorprofessor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[021]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. med.]]></anzeigeform>
+    <langform><![CDATA[Dipl. med.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[167]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. sc. nat.]]></anzeigeform>
+    <langform><![CDATA[Dr. sc. nat.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[077]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. V.]]></anzeigeform>
+    <langform><![CDATA[Dr. V.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[162]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Inform.]]></anzeigeform>
+    <langform><![CDATA[Dr. Inform.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[161]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Ing.]]></anzeigeform>
+    <langform><![CDATA[Dr. Ing.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[159]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. e. h.]]></anzeigeform>
+    <langform><![CDATA[Dr. e. h.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[141]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Brauer]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Brauer]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[148]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Landwirt]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Landwirt]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[174]]></schluessel>
+    <kurzform><![CDATA[Kanzler]]></kurzform>
+    <anzeigeform><![CDATA[Kanzler]]></anzeigeform>
+    <langform><![CDATA[Kanzler]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[062]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. med. phil.]]></anzeigeform>
+    <langform><![CDATA[Dr. med. phil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[001]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[apl. Prof. Dr.]]></anzeigeform>
+    <langform><![CDATA[apl. Prof. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[108]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. Dr. Ing.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. Dr. Ing.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[109]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. h. c.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. h. c.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[110]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. habil.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. habil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[073]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. rer. pol.]]></anzeigeform>
+    <langform><![CDATA[Dr. rer. pol.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[072]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. rer. nat.]]></anzeigeform>
+    <langform><![CDATA[Dr. rer. nat.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[129]]></schluessel>
+    <kurzform><![CDATA[CPA]]></kurzform>
+    <anzeigeform><![CDATA[CPA]]></anzeigeform>
+    <langform><![CDATA[CPA]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[067]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. phil.]]></anzeigeform>
+    <langform><![CDATA[Dr. phil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[066]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. paed.]]></anzeigeform>
+    <langform><![CDATA[Dr. paed.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[065]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. nat. habil.]]></anzeigeform>
+    <langform><![CDATA[Dr. nat. habil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[064]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. med. vet.]]></anzeigeform>
+    <langform><![CDATA[Dr. med. vet.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[063]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. med. univ.]]></anzeigeform>
+    <langform><![CDATA[Dr. med. univ.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[007]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Betr. (FH)]]></anzeigeform>
+    <langform><![CDATA[Dipl. Betr. (FH)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[201]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[Master of Laws]]></anzeigeform>
+    <langform><![CDATA[Master of Laws]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[105]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. Dr.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[106]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. Dr. Dr.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. Dr. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[154]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Pädagoge]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Pädagoge]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[057]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. med. Dipl. Ing]]></anzeigeform>
+    <langform><![CDATA[Dr. med. Dipl. Ing]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[102]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof.]]></anzeigeform>
+    <langform><![CDATA[Prof.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Prof.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[184]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[MUDr.]]></anzeigeform>
+    <langform><![CDATA[MUDr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[075]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. theol.]]></anzeigeform>
+    <langform><![CDATA[Dr. theol.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[147]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Ing.-agr.]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Ing.-agr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[200]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[Master of Engen]]></anzeigeform>
+    <langform><![CDATA[Master of Engen]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. med. habil.]]></anzeigeform>
+    <langform><![CDATA[Dr. med. habil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[199]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[Master of Arts]]></anzeigeform>
+    <langform><![CDATA[Master of Arts]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[170]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr.Dr.Dr.]]></anzeigeform>
+    <langform><![CDATA[Dr.Dr.Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[195]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[M.ENG.]]></anzeigeform>
+    <langform><![CDATA[M.ENG.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[194]]></schluessel>
+    <kurzform><![CDATA[M.B.A.]]></kurzform>
+    <anzeigeform><![CDATA[M.B.A. (USA)]]></anzeigeform>
+    <langform><![CDATA[M.B.A. (USA)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[193]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[M.A. Degree]]></anzeigeform>
+    <langform><![CDATA[M.A. Degree]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[192]]></schluessel>
+    <kurzform><![CDATA[DBA]]></kurzform>
+    <anzeigeform><![CDATA[Dba(Boston Univ)]]></anzeigeform>
+    <langform><![CDATA[Dba(Boston Univ)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[191]]></schluessel>
+    <kurzform><![CDATA[Bachelor]]></kurzform>
+    <anzeigeform><![CDATA[B.Eng.]]></anzeigeform>
+    <langform><![CDATA[B.Eng.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[070]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. phil. M. A.]]></anzeigeform>
+    <langform><![CDATA[Dr. phil. M. A.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[043]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Dipl. Ing. Pr.]]></anzeigeform>
+    <langform><![CDATA[Dr. Dipl. Ing. Pr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. des.]]></anzeigeform>
+    <langform><![CDATA[Dr. des.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[037]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. (Aus)]]></anzeigeform>
+    <langform><![CDATA[Dr. (Aus)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[032]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Verw. (FH)]]></anzeigeform>
+    <langform><![CDATA[Dipl. Verw. (FH)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[183]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[M.Sc.]]></anzeigeform>
+    <langform><![CDATA[M.Sc.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[031]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Theol.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Theol.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[027]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Psych.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Psych.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[101]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Ph. Dr.]]></anzeigeform>
+    <langform><![CDATA[Ph. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[025]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Phys. Univ.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Phys. Univ.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[024]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Phys. Dr.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Phys. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[100]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[PD Prof. Dr.]]></anzeigeform>
+    <langform><![CDATA[PD Prof. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[099]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[PD Ph. Dr.]]></anzeigeform>
+    <langform><![CDATA[PD Ph. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[103]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dipl. Ing.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dipl. Ing.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[131]]></schluessel>
+    <kurzform><![CDATA[D.D.S.]]></kurzform>
+    <anzeigeform><![CDATA[D.D.S.]]></anzeigeform>
+    <langform><![CDATA[D.D.S.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[028]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Rpfl.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Rpfl.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[130]]></schluessel>
+    <kurzform><![CDATA[D.D.]]></kurzform>
+    <anzeigeform><![CDATA[D.D.]]></anzeigeform>
+    <langform><![CDATA[D.D.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[134]]></schluessel>
+    <kurzform><![CDATA[MBA]]></kurzform>
+    <anzeigeform><![CDATA[MBA]]></anzeigeform>
+    <langform><![CDATA[MBA]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[171]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr.sc.ETHZürich]]></anzeigeform>
+    <langform><![CDATA[Dr.sc.ETHZürich]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[133]]></schluessel>
+    <kurzform><![CDATA[M.D.]]></kurzform>
+    <anzeigeform><![CDATA[M.D.]]></anzeigeform>
+    <langform><![CDATA[M.D.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[015]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Ing.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Ing.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[190]]></schluessel>
+    <kurzform><![CDATA[Rektor]]></kurzform>
+    <anzeigeform><![CDATA[Rektor]]></anzeigeform>
+    <langform><![CDATA[Rektor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[104]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[149]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Mineralog]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Mineralog]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[203]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[MPH]]></anzeigeform>
+    <langform><![CDATA[MPH]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[158]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Dr. h.c.]]></anzeigeform>
+    <langform><![CDATA[Dr. Dr. h.c.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[017]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Ing. Prof.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Ing. Prof.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[M.]]></kurzform>
+    <anzeigeform><![CDATA[M.]]></anzeigeform>
+    <langform><![CDATA[M.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=M.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[049]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. IEP]]></anzeigeform>
+    <langform><![CDATA[Dr. IEP]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[096]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[PD Dr. med. hab.]]></anzeigeform>
+    <langform><![CDATA[PD Dr. med. hab.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[180]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[M.Eng.]]></anzeigeform>
+    <langform><![CDATA[M.Eng.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[080]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[habil. PD Dr.]]></anzeigeform>
+    <langform><![CDATA[habil. PD Dr.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[050]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Ing.]]></anzeigeform>
+    <langform><![CDATA[Dr. Ing.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[117]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. rer. pol.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. rer. pol.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[116]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. rer. nat.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. rer. nat.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[113]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. med.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. med.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[112]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. jur.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. jur.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[202]]></schluessel>
+    <kurzform><![CDATA[Master]]></kurzform>
+    <anzeigeform><![CDATA[Master of Scien]]></anzeigeform>
+    <langform><![CDATA[Master of Scien]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[189]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. Ing.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. Ing.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[156]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.-Soziologe]]></anzeigeform>
+    <langform><![CDATA[Dipl.-Soziologe]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[053]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. jur. Dr. med.]]></anzeigeform>
+    <langform><![CDATA[Dr. jur. Dr. med.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[157]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Diplom-Musiker]]></anzeigeform>
+    <langform><![CDATA[Diplom-Musiker]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[060]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. med. Dr. nat.]]></anzeigeform>
+    <langform><![CDATA[Dr. med. Dr. nat.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[059]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. med. Dr. med. h]]></anzeigeform>
+    <langform><![CDATA[Dr. med. Dr. med. h]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[056]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. med. dent.]]></anzeigeform>
+    <langform><![CDATA[Dr. med. dent.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[006]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl.]]></anzeigeform>
+    <langform><![CDATA[Dipl.]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=Dipl.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[052]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. jur.]]></anzeigeform>
+    <langform><![CDATA[Dr. jur.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[114]]></schluessel>
+    <kurzform><![CDATA[Prof.]]></kurzform>
+    <anzeigeform><![CDATA[Prof. Dr. mult.]]></anzeigeform>
+    <langform><![CDATA[Prof. Dr. mult.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[PD Dr. Ing.]]></anzeigeform>
+    <langform><![CDATA[PD Dr. Ing.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. Ing. habil.]]></anzeigeform>
+    <langform><![CDATA[Dr. Ing. habil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[026]]></schluessel>
+    <kurzform><![CDATA[Dipl.]]></kurzform>
+    <anzeigeform><![CDATA[Dipl. Pol.]]></anzeigeform>
+    <langform><![CDATA[Dipl. Pol.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[048]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[Dr. habil.]]></anzeigeform>
+    <langform><![CDATA[Dr. habil.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[098]]></schluessel>
+    <kurzform><![CDATA[Dr.]]></kurzform>
+    <anzeigeform><![CDATA[PD Dr. rer. nat.]]></anzeigeform>
+    <langform><![CDATA[PD Dr. rer. nat.]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+</werteliste>

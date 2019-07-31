@@ -1,0 +1,58 @@
+{$this->header}
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ranga" />
+
+<div style="background-color: black; padding-top: 10px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px;border-radius: 20px;">
+
+<font color="#FFFFFF" size="+1">
+
+
+<img src="cssjs/images/kerzen.jpg" style="float:left;" height="200"  />
+
+$einleitung
+
+</font>
+
+</div>
+<br />
+
+<form><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addEntry" style="width:100%;border-radius:20px"><i class="fa fa-pencil"></i> Eintrag in das Kondolenzbuch vornehmen</button></form>
+
+<br />
+$entriesHTML
+
+
+	<div class="modal fade" id="addEntry" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document" >
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id=""><i class="fa fa-pencil"></i> Eintrag in das Kondolenzbuch hinzufügen</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form action="index.php?page=kondolenzbuch&action=add" method="post">
+		        
+		        <div class="form-group">
+		        	<label>Name</label>
+		        	<input type="text" name="name" class="form-control" placeholder="angezeigter Name">
+		        </div>
+
+				<p>Es wird nur der Name beim Eintrag angezeigt, den Sie hier angeben.</p>		        
+
+		        <div class="form-group">
+		        	<label>Text</label>
+		        	<textarea name="text" class="form-control" placeholder="Eintrag in das Kondolenzbuch" rows="10"></textarea>
+		        </div>
+		        
+		        <p><b>Bitte beachten Sie, dass Einträge von Ihnen nicht mehr bearbeitet oder gelöscht werden können, da sie vollkommen anonym gespeichert werden.</b></p>
+		        
+				<button type="submit" class="form-control"><i class="fa fa-pencil"></i> Eintrag hinzufügen</button>
+				</form>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+
+{$this->footer}

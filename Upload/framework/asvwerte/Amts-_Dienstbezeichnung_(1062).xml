@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Amts-/Dienstbezeichnung" pl_key="1062">
+  <eintrag>
+    <schluessel><![CDATA[089]]></schluessel>
+    <kurzform><![CDATA[IR]]></kurzform>
+    <anzeigeform><![CDATA[Institutsrektor]]></anzeigeform>
+    <langform><![CDATA[Institutsrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=089##kuerzel_alt=IR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[171]]></schluessel>
+    <kurzform><![CDATA[StD i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Studiendirektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Studiendirektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=171##kuerzel_alt=StD i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[354]]></schluessel>
+    <kurzform><![CDATA[StR(RS) iK]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.RSD i.K.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Realschuldienst im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=354##kuerzel_alt=StR(RS) i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[353]]></schluessel>
+    <kurzform><![CDATA[StR(FöS)iK]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.FöSD i.K.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Förderschuldienst im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=353##kuerzel_alt=StR(FöS) i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[352]]></schluessel>
+    <kurzform><![CDATA[StR(MS) iK]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.MSD i.K.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Mittelschuldienst im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=352##kuerzel_alt=StR(HS) i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[066]]></schluessel>
+    <kurzform><![CDATA[D(FS)]]></kurzform>
+    <anzeigeform><![CDATA[Direktor Fachschule]]></anzeigeform>
+    <langform><![CDATA[Direktor einer Fachschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=066##kuerzel_alt=FSD#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[151]]></schluessel>
+    <kurzform><![CDATA[StR(GS) BV]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.GSD i.BV]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Grundschuldienst im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=151##kuerzel_alt=StR(GS) i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[152]]></schluessel>
+    <kurzform><![CDATA[StR(MS) BV]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.MSD i.BV]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Mittelschuldienst im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=152##kuerzel_alt=StR(HS) i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[153]]></schluessel>
+    <kurzform><![CDATA[StR(FöS)BV]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.FöSD i.BV]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Förderschuldienst im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=153##kuerzel_alt=StR(FöS) i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[154]]></schluessel>
+    <kurzform><![CDATA[StR(RS) BV]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.RSD i.BV]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Realschuldienst im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=154##kuerzel_alt=StR(RS) i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[184]]></schluessel>
+    <kurzform><![CDATA[SemR i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Seminarrektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Seminarrektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=184##kuerzel_alt=SemR i.B.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[251]]></schluessel>
+    <kurzform><![CDATA[StR(GS) iP]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.GSD i.P.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Grundschuldienst im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=251##kuerzel_alt=StR(GS) i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[252]]></schluessel>
+    <kurzform><![CDATA[StR(MS) iP]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.MSD i.P.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Mittelschuldienst im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=252##kuerzel_alt=StR(HS) i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[253]]></schluessel>
+    <kurzform><![CDATA[StR(FöS)iP]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.FöSD i.P.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Förderschuldienst im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=253##kuerzel_alt=StR(FöS) i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[254]]></schluessel>
+    <kurzform><![CDATA[StR(RS) iP]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.RSD i.P.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Realschuldienst im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=254##kuerzel_alt=StR(RS) i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[351]]></schluessel>
+    <kurzform><![CDATA[StR(GS) iK]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.GSD i.K.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Grundschuldienst im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=351##kuerzel_alt=StR(GS) i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[169]]></schluessel>
+    <kurzform><![CDATA[OStR i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Oberstudienrat i.BV]]></anzeigeform>
+    <langform><![CDATA[Oberstudienrat im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=169##kuerzel_alt=OStR i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[188]]></schluessel>
+    <kurzform><![CDATA[ZwRSK i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Zw. Realschulkonrektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Zweiter Realschulkonrektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=188##kuerzel_alt=ZwRSK i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[207]]></schluessel>
+    <kurzform><![CDATA[FL i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Fachlehrer i.P.]]></anzeigeform>
+    <langform><![CDATA[Fachlehrer im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=207##kuerzel_alt=FL i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[210]]></schluessel>
+    <kurzform><![CDATA[FöL i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Förderlehrer i.P.]]></anzeigeform>
+    <langform><![CDATA[Förderlehrer im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=210##kuerzel_alt=FöL i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[216]]></schluessel>
+    <kurzform><![CDATA[SoPäd]]></kurzform>
+    <anzeigeform><![CDATA[Sonderpädagoge (BA/graduiert)]]></anzeigeform>
+    <langform><![CDATA[Sonderpädagoge (BA/graduiert)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=216##kuerzel_alt=SoPäd#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[221]]></schluessel>
+    <kurzform><![CDATA[L i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Lehrer i.P.]]></anzeigeform>
+    <langform><![CDATA[Lehrer im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=221##kuerzel_alt=L i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[223]]></schluessel>
+    <kurzform><![CDATA[OL i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Oberlehrer i.P.]]></anzeigeform>
+    <langform><![CDATA[Oberlehrer im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=223##kuerzel_alt=OL i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[226]]></schluessel>
+    <kurzform><![CDATA[ZwKR i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Zw. Konrektor i.P.]]></anzeigeform>
+    <langform><![CDATA[Zweiter Konrektor im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=226##kuerzel_alt=ZwKR i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[228]]></schluessel>
+    <kurzform><![CDATA[KR i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Konrektor i.P.]]></anzeigeform>
+    <langform><![CDATA[Konrektor im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=228##kuerzel_alt=KR i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[237]]></schluessel>
+    <kurzform><![CDATA[BerR i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Beratungsrektor i.P.]]></anzeigeform>
+    <langform><![CDATA[Beratungsrektor im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=237##kuerzel_alt=BerR i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[240]]></schluessel>
+    <kurzform><![CDATA[SoKR i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschulkonrektor i.P.]]></anzeigeform>
+    <langform><![CDATA[Sonderschulkonrektor im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=240##kuerzel_alt=SoKR i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[241]]></schluessel>
+    <kurzform><![CDATA[ZwSoK i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Zw. Sonderschulkonrektor i.P.]]></anzeigeform>
+    <langform><![CDATA[Zweiter Sonderschulkonrektor im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=241##kuerzel_alt=ZwSoK i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[244]]></schluessel>
+    <kurzform><![CDATA[R i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Rektor i.P.]]></anzeigeform>
+    <langform><![CDATA[Rektor im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=244##kuerzel_alt=R i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[249]]></schluessel>
+    <kurzform><![CDATA[R(FS) i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Fachschulrektor i.P.]]></anzeigeform>
+    <langform><![CDATA[Fachschulrektor im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=249##kuerzel_alt=R(FS) i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[257]]></schluessel>
+    <kurzform><![CDATA[SoR i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschulrektor i.P.]]></anzeigeform>
+    <langform><![CDATA[Sonderschulrektor im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=257##kuerzel_alt=SoR i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[261]]></schluessel>
+    <kurzform><![CDATA[StR i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.P.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=261##kuerzel_alt=StR i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[269]]></schluessel>
+    <kurzform><![CDATA[OStR i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Oberstudienrat i.P.]]></anzeigeform>
+    <langform><![CDATA[Oberstudienrat im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=269##kuerzel_alt=OStR i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[271]]></schluessel>
+    <kurzform><![CDATA[StD i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Studiendirektor i.P.]]></anzeigeform>
+    <langform><![CDATA[Studiendirektor im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=271##kuerzel_alt=StD i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[288]]></schluessel>
+    <kurzform><![CDATA[ZwRSK i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Zw. Realschulkonrektor i.P.]]></anzeigeform>
+    <langform><![CDATA[Zweiter Realschulkonrektor im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=288##kuerzel_alt=ZwRSK i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[307]]></schluessel>
+    <kurzform><![CDATA[FL i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Fachlehrer i.K.]]></anzeigeform>
+    <langform><![CDATA[Fachlehrer im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=307##kuerzel_alt=FL i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[310]]></schluessel>
+    <kurzform><![CDATA[FöL i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Förderlehrer i.K.]]></anzeigeform>
+    <langform><![CDATA[Förderlehrer im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=310##kuerzel_alt=FöL i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[313]]></schluessel>
+    <kurzform><![CDATA[FOL i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Fachoberlehrer i.K.]]></anzeigeform>
+    <langform><![CDATA[Fachoberlehrer im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=313##kuerzel_alt=FOL i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[321]]></schluessel>
+    <kurzform><![CDATA[L i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Lehrer i.K.]]></anzeigeform>
+    <langform><![CDATA[Lehrer im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=321##kuerzel_alt=L i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[323]]></schluessel>
+    <kurzform><![CDATA[OL i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Oberlehrer i.K.]]></anzeigeform>
+    <langform><![CDATA[Oberlehrer im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=323##kuerzel_alt=OL i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[326]]></schluessel>
+    <kurzform><![CDATA[ZwKR i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Zw. Konrektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Zweiter Konrektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=326##kuerzel_alt=ZwKR i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[328]]></schluessel>
+    <kurzform><![CDATA[KR i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Konrektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Konrektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=328##kuerzel_alt=KR i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[337]]></schluessel>
+    <kurzform><![CDATA[BerR i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Beratungsrektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Beratungsrektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=337##kuerzel_alt=BerR i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[107]]></schluessel>
+    <kurzform><![CDATA[FL i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Fachlehrer i.BV]]></anzeigeform>
+    <langform><![CDATA[Fachlehrer im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=107##kuerzel_alt=FL i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[341]]></schluessel>
+    <kurzform><![CDATA[ZwSoK i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Zw. Sonderschulkonrektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Zweiter Sonderschulkonrektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=341##kuerzel_alt=ZwSoK i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[344]]></schluessel>
+    <kurzform><![CDATA[R i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Rektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Rektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=344##kuerzel_alt=R i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[349]]></schluessel>
+    <kurzform><![CDATA[R(FS) i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Fachschulrektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Fachschulrektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=349##kuerzel_alt=R(FS) i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[357]]></schluessel>
+    <kurzform><![CDATA[SoR i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschulrektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Sonderschulrektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=357##kuerzel_alt=SoR i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[361]]></schluessel>
+    <kurzform><![CDATA[StR i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.K.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=361##kuerzel_alt=StR i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[369]]></schluessel>
+    <kurzform><![CDATA[OStR i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Oberstudienrat i.K.]]></anzeigeform>
+    <langform><![CDATA[Oberstudienrat im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=369##kuerzel_alt=OStR i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[371]]></schluessel>
+    <kurzform><![CDATA[StD i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Studiendirektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Studiendirektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=371##kuerzel_alt=StD i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[384]]></schluessel>
+    <kurzform><![CDATA[SemR i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Seminarrektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Seminarrektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=384##kuerzel_alt=SemR i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[388]]></schluessel>
+    <kurzform><![CDATA[ZwRSK i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Zw. Realschulkonrektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Zweiter Realschulkonrektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=388##kuerzel_alt=ZwRSK i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[340]]></schluessel>
+    <kurzform><![CDATA[SoKR i.K.]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschulkonrektor i.K.]]></anzeigeform>
+    <langform><![CDATA[Sonderschulkonrektor im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=340##kuerzel_alt=SoKR i.K.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[110]]></schluessel>
+    <kurzform><![CDATA[FöL i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Förderlehrer i.BV]]></anzeigeform>
+    <langform><![CDATA[Förderlehrer im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=110##kuerzel_alt=FöL i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[113]]></schluessel>
+    <kurzform><![CDATA[FOL i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Fachoberlehrer i.BV]]></anzeigeform>
+    <langform><![CDATA[Fachoberlehrer im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=113##kuerzel_alt=FOL i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[121]]></schluessel>
+    <kurzform><![CDATA[L i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Lehrer i.BV]]></anzeigeform>
+    <langform><![CDATA[Lehrer im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=121##kuerzel_alt=L i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[123]]></schluessel>
+    <kurzform><![CDATA[OL i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Oberlehrer i.BV]]></anzeigeform>
+    <langform><![CDATA[Oberlehrer im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=123##kuerzel_alt=OL i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[126]]></schluessel>
+    <kurzform><![CDATA[ZwKR i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Zw. Konrektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Zweiter Konrektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=126##kuerzel_alt=ZwKR i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[128]]></schluessel>
+    <kurzform><![CDATA[KR i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Konrektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Konrektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=128##kuerzel_alt=KR i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[137]]></schluessel>
+    <kurzform><![CDATA[BerR i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Beratungsrektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Beratungsrektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=137##kuerzel_alt=BerR i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[140]]></schluessel>
+    <kurzform><![CDATA[SoKR i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschulkonrektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Sonderschulkonrektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=140##kuerzel_alt=SoKR i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[141]]></schluessel>
+    <kurzform><![CDATA[ZwSoK i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Zw. Sonderschulkonrektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Zweiter Sonderschulkonrektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=141##kuerzel_alt=ZwSoK i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[144]]></schluessel>
+    <kurzform><![CDATA[R i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Rektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Rektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=144##kuerzel_alt=R i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[149]]></schluessel>
+    <kurzform><![CDATA[R(FS) i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Fachschulrektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Fachschulrektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=149##kuerzel_alt=R(FS) i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[157]]></schluessel>
+    <kurzform><![CDATA[SoR i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschulrektor i.BV]]></anzeigeform>
+    <langform><![CDATA[Sonderschulrektor im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=157##kuerzel_alt=SoR i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[161]]></schluessel>
+    <kurzform><![CDATA[StR i.BV]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.BV]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Beschäftigungsverhältnis]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=161##kuerzel_alt=StR i.BV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[053]]></schluessel>
+    <kurzform><![CDATA[StR(FöS)]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat im Förderschuldst.]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Förderschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=053##kuerzel_alt=StR(FöS)#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[052]]></schluessel>
+    <kurzform><![CDATA[StR (MS)]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat i.Mittelschuldienst]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Mittelschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=052##kuerzel_alt=StRHS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[049]]></schluessel>
+    <kurzform><![CDATA[FSR]]></kurzform>
+    <anzeigeform><![CDATA[Fachschulrektor]]></anzeigeform>
+    <langform><![CDATA[Fachschulrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=049##kuerzel_alt=R(FS)#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[009]]></schluessel>
+    <kurzform><![CDATA[FöLzA]]></kurzform>
+    <anzeigeform><![CDATA[Förderlehrer z.A.]]></anzeigeform>
+    <langform><![CDATA[Förderlehrer z.A.]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=009##kuerzel_alt=FöLzA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[074]]></schluessel>
+    <kurzform><![CDATA[MB]]></kurzform>
+    <anzeigeform><![CDATA[Ltd. Oberstudiendirektor]]></anzeigeform>
+    <langform><![CDATA[Ltd. Oberstudiendirektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=074##kuerzel_alt=MB#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[061]]></schluessel>
+    <kurzform><![CDATA[StR]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat]]></anzeigeform>
+    <langform><![CDATA[Studienrat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=061##kuerzel_alt=StR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[059]]></schluessel>
+    <kurzform><![CDATA[LAss]]></kurzform>
+    <anzeigeform><![CDATA[Lehramtsassessor]]></anzeigeform>
+    <langform><![CDATA[Lehramtsassessor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[058]]></schluessel>
+    <kurzform><![CDATA[StRef]]></kurzform>
+    <anzeigeform><![CDATA[Studienreferendar]]></anzeigeform>
+    <langform><![CDATA[Studienreferendar]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=058##kuerzel_alt=StRef#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[055]]></schluessel>
+    <kurzform><![CDATA[RSD]]></kurzform>
+    <anzeigeform><![CDATA[Realschuldirektor]]></anzeigeform>
+    <langform><![CDATA[Realschuldirektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=055##kuerzel_alt=RSD#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[073]]></schluessel>
+    <kurzform><![CDATA[MBR]]></kurzform>
+    <anzeigeform><![CDATA[Ltd. Realschulrektor als MB]]></anzeigeform>
+    <langform><![CDATA[Ltd. Realschulrektor als MB]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=073##kuerzel_alt=MBR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[068]]></schluessel>
+    <kurzform><![CDATA[Ltd. RSD]]></kurzform>
+    <anzeigeform><![CDATA[Ltd. Realschuldirektor]]></anzeigeform>
+    <langform><![CDATA[Ltd. Realschuldirektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=068##kuerzel_alt=LtRSD#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[078]]></schluessel>
+    <kurzform><![CDATA[SoD]]></kurzform>
+    <anzeigeform><![CDATA[Direktor einer Landesschule]]></anzeigeform>
+    <langform><![CDATA[Direktor einer Landesschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=078##kuerzel_alt=SoDLS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[087]]></schluessel>
+    <kurzform><![CDATA[RSR]]></kurzform>
+    <anzeigeform><![CDATA[Realschulrektor]]></anzeigeform>
+    <langform><![CDATA[Realschulrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=087##kuerzel_alt=RSR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[056]]></schluessel>
+    <kurzform><![CDATA[RSK]]></kurzform>
+    <anzeigeform><![CDATA[Realschulkonrektor]]></anzeigeform>
+    <langform><![CDATA[Realschulkonrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=056##kuerzel_alt=RSK#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[088]]></schluessel>
+    <kurzform><![CDATA[ZwRSK]]></kurzform>
+    <anzeigeform><![CDATA[Zweiter Realschulkonrektor]]></anzeigeform>
+    <langform><![CDATA[Zweiter Realschulkonrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=088##kuerzel_alt=ZwRSK#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[043]]></schluessel>
+    <kurzform><![CDATA[ROL]]></kurzform>
+    <anzeigeform><![CDATA[Realschuloberlehrer]]></anzeigeform>
+    <langform><![CDATA[Realschuloberlehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=043##kuerzel_alt=ROL#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[084]]></schluessel>
+    <kurzform><![CDATA[SemR]]></kurzform>
+    <anzeigeform><![CDATA[Seminarrektor]]></anzeigeform>
+    <langform><![CDATA[Seminarrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=084##kuerzel_alt=SemR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[075]]></schluessel>
+    <kurzform><![CDATA[OStD]]></kurzform>
+    <anzeigeform><![CDATA[Oberstudiendirektor]]></anzeigeform>
+    <langform><![CDATA[Oberstudiendirektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=075##kuerzel_alt=OStD#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[071]]></schluessel>
+    <kurzform><![CDATA[StD]]></kurzform>
+    <anzeigeform><![CDATA[Studiendirektor]]></anzeigeform>
+    <langform><![CDATA[Studiendirektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=071##kuerzel_alt=StD#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[069]]></schluessel>
+    <kurzform><![CDATA[OStR]]></kurzform>
+    <anzeigeform><![CDATA[Oberstudienrat]]></anzeigeform>
+    <langform><![CDATA[Oberstudienrat]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=069##kuerzel_alt=OStR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[077]]></schluessel>
+    <kurzform><![CDATA[RSRMV]]></kurzform>
+    <anzeigeform><![CDATA[RSR (als Stellvertr. des MB)]]></anzeigeform>
+    <langform><![CDATA[Realschulrektor (als Stellvertr. des MB)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=077##kuerzel_alt=RSRMV#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[081]]></schluessel>
+    <kurzform><![CDATA[SoKD]]></kurzform>
+    <anzeigeform><![CDATA[Konrektor einer Landesschule]]></anzeigeform>
+    <langform><![CDATA[Konrektor einer Landesschule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=081##kuerzel_alt=SoKLS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[999]]></schluessel>
+    <kurzform><![CDATA[so]]></kurzform>
+    <anzeigeform><![CDATA[sonstige]]></anzeigeform>
+    <langform><![CDATA[sonstige]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=999##kuerzel_alt=so#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[810]]></schluessel>
+    <kurzform><![CDATA[Ltd.LD]]></kurzform>
+    <anzeigeform><![CDATA[Ltd. Landwirtschaftsdirektor]]></anzeigeform>
+    <langform><![CDATA[Ltd. Landwirtschaftsdirektor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[811]]></schluessel>
+    <kurzform><![CDATA[LD]]></kurzform>
+    <anzeigeform><![CDATA[Landwirtschaftsdirektor]]></anzeigeform>
+    <langform><![CDATA[Landwirtschaftsdirektor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[812]]></schluessel>
+    <kurzform><![CDATA[LOR]]></kurzform>
+    <anzeigeform><![CDATA[Landwirtschaftsoberrat]]></anzeigeform>
+    <langform><![CDATA[Landwirtschaftsoberrat]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[029]]></schluessel>
+    <kurzform><![CDATA[SoLA]]></kurzform>
+    <anzeigeform><![CDATA[StRef (LA an SoSch)]]></anzeigeform>
+    <langform><![CDATA[Studienreferendar für das Lehramt an Sonderschulen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=029##kuerzel_alt=SoLA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[044]]></schluessel>
+    <kurzform><![CDATA[R]]></kurzform>
+    <anzeigeform><![CDATA[Rektor]]></anzeigeform>
+    <langform><![CDATA[Rektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=044##kuerzel_alt=R#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[037]]></schluessel>
+    <kurzform><![CDATA[BerR]]></kurzform>
+    <anzeigeform><![CDATA[Beratungsrektor]]></anzeigeform>
+    <langform><![CDATA[Beratungsrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=037##kuerzel_alt=BerR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[093]]></schluessel>
+    <kurzform><![CDATA[WA]]></kurzform>
+    <anzeigeform><![CDATA[Werkstattausbilder (FOS)]]></anzeigeform>
+    <langform><![CDATA[Werkstattausbilder (FOS)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=093##kuerzel_alt=WA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[211]]></schluessel>
+    <kurzform><![CDATA[DPsy]]></kurzform>
+    <anzeigeform><![CDATA[Diplom-Psychologe]]></anzeigeform>
+    <langform><![CDATA[Diplom-Psychologe]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=211##kuerzel_alt=DPsy#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[212]]></schluessel>
+    <kurzform><![CDATA[DSoPäd]]></kurzform>
+    <anzeigeform><![CDATA[Sonderpädagoge (MA/Diplom)]]></anzeigeform>
+    <langform><![CDATA[Sonderpädagoge (MA/Diplom)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=212##kuerzel_alt=DSPäd#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[213]]></schluessel>
+    <kurzform><![CDATA[FOL i.P.]]></kurzform>
+    <anzeigeform><![CDATA[Fachoberlehrer i.P.]]></anzeigeform>
+    <langform><![CDATA[Fachoberlehrer im Privatschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=213##kuerzel_alt=FOL i.P.#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[214]]></schluessel>
+    <kurzform><![CDATA[DPäd]]></kurzform>
+    <anzeigeform><![CDATA[Pädagoge (MA/Diplom)]]></anzeigeform>
+    <langform><![CDATA[Pädagoge (MA/Diplom)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=214##kuerzel_alt=DPäd#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[028]]></schluessel>
+    <kurzform><![CDATA[KR]]></kurzform>
+    <anzeigeform><![CDATA[Konrektor]]></anzeigeform>
+    <langform><![CDATA[Konrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=028##kuerzel_alt=KR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[026]]></schluessel>
+    <kurzform><![CDATA[ZwKR]]></kurzform>
+    <anzeigeform><![CDATA[Zweiter Konrektor]]></anzeigeform>
+    <langform><![CDATA[Zweiter Konrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=026##kuerzel_alt=ZwKR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[051]]></schluessel>
+    <kurzform><![CDATA[StR(GS)]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat im Grundschuldienst]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Grundschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=051##kuerzel_alt=StRGS#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[090]]></schluessel>
+    <kurzform><![CDATA[IKR]]></kurzform>
+    <anzeigeform><![CDATA[Institutskonrektor]]></anzeigeform>
+    <langform><![CDATA[Institutskonrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=090##kuerzel_alt=IK#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[018]]></schluessel>
+    <kurzform><![CDATA[LAA]]></kurzform>
+    <anzeigeform><![CDATA[Lehramtsanwärter]]></anzeigeform>
+    <langform><![CDATA[Lehramtsanwärter]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=018##kuerzel_alt=LAA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[021]]></schluessel>
+    <kurzform><![CDATA[L]]></kurzform>
+    <anzeigeform><![CDATA[Lehrer]]></anzeigeform>
+    <langform><![CDATA[Lehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=021##kuerzel_alt=L#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[091]]></schluessel>
+    <kurzform><![CDATA[KR(FS)]]></kurzform>
+    <anzeigeform><![CDATA[Fachschulkonrektor]]></anzeigeform>
+    <langform><![CDATA[Fachschulkonrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=091##kuerzel_alt=FSK#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[013]]></schluessel>
+    <kurzform><![CDATA[FOL]]></kurzform>
+    <anzeigeform><![CDATA[Fachoberlehrer]]></anzeigeform>
+    <langform><![CDATA[Fachoberlehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=013##kuerzel_alt=FOL#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[007]]></schluessel>
+    <kurzform><![CDATA[FL]]></kurzform>
+    <anzeigeform><![CDATA[Fachlehrer]]></anzeigeform>
+    <langform><![CDATA[Fachlehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=007##kuerzel_alt=FL#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[033]]></schluessel>
+    <kurzform><![CDATA[RSL]]></kurzform>
+    <anzeigeform><![CDATA[Realschullehrer]]></anzeigeform>
+    <langform><![CDATA[Realschullehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=033##kuerzel_alt=RSL#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[054]]></schluessel>
+    <kurzform><![CDATA[StR(RS)]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat im Realschuldienst]]></anzeigeform>
+    <langform><![CDATA[Studienrat im Realschuldienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=054##kuerzel_alt=StR(RS)#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[831]]></schluessel>
+    <kurzform><![CDATA[HD]]></kurzform>
+    <anzeigeform><![CDATA[Hauswirtschaftsdirektor]]></anzeigeform>
+    <langform><![CDATA[Hauswirtschaftsdirektor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[065]]></schluessel>
+    <kurzform><![CDATA[VB]]></kurzform>
+    <anzeigeform><![CDATA[Verwalt-beamter (Reformb. RS)]]></anzeigeform>
+    <langform><![CDATA[Verwaltungsbeamter im Reformbereich (RS)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=065##kuerzel_alt=VB#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[005]]></schluessel>
+    <kurzform><![CDATA[FLA]]></kurzform>
+    <anzeigeform><![CDATA[Fachlehreranwärter]]></anzeigeform>
+    <langform><![CDATA[Fachlehreranwärter]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=005##kuerzel_alt=FLA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[202]]></schluessel>
+    <kurzform><![CDATA[Pf]]></kurzform>
+    <anzeigeform><![CDATA[Pfarrer]]></anzeigeform>
+    <langform><![CDATA[Pfarrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=202##kuerzel_alt=Pf#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[203]]></schluessel>
+    <kurzform><![CDATA[Kt]]></kurzform>
+    <anzeigeform><![CDATA[Katechet]]></anzeigeform>
+    <langform><![CDATA[Katechet]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=203##kuerzel_alt=Kt#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[057]]></schluessel>
+    <kurzform><![CDATA[SoR]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschulrektor]]></anzeigeform>
+    <langform><![CDATA[Sonderschulrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=057##kuerzel_alt=SoR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[040]]></schluessel>
+    <kurzform><![CDATA[SoKR]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschulkonrektor]]></anzeigeform>
+    <langform><![CDATA[Sonderschulkonrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=040##kuerzel_alt=SoKR#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[041]]></schluessel>
+    <kurzform><![CDATA[ZwSoK]]></kurzform>
+    <anzeigeform><![CDATA[Zweiter Sonderschulkonrektor]]></anzeigeform>
+    <langform><![CDATA[Zweiter Sonderschulkonrektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=041##kuerzel_alt=ZwSoK#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[042]]></schluessel>
+    <kurzform><![CDATA[SoOL]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschuloberlehrer]]></anzeigeform>
+    <langform><![CDATA[Sonderschuloberlehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=042##kuerzel_alt=SoOL#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[204]]></schluessel>
+    <kurzform><![CDATA[Ka]]></kurzform>
+    <anzeigeform><![CDATA[Kaplan]]></anzeigeform>
+    <langform><![CDATA[Kaplan]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=204##kuerzel_alt=Ka#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[205]]></schluessel>
+    <kurzform><![CDATA[Vi]]></kurzform>
+    <anzeigeform><![CDATA[Vikar (ev. Geistlicher)]]></anzeigeform>
+    <langform><![CDATA[Vikar (evangelischer Geistlicher)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=205##kuerzel_alt=Vi#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[215]]></schluessel>
+    <kurzform><![CDATA[Päd]]></kurzform>
+    <anzeigeform><![CDATA[Pädagoge (BA/graduiert)]]></anzeigeform>
+    <langform><![CDATA[Pädagoge (BA/graduiert)]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=215##kuerzel_alt=Päd#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[200]]></schluessel>
+    <kurzform><![CDATA[Beschäft]]></kurzform>
+    <anzeigeform><![CDATA[Beschäftigter]]></anzeigeform>
+    <langform><![CDATA[Beschäftigter]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=200,059##kuerzel_alt=LAv,LAss#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[002]]></schluessel>
+    <kurzform><![CDATA[WM]]></kurzform>
+    <anzeigeform><![CDATA[Werkmeister]]></anzeigeform>
+    <langform><![CDATA[Werkmeister]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=002##kuerzel_alt=WM#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[003]]></schluessel>
+    <kurzform><![CDATA[OWM]]></kurzform>
+    <anzeigeform><![CDATA[Oberwerkmeister]]></anzeigeform>
+    <langform><![CDATA[Oberwerkmeister]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=003##kuerzel_alt=OWM#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[092]]></schluessel>
+    <kurzform><![CDATA[SD]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschuldirektor]]></anzeigeform>
+    <langform><![CDATA[Sonderschuldirektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=092##kuerzel_alt=SoD#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[094]]></schluessel>
+    <kurzform><![CDATA[ID]]></kurzform>
+    <anzeigeform><![CDATA[Institutsdirektor]]></anzeigeform>
+    <langform><![CDATA[Institutsdirektor]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=094#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[050]]></schluessel>
+    <kurzform><![CDATA[BOL]]></kurzform>
+    <anzeigeform><![CDATA[Blindenoberlehrer]]></anzeigeform>
+    <langform><![CDATA[Blindenoberlehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=050##kuerzel_alt=BOL#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[062]]></schluessel>
+    <kurzform><![CDATA[TOL]]></kurzform>
+    <anzeigeform><![CDATA[Taubstummenoberlehrer]]></anzeigeform>
+    <langform><![CDATA[Taubstummenoberlehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=062##kuerzel_alt=TOL#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[030]]></schluessel>
+    <kurzform><![CDATA[SoL]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschullehrer]]></anzeigeform>
+    <langform><![CDATA[Sonderschullehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=030##kuerzel_alt=SoL#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[004]]></schluessel>
+    <kurzform><![CDATA[HWM]]></kurzform>
+    <anzeigeform><![CDATA[Hauptwerkmeister]]></anzeigeform>
+    <langform><![CDATA[Hauptwerkmeister]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=004##kuerzel_alt=HWM#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[206]]></schluessel>
+    <kurzform><![CDATA[Rl]]></kurzform>
+    <anzeigeform><![CDATA[Relig.lehrer im Kirchendienst]]></anzeigeform>
+    <langform><![CDATA[Religionslehrer im Kirchendienst]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=206##kuerzel_alt=Rl#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[010]]></schluessel>
+    <kurzform><![CDATA[FöL]]></kurzform>
+    <anzeigeform><![CDATA[Förderlehrer]]></anzeigeform>
+    <langform><![CDATA[Förderlehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=010##kuerzel_alt=FöL#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[008]]></schluessel>
+    <kurzform><![CDATA[FöLA]]></kurzform>
+    <anzeigeform><![CDATA[Förderlehreranwärter]]></anzeigeform>
+    <langform><![CDATA[Förderlehreranwärter]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=008##kuerzel_alt=FöLA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[096]]></schluessel>
+    <kurzform><![CDATA[HFL]]></kurzform>
+    <anzeigeform><![CDATA[Heilpädagogischer Förderlehrer]]></anzeigeform>
+    <langform><![CDATA[Heilpädagogischer Förderlehrer]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=096##kuerzel_alt=HFL#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[097]]></schluessel>
+    <kurzform><![CDATA[HPU]]></kurzform>
+    <anzeigeform><![CDATA[Heilpäd. Unterrichtshilfe]]></anzeigeform>
+    <langform><![CDATA[Heilpädagogische Unterrichtshilfe]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=097##kuerzel_alt=HPU#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[813]]></schluessel>
+    <kurzform><![CDATA[LR]]></kurzform>
+    <anzeigeform><![CDATA[Landwirtschaftsrat]]></anzeigeform>
+    <langform><![CDATA[Landwirtschaftsrat]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[830]]></schluessel>
+    <kurzform><![CDATA[Ltd.HD]]></kurzform>
+    <anzeigeform><![CDATA[Ltd. Hauswirtschaftsdirektor]]></anzeigeform>
+    <langform><![CDATA[Ltd. Hauswirtschaftsdirektor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[832]]></schluessel>
+    <kurzform><![CDATA[HOR]]></kurzform>
+    <anzeigeform><![CDATA[Hauswirtschaftsoberrat]]></anzeigeform>
+    <langform><![CDATA[Hauswirtschaftsoberrat]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[833]]></schluessel>
+    <kurzform><![CDATA[HR]]></kurzform>
+    <anzeigeform><![CDATA[Hauswirtschaftsrat]]></anzeigeform>
+    <langform><![CDATA[Hauswirtschaftsrat]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[850]]></schluessel>
+    <kurzform><![CDATA[Ltd.FD]]></kurzform>
+    <anzeigeform><![CDATA[Ltd. Forstdirektor]]></anzeigeform>
+    <langform><![CDATA[Ltd. Forstdirektor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[851]]></schluessel>
+    <kurzform><![CDATA[FD]]></kurzform>
+    <anzeigeform><![CDATA[Forstdirektor]]></anzeigeform>
+    <langform><![CDATA[Forstdirektor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[852]]></schluessel>
+    <kurzform><![CDATA[FOR]]></kurzform>
+    <anzeigeform><![CDATA[Forstoberrat]]></anzeigeform>
+    <langform><![CDATA[Forstoberrat]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[853]]></schluessel>
+    <kurzform><![CDATA[FR]]></kurzform>
+    <anzeigeform><![CDATA[Forstrat]]></anzeigeform>
+    <langform><![CDATA[Forstsrat]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[870]]></schluessel>
+    <kurzform><![CDATA[OAR]]></kurzform>
+    <anzeigeform><![CDATA[Oberamtsrat]]></anzeigeform>
+    <langform><![CDATA[Oberamtsrat]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[855]]></schluessel>
+    <kurzform><![CDATA[FAR]]></kurzform>
+    <anzeigeform><![CDATA[Forstamtsrat]]></anzeigeform>
+    <langform><![CDATA[Forstamtsrat]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[856]]></schluessel>
+    <kurzform><![CDATA[FA]]></kurzform>
+    <anzeigeform><![CDATA[Forstamtmann]]></anzeigeform>
+    <langform><![CDATA[Forstamtmann]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[857]]></schluessel>
+    <kurzform><![CDATA[FOI]]></kurzform>
+    <anzeigeform><![CDATA[Forstoberinspektor]]></anzeigeform>
+    <langform><![CDATA[Forstoberinspektor]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[060]]></schluessel>
+    <kurzform><![CDATA[StRzA]]></kurzform>
+    <anzeigeform><![CDATA[Studienrat z.A.]]></anzeigeform>
+    <langform><![CDATA[Studienrat z.A.]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=060##kuerzel_alt=StRzA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[032]]></schluessel>
+    <kurzform><![CDATA[RSLzA]]></kurzform>
+    <anzeigeform><![CDATA[Realschullehrer z.A.]]></anzeigeform>
+    <langform><![CDATA[Realschullehrer z.A.]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=032##kuerzel_alt=RSLzA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[036]]></schluessel>
+    <kurzform><![CDATA[SoLzA]]></kurzform>
+    <anzeigeform><![CDATA[Sonderschullehrer z.A.]]></anzeigeform>
+    <langform><![CDATA[Sonderschullehrer z.A.]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=036##kuerzel_alt=SoLzA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[020]]></schluessel>
+    <kurzform><![CDATA[LzA]]></kurzform>
+    <anzeigeform><![CDATA[Lehrer z.A.]]></anzeigeform>
+    <langform><![CDATA[Lehrer z.A.]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=020##kuerzel_alt=LzA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[006]]></schluessel>
+    <kurzform><![CDATA[FLzA]]></kurzform>
+    <anzeigeform><![CDATA[Fachlehrer z.A.]]></anzeigeform>
+    <langform><![CDATA[Fachlehrer z.A.]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=006##kuerzel_alt=FLzA#]]></bemerkung>
+  </eintrag>
+</werteliste>

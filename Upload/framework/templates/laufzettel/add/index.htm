@@ -1,0 +1,97 @@
+{$this->header}
+
+          $showError
+          
+          <form action="index.php?page=laufzettel&mode=create" method="post">
+          <div class="box">
+          	<div class="box-header">
+          		<h3 class="box-title"><i class="fa fa-plus"></i> Neuen Laufzettel erstellen</h3>
+          	</div>
+          	<div class="box-body">
+
+			<div class="form-group">
+				<label>Art:</label> <select name="laufzettelArt" class="form-control">
+					<option value="UG"{$selected['ug']}>Unterrichtsgang / Exkursion</option>
+					<option value="SA"{$selected['sa']}>Schulaufgabe</option>
+
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Titel:</label> <input type="text"
+					value="{$_POST['laufzettelTitel']}" name="laufzettelTitel"
+					class="form-control"
+					placeholder="z.B. E-Schulaufgabe oder Exkursion DLR">
+			</div>
+			<div class="form-group">
+				<label>Datum</label>
+				</td>
+				<td><input type="text" value="{$_POST['laufzettelDatum']}"
+					class="form-control" name="laufzettelDatum" id="laufzettelDatum">
+					<small>Es können nur ein Datum in der Zukunft ausgewählt
+						werden.</small>
+			</div>
+
+			<div class="form-group">
+				<label>Klassen</label><br />
+				<select name="klassen[]"
+					class="form-control select2" multiple="multiple"
+					data-placeholder="Alle betroffenen Klassen auswählen"
+					style="width: 90%;"> {$optionsGrades}
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label>Stunden</label><br />
+				<select name="stunden[]" class="form-control select2"
+					multiple="multiple"
+					data-placeholder="Alle betroffenen Stunden auswählen"
+					style="width: 90%;">
+						<option value="1"{$selected['s1']}>1. Stunde</option>
+						<option value="2"{$selected['s2']}>2. Stunde</option>
+						<option value="3"{$selected['s3']}>3. Stunde</option>
+						<option value="4"{$selected['s4']}>4. Stunde</option>
+						<option value="5"{$selected['s5']}>5. Stunde</option>
+						<option value="6"{$selected['s6']}>6. Stunde</option>
+						<option value="7"{$selected['s7']}>7. Stunde</option>
+						<option value="8"{$selected['s8']}>8. Stunde</option>
+						<option value="9"{$selected['s9']}>9. Stunde</option>
+						<option value="10"{$selected['s10']}>10. Stunde</option>
+				</select> <br />
+				<small><i>Nicht betroffene Stunden entfernen</i></small>
+			</div>
+
+			<div class="form-group">
+				<label>Nachricht an die Kollegen</label>
+				<textarea name="laufzettelNachricht" class="form-control"
+					placeholder="Nachricht an die Kollegen (z.B. Kurze Erklärung)"
+					rows="5">{$_POST['laufzettelNachricht']}</textarea>
+			</div>
+
+			<button type="submit" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Eingaben überprüfen</button>
+			<if($this->elektroSchulleitung)><then><br /><br />
+			<div class="callout callout-info"><i class="fa fa-info-circle"></i> Laufzettel werden von der Schulleitung elektronisch genehmigt</div></then></if>
+          	</div>
+          </div>
+
+		</form>
+
+
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+	$(function() {
+		$(".select2").select2();
+	});
+
+	$(function() {
+		$("#laufzettelDatum").datepicker({
+			startDate : "today",
+			todayHighlight : true,
+			format : 'dd.mm.yyyy',
+			daysOfWeekDisabled : [ 0, 6 ],
+			language : "de",
+			autoclose : true,
+		});
+	});
+</script>
+{$this->footer}

@@ -1,0 +1,225 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title">
+			<i class="fa fa-info-circle"></i> Datenschutz
+		</h3>
+	</div>
+	<div class="box-body">
+		<div class="nav-tabs-custom">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#datenschutzeinstellungen"
+					data-toggle="tab"><i class="fa fa-cog"></i>
+						Datenschutzeinstellungen</a></li>
+				<li><a href="#freigabe" data-toggle="tab"><i
+						class="fa fa-check"></i> Datenschutzfreigabe</a></li>
+				<li><a href="#datenschutzerklaerung" data-toggle="tab"><i
+						class="fa fa-pencil"></i> Datenschutzerklärung</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="datenschutzeinstellungen">
+					<div class="row">
+						<div class="col-md-8">
+
+					<form action="$selfURL&action=saveDSSettings" method="post">
+					<table class="table table-striped table-bordered">
+						<tr>
+							<td style="width:30%"><b>Eintragungszeitpunkte im Klassenkalender nicht anzeigen</b><br />Ist diese Einstellung aktiviert, werden die Zeitpunkte zu denen ein Eintrag im Klassenkalender vorgenommen wurde den anderen nicht Lehrern angezeigt. Für Schüler und Eltern sind diese Zeitpunkte grundsätzlich nicht sichtbar.</td>
+							<td>
+								<div class="onoffswitch">
+							
+								<input type="checkbox" name="noEintragzeitpunkt" value="1" class="onoffswitch-checkbox" id="showEitnragZeitpunkt"$selectedZeitpunkt>
+							    <label class="onoffswitch-label" for="showEitnragZeitpunkt">
+							        <span class="onoffswitch-inner"></span>
+							        <span class="onoffswitch-switch"></span>
+							    </label>
+							    
+							    </div>
+						    </td>
+						</tr>
+						
+						<tr>
+							<td style="width:30%"><b>Kontaktmöglichkeit der Datenschutzbeauftragten</b><br /></td>
+							<td>
+								<input type="text" name="dsbKontakt" class="form-control" value="<expression>DB::getSettings()->getValue('dsbKontakt')</expression>">
+						    </td>
+						</tr>
+						
+						<tr>
+							<td style="width:30%"><b>Eltern müssen Datenschutzerklärung zustimmen</b><br />Die Eltern müssen bei der Registrierung den Bestimmungen zustimmen. Sollten die Eltern bereits registriert sein oder aus der ASV synchronisiert sein, dann müssen sie den Text bei der nächsten Anmeldung bestätigen. Ansonsten ist die Seite nicht nutzbar.</td>
+							<td><if($text == "")><then>
+									Nicht möglich, da noch keine Datenschutzerklärung eingegeben wurde.
+								</then><else>
+								<div class="onoffswitch">
+							
+								<input type="checkbox" name="elternNeedZustimmung" value="1" class="onoffswitch-checkbox" id="elternNeedZustimmung"$selectedEltern>
+							    <label class="onoffswitch-label" for="elternNeedZustimmung">
+							        <span class="onoffswitch-inner"></span>
+							        <span class="onoffswitch-switch"></span>
+							    </label>
+							    
+							    </div>
+							    
+							    </else></if>
+						    </td>
+						</tr>
+					</table>
+					<button type="submit" class="form-control"><i class="fa fa-save"></i> Einstellungen speichern</button>
+					</form>
+											</div>
+											<div class="col-md-4">
+												$currentDSBBlock
+											</div>
+					</div>
+					
+				</div>
+				<div class="tab-pane" id="freigabe">
+					<a href="cssjs/datenschutz/verfahrensbeschreibung_v1.docx"><i class="fa fa-file-word-o"></i> Verfahrensbeschreibung als Word Datei</a><br />
+					Diese Datei wird als Service zur Verfügung gestellt. Es wird keine Haftung für die Vollständigkeit / Korrektheit der Datei übernommen.
+				</div>
+				<div class="tab-pane" id="datenschutzerklaerung">
+					<p>Die Datenschutzerklärung ist für die Eltern relevant. Für die Schüler und Lehrer ist die Freigabe des Verfahrens zur Datenverarbeitung wohl ausreichend.</p>
+														
+					<form action="$selfURL&action=saveDSFreigabe" method="post">
+					<table class="table table-bordered">
+						<tr>
+							<td style="width:30%"><b>Text der Datenschutzerklärung</b><br /><br /><br />
+							<button type="button" class="btn btn-flat" data-toggle="modal" data-target="#dsmuster" ><i class="fa fa-file-o"></i> Muster</button>
+							
+							</td>
+							<td><textarea name="dsErklaerung" id="dstext" rows="10">$text</textarea></td>
+						</tr>
+						<tr>
+							<td><b>Änderungen <u>nicht</u> bestätigen lassen</b></td>
+							<td>
+								<div class="onoffswitch">
+								
+									<input type="checkbox" name="osc" value="1" class="onoffswitch-checkbox" id="confirmChanges" checked="checked">
+								    <label class="onoffswitch-label" for="confirmChanges">
+								        <span class="onoffswitch-inner"></span>
+								        <span class="onoffswitch-switch"></span>
+									</label>
+								
+								</div>
+								<small>Wenn Sie nur Tippfehler ändern, aktivieren Sie diese Option, dann müssen die Benutzer nicht erneut bestätigen.</small>
+							</td>
+						</tr>
+					</table>
+					<button type="submit" class="form-control"><i class="fa fa-save"></i> Speichern</button>					
+					</form>
+					
+					<script>tinymce.init({
+					    selector: 'textarea#dstext'
+					});
+					</script>
+					
+				</div>
+			</div>
+		</div>
+	<div class="modal fade" id="dsmuster" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document" >
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title"><i class="fa fa-file-o"></i> Muster einer Datenschutzerklärung</h4>
+		      </div>
+		      <div class="modal-body">
+				Folgende Datenschutzerklärung wird von Spitschka IT Solutions zur Verfügung gestellt. Wir können keine rechtliche Beratung vornehmen, daher übernehmen wir für den Text auch keine Verantwortung.
+<form><textarea class="form-control" rows="20">Datenschutzerklärung
+Hinweise zur Verarbeitung Ihrer Daten gem. Art. 13 der Europäischen Datenschutzgrundverordnung (DS-GVO).
+
+Verweise auf gesetzliche Vorschriften beziehen sich auf die Datenschutz-Grundverordnung (DS-GVO), sowie das Bundesdatenschutzgesetz (BDSG) in der ab dem 25.05.2018 geltenden Fassung.
+
+I. Geltungsbereich:
+Diese Datenschutzerklärung gilt für das Internet-Angebot [ADRESSE] und für die über diese Internetseiten erhobenen personenbezogenen Daten. Für Internetseiten anderer Anbieter, auf die z.B. über Links verwiesen wird, gelten die dortigen Datenschutzhinweise und -erklärungen.
+
+II. Verantwortlichkeit:
+Verantwortlich für die Verarbeitung personenbezogener Daten auf diesen Internetseiten ist das:
+
+[Adresse der Schule mit Kontaktmöglichkeit]
+
+III. Datenschutzbeauftragter:
+
+[Kontaktmöglichkeit zum Datenschutzbeauftragten, Name muss nicht genannt werden, allgemeine Adresse reicht.]
+
+
+IV. Hosting:
+Das Hosting für dieses Angebot wird bereitsgestellt von:
+
+Spitschka IT Solutions
+Christian Spitschka
+Etterschlager Str. 9
+82234 Weßling
+
+Subunternehmer:
+ALL-INKL.COM - Neue Medien Münnich
+Inhaber: René Münnich
+Hauptstraße 68
+D-02742 Friedersdorf
+
+
+V. Unser Umgang mit Ihren Daten:
+1) Personenbezogene Daten:
+Gemäß Art. 4 DS-GVO sind personenbezogene Daten alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen; als identifizierbar wird eine natürliche Person angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung oder zu einem oder mehreren besonderen Merkmalen identifiziert werden kann, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind.
+
+2) Name, E-Mailadresse
+Wir verwenden Ihren Namen und Ihre E-Mailadresse für folgende Zwecke:
+Zusendung von Informations- und Statusnachrichten. Gezielte Ansprache durch andere Teilnehmer.
+
+3) Nachrichten
+Wir speichern von Ihnen versendete Nachrichten in unserem System. Diese sind für den von Ihnen angegebenen Empfänger sichtbar.
+
+4) Meldungen
+Wir speichern von Ihnen abgegebene Meldungen und Erklärungen. Diese sind von den entsprechenden Empfängern sichtbar.
+
+5) Speicherdauer und Speicherfristen:
+Ihre Daten werden nach dem Ausscheiden Ihres letzten Kindes aus der Schule gelöscht. Sie können jederzeit vorher Ihren Account und Ihre Daten löschen.
+
+6) Nutzungsdaten:
+Wenn Sie unsere Webseiten aufrufen, übermitteln Sie (aus technischer Notwendigkeit) über Ihren Internetbrowser Daten an unseren Webserver. Folgende Daten werden während einer laufenden Verbindung zur Kommunikation zwischen Ihrem Internetbrowser und unserem Webserver aufgezeichnet:
+
+Datum und Uhrzeit der Anforderung
+Name der angeforderten Datei
+Seite, von der aus die Datei angefordert wurde
+Zugriffsstatus (Datei übertragen, Datei nicht gefunden, etc.)
+verwendeter Webbrowser und verwendetes Betriebssystem
+vollständige IP-Adresse des anfordernden Rechners
+übertragene Datenmenge
+Aus Gründen der technischen Sicherheit, insbesondere zur Abwehr von Angriffsversuchen auf unseren Webserver, werden diese Daten von uns kurzzeitig gespeichert. Ein Rückschluss auf einzelne Personen ist uns anhand dieser Daten nicht möglich. Nach spätestens sieben Tagen werden die Daten durch Verkürzung der IP-Adresse auf Domain-Ebene anonymisiert, so dass es nicht mehr möglich ist, einen Bezug zum einzelnen Nutzer herzustellen. 
+VI. Empfänger oder Kategorien von Empfängern
+Eine Weitergabe von Daten an dritte erfolgt nicht.
+
+1) Recht auf Auskunft:
+Sie können Auskunft gem. Art. 15 DS-GVO über Ihre von uns verarbeiteten personenbezogenen Daten verlangen. In Ihrem Auskunftsantrag sollten Sie Ihr Anliegen präzisieren, um uns das Zusammenstellen der erforderlichen Daten zu erleichtern. Bitte beachten Sie, dass Ihr Auskunftsrecht unter bestimmten Umständen gemäß der gesetzlichen Vorschriften (insbesondere § 34 BDSG und Art. 10 BayDSG) eingeschränkt sein kann.
+
+2) Recht auf Berichtigung:
+Sollten die Sie betreffenden Angaben nicht (mehr) zutreffend sein, können Sie nach Art. 16 DS-GVO eine Berichtigung verlangen. Sollten Ihre Daten unvollständig sein, können Sie eine Vervollständigung verlangen.
+
+3) Recht auf Löschung:
+Sie können unter den Bedingungen des Art. 17 DS-GVO die Löschung Ihrer personenbezogenen Daten verlangen. Ihr Anspruch auf Löschung hängt u. a. davon ab, ob die Sie betreffenden Daten von uns zur Erfüllung unserer gesetzlichen Aufgaben noch benötigt werden.
+
+4) Recht auf Einschränkung der Verarbeitung:
+Sie haben im Rahmen der Vorgaben des Art. 18 DS-GVO das Recht, eine Einschränkung der Verarbeitung der Sie betreffenden Daten zu verlangen.
+
+5) Recht auf Widerspruch:
+Sie haben nach Art. 21 DS-GVO das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit der Verarbeitung der Sie betreffenden Daten zu widersprechen. Allerdings können wir dem nicht immer nachkommen, z. B. wenn uns Rechtsvorschriften im Rahmen unserer amtlichen Aufgabenerfüllung zur Verarbeitung verpflichten.
+
+6) Recht auf Beschwerde:
+Wenn Sie der Auffassung sind, dass wir bei der Verarbeitung Ihrer Daten datenschutzrechtliche Vorschriften nicht beachtet haben, können Sie sich mit einer Beschwerde an das Landesamt für Datenschutzaufsicht oder den Landesdatenschutzbeauftragten wende.
+
+7) Hinweis zur rechtlichen Wirkung bei der Nutzung der Kommunikationsdienste
+Soweit Benutzer des Eltern-Portals über dessen Funktionen mit der Schule kommunizieren, dient das stets nur der vorbeugenden Information der Schule und damit der Verwaltungsvereinfachung. Soweit nach Rechtsvorschriften eine Erklärung in Schrift- oder Textform erwartet wird (z.B. bei einer Krankmeldung) muss diese gesondert nachgeholt werden.
+
+8) Informationen über Cookies und Tracking
+Es werden Cookies eingesetzt, um Sie korrekt auf der Seite einzuloggen. Es erfolgt kein Tracking.
+</textarea></form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+	</div>
+</div>
+

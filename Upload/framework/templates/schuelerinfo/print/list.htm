@@ -1,0 +1,26 @@
+     			<h3><if($currentUnterricht != null)><then>
+					Klasse $currentUnterrichtKlassen
+				</then>
+				<else>
+				
+				Klasse {$klasse->getKlassenName()}
+				
+				</else></if> 
+				
+				<if($showUnterrichtListe)><then>
+					(Unterricht {$currentUnterricht->getBezeichnung()})</then></if>
+					
+					
+					
+				</h3>
+				
+				
+				
+				
+				<table border="1" cellpadding="3">
+					<tr>
+						<th width="10%"><b>#</b></th>
+						<th width="90%"><b>Schüler/in</b></th>
+					</tr>
+					$schuelerListe				
+				</table>

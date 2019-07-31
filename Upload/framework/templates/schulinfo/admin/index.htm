@@ -1,0 +1,378 @@
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<if($_GET['saved'] > 0)><then>
+<div class="callout callout-success"><i class="fa fa-check"></i> Die Daten wurden gespeichert.</div>
+</then></if>
+
+<form action="$selfURL&mode=save" method="post">
+
+        <div class="tabbable">
+	        <ul class="nav nav-tabs">
+	        	<li class="active"><a href="#schulinfo" data-toggle="tab"><i class="fa fa-sitemap"></i> Allgemeine Informationen</a></li>
+	        	<li><a href="#schulleitung" data-toggle="tab"><i class="fa fa-sitemap"></i> Schulleitung</a></li>
+	        	<li><a href="#personalrat" data-toggle="tab"><i class="fa fa-sitemap"></i> Personalrat</a></li>
+	        	<li><a href="#faecher" data-toggle="tab"><i class="fa fa-sitemap"></i> Fächer</a></li>
+	        	<li><a href="#lehrer" data-toggle="tab"><i class="fa fa-sitemap"></i> Lehrer</a></li>
+	        	<li><a href="#verwaltungsmitarbeiter" data-toggle="tab"><i class="fa fa-sitemap"></i> Verwaltungsmitarbeiter</a></li>
+	        	<li><a href="#hausmeister" data-toggle="tab"><i class="fa fa-sitemap"></i> Hausmeister</a></li>
+	        </ul>
+	        
+	    <div class="tab-content">
+		        <div class="tab-pane active" id="schulinfo">
+				<div class="box">
+	<div class="box-header"><h3 class="box-title"><i class="fa fa-sitemap"></i> Schuldaten und Adresse</h3>	
+	</div>
+	<div class="box-body">
+			
+		Im Portal für Eltern und Schüler anzeigen:
+
+		<table class="table table-striped">
+			<tr>
+				<th style="width:20%">Name</th>
+				<th>Wert</th>
+			</tr>
+			<tr>
+				<td><b>Schulnummmer</b></td>
+				<td><expression>DB::getGlobalSettings()->schulnummer</expression></td>
+			</tr>
+			<tr>
+				<td><b>Schultyp</b></td>
+				<td>
+					<select name="schulinfo-schultyp" class="form-control">
+						<option value="gy"
+							<if(DB::getSettings()->getValue('schulinfo-schultyp') == 'gy')><then>selected="selected"</then></if>
+						>Gymnasium</option>
+						<option value="rs"
+							<if(DB::getSettings()->getValue('schulinfo-schultyp') == 'rs')><then>selected="selected"</then></if>
+						>Realschule</option>
+						<option value="fos"
+							<if(DB::getSettings()->getValue('schulinfo-schultyp') == 'fos')><then>selected="selected"</then></if>
+						>Fachoberschule</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Name der Schule</b></td>
+				<td><input type="text" name="schulinfo-name" class="form-control" placeholder="" value="<expression>DB::getSettings()->getValue('schulinfo-name')</expression>"></td>
+			</tr>
+			<tr>
+				<td><b>Zusatz zum Namen</b></td>
+				<td><input type="text" name="schulinfo-name-zusatz" class="form-control" placeholder="z.B. neusprachliches Gymnasium" value="<expression>DB::getSettings()->getValue('schulinfo-name-zusatz')</expression>"></td>
+			</tr>	
+			<tr>
+				<td><b>Strasse</b></td>
+				<td><input type="text" name="schulinfo-adresse1" class="form-control" value="<expression>DB::getSettings()->getValue('schulinfo-adresse1')</expression>"></td>
+			</tr>
+			<tr>
+				<td><b>Strasse (zweite Zeile)</b></td>
+				<td><input type="text" name="schulinfo-adresse2" class="form-control" value="<expression>DB::getSettings()->getValue('schulinfo-adresse2')</expression>"></td>
+			</tr>
+			<tr>
+				<td><b>PLZ (nur PLZ!)</b></td>
+				<td><input type="text" name="schulinfo-plz" class="form-control" value="<expression>DB::getSettings()->getValue('schulinfo-plz')</expression>"></td>
+			</tr>
+			<tr>
+				<td><b>Ort</b></td>
+				<td><input type="text" name="schulinfo-ort" class="form-control" value="<expression>DB::getSettings()->getValue('schulinfo-ort')</expression>"></td>
+			</tr>
+			<tr>
+				<td><b>Telefon</b></td>
+				<td><input type="text" name="schulinfo-telefon" class="form-control" value="<expression>DB::getSettings()->getValue('schulinfo-telefon')</expression>"></td>
+			</tr>
+			<tr>
+				<td><b>Fax</b></td>
+				<td><input type="text" name="schulinfo-fax" class="form-control" value="<expression>DB::getSettings()->getValue('schulinfo-fax')</expression>"></td>
+			</tr>
+			<tr>
+				<td><b>E-Mail</b></td>
+				<td><input type="text" name="schulinfo-email" class="form-control" value="<expression>DB::getSettings()->getValue('schulinfo-email')</expression>" placeholder="info@schule.de"></td>
+			</tr>
+			<tr>
+				<td><b>Homepage</b><br /><small>Ohne https:// oder http://</small></td>
+				<td><input type="text" name="schulinfo-homepage" class="form-control" value="<expression>DB::getSettings()->getValue('schulinfo-homepage')</expression>" placeholder="www.schule.de"></td>
+			</tr>
+		</table>
+
+	</div>
+</div>
+				
+				</div>
+
+
+
+		        <div class="tab-pane" id="schulleitung">
+
+<div class="box">
+	<div class="box-header"><h3 class="box-title"><i class="fa fa-sitemap"></i> Schulleitung</h3>	
+	</div>
+	<div class="box-body">
+			
+		Im Portal für Eltern und Schüler anzeigen:
+		<div class="onoffswitch">
+	    	<input type="checkbox" name="schulinfo-schulleiter-show" value="1" class="onoffswitch-checkbox" id="schulinfo-schulleiter-show"
+	    		<if(DB::getSettings()->getBoolean('schulinfo-schulleiter-show'))><then>checked="checked"</then></if>
+	    	   	>
+	    	<label class="onoffswitch-label" for="schulinfo-schulleiter-show">
+	       		<span class="onoffswitch-inner"></span>
+	        	<span class="onoffswitch-switch"></span>
+	    	</label>
+		</div>
+		Wird in dieser Reihenfolge angezeigt. Namen werden mit Dienstbezeichnung angezeigt. Leere Einträge (oberster Eintrag in der Liste) werden ignoriert.
+		Als Schulleiter hat man automatisch erweiterete Rechte im Portal.
+		<table class="table table-striped">
+			<tr>
+				<th style="width:50%">Name</th>
+				<th>Funktion</th>
+			</tr>
+			{$selectSchulleitung}
+		</table>
+
+	</div>
+</div>
+
+</div>
+
+		        <div class="tab-pane" id="personalrat">
+
+
+<div class="box">
+	<div class="box-header"><h3 class="box-title"><i class="fa fa-sitemap"></i> Personalrat</h3>	
+	</div>
+	<div class="box-body">
+			
+		Im Portal für Eltern und Schüler anzeigen:
+		<div class="onoffswitch">
+	    	<input type="checkbox" name="schulinfo-personalrat-show" value="1" class="onoffswitch-checkbox" id="schulinfo-personalrat-show"
+	    		<if(DB::getSettings()->getBoolean('schulinfo-personalrat-show'))><then>checked="checked"</then></if>
+	    	   	>
+	    	<label class="onoffswitch-label" for="schulinfo-personalrat-show">
+	       		<span class="onoffswitch-inner"></span>
+	        	<span class="onoffswitch-switch"></span>
+	    	</label>
+		</div>
+		Personalratsmitglieder sind Mitglied des Nachrichtenempfängers (Personalrat).
+		Personalratsmitglieder erhalten Zugriff zum Personalratsbereich. (In Entwicklung.)
+		<table class="table table-striped">
+			<tr>
+				<th style="width:50%">Name</th>
+				<th>Funktion</th>
+			</tr>
+			{$personalratHTML}
+		</table>
+
+	</div>
+</div>
+
+</div>
+		        <div class="tab-pane" id="verwaltungsmitarbeiter">
+
+
+<div class="box">
+	<div class="box-header"><h3 class="box-title"><i class="fa fa-sitemap"></i> Verwaltungsmitarbeiter</h3>	
+	</div>
+	<div class="box-body">
+		Verwaltungsmitarbeiter sind Mitglied des Nachrichtenempfängers (Verwaltungsmitarbeiter).
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+			</tr>
+			{$verwaltungsmitarbeiterHTML}
+		</table>
+
+	</div>
+</div>
+
+</div>
+
+		        <div class="tab-pane" id="hausmeister">
+
+
+<div class="box">
+	<div class="box-header"><h3 class="box-title"><i class="fa fa-sitemap"></i> Hausmeister</h3>	
+	</div>
+	<div class="box-body">
+		Hausmeister sind Mitglied des Nachrichtenempfängers (Hausmeister).
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+			</tr>
+			{$hausmeisterHTML}
+		</table>
+
+	</div>
+</div>
+
+</div>
+		        <div class="tab-pane" id="faecher">
+
+
+<div class="box">
+	<div class="box-header"><h3 class="box-title"><i class="fa fa-sitemap"></i> Fächer</h3>	
+	</div>
+	<div class="box-body">
+			
+		
+		Hinweise:
+		<ul>
+			<li>Die Fachbetreuer erhalten automatisch erweiterete Rechte. (z.B. im Klassenkalender)</li>
+			<li>Unterrichtete Fächer sind im Klassenkalender auswählbar.</li>
+			<li>Die Fachliste wird aus der ASV importiert.</li>
+			<li>Die Fachlehrer werden aus der ASV importiert.</li>
+		</ul>
+		
+		<table class="table table-striped">
+			<tr>
+				<td>Im Portal die Fächer anzeigen? (Nicht unterrichtete Fächer werden nicht angezeigt.)</td>
+				<td>		
+					<div class="onoffswitch">
+				    	<input type="checkbox" name="schulinfo-faecher-show" value="1" class="onoffswitch-checkbox" id="schulinfo-faecher-show"
+				    		<if(DB::getSettings()->getBoolean('schulinfo-faecher-show'))><then>checked="checked"</then></if>
+				    	   	>
+				    	<label class="onoffswitch-label" for="schulinfo-faecher-show"">
+				       		<span class="onoffswitch-inner"></span>
+				        	<span class="onoffswitch-switch"></span>
+				    	</label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Im Portal die Fachbetreuungen der unterrichteten Fächer für die Schüler und Eltern anzeigen? (Nicht unterrichtete Fächer werden nicht angezeigt.)</td>
+				<td>		
+					<div class="onoffswitch">
+				    	<input type="checkbox" name="schulinfo-fachbetreuer-show" value="1" class="onoffswitch-checkbox" id="schulinfo-fachbetreuer-show"
+				    		<if(DB::getSettings()->getBoolean('schulinfo-fachbetreuer-show'))><then>checked="checked"</then></if>
+				    	   	>
+				    	<label class="onoffswitch-label" for="schulinfo-fachbetreuer-show">
+				       		<span class="onoffswitch-inner"></span>
+				        	<span class="onoffswitch-switch"></span>
+				    	</label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Im Portal die Fachlehrer der unterrichteten Fächer für die Schüler und Eltern anzeigen? (Nicht unterrichtete Fächer werden nicht angezeigt.)</td>
+				<td>
+					<div class="onoffswitch">
+				    	<input type="checkbox" name="schulinfo-fachlehrer-show" value="1" class="onoffswitch-checkbox" id="schulinfo-fachlehrer-show"
+				    		<if(DB::getSettings()->getBoolean('schulinfo-fachlehrer-show'))><then>checked="checked"</then></if>
+				    	   	>
+				    	<label class="onoffswitch-label" for="schulinfo-fachlehrer-show">
+				       		<span class="onoffswitch-inner"></span>
+				        	<span class="onoffswitch-switch"></span>
+				    	</label>
+					</div>
+				</td>
+			</tr>
+		</table>
+		
+		<table class="table table-striped table-bordered">
+			<tr>
+				<th style="width:20%">Fach</th>
+				<th style="width:15%">Wird Unterrichtet?</th>
+				<th style="width:15%">Ordnungszahl (Reihenfolge aufsteigend)</th>
+				<th style="width:50%">Fachbetreuer (Bis zu 5 Fachbetreuer, nicht besetzte Stellen frei lassen)</th>
+			</tr>
+			{$facherHTML}
+		</table>
+
+	</div>
+</div>
+
+</div>
+
+		        <div class="tab-pane" id="lehrer">
+
+
+<div class="box">
+	<div class="box-header"><h3 class="box-title"><i class="fa fa-sitemap"></i> Lehrer</h3>	
+	</div>
+	<div class="box-body">
+			
+		
+		Hinweise:
+		<ul>
+			<li>Die Informationen über den Status (VZ, TZ) werden nur intern im Portal verarbeitet.</li>
+			<li>Der Status der Lehrer ist nur der Schulleitung sichtbar.</li>
+			<li>Abwesende (temporär oder immer) Lehrkräfte tauchen in aktuellen Listen nicht auf.</li>
+			<li>Neue Lehrer müssen in der ASV angelegt werden und importiert werden.</li>
+		</ul>
+		
+		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#autosetteacherstatus"><i class="fa fa-check"></i> Status der Lehrer automatisch ermitteln lassen</button>
+		
+		<table class="table table-striped">
+			<tr>
+				<td style="width:30%">Lehrerliste bei den Schulinfos anzeigen für Eltern und Schüler<br /><small>Beachten Sie, dass ungeachtet dieser Option an vielen Stellen (z.B. Sprechstunden) eine Liste der Lehrer trotzdem sichtbar ist.</small></td>
+				<td>		
+					<div class="onoffswitch">
+				    	<input type="checkbox" name="schulinfo-lehrer-show" value="1" class="onoffswitch-checkbox" id="schulinfo-lehrer-show"
+				    		<if(DB::getSettings()->getBoolean('schuinfo-lehrer-show'))><then>checked="checked"</then></if>
+				    	   	>
+				    	<label class="onoffswitch-label" for="schulinfo-lehrer-show">
+				       		<span class="onoffswitch-inner"></span>
+				        	<span class="onoffswitch-switch"></span>
+				    	</label>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+		
+		<table class="table table-striped">
+			<tr>
+				<th style="width:20%">Lehrer</th>
+				<th>Status</th>
+			</tr>
+			{$lehrerHTML}
+		</table>
+
+	</div>
+</div>
+
+</div>
+
+</div></div>
+
+
+<button class="form-control" type="submit"><i class="fa fa-save"></i> Daten speichern</button>
+
+
+</form>
+
+	<div class="modal fade" id="autosetteacherstatus" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title"><i class="fa fa-check"></i> Status der Lehrer automatisch ermitteln lassen</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+
+		<form action="$selfURL&action=setTeacherStatus" method="post" id="autosetteacherform">
+		
+		Der Status der Lehrer kann hier automatisch aus dem aktuellen Stundenplan ermittelt werden.
+		<br />
+		Alle Lehrer, die mehr oder gleich der Grenze für Vollzeit haben, werden als Vollzeit eingestuft.<br />
+		Alle Lehrer, die mehr oder gleich der Grenze für Teilzeit haben, werden als Teilzeit eingestuft.<br />
+		Alle anderen werden als temporär abwesend eingestuft.<br />
+		
+		<table class="table table-striped">
+			<tr>
+				<td>Grenze für Teilzeit</td>
+				<td><input type="number" value="1" name="grenzeTZ" class="form-control"></td>
+			</tr>
+			<tr>
+				<td>Grenze für Vollzeit</td>
+				<td><input type="number" value="20" name="grenzeVZ" class="form-control"></td>
+			</tr>
+		</table>
+		<button type="submit" class="form-control"><i class="fa fa-check"></i> Automatisch ermitteln</button>
+		</form>
+
+		
+		</div>
+	</div>
+</div>
+
+</div>
+
+

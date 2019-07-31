@@ -1,0 +1,78 @@
+                  <tr>
+                    <td>
+	                  	<input type="checkbox" name="message_{$message->getID()}" value="1" class="checkMessage">
+	                </td>
+                    <td class="mailbox-star">
+                    	<if($message->isRead())><then>
+                    		<i class="fa fa-envelope-open-o"></i>
+                    	</then><else>
+                    		<i class="fa fa-envelope-o"></i>
+                    	</else></if>
+                    </td>
+                    <td class="mailbox-star">
+						<if($message->isHighPriority())><then>
+							<i class="fa fa-arrow-up text-red"></i>
+						</then></if>
+						
+						<if($message->isLowPriority())><then>
+							<i class="fa fa-arrow-down text-green"></i>
+						</then></if>
+					</td>
+                    <td class="mailbox-name">
+                    
+                    	<if(!$message->isRead())><then><b></then></if>
+                    	
+
+                    	
+						<a href="index.php?page=MessageRead&messageID={$message->getID()}">
+						
+						
+						
+						    <if($isSentFolder)><then>
+                    	
+	                    		<expression>implode(", ", $recipients)</expression>
+	                    	
+	                    	</then>
+	                    	<else>
+						
+						
+							<if($message->getSender() != null)><then>
+									{$message->getSender()->getDisplayName()}
+							</then><else><i>Unbekannter Absender</i></else></if>
+							
+							
+							
+							</else></if>
+							
+							
+							
+							</a>
+													
+						<if(!$message->isRead())><then></b></then></if>
+						
+						
+					</td>
+                    <td class="mailbox-subject">
+                    	<if(!$message->isRead())><then><b></then></if>
+                    	<a href="index.php?page=MessageRead&messageID={$message->getID()}">{$message->getSubject()}</a>
+                    	<if(!$message->isRead())><then></b></then></if>
+                    	
+                    	<if($message->needConfirmation() && $message->getFolder() != 'GESENDETE')><then><br />
+                    		<if($message->isConfirmed())><then>
+                    			<div class="label label-success"><i class="fa fa-check"></i> Empfang bestätigt</div>
+                    		</then>
+                    		<else>
+                    			<div class="label label-danger"><i class="fa fa-ban"></i> Empfang nicht bestätigt</div>
+                    		</else>
+                    		</if>
+                    	</then></if>
+                    	
+                    </td>
+                    <td class="mailbox-attachment">
+                    	<if($message->hasAttachment())><then>
+                    		<i class="fa fa-file-o" title="Anhänge"></i>
+                    	</then></if>
+                    </td>
+                    <td class="mailbox-date"><expression>functions::makeDateFromTimestamp($message->getTime())</expression>
+                    </td>
+                  </tr>

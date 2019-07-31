@@ -1,0 +1,27 @@
+{$this->header}
+
+
+<form action="index.php?page=elternmaillists&mode=editList&save=1" method="post">
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-pencil"></i> "{$_GET['listName']}" bearbeiten</h3><br />
+	</div>
+	<div class="box-body no-padding">
+
+
+
+</div></div>
+
+$userTabs
+
+
+<input type="hidden" name="listName" class="form-control" placeholder="Listenname" value="{$_GET['listName']}">
+
+<button type="submit" class="form-control"><i class="fa fa-pencil"></i> Änderungen an der Verteilerliste speichern</button>
+
+</form>
+
+
+{$this->footer}

@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Berufsfeld" pl_key="2026">
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[GESU]]></kurzform>
+    <anzeigeform><![CDATA[Gesundheit]]></anzeigeform>
+    <langform><![CDATA[Gesundheit]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=GES#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[FTRG]]></kurzform>
+    <anzeigeform><![CDATA[Farbtechnik u. Raumgestaltung]]></anzeigeform>
+    <langform><![CDATA[Farbtechnik und Raumgestaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=FTR#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[FTRG]]></kurzform>
+    <anzeigeform><![CDATA[Farbtechnik u. Raumgestaltung]]></anzeigeform>
+    <langform><![CDATA[Farbtechnik und Raumgestaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=FTR#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[GESU]]></kurzform>
+    <anzeigeform><![CDATA[Gesundheit]]></anzeigeform>
+    <langform><![CDATA[Gesundheit]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=GES#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[32]]></schluessel>
+    <kurzform><![CDATA[MUKU]]></kurzform>
+    <anzeigeform><![CDATA[Musik und Kunst]]></anzeigeform>
+    <langform><![CDATA[Musik und Kunst]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MUK#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[BAUT]]></kurzform>
+    <anzeigeform><![CDATA[Bautechnik]]></anzeigeform>
+    <langform><![CDATA[Bautechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=BAU#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[WSVW]]></kurzform>
+    <anzeigeform><![CDATA[Wirtschaft u. Verwaltung]]></anzeigeform>
+    <langform><![CDATA[Wirtschaft und Verwaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=WSV#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[WSVW]]></kurzform>
+    <anzeigeform><![CDATA[Wirtschaft u. Verwaltung]]></anzeigeform>
+    <langform><![CDATA[Wirtschaft und Verwaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=WSV#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[WSVW]]></kurzform>
+    <anzeigeform><![CDATA[Wirtschaft u. Verwaltung]]></anzeigeform>
+    <langform><![CDATA[Wirtschaft und Verwaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=WSV#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[FTRG]]></kurzform>
+    <anzeigeform><![CDATA[Farbtechnik u. Raumgestaltung]]></anzeigeform>
+    <langform><![CDATA[Farbtechnik und Raumgestaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=FTR#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[OHNE]]></kurzform>
+    <anzeigeform><![CDATA[ohne Berufsfeld]]></anzeigeform>
+    <langform><![CDATA[ohne Berufsfeld]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=OHN#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[30]]></schluessel>
+    <kurzform><![CDATA[FRPS]]></kurzform>
+    <anzeigeform><![CDATA[Fremdsprachen]]></anzeigeform>
+    <langform><![CDATA[Fremdsprachen]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=FRP#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[TTKB]]></kurzform>
+    <anzeigeform><![CDATA[Textiltechnik u. Bekleidung]]></anzeigeform>
+    <langform><![CDATA[Textiltechnik und Bekleidung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=TTK#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[32]]></schluessel>
+    <kurzform><![CDATA[MUKU]]></kurzform>
+    <anzeigeform><![CDATA[Musik und Kunst]]></anzeigeform>
+    <langform><![CDATA[Musik und Kunst]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MUK#]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[30]]></schluessel>
+    <kurzform><![CDATA[FRPS]]></kurzform>
+    <anzeigeform><![CDATA[Fremdsprachen]]></anzeigeform>
+    <langform><![CDATA[Fremdsprachen]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=FRP#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[AGRA]]></kurzform>
+    <anzeigeform><![CDATA[Agrarwirtschaft]]></anzeigeform>
+    <langform><![CDATA[Agrarwirtschaft]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=AGR#]]></bemerkung>
+    <schulart_schluessel><![CDATA[62]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FSLF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMELF]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[ERHW]]></kurzform>
+    <anzeigeform><![CDATA[Ernährung u. Hauswirtschaft]]></anzeigeform>
+    <langform><![CDATA[Ernährung und Hauswirtschaft]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ERH#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[BAUT]]></kurzform>
+    <anzeigeform><![CDATA[Bautechnik]]></anzeigeform>
+    <langform><![CDATA[Bautechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=BAU#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[AGRA]]></kurzform>
+    <anzeigeform><![CDATA[Agrarwirtschaft]]></anzeigeform>
+    <langform><![CDATA[Agrarwirtschaft]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=AGR#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[MONO]]></kurzform>
+    <anzeigeform><![CDATA[Monoberufe]]></anzeigeform>
+    <langform><![CDATA[Monoberufe]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MON#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[SOAB]]></kurzform>
+    <anzeigeform><![CDATA[sonstige Abschlüsse]]></anzeigeform>
+    <langform><![CDATA[sonstige Abschlüsse]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=SOA#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[OHNE]]></kurzform>
+    <anzeigeform><![CDATA[ohne Berufsfeld]]></anzeigeform>
+    <langform><![CDATA[ohne Berufsfeld]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=OHN#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[WSVW]]></kurzform>
+    <anzeigeform><![CDATA[Wirtschaft u. Verwaltung]]></anzeigeform>
+    <langform><![CDATA[Wirtschaft und Verwaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=WSV#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[WSVW]]></kurzform>
+    <anzeigeform><![CDATA[Wirtschaft u. Verwaltung]]></anzeigeform>
+    <langform><![CDATA[Wirtschaft und Verwaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=WSV#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[WSVW]]></kurzform>
+    <anzeigeform><![CDATA[Wirtschaft u. Verwaltung]]></anzeigeform>
+    <langform><![CDATA[Wirtschaft und Verwaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=WSV#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[14]]></schluessel>
+    <kurzform><![CDATA[KFZT]]></kurzform>
+    <anzeigeform><![CDATA[Fahrzeugtechnik]]></anzeigeform>
+    <langform><![CDATA[Fahrzeugtechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=KFZ#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[GESU]]></kurzform>
+    <anzeigeform><![CDATA[Gesundheit]]></anzeigeform>
+    <langform><![CDATA[Gesundheit]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=GES#]]></bemerkung>
+    <schulart_schluessel><![CDATA[46]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFG]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[META]]></kurzform>
+    <anzeigeform><![CDATA[Metalltechnik]]></anzeigeform>
+    <langform><![CDATA[Metalltechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MET#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[ELEK]]></kurzform>
+    <anzeigeform><![CDATA[Elektrotechnik]]></anzeigeform>
+    <langform><![CDATA[Elektrotechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ELE#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[META]]></kurzform>
+    <anzeigeform><![CDATA[Metalltechnik]]></anzeigeform>
+    <langform><![CDATA[Metalltechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MET#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[DRUC]]></kurzform>
+    <anzeigeform><![CDATA[Drucktechnik]]></anzeigeform>
+    <langform><![CDATA[Drucktechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=DRU#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[MONO]]></kurzform>
+    <anzeigeform><![CDATA[Monoberufe]]></anzeigeform>
+    <langform><![CDATA[Monoberufe]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MON#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[ERHW]]></kurzform>
+    <anzeigeform><![CDATA[Ernährung u. Hauswirtschaft]]></anzeigeform>
+    <langform><![CDATA[Ernährung und Hauswirtschaft]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ERH#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[DRUC]]></kurzform>
+    <anzeigeform><![CDATA[Drucktechnik]]></anzeigeform>
+    <langform><![CDATA[Drucktechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=DRU#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[TTKB]]></kurzform>
+    <anzeigeform><![CDATA[Textiltechnik u. Bekleidung]]></anzeigeform>
+    <langform><![CDATA[Textiltechnik und Bekleidung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=TTK#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[CHPB]]></kurzform>
+    <anzeigeform><![CDATA[Chemie, Physik u. Biologie]]></anzeigeform>
+    <langform><![CDATA[Chemie, Physik und Biologie]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=CHP#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[AGRA]]></kurzform>
+    <anzeigeform><![CDATA[Agrarwirtschaft]]></anzeigeform>
+    <langform><![CDATA[Agrarwirtschaft]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=AGR#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[KOERP]]></kurzform>
+    <anzeigeform><![CDATA[Körperpflege]]></anzeigeform>
+    <langform><![CDATA[Körperpflege]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=KOE#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[SOZB]]></kurzform>
+    <anzeigeform><![CDATA[Sozialpäd./Sozialpf. Berufe]]></anzeigeform>
+    <langform><![CDATA[Sozialpädagogische/Sozialpflegerische Berufe]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=SOZ#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[BAUT]]></kurzform>
+    <anzeigeform><![CDATA[Bautechnik]]></anzeigeform>
+    <langform><![CDATA[Bautechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=BAU#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[HOLZ]]></kurzform>
+    <anzeigeform><![CDATA[Holztechnik]]></anzeigeform>
+    <langform><![CDATA[Holztechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=HOL#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[HOLZ]]></kurzform>
+    <anzeigeform><![CDATA[Holztechnik]]></anzeigeform>
+    <langform><![CDATA[Holztechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=HOL#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[HOLZ]]></kurzform>
+    <anzeigeform><![CDATA[Holztechnik]]></anzeigeform>
+    <langform><![CDATA[Holztechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=HOL#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[BAUT]]></kurzform>
+    <anzeigeform><![CDATA[Bautechnik]]></anzeigeform>
+    <langform><![CDATA[Bautechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=BAU#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[BAUT]]></kurzform>
+    <anzeigeform><![CDATA[Bautechnik]]></anzeigeform>
+    <langform><![CDATA[Bautechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=BAU#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[KOERP]]></kurzform>
+    <anzeigeform><![CDATA[Körperpflege]]></anzeigeform>
+    <langform><![CDATA[Körperpflege]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=KOE#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[FTRG]]></kurzform>
+    <anzeigeform><![CDATA[Farbtechnik u. Raumgestaltung]]></anzeigeform>
+    <langform><![CDATA[Farbtechnik und Raumgestaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=FTR#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[ERHW]]></kurzform>
+    <anzeigeform><![CDATA[Ernährung u. Hauswirtschaft]]></anzeigeform>
+    <langform><![CDATA[Ernährung und Hauswirtschaft]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ERH#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[32]]></schluessel>
+    <kurzform><![CDATA[MUKU]]></kurzform>
+    <anzeigeform><![CDATA[Musik und Kunst]]></anzeigeform>
+    <langform><![CDATA[Musik und Kunst]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MUK#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[MONO]]></kurzform>
+    <anzeigeform><![CDATA[Monoberufe]]></anzeigeform>
+    <langform><![CDATA[Monoberufe]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MON#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[14]]></schluessel>
+    <kurzform><![CDATA[KFZT]]></kurzform>
+    <anzeigeform><![CDATA[Fahrzeugtechnik]]></anzeigeform>
+    <langform><![CDATA[Fahrzeugtechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=KFZ#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[HOLZ]]></kurzform>
+    <anzeigeform><![CDATA[Holztechnik]]></anzeigeform>
+    <langform><![CDATA[Holztechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=HOL#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[14]]></schluessel>
+    <kurzform><![CDATA[KFZT]]></kurzform>
+    <anzeigeform><![CDATA[Fahrzeugtechnik]]></anzeigeform>
+    <langform><![CDATA[Fahrzeugtechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=KFZ#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[TTKB]]></kurzform>
+    <anzeigeform><![CDATA[Textiltechnik u. Bekleidung]]></anzeigeform>
+    <langform><![CDATA[Textiltechnik und Bekleidung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=TTK#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[TTKB]]></kurzform>
+    <anzeigeform><![CDATA[Textiltechnik u. Bekleidung]]></anzeigeform>
+    <langform><![CDATA[Textiltechnik und Bekleidung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=TTK#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[DRUC]]></kurzform>
+    <anzeigeform><![CDATA[Drucktechnik]]></anzeigeform>
+    <langform><![CDATA[Drucktechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=DRU#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[SOZB]]></kurzform>
+    <anzeigeform><![CDATA[Sozialpäd./Sozialpf. Berufe]]></anzeigeform>
+    <langform><![CDATA[Sozialpädagogische/Sozialpflegerische Berufe]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=SOZ#]]></bemerkung>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[AGRA]]></kurzform>
+    <anzeigeform><![CDATA[Agrarwirtschaft]]></anzeigeform>
+    <langform><![CDATA[Agrarwirtschaft]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=AGR#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[CHPB]]></kurzform>
+    <anzeigeform><![CDATA[Chemie, Physik u. Biologie]]></anzeigeform>
+    <langform><![CDATA[Chemie, Physik und Biologie]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=CHP#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[ELEK]]></kurzform>
+    <anzeigeform><![CDATA[Elektrotechnik]]></anzeigeform>
+    <langform><![CDATA[Elektrotechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ELE#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[ELEK]]></kurzform>
+    <anzeigeform><![CDATA[Elektrotechnik]]></anzeigeform>
+    <langform><![CDATA[Elektrotechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ELE#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[ELEK]]></kurzform>
+    <anzeigeform><![CDATA[Elektrotechnik]]></anzeigeform>
+    <langform><![CDATA[Elektrotechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ELE#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[ELEK]]></kurzform>
+    <anzeigeform><![CDATA[Elektrotechnik]]></anzeigeform>
+    <langform><![CDATA[Elektrotechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ELE#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[META]]></kurzform>
+    <anzeigeform><![CDATA[Metalltechnik]]></anzeigeform>
+    <langform><![CDATA[Metalltechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MET#]]></bemerkung>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[META]]></kurzform>
+    <anzeigeform><![CDATA[Metalltechnik]]></anzeigeform>
+    <langform><![CDATA[Metalltechnik]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MET#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[MONO]]></kurzform>
+    <anzeigeform><![CDATA[Monoberufe]]></anzeigeform>
+    <langform><![CDATA[Monoberufe]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MON#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[ERHW]]></kurzform>
+    <anzeigeform><![CDATA[Ernährung u. Hauswirtschaft]]></anzeigeform>
+    <langform><![CDATA[Ernährung und Hauswirtschaft]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ERH#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[MONO]]></kurzform>
+    <anzeigeform><![CDATA[Monoberufe]]></anzeigeform>
+    <langform><![CDATA[Monoberufe]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MON#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[11]]></schluessel>
+    <kurzform><![CDATA[KOERP]]></kurzform>
+    <anzeigeform><![CDATA[Körperpflege]]></anzeigeform>
+    <langform><![CDATA[Körperpflege]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=KOE#]]></bemerkung>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[13]]></schluessel>
+    <kurzform><![CDATA[AGRA]]></kurzform>
+    <anzeigeform><![CDATA[Agrarwirtschaft]]></anzeigeform>
+    <langform><![CDATA[Agrarwirtschaft]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=AGR#]]></bemerkung>
+    <schulart_schluessel><![CDATA[54]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FALF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMELF]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[SOZB]]></kurzform>
+    <anzeigeform><![CDATA[Sozialpäd./Sozialpf. Berufe]]></anzeigeform>
+    <langform><![CDATA[Sozialpädagogische/Sozialpflegerische Berufe]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=SOZ#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[SOZB]]></kurzform>
+    <anzeigeform><![CDATA[Sozialpäd./Sozialpf. Berufe]]></anzeigeform>
+    <langform><![CDATA[Sozialpädagogische/Sozialpflegerische Berufe]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=SOZ#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[12]]></schluessel>
+    <kurzform><![CDATA[ERHW]]></kurzform>
+    <anzeigeform><![CDATA[Ernährung u. Hauswirtschaft]]></anzeigeform>
+    <langform><![CDATA[Ernährung und Hauswirtschaft]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ERH#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[CHPB]]></kurzform>
+    <anzeigeform><![CDATA[Chemie, Physik u. Biologie]]></anzeigeform>
+    <langform><![CDATA[Chemie, Physik und Biologie]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=CHP#]]></bemerkung>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[CHPB]]></kurzform>
+    <anzeigeform><![CDATA[Chemie, Physik u. Biologie]]></anzeigeform>
+    <langform><![CDATA[Chemie, Physik und Biologie]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=CHP#]]></bemerkung>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[WSVW]]></kurzform>
+    <anzeigeform><![CDATA[Wirtschaft u. Verwaltung]]></anzeigeform>
+    <langform><![CDATA[Wirtschaft und Verwaltung]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=WSV#]]></bemerkung>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

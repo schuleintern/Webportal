@@ -1,0 +1,30 @@
+{$this->header}
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-envelope"></i> Bisherige Elternmails</h3><br />
+		<a href="index.php?page=elternmailsender&mode=send"><i class="fa fa-envelope"></i> Neue Rundmail senden</a>
+	</div>
+	<div class="box-body no-padding">
+		<table class="table table-bordered">
+			<tr>
+				<th>Datum</th>
+				<th>Titel</th>
+				<th>An Eltern der Klassen<br /><small>Für eine detaillierte Auswertung auf die Klasse klicken</small></th>
+				<th>An Schüler der Klassen<br /><small>Für eine detaillierte Auswertung auf die Klasse klicken</small></th>
+				<th>Andere Verteillisten</th>
+				<th>An Lehrer</th>
+				<th>Ergebnisse Abfragen</th>
+				<th>Status</th>
+				<th>Verschickte Mails
+				<th>Prozent gelesen</th>
+			</tr>
+			{$sentMailData}
+		</table>
+			
+	</div>
+</div>
+
+
+{$this->footer}

@@ -1,0 +1,25 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-envelope"></i> E-Mail Adressen, die ungültig sind</h3>
+	</div>
+	<div class="box-body">
+		Auflistung der E-Mailadressen, die nicht vorhanden sind. Der Server hat diese Adressen zurückgewiesen.
+		<div class="callout callout-danger">Bitte diese Einträge überprüfen! <b>Diese Maßnahme ist sehr wichtig! Es besteht die Gefahr, dass bei zu vielen ungültigen E-Mailempfängern der Mailserver auf der SpamListe landet.</b></div>
+		<p><a href="$selfURL&showAll={$_GET['showAll']}&action=pdf"><i class="fa fa-file-pdf-o"></i> Als PDF herunterladen</a></p>
+		<if($_GET['showAll'] != 1)><then><p><a href="$selfURL&showAll=1"><i class="fa fa-plus"></i> Auch erledigte anzeigen</a></p></then></if>
+		<p><a href="$selfURL&action=confirm"><i class="fa fa-check"></i> Alle Adressen als bearbeitet bestätigen</a></p>
+		
+		
+		<table class="table table-striped">
+			<tr>
+				<th>Adresse</th>
+				<th>Schüler (Klasse)</th>
+				<th>Löschen</th>
+			</tr>
+			{$mailHTML}		
+		</table>
+	
+	
+	</div>
+
+</div>

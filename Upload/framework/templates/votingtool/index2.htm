@@ -1,0 +1,89 @@
+<html>
+
+<head><title>Abstimmung wir sind ein Team</title>
+
+<script>
+function voteType(nummer) {
+	if(document.getElementById("numberShow").innerHTML == "<i>Bisher keine</i>") document.getElementById("numberShow").innerHTML = "";
+	document.getElementById("numberShow").innerHTML = document.getElementById("numberShow").innerHTML + nummer + "";
+	document.getElementById("numberForm").value = document.getElementById("numberForm").value + nummer + "";	
+}
+
+</script>
+
+<style>
+
+body {
+	font-family: "Arial";
+}
+
+</style>
+
+</head>
+
+<body>
+<div align="center">
+<img src="images/40jahrersu/logo.png">
+
+<h1>Abstimmung wir sind ein Team</h1>
+
+<h2>Nummer (zwischen 1 und {$this->maxNummer}) eingeben und auf "Stimme abgeben" klicken</h2>
+
+<h2>$message</h2>
+
+<form action="index.php?page=votingtool&accesskey={$this->key}" method="post">
+
+<input type="hidden" name="voteNumber" id="numberForm">
+
+<table border="0">
+<tr>
+	<td>
+		<span style="font-size: 20pt"><b>Ihre Wahl:</b></span>
+	</td>
+	<td>
+		<span id="numberShow" style="font-size: 20pt"><i>Bisher keine</i></span>
+	</td>
+	</tr>
+</table>
+
+<table border="0">
+	<tr>
+		<td align="center"><img onclick="javascript: voteType(1);" src="images/buttons/1.jpg" width="100" /></td>
+		<td align="center"><img onclick="javascript: voteType(2);" src="images/buttons/2.jpg" width="100" /></td>
+		<td align="center"><img onclick="javascript: voteType(3);" src="images/buttons/3.jpg" width="100" /></td>
+	</tr>
+	<tr>
+		<td align="center"><img onclick="javascript: voteType(4);" src="images/buttons/4.jpg" width="100" /></td>
+		<td align="center"><img onclick="javascript: voteType(5);" src="images/buttons/5.jpg" width="100" /></td>
+		<td align="center"><img onclick="javascript: voteType(6);" src="images/buttons/6.jpg" width="100" /></td>
+	</tr>
+	<tr>
+		<td align="center"><img onclick="javascript: voteType(7);" src="images/buttons/7.jpg" width="100" /></td>
+		<td align="center"><img onclick="javascript: voteType(8);" src="images/buttons/8.jpg" width="100" /></td>
+		<td align="center"><img onclick="javascript: voteType(9);" src="images/buttons/9.jpg" width="100" /></td>
+	</tr>
+		<tr>
+		<td>&nbsp;</td>
+		<td align="center"><img onclick="javascript: voteType(0);" src="images/buttons/0.jpg" width="100" /></td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><button type="submit" name="doVote" value="1" style="font-size: 25pt">Stimme abgeben</button>
+		</td>
+	</tr>
+	
+		<tr>
+		<td colspan="3" align="center"><button type="submit" name="doVote" value="0" style="font-size: 25pt"><i>Abbrechen</i></button>
+		</td>
+	</tr>
+</table>
+
+
+
+</form>
+
+</div>
+
+</body>
+
+</html>

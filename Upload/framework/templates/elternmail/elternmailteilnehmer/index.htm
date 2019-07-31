@@ -1,0 +1,32 @@
+{$this->header}
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-envelope"></i> Statistik über die angemeldeten Eltern für die E-Mailsystem</h3>
+		<br />
+		<a href="index.php?page=AngemeldeteEltern&mode=printAllTeilnehmer"><i class="fa fa-file-pdf-o"></i> Alle angemeldete Eltern ausdrucken</a><br />
+		<a href="index.php?page=AngemeldeteEltern&mode=printAllNichtTeilnehmer"><i class="fa fa-file-pdf-o"></i> Alle nicht angemeldeten Eltern ausdrucken</a>
+		
+		<br /><br />
+		<p>Ingesamt Angemeldet: $angemeldetSchueler von $anzahlSchuelerGesamt ($percentAngemeldet %)</p>
+		<div class="progress">
+			<div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="{$percentAngemeldet}" aria-valuemin="0" aria-valuemax="100" style="width: {$percentAngemeldet}%">
+	             <span class="sr-only">{$percentAngemeldet} angemeldet</span>
+	        </div>
+	    </div>
+	</div>
+	<div class="box-body no-padding">
+		<table class="table table-bordered">
+			<tr>
+				<th>Klasse</th>
+				<th>Anzahl der Schüler</th>
+				<th>Angemeldete Eltern</th>
+				<th>Listen anzeigen
+			</tr>
+			$list
+		</table>
+	</div>
+</div>
+
+
+{$this->footer}

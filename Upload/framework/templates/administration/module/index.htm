@@ -1,0 +1,214 @@
+{$this->header}
+
+<script src="cssjs/plugins/tinymce/tinymce.min.js"></script>
+<script src="cssjs/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+
+
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+
+<div class="row">
+	<div class="col-md-10">
+		<div class="box box-primary box-solid">
+			<div class="box-header">
+				<h3 class="box-title"><i class="<expression>$module::getAdminMenuIcon()</expression>"></i> <expression>$module::getSiteDisplayName()</expression></h3>
+				
+				
+              <div class="box-tools pull-right">
+				<if(!$module::siteisAlwaysActive())><then>
+				<if($this->isActive($module))><then>
+					<div class="label label-success"><i class="fa fa-check"></i> Das Modul ist derzeit aktiviert.
+					</div>
+				</then>
+				<else>
+					<div class="label label-danger"><i class="fa fa-ban"></i> Das Modul ist derzeit nicht aktiviert.			
+					</div>
+				</else></if>
+				</then>
+				</if>
+				</div>
+			</div>
+			<div class="box-body">
+
+		
+				<if($hasSettings)><then>
+				   <div class="nav-tabs-custom">
+				        <ul class="nav nav-tabs">
+				        	<if($html != "")><then>
+				        	<if($_GET['settings'] != 'saved')>
+				        		<then>
+				        			<li class="active">
+				        		</then>
+				        		<else><li></else>
+				        	</if>
+				        	<a href="#admin{$module}" data-toggle="tab"><i class="fa fa-cog"></i> Administration</a></li></then></if>
+				        	<if($_GET['settings'] == 'saved' || $html == "")>
+				        		<then>
+				        			<li class="active">
+				        		</then>
+				        		<else><li></else>
+				        	</if>
+				        	<a href="#settings{$module}" data-toggle="tab"><i class="fa fa-pencil"></i> Einstellungen</a></li>	        
+				        </ul>
+				        <div class="tab-content">
+					        <if($html != "")><then><div class="tab-pane<if($_GET['settings'] != 'saved')><then> active</then></if>" id="admin{$module}">
+					        	$html		        
+					        </div>
+					        </then></if>
+					        <div class="tab-pane<if($_GET['settings'] == 'saved' || $html == '')><then> active</then></if>" id="settings{$module}">
+					        	<form action="index.php?page=administrationmodule&module=$module&action=modulesavesettings" method="post">
+					        	
+					        	<if($_GET['settings'] == 'saved')><then>
+					        		<div class="callout callout-success"><i class="fa fa-check"></i> Die Einstellungen wurden erfolgreich gespeichert</div>
+					        	</then></if>
+					        	
+					        	<table class="table table-striped table-bordered" style="width:100%">
+									<tr>
+										<th style="width:20%">Einstellung</th>
+										<th>Wert</th>
+									</tr>
+									
+									$settingsHTML
+								
+								</table>
+								
+								
+								<br />
+								
+								<if(DB::checkDemoAccess())><then>
+								
+								<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Einstellungen speichern</button>
+
+								</then><else>
+																
+								<button type="submit" class="form-control" disabled="disabled"><i class="fa fa-save"></i> Einstellungen speichern - <i>In der Demoversion können keine Einstellungen verändert werden.</i></button>
+								
+								</else></if>
+								
+								</form>		        
+					        </div>
+					   	</div>
+				   	</div>
+				</then>
+					<else>
+						<if($html != "")><then>$html</then><else><div class="callout callout-info">Dieses Modul hat keine weiteren Einstellungen.</div></else></if>
+					</else>
+				</if>
+			</div>
+		</div>		
+	</div>
+	<div class="col-md-2">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-user"></i> Zugriff auf diese Moduladministration</h3>
+			</div>
+			<div class="box-body">
+				<b>Globale Administratoren</b><br />
+				<small><i>Haben auf alle Module Zugriff</i></small>
+				<ul>
+					$globalAdminGroupList
+				</ul>
+				<hr noshade>
+				<b>Weitere Administratoren</b><br />
+				<small>Haben nur auf dieses Modul (und eventuell andere) Zugriff</small>
+				<if($adminGroupList != "")><then>
+				<ul>
+					$adminGroupList
+				</ul>
+				</then><else><br /><i>Keine weiteren Administratoren definiert.</i></else></if>
+				
+				<if(DB::getSession()->isAdmin())><then>
+				<form><button type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#addpersontoadmingroup" ><i class="fa fa-plus"></i> Person hinzufügen</button></form>
+				</then></if>
+			</div>
+		</div>
+		
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-sticky-note"></i> Notizen /Logbuch</h3>
+			</div>
+			<div class="box-body">
+				$noteHTML
+				<form><button type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#addNote" ><i class="fa fa-plus"></i> Notiz hinzufügen</button></form>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="modal fade" id="addNote" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document" >
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-sticky-note"></i> Notiz anlegen</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form action="index.php?page=administrationmodule&module={$_REQUEST['module']}&action=modulAddNote" method="post">
+		        <p><input type="text" name="noteText" class="form-control" placeholder="Notiz (z.B. Einstellung YX auf XY geändert, weil die Chefin es so wollte.)" /></p>
+				<p><button type="submit" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> Notiz anlegen</button></p>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+				<if(DB::getSession()->isAdmin())><then>
+
+	<div class="modal fade" id="addpersontoadmingroup" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document" >
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-user"></i> Einen Benutzer als Moduladministrator hinzufügen</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form action="index.php?page=administrationmodule&module={$_REQUEST['module']}&action=addAdmin" method="post">
+		        <input type="hidden" name="userID" id="userIDAddUserAdmin" value="">
+		        <p><span id="selectedUserName"></span>
+		        <span id="resetSelectedUserName" style="display:none"><button type="button" class="btn btn-danger btn-xs btn-flat"
+		        
+		        	onclick="$('#selectUser').show();$('#selectedUserName').html('');$('#resetSelectedUserName').hide();$('#selectUser').val('');"><i class="fa fa-trash"></i></button></span></p>
+		        
+				<p><input type="text" name="userDisplayName" placeholder="Benutzerteil eingeben" class="form-control" id="selectUser"></p>
+				<p><button type="submit" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> Person als Moduladministrator hinzufügen</button></p>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+<script>
+$(function() {
+	 
+    $("#selectUser").autocomplete({
+        source: "index.php?page=administrationmodule&action=ajaxCompleUserName&module={$_REQUEST['module']}",
+        minLength: 2,
+        select: function(event, ui) {
+            var id = ui.item.id;
+            var display = ui.item.label;
+            $("#userIDAddUserAdmin").val(id);
+            $("#selectUser").hide();
+            $("#selectedUserName").html('<b>Ausgewählter Benutzer:</b> ' + display);
+            $("#resetSelectedUserName").show();
+            
+        },
+        
+        open: function(event, ui) {
+            $(".ui-autocomplete").css("z-index", 999999);
+        }
+    });
+ 
+});
+
+</script>
+
+</then></if>
+
+{$this->footer}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Abweisung" pl_key="3018">
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[3]]></kurzform>
+    <anzeigeform><![CDATA[Art. 53 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Abweisung nach Art. 53 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=3#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[4]]></kurzform>
+    <anzeigeform><![CDATA[Art. 54 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Abweisung nach Art. 54 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=4#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[8]]></kurzform>
+    <anzeigeform><![CDATA[Art. 53 und Art. 55 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Abweisung nach Art. 53 und Art. 55 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=8#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[5]]></kurzform>
+    <anzeigeform><![CDATA[Art. 55 BayEUG]]></anzeigeform>
+    <langform><![CDATA[Abweisung nach Art. 55 BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=5#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[nein]]></kurzform>
+    <anzeigeform><![CDATA[keine Abweisung]]></anzeigeform>
+    <langform><![CDATA[Keine Abweisung nach BayEUG]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=-#]]></bemerkung>
+  </eintrag>
+</werteliste>

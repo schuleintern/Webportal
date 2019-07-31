@@ -1,0 +1,995 @@
+          
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+
+<input type="hidden" name="recipients" id="recipientList">
+<input type="hidden" name="ccrecipients" id="ccRecipientList">
+<input type="hidden" name="bccrecipients" id="bccRecipientList">
+
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"><i class="fa fa-envelope"></i> Neue Nachricht schreiben</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-striped">
+              		<tr>
+		              	<td style="width:10%"><b>Empfänger</b><br /><button type="button" class="btn btn-xs" onclick="addrecipient()"><i class="fa fa-user-plus"></i></button></td>
+		              	<td><span id="currentRecipientsHTML"></span></td>
+		            </tr>
+		        	<tr>
+		              	<td><b>Kopieempfänger</b><br /><button type="button" class="btn btn-xs" onclick="addccrecipient()"><i class="fa fa-user-plus"></i></button></td>
+		              	<td><span id="currentCCRecipientsHTML"></span></td>
+		            </tr>
+		     		<tr>
+		              	<td><b>Verdeckte Kopieempfänger</b><br /><button type="button" class="btn btn-xs" onclick="addbccrecipient()"><i class="fa fa-user-plus"></i></button></td>
+		              	<td><span id="currentBCCRecipientsHTML"></span></td>
+		            </tr>         	
+              </table>
+              <if($isReply)><then>
+              <input type="hidden" name="replyMessage" value="{$replyMessage->getID()}">
+              <hr noshade>
+              	<p>Antwort auf "{$replyMessage->getSubject()}" <button type="button" class="btn btn-sm btn-info" data-target="#replyMessage" data-toggle="modal"><i class="fa fa-commenting-o"></i> Nachricht anzeigen</button></p>
+              </then></if>
+              <div class="form-group">
+                <if($isReply)><then>
+               		<input type="hidden" name="messageSubject" value="RE: {$replyMessage->getSubject()}">
+               	</then><else>
+               	    <input class="form-control" placeholder="Betreff: " name="messageSubject" value="{$preSubject}">
+               	</else></if>
+              </div>
+              <div class="form-group">
+                    <textarea id="compose-textarea" class="form-control" style="height: 300px" name="messageText" placehoder="Nachrichtentext">$preText $signature</textarea>
+                    <small class="pull-right">Die Signatur kann im <a href="index.php?page=userprofile" target="_blank"><i class="fa fa-user"></i> Benutzerprofil</a> geändert bzw. eingerichtet werden.</small>
+                    
+                                </div>
+              
+              <input type="hidden" name="attachments" value="" id="attachmentsField">
+              
+              <input type="hidden" name="questions" id="questionsField">
+              
+              <table class="table table-striped">
+              		<tr>
+		              	<td style="width:10%"><b>Dateianhänge</b><br /><button type="button" class="btn btn-xs" data-toggle="modal" data-target="#addAttachment"><i class="fa fa-upload"></i></button></td>
+		              	<td><span id="currentAttachmentHTML"></span></td>
+		            </tr>
+		            
+		                 
+              
+              
+              
+              <if($canAskQuestions)><then>
+                   <tr>
+		              	<td style="width:10%"><b>Datenabfragen:</b><br /><button type="button" class="btn btn-xs" data-toggle="modal" data-target="#addQuestion"><i class="fa fa-question-circle"></i><i class="fa fa-plus"></i></button></td>
+		              	<td><span id="questionHTML"></span></td>
+		           </tr>
+              </then></if>
+ 
+
+              <if($canRequestReadConfirmation)><then>
+              <tr>
+		              	<td style="width:10%"><b>Lesebestätigung anfordern?</b></td>
+						<td><input type="checkbox" name="readConfirmation" value="1" class="onoffswitch-checkbox" id="readConfirmation"$selectedReedConfirmationTrue>           
+              				</td>
+			  </tr>
+              
+              </then></if>
+
+              
+                            <tr>
+		              	<td style="width:10%"><b>Antworten nicht erlauben?</b></td>
+						<td><input type="checkbox" name="dontAllowAnser" value="1" class="onoffswitch-checkbox" id="dontAllowAnser">           
+              				</td>
+			  </tr>
+			 
+			  <tr>
+		              	<td style="width:10%"><b>Priorität</b></td>
+						<td>
+							<select name="priority" class="form-control">
+							  	<option value="low">Niedrige Priorität</option>
+							  	<option value="normal" selected>Normale Priorität</option>
+							  	<option value="high">Hohe Priorität</option>
+							  </select>  
+						</td>
+			  </tr> 
+
+			  
+			  </table>
+            </div>
+            <div class="box-footer">
+				<button type="submit" class="btn btn-primary" name="action" value="send"><i class="fa fa-envelope-o"></i> Nachricht senden</button>
+            </div>
+          </div>
+          
+			<script src="cssjs/plugins/tinymce/tinymce.min.js"></script>
+          
+			<script>
+			tinymce.init({
+			    selector: '#compose-textarea',
+			    valid_elements: "p,br,b,i,u,strong,em",
+			    toolbar: "bold italic underline",
+			    menubar: false,
+			    statusbar: false
+			});
+			</script>
+			
+			
+	<div class="modal fade" id="addAttachment" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    <div class="modal-header">	    
+		    	<h4 class="modal-title"><i class="fa fa-paperclip"></i> Anhang hinzufügen</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<div class="form-group" id="uploadFileFormGroup">
+		      		<label>Dateianhänge auswählen</label>
+		      		<input type="file" name="attachmentFile" id="attachmentFile" multiple="multiple">
+		      	</div>
+		      	
+		          <div class="progress" id="uploadFileProgress" style="display:none">
+				    <div class="progress-bar" role="progressbar" aria-valuenow="70"
+				    aria-valuemin="0" aria-valuemax="100" style="width:70%">
+				      <span class="sr-only">xx</span>
+				    </div>
+				  </div>
+		      	
+	            <button type="button" onclick="uploadAttachment()" class="btn btn-primary" id="buttonUploadFile"><i class="fa fa-upload"></i> Dateianhang hochladen</button>
+	            <p class="help-block">Maximal 10 MB pro Datei. (Office Dokumente, PDF Dateien, ZIP Dateien und Bilder)</p>
+		      </div>
+		      </div>
+		     </div>
+	</div>
+	
+	<script>
+
+
+	var currentAttachmentList = [];
+
+
+	UploadprogressHandling = function (event) {
+	    var percent = 0;
+	    var position = event.loaded || event.position;
+	    var total = event.total;
+	    var progress_bar_id = "#uploadFileProgress";
+	    if (event.lengthComputable) {
+	        percent = Math.ceil(position / total * 100);
+	    }
+	    
+	    
+	    
+	    $(progress_bar_id + " .progress-bar").css("width", +percent + "%");
+	    $(progress_bar_id + " .status").text(percent + "%");
+	};
+	
+	function updateAttachmentFields() {
+	    var htmlCode = "";
+	    var fieldValue = [];
+	    
+	    for(var i = 0; i < currentAttachmentList.length; i++) {
+	    	htmlCode += "<a href=\"" + currentAttachmentList[i]['attachmentURL'] + "\">" + currentAttachmentList[i]['attachmentFileName'] + "</a>";
+	    	
+	    	htmlCode += " (<a href=\"#\" onclick=\"deleteAttachment('" +  currentAttachmentList[i]['attachmentID'] + "')\">";
+	    	htmlCode +=  "<i class=\"fa fa-trash\"></i></a>)<br />";
+	    	
+	    	fieldValue.push(currentAttachmentList[i]['attachmentID'] + "#" + currentAttachmentList[i]['attachmentAccessCode']);
+	    
+	    }
+	    
+	    
+	    
+	    $('#attachmentsField').val(fieldValue.join(";"));
+	    
+	    $('#currentAttachmentHTML').html(htmlCode);
+
+	}
+	
+	function deleteAttachment(attachmentID) {
+		
+		var newAttachmentList = [];
+		
+		for(var i = 0; i < currentAttachmentList.length; i++) {
+			
+			if(currentAttachmentList[i]['attachmentID'] != attachmentID) newAttachmentList.push(currentAttachmentList[i]);
+			
+		}
+		
+		
+		currentAttachmentList = newAttachmentList;
+		
+		updateAttachmentFields();
+	}
+	
+		function uploadAttachment() {
+		    var formData = new FormData();
+		    
+		    var file = $('#attachmentFile').prop('files');
+		    
+		    $('#uploadFileFormGroup').fadeOut();
+		    $('#buttonUploadFile').fadeOut();
+		    
+		    for(var i = 0; i < file.length; i++) {
+		    
+		    	formData.append("attachmentFile", file[i], file[i].name);
+		    	formData.append("upload_file", true);
+
+		    	
+			    $('#uploadFileProgress').fadeIn();
+			    
+			    $.ajax({
+			        type: "POST",
+			        url: "index.php?page=MessageCompose&action=uploadAttachment",
+			        xhr: function () {
+			            var myXhr = $.ajaxSettings.xhr();
+			            if (myXhr.upload) {
+			                myXhr.upload.addEventListener('progress', UploadprogressHandling, false);
+			            }
+			            return myXhr;
+			        },
+			        success: function (data) {
+			        	currentAttachmentList.push(data);
+			        	
+
+			        	updateAttachmentFields();
+			        					    
+					    $('#uploadFileProgress').fadeOut();
+					    $('#uploadFileFormGroup').fadeIn();
+					    $('#buttonUploadFile').fadeIn();
+					    
+					    
+			        },
+			        error: function (error) {
+			            alert("Beim Upload der Datei ist ein Fehler aufgetreten.");
+			        },
+			        data: formData,
+			        cache: false,
+			        contentType: false,
+			        processData: false,
+			        timeout: 60000
+			    });
+		    
+		    }
+		    
+		    
+		    $('#addAttachment').modal('hide');
+		    $('#attachmentFile').val("");
+		    
+
+		}
+	
+	</script>
+	    
+	    <if($canAskQuestions)><then>
+	    
+	<div class="modal fade" id="addQuestion" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    <div class="modal-header">	    
+		    	<h4 class="modal-title"><i class="fa fa-question-circle"></i> Datenabfrage hinzufügen</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<div class="form-group">
+		      		<label>Fragetext</label>
+		      		<input type="text" id="questionText" value="" placeholder="z.B. Kommen Sie zur Veranstaltung?" class="form-control">
+		      	</div>
+		      	
+		      	<div class="form-group">
+		      		<label>Art der Frage</label>
+		      			<select id="questionType" class="form-control">
+							<option value="BOOLEAN">Ja / Nein Frage (z.B. zur Beantwortung, ob ein Elternabend angesetzt werden soll.)</option>
+							<option value="TEXT">Textantwort (z.B. zur Beantwortung allgemeiner Fragen)</option>
+							<option value="NUMBER">Ganze Zahlen (z.B. zur Abfrage der Gästeanzahl)</option>
+							<option value="FILE">Dateianhang (z.B. zum Einsammeln von Dateien)</option>
+						</select>
+		      	</div>
+
+				<button type="button" onclick="addQuestion()" class="btn btn-primary"><i class="fa fa-plus"></i> Frage hinzufügen</button>
+		      </div>
+		      </div>
+		     </div>
+	    </div>
+	    
+	    
+<script>
+
+
+	var currentQuestionList = [];
+
+	function updateQuestionFields() {
+	    var htmlCode = "";
+	    var fieldValue = [];
+	    
+	    for(var i = 0; i < currentQuestionList.length; i++) {
+	    	htmlCode += currentQuestionList[i]['questionText'] + " (" + currentQuestionList[i]['questionType'] + ")";
+	    	
+	    	htmlCode += " (<a href=\"#\" onclick=\"removeQuestion('" +  currentQuestionList[i]['questionID'] + "')\">";
+	    	htmlCode +=  "<i class=\"fa fa-trash\"></i></a>)<br />";
+	    	
+	    	fieldValue.push(currentQuestionList[i]['questionID'] + "#" + currentQuestionList[i]['questionSecret']);
+	    
+	    }
+	    
+	    
+	    
+	    $('#questionsField').val(fieldValue.join(";"));
+	    
+	    $('#questionHTML').html(htmlCode);
+
+	}
+	
+	function removeQuestion(questionID) {
+		
+		var newQuestionList = [];
+		
+		for(var i = 0; i < currentQuestionList.length; i++) {
+			
+			if(currentQuestionList[i]['questionID'] != questionID) newQuestionList.push(currentQuestionList[i]);
+			
+		}
+		
+		
+		currentQuestionList = newQuestionList;
+		
+		updateQuestionFields();
+	}
+	
+		function addQuestion() {
+		    var formData = new FormData();
+		    
+		    var questionText = $('#questionText').val();
+		    var questionType = $('#questionType').val();
+		    
+		    formData.append("questionText", questionText);
+		    formData.append("questionType", questionType);
+
+		    
+			    $.ajax({
+			        type: "POST",
+			        url: "index.php?page=MessageCompose&action=addQuestion",
+			        success: function (data) {
+			        	if(data.questionOK) {
+			        		currentQuestionList.push(data);
+			        	}
+			        						    
+			        	updateQuestionFields();
+			        },
+			        error: function (error) {
+			            alert("Beim Erstellen der Frage ist ein Fehler aufgetreten.");
+			        },
+			        data: formData,
+			        cache: false,
+			        contentType: false,
+			        processData: false,
+			        timeout: 60000
+			    });
+		    
+		    
+			    
+		    
+		    $('#addQuestion').modal('hide');
+
+		    $('#questionType').val("");
+		    $('#questionText').val("");
+
+		}
+	
+	</script>
+	    
+	    </then></if>
+	    
+	    
+	    
+			
+		<div class="modal fade" id="addRecipient" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document" style="width:90%">
+		    <div class="modal-content">
+		    <div class="modal-header">	    
+		    	<h4 class="modal-title" id="addRecipientTitle"><i class="fa fa-paper-plane"></i> Empfänger hinzufügen</h4>
+		      </div>
+		      <div class="modal-body">
+				<div class="tabbable">
+			        <ul class="nav nav-tabs">
+			        	<if($canContactAnyTeacher)><then><li class="active"><a href="#lehrer" data-toggle="tab"><i class="fa fa-female"></i> Lehrer</a></li></then></if>
+			        	<if($canContactAnyPupil)><then><li><a href="#schueler" data-toggle="tab"><i class="fa fa-child"></i> Schüler</a></li></then></if>
+			        	<if($canContactAnyParents)><then><li><a href="#eltern" data-toggle="tab"><i class="fa fa-users"></i> Eltern</a></li></then></if>
+			        	<if($canContactAnyVerwaltung)><then><li><a href="#verwaltung" data-toggle="tab"><i class="fa fa-users"></i> Verwaltung / Personalrat / Hausmeister</a></li></then></if>
+			        	<if($canContactAnyGroups)><then><li><a href="#groups" data-toggle="tab"><i class="fa fa-groups"></i> Gruppen</a></li></then></if>
+			        </ul>
+			        <div class="tab-content">
+				        <if($canContactAnyTeacher)><then>
+				        
+					        <div class="tab-pane active" id="lehrer">
+					        	<table class="table table-striped">
+					        		<if($allTeacher)><then>
+					        		<tr>
+					        			<td style="width:20%">&nbsp;</td>
+					        			<td><button type="button" onclick="javascript:addRecipientAction({'key':'all_teacher', 'name':'Alle Lehrer'})" class="btn btn-primary">Alle Lehrer aufeinmal</button></td>
+					        		</tr>
+					        		</then></if>
+					        		<if($schulleitung)><then>
+					        		<tr>
+					        			<td style="width:20%">&nbsp;</td>
+					        			<td><button type="button" onclick="javascript:addRecipientAction({'key':'SL', 'name':'Schulleitung'})" class="btn btn-primary">Schulleitung</button></td>
+					        		</tr>
+					        		</then></if>
+					        		<if($canContactAnySingleTeacher != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Lehrer</td>
+					        				<td><select name="singleTeacherSaveStrings[]" multiple="multiple" id="singleteacher" style="width:100%">$selectOptionsSingleTeacher</select>
+					        				<script>
+					        					$('#singleteacher').select2(
+					        							{
+					        								placeholder: "Lehrer suchen ...",
+					        								ajax: {
+					        								    url: 'index.php?page=MessageCompose&action=getTeachersJSON',
+					        								    dataType: 'json'
+					        								  }
+					        							}
+					        					
+					        					);</script>
+					        				<button type="button" onclick="addRecipientActionFromSelect2($('#singleteacher'))" class="btn btn-primary">Ausgewählte Lehrer hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		<if($selectOptionsFachschaften != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Fachschaften</td>
+					        				<td><select name="fachschaftSaveStrings[]" multiple="multiple" id="fachschaften" style="width:100%">$selectOptionsFachschaften</select>
+					        				<script>$('#fachschaften').select2({placeholder: "Fachschaften durchsuchen ..."});</script>
+					        				<button type="button" onclick="addRecipientActionFromSelect2($('#fachschaften'))" class="btn btn-primary">Ausgewählte Fachschaften hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		<if($selectOptionsKlassenteams != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Klassenlehrer</td>
+					        				<td><select name="klassenteamsSaveStrings[]" multiple="multiple" id="Klassenteams" style="width:100%">$selectOptionsKlassenteams</select>
+					        				<script>$('#Klassenteams').select2({placeholder: "Klassenteams durchsuchen ..."});</script>
+					        				<button type="button" onclick="addRecipientActionFromSelect2($('#Klassenteams'))" class="btn btn-primary">Ausgewählte Klassenlehrer hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		<if($selectOptionsKlassenleitung != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Klassenleitungen</td>
+					        				<td><select name="klassenleitungensavestring" multiple="multiple" id="klassenleitungen" style="width:100%">$selectOptionsKlassenleitung</select>
+					        				<script>$('#klassenleitungen').select2({placeholder: "Klassenleitungen durchsuchen ..."});</script>
+					        				<button type="button" onclick="$('#klassenleitungen').val($selectOptionsKlassenleitungJSON).trigger('change');" class="btn"><i class="fa fa-check-square"></i></button>
+					        				<button type="button" onclick="addRecipientActionFromSelect2($('#klassenleitungen'))" class="btn btn-primary">Ausgewählte Klassenleitungen hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        	</table>
+					        </div>
+				        
+				        </then></if>
+				        
+				        <div class="tab-pane" id="schueler">
+				        	<if($canContactAnyPupil)><then>
+				        		<table class="table table-striped">
+
+					        		
+					        		
+					        		<if($selectOptionsWholeGrades != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Alle Schüler einer Klasse</td>
+					        				<td>$selectOptionsWholeGrades
+					        				<button type="button" onclick="addRecipientActionFromSelectStudentKlassen()" class="btn btn-primary">Ausgewählte Klassen hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		
+					        		
+					        		
+					        		
+					        		<if($canContactAnySinglePupil != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Schüler</td>
+					        				<td><select name="singlePupilSaveStrings[]" multiple="multiple" id="singlePupil" style="width:100%">$selectOptionsSchueler</select>
+					        				<script>
+					        				
+					        					$('#singlePupil').select2(
+					        							{
+					        								placeholder: "Schüler suchen ...",
+					        								ajax: {
+					        								    url: 'index.php?page=MessageCompose&action=getPupilJSON',
+					        								    dataType: 'json'
+					        								  }
+					        							}
+					        					
+					        					);</script>
+					        					
+					        				</script>
+					        				<button type="button" onclick="addRecipientActionFromSelect2($('#singlePupil'))" class="btn btn-primary">Ausgewählte Schüler hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		<if($canContactOwnUnterricht != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Schüler des eigenen Unterrichts</td>
+					        				<td><select name="unterrichtSchueler[]" multiple="multiple" id="schuelerUnterricht" style="width:100%"></select>
+					        				<script>
+					        				
+					        					$('#schuelerUnterricht').select2(
+					        							{
+					        								placeholder: "In meinem Unterricht suchen ...",
+					        								ajax: {
+					        								    url: 'index.php?page=MessageCompose&action=getSchuelerOwnUnterrichtJSON',
+					        								    dataType: 'json'
+					        								  }
+					        							}
+					        					
+					        					);</script>
+					        					
+					        				</script>
+					        				<button type="button" onclick="addRecipientActionFromSelect2($('#schuelerUnterricht'))" class="btn btn-primary">Ausgewählten Unterricht hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		<if($canContactAllUnterricht != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Schüler aller Unterrichte</td>
+					        				<td><select name="unterrichtSchuelerAll[]" multiple="multiple" id="unterrichtSchuelerAll" style="width:100%"></select>
+					        				<script>
+					        				
+					        					$('#unterrichtSchuelerAll').select2(
+					        							{
+					        								placeholder: "Im gesamten Unterricht suchen ...",
+					        								ajax: {
+					        								    url: 'index.php?page=MessageCompose&action=getSchuelerAllUnterrichtJSON',
+					        								    dataType: 'json'
+					        								  }
+					        							}
+					        					
+					        					);</script>
+					        					
+					        				</script>
+					        				<button type="button" onclick="addRecipientActionFromSelect2($('#unterrichtSchuelerAll'))" class="btn btn-primary">Ausgewählten Unterricht hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        	</table>
+				        	
+				        	</then></if>
+				        </div>
+				        
+				        <if($canContactAnyParents)><then>
+				        <div class="tab-pane" id="eltern">
+				        		<table class="table table-striped">
+
+					        		
+					        		<if($selectOptionsWholeGradesParents != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Eltern der ganzen Klasse</td>
+					        				<td>
+											$selectOptionsWholeGradesParents
+											
+											<button type="button" onclick="addRecipientActionFromSelectParentsKlassen()" class="btn btn-primary">Ausgewählte Eltern der Klasse hinzufügen</button>
+					        	
+					        				
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		
+					        		<if($canContactAnySingleParents != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Einzelne Eltern</td>
+					        				<td><select name="singleParentsSaveStrings[]" multiple="multiple" id="singleParents" style="width:100%">$selectOptionsParents</select>
+					        				<script>
+					        				
+					        					$('#singleParents').select2(
+					        							{
+					        								placeholder: "Eltern suchen ...",
+					        								ajax: {
+					        								    url: 'index.php?page=MessageCompose&action=getParentsJSON',
+					        								    dataType: 'json'
+					        								  }
+					        							}
+					        					
+					        					);</script>
+					        									        				
+					        				<button type="button" onclick="addRecipientActionFromSelect2($('#singleParents'))" class="btn btn-primary">Ausgewählte Eltern hinzufügen</button>
+					        				<small>Eltern, die nicht auswählbar sind, sind nicht im Portal registriert.</small>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		
+					        		<if($canContactOwnUnterricht != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Eltern der Schüler des eigenen Unterrichts</td>
+					        				<td><select name="unterrichtEltern[]" multiple="multiple" id="elternUnterrichtOwn" style="width:100%"></select>
+					        				<script>
+					        				
+					        					$('#elternUnterrichtOwn').select2(
+					        							{
+					        								placeholder: "In meinem Unterricht suchen ...",
+					        								ajax: {
+					        								    url: 'index.php?page=MessageCompose&action=getElternOwnUnterrichtJSON',
+					        								    dataType: 'json'
+					        								  }
+					        							}
+					        					
+					        					);</script>
+					        					
+					        				</script>
+					        				<button type="button" onclick="addRecipientActionFromSelect2($('#elternUnterrichtOwn'))" class="btn btn-primary">Ausgewählten Unterricht hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		<if($canContactAllUnterricht != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Eltern der Schüler aller Unterrichte</td>
+					        				<td><select name="unterrichtElternAll[]" multiple="multiple" id="elternUnterrichtAll" style="width:100%"></select>
+					        				<script>
+					        				
+					        					$('#elternUnterrichtAll').select2(
+					        							{
+					        								placeholder: "Im gesamten Unterricht suchen ...",
+					        								ajax: {
+					        								    url: 'index.php?page=MessageCompose&action=getElternAllUnterrichtJSON',
+					        								    dataType: 'json'
+					        								  }
+					        							}
+					        					
+					        					);</script>
+					        					
+					        				</script>
+					        				<button type="button" onclick="addRecipientActionFromSelect2($('#elternUnterrichtAll'))" class="btn btn-primary">Ausgewählten Unterricht hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        	</table>
+				        	
+				       	</div>
+				        </then></if>
+				        
+				        <if($canContactAnyVerwaltung)><then>
+				        <div class="tab-pane" id="verwaltung">
+				        	<table class="table table-striped">
+				        		<if($personalrat)><then>
+					        		<tr>
+					        			<td><button type="button" onclick="javascript:addRecipientAction({'key':'PR', 'name':'Personalrat'})" class="btn btn-primary">Personalrat</button></td>
+					        		</tr>
+					        	</then></if>
+					        	<if($verwaltung)><then>
+					        		<tr>
+					        			<td><button type="button" onclick="javascript:addRecipientAction({'key':'VW', 'name':'Verwaltung'})" class="btn btn-primary">Verwaltung</button></td>
+					        		</tr>
+					        	</then></if>
+					        	<if($hausmeister)><then>
+					        		<tr>
+					        			<td><button type="button" onclick="javascript:addRecipientAction({'key':'HM', 'name':'Hausmeister'})" class="btn btn-primary">Hausmeister</button></td>
+					        		</tr>
+					        	</then></if>
+				        	</table>
+				        </div>
+				        </then></if>
+				        
+				         <if($canContactAnyGroups)><then>
+				        <div class="tab-pane" id="groups">
+				        	<table class="table table-striped">
+				        		$htmlGroups
+				        	</table>
+				        </div>
+				        </then></if>
+				        
+				        <!-- <div class="tab-pane" id="andere">
+				        	Andere
+				        </div> -->
+				    </div>
+				</div>
+		      </div>
+		      </div>
+		     </div>
+		    </div>
+		    
+		    <if($isReply)><then>
+			
+		<div class="modal fade" id="replyMessage" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    <div class="modal-header">	    
+		    	<h4 class="modal-title"><i class="fa fa-commenting-o"></i> Ursprüngliche Nachricht</h4>
+		      </div>
+		      <div class="modal-body">
+				Absender: {$replyMessage->getSender()->getDisplayName()}<br />
+				Betreff: {$replyMessage->getSubject()}<br /><br />
+				{$replyMessage->getText()}
+		      </div>
+		      </div>
+		     </div>
+		    </div>
+		    
+		    </then></if>
+		    
+		    
+		    <script>
+		       $({
+		    	   function() {
+		    		   $("[id$=recipient]").popover({ trigger: "hover focus" });
+		    	   }
+		       });
+		    		
+		    
+		    </script>
+		    
+
+
+<div class="modal fade" id="empfaengerListe" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document" style="width:90%">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="empfaengerListeLabel">
+					123
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div id="empfaengerListeContainer"></div>
+			</div>
+		</div>
+	</div>
+</div>
+		    
+		    
+<script>
+
+var type = "r";	// normaler Empfänger
+
+var currentRecipients = [];
+var currentCCRecepients = [];
+var currentBCCRecipients = [];
+
+
+function addrecipient() {
+	type = "r";
+	$("#addRecipientTitle").html("Empfänger hinzufügen");
+	$("#addRecipient").modal("show");
+}
+
+function addccrecipient() {
+	type = "ccr";
+	$("#addRecipientTitle").html("Kopieempfänger hinzufügen");
+	$("#addRecipient").modal("show");
+}
+
+function addbccrecipient() {
+	type = "bccr";
+	$("#addRecipientTitle").html("Verdeckte Kopieempfänger hinzufügen");
+
+	$("#addRecipient").modal("show");
+}
+
+/**
+ * list: neue Empfänger
+ */
+function addRecipientAction(list) {
+	 
+	if(type == "r") {
+		currentRecipients = currentRecipients.concat(list);
+		updateHiddenField($('#recipientList'), currentRecipients);
+		updateListHTML($('#currentRecipientsHTML'), currentRecipients, type);
+	}
+	
+	if(type == "ccr") {
+		currentCCRecepients = currentCCRecepients.concat(list);
+		updateHiddenField($('#ccRecipientList'), currentCCRecepients);
+		updateListHTML($('#currentCCRecipientsHTML'), currentCCRecepients, type);
+	}
+	
+	if(type == "bccr") {
+		currentBCCRecipients = currentBCCRecipients.concat(list);
+		updateHiddenField($('#bccRecipientList'), currentBCCRecipients);
+		updateListHTML($('#currentBCCRecipientsHTML'), currentBCCRecipients, type);
+	}
+	
+		 
+	$("#addRecipient").modal("hide");
+}
+
+function updateHiddenField(field, data) {
+	var list = "";
+	
+	var i = 0;
+	for(i = 0; i < data.length; i++) {
+		if(i > 0) list += ";";
+		list += data[i]['key'];
+	}
+	
+	field.val(list);
+}
+
+function updateListHTML(field, data, type) {
+	var html = "";
+	
+	var i = 0; 
+	for(i = 0; i < data.length; i++) {
+		if(i > 0) html += "; ";
+		
+		html += "<a href=\"#\" onclick=\"showRecipients('" + data[i]['name'] + "','" + data[i]['key'] + "');\">" + data[i]['name'] + "</a>";
+		
+		html += " (<a href=\"#\" onclick=\"";
+		if(type == 'r') html += "removeRecipient";
+		if(type == 'ccr') html += "removeCCRecipient";
+		if(type == 'bccr') html += "removeBCCRecipient";
+		
+		html += "('" + data[i]['key'] + "')\"><i class=\"fa fa-trash\"></i></a>)";
+	}
+	
+	field.html(html);
+}
+
+function removeRecipient(saveString) {
+	var newRecipients = [];
+	for(var i = 0; i < currentRecipients.length; i++) {
+		if(currentRecipients[i]['key'] != saveString) {
+			newRecipients.push(currentRecipients[i]);
+		}
+	}
+	
+	currentRecipients = newRecipients;
+	
+	updateHiddenField($('#recipientList'), currentRecipients);
+	updateListHTML($('#currentRecipientsHTML'), currentRecipients, "r");
+}
+
+function removeCCRecipient(saveString) {
+	var newRecipients = [];
+	for(var i = 0; i < currentCCRecepients.length; i++) {
+		if(currentCCRecepients[i]['key'] != saveString) {
+			newRecipients.push(currentCCRecepients[i]);
+		}
+	}
+	
+	currentCCRecepients = newRecipients;
+	
+	updateHiddenField($('#ccRecipientList'), currentCCRecepients);
+	updateListHTML($('#currentCCRecipientsHTML'), currentCCRecepients, "ccr");
+}
+
+function removeBCCRecipient(saveString) {
+	var newRecipients = [];
+	for(var i = 0; i < currentBCCRecipients.length; i++) {
+		if(currentBCCRecipients[i]['key'] != saveString) {
+			newRecipients.push(currentBCCRecipients[i]);
+		}
+	}
+	
+	currentBCCRecipients = newRecipients;
+	
+	updateHiddenField($('#bccRecipientList'), currentBCCRecipients);
+	updateListHTML($('#currentBCCRecipientsHTML'), currentBCCRecipients, "bccr");
+}
+
+function showRecipients(name, recipientSaveString) {
+	
+	$("#empfaengerListeLabel").html('<i class="fa fa-file-o"></i> Empfänger von ' + name);
+	
+	
+	$("#empfaengerListeContainer").html("<i class=\"fa fa-refresh fa-spin\"></i> wird geladen ...");
+	$('#empfaengerListe').modal('show');
+	
+	
+	
+	
+	$.ajax({
+		type: "GET",
+		url: 'index.php?page=MessageCompose&action=getRecipientsList&saveString=' + encodeURIComponent(recipientSaveString),
+		data: {},
+		success: function(data, textStatus, jqXHR) {
+			if(data.recipientList != "") {
+				$("#empfaengerListeContainer").html(data.recipientList);
+				
+			}
+			else {
+				$("#empfaengerListeContainer").html("Fehler beim Abruf der Empfängerliste.");
+			}
+		},
+		dataType: 'json'
+	});
+}
+
+function addRecipientActionFromSelect2(select2Element) {
+	var selectedElements = select2Element.select2('data');
+
+
+	var newData = [];
+	
+	for(var i = 0; i < selectedElements.length; i++) {
+		newData.push({
+			'key': selectedElements[i]['id'],
+			'name': selectedElements[i]['text']
+		});
+	}
+	
+	addRecipientAction(newData);
+	
+}
+
+function addRecipientActionFromSelectStudentKlassen() {
+	var newData = [];
+	$( "input[name^='G:']" ).each(function () {
+		if($(this).iCheck('update')[0].checked) {
+			newData.push({
+				'key': $(this).attr("name"),
+				'name': "Schüler der Klasse " + $(this).attr("name").substr(2)
+			});
+		}
+	});
+	
+	addRecipientAction(newData);
+}
+
+function addRecipientActionFromSelectParentsKlassen() {
+	var newData = [];
+	$( "input[name^='PG:']" ).each(function () {
+		if($(this).iCheck('update')[0].checked) {
+			newData.push({
+				'key': $(this).attr("name"),
+				'name': "Eltern der Klasse " + $(this).attr("name").substr(3)
+			});
+		}
+	});
+	
+	addRecipientAction(newData);
+}
+
+
+
+
+<if($isReply)><then>
+
+
+$(document).ready(function() {
+	addRecipientAction($replyJSONData);
+});
+
+
+
+
+</then></if>
+
+<if($isReplyAll)><then>
+
+
+$(document).ready(function() {
+	var recipients = $replyJSONData;
+	
+	type = "r";
+	
+	for(i = 0; i < recipients.length; i++) {
+		addRecipientAction(recipients[i]);
+	}
+	
+	type = "ccr";
+	
+	var recipients = $replyJSONDataCC;
+	
+	for(i = 0; i < recipients.length; i++) {
+		addRecipientAction(recipients[i]);
+	}
+	
+});
+
+
+
+
+</then></if>
+
+
+
+<if($presetRecipient)><then>
+
+
+$(document).ready(function() {
+	addRecipientAction($presetJsonData);
+});
+
+
+
+
+</then></if>
+
+
+</script>
+		    

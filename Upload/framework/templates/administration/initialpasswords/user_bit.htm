@@ -1,0 +1,15 @@
+<tr>
+	<td>$klassekuerzel</td>
+	<td>{$user['userName']}</td>
+	<td>{$user['userFirstName']}</td>
+	<td>{$user['userLastName']}</td>
+	<td>
+		<if(in_array($user['userNetwork'],DB::getInternalNetworks()))><then>{$user['userNetwork']}</then></if>
+		<if($user['userNetwork'] == 'SCHULEINTERN_ELTERN')><then>Elternbenutzer</then></if>
+	
+	</td>
+	<td>{$user['initialPassword']}</td>
+	<td><if($user['passwordPrinted'] > 0)><then>Gedruckt</then><else>Noch nicht gedruckt</else></if></td>
+	
+	<td><a href="$selfURL&action=printLetter&userID={$user['userID']}"><i class="fa fa-file-pdf-o"></i> Brief ausdrucken</a></td>
+</tr>

@@ -1,0 +1,76 @@
+{$this->header}
+
+
+<div class="row">
+	<div class="col-md-9">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-group"></i> Klassen- und Schülerinformationen</h3><br />
+				Für weitere Informationen / Schülerlliste zu den Klassen, einfach auf die Klasse klicken.
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+					<tr>
+						<th style="width:5%">#</th>
+						<th style="width:30%">Klasse</th>
+						<th>Aktionen</th>
+					</tr>
+					$gradeHTML
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-search"></i> Schüler suchen</h3><br />
+			</div>
+			<div class="box-body">
+				<form action="index.php?page=schuelerinfo&mode=schueler" method="post">
+				
+					<div class="input-group input-group-sm">
+						<select name="schuelerAsvID" id="schuelerSelect" class="form-control"  autofocus="autofocus" placeholder="Schüler suchen ...">
+		                    $schuelerSelect
+		                </select>    
+		                    <span class="input-group-btn">
+		                      <button type="submit" class="btn btn-info btn-flat">OK</button>
+		                    </span>
+		              </div>
+				</form>
+			</div>
+		</div>
+		
+		<if(!DB::getSettings()->getBoolean('schuelerinfo-disable-unterricht'))><then>
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-group"></i> Wahl- / Zusatzunterricht</h3><br />
+			
+				Für weitere Informationen (Schülerliste), bitte auf das Fach klicken.
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+					<tr>
+						<th>Fach</th>
+						<th>Lehrer</th>
+					</tr>
+					$faecherHTML
+				</table>
+			</div>
+		</div>
+		</then></if>
+	</div>
+</div>
+
+
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+$(function () {
+  $("#schuelerSelect").select2();
+});
+
+
+</script>
+
+
+{$this->footer}

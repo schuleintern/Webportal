@@ -1,0 +1,77 @@
+<tr>
+	<td>{$sections[$i]->getname()}
+		<form><button type="button" class="btn" data-toggle="modal" data-target="#rename{$sections[$i]->getID()}"><i class="fa fa-pencil"></i></button></form>
+		<div class="modal fade" id="rename{$sections[$i]->getID()}" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title"><i class="fa fa-pencil"></i> Bereich umbenennen</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<form action="{$selfURL}&action=renameSection&sectionID={$sections[$i]->getID()}" method="post">
+	      		<input type="text" name="sectionName" class="form-control" value="{$sections[$i]->getName()}">
+	      		<button type="submit" class="form-control"><i class="fa fa-check"></i> Bereich umbennen</button>
+	      	</form>
+	      </div>
+	      </div>
+	     </div>
+	    </div>
+	
+	</td>
+	
+	<td>
+		<form>
+			<button type="button" class="btn btn-info" onclick="window.location.href='$selfURL&action=manageFiles&sectionID={$sections[$i]->getID()}'"><i class="fa fa-files-o"></i></button>
+		</form>
+	</td>
+	<td>
+		Lehrer: 
+			<if($sections[$i]->getAccessLehrer())>
+				<then>
+					<i class="fa fa-check"></i>
+					<a href="$selfURL&action=removeLehrerAccess&sectionID={$sections[$i]->getID()}"><i class="fa fa-trash"></i></a>
+				</then>
+				<else>
+					<i class="fa fa-ban"></i>
+					<a href="$selfURL&action=addLehrerAccess&sectionID={$sections[$i]->getID()}"><i class="fa fa-plus"></i></a>
+				</else>
+			</if>
+		<br />
+		Schüler: 
+			<if($sections[$i]->getAccessSchueler())>
+				<then>
+					<i class="fa fa-check"></i>
+					<a href="$selfURL&action=removeSchuelerAccess&sectionID={$sections[$i]->getID()}"><i class="fa fa-trash"></i></a>
+					
+				</then>
+				<else>
+					<i class="fa fa-ban"></i>
+					<a href="$selfURL&action=addSchuelerAccess&sectionID={$sections[$i]->getID()}"><i class="fa fa-plus"></i></a>
+
+				</else>
+			</if>
+		<br />
+		
+		Eltern: 
+			<if($sections[$i]->getAccessEltern())>
+				<then>
+					<i class="fa fa-check"></i>
+					<a href="$selfURL&action=removeElternAccess&sectionID={$sections[$i]->getID()}"><i class="fa fa-trash"></i></a>
+
+				</then>
+				<else>
+					<i class="fa fa-ban"></i>
+					<a href="$selfURL&action=addElternAccess&sectionID={$sections[$i]->getID()}"><i class="fa fa-plus"></i></a>
+
+				</else>
+			</if>
+		<br />
+		
+	</td>
+
+	<td>
+		<form>
+			<button type="button" class="btn btn-danger" onclick="javascript:confirmAction('Soll der Bereich wirklich gelöscht werden? Es werden auch alle enthaltenen Dateien gelöscht!','$selfURL&action=removeSection&sectionID={$sections[$i]->getID()}')"><i class="fa fa-trash"></i></button>
+		</form>
+	</td>
+</tr>

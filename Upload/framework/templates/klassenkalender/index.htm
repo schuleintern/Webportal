@@ -1,0 +1,200 @@
+{$this->header}
+
+  	<script src="js/moment-with-locales.js"></script>
+    <script src="cssjs/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src='cssjs/plugins/fullcalendar/de.js'></script>
+
+	<script>
+	
+	$(document).ready(function() {
+
+		$('#schulkalender').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,year'
+			},
+			defaultDate: '2015-09-09',
+			// businessHours: true, // display business hours
+			selectable: true,
+            selectHelper: true,
+            select: function(start, end, event) {
+                // Wir wollen nur einen Tag auswählbar machen
+			    if (start.add('days', 1).date() != end.date() ) {
+					// $scope.eventCal.fullCalendar('unselect');
+				}
+				else {
+					console.log(start);
+					if((start._d.getDate()-1) > 0) {
+						document.getElementById("addevent").style.left = event.pageX +"px";
+						document.getElementById("addevent").style.top = event.pageY +"px";
+						document.getElementById("addevent").style.display = "block";
+						document.getElementById("datum").innerHTML = start._d.getDate()-1 + "." + start._d.getMonth() + "." + start._d.getFullYear();
+						document.getElementById("datumStart2").innerHTML = start._d.getDate()-1 + "." + start._d.getMonth() + "." + start._d.getFullYear();
+						document.getElementById("dateForm").value = start._d.getFullYear() + "-" + start._d.getMonth() + "-" + (start._d.getDate()-1);
+						document.getElementById("dateForm2").value = start._d.getFullYear() + "-" + start._d.getMonth() + "-" + (start._d.getDate()-1);
+
+					}
+				}
+            },
+			editable: false,
+			eventLimit: true,
+			events: [
+				{
+					title: 'SA - PH - Spi',
+					start: '2015-09-11',
+					color: 'red'
+				},
+				{
+					title: 'EX - IT - Spi',
+					start: '2015-09-10T08:00:00',
+					color: 'blue'
+				},
+				{
+					title: 'Klassenfahrt Kroatien',
+					start: '2015-09-23',
+					end: '2015-02-28',
+					color: "purple"
+				},
+				// red areas where no events can be dropped
+				{
+					title: 'Ferien',
+					start: '2015-09-14',
+					end: '2015-09-20',
+					rendering: 'background',
+					color: '#FF0000'
+				}
+			]
+		});
+		
+	});
+
+</script>
+<style>
+	
+	#addevent {
+		display:none;
+		position:absolute;
+		border:1px solid #000;
+		width:400px;
+		height:200px;
+		background-color: #FFFFFF;
+		left: 0px;
+		top: 0px;
+		opacity: 1;
+		z-index: 1000; 
+	}
+	
+</style>
+</head>
+<body>
+	<h1>Klassenkalender 9C</h1>
+	
+	<div id="addevent" style="display:none"> 
+		<div id="leistungserhebung">
+		<b>Leistungserhebung <a href="#" onclick="javascript:document.getElementById('leistungserhebung').style.display='none';document.getElementById('klassentermin').style.display='block'"> Klassentermin</a>
+	    </b><p><form name="addData" id="addData" action="" method="post">
+	    <input type="hidden" name="date" id="dateForm" />
+	    <table width="100%">
+	    	<tr>
+	    		<td width="30%">Termin:</td>
+	    		<td>
+	    			<div id="datum">XX.XX.XXXX</div>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	            <td>Klasse:</td>
+	            <td>
+	            	<select name="klasse" style="width:100%">
+		            	<option value="9A">9A</option>
+		            	<option value="9B">9B</option>
+		            	<option value="9C">9C</option>
+	            	</select>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>Art:</td>
+	            <td>
+	            	<select name="art" style="width:100%">
+		            	<option value="sa">Schulaufgabe</option>
+		            	<option value="ka">Kirzarbeit</option>
+		            	<option value="ex">Stegreifaufgabe</option>
+	            	</select>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>Fach:</td>
+	            <td>
+					<select name="fach" style="width:100%">
+						<option value="ph">Physik</option>
+						<option value="it">IT</option>
+					</select>
+				</td>
+	        </tr>
+	        <tr>
+	            <td>Lehrer:</td>
+	            <td>
+					Spi
+				</td>
+	        </tr>
+	        <tr>
+	            <td align="left"colspan="2">
+	                <button type="submit" style="width:100%">Eintragen</button>
+	            </td>
+	        </tr>
+	    </table>
+	    </form></div>
+	    <div id="klassentermin" style="display:none">
+		<b><a href="#" onclick="javascript:document.getElementById('leistungserhebung').style.display='block';document.getElementById('klassentermin').style.display='none'">Leistungserhebung</a>  Klassentermin
+    	</b>
+    	
+    	<form name="addData" id="addData" action="" method="post">
+    	
+    	<input type="hidden" name="date" id="dateForm2" />
+	    <table width="100%">
+	    	<tr>
+	    		<td width="30%">Termin:</td>
+	    		<td>
+	    			<div id="datumStart2">XX.XX.XXXX</div>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	            <td>Klasse:</td>
+	            <td>
+	            	<select name="klasse" style="width:100%">
+		            	<option value="9A">9A</option>
+		            	<option value="9B">9B</option>
+		            	<option value="9C">9C</option>
+	            	</select>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>Enddatum:<br /><small>Leer lassen bei nur einem Tag</small></td>
+	            <td>
+	            	<input type="text" name="enddatum" placeholder="TT.MM.YYYY" style="width:100%">
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>Titel</td>
+	            <td>
+	            	<input type="text" name="titel" style="width:100%">
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>Lehrer:</td>
+	            <td>
+					Spi
+				</td>
+	        </tr>
+	        <tr>
+	            <td align="left"colspan="2">
+	                <button type="submit" style="width:100%">Eintragen</button>
+	            </td>
+	        </tr>
+	    </table>
+	    </form></div>
+</div>
+
+	<div id='schulkalender' style="width:80%"></div>
+	
+	{$this->footer}

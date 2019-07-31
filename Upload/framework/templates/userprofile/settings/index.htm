@@ -1,0 +1,48 @@
+{$this->header}
+
+{$savedMessage}
+
+<form action="index.php?page=userprofilesettings&save=1" method="post">
+<div class="box">
+<div class="box-header">
+	<h3>Persönliche Einstellungen</h3>
+</div>
+<div class="box-body no-padding">
+	<table class="table table-striped">
+		<tr>
+			<th style="width:30%">Einstellung</th>
+			<th>Wert</th>
+		</tr>
+		<if(!DB::getSettings()->getBoolean('global-skin-force-color'))><then>
+		<tr>
+			<td>Farbschema der gesamten Seite</td>
+			<td>
+				<select name="skinColor" class="form-control">
+					<option value="blue"{$selectedColor['blue']}>Blau</option>
+					<option value="black"{$selectedColor['black']}>Schwarz / weiß</option>
+					<option value="purple"{$selectedColor['purple']}>Violett (Purple)</option>
+					<option value="yellow"{$selectedColor['yellow']}>Gelb</option>
+					<option value="red"{$selectedColor['red']}>Rot</option>
+					<option value="green"{$selectedColor['green']}>Grün</option>
+				</select>
+			</td>
+		</tr>
+		</then></if>
+		<tr>
+			<td>Beim ersten Besuch der Seite auf folgenden Bereich wechseln</td>
+			<td>
+				<select name="startPage" class="form-control">
+					<option value="aufeinenblick"{$selectedPage['aufeinenblick']}>Auf einen Blick</option>
+					<option value="vplan"{$selectedPage['vplan']}>Vertretungsplan</option>
+					<option value="stundenplan"{$selectedPage['stundenplan']}>Stundenplan</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<input type="submit" value="Einstellungen speichern" class="form-control">
+</div>
+</div>
+
+</form>
+
+{$this->footer}

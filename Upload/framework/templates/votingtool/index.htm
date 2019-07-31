@@ -1,0 +1,51 @@
+<html>
+
+<head><title>Abstimmung wir sind ein Team</title>
+
+<script>
+function voteType(nummer) {
+	if(document.getElementById("numberShow").innerHTML == "<i>Bisher keine</i>") document.getElementById("numberShow").innerHTML = "";
+	document.getElementById("numberShow").innerHTML = document.getElementById("numberShow").innerHTML + nummer + "";
+	document.getElementById("numberForm").value = document.getElementById("numberForm").value + nummer + "";	
+}
+
+</script>
+
+<style>
+
+body {
+	font-family: "Arial";
+}
+
+</style>
+
+
+</head>
+
+<body>
+<div align="center">
+<img src="images/40jahrersu/logo.png">
+
+<h1>Abstimmung wir sind ein Team</h1>
+
+<h2>Tippen Sie auf die Bildnummer, der Sie Ihre Stimme geben wollen</h2>
+
+<h2>$message</h2>
+
+<form action="index.php?page=votingtool&accesskey={$this->key}" method="post">
+
+<table border="0" width="100%">
+	<tr>
+		$buttons
+	</tr>
+</table>
+
+
+
+</form>
+
+</div>
+
+</body>
+
+</html>

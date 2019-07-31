@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Ganztägige Betreuung" pl_key="2065">
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[U]]></kurzform>
+    <anzeigeform><![CDATA[offene Form unter d. M.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form unter dem Mindestumfang]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=6##kuerzel_alt=T (N)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[G]]></kurzform>
+    <anzeigeform><![CDATA[gebundener Form]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in gebundener Form]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=1##kuerzel_alt= - (G)#unterschiedliche Altschlüssel DV / SUV]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[H]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. heilp. T.]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer angeschlossenen heilpädagogischen Tagesstätte]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=4##kuerzel_alt=H#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[09]]></schluessel>
+    <kurzform><![CDATA[A]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an anderer Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an einer anderen Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=9##kuerzel_alt=A#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[V]]></kurzform>
+    <anzeigeform><![CDATA[verläng. Mittagsbetr. GMS]]></anzeigeform>
+    <langform><![CDATA[an der verlängerten Mittagsbetreuung an Grundschulen sowie Mittelschulen]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[V]]></kurzform>
+    <anzeigeform><![CDATA[verläng. Mittagsbetr. GMS]]></anzeigeform>
+    <langform><![CDATA[an der verlängerten Mittagsbetreuung an Grundschulen sowie Mittelschulen]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[M]]></kurzform>
+    <anzeigeform><![CDATA[Mittagsbetr. an GMS]]></anzeigeform>
+    <langform><![CDATA[Mittagsbetreuung an Grundschulen sowie Mittelschulen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=7##kuerzel_alt= - (V)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[M]]></kurzform>
+    <anzeigeform><![CDATA[Mittagsbetr. an GMS]]></anzeigeform>
+    <langform><![CDATA[Mittagsbetreuung an Grundschulen sowie Mittelschulen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=7##kuerzel_alt= - (V)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[S]]></kurzform>
+    <anzeigeform><![CDATA[offene Form an dieser Schule]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - an dieser Schule]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=2##kuerzel_alt=S#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[T]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. Tagesheim]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einem angeschlossenen Tagesheim]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=3##kuerzel_alt=T#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[E]]></kurzform>
+    <anzeigeform><![CDATA[offene Form i. sonst. E]]></anzeigeform>
+    <langform><![CDATA[Ganztagsschulbetrieb in offener Form: - in einer sonstigen angeschlossenen Einrichtung]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=5##kuerzel_alt=E#]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[08]]></schluessel>
+    <kurzform><![CDATA[V]]></kurzform>
+    <anzeigeform><![CDATA[verläng. Mittagsbetr. GMS]]></anzeigeform>
+    <langform><![CDATA[an der verlängerten Mittagsbetreuung an Grundschulen sowie Mittelschulen]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[M]]></kurzform>
+    <anzeigeform><![CDATA[Mittagsbetr. an GMS]]></anzeigeform>
+    <langform><![CDATA[Mittagsbetreuung an Grundschulen sowie Mittelschulen]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=7##kuerzel_alt= - (V)#]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

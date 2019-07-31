@@ -1,0 +1,22 @@
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <!-- <img src="dist/img/avatar5.png" class="user-image" alt="User Image"/> -->
+                  <span class="hidden-xs">Nicht angemeldet</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <form action="index.php?page=login" method="post">
+						<p><input type="text" name="username" size="20" value="{$_GET['username']}" placeholder="Benutzername / ESIS E-Mailadresse" class="form-control"/></p>
+						<p><input type="password" name="password" size="20" placeholder="Passwort"  class="form-control" /></p>
+						<div class="checkbox">
+	                      <label>
+	                        <input type="checkbox" name="keeplogin" value="1"> Angemeldet bleiben
+	                      </label>
+	                    </div>
+						<p><input type="submit" value="Anmelden" id="button" class="btn btn-primary"></p>
+					</form>
+                  </li>
+                </ul>
+              </li>

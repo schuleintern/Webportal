@@ -1,0 +1,20 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-info-circle"></i> Impressum</h3>
+	</div>
+	<div class="box-body">
+		<form action="{$selfURL}&action=save" method="post">
+			<textarea name="impressumText" id="impressumText" rows="20">$text</textarea>
+			<button type="submit" class="form-control"><i class="fa fa-save"></i> Impressum speichern</button>
+		</form>
+	</div>
+</div>
+
+<script>tinymce.init({
+    selector: 'textarea#impressumText',
+    valid_elements: "p,br,b,i,u,strong,em",
+    toolbar: "bold italic underline",
+    menubar: false,
+    statusbar: false
+});
+</script>

@@ -1,0 +1,59 @@
+
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-television"></i> Digitale Schaukästen</h3>
+	</div>
+	<div class="box-body">
+		
+		<a href="http://ds.schule-intern.de/DS.zip"><i class="fa fa-download"></i> Software Download</a><br />
+		<a href="$selfURL&action=downloadSettings"><i class="fa fa-download"></i> Einstellungsdatei Download</a><br /><br />
+		<b>Systemvoraussetzungen:</b>
+		<ul>
+			<li>Min. Windows 7 (nur 64 bit)</li>
+			<li>Deaktivierter Bildschirmschoner und Energieoptionen auf immer an (auch Display)</li>
+			<li>Internetzugang ohne Proxy</li>
+		</ul>
+		
+		<b>Funktionen:</b>
+		<ul>
+			<li>Über den digitalen Schaukasten kann der Vertretungsplan angezeigt werden.</li>
+			<li>Es können Powertpoints angezeigt werden, die über das Portal hochgeladen werden können.</li>
+			<li><b>Es ist keine Energieverwaltung vorhanden. (z.B. Monitor ein / aus usw.)</b></li>
+		</ul>
+		
+		<b>Installation:</b>
+		<ul>
+			<li>Einfach einen Autostart auf DigitalSignageLauncher.exe setzen</li>
+			<li>Die Einstellungsdatei (settings.properties) hier downloaden und in das Programmverzeichnis kopieren.</li>
+			<li>Für eine Unterstützung von Powerpoint:
+				<ul>
+					<li>Die Einstellungsdatei settings.properties in einem Editor (nicht Word) öffnen. (z.B. <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a>)</li>
+					<li>Die letzte Zeile beinhaltet folgenden Text: <code>pathToPowerpoint=</code></li>
+					<li>Ergänzen Sie die Zeile um den Pfad zur Datei POWERPNT.EXE. Verwenden Sie bitte doppelte Backslash Zeichen.
+					Beispiel: <code>pathToPowerpoint=C:\\Program Files (x86)\\Microsoft Office\\Office16\\powerpnt.exe</code></li>
+					<li>Speichern Sie die Datei ab.
+				</ul>
+			</li>
+		</ul>
+		
+		<div class="callout callout-danger"><i class="fa fa-exclamation-triangle"></i> Die Schaukastensoftware / Funktion ist derzeit im Beta Test</div>
+		
+	
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+				<th>Systeminformationen</th>
+				<th>Status</th>
+				<th>Layout</th>
+				<th>Inhalt</th>
+				<th>Letzter Screenshot</th>
+			</tr>
+			$bildSchirmeHTML
+		</table>
+	
+	</div>
+
+</div>

@@ -1,0 +1,15 @@
+{$this->header}
+
+<div class="alert alert-success"><h4><i class="icon fa fa-check"></i> Krankmeldung erfolgreich</h4>
+Die Krankmeldung wurde erfolgreich angenommen. Wir wünschen Gute Besserung!</div>
+
+<if($hasTermine)>
+<then>
+	<div class="alert alert-danger">
+		<h4><i class="fa fa-exclamation-triangle"></i> Für die Klasse {$kind->getKlasse()} ist ein Leistungsnachweis angekündigt</h4>
+		$terminListe<br />
+		<strong>Beachten Sie bitte, dass ein Attest vorgelegt werden muss!</strong>
+	</div>
+</then></if>
+
+{$this->footer}

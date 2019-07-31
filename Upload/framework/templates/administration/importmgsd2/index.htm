@@ -1,0 +1,45 @@
+<expression>self::$showMessage</expression>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-download"></i> Import von Daten aus MGSD2 (in die Absenzenverwaltung)</h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+	
+		<if($isImported)><then>
+			Es wurde bereits aus MGSD importiert!<br /><br />
+			<a href="index.php?page=administrationmodule&module=administrationimportmgsd2&action=deleteImport"><i class="fa fa-trash"></i> Vorhandenen Import löschen</a>
+		</then>
+		<else>
+			<if(self::$errorMessage != "")><then>
+				<div class="callout callout-danger">{$this->errorMessage}</div>
+			</then></if>	
+		
+			Vorgehensweise: <br />
+			<ul>
+				<li>Backup der Datenbank mit Hilfe von PGAdmin anlegen. (*.backup) Datei. Achten Sie darauf, dass Sie die richtige Datenbank exportieren.</li>
+				<li>Die Datei hier hochladen</li>
+			</ul>
+			
+			Es werden folgende Daten übernommen:
+			<ul>
+				<li>Absenzen</li>
+				<li>Verspätungen</li>
+			</ul>
+			
+			<div class="callout callout-info"><i class="fa fa-info-circle"></i> Die Attestpflichten werden nicht übernommen!</div>
+			
+			<div class="callout callout-danger"><i class="fa fa-exclamation-circle"></i> Führen Sie den Import nur einmal durch!</div>
+					
+			<form action="index.php?page=administrationmodule&module=administrationimportmgsd2&action=doupload" method="post" enctype="multipart/form-data" id="mgsd2import">
+			
+			<input type="file" accept=".backup" class="form-control" name="importFile">
+			
+			<p><button type="button" class="form-control" onclick="document.getElementById('mgsd2import').submit(); document.getElementById('submitform').disabled = true;document.getElementById('submitform').innerHTML = 'Import wird gestartet... Bitte warten.';" id="submitform"><i class="fa fa-upload"></i> Import starten</button></p>		
+			
+			</form>
+		</else>
+		</if>
+	</div>
+</div>

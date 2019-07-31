@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<meta charset="utf-8">  
+
+<script src="jquery.min.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+
+function scroll(speed) {
+    $('html, body').animate({ scrollTop: $(document).height()}, speed, function() {
+        $(this).animate({ scrollTop: 0 }, speed);
+    });
+}
+
+speed = $(document).height()*13;
+
+scroll(speed)
+setInterval(function(){scroll(speed)}, speed * 2);
+});
+
+</script>
+
+</head>
+<body>
+
+
+<style type="text/css">
+
+.datum {
+ font-family: "Arial";
+ font-size: 14pt;
+ font-weight: bold;
+}
+
+.update {
+ font-family: "Century Schoolbook";
+}
+
+.mon_title 
+{ 
+	font-weight: bold; 
+	font-size: 120%; 
+	clear: both; 
+	margin: 0; 
+	font-family: "Century Schoolbook";
+}
+
+.inline_header
+{
+	font-weight: bold; 
+	font-family: "Century Schoolbook";
+}
+
+table.info
+{
+	color: #000000; 
+	font-size: 100%;
+	border: 1px;
+	border-style:solid;
+	border-collapse:collapse;
+	padding: 8px 4px;
+	font-family: "Century Schoolbook";
+}
+
+table.mon_list
+{
+	color: #000000; 
+	width: 100%; 
+	font-size: 100%;
+	border: 1px;
+	border-style:solid;
+	border-collapse:collapse;
+	font-family: "Century Schoolbook";
+}
+
+table.mon_head
+{
+	color: #000000; 
+	width: 100%; 
+	font-size: 100%;
+	
+}
+
+td.info,
+th.list,
+td.list,
+tr.list
+{
+	border: 1px;
+	border-style: solid;
+	border-color: black;
+	margin: 0px;
+	border-collapse:collapse;
+	padding: 3px;
+	font-family: "Century Schoolbook";
+}
+
+tr.odd { background: #fad3a6; }
+tr.even { background: #fdecd9; }
+
+</style>
+
+<center>
+
+<div class="datum">{$plan['vplanDate']}</div>
+<div class="update">Aktualisierung: {$plan['vplanUpdate']} Uhr</div>
+
+{$plan['vplanInfo']}
+
+
+{$plan['vplanContentUncensored']}
+
+
+</center>
+</body>
+
+</html>

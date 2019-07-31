@@ -1,0 +1,39 @@
+{$this->header}
+
+<if($this->isActive('vplan') && vplan::userHasAccess(DB::getSession()->getUser()))>
+<then>
+<a class="btn btn-app" href="index.php?page=vplan">
+   <i class="fa fa-refresh"></i> Vertretungsplan
+</a>
+
+</then></if>
+
+<if(stundenplan::userHasAccess(DB::getSession()->getUser()))>
+<then>
+<a class="btn btn-app" href="index.php?page=stundenplan">
+   <i class="fa fa-table"></i> Stundenplan
+</a>
+
+</then></if>
+
+
+<a class="btn btn-app" href="index.php?page=MessageInbox">
+   <i class="fa fa-envelope"></i> Nachrichten
+</a>
+
+<if($this->isActive('absenzensekretariat') && absenzensekretariat::userHasAccess(DB::getSession()->getUser()))>
+<then>
+<a class="btn btn-app" href="index.php?page=absenzensekretariat">
+   <i class="fa fa-bed"></i> Absenzen Sekretariat
+</a>
+</then>
+
+</if>
+
+<div class="box">
+	<div class="box-body">
+		Erfolgreich angemeldet.
+	</div>
+</div>
+
+{$this->footer}

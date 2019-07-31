@@ -1,0 +1,90 @@
+{$this->header}
+
+<div class="box">
+	<div class="box-header">
+	
+		<h3 class="box-title"><i class="fa fa-sign-language"></i> {$this->currentSprechtag['sprechtagName']} 
+		am <expression>DateFunctions::getNaturalDateFromMySQLDate($this->currentSprechtag['sprechtagDate'])</expression></h3>
+	</div>
+	<div class="box-body">
+		<if($this->sprechtagIsBuchbar)><then>
+			<ul>
+				<li>Wählen Sie einzeln für jedes Zeitfenster den Lehrer und Ihr Kind aus und klicken Sie auf "Zeitfenster buchen".</li>
+				<li>Wenn ein Lehrer in einer Zeitschiene nicht ausgewählt werden kann, dann ist der Lehrer dort bereits belegt.</li>
+			</ul>
+			
+		</then>
+		<else>
+			<div class="callout callout-info">Die Buchungsfrist ist leider abgelaufen. Die verbleibenden Zeitfenster können direkt am Elternsprechtag noch belegt werden. (Ausgehängte Listen)</div>
+		</else></if>
+		<a href="index.php?page=elternsprechtag&action=elternPrint&sprechtagID={$this->currentSprechtagID}" class="btn btn-default"><i class="fa fa-file-pdf-o"></i> Als PDF zum Ausdrucken speichern</a><br /><br />
+		
+		<button class="btn btn-primary" data-toggle="modal" data-target="#whwz"><i class="fa fa-calendar"></i> Wann ist welche Lehrerin / welcher Lehrer frei?</button><br /><br />
+		
+		<table class="table table-bordered">
+		$table
+		</table>
+	</div>
+</div>
+
+
+<if($this->sprechtagIsBuchbar)><then>
+
+<div class="modal fade"id="whwz" role="dialog">
+  <div class="modal-dialog" role="document" style="width:70%" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-calendar"></i> Wann hat wer Zeit?</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="form-group">
+      		<label>Lehrer/in auswählen</label>
+      		<select id="teacherSelect" class="form-control" style="width:100%;z-index:999999" id="teacherSelect">
+      			<option value="">Bitte wählen Sie hier eine Lehrerin / einen Lehrer aus</option>
+      			$teacherSelect
+      		</select>
+      	</div>
+      	
+      	<br />
+      	
+      	<div id="freiheit"></div>
+      </div>
+   </div>
+ </div>
+</div>
+
+</then>
+</if>
+
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+
+$(function() {
+	
+	$('#teacherSelect').select2();
+	
+	$('#teacherSelect').on('select2:select', function (e) {
+	    var kuerzel = $('#teacherSelect').val();
+	    
+		$("#freiheit").html("<i class=\"fa fa-refresh fa-spin\"></i> wird geladen ...");
+		
+		$.ajax({
+			type: "GET",
+			url: 'index.php?page=elternsprechtag&sprechtagID={$this->currentSprechtagID}&action=showBuchungenForTeacher&kuerzel=' + kuerzel,
+			data: {},
+			success: function(data, textStatus, jqXHR) {
+				if(data.belegung != "") {
+					$("#freiheit").html(data.belegung);
+					
+				}
+			},
+			dataType: 'json'
+		});
+	});
+	
+});
+
+</script>
+
+{$this->footer}

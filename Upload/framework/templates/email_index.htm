@@ -1,0 +1,40 @@
+{$this->header}
+<b>E-Mail Adressenverwaltung</b><br />
+<br />
+An dieser Stelle werden die E-Mailadressen der Lehrer und einiger Schüler verwaltet.<br />
+
+&raquo; <a href="javascript:anzeigen('infos');">Weitere Informationen anzeigen</a><br />
+<div id="infos" style="display:none">
+Jede Adresse ist unter den folgendenen Domains erreichbar:
+<ul>
+	<li>[Adresse]@gymnasium-pullach.de</li>
+	<li>[Adresse]@gymnasiumpullach.de</li>
+	<li>[Adresse]@gympu.de</li>
+</ul>
+Die Hauptadresse ist immer die Adresse der Domain "@gymnasium-pullach.de".<br />
+Für Adressen können Aliase eingerichtet sein. Dies bedeutet, dass das Postfach auch unter diesem anderen Namen erreicht werden kann.<br />
+<h3>Beispiel:</h3>
+Eingerichtete E-Mailadresse mit dem Namen "edv". <br />
+Hauptadresse: edv@gymnasium-pullach.de<br />
+Auch erreichbar unter: edv@gymnasiumpullach.de, edv@gympu.de
+<br /><br />
+Zusätzlich wird nun der Alias "IT" eingerichtet.<br />
+Damit ergibt sich folgende Übersicht:<br />
+Hauptadresse: edv@gymnasium-pullach.de<br />
+Auch erreichbar unter: edv@gymnasiumpullach.de, edv@gympu.de, it@gymnasium-pullach.de, it@gymnasiumpullach.de, it@gympu.de
+</div>
+<br />
+<h1>Eingerichtete Adressen</h1>
+Die folgenden Adressen sind eingerichtet:
+<br />
+<table border="1" cellpadding="2" cellspacing="0" width="90%">
+<tr>
+	<td><b>Adresse</b></td>
+	<td><b>Typ</b></td>
+	<td><b>Aliase</b></td>
+	<td><b>Aktiv</b></td>
+</tr>
+{$emaillist}
+</table>
+
+{$this->footer}

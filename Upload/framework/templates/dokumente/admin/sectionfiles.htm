@@ -1,0 +1,22 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-folder-open-o"></i> Dateien im Bereich {$section->getName()}</h3>
+	</div>
+</div>
+
+
+$displayHTML
+
+<if($displayHTML == "")><then><div class="callout callout-info">Keine Gruppen definiert. Bitte Gruppe unten anlegen.</div></then></if>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-folder-open-o"></i><i class="fa fa-plus"></i> Gruppe hinzufügen</h3>
+	</div>
+	<div class="box-body">
+	<form action="$selfURL&action=addbereich&sectionID={$section->getID()}" method="post">
+		<input type="text" name="newBereichName" class="form-control" placeholder="Gruppenname (z.B. Elternbriefe)" />
+		<button type="submit" class="form-control"><i class="fa fa-save"></i> Gruppe hinzufügen</button>
+	</form>
+	</div>
+</div>

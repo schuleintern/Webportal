@@ -1,0 +1,132 @@
+{$this->header}
+
+<if($_REQUEST['page'] == 'MessageRead')><then>
+	<form action="index.php?page=MessageRead&messageID={$message->getID()}" method="post" enctype="multipart/form-data">
+</then>
+</if>
+<if($_REQUEST['page'] == 'MessageInbox')><then>
+	<form action="index.php?page=MessageInbox&folder={$folder->getFolderSQL()}&pageNumber=$page&folderID={$folder->getID()}" method="post">
+</then></if>
+
+<if($_REQUEST['page'] == 'MessageCompose')><then>
+	<form action="index.php?page=MessageCompose" method="post" enctype="multipart/form-data">
+</then></if>
+
+<div class="row">
+        <div class="col-md-3">
+          <if($_REQUEST['page'] != 'MessageCompose')><then>
+          	<a href="index.php?page=MessageCompose" class="btn btn-primary btn-block margin-bottom"><i class="fa fa-paper-plane-o"></i> Nachricht verfassen</a>
+          </then></if>
+
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Systemordner</h3>
+
+              <div class="box-tools">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                
+                <if($folder->getFolderSQL() == 'POSTEINGANG')><then>
+                	<li class="active">
+                </then><else>
+                <li>
+                </else></if>
+                <a href="index.php?page=MessageInbox&folder=POSTEINGANG"><i class="fa fa-inbox"></i> Posteingang
+                
+                  <span class="label label-primary pull-right">{$posteingangOrdner->getUnreadMessageNumber()}</span>
+                  
+                 </a></li>
+                <if($folder->getFolderSQL() == 'GESENDETE')><then>
+                	<li class="active">
+                </then><else>
+                <li>
+                </else></if>
+                <a href="index.php?page=MessageInbox&folder=GESENDETE"><i class="fa fa-envelope-o"></i> Gesendete</a>
+                
+                
+                </li>
+                <if($folder->getFolderSQL() == 'PAPIERKORB')><then>
+                	<li class="active">
+                </then><else>
+                <li>
+                </else></if>
+                <a href="index.php?page=MessageInbox&folder=PAPIERKORB"><i class="fa fa-trash-o"></i> Papierkorb
+                
+                                  <span class="label label-primary pull-right">{$papierkorbOrdner->getUnreadMessageNumber()}</span>
+                </a>
+                </li>
+                <if($folder->getFolderSQL() == 'ARCHIV')><then>
+                	<li class="active">
+                </then><else>
+                <li>
+                </else></if>
+                <a href="index.php?page=MessageInbox&folder=ARCHIV"><i class="fa fa-archive"></i> Archiv
+                
+                <span class="label label-primary pull-right">{$archivOrdner->getUnreadMessageNumber()}</span>
+                </a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /. box -->
+
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Eigene Ordner</h3>
+
+              <div class="box-tools">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                
+                $ownFolders
+               
+              </ul>
+              
+				<if($_REQUEST['page'] == 'MessageInbox')><then>
+              
+	              <div class="input-group">
+
+	                <input type="text" name="folderName" class="form-control" placeholder="Ordnername ...">
+	                
+	                <div class="input-group-btn">
+	                  <button type="submit" class="btn btn-primary" name="action" value="createFolder">Ordner anlegen</button>
+	                </div>
+	                
+	              </div>
+	            </then></if>            
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          $FRAMECONTENT
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    
+    </form>
+          <script>
+      $(function () {
+        $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+      });
+    </script>
+
+{$this->footer}

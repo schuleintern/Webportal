@@ -1,0 +1,66 @@
+<h2>Exkursion / Unterrichtsgang</h2>
+<h4>Bitte <expression>DB::getSettings()->getValue("laufzettel-first-ug")</expression> Schultage vorher einreichen.</h4>
+
+<table width="100%" border="1" cellpadding="2">
+<tr>
+	<td width="40%"><b>Klasse:</b></td>
+	<td width="60%">$klassen</td>
+</tr>
+<tr>
+	<td><b>Datum und Wochentag</b></td>
+	<td>$datum</td>
+</tr>
+<tr>
+	<td><b>Ziel und Zweck</b></td>
+	<td>{$laufzettel['laufzettelTitel']}</td>
+</tr>
+<tr>
+	<td><b>Leiter der Exkursion / des Unterrichtsgangs</b></td>
+	<td>$leiter</td>
+</tr>
+<tr>
+	<td><b>Begleitpersonen</b></td>
+	<td><br /><br />..............................................................................</td>
+</tr>
+</table>
+<br /><br />
+<table width="100%" border="1" cellpadding="2">
+	<tr>
+		<td width="10%"><b>Stunde</b></td>
+		<td width="90%"><b>Tangierte Lehrer und Fächer, Zustimmungen</b></td>
+	</tr>
+	$stundenHTML
+</table>
+<br /><br />
+<table width="100%">
+	<if($this->mailMittagsbetreuung != "")><then>
+	<tr>
+		<td width="50%"><b>Ganztagesklasse und Mittagessen</b></td>
+		<td>$statusMittagsbetreuung</td>
+	</tr>
+	</then></if>
+	<tr>
+		<td width="50%"><b>Hausmeister</b></td>
+		<td>$statusHausmeister</td>
+	</tr>
+</table>
+<br />
+<table border="0" width="100%" cellpadding="2">
+	<tr>
+		<td width="50%"><br /><br /><br /><expression>DateFunctions::getTodayAsNaturalDate()</expression>, .................................................................</td>
+		<td width="50%"><br /><br /><br />.....................................................................................</td>
+	</tr>
+	<tr>
+		<td width="50%">Datum, Unterschrift der Lehrkraft</td>
+		<td width="50%">Datum, Unterschrift der Schulleitung</td>
+	</tr>
+	<tr>
+		<td colspan="2"><b>Wenn keine Rücksprache erfolgt, gilt die Unternehmung als genehmigt.</b></td>
+	</tr>
+	<tr>
+		<td colspan="2"><b>Vertretungsplanmacher</b> Handzeichen (Kenntnis genommen): ................</td>
+	</tr>
+	<tr>
+		<td colspan="2"><b>Sekretariat zur Ablage</b></td>
+	</tr>
+</table>

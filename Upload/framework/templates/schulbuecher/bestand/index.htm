@@ -1,0 +1,197 @@
+{$this->header}
+
+$displayError
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-book"></i> Bestand der Bücher</h3>
+		<br />
+		<form><button class="btn btn-success" type="button" data-toggle="modal" data-target="#addBuch" ><i class="fa fa-plus"></i> Buch anlegen</button></form>
+	</div>
+	<div class="box-body">
+		<table class="table table-striped" id="buecher">
+			<thead>
+			<tr>
+				<th>Buch</th>
+				<th>Verlag</th>
+				<th>ISBN</th>
+				<th>Preis</th>
+				<th>Fach</th>
+				<th>Jahrgangsstufe</th>
+				<th>Bestand</th>
+				<th>Bestand verliehen</th>
+				<th>Bestand Bankbücher</th>
+				<th>Bestand Bankbücher verliehen</th>
+				<th>Aktionen</th>
+			</tr>
+			</thead>
+			<tbody>
+				$html
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+<script src="cssjs/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="cssjs/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+  $(function () {
+    $('#buecher').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "pageLength": 20,
+      "language": {
+    		"sEmptyTable":   	"Keine Daten in der Tabelle vorhanden",
+    		"sInfo":         	"_START_ bis _END_ von _TOTAL_ Einträgen",
+    		"sInfoEmpty":    	"0 bis 0 von 0 Einträgen",
+    		"sInfoFiltered": 	"(gefiltert von _MAX_ Einträgen)",
+    		"sInfoPostFix":  	"",
+    		"sInfoThousands":  	".",
+    		"sLengthMenu":   	"_MENU_ Einträge anzeigen",
+    		"sLoadingRecords": 	"Wird geladen...",
+    		"sProcessing":   	"Bitte warten...",
+    		"sSearch":       	"Einträge suchen",
+    		"sZeroRecords":  	"Keine Einträge vorhanden.",
+    		"oPaginate": {
+    			"sFirst":    	"Erste",
+    			"sPrevious": 	"Zurück",
+    			"sNext":     	"Nächste",
+    			"sLast":     	"Letzte"
+    		},
+    		"oAria": {
+    			"sSortAscending":  ": aktivieren, um Spalte aufsteigend zu sortieren",
+    			"sSortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
+    		}
+      }
+    });
+  });
+</script>
+
+
+	<div class="modal fade" id="addBuch" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title" id="eventTitle">Buch anlegen</h4>
+	      </div>
+	      <div class="modal-body">
+		<form action="index.php?page=schulbuecher&mode=bestand&action=addBook" method="post">
+			<p><input type="text" name="titel" class="form-control" placeholder="Titel des Buches" required="required"></p>
+			<p><input type="text" name="verlag" class="form-control" placeholder="Verlag" required="required"></p>
+			<p><input type="text" name="isbn" class="form-control" placeholder="ISBN Nummer (Mit Bindestrichen)" required="required"></p>
+			<p><input type="text" name="preis" class="form-control" placeholder="Preis in Euro XX,XX ohne Euro Zeichen und Komma als Trennzeichen" required="required"></p>
+			<p><select name="fach" class="form-control">$fachSelect</select></p>
+			<p><select name="jahrgangsstufe" class="form-control">$jgsSelect</select></p>
+			<p><button type="submit" class="form-control"><i class="fa fa-save"></i> Schulbuch anlegen</button>
+		</form>
+		  </div>
+		 </div>
+	   </div>
+	</div>
+	
+    <div class="modal fade" id="editBuch" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title"><i class="fa fa-pencil"></i> Buch bearbeiten</h4>
+	      </div>
+	      <div class="modal-body">
+		<form action="index.php?page=schulbuecher&mode=bestand&action=editBook" method="post">
+			<input type="hidden" name="bookID" value="" id="editBookID">
+			<p><input type="text" name="titel" class="form-control" id="editTitel" placeholder="Titel des Buches" required="required" id="buchTitel"></p>
+			<p><input type="text" name="verlag" class="form-control" id="editVerlag" placeholder="Verlag" required="required" id="buchVerlag"></p>
+			<p><input type="text" name="isbn" class="form-control" id="editIsbn" placeholder="ISBN Nummer (Mit Bindestrichen)" required="required"></p>
+			<p><input type="text" name="preis" class="form-control" id="editPreis" placeholder="Preis in Euro XX,XX ohne Euro Zeichen und Komma als Trennzeichen" required="required"></p>
+			<p><select name="fach" class="form-control" id="editFach" >$fachSelect</select></p>
+			<p><select name="jahrgangsstufe" class="form-control" id="editJahrgangsstufe" >$jgsSelect</select></p>
+			<p><button type="submit" class="form-control"><i class="fa fa-save"></i> Schulbuch bearbeiten</button>
+		</form>
+		  </div>
+		 </div>
+	   </div>
+	</div>
+	
+	<script>
+	
+	function editBook(bookID, titel, verlag, isbn, preis, fach, jahrgangsstufe) {
+		$("#editBookID").val(bookID);
+		
+		$("#editTitel").val(titel);
+		$("#editVerlag").val(verlag);
+		$("#editIsbn").val(isbn);
+		$("#editPreis").val(preis);
+		$("#editFach").val(fach);
+		$("#editJahrgangsstufe").val(jahrgangsstufe);
+		
+		$("#editBuch").modal("show");
+		
+	}
+	
+	</script>
+
+<!-- $zustand, $anschaffungsjahr, $isBankbuch, $lagerort) { -->
+
+	<div class="modal fade" id="addBestand" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title" id="eventTitle">Bestand erfassen</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<form action="index.php?page=schulbuecher&mode=bestand&action=addExemplare" method="post">
+			<table class="table table-striped">
+				<tr>
+					<td>Buch</td>
+					<td><select name="buchID" class="form-control" id="bookSelect" required="required">$buchSelect</select>
+				<tr>
+					<td>Zustand</td>
+					<td><select name="zustand" class="form-control"><option value="-1">Nicht erfasst</option><option value="1">Gut</option><option value="2">OK</option><option value="3">Schlecht</select></td>
+				</tr>
+				<tr>
+					<td>Anschaffungsjahr</td>
+					<td><input name="anschaffungsjahr" class="form-control" type="number" value="<expression>date('Y')</expression>" required="required"></td>
+				</tr>
+				<tr>
+					<td>Lagerort</td>
+					<td><input name="lagerort" class="form-control" type="text" value="" placeholder="z.B. Bücherkeller - Regal A B/2"></td>
+				</tr>
+				<tr>
+					<td>Sind Bankbücher?</td>
+					<td>
+					<div class="onoffswitch">
+						    <input type="checkbox" name="isBankbuch" value="1" class="onoffswitch-checkbox" id="isBankbuch"
+						    	<if(DB::getSettings()->getBoolean('schulbuecher-erfasung-bankbuecher-aktiv'))><then> checked="checked"</then></if>
+						    >
+						    <label class="onoffswitch-label" for="isBankbuch">
+						        <span class="onoffswitch-inner"></span>
+						        <span class="onoffswitch-switch"></span>
+						    </label>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Barcodes</td>
+					<td><textarea name="barcodes" class="form-control" placeholder="Für jede Zeile einen neuen Barcode" rows="20"></textarea>
+				</table>
+	      	
+	      	<button type="submit"  class="form-control"><i class="fa fa-plus"></i> Berstand erfassen</button></form>
+	      	</div>
+	      </div>
+	     </div>
+	    </div>
+	    
+	    
+	   <script>
+	   function selectBook(book) {
+		   $('#bookSelect option[value="' + book + '"]').attr("selected", "selected");
+	   }
+	   
+	   </script>
+
+{$this->footer}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Schülerfunktion" pl_key="3043">
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[KL]]></kurzform>
+    <anzeigeform><![CDATA[Klassensprecher]]></anzeigeform>
+    <langform><![CDATA[Klassensprecher]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[SV]]></kurzform>
+    <anzeigeform><![CDATA[Schülerspr. Stellver.]]></anzeigeform>
+    <langform><![CDATA[Schülersprecher Stellvertreter]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[KV]]></kurzform>
+    <anzeigeform><![CDATA[Klassenspr. Stellver.]]></anzeigeform>
+    <langform><![CDATA[Klassensprecher Stellvertreter]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[SP]]></kurzform>
+    <anzeigeform><![CDATA[Schülersprecher]]></anzeigeform>
+    <langform><![CDATA[Schülersprecher]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+</werteliste>

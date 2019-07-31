@@ -1,0 +1,19 @@
+
+<tr>
+	<td>$showFotoText<br /><a href="?page=editPicture&personID={$p['personID']}">Bild bearbeiten</a></td>
+	<td><input type="text" name="p_{$p['personID']}_nachname" size="10" class="form-control" value="{$p['personNachname']}"></td>
+	<td><input type="text" name="p_{$p['personID']}_vorname" size="10" class="form-control" value="{$p['personVorname']}"></td>
+	<td><input type="text" name="p_{$p['personID']}_kuerzel" size="10" class="form-control" value="{$p['personKuerzel']}"></td>
+	<td><input type="text" name="p_{$p['personID']}_faecher" size="10" class="form-control" value="{$p['personFaecher']}"></td>
+	<td><input type="text" name="p_{$p['personID']}_funktion" size="10" class="form-control" value="{$p['personFunktion']}"></td>
+	<td>
+		<if($p['personIsActive'] > 0)><then>
+			<input type="checkbox" name="p_{$p['personID']}_aktiv" value="1" checked>
+		</then><else>
+			<input type="checkbox" name="p_{$p['personID']}_aktiv" value="1">
+		</else></if>
+	
+	</td>
+	<td>$select</td>
+	<td><input type="checkbox" name="p_{$p['personID']}_delete" value="1"></td>
+</tr>

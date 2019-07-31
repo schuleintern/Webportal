@@ -1,0 +1,2551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Religions-/Ethikunterricht" pl_key="1059">
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[46]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFG]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule Gesundheitsw.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[62]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FSLF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMELF]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[54]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FALF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMELF]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[53]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FAK]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachakademie StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[49]]></schluessel>
+    <kurzform><![CDATA[SRU]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Religionsunterricht]]></anzeigeform>
+    <langform><![CDATA[sonstiger Religionsunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=49##kuerzel_alt=SRU#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301400]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Rl]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Sonstige Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[81]]></schluessel>
+    <kurzform><![CDATA[ETH-R]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, wegen Religionslosigk.]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, wegen Religionslosigkeit]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=51##kuerzel_alt=Eth + R#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[80]]></schluessel>
+    <kurzform><![CDATA[ETH]]></kurzform>
+    <anzeigeform><![CDATA[Ethik]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=50,51,52##kuerzel_alt=EthA,EthR,EthK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik" + im Feld "Grund Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[82]]></schluessel>
+    <kurzform><![CDATA[ETH-N]]></kurzform>
+    <anzeigeform><![CDATA[Ethik, weil RU nicht angeboten]]></anzeigeform>
+    <langform><![CDATA[Ethikunterricht, weil der Religionsunterricht des eigenen Bekenntnisses nicht angeboten wird]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=52##kuerzel_alt=Eth + K#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200400100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Eth]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Ethik]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[40]]></schluessel>
+    <kurzform><![CDATA[ORTH]]></kurzform>
+    <anzeigeform><![CDATA[orthodox]]></anzeigeform>
+    <langform><![CDATA[orthodox]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=04##kuerzel_alt=ORT#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300700]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ort]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Orthodoxe Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[50]]></schluessel>
+    <kurzform><![CDATA[IS]]></kurzform>
+    <anzeigeform><![CDATA[israelitisch]]></anzeigeform>
+    <langform><![CDATA[israelitisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=05##kuerzel_alt=IS#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300500]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Isr]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Israelitische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[61]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachschule StMUK]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[60]]></schluessel>
+    <kurzform><![CDATA[NA]]></kurzform>
+    <anzeigeform><![CDATA[neuapostolisch]]></anzeigeform>
+    <langform><![CDATA[neuapostolisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=06##kuerzel_alt=NA#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300600]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[NR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Neuapostolische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[10]]></schluessel>
+    <kurzform><![CDATA[RK]]></kurzform>
+    <anzeigeform><![CDATA[römisch-katholisch]]></anzeigeform>
+    <langform><![CDATA[römisch-katholisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=01##kuerzel_alt=RK#Kürzel alt (WinSD) im Feld "Fach Religion/Ethik"]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200100100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[K]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Katholische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[30]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[27]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[41]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[23]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[20]]></schluessel>
+    <kurzform><![CDATA[EV]]></kurzform>
+    <anzeigeform><![CDATA[ev.-lutherisch]]></anzeigeform>
+    <langform><![CDATA[evangelisch-lutherisch]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=02##kuerzel_alt=EV#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200200100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[Ev]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Evangelische Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[24]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BFF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsfachschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[IL]]></kurzform>
+    <anzeigeform><![CDATA[islamischer Unterricht]]></anzeigeform>
+    <langform><![CDATA[islamischer Unterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ILD#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[IsU]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Islamischer Unterricht]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[IL]]></kurzform>
+    <anzeigeform><![CDATA[islamischer Unterricht]]></anzeigeform>
+    <langform><![CDATA[islamischer Unterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ILD#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[IsU]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Islamischer Unterricht]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[IL]]></kurzform>
+    <anzeigeform><![CDATA[islamischer Unterricht]]></anzeigeform>
+    <langform><![CDATA[islamischer Unterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ILD#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[IsU]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Islamischer Unterricht]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[IL]]></kurzform>
+    <anzeigeform><![CDATA[islamischer Unterricht]]></anzeigeform>
+    <langform><![CDATA[islamischer Unterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ILD#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[IsU]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Islamischer Unterricht]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[IL]]></kurzform>
+    <anzeigeform><![CDATA[islamischer Unterricht]]></anzeigeform>
+    <langform><![CDATA[islamischer Unterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ILD#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[IsU]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Islamischer Unterricht]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[IL]]></kurzform>
+    <anzeigeform><![CDATA[islamischer Unterricht]]></anzeigeform>
+    <langform><![CDATA[islamischer Unterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ILD#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[IsU]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Islamischer Unterricht]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[IL]]></kurzform>
+    <anzeigeform><![CDATA[islamischer Unterricht]]></anzeigeform>
+    <langform><![CDATA[islamischer Unterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ILD#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[IsU]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Islamischer Unterricht]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[IL]]></kurzform>
+    <anzeigeform><![CDATA[islamischer Unterricht]]></anzeigeform>
+    <langform><![CDATA[islamischer Unterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ILD#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[IsU]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Islamischer Unterricht]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[IL]]></kurzform>
+    <anzeigeform><![CDATA[islamischer Unterricht]]></anzeigeform>
+    <langform><![CDATA[islamischer Unterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ILD#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[IsU]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Islamischer Unterricht]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[51]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[BOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Berufsoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[31]]></schluessel>
+    <kurzform><![CDATA[IL]]></kurzform>
+    <anzeigeform><![CDATA[islamischer Unterricht]]></anzeigeform>
+    <langform><![CDATA[islamischer Unterricht]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=09##kuerzel_alt=ILD#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[IsU]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Islamischer Unterricht]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[52]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FOS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Fachoberschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[72]]></schluessel>
+    <kurzform><![CDATA[FCH]]></kurzform>
+    <anzeigeform><![CDATA[freichristlich]]></anzeigeform>
+    <langform><![CDATA[freichristlich]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=08##kuerzel_alt=FR#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200300100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[FR]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Freie christl. Religionslehre]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[25]]></schluessel>
+    <kurzform><![CDATA[ST]]></kurzform>
+    <anzeigeform><![CDATA[Sieb.-Tags-Adv.]]></anzeigeform>
+    <langform><![CDATA[Siebenten-Tags-Adventisten]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=ST#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301300]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[STA]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Siebenten-Tags-Adventisten]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[71]]></schluessel>
+    <kurzform><![CDATA[CHG]]></kurzform>
+    <anzeigeform><![CDATA[Christengemeinschaft]]></anzeigeform>
+    <langform><![CDATA[Christengemeinschaft]]></langform>
+    <bemerkung><![CDATA[#schluessel_alt=07##kuerzel_alt=RC#]]></bemerkung>
+    <unterrichtsfach_schluessel><![CDATA[0200301100]]></unterrichtsfach_schluessel>
+    <unterrichtsfach_kurzform><![CDATA[RC]]></unterrichtsfach_kurzform>
+    <unterrichtsfach_anzeigeform><![CDATA[Religionslehre Christengem.]]></unterrichtsfach_anzeigeform>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

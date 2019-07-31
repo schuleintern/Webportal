@@ -1,0 +1,17 @@
+<tr>
+	<td><b>{$settings[$s]['titel']}</b><br /><small>{$settings[$s]['text']}</small></td>
+	<td>
+	<input type="text" name="{$settings[$s]['name']}" id="{$settings[$s]['name']}" class="form-control" value="{$value}"/>
+	<script>
+	
+	$('#{$settings[$s]['name']}').timepicki({
+		show_meridian:false,
+		disable_keyboard_mobile: true,
+		start_time: ["$stunden", "$minuten", "AM"]
+	
+	});
+	
+	</script>
+	
+	</td>
+</tr>

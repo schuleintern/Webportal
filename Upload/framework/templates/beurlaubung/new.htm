@@ -1,0 +1,117 @@
+{$this->header}
+
+
+$errorMessage
+
+<form action="index.php?page=beurlaubung&mode=saveKrankmeldung" method="post">
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-sun-o"></i> Beurlaubungsantrag einreichen</h3>
+	</div>
+	<div class="box-body no-padding">
+		<table class="table table-striped">
+			<tr>
+				<td style="width:10%"><b>Schüler(in) auswählen</b></td>
+				<td><select name="schuelerID" class="form-control">$selectFields</select>{$infoOtherSchueler}
+				</td>
+			</tr>
+			<tr>
+				<td><b>Datum:</b></td>
+				<td>
+					<input type="text" id="buzeitraum" name="buzeitraum" class="form-control" value="$currentDate bis $currentDate"></td>
+			</tr>
+			<tr>
+				<td><b>Stunden:</b></td>
+				<td>
+					<select name="stunden[]" multiple id="stundenSelect" class="form-control">$stundenSelect</select></td>
+			</tr>
+			<tr>
+				<td><b>Begründung:</b></td>
+				<td><textarea name="beurlaubungBegruendung" class="form-control" rows="5"></textarea>
+			</tr>
+			
+			<tr>
+				<td><b>Hinweise</b></td>
+				<td>Beachten Sie bitte:<br />
+				<expression>DB::getSettings()->getValue('beurlaubung-hinweis')</expression>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="submit" class="form-control"><i class="fa fa-paper-plane"></i> Beurlaubungsantrag abgeben</button>
+				</td>
+			</tr>				
+		</table>
+	</div>
+</div>
+
+
+</form>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-bed"></i> Meine Beurlaubungsanträge</h3>
+		<p>Folgende Krankmeldungen sind noch nicht vom Sekretariat bearbeitet worden. Sie können diese Krankmeldungen noch löschen.
+	</div>
+	<div class="box-body no-padding">
+		<table class="table table-striped">
+			<tr>
+				<th style="width:20%">Kind</th>
+				<th style="width:20%">Krank ab</th>
+				<th style="width:20%">Krank bis</th>
+				<th style="width:10%">Meldung durch</th>
+				<th style="width:20%">Kommentar</th>
+				<th style="width:10%">Löschen</th>
+			</tr>
+			$offeneKrankmeldungen
+		</table>
+	</div>
+</div>
+
+
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+
+
+<script>
+	$(function() {
+	   $('#buzeitraum').daterangepicker({
+	    	format: 'DD.MM.YYYY',
+	    	"separator": " bis ",
+	        "locale": {            
+	            "applyLabel": "OK",
+	            "cancelLabel": "Abbrechen",
+	            "fromLabel": "Von",
+	            "toLabel": "Bis",
+	            "customRangeLabel": "Benutzerdefiniert",
+	            "daysOfWeek": [
+	                "So",
+	                "Mo",
+	                "Di",
+	                "Mi",
+	                "Do",
+	                "Fr",
+	                "Sa"
+	            ],
+	            "monthNames": [
+	                "Januar",
+	                "Februar",
+	                "März",
+	                "April",
+	                "Mai",
+	                "Juni",
+	                "Juli",
+	                "August",
+	                "September",
+	                "Oktober",
+	                "November",
+	                "Dezember"
+	            ],
+	            "firstDay": 1
+	        }
+	    });
+	   
+	   $('#stundenSelect').select2();
+	});
+</script>
+{$this->footer}

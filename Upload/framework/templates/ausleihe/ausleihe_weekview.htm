@@ -1,0 +1,14 @@
+<b>{$objekt['objektName']} reservieren</b>
+
+<form action="index.php?page=ausleihe&objektID={$_REQUEST['objektID']}&action=save&firstDay={$_REQUEST['firstDay']}" method="post">
+Für eine Ausleihe die gewünschten Stunden markieren und unten die Klasse eintragen und auf "Ausleihen" klicken.<br />
+<if($informNextWeek)><then>
+	<div class="callout callout-info"><i class="fa fa-info"></i> Es wird bereits die nächste Woche angezeigt, da heute Wochenende ist</div>
+</then></if>
+$html<br />
+<div class="input-group">
+	<span class="input-group-addon"><i class="fa fa-group"></i></span>
+	<input type="text" class="form-control" name="ausleihe_klasse" maxlength="10" placeholder="Klasse hier eingeben">
+</div>
+<button class="form-control" type="submit" value="Ausleihen"><i class="fa fa-check"></i> Für die ausgewählten Stunden ausleihen</button>
+</form>

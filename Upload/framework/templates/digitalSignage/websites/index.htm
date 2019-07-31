@@ -1,0 +1,66 @@
+
+<if($_GET['uploaded'] > 0)><then>
+	<div class="callout callout-success"><i class="fa fa-check"></i> Die Webseite datei wurde erfolgreich erstellt.</div>
+</then></if>
+
+
+<if($_GET['deleted'] > 0)><then>
+	<div class="callout callout-success"><i class="fa fa-check"></i> Die Webseite datei wurde erfolgreich gelöscht.</div>
+</then></if>
+
+<if($_GET['error'] > 0)><then>
+	<div class="callout callout-danger"><i class="fa fa-exclamation-triangle"></i> Die Powerpoint datei wurde nicht erfolgreich hochgeladen!</div>
+</then></if>
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-anchor"></i> Webseiten</h3>
+	</div>
+	<div class="box-body">
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+				<th>URL (Mit https:// oder http://)</th>
+				<th>Update Intervall</th>
+				<th>Öffnen</th>
+				<th>Löschen</th>
+			</tr>
+			$pHTML
+		</table>
+	
+	</div>
+
+</div>
+
+<div class="callout callout-info">
+	Manche Webseiten verbieten das Einbetten in iFrames. Diese Webseiten können aktuell leider nicht eingebunden werden.
+</div>
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-anchor"></i> Webseite anlegen</h3>
+	</div>
+	<div class="box-body">
+		
+		<form action="$selfURL&action=upload" method="post" enctype="multipart/form-data">
+		<table class="table">
+			<tr>
+				<td><b>Name</b></td>
+				<td><input type="text" name="websiteName" placeholder="z.B. Infoseite Schule" class="form-control"></td>
+			</tr>
+			<tr>
+				<td><b>URL (Mit https:// oder http://)</b></td>
+				<td><input type="text" name="websiteURL" placeholder="https://seite.de" class="form-control"></td>
+			</tr>
+			<tr>
+				<td><b>Aktualisieren alle X Sekunden</b></td>
+				<td><input type="text" name="websiteRefreshSeconds" placeholder="120 für alle 2 Minuten neu laden; 0 = Kein neu laden" class="form-control"></td>
+			</tr>
+		</table>
+		<button type="submit" class="btn"><i class="fa fa-save"></i> Webseite speichern</button>
+		</form>
+	</div>
+
+</div>

@@ -1,0 +1,110 @@
+{$this->header}
+
+
+$errorMessage
+
+<form action="index.php?page=krankmeldung&mode=saveKrankmeldung" method="post">
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-bed"></i> Krankmeldung abgeben</h3>
+	</div>
+	<div class="box-body no-padding">
+		<table class="table table-striped">
+			<tr>
+				<td style="width:10%"><b>Schüler(in) auswählen</b></td>
+				<td><select name="schuelerID" class="form-control">$selectFields</select>{$infoOtherSchueler}
+				</td>
+			</tr>
+			<tr>
+				<td><b>Krankmeldung ab:</b></td>
+				<td>
+	              	<div class="radio icheck">
+	                <label>
+	                  <input type="radio" name="fromDate" value="today" checked="checked" id="radioHeute"> $beschriftungHeute
+	                </label> 
+	                <if($nextDay != null)><then>
+	                 <hr noshade>
+	                <label>
+	                  <input type="radio" name="fromDate" value="tomorrow" id="radioMorgen"> $beschriftungMorgen
+	                </label>
+	               
+	                </then></if>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Dauer der Krankmeldung:</b></td>
+				<td>
+				<div class="radio icheck">
+					$selectNumDays
+				</div>
+				<small>Nach Ablauf dieser Frist ist eine neue Krankmeldung abzugeben.</small>
+				</td>
+			</tr>
+			<if(!DB::getSettings()->getBoolean('krankmeldung-bemerkung-abschalten'))><then>
+			<tr>
+				<td><b>Bermerkung:</b></td>
+				<td><textarea name="krankmeldungKommentar" class="form-control" rows="5"></textarea>
+				<div class="callout callout-danger"><i class="fa fa-exclamation-triangle"></i>Bitte hier nur Kommentare zur Krankmeldung eintragen. Dies ist <u>KEIN</u> Mitteilungsfeld für Beurlaubungsanträge oder Nachrichten an das Sekretariat! Anfragen dieser Art werden nicht bearbeitet.</div></td>
+			</tr>
+			</then></if>
+			<tr>
+				<td><b>Hinweise</b></td>
+				<td>Beachten Sie bitte:
+				<ul>
+					<li>Nach Ablauf der angegebenen Entschuldigungszeit muss eine weitere Krankmeldung eingereicht werden.</li>
+					<if(DB::getSettings()->getBoolean('absenzen-keine-schriftlichen-entschuldigungen'))><then>
+							<li>Die Krankmeldung hier über das Portal ersetzt die schriftliche Entschuldigung. Geben Sie daher bitte keine schriftliche Entschuldigungen mehr ab.</li>
+						</then>
+						<else>
+							<li>Jede telefonische Krankmeldung (oder per Portal) muss bei Rückkehr in die Schule mit einer schriftlichen Entschuldigung bestätigt werden.</li>
+						</else>
+					</if>
+							
+					<if(DB::getSettings()->getValue("absenzen-attestnachdreitagen"))><then><li>Eine Abwesendheit von mehr als 3 Schultagen muss mit einem ärztlichen Attest belegt werden.</li></then></if>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="submit" value="Krankmeldung abschicken" class="form-control"><i class="fa fa-paper-plane"></i> Krankmeldung abgeben</button>
+				</td>
+			</tr>				
+		</table>
+	</div>
+</div>
+
+
+</form>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-bed"></i> Offene Krankmeldungen</h3>
+		<p>Folgende Krankmeldungen sind noch nicht vom Sekretariat bearbeitet worden. Sie können diese Krankmeldungen noch löschen.
+	</div>
+	<div class="box-body no-padding">
+		<table class="table table-striped">
+			<tr>
+				<th style="width:20%">Kind</th>
+				<th style="width:20%">Krank ab</th>
+				<th style="width:20%">Krank bis</th>
+				<th style="width:10%">Meldung durch</th>
+				<th style="width:20%">Kommentar</th>
+				<th style="width:10%">Löschen</th>
+			</tr>
+			$offeneKrankmeldungen
+		</table>
+	</div>
+</div>
+
+
+
+<script>
+	$(function() {
+	   $('input').iCheck({
+	            checkboxClass: 'icheckbox_square-blue',
+	            radioClass: 'iradio_square-blue',
+	            increaseArea: '20%' // optional
+	    });
+	});
+</script>
+{$this->footer}

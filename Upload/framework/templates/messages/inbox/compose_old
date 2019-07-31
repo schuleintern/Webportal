@@ -1,0 +1,313 @@
+          
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"><i class="fa fa-envelope"></i> Neue Nachricht schreiben</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="form-group">
+                <p>{$currentRecipientList}</p>
+                <if(!$isReply)><then><p><button type="button" class="btn btn-success" data-target="#addRecipient" data-toggle="modal"><i class="fa fa-plus"></i> Empfänger hinzufügen</button></p></then></if>
+                <input type="hidden" name="recipientDataList" value="$saveString" />
+              </div>
+              <if($isReply)><then>
+              <input type="hidden" name="replyMessage" value="{$replyMessage->getID()}">
+              <hr noshade>
+              	<p>Antwort auf "{$replyMessage->getSubject()}" <button type="button" class="btn btn-sm btn-info" data-target="#replyMessage" data-toggle="modal"><i class="fa fa-commenting-o"></i> Nachricht anzeigen</button></p>
+              </then></if>
+              <div class="form-group">
+                <if($isReply)><then>
+               		<input type="hidden" name="messageSubject" value="RE: {$replyMessage->getSubject()}">
+               	</then><else>
+               	    <input class="form-control" placeholder="Betreff: " name="messageSubject" value="{$preSubject}">
+               	</else></if>
+              </div>
+              <div class="form-group">
+                    <textarea id="compose-textarea" class="form-control" style="height: 300px" name="messageText">$preText</textarea>
+              </div>
+              <input type="hidden" name="currentAttachmentUploadIDs" value="{$_REQUEST['currentAttachmentUploadIDs']}">
+              <p><b>Dateianhänge:</b><br />$attachmentHTML
+				<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#addAttachment"><i class="fa fa-paperclip"></i> Dateianhang hinzufügen</button></p>
+              <if($canRequestReadConfirmation)><then>
+                            <div class="form-group">
+              
+					<input type="checkbox" name="readConfirmation" value="1" class="onoffswitch-checkbox" id="readConfirmation"$selectedReedConfirmationTrue> <label for="readConfirmation">Lesebestätigung anfordern</label>           
+              
+              
+              </div>
+              </then></if>
+              
+              
+              <input type="hidden" name="currentQuestionIDs" value="{$_REQUEST['currentQuestionIDs']}">
+              
+              <if($canAskQuestions)><then>
+                  <p><b>Datenabfragen:</b><br />$questionHTML
+				  <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#addQuestion"><i class="fa fa-question-circle"></i> Datenabfrage hinzufügen</button></p>
+              </then></if>
+              
+              
+              <div class="form-group">
+              
+					<input type="checkbox" name="dontAllowAnser" value="1" class="onoffswitch-checkbox" id="dontAllowAnser"$selectedDontAllowAnser> <label for="allowAnser"> Antworten auf diese Nachricht nicht erlauben</label>           
+              </div>
+            <div class="form-group">
+              
+			  <select name="priority" class="form-control">
+			  	<option value="low"{$selectedPriority['low']}>Niedrige Priorität</option>
+			  	<option value="normal"{$selectedPriority['normal']}>Normale Priorität</option>
+			  	<option value="high"{$selectedPriority['high']}>Hohe Priorität</option>
+			  </select>           
+			  
+			  
+			  </div>
+            </div>
+            <div class="box-footer">
+                <if(!$hasRecipients)><then>
+                	<button type="submit" class="btn btn-primary" disabled="disabled"><i class="fa fa-envelope-o"></i> Nachricht senden (Bitte vorher mindestens einen Empfänger auswählen!)</button>
+                </then><else>
+                	<button type="submit" class="btn btn-primary" name="action" value="send"><i class="fa fa-envelope-o"></i> Nachricht senden</button>
+                </else></if>
+            </div>
+          </div>
+          
+			<script src="cssjs/plugins/tinymce/tinymce.min.js"></script>
+          
+			<script>
+			tinymce.init({
+			    selector: '#compose-textarea',
+			    valid_elements: "p,br,b,i,u,strong,em",
+			    toolbar: "bold italic underline",
+			    menubar: false,
+			    statusbar: false
+			});
+			</script>
+			
+			
+	<div class="modal fade" id="addAttachment" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    <div class="modal-header">	    
+		    	<h4 class="modal-title"><i class="fa fa-paperclip"></i> Anhang hinzufügen</h4>
+		      </div>
+		      <div class="modal-body">
+	                  <input type="file" name="attachmentFile">
+	                  <button type="submit" name="action" value="uploadFile" class="btn"><i class="fa fa-upload"></i> Dateianhang hochladen</button>
+	                <p class="help-block">Maximal 10 MB pro Datei. (Office Dokumente, PDF Dateien, ZIP Dateien und Bilder)</p>
+		      </div>
+		      </div>
+		     </div>
+	    </div>
+	    
+	    <if($canAskQuestions)><then>
+	    
+	<div class="modal fade" id="addQuestion" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    <div class="modal-header">	    
+		    	<h4 class="modal-title"><i class="fa fa-question-circle"></i> Datenabfrage hinzufügen</h4>
+		      </div>
+		      <div class="modal-body">
+				<input type="text" name="questionText" value="" placeholder="z.B. Kommen Sie zur Veranstaltung?" class="form-control">
+				<select name="questionType" class="form-control">
+					<option value="BOOLEAN">Ja / Nein Frage (z.B. zur Beantwortung, ob ein Elternabend angesetzt werden soll.)</option>
+					<option value="TEXT">Textantwort (z.B. zur Beantwortung allgemeiner Fragen)</option>
+					<option value="NUMBER">Ganze Zahlen (z.B. zur Abfrage der Gästeanzahl)</option>
+					<option value="FILE">Dateianhang (z.B. zum Einsammeln von Dateien)</option>
+				</select>
+				<button type="submit" name="action" value="addQuestion" class="btn"><i class="fa fa-plus"></i> Frage hinzufügen</button>
+		      </div>
+		      </div>
+		     </div>
+	    </div>
+	    
+	    </then></if>
+			
+		<div class="modal fade" id="addRecipient" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document" style="width:90%">
+		    <div class="modal-content">
+		    <div class="modal-header">	    
+		    	<h4 class="modal-title"><i class="fa fa-paper-plane"></i> Empfänger hinzufügen</h4>
+		      </div>
+		      <div class="modal-body">
+				<div class="tabbable">
+			        <ul class="nav nav-tabs">
+			        	<if($canContactAnyTeacher)><then><li class="active"><a href="#lehrer" data-toggle="tab"><i class="fa fa-female"></i> Lehrer</a></li></then></if>
+			        	<if($canContactAnyPupil)><then><li><a href="#schueler" data-toggle="tab"><i class="fa fa-child"></i> Schüler</a></li></then></if>
+			        	<if($canContactAnyParents)><then><li><a href="#eltern" data-toggle="tab"><i class="fa fa-users"></i> Eltern</a></li></then></if>
+			        	<if($canContactAnyVerwaltung)><then><li><a href="#verwaltung" data-toggle="tab"><i class="fa fa-users"></i> Verwaltung / Hausmeister</a></li></then></if>
+			        </ul>
+			        <div class="tab-content">
+				        <if($canContactAnyTeacher)><then>
+				        
+					        <div class="tab-pane active" id="lehrer">
+					        	<table class="table table-striped">
+					        		<if($allTeacher)><then>
+					        		<tr>
+					        			<td style="width:20%">&nbsp;</td>
+					        			<td><button type="submit" value="allTeacher" name="addRecipient" class="btn">Alle Lehrer aufeinmal</button></td>
+					        		</tr>
+					        		</then></if>
+					        		<if($schulleitung)><then>
+					        		<tr>
+					        			<td style="width:20%">&nbsp;</td>
+					        			<td><button type="submit" value="sl" name="addRecipient" class="btn">Schulleitung</button></td>
+					        		</tr>
+					        		</then></if>
+					        		<if($selectOptionsSingleTeacher != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Lehrer</td>
+					        				<td><select name="singleTeacherSaveStrings[]" multiple="multiple" id="singleteacher" style="width:100%">$selectOptionsSingleTeacher</select>
+					        				<script>$('#singleteacher').select2({placeholder: "Lehrer suchen ..."});</script>
+					        				<button type="submit" value="singleTeacher" name="addRecipient" class="btn">Ausgewählte Lehrer hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		<if($selectOptionsFachschaften != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Fachschaften</td>
+					        				<td><select name="fachschaftSaveStrings[]" multiple="multiple" id="fachschaften" style="width:100%">$selectOptionsFachschaften</select>
+					        				<script>$('#fachschaften').select2({placeholder: "Fachschaften durchsuchen ..."});</script>
+					        				<button type="submit" value="fachschaften" name="addRecipient" class="btn">Ausgewählte Fachschaften hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		<if($selectOptionsKlassenteams != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Klassenlehrer</td>
+					        				<td><select name="klassenteamsSaveStrings[]" multiple="multiple" id="Klassenteams" style="width:100%">$selectOptionsKlassenteams</select>
+					        				<script>$('#Klassenteams').select2({placeholder: "Klassenteams durchsuchen ..."});</script>
+					        				<button type="submit" value="klassenteams" name="addRecipient" class="btn">Ausgewählte Klassenlehrer hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        	</table>
+					        </div>
+				        
+				        </then></if>
+				        
+				        <div class="tab-pane" id="schueler">
+				        	<if($canContactAnyPupil)><then>
+				        		<table class="table table-striped">
+
+					        		
+					        		
+					        		<if($selectOptionsWholeGrades != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Alle Schüler einer Klasse</td>
+					        				<td>$selectOptionsWholeGrades
+					        				<button type="submit" value="wholeGrades" name="addRecipient" class="btn">Ausgewählte Klassen hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		
+					        		
+					        		
+					        		
+					        		<if($selectOptionsSchueler != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Schüler</td>
+					        				<td><select name="singlePupilSaveStrings[]" multiple="multiple" id="singlePupil" style="width:100%">$selectOptionsSchueler</select>
+					        				<script>$('#singlePupil').select2({placeholder: "Schüler suchen ..."});</script>
+					        				<button type="submit" value="singlePupil" name="addRecipient" class="btn">Ausgewählte Schüler hinzufügen</button>
+					        			</td></tr>
+					        		</then></if>
+					        	</table>
+				        	
+				        	</then></if>
+				        </div>
+				        
+				        <if($canContactAnyParents)><then>
+				        <div class="tab-pane" id="eltern">
+				        		<table class="table table-striped">
+
+					        		
+					        		<if($selectOptionsWholeGradesParents != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Eltern der ganzen Klasse</td>
+					        				<td>
+											$selectOptionsWholeGradesParents
+											
+					        				<button type="submit" value="wholeGradeParents" name="addRecipient" class="btn">Ausgewählte Eltern der Klasse hinzufügen</button>
+					        	
+					        				
+					        			</td></tr>
+					        		</then></if>
+					        		
+					        		
+					        		<if($selectOptionsParents != "")><then>
+					        			<tr>
+					        				<td style="width:20%">Einzelne Eltern</td>
+					        				<td><select name="singleParentsSaveStrings[]" multiple="multiple" id="singleParents" style="width:100%">$selectOptionsParents</select>
+					        				<script>$('#singleParents').select2({placeholder: "Eltern suchen ..."});</script>
+					        				<button type="submit" value="singleParents" name="addRecipient" class="btn">Ausgewählte Eltern hinzufügen</button>
+					        				<small>Eltern, die nicht auswählbar sind, sind nicht im Portal registriert.</small>
+					        			</td></tr>
+					        		</then></if>
+					        	</table>
+				        	
+				       	</div>
+				        </then></if>
+				        
+				        <if($canContactAnyVerwaltung)><then>
+				        <div class="tab-pane" id="verwaltung">
+				        	<table class="table table-striped">
+				        		<if($personalrat)><then>
+					        		<tr>
+					        			<td><button type="submit" value="pr" name="addRecipient" class="btn">Personalrat</button></td>
+					        		</tr>
+					        	</then></if>
+					        	<if($verwaltung)><then>
+					        		<tr>
+					        			<td><button type="submit" value="vw" name="addRecipient" class="btn">Verwaltung</button></td>
+					        		</tr>
+					        	</then></if>
+					        	<if($hausmeister)><then>
+					        		<tr>
+					        			<td><button type="submit" value="hm" name="addRecipient" class="btn">Hausmeister</button></td>
+					        		</tr>
+					        	</then></if>
+				        	</table>
+				        </div>
+				        </then></if>
+				        
+				        <!-- <div class="tab-pane" id="andere">
+				        	Andere
+				        </div> -->
+				    </div>
+				</div>
+		      </div>
+		      </div>
+		     </div>
+		    </div>
+		    
+		    <if($isReply)><then>
+			
+		<div class="modal fade" id="replyMessage" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    <div class="modal-header">	    
+		    	<h4 class="modal-title"><i class="fa fa-commenting-o"></i> Ursprüngliche Nachricht</h4>
+		      </div>
+		      <div class="modal-body">
+				Absender: {$replyMessage->getSender()->getDisplayName()}<br />
+				Betreff: {$replyMessage->getSubject()}<br /><br />
+				{$replyMessage->getText()}
+		      </div>
+		      </div>
+		     </div>
+		    </div>
+		    
+		    </then></if>
+		    
+		    
+		    <script>
+		       $({
+		    	   function() {
+		    		   $("[id$=recipient]").popover({ trigger: "hover focus" });
+		    	   }
+		       });
+		    		
+		    
+		    </script>
+		    

@@ -1,0 +1,55 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-info-circle"></i> Status</h3>
+	</div>
+	<div class="box-body">
+		Die fehlenden Einträge werden im Hintergrund ermittelt.
+		
+		<br /><br />
+		<b>Ermittelte fehlende Einträge in Summe:</b><br />
+		{$summe}
+		
+		<br />
+		<b>Bis zu diesem Datum sind die fehlenden Einträge ermittelt:</b><br />
+		{$datumErmittelt}
+	
+	</div>
+</div>
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-calendar"></i> Datumsgrenze</h3>
+	</div>
+	<div class="box-body">
+	
+		<if($saved)><then>
+	
+		<div class="callout callout-success"><i class="fa fa-check"></i> Gespeichert</div>
+		
+		</then></if>
+	
+		Hier können Sie ein Datum angeben, ab welchem neu ermittelt wird, welche Einträge fehlen.<br />
+		Beispiel: Geben Sie hier das Datum 12.03.2018 an, werden alle Mahnungen (nicht Klassentagebucheinträge) vor dem 12.03.2018 gelöscht und nur Einträge ab dem 12.03.2018 angemahnt.
+		
+		<form action="$selfURL&mode=resetStartDate" method="post">
+			<input type="text" name="newStartDate" class="form-control" id="newStartDate" value="$today">
+			<button type="submit" class="btn btn-primary"><i class="fa fa-refresh"></i> Startdatum der Mahnungen neu setzen</button>		
+		</form>
+	
+	</div>
+</div>
+
+
+<script>
+  $(function() {
+    $("#newStartDate").datepicker({
+      format: 'dd.mm.yyyy',
+          language: "de",
+          autoclose: true,
+          showButtonPanel: true
+      });
+  });
+
+</script>

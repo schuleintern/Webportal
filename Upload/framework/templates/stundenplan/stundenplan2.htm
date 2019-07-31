@@ -1,0 +1,137 @@
+{$this->header}
+
+<style>
+.datepicker{z-index:1151 !important;}
+</style>
+
+
+    <script src="cssjs/plugins/fullcalendar/fullcalendar.js"></script>
+    <script src="cssjs/plugins/fullcalendar/de.js"></script>
+
+  <script>
+ 
+  
+
+  $(document).ready(function() {
+
+
+    $('#schulkalender').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'agendaWeek,agendaDay'
+      },
+      
+      defaultDate: '$today',
+      defaultView: 'agendaWeek',
+            
+      minTime: "06:00:00",
+      maxTime: "18:00:00",
+      
+      slotDuration: '00:15:00',
+		
+      
+      eventRender: function(event, element) {
+    	  
+    	  if(event.isfrei) {
+    			element.find(".fc-title").html(
+    					
+      					"<b>" + event.stunde + ". Stunde</b> (" + event.beginStunde + " - " + event.endeStunde + ")<br />frei"
+      				
+      				);
+    	  }
+    	  else {
+  			element.find(".fc-title").html(
+					
+  					"<b>" + event.stunde + ". Stunde</b> (" + event.beginStunde + " - " + event.endeStunde + ")<br />" + event.subject
+  				
+  				);
+
+    	  }
+    	  
+
+    	  
+      },
+
+      nowIndicator: true,
+      selectable: false,
+	  weekends: false,
+			eventAfterAllRender: function(view) {
+				$("#isloading").hide();
+			},
+			loading: function(isLoading,view) {
+				if(isLoading) $("#isloading").show();
+			},
+			eventDurationEditable: false,
+			eventStartEditable: false,
+
+		      editable: false,
+		      eventLimit: false,
+			  events: 'index.php?page=stundenplan2&action=getJSONData&planType={$planType}&planData={$planData}'
+
+    });
+
+  });
+
+
+</script>
+<style>
+
+  .fc-time {
+      display:none;
+  }
+
+</style>
+
+<div class="box">
+  <div class="box-header"><h3 class="box-title">{$this->title}</h3><br />
+  <form><button type="button" class="btn" onclick="javascript:window.location.href='index.php?page=<expression>$_REQUEST['page']</expression>&mode=print&kalenderID={$_REQUEST['kalenderID']}'"><i class="fa fa-file-pdf-o"></i> PDF Druckversion</button></form></div>
+  <div class="box-body">
+  
+  <div id="schulkalender"></div>
+  
+  </div>
+  	<div class="overlay" id="isloading">
+		<i class="fa fa-refresh fa-spin"></i>
+	</div>
+</div>
+
+
+  <div class="modal fade" id="anzeigen" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+        <h4 class="modal-title" id="eventTitle">Details</h4>
+		<div id="kategorieName"></div>
+        </div>
+        <div class="modal-body">
+          <div id="kommentar"></div>
+          <div id="ort"></div>
+          <div id="showevent"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+
+  <script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+  function uhrzeitChanged()
+  {
+      if($('#isganzertag').iCheck('update')[0].checked) {
+          $("#uhrzeit2").show();
+          $("#uhrzeit").hide();
+      }
+      else {
+        $("#uhrzeit").show();
+          $("#uhrzeit2").hide();
+      }
+  }
+  
+</script>
+
+  {$this->footer}

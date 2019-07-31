@@ -1,0 +1,28 @@
+		<form action="index.php?page=infomessages&doSend=1" method="post">
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title"><i class="fa fa-envelope"></i> Nachricht senden<br /><small>(Nur als Nachrichten Admin möglich)</small></h3>
+            </div>
+            <div class="box-body no-padding">
+				<table class="table table-condensed">
+					<tr>
+						<td width="10%"><b>An:</b></td>
+						<td>$selectRecipients</td>
+					</tr>
+					<tr>
+						<td><b>Betreff:</b></td>
+						<td><input type="text" name="messageSubject" class="form-control"></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<textarea class="textarea" name="messageBody" placeholder="Nachricht" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="Nachricht absenden (Vorher überprüfen! Kann nicht rückgängig gemacht werden! Dauert etwas!)" class="form-control"></td>
+						</tr>
+				</table>
+			</div>
+		</div>
+		</form>
+		<br /><br />

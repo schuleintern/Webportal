@@ -1,0 +1,515 @@
+{$this->header}
+
+<script>
+     var time = new Date().getTime();
+     $(document.body).bind("mousemove keypress", function(e) {
+         time = new Date().getTime();
+     });
+
+     function refresh() {
+         if(new Date().getTime() - time >= 60000)
+        	 if($('.modal.in').length == 0) {
+        		 window.location.href='index.php?page=absenzensekretariat&activeKlasse={$_GET['activeKlasse']}&currentDate=$currentDate';
+        	 }
+        	 else {
+        		 setTimeout(refresh, 10000);
+        	 }
+         else {
+        	 setTimeout(refresh, 10000);
+         }
+     }
+     
+     setTimeout(refresh, 10000);
+</script>
+
+<style>
+.datepicker{z-index:1151 !important;}
+</style>
+
+<style>
+.timepicker{z-index:1151 !important;}
+</style>
+
+<if($currentDate != DateFunctions::getTodayAsNaturalDate())><then>
+	<div class="alert alert-error alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <font size="+4"><i class="fa fa-warning"></i> Es ist nicht der heutige Tag ausgewählt!</font>
+     </div>
+</then></if>
+
+<if($hasOffene)><then>
+	<div class="alert alert-error alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <i class="icon fa fa-warning"></i> Es liegen ungeklärte Absenzen vor!
+     </div>
+</then></if>
+
+<if($hasKrankmeldungen)><then>
+	<div class="callout callout-info">
+      <a href="#" data-toggle="modal" data-target="#krankmeldungen"><i class="icon fa fa-warning"></i> Es liegen Online - Krankmeldungen vor, die noch nicht bearbeitet wurden. Hier klicken, um die Krankmeldungen zu bearbeiten.</a>
+     </div>
+</then></if>
+
+
+<if($hasBeurlaubungen)><then>
+	<div class="callout callout-info">
+      <a href="#" data-toggle="modal" data-target="#beurlaubungen"><i class="icon fa fa-warning"></i> Es liegen Online - Beurlaubungen vor, die noch nicht bearbeitet wurden. Hier klicken, um die Beurlaubungen zu bearbeiten.</a>
+     </div>
+</then></if>
+
+<form action="index.php?page=absenzensekretariat&activeKlasse={$_GET['activeKlasse']}&currentDate={$currentDate}&changeDate=1" method="post">
+<div class="row">
+	<div class="col-md-12">
+		<div class="box">
+			<div class="box-body">
+				<table class="table">
+					<tr>
+						<td width="20%">
+							<button type="submit" name="dayBack" value="1" class="form-control"><i class="fa fa-arrow-left"></i> Tag zurück</button>
+						</td>
+						<td>
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+								<input type="text" class="form-control" id="dayDate" value="$dayName, {$currentDate}" name="dayDate" onchange="submit()">
+							</div>		
+						</td>
+						<if($currentDate != DateFunctions::getTodayAsNaturalDate())><then>
+							<td width="20%"><button class="form-control" name="toToday" value="1" type="submit" ><i class="fa fa-arrow-up"></i> Zu heute springen</button></td>
+						</then>
+						</if>
+						<td width="20%">
+							<button class="form-control" name="dayForward" value="1" type="submit">Tag weiter <i class="fa fa-arrow-right"></i></button>
+						</td>
+						<td width="13%" style="text-align: right">
+							<if($currentDate == DateFunctions::getTodayAsNaturalDate())><then>
+							<button class="btn btn-danger" type="button" onclick="window.location.href='index.php?page=absenzenberichte&mode=dayStatus&date=$currentDateSQL'"><i class="fa fa-fire-extinguisher"></i> Notfall Liste</button>
+							<button class="btn" type="button" onclick="window.location.href='index.php?page=absenzenberichte&mode=dayStatusOnlyAbsent&date=$currentDateSQL'"><i class="fa fa-print"></i> Absenzenliste</button>
+							
+							</then></if>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+
+<if(Ferien::isFerien($currentDateSQL))><then>
+	<div class="callout callout-success"><i class="fa fa-sun-o"></i> Gewähltes Datum sind Ferien</div>
+</then></if>
+
+<if($activeKlasse != null && !$activeKlasse->isAnwesend($currentDate))><then>
+	<div class="callout callout-info"><i class="fa fa-info"></i> Klasse ist nicht anwesend.</div>
+</then></if>
+
+
+
+<div class="row">
+	<!-- Klassen -->
+	<div class="col-md-3">
+		<div class="box">
+			<div class="box-body">
+				<form action="index.php?page=absenzensekretariat&mode=selectSchueler&currentDate=$currentDate&activeKlasse={$_GET['activeKlasse']}&doSearch=1" method="post" id="searchuserform">
+					<div class="input-group">
+		                <div class="input-group-btn">
+		                  <button type="button" class="btn"><i class="fa fa-search"></i></button>
+		                </div>
+		                <input type="hidden" name="schuelerAsvID" value="" id="schuelerAsvID">
+						<input type="text" name="pupilName" value="" id="schuelerAutocomplete"  class="form-control" placeholder="Nach Schüler suchen ...">
+					</div>
+				</form>
+				
+				<script>
+				$(function() {
+					 
+				    $("#schuelerAutocomplete").autocomplete({
+				        source: "index.php?page=absenzensekretariat&mode=autocompletenameajax",
+				        minLength: 2,
+				        select: function(event, ui) {
+				            var id = ui.item.id;
+				            var display = ui.item.label;
+				            $("#schuelerAsvID").val(id);
+				            $("#searchuserform").submit();
+				            return false;
+				            
+				        },
+				        
+				        open: function(event, ui) {
+				            $(".ui-autocomplete").css("z-index", 999999);
+				        }
+				    });
+				 
+				});
+				
+				</script>
+			</div>
+		</div>
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-users"></i> Klassen (<a href="index.php?page=absenzensekretariat&currentDate=$currentDate">Alle Klassen anzeigen</a>)</h3>
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+					$klassenListeHTML
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<if($_GET['activeKlasse'] != "")>
+		<then>
+			<!-- Schüler -->
+			<div class="col-md-3">
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title"><i class="fa fa-user"></i> Schüler $viewKlasse</h3><br /><small>Für Krankmeldung und Weiteres auf den Schülernamen klicken</small>
+					</div>
+					<div class="box-body">
+						<table class="table table-striped">
+							$schuelerListeHTML
+						</table>
+					</div>
+				</div>
+			</div>
+		</then>
+	</if>
+	
+	
+	<!-- Krankmeldungen -->
+		<if($_GET['activeKlasse'] != "")>
+		<then>
+			<div class="col-md-6">
+		</then>
+		<else>
+			<div class="col-md-9">
+				<div class="callout callout-info">Keine Klasse ausgewählt. Es werden alle Absenzen der Schule angezeigt.</div>
+		</else>
+		</if>
+		<if($sanizimmerHTML != "")>
+			<then>
+				<div class="box box-danger">
+					<div class="box-header">
+						<h3 class="box-title"><i class="fa fa-bed"></i> Sanizimmer</h3>
+					</div>
+					<div class="box-body">
+						<table class="table table-striped">
+							<tr>
+								<th>Schueler</th>
+								<th>Seit / Grund</th>
+								<th>Bearbeiter</th>
+							</tr>
+							$sanizimmerHTML
+						</table>
+					</div>
+				</div>
+			</then>
+		</if>
+	
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-bed"></i> Absenzen $viewKlasse</h3>
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+					<tr>
+						<th>Klasse</th>
+						<th>Name</th>
+						$tabellenStunden
+						<th>Absent bis</th>
+					</tr>
+					
+					<if($krankmeldungenHTML == "")><then><tr><td colspan="4"><i>Keine Absenzen vorhanden</i></then>
+					<else>$krankmeldungenHTML</else></if>
+				</table>
+			</div>
+		</div>
+		
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-clock-o"></i> Verspätungen $viewKlasse</h3>
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+					<tr>
+						<th>Klasse</th>
+						<th>Name</th>
+						<th>Minuten</th>
+						<th>&nbsp;</th>
+					</tr>
+					<if($verspaetungHTML == "")><then><tr><td colspan="3"><i>Keine Verspätungen vorhanden</i></then>
+					<else>$verspaetungHTML</else></if>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+$dialogHTML
+
+<if($hasKrankmeldungen)>
+	<then>
+		<div class="modal fade" id="krankmeldungen" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document" style="width:70%" >
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Noch nicht verarbeitete Online Krankmeldungen</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form action="index.php?page=absenzensekretariat&currentDate={$currentDate}&mode=processKrankmeldungen&activeKlasse={$_GET['activeKlasse']}" method="post">
+				<table class="table table-striped">
+					<tr>
+						<th>Schüler</th>
+						<th>Krank ab</th>
+						<th>Krank bis</th>
+						<th>Gemeldet von</th>
+						<th>Kommentar</th>
+						<th>Uhrzeit</th>
+						<th>Aktion</th>
+					</tr>
+					$krankmeldungHTML
+				</table>
+				<button type="submit" class="form-control"><i class="fa fa-add"></i> Krankmeldungen verarbeiten</button>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+			
+	</then>
+</if>
+
+<if($hasBeurlaubungen)>
+	<then>
+		<div class="modal fade" id="beurlaubungen" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document" style="width:70%" >
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Genehmigte, noch nicht bearbeitete Online - Beurlaubungen</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form action="index.php?page=absenzensekretariat&currentDate={$currentDate}&mode=processBeurlaubungen&activeKlasse={$_GET['activeKlasse']}" method="post">
+				<table class="table table-striped">
+					<tr>
+						<th>Schüler</th>
+						<th>Von</th>
+						<th>Bis</th>
+						<th>Kommentar</th>
+					</tr>
+					$beurlaubungenHTML
+				</table>
+				<button type="submit" class="form-control"><i class="fa fa-add"></i> Beurlaubungen verarbeiten</button>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+			
+	</then>
+</if>
+
+
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+$(document).ready(function(){
+		$("#dayDate").datepicker({
+			format: 'DD, dd.mm.yyyy',
+	        language: "de",
+	        autoclose: true,
+	        showButtonPanel: true
+	        
+	    });
+});
+	
+	$(function () {
+		  $(".select2").select2();
+		});
+	
+	
+</script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+<if($_GET['openSchueler'] != "")><then>
+
+
+<script>
+  $(document).ready(function() {
+	  $('#modal{$_GET['openSchueler']}').modal('show');
+  });
+</script>
+
+<script>
+       
+</script>
+</then></if>
+
+<if($_GET['openAbsenz'] != "")><then>
+<script type="text/javascript">
+$(document).ready(function() {
+        $('#modaledit{$_GET['openAbsenz']}').modal('show');
+    });
+</script>
+</then></if>
+
+<if($_GET['openPrintBefreiung'] > 0)><then>
+<script type="text/javascript">
+$(document).ready(function() {
+        $('#printbefreiung').modal('show');
+        window.location.href='index.php?page=absenzensekretariat&activeKlasse={$_GET['activeKlasse']}&currentDate=$currentDate';
+    });
+</script>
+
+		<div class="modal fade" id="printbefreiung" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document" style="width:20%" >
+		    <div class="modal-content">
+		      <iframe src="index.php?page=absenzensekretariat&mode=printBefreiung&absenzID={$_GET['openPrintBefreiung']}&printRettungsDienst={$_GET['printRettungsDienst']}" width="100%"></iframe>
+		    
+		        <div class="modal-footer">
+			      <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+
+</then></if>
+
+<script>
+
+function selectVormittag(id, max) {
+	for (i = 1; i <= 6; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+	
+	for (i = 7; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+}
+
+function selectNachmittag(id, max) {
+	for (i = 1; i <= 6; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+	
+	for (i = 7; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+}
+
+function bisJetzt(id, max) {
+	for (i = 1; i <= {$currentStunde}; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+	
+	for (i = <expression>($currentStunde+1)</expression>; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+}
+
+function abJetzt(id, max) {
+	for (i = 1; i <= {$currentStunde}; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+	
+	for (i = <expression>($currentStunde+1)</expression>; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+}
+
+function selectNothing(id, max) {
+	for (i = 1; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+}
+
+function selectAll(id, max) {
+	for (i = 1; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+}
+
+$(function() {
+
+    $('input[name="bu_zeit"]').daterangepicker({
+    	format: 'DD.MM.YYYY',
+    	"separator": " bis ",
+        "locale": {            
+            "applyLabel": "OK",
+            "cancelLabel": "Abbrechen",
+            "fromLabel": "Von",
+            "toLabel": "Bis",
+            "customRangeLabel": "Benutzerdefiniert",
+            "daysOfWeek": [
+                "So",
+                "Mo",
+                "Di",
+                "Mi",
+                "Do",
+                "Fr",
+                "Sa"
+            ],
+            "monthNames": [
+                "Januar",
+                "Februar",
+                "März",
+                "April",
+                "Mai",
+                "Juni",
+                "Juli",
+                "August",
+                "September",
+                "Oktober",
+                "November",
+                "Dezember"
+            ],
+            "firstDay": 1
+        }
+    });
+});
+
+
+$(document).ready(function () {
+    var small={width: "50px" };
+    var large={width: "300px" };
+    var count=1; 
+    $(".imgzoom").css(small).on('click',function () { 
+        $(this).animate((count==1)?large:small);
+        count = 1-count;
+    });
+});
+
+$(document).ready(function () {
+    var small={width: "100px" };
+    var large={width: "300px" };
+    var count=1; 
+    $(".imgzoom2").css(small).on('click',function () { 
+        $(this).animate((count==1)?large:small);
+        count = 1-count;
+    });
+});
+
+</script>
+
+<div class="box">
+	<div class="box-body">
+		<small class="label label-success"><i class="fa fa-pencil"></i><i class="fa fa-check"></i></small>: Schriftlich entschuldigt <br />
+		<small class="label label-warning"><i class="fa fa-pencil"></i><i class="fa fa-ban"></i></small>: Nicht schriftlich entschuldigt
+	</div>
+</div>
+
+
+{$this->footer}

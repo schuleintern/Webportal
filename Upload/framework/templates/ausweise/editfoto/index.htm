@@ -1,0 +1,91 @@
+{$this->header}
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-picture"></i> Bild bearbeiten</h3>
+	</div>
+	<div class="box-body">
+	
+	<div class="row">
+		<div class="col-md-6">
+		
+			<h3><i class="fa fa-edit"></i> Bild anpassen</h3>
+		
+			<p>Bringen Sie bitte das Gesicht in den Rahmen.</p>
+			
+			<form action="index.php?page=Ausweis&action=myAusweise&type=$type&mode=editFoto&modeAction=saveEditedFoto&ausweisID={$myAusweise[$a]->getID()}" method="post">
+				
+	
+			<input type="hidden" name="fotoBase64" id="fotobase64">
+	
+	
+			<div id="main-cropper"></div>
+			
+			<button class="btn" data-deg="90" id="rotateButton" type="button" >90° nach gegen den Uhrzeigersinn drehen</button><br /><br />
+			
+			<button class="btn btn-primary" id="saveButton" type="submit"><i class="fa fa-save"></i> Bild speichern</button>
+			
+			</form>
+			
+			<script>
+				var croppieItem = $('#main-cropper').croppie({
+				    viewport: { width: 200, height: 300 },
+				    boundary: { width: 500, height: 500 },
+				    showZoomer: false,
+				    enableExif: true,
+				    showZoomer: true,
+				    enableOrientation: true,
+				    url: '{$fotoURL}'
+				});
+				
+		        $('#rotateButton').on('click', function(ev) {
+		        	croppieItem.croppie('rotate', parseInt($(this).data('deg')));
+		        });
+			
+				
+				$('#saveButton').on('click', function(){
+					var result = $('#main-cropper').croppie('result', {
+						type: 'base64',
+						circle: false,
+		            	format: 'jpeg'
+		            }).then(function (image) {
+		            	$('#fotobase64').val(image);
+		            });
+			
+				});
+					
+					
+			</script>
+		</div>
+		
+		<div class="col-md-6">
+		
+			<h3><i class="fa fa-upload"></i> Neues Bild hochladen</h3>
+		
+			<form action="index.php?page=Ausweis&action=myAusweise&type=$type&mode=editFoto&modeAction=reupload&ausweisID={$myAusweise[$a]->getID()}" method="post" enctype="multipart/form-data">
+			
+			
+			<div class="form-group" id="selectPassfoto">
+				<label>Passfoto (Bilddatei)</label>
+				<input type="file" name="passfoto" accept="image/*">
+			</div>
+					
+			<br /><br /><br />
+			<p><button type="submit" id="beantragenbutton" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Bild ändern</button></p>
+			
+			</form>
+		
+		</div>
+	
+	</div>
+
+				
+
+	
+
+	</div>
+</div>
+
+
+{$this->footer}

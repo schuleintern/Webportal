@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Personentyp" pl_key="2091">
+  <eintrag>
+    <schluessel><![CDATA[009]]></schluessel>
+    <kurzform><![CDATA[Of]]></kurzform>
+    <anzeigeform><![CDATA[Offiziant]]></anzeigeform>
+    <langform><![CDATA[Offiziant]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[012]]></schluessel>
+    <kurzform><![CDATA[sV]]></kurzform>
+    <anzeigeform><![CDATA[sonst. Verwaltung]]></anzeigeform>
+    <langform><![CDATA[sonst. Verwaltung]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[013]]></schluessel>
+    <kurzform><![CDATA[BA]]></kurzform>
+    <anzeigeform><![CDATA[Betriebsangehöriger]]></anzeigeform>
+    <langform><![CDATA[Betriebsangehöriger]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[011]]></schluessel>
+    <kurzform><![CDATA[La]]></kurzform>
+    <anzeigeform><![CDATA[Laborant]]></anzeigeform>
+    <langform><![CDATA[Laborant]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[010]]></schluessel>
+    <kurzform><![CDATA[OfH]]></kurzform>
+    <anzeigeform><![CDATA[Offiziant Helfer]]></anzeigeform>
+    <langform><![CDATA[Offiziant Helfer]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[003]]></schluessel>
+    <kurzform><![CDATA[Mu]]></kurzform>
+    <anzeigeform><![CDATA[Mutter]]></anzeigeform>
+    <langform><![CDATA[Mutter]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=MU#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[002]]></schluessel>
+    <kurzform><![CDATA[Va]]></kurzform>
+    <anzeigeform><![CDATA[Vater]]></anzeigeform>
+    <langform><![CDATA[Vater]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=VA#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[008]]></schluessel>
+    <kurzform><![CDATA[AA]]></kurzform>
+    <anzeigeform><![CDATA[Ansprechpartner ASD]]></anzeigeform>
+    <langform><![CDATA[Ansprechpartner ASD]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[007]]></schluessel>
+    <kurzform><![CDATA[SU]]></kurzform>
+    <anzeigeform><![CDATA[Schüler außerh. Unterbr.]]></anzeigeform>
+    <langform><![CDATA[Schüler in außerhäusiger Unterbringung]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[006]]></schluessel>
+    <kurzform><![CDATA[Pf]]></kurzform>
+    <anzeigeform><![CDATA[Pflegeeltern]]></anzeigeform>
+    <langform><![CDATA[Pflegeeltern]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=PF#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[005]]></schluessel>
+    <kurzform><![CDATA[Vw]]></kurzform>
+    <anzeigeform><![CDATA[Verwandter]]></anzeigeform>
+    <langform><![CDATA[Verwandter]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=VW#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[004]]></schluessel>
+    <kurzform><![CDATA[Vo]]></kurzform>
+    <anzeigeform><![CDATA[Vormund]]></anzeigeform>
+    <langform><![CDATA[Vormund]]></langform>
+    <bemerkung><![CDATA[#kuerzel_alt=VO#]]></bemerkung>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[001]]></schluessel>
+    <kurzform><![CDATA[Sekr]]></kurzform>
+    <anzeigeform><![CDATA[Sekretariatskraft]]></anzeigeform>
+    <langform><![CDATA[Sekretariatskraft]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+  </eintrag>
+</werteliste>

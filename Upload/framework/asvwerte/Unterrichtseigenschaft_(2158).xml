@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<werteliste bezeichnung="Unterrichtseigenschaft" pl_key="2158">
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[29]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KRS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schule für Kranke]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[02]]></schluessel>
+    <kurzform><![CDATA[MA_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[03]]></schluessel>
+    <kurzform><![CDATA[NMD]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[29]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KRS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schule für Kranke]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[29]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KRS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schule für Kranke]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[01]]></schluessel>
+    <kurzform><![CDATA[MD_]]></kurzform>
+    <anzeigeform><![CDATA[mutterspr. (dt.)]]></anzeigeform>
+    <langform><![CDATA[muttersprachlicher Unterricht (deutsch)]]></langform>
+    <bemerkung><![CDATA[KDS 3.8]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[29]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KRS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schule für Kranke]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[05]]></schluessel>
+    <kurzform><![CDATA[BEN]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-engl.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-englisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[29]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KRS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schule für Kranke]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[04]]></schluessel>
+    <kurzform><![CDATA[NMA]]></kurzform>
+    <anzeigeform><![CDATA[nicht mutterspr. (nicht dt.)]]></anzeigeform>
+    <langform><![CDATA[nicht muttersprachlicher Unterricht (nicht deutsch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[29]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KRS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schule für Kranke]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[07]]></schluessel>
+    <kurzform><![CDATA[BSO]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (sonst.)]]></anzeigeform>
+    <langform><![CDATA[sonstiger bilingualer Unterricht]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[25]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GYF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[06]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[OS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schulartunabh.Orient.-Stufe]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[05]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[IGS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Integrierte Gesamtschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[07]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FWS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Freie Waldorfschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[01]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GMS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Grundsch.sow.Mittelschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[03]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[ARS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendrealschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[12]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AGY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Abendgymnasium]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[13]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KOL]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Kolleg]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[40]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[26]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[WSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Wirtschaftsschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[08]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[AIS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Ausl. und int. Schulen]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[21]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[FZ]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Förderzentrum]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[29]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[KRS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Schule für Kranke]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[02]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RS]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[22]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[RSF]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Realschule z. sp. F.]]></schulart_anzeigeform>
+  </eintrag>
+  <eintrag>
+    <schluessel><![CDATA[06]]></schluessel>
+    <kurzform><![CDATA[BFR]]></kurzform>
+    <anzeigeform><![CDATA[bilingual (dt.-franz.)]]></anzeigeform>
+    <langform><![CDATA[bilingualer Unterricht (deutsch-französisch)]]></langform>
+    <bemerkung><![CDATA[]]></bemerkung>
+    <schulart_schluessel><![CDATA[04]]></schulart_schluessel>
+    <schulart_kurzform><![CDATA[GY]]></schulart_kurzform>
+    <schulart_anzeigeform><![CDATA[Gymnasium]]></schulart_anzeigeform>
+  </eintrag>
+</werteliste>

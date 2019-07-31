@@ -1,0 +1,69 @@
+
+<div class="callout callout-danger">
+	<b>Bitte gehen Sie mit Änderungen auf dieser Seite sehr vorsichtig um! Am besten immer Rücksprache mit Hr. Spitschka (info@spitschka.com) halten!</b>
+</div>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-refresh"></i> Synchronisation mit lokalen Verzeichnissen (z.B. Active Directory, Novell eDirectory)</h3>
+		<br />Die Synchronisation erfolgt ca. stündlich.
+	</div>
+	<div class="box-body">
+		<table class="table table-striped">
+			<tr>
+				<th>SyncName</th>
+				<th>Login Domäne</th>
+				<th>Passwort</th>
+				<th>URL des Sync Servers in der Schule</th>
+				<th>Ist aktiv</th>
+				<th>Letzte Synchronisation</th>
+				<th>Ergebnis der letzten Synchronisation</th>
+				<th>Optionen</th>
+			</tr>
+			$syncHTML
+		</table>
+	</div>
+</div>
+
+
+<form action="{$selfURL}&action=addUserSync" method="post">
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-refresh"></i> Synchronisation hinzufügen</h3>
+		<br />Beachten Sie, dass es nicht ausreicht hier einen Sync anzulegen. Es muss zusätzlich noch ein lokaler Server eingerichtet werden. Kontaktieren Sie mich dazu bitte: info@spitschka.com
+	</div>
+	<div class="box-body">
+		<table class="table table-striped">
+			<tr>
+				<td width="20%">SyncName</td>
+				<td><input type="text" name="syncName" class="form-control"></td>
+			</tr>
+			<tr>
+				<td>Login Domäne<br ><small>Die Login Domäne muss von einem Benutzer nach dem Benutzernamen mit @DOMAIN angegeben werden.</small></td>
+				<td><input type="text" name="syncLoginDomain" class="form-control"><br /><small>Bitte ohne das '@' angeben!</small></td>
+			</tr>
+			<tr>
+				<td>Sync Passwort</td>
+				<td><input type="text" name="syncSecret" class="form-control"></td>
+			</tr>
+			<tr>
+				<td>URL zum SyncServer</td>
+				<td><input type="text" name="syncURL" class="form-control"></td>
+			</tr>
+			<tr>
+				<td>Verzeichnistyp</td>
+				<td><select name="syncDirType" class="form-control">
+					<option value="ACTIVEDIRECTORY">Microsoft Active Directory</option>
+					<option value="EDIRECTORY">Novell eDirectory</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Sync aktiv</td>
+				<td><select name="syncIsActive" class="form-control"><option value="1">Ja</option><option value="0" selected="selected">Nein</option></select></td>
+			</tr>
+		</table>
+		<input type="submit" value="Sync anlegen" class="form-control">
+	</div>
+</div>
+</form>

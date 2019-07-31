@@ -1,0 +1,156 @@
+{$this->header}
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-bed"></i> Meine Beurlaubungsanträge</h3>
+		<form><button type="button" class="btn btn-success" data-toggle="modal" data-target="#antrag"><i class="fa fa-plus"></i> Neuen Beurlaubungsantrag stellen</button></form>
+	</div>
+	<div class="box-body no-padding">
+		<table class="table table-striped">
+			<tr>
+				<th>Schüler</th>
+				<th>Datum</th>
+				<th>Stunden</th>
+				<th>Begründung</th>
+				<th>Genehmigung Klassenleitung</th>
+				<th>Genehmigung Schulleitung</th>
+				<th>Status</th>
+			</tr>
+			<if($meineHTML == "")><then>
+				<tr>
+					<td colspan="7" style="text-align:center"><i class="fa fa-ban"></i> Bisher kein Beurlaubungsantrag</td>
+				</tr>
+			</then>
+			<else>
+				$meineHTML
+			</else>
+			</if>
+			
+		</table>
+	
+	</div>
+</div>
+
+
+<form action="index.php?page=beurlaubungantrag&mode=addBeurlaubung" method="post">
+<div class="modal fade"id="antrag" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="width:70%" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Neuen Beurlaubungsantrag</h4>
+      </div>
+      <div class="modal-body">
+      	<table class="table table-striped">
+      		<tr>
+      			<td>Schüler</td>
+      			<td>
+      				<select name="schuelerAsvID" class="form-control">
+      					$selectOptionsSchueler
+      				</select>
+      				<small><expression>sizeof($this->schueler)</expression> zur Auswahl.</small>
+      			</td>
+      		</tr>
+      		<tr>
+      			<td>Datum</td>
+      			<td><input type="text" name="bu_zeit" class="form-control" value="$currentDate bis $currentDate"></td>
+      		</tr>
+      		<tr>
+      			<td>Stunden</td>
+      			<td>$stundenauswahl</td>
+      		</tr>
+      		<tr>
+      			<td>Begründung</td>
+      			<td><textarea name="begruendung" class="form-control" rows="5"></textarea></td>
+      		</tr>
+      	</table> 
+      	<button type="submit" class="form-control"><i class="fa fa-save"></i> Beurlaubungsantrag online stellen</button>    
+      </div>
+    </div>
+ </div>
+</div>
+
+</form>
+
+<script>
+
+
+function selectVormittag(id, max) {
+	for (i = 1; i <= 6; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+	
+	for (i = 7; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+}
+
+function selectNachmittag(id, max) {
+	for (i = 1; i <= 6; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+	
+	for (i = 7; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+}
+
+function selectNothing(id, max) {
+	for (i = 1; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+}
+
+function selectAll(id, max) {
+	for (i = 1; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+}
+
+$(function() {
+	
+	
+	
+	
+
+    $('input[name="bu_zeit"]').daterangepicker({
+    	format: 'DD.MM.YYYY',
+    	"separator": " bis ",
+        "locale": {            
+            "applyLabel": "OK",
+            "cancelLabel": "Abbrechen",
+            "fromLabel": "Von",
+            "toLabel": "Bis",
+            "customRangeLabel": "Benutzerdefiniert",
+            "daysOfWeek": [
+                "So",
+                "Mo",
+                "Di",
+                "Mi",
+                "Do",
+                "Fr",
+                "Sa"
+            ],
+            "monthNames": [
+                "Januar",
+                "Februar",
+                "März",
+                "April",
+                "Mai",
+                "Juni",
+                "Juli",
+                "August",
+                "September",
+                "Oktober",
+                "November",
+                "Dezember"
+            ],
+            "firstDay": 1
+        }
+    });
+});
+
+
+</script>
+
+{$this->footer}

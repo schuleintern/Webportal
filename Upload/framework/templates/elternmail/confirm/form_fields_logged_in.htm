@@ -1,0 +1,22 @@
+{$this->header}
+
+
+      $message
+      
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-question"></i> Bitte beantworten Sie folgende Fragen:</h3><br />
+			</div>
+			<div class="box-body">
+		
+		<form action="index.php?page=confirmelternmail&mailID={$mail['mailID']}&a={$_GET['a']}&save=1" method="post">
+		
+		$formFieldsHTML
+		
+		<button type="submit" value="" class="form-control"><i class="fa fa-save"></i> Empfang bestätigen und Daten übermitteln</button>	
+		</form>
+		
+		</div>
+
+</div>
+{$this->footer}

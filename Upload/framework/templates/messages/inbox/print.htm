@@ -1,0 +1,84 @@
+
+				
+
+                <h3>{$message->getSubject()}</h3>
+                
+                <table width="100%" border="1" cellpadding="3" cellspacing="0">
+                
+                	 <tr>
+                		<td style="width:20%"><b>Benutzer:</b></td>
+                		<td style="width:80%"><expression>DB::getSession()->getUser()->getDisplayName()</expression></td>
+                	</tr>
+               		 <tr>
+                		<td style="width:20%"><b>Absender:</b></td>
+                		<td style="width:80%"><if($message->getSender() != null)><then>{$message->getSender()->getDisplayName()}</then><else><i>Unbekannter Absender</i></else></if>
+                		</td>
+                	</tr>
+                
+                
+                	<tr>
+                		<td style="width:20%"><b>Empfänger</b></td>
+                		<td style="width:80%">$allRecipientsWithConfirmationStatus</td>
+                	</tr>
+                	<tr>
+                		<td style="width:20%"><b>Kopieempfänger:</b></td>
+                		<td style="width:80%">$allRecipientsWithConfirmationStatusCC</td>
+                	</tr>
+                	
+               	<if($message->needConfirmation() && $message->getSender() != null && $message->getSender()->getUserID() == DB::getSession()->getUser()->getUserID() && $message->getFolder() == 'GESENDETE')>
+                	<then>
+                		<tr>
+                		<td style="width:20%"><b>Verdeckte Kopieempfänger:</b></td>
+                		<td style="width:80%">$allRecipientsWithConfirmationStatusBCC</td>
+                		</tr>
+                	</then>
+                	<else>
+                		<if($allBCCRecipients != "")><then>
+                			<tr>
+                				<td colspan="2"><i>Hinweis: Die Nachricht hat verdeckte Kopieempfänger.</i></td>
+                			</tr>
+                		</then></if>
+                	</else>
+                </if>
+                <tr>
+                	<td><b>Datum:</b></td>
+                	<td><expression>functions::makeDateFromTimestamp($message->getTime())</expression></td>
+               	</tr>
+                
+                
+                </table>
+                
+              <!-- /.mailbox-read-info -->
+              
+                   <if($message->needConfirmation() && $message->getFolder() != 'GESENDETE')>
+                   	<then>
+                   		<br />
+	             	 	<if($message->isConfirmed())><then><p>Der Empfang der Nachricht wurde bestätigt.</p></then>
+	             	 	<else><p>Der Empfang der Nachricht wurde noch nicht bestätigt.</p>
+	              		</else></if>
+	              </then>
+	              </if>
+<br /><br />
+
+            
+                {$message->getText()}
+                
+                <br /><br />
+                
+                <if($message->isReply())><then>
+                <hr>
+                <b>Antwort auf:</b><br />
+                	
+                <if($replyMessage->getSender() != null)><then>
+                	Absender: {$replyMessage->getSender()->getDisplayName()}<br />
+               	</then><else>
+               		Absender: <i>Unbekannt</i><br />
+               	</else></if>
+				Betreff: {$replyMessage->getSubject()}<br /><br />
+				{$replyMessage->getText()}
+                </then></if>
+              <br /><br />
+              <hr>
+              
+              
+				$attachmentHTML

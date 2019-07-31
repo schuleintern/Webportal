@@ -1,0 +1,91 @@
+<div class="row">
+	<div class="col-md-4">
+	<if(DB::getGlobalSettings()->stundenplanSoftware == "UNTIS")><then>
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-refresh"></i> Vertretungsplan manuell aktualisieren</h3>
+			</div>
+			<div class="box-body">
+				<if($_GET['updated'] > 0)><then>
+					<div class="callout callout-success"><i class="fa fa-check"></i> Der Vertertungsplan wurde aktualisisiert</div>
+				</then>
+				</if>
+				<form action="$selfURL&action=updateVPlan" method="post" enctype="multipart/form-data">
+					
+						In Untis:<br />
+						Export --> Vertretungen. (Erzeugt eine Datei mit dem Namen GPU014.txt).
+						<input type="file" class="form-control" accept=".txt" name="vplanFile">
+					
+				
+				<button type="submit" class="form-control"><i class="fa fa-refresh"></i> Vertretungsplan aktualisieren</button>
+				</form>
+			</div>
+		</div>
+		</then></if>
+
+	<if(DB::getGlobalSettings()->stundenplanSoftware == "TIME2007")><then>
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-refresh"></i> Vertretungsplan manuell aktualisieren</h3>
+			</div>
+			<div class="box-body">
+				<if($_GET['updated'] > 0)><then>
+					<div class="callout callout-success"><i class="fa fa-check"></i> Der Vertertungsplan wurde aktualisisiert</div>
+				</then>
+				</if>
+				<form action="$selfURL&action=updateVPlan" method="post" enctype="multipart/form-data">
+	
+				Es kann auch nur ein Plan aktualisiert werden.<br />
+	
+	
+				Schüler Datei: (Info-S.html)
+				<input type="file" class="form-control" accept=".html" name="vplanFileSchueler">
+				
+				<br />
+				Lehrer Datei: (Info-L.html)
+				<input type="file" class="form-control" accept=".html" name="vplanFileLehrer">
+					
+				
+				<button type="submit" class="form-control"><i class="fa fa-refresh"></i> Vertretungsplan aktualisieren</button>
+				</form>
+			</div>
+		</div>
+		</then></if>
+	</div>
+	
+	<div class="col-md-4">
+	$userbox
+	</div>
+	
+	<div class="col-md-4">
+	<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-television"></i> Zugriffsschlüssel für den Vertretungsplanaktuslisierungsclient</h3>
+	</div>
+	<div class="box-body">
+		Für den Vertretungsplan ist ein kleiner Client nötig, der die Aktualisierung der Vertretungsplandaten vornimmt.
+		Der Client authentifiziert sich am Portal mit einem geheimen Schlüssel. Dieses können Sie hier festlegen. ACHTUNG: Ändern Sie den Schlüssel, so müssen alle Clients ebenfalls mit einer neuen Einstellungsdatei versorgt werden.
+		<table class="table table-bordered">
+			<tr>
+				<td style="width:30%"><b>Schlüssel (API Key)</b></td>
+				<td>
+					<if($_GET['keySaved'] > 0)><then>
+						<div class="callout callout-success"><i class="fa fa-check"></i> Schlüssel aktualisiert</div>
+					</then></if>
+					<form action="$selfURL&doUpdateKey=1" method="post">
+					  <div class="input-group">
+		                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+						<input type="text" name="updateKey" value="<expression>DB::getSettings()->getValue('vplan-updateKey')</expression>" class="form-control"/>
+		              </div>
+					 <button type="submit" class="form-control"><i class="fa fa-save"></i> Schlüssel aktualisieren</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+
+
+	</div>
+
+</div>
+	</div>
+</div>

@@ -1,0 +1,227 @@
+		<if($_REQUEST['confirmSuccess'] > 0)><then>
+			<div class="callout callout-success"><i class="fa fa-check"></i> Der Empfang wurde bestätigt.</div>
+		</then></if>
+		
+		<if($_REQUEST['confirmQuestionSuccess'] > 0)><then>
+			<div class="callout callout-success"><i class="fa fa-check"></i> Der Empfang wurde bestätigt. Ihre Antworten wurden gespeichert.</div>
+		</then></if>
+		
+		<if($_REQUEST['confirmQuestionSuccessFileFail'] > 0)><then>
+			<div class="callout callout-success"><i class="fa fa-check"></i> Der Empfang wurde bestätigt. Ihre Antworten wurden gespeichert.<br /><b>Beim Speichern Ihrer Datei ist ein Fehler aufgetreten. (Vielleicht haben Sie keine Datei ausgewählt oder Sie haben einen ungültigen Dateityp ausgewählt.)</b></div>
+		</then></if>
+		
+		<if($_REQUEST['toggleQuestionConfirmation'] > 0)><then>
+		
+			<script>
+			$( document ).ready(function() {
+				$('#confirmMessage').modal('show');
+			});
+
+			
+			</script>
+			
+			
+		</then></if>
+		
+		<div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Nachricht lesen</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+
+              <div class="mailbox-read-info">
+                <h3>{$message->getSubject()}</h3>
+                
+                <table class="table">
+                
+               		 <tr>
+                		<td style="width:10%"><b>Absender:</b></td>
+                		<td><if($message->getSender() != null)><then>
+									{$message->getSender()->getDisplayName()}
+							</then><else><i>Unbekannter Absender</i></else></if>
+                		</td>
+                	</tr>
+                
+                
+                	<tr>
+                		<td style="width:10%">
+                			<if($message->needConfirmation() && $message->getFolder() == 'GESENDETE')>
+                					<then>
+                						<b>Empfangsbestätigungen / Empfänger:</b>
+                					</then>
+                					<else>
+                						<b>Empfänger:</b>
+                					</else>
+                			</if>
+                		</td>
+                		<td>$allRecipientsWithConfirmationStatus</td>
+                	</tr>
+                	
+                	<tr>
+                		<td style="width:10%">
+                			<if($message->needConfirmation() && $message->getFolder() == 'GESENDETE')>
+                					<then>
+                						<b>Empfangsbestätigungen / Kopieempfänger:</b>
+                					</then>
+                					<else>
+                						<b>Kopieempfänger:</b>
+                					</else>
+                			</if>
+                		</td>
+                		<td>$allRecipientsWithConfirmationStatusCC</td>
+                	</tr>
+                	
+               	<if($message->needConfirmation() && $message->getSender() != null && $message->getSender()->getUserID() == DB::getSession()->getUser()->getUserID() && $message->getFolder() == 'GESENDETE')>
+                	<then>
+                		<td style="width:10%">
+                			<b>Empfangebestätigungen / Verdeckte Kopieempfänger:</b>
+                		</td>
+                		<td>$allRecipientsWithConfirmationStatusBCC</td>
+                	</then>
+                	<else>
+                		<if($allBCCRecipients != "")><then>
+                			<tr>
+                				<td colspan="2"><i>Hinweis: Die Nachricht hat verdeckte Kopieempfänger.</i></td>
+                			</tr>
+                		</then></if>
+                	</else>
+                </if>
+                
+               	<if(!$message->needConfirmation() && $message->getSender() != null && $message->getSender()->getUserID() == DB::getSession()->getUser()->getUserID() && $message->getFolder() == 'GESENDETE')>
+                	<then>
+                		<td style="width:10%">
+                			<b>Verdeckte Kopieempfänger:</b>
+                		</td>
+                		<td>$allRecipientsWithConfirmationStatusBCC</td>
+                	</then>
+                </if>
+                
+                <tr>
+                	<td><b>Datum:</b></td>
+                	<td><expression>functions::makeDateFromTimestamp($message->getTime())</expression></span></td>
+               	</tr>
+                
+                
+                </table>
+                
+                 
+                <if(MessageSendRights::canRequestReadingConfirmation() && $message->getFolder() == 'GESENDETE')><then>
+                
+                	<button type="button" onclick="window.location.href='index.php?page=MessageRead&messageID={$message->getID()}&printFehlliste=1'" class="btn btn-success btn-xs"><i class="fa fa-file-pdf-o"></i> Fehlliste herunterladen</button>
+              	 	
+              	 	<if(MessageSendRights::canAskQuestions() && $message->getFolder() == 'GESENDETE' && $message->hasQuestions())><then>
+              	 	
+              	 	<button type="button" onclick="window.location.href='index.php?page=MessageRead&messageID={$message->getID()}&printAuswertungsliste=1'" class="btn btn-success btn-xs"><i class="fa fa-file-pdf-o"></i> Auswertung der Fragen herunterladen</button>
+                
+                	</then></if>
+                
+                </then>
+                </if>
+              </div>
+              <!-- /.mailbox-read-info -->
+              <div class="mailbox-controls with-border text-center">
+              
+                   <if($message->needConfirmation() && $message->getFolder() != 'GESENDETE' && !$message->hasQuestions())><then>
+	             	 	<if($message->isConfirmed())><then><div class="callout callout-success"><i class="fa fa-check"></i> Der Empfang der Nachricht wurde bestätigt</div></then><else>
+	             	 		<button type="submit" class="btn btn-danger btn-sm" name="action" value="ConfirmMessage"><i class="fa fa-check"></i> Empfang bestätigen</button><br />
+	              		</else></if>
+	              </then>
+	              </if>
+                  <if($message->needConfirmation() && $message->getFolder() != 'GESENDETE' && $message->hasQuestions())><then>
+	              		<if($message->isConfirmed())><then>
+	              			<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#confirmMessage"><i class="fa fa-check"></i> Empfang bestätigt / Fragen beantwortet.<br /><small>Klicken Sie hier um Ihre eingegebene Daten zu ändern.</small></button>
+	              			
+	              		</then><else>
+	              			<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmMessage"><i class="fa fa-check"></i> Empfang bestätigen / Fragen beantworten</small></button>
+	              		
+	              		</else></if>
+	              	
+	              		<br /><b>Beim Bestätigen des Empfangs werden Sie gebeten Fragen zu beantworten.</b>
+	              </then>
+	              </if>
+
+                <!-- /.btn-group -->
+              </div>
+              <!-- /.mailbox-controls -->
+
+              <div class="mailbox-read-message">
+                {$message->getText()}
+                
+                <if($message->isReply())><then>
+                <div class="callout">
+                <b>Antwort auf:</b><br />
+                	
+                <if($replyMessage->getSender() != null)><then>
+                	Absender: {$replyMessage->getSender()->getDisplayName()}<br />
+               	</then><else>
+               		Absender: <i>Unbekannt</i><br />
+               	</else></if>
+				Betreff: {$replyMessage->getSubject()}<br /><br />
+				{$replyMessage->getText()}</div>
+                </then></if>
+              </div>
+              <!-- /.mailbox-read-message -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <ul class="mailbox-attachments clearfix">
+				$attachmentHTML
+              </ul>
+            </div>
+            <!-- /.box-footer -->
+            <div class="box-footer">
+              <div class="pull-right">
+              	<if($message->allowAnswer())><then>
+             	
+                	<button type="submit" class="btn btn-default" name="action" value="reply"><i class="fa fa-reply"></i> Antworten</button>
+                	
+                	<if(MessageSendRights::canReplyAll())><then>
+                	           	<button type="submit" class="btn btn-default" name="action" value="replyAll"><i class="fa fa-reply"></i> Allen Antworten</button>
+                	</then></if>
+                </then>
+                <else>
+                	<button type="button" class="btn btn-default" disabled="disabled"><i class="fa fa-reply"></i> Antworten</button><br />
+              		<small>Der Absender erlaubt nicht, dass Sie auf diese Nachricht antworten. (v.a. bei Rundmails)</small>
+                </else></if>
+              </div>
+              		<button type="submit" class="btn btn-default" name="action" value="deleteMessage"><i class="fa fa-trash-o"></i> Löschen</button>
+              		<a href="index.php?page=MessageRead&messageID={$message->getID()}&action=print" class="btn btn-default"><i class="fa fa-file-pdf-o"></i> Drucken (PDF)</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          
+          <!-- /. box -->
+          
+         <if($message->hasQuestions())><then>
+         
+         	<div class="modal fade" id="confirmMessage" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    <div class="modal-header">	    
+		    	<h4 class="modal-title"><i class="fa fa-question-circle"></i> Fragen beantworten und Empfang bestätigen</h4>
+		      </div>
+		      <div class="modal-body">
+				{$questionHtmlForm}
+				<button type="submit" name="action" value="ConfirmMessage" class="form-control"><i class="fa fa-check"></i> Daten eingeben und Empfang bestätigen</button>
+		      </div>
+		      </div>
+		     </div>
+	    </div>
+	    
+         </then></if>
+          
+          
+         {$this->dialogsConfirmationStatus}
+
+         
+         
+         <script>
+         $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+             checkboxClass: 'icheckbox_minimal-blue',
+             radioClass   : 'iradio_minimal-blue'
+           });
+           
+         
+         </script>

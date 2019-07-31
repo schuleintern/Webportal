@@ -1,0 +1,46 @@
+{$this->header}
+
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="cssjs/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src='cssjs/plugins/fullcalendar/de.js'></script>
+ 
+ <h2>{$this->title}</h2>
+ 
+ <script>
+
+	$(document).ready(function() {
+
+		$('#schulkalender').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month'
+			},
+			defaultDate: '{$now}',
+			// businessHours: true, // display business hours
+			selectable: true,
+			// selectHelper: true,
+			editable: false,
+			select: function(start, end) {
+					
+				
+				$('#calendar').fullCalendar('unselect');
+			},
+			eventLimit: true,
+			events: [
+				$data
+			]
+		});
+		
+	});
+
+</script>
+ 
+<center>
+	<div id='schulkalender' style="max-width: 900px;"></div>
+</center>
+
+
+
+{$this->footer}
+
