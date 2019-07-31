@@ -1,0 +1,62 @@
+{$this->header}
+<script>
+$(function() {
+	$("#frist").datepicker({
+		format: 'yyyy-mm-dd',
+        monthNames: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+        monthNamesShort: ['Jan','Feb','März','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
+        dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+        dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+        dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+	});
+});
+
+</script>
+
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Nachfrist für Eintragungen durch Lehrkräfte</h3>              
+            </div>
+           <div class="box-body no-padding">
+           
+           		<table class="table table-condensed">
+					<tr>
+						<th>Name</th>
+						<th>Datum</th>
+						<th>Aktionen</th>
+					</tr>
+					
+					$fristenHTML
+			</table>
+			</div>
+		</div>
+
+
+		<form action="index.php?page=beobachtungsbogenadmin&editNachfristen={$_GET['editNachfristen']}&addFrist=1" method="post">
+
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Nachfrist eintragen</h3>              
+            </div>
+           <div class="box-body no-padding">
+           
+           		<table class="table table-condensed">
+					<tr>
+						<td><b>Name</b></td>
+						<td><select name="userID" class="form-control">{$optionsLehrer}</select></td>
+					</tr>
+					<tr>
+						<td><b>Letzter Tag zum Eintragen</b></td>
+						<td><input type="text" name="frist" class="form-control" id="frist"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="Nachfrist eintragen" class="form-control"></td>
+					</tr>			
+			</table>
+
+			
+			</div>
+		</div>
+		
+		</form>
+{$this->footer}

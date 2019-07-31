@@ -1,0 +1,60 @@
+{$this->header}
+
+
+	   
+	   <script>
+	   
+	   function jumpNextTabIndex(currentIndex)
+	   {
+		   var value = $("#input"  + currentIndex).val();
+		   if(value == "") $("#input"  + currentIndex).val("0");
+		   
+		   if(value < 0) alert("Ungültige Eingabe!");
+		   else if(value > 6) alert("Ungültige Eingabe!");
+		   else {
+				$("#input" + (currentIndex+1)).focus();
+				$("#input" + (currentIndex+1)).select();
+		   }
+
+	   }
+	   
+	   
+	   
+	   </script>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-messages"></i> Mitarbeit &amp; Verhalten</h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		
+		
+		
+		<p>
+		<i class="fa fa-info"></i> Geben Sie für jeden Schüler bitte Mitarbeit und Verhalten ein. Der Cursor springt nach jeder Eingabe einer Zahl zum nächsten Feld. Wenn Sie einen Schüler nicht berwerten möchten, dann geben Sie bitte eine 0 (Null) ein.
+		</p>
+		
+		<div class="tabbable">
+	        <ul class="nav nav-tabs">
+	        	$tabs
+	        </ul>
+	        <div class="tab-content">
+					
+				<form action="index.php?page=NotenZeugnisMV&zeugnisID={$this->zeugnis->getID()}&unterrichtID={$uObject->getID()}&action=saveNoten" method="post">
+	        	<table class="table table-striped">
+	        		<tr>
+	        			<th style="width:20%">Schüler/in</th>
+	        			<th style="width:10%">Mitarbeit</th>
+	        			<th style="width:10%">Verhalten</th>
+	        			<th style="width:60%">Kommentar<br /><small>z.B. Kommentar über Mitteilungen / Ordnungsmaßnahmen etc.</small></th>
+	        		</tr>
+	        		$htmlSchueler
+	        	</table>
+	        	<button type="submit" class="btn btn-primary" style="width:100%"><i class="fa fa-save"></i> Speichern</button>
+	        </div>
+	     </div>
+	   </div></div>
+
+	   
+	   {$this->footer}

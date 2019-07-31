@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+	<tr>
+		<td><b>Klasse {$neunteKlassen[$i]}</b></td>
+	</tr>
+	<tr>
+		<td>
+			<ul>
+				$teacherList
+			</ul>
+			
+			<b>Lehrer hinzufügen:</b>
+			<br />
+			<form action="index.php?page=projektverwaltung&action=admin&mode=addTeacher&gradeName={$neunteKlassen[$i]}" method="post">
+			<select name="teacherUserID" class="form-control">{$selectListTeacher}</select>
+			<input type="submit" value="Lehrer hinzufügen" class="form-control">
+			
+			</form>
+		</td>
+	</tr>
+</table>
+<br />

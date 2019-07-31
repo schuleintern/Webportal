@@ -1,0 +1,18 @@
+<tr>
+	<td>{$nr}</td>
+	<td>{$schueler['schuelerName']}, {$schueler['schuelerRufname']} ({$schueler['schuelerKlasse']})</td>
+	<td><input type="text" name="thema_{$schueler['userID']}" class="form-control" value="{$schueler['projektName']}" placeholder="Projektname"/></td>
+	<td>
+		<select name="erfolg_{$schueler['userID']}" class="form-control">
+			<option value="">&nbsp;</option>
+			<option value="sehr guter Erfolg"{$selected[0]}>sehr guter Erfolg</option>
+			<option value="guter Erfolg"{$selected[1]}>guter Erfolg</option>
+			<option value="Erfolg"{$selected[2]}>Erfolg</option>
+		</select>
+	</td>
+	<td><input type="text" name="fach1_{$schueler['userID']}" class="form-control" value="{$schueler['projektFach1']}" placeholder="Fach 1"/></td>
+	<td><input type="text" name="lehrer1_{$schueler['userID']}" class="form-control" value="{$schueler['projektLehrer1']}" placeholder="Lehrer Fach 1"/></td>
+	
+	<td><input type="text" name="fach2_{$schueler['userID']}" class="form-control" value="{$schueler['projektFach2']}" placeholder="Fach 2"/></td>
+	<td><input type="text" name="lehrer2_{$schueler['userID']}" class="form-control" value="{$schueler['projektLehrer2']}" placeholder="Lehrer Fach 2"/></td>
+</tr>

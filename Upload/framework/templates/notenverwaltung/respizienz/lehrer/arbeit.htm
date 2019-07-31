@@ -1,0 +1,204 @@
+<div style="page-break-after: always;">
+<table border="0">
+	<tr>
+		<td><b>Schuljahr</b></td>
+		<td>$schuljahr</td>
+		<td><b>Klasse</b></td>
+		<td>$klasse</td>
+		<td><b>Lehrkraft</b></td>
+		<td>$lehrer</td>
+	</tr>
+</table>
+
+
+
+<table border="0" cellpadding="4">
+	<tr>
+		<td colspan="2"><h1>$art</h1></td>
+	</tr>
+	<tr>
+		<td width="30%">Geschrieben am</td>
+		<td width="70%">$datum</td>
+	</tr>
+	<tr>
+		<td width="30%">zurückgegeben am </td>
+		<td width="70%">________________________________________</td>
+	</tr>
+	<tr>
+		<td width="30%">Lehrstoff</td>
+		<td width="70%">________________________________________</td>
+	</tr>
+	<tr>
+		<td width="30%">Arbeitszeit </td>
+		<td width="70%">_________________ Minuten</td>
+	</tr>
+	<tr>
+		<td width="30%">Anlagen </td>
+		<td width="70%">
+			<ul style="list-style-type: circle;">
+				<li>Aufgabenstellung</li>
+				<li>Erwartungshorizont</li>
+				<li>Bewertungsschüssel</li>
+				<li>Klassennotenliste</li>
+				<li>________________________</li>
+			</ul>
+		</td>
+	</tr>
+		<tr>
+		<td width="30%">ggf. Nachschriften </td>
+		<td width="70%">________________________________________ </td>
+	</tr>
+		<tr>
+		<td width="30%">
+fehlende Arbeiten </td>
+		<td width="70%">________________________________________ </td>
+	</tr>
+		<tr>
+		<td width="30%">
+ggf. Anmerkungen </td>
+		<td width="70%">________________________________________ </td>
+	</tr>
+</table>
+<br /><br /><br />
+_______________________________________________________<br />
+(Datum, Unterschrift Fachlehrkraft)<p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;</p>
+<table border="0" cellpadding="4">
+	<tr>
+		<td colspan="2"><h4>Respizienz (Bemerkungen ggf. auf Beiblatt):</h4></td>
+	</tr>
+	<tr>
+		<td width="30%">Vorlage zur Respizienz am</td>
+		<td width="70%">__________________</td>
+	</tr>
+	<tr>
+		<td width="30%">Schülerarbeiten vollständig</td>
+		<td width="70%">ja / nein</td>
+	</tr>
+	<tr>
+		<td width="30%">Aufgabenstellung</td>
+		<td width="70%">
+			<table border="0">
+				<tr>
+					<td width="30%">Lehrplankonformität</td>
+					<td width="70%">voll / weitestgehend / gering</td>
+				</tr>
+				<tr>
+					<td width="30%">Anforderungsniveau</td>
+					<td width="70%">angemessen / zu leicht / zu schwer</td>
+				</tr>
+				<tr>
+					<td width="30%">fachliche Richtigkeit</td>
+					<td width="70%">voll / weitestgehend / gering</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="30%">Korrektur/Bewertung</td>
+		<td width="70%">
+			<table border="0">
+				<tr>
+					<td width="30%">angemessene Gewichtung</td>
+					<td width="70%">voll / weitestgehend / gering</td>
+				</tr>
+				<tr>
+					<td width="30%">transparente Korrektur</td>
+					<td width="70%">voll / weitestgehend / gering</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<p>&nbsp;</p>
+<table border="0" cellpadding="4">
+	<tr>
+		<td width="50%">___________________________________________________<br />(respiziert: Datum, Unterschrift Fachbetreuung)</td>
+		<td width="50%">___________________________________________________<br />(Datum, Unterschrift Schulleitung)</td>
+	</tr>
+</table>
+</div>
+
+
+<!--  2. Seite -->
+
+
+<table border="0" width="100%" cellpadding="2">
+	<tr>
+		<td width="55%">
+			<h4>Schülerarbeiten</h4>
+			<table border="1" cellpadding="3">
+				<tr>
+					<td width="10%"><b>#</b></td>
+					<td width="70%"><b>Name</b></td>
+					<td width="20%"><b>Note</b></td>
+				</tr>
+				$notenTabelle
+			</table>
+		
+		
+		</td>
+		<td width="5%">&nbsp;</td>
+		<td width="40%">
+			<table border="0" cellpadding="2">
+				<tr>
+					<td><b>Schüler der Klasse</b></td>
+					<td>$alle</td>
+				</tr>
+				<tr>
+					<td><b>anwesend</b></td>
+					<td>$mitgeschrieben ($percentMitgeschrieben %)</td>
+				</tr>
+			
+			</table>
+			<p>&nbsp;</p>
+			<table border="0" cellpadding="2">
+				<tr>
+					<td>Note 1</td>
+					<td>{$notenStatistik[1]}</td>
+					<td>{$perCentNote[1]} %</td>
+				</tr>
+				<tr>
+					<td>Note 2</td>
+					<td>{$notenStatistik[2]}</td>
+					<td>{$perCentNote[2]} %</td>
+				</tr>
+				<tr>
+					<td>Note 3</td>
+					<td>{$notenStatistik[3]}</td>
+					<td>{$perCentNote[3]} %</td>
+				</tr>
+				<tr>
+					<td>Note 4</td>
+					<td>{$notenStatistik[4]}</td>
+					<td>{$perCentNote[4]} %</td>
+				</tr>
+				<tr>
+					<td>Note 5</td>
+					<td>{$notenStatistik[5]}</td>
+					<td>{$perCentNote[5]} %</td>
+				</tr>
+				<tr>
+					<td>Note 6</td>
+					<td>{$notenStatistik[6]}</td>
+					<td>{$perCentNote[6]} %</td>
+				</tr>
+			</table>
+			
+			<p>&nbsp;</p>
+			
+			<table border="0" cellpadding="2">
+				<tr>
+					<td>Schnitt:</td>
+					<td>$schnitt</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+
+

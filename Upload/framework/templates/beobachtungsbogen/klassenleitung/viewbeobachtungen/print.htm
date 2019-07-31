@@ -1,0 +1,70 @@
+<html>
+<head>
+<style>
+
+h3 {
+	font-family: Arial;
+	font-size: 15 pt;
+	text-align: center;
+}
+
+.logo {
+	background-size: 100% 31px;
+	font-family: Arial;
+	font-size: 14 pt;
+	text-align: center;
+}
+
+.gewaehr {
+	font-family: Arial;
+	font-size: 8 pt;
+	text-align: center;
+}
+
+.stand {
+	font-family: Arial;
+	font-size: 10 pt;
+	text-align: center;
+}
+
+td {
+	font-family: Arial;
+	font-size: 9 pt;
+	font-style: bold;
+}
+
+th {
+	font-family: Arial;
+	font-size: 9 pt;
+	font-style: bold;
+}
+
+body {
+	font-family: Arial;
+	font-size: 10 pt;
+	text-align: center;
+}
+
+
+</style>
+</head>
+<body>
+<div class="logo"><img src="images/RSU.jpg" height="31"> Klasse {$this->klasse} - Alle Beobachtungen</div>
+<b>$titel</b><br />
+Klassenleiter: {$this->myRealName} - <i>Gedruckt: {$heute}</i> - <small>Nur zu eigenen Verwendung.</small><br /><br />
+
+<table border="1" width="100%">
+	<tr>
+		<th>Nummer</th>
+		<th>Frage</th>
+	</tr>
+  $fragenHTML		
+</table>
+
+<br />
+
+<table border="1" width="100%">
+ $MATRIX		
+</table>
+</body>
+</html>

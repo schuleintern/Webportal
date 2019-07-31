@@ -1,0 +1,30 @@
+{$this->header}
+{$this->nachfristBox}
+<form action="index.php?page=beobachtungsbogen&bogenID={$this->bogenID}&mode=perQuestion&grade={$this->klasse}&subject={$this->fach}&index={$index}" method="post">
+
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">{$frage['frageText']}</h3><br />(Frage $nr von $von)             
+            </div>
+           <div class="box-body no-padding">
+           <table class="table table-striped">
+           		<tr>
+           			<th>Schüler/in</th>
+           			<th colspan="6">Beobachtung</th>
+           		</tr>
+           		$schuelerHTML           
+           </table>
+           
+           
+           	<table class="table table-border">
+           		<tr>
+           			<th style="width:50%">$prev<th>
+           			<th>$next</th>
+           		</tr>
+           	</table>
+           	
+		   </div>
+		</div>
+		
+</form>
+{$this->footer}

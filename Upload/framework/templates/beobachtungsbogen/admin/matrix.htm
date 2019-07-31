@@ -1,0 +1,53 @@
+{$this->header}
+
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Matrix bearbeiten</h3>
+				<p>Alle Klassenzuordnungen und Fachzuordnungen können hier verändert werden.</p>
+				<p>Änderungen haben nur Auswirkung auf die Beobachtungsbögen, NICHT auf den Stundenplan.</p>
+            </div>
+            <div class="box-body no-padding">
+            	<form action="index.php?page=beobachtungsbogenadmin&editMatrix={$_GET['editMatrix']}&addUnterricht=1" method="post">
+           		<table class="table table-condensed">
+           			<tr>
+           				<th colspan="3"><b>Eintrag hinzufügen:</b></th>
+           			</tr>
+           			<tr>
+           			    <td>Klasse</td>
+           			    <td>Fach</td>
+           			    <td>Lehrer</td>
+           			</tr>
+           			<tr>
+           				<td>
+           					<select name="klasseName" class="form-control">
+           						$optionsKlasse
+           					</select>
+           				</td>
+           				
+           				<td>
+           					<select name="fachName" class="form-control">
+           						$optionsFach
+           					</select>
+           				</td>
+           				
+           				<td>
+           					<select name="lehrerKuerzel" class="form-control">
+           						$optionsLehrer
+           					</select>
+           				</td>
+           			</tr>
+           			<tr>
+           				<td colspan="3"><input type="submit" value="Unterricht hinzufügen" class="form-control"></td>
+           			</tr>
+           		</table>
+           		
+           		</form>
+           		<br /><br />
+  				<table class="table table-striped">
+					$THEMATRIX
+				</table>
+			</div>
+		</div>
+
+
+{$this->footer}

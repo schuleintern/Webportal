@@ -1,0 +1,82 @@
+
+<form action="index.php?page=klassentagebuch&mode=editKlassentagebuchEntry&entryID={$entry->getID()}&currentDate={$this->currentDateNatural}&returnTo=teacher" method="post" enctype="multipart/form-data">
+<div class="modal fade" id="editentry{$entry->getID()}" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-pencil"></i> Eintrag bearbeiten</h4>
+      </div>
+      <div class="modal-body">
+          <input type="hidden" name="stunde" id="stunde">
+          <table class="table table-striped">
+          	<tr>
+          		<td style="width:15%"><b>Stunde</b></td>
+          		<td>{$entry->getStunde()}</td>
+          	</tr>
+          	<tr>
+          		<td><b>Lehrer</b></td>
+          		<td><expression>DB::getSession()->getTeacherObject()->getKuerzel()</expression></td>
+          	</tr>
+          	<tr>
+          		<td><b>Vertretung?</b></td>
+          		<td>
+
+	              <div class="checkbox icheck">
+	                <label>
+	                  <input type="checkbox" name="isVertretung" value="1" id="isvertretung{$entry->getID()}"
+	                  	<if($entry->isVertretung())><then>checked="checked"</then></if>>
+	                </label>
+	              </div>
+	            </td>
+	         </tr>
+	         <tr>
+	         	<td><b>Fach</b></td>
+	         	<td><select name="fach" id="fach{$entry->getID()}" class="form-control">$selectFach</select></td>
+	         </tr>
+	         <tr>
+	         	<td><b>Unterrichtsstoff</b></td>
+	         	<td><input type="text" name="stoff" class="form-control" id="stoff{$entry->getID()}" value="{$entry->getStoff()}"></td>
+	         </tr>
+	         <tr>
+	         	<td><b>Hausaufgaben</b></td>
+	         	<td><input type="text" name="hausaufgaben" class="form-control" id="hausaufgaben{$entry->getID()}" value="{$entry->getHausaufgabe()}"></td>
+	         </tr>
+
+	                    <tr>
+           	 <td><b>Öffentliche Dateianhänge</b><br /><small>Werden zu den vorhanden Dateien hinzugefügt</small></td>
+           	 <td>
+			  	<input type="file" name="filesPublic1" class="form-control">
+			  	<input type="file" name="filesPublic2" class="form-control">
+			  	<input type="file" name="filesPublic3" class="form-control">
+
+					<small>Es Können Bilder, PDF Dateien und Office Dokumente hochgeladen werden.</small>
+           	 </td>
+           	</tr>
+
+           	<tr>
+           	 <td><b>Private Dateianhänge</b><br /><small>Diese Dateien sind nur für Sie sichtbar.</small><br /><small>Werden zu den vorhanden Dateien hinzugefügt</small></td>
+           	 <td>
+				<input type="file" name="filesPrivate1" class="form-control">
+			  	<input type="file" name="filesPrivate2" class="form-control">
+			  	<input type="file" name="filesPrivate3" class="form-control">
+           	 </td>
+           	</tr>
+	         <tr>
+	         	<td><b>Private Notizen</b></td>
+	         	<td><textarea id="compose-textarea" class="form-control" style="height: 300px" name="notizen" placeholder="Private Notizen zur Stunde"><expression>@htmlspecialchars($entry->getNotizen())</expression></textarea></td>
+	         </tr>
+          </table>
+      </div>
+      <div class="modal-footer">
+      	<button type="submit" class="btn btn-default"><i class="fa fa-save"></i> Eintrag bearbeiten</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+<script>
+$("#fach{$entry->getID()}").val('{$entry->getFach()}');
+</script>

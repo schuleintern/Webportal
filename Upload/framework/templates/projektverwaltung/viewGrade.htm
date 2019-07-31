@@ -1,0 +1,28 @@
+{$this->header}
+
+<h4>Klassenliste mit Projektnamen</h4>
+&raquo; <a href="index.php?page=projektverwaltung&gradeName=$grade&action=grade&mode=print" target="_blank">Druckversion</a> (Änderungen <u>vorher</u> speichern!)<br />
+&raquo; <a href="index.php?page=projektverwaltung&gradeName=$grade&action=grade&mode=print2" target="_blank">Druckversion ohne Erfolgsangabe</a> (Änderungen <u>vorher</u> speichern!)
+
+<form action="index.php?page=projektverwaltung&gradeName={$grade}&action=grade&mode=save" method="post">
+<table class="table table-bordered">
+<tr>
+	<th style="width:3%">#</th>
+	<th>Name</th>
+	<th style="width:13%">Projekt</th>
+	<th style="width:13%">Erfolg</th>
+	<th style="width:13%">Fach 1</th>
+	<th style="width:13%">Lehrer Fach 1</th>
+	<th style="width:13%">Fach 2</th>
+	<th style="width:13%">Lehrer Fach 2</th>
+</tr>
+
+{$tablecontent}
+
+</table>
+<input type="submit" value="Eingaben speichern" class="form-control"/>
+
+
+
+</form>
+{$this->footer}

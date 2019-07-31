@@ -1,0 +1,32 @@
+{$this->header}
+
+<p class="text-red">Soll der folgende Beobachtungsbogen (Set) wirklich gelöscht werden?</p>
+
+<p><b>{$bogen['beobachtungsbogenName']}</b></p>
+
+<form action="index.php?page=beobachtungsbogenadmin&deleteBogen={$_GET['deleteBogen']}&confirmCodeSolution={$confirmCodeSolution}" method="post">
+
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Um den Bogen wirklich zu löschen, geben die unterstrichenen Teile der Zeichenfolge der Reihe nach ohne Leerzeichen in das Feld ein</h3>              
+            </div>
+           <div class="box-body no-padding">
+           
+           		<table class="table table-condensed">
+					<tr>
+						<td>{$confirmCodeComplete}</td>
+					</tr>
+					<tr>
+						<td><input type="text"  class="form-control" name="confirmCode" placeholder="Unterstrichene Zeichen der oberen Textfolge der Reihe nach"></td>
+					</tr>
+					<tr>
+						<td><input type="submit" name="Löschen bestätigen" class="form-control"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+</form>
+
+
+
+{$this->footer}

@@ -1,0 +1,16 @@
+<tr>
+	<td>$preCurrentPlan{$plan['stundenplanName']}$postCurrentPlan</td>
+	<td><expression>DateFunctions::getNaturalDateFromMySQLDate($plan['stundenplanAb'])</expression></td>
+	<td>
+		<if($plan['stundenplanBis'] != "")><then>
+
+<expression>DateFunctions::getNaturalDateFromMySQLDate($plan['stundenplanBis'])</expression>
+
+		</then>
+		<else>
+			<i>unbegrenzt</i>
+		</else>
+		</if>
+	</td>
+	<td><form><button type="button" class="btn btn-danger" onclick="confirmAction('Soll der Stundenplan wirklich gelöscht werden?','$selfURL&&deletePlan={$plan['stundenplanID']}')"><i class="fa fa-trash"></i></button></form></td>
+</tr>

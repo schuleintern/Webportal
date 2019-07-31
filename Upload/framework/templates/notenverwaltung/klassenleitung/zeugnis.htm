@@ -1,0 +1,208 @@
+{$this->header}
+
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-group"></i> {$this->klasse->getKlassenName()}</h3>
+				<if($gradeChangeAble)><then>
+				
+					Klasse wechseln: 
+				
+					<form action="index.php?page=NotenZeugnisKlassenleitung&zeugnisID={$this->zeugnis->getID()}&action=showGrade" method="post">
+						<select name="klasse">
+						$gradeSelect
+						</select>
+						<button class="btn btn-xs"><i class="fa fa-refresh"></i> Klasse wechseln</button>
+					</form>
+				
+				</then>
+				</if>
+			</div>
+		</div>
+
+<div class="row">
+	<div class="col-md-2">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-group"></i> SchülerInnen</h3>
+			</div>
+			<div class="box-body no-padding">
+				<table class="table table-striped">
+			
+					$schuelerTabelle
+				
+				</table>
+			</div>
+		</div>
+
+	
+	</div>
+	
+	<div class="col-md-10">
+		
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-group"></i> {$activeSchuler->getCompleteSchuelerName()}</h3>
+			</div>
+		</div>
+		
+		<if($hasNa)><then>
+				<div class="callout callout-info">$naText</div>
+				</then></if>
+		
+		<if($_REQUEST['saved'] == 1)><then>
+			<div class="callout callout-success">Die Bemerkungen wurden für diesen Schüler gespeichert.</div>
+		</then></if>
+		
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-comment"></i> Mitarbeit / Verhalten</h3>
+			</div>
+			<div class="box-body no-padding">
+				<table class="table table-striped">
+					$mvTabelle
+				</table>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-8">
+		
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title"><i class="fa fa-check"></i> Zeugnisnoten</h3>
+						
+						<button class="btn btn-primary" onclick="showNotenbogen('{$activeSchuler->getAsvID()}','{$activeSchuler->getCompleteSchuelerName()}')"><i class="fa fa-table"></i> Notenbogen anzeigen</button>
+					</div>
+					<div class="box-body no-padding">
+						<table class="table table-striped">
+							$notenTabelle
+						</table>
+					</div>
+				</div>
+			
+			</div>
+			
+			<div class="col-md-4">
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title"><i class="fa fa-space-shuttle"></i> Wahlfächer</h3>
+					</div>
+					<div class="box-body no-padding">
+						<table class="table table-striped">
+							$wahlfachtabelle
+						</table>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<form action="index.php?page=NotenZeugnisKlassenleitung&zeugnisID={$this->zeugnis->getID()}&action=showGrade&klasse={$this->klasse->getKlassenname()}&selectSchueler={$activeSchuler->getAsvID()}&mode=saveBemerkung" method="post">
+		
+		
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-pencil"></i> Bemerkung (oberer Teil (Mitarbeit / Verhalten))</h3>
+			</div>
+			<div class="box-body no-padding">
+				<div class="row">
+					<div class="col-md-8">
+						<textarea name="text1" id="text1" class="form-control" rows="10">$text1</textarea>
+					</div>
+					<div class="col-md-4">
+						$buttonsBausteine
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-pencil"></i> Bemerkung (unterer Teil (Wahlfächer, sonstiges))</h3>
+			</div>
+			<div class="box-body no-padding">
+				<textarea name="text2" id="text2" class="form-control" rows="10">$text2</textarea>
+			</div>
+		</div>
+		
+		
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-pencil"></i> Klassenziel</h3>
+			</div>
+			<div class="box-body">
+				<select name="klassenziel" class="form-control">
+					<option value="0"$selectedNichtErreicht>Klassenziel nicht erreicht</option>
+					<option value="1"$selectedErreicht>Klassenziel erreicht</option>
+				</select>
+			</div>
+		</div>
+
+		
+		<button class="btn btn-primary" style="width:100%" type="submit"><i class="fa fa-save"></i> Zeignisbemerkungen speichern</button>
+		
+		</form>
+		
+		
+	</div>
+
+</div>
+
+
+
+<div class="modal fade" id="notenBogen" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document" style="width:90%">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="notenbogenLabel">
+					123
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div id="notenbogenContainer"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+
+	function showNotenbogen(schuelerAsvID, schuelerName) {
+		
+		$("#notenbogenLabel").html('<i class="fa fa-file-o"></i> Notenbogen von ' + schuelerName);
+		
+		
+		$("#notenbogenContainer").html("<i class=\"fa fa-refresh fa-spin\"></i> wird geladen ...");
+		$('#notenBogen').modal('show');
+		
+		
+		
+		
+		$.ajax({
+			type: "GET",
+			url: 'index.php?page=NotenZeugnisKlassenleitung&action=getNotenBogenJSON&zeugnisID={$this->zeugnis->getID()}&klasse={$this->klasse->getKlassenName()}&schuelerAsvID=' + schuelerAsvID,
+			data: {},
+			success: function(data, textStatus, jqXHR) {
+				if(data.notentabelle != "") {
+					$("#notenbogenContainer").html(data.notentabelle);
+					
+				}
+			},
+			dataType: 'json'
+		});
+	}
+	
+	function addText(field, select) {
+		field.val(field.val() + $('#'+select).val());
+	}
+	
+	</script>
+
+{$this->footer}

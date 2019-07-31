@@ -1,0 +1,122 @@
+{$this->header}
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-certificate"></i> Zeugnisse</h3>
+	</div>
+	<div class="box-body">
+		<b>Vorhandene Zeugnisse:</b>
+		
+		<table class="table table-striped">
+			<tr>
+				<th>Zeugnis</th>
+				<th>Klassen</th>
+				<th>Aktionen</th>
+			</tr>
+			$zeugnisListe		
+		</table>
+	</div>
+
+</div>
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-certificate"></i> Zeugnisse anlegen</h3>
+	</div>
+	<div class="box-body">
+		<form action="index.php?page=NotenverwaltungZeugnisse&action=addZeugnis" method="post">
+			<div class="input-group">
+				<label>Name (nur intern verwendet)</label>
+				<input type="text" name="zeugnisName" class="form-control" placeholder="z.B. Zwischenzeugnis">
+			</div>
+			<div class="input-group">
+				<label>Typ</label>
+				<select name="zeugnisTyp" class="form-control">
+					<option value="ZZ">Zwischenzeugnis</option>
+					<option value="JZ">Jahreszeugnis</option>
+					<option value="ABZ" disabled>Abschlusszeugnis</option>
+					<option value="SEMZ" disabled>Semesterzeugnis</option>
+					<option value="ABIZ" disabled>Abiturzeugnis</option>
+				</select>
+			</div>
+			<br />
+			<b>Klassen</b>
+			<table class="table table-bordered">
+				<tr>
+					<th>Zeugnis ausstellen</th>
+					<th>Klasse</th>
+					<th>Datum<br />
+						<input type="text" name="datumAll" id="dateSelectAll" class="form-control">				
+					</th>
+					<th>Notenschluss<br />
+						<input type="text" name="datumAllNS" id="notenschlussSelectAll" class="form-control">	
+					
+					</th>
+					<th>Unterschrift Klassenleitung</th>
+					<th>Unterschrift Schulleitung</th>
+				</tr>
+				$klassenHTML
+			</table>
+			
+			
+			
+			<br /><br />
+			<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Zeugnis anlegen</button>
+		</form>	
+			
+			
+		
+	</div>
+
+</div>
+
+
+	    <script src="cssjs/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <script>
+      $(function () {
+        $('.icheck').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+      });
+    
+    
+    	$(function() {
+		$(".dateSelectDatum").datepicker({
+			format : 'dd.mm.yyyy',
+			language : "de",
+			autoclose : true
+		});
+		
+		$(".dateSelectDatumNotenschluss").datepicker({
+			format : 'dd.mm.yyyy',
+			language : "de",
+			autoclose : true
+		});
+		
+		$("#dateSelectAll").datepicker({
+			format : 'dd.mm.yyyy',
+			language : "de",
+			autoclose : true
+		}).on("change", function(e) {
+		    $(".dateSelectDatum").val(this.value);
+		  });
+		
+		$("#notenschlussSelectAll").datepicker({
+			format : 'dd.mm.yyyy',
+			language : "de",
+			autoclose : true
+		}).on("change", function(e) {
+		    $(".dateSelectDatumNotenschluss").val(this.value);
+		  });
+
+	});
+    	
+    	</script>
+
+{$this->footer}

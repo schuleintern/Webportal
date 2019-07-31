@@ -1,0 +1,74 @@
+{$this->header}
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-space-shuttle"></i> Wahlunterricht ins Zeugnis aufnehmen</h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<p><b>Folgender Wahlunterricht kann zum Zeugnis hinzugefügt werden:</b></p>
+		
+		<form action="index.php?page=NotenWahlunterricht&zeugnisID={$this->zeugnis->getID()}&action=addUnterricht" method="post">
+		
+			<div class="form-group">
+				<label>Unterricht auswählen</label>
+				
+				<select name="unterrichtID" class="form-control">
+					$optionsUnterricht
+				</select>
+			</div>
+			
+			<div class="form-group">
+				<label>Bezeichnung im Zeugnis</label>
+				
+				<input type="text" name="bezeichnung" placeholder="z.B. Schülerzeitung" class="form-control" required="required">
+			</div>
+			
+			
+			<button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Unterricht zum Zeugnis hinzufügen</button>
+		
+		</form>
+
+	   </div></div>
+	   
+<if($tabs != "")><then>
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-space-shuttle"></i> Mein Wahlunterricht</h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<div class="tabbable">
+	        <ul class="nav nav-tabs">
+	        	$tabs
+	        </ul>
+	        <div class="tab-content">
+				<if($currentWahlunterricht != null)><then>
+				
+				<if($_REQUEST['notenSaved'] > 0)><then>
+				
+					<div class="callout callout-success"><i class="fa fa-check"></i> Noten gespeichert</div>
+				
+				</then></if>
+				
+				
+				<form action="index.php?page=NotenWahlunterricht&zeugnisID={$this->zeugnis->getID()}&wahlfachID={$currentWahlunterricht->getID()}&action=saveNoten" method="post">
+	        	<table class="table table-striped">
+	        		<tr>
+	        			<th style="width:20%">Schüler/in</th>
+	        			<th style="width:80%">Erfolg im Wahlunterricht</th>
+	        		</tr>
+	        		$schuelerHTML
+	        	</table>
+	        	<button type="submit" class="btn btn-primary" style="width:100%"><i class="fa fa-save"></i> Speichern</button>
+	        	
+	        	</form>
+	        	
+	        	</then></if>
+	        </div>
+	     </div>
+	</div>
+</div>
+
+</then></if>
+	   {$this->footer}

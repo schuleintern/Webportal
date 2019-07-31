@@ -1,0 +1,64 @@
+<html>
+<head>
+<style>
+
+h3 {
+	font-family: Arial;
+	font-size: 15 pt;
+	text-align: center;
+}
+
+.logo {
+	background-image: url('images/RSU_BG.jpg');
+}
+
+.gewaehr {
+	font-family: Arial;
+	font-size: 8 pt;
+	text-align: center;
+}
+
+.stand {
+	font-family: Arial;
+	font-size: 10 pt;
+	text-align: center;
+}
+
+td {
+	font-family: Arial;
+	font-size: 12 pt;
+	font-style: bold;
+}
+
+body {
+	font-family: Arial;
+	font-size: 12 pt;
+}
+
+
+</style>
+</head>
+<body>
+<div class="logo"><img src="images/RSU.jpg"></div>
+
+<h4>Klassenliste $grade mit Projektinformationen</h4>
+
+<table border="1">
+<tr>
+	<th style="width:3%">#</th>
+	<th>Name</th>
+	<th style="width:13%">Projekt</th>
+	<th style="width:13%">Erfolg</th>
+	<th style="width:13%">Fach 1</th>
+	<th style="width:13%">Lehrer Fach 1</th>
+	<th style="width:13%">Fach 2</th>
+	<th style="width:13%">Lehrer Fach 2</th>
+</tr>
+
+{$tablecontent}
+
+</table>
+
+
+</body>
+</html>

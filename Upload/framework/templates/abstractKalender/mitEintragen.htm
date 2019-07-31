@@ -1,0 +1,750 @@
+{$this->header}
+
+<style>
+.datepicker{z-index:1151 !important;}
+</style>
+
+
+    <script src="cssjs/plugins/fullcalendar/fullcalendar.js"></script>
+    <script src="cssjs/plugins/fullcalendar/de.js"></script>
+
+  <script>
+
+  $(document).ready(function() {
+
+
+    $('#schulkalender').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'listDay,listWeek,listMonth,month,agendaWeek,agendaDay'
+      },
+      locale: 'de',
+		views: {
+	        month: { // name of view
+	            titleFormat: 'MMMM YYYY'
+	        },
+	        basicWeek: { // name of view
+	            titleFormat: 'MMMM YYYY'
+	        },
+	        listDay: { buttonText: 'Tagesliste' },
+	        listMonth: { buttonText: 'Monatsliste' },
+	        listWeek: { buttonText: 'Wochenliste' }
+	    },
+      defaultDate: '$today',
+      title: '$gradeDisplay',
+
+
+      
+      
+      slotDuration: '01:00:00',
+      slotLabelFormat: 'h(:mm)a',
+
+      nowIndicator: true,
+      selectable: true,
+            selectHelper: true,
+            select: function(start, ende, event) {
+		          if($canAdd) {
+		              document.getElementById("datumStart2").innerHTML = start.format("DD.MM.YYYY");
+		              document.getElementById("dateForm2").value = start.format("YYYY-MM-DD");
+		              
+		              
+		              var days = ende.diff(start, 'days');
+		              
+		              if(days > 1) {
+	    	            	$("#datepickerend").val(ende.subtract(1, "days").format("DD.MM.YYYY"));
+		              }
+		              else {
+		            	  $("#datepickerend").val("");
+		              }
+		              
+		              $('#addevent').modal('show');
+		
+		          }
+
+            },
+            
+            dayClick: function(start, jsEvent, view) {
+
+		          if($canAdd) {
+		              document.getElementById("datumStart2").innerHTML = start.format("DD.MM.YYYY");
+		              document.getElementById("dateForm2").value = start.format("YYYY-MM-DD");
+		              
+		              $("#datepickerend").val("");
+
+		              $('#addevent').modal('show');
+		
+		          }
+            },
+            eventClick: function(calEvent, jsEvent, view) {
+
+            	
+            	if(calEvent.lnwtype != 'ferien') {
+            		
+            	
+            	
+            		if(calEvent.allDay) {
+    	            	$("#isganzertagedit").prop('checked', true);
+    	                $("#uhrzeitedit").hide();
+    	                $("#uhrzeit2edit").show();
+            		}
+            		else {
+    	            	$("#isganzertagedit").prop('checked', false);
+    	                $("#uhrzeitedit").show();
+    	                $("#uhrzeit2edit").hide();
+    	                
+    	                $("#editStundeStart").val(calEvent.start.hours());
+    	                $("#editMinuteStart").val(calEvent.start.minutes());
+    	                
+    	                
+    	                if(calEvent.end != null) {
+    	                
+    	                	$("#editStundeEnde").val(calEvent.end.hours());
+    	                	$("#editMinuteEnde").val(calEvent.end.minutes());
+    	                	
+            			}
+            		}
+            		
+            		if(!calEvent.editable) {
+            			$('#editButton').prop('disabled', true);
+            			$('#deleteButton').prop('disabled', true);
+            		}
+            		else {
+            			$('#editButton').prop('disabled', false);
+            			$('#deleteButton').prop('disabled', false);
+            		}
+            		
+            		
+            		
+	            	$("#datepickereditstart").val(calEvent.start.format("DD.MM.YYYY"));
+	            	
+	            	if(calEvent.end != null && calEvent.end.format("DD.MM.YYYY") !== calEvent.start.format("DD.MM.YYYY")) {
+	            	
+	            	
+		            	$("#datepickereditend").val(calEvent.end.subtract(1, "days").format("DD.MM.YYYY"));
+	            	}
+	            	else {
+	            		$("#datepickereditend").val("");
+	            	}
+	            	
+	            	
+	                $("#editTitel").val(calEvent.titleRaw);
+	                $("#editOrt").val(calEvent.ort);
+	                $("#editkg").val(calEvent.kategorieID);
+	                
+	                $('#eingetragenVon').html(calEvent.eingetragenVon);
+	                
+	                $("#editkommentar").val(calEvent.kommentar);
+
+	                $("#editTerminID").val(calEvent.eventID);
+	            	
+	            	$('#editEvent').modal('show');
+	           	}	
+
+            },
+			eventRender: function(event, element) {		
+				element.find(".fc-title").prepend("<i class='" + event.icon + "'></i> ");
+				
+			},
+			eventAfterAllRender: function(view) {
+				$("#isloading").hide();
+			},
+			loading: function(isLoading,view) {
+				if(isLoading) $("#isloading").show();
+			},
+			eventDurationEditable: true,
+
+		      editable: false,
+		      eventLimit: false,
+			  events: 'index.php?page=<expression>$_REQUEST['page']</expression>&kalenderID={$_REQUEST['kalenderID']}&action=getJSONData',
+
+				eventDrop: function(event, delta, revertFunc) {
+					if(event.canDelete) {
+							$.ajax({
+								type: "POST",
+								url: 'index.php?page=<expression>$_REQUEST['page']</expression>&kalenderID={$_REQUEST['kalenderID']}&action=&action=editTerminDays&terminID=' + event.eventID,
+								data: {
+									"newDate": event.start.format("YYYY-MM-DD"),
+									"newEndDate": (event.end ? event.end.format("YYYY-MM-DD") : event.start.format("YYYY-MM-DD")),
+									"isAllDay": event.start.hasTime(),
+									"newStartTimeHour": (event.start.hasTime() ? event.start.format("HH") : "00"),
+									"newStartTimeMinutes": (event.start.hasTime() ? event.start.format("mm") : "00"),
+									"newEndTimeHour": ((event.start.hasTime() && event.end) ? event.end.format("HH") : "00"),
+									"newEndTimeMinutes": ((event.start.hasTime() && event.end) ? event.end.format("mm") : "00")
+
+
+								},
+								success: function(data, textStatus, jqXHR) {
+									if(data.success) {
+										$("#changeSuccessTerminName").html('"' + event.title + '"');
+										$('#changesSuccess').fadeIn('slow', function () {
+										    $(this).delay(3000).fadeOut('slow');
+										  });
+										
+										
+										
+									}
+									else {
+										$("#changeSuccessTerminNameFail").html('"' + event.title + '"');
+										$('#changesSuccessFail').fadeIn('slow', function () {
+										    $(this).delay(3000).fadeOut('slow');
+										  });
+										revertFunc();
+									}
+								},
+								dataType: 'json'
+							});
+
+					}
+				},
+				
+				 eventResize: function(event, delta, revertFunc) {
+					 
+				 		if(event.lnwtype == 'ferien') {
+				 			revertFunc();		// Ferien nicht ändern
+				 		}
+				 		else if(event.canDelete) {
+							$.ajax({
+								type: "POST",
+								url: 'index.php?page=<expression>$_REQUEST['page']</expression>&kalenderID={$_REQUEST['kalenderID']}&action=&action=editTerminDays&terminID=' + event.eventID,
+								data: {
+									"newDate": event.start.format("YYYY-MM-DD"),
+									"newEndDate": event.end.format("YYYY-MM-DD"),
+									"newStartTimeHour": (event.start.hasTime() ? event.start.format("HH") : "00"),
+									"newStartTimeMinutes": (event.start.hasTime() ? event.start.format("mm") : "00"),
+									"newEndTimeHour": ((event.start.hasTime() && event.end) ? event.end.format("HH") : "00"),
+									"newEndTimeMinutes": ((event.start.hasTime() && event.end) ? event.end.format("mm") : "00"),
+									"isAllDay": event.start.hasTime()
+								},
+								success: function(data, textStatus, jqXHR) {
+									if(data.success) {
+										$("#changeSuccessTerminName").html('"' + event.title + '"');
+										$('#changesSuccess').fadeIn('slow', function () {
+										    $(this).delay(3000).fadeOut('slow');
+										  });
+										
+									}
+									else {
+										$("#changeSuccessTerminNameFail").html('"' + event.title + '"');
+										$('#changesSuccessFail').fadeIn('slow', function () {
+										    $(this).delay(3000).fadeOut('slow');
+										  });
+										revertFunc();
+									}
+								},
+								dataType: 'json'
+							});
+						}
+				}
+    });
+
+  });
+
+  $(function() {
+    $("#datepickerend").datepicker({
+      format: 'dd.mm.yyyy',
+          language: "de",
+          autoclose: true
+    });
+    
+    $("#datepickereditstart").datepicker({
+        format: 'dd.mm.yyyy',
+            language: "de",
+            autoclose: true
+      });
+    
+    
+    $("#datepickereditend").datepicker({
+        format: 'dd.mm.yyyy',
+            language: "de",
+            autoclose: true
+      });
+    
+  });
+  
+  function addTerminFormAjaxAction() {
+	  
+	  $("#addButton").prop("disabled",true);
+	  
+	  $("#addButton").html("<i class=\"fa fa-refresh fa-spin\"></i> Termin wird gespeichert");
+	  
+	  
+		$.ajax({
+			type: "POST",
+			url: 'index.php?page=<expression>$_REQUEST['page']</expression>&action=add&kalenderID={$_REQUEST['kalenderID']}',
+			data: $( "#addForm" ).serialize(),
+			success: function(data, textStatus, jqXHR) {
+				if(data.success) {
+					
+					$('#addevent').modal('hide');
+					
+					$('#addForm').trigger("reset");
+					$("#addButton").html('<i class="fa fa-save"></i> Termin eintragen');
+					$("#addButton").prop("disabled",false);
+
+					$("#successMessageText").html('Der Termin wurde erfolgreich angelegt');
+					$('#successMessage').fadeIn('slow', function () {
+					    $(this).delay(3000).fadeOut('slow');
+					});
+					
+					$('#errorMessageAdd').hide();
+					
+					$('#schulkalender').fullCalendar('refetchEvents');
+				}
+				else {
+					
+					$("#addButton").html('<i class="fa fa-save"></i> Termin eintragen');
+					$("#addButton").prop("disabled",false);
+					
+					$("#errorMessageAddText").html(data.errorText);
+					$('#errorMessageAdd').fadeIn('slow');
+				}
+			},
+			dataType: 'json'
+		});
+	  
+	  
+  }
+  
+  function deleteEvent() {
+	  confirmAction('Soll der Termin wirklich gelöscht werden?', null, deleteEventConfirmed);
+  }
+  
+  function deleteEventConfirmed() {
+		  $("#deleteButton").prop("disabled",true);
+		  
+		  $("#deleteButton").html("<i class=\"fa fa-refresh fa-spin\"></i> Termin wird gelöscht");
+		  
+		  
+			$.ajax({
+				type: "POST",
+				url: "index.php?page=<expression>$_REQUEST['page']</expression>&action=delete&kalenderID={$_REQUEST['kalenderID']}",
+				data: $( "#editForm" ).serialize(),
+				success: function(data, textStatus, jqXHR) {
+					$("#deleteButton").html('<i class="fa fa-trash"></i> Termin löschen');
+					$("#deleteButton").prop("disabled",false);
+					
+					if(data.success) {
+						
+						$('#editEvent').modal('hide');
+						
+						$('#editForm').trigger("reset");
+	
+	
+						$("#successMessageText").html('Der Termin wurde erfolgreich gelöscht');
+						$('#successMessage').fadeIn('slow', function () {
+						    $(this).delay(3000).fadeOut('slow');
+						});
+						
+						$('#schulkalender').fullCalendar('refetchEvents');
+					}
+					else {
+						$("#errorMessageEditText").html(data.errorText);
+						$('#errorMessageEditAdd').fadeIn('slow');
+					}
+				},
+				dataType: 'json'
+			});
+	  
+  }
+  
+  function editEvent() {
+	  $("#editButton").prop("disabled",true);
+	  
+	  $("#editButton").html("<i class=\"fa fa-refresh fa-spin\"></i> Termin wird gespeichert");
+	  
+	  
+		$.ajax({
+			type: "POST",
+			url: "index.php?page=<expression>$_REQUEST['page']</expression>&action=edit&kalenderID={$_REQUEST['kalenderID']}",
+			data: $( "#editForm" ).serialize(),
+			success: function(data, textStatus, jqXHR) {
+				$("#editButton").html('<i class="fa fa-save"></i> Termin bearbeiten');
+				$("#editButton").prop("disabled",false);
+				
+				if(data.success) {
+					
+					$('#editEvent').modal('hide');
+					
+					$('#editForm').trigger("reset");
+
+
+					$("#successMessageText").html('Der Termin wurde erfolgreich bearbeitet');
+					$('#successMessage').fadeIn('slow', function () {
+					    $(this).delay(3000).fadeOut('slow');
+					});
+					
+					$('#schulkalender').fullCalendar('refetchEvents');
+				}
+				else {
+					$("#errorMessageEditText").html(data.errorText);
+					$('#errorMessageEdit').fadeIn('slow');
+				}
+			},
+			dataType: 'json'
+		});
+  }
+
+  
+	function openICSFeed() {
+		  $("#buttonics").prop("disabled",true);
+		  
+		  $("#buttonics").html("<i class=\"fa fa-refresh fa-spin\"></i> Wird abgerufen");
+	
+		$.ajax({
+			type: "POST",
+			url: 'index.php?page=<expression>$_REQUEST['page']</expression>&kalenderID={$_REQUEST['kalenderID']}&action=getICSFeedURL',
+			data: {
+				
+			},
+			success: function(data, textStatus, jqXHR) {
+				$("#icsfeedurl").val(data.feedURL);
+				$("#icsfeed").modal("show");
+			},
+			dataType: 'json'
+		});
+		
+		
+		$("#buttonics").html('<i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small>');
+		$("#buttonics").prop("disabled",false);
+	}
+
+</script>
+<style>
+
+  .fc-time {
+      display:none;
+  }
+
+</style>
+
+<div class="box">
+  <div class="box-header"><h3 class="box-title">{$this->title}</h3><br />
+  <form><button type="button" class="btn" onclick="javascript:window.location.href='index.php?page=<expression>$_REQUEST['page']</expression>&mode=print&kalenderID={$_REQUEST['kalenderID']}'"><i class="fa fa-file-pdf-o"></i> PDF Druckversion</button></form></div>
+  <div class="box-body">
+  
+  		<div id="changesSuccess" style="display: none">
+			<div class="callout callout-success"><i class="fa fa-check"></i> Das neue Datum für <span id="changeSuccessTerminName">XXX</span> wurde gespeichert.</div>
+		</div>
+		
+		<div id="changesSuccessFail" style="display: none">
+			<div class="callout callout-danger"><i class="fa fa-ban"></i> Das neue Datum für <span id="changeSuccessTerminNameFail">XXX</span> wurde nicht gespeichert!</div>
+		</div>
+		
+		<div id="successMessage" style="display: none">
+			<div class="callout callout-success"><i class="fa fa-check"></i> <span id="successMessageText"></span></div>
+		</div>
+		
+		<div id="errorMessage" style="display: none">
+			<div class="callout callout-danger"><i class="fa fa-ban"></i> <span id="errorMessageText"></span></div>
+		</div>
+  
+    			<div class="row">
+
+			<div class="col-md-12" style="text-align:right">
+				<button type="button" class="btn btn-primary" onclick="openICSFeed()" id="buttonics"><i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small></button>
+			
+				<button type="button" class="btn btn-success" onclick="window.location.href='index.php?page=<expression>$_REQUEST['page']</expression>&mode=print&kalenderID={$_REQUEST['kalenderID']}'"><i class="fa fa-print"></i> Druckversion<br /><small>PDF Datei</small></button></form>			
+						
+			</div>
+		</div>
+  
+  <div id="schulkalender"></div></div>
+  	<div class="overlay" id="isloading">
+		<i class="fa fa-refresh fa-spin"></i>
+	</div>
+</div>
+
+
+	<div class="modal fade" id="icsfeed" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    
+	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+	    	<h4 class="modal-title" id="eventTitleICS"><i class="fa fa-calendar-plus-o"></i> ICS Feed der Termine ($gradeDisplay)</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+	      	Die können diese URLs verwenden, um die Termine in Programme zu importieren oder auf Ihrem Mobiltelefon abzurufen.
+	      	<br />
+	      	Hinweis:
+	      	<ul>
+	      		<li>Es werden alle Termine für die nächsten 365 Tage abgerufen.</li>
+	      	</ul>
+	      	<b>Diese Links sind persönlich und dürfen nicht weiter gegeben werden.</b>
+	      	<hr>
+	      	
+	      	<form>
+	      	<div class="form-group">
+	      		<input type="text" id="icsfeedurl" class="form-control" onClick="this.select();">
+	      	</div>
+	      	</form>
+	      </div>
+	     </div>
+	    </div>
+	   </div>
+
+  <div class="modal fade" id="anzeigen" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+        <h4 class="modal-title" id="eventTitle">Details</h4>
+		<div id="kategorieName"></div>
+        </div>
+        <div class="modal-body">
+          <div id="kommentar"></div>
+          <div id="ort"></div>
+          <div id="showevent"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+
+  <div class="modal fade" id="editEvent" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+          <h4 class="modal-title" id="myModalLabel"><i class="fa fa-calendar"></i> Termin bearbeiten / löschen</h4>
+        </div>
+        <div class="modal-body">
+        
+               <div id="errorMessageEdit" style="display: none">
+					<div class="callout callout-danger"><i class="fa fa-ban"></i> <span id="errorMessageEditText"></span></div>
+				</div>
+				
+                <form id="editForm">
+
+				<input type="hidden" id="editTerminID" name='eintragID' value="">	
+
+	
+			      <div class="row">
+			      	<div class="col-md-4">
+
+	                  <div class="form-group">
+	                  	<label>Datum:</label>
+	                  	<input type="text" name="date"
+	                        placeholder="Pflichtfeld" style="width: 100%" class="form-control"
+	                        id="datepickereditstart">
+	                  </div>
+	                  			      	  <div class="form-group">
+	                  	<label>Eingetragen von:</label>
+	                  	<div id="eingetragenVon"></div>
+	                  </div>
+	                </div>
+	                <div class="col-md-8">
+	                  <div class="form-group">
+	                  	<label>Enddatum:</label>
+	                  	<input type="text" name="enddatum"
+	                        placeholder="optional" style="width: 100%" class="form-control"
+	                        id="datepickereditend">
+	                  </div>
+			      	</div>
+			      </div>
+
+			      <div class="row">
+			      	<div class="col-md-4">
+                  
+                  <div class="form-group">
+                  	<label>Ganztägig / Ohne Uhrzeit:</label><br />
+                  	<input type="checkbox" id="isganzertagedit" name="wholeDay" value="1" onchange="uhrzeitChangedEdit()" checked="checked" class="icheck">
+                  </div>
+
+</div><div class="col-md-8">
+                  <div class="form-group">
+                  	<label>Uhrzeit:</label><br />
+                        <span id="uhrzeitedit" style="display:none">
+                          <select name="stundeStart" id="editStundeStart">$selectHTMLStunde</select>:<select name="minuteStart" id="editMinuteStart">$selectHTMLMinute</select> Uhr 
+                          bis
+                          <select name="stundeEnde" id="editStundeEnde">$selectHTMLStunde</select>:<select name="minuteEnde" id="editMinuteEnde">$selectHTMLMinute</select> Uhr
+                        </span>
+                        <span id="uhrzeit2edit">Keine Uhrzeit</span>
+                  </div>
+                  
+                  </div></div>
+                  
+                    <div class="form-group">
+                  	<label>Titel:</label><br />
+                      <input type="text" name="titel" class="form-control" placeholder="z.B. Lehrerkonferenz " id="editTitel"/>
+                    </div>
+
+					<div class="row">
+						<div class="col-md-6">
+						    <div class="form-group">
+		                  	<label>Ort:</label><br />
+		                      <input type="text" name="ort" class="form-control" placeholder="Optional. z.B. &quot;Raum Deutsch1&quot;" id="editOrt" />
+		                    </div>
+						</div>
+						<div class="col-md-6">
+						    <div class="form-group">
+		                  	<label>Kategorie:</label><br />
+		                     <select name="kategorieID" class="form-control" id="editkg"><option value="0">Keine Katgorie</option>$kategorieHTML</select>
+		                    </div>
+						</div>
+					
+					</div>
+
+
+
+                    <div class="form-group">
+                  	<label>Kommentar:</label><br />
+                      <textarea name="kommentar" class="form-control" rows="5" id="editkommentar"></textarea>
+                    </div>
+
+					<div class="row">
+						<div class="col-md-6">
+                        	<button type="button" class="btn btn-block btn-primary" id="editButton" onclick="editEvent()"><i class="fa fa-save"></i> Termin bearbeiten</button>
+						</div>
+						<div class="col-md-6">
+                        	<button type="button" class="btn btn-block btn-danger" onclick="deleteEvent()" id="deleteButton"><i class="fa fa-trash"></i> Termin löschen</button>
+						</div>
+					</div>
+                    
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+  <div class="modal fade" id="addevent" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+          <h4 class="modal-title" id="myModalLabel"><i class="fa fa-calendar"></i> Termin hinzufügen</h4>
+        </div>
+        <div class="modal-body">
+                <form name="addData" id="addForm"
+                  action="index.php?page=<expression>$_REQUEST['page']</expression>&action=add&kalenderID={$_REQUEST['kalenderID']}"
+                  method="post">
+
+                  <input type="hidden" name="date" id="dateForm2" />
+                  
+                 <div id="errorMessageAdd" style="display: none">
+					<div class="callout callout-danger"><i class="fa fa-ban"></i> <span id="errorMessageAddText"></span></div>
+				</div>
+	
+	
+			      <div class="row">
+			      	<div class="col-md-4">
+			      	<div class="form-group">
+	                  	<label>Termin:</label>
+	                  	<div id="datumStart2" style="font-size: 15pt">XX.XX.XXXX</div>
+	                  </div>
+	                </div>
+	                <div class="col-md-8">
+	                  <div class="form-group">
+	                  	<label>Enddatum:</label>
+	                  	<input type="text" name="enddatum"
+	                        placeholder="optional" style="width: 100%" class="form-control"
+	                        id="datepickerend">
+	                  </div>
+			      	</div>
+			      </div>
+
+			      <div class="row">
+			      	<div class="col-md-4">
+                  
+                  <div class="form-group">
+                  	<label>Ganztägig / Ohne Uhrzeit:</label><br />
+                  	<input type="checkbox" id="isganzertag" name="wholeDay" value="1" onchange="uhrzeitChanged()" checked="checked" class="icheck">
+                  </div>
+
+</div><div class="col-md-8">
+                  <div class="form-group">
+                  	<label>Uhrzeit:</label><br />
+                        <span id="uhrzeit" style="display:none">
+                          <select name="stundeStart">$selectHTMLStunde</select>:<select name="minuteStart">$selectHTMLMinute</select> Uhr 
+                          bis
+                          <select name="stundeEnde">$selectHTMLStunde</select>:<select name="minuteEnde">$selectHTMLMinute</select> Uhr
+                        </span>
+                        <span id="uhrzeit2">Keine Uhrzeit</span>
+                  </div>
+                  
+                  </div></div>
+                  
+                    <div class="form-group">
+                  	<label>Titel:</label><br />
+                      <input type="text" name="titel" class="form-control" placeholder="z.B. Lehrerkonferenz "/>
+                    </div>
+
+					<div class="row">
+						<div class="col-md-6">
+						    <div class="form-group">
+		                  	<label>Ort:</label><br />
+		                      <input type="text" name="ort" class="form-control" placeholder="Optional. z.B. &quot;Raum Deutsch1&quot;" />
+		                    </div>
+						</div>
+						<div class="col-md-6">
+						    <div class="form-group">
+		                  	<label>Kategorie:</label><br />
+		                     <select name="kategorieID" class="form-control"><option value="0">Keine Katgorie</option>$kategorieHTML</select>
+		                    </div>
+						</div>
+					
+					</div>
+
+
+
+                    <div class="form-group">
+                  	<label>Kommentar:</label><br />
+                      <textarea name="kommentar" class="form-control" rows="5"></textarea>
+                    </div>
+
+                    
+                        <button type="button" class="form-control" id="addButton" onclick="addTerminFormAjaxAction();"><i class="fa fa-save"></i> Termin eintragen</button>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+  <script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+  function uhrzeitChanged()
+  {
+      if($('#isganzertag').iCheck('update')[0].checked) {
+          $("#uhrzeit2").show();
+          $("#uhrzeit").hide();
+      }
+      else {
+        $("#uhrzeit").show();
+          $("#uhrzeit2").hide();
+      }
+  }
+  
+  function uhrzeitChangedEdit()
+  {
+      if($('#isganzertagedit').iCheck('update')[0].checked) {
+          $("#uhrzeit2edit").show();
+          $("#uhrzeitedit").hide();
+      }
+      else {
+        $("#uhrzeitedit").show();
+        $("#uhrzeit2edit").hide();
+      }
+  }
+  
+</script>
+
+  {$this->footer}

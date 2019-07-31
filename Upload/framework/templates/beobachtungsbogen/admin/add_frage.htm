@@ -1,0 +1,15 @@
+<tr>
+	<td><input type="text" name="frage_{$i}_frage" class="form-control" value="{$frage['frageText']}" /></td>
+	<td>
+		<select name="frage_{$i}_typ" class="form-control">
+			<option value="1"$isTyp1>Typ 1</option>
+			<option value="2"$isTyp2>Typ 2</option>
+		</select>
+	</td>
+	<td>
+		<select name="frage_{$i}_zugriff" class="form-control">
+			<option value="LEHRER"$isLehrer>Alle Lehrer</option>
+			<option value="KLASSENLEITUNG"$isKlassenleitung>Nur Klassenleitung</option>
+		</select>
+	</td>
+</tr>

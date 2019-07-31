@@ -1,0 +1,586 @@
+{$this->header}
+
+
+<script src="cssjs/plugins/floatthead/jquery.floatThead.min.js"></script>
+<script src="cssjs/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="cssjs/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+
+<form action="index.php?page=NotenEingabe&unterrichtID={$unterricht->getID()}&action=saveNoten&editArbeit={$_REQUEST['editArbeit']}" method="post">
+<div class="box box-primary">
+	<div class="box-header with-border">
+		<h3 class="box-title"><i class="fa fa-flask"></i> Noteneingabe {$unterricht->getBezeichnung()}</h3>
+		
+		<p>Schüler ohne Noten frei lassen.</p>
+		<p>Tendenzen vor die Note stellen: +1,-4</p>
+		<p>Die Spalte der Kurzarbeiten wird erst angezeigt, wenn Kurzarbeiten vorhanden sind.</p>
+		
+		<p><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addArbeit"><i class="fa fa-plus"></i> Arbeit bzw. Spalte hinzufügen</button></p>
+		<p><button type="button" class="btn btn-default" onclick="printURL('index.php?page=NotenBerichte&type=UnterrichtNotenListe&unterrichtID={$unterricht->getID()}')" class="btn btn-default"><i class="fa fa-print"></i> Notenliste drucken</button></p>
+		
+		
+	</div>
+	<div class="box-body">
+		<table class="table table-striped table-bordered" id="notentabelle">
+			<thead style="background-color:#FFFFFF">
+			<tr>
+				<th width="1">#</th>
+				<th width="1">Schüler/in</th>
+				<th width="1" colspan="<expression>(sizeof($arbeiten['SA']) > 0 ? sizeof($arbeiten['SA']) : 1)</expression>">Große Leistungsnachweise</th>
+				<th width="1">&Oslash; groß</th>
+				<th colspan="<expression>
+					
+					(
+				
+					(sizeof($arbeiten['KA']) > 0 ? sizeof($arbeiten['KA']) : 0)
+						+
+					(sizeof($arbeiten['EX']) > 0 ? sizeof($arbeiten['EX']) : 1)
+						+
+					(sizeof($arbeiten['MDL']) > 0 ? sizeof($arbeiten['MDL']) : 1)
+					
+					)
+				
+				
+				</expression>">Kleine Leistungsnachweise</th>
+				<th width="1">&Oslash; klein</th>
+				<th colspan="$colspanGesamtNoten">Gesamtnoten</th>
+			</tr>
+			<tr>
+				<th colspan="2"></th>
+				<th colspan="<expression>(sizeof($arbeiten['SA']) > 0 ? sizeof($arbeiten['SA']) : 1)</expression>">Schulaufgaben</th>
+				<th>&nbsp;</th>
+				<if(sizeof($arbeiten['KA']) > 0)><then><th colspan="<expression>(sizeof($arbeiten['KA']) > 0 ? sizeof($arbeiten['KA']) : 1)</expression>">Kurzarbeiten</th></then></if>
+				<th colspan="<expression>(sizeof($arbeiten['EX']) > 0 ? sizeof($arbeiten['EX']) : 1)</expression>">Stegreifaufgaben</th>
+				<th colspan="<expression>(sizeof($arbeiten['MDL']) > 0 ? sizeof($arbeiten['MDL']) : 1)</expression>">mündliche Noten</th>
+				<th>&nbsp;</th>
+				
+				<if($verrechnung != null)><then><th colspan="3">Schnitt $gewichtungDisplay</th></then>
+				
+				<else><th>Schnitt $gewichtungDisplay</th></else></if>
+				
+				<th colspan="<expression>($colspanGesamtNoten-1)</expression>">Zeugnisse</th>
+			</tr>
+			$htmlSchueler		
+		</table>
+	</div>
+</div>
+
+
+
+<script>
+
+$('#notentabelle').floatThead({
+   position: 'absolute'
+});
+
+
+
+</script>
+
+
+</form>
+
+<div class="modal fade"id="addArbeit" tabindex="-1" role="dialog">
+ <div class="modal-dialog" role="document" >
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-plus"></i> Arbeit / Notenspalte hinzufügen</h4>
+   </div>
+   <div class="modal-body">
+    
+    <form action="index.php?page=NotenEingabe&unterrichtID={$unterricht->getID()}&action=addArbeit" method="post">
+    <table class="table table-striped">
+    <tr>
+		<td><b>Name</b>
+		</td>
+		<td><input type="text" name="arbeitName" class="form-control" placeholder="z.B. 1. Schulaufgabe" required="required"></td>
+	</tr>
+				   		<tr>
+			   			<td><b>Gewichtung</b>
+			   			
+			   			<br />
+			   			
+			   			<button type="button" class="btn btn-xs" data-toggle="tooltip" data-html="true" title="Wählen Sie hier das Gewicht zu den anderen Arbeiten. Beispiel: Eine Gewichtung von 2 zählt die Note doppelt. Die Gewichtung kann in 0,25 Schritten erfolgen."><i class="fa fa-question-circle"></i></button>
+			   			
+			   			
+			   			</td>
+			   			<td>
+			   			
+			   			Gewicht zu den anderen Noten: <div id="gewichtDisplay">1</div>
+			   			
+						<div id="sliderGewicht"></div>
+						
+						<input type="hidden" name="arbeitGewicht" id="arbeitGewichtWert" value="1">
+			   			
+			   			</td>
+			   		</tr>
+  			   		<tr>
+			   			<td><b>Ist mündliche Note?</b><br />
+			   			
+			   			<button type="button" class="btn btn-xs" data-toggle="tooltip" data-html="true" title="Bitte wählen Sie hier Ja aus, wenn es sich um eine mündliche Note handelt. Wählen Sie auch Ja aus, wenn es sich z.B. um eine mündliche Schulaufgabe handelt. Diese Angabe ist relevant für die Notenberechnung bei Legasthenie / LRS / Notenschutz"><i class="fa fa-question-circle"></i></button>
+			   			
+			   			
+			   			</td>
+			   			<td><label><input type="radio" name="arbeitIsMuendlich" value="1"> Ja</label>
+			   			<label><input type="radio" name="arbeitIsMuendlich" value="0" checked="checked"> Nein</label>
+			   			</td>
+			   		</tr>
+			    </table>
+    <div class="tabbable">
+		<ul class="nav nav-tabs">
+	        <li class="active"><a href="#schulaufgabe" data-toggle="tab"><i class="fa fa-pencil"></i> Schulaufgabe</a></li>
+	        <li><a href="#kurzarbeit" data-toggle="tab"><i class="fa fa-clock-o"></i> Kurzarbeit</a></li>
+	        <li><a href="#stegreifaufgabe" data-toggle="tab"><i class="fa fa-clock-o"></i> Stegreifaufgabe</a></li>
+	        <li><a href="#muendlich" data-toggle="tab"><i class="fa fa-clock-o"></i> Mündliche Noten</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active fade in" id="schulaufgabe">
+				
+				<p>An dieser Stelle wird eine <strong>Schulaufgabe</strong> angelegt. Alle Noten haben das gleiche Datum, welches hier angegeben wird.
+				Eine Nachholschulaufgabe kann beim Bearbeiten der Einzelnote markiert werden.</p>
+				<table class="table table-striped">
+
+			   		<tr>
+			   			<td><b>Datum</b></td>
+			   			<td><input type="text" name="arbeitDatumSA" id="arbeitDatumSA" class="form-control" placeholder="Datum auswählen"></td>
+			   		</tr>
+			   	</table>
+			   	<button type="submit" class="form-control" name="arbeitBereich" value="SA"><i class="fa fa-save"></i> Schulaufgabe anlegen</button>
+			</div>
+			
+			<div class="tab-pane fade in" id="kurzarbeit">				
+				<p>An dieser Stelle wird eine <strong>Kurzarbeit</strong> angelegt. Alle Noten haben das gleiche Datum, welches hier angegeben wird.
+				Eine Nachholschulaufgabe kann beim Bearbeiten der Einzelnote markiert werden.</p>
+				<table class="table table-striped">
+			   		<tr>
+			   			<td>Datum</td>
+			   			<td><input type="text" name="arbeitDatumKA" id="arbeitDatumKA" class="form-control" placeholder="Datum auswählen"></td>
+			   		</tr>
+
+			   	</table>
+			   	<button type="submit" class="form-control" name="arbeitBereich" value="KA"><i class="fa fa-save"></i> Kurzarbeit anlegen</button>
+			</div>
+			
+			<div class="tab-pane" id="stegreifaufgabe">
+				<p>An dieser Stelle wird eine <strong>Stegreifaufgabe</strong> angelegt. Alle Noten haben das gleiche Datum, welches hier angegeben wird.
+				Eine Nachholschulaufgabe kann beim Bearbeiten der Einzelnote markiert werden.</p>
+				<table class="table table-striped">
+			   		<tr>
+			   			<td>Datum</td>
+			   			<td><input type="text" name="arbeitDatumEX" id="arbeitDatumEX" class="form-control" placeholder="Datum auswählen"></td>
+			   		</tr>
+
+			   	</table>
+			   	<button type="submit" class="form-control" name="arbeitBereich" value="EX"><i class="fa fa-save"></i> Stegreifaufgabe anlegen</button>
+			</div>
+			
+			
+			<div class="tab-pane" id="muendlich">
+				<p>
+				An dieser Stelle werden <b>mündliche Noten</b> angelegt.
+				Sie können hier auswählen, ob alle Noten das selbe Datum haben sollen oder jede Note ein eingenes Datum. Sie können das Datum dann später pro Note festlegen.
+				
+				</p>
+				<table class="table table-striped">
+			   		<tr>
+			   			<td><b>Datum</b><br />
+			   			<button type="button" class="btn btn-xs" data-toggle="tooltip" data-html="true" title="Wenn Sie hier die Datumseingabe frei lassen, dann erhalten alle Einzelnoten eigene Daten."><i class="fa fa-question-circle"></i></button>
+			   			
+			   			</td>
+			   			<td><input type="text" name="arbeitDatum" id="arbeitDatumMDL" class="form-control" placeholder="Datum auswählen oder leer lassen."><br />
+			   			<button type="button" onclick="$('#arbeitDatumMDL').val('')" class="btn"><b>Kein Datum setzen</b><br /><small>Noten haben Einzeldatum</small></button>
+			   			
+			   			</td>
+			   		</tr>
+
+			   	</table>
+			   	<button type="submit" class="form-control" name="arbeitBereich" value="MDL"><i class="fa fa-save"></i> Mündliche Noten anlegen</button>
+			</div>
+			
+
+			
+			
+		</div>
+	</div>
+   	</form>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<div class="modal fade" id="editArbeit" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					<i class="fa fa-plus"></i> Arbeit / Notenspalte bearbeiten
+				</h4>
+			</div>
+			<div class="modal-body">
+
+				<form
+					action="index.php?page=NotenEingabe&unterrichtID={$unterricht->getID()}"
+					method="post">
+					<input type="hidden" name="arbeitID" value="" id="editArbeitID">
+
+					<table class="table table-striped">
+						<tr>
+							<td><b>Name</b></td>
+							<td><input type="text" name="arbeitName"
+								class="form-control" placeholder="z.B. 1. Schulaufgabe"
+								required="required" id="arbeitNameEdit"></td>
+						</tr>
+						<tr>
+							<td><b>Gewichtung</b> <br />
+
+								<button type="button" class="btn btn-xs" data-toggle="tooltip"
+									data-html="true"
+									title="Wählen Sie hier das Gewicht zu den anderen Arbeiten. Beispiel: Eine Gewichtung von 2 zählt die Note doppelt. Die Gewichtung kann in 0,25 Schritten erfolgen.">
+									<i class="fa fa-question-circle"></i>
+								</button></td>
+							<td>Gewicht zu den anderen Noten:
+								<div id="gewichtDisplayEdit">1</div>
+
+								<div id="sliderGewichtEdit"></div> <input type="hidden"
+								name="arbeitGewicht" id="arbeitGewichtWertEdit" value="1">
+
+							</td>
+						</tr>
+						<tr>
+							<td><b>Ist mündliche Note?</b><br />
+
+								<button type="button" class="btn btn-xs" data-toggle="tooltip"
+									data-html="true"
+									title="Bitte wählen Sie hier Ja aus, wenn es sich um eine mündliche Note handelt. Wählen Sie auch Ja aus, wenn es sich z.B. um eine mündliche Schulaufgabe handelt. Diese Angabe ist relevant für die Notenberechnung bei Legasthenie / LRS / Notenschutz">
+									<i class="fa fa-question-circle"></i>
+								</button></td>
+							<td><label><input type="radio"
+									name="arbeitIsMuendlich" value="1" id="arbeitIsMuendlichEditJa"> Ja</label> <label><input
+									type="radio" name="arbeitIsMuendlich" value="0"
+									id="arbeitIsMuendlichEditNein"> Nein</label></td>
+						</tr>
+
+						<tr>
+			   				<td>Datum</td>
+			   				<td><input type="text" name="arbeitDatum" id="arbeitDatumEdit" class="form-control" placeholder="Datum auswählen"></td>
+			   			</tr>
+					</table>
+					<button type="submit" class="btn btn-success" name="action" value="editArbeit"><i class="fa fa-save"></i> Speichern</button>
+					
+					<hr noshade>
+					
+					<p>Zum Löschen der Arbeit und alle darin enthaltenen Noten bitte den Code <strong>$randNumber</strong> hier eingeben und auf "Arbeit löschen" klicken.</p>
+					
+					<input type="hidden" name="randNumberSolution" value="$randNumber">
+					
+					
+					
+		              <div class="input-group">
+		                <div class="input-group-btn">
+		                  <button type="submit" class="btn btn-danger" name="action" value="deleteArbeit"><i class="fa fa-trash"></i> Arbeit löschen</button>
+		                </div>
+		                <input type="text" name="randNumber" class="form-control" placeholder="Bitte hier eingeben: $randNumber">
+		              </div>
+					
+					
+					
+					
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="editNote" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					<i class="fa fa-plus"></i> Note bearbeiten
+				</h4>
+			</div>
+			<div class="modal-body">
+
+				<form
+					action="index.php?page=NotenEingabe&unterrichtID={$unterricht->getID()}"
+					method="post">
+					<input type="hidden" name="schuelerAsvID" value="" id="schuelerAsvIDEditNote">
+					<input type="hidden" name="arbeitID" value="" id="arbeitIDEditNote">
+
+					<table class="table table-striped">
+						<tr>
+							<td style="width:20%"><b>Notenwert</b><br /><small>z.B. 3, +4, -3</small></td>
+							<td><input type="text" name="notenWert" id="notenwertEditNote"></td>
+						</tr>
+						<tr>
+			   				<td><b>Datum</b></td>
+			   				<td><input type="text" name="noteDatum" id="arbeitDatumEditNote" class="form-control" placeholder="Datum auswählen"></td>
+			   			</tr>
+			   			<tr>
+			   				<td><b>Nachtermin?</b></td>
+			   				<td><label><input type="radio"
+									name="noteIsNachtermin" value="1" id="noteIsNachterminEditJa"> Ja</label> <label><input
+									type="radio" name="noteIsNachtermin" value="0"
+									id="noteIsNachterminEditNein"> Nein</label></td>
+						</tr>
+						<tr>
+							<td><b>Nur in Berechnung einfließen lassen, wenn die Note zu einem besseren Gesamtergebnis in einem Zeugnis führt?</b><br />
+
+								<button type="button" class="btn btn-xs" data-toggle="tooltip"
+									data-html="true"
+									title="Diese Funktion dient z.B. zur Speicherung Noten von Leistungsnachweisen, bei denen die Schülerin / der Schüler in der Vorstunde krank war.">
+									<i class="fa fa-question-circle"></i>
+								</button></td>
+							<td><label><input type="radio"
+									name="noteNurWennBesser" value="1" id="noteNurWennBesserJa"> Ja</label> <label><input
+									type="radio" name="noteNurWennBesser" value="0"
+									id="noteNurWennBesserNein"> Nein</label></td>
+						</tr>
+						<tr>
+			   				<td><b>Kommentar / Ausfrageergebnisse</b></td>
+			   				<td><textarea name="noteKommentar" id="noteKommentarEditNote" class="form-control" rows="10"></textarea></td>
+						</tr>
+					</table>
+					<button type="submit" class="btn btn-success" name="action" value="editNote"><i class="fa fa-save"></i> Note Speichern</button>
+					<button type="submit" class="btn btn-danger" name="action" value="deleteNote"><i class="fa fa-save"></i> Note löschen</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="confirmNote" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					<i class="fa fa-plus"></i> Zeugnisnote bestätigen
+				</h4>
+			</div>
+			<div class="modal-body">
+
+				<form
+					action="index.php?page=NotenEingabe&unterrichtID={$unterricht->getID()}&action=confirmNote"
+					method="post">
+					<input type="hidden" name="schuelerAsvID" value="" id="schuelerAsvIDConfirmNote">
+					<input type="hidden" name="zeugnisID" value="" id="zeugnisIDConfirmNote">
+					<input type="hidden" name="fach" value="" id="fachConfirmNote">
+					<input type="hidden" name="normalCalcNote" value="" id="normalCalcNoteConfirmNote">
+
+					<table class="table table-striped">
+						<tr>
+							<td style="width:20%"><b>Schnitt</b></td>
+							<td><input type="text" name="noteSchnitt" id="noteSchnittConfirmNote" readonly></td>
+						</tr>
+						<tr>
+							<td style="width:20%"><b>Notenwert</b><br /><small>z.B. 3, +4, -3</small></td>
+							<td><input type="text" name="notenWert" id="notenwertPaedNote"></td>
+						</tr>
+						<tr>
+			   				<td><b>Kommentar</b></td>
+			   				<td><textarea name="noteKommentar" id="noteKommentarConfirmNote" class="form-control" rows="10"></textarea></td>
+						</tr>
+					</table>
+					<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Note bestätigen</button>
+					<button type="submit" class="btn btn-danger" name="deleteIt" value="1"><i class="fa fa-trash"></i> Note löschen</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="notenBogen" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document" style="width:90%">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="notenbogenLabel">
+					123
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div id="notenbogenContainer"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="cssjs/plugins/tinymce/tinymce.min.js"></script>
+
+<script>
+
+	function showNotenbogen(schuelerAsvID, schuelerName) {
+		
+		$("#notenbogenLabel").html('<i class="fa fa-file-o"></i> Notenbogen von ' + schuelerName);
+		
+		
+		$("#notenbogenContainer").html("<i class=\"fa fa-refresh fa-spin\"></i> wird geladen ...");
+		$('#notenBogen').modal('show');
+		
+		
+		
+		
+		$.ajax({
+			type: "GET",
+			url: 'index.php?page=NotenEingabe&unterrichtID={$this->unterricht->getID()}&action=getNotenBogenJSON&schuelerAsvID=' + schuelerAsvID,
+			data: {},
+			success: function(data, textStatus, jqXHR) {
+				if(data.notentabelle != "") {
+					$("#notenbogenContainer").html(data.notentabelle);
+					
+				}
+			},
+			dataType: 'json'
+		});
+	}
+
+	function confirmNote(schuelerAsvID, zeugnisID, fach, kommentar, notenwert, normalCalcNote, noteSchnitt) {	
+		$("#noteKommentarConfirmNote").val(kommentar);
+	
+		$("#fachConfirmNote").val(fach);
+		$("#zeugnisIDConfirmNote").val(zeugnisID);
+		$("#schuelerAsvIDConfirmNote").val(schuelerAsvID);
+		$("#normalCalcNoteConfirmNote").val(normalCalcNote);
+		$("#noteSchnittConfirmNote").val(noteSchnitt);
+	
+		$("#notenwertPaedNote").val(notenwert);
+	
+		$('#confirmNote').modal('show'); 
+	}
+
+	function editNote(schuelerAsvID, arbeitID, wert, datum, kommentar, isNachtermin, nurWennBesser) {
+		$("#noteIsNachterminEditJa").prop("checked", isNachtermin);
+		$("#noteIsNachterminEditNein").prop("checked", !isNachtermin);
+		
+		$("#noteKommentarEditNote").val(kommentar);
+
+		$("#schuelerAsvIDEditNote").val(schuelerAsvID);
+		$("#arbeitIDEditNote").val(arbeitID);
+
+		$("#notenwertEditNote").val(wert);
+
+		$("#arbeitDatumEditNote").val(datum);
+		
+		$("#noteNurWennBesserJa").prop("checked", nurWennBesser);
+		$("#noteNurWennBesserNein").prop("checked", !nurWennBesser);
+
+		$("#arbeitDatumEditNote").datepicker({
+			format : 'dd.mm.yyyy',
+			language : "de",
+			autoclose : true
+		});
+		
+		tinymce.init({
+		    selector: '#noteKommentarEditNote',
+		    plugins: "lists",
+		    valid_elements: "p,br,b,i,u,strong,em,ul,li",
+		    toolbar: "bold italic underlinen umlist bullist",
+		    menubar: false,
+		    statusbar: false,
+		    height:300
+		});
+	
+		$('#editNote').modal('show'); 
+	}
+
+	function editArbeit(id, titel, gewicht, datum, isMuendlich) {
+		$(function() {
+			$('#sliderGewichtEdit').slider({
+				range : "min",
+				value : gewicht,
+				step : 0.25,
+				min : 0.25,
+				max : 10,
+				slide : function(event, ui) {
+					$("#arbeitGewichtWertEdit").val(ui.value);
+					$("#gewichtDisplayEdit").html(ui.value.toLocaleString());
+				}
+			})
+		});
+		
+		
+		$("#arbeitGewichtWertEdit").val(gewicht);
+		$("#gewichtDisplayEdit").html(gewicht);
+		
+		$("#arbeitNameEdit").val(titel);
+		$("#editArbeitID").val(id);
+		$("#editArbeitID").val(id);
+		$("#arbeitDatumEdit").val(datum);
+		
+		$("#arbeitDatumEdit").datepicker({
+			format : 'dd.mm.yyyy',
+			language : "de",
+			autoclose : true
+		});
+		
+		$("#arbeitIsMuendlichEditJa").prop("checked", isMuendlich);
+		$("#arbeitIsMuendlichEditNein").prop("checked", !isMuendlich);
+		
+		
+		$('#editArbeit').modal('show'); 
+	}
+
+	$(function() {
+		$('#sliderGewicht').slider({
+			range : "min",
+			value : 1,
+			step : 0.25,
+			min : 0.25,
+			max : 10,
+			slide : function(event, ui) {
+				$("#arbeitGewichtWert").val(ui.value);
+				$("#gewichtDisplay").html(ui.value.toLocaleString());
+			}
+		})
+	});
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+
+	$(function() {
+		$("#arbeitDatumSA").datepicker({
+			format : 'dd.mm.yyyy',
+			language : "de",
+			autoclose : true
+		});
+		$("#arbeitDatumKA").datepicker({
+			format : 'dd.mm.yyyy',
+			language : "de",
+			autoclose : true
+		});
+		$("#arbeitDatumEX").datepicker({
+			format : 'dd.mm.yyyy',
+			language : "de",
+			autoclose : true
+		});
+		$("#arbeitDatumMDL").datepicker({
+			format : 'dd.mm.yyyy',
+			language : "de",
+			autoclose : true
+		});
+	});
+</script>
+
+    
+
+{$this->footer}

@@ -1,0 +1,50 @@
+{$this->header}
+{$this->nachfristBox}
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Hinweise</h3>              
+            </div>
+           <div class="box-body no-padding">
+           		<ul>
+           			<li>Markieren Sie bitte abgeschlossene Beobachtungen (Hier auf der Seite)</li>
+           			<li>Bei den Fächern Sport, Religion, IT, Werken und Französisch sind bei Ihnen alle Schüler zu sehen. Bitte überspringen Sie einfach Schüler, die Sie nicht haben.</li>
+					<li>Manche Klassen erscheinen doppelt mit zwei verschiedenen Zweigen. Beide male werde alle Schüler der Hauptklasse angezeigt. Bitte beachten Sie folgendes:<br />
+						<ul>
+							<li>Bearbeiten Sie bitte nur eine Klasse.</li>
+							<li>Markieren Sie die andere Klasse einfach als erledigt.</li>
+						</ul>
+						Leider besteht derzeit (noch) nicht die Möglichkeit die genaue Zuordnung der Schüler zu bestimmen.
+					</li>
+					<li>Die Möglichkeiten der Eingabe der Beobachtungen sind:
+						<ul>
+							<li><b>Per Schüler</b><br />Hier wird immer ein Schüler angezeigt und alle Fragen dazu. Sie beantworten alle Fragen zu einem Schüler und gehen dann zum nächsten.</li>
+							<li><b>Per Frage</b><br />Hier beantwortem Sie eine Frage für alle Schüler auf einmal.</li>
+							<li><b>Alles auf einmal</b><br />Hier beantworten Sie alle Fragen für alle Schüler auf einmal. (Bequem über die Eingabe auf der Tastatur ähnlich dem Notenmanager)</li>
+						</ul>
+					</li>
+					<li>Sie können jederzeit wieder Ihre Beobachtungen bearbeiten. (Bis $deadline)</li>
+          		</ul>
+			</div>
+		</div>
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Meine Klassen</h3>
+              <br />Eintragungen möglich bis $deadline              
+            </div>
+           <div class="box-body no-padding">
+           
+           		<table class="table table-striped">
+					<tr>
+						<th style="width:10%">Klasse</th>
+						<th style="width:10%">Fach</th>
+						<th style="width:10%">Fertig?</th>
+						<th style="width:10%">Beobachtungen eintragen</th>
+						<th>Sonstige Aktionen</th>
+					</tr>
+					
+					$klassenHTML
+			</table>
+			</div>
+		</div>
+
+{$this->footer}

@@ -1,0 +1,89 @@
+<script>
+$(function() {
+	$("#datepickerstartdatum").datepicker({
+		format: 'dd.mm.yyyy',
+        language: "de",
+        autoclose: true
+
+	});
+});
+
+</script>
+
+{$warningNoPlan}
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-info-circle"></i> Hinweise</h3></small>
+	</div>
+
+	<div class="box-body">
+		<ul>
+			<li>Die komplette SchuleIntern Instanz ist ohne einen aktuellen Stundenplan nicht nutzbar!</li>
+			<li>Wenn Sie das elektronische Klassenbuch verwenden, sorgen Sie bitte dafür, dass auch in der Vergangenheit immer ein lückenloser Plan vorliegt!</li>
+		</ul>
+		
+	</div>
+</div>
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-table"></i> Stundenpläne</h3><br /><small>Der aktive Stundenplan ist grün markiert.</small>
+	</div>
+
+	<div class="box-body">
+<table class="table table-striped">
+<tr>
+	<td><b>Stundenplanname</b></td>
+	<td><b>Gültig ab</b></td>
+	<td><b>Gültig bis</b></td>
+	<td><b>Löschen?</b>
+</tr>
+
+$plaeneHTML
+
+</table>
+
+</div></div>
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-upload"></i> Neuen Stundenplan hochladen</h3>
+	</div>
+
+	<div class="box-body">
+		<font color="green" size="+2">$message</font>
+
+		<form action="$selfURL&uploadPlan=1" method="post" enctype="multipart/form-data">
+		<table class="table">
+			<tr>
+				<td width="10%"><b>Stundenplanname</b></td>
+				<td><input type="text" name="newPlanName" class="form-control" placeholder="z.B. Stundenplan ab Montag, 17. April 2018" /><small>Interner Name, wird nicht öffentlich angezeigt</small>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Stundenplanprogramm:</b></td>
+				<td><expression>DB::getGlobalSettings()->stundenplanSoftware</expression></td>
+			</tr>
+			<tr>
+				<td><b>Startdatum</b></td>
+				<td><input type="text" name="newPlanStart" id="datepickerstartdatum" value="<expression>DateFunctions::getTodayAsNaturalDate()</expression>"/><br />$abschluss</td>
+			</tr>
+			<tr>
+				<td><b>Stundenplan Export - Datei</b></td>
+				<td><input type="file" name="newStundenplanExportFile" /></td>
+			</tr>
+		</table>
+		<if(!DB::checkDemoAccess())><then>
+			<button type="submit" value="" class="form-control" disabled="disabled"><i class="fa fa-upload"></i> Stundenplan hochladen <i>In der Demoversion nicht möglich</i></button>
+		</then><else>
+			<button type="submit" value="" class="form-control"><i class="fa fa-upload"></i> Stundenplan hochladen</button>
+		</else></if>
+		</form>
+	</div>
+
+</div>
+
+$currentUserBlock

@@ -1,0 +1,20 @@
+
+<tr>
+	<td>{$klasse['klassenName']}</td>
+	<td>{$artKlassenleitung}</td>
+	<td>
+		<table class="table table-striped">
+			<tr>
+				<th>Fach</th>
+				<th>Lehrer</th>
+				<th>Status</th>
+			</tr>
+			{$fachStatus}
+		</table>
+	</td>
+	<td>
+		<a href="index.php?page=beobachtungsbogenklassenleitung&bogenID={$this->bogenID}&grade={$klasse['klassenName']}&mode=viewBeobachtungen"><i class="fa fa-eye"></i> Beobachtungen einsehen</a> (<a href="index.php?page=beobachtungsbogenklassenleitung&bogenID={$this->bogenID}&grade={$klasse['klassenName']}&mode=viewBeobachtungenPrint"><i class="fa fa-print"></i> Als Druckversion (PDF)</a>)<br />
+		<a href="index.php?page=beobachtungsbogenklassenleitung&bogenID={$this->bogenID}&grade={$klasse['klassenName']}&mode=viewResults"><i class="fa fa-eye"></i> Ergebnisse einsehen</a> (<a href="index.php?page=beobachtungsbogenklassenleitung&bogenID={$this->bogenID}&grade={$klasse['klassenName']}&mode=viewResultsPrint"><i class="fa fa-print"></i> Als Druckversion (PDF)</a>)<br />
+		<a href="index.php?page=beobachtungsbogenklassenleitung&bogenID={$this->bogenID}&grade={$klasse['klassenName']}&mode=printBoegen"><i class="fa fa-eye"></i> Beobachtungsbögen drucken</a><br />
+	</td>
+</tr>

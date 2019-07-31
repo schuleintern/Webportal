@@ -1,0 +1,115 @@
+{$this->header}
+
+$warningSession
+
+<div class="row">
+
+	<div class="col-md-6">
+		
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Klassenleitung {$this->klasse} - Drucken der Bögen</h3>              
+            </div>
+           <div class="box-body no-padding">
+           		<p>
+           		An dieser Stelle werden die Beobachtungsbögen gedruckt.<br />
+           		<b>Bitte achten Sie auf folgendes:</b></p>
+           		
+           		<ul>
+           			<li>Überprüfen Sie alle Namen! Die Namen, die im Feld angegeben sind, werden so auf den Bogen gedruckt.</li>
+           			<li>Für jede Frage ist die fertige Beurteilung angezeigt.</li>
+           			<li>Geben Sie bitte Ihre Signatur an (wie es auf dem Bogen ausgedruckt wird.)</li>
+           			<li>Geben Sie bitte die Klassenbezeichnung an (hier können Sie die Zweigergänzung (z.B. _f) entfernen.)</li>
+           			<li>Nach dem Absenden erhalten Sie eine PDF zum Download, die alle fertigen Bögen enthält.</li>
+           			<li>Drucken Sie bitte die fertigen Bögen auf dem ausgegebenen Papier mit dem Farblaserdrucker aus.</li>
+           			<li>Unterschreiben Sie die Würdigungen und fertigen Sie eine Kopie mit dem Wasserzeichen "KOPIE" am Kopierer an.</li>
+           		</ul>
+			</div>
+		</div>
+	</div>
+	
+	    <div class="col-md-6">
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Bereits erzeugte Bögen für Klasse {$this->klasse}</h3>  
+                          
+            </div>
+           <div class="box-body no-padding">
+           <table class="table table-striped">
+					<tr>
+						<th style="width:10%">Ersteller</th>
+						<th style="width:20%">Uhrzeit</th>
+						<th>Download</th>
+					</tr>
+					$oldFiles
+			</table>
+			</div>
+		</div>
+	</div>
+</div>
+		
+		<form action="index.php?page=beobachtungsbogenklassenleitung&mode=printBoegen&doPrint=1&bogenID={$this->bogenID}&grade={$this->klasse}" method="post">
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Allgemeine Informationen</h3>
+              <small><br />Manche Informationen sind bereits vorgegeben und können nicht verändert werden.</small>
+            </div>
+           <div class="box-body no-padding">
+           		<table class="table table-striped">
+					<tr>
+						<th style="width:15%">Einstellung</th>
+						<th>Wert</th>
+					</tr>
+					<tr>
+						<td>Titel auf dem Beobachtungsbogen<br /><small>Nicht änderbar</small></td>
+						<td>{$this->bogen['beobachtungsbogenTitel']}</td>
+					</tr>
+					<tr>
+						<td>Text auf dem Beobachtungsbogen<br /><small>Nicht änderbar</small></td>
+						<td>{$this->bogen['beobachtungsbogenText']}</td>
+					</tr>
+					<tr>
+						<td>Datum auf dem Beobachtungsbogen<br /><small>Nicht änderbar</small></td>
+						<td>{$this->bogen['beobachtungsbogenDatum']}</td>
+					</tr>
+					<tr>
+						<td>Signatur auf dem Beonbachtungsbogen<br /><p class="text-red">Bitte angeben!</p></td>
+						<td><input type="text" name="signatur" value="<expression>DB::getSession()->getTeacherObject()->getZeugnisUnterschrift()</expression>" placeholder="z.B. Manfred Hubertus, StR RS" class="form form-control"></td>
+					</tr>
+					<tr>
+						<td>Klasse auf dem Beonbachtungsbogen<br /><p class="text-red">Bitte angeben! (Kein "Klasse" voranstellen.)</p></td>
+						<td><input type="text" name="klasse" value="{$this->klasse}" placeholder="" class="form form-control"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<div class="callout callout-danger">
+          <h4>Ändern der Gesamtbewertungen</h4>
+
+          <p>An dieser Stelle können Sie für jeden Schüler zu jeder Frage nochmals die Bewertungen ändern. Bitte machen Sie dies nur in Ausnahmefällen!</p>
+          <p>Die geänderten Bewertungen werden <u>nicht</u> dauerhaft gespeichert, sondern erscheinen nur auf dem aktuellen Ausdruck.</p>
+          <p>Änderungen am Namen werden auch nur für den aktuellen Ausdruck verwendet und werden nicht gespeichert.</p>
+        </div>
+		
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Einzelne Schüler</h3>
+              <strong><BR />Korrigieren Sie hier bitte eventuelle Fehler in den Namen!</strong><br />
+              <a href="http://sonderzeichentabelle.de/" target="_blank"><i class="fa fa-external-link"></i> Sonderzeichentabelle für Copy/Paste</a> (Öffnet in neuem Fenster)
+            </div>
+           <div class="box-body no-padding">
+           		<table class="table table-striped">
+           			$MATRIX
+           		</table>
+           	</div>
+          </div>
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-print"></i><i class="fa fa-file-pdf-o"></i></span>
+			<input type="submit" value="Bögen ausdrucken (PDF herunterladen)" class="form-control"/>
+		</div>		
+		
+		</form>
+		
+
+{$this->footer}

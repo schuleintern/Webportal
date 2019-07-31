@@ -1,0 +1,127 @@
+{$this->header}
+
+<script>
+$(function() {
+	$("#datepickerdatum").datepicker({
+		format: 'yyyy-mm-dd',
+        monthNames: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+        monthNamesShort: ['Jan','Feb','März','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
+        dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+        dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+        dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+	});
+	
+	$("#datepickerstart").datepicker({
+		format: 'yyyy-mm-dd',
+        monthNames: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+        monthNamesShort: ['Jan','Feb','März','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
+        dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+        dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+        dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+	});
+	
+	$("#datepickerdeadline").datepicker({
+		format: 'yyyy-mm-dd',
+        monthNames: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+        monthNamesShort: ['Jan','Feb','März','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
+        dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+        dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+        dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+	});
+});
+
+</script>
+<div class="callout callout-danger">ACHTUNG: Aufgrund der langen Dauer zum Eintragen aller Daten hier sollte diese Seite nur mit einer gespeicherten Session benutzt werden!</div>
+<div class="callout callout-danger">Bitte alle Angaben genau durchlesen!</div>
+<form action="index.php?page=beobachtungsbogenadmin&addBogen=1&doSave=1" method="post">
+		<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Beobachtungsbogenserie anlegen</h3>
+				<p>Wenn hier ein Bogen angelegt wird, wird er für Lehrer sichtbar zum Eintragen.</p>
+				<p>Alle Angaben (außer der zugrundeliegende Stundenplan) können nachträglich noch verändert werden.</p>
+            </div>
+            <div class="box-body no-padding">
+				<table class="table table-condensed">
+
+
+	<tr>
+		<td style="width:20%"><b>Name:</b></td>
+		<td><input type="text" name="beobachtungsbogenName" class="form-control"></td>
+	</tr>
+	
+	<tr>
+		<td style="width:20%"><b>Basiert auf Stundenplan:</b></td>
+		<td><select name="stundenplanID" class="form-control">{$optionsStundenplan}</select></td>
+	</tr>
+	<tr>
+		<td><b>Datum (Ausgabe):</b></td>
+		<td><input type="text" name="beobachtungsbogenDatum" id="datepickerdatum" class="form-control" value="$heute"></td>
+	</tr>
+	
+	<tr>
+		<td><b>Verfügbar für Lehrer ab:</b></td>
+		<td><input type="text" name="beobachtungsbogenStartDate" id="datepickerstart" class="form-control" value="$heute"></td>
+	</tr>
+	
+	<tr>
+		<td><b>Deadline zum Eintragen:</b><br /><small>Bis zu diesem Zeitpunkt müssen die Eintragungen der Lehrer vorliegen.</small></td>
+		<td><input type="text" name="beobachtungsbogenDeadline" id="datepickerdeadline" class="form-control" value="$heute"></td>
+	</tr>
+	
+	<tr>
+		<td><b>Titel auf dem Bogen</b></td>
+		<td><textarea class="textarea" placeholder="Titel auf dem Ausdruck" name="beobachtungsbogenTitel" class="form-control"style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea></td>
+	</tr>
+	
+	<tr>
+		<td><b>Einleitungstext auf dem Bogen</b><br /><small>Bitte keine Bilder einfügen und nur grundlegende Formatierungen (fett, kursiv und unterstrichen) verwenden.</small></td>
+		<td><textarea class="textarea" name="beobachtungsbogenText" placeholder="Nachricht" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea></td>
+	</tr>
+	
+	<tr>
+		<td><b>Klassenauswahl</b><br /><small>Bei Klassen, die nicht berücksichtigt werden sollen, keinen Klassenleiter auswählen. Es können bis zu zwei Klassenleiter definiert werden. Schulleitung hat immer auf alle Klassenleiteransichten Zugriff.</small></td>
+		<td>
+			<table class="table table-condensed">
+				<tr>
+					<th style="width:10%">Klasse</th>
+					<th style="width:40%">Klassenleitung 1</th>
+					<th style="width:40%">Klassenleitung 2</th>
+				</tr>
+				{$gradeListe}
+			</table>
+		</td>
+	</tr>
+	
+	<tr>
+		<td><b>Fragen</b><br />
+				<ul>
+					<li>Nicht benutze Fragen einfach frei lassen</li>
+					<li>Die Fragen werden auch so auf den Bogen gedruckt</li>
+				</ul>
+				Fragentypen:
+				<ul>
+					<li>Typ 1: <i class="fa fa-smile-o"></i><i class="fa fa-smile-o"></i> / <i class="fa fa-smile-o"></i> / <i class="fa fa-meh-o"> / <i class="fa fa-frown-o"></i> / <i class="fa fa-frown-o"></i><i class="fa fa-frown-o"></i></i>
+					<li>Typ 2: <i class="fa fa-smile-o"></i><i class="fa fa-smile-o"></i> / <i class="fa fa-smile-o"></i> / <i class="fa fa-meh-o"></i></li>
+				</ul>
+			
+			</td>
+			
+			<td>
+			<table class="table table-condensed">
+				<tr>
+					<th style="width:80%">Frage</th>
+					<th style="width:10%">Typ</th>
+					<th style="width:10%">Zugriff</th>
+				</tr>
+				{$fragen}
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+</div>
+<input type="submit" value="Beobachtungsbogen anlegen" class="form-control">
+<strong>Das Anlegen kann einen Moment dauern. Bitte nur einmal klicken!</strong>
+</form>
+
+{$this->footer}

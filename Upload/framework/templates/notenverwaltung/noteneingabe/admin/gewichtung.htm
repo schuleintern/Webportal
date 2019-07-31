@@ -1,0 +1,56 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-balance-scale"></i> Gewichtung der Großen / Kleinen Leistungsnachweise<br /><small>Nur Gymnasium</small></h3>
+	</div>
+	<div class="box-body">
+		<strong>Die Standardgewichtung ist 2:1. Nur Gewichtungen, die sich von dieser unterscheiden sollen, sind hier aufgeführt.</strong>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Fach</th>
+					<th>Jahrgangsstufe</th>
+					<th>Gewichtung Groß</th>
+					<th>Gewichtung Klein</th>
+					<th>Löschen</th>
+				</tr>
+			</thead>
+			<tbody>
+				$gewichtungHTML
+			</tbody>
+		</table>
+	
+	</div>
+</div>
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-balance-scale"></i> Gewichtung anlegen</h3>
+	</div>
+	<div class="box-body">
+		<b>Die Gewichtung 2:1 muss nicht eingetragen werden.</b>
+		<form action="$selfURL&mode=add" method="post">
+		<div class="form-group">
+			<label>Fach</label>
+			<select name="fach" class="form-control">$selectFaecher</select>
+		</div>	
+		
+		<div class="form-group">
+			<label>Jahrgangsstufe</label>
+			<input type="number" name="jgs" class="form-control" />
+		</div>
+		
+		<div class="form-group">
+			<label>Gewicht Groß</label>
+			<input type="number" name="gewichtGross" class="form-control" />
+		</div>	
+		
+		<div class="form-group">
+			<label>Gewicht Klein</label>
+			<input type="number" name="gewichtKlein" class="form-control" />
+		</div>
+		
+		<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Speichern</button>
+		</form>
+	</div>
+</div>

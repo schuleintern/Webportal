@@ -1,0 +1,80 @@
+<div style="text-align: center">
+$titel
+
+<font size="14"><b>Zwischenbericht über den Leistungsstand</b></font><br /><br />
+
+<font size="12"><b>$schuelerName, Klasse $klasse</b></font><br />
+<font size="12"><i>geboren am $geburtsdatum</i></font>
+<br /><br />
+
+<table border="1" style="width:100%" cellpadding="3">
+$tabelle
+
+</table>
+</div>
+
+<if($hasNA)><then>
+<div style="text-align: right">* Notenberechnung nach §34 Abs. 7 Nr. 2 BaySchO</div></then></if>
+
+<div style="text-align: left">
+Fächer ohne Noten werden nicht angegeben. Die Zahl unterhalb der Note gibt die Gewichtung zu den anderen Noten innerhalb der großen bzw. kleinen Leistungsnachweise an. Bei den Schnitten der großen und kleinen Leistungsnachweisen gibt die Zahl unter dem Schnitt die Gewichtung zum jeweils anderen Schnitt für die Berechnung der Gesamtnote an.
+
+</div>
+
+<div style="text-align: left">
+
+<b>Fehltage:</b><br />
+<table border="1" style="width:100%" cellpadding="2">
+	<tr>
+		<td style="width:7.5%">Sep</td>
+		<td style="width:7.5%">Okt</td>
+		<td style="width:7.5%">Nov</td>
+		<td style="width:7.5%">Dez</td>
+		<td style="width:7.5%">Jan</td>
+		<td style="width:7.5%">Feb</td>
+		<td style="width:7.5%">Mär</td>
+		<td style="width:7.5%">Apr</td>
+		<td style="width:7.5%">Mai</td>
+		<td style="width:7.5%">Jun</td>
+		<td style="width:7.5%">Jul</td>
+		<td style="width:7.5%">Aug</td>
+		<td style="width:10%">Summe</td>
+	</tr>
+	<tr>
+		<td>{$absenzen[9]}</td>
+		<td>{$absenzen[10]}</td>
+		<td>{$absenzen[11]}</td>
+		<td>{$absenzen[12]}</td>
+		<td>{$absenzen[1]}</td>
+		<td>{$absenzen[2]}</td>
+		<td>{$absenzen[3]}</td>
+		<td>{$absenzen[4]}</td>
+		<td>{$absenzen[5]}</td>
+		<td>{$absenzen[6]}</td>
+		<td>{$absenzen[7]}</td>
+		<td>{$absenzen[8]}</td>
+		<td>{$absenzen['gesamt']}</td>
+	</tr>
+</table>
+</div>
+
+<div style="text-align: left">
+$schulort, den $datum<br /><br />
+
+<table border="0" style="width: 100%">
+	<tr>
+		<td align="center" style="width: 45%">
+			gez. $nameSchulleitung<br />
+			____________________________<br />
+			Schulleitung
+		</td>
+		<td align="center" style="width: 10%">&nbsp;</td>
+		<td align="center" style="width: 45%">
+			gez. $klassenleitung<br />
+			____________________________<br />
+			
+			Klassenleitung
+		</td>
+	</tr>
+</table>
+</div>

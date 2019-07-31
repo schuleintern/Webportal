@@ -1,0 +1,233 @@
+{$this->header}
+
+<style>
+.datepicker{z-index:1151 !important;}
+</style>
+
+
+    <script src="cssjs/plugins/fullcalendar/fullcalendar.js"></script>
+    <script src="cssjs/plugins/fullcalendar/de.js"></script>
+
+  <script>
+
+  $(document).ready(function() {
+
+
+    $('#schulkalender').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'listDay,listWeek,listMonth,month,agendaWeek,agendaDay'
+      },
+      locale: 'de',
+		views: {
+	        month: { // name of view
+	            titleFormat: 'MMMM YYYY'
+	        },
+	        basicWeek: { // name of view
+	            titleFormat: 'MMMM YYYY'
+	        },
+	        listDay: { buttonText: 'Tagesliste' },
+	        listMonth: { buttonText: 'Monatsliste' },
+	        listWeek: { buttonText: 'Wochenliste' }
+	    },
+      defaultDate: '$today',
+      title: '$gradeDisplay',
+
+
+      
+      
+      slotDuration: '01:00:00',
+      slotLabelFormat: 'h(:mm)a',
+
+      nowIndicator: true,
+      selectable: true,
+            selectHelper: false,
+            eventClick: function(calEvent, jsEvent, view) {
+
+              var termintitel = calEvent.title;
+
+              var beschriftung = "<strong>" + termintitel + "</strong><br />Datum: " + (calEvent.start._d.getDate())+ "." + (calEvent.start._d.getMonth()+1) + "." + calEvent.start._d.getFullYear();
+
+              if(calEvent.end != null && calEvent.end != calEvent.start) beschriftung = beschriftung + ' bis ' + (calEvent.end._d.getDate()-1)+ "." + (calEvent.end._d.getMonth()+1) + "." + calEvent.end._d.getFullYear();
+
+                $("#eventTitle").html(beschriftung);
+
+             
+                $("#showevent").html("Eingetragen am: " + calEvent.eintragZeitpunkt + "<br /><br /><div class=\"row\"><div class=\"col-md-6\"><form><button type=\"button\"  class=\"form-control\" data-dismiss=\"modal\"><i class=\"fa fa-times\"></i> Schließen</button></form></div></div>");
+
+
+              if(calEvent.kommentar != "") {
+                $("#kommentar").html(calEvent.kommentar);
+              }
+              else {
+            	  $("#kommentar").html("");
+              }
+              
+              if(calEvent.kategorieName != "") {
+            	$("#kategorieName").html(calEvent.kategorieName);
+              }
+              else {
+            	  $("#kategorieName").html(""); 
+              }
+              
+              if(calEvent.eingetragenVon != "") {
+              	$("#eingetragenVon").html("Eingetragen von: " + calEvent.eingetragenVon);
+                }
+                else {
+              	  $("#eingetragenVon").html(""); 
+                }
+
+
+              if(calEvent.ort) {
+                $("#ort").html("Ort: " + calEvent.ort);
+              }
+              else {
+                $("#ort").html("Ort: n/a");
+              }
+
+              $("#terminicon").html("<i class=\"" + calEvent.icon + "\"></i>");
+
+              $('#anzeigen').modal('show');
+
+            },
+			eventRender: function(event, element) {		
+				element.find(".fc-title").prepend("<i class='" + event.icon + "'></i> ");
+				
+			},
+			eventAfterAllRender: function(view) {
+				$("#isloading").hide();
+			},
+			loading: function(isLoading,view) {
+				if(isLoading) $("#isloading").show();
+			},
+			eventDurationEditable: false,
+			eventStartEditable: false,
+
+		      editable: false,
+		      eventLimit: false,
+			  events: 'index.php?page=<expression>$_REQUEST['page']</expression>&kalenderID={$_REQUEST['kalenderID']}&action=getJSONData',
+
+    });
+
+  });
+  
+	function openICSFeed() {
+		  $("#buttonics").prop("disabled",true);
+		  
+		  $("#buttonics").html("<i class=\"fa fa-refresh fa-spin\"></i> Wird abgerufen");
+	
+		$.ajax({
+			type: "POST",
+			url: 'index.php?page=<expression>$_REQUEST['page']</expression>&kalenderID={$_REQUEST['kalenderID']}&action=getICSFeedURL',
+			data: {
+				
+			},
+			success: function(data, textStatus, jqXHR) {
+				$("#icsfeedurl").val(data.feedURL);
+				$("#icsfeed").modal("show");
+			},
+			dataType: 'json'
+		});
+		
+		
+		$("#buttonics").html('<i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small>');
+		$("#buttonics").prop("disabled",false);
+	}
+
+
+</script>
+<style>
+
+  .fc-time {
+      display:none;
+  }
+
+</style>
+
+<div class="box">
+  <div class="box-header"><h3 class="box-title">{$this->title}</h3><br />
+  <div class="box-body">
+  			<div class="row">
+
+			<div class="col-md-12" style="text-align:right">
+				<button type="button" class="btn btn-primary" onclick="openICSFeed()" id="buttonics"><i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small></button>
+			
+				<button type="button" class="btn btn-success" onclick="window.location.href='index.php?page=<expression>$_REQUEST['page']</expression>&mode=print&kalenderID={$_REQUEST['kalenderID']}'"><i class="fa fa-print"></i> Druckversion<br /><small>PDF Datei</small></button></form>			
+						
+			</div>
+		</div>
+  <div id="schulkalender"></div></div>
+  	<div class="overlay" id="isloading">
+		<i class="fa fa-refresh fa-spin"></i>
+	</div>
+</div>
+
+	<div class="modal fade" id="icsfeed" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    
+	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+	    	<h4 class="modal-title" id="eventTitleICS"><i class="fa fa-calendar-plus-o"></i> ICS Feed der Termine ($gradeDisplay)</h4>
+	    	
+	      </div>
+	      <div class="modal-body">
+	      	Die können diese URLs verwenden, um die Termine in Programme zu importieren oder auf Ihrem Mobiltelefon abzurufen.
+	      	<br />
+	      	Hinweis:
+	      	<ul>
+	      		<li>Es werden alle Termine für die nächsten 365 Tage abgerufen.</li>
+	      	</ul>
+	      	<b>Diese Links sind persönlich und dürfen nicht weiter gegeben werden.</b>
+	      	<hr>
+	      	
+	      	<form>
+	      	<div class="form-group">
+	      		<input type="text" id="icsfeedurl" class="form-control" onClick="this.select();">
+	      	</div>
+	      	</form>
+	      </div>
+	     </div>
+	    </div>
+	   </div>
+  <div class="modal fade" id="anzeigen" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
+        <h4 class="modal-title" id="eventTitle">Details</h4>
+		<div id="kategorieName"></div>
+        </div>
+        <div class="modal-body">
+          <div id="kommentar"></div>
+          <div id="ort"></div>
+          <div id="eingetragenVon"></div>
+          <div id="showevent"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+
+  <script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script>
+  function uhrzeitChanged()
+  {
+      if($('#isganzertag').iCheck('update')[0].checked) {
+          $("#uhrzeit2").show();
+          $("#uhrzeit").hide();
+      }
+      else {
+        $("#uhrzeit").show();
+          $("#uhrzeit2").hide();
+      }
+  }
+  
+</script>
+
+  {$this->footer}

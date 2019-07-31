@@ -1,0 +1,115 @@
+{$this->header}
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-check"></i> Fehlende Einträge</h3>
+	</div>
+	<div class="box-body">
+		<table id="fehl" class="table table-striped table-hover">
+			<thead>
+			<tr>
+				<th>Datum</th>
+				<th>Klasse</th>
+				<th>Stunde</th>
+				<th>Fach</th>
+				<th>Eintrag vornehmen<small><br>Danach automatisch zurück zu dieser Liste</small></th>
+			</tr>
+			</thead>
+			<tbody>$fehlHTML</tbody>
+			
+		</table>
+	
+	</div>
+</div>
+
+
+
+
+<script src="cssjs/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="cssjs/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+  $(function () {
+	  
+	  jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+		    "date-eu-pre": function ( date ) {
+		        date = date.replace(" ", "");
+		         
+		        if ( ! date ) {
+		            return 0;
+		        }
+		 
+		        var year;
+		        var eu_date = date.split(/[\.\-\/]/);
+		 
+		        /*year (optional)*/
+		        if ( eu_date[2] ) {
+		            year = eu_date[2];
+		        }
+		        else {
+		            year = 0;
+		        }
+		 
+		        /*month*/
+		        var month = eu_date[1];
+		        if ( month.length == 1 ) {
+		            month = 0+month;
+		        }
+		 
+		        /*day*/
+		        var day = eu_date[0];
+		        if ( day.length == 1 ) {
+		            day = 0+day;
+		        }
+		 
+		        return (year + month + day) * 1;
+		    },
+		 
+		    "date-eu-asc": function ( a, b ) {
+		        return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+		    },
+		 
+		    "date-eu-desc": function ( a, b ) {
+		        return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+		    }
+		} );	  
+    $('#fehl').DataTable({
+    	columnDefs: [
+    	       { type: 'date-eu', targets: 0 }
+    	     ],
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "order": [[ 0, "desc" ]],
+      "autoWidth": false,
+      "pageLength": 20,
+      "language": {
+    		"sEmptyTable":   	"Keine Daten in der Tabelle vorhanden",
+    		"sInfo":         	"_START_ bis _END_ von _TOTAL_ Einträgen",
+    		"sInfoEmpty":    	"0 bis 0 von 0 Einträgen",
+    		"sInfoFiltered": 	"(gefiltert von _MAX_ Einträgen)",
+    		"sInfoPostFix":  	"",
+    		"sInfoThousands":  	".",
+    		"sLengthMenu":   	"_MENU_ Einträge anzeigen",
+    		"sLoadingRecords": 	"Wird geladen...",
+    		"sProcessing":   	"Bitte warten...",
+    		"sSearch":       	"Einträge suchen",
+    		"sZeroRecords":  	"Keine Einträge vorhanden.",
+    		"oPaginate": {
+    			"sFirst":    	"Erste",
+    			"sPrevious": 	"Zurück",
+    			"sNext":     	"Nächste",
+    			"sLast":     	"Letzte"
+    		},
+    		"oAria": {
+    			"sSortAscending":  ": aktivieren, um Spalte aufsteigend zu sortieren",
+    			"sSortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
+    		}
+      }
+    });
+  });
+  
+  
+  </script>
+{$this->footer}
