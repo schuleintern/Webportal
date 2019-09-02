@@ -24,7 +24,6 @@ class resthandler {
      'SetSettingsValue',
      'GetAllSettings',
      'GetUserCount',
-     'GetContractStatus'
   ];
   
   
@@ -32,29 +31,34 @@ class resthandler {
   public function __construct() {
       
       include_once("../framework/lib/rest/AbstractRest.class.php");
-      
-      if (!isset($_SERVER['PHP_AUTH_USER'])) {
-          header('WWW-Authenticate: Basic realm="REST API"');
-          // header('HTTP/1.0 401 Unauthorized');
-          
+
+      $authHeaderFound = false;
+
+      $headers = getallheaders();
+
+      foreach($headers as $headername => $headervalue) {
+          if(strtolower($headername) == 'authorization') {
+              $authHeaderFound = true;
+          }
+      }
+
+      if (!isset($_SERVER['PHP_AUTH_USER']) && !$authHeaderFound) {
           $result = [
               'error' => 1,
               'errorCode' => '401',
-              'errorText' => 'Auth Failed'
+              'errorText' => 'Auth Failed!',
           ];
           
           $this->answer($result, 401);
           exit();
       }
-      
-      $headers = getallheaders();
-      
+
      // print_r($headers);
       
-      if($headers['schuleinternapirequest'] != true) {
+      if(!isset($headers['schuleinternapirequest']) || $headers['schuleinternapirequest'] != true) {
           $result = [
               'error' => 1,
-              'errorText' => 'SchuleInternAPIRequest header not set. '
+              'errorText' => 'schuleinternapirequest header not set. '
           ];
           $this->answer($result, 400);
       }
@@ -96,13 +100,24 @@ class resthandler {
                 
                 // Check Auth
             if ($action->needsSystemAuth()) {
-                if ($_SERVER['PHP_AUTH_USER'] != DB::getGlobalSettings()->restApiUsername || $_SERVER['PHP_AUTH_PW'] != DB::getGlobalSettings()->restApiPassword) {
-                    header('WWW-Authenticate: Basic realm="REST API"');
-                    // header('HTTP/1.0 401 Unauthorized');
-                    
+
+                $apiKey = null;
+
+                foreach($headers as $headername => $headervalue) {
+                    if(strtolower($headername) == 'authorization') {
+                        $authHeaderFound = true;
+
+                        $apiKey = substr($headervalue, 7);
+
+                    }
+                }
+
+                if ($apiKey != null && $apiKey != DB::getGlobalSettings()->apiKey) {
+
                     $result = [
                         'error' => 1,
-                        'errorText' => 'Auth Failed'
+                        'errorText' => 'Auth Failedd',
+                        'SERVER' => $apiKey
                     ];
                     
                     $this->answer($result, 401);
@@ -111,9 +126,6 @@ class resthandler {
             }
             else {
                 if (!$action->checkAuth($_SERVER['PHP_AUTH_USER'],$_SERVER['PHP_AUTH_PW'])) {
-                    header('WWW-Authenticate: Basic realm="REST API"');
-                    // header('HTTP/1.0 401 Unauthorized');
-                    
                     $result = [
                         'error' => 1,
                         'errorText' => 'Auth Failed'
