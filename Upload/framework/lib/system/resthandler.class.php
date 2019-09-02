@@ -19,7 +19,6 @@ if (!function_exists('getallheaders'))
 
 class resthandler {
   private static $actions = [
-     'GetSystemInfo',
      'GetSettingsValue',
      'SetSettingsValue',
      'GetAllSettings',
