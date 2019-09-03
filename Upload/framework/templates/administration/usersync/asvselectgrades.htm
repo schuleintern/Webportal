@@ -19,7 +19,7 @@
 		$klassenHTML
 		
 		
-		<p><button type="button" class="form-control" onclick="document.getElementById('asvsyncform').submit(); document.getElementById('submitform').disabled = true;document.getElementById('submitform').innerHTML = 'Synchronisation wird durchgeführt. Bitte warten. (Kann bis zu einer Minute benötigen!)';" id="submitform"><i class="fa fa-upload"></i> Import mit den ausgewählten Klassen starten</button></p>		
+		<p><button type="button" class="btn btn-primary btn-block" onclick="importGrades()" id="buttonimport"><i class="fa fa-upload"></i> Import mit den ausgewählten Klassen starten</button></p>
 		</form>
 
 	</div>
@@ -35,3 +35,44 @@
         
       });
       </script>
+
+
+
+	<script>
+
+		function importGrades() {
+			var total = 0;
+			var selected = 0;
+
+			$( ".tableselectfield" ).each(function( index ) {
+				if($(this).iCheck('update')[0].checked) selected++;
+				total++;
+			});
+
+			if(selected <= (total/2)) {
+				$("#confirmAction").addClass("modal-danger");
+				confirmAction(
+						"<b>ACHTUNG!! Sie haben weniger als die Hälfte der Klassen ausgewählt</b>!" +
+						"Sie müssen ALLE Klassen, die in SUMME in SchuleIntern enthalten sein sollen, auswählen!" +
+						"<u>NICHT EINZELNE KLASSEN ZUR AKTUALISIERUNG auswählen!</u> Immer alle Klassen, die in SchuleIntern enthalten sein sollen!<br />" +
+						"<b>Möchten Sie mit dem Import fortfahren?</b>",null, function() {
+							document.getElementById('asvsyncform').submit();
+							$("#buttonimport").attr("disabled", true);
+							$("#buttonimport").html('Synchronisation wird durchgeführt. Bitte warten. (Kann bis zu einer Minute benötigen!)');
+						});
+			}
+			else {
+				document.getElementById('asvsyncform').submit();
+				$("#buttonimport").attr("disabled", true);
+				$("#buttonimport").html('Synchronisation wird durchgeführt. Bitte warten. (Kann bis zu einer Minute benötigen!)');
+
+			}
+
+
+
+
+
+		}
+
+
+	</script>

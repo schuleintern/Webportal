@@ -117,20 +117,24 @@ class email {
 	private static function sendMailWithID($id, $overrideDebug=false) {
 		
 				$m = DB::getDB()->query_first("SELECT * FROM mail_send WHERE mailID='" . $id . "'");
+
+
+				if(DB::getSettings()->getValue("mail-server") == "") return;
+
 			
 				$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 	
 				$mail->IsSMTP(); // telling the class to use SMTP
 	
-			  $mail->Host       = DB::getGlobalSettings()->smtpSettings['host'];
-			  $mail->SMTPAuth   = true;
-			  if(DB::isDebug()) $mail->Port       = 25;
-			  else $mail->Port       = 587;
+			  $mail->Host       = DB::getSettings()->getValue("mail-server");
+			  $mail->Port = DB::getSettings()->getValue("mail-server-port");
 			  
-			  if(!DB::isDebug()) {
-			     $mail->Username   = DB::getGlobalSettings()->smtpSettings['username']; 
-			     $mail->Password   = DB::getGlobalSettings()->smtpSettings['password'];
-			  }
+			  if(DB::getSettings()->getBoolean("mail-server-auth")) {
+			     $mail->Username   = DB::getSettings()->getValue("mail-server-username");;
+			     $mail->Password   = DB::getSettings()->getValue("mail-server-password");
+			     $mail->SMTPAuth   = DB::getSettings()->getBoolean("mail-server-auth");
+
+              }
 			  else {
 			      $mail->SMTPAuth   = false;
 			  }

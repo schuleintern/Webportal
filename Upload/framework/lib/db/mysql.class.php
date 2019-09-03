@@ -25,7 +25,8 @@ class mysql {
       					DB::getGlobalSettings()->dbSettigns['host'],
       					DB::getGlobalSettings()->dbSettigns['user'],
       					DB::getGlobalSettings()->dbSettigns['password'],
-      					$database
+      					$database,
+                        DB::getGlobalSettings()->dbSettigns['port'] != "" ? DB::getGlobalSettings()->dbSettigns['port'] : 3306
       			);
 
       			mysqli_set_charset($this->mysqli, "utf8");

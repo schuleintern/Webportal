@@ -33,10 +33,12 @@ include_once '../data/config/userlib.class.php';
 include('./startup.php');
 
 
+include("../framework/lib/system/errorhandler.php");
+
+set_error_handler('schuleinternerrorhandler',E_ALL);
+
 if($_SERVER['SERVER_PORT'] != 443 && $_REQUEST['page'] != "updatevplan" && $_REQUEST['page'] != "digitalSignage" && $_SERVER['REMOTE_ADDR'] != "127.0.0.1" && $_SERVER['REMOTE_ADDR'] != "::1" && !DB::isDebug()) {			// Wir wollen SSL erzwingen!
   header("Location: " . DB::getGlobalSettings()->urlToIndexPHP);
 }
 
 new requesthandler((isset($_REQUEST['page']) && $_REQUEST['page'] != "") ? $_REQUEST['page'] : 'index');
-
-?>

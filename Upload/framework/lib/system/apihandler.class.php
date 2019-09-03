@@ -1,11 +1,6 @@
 <?php
 
 
-/**
- * Verwaltet die Crons.
- * @author Christian Spitschka
- * @version 1.0 Beta
- */
 class apihandler {
 	private static $allowedActions = array(
 			"GetSchoolData",

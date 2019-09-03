@@ -23,7 +23,11 @@ class UpdateProcess {
         $errors = [];
 
         if(!is_writable("../framework")) {
-            $errors[] = "Das Verzeichnis 'framework' ist nicht beschreibbar. (Rechte 666)";
+            $errors[] = "Das Verzeichnis 'framework' ist nicht beschreibbar. (Rechte 777)";
+        }
+
+        if(!is_writable("./")) {
+            $errors[] = "Das Verzeichnis './' ist nicht beschreibbar. (Rechte 777)";
         }
 
         if(sizof($errors) == 0) {
@@ -47,6 +51,9 @@ class UpdateProcess {
     }
 
     private function update_100_to_101() {
+
+	    // Aktionen zum Update durchführen
+        // Datenbankupdate auch hier ausführen.
 
 
 

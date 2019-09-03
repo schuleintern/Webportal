@@ -39,6 +39,8 @@ class tpl {
             return "internal error. (tpl)";
         }
 
+        if($this->isDevelopment) $ignoreCache = true;
+
 
 	    if($ignoreCache) {
             return $this->templateCompiler->parse(file_get_contents("../framework/templates/$name.htm"));

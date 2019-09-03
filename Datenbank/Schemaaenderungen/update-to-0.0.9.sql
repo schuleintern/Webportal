@@ -1,0 +1,2 @@
+-- Beispiel SQL-Datei für ein Update auf Version 0.0.9
+-- Updates sind immer nur auf die Folgeversion möglich. Daher sind Kettenupdates nötig.
