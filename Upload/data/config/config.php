@@ -123,6 +123,6 @@ class GlobalSettings {
      * Domain des Update Servers
      * @var string
      */
-        public $updateServer = "http://update.schule-intern.local";
+        public $updateServer = "http://update.schule-intern.de";
 
 }
