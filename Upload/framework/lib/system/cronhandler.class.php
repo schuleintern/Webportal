@@ -34,7 +34,6 @@ class cronhandler {
 		
 		//Check Access Key
 		
-		
 		if($_REQUEST['cronName'] != "") {
 		    // Execute Single Cron
 		    $cronName = $_REQUEST['cronName'];
@@ -82,31 +81,7 @@ class cronhandler {
 		    
 		    
 		}
-		
-		
-		// Check if Update
-		
-		// Check for Update
-		
-		{
-		    if(DB::getVersion() != DB::getSettings()->getValue("currentVersion")) {
-		        $updater = new UpdateProcess();
-		        
-		        
-		        $newVersion = $updater->update();
-		        
-		        if($newVersion != DB::getVersion()) {
-		            die("Update failed. info@spitschka.com kontaktieren.");
-		        }
-		        else {
-		            DB::getSettings()->setValue('currentVersion', DB::getVersion());
-		            die("Update OK");
-		        }
-		        
-		        
-		    }
-		}
-		
+
 
 		// Cron Running?
 		

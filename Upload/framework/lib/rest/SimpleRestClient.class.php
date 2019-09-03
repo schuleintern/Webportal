@@ -26,12 +26,7 @@ class SimpleRestClient {
         if(sizeof($addheaders) > 0) {
             curl_setopt($process, CURLOPT_HTTPHEADER, $addheaders);
         }
-        
-        if($user == "API_MANAGEMENT_PORTAL") {
-            $password = '82he98nh23f8h234epjf2349jf23409jf42309j243f90';
-        }
-        
-        
+
         if($user != NULL) {
             curl_setopt($process, CURLOPT_USERPWD, $user . ":" . $password);
         }

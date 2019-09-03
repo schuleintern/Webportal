@@ -6,7 +6,7 @@
 	</div>
 	<div class="box-body">
 		<b>Benötigter Export: "Export für eine Notenverwaltung"</b>
-		
+		<br />
 		Der Import aktuslisiert folgende Daten:
 		<ul>
 			<li>Schülerdaten</li>
@@ -21,30 +21,37 @@
 		
 		<p>Letzter ASV Import: $lastImport</p>
 		
-		<if(DB::checkDemoAccess())><then>
-		
+
 		<form action="{$selfURL}&action=syncasv" method="post" enctype="multipart/form-data" id="asvsyncform">
-		<p>Datei: <input type="file" class="form-control" name="asvexportfile" accept=".zip"></p>
-		
-		<p>Passwort: <input type="password" name="asvexportfilepassword" class="form-control"></p>
-		
-		<p><button type="button" class="form-control" onclick="document.getElementById('asvsyncform').submit(); document.getElementById('submitform').disabled = true;document.getElementById('submitform').innerHTML = 'Synchronisation wird durchgeführt. Bitte warten. (Kann bis zu einer Minute benötigen!)';" id="submitform"><i class="fa fa-upload"></i> Zur Klassenauswahl</button></p>		
+
+			<div class="row">
+				<div class="col-md-6">
+					<if(self::get7ZIP() != null)><then>
+					<b>Export - ZIP aus ASV</b><br />
+					<p>Datei: <input type="file" class="form-control" name="asvexportfile" accept=".zip"></p>
+
+					<p>Passwort: <input type="password" name="asvexportfilepassword" class="form-control"></p>
+				</then><else>
+					<b>Export - ZIP aus ASV</b><br />
+
+					Der Import der ZIP Datei kann nur durchgeführt werden, wenn in den Einstellungen zu diesem Modul ein Pfad zu 7ZIP angegeben wird. Diese Einstellung erhalten Sie von Ihrem Administrator oder Webhoster.
+				</else></if>
+				</div>
+				<div class="col-md-6">
+					<b>Alternativ:</b><br />
+					Entpacken Sie die Exportdatei mittels 7Zip (Nicht den integrierten Zipper in Windows) und laden Sie die erhaltene XML Datei hier hoch:
+					<p>Datei: <input type="file" class="form-control" name="asvexportfilexml" accept=".xml"></p>
+				</div>
+			</div>
+
+
+
+		<p><button type="button" class="btn btn-primary btn-block" onclick="document.getElementById('asvsyncform').submit(); document.getElementById('submitform').disabled = true;document.getElementById('submitform').innerHTML = 'Synchronisation wird durchgeführt. Bitte warten. (Kann bis zu einer Minute benötigen!)';" id="submitform"><i class="fa fa-upload"></i> Zur Klassenauswahl</button></p>
 		</form>
 		
-		</then>
-		<else>
-		
-		<div class="callout callout-info">In der Demo Version kann kein ASV Import durchgeführt werden.</div>
-		
-		<form>
-		<p>Datei: <input type="file" class="form-control" name="asvexportfile" accept=".zip" disabled="disabled"></p>
-		
-		<p>Passwort: <input type="password" name="asvexportfilepassword" class="form-control" disabled="disabled"></p>
-		
-		<p><button type="button" class="form-control"  disabled="disabled"><i class="fa fa-upload"></i> Zur Klassenauswahl</button></p>		
-		</form>
-		
-		</else></if>
+
 	</div>
 </div>
+
+
 

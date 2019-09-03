@@ -16,6 +16,10 @@ class settings {
 	public function getValue($setting) {
 		return $this->settingsValues[$setting];
 	}
+
+	public function getInteger($setting) {
+        return intval($this->settingsValues[$setting]);
+    }
 	
 	public function setValue($setting, $value) {
 		$this->settingsValues[$setting] = $value;

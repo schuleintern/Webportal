@@ -131,21 +131,6 @@ abstract class AbstractPage {
 			// /Wartungsmodus
 
 
-            // Update Pendung?
-
-
-
-            if(DB::getVersion() != DB::getSettings()->getValue("currentVersion") && (DB::isLoggedIn() && !DB::getSession()->isAdmin())) {
-
-                eval("DB::getTPL()->out(\"" . DB::getTPL()->get("pendingupdate/index") . "\");");
-                exit(0);
-
-
-            }
-
-            // /Update Pending
-			
-			
 			// Datenschutz
 			
 			

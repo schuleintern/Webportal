@@ -74,7 +74,9 @@ class requesthandler {
       'administrationusersync',
       'administrationmodule',
       'administrationcron',
-      'administrationgroups'
+      'administrationgroups',
+        'AdminMailSettings',
+        'AdminUpdate'
     ],
     'aufeinenblick' => [
       'aufeinenblick',
@@ -176,6 +178,7 @@ class requesthandler {
       'GetMathCaptcha',
       'index',
       'info',
+        'Update'
     ],
     'userprofile' => [
       'changeuseridinsession',

@@ -18,12 +18,8 @@ class PrintLetterWithWindowA4 extends TCPDF {
 		$this->SetTitle($name);
 		
 		$this->name = $name;
-		
-		if(DB::getGlobalSettings()->printSettingsMarginRight > 0) {
-			$this->SetMargins(20, 20, DB::getGlobalSettings()->printSettingsMarginRight);
-		}
-		else 
-			$this->SetMargins(20, 20);
+
+		$this->SetMargins(20, 20);
 		
 		
 		$text = DB::getSettings()->getValue("print-fusszeile-kuvert");
@@ -52,26 +48,8 @@ class PrintLetterWithWindowA4 extends TCPDF {
     	
     	$image_file = 'imagesSchool/Briefkopf.jpg';
     	
-    	if(DB::getGlobalSettings()->printLetterWithFullBackgroundImage) {
-    		// get the current page break margin
-    		$bMargin = $this->getBreakMargin();
-    		// get current auto-page-break mode
-    		$auto_page_break = $this->AutoPageBreak;
-    		// disable auto-page-break
-    		$this->SetAutoPageBreak(false, 0);
-    		// set bacground image
-    		$this->Image($image_file, 0, 0, 210, 297, '', '', '', false, 300, '', false, false, 0);
-    		// restore auto-page-break status
-    		$this->SetAutoPageBreak($auto_page_break, $bMargin);
-    		// set the starting point for the page content
-    		$this->setPageMark();
-    	}
-    	else {
-    	    $this->Image($image_file, 15, 10, '180', '', 'JPG', '', 'M', false, 300, '', false, false, 0, false, false, false);
-    	    
-    		// $this->Image($image_file, 15, 10, '', '30', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-    	}
-    	
+    	$this->Image($image_file, 15, 10, '180', '', 'JPG', '', 'M', false, 300, '', false, false, 0, false, false, false);
+
     	
     	
     	
