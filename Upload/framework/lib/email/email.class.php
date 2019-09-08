@@ -147,7 +147,7 @@ class email {
 			  $mail->AddAddress($m['mailRecipient']);
 			  
 	
-			  $mail->SetFrom(DB::getGlobalSettings()->smtpSettings['sender'], DB::getGlobalSettings()->schoolName);
+			  $mail->SetFrom(DB::getSettings()->getValue("mail-server-sender"), DB::getGlobalSettings()->schoolName);
 			  
 			  if($m['mailCC'] != "") {
 			  	$adresses = explode(";",$m['mailCC']);
@@ -183,9 +183,9 @@ class email {
 			  }
 			
 			  if($m['mailLesebestaetigung'] > 0) {
-			  	$mail->addCustomHeader("Disposition-Notification-To: " . DB::getGlobalSettings()->smtpSettings['sender']);
-			  	$mail->AddCustomHeader("X-Confirm-Reading-To: " . DB::getGlobalSettings()->smtpSettings['sender']);
-			  	$mail->AddCustomHeader("Return-receipt-to: " . DB::getGlobalSettings()->smtpSettings['sender']);
+			  	$mail->addCustomHeader("Disposition-Notification-To: " . DB::getSettings()->getValue("mail-server-sender"));
+			  	$mail->AddCustomHeader("X-Confirm-Reading-To: " . DB::getSettings()->getValue("mail-server-sender"));
+			  	$mail->AddCustomHeader("Return-receipt-to: " . DB::getSettings()->getValue("mail-server-sender"));
 			  }
 	
 			  if($mail->Send()) {
