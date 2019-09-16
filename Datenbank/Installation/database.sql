@@ -3598,6 +3598,19 @@ ALTER TABLE `two_factor_trusted_devices`
   ADD CONSTRAINT `two_factor_trusted_devices_ibfk_1` FOREIGN KEY (`deviceUserID`) REFERENCES `users` (`userID`) ON DELETE CASCADE;
 COMMIT;
 
+-- Set Default Admin User
+-- Login: admin
+-- Password: administrator
+INSERT INTO `users` (`userID`, `userName`, `userFirstName`, `userLastName`, `userCachedPasswordHash`, `userCachedPasswordHashTime`, `userLastPasswordChangeRemote`, `userNetwork`, `userEMail`, `userRemoteUserID`, `userAsvID`, `userFailedLoginCount`, `userMobilePhoneNumber`, `userReceiveEMail`, `userLastLoginTime`, `userCanChangePassword`, `userTOTPSecret`, `user2FAactive`, `userSignature`, `userMailCreated`, `userMailInitialPassword`)
+VALUES
+	(1,'admin','admin','istrator','$2a$10$122810d455ae9639bb69fOJkEt0.3qicXLCx1fFnOMMIw1Hb5Ommi',1568669730,0,'SCHULEINTERN','','','',0,NULL,1,0,1,'',0,'','','');
+
+
+INSERT INTO `users_groups` (`userID`, `groupName`)
+VALUES
+	(1,'Webportal_Administrator');
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
