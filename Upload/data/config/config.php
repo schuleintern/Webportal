@@ -21,15 +21,15 @@ class GlobalSettings {
         'host' => 'localhost',
         'port' => 3306,
         'user' => 'root',
-        'password' => '',
-        'database' => 'schuleintern.dev'
+        'password' => 'root',
+        'database' => 'schuleintern'
     );
 
     /**
      * URL zur index.php für diese Installation (SSL!)
      * @var string
      */
-    public $urlToIndexPHP = "http://schuleintern.local/index.php";
+    public $urlToIndexPHP = "http://schuleintern:8888/index.php";
 
     /**
      * Schlüssel zum Ausführen des Cron Jobs.
@@ -64,7 +64,7 @@ class GlobalSettings {
      * Schulname
      * @var string
      */
-    public $schoolName = "Realschule Testhausen";
+    public $schoolName = "Testschule";
 
     /**
      * Modus der Schülerbenutzer:
