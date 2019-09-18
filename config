@@ -1,0 +1,5 @@
+PROJECT_NAME = "SchuleIntern"
+OUTPUT_DIRECTORY = "Documentation"
+OUTPUT_LANGUAGE = "German"
+INPUT = "Upload/framework/lib/page"
+RECURSIVE = "YES"
