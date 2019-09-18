@@ -1,0 +1,87 @@
+\hypertarget{class_sabre_1_1_xml_1_1_lib_x_m_l_exception}{}\section{Sabre\textbackslash{}Xml\textbackslash{}Lib\+X\+M\+L\+Exception Klassenreferenz}
+\label{class_sabre_1_1_xml_1_1_lib_x_m_l_exception}\index{Sabre\textbackslash{}\+Xml\textbackslash{}\+Lib\+X\+M\+L\+Exception@{Sabre\textbackslash{}\+Xml\textbackslash{}\+Lib\+X\+M\+L\+Exception}}
+Klassendiagramm für Sabre\textbackslash{}Xml\textbackslash{}Lib\+X\+M\+L\+Exception\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_xml_1_1_lib_x_m_l_exception}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_lib_x_m_l_exception_a8a292b477d89d401516b3aae638ad55d}{\+\_\+\+\_\+construct}} (array \$errors, \$code=null, Exception \$previous\+Exception=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_lib_x_m_l_exception_a1e687a71bf8968fc88ab75f919d6d0c9}{get\+Errors}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_lib_x_m_l_exception_a65cf9179ec4e4b855c2dd83003d98c08}\label{class_sabre_1_1_xml_1_1_lib_x_m_l_exception_a65cf9179ec4e4b855c2dd83003d98c08}} 
+{\bfseries \$errors}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This exception is thrown when the Readers runs into a parsing error.
+
+This exception effectively wraps 1 or more Lib\+X\+M\+L\+Error objects.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2009-\/2015 fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei Lib\+X\+M\+L\+Exception.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_lib_x_m_l_exception_a8a292b477d89d401516b3aae638ad55d}\label{class_sabre_1_1_xml_1_1_lib_x_m_l_exception_a8a292b477d89d401516b3aae638ad55d}} 
+\index{Sabre\+::\+Xml\+::\+Lib\+X\+M\+L\+Exception@{Sabre\+::\+Xml\+::\+Lib\+X\+M\+L\+Exception}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+Xml\+::\+Lib\+X\+M\+L\+Exception@{Sabre\+::\+Xml\+::\+Lib\+X\+M\+L\+Exception}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Lib\+X\+M\+L\+Exception\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{array}]{\$errors,  }\item[{}]{\$code = {\ttfamily null},  }\item[{Exception}]{\$previous\+Exception = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates the exception.
+
+You should pass a list of Lib\+X\+M\+L\+Error objects in its constructor.
+
+
+\begin{DoxyParams}[1]{Parameter}
+ & {\em Lib\+X\+M\+L\+Error\mbox{[}$\,$\mbox{]}} & \$errors \\
+\hline
+int & {\em \$code} & \\
+\hline
+Exception & {\em \$previous\+Exception} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 35 der Datei Lib\+X\+M\+L\+Exception.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_lib_x_m_l_exception_a1e687a71bf8968fc88ab75f919d6d0c9}\label{class_sabre_1_1_xml_1_1_lib_x_m_l_exception_a1e687a71bf8968fc88ab75f919d6d0c9}} 
+\index{Sabre\+::\+Xml\+::\+Lib\+X\+M\+L\+Exception@{Sabre\+::\+Xml\+::\+Lib\+X\+M\+L\+Exception}!get\+Errors@{get\+Errors}}
+\index{get\+Errors@{get\+Errors}!Sabre\+::\+Xml\+::\+Lib\+X\+M\+L\+Exception@{Sabre\+::\+Xml\+::\+Lib\+X\+M\+L\+Exception}}
+\subsubsection{\texorpdfstring{get\+Errors()}{getErrors()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Lib\+X\+M\+L\+Exception\+::get\+Errors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the Lib\+X\+ML errors
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 47 der Datei Lib\+X\+M\+L\+Exception.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/xml/lib/Lib\+X\+M\+L\+Exception.\+php\end{DoxyCompactItemize}

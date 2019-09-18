@@ -1,0 +1,121 @@
+\hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_root}{}\section{Sabre\textbackslash{}Card\+D\+AV\textbackslash{}Address\+Book\+Root Klassenreferenz}
+\label{class_sabre_1_1_card_d_a_v_1_1_address_book_root}\index{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Root@{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Root}}
+Klassendiagramm für Sabre\textbackslash{}Card\+D\+AV\textbackslash{}Address\+Book\+Root\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.495631cm]{class_sabre_1_1_card_d_a_v_1_1_address_book_root}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_root_adec87a327a988a236419d6a8aa16f136}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface}{D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+Backend\+Interface}} \$principal\+Backend, \mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}} \$carddav\+Backend, \$principal\+Prefix=\textquotesingle{}principals\textquotesingle{})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_root_a9c3fa2825ad4bc965ae36eb83bf799bd}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_root_a43dd09b7810691533702629578be4ccb}{get\+Child\+For\+Principal}} (array \$principal)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_root_aea488b22e8e8f6f804f3a442a16f8710}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_root_aea488b22e8e8f6f804f3a442a16f8710}} 
+{\bfseries \$principal\+Backend}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_root_a6ac16ea46b900100558a9276a2d443ba}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_root_a6ac16ea46b900100558a9276a2d443ba}} 
+{\bfseries \$carddav\+Backend}
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book}{Address\+Book}} rootnode
+
+This object lists a collection of users, which can contain addressbooks.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei Address\+Book\+Root.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_root_adec87a327a988a236419d6a8aa16f136}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_root_adec87a327a988a236419d6a8aa16f136}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Root\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface}{D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+Backend\+Interface}}}]{\$principal\+Backend,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}}}]{\$carddav\+Backend,  }\item[{}]{\$principal\+Prefix = {\ttfamily \textquotesingle{}principals\textquotesingle{}} }\end{DoxyParamCaption})}
+
+Constructor
+
+This constructor needs both a principal and a carddav backend.
+
+By default this class will show a list of addressbook collections for principals in the \textquotesingle{}principals\textquotesingle{} collection. If your main principals are actually located in a different path, use the \$principal\+Prefix argument to override this.
+
+
+\begin{DoxyParams}[1]{Parameter}
+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+Backend\+Interface & {\em \$principal\+Backend} & \\
+\hline
+Backend\textbackslash{}\+Backend\+Interface & {\em \$carddav\+Backend} & \\
+\hline
+string & {\em \$principal\+Prefix} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 46 der Datei Address\+Book\+Root.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_root_a43dd09b7810691533702629578be4ccb}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_root_a43dd09b7810691533702629578be4ccb}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root}!get\+Child\+For\+Principal@{get\+Child\+For\+Principal}}
+\index{get\+Child\+For\+Principal@{get\+Child\+For\+Principal}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root}}
+\subsubsection{\texorpdfstring{get\+Child\+For\+Principal()}{getChildForPrincipal()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Root\+::get\+Child\+For\+Principal (\begin{DoxyParamCaption}\item[{array}]{\$principal }\end{DoxyParamCaption})}
+
+This method returns a node for a principal.
+
+The passed array contains principal information, and is guaranteed to at least contain a uri item. Other properties may or may not be supplied by the authentication backend.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$principal} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile 74 der Datei Address\+Book\+Root.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_root_a9c3fa2825ad4bc965ae36eb83bf799bd}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_root_a9c3fa2825ad4bc965ae36eb83bf799bd}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Root}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Root\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the name of the node
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 58 der Datei Address\+Book\+Root.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Card\+D\+A\+V/Address\+Book\+Root.\+php\end{DoxyCompactItemize}

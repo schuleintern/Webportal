@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/CalDAV/CalendarRoot.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_d96a284a623d22f018a48de34118fd50.html">CalDAV</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">CalendarRoot.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_cal_d_a_v.html">Sabre\CalDAV</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend.html">Sabre\DAVACL\PrincipalBackend</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html">CalendarRoot</a> <span class="keyword">extends</span> <a class="code" href="class_sabre_1_1_d_a_v_a_c_l_1_1_abstract_principal_collection.html">\Sabre\DAVACL\AbstractPrincipalCollection</a> {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">protected</span> $caldavBackend;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html#a33589a31edb7c16ea8914075cccdd9e0">   43</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html#a33589a31edb7c16ea8914075cccdd9e0">__construct</a>(PrincipalBackend\<a class="code" href="interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface.html">BackendInterface</a> $principalBackend, Backend\<a class="code" href="interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface.html">BackendInterface</a> $caldavBackend, $principalPrefix = <span class="stringliteral">&#39;principals&#39;</span>) {</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        parent::__construct($principalBackend, $principalPrefix);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        $this-&gt;caldavBackend = $caldavBackend;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html#a360248ff540e3fb0845cf76d17f87ec5">   58</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html#a360248ff540e3fb0845cf76d17f87ec5">getName</a>() {</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_plugin.html#af6f250f8b35c8f0bf70e95fdf6f7fbe0">Plugin::CALENDAR_ROOT</a>;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html#ad74dd214d75c15a3ec2472ac44df595a">   74</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html#ad74dd214d75c15a3ec2472ac44df595a">getChildForPrincipal</a>(array $principal) {</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_calendar_home.html">CalendarHome</a>($this-&gt;caldavBackend, $principal);</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_calendar_home_html"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_calendar_home.html">Sabre\CalDAV\CalendarHome</a></div><div class="ttdef"><b>Definition:</b> <a href="_calendar_home_8php_source.html#l00023">CalendarHome.php:23</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_calendar_root_html_ad74dd214d75c15a3ec2472ac44df595a"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html#ad74dd214d75c15a3ec2472ac44df595a">Sabre\CalDAV\CalendarRoot\getChildForPrincipal</a></div><div class="ttdeci">getChildForPrincipal(array $principal)</div><div class="ttdef"><b>Definition:</b> <a href="_calendar_root_8php_source.html#l00074">CalendarRoot.php:74</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_calendar_root_html"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html">Sabre\CalDAV\CalendarRoot</a></div><div class="ttdef"><b>Definition:</b> <a href="_calendar_root_8php_source.html#l00020">CalendarRoot.php:20</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_calendar_root_html_a360248ff540e3fb0845cf76d17f87ec5"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html#a360248ff540e3fb0845cf76d17f87ec5">Sabre\CalDAV\CalendarRoot\getName</a></div><div class="ttdeci">getName()</div><div class="ttdef"><b>Definition:</b> <a href="_calendar_root_8php_source.html#l00058">CalendarRoot.php:58</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_calendar_root_html_a33589a31edb7c16ea8914075cccdd9e0"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_calendar_root.html#a33589a31edb7c16ea8914075cccdd9e0">Sabre\CalDAV\CalendarRoot\__construct</a></div><div class="ttdeci">__construct(PrincipalBackend\BackendInterface $principalBackend, Backend\BackendInterface $caldavBackend, $principalPrefix='principals')</div><div class="ttdef"><b>Definition:</b> <a href="_calendar_root_8php_source.html#l00043">CalendarRoot.php:43</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend.html">Sabre\DAVACL\PrincipalBackend</a></div><div class="ttdef"><b>Definition:</b> <a href="_d_a_v_a_c_l_2_principal_backend_2_abstract_backend_8php_source.html#l00003">AbstractBackend.php:3</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_cal_d_a_v_html"><div class="ttname"><a href="namespace_sabre_1_1_cal_d_a_v.html">Sabre\CalDAV</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_plugin_html_af6f250f8b35c8f0bf70e95fdf6f7fbe0"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_plugin.html#af6f250f8b35c8f0bf70e95fdf6f7fbe0">Sabre\CalDAV\Plugin\CALENDAR_ROOT</a></div><div class="ttdeci">const CALENDAR_ROOT</div><div class="ttdef"><b>Definition:</b> <a href="_cal_d_a_v_2_plugin_8php_source.html#l00044">Plugin.php:44</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_html"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface.html">Sabre\DAVACL\PrincipalBackend\BackendInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_d_a_v_a_c_l_2_principal_backend_2_backend_interface_8php_source.html#l00016">BackendInterface.php:16</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_a_c_l_1_1_abstract_principal_collection_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_a_c_l_1_1_abstract_principal_collection.html">Sabre\DAVACL\AbstractPrincipalCollection</a></div><div class="ttdef"><b>Definition:</b> <a href="_abstract_principal_collection_8php_source.html#l00020">AbstractPrincipalCollection.php:20</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

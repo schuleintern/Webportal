@@ -1,0 +1,85 @@
+\hypertarget{classemail}{}\section{email Klassenreferenz}
+\label{classemail}\index{email@{email}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classemail_a644608a20f6a5a23c405cbeb2b83871b}\label{classemail_a644608a20f6a5a23c405cbeb2b83871b}} 
+{\bfseries \+\_\+\+\_\+construct} (\$recipient, \$subject, \$message)
+\item 
+\mbox{\Hypertarget{classemail_a1c9e1402a08b2ecd6470133f9e0e6d5f}\label{classemail_a1c9e1402a08b2ecd6470133f9e0e6d5f}} 
+{\bfseries set\+Reply\+To} (\$rt)
+\item 
+\mbox{\Hypertarget{classemail_a69b88a501d3d97821ca41d8d787722bb}\label{classemail_a69b88a501d3d97821ca41d8d787722bb}} 
+{\bfseries is\+H\+T\+ML} ()
+\item 
+\mbox{\Hypertarget{classemail_a4fa41ebf6a0655539d55d51c7c3d840b}\label{classemail_a4fa41ebf6a0655539d55d51c7c3d840b}} 
+{\bfseries set\+CC} (\$cc)
+\item 
+\mbox{\Hypertarget{classemail_aaa7a4a330301032b41c7e8966054e990}\label{classemail_aaa7a4a330301032b41c7e8966054e990}} 
+{\bfseries get\+CC} ()
+\item 
+\mbox{\hyperlink{classemail_a802b48dc37651e8c44f4d0584382bf0e}{add\+Attachment}} (\$file\+Upload)
+\item 
+\mbox{\hyperlink{classemail_aa8ee20c15a47f497aa4c980ea1548998}{send}} ()
+\item 
+\mbox{\hyperlink{classemail_ad02548f68725abf88f81619d5a470366}{send\+Instant\+Mail}} (\$override\+Debug=false)
+\item 
+\mbox{\Hypertarget{classemail_abb583d1ddcf456f98c54abe45eb9c4b4}\label{classemail_abb583d1ddcf456f98c54abe45eb9c4b4}} 
+{\bfseries set\+Lesebestaetigung} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classemail_a35105845033c724c358d532df55522b2}\label{classemail_a35105845033c724c358d532df55522b2}} 
+static {\bfseries send\+Batch\+Mails} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 9 der Datei email.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{classemail_a802b48dc37651e8c44f4d0584382bf0e}\label{classemail_a802b48dc37651e8c44f4d0584382bf0e}} 
+\index{email@{email}!add\+Attachment@{add\+Attachment}}
+\index{add\+Attachment@{add\+Attachment}!email@{email}}
+\subsubsection{\texorpdfstring{add\+Attachment()}{addAttachment()}}
+{\footnotesize\ttfamily email\+::add\+Attachment (\begin{DoxyParamCaption}\item[{}]{\$file\+Upload }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_file_upload}{File\+Upload}} & {\em \$file\+Upload} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 65 der Datei email.\+class.\+php.
+
+\mbox{\Hypertarget{classemail_aa8ee20c15a47f497aa4c980ea1548998}\label{classemail_aa8ee20c15a47f497aa4c980ea1548998}} 
+\index{email@{email}!send@{send}}
+\index{send@{send}!email@{email}}
+\subsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily email\+::send (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sendet die Mail (über den C\+R\+A\+W\+L\+ER für Massenversand) 
+
+Definiert in Zeile 72 der Datei email.\+class.\+php.
+
+\mbox{\Hypertarget{classemail_ad02548f68725abf88f81619d5a470366}\label{classemail_ad02548f68725abf88f81619d5a470366}} 
+\index{email@{email}!send\+Instant\+Mail@{send\+Instant\+Mail}}
+\index{send\+Instant\+Mail@{send\+Instant\+Mail}!email@{email}}
+\subsubsection{\texorpdfstring{send\+Instant\+Mail()}{sendInstantMail()}}
+{\footnotesize\ttfamily email\+::send\+Instant\+Mail (\begin{DoxyParamCaption}\item[{}]{\$override\+Debug = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Sendset sofort eine Mail. (z.\+B. für Passwort Mails) 
+
+Definiert in Zeile 82 der Datei email.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/email/email.\+class.\+php\end{DoxyCompactItemize}

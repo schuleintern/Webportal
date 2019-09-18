@@ -1,0 +1,80 @@
+\hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Auth\textbackslash{}Basic Klassenreferenz}
+\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Basic@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Basic}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Auth\textbackslash{}Basic\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_ab52f197bdfaa2154e80995923fdadcd3}{get\+Credentials}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_a89af6546622194a90176057eaff6d4c8}{require\+Login}} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+H\+T\+TP \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic}{Basic}} authentication utility.
+
+This class helps you setup basic auth. The process is fairly simple\+:
+
+
+\begin{DoxyEnumerate}
+\item Instantiate the class.
+\item Call get\+Credentials (this will return null or a user/pass pair)
+\item If you didn\textquotesingle{}t get valid credentials, call \textquotesingle{}require\+Login\textquotesingle{}
+\end{DoxyEnumerate}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Basic.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_ab52f197bdfaa2154e80995923fdadcd3}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_ab52f197bdfaa2154e80995923fdadcd3}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Basic@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Basic}!get\+Credentials@{get\+Credentials}}
+\index{get\+Credentials@{get\+Credentials}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Basic@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Basic}}
+\subsubsection{\texorpdfstring{get\+Credentials()}{getCredentials()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Basic\+::get\+Credentials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method returns a numeric array with a username and password as the only elements.
+
+If no credentials were found, this method returns null.
+
+\begin{DoxyReturn}{Rückgabe}
+null$\vert$array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 28 der Datei Basic.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_a89af6546622194a90176057eaff6d4c8}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_a89af6546622194a90176057eaff6d4c8}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Basic@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Basic}!require\+Login@{require\+Login}}
+\index{require\+Login@{require\+Login}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Basic@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Basic}}
+\subsubsection{\texorpdfstring{require\+Login()}{requireLogin()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Basic\+::require\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method sends the needed H\+T\+TP header and statuscode (401) to force the user to login.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 56 der Datei Basic.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/lib/\+Auth/Basic.\+php\end{DoxyCompactItemize}

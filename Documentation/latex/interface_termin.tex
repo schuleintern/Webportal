@@ -1,0 +1,235 @@
+\hypertarget{interface_termin}{}\section{Termin Schnittstellenreferenz}
+\label{interface_termin}\index{Termin@{Termin}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_termin_a2fca19815ee61713254ac18782205feb}{get\+Title}} ()
+\item 
+\mbox{\hyperlink{interface_termin_a9ed1a03f1247bfa10a8e56f5fd8634cd}{get\+Start\+Date}} ()
+\item 
+\mbox{\hyperlink{interface_termin_afa0a9c0bb04251fde3dcd65e45ebec18}{get\+End\+Date}} ()
+\item 
+\mbox{\hyperlink{interface_termin_aeea92d8a1dccea73510e4c4b71a828c7}{get\+Location}} ()
+\item 
+\mbox{\hyperlink{interface_termin_aa603cfdfcdc2f480324d94adc2e846f5}{is\+Whole\+Day}} ()
+\item 
+\mbox{\hyperlink{interface_termin_a50c2f45c4958f1bb77c1606d5f7a0323}{get\+Stunden}} ()
+\item 
+\mbox{\hyperlink{interface_termin_a6421df2bc4f4e75c3b451e71ce104780}{get\+Start\+Time}} ()
+\item 
+\mbox{\hyperlink{interface_termin_a2c967074ee189a6e1fcf0a40cb71a4a4}{get\+End\+Time}} ()
+\item 
+\mbox{\hyperlink{interface_termin_a3ee9c6ae1bcd6424f57abaac24b7341b}{is\+Multi\+Day}} ()
+\item 
+\mbox{\hyperlink{interface_termin_a5e994b8b00058d167d82514053de3c88}{is\+Leistungsnachweis}} ()
+\item 
+\mbox{\hyperlink{interface_termin_aab8e358f66111c5075f20bd0938497f5}{is\+Klassentermin}} ()
+\item 
+\mbox{\hyperlink{interface_termin_a120ec73226cde99fbd20fbf8c2162604}{is\+Elterntermin}} ()
+\item 
+\mbox{\hyperlink{interface_termin_ab40fb4c2e09479bfe5749243f59246c1}{is\+Lehrertermin}} ()
+\item 
+\mbox{\hyperlink{interface_termin_a158a3cb7853407a73722ea80b5ef3e55}{publish\+To\+Homepage}} ()
+\item 
+\mbox{\hyperlink{interface_termin_a3c724598a080bd6ed8a997474ed32cdc}{get\+Creator\+Name}} ()
+\item 
+\mbox{\hyperlink{interface_termin_a14c16fb57c12e605e3eabefd640c7b71}{get\+Creation\+Time}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{interface_termin_ae3de2ba7c4262d588bb9190f51456c38}{get\+All\+At\+Date}} (\$date)
+\item 
+static \mbox{\hyperlink{interface_termin_ab8fc2d7a5e328d9dbab94f469e6d23e5}{get\+All\+Between\+Days}} (\$date1, \$date2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\begin{DoxyRefDesc}{Veraltet}
+\item[\mbox{\hyperlink{deprecated__deprecated000018}{Veraltet}}]\end{DoxyRefDesc}
+\begin{DoxyAuthor}{Autor}
+Christian 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 8 der Datei Termin.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_termin_ae3de2ba7c4262d588bb9190f51456c38}\label{interface_termin_ae3de2ba7c4262d588bb9190f51456c38}} 
+\index{Termin@{Termin}!get\+All\+At\+Date@{get\+All\+At\+Date}}
+\index{get\+All\+At\+Date@{get\+All\+At\+Date}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+All\+At\+Date()}{getAllAtDate()}}
+{\footnotesize\ttfamily static Termin\+::get\+All\+At\+Date (\begin{DoxyParamCaption}\item[{}]{\$date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Alle Termine an diesem Tag 
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$date} & S\+QL Date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{interface_termin}{Termin}}\mbox{[}\mbox{]} Termine 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_ab8fc2d7a5e328d9dbab94f469e6d23e5}\label{interface_termin_ab8fc2d7a5e328d9dbab94f469e6d23e5}} 
+\index{Termin@{Termin}!get\+All\+Between\+Days@{get\+All\+Between\+Days}}
+\index{get\+All\+Between\+Days@{get\+All\+Between\+Days}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+All\+Between\+Days()}{getAllBetweenDays()}}
+{\footnotesize\ttfamily static Termin\+::get\+All\+Between\+Days (\begin{DoxyParamCaption}\item[{}]{\$date1,  }\item[{}]{\$date2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Alle Termine zwischen Date1 und Date2 
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$date1} & S\+QL Date \\
+\hline
+String & {\em \$date2} & S\+QL Date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{interface_termin}{Termin}}\mbox{[}\mbox{]} termine 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a14c16fb57c12e605e3eabefd640c7b71}\label{interface_termin_a14c16fb57c12e605e3eabefd640c7b71}} 
+\index{Termin@{Termin}!get\+Creation\+Time@{get\+Creation\+Time}}
+\index{get\+Creation\+Time@{get\+Creation\+Time}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+Creation\+Time()}{getCreationTime()}}
+{\footnotesize\ttfamily Termin\+::get\+Creation\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Liest den Zeitpunkt der Erstellung aus \begin{DoxyReturn}{Rückgabe}
+int Unix Timestamp der Erstellung 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a3c724598a080bd6ed8a997474ed32cdc}\label{interface_termin_a3c724598a080bd6ed8a997474ed32cdc}} 
+\index{Termin@{Termin}!get\+Creator\+Name@{get\+Creator\+Name}}
+\index{get\+Creator\+Name@{get\+Creator\+Name}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+Creator\+Name()}{getCreatorName()}}
+{\footnotesize\ttfamily Termin\+::get\+Creator\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Liest den Ersteller aus \begin{DoxyReturn}{Rückgabe}
+String Name des Erstellers 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_afa0a9c0bb04251fde3dcd65e45ebec18}\label{interface_termin_afa0a9c0bb04251fde3dcd65e45ebec18}} 
+\index{Termin@{Termin}!get\+End\+Date@{get\+End\+Date}}
+\index{get\+End\+Date@{get\+End\+Date}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+End\+Date()}{getEndDate()}}
+{\footnotesize\ttfamily Termin\+::get\+End\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Enddatum des Termins \begin{DoxyReturn}{Rückgabe}
+String S\+QL Date des Termins 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a2c967074ee189a6e1fcf0a40cb71a4a4}\label{interface_termin_a2c967074ee189a6e1fcf0a40cb71a4a4}} 
+\index{Termin@{Termin}!get\+End\+Time@{get\+End\+Time}}
+\index{get\+End\+Time@{get\+End\+Time}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+End\+Time()}{getEndTime()}}
+{\footnotesize\ttfamily Termin\+::get\+End\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Endzeit des Termins Bei eingegebenen Stunden sollte der \mbox{\hyperlink{interface_termin}{Termin}} automatisch aus den Einstellungen die Uhrzeit berechnen. \begin{DoxyReturn}{Rückgabe}
+String Uhrzeit im Format HH\+:MM 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_aeea92d8a1dccea73510e4c4b71a828c7}\label{interface_termin_aeea92d8a1dccea73510e4c4b71a828c7}} 
+\index{Termin@{Termin}!get\+Location@{get\+Location}}
+\index{get\+Location@{get\+Location}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+Location()}{getLocation()}}
+{\footnotesize\ttfamily Termin\+::get\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ort des Termins Ort kann auch ein Raum in der \mbox{\hyperlink{class_schule}{Schule}} sein \begin{DoxyReturn}{Rückgabe}
+String Ort 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a9ed1a03f1247bfa10a8e56f5fd8634cd}\label{interface_termin_a9ed1a03f1247bfa10a8e56f5fd8634cd}} 
+\index{Termin@{Termin}!get\+Start\+Date@{get\+Start\+Date}}
+\index{get\+Start\+Date@{get\+Start\+Date}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+Start\+Date()}{getStartDate()}}
+{\footnotesize\ttfamily Termin\+::get\+Start\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Datum des Termins \begin{DoxyReturn}{Rückgabe}
+String S\+QL Date des Termins 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a6421df2bc4f4e75c3b451e71ce104780}\label{interface_termin_a6421df2bc4f4e75c3b451e71ce104780}} 
+\index{Termin@{Termin}!get\+Start\+Time@{get\+Start\+Time}}
+\index{get\+Start\+Time@{get\+Start\+Time}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+Start\+Time()}{getStartTime()}}
+{\footnotesize\ttfamily Termin\+::get\+Start\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Startzeit des Termins Bei eingegebenen Stunden sollte der \mbox{\hyperlink{interface_termin}{Termin}} automatisch aus den Einstellungen die Uhrzeit berechnen. \begin{DoxyReturn}{Rückgabe}
+String Uhrzeit im Format HH\+:MM 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a50c2f45c4958f1bb77c1606d5f7a0323}\label{interface_termin_a50c2f45c4958f1bb77c1606d5f7a0323}} 
+\index{Termin@{Termin}!get\+Stunden@{get\+Stunden}}
+\index{get\+Stunden@{get\+Stunden}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+Stunden()}{getStunden()}}
+{\footnotesize\ttfamily Termin\+::get\+Stunden (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Schulstunden an denen der \mbox{\hyperlink{interface_termin}{Termin}} stattfindet \begin{DoxyReturn}{Rückgabe}
+int\mbox{[}\mbox{]} Stunden 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a2fca19815ee61713254ac18782205feb}\label{interface_termin_a2fca19815ee61713254ac18782205feb}} 
+\index{Termin@{Termin}!get\+Title@{get\+Title}}
+\index{get\+Title@{get\+Title}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{get\+Title()}{getTitle()}}
+{\footnotesize\ttfamily Termin\+::get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Titel des Termins \begin{DoxyReturn}{Rückgabe}
+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a120ec73226cde99fbd20fbf8c2162604}\label{interface_termin_a120ec73226cde99fbd20fbf8c2162604}} 
+\index{Termin@{Termin}!is\+Elterntermin@{is\+Elterntermin}}
+\index{is\+Elterntermin@{is\+Elterntermin}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{is\+Elterntermin()}{isElterntermin()}}
+{\footnotesize\ttfamily Termin\+::is\+Elterntermin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ist die Instanz ein Elterntermin? \begin{DoxyReturn}{Rückgabe}
+bool janein 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_aab8e358f66111c5075f20bd0938497f5}\label{interface_termin_aab8e358f66111c5075f20bd0938497f5}} 
+\index{Termin@{Termin}!is\+Klassentermin@{is\+Klassentermin}}
+\index{is\+Klassentermin@{is\+Klassentermin}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{is\+Klassentermin()}{isKlassentermin()}}
+{\footnotesize\ttfamily Termin\+::is\+Klassentermin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ist die Instanz ein \mbox{\hyperlink{class_klassentermin}{Klassentermin}}? \begin{DoxyReturn}{Rückgabe}
+bool janein 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_ab40fb4c2e09479bfe5749243f59246c1}\label{interface_termin_ab40fb4c2e09479bfe5749243f59246c1}} 
+\index{Termin@{Termin}!is\+Lehrertermin@{is\+Lehrertermin}}
+\index{is\+Lehrertermin@{is\+Lehrertermin}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{is\+Lehrertermin()}{isLehrertermin()}}
+{\footnotesize\ttfamily Termin\+::is\+Lehrertermin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ist die Instanz ein \mbox{\hyperlink{class_lehrertermin}{Lehrertermin}}? \begin{DoxyReturn}{Rückgabe}
+bool janein 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a5e994b8b00058d167d82514053de3c88}\label{interface_termin_a5e994b8b00058d167d82514053de3c88}} 
+\index{Termin@{Termin}!is\+Leistungsnachweis@{is\+Leistungsnachweis}}
+\index{is\+Leistungsnachweis@{is\+Leistungsnachweis}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{is\+Leistungsnachweis()}{isLeistungsnachweis()}}
+{\footnotesize\ttfamily Termin\+::is\+Leistungsnachweis (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ist die Instanz ein L\+NW? \begin{DoxyReturn}{Rückgabe}
+bool janein 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a3ee9c6ae1bcd6424f57abaac24b7341b}\label{interface_termin_a3ee9c6ae1bcd6424f57abaac24b7341b}} 
+\index{Termin@{Termin}!is\+Multi\+Day@{is\+Multi\+Day}}
+\index{is\+Multi\+Day@{is\+Multi\+Day}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{is\+Multi\+Day()}{isMultiDay()}}
+{\footnotesize\ttfamily Termin\+::is\+Multi\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ist der \mbox{\hyperlink{interface_termin}{Termin}} mehrtätig \begin{DoxyReturn}{Rückgabe}
+bool Ja\+Nein 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_aa603cfdfcdc2f480324d94adc2e846f5}\label{interface_termin_aa603cfdfcdc2f480324d94adc2e846f5}} 
+\index{Termin@{Termin}!is\+Whole\+Day@{is\+Whole\+Day}}
+\index{is\+Whole\+Day@{is\+Whole\+Day}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{is\+Whole\+Day()}{isWholeDay()}}
+{\footnotesize\ttfamily Termin\+::is\+Whole\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Findet der \mbox{\hyperlink{interface_termin}{Termin}} den ganzen Tag statt? \begin{DoxyReturn}{Rückgabe}
+booelan janein 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_termin_a158a3cb7853407a73722ea80b5ef3e55}\label{interface_termin_a158a3cb7853407a73722ea80b5ef3e55}} 
+\index{Termin@{Termin}!publish\+To\+Homepage@{publish\+To\+Homepage}}
+\index{publish\+To\+Homepage@{publish\+To\+Homepage}!Termin@{Termin}}
+\subsubsection{\texorpdfstring{publish\+To\+Homepage()}{publishToHomepage()}}
+{\footnotesize\ttfamily Termin\+::publish\+To\+Homepage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Soll der \mbox{\hyperlink{interface_termin}{Termin}} auf der Homepage veröffentlicht werden 
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/data/termine/Termin.\+class.\+php\end{DoxyCompactItemize}

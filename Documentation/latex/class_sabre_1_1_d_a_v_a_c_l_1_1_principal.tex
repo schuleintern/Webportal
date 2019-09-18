@@ -1,0 +1,310 @@
+\hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal}{}\section{Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Principal Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal}\index{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal@{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal}}
+Klassendiagramm für Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Principal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.978724cm]{class_sabre_1_1_d_a_v_a_c_l_1_1_principal}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ae70c556d73d012cd362c6bf805bec9f6}{\+\_\+\+\_\+construct}} (Principal\+Backend\textbackslash{}\+Backend\+Interface \$principal\+Backend, array \$principal\+Properties=\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ab423bb78114f5948783b5b1832f163e7}{get\+Principal\+Url}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ad12886b35e394e367e9d2b1d0b854e44}{get\+Alternate\+Uri\+Set}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_afaa4afcbbaa47b295dd84e9e4e71ca25}{get\+Group\+Member\+Set}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a64163e10348143c641f84e3c13de35a6}{get\+Group\+Membership}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a6274148b9a018ed90644755687c61d96}{set\+Group\+Member\+Set}} (array \$group\+Members)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a87c0a0ee299336eca2d79f46662bfe84}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ab24782e70a36d78a17cac1f33063d656}{get\+Display\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ac6b4a0da6c62db2d022ae1d413fa7e71}{get\+Properties}} (\$requested\+Properties)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ae9c9fc8afa89a3ca7fc9eb22d2d2017c}{prop\+Patch}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{D\+A\+V\textbackslash{}\+Prop\+Patch}} \$prop\+Patch)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a9b250620ece0dd4a7d13eb2589b44222}{get\+Owner}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_addce528f6a941ec37f5c2f22efbcb292}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_addce528f6a941ec37f5c2f22efbcb292}} 
+{\bfseries \$principal\+Properties}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a39f82eb058e72a3aa3c9211672af7b00}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a39f82eb058e72a3aa3c9211672af7b00}} 
+{\bfseries \$principal\+Backend}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal}{Principal}} class
+
+This class is a representation of a simple principal
+
+Many Web\+D\+AV specs require a user to show up in the directory structure.
+
+This principal also has basic A\+CL settings, only allowing the principal access it\textquotesingle{}s own principal.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 23 der Datei Principal.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ae70c556d73d012cd362c6bf805bec9f6}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ae70c556d73d012cd362c6bf805bec9f6}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{Principal\+Backend\textbackslash{}\+Backend\+Interface}]{\$principal\+Backend,  }\item[{array}]{\$principal\+Properties = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+Creates the principal object
+
+
+\begin{DoxyParams}[1]{Parameter}
+Principal\+Backend\textbackslash{}\+Backend\+Interface & {\em \$principal\+Backend} & \\
+\hline
+array & {\em \$principal\+Properties} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 47 der Datei Principal.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ad12886b35e394e367e9d2b1d0b854e44}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ad12886b35e394e367e9d2b1d0b854e44}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!get\+Alternate\+Uri\+Set@{get\+Alternate\+Uri\+Set}}
+\index{get\+Alternate\+Uri\+Set@{get\+Alternate\+Uri\+Set}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{get\+Alternate\+Uri\+Set()}{getAlternateUriSet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::get\+Alternate\+Uri\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of alternative urls for a principal
+
+This can for example be an email address, or ldap url.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_ac28ebb97541a792d73dd4e15d3b8cdb6}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+Principal}}.
+
+
+
+Definiert in Zeile 75 der Datei Principal.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ab24782e70a36d78a17cac1f33063d656}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ab24782e70a36d78a17cac1f33063d656}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!get\+Display\+Name@{get\+Display\+Name}}
+\index{get\+Display\+Name@{get\+Display\+Name}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{get\+Display\+Name()}{getDisplayName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::get\+Display\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the name of the user
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_aff7f7f00c81458d5d9e20e28f4d32461}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+Principal}}.
+
+
+
+Definiert in Zeile 155 der Datei Principal.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_afaa4afcbbaa47b295dd84e9e4e71ca25}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_afaa4afcbbaa47b295dd84e9e4e71ca25}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!get\+Group\+Member\+Set@{get\+Group\+Member\+Set}}
+\index{get\+Group\+Member\+Set@{get\+Group\+Member\+Set}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{get\+Group\+Member\+Set()}{getGroupMemberSet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::get\+Group\+Member\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of group members
+
+If this principal is a group, this function should return all member principal uri\textquotesingle{}s for the group.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_ad9f9e4ed25ec5ec9325288b076cdd09f}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+Principal}}.
+
+
+
+Definiert in Zeile 100 der Datei Principal.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a64163e10348143c641f84e3c13de35a6}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a64163e10348143c641f84e3c13de35a6}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!get\+Group\+Membership@{get\+Group\+Membership}}
+\index{get\+Group\+Membership@{get\+Group\+Membership}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{get\+Group\+Membership()}{getGroupMembership()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::get\+Group\+Membership (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of groups this principal is member of
+
+If this principal is a member of a (list of) groups, this function should return a list of principal uri\textquotesingle{}s for it\textquotesingle{}s members.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_a8921b6c6ba5421dd0a6f6ba26def6fbd}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+Principal}}.
+
+
+
+Definiert in Zeile 114 der Datei Principal.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a87c0a0ee299336eca2d79f46662bfe84}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a87c0a0ee299336eca2d79f46662bfe84}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns this principals name.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 142 der Datei Principal.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a9b250620ece0dd4a7d13eb2589b44222}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a9b250620ece0dd4a7d13eb2589b44222}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!get\+Owner@{get\+Owner}}
+\index{get\+Owner@{get\+Owner}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{get\+Owner()}{getOwner()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::get\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the owner principal
+
+This must be a url to a principal, or null if there\textquotesingle{}s no owner
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a05f531b4ae1a86eab4e6e95b0413390e}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 214 der Datei Principal.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ab423bb78114f5948783b5b1832f163e7}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ab423bb78114f5948783b5b1832f163e7}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!get\+Principal\+Url@{get\+Principal\+Url}}
+\index{get\+Principal\+Url@{get\+Principal\+Url}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{get\+Principal\+Url()}{getPrincipalUrl()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::get\+Principal\+Url (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the full principal url
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_ae3fc8f13f54eb5daba7416068c685298}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+Principal}}.
+
+
+
+Definiert in Zeile 62 der Datei Principal.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ac6b4a0da6c62db2d022ae1d413fa7e71}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ac6b4a0da6c62db2d022ae1d413fa7e71}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!get\+Properties@{get\+Properties}}
+\index{get\+Properties@{get\+Properties}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{get\+Properties()}{getProperties()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::get\+Properties (\begin{DoxyParamCaption}\item[{}]{\$requested\+Properties }\end{DoxyParamCaption})}
+
+Returns a list of properties
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$requested\+Properties} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties_a0d2fcaacf74daaa5cf24ea53a057140a}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Properties}}.
+
+
+
+Definiert in Zeile 171 der Datei Principal.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ae9c9fc8afa89a3ca7fc9eb22d2d2017c}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ae9c9fc8afa89a3ca7fc9eb22d2d2017c}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!prop\+Patch@{prop\+Patch}}
+\index{prop\+Patch@{prop\+Patch}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{prop\+Patch()}{propPatch()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::prop\+Patch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{D\+A\+V\textbackslash{}\+Prop\+Patch}}}]{\$prop\+Patch }\end{DoxyParamCaption})}
+
+Updates properties on this node.
+
+This method received a Prop\+Patch object, which contains all the information about the update.
+
+To update specific properties, call the \textquotesingle{}handle\textquotesingle{} method on this object. Read the Prop\+Patch documentation for more information.
+
+
+\begin{DoxyParams}[1]{Parameter}
+D\+A\+V\textbackslash{}\+Prop\+Patch & {\em \$prop\+Patch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 198 der Datei Principal.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a6274148b9a018ed90644755687c61d96}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a6274148b9a018ed90644755687c61d96}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}!set\+Group\+Member\+Set@{set\+Group\+Member\+Set}}
+\index{set\+Group\+Member\+Set@{set\+Group\+Member\+Set}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal}}
+\subsubsection{\texorpdfstring{set\+Group\+Member\+Set()}{setGroupMemberSet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+::set\+Group\+Member\+Set (\begin{DoxyParamCaption}\item[{array}]{\$group\+Members }\end{DoxyParamCaption})}
+
+Sets a list of group members
+
+If this principal is a group, this method sets all the group members. The list of members is always overwritten, never appended to.
+
+This method should throw an exception if the members could not be set.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$group\+Members} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_a9dfeb1ed9f70016333ef2b0ec1753677}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+Principal}}.
+
+
+
+Definiert in Zeile 131 der Datei Principal.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V\+A\+C\+L/Principal.\+php\end{DoxyCompactItemize}

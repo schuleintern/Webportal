@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/composer/vendor/paragonie/constant_time_encoding/src/Base32Hex.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_ec5861416e7a0d204e3e0c2e4ac91989.html">composer</a></li><li class="navelem"><a class="el" href="dir_f4ae62192be4f13194f7451ebb94bf52.html">vendor</a></li><li class="navelem"><a class="el" href="dir_59fae8c5cde294c3c65a60b469e52baf.html">paragonie</a></li><li class="navelem"><a class="el" href="dir_d7859a78086de6ed0f6e70e83c27f288.html">constant_time_encoding</a></li><li class="navelem"><a class="el" href="dir_395ead106601ad456c4bb75545e7120c.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Base32Hex.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;declare(strict_types=1);</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_paragon_i_e_1_1_constant_time.html">ParagonIE\ConstantTime</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html">   34</a></span>&#160;<span class="keyword">abstract</span> <span class="keyword">class </span><a class="code" href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html">Base32Hex</a> <span class="keyword">extends</span> <a class="code" href="class_paragon_i_e_1_1_constant_time_1_1_base32.html">Base32</a></div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div><div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a93438299813656c7801078a9623bbbc3">   43</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a93438299813656c7801078a9623bbbc3">decode5Bits</a>(<span class="keywordtype">int</span> $src): int</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        $ret = -1;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">// if ($src &gt; 0x30 &amp;&amp; $src &lt; 0x3a) ret += $src - 0x2e + 1; // -47</span></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        $ret += (((0x2f - $src) &amp; ($src - 0x3a)) &gt;&gt; 8) &amp; ($src - 47);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// if ($src &gt; 0x60 &amp;&amp; $src &lt; 0x77) ret += $src - 0x61 + 10 + 1; // -86</span></div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        $ret += (((0x60 - $src) &amp; ($src - 0x77)) &gt;&gt; 8) &amp; ($src - 86);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> $ret;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a19c649bfe1c47151e2946100208d85b1">   63</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a19c649bfe1c47151e2946100208d85b1">decode5BitsUpper</a>(<span class="keywordtype">int</span> $src): int</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        $ret = -1;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">// if ($src &gt; 0x30 &amp;&amp; $src &lt; 0x3a) ret += $src - 0x2e + 1; // -47</span></div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        $ret += (((0x2f - $src) &amp; ($src - 0x3a)) &gt;&gt; 8) &amp; ($src - 47);</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="comment">// if ($src &gt; 0x40 &amp;&amp; $src &lt; 0x57) ret += $src - 0x41 + 10 + 1; // -54</span></div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        $ret += (((0x40 - $src) &amp; ($src - 0x57)) &gt;&gt; 8) &amp; ($src - 54);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> $ret;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a9b8e75156f677fa5f071f67d788de0a7">   83</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a9b8e75156f677fa5f071f67d788de0a7">encode5Bits</a>(<span class="keywordtype">int</span> $src): string</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        $src += 0x30;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">// if ($src &gt; 0x39) $src += 0x61 - 0x3a; // 39</span></div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        $src += ((0x39 - $src) &gt;&gt; 8) &amp; 39;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        return \pack(<span class="charliteral">&#39;C&#39;</span>, $src);</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div><div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a2672daaf226ae7324e38d0faa7058f3c">  102</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a2672daaf226ae7324e38d0faa7058f3c">encode5BitsUpper</a>(<span class="keywordtype">int</span> $src): string</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    {</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        $src += 0x30;</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">// if ($src &gt; 0x39) $src += 0x41 - 0x3a; // 7</span></div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        $src += ((0x39 - $src) &gt;&gt; 8) &amp; 7;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        return \pack(<span class="charliteral">&#39;C&#39;</span>, $src);</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div><div class="ttc" id="namespace_paragon_i_e_1_1_constant_time_html"><div class="ttname"><a href="namespace_paragon_i_e_1_1_constant_time.html">ParagonIE\ConstantTime</a></div><div class="ttdef"><b>Definition:</b> <a href="_base32_8php_source.html#l00003">Base32.php:3</a></div></div>
+<div class="ttc" id="class_paragon_i_e_1_1_constant_time_1_1_base32_hex_html_a2672daaf226ae7324e38d0faa7058f3c"><div class="ttname"><a href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a2672daaf226ae7324e38d0faa7058f3c">ParagonIE\ConstantTime\Base32Hex\encode5BitsUpper</a></div><div class="ttdeci">static encode5BitsUpper(int $src)</div><div class="ttdef"><b>Definition:</b> <a href="_base32_hex_8php_source.html#l00102">Base32Hex.php:102</a></div></div>
+<div class="ttc" id="class_paragon_i_e_1_1_constant_time_1_1_base32_hex_html_a93438299813656c7801078a9623bbbc3"><div class="ttname"><a href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a93438299813656c7801078a9623bbbc3">ParagonIE\ConstantTime\Base32Hex\decode5Bits</a></div><div class="ttdeci">static decode5Bits(int $src)</div><div class="ttdef"><b>Definition:</b> <a href="_base32_hex_8php_source.html#l00043">Base32Hex.php:43</a></div></div>
+<div class="ttc" id="class_paragon_i_e_1_1_constant_time_1_1_base32_hex_html_a19c649bfe1c47151e2946100208d85b1"><div class="ttname"><a href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a19c649bfe1c47151e2946100208d85b1">ParagonIE\ConstantTime\Base32Hex\decode5BitsUpper</a></div><div class="ttdeci">static decode5BitsUpper(int $src)</div><div class="ttdef"><b>Definition:</b> <a href="_base32_hex_8php_source.html#l00063">Base32Hex.php:63</a></div></div>
+<div class="ttc" id="class_paragon_i_e_1_1_constant_time_1_1_base32_html"><div class="ttname"><a href="class_paragon_i_e_1_1_constant_time_1_1_base32.html">ParagonIE\ConstantTime\Base32</a></div><div class="ttdef"><b>Definition:</b> <a href="_base32_8php_source.html#l00034">Base32.php:34</a></div></div>
+<div class="ttc" id="class_paragon_i_e_1_1_constant_time_1_1_base32_hex_html_a9b8e75156f677fa5f071f67d788de0a7"><div class="ttname"><a href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html#a9b8e75156f677fa5f071f67d788de0a7">ParagonIE\ConstantTime\Base32Hex\encode5Bits</a></div><div class="ttdeci">static encode5Bits(int $src)</div><div class="ttdef"><b>Definition:</b> <a href="_base32_hex_8php_source.html#l00083">Base32Hex.php:83</a></div></div>
+<div class="ttc" id="class_paragon_i_e_1_1_constant_time_1_1_base32_hex_html"><div class="ttname"><a href="class_paragon_i_e_1_1_constant_time_1_1_base32_hex.html">ParagonIE\ConstantTime\Base32Hex</a></div><div class="ttdef"><b>Definition:</b> <a href="_base32_hex_8php_source.html#l00034">Base32Hex.php:34</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

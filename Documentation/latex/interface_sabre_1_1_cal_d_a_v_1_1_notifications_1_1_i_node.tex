@@ -1,0 +1,74 @@
+\hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Notifications\textbackslash{}I\+Node Schnittstellenreferenz}
+\label{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+I\+Node@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+I\+Node}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Notifications\textbackslash{}I\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a0d1bdc2aa548290053019ed0f30c7dcf}{get\+Notification\+Type}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a8c63b58470da3dd3c3f1088e3f6effc9}{get\+E\+Tag}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This node represents a single notification.
+
+The signature is mostly identical to that of Sabre, but the get() method M\+U\+ST return an xml document that matches the requirements of the \textquotesingle{}caldav-\/notifications.\+txt\textquotesingle{} spec.
+
+For a complete example, check out the Notification class, which contains some helper functions.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 21 der Datei I\+Node.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a8c63b58470da3dd3c3f1088e3f6effc9}\label{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a8c63b58470da3dd3c3f1088e3f6effc9}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+I\+Node@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+I\+Node}!get\+E\+Tag@{get\+E\+Tag}}
+\index{get\+E\+Tag@{get\+E\+Tag}!Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+I\+Node@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+I\+Node}}
+\subsubsection{\texorpdfstring{get\+E\+Tag()}{getETag()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+I\+Node\+::get\+E\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the etag for the notification.
+
+The etag must be surrounded by literal double-\/quotes.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node_adc6fffcad09368941ba2f17fd4273846}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Node}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a0d1bdc2aa548290053019ed0f30c7dcf}\label{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a0d1bdc2aa548290053019ed0f30c7dcf}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+I\+Node@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+I\+Node}!get\+Notification\+Type@{get\+Notification\+Type}}
+\index{get\+Notification\+Type@{get\+Notification\+Type}!Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+I\+Node@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+I\+Node}}
+\subsubsection{\texorpdfstring{get\+Notification\+Type()}{getNotificationType()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+I\+Node\+::get\+Notification\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method must return an xml element, using the Sabre classes.
+
+\begin{DoxyReturn}{Rückgabe}
+Notification\+Interface 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node_ac2b3cb401257a3a7b3ab48645d9606b3}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Node}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Notifications/I\+Node.\+php\end{DoxyCompactItemize}

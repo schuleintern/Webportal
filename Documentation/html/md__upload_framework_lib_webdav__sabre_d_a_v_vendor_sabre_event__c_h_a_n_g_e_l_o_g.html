@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: ChangeLog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ChangeLog </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h2>3.0.0 (2015-11-05) </h2>
+<ul>
+<li>Now requires PHP 5.5!</li>
+<li><code>Promise::all()</code> is moved to <code>Promise\all()</code>.</li>
+<li>Aside from the <code>Promise\all()</code> function, there's now also <code>Promise\race()</code>.</li>
+<li><code>Promise\reject()</code> and <code>Promise\resolve()</code> have also been added.</li>
+<li>Now 100% compatible with the Ecmascript 6 Promise.</li>
+</ul>
+<h2>3.0.0-alpha1 (2015-10-23) </h2>
+<ul>
+<li>This package now requires PHP 5.5.</li>
+<li>#26: Added an event loop implementation. Also knows as the Reactor Pattern.</li>
+<li>Renamed <code>Promise::error</code> to <code>Promise::otherwise</code> to be consistent with ReactPHP and Guzzle. The <code>error</code> method is kept for BC but will be removed in a future version.</li>
+<li>#27: Support for Promise-based coroutines via the <code>Sabre\Event\coroutine</code> function.</li>
+<li>BC Break: Promises now use the EventLoop to run "then"-events in a separate execution context. In practise that means you need to run the event loop to wait for any <code>then</code>/<code>otherwise</code> callbacks to trigger.</li>
+<li>Promises now have a <code>wait()</code> method. Allowing you to make a promise synchronous and simply wait for a result (or exception) to happen.</li>
+</ul>
+<h2>2.0.2 (2015-05-19) </h2>
+<ul>
+<li>This release has no functional changes. It's just been brought up to date with the latest coding standards.</li>
+</ul>
+<h2>2.0.1 (2014-10-06) </h2>
+<ul>
+<li>Fixed: <code>$priority</code> was ignored in <code>EventEmitter::once</code> method.</li>
+<li>Fixed: Breaking the event chain was not possible in <code>EventEmitter::once</code>.</li>
+</ul>
+<h2>2.0.0 (2014-06-21) </h2>
+<ul>
+<li>Added: When calling emit, it's now possible to specify a callback that will be triggered after each method handled. This is dubbed the 'continueCallback' and can be used to implement strategy patterns.</li>
+<li>Added: Promise object!</li>
+<li>Changed: EventEmitter::listeners now returns just the callbacks for an event, and no longer returns the list by reference. The list is now automatically sorted by priority.</li>
+<li><a class="el" href="class_update.html">Update</a>: Speed improvements.</li>
+<li>Updated: It's now possible to remove all listeners for every event.</li>
+<li>Changed: Now uses psr-4 autoloading.</li>
+</ul>
+<h2>1.0.1 (2014-06-12) </h2>
+<ul>
+<li>hhvm compatible!</li>
+<li>Fixed: Issue #4. Compatiblitiy for PHP &lt; 5.4.14.</li>
+</ul>
+<h2>1.0.0 (2013-07-19) </h2>
+<ul>
+<li>Added: removeListener, removeAllListeners</li>
+<li>Added: once, to only listen to an event emitting once.</li>
+<li>Added README.md.</li>
+</ul>
+<h2>0.0.1-alpha (2013-06-29) </h2>
+<ul>
+<li>First version! </li>
+</ul>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

@@ -1,0 +1,97 @@
+\hypertarget{class_sabre_1_1_xml_1_1_element_1_1_eater}{}\section{Sabre\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Eater Klassenreferenz}
+\label{class_sabre_1_1_xml_1_1_element_1_1_eater}\index{Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Eater@{Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Eater}}
+Klassendiagramm für Sabre\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Eater\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_xml_1_1_element_1_1_eater}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_eater_adbcc612a068aafce570395bca752b42f}{xml\+Serialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Xml\textbackslash{}\+Writer}} \$writer)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_eater_af251bc4f008ecef8fcbacb6996e594b9}{xml\+Deserialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Xml\textbackslash{}\+Reader}} \$reader)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The intention for this reader class, is to read past the end element. This should trigger a \mbox{\hyperlink{class_sabre_1_1_xml_1_1_parse_exception}{Parse\+Exception}}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2009-\/2015 fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 15 der Datei Eater.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_eater_af251bc4f008ecef8fcbacb6996e594b9}\label{class_sabre_1_1_xml_1_1_element_1_1_eater_af251bc4f008ecef8fcbacb6996e594b9}} 
+\index{Sabre\+::\+Xml\+::\+Element\+::\+Eater@{Sabre\+::\+Xml\+::\+Element\+::\+Eater}!xml\+Deserialize@{xml\+Deserialize}}
+\index{xml\+Deserialize@{xml\+Deserialize}!Sabre\+::\+Xml\+::\+Element\+::\+Eater@{Sabre\+::\+Xml\+::\+Element\+::\+Eater}}
+\subsubsection{\texorpdfstring{xml\+Deserialize()}{xmlDeserialize()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Eater\+::xml\+Deserialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Xml\textbackslash{}\+Reader}}}]{\$reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The deserialize method is called during xml parsing.
+
+This method is called statictly, this is because in theory this method may be used as a type of constructor, or factory method.
+
+Often you want to return an instance of the current class, but you are free to return other data as well.
+
+Important note 2\+: You are responsible for advancing the reader to the next element. Not doing anything will result in a never-\/ending loop.
+
+If you just want to skip parsing for this element altogether, you can just call \$reader-\/$>$next();
+
+\$reader-\/$>$parse\+Sub\+Tree() will parse the entire sub-\/tree, and advance to the next element.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Xml\textbackslash{}\+Reader & {\em \$reader} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 61 der Datei Eater.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_eater_adbcc612a068aafce570395bca752b42f}\label{class_sabre_1_1_xml_1_1_element_1_1_eater_adbcc612a068aafce570395bca752b42f}} 
+\index{Sabre\+::\+Xml\+::\+Element\+::\+Eater@{Sabre\+::\+Xml\+::\+Element\+::\+Eater}!xml\+Serialize@{xml\+Serialize}}
+\index{xml\+Serialize@{xml\+Serialize}!Sabre\+::\+Xml\+::\+Element\+::\+Eater@{Sabre\+::\+Xml\+::\+Element\+::\+Eater}}
+\subsubsection{\texorpdfstring{xml\+Serialize()}{xmlSerialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Eater\+::xml\+Serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Xml\textbackslash{}\+Writer}}}]{\$writer }\end{DoxyParamCaption})}
+
+The serialize method is called during xml writing.
+
+It should use the \$writer argument to encode this object into Xml.
+
+Important note\+: it is not needed to create the parent element. The parent element is already created, and we only have to worry about attributes, child elements and text (if any).
+
+Important note 2\+: If you are writing any new elements, you are also responsible for closing them.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Xml\textbackslash{}\+Writer & {\em \$writer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 32 der Datei Eater.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/xml/tests/\+Sabre/\+Xml/\+Element/Eater.\+php\end{DoxyCompactItemize}

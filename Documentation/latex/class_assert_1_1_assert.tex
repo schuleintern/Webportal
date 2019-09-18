@@ -1,0 +1,101 @@
+\hypertarget{class_assert_1_1_assert}{}\section{Assert\textbackslash{}Assert Klassenreferenz}
+\label{class_assert_1_1_assert}\index{Assert\textbackslash{}\+Assert@{Assert\textbackslash{}\+Assert}}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_assert_1_1_assert_ad797cd56277739d7b26e70ea83fa8231}\label{class_assert_1_1_assert_ad797cd56277739d7b26e70ea83fa8231}} 
+static {\bfseries that} (\$value, \$default\+Message=null, \$default\+Property\+Path=null)
+\item 
+static \mbox{\hyperlink{class_assert_1_1_assert_a699aef30afb1fbc83d2ddf21e0342c8f}{that\+All}} (\$values, \$default\+Message=null, \$default\+Property\+Path=null)
+\item 
+static \mbox{\hyperlink{class_assert_1_1_assert_a935391510a9e75913abbd1811d391478}{that\+Null\+Or}} (\$value, \$default\+Message=null, \$default\+Property\+Path=null)
+\item 
+static \mbox{\hyperlink{class_assert_1_1_assert_a265a6a9fcb274b0f93bc3cc2b28e3ebc}{lazy}} ()
+\end{DoxyCompactItemize}
+\subsection*{Statische, geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_assert_1_1_assert_a059806abee0ea9d3a64b992ef1eff1f0}\label{class_assert_1_1_assert_a059806abee0ea9d3a64b992ef1eff1f0}} 
+static {\bfseries \$lazy\+Assertion\+Exception\+Class} = Lazy\+Assertion\+Exception\+::class
+\item 
+\mbox{\Hypertarget{class_assert_1_1_assert_ac48f7bd59a771339bfa6df3443f57aa4}\label{class_assert_1_1_assert_ac48f7bd59a771339bfa6df3443f57aa4}} 
+static {\bfseries \$assertion\+Class} = Assertion\+::class
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_assert_1_1_assertion_chain}{Assertion\+Chain}} factory. 
+
+Definiert in Zeile 20 der Datei Assert.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_assert_1_1_assert_a265a6a9fcb274b0f93bc3cc2b28e3ebc}\label{class_assert_1_1_assert_a265a6a9fcb274b0f93bc3cc2b28e3ebc}} 
+\index{Assert\+::\+Assert@{Assert\+::\+Assert}!lazy@{lazy}}
+\index{lazy@{lazy}!Assert\+::\+Assert@{Assert\+::\+Assert}}
+\subsubsection{\texorpdfstring{lazy()}{lazy()}}
+{\footnotesize\ttfamily static Assert\textbackslash{}\+Assert\+::lazy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create a lazy assertion object.
+
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile 88 der Datei Assert.\+php.
+
+\mbox{\Hypertarget{class_assert_1_1_assert_a699aef30afb1fbc83d2ddf21e0342c8f}\label{class_assert_1_1_assert_a699aef30afb1fbc83d2ddf21e0342c8f}} 
+\index{Assert\+::\+Assert@{Assert\+::\+Assert}!that\+All@{that\+All}}
+\index{that\+All@{that\+All}!Assert\+::\+Assert@{Assert\+::\+Assert}}
+\subsubsection{\texorpdfstring{that\+All()}{thatAll()}}
+{\footnotesize\ttfamily static Assert\textbackslash{}\+Assert\+::that\+All (\begin{DoxyParamCaption}\item[{}]{\$values,  }\item[{}]{\$default\+Message = {\ttfamily null},  }\item[{}]{\$default\+Property\+Path = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Start validation on a set of values, returns \mbox{\hyperlink{class_assert_1_1_assertion_chain}{Assertion\+Chain}}.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$values} & \\
+\hline
+string & {\em \$default\+Message} & \\
+\hline
+string & {\em \$default\+Property\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile 64 der Datei Assert.\+php.
+
+\mbox{\Hypertarget{class_assert_1_1_assert_a935391510a9e75913abbd1811d391478}\label{class_assert_1_1_assert_a935391510a9e75913abbd1811d391478}} 
+\index{Assert\+::\+Assert@{Assert\+::\+Assert}!that\+Null\+Or@{that\+Null\+Or}}
+\index{that\+Null\+Or@{that\+Null\+Or}!Assert\+::\+Assert@{Assert\+::\+Assert}}
+\subsubsection{\texorpdfstring{that\+Null\+Or()}{thatNullOr()}}
+{\footnotesize\ttfamily static Assert\textbackslash{}\+Assert\+::that\+Null\+Or (\begin{DoxyParamCaption}\item[{}]{\$value,  }\item[{}]{\$default\+Message = {\ttfamily null},  }\item[{}]{\$default\+Property\+Path = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Start validation and allow N\+U\+LL, returns \mbox{\hyperlink{class_assert_1_1_assertion_chain}{Assertion\+Chain}}.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$value} & \\
+\hline
+string & {\em \$default\+Message} & \\
+\hline
+string & {\em \$default\+Property\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile 78 der Datei Assert.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/composer/vendor/beberlei/assert/lib/\+Assert/Assert.\+php\end{DoxyCompactItemize}

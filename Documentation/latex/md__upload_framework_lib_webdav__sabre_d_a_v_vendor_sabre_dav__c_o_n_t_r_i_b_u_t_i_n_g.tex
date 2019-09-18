@@ -1,0 +1,54 @@
+Want to contribute to sabre/dav? Here are some guidelines to ensure your patch gets accepted.
+
+\subsection*{Building a new feature? Contact us first }
+
+We may not want to accept every feature that comes our way. Sometimes features are out of scope for our projects.
+
+We don\textquotesingle{}t want to waste your time, so by having a quick chat with us first, you may find out quickly if the feature makes sense to us, and we can give some tips on how to best build the feature.
+
+If we don\textquotesingle{}t accept the feature, it could be for a number of reasons. For instance, we\textquotesingle{}ve rejected features in the past because we felt uncomfortable assuming responsibility for maintaining the feature.
+
+In those cases, it\textquotesingle{}s often possible to keep the feature separate from the sabre projects. sabre/dav for instance has a plugin system, and there\textquotesingle{}s no reason the feature can\textquotesingle{}t live in a project you own.
+
+In that case, definitely let us know about your plugin as well, so we can feature it on \href{http://sabre.io/}{\tt sabre.\+io}.
+
+We are often on \href{irc://freenode.net/#sabredav}{\tt I\+RC}, in the \#sabredav channel on freenode. If there\textquotesingle{}s no one there, post a message on the \href{http://groups.google.com/group/sabredav-discuss}{\tt mailing list}.
+
+\subsection*{Coding standards }
+
+sabre projects follow\+:
+
+
+\begin{DoxyEnumerate}
+\item \href{http://www.php-fig.org/psr/psr-1/}{\tt P\+S\+R-\/1}
+\item \href{http://www.php-fig.org/psr/psr-4/}{\tt P\+S\+R-\/4}
+\end{DoxyEnumerate}
+
+sabre projects don\textquotesingle{}t follow \href{http://www.php-fig.org/psr/psr-2/}{\tt P\+S\+R-\/2}.
+
+In addition to that, here\textquotesingle{}s a list of basic rules\+:
+
+
+\begin{DoxyEnumerate}
+\item P\+HP 5.\+4 array syntax must be used every where. This means you use {\ttfamily \mbox{[}} and {\ttfamily \mbox{]}} instead of {\ttfamily array(} and {\ttfamily )}.
+\item Use P\+HP namespaces everywhere.
+\item Use 4 spaces for indentation.
+\item Try to keep your lines under 80 characters. This is not a hard rule, as there are many places in the source where it felt more sensibile to not do so. In particular, function declarations are never split over multiple lines.
+\item Opening braces ({\ttfamily \{}) are {\itshape always} on the same line as the {\ttfamily class}, {\ttfamily if}, {\ttfamily function}, etc. they belong to.
+\item {\ttfamily public} must be omitted from method declarations. It must also be omitted for static properties.
+\item All files should use unix-\/line endings ({\ttfamily \textbackslash{}n}).
+\item Files must omit the closing php tag ({\ttfamily ?$>$}).
+\item {\ttfamily true}, {\ttfamily false} and {\ttfamily null} are always lower-\/case.
+\item Constants are always upper-\/case.
+\item Any of the rules stated before may be broken where this is the pragmatic thing to do.
+\end{DoxyEnumerate}
+
+\subsection*{Unit test requirements }
+
+Any new feature or change requires unittests. We use \href{http://phpunit.de/}{\tt P\+H\+P\+Unit} for all our tests.
+
+Adding unittests will greatly increase the likelyhood of us quickly accepting your pull request. If unittests are not included though for whatever reason, we\textquotesingle{}d still {\itshape love} your pull request.
+
+We may have to write the tests ourselves, which can increase the time it takes to accept the patch, but we\textquotesingle{}d still really like your contribution!
+
+To run the testsuite jump into the directory {\ttfamily cd tests} and trigger {\ttfamily phpunit}. Make sure you did a {\ttfamily composer install} beforehand. 

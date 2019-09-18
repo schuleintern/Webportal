@@ -1,0 +1,306 @@
+\hypertarget{class_buch_ausleihe}{}\section{Buch\+Ausleihe Klassenreferenz}
+\label{class_buch_ausleihe}\index{Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_buch_ausleihe_abaab5c75be2d8969e0383df5e19d64b1}\label{class_buch_ausleihe_abaab5c75be2d8969e0383df5e19d64b1}} 
+{\bfseries \+\_\+\+\_\+construct} (\$data, \$exemplar=null)
+\item 
+\mbox{\hyperlink{class_buch_ausleihe_a9032093212a7ee4aea97d4b489703064}{get\+ID}} ()
+\item 
+\mbox{\hyperlink{class_buch_ausleihe_aea7a7f54505b97982c3eaa2c3f69ffcc}{get\+Kommentar}} ()
+\item 
+\mbox{\hyperlink{class_buch_ausleihe_a3be8dd6025b3daf101ffd7cfbe7de314}{get\+Exemplar}} ()
+\item 
+\mbox{\hyperlink{class_buch_ausleihe_a6999838b1319b2023e8ce1ffd7e735b4}{get\+Ausleihe\+Start\+Datum}} ()
+\item 
+\mbox{\hyperlink{class_buch_ausleihe_aef028e0218f9fa040a010dd84a4d3416}{get\+Ausleihe\+End\+Datum}} ()
+\item 
+\mbox{\hyperlink{class_buch_ausleihe_aba966ede70571dfe5adfd4935c55e114}{is\+Ausleihe\+Active}} ()
+\item 
+\mbox{\hyperlink{class_buch_ausleihe_a75db3987f92dd5e0e6dda0a5e4827dd8}{get\+Schueler}} ()
+\item 
+\mbox{\hyperlink{class_buch_ausleihe_af5e15787efbbfc52566757a7dbefea54}{get\+Lehrer}} ()
+\item 
+\mbox{\hyperlink{class_buch_ausleihe_a618cf53c891c96f350f2545b6b16b6f0}{get\+Ausleiher}} ()
+\item 
+\mbox{\Hypertarget{class_buch_ausleihe_aa702c620da03bd00596e08cfa60749f6}\label{class_buch_ausleihe_aa702c620da03bd00596e08cfa60749f6}} 
+{\bfseries delete} ()
+\item 
+\mbox{\hyperlink{class_buch_ausleihe_aecfe97c0b68ca0f445b08086cfb50033}{set\+Kommentar}} (\$text)
+\item 
+\mbox{\Hypertarget{class_buch_ausleihe_a529bdfd0849ba5ed33a8c3a602eb7cba}\label{class_buch_ausleihe_a529bdfd0849ba5ed33a8c3a602eb7cba}} 
+{\bfseries end\+Ausleihe} (\$end\+Date=\textquotesingle{}\textquotesingle{})
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_buch_ausleihe_afa2d5973d51779266c1605e603cbcddd}{get\+By\+Exemplar}} (\$exemplar)
+\item 
+static \mbox{\hyperlink{class_buch_ausleihe_a399df7c887d9ff7e2ad53bf210c05f6d}{lend\+Exemplar\+To\+Schueler}} (\$exemplar, \$\mbox{\hyperlink{classschueler}{schueler}}, \$start\+Date=\textquotesingle{}\textquotesingle{})
+\item 
+static \mbox{\hyperlink{class_buch_ausleihe_a1f2dfb8eb955e252775b54fdb1e87cad}{lend\+Exemplar\+To\+Lehrer}} (\$exemplar, \$\mbox{\hyperlink{classlehrer}{lehrer}}, \$start\+Date=\textquotesingle{}\textquotesingle{})
+\item 
+static \mbox{\hyperlink{class_buch_ausleihe_a99d51b3d315ab0df97862b895940d441}{get\+By\+Schueler}} (\$\mbox{\hyperlink{classschueler}{schueler}})
+\item 
+static \mbox{\hyperlink{class_buch_ausleihe_a153d1dc43dd2b82ea68d5dbd4d144cf8}{get\+Active\+Ausleihe\+By\+Schueler}} (\$\mbox{\hyperlink{classschueler}{schueler}})
+\item 
+static \mbox{\hyperlink{class_buch_ausleihe_a20ab3adc95e49c0fc50d04a895c3cb97}{get\+By\+Lehrer}} (\$\mbox{\hyperlink{classlehrer}{lehrer}})
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 3 der Datei Buch\+Ausleihe.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_buch_ausleihe_a153d1dc43dd2b82ea68d5dbd4d144cf8}\label{class_buch_ausleihe_a153d1dc43dd2b82ea68d5dbd4d144cf8}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+Active\+Ausleihe\+By\+Schueler@{get\+Active\+Ausleihe\+By\+Schueler}}
+\index{get\+Active\+Ausleihe\+By\+Schueler@{get\+Active\+Ausleihe\+By\+Schueler}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+Active\+Ausleihe\+By\+Schueler()}{getActiveAusleiheBySchueler()}}
+{\footnotesize\ttfamily static Buch\+Ausleihe\+::get\+Active\+Ausleihe\+By\+Schueler (\begin{DoxyParamCaption}\item[{}]{\$schueler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameter}
+{\em schueler\mbox{[}$\,$\mbox{]}} & \$schueler \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_buch_ausleihe}{Buch\+Ausleihe}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 215 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_aef028e0218f9fa040a010dd84a4d3416}\label{class_buch_ausleihe_aef028e0218f9fa040a010dd84a4d3416}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+Ausleihe\+End\+Datum@{get\+Ausleihe\+End\+Datum}}
+\index{get\+Ausleihe\+End\+Datum@{get\+Ausleihe\+End\+Datum}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+Ausleihe\+End\+Datum()}{getAusleiheEndDatum()}}
+{\footnotesize\ttfamily Buch\+Ausleihe\+::get\+Ausleihe\+End\+Datum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Enddatum der Ausleihe / \char`\"{}\char`\"{}, wenn noch aktiv \begin{DoxyReturn}{Rückgabe}
+unknown 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 68 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_a618cf53c891c96f350f2545b6b16b6f0}\label{class_buch_ausleihe_a618cf53c891c96f350f2545b6b16b6f0}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+Ausleiher@{get\+Ausleiher}}
+\index{get\+Ausleiher@{get\+Ausleiher}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+Ausleiher()}{getAusleiher()}}
+{\footnotesize\ttfamily Buch\+Ausleihe\+::get\+Ausleiher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+String 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 100 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_a6999838b1319b2023e8ce1ffd7e735b4}\label{class_buch_ausleihe_a6999838b1319b2023e8ce1ffd7e735b4}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+Ausleihe\+Start\+Datum@{get\+Ausleihe\+Start\+Datum}}
+\index{get\+Ausleihe\+Start\+Datum@{get\+Ausleihe\+Start\+Datum}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+Ausleihe\+Start\+Datum()}{getAusleiheStartDatum()}}
+{\footnotesize\ttfamily Buch\+Ausleihe\+::get\+Ausleihe\+Start\+Datum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+S\+QL Date \begin{DoxyReturn}{Rückgabe}
+String 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 60 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_afa2d5973d51779266c1605e603cbcddd}\label{class_buch_ausleihe_afa2d5973d51779266c1605e603cbcddd}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+By\+Exemplar@{get\+By\+Exemplar}}
+\index{get\+By\+Exemplar@{get\+By\+Exemplar}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+By\+Exemplar()}{getByExemplar()}}
+{\footnotesize\ttfamily static Buch\+Ausleihe\+::get\+By\+Exemplar (\begin{DoxyParamCaption}\item[{}]{\$exemplar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_exemplar}{Exemplar}} & {\em \$exemplar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_buch_ausleihe}{Buch\+Ausleihe}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 122 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_a20ab3adc95e49c0fc50d04a895c3cb97}\label{class_buch_ausleihe_a20ab3adc95e49c0fc50d04a895c3cb97}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+By\+Lehrer@{get\+By\+Lehrer}}
+\index{get\+By\+Lehrer@{get\+By\+Lehrer}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+By\+Lehrer()}{getByLehrer()}}
+{\footnotesize\ttfamily static Buch\+Ausleihe\+::get\+By\+Lehrer (\begin{DoxyParamCaption}\item[{}]{\$lehrer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameter}
+{\em lehrer\mbox{[}$\,$\mbox{]}} & \$lehrer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_buch_ausleihe}{Buch\+Ausleihe}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 234 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_a99d51b3d315ab0df97862b895940d441}\label{class_buch_ausleihe_a99d51b3d315ab0df97862b895940d441}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+By\+Schueler@{get\+By\+Schueler}}
+\index{get\+By\+Schueler@{get\+By\+Schueler}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+By\+Schueler()}{getBySchueler()}}
+{\footnotesize\ttfamily static Buch\+Ausleihe\+::get\+By\+Schueler (\begin{DoxyParamCaption}\item[{}]{\$schueler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameter}
+{\em schueler\mbox{[}$\,$\mbox{]}} & \$schueler \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_buch_ausleihe}{Buch\+Ausleihe}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 195 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_a3be8dd6025b3daf101ffd7cfbe7de314}\label{class_buch_ausleihe_a3be8dd6025b3daf101ffd7cfbe7de314}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+Exemplar@{get\+Exemplar}}
+\index{get\+Exemplar@{get\+Exemplar}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+Exemplar()}{getExemplar()}}
+{\footnotesize\ttfamily Buch\+Ausleihe\+::get\+Exemplar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_exemplar}{Exemplar}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 52 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_a9032093212a7ee4aea97d4b489703064}\label{class_buch_ausleihe_a9032093212a7ee4aea97d4b489703064}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily Buch\+Ausleihe\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 36 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_aea7a7f54505b97982c3eaa2c3f69ffcc}\label{class_buch_ausleihe_aea7a7f54505b97982c3eaa2c3f69ffcc}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+Kommentar@{get\+Kommentar}}
+\index{get\+Kommentar@{get\+Kommentar}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+Kommentar()}{getKommentar()}}
+{\footnotesize\ttfamily Buch\+Ausleihe\+::get\+Kommentar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+String 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 44 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_af5e15787efbbfc52566757a7dbefea54}\label{class_buch_ausleihe_af5e15787efbbfc52566757a7dbefea54}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+Lehrer@{get\+Lehrer}}
+\index{get\+Lehrer@{get\+Lehrer}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+Lehrer()}{getLehrer()}}
+{\footnotesize\ttfamily Buch\+Ausleihe\+::get\+Lehrer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+N\+U\+L\+L$\vert$lehrer 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 92 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_a75db3987f92dd5e0e6dda0a5e4827dd8}\label{class_buch_ausleihe_a75db3987f92dd5e0e6dda0a5e4827dd8}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!get\+Schueler@{get\+Schueler}}
+\index{get\+Schueler@{get\+Schueler}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{get\+Schueler()}{getSchueler()}}
+{\footnotesize\ttfamily Buch\+Ausleihe\+::get\+Schueler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+N\+U\+L\+L$\vert$schueler 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 84 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_aba966ede70571dfe5adfd4935c55e114}\label{class_buch_ausleihe_aba966ede70571dfe5adfd4935c55e114}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!is\+Ausleihe\+Active@{is\+Ausleihe\+Active}}
+\index{is\+Ausleihe\+Active@{is\+Ausleihe\+Active}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{is\+Ausleihe\+Active()}{isAusleiheActive()}}
+{\footnotesize\ttfamily Buch\+Ausleihe\+::is\+Ausleihe\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+boolean 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 76 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_a1f2dfb8eb955e252775b54fdb1e87cad}\label{class_buch_ausleihe_a1f2dfb8eb955e252775b54fdb1e87cad}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!lend\+Exemplar\+To\+Lehrer@{lend\+Exemplar\+To\+Lehrer}}
+\index{lend\+Exemplar\+To\+Lehrer@{lend\+Exemplar\+To\+Lehrer}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{lend\+Exemplar\+To\+Lehrer()}{lendExemplarToLehrer()}}
+{\footnotesize\ttfamily static Buch\+Ausleihe\+::lend\+Exemplar\+To\+Lehrer (\begin{DoxyParamCaption}\item[{}]{\$exemplar,  }\item[{}]{\$lehrer,  }\item[{}]{\$start\+Date = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_exemplar}{Exemplar}} & {\em \$exemplar} & \\
+\hline
+lehrer & {\em \$lehrer} & \\
+\hline
+string & {\em \$start\+Date} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 164 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_a399df7c887d9ff7e2ad53bf210c05f6d}\label{class_buch_ausleihe_a399df7c887d9ff7e2ad53bf210c05f6d}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!lend\+Exemplar\+To\+Schueler@{lend\+Exemplar\+To\+Schueler}}
+\index{lend\+Exemplar\+To\+Schueler@{lend\+Exemplar\+To\+Schueler}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{lend\+Exemplar\+To\+Schueler()}{lendExemplarToSchueler()}}
+{\footnotesize\ttfamily static Buch\+Ausleihe\+::lend\+Exemplar\+To\+Schueler (\begin{DoxyParamCaption}\item[{}]{\$exemplar,  }\item[{}]{\$schueler,  }\item[{}]{\$start\+Date = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_exemplar}{Exemplar}} & {\em \$exemplar} & \\
+\hline
+schueler & {\em \$schueler} & \\
+\hline
+string & {\em \$start\+Date} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 140 der Datei Buch\+Ausleihe.\+class.\+php.
+
+\mbox{\Hypertarget{class_buch_ausleihe_aecfe97c0b68ca0f445b08086cfb50033}\label{class_buch_ausleihe_aecfe97c0b68ca0f445b08086cfb50033}} 
+\index{Buch\+Ausleihe@{Buch\+Ausleihe}!set\+Kommentar@{set\+Kommentar}}
+\index{set\+Kommentar@{set\+Kommentar}!Buch\+Ausleihe@{Buch\+Ausleihe}}
+\subsubsection{\texorpdfstring{set\+Kommentar()}{setKommentar()}}
+{\footnotesize\ttfamily Buch\+Ausleihe\+::set\+Kommentar (\begin{DoxyParamCaption}\item[{}]{\$text }\end{DoxyParamCaption})}
+
+Kommentar festelgen zur Ausleihe. 
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$text} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 112 der Datei Buch\+Ausleihe.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/data/schulbuch/Buch\+Ausleihe.\+class.\+php\end{DoxyCompactItemize}

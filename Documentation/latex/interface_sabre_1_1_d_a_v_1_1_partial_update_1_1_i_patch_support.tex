@@ -1,0 +1,73 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Partial\+Update\textbackslash{}I\+Patch\+Support Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Partial\+Update\textbackslash{}\+I\+Patch\+Support@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Partial\+Update\textbackslash{}\+I\+Patch\+Support}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Partial\+Update\textbackslash{}I\+Patch\+Support\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support_a30ad366876434b6d36f93c4143a8a323}{patch}} (\$data, \$range\+Type, \$offset=null)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This interface provides a way to modify only part of a target resource It may be used to update a file chunk, upload big a file into smaller chunks or resume an upload
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Jean-\/\+Tiare LE B\+I\+G\+OT (\href{http://www.jtlebi.fr/}{\tt http\+://www.\+jtlebi.\+fr/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei I\+Patch\+Support.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support_a30ad366876434b6d36f93c4143a8a323}\label{interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support_a30ad366876434b6d36f93c4143a8a323}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Partial\+Update\+::\+I\+Patch\+Support@{Sabre\+::\+D\+A\+V\+::\+Partial\+Update\+::\+I\+Patch\+Support}!patch@{patch}}
+\index{patch@{patch}!Sabre\+::\+D\+A\+V\+::\+Partial\+Update\+::\+I\+Patch\+Support@{Sabre\+::\+D\+A\+V\+::\+Partial\+Update\+::\+I\+Patch\+Support}}
+\subsubsection{\texorpdfstring{patch()}{patch()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Partial\+Update\textbackslash{}\+I\+Patch\+Support\+::patch (\begin{DoxyParamCaption}\item[{}]{\$data,  }\item[{}]{\$range\+Type,  }\item[{}]{\$offset = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Updates the file based on a range specification.
+
+The first argument is the data, which is either a readable stream resource or a string.
+
+The second argument is the type of update we\textquotesingle{}re doing. This is either\+:
+\begin{DoxyItemize}
+\item 1. append
+\item 2. update based on a start byte
+\item 3. update based on an end byte ; The third argument is the start or end byte.
+\end{DoxyItemize}
+
+After a successful put operation, you may choose to return an E\+Tag. The etag must always be surrounded by double-\/quotes. These quotes must appear in the actual string you\textquotesingle{}re returning.
+
+Clients may use the E\+Tag from a P\+UT request to later on make sure that when they update the file, the contents haven\textquotesingle{}t changed in the mean time.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource | string & {\em \$data} & \\
+\hline
+int & {\em \$range\+Type} & \\
+\hline
+int & {\em \$offset} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_file_a41eb62da489973b1da84e5957c662103}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+File}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_file_mock_a93dea351066cf42f5e0e810ffa4f9b31}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Partial\+Update\textbackslash{}\+File\+Mock}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Partial\+Update/I\+Patch\+Support.\+php\end{DoxyCompactItemize}

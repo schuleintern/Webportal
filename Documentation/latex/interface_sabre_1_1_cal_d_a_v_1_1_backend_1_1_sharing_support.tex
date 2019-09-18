@@ -1,0 +1,114 @@
+\hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Sharing\+Support Schnittstellenreferenz}
+\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sharing\+Support@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sharing\+Support}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Sharing\+Support\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a1a8bd8b5909e5fb0e481e27b100d503e}{update\+Invites}} (\$calendar\+Id, array \$sharees)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a82223ce074cb75008e420beda5df94c8}{get\+Invites}} (\$calendar\+Id)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a890bbb111b3e3dc28716129d323fe25a}{set\+Publish\+Status}} (\$calendar\+Id, \$value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Adds support for sharing features to a Cal\+D\+AV server.
+
+Cal\+D\+AV backends that implement this interface, must make the following modifications to get\+Calendars\+For\+User\+:
+
+
+\begin{DoxyEnumerate}
+\item Return shared calendars for users.
+\item For every calendar, return calendar-\/resource-\/uri. This strings is a U\+RI or relative U\+RI reference that must be unique for every calendar, but identical for every instance of the same shared calendar.
+\item For every calendar, you must return a share-\/access element. This element should contain one of the Sabre\+:A\+C\+C\+E\+S\+S\+\_\+$\ast$ constants and indicates the access level the user has.
+\end{DoxyEnumerate}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 23 der Datei Sharing\+Support.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a82223ce074cb75008e420beda5df94c8}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a82223ce074cb75008e420beda5df94c8}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support}!get\+Invites@{get\+Invites}}
+\index{get\+Invites@{get\+Invites}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support}}
+\subsubsection{\texorpdfstring{get\+Invites()}{getInvites()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sharing\+Support\+::get\+Invites (\begin{DoxyParamCaption}\item[{}]{\$calendar\+Id }\end{DoxyParamCaption})}
+
+Returns the list of people whom this calendar is shared with.
+
+Every item in the returned list must be a Sharee object with at least the following properties set\+: \$href \$share\+Access \$invite\+Status
+
+and optionally\+: \$properties
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$calendar\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o_afea8ccfdf65568def62aed599be0012c}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a00ec7859036057a4ebce446f169a60b6}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a890bbb111b3e3dc28716129d323fe25a}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a890bbb111b3e3dc28716129d323fe25a}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support}!set\+Publish\+Status@{set\+Publish\+Status}}
+\index{set\+Publish\+Status@{set\+Publish\+Status}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support}}
+\subsubsection{\texorpdfstring{set\+Publish\+Status()}{setPublishStatus()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sharing\+Support\+::set\+Publish\+Status (\begin{DoxyParamCaption}\item[{}]{\$calendar\+Id,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Publishes a calendar
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$calendar\+Id} & \\
+\hline
+bool & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o_a2a195c083c83052daed9557a7e9227fa}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a27430bb5fc8c5bc917fd54dca083f069}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a1a8bd8b5909e5fb0e481e27b100d503e}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a1a8bd8b5909e5fb0e481e27b100d503e}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support}!update\+Invites@{update\+Invites}}
+\index{update\+Invites@{update\+Invites}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sharing\+Support}}
+\subsubsection{\texorpdfstring{update\+Invites()}{updateInvites()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sharing\+Support\+::update\+Invites (\begin{DoxyParamCaption}\item[{}]{\$calendar\+Id,  }\item[{array}]{\$sharees }\end{DoxyParamCaption})}
+
+Updates the list of shares.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$calendar\+Id} & \\
+\hline
+ & {\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o_a37cf70c0f916674df4caac89a9d99afb}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a2a87bd1cd094d478cb880c9ed5ac9b09}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Backend/Sharing\+Support.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,1932 @@
+\subsection*{3.\+2.\+2 (2017-\/02-\/14) }
+
+
+\begin{DoxyItemize}
+\item \#943\+: Fix Card\+D\+AV X\+ML reporting bug, which was affecting several Card\+D\+AV clients. Bug was introduced in 3.\+2.\+1.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+1.\+2}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+2}, \href{http://sabre.io/event/}{\tt sabre/event 3.\+0.\+0}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+2.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+5.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+2.\+1 (2017-\/01-\/28) }
+
+
+\begin{DoxyItemize}
+\item \#877\+: Fix for syncing large calendars when using the Sqlite P\+DO backend. ().
+\item \#889 Added support for filtering v\+Card properties in the addressbook-\/query R\+E\+P\+O\+RT ().
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+1.\+2}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+2}, \href{http://sabre.io/event/}{\tt sabre/event 3.\+0.\+0}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+2.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+5.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+2.\+0 (2016-\/06-\/27) }
+
+
+\begin{DoxyItemize}
+\item The default A\+CL rules allow an unauthenticated user to read information about nodes that don\textquotesingle{}t have their own A\+CL defined. This was a security problem.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+1.\+0}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 3.\+0.\+0}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+1.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+4.\+2}.
+\end{DoxyItemize}
+
+\subsection*{3.\+2.\+0-\/beta1 (2016-\/05-\/20) }
+
+
+\begin{DoxyItemize}
+\item \#833\+: Calendars throw exceptions when the sharing plugin is not enabled.
+\item \#834\+: Return v\+Cards exactly as they were stored if we don\textquotesingle{}t need to convert in between versions.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+1.\+0}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 3.\+0.\+0}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+1.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+4.\+1}.
+\end{DoxyItemize}
+
+\subsection*{3.\+2.\+0-\/alpha1 (2016-\/05-\/09) }
+
+
+\begin{DoxyItemize}
+\item Database changes for Cal\+D\+AV. If you are using the Cal\+D\+AV P\+DO backends, you must migrate. Run {\ttfamily ./bin/migrateto32.php} for more info.
+\item Support for Web\+D\+AV Resource Sharing, an upcoming standard.
+\item Added support for sharing in the Cal\+D\+AV P\+DO backend! Users can now invite others to their calendar and give them read/read-\/write access!
+\item \#397\+: Support for P\+S\+R-\/3. You can now log exceptions with your favourite psr3-\/compatible logging tool.
+\item \#825\+: Actual proper, tested support for Postgre\+S\+QL. We require version 9.\+5.
+\item Removed database migration script for sabre/dav 1.\+7. To update from that version you now first need to update to sabre/dav 3.\+1.
+\item Removed deprecated function\+: {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Plugin\+::get\+Current\+User()}.
+\item \#774\+: Fixes for getting free disk space on Windows.
+\item \#803\+: Major changes in the sharing A\+PI. If you were using an old sabre/dav sharing api, head to the website for more detailed migration notes.
+\item \#657\+: Support for optional auth using {\ttfamily \{D\+AV\+:\}unauthorized} and {\ttfamily \{D\+AV\+:\}all} privileges. This allows you to assign a privilege to a resource, allowing non-\/authenticated users to access it. For instance, this could allow you to create a public read-\/only collection.
+\item \#812 \#814\+: I\+C\+S/\+V\+CF exporter now includes a more useful filename in its {\ttfamily Content-\/\+Disposition} header. ().
+\item \#801\+: BC break\+: If you were using the {\ttfamily Href} object before, it\textquotesingle{}s behavior now changed a bit, and {\ttfamily Local\+Href} was added to replace the old, default behavior of {\ttfamily Href}. See the migration doc for more info.
+\item Removed {\ttfamily Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Plugin\+::\$allow\+Access\+To\+Nodes\+Without\+A\+CL} setting. Instead, you can provide a set of default A\+CL rules with {\ttfamily Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Plugin\+::set\+Default\+Acl()}.
+\item Introduced {\ttfamily Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}A\+C\+L\+Trait} which contains a default implementation of {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}I\+A\+CL} with some sane defaults. We\textquotesingle{}re using this trait all over the place now, reducing the amount of boilerplate.
+\item Plugins can now control the \char`\"{}\+Supported Privilege Set\char`\"{}.
+\item Added Sharing, I\+C\+S\+Export and V\+C\+F\+Export plugins to {\ttfamily \mbox{\hyperlink{groupwareserver_8php_source}{groupwareserver.\+php}}} example.
+\item The {\ttfamily \{D\+AV\+:\}all} privilege is now no longer abstract, so it can be assigned directly. We\textquotesingle{}re using the {\ttfamily \{D\+AV\+:\}all} privilege now in a lot of cases where we before assigned both {\ttfamily \{D\+AV\+:\}read} and {\ttfamily \{D\+AV\+:\}write}.
+\item Resources that are not collections no longer support the {\ttfamily \{D\+AV\+:\}bind} and {\ttfamily \{D\+AV\+:\}unbind} privileges.
+\item Corrected the Cal\+D\+A\+V-\/scheduling related privileges.
+\item Doing an {\ttfamily U\+N\+L\+O\+CK} no longer requires the {\ttfamily \{D\+AV\+:\}write-\/content} privilege.
+\item Added a new {\ttfamily get\+Principal\+By\+Uri} plugin event. Allowing plugins to request quickly where a principal lives on a server.
+\item Renamed {\ttfamily phpunit.\+xml} to {\ttfamily phpunit.\+xml.\+dist} to make local modifications easy.
+\item Functionality from {\ttfamily I\+Shareable\+Calendar} is merged into {\ttfamily I\+Shared\+Calendar}.
+\item \#751\+: Fixed X\+ML responses from failing {\ttfamily M\+K\+C\+OL} requests.
+\item \#600\+: Support for {\ttfamily principal-\/match} A\+CL {\ttfamily R\+E\+P\+O\+RT}.
+\item \#599\+: Support for {\ttfamily acl-\/principal-\/prop-\/set} A\+CL {\ttfamily R\+E\+P\+O\+RT}.
+\item \#798\+: Added an index on {\ttfamily firstoccurence} field in My\+S\+QL Cal\+D\+AV backend. This should speed up common calendar-\/query requests.
+\item \#759\+: D\+AV is now able to actually correctly resolve relative urls.
+\item \#671\+: We are no longer checking the {\ttfamily read-\/free-\/busy} privilege on individual calendars during freebusy operations in the scheduling plugin. Instead, we check the {\ttfamily schedule-\/query-\/freebusy} privilege on the target users\textquotesingle{} inbox, which validates access for the entire account, per the spec.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+1.\+0}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 3.\+0.\+0}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+1.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+4.\+1}.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+5 (????-\/??-\/??) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Creating a new calendar on some My\+S\+QL configurations caused an error.
+\item \#889 Added support for filtering v\+Card properties in the addressbook-\/query R\+E\+P\+O\+RT ().
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+4 (2016-\/05-\/28) }
+
+
+\begin{DoxyItemize}
+\item \#834\+: Backport from {\ttfamily master}\+: Return v\+Cards exactly as they were stored if we don\textquotesingle{}t need to convert in between versions. This should speed up many large addressbook syncs sometimes up to 50\%.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+1.\+0}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 3.\+0.\+0}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+1.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+4.\+2}.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+3 (2016-\/04-\/06) }
+
+
+\begin{DoxyItemize}
+\item Set minimum libxml version to 2.\+7.\+0 in {\ttfamily composer.\+json}.
+\item \#805\+: It wasn\textquotesingle{}t possible to create calendars that hold events, journals and todos using My\+S\+QL, because the {\ttfamily components} column was 1 byte too small.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+1.\+0}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 3.\+0.\+0}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+1.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+4.\+1}.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+2 (2016-\/03-\/12) }
+
+
+\begin{DoxyItemize}
+\item \#784\+: Sync logs for address books were not correctly cleaned up after deleting them.
+\item \#787\+: Cannot use non-\/seekable stream-\/wrappers with range requests.
+\item Faster X\+ML parsing and generating due to sabre/xml update.
+\item \#793\+: The Sqlite schema is now more strict and more similar to the My\+S\+QL schema. This solves a problem within Baikal.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+0.\+3}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 3.\+0.\+0}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+1.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+4.\+1}.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+1 (2016-\/01-\/25) }
+
+
+\begin{DoxyItemize}
+\item \#755\+: The brower plugin and some operations would break when scheduling and delegation would both be enabled.
+\item \#757\+: A bunch of unittest improvements ().
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+0.\+2}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 3.\+0.\+0}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+3.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+0 (2016-\/01-\/06) }
+
+
+\begin{DoxyItemize}
+\item Better error message when the browser plugin is not enabled.
+\item Added a super minimal server example.
+\item \#730\+: Switched all mysql tables to {\ttfamily utf8mb4} character set, allowing you to use emoji in some tables where you couldn\textquotesingle{}t before.
+\item \#710\+: Provide an Auth backend that acts as a helper for people implementing O\+Auth2 Bearer token. ().
+\item \#729\+: Not all calls to {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Tree\+::get\+Children()} were properly cached.
+\item \#727\+: Added another workaround to make Cal\+D\+AV work for Windows 10 clients.
+\item \#742\+: Fixes to make sure that vobject 4 is correctly supported.
+\item \#726\+: Better error reporting in {\ttfamily Client\+::prop\+Patch}. We\textquotesingle{}re now throwing exceptions.
+\item \#608\+: When a H\+T\+TP error is triggered during {\ttfamily Client\+:prop\+Find}, we\textquotesingle{}re now throwing {\ttfamily Sabre\textbackslash{}H\+T\+TP\textbackslash{}Client\+Http\+Exception} instead of {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Exception}. This new exception contains a L\+OT more information about the problem.
+\item \#721\+: Events are now handled in the correct order for {\ttfamily C\+O\+PY} requests. Before this subtle bugs could appear that could cause data-\/loss.
+\item \#747\+: Now throwing exceptions and setting the H\+T\+TP status to 500 in subtle cases where no other plugin set a correct H\+T\+TP status.
+\item \#686\+: Corrected P\+DO principal backend\textquotesingle{}s find\+By\+U\+RI for email addresses that don\textquotesingle{}t match the exact capitalization.
+\item \#512\+: The client now has it\textquotesingle{}s own {\ttfamily User-\/\+Agent}.
+\item \#720\+: Some browser improvements.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+0.\+1}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 3.\+0.\+0}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+3.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+0-\/alpha2 (2015-\/09-\/05) }
+
+
+\begin{DoxyItemize}
+\item Massive calendars and addressbooks should see a big drop in peak memory usage.
+\item Fixed a privilege bug in the availability system.
+\item \#697\+: Added a \char`\"{}table\+Name\char`\"{} member to the Property\+Storage P\+DO backend. ().
+\item \#699\+: Postgre\+S\+QL fix for the Locks P\+DO backend. ()
+\item Removed the {\ttfamily simplefsserver.\+php} example file. It\textquotesingle{}s not simple enough.
+\item \#703\+: Prop\+Patch in client is not correctly encoded.
+\item \#709\+: Throw exception when running into empty {\ttfamily supported-\/calendar-\/component-\/set}.
+\item \#711\+: Don\textquotesingle{}t trigger deserializers for empty elements in {\ttfamily \{D\+AV\+:\}prop}. This fixes issues when using sabre/dav as a client.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+0.\+0-\/alpha2}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+1.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+2.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+0-\/alpha1 (2015-\/07-\/19) }
+
+
+\begin{DoxyItemize}
+\item Now requires P\+HP 5.\+5
+\item Upgraded to vobject 4, which is a lot faster.
+\item Support for P\+HP 7.
+\item \#690\+: Support for {\ttfamily calendar-\/availability}, draft 05. \href{https://tools.ietf.org/html/draft-daboo-calendar-availability-05}{\tt reference}.
+\item \#691\+: Workaround for broken Windows Phone client.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 4.\+0.\+0-\/alpha1}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+1.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+10 (2016-\/??-\/??) }
+
+
+\begin{DoxyItemize}
+\item \#889 Added support for filtering v\+Card properties in the addressbook-\/query R\+E\+P\+O\+RT ().
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+9 (2016-\/04-\/06) }
+
+
+\begin{DoxyItemize}
+\item Set minimum libxml version to 2.\+7.\+0 in {\ttfamily composer.\+json}.
+\item \#727\+: Added another workaround to make Cal\+D\+AV work for Windows 10 clients.
+\item \#805\+: It wasn\textquotesingle{}t possible to create calendars that hold events, journals and todos using My\+S\+QL, because the {\ttfamily components} column was 1 byte too small.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+5.\+1}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+1.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+4.\+1}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+8 (2016-\/03-\/12) }
+
+
+\begin{DoxyItemize}
+\item \#784\+: Sync logs for address books were not correctly cleaned up after deleting them.
+\item \#787\+: Cannot use non-\/seekable stream-\/wrappers with range requests.
+\item Faster X\+ML parsing and generating due to sabre/xml update.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+5.\+0}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+1.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+4.\+1}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+7 (2016-\/01-\/12) }
+
+
+\begin{DoxyItemize}
+\item \#752\+: P\+HP 7 support for 3.\+0 branch. ()
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+5.\+0}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+2.\+1}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+3.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+6 (2016-\/01-\/04) }
+
+
+\begin{DoxyItemize}
+\item \#730\+: Switched all mysql tables to {\ttfamily utf8mb4} character set, allowing you to use emoji in some tables where you couldn\textquotesingle{}t before.
+\item \#729\+: Not all calls to {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Tree\+::get\+Children()} were properly cached.
+\item \#734\+: Return {\ttfamily 418 I\textquotesingle{}m a Teapot} when generating a multistatus response that has resources with no returned properties.
+\item \#740\+: Bugs in {\ttfamily migrate20.\+php} script.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+8}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+1.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+3.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+5 (2015-\/09-\/15) }
+
+
+\begin{DoxyItemize}
+\item \#704\+: Fixed broken uri encoding in multistatus responses. This affected at least Cyber\+Duck, but probably also others.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+7},
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+7}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+1.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+2.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+4 (2015-\/09-\/06) }
+
+
+\begin{DoxyItemize}
+\item \#703\+: Prop\+Patch in client is not correctly encoded.
+\item \#709\+: Throw exception when running into empty {\ttfamily supported-\/calendar-\/component-\/set}.
+\item \#711\+: Don\textquotesingle{}t trigger deserializers for empty elements in {\ttfamily \{D\+AV\+:\}prop}. This fixes issues when using sabre/dav as a client.
+\item \#705\+: A {\ttfamily M\+O\+VE} request that gets prevented from deleting the source resource will still remove the target resource. Now all events are triggered before any destructive operations.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+7}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+1.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+2.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+3 (2015-\/08-\/06) }
+
+
+\begin{DoxyItemize}
+\item \#700\+: Digest Auth fails on {\ttfamily H\+E\+AD} requests.
+\item Fixed example files to no longer use now-\/deprecated realm argument.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+6}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+1.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+2 (2015-\/07-\/21) }
+
+
+\begin{DoxyItemize}
+\item \#657\+: Migration script would break when coming a cross an i\+Calendar object with no U\+ID.
+\item \#691\+: Workaround for broken Windows Phone client.
+\item Fixed a whole bunch of incorrect php docblocks.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+5}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+1.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+1 (2015-\/07-\/02) }
+
+
+\begin{DoxyItemize}
+\item \#674\+: Postgres sql file fixes. ()
+\item \#677\+: Resources with the name \textquotesingle{}0\textquotesingle{} would not get retrieved when using {\ttfamily Depth\+: infinity} in a {\ttfamily P\+R\+O\+P\+F\+I\+ND} request.
+\item \#680\+: Fix \textquotesingle{}autoprefixing\textquotesingle{} of dead {\ttfamily \{D\+AV\+:\}href} properties.
+\item \#675\+: N\+T\+LM support in D\+AV. ()
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+5}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+1.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0 (2015-\/06-\/02) }
+
+
+\begin{DoxyItemize}
+\item No changes since last beta.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+5}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+0.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/beta3 (2015-\/05-\/29) }
+
+
+\begin{DoxyItemize}
+\item Fixed deserializing href properties with no value.
+\item Fixed deserializing {\ttfamily \{D\+AV\+:\}propstat} without a {\ttfamily \{D\+AV\+:\}prop}.
+\item \#668\+: More information about vcf-\/export-\/plugin in browser plugin.
+\item \#669\+: Add export button to browser plugin for address books. ()
+\item \#670\+: multiget report hrefs were not decoded.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+4}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+0.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/beta2 (2015-\/05-\/27) }
+
+
+\begin{DoxyItemize}
+\item A node\textquotesingle{}s properties should not overwrite properties that were already set.
+\item Some uris were not correctly encoded in notifications.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+4}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+0.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/beta1 (2015-\/05-\/25) }
+
+
+\begin{DoxyItemize}
+\item {\ttfamily migrate22.\+php} is now called {\ttfamily migrate30.\+php}.
+\item Using php-\/cs-\/fixer for automated coding standards enforcement and fixing.
+\item \#660\+: principals could break html output.
+\item \#662\+: Fixed several bugs in the {\ttfamily share} request parser.
+\item \#665\+: Fix a bug in serialization of complex properties in the proppatch request in the client.
+\item \#666\+: expand-\/property report did not correctly prepend the base uri when generating uris, this caused delegation to break.
+\item \#659\+: Don\textquotesingle{}t throw errors when when etag-\/related checks are done on collections.
+\item Fully supporting the updated {\ttfamily Prefer} header syntax, as defined in \href{http://tools.ietf.org/html/rfc7240}{\tt rfc7240}.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+3}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 1.\+0.\+0}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/alpha1 (2015-\/05-\/19) }
+
+
+\begin{DoxyItemize}
+\item It\textquotesingle{}s now possible to get all property information from files using the browser plugin.
+\item Browser plugin will now show a \textquotesingle{}calendar export\textquotesingle{} button when the ics-\/export plugin is enabled.
+\item Some nodes that by default showed the current time as their last modification time, now no longer has a last modification time.
+\item Card\+D\+AV namespace was missing from default namespace\+Map.
+\item \#646\+: Properties can now control their own H\+T\+ML output in the browser plugin.
+\item \#646\+: Nicer H\+T\+ML output for the {\ttfamily \{D\+AV\+:\}acl} property.
+\item Browser plugin no longer shows a few properties that take up a lot of space, but are likely not really interesting for most users.
+\item \#654\+: Added a collection, {\ttfamily Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}FS\textbackslash{}Home\+Collection} for automatically creating a private home collection per-\/user.
+\item Changed all My\+S\+QL columns from {\ttfamily V\+A\+R\+C\+H\+AR} to {\ttfamily V\+A\+R\+B\+I\+N\+A\+RY} where possible.
+\item Improved older migration scripts a bit to allow easier testing.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+3}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0-\/alpha3}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+1} and \href{http://sabre.io/xml/}{\tt sabre/xml 0.\+4.\+3}.
+\end{DoxyItemize}
+
+\subsection*{2.\+2.\+0-\/alpha4 (2015-\/04-\/13) }
+
+
+\begin{DoxyItemize}
+\item Complete rewrite of the X\+ML system. We now use our own \href{http://sabre.io/xml/}{\tt sabre/xml}, which has a much smarter X\+ML Reader and Writer.
+\item BC Break\+: It\textquotesingle{}s no longer possible to instantiate the Locks plugin without a locks backend. I\textquotesingle{}m not sure why this ever made sense.
+\item Simplified the Locking system and fixed a bug related to if tokens checking locks unrelated to the current request.
+\item {\ttfamily F\+S\+Ext} Directory and File no longer do custom property storage. This functionality is already covered pretty well by the {\ttfamily Property\+Storage} plugin, so please switch.
+\item Renamed {\ttfamily Sabre\textbackslash{}Card\+D\+AV\textbackslash{}User\+Address\+Books} to {\ttfamily Sabre\textbackslash{}Card\+D\+AV\textbackslash{}Address\+Book\+Home} to be more consistent with {\ttfamily Calendar\+Home} as well as the Card\+D\+AV specification.
+\item {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}I\+Extended\+Collection} now receives a {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Mk\+Col} object as its second argument, and no longer receives seperate properties and resourcetype arguments.
+\item {\ttfamily M\+K\+C\+OL} now integrates better with propertystorage plugins.
+\item \#623\+: Remove need of temporary files when working with Range requests. ()
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+2}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0-\/alpha1}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+1}, \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+0} and \href{http://sabre.io/xml/}{\tt sabre/xml 0.\+4.\+3}.
+\end{DoxyItemize}
+
+\subsection*{2.\+2.\+0-\/alpha3 (2015-\/02-\/25) }
+
+
+\begin{DoxyItemize}
+\item Contains all the changes introduced between 2.\+1.\+2 and 2.\+1.\+3.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+2}, \href{http://sabre.io/http/}{\tt sabre/http 4.\+0.\+0-\/alpha1}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+1} and \href{http://sabre.io/uri/}{\tt sabre/uri 1.\+0.\+0}.
+\end{DoxyItemize}
+
+\subsection*{2.\+2.\+0-\/alpha2 (2015-\/01-\/09) }
+
+
+\begin{DoxyItemize}
+\item Renamed {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}Backend\+Interface\+::require\+Auth} to {\ttfamily challenge}, which is a more correct and better sounding name.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+5}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+4}, \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+2.\+0-\/alpha1 (2014-\/12-\/10) }
+
+
+\begin{DoxyItemize}
+\item The browser plugin now has a new page with information about your sabredav server, and shows information about every plugin that\textquotesingle{}s loaded in the system.
+\item \#191\+: The Authentication system can now support multiple authentication backends.
+\item Removed\+: all {\ttfamily \$table\+Name} arguments from every P\+DO backend. This was already deprecated, but has now been fully removed. All of these have been replaced with public properties.
+\item Deleted several classes that were already deprecated much earlier\+:
+\begin{DoxyItemize}
+\item {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar\+Root\+Node}
+\item {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}User\+Calendars}
+\item {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Exception\textbackslash{}File\+Not\+Found}
+\item {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Locks\textbackslash{}Backend\textbackslash{}FS}
+\item {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Partial\+Update\textbackslash{}I\+File}
+\item {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}U\+R\+L\+Util}
+\end{DoxyItemize}
+\item Removed\+: {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Client\+::add\+Trusted\+Certificates} and {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Client\+::set\+Verify\+Peer}.
+\item Removed\+: {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Plugin\+::get\+Plugin()} can now no longer return plugins based on its class name.
+\item Removed\+: {\ttfamily Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Plugin\+::get\+Principal\+By\+Email()}.
+\item \#560\+: Guess\+Content\+Type plugin will now set content-\/type to {\ttfamily application/octet-\/stream} if a better content-\/type could not be determined.
+\item \#568\+: Added a {\ttfamily component\+Type} argument to {\ttfamily I\+C\+S\+Export\+Plugin}, allowing you to specifically fetch {\ttfamily V\+E\+V\+E\+NT}, {\ttfamily V\+T\+O\+DO} or {\ttfamily V\+J\+O\+U\+R\+N\+AL}.
+\item \#582\+: Authentication backend interface changed to be stateless. If you implemented your own authentication backend, make sure you upgrade your class to the latest A\+P\+I!
+\item \#582\+: {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Plugin\+::get\+Current\+User()} is now deprecated. Use {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Plugin\+::get\+Current\+Principal()} instead.
+\item \#193\+: Fix {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}F\+S\+Ext\textbackslash{}Directory\+::get\+Quota\+Info()} on windows.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+11 (2016-\/10-\/06) }
+
+
+\begin{DoxyItemize}
+\item \#805\+: It wasn\textquotesingle{}t possible to create calendars that hold events, journals and todos using My\+S\+QL, because the {\ttfamily components} column was 1 byte too small.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+5.\+3}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+5}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+10 (2016-\/03-\/10) }
+
+
+\begin{DoxyItemize}
+\item \#784\+: Sync logs for address books were not correctly cleaned up after deleting them.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+5.\+0}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+5}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+9 (2016-\/01-\/25) }
+
+
+\begin{DoxyItemize}
+\item \#674\+: P\+H\+P7 support ().
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+5.\+0}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+5}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+8 (2016-\/01-\/04) }
+
+
+\begin{DoxyItemize}
+\item \#729\+: Fixed a caching problem in the Tree object.
+\item \#740\+: Bugs in {\ttfamily migrate20.\+php} script.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+8}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+5}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+7 (2015-\/09-\/05) }
+
+
+\begin{DoxyItemize}
+\item \#705\+: A {\ttfamily M\+O\+VE} request that gets prevented from deleting the source resource will still remove the target resource. Now all events are triggered before any destructive operations.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+7}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+5}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+6 (2015-\/07-\/21) }
+
+
+\begin{DoxyItemize}
+\item \#657\+: Migration script would break when coming a cross an i\+Calendar object with no U\+ID.
+\item \#691\+: Workaround for broken Windows Phone client.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+5}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+5}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+5 (2015-\/07-\/11) }
+
+
+\begin{DoxyItemize}
+\item \#677\+: Resources with the name \textquotesingle{}0\textquotesingle{} would not get retrieved when using {\ttfamily Depth\+: infinity} in a {\ttfamily P\+R\+O\+P\+F\+I\+ND} request.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+5}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+5}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+4 (2015-\/05-\/25) }
+
+
+\begin{DoxyItemize}
+\item \#651\+: Double-\/encoded path in the browser plugin. Should fix a few broken links in some setups.
+\item \#650\+: Correctly cleaning up change info after deleting calendars ().
+\item \#658\+: Updating {\ttfamily schedule-\/calendar-\/default-\/\+U\+RL} does not work well, so we\textquotesingle{}re disabling it until there\textquotesingle{}s a better fix.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+3}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+5}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+2}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+3 (2015-\/02-\/25) }
+
+
+\begin{DoxyItemize}
+\item \#586\+: {\ttfamily S\+C\+H\+E\+D\+U\+L\+E-\/\+S\+T\+A\+T\+US} should not contain a reason-\/phrase.
+\item \#539\+: Fixed a bug related to scheduling in shared calendars.
+\item \#595\+: Support for calendar-\/timezone in i\+Calendar exports.
+\item \#581\+: find\+By\+Uri would send empty prefixes to the principal backend ()
+\item \#611\+: Escaping a bit more H\+T\+ML output in the browser plugin. ()
+\item \#610\+: Don\textquotesingle{}t allow discovery of arbitrary files using {\ttfamily ..} in the browser plugin ().
+\item Browser plugin now shows quota properties.
+\item \#612\+: Property\+Storage didn\textquotesingle{}t delete properties from nodes when a node\textquotesingle{}s parents get deleted.
+\item \#581\+: Fixed problems related to finding attendee information during scheduling.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+2}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+4}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+2 (2014-\/12-\/10) }
+
+
+\begin{DoxyItemize}
+\item \#566\+: Another issue related to the migration script, which would cause scheduling to not work well for events that were already added before the migration.
+\item \#567\+: Doing freebusy requests on accounts that had 0 calendars would throw a {\ttfamily E\+\_\+\+N\+O\+T\+I\+CE}.
+\item \#572\+: {\ttfamily H\+E\+AD} requests trigger a P\+HP warning.
+\item \#579\+: Browser plugin can throw exception for a few resourcetypes that didn\textquotesingle{}t have an icon defined.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+4}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+4}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+1 (2014-\/11-\/22) }
+
+
+\begin{DoxyItemize}
+\item \#561\+: I\+Mip Plugin didn\textquotesingle{}t strip mailto\+: from email addresses.
+\item \#566\+: Migration process had 2 problems related to adding the {\ttfamily uid} field to the {\ttfamily calendarobjects} table.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+4}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+2}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+0 (2014-\/11-\/19) }
+
+
+\begin{DoxyItemize}
+\item \#541\+: Cal\+D\+AV P\+DO backend didn\textquotesingle{}t respect overridden P\+DO table names.
+\item \#550\+: Scheduling invites are no longer delivered into shared calendars.
+\item \#554\+: {\ttfamily calendar-\/multiget} {\ttfamily R\+E\+P\+O\+RT} did not work on inbox items.
+\item \#555\+: The {\ttfamily calendar-\/timezone} property is now respected for floating times and all-\/day events in the {\ttfamily calendar-\/query}, {\ttfamily calendar-\/multiget} and {\ttfamily free-\/busy-\/query} R\+E\+P\+O\+R\+Ts.
+\item \#555\+: The {\ttfamily calendar-\/timezone} property is also respected for scheduling free-\/busy requests.
+\item \#547\+: Cal\+D\+AV system too aggressively \textquotesingle{}corrects\textquotesingle{} incoming i\+Calendar data, and as a result doesn\textquotesingle{}t return an etag for common cases.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+4}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+2}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+0-\/alpha2 (2014-\/10-\/23) }
+
+
+\begin{DoxyItemize}
+\item Added\+: calendar-\/user-\/address-\/set to default principal search properties list. This should fix i\+OS attendee autocomplete support.
+\item Changed\+: Moved all \textquotesingle{}notifications\textquotesingle{} functionality from {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Plugin} to a new plugin\+: {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Notifications\textbackslash{}Plugin}. If you want to use notifications-\/related functionality, just add this plugin.
+\item Changed\+: Accessing the caldav inbox, outbox or notification collection no longer triggers get\+Calendars\+For\+User() on backends.
+\item \#533\+: New invites are no longer delivered to taks-\/only calendars.
+\item \#538\+: Added {\ttfamily calendar\+Object\+Change} event.
+\item Scheduling speedups.
+\item \#539\+: added {\ttfamily after\+Response} event. ()
+\item Deprecated\+: All the \char`\"{}table\+Name\char`\"{} constructor arguments for all the P\+DO backends are now deprecated. They still work, but will be removed in the next major sabredav version. Every argument that is now deprecated can now be accessed as a public property on the respective backends.
+\item \#529\+: Added get\+Calendar\+Object\+By\+U\+ID to P\+DO backend, speeding up scheduling operations on large calendars.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+3}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+2}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+0-\/alpha1 (2014-\/09-\/23) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Support for \href{http://tools.ietf.org/html/rfc6638}{\tt rfc6638}, also known as Cal\+D\+AV Scheduling.
+\item Added\+: Automatically converting between v\+Card 3, 4 and j\+Card using the {\ttfamily Accept\+:} header, in Card\+D\+AV reports, and automatically converting from j\+Card to v\+Card upon {\ttfamily P\+UT}. It\textquotesingle{}s important to note that your backends {\itshape may} now receive both v\+Card 3.\+0 and 4.\+0.
+\item Added\+: \#444. Collections can now opt-\/in to support high-\/speed {\ttfamily M\+O\+VE}.
+\item Changed\+: Property\+Storage backends now have a {\ttfamily move} method.
+\item Added\+: {\ttfamily before\+Move}, and {\ttfamily after\+Move} events.
+\item Changed\+: A few database changes for the Cal\+D\+AV P\+DO backend. Make sure you run {\ttfamily bin/migrate21.\+php} to upgrade your database schema.
+\item Changed\+: Cal\+D\+AV backends have a new method\+: {\ttfamily get\+Calendar\+Object\+By\+U\+ID}. This method M\+U\+ST be implemented by all backends, but the {\ttfamily Abstract\+Backend} has a simple default implementation for this.
+\item Changed\+: {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}User\+Calendars} has been renamed to {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar\+Home}.
+\item Changed\+: {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar\+Root\+Node} has been renamed to {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar\+Root}.
+\item Changed\+: The I\+Mip\+Handler has been completely removed. With Cal\+D\+AV scheduling support, it is no longer needed. It\textquotesingle{}s functionality has been replaced by {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Schedule\textbackslash{}I\+Mip\+Plugin}, which can now send emails for clients other than i\+Cal.
+\item Removed\+: {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Object\+Tree} and {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Tree\textbackslash{}File\+System}. All this functionality has been merged into {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Tree}.
+\item Changed\+: Principal\+Backend now has a find\+By\+Uri method.
+\item Changed\+: {\ttfamily Principal\+Backend\+::search\+Principals} has a new optional {\ttfamily test} argument.
+\item Added\+: Support for the {\ttfamily \{\href{http://calendarserver.org/ns/}{\tt http\+://calendarserver.\+org/ns/}\}email-\/address-\/set} property.
+\item \#460\+: Property\+Storage must move properties during {\ttfamily M\+O\+VE} requests.
+\item Changed\+: Restructured the zip distribution to be a little bit more lean and consistent.
+\item \#524\+: Full support for the {\ttfamily test=\char`\"{}anyof\char`\"{}} attribute in principal-\/search {\ttfamily R\+E\+P\+O\+RT}.
+\item \#472\+: Always returning lock tokens in the lockdiscovery property.
+\item Directory entries in the Browser plugin are sorted by type and name. ()
+\item \#486\+: It\textquotesingle{}s now possible to return additional properties when an \textquotesingle{}allprop\textquotesingle{} P\+R\+O\+P\+F\+I\+ND request is being done. ()
+\item Changed\+: Now return H\+T\+TP errors when an addressbook-\/query R\+E\+P\+O\+RT is done on a uri that\textquotesingle{}s not a vcard. This should help with debugging this common mistake.
+\item Changed\+: {\ttfamily P\+UT} requests with a {\ttfamily Content-\/\+Range} header now emit a 400 status instead of 501, as per R\+F\+C7231.
+\item Added\+: Browser plugin can now display the contents of the {\ttfamily \{D\+AV\+:\}supported-\/privilege-\/set} property.
+\item Added\+: Now reporting {\ttfamily C\+A\+L\+D\+AV\+:max-\/resource-\/size}, but we\textquotesingle{}re not actively restricting it yet.
+\item Changed\+: Cal\+D\+AV plugin is now responsible for reporting {\ttfamily C\+A\+L\+D\+AV\+:supported-\/collation-\/set} and {\ttfamily C\+A\+L\+D\+AV\+:supported-\/calendar-\/data} properties.
+\item Added\+: Now reporting {\ttfamily C\+A\+R\+D\+D\+AV\+:max-\/resource-\/size}, but we\textquotesingle{}re not actively restricting it yet.
+\item Added\+: Support for {\ttfamily C\+A\+R\+D\+D\+AV\+:supported-\/collation-\/set}.
+\item Changed\+: Card\+D\+AV plugin is now responsible for reporting {\ttfamily C\+A\+R\+D\+D\+AV\+:supported-\/address-\/data}. This functionality has been removed from the Card\+D\+AV P\+DO backend.
+\item When a R\+E\+P\+O\+RT is not supported, we now emit H\+T\+TP error 415, instead of 403.
+\item \#348\+: {\ttfamily H\+E\+AD} requests now work wherever {\ttfamily G\+ET} also works.
+\item Changed\+: Lower priority for the i\+Mip plugins {\ttfamily schedule} event listener.
+\item Added\+: \#523 Custom Cal\+D\+AV backends can now mark any calendar as read-\/only.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+3}, \href{http://sabre.io/http/}{\tt sabre/http 3.\+0.\+0}, and \href{http://sabre.io/event/}{\tt sabre/event 2.\+0.\+0}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+9 (2015-\/09-\/04) }
+
+
+\begin{DoxyItemize}
+\item \#705\+: A {\ttfamily M\+O\+VE} request that gets prevented from deleting the source resource will still remove the target resource. Now all events are triggered before any destructive operations.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+4.\+6}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+4}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+8 (2015-\/07-\/11) }
+
+
+\begin{DoxyItemize}
+\item \#677\+: Resources with the name \textquotesingle{}0\textquotesingle{} would not get retrieved when using {\ttfamily Depth\+: infinity} in a {\ttfamily P\+R\+O\+P\+F\+I\+ND} request.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+5}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+4}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+7 (2015-\/05-\/25) }
+
+
+\begin{DoxyItemize}
+\item \#650\+: Correctly cleaning up change info after deleting calendars ().
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+4}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+4}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+6 (2014-\/12-\/10) }
+
+
+\begin{DoxyItemize}
+\item Added {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar\+Root} as an alias for {\ttfamily Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar\+Root\+Node}. The latter is going to be deprecated in 2.\+1, so this makes it slightly easier to write code that works in both branches.
+\item \#497\+: Making sure we\textquotesingle{}re initializing the sync-\/token field with a value after migration.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+4}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+4}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+5 (2014-\/10-\/14) }
+
+
+\begin{DoxyItemize}
+\item \#514\+: Cal\+D\+AV P\+DO backend didn\textquotesingle{}t work when overriding the \textquotesingle{}calendar changes\textquotesingle{} database table name.
+\item \#515\+: 304 status code was not being sent when checking preconditions.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+3}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+4}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+4 (2014-\/08-\/27) }
+
+
+\begin{DoxyItemize}
+\item \#483\+: typo in calendars creation for Postgre\+S\+QL.
+\item \#487\+: Locks are now automatically removed after a node has been deleted.
+\item \#496\+: Improve Cal\+D\+AV and Card\+D\+AV sync when there is no webdav-\/sync support.
+\item Added\+: Automatically mapping internal sync-\/tokens to getctag.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+3.\+1}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+4}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+3 (2014-\/07-\/14) }
+
+
+\begin{DoxyItemize}
+\item \#474\+: Fixed Property\+Storage {\ttfamily path\+Filter()}.
+\item \#476\+: C\+SP policy incorrect, causing stylesheets to not load in the browser plugin.
+\item \#475\+: Href properties in the browser plugin sometimes included a backslash.
+\item \#478\+: {\ttfamily Too\+Much\+Matches} exception never worked. This was fixed, and we also took this opportunity to rename it to {\ttfamily Too\+Many\+Matches}.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+2.\+4}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+4}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+2 (2014-\/06-\/12) }
+
+
+\begin{DoxyItemize}
+\item \#470\+: Fixed compatibility with P\+HP $<$ 5.\+4.\+14.
+\item \#467\+: Fixed a problem in {\ttfamily \mbox{\hyperlink{calendarserver_8php_source}{examples/calendarserver.\+php}}}.
+\item \#466\+: All the postgresql sample files have been updated.
+\item Fixed\+: An error would be thrown if a client did a propfind on a node the user didn\textquotesingle{}t have access to.
+\item Removed\+: Old and broken example code from the {\ttfamily examples/} directory.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+2.\+3}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+3}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+1}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+1 (2014-\/05-\/28) }
+
+
+\begin{DoxyItemize}
+\item \#459\+: P\+R\+O\+P\+F\+I\+ND requests on Files with no Depth header would return a fatal error.
+\item \#464\+: A P\+R\+O\+P\+F\+I\+ND allprops request should not return properties with status 404.
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+2.\+2}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+3}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+0}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0 (2014-\/05-\/22) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+2.\+2}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+3}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+0}.
+\item Fixed\+: \#456\+: Issue in sqlite migration script.
+\item Updated\+: My\+S\+QL database schema optimized by using more efficient column types.
+\item Cleaned up browser design.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0-\/beta1 (2014-\/05-\/15) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with \href{http://sabre.io/vobject/}{\tt sabre/vobject 3.\+2.\+2}, \href{http://sabre.io/http/}{\tt sabre/http 2.\+0.\+3}, and \href{http://sabre.io/event/}{\tt sabre/event 1.\+0.\+0}.
+\item BC Break\+: Property updating and fetching got refactored. Read the \href{http://sabre.io/dav/upgrade/1.8-to-2.0/}{\tt migration document} for more information. This allows for creation of a generic property storage, and other property-\/related functionality that was not possible before.
+\item BC Break\+: Removed {\ttfamily property\+Update}, {\ttfamily before\+Get\+Properties} and {\ttfamily after\+Get\+Properties} events.
+\item Fixed\+: \#413\+: Memory optimizations for the Card\+D\+AV P\+DO backend.
+\item Updated\+: Brand new browser plugin with more debugging features and a design that is slightly less painful.
+\item Added\+: Support for the {\ttfamily \{D\+AV\+:\}supported-\/method-\/set} property server-\/wide.
+\item Making it easier for implementors to override how the Card\+D\+AV addressbook home is located.
+\item Fixed\+: Issue \#422 Preconditions were not being set on P\+UT on non-\/existent files. Not really a chance for data-\/loss, but incorrect nevertheless.
+\item Fixed\+: Issue \#428\+: Etag check with {\ttfamily If\+:} fails if the target is a collection.
+\item Fixed\+: Issues \#430, \#431, \#433\+: Locks plugin didn\textquotesingle{}t not properly release filesystem based locks.
+\item Fixed\+: \#443. Support for creating new calendar subscriptions for OS X 10.\+9.\+2 and up.
+\item Removed\+: {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Server\+::\+N\+O\+D\+E\+\_\+$\ast$} constants.
+\item Moved all precondition checking into a central place, instead of having to think about it on a per-\/method basis.
+\item j\+Cal transformation for calendar-\/query R\+E\+P\+O\+RT now works again.
+\item Switched to P\+S\+R-\/4
+\item Fixed\+: \#175. Returning E\+Tag header upon a failed {\ttfamily If-\/\+Match} or {\ttfamily If-\/\+None-\/\+Match} check.
+\item Removed\+: {\ttfamily lib/\+Sabre/autoload.\+php}. Use {\ttfamily vendor/autoload.\+php} instead.
+\item Removed\+: all the rfc documentation from the sabre/dav source. This made the package needlessly larger.
+\item Updated\+: Issue \#439. Lots of updates in P\+A\+T\+CH support. The Sabre\+\_\+\+D\+A\+V\+\_\+\+Partial\+Update\+\_\+\+I\+File interface is now deprecated and will be removed in a future version.
+\item Added\+: {\ttfamily Sabre\textbackslash{}D\+AV\textbackslash{}Exception\textbackslash{}Length\+Required}.
+\end{DoxyItemize}
+
+\subsection*{1.\+9.\+0-\/alpha2 (2014-\/01-\/14) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 3.\+1.\+3, sabre/http 2.\+0.\+1, and sabre/event 1.\+0.\+0.
+\item Added\+: Browser can now inspect any node, if ?sabreaction=browser is appended.
+\item Fixed\+: Issue \#178. Support for multiple items in the Timeout header.
+\item Fixed\+: Issue \#382. Stricter checking if calendar-\/query is allowed to run.
+\item Added\+: Depth\+: Infinity support for P\+R\+O\+P\+F\+I\+ND request. Thanks Thomas MÃ¼ller and Markus Goetz.
+\end{DoxyItemize}
+
+\subsection*{1.\+9.\+0-\/alpha1 (2013-\/11-\/07) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 3.\+1.\+3, sabre/http 2.\+0.\+0alpha5, and sabre/event 1.\+0.\+0.
+\item BC Break\+: The Card\+D\+AV and Cal\+D\+AV Backend\+Interface each have a new method\+: get\+Multiple\+Cards and get\+Multiple\+Calendar\+Objects. The Abstract and P\+DO backends have default implementations, but if you implement that interface directly, this method is now required.
+\item BC Break\+: X\+ML property classes now receive an extra argument in their unserialize method (\$property\+Map). This allows for recursively parsing properties, if needed.
+\item BC Break\+: Now using sabre/event for event emitting/subscription. For plugin authors this means Server\+::subscribe\+Event is now Server\+::on, and Server\+::broadcast\+Event is now Server\+::emit.
+\item BC Break\+: Almost all core functionality moved into a Core\+Plugin.
+\item BC Break\+: Most events triggered by the server got an overhaul.
+\item Changed\+: Sabre now moved into a dedicated sabre/http package.
+\item Added\+: Support for Web\+D\+A\+V-\/sync (rfc6578).
+\item Added\+: Support for caldav-\/subscriptions, which is an easy way for caldav clients to manage a list of subscriptions on the server.
+\item Added\+: Support for emitting and receiving j\+Cal instead of i\+Calendar for Cal\+D\+AV.
+\item Added\+: Basic\+Callback authenticaton backend, for creating simple authentication systems without having to define any classes.
+\item Added\+: A \$transaction\+Type property on the server class. This can be used for logging and performance measuring purposes.
+\item Fixed\+: If event handlers modify the request body from a P\+UT request, an E\+Tag is no longer sent back.
+\item Added\+: Sabre to optimize requests that retrieve information about lists of resources.
+\item Added\+: Multi\+Get support to default Cal\+D\+AV and Card\+D\+AV backends, speeding up the multiget and sync reports quite a bit!
+\item Added\+: I\+C\+S\+Export\+Plugin can now generate j\+Cal, filter on time-\/ranges and expand recurrences.
+\item Fixed\+: Read-\/only access to calendars still allows the sharee to modify basic calendar properties, such as the displayname and color.
+\item Changed\+: The default supported\+Privilege\+Set has changed. Most privileges are no longer marked as abstract.
+\item Changed\+: More elegant A\+CL management for Calendar\+Object and Card nodes.
+\item Added\+: Browser plugin now marks a carddav directory as type Directory, and a shared calendar as \textquotesingle{}Shared\textquotesingle{}.
+\item Added\+: When debug\+Exceptions is turned on, all previous exceptions are also traversed.
+\item Removed\+: Got rid of the Version classes for Cal\+D\+AV, Card\+D\+AV, H\+T\+TP, and D\+A\+V\+A\+CL. Now that there\textquotesingle{}s no separate packages anymore, this makes a bit more sense.
+\item Added\+: Generalized the multistatus response parser a bit more, for better re-\/use.
+\item Added\+: Sabre now has support for complex properties for P\+R\+O\+P\+P\+A\+T\+CH. (Issue \#299).
+\item Added\+: Sabre has support for gzip and deflate encoding.
+\item Added\+: Sabre now has support for sending objects as streams.
+\item Added\+: Deserializer for \{D\+AV\+:\}current-\/user-\/privilege-\/set.
+\item Added\+: Addressbooks or backends can now specify custom acl rules when creating cards.
+\item Added\+: The ability for plugins to validate custom tokens in If\+: headers.
+\item Changed\+: Completely refactored the Lock plugin to deal with the new If\+: header system.
+\item Added\+: Checking preconditions for M\+O\+VE, C\+O\+PY, D\+E\+L\+E\+TE and P\+R\+O\+P\+P\+A\+T\+CH methods.
+\item Added\+: has() method on D\+AV.
+\item Added\+: If header now gets checked (with E\+Tag) all the time. Before the dealing with the If-\/header was a responsibility of the Locking plugin.
+\item Fixed\+: Outbox access for delegates.
+\item Added\+: Issue 333\+: It\textquotesingle{}s now possible to override the calendar-\/home in the Cal\+D\+AV plugin.
+\item Added\+: A negotiate\+Content\+Type to H\+T\+TP. A convenience method.
+\item Fixed\+: Issue 349\+: Denying copying or moving a resource into it\textquotesingle{}s own subtree.
+\item Fixed\+: Sabre\+D\+AV catches every exception again.
+\item Added\+: Issue \#358, adding a component=vevent parameter to the content-\/types for calendar objects, if the caldav backend provides this info.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+12-\/stable (2015-\/01-\/21) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+1.\+7.
+\item \#568\+: Support empty usernames and passwords in basic auth.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+11 (2014-\/12-\/10) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+1.\+6.
+\item Updated\+: My\+S\+QL database schema optimized by using more efficient column types.
+\item \#516\+: The D\+AV client will now only redirect to H\+T\+TP and H\+T\+T\+PS urls.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+10 (2014-\/05-\/15) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+1.\+4.
+\item includes changes from version 1.\+7.\+12.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+9 (2014-\/02-\/26) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+1.\+3.
+\item includes changes from version 1.\+7.\+11.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+8 (2014-\/02-\/09) }
+
+
+\begin{DoxyItemize}
+\item includes changes from version 1.\+7.\+10.
+\item The zip release ships with sabre/vobject 2.\+1.\+3.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+7 (2013-\/10-\/02) }
+
+
+\begin{DoxyItemize}
+\item the zip release ships with sabre/vobject 2.\+1.\+3.
+\item includes changes from version 1.\+7.\+9.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+6 (2013-\/06-\/18) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+1.\+0.
+\item Includes changes from version 1.\+7.\+8.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+5 (2013-\/04-\/11) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+7.
+\item Includes changes from version 1.\+7.\+7.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+4 (2013-\/04-\/08) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+7.
+\item Includes changes from version 1.\+7.\+6.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+3 (2013-\/03-\/01) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+6.
+\item Includes changes from version 1.\+7.\+5.
+\item Fixed\+: organizer email-\/address for shared calendars is now prefixed with mailto\+:, as it should.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+2 (2013-\/01-\/19) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+5.
+\item Includes changes from version 1.\+7.\+4.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+1 (2012-\/12-\/01) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+5.
+\item Includes changes from version 1.\+7.\+3.
+\item Fixed\+: Typo in 1.\+7 migration script caused it to fail.
+\end{DoxyItemize}
+
+\subsection*{1.\+8.\+0 (2012-\/11-\/08) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+5.
+\item BC Break\+: Moved the entire codebase to P\+HP namespaces.
+\item BC Break\+: Every backend package (Cal\+D\+AV, Card\+D\+AV, Auth, Locks, Principals) now has consistent naming conventions. There\textquotesingle{}s a Backend\+Interface, and an Abstract\+Backend class.
+\item BC Break\+: Changed a bunch of constructor signatures in the Cal\+D\+AV package, to reduce dependencies on the A\+CL package.
+\item BC Break\+: Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+I\+Shared\+Calendar now also has a get\+Shares method, so sharees can figure out who is also on a shared calendar.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+A\+C\+L\+\_\+\+I\+Principal\+Collection interface, to advertise support for principal-\/property-\/search on any node.
+\item Added\+: Simple console script to fire up a fileserver in the current directory using P\+HP 5.\+4\textquotesingle{}s built-\/in webserver.
+\item Added\+: Sharee\textquotesingle{}s can now also read out the list of invites for a shared calendar.
+\item Added\+: The Proxy principal classes now both implement an interface, for greater flexibility.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+13 (2014-\/07-\/28) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+1.\+4.
+\item Changed\+: Removed phing and went with a custom build script for now.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+12 (2014-\/05-\/15) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+1.\+4.
+\item Updated\+: Issue \#439. Lots of updates in P\+A\+T\+CH support. The Sabre\+\_\+\+D\+A\+V\+\_\+\+Partial\+Update\+\_\+\+I\+File interface is now deprecated and will be removed in a future version.
+\item Fixed\+: Restoring old setting after changing libxml\+\_\+disable\+\_\+entity\+\_\+loader.
+\item Fixed\+: Issue \#422\+: Preconditions were not being set on P\+UT on non-\/existent files. Not really a chance for data-\/loss, but incorrect nevertheless.
+\item Fixed\+: Issue \#427\+: Now checking preconditions on D\+E\+L\+E\+TE requests.
+\item Fixed\+: Issue \#428\+: Etag check with If\+: fails if the target is a collection.
+\item Fixed\+: Issue \#393\+: P\+A\+T\+CH request with missing end-\/range was handled incorrectly.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+Length\+Required to omit 411 errors.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+11 (2014-\/02-\/26) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+1.\+3.
+\item Fixed\+: Issue \#407\+: large downloads failed.
+\item Fixed\+: Issue \#414\+: X\+XE security problem on older P\+HP versions.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+10 (2014-\/02-\/09) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue \#374\+: Don\textquotesingle{}t urlescape colon (\+:) when it\textquotesingle{}s not required.
+\item Fixed\+: Potential security vulnerability in the http client.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+9 (2013-\/10-\/02) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+1.\+3.
+\item Fixed\+: Issue \#365. Incorrect output when principal urls have spaces in them.
+\item Added\+: Issue \#367\+: Automatically adding a U\+ID to vcards that don\textquotesingle{}t have them.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+8 (2013-\/06-\/17) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+1.\+0.
+\item Changed\+: Sabre\+::verify\+Peer is now a protected property (instead of private).
+\item Fixed\+: Text was incorrectly escaped in the Href and Href\+List properties, disallowing urls with ampersands (\&) in them.
+\item Added\+: deserializer for Sabre.
+\item Fixed\+: Issue 335\+: Client only deserializes properties with status 200.
+\item Fixed\+: Issue 341\+: Escaping xml in 423 Locked error responses.
+\item Added\+: Issue 339\+: before\+Get\+Properties\+For\+Path event.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+7 (2013-\/04-\/11) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+7.
+\item Fixed\+: Assets in the browser plugins were not being served on windows machines.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+6 (2013-\/04-\/08) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+7.
+\item Fixed\+: vcardurl in database schema can now hold 255 characters instead of 80 (which is often way to small).
+\item Fixed\+: The browser plugin potentially allowed people to open any arbitrary file on windows servers (C\+V\+E-\/2013-\/1939).
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+5 (2013-\/03-\/01) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+6.
+\item Change\+: No longer advertising support for 4.\+0 vcards. i\+OS and OS X address book don\textquotesingle{}t handle this well, and just advertising 3.\+0 support seems like the most logical course of action.
+\item Added\+: -\/$>$set\+Verify\+Peers to Sabre\+\_\+\+D\+A\+V\+\_\+\+Client (greatly resisting against it, don\textquotesingle{}t use this..).
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+4 (2013-\/01-\/19) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+5.
+\item Changed\+: To be compatible with MS Office 2011 for Mac, a workaround was removed that was added to support old versions of Windows XP (pre-\/\+S\+P3). Indeed! We needed a crazy workaround to work with one MS product in the past, and we can\textquotesingle{}t keep that workaround to be compatible with another MS product.
+\item Fixed\+: expand-\/properties R\+E\+P\+O\+RT had incorrect values for the href element.
+\item Fixed\+: Range requests now work for non-\/seekable streams. (Thanks Alfred Klomp).
+\item Fixed\+: Changed serialization of \{D\+AV\+:\}getlastmodified and \{D\+AV\+:\}supportedlock to improve compatibility with MS Office 2011 for Mac.
+\item Changed\+: reverted the automatic translation of \textquotesingle{}D\+AV\+:\textquotesingle{} xml namespaces to \textquotesingle{}urn\+:D\+AV\textquotesingle{} when parsing files. Issues were reported with libxml 2.\+6.\+32, on a relatively recent debian release, so we\textquotesingle{}ll wait till 2015 to take this one out again.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+Service\+Unavailable, for emitting 503\textquotesingle{}s.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+3 (2012-\/12-\/01) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+5.
+\item Fixed\+: Removing double slashes from get\+Properties\+For\+Path.
+\item Change\+: Marked a few more properties in the Card\+D\+AV as protected, instead of private.
+\item Fixed\+: Sharing\+Plugin now plays nicer with other plugins with similar functionality.
+\item Fixed\+: Issue 174. Sending back H\+T\+T\+P/1.\+0 for requests with this version.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+2 (2012-\/11-\/08) }
+
+
+\begin{DoxyItemize}
+\item The zip release ships with sabre/vobject 2.\+0.\+5.
+\item Added\+: A\+CL plugin advertises support for \textquotesingle{}calendarserver-\/principal-\/ property-\/search\textquotesingle{}.
+\item Fixed\+: \mbox{[}\#153\mbox{]} Allowing for relative http principals in i\+Mip requests.
+\item Added\+: Support for cs\+:first-\/name and cs\+:last-\/name properties in sharing invites.
+\item Fixed\+: Made a bunch of properties protected, where they were private before.
+\item Added\+: Some non-\/standard properties for sharing to improve compatibility.
+\item Fixed\+: some bugfixes in postgres sql script.
+\item Fixed\+: When requesting some properties using P\+R\+O\+P\+F\+I\+ND, they could show up as both \textquotesingle{}200 Ok\textquotesingle{} and \textquotesingle{}403 Forbidden\textquotesingle{}.
+\item Fixed\+: calendar-\/proxy principals were not checked for deeper principal membership than 1 level.
+\item Fixed\+: set\+Group\+Member\+Set argument now correctly receives relative principal urls, instead of the absolute ones.
+\item Fixed\+: Server class will filter out any bonus properties if any extra were returned. This means the implementor of the I\+Property class can be a bit lazier when implementing. \mbox{\hyperlink{class_note}{Note}}\+: bug numbers after this line refer to Google Code tickets. We\textquotesingle{}re using github now.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+1 (2012-\/10-\/07) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: include path problem in the migration script.
+\end{DoxyItemize}
+
+\subsection*{1.\+7.\+0 (2012-\/10-\/06) }
+
+
+\begin{DoxyItemize}
+\item BC Break\+: The calendarobjects database table has a bunch of new fields, and a migration script is required to ensure everything will keep working. Read the wiki for more details.
+\item BC Break\+: The I\+Calendar interface now has a new method\+: calendar\+Query.
+\item BC Break\+: In this version a number of classes have been deleted, that have been previously deprecated. Namely\+: -\/ Sabre\+\_\+\+D\+A\+V\+\_\+\+Directory (now\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Collection) -\/ Sabre\+\_\+\+D\+A\+V\+\_\+\+Simple\+Directory (now\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Simple\+Collection)
+\item BC Break\+: Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+Schedule\+\_\+\+I\+Mip\+::send\+Message now has an extra argument. If you extended this class, you should fix this method. It\textquotesingle{}s only used for informational purposes.
+\item BC Break\+: The D\+AV\+: namespace is no longer converted to urn\+:D\+AV. This was a workaround for a bug in older P\+HP versions (pre-\/5.\+3).
+\item Removed\+: Sabre.\+includes.\+php was deprecated, and is now removed.
+\item Removed\+: Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+Server was deprecated, and is now removed. Please use Sabre\+\_\+\+D\+A\+V\+\_\+\+Server and check the examples in the examples/ directory.
+\item Changed\+: The Sabre\+\_\+\+V\+Object library now spawned into it\textquotesingle{}s own project! The V\+Object library is still included in the Sabre\+D\+AV zip package.
+\item Added\+: Experimental interfaces to allow implementation of caldav-\/sharing. \mbox{\hyperlink{class_note}{Note}} that no implementation is provided yet, just the api hooks.
+\item Added\+: Free-\/busy reporting compliant with the caldav-\/scheduling standard. This allows i\+Cal and other clients to fetch other users\textquotesingle{} free-\/busy data.
+\item Added\+: Experimental Notification\+Support interface to add caldav notifications.
+\item Added\+: V\+CF Export plugin. If enabled, it can generate an export of an entire addressbook.
+\item Added\+: Support for P\+A\+T\+CH using a Sabre\+D\+AV format, to live-\/patch files.
+\item Added\+: Support for Prefer\+: return-\/minimal and Brief\+: t headers for P\+R\+O\+P\+F\+I\+ND and P\+R\+O\+P\+P\+A\+T\+CH requests.
+\item Changed\+: Responsibility for dealing with the calendar-\/query is now moved from the Cal\+D\+AV plugin to the Cal\+D\+AV backends. This allows for heavy optimizations.
+\item Changed\+: The Cal\+D\+AV P\+DO backend is now a lot faster for common calendar queries.
+\item Changed\+: We are now using the composer autoloader.
+\item Changed\+: The Cal\+D\+AV backend now all implement an interface.
+\item Changed\+: Instead of Sabre\+\_\+\+D\+A\+V\+\_\+\+Property, Sabre\+\_\+\+D\+A\+V\+\_\+\+Property\+Interface is now the basis of every property class.
+\item \mbox{\hyperlink{class_update}{Update}}\+: Caching results for principal lookups. This should cut down queries and performance for a number of heavy requests.
+\item \mbox{\hyperlink{class_update}{Update}}\+: Object\+Tree caches lookups much more aggresively, which will help especially speeding up a bunch of R\+E\+P\+O\+RT queries.
+\item Added\+: Support for the schedule-\/calendar-\/transp property.
+\item Fixed\+: Marking both the text/calendar and text/x-\/vcard as U\+T\+F-\/8 encoded.
+\item Fixed\+: Workaround for the S\+O\+GO connector, as it doesn\textquotesingle{}t understand receiving \char`\"{}text/x-\/vcard; charset=utf-\/8\char`\"{} for a contenttype.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Client now throws more specific exceptions in cases where we already has an exception class.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Partial\+Update. This plugin allows you to use the P\+A\+T\+CH method to update parts of a file.
+\item Added\+: Tons of timezone name mappings for Microsoft Exchange.
+\item Added\+: Support for an \textquotesingle{}exception\textquotesingle{} event in the server class.
+\item Fixed\+: Uploaded V\+Cards without a U\+ID are now rejected. (thanks Dominik!)
+\item Fixed\+: Rejecting calendar objects if they are not in the supported-\/calendar-\/component list. (thanks Armin!)
+\item Fixed\+: Issue 219\+: serialize() now reorders correctly.
+\item Fixed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+X\+M\+L\+Util no longer returns empty \$dom-\/$>$child\+Nodes if there is whitespace in \$dom.
+\item Fixed\+: Returning 409 Conflict instead of 500 when an attempt is made to create a file as a child of something that\textquotesingle{}s not a collection.
+\item Fixed\+: Issue 237\+: xml-\/encoding values in Sabre\+D\+AV error responses.
+\item Fixed\+: Returning 403, instead of 501 when an unknown R\+E\+P\+O\+RT is requested.
+\item Fixed\+: Postfixing slash on \{D\+AV\+:\}owner properties.
+\item Fixed\+: Several embarrassing spelling mistakes in docblocks.
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+10 (2013-\/06-\/17) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Text was incorrectly escaped in the Href and Href\+List properties, disallowing urls with ampersands (\&) in them.
+\item Fixed\+: Issue 341\+: Escaping xml in 423 Locked error responses.
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+9 (2013-\/04-\/11) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Assets in the browser plugins were not being served on windows machines.
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+8 (2013-\/04-\/08) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: vcardurl in database schema can now hold 255 characters instead of 80 (which is often way to small).
+\item Fixed\+: The browser plugin potentially allowed people to open any arbitrary file on windows servers. (C\+V\+E-\/2013-\/1939).
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+7 (2013-\/03-\/01) }
+
+
+\begin{DoxyItemize}
+\item Change\+: No longer advertising support for 4.\+0 vcards. i\+OS and OS X address book don\textquotesingle{}t handle this well, and just advertising 3.\+0 support seems like the most logical course of action.
+\item Added\+: -\/$>$set\+Verify\+Peers to Sabre\+\_\+\+D\+A\+V\+\_\+\+Client (greatly resisting against it, don\textquotesingle{}t use this..).
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+6 (2013-\/01-\/19) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Backported a fix for broken X\+ML serialization in error responses. (Thanks !)
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+5 (2012-\/10-\/04) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Workaround for line-\/ending bug OS X 10.\+8 addressbook has.
+\item Added\+: Ability to allow users to set S\+SL certificates for the Client class. (Thanks schiesbn!).
+\item Fixed\+: Directory indexes with lots of nodes should be a lot faster.
+\item Fixed\+: Issue 235\+: E\+\_\+\+N\+O\+T\+I\+CE thrown when doing a propfind request with Sabre\+\_\+\+D\+A\+V\+\_\+\+Client, and no valid properties are returned.
+\item Fixed\+: Issue with filtering on alarms in tasks.
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+4 (2012-\/08-\/02) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 220\+: Calendar-\/query filters may fail when filtering on alarms, if an overridden event has it\textquotesingle{}s alarm removed.
+\item Fixed\+: Compatibility for O\+S/X 10.\+8 i\+Cal in the I\+Mip\+Handler.
+\item Fixed\+: Issue 222\+: before\+Write\+Content shouldn\textquotesingle{}t be called for lock requests.
+\item Fixed\+: Problem with P\+O\+ST requests to the outbox if mailto\+: was not lower cased.
+\item Fixed\+: Yearly recurrence rule expansion on leap-\/days no behaves correctly.
+\item Fixed\+: Correctly checking if recurring, all-\/day events with no dtstart fall in a timerange if the start of the time-\/range exceeds the start of the instance of an event, but not the end.
+\item Fixed\+: All-\/day recurring events wouldn\textquotesingle{}t match if an occurence ended exactly on the start of a time-\/range.
+\item Fixed\+: H\+T\+TP basic auth did not correctly deal with passwords containing colons on some servers.
+\item Fixed\+: Issue 228\+: D\+T\+E\+ND is now non-\/inclusive for all-\/day events in the calendar-\/query R\+E\+P\+O\+RT and free-\/busy calculations.
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+3 (2012-\/06-\/12) }
+
+
+\begin{DoxyItemize}
+\item Added\+: It\textquotesingle{}s now possible to specify in Sabre\+\_\+\+D\+A\+V\+\_\+\+Client which type of authentication is to be used.
+\item Fixed\+: Issue 206\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Client P\+UT requests are fixed.
+\item Fixed\+: Issue 205\+: Parsing an i\+Calendar 0-\/second date interval.
+\item Fixed\+: Issue 112\+: Stronger validation of i\+Calendar objects. Now making sure every i\+Calendar object only contains 1 component, and disallowing vcards, forcing every component to have a U\+ID.
+\item Fixed\+: Basic validation for vcards in the Card\+D\+AV plugin.
+\item Fixed\+: Issue 213\+: Workaround for an Evolution bug, that prevented it from updating events.
+\item Fixed\+: Issue 211\+: A time-\/limit query on a non-\/relative alarm trigger in a recurring event could result in an endless loop.
+\item Fixed\+: All uri fields are now a maximum of 200 characters. The Bynari outlook plugin used much longer strings so this should improve compatibility.
+\item Fixed\+: Added a workaround for a bug in K\+DE 4.\+8.\+2 contact syncing. See \href{https://bugs.kde.org/show_bug.cgi?id=300047}{\tt https\+://bugs.\+kde.\+org/show\+\_\+bug.\+cgi?id=300047}
+\item Fixed\+: Issue 217\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Tree\+\_\+\+File\+System was pretty broken.
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+2 (2012-\/04-\/16) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Sabre\+\_\+\+V\+Object\+\_\+\+Node\+::\$parent should have been public.
+\item Fixed\+: Recurrence rules of events are now taken into consideration when doing time-\/range queries on alarms.
+\item Fixed\+: Added a workaround for the fact that php\textquotesingle{}s Date\+Interval cannot parse weeks and days at the same time.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Server\+::\$expose\+Version, allowing you to hide Sabre\+D\+AV\textquotesingle{}s version number from various outputs.
+\item Fixed\+: D\+T\+S\+T\+A\+RT values would be incorrect when expanding events.
+\item Fixed\+: D\+T\+S\+T\+A\+RT and D\+T\+E\+ND would be incorrect for expansion of W\+E\+E\+K\+LY B\+Y\+D\+AY recurrences.
+\item Fixed\+: Issue 203\+: A problem with overridden events hitting the exact date and time of a subsequent event in the recurrence set.
+\item Fixed\+: There was a problem with recurrence rules, for example the 5th tuesday of the month, if this day did not exist.
+\item Added\+: New H\+T\+TP status codes from draft-\/nottingham-\/http-\/new-\/status-\/04.
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+1 (2012-\/03-\/05) }
+
+
+\begin{DoxyItemize}
+\item Added\+: create\+File and put() can now return an E\+Tag.
+\item Added\+: Sending back an E\+Tag on for operations on Card\+D\+AV backends. This should help with OS X 10.\+6 Addressbook compatibility.
+\item Fixed\+: Fixed a bug where an infinite loop could occur in the recurrence iterator if the recurrence was Y\+E\+A\+R\+LY, with a B\+Y\+M\+O\+N\+TH rule, and either B\+Y\+D\+AY or B\+Y\+M\+O\+N\+T\+H\+D\+AY match the first day of the month.
+\item Fixed\+: Events that are excluded using E\+X\+D\+A\+TE are still counted in the C\+O\+U\+NT= parameter in the R\+R\+U\+LE property.
+\item Added\+: Support for time-\/range filters on V\+A\+L\+A\+RM components.
+\item Fixed\+: Correctly filtering all-\/day events.
+\item Fixed\+: Sending back correct mimetypes from the browser plugin (thanks JÃ¼rgen).
+\item Fixed\+: Issue 195\+: Sabre\+\_\+\+Card\+D\+AV pear package had an incorrect dependency.
+\item Fixed\+: Calendardata would be destroyed when performing a M\+O\+VE request.
+\end{DoxyItemize}
+
+\subsection*{1.\+6.\+0 (2012-\/02-\/22) }
+
+
+\begin{DoxyItemize}
+\item BC Break\+: Now requires P\+HP 5.\+3
+\item BC Break\+: Any node that implemented Sabre\+\_\+\+D\+A\+V\+A\+C\+L\+\_\+\+I\+A\+CL must now also implement the get\+Supported\+Privilege\+Set method. See website for details.
+\item BC Break\+: Moved functions from Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+X\+M\+L\+Util to Sabre\+\_\+\+V\+Object\+\_\+\+Date\+Time\+Parser.
+\item BC Break\+: The Sabre\+\_\+\+D\+A\+V\+A\+C\+L\+\_\+\+I\+Principal\+Collection now has two new methods\+: \textquotesingle{}search\+Principals\textquotesingle{} and \textquotesingle{}update\+Principal\textquotesingle{}.
+\item BC Break\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Lockable is removed and all related per-\/node locking functionality.
+\item BC Break\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+File\+Not\+Found is now deprecated in favor of Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+Not\+Found. The former will be removed in a later version.
+\item BC Break\+: Removed Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+I\+Calendar\+Util, use Sabre\+\_\+\+V\+Object instead.
+\item BC Break\+: Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+Server is now deprecated, check out the documentation on how to setup a caldav server with just Sabre\+\_\+\+D\+A\+V\+\_\+\+Server.
+\item BC Break\+: Default Principals P\+DO backend now needs a new field in the \textquotesingle{}principals\textquotesingle{} table. See the website for details.
+\item Added\+: Ability to create new calendars and addressbooks from within the browser plugin.
+\item Added\+: Browser plugin\+: icons for various nodes.
+\item Added\+: Support for F\+R\+E\+E\+B\+U\+SY reports!
+\item Added\+: Support for creating principals with admin-\/level privileges.
+\item Added\+: Possibility to let server send out invitation emails on behalf of Cal\+D\+AV client, using Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+Schedule\+\_\+\+I\+Mip.
+\item Changed\+: before\+Create\+File event now passes data argument by reference.
+\item Changed\+: The \textquotesingle{}property\+Map\textquotesingle{} property from Sabre\+\_\+\+V\+Object\+\_\+\+Reader, must now be specified in Sabre\+\_\+\+V\+Object\+\_\+\+Property\+::\$class\+Map.
+\item Added\+: Ability for plugins to tell the A\+CL plugin which principal plugins are searchable.
+\item Added\+: \mbox{[}D\+A\+V\+A\+CL\mbox{]} Per-\/node overriding of supported privileges. This allows for custom privileges where needed.
+\item Added\+: \mbox{[}D\+A\+V\+A\+CL\mbox{]} Public \textquotesingle{}principal\+Search\textquotesingle{} method on the D\+A\+V\+A\+CL plugin, which allows for easy searching for principals, based on their properties.
+\item Added\+: Sabre\+\_\+\+V\+Object\+\_\+\+Component\+::get\+Components() to return a list of only components and not properties.
+\item Added\+: An includes.\+php file in every sub-\/package (Cal\+D\+AV, Card\+D\+AV, D\+AV, D\+A\+V\+A\+CL, H\+T\+TP, V\+Object) as an alternative to the autoloader. This often works much faster.
+\item Added\+: Support for the \textquotesingle{}Me card\textquotesingle{}, which allows Addressbook.\+app users specify which vcard is their own.
+\item Added\+: Support for updating principal properties in the D\+A\+V\+A\+CL principal backends.
+\item Changed\+: Major refactoring in the calendar-\/query R\+E\+P\+O\+RT code. Should make things more flexible and correct.
+\item Changed\+: The calendar-\/proxy-\/\mbox{[}read$\vert$write\mbox{]} principals will now only appear in the tree, if they actually exist in the Principal backend. This should reduce some problems people have been having with this.
+\item Changed\+: Sabre\+\_\+\+V\+Object\+\_\+\+Element\+\_\+$\ast$ classes are now renamed to Sabre\+\_\+\+V\+Object\+\_\+\+Property. Old classes are retained for backwards compatibility, but this will be removed in the future.
+\item Added\+: Sabre\+\_\+\+V\+Object\+\_\+\+Free\+Busy\+Generator to generate free-\/busy reports based on lists of events.
+\item Added\+: Sabre\+\_\+\+V\+Object\+\_\+\+Recurrence\+Iterator to find all the dates and times for recurring events.
+\item Fixed\+: Issue 97\+: Correctly handling R\+R\+U\+LE for the calendar-\/query R\+E\+P\+O\+RT.
+\item Fixed\+: Issue 154\+: \mbox{\hyperlink{class_encoding}{Encoding}} of V\+Object parameters with no value was incorrect.
+\item Added\+: Support for \{D\+AV\+:\}acl-\/restrictions property from R\+F\+C3744.
+\item Added\+: The contentlength for calendar objects can now be supplied by a Cal\+D\+AV backend, allowing for more optimizations.
+\item Fixed\+: Much faster implementation of Sabre\+\_\+\+D\+A\+V\+\_\+\+U\+R\+L\+Util\+::encode\+Path.
+\item Fixed\+: \{D\+AV\+:\}getcontentlength may now be not specified.
+\item Fixed\+: Issue 66\+: Using rawurldecode instead of urldecode to decode paths from clients. This means that + will now be treated as a literal rather than a space, and this should improve compatibility with the Windows built-\/in client.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+Payment\+Required exception, to emit H\+T\+TP 402 status codes.
+\item Added\+: Some mysql unique constraints to example files.
+\item Fixed\+: Correctly formatting H\+T\+TP dates.
+\item Fixed\+: Issue 94\+: Sending back Last-\/\+Modified header for 304 responses.
+\item Added\+: Sabre\+\_\+\+V\+Object\+\_\+\+Component\+\_\+\+V\+Event, Sabre\+\_\+\+V\+Object\+\_\+\+Component\+\_\+\+V\+Journal, Sabre\+\_\+\+V\+Object\+\_\+\+Component\+\_\+\+V\+Todo and Sabre\+\_\+\+V\+Object\+\_\+\+Component\+\_\+\+V\+Calendar.
+\item Changed\+: Properties are now also automatically mapped to their appropriate classes, if they are created using the add() or \+\_\+\+\_\+set() methods.
+\item Changed\+: Cloning V\+Object objects now clones the entire tree, rather than just the default shallow copy.
+\item Added\+: Support for recurrence expansion in the C\+A\+L\+D\+AV\+:calendar-\/multiget and C\+A\+L\+D\+AV\+:calendar-\/query R\+E\+P\+O\+R\+TS.
+\item Changed\+: Cal\+D\+AV P\+DO backend now sorts calendars based on the internal \textquotesingle{}calendarorder\textquotesingle{} field.
+\item Added\+: Issue 181\+: Carddav backends may no optionally not supply the carddata in get\+Cards, if etag and size are specified. This may speed up certain requests.
+\item Added\+: More arguments to before\+Write\+Content and before\+Create\+File (see Writing\+Plugins wiki document).
+\item Added\+: Hook for i\+Calendar validation. This allows us to validate i\+Calendar objects when they\textquotesingle{}re uploaded. At the moment we\textquotesingle{}re just validating syntax.
+\item Added\+: V\+Object now support Windows Timezone names correctly (thanks mrpace2).
+\item Added\+: If a timezonename could not be detected, we fall back on the default P\+HP timezone.
+\item Added\+: Now a Composer package (thanks willdurand).
+\item Fixed\+: Support for  as a newline character in the V\+Object reader.
+\item Added\+: after\+Write\+Content, after\+Create\+File and after\+Unbind events.
+\item Added\+: Postgresql example files. Not part of the unittests though, so use at your own risk.
+\item Fixed\+: Issue 182\+: Removed backticks from sql queries, so it will work with Postgres.
+\end{DoxyItemize}
+
+\subsection*{1.\+5.\+9 (2012-\/04-\/16) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue with parsing timezone identifiers that were surrounded by quotes. (Fixes em\+Client compatibility).
+\end{DoxyItemize}
+
+\subsection*{1.\+5.\+8 (2012-\/02-\/22) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 95\+: Another timezone parsing issue, this time in calendar-\/query.
+\end{DoxyItemize}
+
+\subsection*{1.\+5.\+7 (2012-\/02-\/19) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: V\+Object properties are now always encoded before components.
+\item Fixed\+: Sabre\+\_\+\+D\+A\+V\+A\+CL had issues with multiple levels of privilege aggregration.
+\item Changed\+: Added \textquotesingle{}Guess\+Content\+Type\textquotesingle{} plugin to \mbox{\hyperlink{fileserver_8php_source}{fileserver.\+php}} example.
+\item Fixed\+: The Browser plugin will now trigger the correct events when creating files.
+\item Fixed\+: The I\+C\+S\+Export\+Plugin now considers A\+CL\textquotesingle{}s.
+\item Added\+: Made it optional to supply carddata from an Addressbook backend when requesting get\+Cards. This can make some operations much faster, and could result in much lower memory use.
+\item Fixed\+: Issue 187\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+U\+U\+I\+D\+Util was missing from includes file.
+\item Fixed\+: Issue 191\+: before\+Unlock was triggered twice.
+\end{DoxyItemize}
+
+\subsection*{1.\+5.\+6 (2012-\/01-\/07) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 174\+: V\+Object could break U\+T\+F-\/8 characters.
+\item Fixed\+: pear package installation issues.
+\end{DoxyItemize}
+
+\subsection*{1.\+5.\+5 (2011-\/12-\/16) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Cal\+D\+AV time-\/range filter workaround for recurring events.
+\item Fixed\+: Bug in Sabre\+\_\+\+D\+A\+V\+\_\+\+Locks\+\_\+\+Backend\+\_\+\+File that didn\textquotesingle{}t allow multiple files to be locked at the same time.
+\end{DoxyItemize}
+
+\subsection*{1.\+5.\+4 (2011-\/10-\/28) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Guess\+Content\+Type plugin now supports mixed case file extensions.
+\item Fixed\+: D\+A\+T\+E-\/\+T\+I\+ME encoding was wrong in V\+Object. (we used \textquotesingle{}D\+A\+T\+E\+T\+I\+ME\textquotesingle{}).
+\item Changed\+: Sending back H\+T\+TP 204 after a P\+UT request on an existing resource instead of H\+T\+TP 200. This should fix Evolution Card\+D\+AV client compatibility.
+\item Fixed\+: Issue 95\+: Parsing X-\/\+L\+I\+C-\/\+L\+O\+C\+A\+T\+I\+ON if it\textquotesingle{}s available.
+\item Added\+: All V\+Object elements now have a reference to their parent node.
+\end{DoxyItemize}
+
+\subsection*{1.\+5.\+3 (2011-\/09-\/28) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Collection was missing from the includes file.
+\item Fixed\+: Issue 152. i\+OS 1.\+4.\+2 apparantly requires H\+T\+T\+P/1.\+1 200 OK to be in uppercase.
+\item Fixed\+: Issue 153\+: Support for files with mixed newline styles in Sabre\+\_\+\+V\+Object.
+\item Fixed\+: Issue 159\+: Automatically converting any vcard and icalendardata to U\+T\+F-\/8.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Simple\+File class for easy static file creation.
+\item Added\+: Issue 158\+: Support for the C\+A\+R\+D\+D\+AV\+:supported-\/address-\/data property.
+\end{DoxyItemize}
+
+\subsection*{1.\+5.\+2 (2011-\/09-\/21) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: carddata and calendardata My\+S\+QL fields are now of type \textquotesingle{}mediumblob\textquotesingle{}. \textquotesingle{}T\+E\+XT\textquotesingle{} was too small sometimes to hold all the data.
+\item Fixed\+: \{D\+AV\+:\}supported-\/report-\/set is now correctly reporting the reports for I\+Address\+Book.
+\item Added\+: Sabre\+\_\+\+V\+Object\+\_\+\+Property\+::add() to add duplicate parameters to properties.
+\item Added\+: Issue 151\+: Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+I\+Calendar and Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+I\+Calendar\+Object interfaces.
+\item Fixed\+: Issue 140\+: Not returning 201 Created if an event cancelled the creation of a file.
+\item Fixed\+: Issue 150\+: Faster U\+R\+L\+Util\+::encode\+Path() implementation.
+\item Fixed\+: Issue 144\+: Browser plugin could interfere with Temporary\+File\+Filter\+Plugin if it was loaded first.
+\item Added\+: It\textquotesingle{}s not possible to specify more \textquotesingle{}alternate uris\textquotesingle{} in principal backends.
+\end{DoxyItemize}
+
+\subsection*{1.\+5.\+1 (2011-\/08-\/24) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 137. Hiding action interface in H\+T\+ML browser for non-\/collections.
+\item Fixed\+: addressbook-\/query is now correctly returned from the \{D\+AV\+:\}supported-\/report-\/set property.
+\item Fixed\+: Issue 142\+: Bugs in \mbox{\hyperlink{groupwareserver_8php_source}{groupwareserver.\+php}} example.
+\item Fixed\+: Issue 139\+: Rejecting P\+UT requests with Content-\/\+Range.
+\end{DoxyItemize}
+
+\subsection*{1.\+5.\+0 (2011-\/08-\/12) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Card\+D\+AV support.
+\item Added\+: An experimental Web\+D\+AV client.
+\item Added\+: M\+I\+M\+E-\/\+Directory grouping support in the V\+Object library. This is very useful for people attempting to parse vcards.
+\item BC Break\+: Adding parameters with the V\+Object libraries now overwrites the previous parameter, rather than just add it. This makes more sense for 99\% of the cases.
+\item BC Break\+: lib/\+Sabre.\+autoload.\+php is now removed in favor of lib/\+Sabre/autoload.\+php.
+\item Deprecated\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Directory is now deprecated and will be removed in a future version. Use Sabre\+\_\+\+D\+A\+V\+\_\+\+Collection instead.
+\item Deprecated\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Simple\+Directory is now deprecated and will be removed in a future version. Use Sabre\+\_\+\+D\+A\+V\+\_\+\+Simple\+Collection instead.
+\item Fixed\+: Problem with overriding tablenames for the Cal\+D\+AV backend.
+\item Added\+: Clark-\/notation parser to X\+ML utility.
+\item Added\+: unset() support to V\+Object components.
+\item Fixed\+: Refactored Cal\+D\+AV property fetching to be faster and simpler.
+\item Added\+: Central string-\/matcher for Cal\+D\+AV and Card\+D\+AV plugins.
+\item Added\+: i;unicode-\/casemap support
+\item Fixed\+: V\+Object bug\+: wouldn\textquotesingle{}t parse parameters if they weren\textquotesingle{}t specified in uppercase.
+\item Fixed\+: V\+Object bug\+: Parameters now behave more like Properties.
+\item Fixed\+: V\+Object bug\+: Parameters with no value are now correctly parsed.
+\item Changed\+: If calendars don\textquotesingle{}t specify which components they allow, \textquotesingle{}all\textquotesingle{} components are assumed (e.\+g.\+: V\+E\+V\+E\+NT, V\+T\+O\+DO, V\+J\+O\+U\+R\+N\+AL).
+\item Changed\+: Browser plugin now uses P\+O\+ST variable \textquotesingle{}sabre\+Action\textquotesingle{} instead of \textquotesingle{}action\textquotesingle{} to reduce the chance of collisions.
+\end{DoxyItemize}
+
+\subsection*{1.\+4.\+4 (2011-\/07-\/07) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 131\+: Custom Cal\+D\+AV backends could break in certain cases.
+\item Added\+: The option to override the default tablename all P\+DO backends use. (Issue 60).
+\item Fixed\+: Issue 124\+: \textquotesingle{}File\textquotesingle{} authentication backend now takes realm into consideration.
+\item Fixed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Property\+\_\+\+Href\+List now properly deserializes. This allows users to update the \{D\+AV\+:\}group-\/member-\/set property.
+\item Added\+: Helper functions for Date\+Time-\/values in Sabre\+\_\+\+V\+Object package.
+\item Added\+: V\+Object library can now automatically map i\+Calendar properties to custom classes.
+\end{DoxyItemize}
+
+\subsection*{1.\+4.\+3 (2011-\/04-\/25) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 123\+: Added workaround for Windows 7 U\+N\+L\+O\+CK bug.
+\item Fixed\+: datatype of lastmodified field in mysql.\+calendars.\+sql. Please change the D\+A\+T\+E\+T\+I\+ME field to an I\+NT to ensure this field will work correctly.
+\item Change\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Property\+\_\+\+Principal is now renamed to Sabre\+\_\+\+D\+A\+V\+A\+C\+L\+\_\+\+Property\+\_\+\+Principal.
+\item Added\+: A\+PI level support for A\+CL H\+T\+TP method.
+\item Fixed\+: Bug in serializing \{D\+AV\+:\}acl property.
+\item Added\+: deserializer for \{D\+AV\+:\}resourcetype property.
+\item Added\+: deserializer for \{D\+AV\+:\}acl property.
+\item Added\+: deserializer for \{D\+AV\+:\}principal property.
+\end{DoxyItemize}
+
+\subsection*{1.\+4.\+2-\/beta (2011-\/04-\/01) }
+
+
+\begin{DoxyItemize}
+\item Added\+: It\textquotesingle{}s not possible to disable listing of nodes that are denied read access by A\+CL.
+\item Fixed\+: Changed a few properties in Cal\+D\+AV classes from private to protected.
+\item Fixed\+: Issue 119\+: Terrible things could happen when relying on guess\+Base\+Uri, the server was running on the root of the domain and a user tried to access a file ending in .php. This is a slight BC break.
+\item Fixed\+: Issue 118\+: Lock tokens in If headers without a uri should be treated as the request uri, not \textquotesingle{}all relevant uri\textquotesingle{}s.
+\item Fixed\+: Issue 120\+: P\+DO backend was incorrectly fetching too much locks in cases where there were similar named locked files in a directory.
+\end{DoxyItemize}
+
+\subsection*{1.\+4.\+1-\/beta (2011-\/02-\/26) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Locks\+\_\+\+Backend\+\_\+\+P\+DO returned too many locks.
+\item Fixed\+: Sabre\+\_\+\+H\+T\+T\+P\+\_\+\+Request\+::get\+Header didn\textquotesingle{}t return Content-\/\+Type when running on apache, so a few workarounds were added.
+\item Change\+: Slightly changed Cal\+D\+AV Backend A\+PI\textquotesingle{}s, to allow for heavy optimizations. This is non-\/bc breaking.
+\end{DoxyItemize}
+
+\subsection*{1.\+4.\+0-\/beta (2011-\/02-\/12) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Partly R\+F\+C3744 A\+CL support.
+\item Added\+: Calendar-\/delegation (caldav-\/proxy) support.
+\item BC break\+: In order to fix Issue 99, a new argument had to be added to Sabre\+\_\+\+D\+A\+V\+\_\+\+Locks\+\_\+\+Backend\+\_\+$\ast$\+::get\+Locks classes. Consult the classes for details.
+\item Deprecated\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Locks\+\_\+\+Backend\+\_\+\+FS is now deprecated and will be removed in a later version. Use P\+DO or the new File class instead.
+\item Deprecated\+: The Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+I\+Calendar\+Util class is now marked deprecated, and will be removed in a future version. Please use Sabre\+\_\+\+V\+Object instead.
+\item Removed\+: All principal-\/related functionality has been removed from the Sabre\+\_\+\+D\+A\+V\+\_\+\+Auth\+\_\+\+Plugin, and moved to the Sabre\+\_\+\+D\+A\+V\+A\+C\+L\+\_\+\+Plugin.
+\item Added\+: V\+Object library, for easy vcard/icalendar parsing using a natural interface.
+\item Added\+: Ability to automatically generate full .ics feeds off calendars. To use\+: Add the Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+I\+C\+S\+Export\+Plugin, and add ?export to your calendar url.
+\item Added\+: Plugins can now specify a pluginname, for easy access using Sabre\+\_\+\+D\+A\+V\+\_\+\+Server\+::get\+Plugin().
+\item Added\+: before\+Get\+Properties event.
+\item Added\+: update\+Properties event.
+\item Added\+: Principal listings and calendar-\/access can now be done privately, disallowing users from accessing or modifying other users\textquotesingle{} data.
+\item Added\+: You can now pass arrays to the Sabre\+\_\+\+D\+A\+V\+\_\+\+Server constructor. If it\textquotesingle{}s an array with node-\/objects, a Root collection will automatically be created, and the nodes are used as top-\/level children.
+\item Added\+: The principal base uri is now customizable. It used to be hardcoded to \textquotesingle{}principals/\mbox{[}user\mbox{]}\textquotesingle{}.
+\item Added\+: get\+Supported\+Report\+Set method in Server\+Plugin class. This allows you to easily specify which reports you\textquotesingle{}re implementing.
+\item Added\+: A \textquotesingle{}..\textquotesingle{} link to the H\+T\+ML browser.
+\item Fixed\+: Issue 99\+: Locks on child elements were ignored when their parent nodes were deleted.
+\item Fixed\+: Issue 90\+: lockdiscovery property and L\+O\+CK response now include a \{D\+AV\}lockroot element.
+\item Fixed\+: Issue 96\+: support for \textquotesingle{}default\textquotesingle{} collation in Cal\+D\+AV text-\/match filters.
+\item Fixed\+: Issue 102\+: Ensuring that copy and move with identical source and destination uri\textquotesingle{}s fails.
+\item Fixed\+: Issue 105\+: Supporting M\+K\+C\+A\+L\+E\+N\+D\+AR with no body.
+\item Fixed\+: Issue 109\+: Small fixes in Sabre\+\_\+\+H\+T\+T\+P\+\_\+\+Util.
+\item Fixed\+: Issue 111\+: Properly catching the ownername in a lock (if it\textquotesingle{}s a string)
+\item Fixed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Object\+Tree\+::node\+Exist always returned false for the root node.
+\item Added\+: Global way to easily supply new resourcetypes for certain node classes.
+\item Fixed\+: Issue 59\+: Allowing the user to override the authentication realm in Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+Server.
+\item \mbox{\hyperlink{class_update}{Update}}\+: Issue 97\+: Looser time-\/range checking if there\textquotesingle{}s a recurrence rule in an event. This fixes \textquotesingle{}missing recurring events\textquotesingle{}.
+\end{DoxyItemize}
+
+\subsection*{1.\+3.\+0 (2010-\/10-\/14) }
+
+
+\begin{DoxyItemize}
+\item Added\+: child\+Exists method to Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Collection. This is an api break, so if you implement Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Collection directly, add the method.
+\item Changed\+: Almost all H\+T\+TP method implementations now take a uri argument, including events. This allows for internal rerouting of certain calls. If you have custom plugins, make sure they use this argument. If they don\textquotesingle{}t, they will likely still work, but it might get in the way of future changes.
+\item Changed\+: All get\+E\+Tag methods M\+U\+ST now surround the etag with double-\/quotes. This was a mistake made in all previous Sabre\+D\+AV versions. If you don\textquotesingle{}t do this, any If-\/\+Match, If-\/\+None-\/\+Match and If\+: headers using Etags will work incorrectly. (Issue 85).
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Auth\+\_\+\+Backend\+\_\+\+Abstract\+Basic class, which can be used to easily implement basic authentication.
+\item Removed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Permission\+Denied class. Use Sabre\+\_\+\+D\+A\+V\+\_\+\+Forbidden instead.
+\item Removed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Directory interface, use Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Collection instead.
+\item Added\+: Browser plugin now uses \{D\+AV\+:\}displayname if this property is available.
+\item Added\+: Cache layer in the Object\+Tree.
+\item Added\+: Tree classes now have a delete and get\+Children method.
+\item Fixed\+: If-\/\+Modified-\/\+Since and If-\/\+Unmodified-\/\+Since would be incorrect if the date is an exact match.
+\item Fixed\+: Support for multiple E\+Tags in If-\/\+Match and If-\/\+None-\/\+Match headers.
+\item Fixed\+: Improved base\+Url handling.
+\item Fixed\+: Issue 67\+: Non-\/seekable stream support in \+::put()/\+::get().
+\item Fixed\+: Issue 65\+: Invalid dates are now ignored.
+\item Updated\+: Refactoring in Sabre\+\_\+\+Cal\+D\+AV to make everything a bit more ledgable.
+\item Fixed\+: Issue 88, Issue 89\+: Fixed compatibility for running Sabre\+D\+AV on Windows.
+\item Fixed\+: Issue 86\+: Fixed Content-\/\+Range top-\/boundary from \textquotesingle{}file size\textquotesingle{} to \textquotesingle{}file size\textquotesingle{}-\/1.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+5 (2010-\/08-\/18) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 73\+: guess\+Base\+Url fails for some servers.
+\item Fixed\+: Issue 67\+: Sabre\+D\+AV works better with non-\/seekable streams.
+\item Fixed\+: If-\/\+Modified-\/\+Since and If-\/\+Unmodified-\/\+Since would be incorrect if the date is an exact match.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+4 (2010-\/07-\/13) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 62\+: Guessing base\+Url fails when url contains a query-\/string.
+\item Added\+: Apache configuration sample for C\+G\+I/\+Fast\+C\+GI setups.
+\item Fixed\+: Issue 64\+: Only returning calendar-\/data when it was actually requested.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+3 (2010-\/06-\/26) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 57\+: Supporting quotes around etags in If-\/\+Match and If-\/\+None-\/\+Match
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+2 (2010-\/06-\/21) }
+
+
+\begin{DoxyItemize}
+\item Updated\+: Sabre\+D\+AV now attempts to guess the Base\+U\+RI if it\textquotesingle{}s not set.
+\item Updated\+: Better compatibility with Bit\+Kinex
+\item Fixed\+: Issue 56\+: Incorrect behaviour for If-\/\+None-\/\+Match headers and G\+ET requests.
+\item Fixed\+: Issue with certain encoded paths in Browser Plugin.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+1 (2010-\/06-\/07) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 50, patch by Mattijs Hoitink.
+\item Fixed\+: Issue 51, Adding windows 7 lockfiles to Temporary\+File\+Filter.
+\item Fixed\+: Issue 38, Allowing custom filters to be added to Temporary\+File\+Filter.
+\item Fixed\+: Issue 53, E\+Tags in the If\+: header were always failing. This behaviour is now corrected.
+\item Added\+: Apache Authentication backend, in case authentication through .htaccess is desired.
+\item Updated\+: Small improvements to example files.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+0 (2010-\/05-\/24) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Browser plugin now displays international characters.
+\item Changed\+: More properties in Cal\+D\+AV classes are now protected instead of private.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+0beta3 (2010-\/05-\/14) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Custom properties were not properly sent back for allprops requests.
+\item Fixed\+: Issue 49, incorrect parsing of P\+R\+O\+P\+P\+A\+T\+CH, affecting Office 2007.
+\item Changed\+: Removed Cal\+D\+AV items from includes.\+php, and added a few missing ones.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+0beta2 (2010-\/05-\/04) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 46\+: Fatal error for some non-\/existent nodes.
+\item Updated\+: some example sql to include email address.
+\item Added\+: 208 and 508 statuscodes from R\+F\+C5842.
+\item Added\+: Apache2 configuration examples
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+0beta1 (2010-\/04-\/28) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: redundant namespace declaration in resourcetypes.
+\item Fixed\+: 2 locking bugs triggered by litmus when no Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Lockable interface is used.
+\item Changed\+: using \href{http://sabredav.org/ns}{\tt http\+://sabredav.\+org/ns} for all custom xml properties.
+\item Added\+: email address property to principals.
+\item Updated\+: Calendar\+Object validation.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+0alpha4 (2010-\/04-\/24) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Support for If-\/\+Range, If-\/\+Match, If-\/\+None-\/\+Match, If-\/\+Modified-\/\+Since, If-\/\+Unmodified-\/\+Since.
+\item Changed\+: Brand new build system. Functionality is split up between Sabre, Sabre\+\_\+\+H\+T\+TP, Sabre\+\_\+\+D\+AV and Sabre\+\_\+\+Cal\+D\+AV packages. In addition to that a new non-\/pear package will be created with all this functionality combined.
+\item Changed\+: Autoloader moved to Sabre/autoload.\+php.
+\item Changed\+: The Allow\+: header is now more accurate, with appropriate H\+T\+TP methods per uri.
+\item Changed\+: Now throwing back Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+Method\+Not\+Allowed on a few places where Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+Not\+Implemented was used.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+0alpha3 (2010-\/04-\/20) }
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{class_update}{Update}}\+: Complete rewrite of property updating. Now easier to use and atomic.
+\item Fixed\+: Issue 16, automatically adding trailing / to base\+Uri.
+\item Added\+: text/plain is used for .txt files in Guess\+Content\+Type plugin.
+\item Added\+: support for principal-\/property-\/search and principal-\/search-\/property-\/set reports.
+\item Added\+: Issue 31\+: Hiding exception information by default. Can be turned on with the Sabre\+\_\+\+D\+A\+V\+\_\+\+Server\+::\$debug\+Exceptions property.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+0alpha2 (2010-\/04-\/08) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Calendars are now private and can only be read by the owner.
+\item Fixed\+: double namespace declaration in multistatus responses.
+\item Added\+: My\+S\+QL database dumps. My\+S\+QL is now also supported next to S\+Q\+Lite.
+\item Added\+: expand-\/properties R\+E\+P\+O\+RT from R\+FC 3253.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Property\+\_\+\+I\+Href interface for properties exposing urls.
+\item Added\+: Issue 25\+: Throwing error on broken Finder behaviour.
+\item Changed\+: Authentication backend is now aware of current user.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+0alpha1 (2010-\/03-\/31) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 26\+: Workaround for broken G\+V\+FS behaviour with encoded special characters.
+\item Fixed\+: Issue 34\+: Incorrect Lock-\/\+Token response header for L\+O\+CK. Fixes Office 2010 compatibility.
+\item Added\+: Issue 35\+: Sabre\+D\+AV version to header to O\+P\+T\+I\+O\+NS response to ease debugging.
+\item Fixed\+: Issue 36\+: Incorrect variable name, throwing error in some requests.
+\item Fixed\+: Issue 37\+: Incorrect smultron regex in temporary filefilter.
+\item Fixed\+: Issue 33\+: Converting I\+S\+O-\/8859-\/1 characters to U\+T\+F-\/8.
+\item Fixed\+: Issue 39 \& Issue 40\+: Basename fails on non-\/utf-\/8 locales.
+\item Added\+: More unittests.
+\item Added\+: Sabre\+D\+AV version to all error responses.
+\item Added\+: U\+R\+L\+Util class for decoding urls.
+\item Changed\+: Now using pear.\+sabredav.\+org pear channel.
+\item Changed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Server\+::get\+Copy\+And\+Move\+Info is now a public method.
+\end{DoxyItemize}
+
+\subsection*{1.\+1.\+2-\/alpha (2010-\/03-\/18) }
+
+
+\begin{DoxyItemize}
+\item Added\+: R\+F\+C5397 -\/ current-\/user-\/principal support.
+\item Fixed\+: Issue 27\+: encoding entities in property responses.
+\item Added\+: naturalselection script now allows the user to specify a \textquotesingle{}minimum number of bytes\textquotesingle{} for deletion. This should reduce load due to less crawling
+\item Added\+: Full support for the calendar-\/query report.
+\item Added\+: More unittests.
+\item Added\+: Support for complex property deserialization through the static \+::unserialize() method.
+\item Added\+: Support for modifying calendar-\/component-\/set
+\item Fixed\+: Issue 29\+: Added T\+I\+M\+E\+O\+U\+T\+\_\+\+I\+N\+F\+I\+N\+I\+TE constant
+\end{DoxyItemize}
+
+\subsection*{1.\+1.\+1-\/alpha (2010-\/03-\/11) }
+
+
+\begin{DoxyItemize}
+\item Added\+: R\+F\+C5689 -\/ Extended M\+K\+C\+OL support.
+\item Fixed\+: Evolution support for Cal\+D\+AV.
+\item Fixed\+: P\+D\+O-\/locks backend was pretty much completely broken. This is 100\% unittested now.
+\item Added\+: support for ctags.
+\item Fixed\+: Comma\textquotesingle{}s between H\+T\+TP methods in \textquotesingle{}Allow\textquotesingle{} method.
+\item Changed\+: default argument for Sabre\+\_\+\+D\+A\+V\+\_\+\+Locks\+\_\+\+Backend\+\_\+\+FS. This means a datadirectory must always be specified from now on.
+\item Changed\+: Moved Sabre\+\_\+\+D\+A\+V\+\_\+\+Server\+::parse\+Props to Sabre\+\_\+\+D\+A\+V\+\_\+\+X\+M\+L\+Util\+::parse\+Properties.
+\item Changed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Directory is now Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Collection.
+\item Changed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+Permission\+Denied is now Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+Forbidden.
+\item Changed\+: Sabre\+\_\+\+Cal\+D\+A\+V\+\_\+\+I\+Calendar\+Collection is removed.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Extended\+Collection.
+\item Added\+: Many more unittests.
+\item Added\+: support for calendar-\/timezone property.
+\end{DoxyItemize}
+
+\subsection*{1.\+1.\+0-\/alpha (2010-\/03-\/01) }
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{class_note}{Note}}\+: This version is forked from version 1.\+0.\+5, so release dates may be out of order.
+\item Added\+: Cal\+D\+AV -\/ R\+FC 4791
+\item Removed\+: Sabre\+\_\+\+P\+H\+P\+\_\+\+Exception. P\+HP has a built-\/in Error\+Exception for this.
+\item Added\+: P\+DO authentication backend.
+\item Added\+: Example sql for auth, caldav, locks for sqlite.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Browser\+\_\+\+Guess\+Content\+Type plugin
+\item Changed\+: Authentication plugin refactored, making it possible to implement non-\/digest authentication.
+\item Fixed\+: Better error display in browser plugin.
+\item Added\+: Support for \{D\+AV\+:\}supported-\/report-\/set
+\item Added\+: X\+ML utility class with helper functions for the Web\+D\+AV protocol.
+\item Added\+: Tons of unittests
+\item Added\+: Principal\+Collection and Principal classes
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Server\+::get\+Properties for easy property retrieval
+\item Changed\+: \{D\+AV\+:\}resource\+Type defaults to 0
+\item Changed\+: Any non-\/null resource\+Type now gets a / appended to the href value. Before this was just for \{D\+AV\+:\}collection\textquotesingle{}s, but this is now also the case for for example \{D\+AV\+:\}principal.
+\item Changed\+: The Href property class can now optionally create non-\/relative uri\textquotesingle{}s.
+\item Changed\+: Sabre\+\_\+\+H\+T\+T\+P\+\_\+\+Response now returns false if headers are already sent and header-\/methods are called.
+\item Fixed\+: Issue 19\+: H\+E\+AD requests on Collections
+\item Fixed\+: Issue 21\+: Typo in Sabre\+\_\+\+D\+A\+V\+\_\+\+Property\+\_\+\+Response
+\item Fixed\+: Issue 18\+: Doesn\textquotesingle{}t work with Evolution Contacts
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+15 (2010-\/05-\/28) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Issue 31\+: Hiding exception information by default. Can be turned on with the Sabre\+\_\+\+D\+A\+V\+\_\+\+Server\+::\$debug\+Exceptions property.
+\item Added\+: Moved autoload from lib/ to lib/\+Sabre/autoload.\+php. This is also the case in the upcoming 1.\+2.\+0, so it will improve future compatibility.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+14 (2010-\/04-\/15) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: double namespace declaration in multistatus responses.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+13 (2010-\/03-\/30) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 40\+: Last references to basename/dirname
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+12 (2010-\/03-\/30) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 37\+: Incorrect smultron regex in temporary filefilter.
+\item Fixed\+: Issue 26\+: Workaround for broken G\+V\+FS behaviour with encoded special characters.
+\item Fixed\+: Issue 33\+: Converting I\+S\+O-\/8859-\/1 characters to U\+T\+F-\/8.
+\item Fixed\+: Issue 39\+: Basename fails on non-\/utf-\/8 locales.
+\item Added\+: More unittests.
+\item Added\+: Sabre\+D\+AV version to all error responses.
+\item Added\+: U\+R\+L\+Util class for decoding urls.
+\item Updated\+: Now using pear.\+sabredav.\+org pear channel.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+11 (2010-\/03-\/23) }
+
+
+\begin{DoxyItemize}
+\item Non-\/public release. This release is identical to 1.\+0.\+10, but it is used to test releasing packages to pear.\+sabredav.\+org.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+10 (2010-\/03-\/22) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 34\+: Invalid Lock-\/\+Token header response.
+\item Added\+: Issue 35\+: Adding Sabre\+D\+AV version to H\+T\+TP O\+P\+T\+I\+O\+NS responses.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+9 (2010-\/03-\/19) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 27\+: Entities not being encoded in P\+R\+O\+P\+F\+I\+ND responses.
+\item Fixed\+: Issue 29\+: Added missing T\+I\+M\+E\+O\+U\+T\+\_\+\+I\+N\+F\+I\+N\+I\+TE constant.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+8 (2010-\/03-\/03) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 21\+: typos causing errors
+\item Fixed\+: Issue 23\+: Comma\textquotesingle{}s between methods in Allow header.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Collection interface, to aid in future compatibility.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+Forbidden exception. This will replace Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+Permission\+Denied in the future, and can already be used to ensure future compatibility.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+7 (2010-\/02-\/24) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 19 regression for MS Office
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+6 (2010-\/02-\/23) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 19\+: H\+E\+AD requests on Collections
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+5 (2010-\/01-\/22) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Fatal error when a malformed url was used for unlocking, in conjuction with Sabre.\+autoload.\+php due to a incorrect filename.
+\item Fixed\+: Improved unittests and build system
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+4 (2010-\/01-\/11) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: needed 2 different releases. One for googlecode and one for pearfarm. This is to retain the old method to install Sabre\+D\+AV until pearfarm becomes the standard installation method.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+3 (2010-\/01-\/11) }
+
+
+\begin{DoxyItemize}
+\item Added\+: R\+F\+C4709 support (davmount)
+\item Added\+: 6 unittests
+\item Added\+: naturalselection. A tool to keep cache directories below a specified theshold.
+\item Changed\+: Now using pearfarm.\+org channel server.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+1 (2009-\/12-\/22) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue 15\+: typos in examples
+\item Fixed\+: Minor pear installation issues
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+0 (2009-\/11-\/02) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Simple\+Directory class. This class allows creating static directory structures with ease.
+\item Changed\+: Custom complex properties and exceptions now get an instance of Sabre\+\_\+\+D\+A\+V\+\_\+\+Server as their first argument in serialize()
+\item Changed\+: Href complex property now prepends server\textquotesingle{}s base\+Uri
+\item Changed\+: delete before an overwriting copy/move is now handles by server class instead of tree classes
+\item Changed\+: events must now explicitly return false to stop execution. Before, execution would be stopped by anything loosely evaluating to false.
+\item Changed\+: the get\+Properties\+For\+Path method now takes a different set of arguments, and returns a different response. This allows plugin developers to return statuses for properties other than 200 and 404. The hrefs are now also always calculated relative to the base\+Uri, and not the uri of the request.
+\item Changed\+: generate\+Prop\+Find\+Response is renamed to generate\+Multi\+Status, and now takes a list of properties similar to the response of get\+Properties\+For\+Path. This was also needed to improve flexibility for plugin development.
+\item Changed\+: Auth plugins are no longer included. They were not yet stable quality, so they will probably be reintroduced in a later version.
+\item Changed\+: P\+R\+O\+P\+P\+A\+T\+CH also used generate\+Multi\+Status now.
+\item Removed\+: unknown\+Properties event. This is replaced by the after\+Get\+Properties event, which should provide more flexibility.
+\item Fixed\+: Only calling get\+Size() on I\+File instances in http\+Head()
+\item Added\+: before\+Bind event. This is invoked upon file or directory creation
+\item Added\+: before\+Write\+Content event, this is invoked by P\+UT and L\+O\+CK on an existing resource.
+\item Added\+: before\+Unbind event. This is invoked right before deletion of any resource.
+\item Added\+: after\+Get\+Properties event. This event can be used to make modifications to property responses.
+\item Added\+: before\+Lock and before\+Unlock events.
+\item Added\+: after\+Bind event.
+\item Fixed\+: Copy and Move could fail in the root directory. This is now fixed.
+\item Added\+: Plugins can now be retrieved by their classname. This is useful for inter-\/plugin communication.
+\item Added\+: The Auth backend can now return usernames and user-\/id\textquotesingle{}s.
+\item Added\+: The Auth backend got a get\+Users method
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+F\+S\+Ext\+\_\+\+Directory now returns quota info
+\end{DoxyItemize}
+
+\subsection*{0.\+12.\+1-\/beta (2009-\/09-\/11) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: U\+N\+L\+O\+CK bug. Unlock didn\textquotesingle{}t work at all
+\end{DoxyItemize}
+
+\subsection*{0.\+12-\/beta (2009-\/09-\/10) }
+
+
+\begin{DoxyItemize}
+\item Updated\+: Browser plugin now shows multiple \{D\+AV\+:\}resourcetype values if available.
+\item Added\+: Experimental P\+DO backend for Locks Manager
+\item Fixed\+: Sending Content-\/\+Length\+: 0 for every empty response. This improves N\+Ginx compatibility.
+\item Fixed\+: Last modification time is reported in U\+TC timezone. This improves Finder compatibility.
+\end{DoxyItemize}
+
+\subsection*{0.\+11-\/beta (2009-\/08-\/11) }
+
+
+\begin{DoxyItemize}
+\item Updated\+: Now in Beta
+\item Updated\+: Pear package no longer includes docs/ directory. These just contained rfc\textquotesingle{}s, which are publicly available. This reduces the package from $\sim$800k to $\sim$60k
+\item Added\+: generate\+Propfind\+Response now takes a base\+Uri argument
+\item Added\+: Resource\+Type property can now contain multiple resourcetypes.
+\item Fixed\+: Issue 13.
+\end{DoxyItemize}
+
+\subsection*{0.\+10-\/alpha (2009-\/08-\/03) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Plugin to automatically map G\+ET requests to non-\/files to P\+R\+O\+P\+F\+I\+ND (Sabre\+\_\+\+D\+A\+V\+\_\+\+Browser\+\_\+\+Map\+Get\+To\+Prop\+Find). This should allow easier debugging of complicated Web\+D\+AV setups.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Property\+\_\+\+Href class. For future use.
+\item Added\+: Ability to choose to use auth-\/int, auth or both for H\+T\+TP Digest authentication. (Issue 11)
+\item Changed\+: Made more methods in Sabre\+\_\+\+D\+A\+V\+\_\+\+Server public.
+\item Fixed\+: Temporary\+File\+Filter plugin now intercepts H\+T\+TP L\+O\+CK requests to non-\/existent files. (Issue 12)
+\item Added\+: Central list of defined xml namespace prefixes. This can reduce Bandwidth and legibility for xml bodies with user-\/defined namespaces.
+\item Added\+: now a P\+E\+A\+R-\/compatible package again, thanks to Michael Gauthier
+\item Changed\+: moved default copy and move logic from Object\+Tree to Tree class
+\end{DoxyItemize}
+
+\subsection*{0.\+9a-\/alpha (2009-\/07-\/21) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Broken release
+\end{DoxyItemize}
+
+\subsection*{0.\+9-\/alpha (2009-\/07-\/21) }
+
+
+\begin{DoxyItemize}
+\item Changed\+: Major refactoring, removed most of the logic from the Tree objects. The Server class now directly works with the I\+Node, I\+File and I\+Directory objects. If you created your own Tree objects, this will most likely break in this release.
+\item Changed\+: Moved all the Locking logic from the Tree and Server classes into a separate plugin.
+\item Changed\+: Temporary\+File\+Filter is now a plugin.
+\item Added\+: Comes with an autoloader script. This can be used instead of the includer script, and is preferred by some people.
+\item Added\+: A\+WS Authentication class.
+\item Added\+: simpleserversetup.\+py script. This will quickly get a fileserver up and running.
+\item Added\+: When subscribing to events, it is now possible to supply a priority. This is for example needed to ensure that the Authentication Plugin is used before any other Plugin.
+\item Added\+: 22 new tests.
+\item Added\+: Users-\/manager plugin for .htdigest files. Experimental and subject to change.
+\item Added\+: R\+FC 2324 H\+T\+TP 418 status code
+\item Fixed\+: Exclusive locks could in some cases be picked up as shared locks
+\item Fixed\+: Digest auth for non-\/apache servers had a bug (still not actually tested this well).
+\end{DoxyItemize}
+
+\subsection*{0.\+8-\/alpha (2009-\/05-\/30) }
+
+
+\begin{DoxyItemize}
+\item Changed\+: Renamed all exceptions! This is a compatibility break. Every Exception now follows Sabre\+\_\+\+D\+A\+V\+\_\+\+Exception\+\_\+\+File\+Not\+Found convention instead of Sabre\+\_\+\+D\+A\+V\+\_\+\+File\+Not\+Found\+Exception.
+\item Added\+: Browser plugin now allows uploading and creating directories straight from the browser.
+\item Added\+: 12 more unittests
+\item Fixed\+: Locking bug, which became prevalent on Windows Vista.
+\item Fixed\+: Netdrive support
+\item Fixed\+: Temporary\+File\+Filter filtered out too many files. Fixed some of the regexes.
+\item Fixed\+: Added R\+E\+A\+D\+ME and Change\+Log to package
+\end{DoxyItemize}
+
+\subsection*{0.\+7-\/alpha (2009-\/03-\/29) }
+
+
+\begin{DoxyItemize}
+\item Added\+: System to return complex properties from P\+R\+O\+P\+F\+I\+ND.
+\item Added\+: support for \{D\+AV\+:\}supportedlock.
+\item Added\+: support for \{D\+AV\+:\}lockdiscovery.
+\item Added\+: 6 new tests.
+\item Added\+: New plugin system.
+\item Added\+: Simple H\+T\+ML directory plugin, for browser access.
+\item Added\+: Server class now sends back standard pre-\/condition error xml bodies. This was new since R\+F\+C4918.
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Tree\+\_\+\+Aggregate, which can \textquotesingle{}host\textquotesingle{} multiple Tree objects into one.
+\item Added\+: simple basis for H\+T\+TP R\+E\+P\+O\+RT method. This method is not used yet, but can be used by plugins to add reports.
+\item Changed\+: -\/$>$get\+Size is only called for files, no longer for collections. r303
+\item Changed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Filter\+Tree is now Sabre\+\_\+\+D\+A\+V\+\_\+\+Tree\+\_\+\+Filter
+\item Changed\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Temporary\+File\+Filter is now called Sabre\+\_\+\+D\+A\+V\+\_\+\+Tree\+\_\+\+Temporary\+File\+Filter.
+\item Changed\+: removed functions (get(/set)H\+T\+T\+P\+Request(/\+Response)) from Server class, and using a public property instead.
+\item Fixed\+: bug related to parsing proppatch and propfind requests. Didn\textquotesingle{}t show up in most clients, but it needed fixing regardless. (r255)
+\item Fixed\+: auth-\/int is now properly supported within H\+T\+TP Digest.
+\item Fixed\+: Using application/xml for a mimetype vs. text/xml as per R\+F\+C4918 sec 8.\+2.
+\item Fixed\+: Temporary\+File\+Filter now lets through G\+ET\textquotesingle{}s if they actually exist on the backend. (r274)
+\item Fixed\+: Some methods didn\textquotesingle{}t get passed through in the Filter\+Tree (r283).
+\item Fixed\+: Lock\+Manager is now slightly more complex, Tree classes slightly less. (r287)
+\end{DoxyItemize}
+
+\subsection*{0.\+6-\/alpha (2009-\/02-\/16) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Now uses streams for files, instead of strings. This means it won\textquotesingle{}t require to hold entire files in memory, which can be an issue if you\textquotesingle{}re dealing with big files. \mbox{\hyperlink{class_note}{Note}} that this breaks compatibility for put() and create\+File methods.
+\item Added\+: H\+T\+TP Digest Authentication helper class.
+\item Added\+: Support for H\+T\+TP Range header
+\item Added\+: Support for E\+Tags within If\+: headers
+\item Added\+: The A\+PI can now return E\+Tags and override the default Content-\/\+Type
+\item Added\+: starting with basic framework for unittesting, using P\+H\+P\+Unit.
+\item Added\+: 49 unittests.
+\item Added\+: Abstraction for the H\+T\+TP request.
+\item Updated\+: Using Clark Notation for tags in properties. This means tags are serialized as \{namespace\}tag\+Name instead of namespace\+::tag\+Name
+\item Fixed\+: H\+T\+T\+P\+\_\+\+Basic\+Auth class now works as expected.
+\item Fixed\+: D\+A\+V\+\_\+\+Server uses / for a default base\+Url.
+\item Fixed\+: Last modification date is no longer ignored in P\+R\+O\+P\+F\+I\+ND.
+\item Fixed\+: P\+R\+O\+P\+F\+I\+ND now sends back information about the request\+Uri even when \char`\"{}\+Depth\+: 1\char`\"{} is specified.
+\end{DoxyItemize}
+
+\subsection*{0.\+5-\/alpha (2009-\/01-\/14) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Added a very simple example for implementing a mapping to P\+HP file streams. This should allow easy implementation of for example a Web\+D\+AV to F\+TP proxy.
+\item Added\+: H\+T\+TP Basic Authentication helper class.
+\item Added\+: Sabre\+\_\+\+H\+T\+T\+P\+\_\+\+Response class. This centralizes H\+T\+TP operations and will be a start towards the creating of a testing framework.
+\item Updated\+: Backwards compatibility break\+: all require\+\_\+once() statements are removed from all the files. It is now recommended to use autoloading of classes, or just including lib/\+Sabre.\+includes.\+php. This fix was made to allow easier integration into applications not using this standard inclusion model.
+\item Updated\+: Better in-\/file documentation.
+\item Updated\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+Tree can now work with Sabre\+\_\+\+D\+A\+V\+\_\+\+Lock\+Manager.
+\item Updated\+: Fixes a shared-\/lock bug.
+\item Updated\+: Removed ?$>$ from the bottom of each php file.
+\item Updated\+: Split up some operations from Sabre\+\_\+\+D\+A\+V\+\_\+\+Server to Sabre\+\_\+\+H\+T\+T\+P\+\_\+\+Response.
+\item Fixed\+: examples are now actually included in the pear package.
+\end{DoxyItemize}
+
+\subsection*{0.\+4-\/alpha (2008-\/11-\/05) }
+
+
+\begin{DoxyItemize}
+\item Passes all litmus tests!
+\item Added\+: more examples
+\item Added\+: Custom property support
+\item Added\+: Shared lock support
+\item Added\+: Depth support to locks
+\item Added\+: Locking on unmapped urls (non-\/existent nodes)
+\item Fixed\+: Advertising as Web\+D\+AV class 3 support
+\end{DoxyItemize}
+
+\subsection*{0.\+3-\/alpha (2008-\/06-\/29) }
+
+
+\begin{DoxyItemize}
+\item Fully working in MS Windows clients.
+\item Added\+: temporary file filter\+: support for smultron files.
+\item Added\+: Phing build scripts
+\item Added\+: P\+E\+AR package
+\item Fixed\+: M\+O\+VE bug identified using finder.
+\item Fixed\+: Using gzuncompress instead of gzdecode in the temporary file filter. This seems more common.
+\end{DoxyItemize}
+
+\subsection*{0.\+2-\/alpha (2008-\/05-\/27) }
+
+
+\begin{DoxyItemize}
+\item Somewhat working in Windows clients
+\item Added\+: Working P\+R\+O\+P\+P\+A\+T\+CH method (doesn\textquotesingle{}t support custom properties yet)
+\item Added\+: Temporary filename handling system
+\item Added\+: Sabre\+\_\+\+D\+A\+V\+\_\+\+I\+Quota to return quota information
+\item Added\+: P\+R\+O\+P\+F\+I\+ND now reads the request body and only supplies the requested properties
+\end{DoxyItemize}
+
+\subsection*{0.\+1-\/alpha (2008-\/04-\/04) }
+
+
+\begin{DoxyItemize}
+\item First release!
+\item Passes litmus\+: basic, http and copymove test.
+\item Fully working in Finder and Dav\+F\+S2.
+\end{DoxyItemize}
+
+Project started\+: 2007-\/12-\/13 

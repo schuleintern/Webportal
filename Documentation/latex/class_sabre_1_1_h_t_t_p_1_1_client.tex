@@ -1,0 +1,389 @@
+\hypertarget{class_sabre_1_1_h_t_t_p_1_1_client}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Client Klassenreferenz}
+\label{class_sabre_1_1_h_t_t_p_1_1_client}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_sabre_1_1_h_t_t_p_1_1_client}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a2d20620eaf735a3286d162bca9d4960b}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a7f3519f925a27ff12cf4bfa2c6980d92}{send}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a25bb46e1543b11f26ef20fc010ea60e2}{send\+Async}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, callable \$success=null, callable \$error=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a2e05ca19a5002d467fe7b2c2a50a9352}{poll}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a7a549abe7af0028a19d47d9bdeaafa7b}{wait}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a74054bf0fee0faa69e352bc209f07853}{set\+Throw\+Exceptions}} (\$throw\+Exceptions)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a3a384b6a3a171a642fe6b501ccd7eaa9}{add\+Curl\+Setting}} (\$name, \$value)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a94b8f1933a9d3e3bb5f5e56e3c67bb1d}\label{class_sabre_1_1_h_t_t_p_1_1_client_a94b8f1933a9d3e3bb5f5e56e3c67bb1d}} 
+const {\bfseries S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+SS} = 0
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a1627bd95316adc5372758d3a83d97d8c}\label{class_sabre_1_1_h_t_t_p_1_1_client_a1627bd95316adc5372758d3a83d97d8c}} 
+const {\bfseries S\+T\+A\+T\+U\+S\+\_\+\+C\+U\+R\+L\+E\+R\+R\+OR} = 1
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_af1d3f5d565aaa4cadd0be1f121f7a0b9}\label{class_sabre_1_1_h_t_t_p_1_1_client_af1d3f5d565aaa4cadd0be1f121f7a0b9}} 
+const {\bfseries S\+T\+A\+T\+U\+S\+\_\+\+H\+T\+T\+P\+E\+R\+R\+OR} = 2
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a6dec075ac2ae52ae24888498e2d7848f}{do\+Request}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a13048b29dd1f8e97481effa149f046f7}{create\+Curl\+Settings\+Array}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a05ab65c44b05372c582637604a19a617}{parse\+Curl\+Result}} (\$response, \$curl\+Handle)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a8f51bb4997b41cb1152d92f0fb5df62a}{send\+Async\+Internal}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, callable \$success, callable \$error, \$retry\+Count=0)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a90a7e064ac5f70e81caad0dbd1984d8f}{curl\+Exec}} (\$curl\+Handle)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a89f0e6bec2232a1662e60ff33df89af0}{curl\+Stuff}} (\$curl\+Handle)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_afe002e1ef057ea8527dc64a347d3f161}\label{class_sabre_1_1_h_t_t_p_1_1_client_afe002e1ef057ea8527dc64a347d3f161}} 
+{\bfseries \$curl\+Settings} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a0df41d188b89967859a97aade5358a3b}\label{class_sabre_1_1_h_t_t_p_1_1_client_a0df41d188b89967859a97aade5358a3b}} 
+{\bfseries \$throw\+Exceptions} = false
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_ac54b34692677c31c7ca271a8ea03bc4e}\label{class_sabre_1_1_h_t_t_p_1_1_client_ac54b34692677c31c7ca271a8ea03bc4e}} 
+{\bfseries \$max\+Redirects} = 5
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+A rudimentary H\+T\+TP client.
+
+This object wraps P\+HP\textquotesingle{}s curl extension and provides an easy way to send it a \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request}{Request}} object, and return a \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response}{Response}} object.
+
+This is by no means intended as the next best H\+T\+TP client, but it does the job and provides a simple integration with the rest of sabre/http.
+
+This client emits the following events\+: before\+Request(\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request) after\+Request(\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response) error(\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response, bool \&\$retry, int \$retry\+Count) exception(\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_exception}{Client\+Exception}} \$e, bool \&\$retry, int \$retry\+Count)
+
+The before\+Request event allows you to do some last minute changes to the request before it\textquotesingle{}s done, such as adding authentication headers.
+
+The after\+Request event will be emitted after the request is completed succesfully.
+
+If a H\+T\+TP error is returned (status code higher than 399) the error event is triggered. It\textquotesingle{}s possible using this event to retry the request, by setting retry to true.
+
+The amount of times a request has retried is passed as \$retry\+Count, which can be used to avoid retrying indefinitely. The first time the event is called, this will be 0.
+
+It\textquotesingle{}s also possible to intercept specific http errors, by subscribing to for example \textquotesingle{}error\+:401\textquotesingle{}.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 44 der Datei Client.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a2d20620eaf735a3286d162bca9d4960b}\label{class_sabre_1_1_h_t_t_p_1_1_client_a2d20620eaf735a3286d162bca9d4960b}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializes the client.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 72 der Datei Client.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a3a384b6a3a171a642fe6b501ccd7eaa9}\label{class_sabre_1_1_h_t_t_p_1_1_client_a3a384b6a3a171a642fe6b501ccd7eaa9}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!add\+Curl\+Setting@{add\+Curl\+Setting}}
+\index{add\+Curl\+Setting@{add\+Curl\+Setting}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{add\+Curl\+Setting()}{addCurlSetting()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::add\+Curl\+Setting (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Adds a C\+U\+RL setting.
+
+These settings will be included in every H\+T\+TP request.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$name} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 331 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a13048b29dd1f8e97481effa149f046f7}\label{class_sabre_1_1_h_t_t_p_1_1_client_a13048b29dd1f8e97481effa149f046f7}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!create\+Curl\+Settings\+Array@{create\+Curl\+Settings\+Array}}
+\index{create\+Curl\+Settings\+Array@{create\+Curl\+Settings\+Array}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{create\+Curl\+Settings\+Array()}{createCurlSettingsArray()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::create\+Curl\+Settings\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Turns a \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} object into an array with settings that can be fed to curl\+\_\+setopt
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 397 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a90a7e064ac5f70e81caad0dbd1984d8f}\label{class_sabre_1_1_h_t_t_p_1_1_client_a90a7e064ac5f70e81caad0dbd1984d8f}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!curl\+Exec@{curl\+Exec}}
+\index{curl\+Exec@{curl\+Exec}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{curl\+Exec()}{curlExec()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::curl\+Exec (\begin{DoxyParamCaption}\item[{}]{\$curl\+Handle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Calls curl\+\_\+exec
+
+This method exists so it can easily be overridden and mocked.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource & {\em \$curl\+Handle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 576 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a89f0e6bec2232a1662e60ff33df89af0}\label{class_sabre_1_1_h_t_t_p_1_1_client_a89f0e6bec2232a1662e60ff33df89af0}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!curl\+Stuff@{curl\+Stuff}}
+\index{curl\+Stuff@{curl\+Stuff}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{curl\+Stuff()}{curlStuff()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::curl\+Stuff (\begin{DoxyParamCaption}\item[{}]{\$curl\+Handle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Returns a bunch of information about a curl request.
+
+This method exists so it can easily be overridden and mocked.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource & {\em \$curl\+Handle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 590 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a6dec075ac2ae52ae24888498e2d7848f}\label{class_sabre_1_1_h_t_t_p_1_1_client_a6dec075ac2ae52ae24888498e2d7848f}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!do\+Request@{do\+Request}}
+\index{do\+Request@{do\+Request}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{do\+Request()}{doRequest()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::do\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method is responsible for performing a single request.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 343 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a05ab65c44b05372c582637604a19a617}\label{class_sabre_1_1_h_t_t_p_1_1_client_a05ab65c44b05372c582637604a19a617}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!parse\+Curl\+Result@{parse\+Curl\+Result}}
+\index{parse\+Curl\+Result@{parse\+Curl\+Result}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{parse\+Curl\+Result()}{parseCurlResult()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::parse\+Curl\+Result (\begin{DoxyParamCaption}\item[{}]{\$response,  }\item[{}]{\$curl\+Handle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Parses the result of a curl call in a format that\textquotesingle{}s a bit more convenient to work with.
+
+The method returns an array with the following elements\+:
+\begin{DoxyItemize}
+\item status -\/ one of the 3 S\+T\+A\+T\+US constants.
+\item curl\+\_\+errno -\/ A curl error number. Only set if status is S\+T\+A\+T\+U\+S\+\_\+\+C\+U\+R\+L\+E\+R\+R\+OR.
+\item curl\+\_\+errmsg -\/ A current error message. Only set if status is S\+T\+A\+T\+U\+S\+\_\+\+C\+U\+R\+L\+E\+R\+R\+OR.
+\item response -\/ \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response}{Response}} object. Only set if status is S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+SS, or S\+T\+A\+T\+U\+S\+\_\+\+H\+T\+T\+P\+E\+R\+R\+OR.
+\item http\+\_\+code -\/ H\+T\+TP status code, as an int. Only set if Only set if status is S\+T\+A\+T\+U\+S\+\_\+\+S\+U\+C\+C\+E\+SS, or S\+T\+A\+T\+U\+S\+\_\+\+H\+T\+T\+P\+E\+R\+R\+OR
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$response} & \\
+\hline
+resource & {\em \$curl\+Handle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response}{Response}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 478 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a2e05ca19a5002d467fe7b2c2a50a9352}\label{class_sabre_1_1_h_t_t_p_1_1_client_a2e05ca19a5002d467fe7b2c2a50a9352}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!poll@{poll}}
+\index{poll@{poll}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{poll()}{poll()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::poll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method checks if any http requests have gotten results, and if so, call the appropriate success or error handlers.
+
+This method will return true if there are still requests waiting to return, and false if all the work is done.
+
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 199 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a7f3519f925a27ff12cf4bfa2c6980d92}\label{class_sabre_1_1_h_t_t_p_1_1_client_a7f3519f925a27ff12cf4bfa2c6980d92}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!send@{send}}
+\index{send@{send}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request }\end{DoxyParamCaption})}
+
+Sends a request to a H\+T\+TP server, and returns a response.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 89 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a25bb46e1543b11f26ef20fc010ea60e2}\label{class_sabre_1_1_h_t_t_p_1_1_client_a25bb46e1543b11f26ef20fc010ea60e2}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!send\+Async@{send\+Async}}
+\index{send\+Async@{send\+Async}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{send\+Async()}{sendAsync()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::send\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{callable}]{\$success = {\ttfamily null},  }\item[{callable}]{\$error = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Sends a H\+T\+TP request asynchronously.
+
+Due to the nature of P\+HP, you must from time to time poll to see if any new responses came in.
+
+After calling send\+Async, you must therefore occasionally call the \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a2e05ca19a5002d467fe7b2c2a50a9352}{poll()}} method, or \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a7a549abe7af0028a19d47d9bdeaafa7b}{wait()}}.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} & {\em \$request} & \\
+\hline
+callable & {\em \$success} & \\
+\hline
+callable & {\em \$error} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 181 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a8f51bb4997b41cb1152d92f0fb5df62a}\label{class_sabre_1_1_h_t_t_p_1_1_client_a8f51bb4997b41cb1152d92f0fb5df62a}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!send\+Async\+Internal@{send\+Async\+Internal}}
+\index{send\+Async\+Internal@{send\+Async\+Internal}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{send\+Async\+Internal()}{sendAsyncInternal()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::send\+Async\+Internal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{callable}]{\$success,  }\item[{callable}]{\$error,  }\item[{}]{\$retry\+Count = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Sends an asynchronous H\+T\+TP request.
+
+We keep this in a separate method, so we can call it without triggering the before\+Request event and don\textquotesingle{}t do the \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a2e05ca19a5002d467fe7b2c2a50a9352}{poll()}}.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} & {\em \$request} & \\
+\hline
+callable & {\em \$success} & \\
+\hline
+callable & {\em \$error} & \\
+\hline
+int & {\em \$retry\+Count} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 546 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a74054bf0fee0faa69e352bc209f07853}\label{class_sabre_1_1_h_t_t_p_1_1_client_a74054bf0fee0faa69e352bc209f07853}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!set\+Throw\+Exceptions@{set\+Throw\+Exceptions}}
+\index{set\+Throw\+Exceptions@{set\+Throw\+Exceptions}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{set\+Throw\+Exceptions()}{setThrowExceptions()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::set\+Throw\+Exceptions (\begin{DoxyParamCaption}\item[{}]{\$throw\+Exceptions }\end{DoxyParamCaption})}
+
+If this is set to true, the \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client}{Client}} will automatically throw exceptions upon H\+T\+TP errors.
+
+This means that if a response came back with a status code greater than or equal to 400, we will throw a \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_http_exception}{Client\+Http\+Exception}}.
+
+This only works for the \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a7f3519f925a27ff12cf4bfa2c6980d92}{send()}} method. Throwing exceptions for \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_a25bb46e1543b11f26ef20fc010ea60e2}{send\+Async()}} is not supported.
+
+
+\begin{DoxyParams}[1]{Parameter}
+bool & {\em \$throw\+Exceptions} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 316 der Datei Client.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_a7a549abe7af0028a19d47d9bdeaafa7b}\label{class_sabre_1_1_h_t_t_p_1_1_client_a7a549abe7af0028a19d47d9bdeaafa7b}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}!wait@{wait}}
+\index{wait@{wait}!Sabre\+::\+H\+T\+T\+P\+::\+Client@{Sabre\+::\+H\+T\+T\+P\+::\+Client}}
+\subsubsection{\texorpdfstring{wait()}{wait()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+::wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Processes every H\+T\+TP request in the queue, and waits till they are all completed.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 294 der Datei Client.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/lib/Client.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/tests/Sabre/CalDAV/Backend/MockScheduling.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_3b73ca86a190240609bd293492658134.html">tests</a></li><li class="navelem"><a class="el" href="dir_10aad7aa0b11c6a2140c1561702a1118.html">Sabre</a></li><li class="navelem"><a class="el" href="dir_004111ab65c59ec8a59dc17ae136a499.html">CalDAV</a></li><li class="navelem"><a class="el" href="dir_98e26a132e265dcc5170dd81a2ca95c0.html">Backend</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MockScheduling.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_cal_d_a_v_1_1_backend.html">Sabre\CalDAV\Backend</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html">MockScheduling</a> <span class="keyword">extends</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html">Mock</a> implements <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support.html">SchedulingSupport</a> {</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">public</span> $schedulingObjects = [];</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#ae7d9e2f54ca746a2409ccd4529c32f18">   25</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#ae7d9e2f54ca746a2409ccd4529c32f18">getSchedulingObject</a>($principalUri, $objectUri) {</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span> (isset($this-&gt;schedulingObjects[$principalUri][$objectUri])) {</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">return</span> $this-&gt;schedulingObjects[$principalUri][$objectUri];</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#a3c4759a7ce8f76a5dc15319cf15c5031">   44</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#a3c4759a7ce8f76a5dc15319cf15c5031">getSchedulingObjects</a>($principalUri) {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> (isset($this-&gt;schedulingObjects[$principalUri])) {</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> array_values($this-&gt;schedulingObjects[$principalUri]);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> [];</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#a8cb76d18dfa6c8a346343041a21357b4">   60</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#a8cb76d18dfa6c8a346343041a21357b4">deleteSchedulingObject</a>($principalUri, $objectUri) {</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">if</span> (isset($this-&gt;schedulingObjects[$principalUri][$objectUri])) {</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            unset($this-&gt;schedulingObjects[$principalUri][$objectUri]);</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#ab0482b3d3c97f9a40ebd73864fb6556d">   76</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#ab0482b3d3c97f9a40ebd73864fb6556d">createSchedulingObject</a>($principalUri, $objectUri, $objectData) {</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">if</span> (!isset($this-&gt;schedulingObjects[$principalUri])) {</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            $this-&gt;schedulingObjects[$principalUri] = [];</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        $this-&gt;schedulingObjects[$principalUri][$objectUri] = [</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="stringliteral">&#39;uri&#39;</span>          =&gt; $objectUri,</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="stringliteral">&#39;calendardata&#39;</span> =&gt; $objectData,</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="stringliteral">&#39;lastmodified&#39;</span> =&gt; null,</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="stringliteral">&#39;etag&#39;</span>         =&gt; <span class="charliteral">&#39;&quot;&#39;</span> . md5($objectData) . <span class="charliteral">&#39;&quot;&#39;</span>,</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="stringliteral">&#39;size&#39;</span>         =&gt; strlen($objectData)</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        ];</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling_html_ab0482b3d3c97f9a40ebd73864fb6556d"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#ab0482b3d3c97f9a40ebd73864fb6556d">Sabre\CalDAV\Backend\MockScheduling\createSchedulingObject</a></div><div class="ttdeci">createSchedulingObject($principalUri, $objectUri, $objectData)</div><div class="ttdef"><b>Definition:</b> <a href="_mock_scheduling_8php_source.html#l00076">MockScheduling.php:76</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling_html"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html">Sabre\CalDAV\Backend\MockScheduling</a></div><div class="ttdef"><b>Definition:</b> <a href="_mock_scheduling_8php_source.html#l00005">MockScheduling.php:5</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_html"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support.html">Sabre\CalDAV\Backend\SchedulingSupport</a></div><div class="ttdef"><b>Definition:</b> <a href="_scheduling_support_8php_source.html#l00013">SchedulingSupport.php:13</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling_html_a8cb76d18dfa6c8a346343041a21357b4"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#a8cb76d18dfa6c8a346343041a21357b4">Sabre\CalDAV\Backend\MockScheduling\deleteSchedulingObject</a></div><div class="ttdeci">deleteSchedulingObject($principalUri, $objectUri)</div><div class="ttdef"><b>Definition:</b> <a href="_mock_scheduling_8php_source.html#l00060">MockScheduling.php:60</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_cal_d_a_v_1_1_backend_html"><div class="ttname"><a href="namespace_sabre_1_1_cal_d_a_v_1_1_backend.html">Sabre\CalDAV\Backend</a></div><div class="ttdef"><b>Definition:</b> <a href="_cal_d_a_v_2_backend_2_abstract_backend_8php_source.html#l00003">AbstractBackend.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling_html_ae7d9e2f54ca746a2409ccd4529c32f18"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#ae7d9e2f54ca746a2409ccd4529c32f18">Sabre\CalDAV\Backend\MockScheduling\getSchedulingObject</a></div><div class="ttdeci">getSchedulingObject($principalUri, $objectUri)</div><div class="ttdef"><b>Definition:</b> <a href="_mock_scheduling_8php_source.html#l00025">MockScheduling.php:25</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling_html_a3c4759a7ce8f76a5dc15319cf15c5031"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html#a3c4759a7ce8f76a5dc15319cf15c5031">Sabre\CalDAV\Backend\MockScheduling\getSchedulingObjects</a></div><div class="ttdeci">getSchedulingObjects($principalUri)</div><div class="ttdef"><b>Definition:</b> <a href="_mock_scheduling_8php_source.html#l00044">MockScheduling.php:44</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_html"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html">Sabre\CalDAV\Backend\Mock</a></div><div class="ttdef"><b>Definition:</b> <a href="dav_2tests_2_sabre_2_cal_d_a_v_2_backend_2_mock_8php_source.html#l00008">Mock.php:8</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

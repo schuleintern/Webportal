@@ -1,0 +1,145 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Subscriptions\textbackslash{}Plugin Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Plugin@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Plugin}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Subscriptions\textbackslash{}Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_accf9fe37641939ea1d2557f45a21ae1b}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_ad0b77dceec94b34d4292cb5d13e22099}{get\+Features}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_a3865b70ee78dc11b003e28cbf4343812}{prop\+Find}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}} \$prop\+Find, \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} \$node)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_a17d0df9b87139bfe08e8b6b8dd3d978c}{get\+Plugin\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_a47f2d39181c7798dfc956b33f9376266}{get\+Plugin\+Info}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This plugin adds calendar-\/subscription support to your Cal\+D\+AV server.
+
+Some clients support \textquotesingle{}managed subscriptions\textquotesingle{} server-\/side. This is basically a list of subscription urls a user is using.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 20 der Datei Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_ad0b77dceec94b34d4292cb5d13e22099}\label{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_ad0b77dceec94b34d4292cb5d13e22099}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin}!get\+Features@{get\+Features}}
+\index{get\+Features@{get\+Features}!Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Features()}{getFeatures()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Plugin\+::get\+Features (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method should return a list of server-\/features.
+
+This is for example \textquotesingle{}versioning\textquotesingle{} and is added to the D\+AV\+: header in an O\+P\+T\+I\+O\+NS response.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 53 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_a47f2d39181c7798dfc956b33f9376266}\label{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_a47f2d39181c7798dfc956b33f9376266}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin}!get\+Plugin\+Info@{get\+Plugin\+Info}}
+\index{get\+Plugin\+Info@{get\+Plugin\+Info}!Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Info()}{getPluginInfo()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Plugin\+::get\+Plugin\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a bunch of meta-\/data about the plugin.
+
+Providing this information is optional, and is mainly displayed by the Browser plugin.
+
+The description key in the returned array may contain html and will not be sanitized.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 111 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_a17d0df9b87139bfe08e8b6b8dd3d978c}\label{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_a17d0df9b87139bfe08e8b6b8dd3d978c}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin}!get\+Plugin\+Name@{get\+Plugin\+Name}}
+\index{get\+Plugin\+Name@{get\+Plugin\+Name}!Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Name()}{getPluginName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Plugin\+::get\+Plugin\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a plugin name.
+
+Using this name other plugins will be able to access other plugins using \+::get\+Plugin
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 94 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_accf9fe37641939ea1d2557f45a21ae1b}\label{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_accf9fe37641939ea1d2557f45a21ae1b}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin}!initialize@{initialize}}
+\index{initialize@{initialize}!Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Plugin\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}}}]{\$server }\end{DoxyParamCaption})}
+
+This initializes the plugin.
+
+This function is called by Sabre, after add\+Plugin is called.
+
+This method should set up the required event subscriptions.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Server & {\em \$server} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 33 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_a3865b70ee78dc11b003e28cbf4343812}\label{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_plugin_a3865b70ee78dc11b003e28cbf4343812}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin}!prop\+Find@{prop\+Find}}
+\index{prop\+Find@{prop\+Find}!Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Subscriptions\+::\+Plugin}}
+\subsubsection{\texorpdfstring{prop\+Find()}{propFind()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Plugin\+::prop\+Find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}}}]{\$prop\+Find,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}}}]{\$node }\end{DoxyParamCaption})}
+
+Triggered after properties have been fetched.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Prop\+Find & {\em \$prop\+Find} & \\
+\hline
+I\+Node & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 66 der Datei Plugin.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Subscriptions/Plugin.\+php\end{DoxyCompactItemize}

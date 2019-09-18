@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: ChangeLog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ChangeLog </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h2>4.1.2 (2016-12-15) </h2>
+<ul>
+<li>#340: Support for <code>BYYEARDAY</code> recurrence when <code>FREQ=YEARLY</code>. ()</li>
+<li>#341: Support for <code>BYWEEKNO</code> recurrence when <code>FREQ=YEARLY</code>. ()</li>
+<li>Updated to the latest windows timezone data mappings.</li>
+<li>#344: Auto-detecting more Outlook 365-generated timezone identifiers. ()</li>
+<li>#348: <code>FreeBusyGenerator</code> can now accept streams.</li>
+<li>Support sabre/xml 1.5 and 2.0.</li>
+<li>#355: Support <code>DateTimeInterface</code> in more places where only <code>DateTime</code> was supported. ().</li>
+<li>#351: Fixing an inclusive/exclusive problem with <code>isInTimeRange</code> and <code>fastForward</code> with all-day events. (, thanks you are brilliant).</li>
+</ul>
+<h2>4.1.1 (2016-07-15) </h2>
+<ul>
+<li>#327: Throwing <code>InvalidDataException</code> in more cases where invalid iCalendar dates and times were provided. ()</li>
+<li>#331: Fix dealing with multiple overridden instances falling on the same date/time (-sugarcrm).</li>
+<li>#333: Fix endless loop on invalid <code>BYMONTH</code> values in recurrence. ()</li>
+<li>#339: Fixed a few <code>validate()</code> results when repair is off. ()</li>
+<li>#338: Stripping invalid <code>BYMONTH=</code> rules during <code>validate()</code> ()</li>
+<li>#336: Fix incorrect <code>BYSECOND=</code> validation. ()</li>
+</ul>
+<h2>4.1.0 (2016-04-06) </h2>
+<ul>
+<li>#309: When expanding recurring events, the first event should also have a <code>RECURRENCE-ID</code> property.</li>
+<li>#306: iTip REPLYs to the first instance of a recurring event was not handled correctly.</li>
+<li>Slightly better error message during validation of <code>N</code> and <code>ADR</code> properties.</li>
+<li>#312: Correctly extracing timezone in the iTip broker, even when we don't have a master event. (-sugar).</li>
+<li>When validating a component's property that must appear once and which could automatically be repaired, make sure we report the change as 'repaired'.</li>
+<li>Added a PHPUnitAssertions trait. This trait makes it easy to compare two vcards or iCalendar objects semantically.</li>
+<li>Better error message when parsing objects with an invalid <code>VALUE</code> parameter.</li>
+</ul>
+<h2>4.0.3 (2016-03-12) </h2>
+<ul>
+<li>#300: Added <code>VCard::getByType()</code> to quickly get a property with a specific <code>TYPE</code> parameter. ()</li>
+<li>#302: <code>UNTIL</code> was not encoded correctly when converting to jCal. ()</li>
+<li>#303: <code>COUNT</code> is now encoded as an int in jCal instead of a string. ()</li>
+<li>#295: <code>RRULE</code> now has more validation and repair rules.</li>
+</ul>
+<h2>4.0.2 (2016-01-11) </h2>
+<ul>
+<li>#288: Only decode <code>CHARSET</code> if we're reading vCard 2.1. If it appears in any other document, we must ignore it.</li>
+</ul>
+<h2>4.0.1 (2016-01-04) </h2>
+<ul>
+<li>#284: When generating <code>CANCEL</code> iTip messages, we now include <code>DTEND</code>. ()</li>
+</ul>
+<h2>4.0.0 (2015-12-11) </h2>
+<ul>
+<li>#274: When creating new vCards, the default vCard version is now 4.0.</li>
+<li>#275: <code>VEVENT</code>, <code>VTODO</code> and <code>VCARD</code> now automatically get a <code>UID</code> and <code>DTSTAMP</code> property if this was not already specified.</li>
+<li><code>ParseException</code> now extends <code>\Exception</code>.</li>
+<li><code>Sabre\VObject\Reader::read</code> now has a <code>$charset</code> argument.</li>
+<li>#272: <code>Sabre\VObject\Recur\EventIterator::$maxInstances</code> is now <code>Sabre\VObject\Settings::$maxRecurrences</code> and is also honored by the FreeBusyGenerator.</li>
+<li>#278: <code>expand()</code> did not work correctly on events with sub-components.</li>
+</ul>
+<h2>4.0.0-beta1 (2015-12-02) </h2>
+<ul>
+<li>#258: Support for expanding events that use <code>RDATE</code>. ()</li>
+<li>#258: Correctly support TZID for events that use <code>RDATE</code>. ()</li>
+<li>#240: <code>Component\VCalendar::expand()</code> now returns a new expanded <code>VCalendar</code> object, instead of editing the existing <code>VCalendar</code> in-place. This is a BC break.</li>
+<li>#265: Using the new <code>InvalidDataException</code> in place of <code>InvalidArgumentException</code> and <code>LogicException</code> in all places where we fail because there was something wrong with input data.</li>
+<li>#227: Always add <code>VALUE=URI</code> to <code>PHOTO</code> properties.</li>
+<li>#235: Always add <code>VALUE=URI</code> to <code>URL</code> properties.</li>
+<li>It's now possible to override which class is used instead of <code>Component\VCalendar</code> or <code>Component\VCard</code> during parsing.</li>
+<li>#263: Lots of small cleanups. ()</li>
+<li>#220: Automatically stop recurring after 3500 recurrences.</li>
+<li>#41: Allow user to set different encoding than UTF-8 when decoding vCards.</li>
+<li>#41: Support the <code>ENCODING</code> parameter from vCard 2.1. Both ISO-8859-1 and Windows-1252 are currently supported.</li>
+<li>#185: Fix encoding/decoding of <code>TIME</code> values in jCal/jCard.</li>
+</ul>
+<h2>4.0.0-alpha2 (2015-09-04) </h2>
+<ul>
+<li>Updated windows timezone file to support new mexican timezone.</li>
+<li>#239: Added a <code>BirthdayCalendarGenerator</code>. ()</li>
+<li>#250: <code>isInTimeRange()</code> now considers the timezone for floating dates and times. (-hackmann)</li>
+<li>Added a duplicate vcard merging tool for the command line.</li>
+<li>#253: <code>isInTimeRange()</code> now correctly handles events that throw the <code>NoInstancesException</code> exception. (, )</li>
+<li>#254: The parser threw an <code>E_NOTICE</code> for certain invalid objects. It now correctly throws a <code>ParseException</code>.</li>
+</ul>
+<h2>4.0.0-alpha1 (2015-07-17) </h2>
+<ul>
+<li>sabre/vobject now requires PHP 5.5.</li>
+<li>#244: PHP7 support.</li>
+<li>Lots of speedups and reduced memory usage!</li>
+<li>#160: Support for xCal a.k.a. RFC6321! ()</li>
+<li>#192: Support for xCard a.k.a. RFC6351! ()</li>
+<li>#139: We now accept <code>DateTimeInterface</code> wherever it accepted <code>DateTime</code> before in arguments. This means that either <code>DateTime</code> or <code>DateTimeImmutable</code> may be used everywhere.</li>
+<li>#242: Full support for the <code>VAVAILABILITY</code> component, and calculating <code>VFREEBUSY</code> based on <code>VAVAILABILITY</code> data.</li>
+<li>#186: Fixing conversion of <code>UTC-OFFSET</code> properties when going back and forward between jCal and iCalendar.</li>
+<li>Properties, Components and Parameters now implement PHP's <code>JsonSerializable</code> interface.</li>
+<li>#139: We now <em>always</em> return <code>DateTimeImmutable</code> from any method. This could potentially have big implications if you manipulate Date objects anywhere.</li>
+<li>#161: Simplified <code>ElementList</code> by extending <code>ArrayIterator</code>.</li>
+<li>Removed <code>RecurrenceIterator</code> (use Recur instead).</li>
+<li>Now using php-cs-fixer to automatically enforce and correct CS.</li>
+<li>#233: The <code>+00:00</code> timezone is now recognized as UTC. ()</li>
+<li>#237: Added a <code>destroy()</code> method to all documents. This method breaks any circular references, allowing PHP to free up memory.</li>
+<li>#197: Made accessing properties and objects by their name a lot faster. This especially helps objects that have a lot of sub-components or properties, such as large iCalendar objects.</li>
+<li>#197: The <code>$children</code> property on components has been changed from <code>public</code> to <code>protected</code>. Use the <code>children()</code> method instead to get a flat list of objects.</li>
+<li>#244: The <code>Float</code> and <code>Integer</code> classes have been renamed to <code>FloatValue</code> and <code>IntegerValue</code> to allow PHP 7 compatibility.</li>
+</ul>
+<h2>3.5.3 (2016-10-06) </h2>
+<ul>
+<li>#331: Fix dealing with multiple overridden instances falling on the same date/time (-sugarcrm).</li>
+</ul>
+<h2>3.5.2 (2016-04-24) </h2>
+<ul>
+<li>#312: Backported a fix related to iTip processing of events with timezones, without a master event.</li>
+</ul>
+<h2>3.5.1 (2016-04-06) </h2>
+<ul>
+<li>#309: When expanding recurring events, the first event should also have a <code>RECURRENCE-ID</code> property.</li>
+<li>#306: iTip REPLYs to the first instance of a recurring event was not handled correctly.</li>
+</ul>
+<h2>3.5.0 (2016-01-11) </h2>
+<ul>
+<li>This release supports PHP 7, contrary to 3.4.x versions.</li>
+<li>BC Break: <code>Sabre\VObject\Property\Float</code> has been renamed to <code>Sabre\VObject\Property\FloatValue</code>.</li>
+<li>BC Break: <code>Sabre\VObject\Property\Integer</code> has been renamed to <code>Sabre\VObject\Property\IntegerValue</code>.</li>
+</ul>
+<h2>3.4.9 (2016-01-11) </h2>
+<ul>
+<li>This package now specifies in composer.json that it does not support PHP 7. For PHP 7, use version 3.5.x or 4.x.</li>
+</ul>
+<h2>3.4.8 (2016-01-04) </h2>
+<ul>
+<li>#284: When generating <code>CANCEL</code> iTip messages, we now include <code>DTEND</code>. ().</li>
+</ul>
+<h2>3.4.7 (2015-09-05) </h2>
+<ul>
+<li>#253: Handle <code>isInTimeRange</code> for recurring events that have 0 valid instances. (, ).</li>
+</ul>
+<h2>3.4.6 (2015-08-06) </h2>
+<ul>
+<li>#250: Recurring all-day events are incorrectly included in time range requests when not using UTC in the time range. (-hackmann)</li>
+</ul>
+<h2>3.4.5 (2015-06-02) </h2>
+<ul>
+<li>#229: Converting vcards from 3.0 to 4.0 that contained a <code>LANG</code> property would throw an error.</li>
+</ul>
+<h2>3.4.4 (2015-05-27) </h2>
+<ul>
+<li>#228: Fixed a 'party crasher' bug in the iTip broker. This would break scheduling in some cases.</li>
+</ul>
+<h2>3.4.3 (2015-05-19) </h2>
+<ul>
+<li>#219: Corrected validation of <code>EXDATE</code> properties with more than one value.</li>
+<li>#212: <code>BYSETPOS</code> with values below <code>-1</code> was broken and could cause infinite loops.</li>
+<li>#211: Fix <code>BYDAY=-5TH</code> in recurrence iterator. ()</li>
+<li>#216: <code>ENCODING</code> parameter is now validated for all document types.</li>
+<li>#217: Initializing vCard <code>DATE</code> objects with a PHP DateTime object will now work correctly. ()</li>
+</ul>
+<h2>3.4.2 (2015-02-25) </h2>
+<ul>
+<li>#210: iTip: Replying to an event without a master event was broken.</li>
+</ul>
+<h2>3.4.1 (2015-02-24) </h2>
+<ul>
+<li>A minor change to ensure that unittests work correctly in the sabre/dav test-suite.</li>
+</ul>
+<h2>3.4.0 (2015-02-23) </h2>
+<ul>
+<li>#196: Made parsing recurrence rules a lot faster on big calendars.</li>
+<li>Updated windows timezone mappings to latest unicode version.</li>
+<li>#202: Support for parsing and validating <code>VAVAILABILITY</code> components. ()</li>
+<li>#195: PHP 5.3 compatibility in 'generatevcards' script. ()</li>
+<li>#205: Improving handling of multiple <code>EXDATE</code> when processing iTip changes. (-hackmann)</li>
+<li>#187: Fixed validator rules for <code>LAST-MODIFIED</code> properties.</li>
+<li>#188: Retain floating times when generating instances using <code>Recur\EventIterator</code>.</li>
+<li>#203: Skip tests for timezones that are not supported on older PHP versions, instead of a hard fail.</li>
+<li>#204: Dealing a bit better with vCard date-time values that contained milliseconds. (which is normally invalid). (-hackmann)</li>
+</ul>
+<h2>3.3.5 (2015-01-09) </h2>
+<ul>
+<li>#168: Expanding calendars now removes objects with recurrence rules that don't have a valid recurrence instance.</li>
+<li>#177: SCHEDULE-STATUS should not contain a reason phrase, only a status code.</li>
+<li>#175: Parser can now read and skip the UTF-8 BOM.</li>
+<li>#179: Added <code>isFloating</code> to <code>DATE-TIME</code> properties.</li>
+<li>#179: Fixed jCal serialization of floating <code>DATE-TIME</code> properties.</li>
+<li>#173: vCard converter failed for <code>X-ABDATE</code> properties that had no <code>X-ABLABEL</code>.</li>
+<li>#180: Added <code>PROFILE_CALDAV</code> and <code>PROFILE_CARDDAV</code> to enable validation rules specific for CalDAV/CardDAV servers.</li>
+<li>#176: A missing <code>UID</code> is no longer an error, but a warning for the vCard validator, unless <code>PROFILE_CARDDAV</code> is specified.</li>
+</ul>
+<h2>3.3.4 (2014-11-19) </h2>
+<ul>
+<li>#154: Converting <code>ANNIVERSARY</code> to <code>X-ANNIVERSARY</code> and <code>X-ABDATE</code> and vice-versa when converting to/from vCard 4.</li>
+<li>#154: It's now possible to easily select all vCard properties belonging to a single group with &lsquo;$vcard-&gt;{'ITEM1.&rsquo;}` syntax. (-hackmann)</li>
+<li>#156: Simpler way to check if a string is UTF-8. ()</li>
+<li>Unittest improvements.</li>
+<li>#159: The recurrence iterator, freebusy generator and iCalendar DATE and DATE-TIME properties can now all accept a reference timezone when working floating times or all-day events.</li>
+<li>#159: Master events will no longer get a <code>RECURRENCE-ID</code> when expanding.</li>
+<li>#159: <code>RECURRENCE-ID</code> for all-day events will now be correct when expanding.</li>
+<li>#163: Added a <code>getTimeZone()</code> method to <code>VTIMEZONE</code> components.</li>
+</ul>
+<h2>3.3.3 (2014-10-09) </h2>
+<ul>
+<li>#142: <code>CANCEL</code> and <code>REPLY</code> messages now include the <code>DTSTART</code> from the original event.</li>
+<li>#143: <code>SCHEDULE-AGENT</code> on the <code>ORGANIZER</code> property is respected.</li>
+<li>#144: <code>PARTSTAT=NEEDS-ACTION</code> is now set for new invites, if no <code>PARTSTAT</code> is set to support the inbox feature of iOS.</li>
+<li>#147: Bugs related to scheduling all-day events.</li>
+<li>#148: Ignore events that have attendees but no organizer.</li>
+<li>#149: Avoiding logging errors during timezone detection. This is a workaround for a PHP bug.</li>
+<li>Support for "Line Islands Standard Time" windows timezone.</li>
+<li>#154: Correctly work around vCard parameters that have a value but no name.</li>
+</ul>
+<h2>3.3.2 (2014-09-19) </h2>
+<ul>
+<li>Changed: iTip broker now sets RSVP status to false when replies are received.</li>
+<li>#118: iTip <a class="el" href="class_message.html">Message</a> now has a <code>getScheduleStatus()</code> method.</li>
+<li>#119: Support for detecting 'significant changes'.</li>
+<li>#120: Support for <code>SCHEDULE-FORCE-SEND</code>.</li>
+<li>#121: iCal demands parameters containing the + sign to be quoted.</li>
+<li>#122: Don't generate REPLY messages for events that have been cancelled.</li>
+<li>#123: Added <code>SUMMARY</code> to iTip messages.</li>
+<li>#130: Incorrect validation rules for <code>RELATED</code> (should be <code>RELATED-TO</code>).</li>
+<li>#128: <code>ATTACH</code> in iCalendar is <code>URI</code> by default, not <code>BINARY</code>.</li>
+<li>#131: RRULE that doesn't provide a single valid instance now throws an exception.</li>
+<li>#136: Validator rejects <em>all</em> control characters. We were missing a few.</li>
+<li>#133: Splitter objects will throw exceptions when receiving incompatible objects.</li>
+<li>#127: Attendees who delete recurring event instances events they had already declined earlier will no longer generate another reply.</li>
+<li>#125: Send CANCEL messages when ORGANIZER property gets deleted.</li>
+</ul>
+<h2>3.3.1 (2014-08-18) </h2>
+<ul>
+<li>Changed: It's now possible to pass DateTime objects when using the magic setters on properties. (&lsquo;$event-&gt;DTSTART = new DateTime('now&rsquo;)`).</li>
+<li>#111: iTip Broker does not process attendee adding events to EXDATE.</li>
+<li>#112: EventIterator now sets TZID on RECURRENCE-ID.</li>
+<li>#113: Timezone support during creation of iTip REPLY messages.</li>
+<li>#114: VTIMEZONE is retained when generating new REQUEST objects.</li>
+<li>#114: Support for 'MAILTO:' style email addresses (in uppercase) in the iTip broker. This improves evolution support.</li>
+<li>#115: Using REQUEST-STATUS from REPLY messages and now propegating that into SCHEDULE-STATUS.</li>
+</ul>
+<h2>3.3.0 (2014-08-07) </h2>
+<ul>
+<li>We now use PSR-4 for the directory structure. This means that everything that was used to be in the <code>lib/Sabre/VObject</code> directory is now moved to <code>lib/</code>. If you use composer to load this library, you shouldn't have to do anything about that though.</li>
+<li>VEVENT now get populated with a DTSTAMP and UID property by default.</li>
+<li>BC Break: Removed the 'includes.php' file. Use composer instead.</li>
+<li>#103: Added support for processing <a href="http://tools.ietf.org/html/rfc5546">iTip</a> messages. This allows a user to parse incoming iTip messages and apply the result on existing calendars, or automatically generate invites/replies/cancellations based on changes that a user made on objects.</li>
+<li>#75, #58, #18: Fixes related to overriding the first event in recurrences.</li>
+<li>Added: VCalendar::getBaseComponent to find the 'master' component in a calendar.</li>
+<li>#51: Support for iterating RDATE properties.</li>
+<li>Fixed: Issue #101: RecurrenceIterator::nextMonthly() shows events that are excluded events with wrong time</li>
+</ul>
+<h2>3.2.4 (2014-07-14) </h2>
+<ul>
+<li>Added: Issue #98. The VCardConverter now takes <code>X-APPLE-OMIT-YEAR</code> into consideration when converting between vCard 3 and 4.</li>
+<li>Fixed: Issue #96. Some support for Yahoo's broken vcards.</li>
+<li>Fixed: PHP 5.3 support was broken in the cli tool.</li>
+</ul>
+<h2>3.2.3 (2014-06-12) </h2>
+<ul>
+<li>Validator now checks if DUE and DTSTART are of the same type in VTODO, and ensures that DUE is always after DTSTART.</li>
+<li>Removed documentation from source repository, to <a href="http://sabre.io/vobject/">http://sabre.io/vobject/</a></li>
+<li>Expanded the vobject cli tool validation output to make it easier to find issues.</li>
+<li>Fixed: vobject repair. It was not working for iCalendar objects.</li>
+</ul>
+<h2>3.2.2 (2014-05-07) </h2>
+<ul>
+<li>Minor tweak in unittests to make it run on PHP 5.5.12. Json-prettifying slightly changed which caused the test to fail.</li>
+</ul>
+<h2>3.2.1 (2014-05-03) </h2>
+<ul>
+<li>Minor tweak to make the unittests run with the latest hhvm on travis.</li>
+<li>Updated timezone definitions.</li>
+<li>Updated copyright links to point to <a href="http://sabre.io/">http://sabre.io/</a></li>
+</ul>
+<h2>3.2.0 (2014-04-02) </h2>
+<ul>
+<li>Now hhvm compatible!</li>
+<li>The validator can now detect a <em>lot</em> more problems. Many rules for both iCalendar and vCard were added.</li>
+<li>Added: bin/generate_vcards, a utility to generate random vcards for testing purposes. Patches are welcome to add more data.</li>
+<li>Updated: Windows timezone mapping to latest version from unicode.org</li>
+<li>Changed: The timezone maps are now loaded in from external files, in lib/Sabre/VObject/timezonedata.</li>
+<li>Added: Fixing badly encoded URL's from google contacts vcards.</li>
+<li>Fixed: Issue #68. Couldn't decode properties ending in a colon.</li>
+<li>Fixed: Issue #72. RecurrenceIterator should respect timezone in the UNTIL clause.</li>
+<li>Fixed: Issue #67. BYMONTH limit on DAILY recurrences.</li>
+<li>Fixed: Issue #26. Return a more descriptive error when coming across broken BYDAY rules.</li>
+<li>Fixed: Issue #28. Incorrect timezone detection for some timezones.</li>
+<li>Fixed: Issue #70. Casting a parameter with a null value to string would fail.</li>
+<li>Added: Support for rfc6715 and rfc6474.</li>
+<li>Added: Support for DateTime objects in the VCard DATE-AND-OR-TIME property.</li>
+<li>Added: UUIDUtil, for easily creating unique identifiers.</li>
+<li>Fixed: Issue #83. Creating new VALUE=DATE objects using php's DateTime.</li>
+<li>Fixed: Issue #86. Don't go into an infinite loop when php errors are disabled and an invalid file is read.</li>
+</ul>
+<h2>3.1.4 (2014-03-30) </h2>
+<ul>
+<li>Fixed: Issue #87: Several compatibility fixes related to timezone handling changes in PHP 5.5.10.</li>
+</ul>
+<h2>3.1.3 (2013-10-02) </h2>
+<ul>
+<li>Fixed: Support from properties from draft-daboo-valarm-extensions-04. Issue #56.</li>
+<li>Fixed: Issue #54. Parsing a stream of multiple vcards separated by more than one newline. Thanks  for the patch.</li>
+<li>Fixed: Serializing vcard 2.1 parameters with no name caused a literal '1' to be inserted.</li>
+<li>Added: VCardConverter removed properties that are no longer supported in vCard 4.0.</li>
+<li>Added: vCards with a minimum number of values (such as N), but don't have that many, are now automatically padded with empty components.</li>
+<li>Added: The vCard validator now also checks for a minimum number of components, and has the ability to repair these.</li>
+<li>Added: Some support for vCard 2.1 in the VCard converter, to upgrade to vCard 3.0 or 4.0.</li>
+<li>Fixed: Issue 60 Use Document::$componentMap when instantiating the top-level VCalendar and VCard components.</li>
+<li>Fixed: Issue 62: Parsing iCalendar parameters with no value.</li>
+<li>Added: &ndash;forgiving option to vobject utility.</li>
+<li>Fixed: Compound properties such as ADR were not correctly split up in vCard 2.1 quoted printable-encoded properties.</li>
+<li>Fixed: Issue 64: <a class="el" href="class_encoding.html">Encoding</a> of binary properties of converted vCards. Thanks  for the patch.</li>
+</ul>
+<h2>3.1.2 (2013-08-13) </h2>
+<ul>
+<li>Fixed: Setting correct property group on VCard conversion</li>
+</ul>
+<h2>3.1.1 (2013-08-02) </h2>
+<ul>
+<li>Fixed: Issue #53. A regression in RecurrenceIterator.</li>
+</ul>
+<h2>3.1.0 (2013-07-27) </h2>
+<ul>
+<li>Added: bad-ass new cli debugging utility (in bin/vobject).</li>
+<li>Added: jCal and jCard parser.</li>
+<li>Fixed: URI properties should not escape ; and ,.</li>
+<li>Fixed: VCard 4 documents now correctly use URI as a default value-type for PHOTO and others. BINARY no longer exists in vCard 4.</li>
+<li>Added: Utility to convert between 2.1, 3.0 and 4.0 vCards.</li>
+<li>Added: You can now add() multiple parameters to a property in one call.</li>
+<li>Added: Parameter::has() for easily checking if a parameter value exists.</li>
+<li>Added: VCard::preferred() to find a preferred email, phone number, etc for a contact.</li>
+<li>Changed: All $duration properties are now public.</li>
+<li>Added: A few validators for iCalendar documents.</li>
+<li>Fixed: Issue #50. RecurrenceIterator gives incorrect result when exception events are out of order in the iCalendar file.</li>
+<li>Fixed: Issue #48. Overridden events in the recurrence iterator that were past the UNTIL date were ignored.</li>
+<li>Added: getDuration for DURATION values such as TRIGGER. Thanks to .</li>
+<li>Fixed: Issue #52. vCard 2.1 parameters with no name may lose values if there's more than 1. Thanks to .</li>
+</ul>
+<h2>3.0.0 (2013-06-21) </h2>
+<ul>
+<li>Fixed: includes.php file was still broken. Our tool to generate it had some bugs.</li>
+</ul>
+<h2>3.0.0-beta4 (2013-06-21) </h2>
+<ul>
+<li>Fixed: includes.php was no longer up to date.</li>
+</ul>
+<h2>3.0.0-beta3 (2013-06-17) </h2>
+<ul>
+<li>Added: OPTION_FORGIVING now also allows slashes in property names.</li>
+<li>Fixed: DateTimeParser no longer fails on dates with years &lt; 1000 &amp; &gt; 4999</li>
+<li>Fixed: Issue 36: Workaround for the recurrenceiterator and caldav events with a missing base event.</li>
+<li>Fixed: jCard encoding of TIME properties.</li>
+<li>Fixed: jCal encoding of REQUEST-STATUS, GEO and PERIOD values.</li>
+</ul>
+<h2>3.0.0-beta2 (2013-06-10) </h2>
+<ul>
+<li>Fixed: Corrected includes.php file.</li>
+<li>Fixed: vCard date-time parser supported extended-format dates as well.</li>
+<li>Changed: Properties have been moved to an ICalendar or VCard directory.</li>
+<li>Fixed: Couldn't parse vCard 3 extended format dates and times.</li>
+<li>Fixed: Couldn't export jCard DATE values correctly.</li>
+<li>Fixed: Recursive loop in ICalendar property.</li>
+</ul>
+<h2>3.0.0-beta1 (2013-06-07) </h2>
+<ul>
+<li>Added: jsonSerialize() for creating jCal and jCard documents.</li>
+<li>Added: helper method to parse vCard dates and times.</li>
+<li>Added: Specialized classes for FLOAT, LANGUAGE-TAG, TIME, TIMESTAMP, DATE-AND-OR-TIME, CAL-ADDRESS, UNKNOWN and UTC-OFFSET properties.</li>
+<li>Removed: CommaSeparatedText property. Now included into Text.</li>
+<li>Fixed: Multiple parameters with the same name are now correctly encoded.</li>
+<li>Fixed: Parameter values containing a comma are now enclosed in double-quotes.</li>
+<li>Fixed: Iterating parameter values should now fully work as expected.</li>
+<li>Fixed: Support for vCard 2.1 nameless parameters.</li>
+<li>Changed: $valueMap, $componentMap and $propertyMap now all use fully-qualified class names, so they are actually overridable.</li>
+<li>Fixed: Updating DATE-TIME to DATE values now behaves like expected.</li>
+</ul>
+<h2>3.0.0-alpha4 (2013-05-31) </h2>
+<ul>
+<li>Added: It's now possible to send parser options to the splitter classes.</li>
+<li>Added: A few tweaks to improve component and property creation.</li>
+</ul>
+<h2>3.0.0-alpha3 (2013-05-13) </h2>
+<ul>
+<li>Changed: propertyMap, valueMap and componentMap are now static properties.</li>
+<li>Changed: Component::remove() will throw an exception when trying to a node that's not a child of said component.</li>
+<li>Added: Splitter objects are now faster, line numbers are accurately reported and use less memory.</li>
+<li>Added: MimeDir parser can now continue parsing with the same stream buffer.</li>
+<li>Fixed: vobjectvalidate.php is operational again.</li>
+<li>Fixed:  is properly stripped in text values.</li>
+<li>Fixed: QUOTED-PRINTABLE is now correctly encoded as well as encoded, for vCards 2.1.</li>
+<li>Fixed: Parser assumes vCard 2.1, if no version was supplied.</li>
+</ul>
+<h2>3.0.0-alpha2 (2013-05-22) </h2>
+<ul>
+<li>Fixed: vCard URL properties were referencing a non-existant class.</li>
+</ul>
+<h2>3.0.0-alpha1 (2013-05-21) </h2>
+<ul>
+<li>Fixed: Now correctly dealing with escaping of properties. This solves the problem with double-backslashes where they don't belong.</li>
+<li>Added: Easy support for properties with more than one value, using setParts and getParts.</li>
+<li>Added: Support for broken 2.1 vCards produced by microsoft.</li>
+<li>Added: Automatically decoding quoted-printable values.</li>
+<li>Added: Automatically decoding base64 values.</li>
+<li>Added: Decoding RFC6868 parameter values (uses ^ as an escape character).</li>
+<li>Added: Fancy new MimeDir parser that can also parse streams.</li>
+<li>Added: Automatically mapping many, many properties to a property-class with specialized API's.</li>
+<li>Added: remove() method for easily removing properties and sub-components components.</li>
+<li>Changed: Components, Properties and Parameters can no longer be created with Component::create, Property::create and Parameter::create. They must instead be created through the root component. (A VCalendar or VCard object).</li>
+<li>Changed: API for DateTime properties has slightly changed.</li>
+<li>Changed: the -&gt;value property is now protected everywhere. Use getParts() and getValue() instead.</li>
+<li>BC Break: No support for mac newlines (). Never came across these anyway.</li>
+<li>Added: add() method to the Property class.</li>
+<li>Added: It's now possible to easy set multi-value properties as arrays.</li>
+<li>Added: When setting date-time properties you can just pass PHP's DateTime object.</li>
+<li>Added: New components automatically get a bunch of default properties, such as VERSION and CALSCALE.</li>
+<li>Added: You can add new sub-components much quicker with the magic setters, and add() method.</li>
+</ul>
+<h2>2.1.7 (2015-01-21) </h2>
+<ul>
+<li>Fixed: Issue #94, a workaround for bad escaping of ; and , in compound properties. It's not a full solution, but it's an improvement for those stuck in the 2.1 versions.</li>
+</ul>
+<h2>2.1.6 (2014-12-10) </h2>
+<ul>
+<li>Fixed: Minor change to make sure that unittests succeed on every PHP version.</li>
+</ul>
+<h2>2.1.5 (2014-06-03) </h2>
+<ul>
+<li>Fixed: #94: Better parameter escaping.</li>
+<li>Changed: Documentation cleanups.</li>
+</ul>
+<h2>2.1.4 (2014-03-30) </h2>
+<ul>
+<li>Fixed: Issue #87: Several compatibility fixes related to timezone handling changes in PHP 5.5.10.</li>
+</ul>
+<h2>2.1.3 (2013-10-02) </h2>
+<ul>
+<li>Fixed: Issue #55.  must be stripped from property values.</li>
+<li>Fixed: Issue #65. Putting quotes around parameter values that contain a colon.</li>
+</ul>
+<h2>2.1.2 (2013-08-02) </h2>
+<ul>
+<li>Fixed: Issue #53. A regression in RecurrenceIterator.</li>
+</ul>
+<h2>2.1.1 (2013-07-27) </h2>
+<ul>
+<li>Fixed: Issue #50. RecurrenceIterator gives incorrect result when exception events are out of order in the iCalendar file.</li>
+<li>Fixed: Issue #48. Overridden events in the recurrence iterator that were past the UNTIL date were ignored.</li>
+</ul>
+<h2>2.1.0 (2013-06-17) </h2>
+<ul>
+<li>This version is fully backwards compatible with 2.0.*. However, it contains a few new API's that mimic the VObject 3 API. This allows it to be used a 'bridge' version. Specifically, this new version exists so SabreDAV 1.7 and 1.8 can run with both the 2 and 3 versions of this library.</li>
+<li>Added: Property::hasTime().</li>
+<li>Added: Property::hasTime().</li>
+<li>Added: Property::getValue().</li>
+<li>Added: Document class.</li>
+<li>Added: Document::createComponent and Document::createProperty.</li>
+<li>Added: Parameter::getValue().</li>
+</ul>
+<h2>2.0.7 (2013-03-05) </h2>
+<ul>
+<li>Fixed: Microsoft re-uses their magic numbers for different timezones, specifically id 2 for both Sarajevo and Lisbon). A workaround was added to deal with this.</li>
+</ul>
+<h2>2.0.6 (2013-02-17) </h2>
+<ul>
+<li>Fixed: The reader now properly parses parameters without a value.</li>
+</ul>
+<h2>2.0.5 (2012-11-05) </h2>
+<ul>
+<li>Fixed: The FreeBusyGenerator is now properly using the factory methods for creation of components and properties.</li>
+</ul>
+<h2>2.0.4 (2012-11-02) </h2>
+<ul>
+<li>Added: Known Lotus Notes / Domino timezone id's.</li>
+</ul>
+<h2>2.0.3 (2012-10-29) </h2>
+<ul>
+<li>Added: Support for 'GMT+????' format in TZID's.</li>
+<li>Added: Support for formats like SystemV/EST5EDT in TZID's.</li>
+<li>Fixed: RecurrenceIterator now repairs recurrence rules where UNTIL &lt; DTSTART.</li>
+<li>Added: Support for BYHOUR in FREQ=DAILY ().</li>
+<li>Added: Support for BYHOUR and BYDAY in FREQ=WEEKLY.</li>
+</ul>
+<h2>2.0.2 (2012-10-06) </h2>
+<ul>
+<li>Added: includes.php file, to load the entire library in one go.</li>
+<li>Fixed: A problem with determining alarm triggers for TODO's.</li>
+</ul>
+<h2>2.0.1 (2012-09-22) </h2>
+<ul>
+<li>Removed: Element class. It wasn't used.</li>
+<li>Added: Basic validation and repair methods for broken input data.</li>
+<li>Fixed: RecurrenceIterator could infinitely loop when an INTERVAL of 0 was specified.</li>
+<li>Added: A cli script that can validate and automatically repair vcards and iCalendar objects.</li>
+<li>Added: A new 'Compound' property, that can automatically split up parts for properties such as N, ADR, ORG and CATEGORIES.</li>
+<li>Added: Splitter classes, that can split up large objects (such as exports) into individual objects (thanks  and -hackmann).</li>
+<li>Added: VFREEBUSY component, which allows easily checking wether timeslots are available.</li>
+<li>Added: The Reader class now has a 'FORGIVING' option, which allows it to parse properties with incorrect characters in the name (at this time, it just allows underscores).</li>
+<li>Added: Also added the 'IGNORE_INVALID_LINES' option, to completely disregard any invalid lines.</li>
+<li>Fixed: A bug in Windows timezone-id mappings for times created in Greenlands timezone (sorry Greenlanders! I do care!).</li>
+<li>Fixed: DTEND was not generated correctly for VFREEBUSY reports.</li>
+<li>Fixed: Parser is at least 25% faster with real-world data.</li>
+</ul>
+<h2>2.0.0 (2012-08-08) </h2>
+<ul>
+<li>VObject is now a separate project from SabreDAV. See the SabreDAV changelog for version information before 2.0.</li>
+<li>New: VObject library now uses PHP 5.3 namespaces.</li>
+<li>New: It's possible to specify lists of parameters when constructing properties.</li>
+<li>New: made it easier to construct the FreeBusyGenerator. </li>
+</ul>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

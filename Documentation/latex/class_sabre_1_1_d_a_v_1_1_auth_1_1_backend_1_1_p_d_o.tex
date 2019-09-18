@@ -1,0 +1,94 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}P\+DO Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+P\+DO@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+P\+DO}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}P\+DO\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o_a15e35f8396884fad19af06d9b85f9db8}{\+\_\+\+\_\+construct}} (\textbackslash{}\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o}{P\+DO}} \$pdo)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o_a17bf29a6cd60e95adcc7a59de4eea575}{get\+Digest\+Hash}} (\$realm, \$username)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o_ab82d1b2be8da7125a42d3a9333b119cf}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o_ab82d1b2be8da7125a42d3a9333b119cf}} 
+{\bfseries \$table\+Name} = \textquotesingle{}users\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o_a1a28bd59b9529d32d03cc35587d1950d}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o_a1a28bd59b9529d32d03cc35587d1950d}} 
+{\bfseries \$pdo}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This is an authentication backend that uses a database to manage passwords.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 12 der Datei P\+D\+O.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o_a15e35f8396884fad19af06d9b85f9db8}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o_a15e35f8396884fad19af06d9b85f9db8}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+P\+DO}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+P\+DO}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+P\+D\+O\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\textbackslash{}\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o}{P\+DO}}}]{\$pdo }\end{DoxyParamCaption})}
+
+Creates the backend object.
+
+If the filename argument is passed in, it will parse out the specified file fist.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\textbackslash{}\+P\+DO & {\em \$pdo} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 36 der Datei P\+D\+O.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o_a17bf29a6cd60e95adcc7a59de4eea575}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_p_d_o_a17bf29a6cd60e95adcc7a59de4eea575}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+P\+DO}!get\+Digest\+Hash@{get\+Digest\+Hash}}
+\index{get\+Digest\+Hash@{get\+Digest\+Hash}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+P\+DO}}
+\subsubsection{\texorpdfstring{get\+Digest\+Hash()}{getDigestHash()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+P\+D\+O\+::get\+Digest\+Hash (\begin{DoxyParamCaption}\item[{}]{\$realm,  }\item[{}]{\$username }\end{DoxyParamCaption})}
+
+Returns the digest hash for a user.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$realm} & \\
+\hline
+string & {\em \$username} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 49 der Datei P\+D\+O.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Auth/\+Backend/P\+D\+O.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,143 @@
+\hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l}{}\section{Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}I\+A\+CL Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l}\index{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL@{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}
+Klassendiagramm für Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}I\+A\+CL\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a05f531b4ae1a86eab4e6e95b0413390e}{get\+Owner}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8ba38d5a99d771d7ae2719dd483515f6}{get\+Group}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8fe3b3a5b48eae789d7eb722b340045c}{get\+A\+CL}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a95e96725db02aae734ce5e7fbb438174}{set\+A\+CL}} (array \$acl)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a9db850218d4002ed21bbd87665e0c614}{get\+Supported\+Privilege\+Set}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+A\+C\+L-\/enabled node
+
+If you want to add Web\+D\+AV A\+CL to a node, you must implement this class
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei I\+A\+C\+L.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8fe3b3a5b48eae789d7eb722b340045c}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8fe3b3a5b48eae789d7eb722b340045c}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL}!get\+A\+CL@{get\+A\+CL}}
+\index{get\+A\+CL@{get\+A\+CL}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL}}
+\subsubsection{\texorpdfstring{get\+A\+C\+L()}{getACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+C\+L\+::get\+A\+CL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of A\+CE\textquotesingle{}s for this node.
+
+Each A\+CE has the following properties\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}privilege\textquotesingle{}, a string such as \{D\+AV\+:\}read or \{D\+AV\+:\}write. These are currently the only supported privileges
+\item \textquotesingle{}principal\textquotesingle{}, a url to the principal who owns the node
+\item \textquotesingle{}protected\textquotesingle{} (optional), indicating that this A\+CE is not allowed to be updated.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_home_ae0d277110da1fcc90378591dbde19b82}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Home}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a48cd2a6648e33d44c9e0e6ee0ba12407}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_object_a74f6cef6011e3c8045d1d57b0115ce60}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Object}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_subscription_a156a1762940f1732231c0d4328c52aa8}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Subscription}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_card_a90af69dccfdb104a918c09aaad628594}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Card}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a032faf190d9a2cb08354ecaeca948e8f}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_scheduling_object_a4ceae3dda6c56e995dc4a0a973446389}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Scheduling\+Object}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_ac9de38316e6e254deb3a844a0d3c7d84}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_a20aa5b9fe8e871143f0b616fd7bedfe5}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+Home\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_acc8f8f7412ce13e3c6d59eeb5fa3db35}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_collection_abf277bc82822cb13082a5e2625676cf8}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_outbox_afe3f32920f90bbb243a9f5f705548d49}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Outbox}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_collection_aafdbe3eae8320d236789740ba2f49871}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_file_a68a29ed0ebbf5819e2958e7110a572da}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+File}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a2c9847639e9c69f53d39a8d71d704ab6}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8ba38d5a99d771d7ae2719dd483515f6}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8ba38d5a99d771d7ae2719dd483515f6}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL}!get\+Group@{get\+Group}}
+\index{get\+Group@{get\+Group}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL}}
+\subsubsection{\texorpdfstring{get\+Group()}{getGroup()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+C\+L\+::get\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a group principal
+
+This must be a url to a principal, or null if there\textquotesingle{}s no owner
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_af63c8a7655e4bb7eb9770369619af403}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a05f531b4ae1a86eab4e6e95b0413390e}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a05f531b4ae1a86eab4e6e95b0413390e}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL}!get\+Owner@{get\+Owner}}
+\index{get\+Owner@{get\+Owner}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL}}
+\subsubsection{\texorpdfstring{get\+Owner()}{getOwner()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+C\+L\+::get\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the owner principal
+
+This must be a url to a principal, or null if there\textquotesingle{}s no owner
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_home_aea7f05be2069407a39e6ec0cf444f6d9}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Home}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_aa3425682a478cc4c10f8828290e55665}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_a305c57570d6a0434064deb1c3fa551f1}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a9b250620ece0dd4a7d13eb2589b44222}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_object_a13769288f14402408b0bd4328d48349c}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Object}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_afc2b53f38407b25302906080cf04d176}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_subscription_a3a73ec58f4ea3410a5341d7af1611d20}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Subscription}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_card_aed3e88c557d1bf6b1dfd75b02bad3fbc}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Card}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_aaae98d89fe203488407265e19ec7e875}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node_a0810acd54778a3067fdae01d77bc8b77}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Node}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_scheduling_object_a0273452750e1669a154a6f98a7b93132}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Scheduling\+Object}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection_a2da08679114fa20070147096aacfca72}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_collection_ab8caea96564eb502945e9151918b91cb}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_outbox_ac8cf772a8ade2c6c02c8218f0f4689f0}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Outbox}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_file_aae1b5e16fe8fea6323e590710611f656}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+File}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a24283bdd3d5c45d8aeae2fba3324fefa}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a9db850218d4002ed21bbd87665e0c614}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a9db850218d4002ed21bbd87665e0c614}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL}!get\+Supported\+Privilege\+Set@{get\+Supported\+Privilege\+Set}}
+\index{get\+Supported\+Privilege\+Set@{get\+Supported\+Privilege\+Set}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL}}
+\subsubsection{\texorpdfstring{get\+Supported\+Privilege\+Set()}{getSupportedPrivilegeSet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+C\+L\+::get\+Supported\+Privilege\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of supported privileges for this node.
+
+The returned data structure is a list of nested privileges. See Sabre\+::get\+Default\+Supported\+Privilege\+Set for a simple standard structure.
+
+If null is returned from this method, the default privilege set is used, which is fine for most common usecases.
+
+\begin{DoxyReturn}{Rückgabe}
+array$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a9fe13e6c41773c26427f9b1ab46b3c8f}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a95e96725db02aae734ce5e7fbb438174}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a95e96725db02aae734ce5e7fbb438174}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL}!set\+A\+CL@{set\+A\+CL}}
+\index{set\+A\+CL@{set\+A\+CL}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+A\+CL}}
+\subsubsection{\texorpdfstring{set\+A\+C\+L()}{setACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+C\+L\+::set\+A\+CL (\begin{DoxyParamCaption}\item[{array}]{\$acl }\end{DoxyParamCaption})}
+
+Updates the A\+CL
+
+This method will receive a list of new A\+CE\textquotesingle{}s as an array argument.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$acl} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a97023e609682d3ed8b6df9ef6d2004eb}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V\+A\+C\+L/I\+A\+C\+L.\+php\end{DoxyCompactItemize}

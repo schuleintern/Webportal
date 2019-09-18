@@ -1,0 +1,240 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Mock\+Sharing Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Mock\+Sharing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.786070cm]{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a408506db952e5b53fde3a99da4557a48}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a408506db952e5b53fde3a99da4557a48}} 
+{\bfseries \+\_\+\+\_\+construct} (array \$calendars=\mbox{[}$\,$\mbox{]}, array \$calendar\+Data=\mbox{[}$\,$\mbox{]}, array \$notifications=\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a7cc6409f0296b256ee8132d5179afc21}{get\+Calendars\+For\+User}} (\$principal\+Uri)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a826daec9d320900a4b0c5d18cd53f82b}{get\+Notifications\+For\+Principal}} (\$principal\+Uri)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_aa3e5c69e15c12111c779ffeda8511361}{delete\+Notification}} (\$principal\+Uri, \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface}{Notification\+Interface}} \$notification)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a2a87bd1cd094d478cb880c9ed5ac9b09}{update\+Invites}} (\$calendar\+Id, array \$sharees)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a00ec7859036057a4ebce446f169a60b6}{get\+Invites}} (\$calendar\+Id)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a5ac03b4237d34ab9fcd5e5dc7414b83e}{share\+Reply}} (\$href, \$status, \$calendar\+Uri, \$in\+Reply\+To, \$summary=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a27430bb5fc8c5bc917fd54dca083f069}{set\+Publish\+Status}} (\$calendar\+Id, \$value)
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 8 der Datei Mock\+Sharing.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_aa3e5c69e15c12111c779ffeda8511361}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_aa3e5c69e15c12111c779ffeda8511361}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}!delete\+Notification@{delete\+Notification}}
+\index{delete\+Notification@{delete\+Notification}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}}
+\subsubsection{\texorpdfstring{delete\+Notification()}{deleteNotification()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing\+::delete\+Notification (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface}{Notification\+Interface}}}]{\$notification }\end{DoxyParamCaption})}
+
+This deletes a specific notifcation.
+
+This may be called by a client once it deems a notification handled.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+Notification\+Interface & {\em \$notification} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_acb6eb34436a6dd471cdd963af285c22f}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Notification\+Support}}.
+
+
+
+Definiert in Zeile 84 der Datei Mock\+Sharing.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a7cc6409f0296b256ee8132d5179afc21}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a7cc6409f0296b256ee8132d5179afc21}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}!get\+Calendars\+For\+User@{get\+Calendars\+For\+User}}
+\index{get\+Calendars\+For\+User@{get\+Calendars\+For\+User}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}}
+\subsubsection{\texorpdfstring{get\+Calendars\+For\+User()}{getCalendarsForUser()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing\+::get\+Calendars\+For\+User (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri }\end{DoxyParamCaption})}
+
+Returns a list of calendars for a principal.
+
+Every project is an array with the following keys\+:
+\begin{DoxyItemize}
+\item id, a unique id that will be used by other functions to modify the calendar. This can be the same as the uri or a database key.
+\item uri, which the basename of the uri with which the calendar is accessed.
+\item principal\+Uri. The owner of the calendar. Almost always the same as principal\+Uri passed to this method.
+\end{DoxyItemize}
+
+Furthermore it can contain webdav properties in clark notation. A very common one is \textquotesingle{}\{D\+AV\+:\}displayname\textquotesingle{}.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_a41d069c48af0155b8e6e04bee46c70ba}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 37 der Datei Mock\+Sharing.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a00ec7859036057a4ebce446f169a60b6}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a00ec7859036057a4ebce446f169a60b6}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}!get\+Invites@{get\+Invites}}
+\index{get\+Invites@{get\+Invites}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}}
+\subsubsection{\texorpdfstring{get\+Invites()}{getInvites()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing\+::get\+Invites (\begin{DoxyParamCaption}\item[{}]{\$calendar\+Id }\end{DoxyParamCaption})}
+
+Returns the list of people whom this calendar is shared with.
+
+Every item in the returned list must be a Sharee object with at least the following properties set\+: \$href \$share\+Access \$invite\+Status
+
+and optionally\+: \$properties
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$calendar\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a82223ce074cb75008e420beda5df94c8}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sharing\+Support}}.
+
+
+
+Definiert in Zeile 151 der Datei Mock\+Sharing.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a826daec9d320900a4b0c5d18cd53f82b}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a826daec9d320900a4b0c5d18cd53f82b}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}!get\+Notifications\+For\+Principal@{get\+Notifications\+For\+Principal}}
+\index{get\+Notifications\+For\+Principal@{get\+Notifications\+For\+Principal}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}}
+\subsubsection{\texorpdfstring{get\+Notifications\+For\+Principal()}{getNotificationsForPrincipal()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing\+::get\+Notifications\+For\+Principal (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri }\end{DoxyParamCaption})}
+
+Returns a list of notifications for a given principal url.
+
+The returned array should only consist of implementations of Sabre.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_a80acc162d3dc807dc1eefa36c6b7cced}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Notification\+Support}}.
+
+
+
+Definiert in Zeile 66 der Datei Mock\+Sharing.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a27430bb5fc8c5bc917fd54dca083f069}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a27430bb5fc8c5bc917fd54dca083f069}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}!set\+Publish\+Status@{set\+Publish\+Status}}
+\index{set\+Publish\+Status@{set\+Publish\+Status}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}}
+\subsubsection{\texorpdfstring{set\+Publish\+Status()}{setPublishStatus()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing\+::set\+Publish\+Status (\begin{DoxyParamCaption}\item[{}]{\$calendar\+Id,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Publishes a calendar
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$calendar\+Id} & \\
+\hline
+bool & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a890bbb111b3e3dc28716129d323fe25a}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sharing\+Support}}.
+
+
+
+Definiert in Zeile 187 der Datei Mock\+Sharing.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a5ac03b4237d34ab9fcd5e5dc7414b83e}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a5ac03b4237d34ab9fcd5e5dc7414b83e}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}!share\+Reply@{share\+Reply}}
+\index{share\+Reply@{share\+Reply}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}}
+\subsubsection{\texorpdfstring{share\+Reply()}{shareReply()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing\+::share\+Reply (\begin{DoxyParamCaption}\item[{}]{\$href,  }\item[{}]{\$status,  }\item[{}]{\$calendar\+Uri,  }\item[{}]{\$in\+Reply\+To,  }\item[{}]{\$summary = {\ttfamily null} }\end{DoxyParamCaption})}
+
+This method is called when a user replied to a request to share.
+
+
+\begin{DoxyParams}[1]{Parameter}
+ & {\em string} & href The sharee who is replying (often a mailto\+: address) \\
+\hline
+ & {\em int} & status One of the \+::\+I\+N\+V\+I\+T\+E\+\_\+$\ast$ constants \\
+\hline
+string & {\em \$calendar\+Uri} & The url to the calendar thats being shared \\
+\hline
+string & {\em \$in\+Reply\+To} & The unique id this message is a response to \\
+\hline
+string & {\em \$summary} & A description of the reply \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_a689057e6de75fb97ca88a3af4bba4d62}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Notification\+Support}}.
+
+
+
+Definiert in Zeile 171 der Datei Mock\+Sharing.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a2a87bd1cd094d478cb880c9ed5ac9b09}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a2a87bd1cd094d478cb880c9ed5ac9b09}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}!update\+Invites@{update\+Invites}}
+\index{update\+Invites@{update\+Invites}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Sharing}}
+\subsubsection{\texorpdfstring{update\+Invites()}{updateInvites()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing\+::update\+Invites (\begin{DoxyParamCaption}\item[{}]{\$calendar\+Id,  }\item[{array}]{\$sharees }\end{DoxyParamCaption})}
+
+Updates the list of shares.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$calendar\+Id} & \\
+\hline
+ & {\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support_a1a8bd8b5909e5fb0e481e27b100d503e}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sharing\+Support}}.
+
+
+
+Definiert in Zeile 101 der Datei Mock\+Sharing.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+Cal\+D\+A\+V/\+Backend/Mock\+Sharing.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,101 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Expand\+Events\+Double\+Events\+Test Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Expand\+Events\+Double\+Events\+Test@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Expand\+Events\+Double\+Events\+Test}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Expand\+Events\+Double\+Events\+Test\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test_a781758d8e336c330782d75ae83b6a71d}\label{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test_a781758d8e336c330782d75ae83b6a71d}} 
+{\bfseries test\+Expand} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test_a5ab03f36cbe1320166205a44428e3083}\label{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test_a5ab03f36cbe1320166205a44428e3083}} 
+{\bfseries \$setup\+Cal\+D\+AV} = true
+\item 
+{\bfseries \$caldav\+Calendars}
+\item 
+{\bfseries \$caldav\+Calendar\+Objects}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This unittests is created to find out why certain events show up twice.
+
+Hopefully, by the time I\textquotesingle{}m done with this, I\textquotesingle{}ve both found the problem, and fixed it \+:)
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Expand\+Events\+Double\+Events\+Test.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test_ad83e4afd6f9b4b655bff58324f7fa44d}\label{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test_ad83e4afd6f9b4b655bff58324f7fa44d}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Expand\+Events\+Double\+Events\+Test@{Sabre\+::\+Cal\+D\+A\+V\+::\+Expand\+Events\+Double\+Events\+Test}!\$caldav\+Calendar\+Objects@{\$caldav\+Calendar\+Objects}}
+\index{\$caldav\+Calendar\+Objects@{\$caldav\+Calendar\+Objects}!Sabre\+::\+Cal\+D\+A\+V\+::\+Expand\+Events\+Double\+Events\+Test@{Sabre\+::\+Cal\+D\+A\+V\+::\+Expand\+Events\+Double\+Events\+Test}}
+\subsubsection{\texorpdfstring{\$caldav\+Calendar\+Objects}{$caldavCalendarObjects}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Expand\+Events\+Double\+Events\+Test\+::\$caldav\+Calendar\+Objects\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= [
+        1 => [
+           \textcolor{stringliteral}{'event.ics'} => [
+                \textcolor{stringliteral}{'calendardata'} => \textcolor{stringliteral}{'BEGIN:VCALENDAR}
+\textcolor{stringliteral}{VERSION:2.0}
+\textcolor{stringliteral}{BEGIN:VEVENT}
+\textcolor{stringliteral}{UID:foobar}
+\textcolor{stringliteral}{DTEND;TZID=Europe/Berlin:20120207T191500}
+\textcolor{stringliteral}{RRULE:FREQ=DAILY;INTERVAL=1;COUNT=3}
+\textcolor{stringliteral}{SUMMARY:RecurringEvents 3 times}
+\textcolor{stringliteral}{DTSTART;TZID=Europe/Berlin:20120207T181500}
+\textcolor{stringliteral}{END:VEVENT}
+\textcolor{stringliteral}{BEGIN:VEVENT}
+\textcolor{stringliteral}{CREATED:20120207T111900Z}
+\textcolor{stringliteral}{UID:foobar}
+\textcolor{stringliteral}{DTEND;TZID=Europe/Berlin:20120208T191500}
+\textcolor{stringliteral}{SUMMARY:RecurringEvents 3 times OVERWRITTEN}
+\textcolor{stringliteral}{DTSTART;TZID=Europe/Berlin:20120208T181500}
+\textcolor{stringliteral}{RECURRENCE-ID;TZID=Europe/Berlin:20120208T181500}
+\textcolor{stringliteral}{END:VEVENT}
+\textcolor{stringliteral}{END:VCALENDAR}
+\textcolor{stringliteral}{'}
+\end{DoxyCode}
+
+
+Definiert in Zeile 31 der Datei Expand\+Events\+Double\+Events\+Test.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test_acf8956147241233770ef6f5f188ae00e}\label{class_sabre_1_1_cal_d_a_v_1_1_expand_events_double_events_test_acf8956147241233770ef6f5f188ae00e}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Expand\+Events\+Double\+Events\+Test@{Sabre\+::\+Cal\+D\+A\+V\+::\+Expand\+Events\+Double\+Events\+Test}!\$caldav\+Calendars@{\$caldav\+Calendars}}
+\index{\$caldav\+Calendars@{\$caldav\+Calendars}!Sabre\+::\+Cal\+D\+A\+V\+::\+Expand\+Events\+Double\+Events\+Test@{Sabre\+::\+Cal\+D\+A\+V\+::\+Expand\+Events\+Double\+Events\+Test}}
+\subsubsection{\texorpdfstring{\$caldav\+Calendars}{$caldavCalendars}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Expand\+Events\+Double\+Events\+Test\+::\$caldav\+Calendars\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= [
+        [
+            \textcolor{stringliteral}{'id'}           => 1,
+            \textcolor{stringliteral}{'name'}         => \textcolor{stringliteral}{'Calendar'}
+\end{DoxyCode}
+
+
+Definiert in Zeile 22 der Datei Expand\+Events\+Double\+Events\+Test.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+Cal\+D\+A\+V/Expand\+Events\+Double\+Events\+Test.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,50 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_quota}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}I\+Quota Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_i_quota}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Quota@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Quota}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}I\+Quota\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{interface_sabre_1_1_d_a_v_1_1_i_quota}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_quota_a38730776dffcebd1c486acaf1bf470e4}{get\+Quota\+Info}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_quota}{I\+Quota}} interface
+
+Implement this interface to add the ability to return quota information. The Object\+Tree will check for quota information on any given node. If the information is not available it will attempt to fetch the information from the root node.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei I\+Quota.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_quota_a38730776dffcebd1c486acaf1bf470e4}\label{interface_sabre_1_1_d_a_v_1_1_i_quota_a38730776dffcebd1c486acaf1bf470e4}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Quota@{Sabre\+::\+D\+A\+V\+::\+I\+Quota}!get\+Quota\+Info@{get\+Quota\+Info}}
+\index{get\+Quota\+Info@{get\+Quota\+Info}!Sabre\+::\+D\+A\+V\+::\+I\+Quota@{Sabre\+::\+D\+A\+V\+::\+I\+Quota}}
+\subsubsection{\texorpdfstring{get\+Quota\+Info()}{getQuotaInfo()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Quota\+::get\+Quota\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the quota information
+
+This method M\+U\+ST return an array with 2 values, the first being the total used space, the second the available space (in bytes) 
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_directory_ade982b162db5a0310179c05a2d47a507}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+Directory}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_directory_aea57550df5c833e8c056451f364ea2de}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+Directory}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/I\+Quota.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/vobject/lib/Property/IntegerValue.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_d45491ed8370ce848e382bcf93442678.html">vobject</a></li><li class="navelem"><a class="el" href="dir_1ed89ee66666afc6edd074eb1b9eee0f.html">lib</a></li><li class="navelem"><a class="el" href="dir_425e5033f245e86f82500707717b4dca.html">Property</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">IntegerValue.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_v_object_1_1_property.html">Sabre\VObject\Property</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="namespace_sabre_1_1_v_object_1_1_property.html">Sabre\VObject\Property</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html">IntegerValue</a> <span class="keyword">extends</span> <a class="code" href="class_sabre_1_1_v_object_1_1_property.html">Property</a> {</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#acb60394cb1ecfb5b0b523601c05a8fdc">   30</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#acb60394cb1ecfb5b0b523601c05a8fdc">setRawMimeDirValue</a>($val) {</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        $this-&gt;<a class="code" href="class_sabre_1_1_v_object_1_1_property.html#ae323a5e508abb9bd96449dc7b09f8bf5">setValue</a>((<span class="keywordtype">int</span>)$val);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#af8410affb4955c55a8145378e4ad2bb0">   41</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#af8410affb4955c55a8145378e4ad2bb0">getRawMimeDirValue</a>() {</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> $this-&gt;value;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#a5d1d1292b993a8317f9d8aff316b9697">   55</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#a5d1d1292b993a8317f9d8aff316b9697">getValueType</a>() {</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;INTEGER&#39;</span>;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#a11a1ace366d20bd9c75d89603bd90a3a">   68</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#a11a1ace366d20bd9c75d89603bd90a3a">getJsonValue</a>() {</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> [(int)$this-&gt;<a class="code" href="class_sabre_1_1_v_object_1_1_property.html#a9813d84d8d1f59231f69a729505227a9">getValue</a>()];</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#aa5764004cad757b839c18c7865911779">   82</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#aa5764004cad757b839c18c7865911779">setXmlValue</a>(array $value) {</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        $value = array_map(<span class="stringliteral">&#39;intval&#39;</span>, $value);</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        parent::setXmlValue($value);</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_v_object_1_1_property_html"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_property.html">Sabre\VObject\Property</a></div><div class="ttdef"><b>Definition:</b> <a href="webdav_2_sabre_d_a_v_2vendor_2sabre_2vobject_2lib_2_property_8php_source.html#l00017">Property.php:17</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_property_1_1_integer_value_html"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html">Sabre\VObject\Property\IntegerValue</a></div><div class="ttdef"><b>Definition:</b> <a href="_integer_value_8php_source.html#l00018">IntegerValue.php:18</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_property_1_1_integer_value_html_aa5764004cad757b839c18c7865911779"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#aa5764004cad757b839c18c7865911779">Sabre\VObject\Property\IntegerValue\setXmlValue</a></div><div class="ttdeci">setXmlValue(array $value)</div><div class="ttdef"><b>Definition:</b> <a href="_integer_value_8php_source.html#l00082">IntegerValue.php:82</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_property_html_a9813d84d8d1f59231f69a729505227a9"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_property.html#a9813d84d8d1f59231f69a729505227a9">Sabre\VObject\Property\getValue</a></div><div class="ttdeci">getValue()</div><div class="ttdef"><b>Definition:</b> <a href="webdav_2_sabre_d_a_v_2vendor_2sabre_2vobject_2lib_2_property_8php_source.html#l00115">Property.php:115</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_property_html_ae323a5e508abb9bd96449dc7b09f8bf5"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_property.html#ae323a5e508abb9bd96449dc7b09f8bf5">Sabre\VObject\Property\setValue</a></div><div class="ttdeci">setValue($value)</div><div class="ttdef"><b>Definition:</b> <a href="webdav_2_sabre_d_a_v_2vendor_2sabre_2vobject_2lib_2_property_8php_source.html#l00098">Property.php:98</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_property_1_1_integer_value_html_acb60394cb1ecfb5b0b523601c05a8fdc"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#acb60394cb1ecfb5b0b523601c05a8fdc">Sabre\VObject\Property\IntegerValue\setRawMimeDirValue</a></div><div class="ttdeci">setRawMimeDirValue($val)</div><div class="ttdef"><b>Definition:</b> <a href="_integer_value_8php_source.html#l00030">IntegerValue.php:30</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_property_1_1_integer_value_html_a5d1d1292b993a8317f9d8aff316b9697"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#a5d1d1292b993a8317f9d8aff316b9697">Sabre\VObject\Property\IntegerValue\getValueType</a></div><div class="ttdeci">getValueType()</div><div class="ttdef"><b>Definition:</b> <a href="_integer_value_8php_source.html#l00055">IntegerValue.php:55</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_property_1_1_integer_value_html_a11a1ace366d20bd9c75d89603bd90a3a"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#a11a1ace366d20bd9c75d89603bd90a3a">Sabre\VObject\Property\IntegerValue\getJsonValue</a></div><div class="ttdeci">getJsonValue()</div><div class="ttdef"><b>Definition:</b> <a href="_integer_value_8php_source.html#l00068">IntegerValue.php:68</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_property_1_1_integer_value_html_af8410affb4955c55a8145378e4ad2bb0"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_property_1_1_integer_value.html#af8410affb4955c55a8145378e4ad2bb0">Sabre\VObject\Property\IntegerValue\getRawMimeDirValue</a></div><div class="ttdeci">getRawMimeDirValue()</div><div class="ttdef"><b>Definition:</b> <a href="_integer_value_8php_source.html#l00041">IntegerValue.php:41</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_v_object_1_1_property_html"><div class="ttname"><a href="namespace_sabre_1_1_v_object_1_1_property.html">Sabre\VObject\Property</a></div><div class="ttdef"><b>Definition:</b> <a href="webdav_2_sabre_d_a_v_2vendor_2sabre_2vobject_2lib_2_property_2_binary_8php_source.html#l00003">Binary.php:3</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

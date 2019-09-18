@@ -1,0 +1,311 @@
+\hypertarget{class_sabre_1_1_event_1_1_promise}{}\section{Sabre\textbackslash{}Event\textbackslash{}Promise Klassenreferenz}
+\label{class_sabre_1_1_event_1_1_promise}\index{Sabre\textbackslash{}\+Event\textbackslash{}\+Promise@{Sabre\textbackslash{}\+Event\textbackslash{}\+Promise}}
+\subsection*{Klassen}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_1_1_functions_test}{Functions\+Test}}
+\item 
+class \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_1_1_promise_test}{Promise\+Test}}
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_a96e07267a63bbfd68f8277405594d32f}{\+\_\+\+\_\+construct}} (callable \$executor=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_aaacfe0e7ff639e2db43db8e9143b326e}{then}} (callable \$on\+Fulfilled=null, callable \$on\+Rejected=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_aa45393483cc9bcc0feefcc53f0dba76c}{otherwise}} (callable \$on\+Rejected)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_a846345ad77b797c51daa024d7364c7cf}{fulfill}} (\$value=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_acea25bb367709121b776607c8d229e11}{reject}} (\$reason=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_aea21d20be6cc569fdd727bbd3c6b5dbc}{wait}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_aced9a7533529562d138b9c02ab6d7140}{error}} (callable \$on\+Rejected)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_a67f3e30bf34b8c9489f90d3633ea50e3}{all}} (array \$promises)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_aa7609f4a75ccc2d8ffff06cb4bb450da}{P\+E\+N\+D\+I\+NG}} = 0
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_a90e3fd8afeb4ed2598f0a061476cc834}{F\+U\+L\+F\+I\+L\+L\+ED}} = 1
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_abdcac79da741ea6b4ac3d5c605e58b99}{R\+E\+J\+E\+C\+T\+ED}} = 2
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_a8a7c668f7eb47419da76d14762979b0a}\label{class_sabre_1_1_event_1_1_promise_a8a7c668f7eb47419da76d14762979b0a}} 
+{\bfseries \$state} = self\+::\+P\+E\+N\+D\+I\+NG
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_a12080be8387cf13bbe7d7360d878a4fe}\label{class_sabre_1_1_event_1_1_promise_a12080be8387cf13bbe7d7360d878a4fe}} 
+{\bfseries \$subscribers} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_a432a94999a5b9b37517cda3c35634761}\label{class_sabre_1_1_event_1_1_promise_a432a94999a5b9b37517cda3c35634761}} 
+{\bfseries \$value} = null
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+An implementation of the \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise}{Promise}} pattern.
+
+A promise represents the result of an asynchronous operation. At any given point a promise can be in one of three states\+:
+
+
+\begin{DoxyEnumerate}
+\item Pending (the promise does not have a result yet).
+\item Fulfilled (the asynchronous operation has completed with a result).
+\item Rejected (the asynchronous operation has completed with an error).
+\end{DoxyEnumerate}
+
+To get a callback when the operation has finished, use the {\ttfamily then} method.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2013-\/2015 fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 23 der Datei Promise.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_a96e07267a63bbfd68f8277405594d32f}\label{class_sabre_1_1_event_1_1_promise_a96e07267a63bbfd68f8277405594d32f}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{callable}]{\$executor = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates the promise.
+
+The passed argument is the executor. The executor is automatically called with two arguments.
+
+Each are callbacks that map to \$this-\/$>$fulfill and \$this-\/$>$reject. Using the executor is optional.
+
+
+\begin{DoxyParams}[1]{Parameter}
+callable & {\em \$executor} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 58 der Datei Promise.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_a67f3e30bf34b8c9489f90d3633ea50e3}\label{class_sabre_1_1_event_1_1_promise_a67f3e30bf34b8c9489f90d3633ea50e3}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!all@{all}}
+\index{all@{all}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{all()}{all()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::all (\begin{DoxyParamCaption}\item[{array}]{\$promises }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Deprecated.
+
+Please use Sabre\+::all
+
+
+\begin{DoxyParams}{Parameter}
+{\em Promise\mbox{[}$\,$\mbox{]}} & \$promises \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Veraltet}
+\item[\mbox{\hyperlink{deprecated__deprecated000048}{Veraltet}}]\end{DoxyRefDesc}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise}{Promise}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 314 der Datei Promise.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_aced9a7533529562d138b9c02ab6d7140}\label{class_sabre_1_1_event_1_1_promise_aced9a7533529562d138b9c02ab6d7140}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!error@{error}}
+\index{error@{error}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::error (\begin{DoxyParamCaption}\item[{callable}]{\$on\+Rejected }\end{DoxyParamCaption})}
+
+Alias for \textquotesingle{}otherwise\textquotesingle{}.
+
+This function is now deprecated and will be removed in a future version.
+
+
+\begin{DoxyParams}[1]{Parameter}
+callable & {\em \$on\+Rejected} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Veraltet}
+\item[\mbox{\hyperlink{deprecated__deprecated000047}{Veraltet}}]\end{DoxyRefDesc}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise}{Promise}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 299 der Datei Promise.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_a846345ad77b797c51daa024d7364c7cf}\label{class_sabre_1_1_event_1_1_promise_a846345ad77b797c51daa024d7364c7cf}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!fulfill@{fulfill}}
+\index{fulfill@{fulfill}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{fulfill()}{fulfill()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::fulfill (\begin{DoxyParamCaption}\item[{}]{\$value = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Marks this promise as fulfilled and sets its return value.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 141 der Datei Promise.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_aa45393483cc9bcc0feefcc53f0dba76c}\label{class_sabre_1_1_event_1_1_promise_aa45393483cc9bcc0feefcc53f0dba76c}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!otherwise@{otherwise}}
+\index{otherwise@{otherwise}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{otherwise()}{otherwise()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::otherwise (\begin{DoxyParamCaption}\item[{callable}]{\$on\+Rejected }\end{DoxyParamCaption})}
+
+Add a callback for when this promise is rejected.
+
+Its usage is identical to \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_aaacfe0e7ff639e2db43db8e9143b326e}{then()}}. However, the \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_aa45393483cc9bcc0feefcc53f0dba76c}{otherwise()}} function is preferred.
+
+
+\begin{DoxyParams}[1]{Parameter}
+callable & {\em \$on\+Rejected} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise}{Promise}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 129 der Datei Promise.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_acea25bb367709121b776607c8d229e11}\label{class_sabre_1_1_event_1_1_promise_acea25bb367709121b776607c8d229e11}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!reject@{reject}}
+\index{reject@{reject}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{reject()}{reject()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::reject (\begin{DoxyParamCaption}\item[{}]{\$reason = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Marks this promise as rejected, and set it\textquotesingle{}s rejection reason.
+
+While it\textquotesingle{}s possible to use any P\+HP value as the reason, it\textquotesingle{}s highly recommended to use an Exception for this.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$reason} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 161 der Datei Promise.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_aaacfe0e7ff639e2db43db8e9143b326e}\label{class_sabre_1_1_event_1_1_promise_aaacfe0e7ff639e2db43db8e9143b326e}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!then@{then}}
+\index{then@{then}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{then()}{then()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::then (\begin{DoxyParamCaption}\item[{callable}]{\$on\+Fulfilled = {\ttfamily null},  }\item[{callable}]{\$on\+Rejected = {\ttfamily null} }\end{DoxyParamCaption})}
+
+This method allows you to specify the callback that will be called after the promise has been fulfilled or rejected.
+
+Both arguments are optional.
+
+This method returns a new promise, which can be used for chaining. If either the on\+Fulfilled or on\+Rejected callback is called, you may return a result from this callback.
+
+If the result of this callback is yet another promise, the result of {\itshape that} promise will be used to set the result of the returned promise.
+
+If either of the callbacks return any other value, the returned promise is automatically fulfilled with that value.
+
+If either of the callbacks throw an exception, the returned promise will be rejected and the exception will be passed back.
+
+
+\begin{DoxyParams}[1]{Parameter}
+callable & {\em \$on\+Fulfilled} & \\
+\hline
+callable & {\em \$on\+Rejected} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise}{Promise}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 92 der Datei Promise.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_aea21d20be6cc569fdd727bbd3c6b5dbc}\label{class_sabre_1_1_event_1_1_promise_aea21d20be6cc569fdd727bbd3c6b5dbc}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!wait@{wait}}
+\index{wait@{wait}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{wait()}{wait()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Stops execution until this promise is resolved.
+
+This method stops exection completely. If the promise is successful with a value, this method will return this value. If the promise was rejected, this method will throw an exception.
+
+This effectively turns the asynchronous operation into a synchronous one. In P\+HP it might be useful to call this on the last promise in a chain.
+
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 187 der Datei Promise.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_a90e3fd8afeb4ed2598f0a061476cc834}\label{class_sabre_1_1_event_1_1_promise_a90e3fd8afeb4ed2598f0a061476cc834}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!F\+U\+L\+F\+I\+L\+L\+ED@{F\+U\+L\+F\+I\+L\+L\+ED}}
+\index{F\+U\+L\+F\+I\+L\+L\+ED@{F\+U\+L\+F\+I\+L\+L\+ED}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{F\+U\+L\+F\+I\+L\+L\+ED}{FULFILLED}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::\+F\+U\+L\+F\+I\+L\+L\+ED = 1}
+
+The asynchronous operation has completed, and has a result. 
+
+Definiert in Zeile 33 der Datei Promise.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_aa7609f4a75ccc2d8ffff06cb4bb450da}\label{class_sabre_1_1_event_1_1_promise_aa7609f4a75ccc2d8ffff06cb4bb450da}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!P\+E\+N\+D\+I\+NG@{P\+E\+N\+D\+I\+NG}}
+\index{P\+E\+N\+D\+I\+NG@{P\+E\+N\+D\+I\+NG}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{P\+E\+N\+D\+I\+NG}{PENDING}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::\+P\+E\+N\+D\+I\+NG = 0}
+
+The asynchronous operation is pending. 
+
+Definiert in Zeile 28 der Datei Promise.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_promise_abdcac79da741ea6b4ac3d5c605e58b99}\label{class_sabre_1_1_event_1_1_promise_abdcac79da741ea6b4ac3d5c605e58b99}} 
+\index{Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}!R\+E\+J\+E\+C\+T\+ED@{R\+E\+J\+E\+C\+T\+ED}}
+\index{R\+E\+J\+E\+C\+T\+ED@{R\+E\+J\+E\+C\+T\+ED}!Sabre\+::\+Event\+::\+Promise@{Sabre\+::\+Event\+::\+Promise}}
+\subsubsection{\texorpdfstring{R\+E\+J\+E\+C\+T\+ED}{REJECTED}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+Event\textbackslash{}\+Promise\+::\+R\+E\+J\+E\+C\+T\+ED = 2}
+
+The asynchronous operation has completed with an error. 
+
+Definiert in Zeile 38 der Datei Promise.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/event/lib/Promise.\+php\end{DoxyCompactItemize}

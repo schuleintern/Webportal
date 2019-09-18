@@ -1,0 +1,979 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_server}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Server Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_server}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_d_a_v_1_1_server}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_aaff51826e67e363422c83ae0e379a2a0}{\+\_\+\+\_\+construct}} (\$tree\+Or\+Node=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a4f906560ecbe3c0fd497d62055ca891f}{exec}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a98318f3b276201964ff99b5fbed09be3}{set\+Base\+Uri}} (\$uri)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a32da156111d35451ddf4e7cc08f4dc81}{get\+Base\+Uri}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a62cd0c7c754e18281146dfd025d1e5be}{guess\+Base\+Uri}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_ae03f81b98c33c95202ec57a6f499ebf4}{add\+Plugin}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin}{Server\+Plugin}} \$plugin)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a031cd7834c452c3cd172b13f4b15f09f}{get\+Plugin}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a0c55cbad92d7945dbe8ebed13cce6755}{get\+Plugins}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_af65d4d29148e73df8520816c071e18f6}{get\+Logger}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a60e6cc7805963b0aca737984f7af2753}{invoke\+Method}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response, \$send\+Response=true)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_aae2250fb9dc3cdaa5206687636b7e30b}{get\+Allowed\+Methods}} (\$path)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a58f56fb7884519343468d668fee5b35e}{get\+Request\+Uri}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a68bbf1aa1442364def7bb26f01a9318f}{calculate\+Uri}} (\$uri)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a2f7c4e9989ed12ddf2e93b7cb25ff4de}{get\+H\+T\+T\+P\+Depth}} (\$default=self\+::\+D\+E\+P\+T\+H\+\_\+\+I\+N\+F\+I\+N\+I\+TY)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_ae8c4a77fdab337aaa99d039d8e88226d}{get\+H\+T\+T\+P\+Range}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a59300709495a2ec31ddfa88084dd05ef}{get\+H\+T\+T\+P\+Prefer}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_afb6c0f88c5eacd47185731b933a3d5bb}{get\+Copy\+And\+Move\+Info}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_afee03b6eff812fb064b525db24bbd427}{get\+Properties}} (\$path, \$property\+Names)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a55ed74587fe23c70e2d95fae3838932f}{get\+Properties\+For\+Children}} (\$path, \$property\+Names)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a9f4cb8d2befd078d02eb1d6b12d92384}{get\+H\+T\+T\+P\+Headers}} (\$path)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_ab304acd53ee19f7ddbcaaef3598d3558}{get\+Properties\+For\+Path}} (\$path, \$property\+Names=\mbox{[}$\,$\mbox{]}, \$depth=0)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_ab67fbe0b4085a2cffe442bf76672c6f7}{get\+Properties\+Iterator\+For\+Path}} (\$path, \$property\+Names=\mbox{[}$\,$\mbox{]}, \$depth=0)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a729bc3a683ac54b3f94192e45047bdd3}{get\+Properties\+For\+Multiple\+Paths}} (array \$paths, array \$property\+Names=\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a0cb2caf06a39a43039dd5286c84b7925}{get\+Properties\+By\+Node}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}} \$prop\+Find, \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} \$node)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a7bee663affd9e5dfe5f50ca8559ee9a8}{create\+File}} (\$uri, \$data, \&\$etag=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a33f262bd916b6e98e14d7fbe98edcede}{update\+File}} (\$uri, \$data, \&\$etag=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_afca5686d4605849f23e7839d1337ec46}{create\+Directory}} (\$uri)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a298d919004cda95434da7e82991ba148}{create\+Collection}} (\$uri, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}} \$mk\+Col)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a1c2710fe972d61aa21cf263f827fc91a}{update\+Properties}} (\$path, array \$properties)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_af6a7d75d46fb08c27d7c33b00300de96}{check\+Preconditions}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a13e3d57b6eb70a17ae9049cf8bfad5b9}{get\+If\+Conditions}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a15556fd8a40b1ba79191480ad3ee7166}{get\+Resource\+Type\+For\+Node}} (\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} \$node)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a4991555e050de651f494817871e920f0}{generate\+Multi\+Status}} (\$file\+Properties, \$strip404s=false)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a038019ed8da25e71c226240edf93d415}{D\+E\+P\+T\+H\+\_\+\+I\+N\+F\+I\+N\+I\+TY}} = -\/1
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_a866ccf12b4b09dedd1f6c59c0151b1e2}{N\+S\+\_\+\+S\+A\+B\+R\+E\+D\+AV}} = \textquotesingle{}http\+://sabredav.\+org/ns\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a56cba28d7189a880f2ee9da59fd6760a}\label{class_sabre_1_1_d_a_v_1_1_server_a56cba28d7189a880f2ee9da59fd6760a}} 
+{\bfseries \$tree}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a8cb2689616ec9048b234e9f8fb11a12a}\label{class_sabre_1_1_d_a_v_1_1_server_a8cb2689616ec9048b234e9f8fb11a12a}} 
+{\bfseries \$http\+Response}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_ac9983d3bf274bd8bd4826784c63fcc9a}\label{class_sabre_1_1_d_a_v_1_1_server_ac9983d3bf274bd8bd4826784c63fcc9a}} 
+{\bfseries \$http\+Request}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a35a0dd741ef0d8d1c03f3b08353e82ef}\label{class_sabre_1_1_d_a_v_1_1_server_a35a0dd741ef0d8d1c03f3b08353e82ef}} 
+{\bfseries \$sapi}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a5ba3c5dc0b33881bfc448446c10f7a66}\label{class_sabre_1_1_d_a_v_1_1_server_a5ba3c5dc0b33881bfc448446c10f7a66}} 
+{\bfseries \$transaction\+Type}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a4767a6a14c9b0bf3ef668765c8a40283}\label{class_sabre_1_1_d_a_v_1_1_server_a4767a6a14c9b0bf3ef668765c8a40283}} 
+{\bfseries \$protected\+Properties}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_ae7087aa043590a331b5120d8c16fc7f4}\label{class_sabre_1_1_d_a_v_1_1_server_ae7087aa043590a331b5120d8c16fc7f4}} 
+{\bfseries \$debug\+Exceptions} = false
+\item 
+{\bfseries \$resource\+Type\+Mapping}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_aeacb8c612eee81ded4a94b19a6c2a988}\label{class_sabre_1_1_d_a_v_1_1_server_aeacb8c612eee81ded4a94b19a6c2a988}} 
+{\bfseries \$enable\+Propfind\+Depth\+Infinity} = false
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a4274035be452d44fcf549e7bc58c76cc}\label{class_sabre_1_1_d_a_v_1_1_server_a4274035be452d44fcf549e7bc58c76cc}} 
+{\bfseries \$xml}
+\end{DoxyCompactItemize}
+\subsection*{Statische öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a9c24f24b47e7d05a9be0f63243e817f2}\label{class_sabre_1_1_d_a_v_1_1_server_a9c24f24b47e7d05a9be0f63243e817f2}} 
+static {\bfseries \$expose\+Version} = true
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_ab9f77928d3e91b4892e0ea02fec70001}\label{class_sabre_1_1_d_a_v_1_1_server_ab9f77928d3e91b4892e0ea02fec70001}} 
+{\bfseries \$base\+Uri} = null
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_acc839e60e477be014da9456ebdb6d6ba}\label{class_sabre_1_1_d_a_v_1_1_server_acc839e60e477be014da9456ebdb6d6ba}} 
+{\bfseries \$plugins} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Main D\+AV server class
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 23 der Datei Server.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_aaff51826e67e363422c83ae0e379a2a0}\label{class_sabre_1_1_d_a_v_1_1_server_aaff51826e67e363422c83ae0e379a2a0}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$tree\+Or\+Node = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Sets up the server
+
+If a Sabre object is passed as an argument, it will use it as the directory tree. If a Sabre is passed, it will create a Sabre and use the node as the root.
+
+If nothing is passed, a Sabre is created in a Sabre.
+
+If an array is passed, we automatically create a root node, and use the nodes in the array as top-\/level children.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree}{Tree}} | \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} | array | null & {\em \$tree\+Or\+Node} & The tree object \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 201 der Datei Server.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_ae03f81b98c33c95202ec57a6f499ebf4}\label{class_sabre_1_1_d_a_v_1_1_server_ae03f81b98c33c95202ec57a6f499ebf4}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!add\+Plugin@{add\+Plugin}}
+\index{add\+Plugin@{add\+Plugin}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{add\+Plugin()}{addPlugin()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::add\+Plugin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin}{Server\+Plugin}}}]{\$plugin }\end{DoxyParamCaption})}
+
+Adds a plugin to the server
+
+For more information, console the documentation of Sabre
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin}{Server\+Plugin}} & {\em \$plugin} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 404 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a68bbf1aa1442364def7bb26f01a9318f}\label{class_sabre_1_1_d_a_v_1_1_server_a68bbf1aa1442364def7bb26f01a9318f}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!calculate\+Uri@{calculate\+Uri}}
+\index{calculate\+Uri@{calculate\+Uri}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{calculate\+Uri()}{calculateUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::calculate\+Uri (\begin{DoxyParamCaption}\item[{}]{\$uri }\end{DoxyParamCaption})}
+
+Turns a U\+RI such as the R\+E\+Q\+U\+E\+S\+T\+\_\+\+U\+RI into a local path.
+
+This method\+:
+\begin{DoxyItemize}
+\item strips off the base path
+\item normalizes the path
+\item uri-\/decodes the path
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception}{Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definiert in Zeile 565 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_af6a7d75d46fb08c27d7c33b00300de96}\label{class_sabre_1_1_d_a_v_1_1_server_af6a7d75d46fb08c27d7c33b00300de96}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!check\+Preconditions@{check\+Preconditions}}
+\index{check\+Preconditions@{check\+Preconditions}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{check\+Preconditions()}{checkPreconditions()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::check\+Preconditions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+This method checks the main H\+T\+TP preconditions.
+
+Currently these are\+:
+\begin{DoxyItemize}
+\item If-\/\+Match
+\item If-\/\+None-\/\+Match
+\item If-\/\+Modified-\/\+Since
+\item If-\/\+Unmodified-\/\+Since
+\end{DoxyItemize}
+
+The method will return true if all preconditions are met The method will return false, or throw an exception if preconditions failed. If false is returned the operation should be aborted, and the appropriate H\+T\+TP response headers are already set.
+
+Normally this method will throw 412 Precondition Failed for failures related to If-\/\+None-\/\+Match, If-\/\+Match and If-\/\+Unmodified Since. It will set the status to 304 Not Modified for If-\/\+Modified\+\_\+since.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1293 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a298d919004cda95434da7e82991ba148}\label{class_sabre_1_1_d_a_v_1_1_server_a298d919004cda95434da7e82991ba148}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!create\+Collection@{create\+Collection}}
+\index{create\+Collection@{create\+Collection}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{create\+Collection()}{createCollection()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::create\+Collection (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}}}]{\$mk\+Col }\end{DoxyParamCaption})}
+
+Use this method to create a new collection
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & The new uri \\
+\hline
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}} & {\em \$mk\+Col} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array$\vert$null 
+\end{DoxyReturn}
+If the parent is an instance of \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_extended_collection}{I\+Extended\+Collection}}, it means that we can pass the \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}} object directly as it may be able to store properties immediately.
+
+If the parent is a standard \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{I\+Collection}}, it means only \textquotesingle{}standard\textquotesingle{} collections can be created, so we should fail any M\+K\+C\+OL operation that carries extra resourcetypes.
+
+Definiert in Zeile 1157 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_afca5686d4605849f23e7839d1337ec46}\label{class_sabre_1_1_d_a_v_1_1_server_afca5686d4605849f23e7839d1337ec46}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!create\+Directory@{create\+Directory}}
+\index{create\+Directory@{create\+Directory}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{create\+Directory()}{createDirectory()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::create\+Directory (\begin{DoxyParamCaption}\item[{}]{\$uri }\end{DoxyParamCaption})}
+
+This method is invoked by sub-\/systems creating a new directory.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1144 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a7bee663affd9e5dfe5f50ca8559ee9a8}\label{class_sabre_1_1_d_a_v_1_1_server_a7bee663affd9e5dfe5f50ca8559ee9a8}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!create\+File@{create\+File}}
+\index{create\+File@{create\+File}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{create\+File()}{createFile()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::create\+File (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{}]{\$data,  }\item[{\&}]{\$etag = {\ttfamily null} }\end{DoxyParamCaption})}
+
+This method is invoked by sub-\/systems creating a new file.
+
+Currently this is done by H\+T\+TP P\+UT and H\+T\+TP L\+O\+CK (in the Locks\+\_\+\+Plugin). It was important to get this done through a centralized function, allowing plugins to intercept this using the before\+Create\+File event.
+
+This method will return true if the file was actually created
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+resource & {\em \$data} & \\
+\hline
+string & {\em \$etag} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1076 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a4f906560ecbe3c0fd497d62055ca891f}\label{class_sabre_1_1_d_a_v_1_1_server_a4f906560ecbe3c0fd497d62055ca891f}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!exec@{exec}}
+\index{exec@{exec}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{exec()}{exec()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::exec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Starts the D\+AV \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}}
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 240 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a4991555e050de651f494817871e920f0}\label{class_sabre_1_1_d_a_v_1_1_server_a4991555e050de651f494817871e920f0}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!generate\+Multi\+Status@{generate\+Multi\+Status}}
+\index{generate\+Multi\+Status@{generate\+Multi\+Status}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{generate\+Multi\+Status()}{generateMultiStatus()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::generate\+Multi\+Status (\begin{DoxyParamCaption}\item[{}]{\$file\+Properties,  }\item[{}]{\$strip404s = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Generates a Web\+D\+AV propfind response body based on a list of nodes.
+
+If \textquotesingle{}strip404s\textquotesingle{} is set to true, all 404 responses will be removed.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array | \textbackslash{}\+Traversable & {\em \$file\+Properties} & The list with nodes \\
+\hline
+bool & {\em \$strip404s} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1656 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_aae2250fb9dc3cdaa5206687636b7e30b}\label{class_sabre_1_1_d_a_v_1_1_server_aae2250fb9dc3cdaa5206687636b7e30b}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Allowed\+Methods@{get\+Allowed\+Methods}}
+\index{get\+Allowed\+Methods@{get\+Allowed\+Methods}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Allowed\+Methods()}{getAllowedMethods()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Allowed\+Methods (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+Returns an array with all the supported H\+T\+TP methods for a specific uri.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 512 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a32da156111d35451ddf4e7cc08f4dc81}\label{class_sabre_1_1_d_a_v_1_1_server_a32da156111d35451ddf4e7cc08f4dc81}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Base\+Uri@{get\+Base\+Uri}}
+\index{get\+Base\+Uri@{get\+Base\+Uri}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Base\+Uri()}{getBaseUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Base\+Uri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the base responding uri
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 347 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_afb6c0f88c5eacd47185731b933a3d5bb}\label{class_sabre_1_1_d_a_v_1_1_server_afb6c0f88c5eacd47185731b933a3d5bb}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Copy\+And\+Move\+Info@{get\+Copy\+And\+Move\+Info}}
+\index{get\+Copy\+And\+Move\+Info@{get\+Copy\+And\+Move\+Info}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Copy\+And\+Move\+Info()}{getCopyAndMoveInfo()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Copy\+And\+Move\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request }\end{DoxyParamCaption})}
+
+Returns information about Copy and Move requests
+
+This function is created to help getting information about the source and the destination for the Web\+D\+AV M\+O\+VE and C\+O\+PY H\+T\+TP request. It also validates a lot of information and throws proper exceptions
+
+The returned value is an array with the following keys\+:
+\begin{DoxyItemize}
+\item destination -\/ Destination path
+\item destination\+Exists -\/ Whether or not the destination is an existing url (and should therefore be overwritten)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception}{Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definiert in Zeile 729 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a2f7c4e9989ed12ddf2e93b7cb25ff4de}\label{class_sabre_1_1_d_a_v_1_1_server_a2f7c4e9989ed12ddf2e93b7cb25ff4de}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+H\+T\+T\+P\+Depth@{get\+H\+T\+T\+P\+Depth}}
+\index{get\+H\+T\+T\+P\+Depth@{get\+H\+T\+T\+P\+Depth}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+H\+T\+T\+P\+Depth()}{getHTTPDepth()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+H\+T\+T\+P\+Depth (\begin{DoxyParamCaption}\item[{}]{\$default = {\ttfamily self\+:\+:DEPTH\+\_\+INFINITY} }\end{DoxyParamCaption})}
+
+Returns the H\+T\+TP depth header
+
+This method returns the contents of the H\+T\+TP depth request header. If the depth header was \textquotesingle{}infinity\textquotesingle{} it will return the Sabre\+::\+D\+E\+P\+T\+H\+\_\+\+I\+N\+F\+I\+N\+I\+TY object It is possible to supply a default depth value, which is used when the depth header has invalid content, or is completely non-\/existent
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$default} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 603 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a9f4cb8d2befd078d02eb1d6b12d92384}\label{class_sabre_1_1_d_a_v_1_1_server_a9f4cb8d2befd078d02eb1d6b12d92384}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+H\+T\+T\+P\+Headers@{get\+H\+T\+T\+P\+Headers}}
+\index{get\+H\+T\+T\+P\+Headers@{get\+H\+T\+T\+P\+Headers}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+H\+T\+T\+P\+Headers()}{getHTTPHeaders()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+H\+T\+T\+P\+Headers (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+Returns a list of H\+T\+TP headers for a particular resource
+
+The generated http headers are based on properties provided by the resource. The method basically provides a simple mapping between D\+AV property and H\+T\+TP header.
+
+The headers are intended to be used for H\+E\+AD and G\+ET requests.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 849 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a59300709495a2ec31ddfa88084dd05ef}\label{class_sabre_1_1_d_a_v_1_1_server_a59300709495a2ec31ddfa88084dd05ef}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+H\+T\+T\+P\+Prefer@{get\+H\+T\+T\+P\+Prefer}}
+\index{get\+H\+T\+T\+P\+Prefer@{get\+H\+T\+T\+P\+Prefer}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+H\+T\+T\+P\+Prefer()}{getHTTPPrefer()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+H\+T\+T\+P\+Prefer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the H\+T\+TP Prefer header information.
+
+The prefer header is defined in\+: \href{http://tools.ietf.org/html/draft-snell-http-prefer-14}{\tt http\+://tools.\+ietf.\+org/html/draft-\/snell-\/http-\/prefer-\/14}
+
+This method will return an array with options.
+
+Currently, the following options may be returned\+: \mbox{[} \textquotesingle{}return-\/asynch\textquotesingle{} =$>$ true, \textquotesingle{}return-\/minimal\textquotesingle{} =$>$ true, \textquotesingle{}return-\/representation\textquotesingle{} =$>$ true, \textquotesingle{}wait\textquotesingle{} =$>$ 30, \textquotesingle{}strict\textquotesingle{} =$>$ true, \textquotesingle{}lenient\textquotesingle{} =$>$ true, \mbox{]}
+
+This method also supports the Brief header, and will also return \textquotesingle{}return-\/minimal\textquotesingle{} if the brief header was set to \textquotesingle{}t\textquotesingle{}.
+
+For the boolean options, false will be returned if the headers are not specified. For the integer options it will be \textquotesingle{}null\textquotesingle{}.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 678 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_ae8c4a77fdab337aaa99d039d8e88226d}\label{class_sabre_1_1_d_a_v_1_1_server_ae8c4a77fdab337aaa99d039d8e88226d}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+H\+T\+T\+P\+Range@{get\+H\+T\+T\+P\+Range}}
+\index{get\+H\+T\+T\+P\+Range@{get\+H\+T\+T\+P\+Range}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+H\+T\+T\+P\+Range()}{getHTTPRange()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+H\+T\+T\+P\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the H\+T\+TP range header
+
+This method returns null if there is no well-\/formed H\+T\+TP range request header or array(\$start, \$end).
+
+The first number is the offset of the first byte in the range. The second number is the offset of the last byte in the range.
+
+If the second offset is null, it should be treated as the offset of the last byte of the entity If the first offset is null, the second offset should be used to retrieve the last x bytes of the entity
+
+\begin{DoxyReturn}{Rückgabe}
+array$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 634 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a13e3d57b6eb70a17ae9049cf8bfad5b9}\label{class_sabre_1_1_d_a_v_1_1_server_a13e3d57b6eb70a17ae9049cf8bfad5b9}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+If\+Conditions@{get\+If\+Conditions}}
+\index{get\+If\+Conditions@{get\+If\+Conditions}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+If\+Conditions()}{getIfConditions()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+If\+Conditions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request }\end{DoxyParamCaption})}
+
+This method is created to extract information from the Web\+D\+AV H\+T\+TP \textquotesingle{}If\+:\textquotesingle{} header
+
+The If header can be quite complex, and has a bunch of features. We\textquotesingle{}re using a regex to extract all relevant information The function will return an array, containing structs with the following keys
+
+
+\begin{DoxyItemize}
+\item uri -\/ the uri the condition applies to.
+\item tokens -\/ The lock token. another 2 dimensional array containing 3 elements
+\end{DoxyItemize}
+
+Example 1\+:
+
+If\+: ($<$opaquelocktoken\+:181d4fae-\/7d8c-\/11d0-\/a765-\/00a0c91e6bf2$>$)
+
+Would result in\+:
+
+\mbox{[} \mbox{[} \textquotesingle{}uri\textquotesingle{} =$>$ \textquotesingle{}/request/uri\textquotesingle{}, \textquotesingle{}tokens\textquotesingle{} =$>$ \mbox{[} \mbox{[} \mbox{[} \textquotesingle{}negate\textquotesingle{} =$>$ false, \textquotesingle{}token\textquotesingle{} =$>$ \textquotesingle{}opaquelocktoken\+:181d4fae-\/7d8c-\/11d0-\/a765-\/00a0c91e6bf2\textquotesingle{}, \textquotesingle{}etag\textquotesingle{} =$>$ \char`\"{}\char`\"{} \mbox{]} \mbox{]} \mbox{]}, \mbox{]} \mbox{]}
+
+Example 2\+:
+
+If\+: $<$/path$>$ (Not $<$opaquelocktoken\+:181d4fae-\/7d8c-\/11d0-\/a765-\/00a0c91e6bf2$>$ \mbox{[}\char`\"{}\+Im An E\+Tag\char`\"{}\mbox{]}) (\mbox{[}\char`\"{}\+Another E\+Tag\char`\"{}\mbox{]}) $<$/path2$>$ (Not \mbox{[}\char`\"{}\+Path2 E\+Tag\char`\"{}\mbox{]})
+
+Would result in\+:
+
+\mbox{[} \mbox{[} \textquotesingle{}uri\textquotesingle{} =$>$ \textquotesingle{}path\textquotesingle{}, \textquotesingle{}tokens\textquotesingle{} =$>$ \mbox{[} \mbox{[} \mbox{[} \textquotesingle{}negate\textquotesingle{} =$>$ true, \textquotesingle{}token\textquotesingle{} =$>$ \textquotesingle{}opaquelocktoken\+:181d4fae-\/7d8c-\/11d0-\/a765-\/00a0c91e6bf2\textquotesingle{}, \textquotesingle{}etag\textquotesingle{} =$>$ \textquotesingle{}\char`\"{}\+Im An E\+Tag\char`\"{}\textquotesingle{} \mbox{]}, \mbox{[} \textquotesingle{}negate\textquotesingle{} =$>$ false, \textquotesingle{}token\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{}, \textquotesingle{}etag\textquotesingle{} =$>$ \textquotesingle{}\char`\"{}\+Another E\+Tag\char`\"{}\textquotesingle{} \mbox{]} \mbox{]} \mbox{]}, \mbox{]}, \mbox{[} \textquotesingle{}uri\textquotesingle{} =$>$ \textquotesingle{}path2\textquotesingle{}, \textquotesingle{}tokens\textquotesingle{} =$>$ \mbox{[} \mbox{[} \mbox{[} \textquotesingle{}negate\textquotesingle{} =$>$ true, \textquotesingle{}token\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{}, \textquotesingle{}etag\textquotesingle{} =$>$ \textquotesingle{}\char`\"{}\+Path2 E\+Tag\char`\"{}\textquotesingle{} \mbox{]} \mbox{]} \mbox{]}, \mbox{]}, \mbox{]}
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1577 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_af65d4d29148e73df8520816c071e18f6}\label{class_sabre_1_1_d_a_v_1_1_server_af65d4d29148e73df8520816c071e18f6}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Logger@{get\+Logger}}
+\index{get\+Logger@{get\+Logger}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Logger()}{getLogger()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the P\+S\+R-\/3 logger object.
+
+\begin{DoxyReturn}{Rückgabe}
+Logger\+Interface 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 444 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a031cd7834c452c3cd172b13f4b15f09f}\label{class_sabre_1_1_d_a_v_1_1_server_a031cd7834c452c3cd172b13f4b15f09f}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Plugin@{get\+Plugin}}
+\index{get\+Plugin@{get\+Plugin}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Plugin()}{getPlugin()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Plugin (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Returns an initialized plugin by it\textquotesingle{}s name.
+
+This function returns null if the plugin was not found.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin}{Server\+Plugin}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 419 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a0c55cbad92d7945dbe8ebed13cce6755}\label{class_sabre_1_1_d_a_v_1_1_server_a0c55cbad92d7945dbe8ebed13cce6755}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Plugins@{get\+Plugins}}
+\index{get\+Plugins@{get\+Plugins}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Plugins()}{getPlugins()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Plugins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns all plugins
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 433 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_afee03b6eff812fb064b525db24bbd427}\label{class_sabre_1_1_d_a_v_1_1_server_afee03b6eff812fb064b525db24bbd427}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Properties@{get\+Properties}}
+\index{get\+Properties@{get\+Properties}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Properties()}{getProperties()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Properties (\begin{DoxyParamCaption}\item[{}]{\$path,  }\item[{}]{\$property\+Names }\end{DoxyParamCaption})}
+
+Returns a list of properties for a path
+
+This is a simplified version get\+Properties\+For\+Path. If you aren\textquotesingle{}t interested in status codes, but you just want to have a flat list of properties, use this method.
+
+Please note though that any problems related to retrieving properties, such as permission issues will just result in an empty array being returned.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+array & {\em \$property\+Names} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 799 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a0cb2caf06a39a43039dd5286c84b7925}\label{class_sabre_1_1_d_a_v_1_1_server_a0cb2caf06a39a43039dd5286c84b7925}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Properties\+By\+Node@{get\+Properties\+By\+Node}}
+\index{get\+Properties\+By\+Node@{get\+Properties\+By\+Node}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Properties\+By\+Node()}{getPropertiesByNode()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Properties\+By\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}}}]{\$prop\+Find,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}}}]{\$node }\end{DoxyParamCaption})}
+
+Determines all properties for a node.
+
+This method tries to grab all properties for a node. This method is used internally get\+Properties\+For\+Path and a few others.
+
+It could be useful to call this, if you already have an instance of your target node and simply want to run through the system to get a correct list of properties.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}} & {\em \$prop\+Find} & \\
+\hline
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1056 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a55ed74587fe23c70e2d95fae3838932f}\label{class_sabre_1_1_d_a_v_1_1_server_a55ed74587fe23c70e2d95fae3838932f}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Properties\+For\+Children@{get\+Properties\+For\+Children}}
+\index{get\+Properties\+For\+Children@{get\+Properties\+For\+Children}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Properties\+For\+Children()}{getPropertiesForChildren()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Properties\+For\+Children (\begin{DoxyParamCaption}\item[{}]{\$path,  }\item[{}]{\$property\+Names }\end{DoxyParamCaption})}
+
+A kid-\/friendly way to fetch properties for a node\textquotesingle{}s children.
+
+The returned array will be indexed by the path of the of child node. Only properties that are actually found will be returned.
+
+The parent node will not be returned.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+array & {\em \$property\+Names} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 822 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a729bc3a683ac54b3f94192e45047bdd3}\label{class_sabre_1_1_d_a_v_1_1_server_a729bc3a683ac54b3f94192e45047bdd3}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Properties\+For\+Multiple\+Paths@{get\+Properties\+For\+Multiple\+Paths}}
+\index{get\+Properties\+For\+Multiple\+Paths@{get\+Properties\+For\+Multiple\+Paths}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Properties\+For\+Multiple\+Paths()}{getPropertiesForMultiplePaths()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Properties\+For\+Multiple\+Paths (\begin{DoxyParamCaption}\item[{array}]{\$paths,  }\item[{array}]{\$property\+Names = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+Returns a list of properties for a list of paths.
+
+The path that should be supplied should have the base\+Url stripped out The list of properties should be supplied in Clark notation. If the list is empty \textquotesingle{}allprops\textquotesingle{} is assumed.
+
+The result is returned as an array, with paths for it\textquotesingle{}s keys. The result may be returned out of order.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$paths} & \\
+\hline
+array & {\em \$property\+Names} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1014 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_ab304acd53ee19f7ddbcaaef3598d3558}\label{class_sabre_1_1_d_a_v_1_1_server_ab304acd53ee19f7ddbcaaef3598d3558}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Properties\+For\+Path@{get\+Properties\+For\+Path}}
+\index{get\+Properties\+For\+Path@{get\+Properties\+For\+Path}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Properties\+For\+Path()}{getPropertiesForPath()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Properties\+For\+Path (\begin{DoxyParamCaption}\item[{}]{\$path,  }\item[{}]{\$property\+Names = {\ttfamily \mbox{[}\mbox{]}},  }\item[{}]{\$depth = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Returns a list of properties for a given path
+
+The path that should be supplied should have the base\+Url stripped out The list of properties should be supplied in Clark notation. If the list is empty \textquotesingle{}allprops\textquotesingle{} is assumed.
+
+If a depth of 1 is requested child elements will also be returned.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+array & {\em \$property\+Names} & \\
+\hline
+int & {\em \$depth} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Veraltet}
+\item[\mbox{\hyperlink{deprecated__deprecated000046}{Veraltet}}]Use \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_ab67fbe0b4085a2cffe442bf76672c6f7}{get\+Properties\+Iterator\+For\+Path()}} instead (as it\textquotesingle{}s more memory efficient) \end{DoxyRefDesc}
+\begin{DoxySeeAlso}{Siehe auch}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_ab67fbe0b4085a2cffe442bf76672c6f7}{get\+Properties\+Iterator\+For\+Path()}} 
+\end{DoxySeeAlso}
+
+
+Definiert in Zeile 937 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_ab67fbe0b4085a2cffe442bf76672c6f7}\label{class_sabre_1_1_d_a_v_1_1_server_ab67fbe0b4085a2cffe442bf76672c6f7}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Properties\+Iterator\+For\+Path@{get\+Properties\+Iterator\+For\+Path}}
+\index{get\+Properties\+Iterator\+For\+Path@{get\+Properties\+Iterator\+For\+Path}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Properties\+Iterator\+For\+Path()}{getPropertiesIteratorForPath()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Properties\+Iterator\+For\+Path (\begin{DoxyParamCaption}\item[{}]{\$path,  }\item[{}]{\$property\+Names = {\ttfamily \mbox{[}\mbox{]}},  }\item[{}]{\$depth = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Returns a list of properties for a given path
+
+The path that should be supplied should have the base\+Url stripped out The list of properties should be supplied in Clark notation. If the list is empty \textquotesingle{}allprops\textquotesingle{} is assumed.
+
+If a depth of 1 is requested child elements will also be returned.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+array & {\em \$property\+Names} & \\
+\hline
+int & {\em \$depth} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile 956 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a58f56fb7884519343468d668fee5b35e}\label{class_sabre_1_1_d_a_v_1_1_server_a58f56fb7884519343468d668fee5b35e}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Request\+Uri@{get\+Request\+Uri}}
+\index{get\+Request\+Uri@{get\+Request\+Uri}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Request\+Uri()}{getRequestUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Request\+Uri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the uri for the request, keeping the base uri into consideration
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 547 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a15556fd8a40b1ba79191480ad3ee7166}\label{class_sabre_1_1_d_a_v_1_1_server_a15556fd8a40b1ba79191480ad3ee7166}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!get\+Resource\+Type\+For\+Node@{get\+Resource\+Type\+For\+Node}}
+\index{get\+Resource\+Type\+For\+Node@{get\+Resource\+Type\+For\+Node}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{get\+Resource\+Type\+For\+Node()}{getResourceTypeForNode()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::get\+Resource\+Type\+For\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}}}]{\$node }\end{DoxyParamCaption})}
+
+Returns an array with resourcetypes for a node.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1633 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a62cd0c7c754e18281146dfd025d1e5be}\label{class_sabre_1_1_d_a_v_1_1_server_a62cd0c7c754e18281146dfd025d1e5be}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!guess\+Base\+Uri@{guess\+Base\+Uri}}
+\index{guess\+Base\+Uri@{guess\+Base\+Uri}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{guess\+Base\+Uri()}{guessBaseUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::guess\+Base\+Uri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method attempts to detect the base uri. Only the P\+A\+T\+H\+\_\+\+I\+N\+FO variable is considered.
+
+If this variable is not set, the root (/) is assumed.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 362 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a60e6cc7805963b0aca737984f7af2753}\label{class_sabre_1_1_d_a_v_1_1_server_a60e6cc7805963b0aca737984f7af2753}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!invoke\+Method@{invoke\+Method}}
+\index{invoke\+Method@{invoke\+Method}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{invoke\+Method()}{invokeMethod()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::invoke\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response,  }\item[{}]{\$send\+Response = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Handles a http request, and execute a method based on its name
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+bool & {\em \$send\+Response} & Whether to send the H\+T\+TP response to the D\+AV client. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 461 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a98318f3b276201964ff99b5fbed09be3}\label{class_sabre_1_1_d_a_v_1_1_server_a98318f3b276201964ff99b5fbed09be3}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!set\+Base\+Uri@{set\+Base\+Uri}}
+\index{set\+Base\+Uri@{set\+Base\+Uri}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{set\+Base\+Uri()}{setBaseUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::set\+Base\+Uri (\begin{DoxyParamCaption}\item[{}]{\$uri }\end{DoxyParamCaption})}
+
+Sets the base server uri
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 332 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a33f262bd916b6e98e14d7fbe98edcede}\label{class_sabre_1_1_d_a_v_1_1_server_a33f262bd916b6e98e14d7fbe98edcede}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!update\+File@{update\+File}}
+\index{update\+File@{update\+File}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{update\+File()}{updateFile()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::update\+File (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{}]{\$data,  }\item[{\&}]{\$etag = {\ttfamily null} }\end{DoxyParamCaption})}
+
+This method is invoked by sub-\/systems updating a file.
+
+This method will return true if the file was actually updated
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+resource & {\em \$data} & \\
+\hline
+string & {\em \$etag} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1117 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a1c2710fe972d61aa21cf263f827fc91a}\label{class_sabre_1_1_d_a_v_1_1_server_a1c2710fe972d61aa21cf263f827fc91a}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!update\+Properties@{update\+Properties}}
+\index{update\+Properties@{update\+Properties}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{update\+Properties()}{updateProperties()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::update\+Properties (\begin{DoxyParamCaption}\item[{}]{\$path,  }\item[{array}]{\$properties }\end{DoxyParamCaption})}
+
+This method updates a resource\textquotesingle{}s properties
+
+The properties array must be a list of properties. Array-\/keys are property names in clarknotation, array-\/values are it\textquotesingle{}s values. If a property must be deleted, the value should be null.
+
+\mbox{\hyperlink{class_note}{Note}} that this request should either completely succeed, or completely fail.
+
+The response is an array with properties for keys, and http status codes as their values.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+array & {\em \$properties} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1261 der Datei Server.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_adc90f938055b95f0f27480e2acc6c6de}\label{class_sabre_1_1_d_a_v_1_1_server_adc90f938055b95f0f27480e2acc6c6de}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!\$resource\+Type\+Mapping@{\$resource\+Type\+Mapping}}
+\index{\$resource\+Type\+Mapping@{\$resource\+Type\+Mapping}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{\$resource\+Type\+Mapping}{$resourceTypeMapping}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::\$resource\+Type\+Mapping}
+
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= [
+        \textcolor{stringliteral}{'Sabre\(\backslash\)\(\backslash\)DAV\(\backslash\)\(\backslash\)ICollection'} => \textcolor{stringliteral}{'\{DAV:\}collection'}
+\end{DoxyCode}
+
+
+Definiert in Zeile 152 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a038019ed8da25e71c226240edf93d415}\label{class_sabre_1_1_d_a_v_1_1_server_a038019ed8da25e71c226240edf93d415}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!D\+E\+P\+T\+H\+\_\+\+I\+N\+F\+I\+N\+I\+TY@{D\+E\+P\+T\+H\+\_\+\+I\+N\+F\+I\+N\+I\+TY}}
+\index{D\+E\+P\+T\+H\+\_\+\+I\+N\+F\+I\+N\+I\+TY@{D\+E\+P\+T\+H\+\_\+\+I\+N\+F\+I\+N\+I\+TY}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{D\+E\+P\+T\+H\+\_\+\+I\+N\+F\+I\+N\+I\+TY}{DEPTH\_INFINITY}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::\+D\+E\+P\+T\+H\+\_\+\+I\+N\+F\+I\+N\+I\+TY = -\/1}
+
+Infinity is used for some request supporting the H\+T\+TP Depth header and indicates that the operation should traverse the entire tree 
+
+Definiert in Zeile 30 der Datei Server.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_a866ccf12b4b09dedd1f6c59c0151b1e2}\label{class_sabre_1_1_d_a_v_1_1_server_a866ccf12b4b09dedd1f6c59c0151b1e2}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}!N\+S\+\_\+\+S\+A\+B\+R\+E\+D\+AV@{N\+S\+\_\+\+S\+A\+B\+R\+E\+D\+AV}}
+\index{N\+S\+\_\+\+S\+A\+B\+R\+E\+D\+AV@{N\+S\+\_\+\+S\+A\+B\+R\+E\+D\+AV}!Sabre\+::\+D\+A\+V\+::\+Server@{Sabre\+::\+D\+A\+V\+::\+Server}}
+\subsubsection{\texorpdfstring{N\+S\+\_\+\+S\+A\+B\+R\+E\+D\+AV}{NS\_SABREDAV}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+::\+N\+S\+\_\+\+S\+A\+B\+R\+E\+D\+AV = \textquotesingle{}http\+://sabredav.\+org/ns\textquotesingle{}}
+
+X\+ML namespace for all Sabre\+D\+AV related elements 
+
+Definiert in Zeile 35 der Datei Server.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/Server.\+php\end{DoxyCompactItemize}

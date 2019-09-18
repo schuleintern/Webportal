@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: PSR Log</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">PSR Log </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This repository holds all interfaces/classes/traits related to https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md "PSR-3".</p>
+<p><a class="el" href="class_note.html">Note</a> that this is not a logger of its own. It is merely an interface that describes a logger. See the specification for more details.</p>
+<h2>Usage </h2>
+<p>If you need a logger, you can use the interface like this:</p>
+<div class="fragment"><div class="line">&lt;?php</div><div class="line"></div><div class="line">use <a class="code" href="namespace_psr_1_1_log_1_1_logger_interface.html">Psr\Log\LoggerInterface</a>;</div><div class="line"></div><div class="line"><span class="keyword">class </span>Foo</div><div class="line">{</div><div class="line">    <span class="keyword">private</span> $logger;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">function</span> __construct(LoggerInterface $logger = null)</div><div class="line">    {</div><div class="line">        $this-&gt;logger = $logger;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">function</span> doSomething()</div><div class="line">    {</div><div class="line">        <span class="keywordflow">if</span> ($this-&gt;logger) {</div><div class="line">            $this-&gt;logger-&gt;info(<span class="stringliteral">&#39;Doing work&#39;</span>);</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="comment">// do something useful</span></div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><p>You can then pick one of the implementations of the interface to get a logger.</p>
+<p>If you want to implement the interface, you can require this package and implement <code>Psr\Log\LoggerInterface</code> in your code. Please read the https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md "specification text" for details. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

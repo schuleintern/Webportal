@@ -1,0 +1,318 @@
+\hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home}{}\section{Sabre\textbackslash{}Card\+D\+AV\textbackslash{}Address\+Book\+Home Klassenreferenz}
+\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home}\index{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home@{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home}}
+Klassendiagramm für Sabre\textbackslash{}Card\+D\+AV\textbackslash{}Address\+Book\+Home\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.500000cm]{class_sabre_1_1_card_d_a_v_1_1_address_book_home}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ae7959dbbbd1acc202ab6996a8ab46f19}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}} \$carddav\+Backend, \$principal\+Uri)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a4cfbe732cded342ce80e74fd4b4c321a}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a5f10222c82a11fdc8af8b8588b6b957b}{set\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a29657335a312f6563e8b6c676d69d350}{delete}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a155aa79f745345d56d8ca4f9571cbf93}{get\+Last\+Modified}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a134a28efb6add7eec8f9e79c21763ea3}{create\+File}} (\$filename, \$data=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_aa96416a748fd5423662ad389f75ed5ef}{create\+Directory}} (\$filename)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ae7b3aaf05451966e44a11ce81f97ea28}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a6df725f024e566d1d94f5fc312c2c17d}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ad3be16bc98c19b0e44565c2738787258}{create\+Extended\+Collection}} (\$name, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}} \$mk\+Col)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_afc2b53f38407b25302906080cf04d176}{get\+Owner}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a1a399c8ad2f266cea5d8f51a30474f83}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a1a399c8ad2f266cea5d8f51a30474f83}} 
+{\bfseries \$principal\+Uri}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_aede5b68bd99f099846d95ea8397d3943}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_aede5b68bd99f099846d95ea8397d3943}} 
+{\bfseries \$carddav\+Backend}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book}{Address\+Book}} Home class
+
+This collection contains a list of addressbooks associated with one user.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 19 der Datei Address\+Book\+Home.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ae7959dbbbd1acc202ab6996a8ab46f19}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ae7959dbbbd1acc202ab6996a8ab46f19}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}}}]{\$carddav\+Backend,  }\item[{}]{\$principal\+Uri }\end{DoxyParamCaption})}
+
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameter}
+Backend\textbackslash{}\+Backend\+Interface & {\em \$carddav\+Backend} & \\
+\hline
+string & {\em \$principal\+Uri} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 43 der Datei Address\+Book\+Home.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_aa96416a748fd5423662ad389f75ed5ef}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_aa96416a748fd5423662ad389f75ed5ef}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!create\+Directory@{create\+Directory}}
+\index{create\+Directory@{create\+Directory}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{create\+Directory()}{createDirectory()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::create\+Directory (\begin{DoxyParamCaption}\item[{}]{\$filename }\end{DoxyParamCaption})}
+
+Creates a new directory under this object.
+
+This is currently not allowed.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$filename} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a11e8eb888fffe1d792acebbe5bc59243}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 119 der Datei Address\+Book\+Home.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ad3be16bc98c19b0e44565c2738787258}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ad3be16bc98c19b0e44565c2738787258}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!create\+Extended\+Collection@{create\+Extended\+Collection}}
+\index{create\+Extended\+Collection@{create\+Extended\+Collection}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{create\+Extended\+Collection()}{createExtendedCollection()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::create\+Extended\+Collection (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}}}]{\$mk\+Col }\end{DoxyParamCaption})}
+
+Creates a new address book.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+Mk\+Col & {\em \$mk\+Col} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em D\+AV} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_extended_collection_ae17c248155a90ae664ad7fb9854ddf63}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Extended\+Collection}}.
+
+
+
+Definiert in Zeile 167 der Datei Address\+Book\+Home.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a134a28efb6add7eec8f9e79c21763ea3}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a134a28efb6add7eec8f9e79c21763ea3}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!create\+File@{create\+File}}
+\index{create\+File@{create\+File}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{create\+File()}{createFile()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::create\+File (\begin{DoxyParamCaption}\item[{}]{\$filename,  }\item[{}]{\$data = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates a new file under this object.
+
+This is currently not allowed
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$filename} & \\
+\hline
+resource & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a837d88dac548706770368200f83c2ebc}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 105 der Datei Address\+Book\+Home.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a29657335a312f6563e8b6c676d69d350}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a29657335a312f6563e8b6c676d69d350}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!delete@{delete}}
+\index{delete@{delete}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Deletes this object
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a72cd0ee4e36dfced2b0412d14dbd73e6}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 79 der Datei Address\+Book\+Home.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ae7b3aaf05451966e44a11ce81f97ea28}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ae7b3aaf05451966e44a11ce81f97ea28}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!get\+Child@{get\+Child}}
+\index{get\+Child@{get\+Child}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{get\+Child()}{getChild()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::get\+Child (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Returns a single addressbook, by name
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Noch zu erledigen}
+\item[\mbox{\hyperlink{todo__todo000003}{Noch zu erledigen}}]needs optimizing \end{DoxyRefDesc}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book}{Address\+Book}} 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a09f82b07550611752abb149f468b89c2}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 132 der Datei Address\+Book\+Home.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a6df725f024e566d1d94f5fc312c2c17d}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a6df725f024e566d1d94f5fc312c2c17d}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!get\+Children@{get\+Children}}
+\index{get\+Children@{get\+Children}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{get\+Children()}{getChildren()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::get\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of addressbooks
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a5344a6890e49fd7a81bb0e38b4c6d0be}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 148 der Datei Address\+Book\+Home.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a155aa79f745345d56d8ca4f9571cbf93}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a155aa79f745345d56d8ca4f9571cbf93}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!get\+Last\+Modified@{get\+Last\+Modified}}
+\index{get\+Last\+Modified@{get\+Last\+Modified}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{get\+Last\+Modified()}{getLastModified()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::get\+Last\+Modified (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the last modification date
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a06335f81c7d4ec2c6d9e327c8ce61014}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 90 der Datei Address\+Book\+Home.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a4cfbe732cded342ce80e74fd4b4c321a}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a4cfbe732cded342ce80e74fd4b4c321a}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the name of this object
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 55 der Datei Address\+Book\+Home.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_afc2b53f38407b25302906080cf04d176}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_afc2b53f38407b25302906080cf04d176}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!get\+Owner@{get\+Owner}}
+\index{get\+Owner@{get\+Owner}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{get\+Owner()}{getOwner()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::get\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the owner principal
+
+This must be a url to a principal, or null if there\textquotesingle{}s no owner
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a05f531b4ae1a86eab4e6e95b0413390e}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 185 der Datei Address\+Book\+Home.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a5f10222c82a11fdc8af8b8588b6b957b}\label{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a5f10222c82a11fdc8af8b8588b6b957b}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home@{Sabre\+::\+Card\+D\+A\+V\+::\+Address\+Book\+Home}}
+\subsubsection{\texorpdfstring{set\+Name()}{setName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home\+::set\+Name (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Updates the name of this object
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ac90fa5526e98def2e1f51bc57a772366}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 68 der Datei Address\+Book\+Home.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Card\+D\+A\+V/Address\+Book\+Home.\+php\end{DoxyCompactItemize}

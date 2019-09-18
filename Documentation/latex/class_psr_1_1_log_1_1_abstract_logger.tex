@@ -1,0 +1,260 @@
+\hypertarget{class_psr_1_1_log_1_1_abstract_logger}{}\section{Psr\textbackslash{}Log\textbackslash{}Abstract\+Logger Klassenreferenz}
+\label{class_psr_1_1_log_1_1_abstract_logger}\index{Psr\textbackslash{}\+Log\textbackslash{}\+Abstract\+Logger@{Psr\textbackslash{}\+Log\textbackslash{}\+Abstract\+Logger}}
+Klassendiagramm für Psr\textbackslash{}Log\textbackslash{}Abstract\+Logger\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_psr_1_1_log_1_1_abstract_logger}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_abstract_logger_a764e674efac84838693871e7cf442d10}{emergency}} (\$message, array \$context=array())
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_abstract_logger_a034a4d0f8091c7bd9906a06bb68c6822}{alert}} (\$message, array \$context=array())
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_abstract_logger_a0a84f40791f9404160f3a3dee53d85d4}{critical}} (\$message, array \$context=array())
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_abstract_logger_a7baa293e10760d6e55f89c54dce7f7eb}{error}} (\$message, array \$context=array())
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_abstract_logger_a2152c0a1d5cf25808ee1b3a977f40976}{warning}} (\$message, array \$context=array())
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_abstract_logger_aec9b9f7df26b9f4197ea5be59a34c275}{notice}} (\$message, array \$context=array())
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_abstract_logger_adc596338d3a71cc3d57805738f521dfe}{info}} (\$message, array \$context=array())
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_abstract_logger_a3d870d278e17778035b78f548a9f0ecd}{debug}} (\$message, array \$context=array())
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This is a simple Logger implementation that other Loggers can inherit from.
+
+It simply delegates all log-\/level-\/specific methods to the {\ttfamily log} method to reduce boilerplate code that a simple Logger that does the same thing with messages regardless of the error level has to implement. 
+
+Definiert in Zeile 12 der Datei Abstract\+Logger.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_psr_1_1_log_1_1_abstract_logger_a034a4d0f8091c7bd9906a06bb68c6822}\label{class_psr_1_1_log_1_1_abstract_logger_a034a4d0f8091c7bd9906a06bb68c6822}} 
+\index{Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}!alert@{alert}}
+\index{alert@{alert}!Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}}
+\subsubsection{\texorpdfstring{alert()}{alert()}}
+{\footnotesize\ttfamily Psr\textbackslash{}\+Log\textbackslash{}\+Abstract\+Logger\+::alert (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{array}]{\$context = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Action must be taken immediately.
+
+Example\+: Entire website down, database unavailable, etc. This should trigger the S\+MS alerts and wake you up.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$message} & \\
+\hline
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface_a957d0328d4e0ebc013b8df027148d2bf}{Psr\textbackslash{}\+Log\textbackslash{}\+Logger\+Interface}}.
+
+
+
+Definiert in Zeile 38 der Datei Abstract\+Logger.\+php.
+
+\mbox{\Hypertarget{class_psr_1_1_log_1_1_abstract_logger_a0a84f40791f9404160f3a3dee53d85d4}\label{class_psr_1_1_log_1_1_abstract_logger_a0a84f40791f9404160f3a3dee53d85d4}} 
+\index{Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}!critical@{critical}}
+\index{critical@{critical}!Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}}
+\subsubsection{\texorpdfstring{critical()}{critical()}}
+{\footnotesize\ttfamily Psr\textbackslash{}\+Log\textbackslash{}\+Abstract\+Logger\+::critical (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{array}]{\$context = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Critical conditions.
+
+Example\+: Application component unavailable, unexpected exception.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$message} & \\
+\hline
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface_a83e55a657304050b536411399b93f128}{Psr\textbackslash{}\+Log\textbackslash{}\+Logger\+Interface}}.
+
+
+
+Definiert in Zeile 53 der Datei Abstract\+Logger.\+php.
+
+\mbox{\Hypertarget{class_psr_1_1_log_1_1_abstract_logger_a3d870d278e17778035b78f548a9f0ecd}\label{class_psr_1_1_log_1_1_abstract_logger_a3d870d278e17778035b78f548a9f0ecd}} 
+\index{Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}!debug@{debug}}
+\index{debug@{debug}!Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}}
+\subsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily Psr\textbackslash{}\+Log\textbackslash{}\+Abstract\+Logger\+::debug (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{array}]{\$context = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Detailed debug information.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$message} & \\
+\hline
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface_a5659ed2af93e0152981f3c0cee8c329e}{Psr\textbackslash{}\+Log\textbackslash{}\+Logger\+Interface}}.
+
+
+
+Definiert in Zeile 124 der Datei Abstract\+Logger.\+php.
+
+\mbox{\Hypertarget{class_psr_1_1_log_1_1_abstract_logger_a764e674efac84838693871e7cf442d10}\label{class_psr_1_1_log_1_1_abstract_logger_a764e674efac84838693871e7cf442d10}} 
+\index{Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}!emergency@{emergency}}
+\index{emergency@{emergency}!Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}}
+\subsubsection{\texorpdfstring{emergency()}{emergency()}}
+{\footnotesize\ttfamily Psr\textbackslash{}\+Log\textbackslash{}\+Abstract\+Logger\+::emergency (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{array}]{\$context = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+System is unusable.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$message} & \\
+\hline
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface_a274d0a800dac32d011d4a441d1fe5680}{Psr\textbackslash{}\+Log\textbackslash{}\+Logger\+Interface}}.
+
+
+
+Definiert in Zeile 22 der Datei Abstract\+Logger.\+php.
+
+\mbox{\Hypertarget{class_psr_1_1_log_1_1_abstract_logger_a7baa293e10760d6e55f89c54dce7f7eb}\label{class_psr_1_1_log_1_1_abstract_logger_a7baa293e10760d6e55f89c54dce7f7eb}} 
+\index{Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}!error@{error}}
+\index{error@{error}!Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}}
+\subsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily Psr\textbackslash{}\+Log\textbackslash{}\+Abstract\+Logger\+::error (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{array}]{\$context = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Runtime errors that do not require immediate action but should typically be logged and monitored.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$message} & \\
+\hline
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface_a98c3f600f3f01f5d5afe9cb3057c735c}{Psr\textbackslash{}\+Log\textbackslash{}\+Logger\+Interface}}.
+
+
+
+Definiert in Zeile 67 der Datei Abstract\+Logger.\+php.
+
+\mbox{\Hypertarget{class_psr_1_1_log_1_1_abstract_logger_adc596338d3a71cc3d57805738f521dfe}\label{class_psr_1_1_log_1_1_abstract_logger_adc596338d3a71cc3d57805738f521dfe}} 
+\index{Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}!info@{info}}
+\index{info@{info}!Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}}
+\subsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily Psr\textbackslash{}\+Log\textbackslash{}\+Abstract\+Logger\+::info (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{array}]{\$context = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Interesting events.
+
+Example\+: User logs in, S\+QL logs.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$message} & \\
+\hline
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface_ad653b1161ba33b54bdfb63e7848e8dd8}{Psr\textbackslash{}\+Log\textbackslash{}\+Logger\+Interface}}.
+
+
+
+Definiert in Zeile 111 der Datei Abstract\+Logger.\+php.
+
+\mbox{\Hypertarget{class_psr_1_1_log_1_1_abstract_logger_aec9b9f7df26b9f4197ea5be59a34c275}\label{class_psr_1_1_log_1_1_abstract_logger_aec9b9f7df26b9f4197ea5be59a34c275}} 
+\index{Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}!notice@{notice}}
+\index{notice@{notice}!Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}}
+\subsubsection{\texorpdfstring{notice()}{notice()}}
+{\footnotesize\ttfamily Psr\textbackslash{}\+Log\textbackslash{}\+Abstract\+Logger\+::notice (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{array}]{\$context = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Normal but significant events.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$message} & \\
+\hline
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface_a230d886d26128d4e8ccba1de42b686ab}{Psr\textbackslash{}\+Log\textbackslash{}\+Logger\+Interface}}.
+
+
+
+Definiert in Zeile 96 der Datei Abstract\+Logger.\+php.
+
+\mbox{\Hypertarget{class_psr_1_1_log_1_1_abstract_logger_a2152c0a1d5cf25808ee1b3a977f40976}\label{class_psr_1_1_log_1_1_abstract_logger_a2152c0a1d5cf25808ee1b3a977f40976}} 
+\index{Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}!warning@{warning}}
+\index{warning@{warning}!Psr\+::\+Log\+::\+Abstract\+Logger@{Psr\+::\+Log\+::\+Abstract\+Logger}}
+\subsubsection{\texorpdfstring{warning()}{warning()}}
+{\footnotesize\ttfamily Psr\textbackslash{}\+Log\textbackslash{}\+Abstract\+Logger\+::warning (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{array}]{\$context = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Exceptional occurrences that are not errors.
+
+Example\+: Use of deprecated A\+P\+Is, poor use of an A\+PI, undesirable things that are not necessarily wrong.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$message} & \\
+\hline
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface_a3f8f3287b007ef73738d81e0ffd8127f}{Psr\textbackslash{}\+Log\textbackslash{}\+Logger\+Interface}}.
+
+
+
+Definiert in Zeile 83 der Datei Abstract\+Logger.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/psr/log/\+Psr/\+Log/Abstract\+Logger.\+php\end{DoxyCompactItemize}

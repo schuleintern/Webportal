@@ -1,0 +1,204 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Response Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Response\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a91719a3bad1ce1121c37de2c8e60de74}{\+\_\+\+\_\+construct}} (\$href, array \$response\+Properties, \$http\+Status=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a0b8048767425c6353d47df529af04e84}{get\+Href}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a44f386327f094c1b830eacecb3fbc907}{get\+Http\+Status}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_aa519d0f7baebc4438f88c2415bdbcf40}{get\+Response\+Properties}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_ab0849b6aace12b8039ca08461af88f69}{xml\+Serialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} \$writer)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a5a98f2e83398af04daf6f99138288d4b}{xml\+Deserialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$reader)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a95e1a2ca01e279e303e27d9ab0bd0fe6}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a95e1a2ca01e279e303e27d9ab0bd0fe6}} 
+{\bfseries \$href}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a18beaa63de346f257ef8e45749039334}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a18beaa63de346f257ef8e45749039334}} 
+{\bfseries \$response\+Properties}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a1b2e23a1da0d593f4de470a7473696db}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a1b2e23a1da0d593f4de470a7473696db}} 
+{\bfseries \$http\+Status}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Web\+D\+AV \{D\+AV\+:\}response parser
+
+This class parses the \{D\+AV\+:\}response element, as defined in\+:
+
+\href{https://tools.ietf.org/html/rfc4918#section-14.24}{\tt https\+://tools.\+ietf.\+org/html/rfc4918\#section-\/14.\+24}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://www.rooftopsolutions.nl/}{\tt http\+://www.\+rooftopsolutions.\+nl/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 20 der Datei Response.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a91719a3bad1ce1121c37de2c8e60de74}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a91719a3bad1ce1121c37de2c8e60de74}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$href,  }\item[{array}]{\$response\+Properties,  }\item[{}]{\$http\+Status = {\ttfamily null} }\end{DoxyParamCaption})}
+
+The href argument is a url relative to the root of the server. This class will calculate the full path.
+
+The response\+Properties argument is a list of properties within an array with keys representing H\+T\+TP status codes
+
+Besides specific properties, the entire \{D\+AV\+:\}response element may also have a http status code. In most cases you don\textquotesingle{}t need it.
+
+This is currently used by the Sync extension to indicate that a node is deleted.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$href} & \\
+\hline
+array & {\em \$response\+Properties} & \\
+\hline
+string & {\em \$http\+Status} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 63 der Datei Response.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a0b8048767425c6353d47df529af04e84}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a0b8048767425c6353d47df529af04e84}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}!get\+Href@{get\+Href}}
+\index{get\+Href@{get\+Href}!Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}}
+\subsubsection{\texorpdfstring{get\+Href()}{getHref()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response\+::get\+Href (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the url
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 76 der Datei Response.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a44f386327f094c1b830eacecb3fbc907}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a44f386327f094c1b830eacecb3fbc907}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}!get\+Http\+Status@{get\+Http\+Status}}
+\index{get\+Http\+Status@{get\+Http\+Status}!Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}}
+\subsubsection{\texorpdfstring{get\+Http\+Status()}{getHttpStatus()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response\+::get\+Http\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the http\+Status value
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 87 der Datei Response.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_aa519d0f7baebc4438f88c2415bdbcf40}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_aa519d0f7baebc4438f88c2415bdbcf40}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}!get\+Response\+Properties@{get\+Response\+Properties}}
+\index{get\+Response\+Properties@{get\+Response\+Properties}!Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}}
+\subsubsection{\texorpdfstring{get\+Response\+Properties()}{getResponseProperties()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response\+::get\+Response\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the property list
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 98 der Datei Response.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a5a98f2e83398af04daf6f99138288d4b}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_a5a98f2e83398af04daf6f99138288d4b}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}!xml\+Deserialize@{xml\+Deserialize}}
+\index{xml\+Deserialize@{xml\+Deserialize}!Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}}
+\subsubsection{\texorpdfstring{xml\+Deserialize()}{xmlDeserialize()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response\+::xml\+Deserialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The deserialize method is called during xml parsing.
+
+This method is called statically, this is because in theory this method may be used as a type of constructor, or factory method.
+
+Often you want to return an instance of the current class, but you are free to return other data as well.
+
+You are responsible for advancing the reader to the next element. Not doing anything will result in a never-\/ending loop.
+
+If you just want to skip parsing for this element altogether, you can just call \$reader-\/$>$next();
+
+\$reader-\/$>$parse\+Inner\+Tree() will parse the entire sub-\/tree, and advance to the next element.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Reader & {\em \$reader} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_deserializable_a19e0eca545b9a0d93f7d6b69085ade30}{Sabre\textbackslash{}\+Xml\textbackslash{}\+Xml\+Deserializable}}.
+
+
+
+Definiert in Zeile 181 der Datei Response.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_ab0849b6aace12b8039ca08461af88f69}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_ab0849b6aace12b8039ca08461af88f69}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}!xml\+Serialize@{xml\+Serialize}}
+\index{xml\+Serialize@{xml\+Serialize}!Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Element\+::\+Response}}
+\subsubsection{\texorpdfstring{xml\+Serialize()}{xmlSerialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response\+::xml\+Serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}}}]{\$writer }\end{DoxyParamCaption})}
+
+The serialize method is called during xml writing.
+
+It should use the \$writer argument to encode this object into X\+ML.
+
+Important note\+: it is not needed to create the parent element. The parent element is already created, and we only have to worry about attributes, child elements and text (if any).
+
+Important note 2\+: If you are writing any new elements, you are also responsible for closing them.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Writer & {\em \$writer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_serializable_aa78f3ee43aa699be8347181653a53d8c}{Sabre\textbackslash{}\+Xml\textbackslash{}\+Xml\+Serializable}}.
+
+
+
+Definiert in Zeile 120 der Datei Response.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Xml/\+Element/Response.\+php\end{DoxyCompactItemize}

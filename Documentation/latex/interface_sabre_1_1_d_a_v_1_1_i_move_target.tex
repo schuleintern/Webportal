@@ -1,0 +1,72 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_move_target}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}I\+Move\+Target Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_i_move_target}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Move\+Target@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Move\+Target}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}I\+Move\+Target\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{interface_sabre_1_1_d_a_v_1_1_i_move_target}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_move_target_a65380c5b58a8a78bb4c9135567a50cdb}{move\+Into}} (\$target\+Name, \$source\+Path, \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} \$source\+Node)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+By implementing this interface, a collection can effectively say \char`\"{}other
+nodes may be moved into this collection\char`\"{}.
+
+The benefit of this, is that sabre/dav will by default perform a move, by transferring an entire directory tree, copying every collection, and deleting every item.
+
+If a backend supports a better optimized move operation, this can trigger some huge speed gains.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 20 der Datei I\+Move\+Target.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_move_target_a65380c5b58a8a78bb4c9135567a50cdb}\label{interface_sabre_1_1_d_a_v_1_1_i_move_target_a65380c5b58a8a78bb4c9135567a50cdb}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Move\+Target@{Sabre\+::\+D\+A\+V\+::\+I\+Move\+Target}!move\+Into@{move\+Into}}
+\index{move\+Into@{move\+Into}!Sabre\+::\+D\+A\+V\+::\+I\+Move\+Target@{Sabre\+::\+D\+A\+V\+::\+I\+Move\+Target}}
+\subsubsection{\texorpdfstring{move\+Into()}{moveInto()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Move\+Target\+::move\+Into (\begin{DoxyParamCaption}\item[{}]{\$target\+Name,  }\item[{}]{\$source\+Path,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}}}]{\$source\+Node }\end{DoxyParamCaption})}
+
+Moves a node into this collection.
+
+It is up to the implementors to\+:
+\begin{DoxyEnumerate}
+\item Create the new resource.
+\item Remove the old resource.
+\item Transfer any properties or other data.
+\end{DoxyEnumerate}
+
+Generally you should make very sure that your collection can easily move the move.
+
+If you don\textquotesingle{}t, just return false, which will trigger sabre/dav to handle the move itself. If you return true from this function, the assumption is that the move was successful.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$target\+Name} & New local file/collection name. \\
+\hline
+string & {\em \$source\+Path} & Full path to source node \\
+\hline
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} & {\em \$source\+Node} & Source node itself \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/I\+Move\+Target.\+php\end{DoxyCompactItemize}

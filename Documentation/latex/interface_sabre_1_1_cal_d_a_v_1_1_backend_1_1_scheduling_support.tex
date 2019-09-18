@@ -1,0 +1,143 @@
+\hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Scheduling\+Support Schnittstellenreferenz}
+\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Scheduling\+Support@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Scheduling\+Support}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Scheduling\+Support\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_a01af6a746c7ed902a83c7eda56226519}{get\+Scheduling\+Object}} (\$principal\+Uri, \$object\+Uri)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_afdf40c6b8b703d1b2ffccb74106b4457}{get\+Scheduling\+Objects}} (\$principal\+Uri)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_aee5854c2fa93f6a4f29430e6fe68229b}{delete\+Scheduling\+Object}} (\$principal\+Uri, \$object\+Uri)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_a35f6df6ce36abacd013a5f0a26b3ae8d}{create\+Scheduling\+Object}} (\$principal\+Uri, \$object\+Uri, \$object\+Data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Implementing this interface adds Cal\+D\+AV Scheduling support to your caldav server, as defined in rfc6638.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 13 der Datei Scheduling\+Support.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_a35f6df6ce36abacd013a5f0a26b3ae8d}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_a35f6df6ce36abacd013a5f0a26b3ae8d}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support}!create\+Scheduling\+Object@{create\+Scheduling\+Object}}
+\index{create\+Scheduling\+Object@{create\+Scheduling\+Object}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support}}
+\subsubsection{\texorpdfstring{create\+Scheduling\+Object()}{createSchedulingObject()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Scheduling\+Support\+::create\+Scheduling\+Object (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri,  }\item[{}]{\$object\+Uri,  }\item[{}]{\$object\+Data }\end{DoxyParamCaption})}
+
+Creates a new scheduling object. This should land in a users\textquotesingle{} inbox.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+string & {\em \$object\+Uri} & \\
+\hline
+string & {\em \$object\+Data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o_a4d7732130b33406010020eee767e96a1}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling_ab0482b3d3c97f9a40ebd73864fb6556d}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Scheduling}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_aee5854c2fa93f6a4f29430e6fe68229b}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_aee5854c2fa93f6a4f29430e6fe68229b}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support}!delete\+Scheduling\+Object@{delete\+Scheduling\+Object}}
+\index{delete\+Scheduling\+Object@{delete\+Scheduling\+Object}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support}}
+\subsubsection{\texorpdfstring{delete\+Scheduling\+Object()}{deleteSchedulingObject()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Scheduling\+Support\+::delete\+Scheduling\+Object (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri,  }\item[{}]{\$object\+Uri }\end{DoxyParamCaption})}
+
+Deletes a scheduling object from the inbox collection.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+string & {\em \$object\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o_af842881c8a8ee265bb8cca7be1f0df14}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling_a8cb76d18dfa6c8a346343041a21357b4}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Scheduling}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_a01af6a746c7ed902a83c7eda56226519}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_a01af6a746c7ed902a83c7eda56226519}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support}!get\+Scheduling\+Object@{get\+Scheduling\+Object}}
+\index{get\+Scheduling\+Object@{get\+Scheduling\+Object}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support}}
+\subsubsection{\texorpdfstring{get\+Scheduling\+Object()}{getSchedulingObject()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Scheduling\+Support\+::get\+Scheduling\+Object (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri,  }\item[{}]{\$object\+Uri }\end{DoxyParamCaption})}
+
+Returns a single scheduling object for the inbox collection.
+
+The returned array should contain the following elements\+:
+\begin{DoxyItemize}
+\item uri -\/ A unique basename for the object. This will be used to construct a full uri.
+\item calendardata -\/ The i\+Calendar object
+\item lastmodified -\/ The last modification date. Can be an int for a unix timestamp, or a P\+HP Date\+Time object.
+\item etag -\/ A unique token that must change if the object changed.
+\item size -\/ The size of the object, in bytes.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+string & {\em \$object\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o_a4d36102c345935a0b551df8d82b8a089}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling_ae7d9e2f54ca746a2409ccd4529c32f18}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Scheduling}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_afdf40c6b8b703d1b2ffccb74106b4457}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support_afdf40c6b8b703d1b2ffccb74106b4457}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support}!get\+Scheduling\+Objects@{get\+Scheduling\+Objects}}
+\index{get\+Scheduling\+Objects@{get\+Scheduling\+Objects}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Scheduling\+Support}}
+\subsubsection{\texorpdfstring{get\+Scheduling\+Objects()}{getSchedulingObjects()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Scheduling\+Support\+::get\+Scheduling\+Objects (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri }\end{DoxyParamCaption})}
+
+Returns all scheduling objects for the inbox collection.
+
+These objects should be returned as an array. Every item in the array should follow the same structure as returned from get\+Scheduling\+Object.
+
+The main difference is that \textquotesingle{}calendardata\textquotesingle{} is optional.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o_a5b4d2c074e5e46b44d3a439ae94d7fd8}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling_a3c4759a7ce8f76a5dc15319cf15c5031}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Scheduling}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Backend/Scheduling\+Support.\+php\end{DoxyCompactItemize}

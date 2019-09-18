@@ -1,0 +1,126 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Sharing\textbackslash{}I\+Shared\+Node Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Sharing\textbackslash{}I\+Shared\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a1c9b44f6acd1cd63b211bdf987b9d098}{get\+Share\+Access}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a54b1073bfc389995c722566e18426902}{get\+Share\+Resource\+Uri}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a76948a1464503ea23d3dd8ff51b561ce}{update\+Invites}} (array \$sharees)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_aa4646ed6e564d50969a4117f0f03eecd}{get\+Invites}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This interface represents a resource that has sharing capabilities, either because it\textquotesingle{}s possible for an owner to share the resource, or because this is an instance of a shared resource.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH. (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei I\+Shared\+Node.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_aa4646ed6e564d50969a4117f0f03eecd}\label{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_aa4646ed6e564d50969a4117f0f03eecd}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node}!get\+Invites@{get\+Invites}}
+\index{get\+Invites@{get\+Invites}!Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node}}
+\subsubsection{\texorpdfstring{get\+Invites()}{getInvites()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node\+::get\+Invites (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of people whom this resource is shared with.
+
+Every item in the returned array must be a Sharee object with at least the following properties set\+:
+
+
+\begin{DoxyItemize}
+\item \$href
+\item \$share\+Access
+\item \$invite\+Status
+\end{DoxyItemize}
+
+and optionally\+:
+
+
+\begin{DoxyItemize}
+\item \$properties
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a6deaecb18be485adbdc98b0132b4ab1e}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_afb00675ab09e20eb1b1542c7b482119d}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a1c9b44f6acd1cd63b211bdf987b9d098}\label{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a1c9b44f6acd1cd63b211bdf987b9d098}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node}!get\+Share\+Access@{get\+Share\+Access}}
+\index{get\+Share\+Access@{get\+Share\+Access}!Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node}}
+\subsubsection{\texorpdfstring{get\+Share\+Access()}{getShareAccess()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node\+::get\+Share\+Access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the \textquotesingle{}access level\textquotesingle{} for the instance of this shared resource.
+
+The value should be one of the Sabre\+::\+A\+C\+C\+E\+S\+S\+\_\+ constants.
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a1b17b0c416f56f137a232a60ed8db525}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a6a543caf4cf5c259d9a8de538fbd5e11}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a54b1073bfc389995c722566e18426902}\label{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a54b1073bfc389995c722566e18426902}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node}!get\+Share\+Resource\+Uri@{get\+Share\+Resource\+Uri}}
+\index{get\+Share\+Resource\+Uri@{get\+Share\+Resource\+Uri}!Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node}}
+\subsubsection{\texorpdfstring{get\+Share\+Resource\+Uri()}{getShareResourceUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node\+::get\+Share\+Resource\+Uri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function must return a U\+RI that uniquely identifies the shared resource. This U\+RI should be identical across instances, and is also used in several other X\+ML bodies to connect invites to resources.
+
+This may simply be a relative reference to the original shared instance, but it could also be a urn. As long as it\textquotesingle{}s a valid U\+RI and unique.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a428e362da7ce65a09585099b1b61065f}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a0c3380bdb7a9c6e9f7c347477e7d0dd9}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a76948a1464503ea23d3dd8ff51b561ce}\label{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a76948a1464503ea23d3dd8ff51b561ce}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node}!update\+Invites@{update\+Invites}}
+\index{update\+Invites@{update\+Invites}!Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Sharing\+::\+I\+Shared\+Node}}
+\subsubsection{\texorpdfstring{update\+Invites()}{updateInvites()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node\+::update\+Invites (\begin{DoxyParamCaption}\item[{array}]{\$sharees }\end{DoxyParamCaption})}
+
+Updates the list of sharees.
+
+Every item must be a Sharee object.
+
+
+\begin{DoxyParams}{Parameter}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a4dfbf2b033295cd266b532d7fcaed18c}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a6b8b622de08517a514d91581f95f09fa}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Sharing/I\+Shared\+Node.\+php\end{DoxyCompactItemize}

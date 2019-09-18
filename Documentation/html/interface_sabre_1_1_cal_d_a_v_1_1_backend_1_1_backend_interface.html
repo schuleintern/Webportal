@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Sabre\CalDAV\Backend\BackendInterface Schnittstellenreferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>Sabre</b></li><li class="navelem"><b>CalDAV</b></li><li class="navelem"><b>Backend</b></li><li class="navelem"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html">BackendInterface</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Öffentliche Methoden</a> &#124;
+<a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface-members.html">Aufstellung aller Elemente</a>  </div>
+  <div class="headertitle">
+<div class="title">Sabre\CalDAV\Backend\BackendInterface Schnittstellenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Klassendiagramm für Sabre\CalDAV\Backend\BackendInterface:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.png" usemap="#Sabre_5CCalDAV_5CBackend_5CBackendInterface_map" alt=""/>
+  <map id="Sabre_5CCalDAV_5CBackend_5CBackendInterface_map" name="Sabre_5CCalDAV_5CBackend_5CBackendInterface_map">
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend.html" alt="Sabre\CalDAV\Backend\AbstractBackend" shape="rect" coords="0,56,298,80"/>
+<area href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support.html" alt="Sabre\CalDAV\Backend\NotificationSupport" shape="rect" coords="616,56,914,80"/>
+<area href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support.html" alt="Sabre\CalDAV\Backend\SchedulingSupport" shape="rect" coords="924,56,1222,80"/>
+<area href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sharing_support.html" alt="Sabre\CalDAV\Backend\SharingSupport" shape="rect" coords="1540,56,1838,80"/>
+<area href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_subscription_support.html" alt="Sabre\CalDAV\Backend\SubscriptionSupport" shape="rect" coords="2156,56,2454,80"/>
+<area href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sync_support.html" alt="Sabre\CalDAV\Backend\SyncSupport" shape="rect" coords="2772,56,3070,80"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_mock.html" alt="Sabre\CalDAV\Backend\AbstractMock" shape="rect" coords="308,112,606,136"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html" alt="Sabre\CalDAV\Backend\Mock" shape="rect" coords="308,168,606,192"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html" alt="Sabre\CalDAV\Backend\PDO" shape="rect" coords="308,224,606,248"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_simple_p_d_o.html" alt="Sabre\CalDAV\Backend\SimplePDO" shape="rect" coords="308,280,606,304"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing.html" alt="Sabre\CalDAV\Backend\MockSharing" shape="rect" coords="616,112,914,136"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_scheduling.html" alt="Sabre\CalDAV\Backend\MockScheduling" shape="rect" coords="1232,112,1530,136"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html" alt="Sabre\CalDAV\Backend\PDO" shape="rect" coords="1232,168,1530,192"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing.html" alt="Sabre\CalDAV\Backend\MockSharing" shape="rect" coords="1848,112,2146,136"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html" alt="Sabre\CalDAV\Backend\PDO" shape="rect" coords="1848,168,2146,192"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support.html" alt="Sabre\CalDAV\Backend\MockSubscriptionSupport" shape="rect" coords="2464,112,2762,136"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html" alt="Sabre\CalDAV\Backend\PDO" shape="rect" coords="2464,168,2762,192"/>
+<area href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html" alt="Sabre\CalDAV\Backend\PDO" shape="rect" coords="2772,112,3070,136"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr class="memitem:a41d069c48af0155b8e6e04bee46c70ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a41d069c48af0155b8e6e04bee46c70ba">getCalendarsForUser</a> ($principalUri)</td></tr>
+<tr class="separator:a41d069c48af0155b8e6e04bee46c70ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac792d2e1791c49d7c895a1c8b9f3b60a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#ac792d2e1791c49d7c895a1c8b9f3b60a">createCalendar</a> ($principalUri, $calendarUri, array $properties)</td></tr>
+<tr class="separator:ac792d2e1791c49d7c895a1c8b9f3b60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee5f2b1f3631060205b16e69deb7f3c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#aee5f2b1f3631060205b16e69deb7f3c1">updateCalendar</a> ($calendarId, \<a class="el" href="class_sabre_1_1_d_a_v_1_1_prop_patch.html">Sabre\DAV\PropPatch</a> $propPatch)</td></tr>
+<tr class="separator:aee5f2b1f3631060205b16e69deb7f3c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a909fbc63f768c2bf8409416d3f24e898"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a909fbc63f768c2bf8409416d3f24e898">deleteCalendar</a> ($calendarId)</td></tr>
+<tr class="separator:a909fbc63f768c2bf8409416d3f24e898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa786269ba9eb1731fb659b67f684ac2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#aaa786269ba9eb1731fb659b67f684ac2">getCalendarObjects</a> ($calendarId)</td></tr>
+<tr class="separator:aaa786269ba9eb1731fb659b67f684ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c082fae6a4008fc9c2fa43ae61b9833"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a8c082fae6a4008fc9c2fa43ae61b9833">getCalendarObject</a> ($calendarId, $objectUri)</td></tr>
+<tr class="separator:a8c082fae6a4008fc9c2fa43ae61b9833"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ac65bc67e50edce9db902083d0ceb51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a1ac65bc67e50edce9db902083d0ceb51">getMultipleCalendarObjects</a> ($calendarId, array $uris)</td></tr>
+<tr class="separator:a1ac65bc67e50edce9db902083d0ceb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a338ac93ff39e5ed7a9330df875b9efa4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a338ac93ff39e5ed7a9330df875b9efa4">createCalendarObject</a> ($calendarId, $objectUri, $calendarData)</td></tr>
+<tr class="separator:a338ac93ff39e5ed7a9330df875b9efa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27aef382054a5b2945673944439f716"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#af27aef382054a5b2945673944439f716">updateCalendarObject</a> ($calendarId, $objectUri, $calendarData)</td></tr>
+<tr class="separator:af27aef382054a5b2945673944439f716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bb33e6316187c3254fe38d3cf61e416"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a2bb33e6316187c3254fe38d3cf61e416">deleteCalendarObject</a> ($calendarId, $objectUri)</td></tr>
+<tr class="separator:a2bb33e6316187c3254fe38d3cf61e416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd41f613576b9d7d6d16d3039c692ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#aecd41f613576b9d7d6d16d3039c692ae">calendarQuery</a> ($calendarId, array $filters)</td></tr>
+<tr class="separator:aecd41f613576b9d7d6d16d3039c692ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9fc5b145a94ba67e0a4fe1fb6d82022"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#ac9fc5b145a94ba67e0a4fe1fb6d82022">getCalendarObjectByUID</a> ($principalUri, $uid)</td></tr>
+<tr class="separator:ac9fc5b145a94ba67e0a4fe1fb6d82022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Every CalDAV backend must at least implement this interface.</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) fruux GmbH (<a href="https://fruux.com/">https://fruux.com/</a>) </dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Evert Pot (<a href="http://evertpot.com/">http://evertpot.com/</a>)  <a href="http://sabre.io/license/">http://sabre.io/license/</a> Modified BSD License </dd></dl>
+
+<p class="definition">Definiert in Zeile <a class="el" href="_cal_d_a_v_2_backend_2_backend_interface_8php_source.html#l00012">12</a> der Datei <a class="el" href="_cal_d_a_v_2_backend_2_backend_interface_8php_source.html">BackendInterface.php</a>.</p>
+</div><h2 class="groupheader">Dokumentation der Elementfunktionen</h2>
+<a id="aecd41f613576b9d7d6d16d3039c692ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecd41f613576b9d7d6d16d3039c692ae">&#9670;&nbsp;</a></span>calendarQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::calendarQuery </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$filters</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Performs a calendar-query on the contents of this calendar.</p>
+<p>The calendar-query is defined in RFC4791 : CalDAV. Using the calendar-query it is possible for a client to request a specific set of object, based on contents of iCalendar properties, date-ranges and iCalendar component types (VTODO, VEVENT).</p>
+<p>This method should just return a list of (relative) urls that match this query.</p>
+<p>The list of filters are specified as an array. The exact array is documented by Sabre.</p>
+<p><a class="el" href="class_note.html">Note</a> that it is extremely likely that getCalendarObject for every path returned from this method will be called almost immediately after. You may want to anticipate this to speed up these requests.</p>
+<p>This method provides a default implementation, which parses <em>all</em> the iCalendar objects in the specified calendar.</p>
+<p>This default may well be good enough for personal use, and calendars that aren't very large. But if you anticipate high usage, big calendars or high loads, you are strongly adviced to optimize certain paths.</p>
+<p>The best way to do so is override this method and to optimize specifically for 'common filters'.</p>
+<p>Requests that are extremely common are:</p><ul>
+<li>requests for just VEVENTS</li>
+<li>requests for just VTODO</li>
+<li>requests with a time-range-filter on either VEVENT or VTODO.</li>
+</ul>
+<p>..and combinations of these requests. It may not be worth it to try to handle every possible situation and just rely on the (relatively easy to use) <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator.html">CalendarQueryValidator</a> to handle the rest.</p>
+<p><a class="el" href="class_note.html">Note</a> that especially time-range-filters may be difficult to parse. A time-range filter specified on a VEVENT must for instance also handle recurrence rules correctly. A good example of how to interprete all these filters can also simply be found in Sabre. This class is as correct as possible, so it gives you a good idea on what type of stuff you need to think of.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">mixed</td><td class="paramname">$calendarId</td><td></td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$filters</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>array </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#a24d741b002fd0b78c313fe377f451de0">Sabre\CalDAV\Backend\PDO</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend.html#a6da1dc50d10765046142ce703bc44925">Sabre\CalDAV\Backend\AbstractBackend</a>.</p>
+
+</div>
+</div>
+<a id="ac792d2e1791c49d7c895a1c8b9f3b60a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac792d2e1791c49d7c895a1c8b9f3b60a">&#9670;&nbsp;</a></span>createCalendar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::createCalendar </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$principalUri</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarUri</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$properties</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a new calendar for a principal.</p>
+<p>If the creation was a success, an id must be returned that can be used to reference this calendar in other methods, such as updateCalendar.</p>
+<p>The id can be any type, including ints, strings, objects or array.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$principalUri</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$calendarUri</td><td></td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$properties</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>mixed </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#a668ecafd32745afe1cee73954ab867f0">Sabre\CalDAV\Backend\PDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_mock.html#af3c77f7cc777eb7a101be58d96bf6d85">Sabre\CalDAV\Backend\AbstractMock</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_simple_p_d_o.html#ae765390abf75b7111396a55e13fa965f">Sabre\CalDAV\Backend\SimplePDO</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html#adbaaeee2f6d41b5cc388f2935a42e90d">Sabre\CalDAV\Backend\Mock</a>.</p>
+
+</div>
+</div>
+<a id="a338ac93ff39e5ed7a9330df875b9efa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a338ac93ff39e5ed7a9330df875b9efa4">&#9670;&nbsp;</a></span>createCalendarObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::createCalendarObject </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$objectUri</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a new calendar object.</p>
+<p>The object uri is only the basename, or filename and not a full path.</p>
+<p>It is possible to return an etag from this function, which will be used in the response to this PUT request. <a class="el" href="class_note.html">Note</a> that the ETag must be surrounded by double-quotes.</p>
+<p>However, you should only really return this ETag if you don't mangle the calendar-data. If the result of a subsequent GET to this object is not the exact same as this request body, you should omit the ETag.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">mixed</td><td class="paramname">$calendarId</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$objectUri</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$calendarData</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>string|null </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#aca2a1959c60cb4d147869ed91a75ce09">Sabre\CalDAV\Backend\PDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_simple_p_d_o.html#a900bb6e1992a55d4df36d9d0157759c2">Sabre\CalDAV\Backend\SimplePDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html#a602fb01816d08265d18094b195db0196">Sabre\CalDAV\Backend\Mock</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_mock.html#a7f1cb4ae7e7c74e88db0eaf853b1c245">Sabre\CalDAV\Backend\AbstractMock</a>.</p>
+
+</div>
+</div>
+<a id="a909fbc63f768c2bf8409416d3f24e898"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a909fbc63f768c2bf8409416d3f24e898">&#9670;&nbsp;</a></span>deleteCalendar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::deleteCalendar </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Delete a calendar and all its objects</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">mixed</td><td class="paramname">$calendarId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>void </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#a8742e2649f87b0e66d9899decd6b0184">Sabre\CalDAV\Backend\PDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html#a8d4df88fced9cb5dadb5f35c13752277">Sabre\CalDAV\Backend\Mock</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_simple_p_d_o.html#ab183f12a8eaa7ac0dbbcd2b17ddf56ac">Sabre\CalDAV\Backend\SimplePDO</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_mock.html#aedd71ef0fb853eb8159e273ecc90f909">Sabre\CalDAV\Backend\AbstractMock</a>.</p>
+
+</div>
+</div>
+<a id="a2bb33e6316187c3254fe38d3cf61e416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bb33e6316187c3254fe38d3cf61e416">&#9670;&nbsp;</a></span>deleteCalendarObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::deleteCalendarObject </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$objectUri</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Deletes an existing calendar object.</p>
+<p>The object uri is only the basename, or filename and not a full path.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">mixed</td><td class="paramname">$calendarId</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$objectUri</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>void </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#aff419a81f0923315834134b88b5afd09">Sabre\CalDAV\Backend\PDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_simple_p_d_o.html#a6fb588682ff0bb6afd52ad5fbe1f6955">Sabre\CalDAV\Backend\SimplePDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html#ae8b62f1520ff22dd4f5b67c32294e22e">Sabre\CalDAV\Backend\Mock</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_mock.html#a899605a43f9aaba1742ab62ece53a66a">Sabre\CalDAV\Backend\AbstractMock</a>.</p>
+
+</div>
+</div>
+<a id="a8c082fae6a4008fc9c2fa43ae61b9833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c082fae6a4008fc9c2fa43ae61b9833">&#9670;&nbsp;</a></span>getCalendarObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::getCalendarObject </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$objectUri</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns information from a single calendar object, based on it's object uri.</p>
+<p>The object uri is only the basename, or filename and not a full path.</p>
+<p>The returned array must have the same keys as getCalendarObjects. The 'calendardata' object is required here though, while it's not required for getCalendarObjects.</p>
+<p>This method must return null if the object did not exist.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">mixed</td><td class="paramname">$calendarId</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$objectUri</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>array|null </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#a730b64c39c9ec9fd75b2c185ff7890f3">Sabre\CalDAV\Backend\PDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_simple_p_d_o.html#a0fd702e04bedfb3ae2156e9d6477a49b">Sabre\CalDAV\Backend\SimplePDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html#a1dc1f798a5aef4f1741837a623a5d6ad">Sabre\CalDAV\Backend\Mock</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_mock.html#a535e8d21a6d1a05d95ede428fa40a3fe">Sabre\CalDAV\Backend\AbstractMock</a>.</p>
+
+</div>
+</div>
+<a id="ac9fc5b145a94ba67e0a4fe1fb6d82022"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9fc5b145a94ba67e0a4fe1fb6d82022">&#9670;&nbsp;</a></span>getCalendarObjectByUID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::getCalendarObjectByUID </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$principalUri</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$uid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Searches through all of a users calendars and calendar objects to find an object with a specific UID.</p>
+<p>This method should return the path to this object, relative to the calendar home, so this path usually only contains two parts:</p>
+<p>calendarpath/objectpath.ics</p>
+<p>If the uid is not found, return null.</p>
+<p>This method should only consider * objects that the principal owns, so any calendars owned by other principals that also appear in this collection should be ignored.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$principalUri</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$uid</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>string|null </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#a7e0e440df7c947c2a356b632eab5cf9a">Sabre\CalDAV\Backend\PDO</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend.html#a7b872ebd80eb25ebd9636b5d64caae8f">Sabre\CalDAV\Backend\AbstractBackend</a>.</p>
+
+</div>
+</div>
+<a id="aaa786269ba9eb1731fb659b67f684ac2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa786269ba9eb1731fb659b67f684ac2">&#9670;&nbsp;</a></span>getCalendarObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::getCalendarObjects </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns all calendar objects within a calendar.</p>
+<p>Every item contains an array with the following keys:</p><ul>
+<li>calendardata - The iCalendar-compatible calendar data</li>
+<li>uri - a unique key which will be used to construct the uri. This can be any arbitrary string, but making sure it ends with '.ics' is a good idea. This is only the basename, or filename, not the full path.</li>
+<li>lastmodified - a timestamp of the last modification time</li>
+<li>etag - An arbitrary string, surrounded by double-quotes. (e.g.: '"abcdef"')</li>
+<li>size - The size of the calendar objects, in bytes.</li>
+<li>component - optional, a string containing the type of object, such as 'vevent' or 'vtodo'. If specified, this will be used to populate the Content-Type header.</li>
+</ul>
+<p><a class="el" href="class_note.html">Note</a> that the etag is optional, but it's highly encouraged to return for speed reasons.</p>
+<p>The calendardata is also optional. If it's not returned 'getCalendarObject' will be called later, which <em>is</em> expected to return calendardata.</p>
+<p>If neither etag or size are specified, the calendardata will be used/fetched to determine these numbers. If both are specified the amount of times this is needed is reduced by a great degree.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">mixed</td><td class="paramname">$calendarId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>array </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#a0f86121bbca86e632dd9d2b1ca14abaa">Sabre\CalDAV\Backend\PDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_simple_p_d_o.html#a11bae2bb246b02189eb896efbf3a1454">Sabre\CalDAV\Backend\SimplePDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html#a07387ba01145903a1214b2b3c4b3131e">Sabre\CalDAV\Backend\Mock</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_mock.html#aa0031bf1754b41a98eeb26d987138a18">Sabre\CalDAV\Backend\AbstractMock</a>.</p>
+
+</div>
+</div>
+<a id="a41d069c48af0155b8e6e04bee46c70ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41d069c48af0155b8e6e04bee46c70ba">&#9670;&nbsp;</a></span>getCalendarsForUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::getCalendarsForUser </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$principalUri</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns a list of calendars for a principal.</p>
+<p>Every project is an array with the following keys:</p><ul>
+<li>id, a unique id that will be used by other functions to modify the calendar. This can be the same as the uri or a database key.</li>
+<li>uri, which is the basename of the uri with which the calendar is accessed.</li>
+<li>principaluri. The owner of the calendar. Almost always the same as principalUri passed to this method.</li>
+</ul>
+<p>Furthermore it can contain webdav properties in clark notation. A very common one is '{DAV:}displayname'.</p>
+<p>Many clients also require: {urn:ietf:params:xml:ns:caldav}supported-calendar-component-set For this property, you can just return an instance of Sabre.</p>
+<p>If you return {<a href="http://sabredav.org/ns">http://sabredav.org/ns</a>}read-only and set the value to 1, ACL will automatically be put in read-only mode.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$principalUri</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>array </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#a6a5e51f95be75f19eecbd13c6bb90bbc">Sabre\CalDAV\Backend\PDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_mock.html#a0393f4b2e85e510e01d8f7f7b3bc1a08">Sabre\CalDAV\Backend\AbstractMock</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_simple_p_d_o.html#af10ea58aabe1645bc2a6d4845dccda12">Sabre\CalDAV\Backend\SimplePDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html#a97477c67412f556a2dbaf70c8632642e">Sabre\CalDAV\Backend\Mock</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing.html#a7cc6409f0296b256ee8132d5179afc21">Sabre\CalDAV\Backend\MockSharing</a>.</p>
+
+</div>
+</div>
+<a id="a1ac65bc67e50edce9db902083d0ceb51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ac65bc67e50edce9db902083d0ceb51">&#9670;&nbsp;</a></span>getMultipleCalendarObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::getMultipleCalendarObjects </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$uris</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns a list of calendar objects.</p>
+<p>This method should work identical to getCalendarObject, but instead return all the calendar objects in the list as an array.</p>
+<p>If the backend supports this, it may allow for some speed-ups.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">mixed</td><td class="paramname">$calendarId</td><td></td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$uris</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>array </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#ab20988584dd756f9b2742b8e67ddf514">Sabre\CalDAV\Backend\PDO</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend.html#adba5d18971acc5868a58d66eb9f72786">Sabre\CalDAV\Backend\AbstractBackend</a>.</p>
+
+</div>
+</div>
+<a id="aee5f2b1f3631060205b16e69deb7f3c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee5f2b1f3631060205b16e69deb7f3c1">&#9670;&nbsp;</a></span>updateCalendar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::updateCalendar </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">\<a class="el" href="class_sabre_1_1_d_a_v_1_1_prop_patch.html">Sabre\DAV\PropPatch</a>&#160;</td>
+          <td class="paramname"><em>$propPatch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates properties for a calendar.</p>
+<p>The list of mutations is stored in a Sabre object. To do the actual updates, you must tell this object which properties you're going to process with the handle() method.</p>
+<p>Calling the handle method is like telling the PropPatch object "I
+promise I can handle updating this property".</p>
+<p>Read the PropPatch documentation for more info and examples.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">mixed</td><td class="paramname">$calendarId</td><td></td></tr>
+    <tr><td class="paramtype">\Sabre\DAV\PropPatch</td><td class="paramname">$propPatch</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>void </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#a5769761d5313fb8bc98552529e9c5e74">Sabre\CalDAV\Backend\PDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html#ab8b52659a3074c8d726ab5674181d4d7">Sabre\CalDAV\Backend\Mock</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend.html#a4fcc50d31b15897b3c20f9f3d9b7409f">Sabre\CalDAV\Backend\AbstractBackend</a>.</p>
+
+</div>
+</div>
+<a id="af27aef382054a5b2945673944439f716"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af27aef382054a5b2945673944439f716">&#9670;&nbsp;</a></span>updateCalendarObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sabre\CalDAV\Backend\BackendInterface::updateCalendarObject </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$objectUri</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$calendarData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates an existing calendarobject, based on it's uri.</p>
+<p>The object uri is only the basename, or filename and not a full path.</p>
+<p>It is possible return an etag from this function, which will be used in the response to this PUT request. <a class="el" href="class_note.html">Note</a> that the ETag must be surrounded by double-quotes.</p>
+<p>However, you should only really return this ETag if you don't mangle the calendar-data. If the result of a subsequent GET to this object is not the exact same as this request body, you should omit the ETag.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">mixed</td><td class="paramname">$calendarId</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$objectUri</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$calendarData</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>string|null </dd></dl>
+
+<p>Implementiert in <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o.html#aafe753458ec28f0ffdfaa7b6c6664f83">Sabre\CalDAV\Backend\PDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_simple_p_d_o.html#ae2b17157379fdb4720f51fb63d895e48">Sabre\CalDAV\Backend\SimplePDO</a>, <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock.html#a73aa850fd884a9a2fde90d0e819e2336">Sabre\CalDAV\Backend\Mock</a> und <a class="el" href="class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_mock.html#a478a6153bbae1f88081672c914754e57">Sabre\CalDAV\Backend\AbstractMock</a>.</p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei:<ul>
+<li>Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/CalDAV/Backend/<a class="el" href="_cal_d_a_v_2_backend_2_backend_interface_8php_source.html">BackendInterface.php</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

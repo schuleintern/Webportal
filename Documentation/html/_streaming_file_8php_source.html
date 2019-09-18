@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/tests/Sabre/DAV/Mock/StreamingFile.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_3b73ca86a190240609bd293492658134.html">tests</a></li><li class="navelem"><a class="el" href="dir_10aad7aa0b11c6a2140c1561702a1118.html">Sabre</a></li><li class="navelem"><a class="el" href="dir_a31d567505e2e9c942856d21f9b41bd9.html">DAV</a></li><li class="navelem"><a class="el" href="dir_f194c8f2047e72112d4ff40c24e18c5a.html">Mock</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">StreamingFile.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_mock.html">Sabre\DAV\Mock</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html">StreamingFile</a> <span class="keyword">extends</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_file.html">File</a> {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">protected</span> $size;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a78ce92fdea212d201f097698c0c5a1a8">   39</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a78ce92fdea212d201f097698c0c5a1a8">put</a>($data) {</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span> (is_string($data)) {</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            $stream = fopen(<span class="stringliteral">&#39;php://memory&#39;</span>, <span class="stringliteral">&#39;r+&#39;</span>);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            fwrite($stream, $data);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            rewind($stream);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            $data = $stream;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        $this-&gt;contents = $data;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a4492beb835030b97e2bc3e6c4d2cdf4d">   58</a></span>&#160;    <span class="keyword">function</span> <span class="keyword">get</span>() {</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> $this-&gt;contents;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a53ac81dd1c660afac1dd3c39c00e4d47">   73</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a53ac81dd1c660afac1dd3c39c00e4d47">getETag</a>() {</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> null;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div><div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a693c21cb705844f3d3defd4484976520">   84</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a693c21cb705844f3d3defd4484976520">getSize</a>() {</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> $this-&gt;size;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div><div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a706476699b3eed39ee2fa533891155fe">   96</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a706476699b3eed39ee2fa533891155fe">setSize</a>($size) {</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        $this-&gt;size = $size;</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file_html_a693c21cb705844f3d3defd4484976520"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a693c21cb705844f3d3defd4484976520">Sabre\DAV\Mock\StreamingFile\getSize</a></div><div class="ttdeci">getSize()</div><div class="ttdef"><b>Definition:</b> <a href="_streaming_file_8php_source.html#l00084">StreamingFile.php:84</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file_html_a706476699b3eed39ee2fa533891155fe"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a706476699b3eed39ee2fa533891155fe">Sabre\DAV\Mock\StreamingFile\setSize</a></div><div class="ttdeci">setSize($size)</div><div class="ttdef"><b>Definition:</b> <a href="_streaming_file_8php_source.html#l00096">StreamingFile.php:96</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_file_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_file.html">Sabre\DAV\File</a></div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_file_8php_source.html#l00015">File.php:15</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_mock_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_mock.html">Sabre\DAV\Mock</a></div><div class="ttdef"><b>Definition:</b> <a href="tests_2_sabre_2_d_a_v_2_mock_2_collection_8php_source.html#l00003">Collection.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file_html_a53ac81dd1c660afac1dd3c39c00e4d47"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a53ac81dd1c660afac1dd3c39c00e4d47">Sabre\DAV\Mock\StreamingFile\getETag</a></div><div class="ttdeci">getETag()</div><div class="ttdef"><b>Definition:</b> <a href="_streaming_file_8php_source.html#l00073">StreamingFile.php:73</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file_html_a78ce92fdea212d201f097698c0c5a1a8"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html#a78ce92fdea212d201f097698c0c5a1a8">Sabre\DAV\Mock\StreamingFile\put</a></div><div class="ttdeci">put($data)</div><div class="ttdef"><b>Definition:</b> <a href="_streaming_file_8php_source.html#l00039">StreamingFile.php:39</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file.html">Sabre\DAV\Mock\StreamingFile</a></div><div class="ttdef"><b>Definition:</b> <a href="_streaming_file_8php_source.html#l00015">StreamingFile.php:15</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

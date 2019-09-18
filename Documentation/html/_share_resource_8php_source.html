@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAV/Xml/Request/ShareResource.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_641c95e6ed9dd2d5dcbadeacba03bd45.html">DAV</a></li><li class="navelem"><a class="el" href="dir_198cb0947a44dba54a042f893b55ef46.html">Xml</a></li><li class="navelem"><a class="el" href="dir_2b52433eb9bea0ba53a20cbd556f07aa.html">Request</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ShareResource.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_request.html">Sabre\DAV\Xml\Request</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_sharee.html">Sabre\DAV\Xml\Element\Sharee</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_xml_deserializable.html">Sabre\Xml\XmlDeserializable</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource.html">ShareResource</a> <span class="keyword">implements</span> <a class="code" href="interface_sabre_1_1_xml_1_1_xml_deserializable.html">XmlDeserializable</a> {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">public</span> $sharees = [];</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource.html#a16cd8e612168680292152ce302f1a43e">   34</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource.html#a16cd8e612168680292152ce302f1a43e">__construct</a>(array $sharees) {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        $this-&gt;sharees = $sharees;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource.html#aee1943104644bf11bc6fe23121cde9db">   61</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource.html#aee1943104644bf11bc6fe23121cde9db">xmlDeserialize</a>(<a class="code" href="class_sabre_1_1_xml_1_1_reader.html">Reader</a> $reader) {</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        $elems = $reader-&gt;<a class="code" href="class_sabre_1_1_xml_1_1_reader.html#a6621ccff3f12f0fd262de08e948fd2bb">parseInnerTree</a>([</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="stringliteral">&#39;{DAV:}sharee&#39;</span>       =&gt; <span class="stringliteral">&#39;Sabre\DAV\Xml\Element\Sharee&#39;</span>,</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="stringliteral">&#39;{DAV:}share-access&#39;</span> =&gt; <span class="stringliteral">&#39;Sabre\DAV\Xml\Property\ShareAccess&#39;</span>,</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="stringliteral">&#39;{DAV:}prop&#39;</span>         =&gt; <span class="stringliteral">&#39;Sabre\Xml\Deserializer\keyValue&#39;</span>,</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        ]);</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        $sharees = [];</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">foreach</span> ($elems as $elem) {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">if</span> ($elem[<span class="stringliteral">&#39;name&#39;</span>] !== <span class="stringliteral">&#39;{DAV:}sharee&#39;</span>) <span class="keywordflow">continue</span>;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            $sharees[] = $elem[<span class="stringliteral">&#39;value&#39;</span>];</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">new</span> <span class="keyword">self</span>($sharees);</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div><div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_sharee_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_sharee.html">Sharee</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_reader_html_a6621ccff3f12f0fd262de08e948fd2bb"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_reader.html#a6621ccff3f12f0fd262de08e948fd2bb">Sabre\Xml\Reader\parseInnerTree</a></div><div class="ttdeci">parseInnerTree(array $elementMap=null)</div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_reader_8php_source.html#l00129">Reader.php:129</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource_html_aee1943104644bf11bc6fe23121cde9db"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource.html#aee1943104644bf11bc6fe23121cde9db">Sabre\DAV\Xml\Request\ShareResource\xmlDeserialize</a></div><div class="ttdeci">static xmlDeserialize(Reader $reader)</div><div class="ttdef"><b>Definition:</b> <a href="_share_resource_8php_source.html#l00061">ShareResource.php:61</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_xml_deserializable_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_xml_deserializable.html">XmlDeserializable</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_request_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_request.html">Sabre\DAV\Xml\Request</a></div><div class="ttdef"><b>Definition:</b> <a href="_lock_8php_source.html#l00003">Lock.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_reader_8php_source.html#l00020">Reader.php:20</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_reader.html">Reader</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_xml_1_1_xml_deserializable_html"><div class="ttname"><a href="interface_sabre_1_1_xml_1_1_xml_deserializable.html">Sabre\Xml\XmlDeserializable</a></div><div class="ttdef"><b>Definition:</b> <a href="_xml_deserializable_8php_source.html#l00013">XmlDeserializable.php:13</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource.html">Sabre\DAV\Xml\Request\ShareResource</a></div><div class="ttdef"><b>Definition:</b> <a href="_share_resource_8php_source.html#l00020">ShareResource.php:20</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource_html_a16cd8e612168680292152ce302f1a43e"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_share_resource.html#a16cd8e612168680292152ce302f1a43e">Sabre\DAV\Xml\Request\ShareResource\__construct</a></div><div class="ttdeci">__construct(array $sharees)</div><div class="ttdef"><b>Definition:</b> <a href="_share_resource_8php_source.html#l00034">ShareResource.php:34</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

@@ -1,0 +1,90 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_properties}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}I\+Properties Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_i_properties}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Properties@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Properties}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}I\+Properties\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.430396cm]{interface_sabre_1_1_d_a_v_1_1_i_properties}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties_a90973262bb85b17f98183ecd600acd84}{prop\+Patch}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}} \$prop\+Patch)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties_a0d2fcaacf74daaa5cf24ea53a057140a}{get\+Properties}} (\$properties)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties}{I\+Properties}} interface
+
+Implement this interface to support custom Web\+D\+AV properties requested and sent from clients.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 14 der Datei I\+Properties.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_properties_a0d2fcaacf74daaa5cf24ea53a057140a}\label{interface_sabre_1_1_d_a_v_1_1_i_properties_a0d2fcaacf74daaa5cf24ea53a057140a}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Properties@{Sabre\+::\+D\+A\+V\+::\+I\+Properties}!get\+Properties@{get\+Properties}}
+\index{get\+Properties@{get\+Properties}!Sabre\+::\+D\+A\+V\+::\+I\+Properties@{Sabre\+::\+D\+A\+V\+::\+I\+Properties}}
+\subsubsection{\texorpdfstring{get\+Properties()}{getProperties()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Properties\+::get\+Properties (\begin{DoxyParamCaption}\item[{}]{\$properties }\end{DoxyParamCaption})}
+
+Returns a list of properties for this nodes.
+
+The properties list is a list of propertynames the client requested, encoded in clark-\/notation \{xmlnamespace\}tagname
+
+If the array is empty, it means \textquotesingle{}all properties\textquotesingle{} were requested.
+
+\mbox{\hyperlink{class_note}{Note}} that it\textquotesingle{}s fine to liberally give properties back, instead of conforming to the list of requested properties. The \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} class will filter out the extra.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$properties} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_aea76f0a02701bda8632ec7bdfb0f3681}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_file_tester_a5339786bcd3f76824b00e09f0261036e}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Tree\+File\+Tester}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_ac6b4a0da6c62db2d022ae1d413fa7e71}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_subscription_a69806d6c8262031418a9e0e19e36a8b7}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Subscription}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a44acbaebc3c3374606e67011a09c6685}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_properties_collection_a28e9b64c14a61b61a3ab8c7a4443d362}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Properties\+Collection}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_properties_a90973262bb85b17f98183ecd600acd84}\label{interface_sabre_1_1_d_a_v_1_1_i_properties_a90973262bb85b17f98183ecd600acd84}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Properties@{Sabre\+::\+D\+A\+V\+::\+I\+Properties}!prop\+Patch@{prop\+Patch}}
+\index{prop\+Patch@{prop\+Patch}!Sabre\+::\+D\+A\+V\+::\+I\+Properties@{Sabre\+::\+D\+A\+V\+::\+I\+Properties}}
+\subsubsection{\texorpdfstring{prop\+Patch()}{propPatch()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Properties\+::prop\+Patch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}}}]{\$prop\+Patch }\end{DoxyParamCaption})}
+
+Updates properties on this node.
+
+This method received a \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}} object, which contains all the information about the update.
+
+To update specific properties, call the \textquotesingle{}handle\textquotesingle{} method on this object. Read the \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}} documentation for more information.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}} & {\em \$prop\+Patch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_file_tester_a474b2d04545674413ad86531abcc2105}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Tree\+File\+Tester}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_subscription_a54715146cf54f0368920d5fa315c609c}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Subscription}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_ac0dbb7fd0a45e725bfbe0cebdadf92e7}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_properties_collection_a2226758ceb984e4c151a89973564e1f6}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Properties\+Collection}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/I\+Properties.\+php\end{DoxyCompactItemize}

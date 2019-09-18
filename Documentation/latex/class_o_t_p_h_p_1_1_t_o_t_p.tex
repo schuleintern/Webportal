@@ -1,0 +1,256 @@
+\hypertarget{class_o_t_p_h_p_1_1_t_o_t_p}{}\section{O\+T\+P\+HP\textbackslash{}T\+O\+TP Klassenreferenz}
+\label{class_o_t_p_h_p_1_1_t_o_t_p}\index{O\+T\+P\+H\+P\textbackslash{}\+T\+O\+TP@{O\+T\+P\+H\+P\textbackslash{}\+T\+O\+TP}}
+Klassendiagramm für O\+T\+P\+HP\textbackslash{}T\+O\+TP\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_o_t_p_h_p_1_1_t_o_t_p}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a0c10be1997c54b7ab6fbbd7f72bbeb0b}{get\+Period}} ()
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a5ec39dcc8f5605e3505d2ace2a6d726c}{get\+Epoch}} ()
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a22513da78ec8fd1009910bc8f9a676f0}{at}} (int \$timestamp)
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_ab07cbc06fbc17b68852cdf722f40e58e}{now}} ()
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a09c72fb5facb96625474d20540ad7bf0}{verify}} (string \$otp, ?int \$timestamp=null, ?int \$window=null)
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a85b294664fda16d6b87d80e645714ed0}{get\+Provisioning\+Uri}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a1dafdd96e14b55175a139ac118e4182e}{create}} (?string \$secret=null, int \$period=30, string \$digest=\textquotesingle{}sha1\textquotesingle{}, int \$digits=6, int \$epoch=0)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a26601f96b4e6fba945a7472ff255835c}{\+\_\+\+\_\+construct}} (?string \$secret, int \$period, string \$digest, int \$digits, int \$epoch=0)
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_ae0f7a48755d903954a0899a3326dfbf5}{set\+Period}} (int \$period)
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a3f36aaa0ffdaede085cc8bdd52d8a14f}{get\+Parameter\+Map}} ()
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a4917bf65d3738a14f431d6680cf245d4}{filter\+Options}} (array \&\$options)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 18 der Datei T\+O\+T\+P.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_a26601f96b4e6fba945a7472ff255835c}\label{class_o_t_p_h_p_1_1_t_o_t_p_a26601f96b4e6fba945a7472ff255835c}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{?string}]{\$secret,  }\item[{int}]{\$period,  }\item[{string}]{\$digest,  }\item[{int}]{\$digits,  }\item[{int}]{\$epoch = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p}{T\+O\+TP}} constructor.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | null & {\em \$secret} & \\
+\hline
+int & {\em \$period} & \\
+\hline
+string & {\em \$digest} & \\
+\hline
+int & {\em \$digits} & \\
+\hline
+int & {\em \$epoch} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 29 der Datei T\+O\+T\+P.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_a22513da78ec8fd1009910bc8f9a676f0}\label{class_o_t_p_h_p_1_1_t_o_t_p_a22513da78ec8fd1009910bc8f9a676f0}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!at@{at}}
+\index{at@{at}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::at (\begin{DoxyParamCaption}\item[{int}]{\$timestamp }\end{DoxyParamCaption})}
+
+\{
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$timestamp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string Return the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} at the specified timestamp
+\end{DoxyReturn}
+\} 
+
+Implementiert \mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_afbc45b669ea3ae41d0b252901de69d54}{O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface}}.
+
+
+
+Definiert in Zeile 87 der Datei T\+O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_a1dafdd96e14b55175a139ac118e4182e}\label{class_o_t_p_h_p_1_1_t_o_t_p_a1dafdd96e14b55175a139ac118e4182e}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!create@{create}}
+\index{create@{create}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily static O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::create (\begin{DoxyParamCaption}\item[{?string}]{\$secret = {\ttfamily null},  }\item[{int}]{\$period = {\ttfamily 30},  }\item[{string}]{\$digest = {\ttfamily \textquotesingle{}sha1\textquotesingle{}},  }\item[{int}]{\$digits = {\ttfamily 6},  }\item[{int}]{\$epoch = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p}{T\+O\+TP}} constructor.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | null & {\em \$secret} & \\
+\hline
+int & {\em \$period} & \\
+\hline
+string & {\em \$digest} & \\
+\hline
+int & {\em \$digits} & \\
+\hline
+int & {\em \$epoch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+self 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 47 der Datei T\+O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_a4917bf65d3738a14f431d6680cf245d4}\label{class_o_t_p_h_p_1_1_t_o_t_p_a4917bf65d3738a14f431d6680cf245d4}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!filter\+Options@{filter\+Options}}
+\index{filter\+Options@{filter\+Options}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{filter\+Options()}{filterOptions()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::filter\+Options (\begin{DoxyParamCaption}\item[{array \&}]{\$options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\{\} 
+
+Definiert in Zeile 207 der Datei T\+O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_a5ec39dcc8f5605e3505d2ace2a6d726c}\label{class_o_t_p_h_p_1_1_t_o_t_p_a5ec39dcc8f5605e3505d2ace2a6d726c}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!get\+Epoch@{get\+Epoch}}
+\index{get\+Epoch@{get\+Epoch}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{get\+Epoch()}{getEpoch()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::get\+Epoch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\{\} 
+
+Definiert in Zeile 79 der Datei T\+O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_a3f36aaa0ffdaede085cc8bdd52d8a14f}\label{class_o_t_p_h_p_1_1_t_o_t_p_a3f36aaa0ffdaede085cc8bdd52d8a14f}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!get\+Parameter\+Map@{get\+Parameter\+Map}}
+\index{get\+Parameter\+Map@{get\+Parameter\+Map}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{get\+Parameter\+Map()}{getParameterMap()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::get\+Parameter\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\{\} 
+
+Definiert in Zeile 183 der Datei T\+O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_a0c10be1997c54b7ab6fbbd7f72bbeb0b}\label{class_o_t_p_h_p_1_1_t_o_t_p_a0c10be1997c54b7ab6fbbd7f72bbeb0b}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!get\+Period@{get\+Period}}
+\index{get\+Period@{get\+Period}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{get\+Period()}{getPeriod()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::get\+Period (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\{\begin{DoxyReturn}{Rückgabe}
+int Get the period of time for \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} generation (a non-\/null positive integer, in second)
+\end{DoxyReturn}
+\} 
+
+Implementiert \mbox{\hyperlink{interface_o_t_p_h_p_1_1_t_o_t_p_interface_a732f73c39b32e6caa9d327d82e8f8303}{O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+Interface}}.
+
+
+
+Definiert in Zeile 63 der Datei T\+O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_a85b294664fda16d6b87d80e645714ed0}\label{class_o_t_p_h_p_1_1_t_o_t_p_a85b294664fda16d6b87d80e645714ed0}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!get\+Provisioning\+Uri@{get\+Provisioning\+Uri}}
+\index{get\+Provisioning\+Uri@{get\+Provisioning\+Uri}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{get\+Provisioning\+Uri()}{getProvisioningUri()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::get\+Provisioning\+Uri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\{\begin{DoxyReturn}{Rückgabe}
+string Get the provisioning U\+RI
+\end{DoxyReturn}
+\} 
+
+Implementiert \mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a6e8f0a0c2f1c3ec16426a80fc9610089}{O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface}}.
+
+
+
+Definiert in Zeile 156 der Datei T\+O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_ab07cbc06fbc17b68852cdf722f40e58e}\label{class_o_t_p_h_p_1_1_t_o_t_p_ab07cbc06fbc17b68852cdf722f40e58e}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!now@{now}}
+\index{now@{now}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{now()}{now()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::now (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\{\begin{DoxyReturn}{Rückgabe}
+string Return the \mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p}{T\+O\+TP}} at the current time
+\end{DoxyReturn}
+\} 
+
+Implementiert \mbox{\hyperlink{interface_o_t_p_h_p_1_1_t_o_t_p_interface_a0501ec004da411bdc5e2c193dffe8191}{O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+Interface}}.
+
+
+
+Definiert in Zeile 95 der Datei T\+O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_ae0f7a48755d903954a0899a3326dfbf5}\label{class_o_t_p_h_p_1_1_t_o_t_p_ae0f7a48755d903954a0899a3326dfbf5}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!set\+Period@{set\+Period}}
+\index{set\+Period@{set\+Period}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{set\+Period()}{setPeriod()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::set\+Period (\begin{DoxyParamCaption}\item[{int}]{\$period }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$period} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 55 der Datei T\+O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_t_o_t_p_a09c72fb5facb96625474d20540ad7bf0}\label{class_o_t_p_h_p_1_1_t_o_t_p_a09c72fb5facb96625474d20540ad7bf0}} 
+\index{O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}!verify@{verify}}
+\index{verify@{verify}!O\+T\+P\+H\+P\+::\+T\+O\+TP@{O\+T\+P\+H\+P\+::\+T\+O\+TP}}
+\subsubsection{\texorpdfstring{verify()}{verify()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+T\+O\+T\+P\+::verify (\begin{DoxyParamCaption}\item[{string}]{\$otp,  }\item[{?int}]{\$timestamp = {\ttfamily null},  }\item[{?int}]{\$window = {\ttfamily null} }\end{DoxyParamCaption})}
+
+If no timestamp is provided, the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} is verified at the actual timestamp \{Verify that the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} is valid with the specified input. If no input is provided, the input is set to a default value or false is returned.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$otp} & \\
+\hline
+int | null & {\em \$input} & \\
+\hline
+int | null & {\em \$window} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool
+\end{DoxyReturn}
+\} 
+
+Implementiert \mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a3a3057844ac7376a733322275f955f5e}{O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface}}.
+
+
+
+Definiert in Zeile 104 der Datei T\+O\+T\+P.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/composer/vendor/spomky-\/labs/otphp/src/T\+O\+T\+P.\+php\end{DoxyCompactItemize}

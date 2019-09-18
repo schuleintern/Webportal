@@ -1,0 +1,146 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_file}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}I\+File Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_i_file}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+File@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+File}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}I\+File\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.582089cm]{interface_sabre_1_1_d_a_v_1_1_i_file}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_file_a0c30bc87b22d289f311c854f23993452}{put}} (\$data)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_file_a3102812af0567c3cfd9cd6c20104bd27}{get}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_file_aa76147e3e0ad228026dcb03035b499bc}{get\+Content\+Type}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_file_a2b207a6037dcbd4e7373b977dc60117f}{get\+E\+Tag}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_file_aa1534e00805f45d9282de9c699dbe178}{get\+Size}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This interface represents a file in the directory tree
+
+A file is a bit of a broad definition. In general it implies that on this specific node a P\+UT or G\+ET method may be performed, to either update, or retrieve the contents of the file.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei I\+File.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_file_a3102812af0567c3cfd9cd6c20104bd27}\label{interface_sabre_1_1_d_a_v_1_1_i_file_a3102812af0567c3cfd9cd6c20104bd27}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+File@{Sabre\+::\+D\+A\+V\+::\+I\+File}!get@{get}}
+\index{get@{get}!Sabre\+::\+D\+A\+V\+::\+I\+File@{Sabre\+::\+D\+A\+V\+::\+I\+File}}
+\subsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+File\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the data
+
+This method may either return a string or a readable stream resource
+
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_file_tester_a38879bb7792e5e5d2413aa142a46b466}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Tree\+File\+Tester}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_file_a680bfbc05027d3b00e3dc7198e6d4172}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_file_a80f50ccff4fdf801c1a531ec4c62975f}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_object_adef5802dc47306abb1e00a18a63ca7eb}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Object}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_simple_file_afe23fefcf079b4fe34f2e612be324e3b}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Simple\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_file_mock_aea1fec1a2850e1508a2f02a04a8ed7e8}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Partial\+Update\textbackslash{}\+File\+Mock}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_card_ab134afaa3e735b4af870f7dead651184}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Card}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_scheduling_object_a98094b6dd7d1113b10f2b492e956d6e7}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Scheduling\+Object}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file_a4492beb835030b97e2bc3e6c4d2cdf4d}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Streaming\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_file_a0879cd6cff2723f41eb31dae59bc63d0}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+File}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_file_aee10f79224dfccf81bf9ca61e3cfba43}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+File}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_file_aa76147e3e0ad228026dcb03035b499bc}\label{interface_sabre_1_1_d_a_v_1_1_i_file_aa76147e3e0ad228026dcb03035b499bc}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+File@{Sabre\+::\+D\+A\+V\+::\+I\+File}!get\+Content\+Type@{get\+Content\+Type}}
+\index{get\+Content\+Type@{get\+Content\+Type}!Sabre\+::\+D\+A\+V\+::\+I\+File@{Sabre\+::\+D\+A\+V\+::\+I\+File}}
+\subsubsection{\texorpdfstring{get\+Content\+Type()}{getContentType()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+File\+::get\+Content\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the mime-\/type for a file
+
+If null is returned, we\textquotesingle{}ll assume application/octet-\/stream
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_file_a0a37951c9e67dde2cd9c33c67015614d}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_object_a73609b33bcf07b1460038bb125b9d013}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Object}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_card_a236500a390730115bf035c20ff78b3d9}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Card}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_simple_file_af7db06a30e0b3557c488d2608a2c0523}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Simple\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_file_af691c1f6e2de8640042b2a75181c4af5}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_file_aca06c255562df9fc5b200760d29424d2}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+File}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_file_mock_a579203d7c6b0516a0fe0bd27f83ff275}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Partial\+Update\textbackslash{}\+File\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_file_a2b207a6037dcbd4e7373b977dc60117f}\label{interface_sabre_1_1_d_a_v_1_1_i_file_a2b207a6037dcbd4e7373b977dc60117f}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+File@{Sabre\+::\+D\+A\+V\+::\+I\+File}!get\+E\+Tag@{get\+E\+Tag}}
+\index{get\+E\+Tag@{get\+E\+Tag}!Sabre\+::\+D\+A\+V\+::\+I\+File@{Sabre\+::\+D\+A\+V\+::\+I\+File}}
+\subsubsection{\texorpdfstring{get\+E\+Tag()}{getETag()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+File\+::get\+E\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the E\+Tag for a file
+
+An E\+Tag is a unique identifier representing the current version of the file. If the file changes, the E\+Tag M\+U\+ST change.
+
+Return null if the E\+Tag can not effectively be determined.
+
+The E\+Tag must be surrounded by double-\/quotes, so something like this would make a valid E\+Tag\+:
+
+return \textquotesingle{}\char`\"{}someetag\char`\"{}\textquotesingle{};
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_preconditions_node_a87cade6d2776963f690d121cbed1360d}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Preconditions\+Node}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_object_a8cbcfda4ad2f5d8ef67a7fb11ca4ea07}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Object}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_card_a056407dada85e2786c53b6a26ead94e7}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Card}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_file_a9654d2fd0b81900d1c75bf3d7129d0be}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_file_a9230f17550bcc13aac15429e356280e1}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_simple_file_ac6706a1b6c9d029f253c6df2b6616f11}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Simple\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_file_mock_ac3cb7c33686234052db8f3b870822cc9}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Partial\+Update\textbackslash{}\+File\+Mock}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node_adc6fffcad09368941ba2f17fd4273846}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Node}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_file_a2f7e2ec46cb8def9cda8dea55faf7d9e}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file_a53ac81dd1c660afac1dd3c39c00e4d47}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Streaming\+File}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_file_a133fec88700f329ed4aa9a7e6c1fd5cd}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+File}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_file_aa1534e00805f45d9282de9c699dbe178}\label{interface_sabre_1_1_d_a_v_1_1_i_file_aa1534e00805f45d9282de9c699dbe178}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+File@{Sabre\+::\+D\+A\+V\+::\+I\+File}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Sabre\+::\+D\+A\+V\+::\+I\+File@{Sabre\+::\+D\+A\+V\+::\+I\+File}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+File\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the size of the node, in bytes
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_object_a18e48832b3f486a1c5c95da1c2d39661}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Object}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_card_aea671f67af75006c2845565d8a55599e}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Card}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_file_aec3768804d387a073610838d89bff5c9}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_file_aca58982336f6d9a272cd3617b56fce39}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_simple_file_a1fa9715d7dda56738289e186923dd2b1}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Simple\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_file_mock_aba348d3355af18e1b1bd8e54674e07f5}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Partial\+Update\textbackslash{}\+File\+Mock}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file_a693c21cb705844f3d3defd4484976520}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Streaming\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_file_ac50c6e65d39734d7858e95f080a46f4b}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+File}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_file_a5c081df437f59b33c8402123ceb45439}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+File}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_file_a0c30bc87b22d289f311c854f23993452}\label{interface_sabre_1_1_d_a_v_1_1_i_file_a0c30bc87b22d289f311c854f23993452}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+File@{Sabre\+::\+D\+A\+V\+::\+I\+File}!put@{put}}
+\index{put@{put}!Sabre\+::\+D\+A\+V\+::\+I\+File@{Sabre\+::\+D\+A\+V\+::\+I\+File}}
+\subsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+File\+::put (\begin{DoxyParamCaption}\item[{}]{\$data }\end{DoxyParamCaption})}
+
+Replaces the contents of the file.
+
+The data argument is a readable stream resource.
+
+After a successful put operation, you may choose to return an E\+Tag. The etag must always be surrounded by double-\/quotes. These quotes must appear in the actual string you\textquotesingle{}re returning.
+
+Clients may use the E\+Tag from a P\+UT request to later on make sure that when they update the file, the contents haven\textquotesingle{}t changed in the mean time.
+
+If you don\textquotesingle{}t plan to store the file byte-\/by-\/byte, and you return a different object on a subsequent G\+ET you are strongly recommended to not return an E\+Tag, and just return null.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource | string & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_object_a54849fa5cf3916e8f108485f5ffb0851}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Object}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_file_ab824c0a6b0467e31e5af15993713b8e9}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_card_aa302479ba1c1d8d216331aa61ad8d8df}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Card}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_scheduling_object_ad133bc9b14a66ff31e11041cb1013e51}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Scheduling\+Object}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_streaming_file_a78ce92fdea212d201f097698c0c5a1a8}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Streaming\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_file_a09e6952358a011032662e1371c5aa514}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_file_a9316801851d810c25873c2f895d6d3f5}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+File}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_file_adad097762986bc953af13c17fdae517c}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+File}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_file_mock_a5e51061006ed5f5ce10e514fa11ae209}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Partial\+Update\textbackslash{}\+File\+Mock}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/I\+File.\+php\end{DoxyCompactItemize}

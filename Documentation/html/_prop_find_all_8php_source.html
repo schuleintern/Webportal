@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAV/Browser/PropFindAll.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_641c95e6ed9dd2d5dcbadeacba03bd45.html">DAV</a></li><li class="navelem"><a class="el" href="dir_ecd10d7ec53e119e13ed20a48b9cd6db.html">Browser</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">PropFindAll.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_browser.html">Sabre\DAV\Browser</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v_1_1_prop_find.html">Sabre\DAV\PropFind</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html">PropFindAll</a> <span class="keyword">extends</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_prop_find.html">PropFind</a> {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#aae65b337241a6dd73ef6fc824cb2d500">   22</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#aae65b337241a6dd73ef6fc824cb2d500">__construct</a>($path) {</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        parent::__construct($path, []);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#a32d7b8c6ac9aa925246a832a7b55ee6f">   50</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#a32d7b8c6ac9aa925246a832a7b55ee6f">handle</a>($propertyName, $valueOrCallBack) {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">if</span> (is_callable($valueOrCallBack)) {</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            $value = $valueOrCallBack();</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            $value = $valueOrCallBack;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span> (!is_null($value)) {</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            $this-&gt;result[$propertyName] = [200, $value];</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#a749706bbd940cdc4e4bb17584c80c680">   74</a></span>&#160;    <span class="keyword">function</span> <span class="keyword">set</span>($propertyName, $value, $status = null) {</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> (is_null($status)) {</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            $status = is_null($value) ? 404 : 200;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        $this-&gt;result[$propertyName] = [$status, $value];</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#abc74f8633e1a5b9771369e2f29dc4ba9">   89</a></span>&#160;    <span class="keyword">function</span> <span class="keyword">get</span>($propertyName) {</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> isset($this-&gt;result[$propertyName]) ? $this-&gt;result[$propertyName][1] : null;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div><div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#acb25b90d455930d4b7dd4045a27ee895">  104</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#acb25b90d455930d4b7dd4045a27ee895">getStatus</a>($propertyName) {</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> isset($this-&gt;result[$propertyName]) ? $this-&gt;result[$propertyName][0] : 404;</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div><div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#a6fce0ea649983d37cb264293de7e8bc7">  116</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#a6fce0ea649983d37cb264293de7e8bc7">get404Properties</a>() {</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        $result = [];</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">foreach</span> ($this-&gt;result as $propertyName =&gt; $stuff) {</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">if</span> ($stuff[0] === 404) {</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                $result[] = $propertyName;</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            }</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        }</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="comment">// If there&#39;s nothing in this list, we&#39;re adding one fictional item.</span></div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">if</span> (!$result) {</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            $result[] = <span class="stringliteral">&#39;{http://sabredav.org/ns}idk&#39;</span>;</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">return</span> $result;</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div><div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_browser_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_browser.html">Sabre\DAV\Browser</a></div><div class="ttdef"><b>Definition:</b> <a href="_guess_content_type_8php_source.html#l00003">GuessContentType.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_prop_find_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_prop_find.html">Sabre\DAV\PropFind</a></div><div class="ttdef"><b>Definition:</b> <a href="_prop_find_8php_source.html#l00011">PropFind.php:11</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all_html_aae65b337241a6dd73ef6fc824cb2d500"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#aae65b337241a6dd73ef6fc824cb2d500">Sabre\DAV\Browser\PropFindAll\__construct</a></div><div class="ttdeci">__construct($path)</div><div class="ttdef"><b>Definition:</b> <a href="_prop_find_all_8php_source.html#l00022">PropFindAll.php:22</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html">Sabre\DAV\Browser\PropFindAll</a></div><div class="ttdef"><b>Definition:</b> <a href="_prop_find_all_8php_source.html#l00015">PropFindAll.php:15</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all_html_a6fce0ea649983d37cb264293de7e8bc7"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#a6fce0ea649983d37cb264293de7e8bc7">Sabre\DAV\Browser\PropFindAll\get404Properties</a></div><div class="ttdeci">get404Properties()</div><div class="ttdef"><b>Definition:</b> <a href="_prop_find_all_8php_source.html#l00116">PropFindAll.php:116</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all_html_acb25b90d455930d4b7dd4045a27ee895"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#acb25b90d455930d4b7dd4045a27ee895">Sabre\DAV\Browser\PropFindAll\getStatus</a></div><div class="ttdeci">getStatus($propertyName)</div><div class="ttdef"><b>Definition:</b> <a href="_prop_find_all_8php_source.html#l00104">PropFindAll.php:104</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all_html_a32d7b8c6ac9aa925246a832a7b55ee6f"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_browser_1_1_prop_find_all.html#a32d7b8c6ac9aa925246a832a7b55ee6f">Sabre\DAV\Browser\PropFindAll\handle</a></div><div class="ttdeci">handle($propertyName, $valueOrCallBack)</div><div class="ttdef"><b>Definition:</b> <a href="_prop_find_all_8php_source.html#l00050">PropFindAll.php:50</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_prop_find_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_prop_find.html">PropFind</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

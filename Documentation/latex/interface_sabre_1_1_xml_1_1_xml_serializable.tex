@@ -1,0 +1,66 @@
+\hypertarget{interface_sabre_1_1_xml_1_1_xml_serializable}{}\section{Sabre\textbackslash{}Xml\textbackslash{}Xml\+Serializable Schnittstellenreferenz}
+\label{interface_sabre_1_1_xml_1_1_xml_serializable}\index{Sabre\textbackslash{}\+Xml\textbackslash{}\+Xml\+Serializable@{Sabre\textbackslash{}\+Xml\textbackslash{}\+Xml\+Serializable}}
+Klassendiagramm für Sabre\textbackslash{}Xml\textbackslash{}Xml\+Serializable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{interface_sabre_1_1_xml_1_1_xml_serializable}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_serializable_aa78f3ee43aa699be8347181653a53d8c}{xml\+Serialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} \$writer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Objects implementing \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_serializable}{Xml\+Serializable}} can control how they are represented in Xml.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2009-\/2015 fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 13 der Datei Xml\+Serializable.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_xml_1_1_xml_serializable_aa78f3ee43aa699be8347181653a53d8c}\label{interface_sabre_1_1_xml_1_1_xml_serializable_aa78f3ee43aa699be8347181653a53d8c}} 
+\index{Sabre\+::\+Xml\+::\+Xml\+Serializable@{Sabre\+::\+Xml\+::\+Xml\+Serializable}!xml\+Serialize@{xml\+Serialize}}
+\index{xml\+Serialize@{xml\+Serialize}!Sabre\+::\+Xml\+::\+Xml\+Serializable@{Sabre\+::\+Xml\+::\+Xml\+Serializable}}
+\subsubsection{\texorpdfstring{xml\+Serialize()}{xmlSerialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Xml\+Serializable\+::xml\+Serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}}}]{\$writer }\end{DoxyParamCaption})}
+
+The xml\+Serialize method is called during xml writing.
+
+Use the \$writer argument to write its own xml serialization.
+
+An important note\+: do {\itshape not} create a parent element. Any element implementing Xml\+Serializble should only ever write what\textquotesingle{}s considered its \textquotesingle{}inner xml\textquotesingle{}.
+
+The parent of the current element is responsible for writing a containing element.
+
+This allows serializers to be re-\/used for different element names.
+
+If you are opening new elements, you must also close them again.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} & {\em \$writer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_invite_a47eb1187c379ceed37748741294e3760}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Notification\textbackslash{}\+Invite}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_invite_reply_a652400645af9418719cf085364eb4ace}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Notification\textbackslash{}\+Invite\+Reply}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_sharee_a6f2e1948f0aa0f060714080ce5ab40a2}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Sharee}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_response_ab0849b6aace12b8039ca08461af88f69}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_report_set_ae9986a7b7f6f9f08983bc740f6e1b357}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Report\+Set}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_property_1_1_principal_aeaa0152eca3d1706c56e30964c8f4ff3}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Principal}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_property_1_1_acl_a2670dfe65ae9d0745f9785c297a5b320}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Acl}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_system_status_a6f8d1c96033b9a803133844468042b96}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Notification\textbackslash{}\+System\+Status}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_href_ad1a4047eb7d32ddbf52aba7f5125f9fa}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Href}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set_afcdb94acaf6d8fead3559dd9d181dd83}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Method\+Set}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a91767722f4c127274426027cc6006d18}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Response\textbackslash{}\+Multi\+Status}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_property_1_1_schedule_calendar_transp_a921a17e0976f5b6050752784c5d77dc9}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Schedule\+Calendar\+Transp}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_share_access_ac1eea445764ba690b291b72db04e16c7}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Share\+Access}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_property_1_1_supported_calendar_component_set_ae645b231b50c4ffb0e64b690843caa91}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Calendar\+Component\+Set}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified_a13dde5cac8cec9eca81c3a14f78fcea3}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Get\+Last\+Modified}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_property_1_1_allowed_sharing_modes_a82dfec410879d15223d4544694aaaf63}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Allowed\+Sharing\+Modes}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_property_1_1_supported_privilege_set_a5e25d40f4b72c1a0ec70d2137ec52b44}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Privilege\+Set}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_property_1_1_invite_ab2d4e8c76564b1715c7f1145a796addc}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Invite}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_property_1_1_email_address_set_a15052a3882c08552dae343d1450cf6bc}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Email\+Address\+Set}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_lock_discovery_a607122756acce92e3d2bc23ca99ef505}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Lock\+Discovery}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_invite_a78400777f323c1a2cdc441d003cf6eb9}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Invite}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_property_1_1_current_user_privilege_set_a1a60129813a1acc5aebfb260306df9b5}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Current\+User\+Privilege\+Set}}, \mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_af7abb5c313d08e5ee12a4dfa37be6b2c}{Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Xml\+Fragment}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_prop_patch_a6387552bc8dabc8ba491ead0c84886ea}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Request\textbackslash{}\+Prop\+Patch}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_property_1_1_supported_calendar_data_a4458e6241019a0b31e1c81b76cf5d740}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Calendar\+Data}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_property_1_1_supported_collation_set_ab5e9f7048ec0723afe382543bdd9282e}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Collation\+Set}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_lock_a0d0f874b272baaee90e2b8dc6da386da}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Lock}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_xml_1_1_property_1_1_supported_collation_set_a810a1c8c4de80b8a44cceeb7882c57c1}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Collation\+Set}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_property_1_1_acl_restrictions_ab8c6081b610ad90690a1aca367a93ebe}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Acl\+Restrictions}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/xml/lib/Xml\+Serializable.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,51 @@
+\subsection*{1.\+2.\+0 (2016-\/12-\/06) }
+
+
+\begin{DoxyItemize}
+\item Now throwing {\ttfamily Invalid\+Uri\+Exception} if a uri passed to the {\ttfamily parse} function is invalid or could not be parsed.
+\item \#11\+: Fix support for U\+R\+Is that start with a triple slash. P\+HP\textquotesingle{}s {\ttfamily parse\+\_\+uri()} doesn\textquotesingle{}t support them, so we now have a pure-\/php fallback in case it fails.
+\item \#9\+: Fix support for relative U\+RI\textquotesingle{}s that have a non-\/uri encoded colon {\ttfamily \+:} in them.
+\end{DoxyItemize}
+
+\subsection*{1.\+1.\+1 (2016-\/10-\/27) }
+
+
+\begin{DoxyItemize}
+\item \#10\+: Correctly support \href{file://}{\tt file\+://} U\+R\+Is in the build() method. ()
+\end{DoxyItemize}
+
+\subsection*{1.\+1.\+0 (2016-\/03-\/07) }
+
+
+\begin{DoxyItemize}
+\item \#6\+: P\+HP\textquotesingle{}s {\ttfamily parse\+\_\+url()} corrupts strings if they contain certain non ascii-\/characters such as Chinese or Hebrew. sabre/uri\textquotesingle{}s {\ttfamily parse()} function now percent-\/encodes these characters beforehand.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+1 (2015-\/04-\/28) }
+
+
+\begin{DoxyItemize}
+\item \#4\+: Using php-\/cs-\/fixer to automatically enforce conding standards.
+\item \#5\+: Resolving to and building {\ttfamily mailto\+:} urls were not correctly handled.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+0 (2015-\/01-\/27) }
+
+
+\begin{DoxyItemize}
+\item Added a {\ttfamily normalize} function.
+\item Added a {\ttfamily build\+Uri} function.
+\item Fixed a bug in the {\ttfamily resolve} when only a new fragment is specified.
+\end{DoxyItemize}
+
+San José, Cal\+Connect X\+X\+X\+II release!
+
+\subsection*{0.\+0.\+1 (2014-\/11-\/17) }
+
+
+\begin{DoxyItemize}
+\item First version!
+\item Source was lifted from sabre/http package.
+\item Provides a {\ttfamily resolve} and a {\ttfamily split} function.
+\item Requires P\+HP 5.\+4.\+8 and up. 
+\end{DoxyItemize}

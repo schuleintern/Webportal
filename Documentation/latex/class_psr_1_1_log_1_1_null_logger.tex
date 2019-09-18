@@ -1,0 +1,58 @@
+\hypertarget{class_psr_1_1_log_1_1_null_logger}{}\section{Psr\textbackslash{}Log\textbackslash{}Null\+Logger Klassenreferenz}
+\label{class_psr_1_1_log_1_1_null_logger}\index{Psr\textbackslash{}\+Log\textbackslash{}\+Null\+Logger@{Psr\textbackslash{}\+Log\textbackslash{}\+Null\+Logger}}
+Klassendiagramm für Psr\textbackslash{}Log\textbackslash{}Null\+Logger\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_psr_1_1_log_1_1_null_logger}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_null_logger_acb83ac6b83932e7b4de85fa60728d5ef}{log}} (\$level, \$message, array \$context=array())
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This Logger can be used to avoid conditional log calls.
+
+Logging should always be optional, and if no logger is provided to your library creating a \mbox{\hyperlink{class_psr_1_1_log_1_1_null_logger}{Null\+Logger}} instance to have something to throw logs at is a good way to avoid littering your code with {\ttfamily if (\$this-\/$>$logger) \{ \}} blocks. 
+
+Definiert in Zeile 13 der Datei Null\+Logger.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_psr_1_1_log_1_1_null_logger_acb83ac6b83932e7b4de85fa60728d5ef}\label{class_psr_1_1_log_1_1_null_logger_acb83ac6b83932e7b4de85fa60728d5ef}} 
+\index{Psr\+::\+Log\+::\+Null\+Logger@{Psr\+::\+Log\+::\+Null\+Logger}!log@{log}}
+\index{log@{log}!Psr\+::\+Log\+::\+Null\+Logger@{Psr\+::\+Log\+::\+Null\+Logger}}
+\subsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily Psr\textbackslash{}\+Log\textbackslash{}\+Null\+Logger\+::log (\begin{DoxyParamCaption}\item[{}]{\$level,  }\item[{}]{\$message,  }\item[{array}]{\$context = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Logs with an arbitrary level.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$level} & \\
+\hline
+string & {\em \$message} & \\
+\hline
+array & {\em \$context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface_a10d23c9a1cf2d5dca305285efb7e3c0d}{Psr\textbackslash{}\+Log\textbackslash{}\+Logger\+Interface}}.
+
+
+
+Definiert in Zeile 24 der Datei Null\+Logger.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/psr/log/\+Psr/\+Log/Null\+Logger.\+php\end{DoxyCompactItemize}

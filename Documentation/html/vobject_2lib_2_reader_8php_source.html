@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/vobject/lib/Reader.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_d45491ed8370ce848e382bcf93442678.html">vobject</a></li><li class="navelem"><a class="el" href="dir_1ed89ee66666afc6edd074eb1b9eee0f.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Reader.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_v_object.html">Sabre\VObject</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_reader.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_v_object_1_1_reader.html">Reader</a> {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_reader.html#a2588463d692eeb803101164828e708a7">   21</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="class_sabre_1_1_v_object_1_1_reader.html#a2588463d692eeb803101164828e708a7">OPTION_FORGIVING</a> = 1;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_reader.html#a385ec22924843a98e5cb0844fd9230f0">   27</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="class_sabre_1_1_v_object_1_1_reader.html#a385ec22924843a98e5cb0844fd9230f0">OPTION_IGNORE_INVALID_LINES</a> = 2;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_reader.html#a0a88110e710521426ffa6e4493de627d">   42</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_v_object_1_1_reader.html#a0a88110e710521426ffa6e4493de627d">read</a>($data, $options = 0, $charset = <span class="stringliteral">&#39;UTF-8&#39;</span>) {</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        $parser = <span class="keyword">new</span> <a class="code" href="class_sabre_1_1_v_object_1_1_parser_1_1_mime_dir.html">Parser\MimeDir</a>();</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        $parser-&gt;setCharset($charset);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        $result = $parser-&gt;parse($data, $options);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> $result;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_reader.html#a059a23a7322407b049144914267630b3">   67</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_v_object_1_1_reader.html#a059a23a7322407b049144914267630b3">readJson</a>($data, $options = 0) {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        $parser = <span class="keyword">new</span> <a class="code" href="class_sabre_1_1_v_object_1_1_parser_1_1_json.html">Parser\Json</a>();</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        $result = $parser-&gt;parse($data, $options);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> $result;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_reader.html#ac23b07f0e5dfc628302e0168de765b16">   89</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_v_object_1_1_reader.html#ac23b07f0e5dfc628302e0168de765b16">readXML</a>($data, $options = 0) {</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        $parser = <span class="keyword">new</span> <a class="code" href="class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l.html">Parser\XML</a>();</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        $result = $parser-&gt;parse($data, $options);</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> $result;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div><div class="ttc" id="namespace_sabre_1_1_v_object_html"><div class="ttname"><a href="namespace_sabre_1_1_v_object.html">Sabre\VObject</a></div><div class="ttdef"><b>Definition:</b> <a href="mergeduplicates_8php_source.html#l00004">mergeduplicates.php:4</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_reader_html_a385ec22924843a98e5cb0844fd9230f0"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_reader.html#a385ec22924843a98e5cb0844fd9230f0">Sabre\VObject\Reader\OPTION_IGNORE_INVALID_LINES</a></div><div class="ttdeci">const OPTION_IGNORE_INVALID_LINES</div><div class="ttdef"><b>Definition:</b> <a href="vobject_2lib_2_reader_8php_source.html#l00027">Reader.php:27</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_parser_1_1_json_html"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_parser_1_1_json.html">Sabre\VObject\Parser\Json</a></div><div class="ttdef"><b>Definition:</b> <a href="_json_8php_source.html#l00019">Json.php:19</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_reader_html_a0a88110e710521426ffa6e4493de627d"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_reader.html#a0a88110e710521426ffa6e4493de627d">Sabre\VObject\Reader\read</a></div><div class="ttdeci">static read($data, $options=0, $charset='UTF-8')</div><div class="ttdef"><b>Definition:</b> <a href="vobject_2lib_2_reader_8php_source.html#l00042">Reader.php:42</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_reader_html_ac23b07f0e5dfc628302e0168de765b16"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_reader.html#ac23b07f0e5dfc628302e0168de765b16">Sabre\VObject\Reader\readXML</a></div><div class="ttdeci">static readXML($data, $options=0)</div><div class="ttdef"><b>Definition:</b> <a href="vobject_2lib_2_reader_8php_source.html#l00089">Reader.php:89</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_reader_html"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_reader.html">Sabre\VObject\Reader</a></div><div class="ttdef"><b>Definition:</b> <a href="vobject_2lib_2_reader_8php_source.html#l00015">Reader.php:15</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_reader_html_a059a23a7322407b049144914267630b3"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_reader.html#a059a23a7322407b049144914267630b3">Sabre\VObject\Reader\readJson</a></div><div class="ttdeci">static readJson($data, $options=0)</div><div class="ttdef"><b>Definition:</b> <a href="vobject_2lib_2_reader_8php_source.html#l00067">Reader.php:67</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_reader_html_a2588463d692eeb803101164828e708a7"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_reader.html#a2588463d692eeb803101164828e708a7">Sabre\VObject\Reader\OPTION_FORGIVING</a></div><div class="ttdeci">const OPTION_FORGIVING</div><div class="ttdef"><b>Definition:</b> <a href="vobject_2lib_2_reader_8php_source.html#l00021">Reader.php:21</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l_html"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l.html">Sabre\VObject\Parser\XML</a></div><div class="ttdef"><b>Definition:</b> <a href="_x_m_l_8php_source.html#l00021">XML.php:21</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_parser_1_1_mime_dir_html"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_parser_1_1_mime_dir.html">Sabre\VObject\Parser\MimeDir</a></div><div class="ttdef"><b>Definition:</b> <a href="_mime_dir_8php_source.html#l00025">MimeDir.php:25</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

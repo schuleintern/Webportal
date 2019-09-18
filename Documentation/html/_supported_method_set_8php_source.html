@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAV/Xml/Property/SupportedMethodSet.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_641c95e6ed9dd2d5dcbadeacba03bd45.html">DAV</a></li><li class="navelem"><a class="el" href="dir_198cb0947a44dba54a042f893b55ef46.html">Xml</a></li><li class="navelem"><a class="el" href="dir_7f7f668f00c92d728b646cffbe39ee5b.html">Property</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SupportedMethodSet.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property.html">Sabre\DAV\Xml\Property</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output.html">Sabre\DAV\Browser\HtmlOutput</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper.html">Sabre\DAV\Browser\HtmlOutputHelper</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_writer.html">Sabre\Xml\Writer</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_xml_serializable.html">Sabre\Xml\XmlSerializable</a>;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html">SupportedMethodSet</a> <span class="keyword">implements</span> <a class="code" href="interface_sabre_1_1_xml_1_1_xml_serializable.html">XmlSerializable</a>, <a class="code" href="interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output.html">HtmlOutput</a> {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">protected</span> $methods = [];</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#a559bbd4ca693edfe3e3a7986e04d2912">   37</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#a559bbd4ca693edfe3e3a7986e04d2912">__construct</a>(array $methods) {</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        $this-&gt;methods = $methods;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#af64cedf9514f0e45f2455a7514548c04">   48</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#af64cedf9514f0e45f2455a7514548c04">getValue</a>() {</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> $this-&gt;methods;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#aa07d75f0a223532499f9ac41628565ed">   60</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#aa07d75f0a223532499f9ac41628565ed">has</a>($methodName) {</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> in_array(</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            $methodName,</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            $this-&gt;methods</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        );</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#afcdb94acaf6d8fead3559dd9d181dd83">   88</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#afcdb94acaf6d8fead3559dd9d181dd83">xmlSerialize</a>(<a class="code" href="class_sabre_1_1_xml_1_1_writer.html">Writer</a> $writer) {</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">foreach</span> ($this-&gt;<a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#af64cedf9514f0e45f2455a7514548c04">getValue</a>() as $val) {</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            $writer-&gt;<a class="code" href="class_sabre_1_1_xml_1_1_writer.html#a36f607e50b1cfff7637bbeeb63093400">startElement</a>(<span class="stringliteral">&#39;{DAV:}supported-method&#39;</span>);</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            $writer-&gt;<a class="code" href="class_sabre_1_1_xml_1_1_writer.html#a1bd8ec6a35705bf1b001d453049c8336">writeAttribute</a>(<span class="stringliteral">&#39;name&#39;</span>, $val);</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            $writer-&gt;endElement();</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div><div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#afcab0ef1e0a50669a6591f27ae0f75b3">  112</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#afcab0ef1e0a50669a6591f27ae0f75b3">toHtml</a>(<a class="code" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper.html">HtmlOutputHelper</a> $html) {</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">return</span> implode(</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="stringliteral">&#39;, &#39;</span>,</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            array_map([$html, <span class="charliteral">&#39;h&#39;</span>], $this-&gt;<a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#af64cedf9514f0e45f2455a7514548c04">getValue</a>())</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        );</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div><div class="ttc" id="interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_html"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output.html">Sabre\DAV\Browser\HtmlOutput</a></div><div class="ttdef"><b>Definition:</b> <a href="_html_output_8php_source.html#l00016">HtmlOutput.php:16</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set_html_aa07d75f0a223532499f9ac41628565ed"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#aa07d75f0a223532499f9ac41628565ed">Sabre\DAV\Xml\Property\SupportedMethodSet\has</a></div><div class="ttdeci">has($methodName)</div><div class="ttdef"><b>Definition:</b> <a href="_supported_method_set_8php_source.html#l00060">SupportedMethodSet.php:60</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_writer_html_a36f607e50b1cfff7637bbeeb63093400"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_writer.html#a36f607e50b1cfff7637bbeeb63093400">Sabre\Xml\Writer\startElement</a></div><div class="ttdeci">startElement($name)</div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_writer_8php_source.html#l00121">Writer.php:121</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output.html">HtmlOutput</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_writer_html_a1bd8ec6a35705bf1b001d453049c8336"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_writer.html#a1bd8ec6a35705bf1b001d453049c8336">Sabre\Xml\Writer\writeAttribute</a></div><div class="ttdeci">writeAttribute($name, $value)</div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_writer_8php_source.html#l00230">Writer.php:230</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html">Sabre\DAV\Xml\Property\SupportedMethodSet</a></div><div class="ttdef"><b>Definition:</b> <a href="_supported_method_set_8php_source.html#l00023">SupportedMethodSet.php:23</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_xml_serializable_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_xml_serializable.html">XmlSerializable</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set_html_afcdb94acaf6d8fead3559dd9d181dd83"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#afcdb94acaf6d8fead3559dd9d181dd83">Sabre\DAV\Xml\Property\SupportedMethodSet\xmlSerialize</a></div><div class="ttdeci">xmlSerialize(Writer $writer)</div><div class="ttdef"><b>Definition:</b> <a href="_supported_method_set_8php_source.html#l00088">SupportedMethodSet.php:88</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_writer_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_writer.html">Sabre\Xml\Writer</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_writer_8php_source.html#l00031">Writer.php:31</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set_html_af64cedf9514f0e45f2455a7514548c04"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#af64cedf9514f0e45f2455a7514548c04">Sabre\DAV\Xml\Property\SupportedMethodSet\getValue</a></div><div class="ttdeci">getValue()</div><div class="ttdef"><b>Definition:</b> <a href="_supported_method_set_8php_source.html#l00048">SupportedMethodSet.php:48</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper.html">HtmlOutputHelper</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper.html">Sabre\DAV\Browser\HtmlOutputHelper</a></div><div class="ttdef"><b>Definition:</b> <a href="_html_output_helper_8php_source.html#l00016">HtmlOutputHelper.php:16</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set_html_a559bbd4ca693edfe3e3a7986e04d2912"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#a559bbd4ca693edfe3e3a7986e04d2912">Sabre\DAV\Xml\Property\SupportedMethodSet\__construct</a></div><div class="ttdeci">__construct(array $methods)</div><div class="ttdef"><b>Definition:</b> <a href="_supported_method_set_8php_source.html#l00037">SupportedMethodSet.php:37</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property.html">Sabre\DAV\Xml\Property</a></div><div class="ttdef"><b>Definition:</b> <a href="_complex_8php_source.html#l00003">Complex.php:3</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_writer_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_writer.html">Writer</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_xml_1_1_xml_serializable_html"><div class="ttname"><a href="interface_sabre_1_1_xml_1_1_xml_serializable.html">Sabre\Xml\XmlSerializable</a></div><div class="ttdef"><b>Definition:</b> <a href="_xml_serializable_8php_source.html#l00013">XmlSerializable.php:13</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set_html_afcab0ef1e0a50669a6591f27ae0f75b3"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set.html#afcab0ef1e0a50669a6591f27ae0f75b3">Sabre\DAV\Xml\Property\SupportedMethodSet\toHtml</a></div><div class="ttdeci">toHtml(HtmlOutputHelper $html)</div><div class="ttdef"><b>Definition:</b> <a href="_supported_method_set_8php_source.html#l00112">SupportedMethodSet.php:112</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

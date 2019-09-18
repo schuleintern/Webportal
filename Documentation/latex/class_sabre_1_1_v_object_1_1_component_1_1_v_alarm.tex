@@ -1,0 +1,85 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Component\textbackslash{}V\+Alarm Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Alarm@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Alarm}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Component\textbackslash{}V\+Alarm\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.064516cm]{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm_a58b73ccd3fff7b8d102482b021581675}{get\+Effective\+Trigger\+Time}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm_ac5e93f3242fe0cb4d6fa1f66423061c4}{is\+In\+Time\+Range}} (Date\+Time\+Interface \$start, Date\+Time\+Interface \$end)
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm_a4e19f2f42b3cb72382994ea22ab98c3a}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm_a4e19f2f42b3cb72382994ea22ab98c3a}} 
+{\bfseries get\+Validation\+Rules} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm}{V\+Alarm}} component.
+
+This component contains some additional functionality specific for V\+A\+L\+A\+R\+Ms.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 19 der Datei V\+Alarm.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm_a58b73ccd3fff7b8d102482b021581675}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm_a58b73ccd3fff7b8d102482b021581675}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Alarm@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Alarm}!get\+Effective\+Trigger\+Time@{get\+Effective\+Trigger\+Time}}
+\index{get\+Effective\+Trigger\+Time@{get\+Effective\+Trigger\+Time}!Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Alarm@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Alarm}}
+\subsubsection{\texorpdfstring{get\+Effective\+Trigger\+Time()}{getEffectiveTriggerTime()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Alarm\+::get\+Effective\+Trigger\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a Date\+Time object when this alarm is going to trigger.
+
+This ignores repeated alarm, only the first trigger is returned.
+
+\begin{DoxyReturn}{Rückgabe}
+Date\+Time\+Immutable 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 28 der Datei V\+Alarm.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm_ac5e93f3242fe0cb4d6fa1f66423061c4}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_alarm_ac5e93f3242fe0cb4d6fa1f66423061c4}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Alarm@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Alarm}!is\+In\+Time\+Range@{is\+In\+Time\+Range}}
+\index{is\+In\+Time\+Range@{is\+In\+Time\+Range}!Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Alarm@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Alarm}}
+\subsubsection{\texorpdfstring{is\+In\+Time\+Range()}{isInTimeRange()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Alarm\+::is\+In\+Time\+Range (\begin{DoxyParamCaption}\item[{Date\+Time\+Interface}]{\$start,  }\item[{Date\+Time\+Interface}]{\$end }\end{DoxyParamCaption})}
+
+Returns true or false depending on if the event falls in the specified time-\/range. This is used for filtering purposes.
+
+The rules used to determine if an event falls within the specified time-\/range is based on the Cal\+D\+AV specification.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Date\+Time & {\em \$start} & \\
+\hline
+Date\+Time & {\em \$end} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 87 der Datei V\+Alarm.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+Component/V\+Alarm.\+php\end{DoxyCompactItemize}

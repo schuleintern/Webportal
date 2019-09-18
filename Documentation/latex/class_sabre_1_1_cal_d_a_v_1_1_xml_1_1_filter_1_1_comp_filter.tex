@@ -1,0 +1,76 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_filter_1_1_comp_filter}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Xml\textbackslash{}Filter\textbackslash{}Comp\+Filter Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_filter_1_1_comp_filter}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Filter\textbackslash{}\+Comp\+Filter@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Filter\textbackslash{}\+Comp\+Filter}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Xml\textbackslash{}Filter\textbackslash{}Comp\+Filter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_filter_1_1_comp_filter}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_filter_1_1_comp_filter_ad5f79ca22d86d30c5740d95fb90a18be}{xml\+Deserialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$reader)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_filter_1_1_comp_filter}{Comp\+Filter}} parser.
+
+This class parses the \{urn\+:ietf\+:params\+:xml\+:ns\+:caldav\}comp-\/filter X\+ML element, as defined in\+:
+
+\href{https://tools.ietf.org/html/rfc4791#section-9.6}{\tt https\+://tools.\+ietf.\+org/html/rfc4791\#section-\/9.\+6}
+
+The result will be spit out as an array.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://www.rooftopsolutions.nl/}{\tt http\+://www.\+rooftopsolutions.\+nl/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 25 der Datei Comp\+Filter.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_filter_1_1_comp_filter_ad5f79ca22d86d30c5740d95fb90a18be}\label{class_sabre_1_1_cal_d_a_v_1_1_xml_1_1_filter_1_1_comp_filter_ad5f79ca22d86d30c5740d95fb90a18be}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Xml\+::\+Filter\+::\+Comp\+Filter@{Sabre\+::\+Cal\+D\+A\+V\+::\+Xml\+::\+Filter\+::\+Comp\+Filter}!xml\+Deserialize@{xml\+Deserialize}}
+\index{xml\+Deserialize@{xml\+Deserialize}!Sabre\+::\+Cal\+D\+A\+V\+::\+Xml\+::\+Filter\+::\+Comp\+Filter@{Sabre\+::\+Cal\+D\+A\+V\+::\+Xml\+::\+Filter\+::\+Comp\+Filter}}
+\subsubsection{\texorpdfstring{xml\+Deserialize()}{xmlDeserialize()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Filter\textbackslash{}\+Comp\+Filter\+::xml\+Deserialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The deserialize method is called during xml parsing.
+
+This method is called statically, this is because in theory this method may be used as a type of constructor, or factory method.
+
+Often you want to return an instance of the current class, but you are free to return other data as well.
+
+You are responsible for advancing the reader to the next element. Not doing anything will result in a never-\/ending loop.
+
+If you just want to skip parsing for this element altogether, you can just call \$reader-\/$>$next();
+
+\$reader-\/$>$parse\+Inner\+Tree() will parse the entire sub-\/tree, and advance to the next element.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Reader & {\em \$reader} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_deserializable_a19e0eca545b9a0d93f7d6b69085ade30}{Sabre\textbackslash{}\+Xml\textbackslash{}\+Xml\+Deserializable}}.
+
+
+
+Definiert in Zeile 48 der Datei Comp\+Filter.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Xml/\+Filter/Comp\+Filter.\+php\end{DoxyCompactItemize}

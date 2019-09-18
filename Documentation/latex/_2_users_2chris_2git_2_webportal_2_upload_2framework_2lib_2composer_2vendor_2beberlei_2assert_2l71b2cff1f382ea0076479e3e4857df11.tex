@@ -1,0 +1,48 @@
+\hypertarget{_2_users_2chris_2git_2_webportal_2_upload_2framework_2lib_2composer_2vendor_2beberlei_2assert_2l71b2cff1f382ea0076479e3e4857df11}{}\section{/\+Users/chris/git/\+Webportal/\+Upload/framework/lib/composer/vendor/beberlei/assert/lib/\+Assert/functions.\+php}
+Start validation on a value, returns \mbox{\hyperlink{}{Assertion\+Chain}}.
+
+The invocation of this method starts an assertion chain that is happening on the passed value.
+
+(\$value)-\/$>$not\+Empty()-\/$>$integer(); (\$value)-\/$>$null\+Or()-\/$>$string()-\/$>$starts\+With(\char`\"{}\+Foo\char`\"{});
+
+The assertion chain can be stateful, that means be careful when you reuse it. You should never pass around the chain.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$value} & \\
+\hline
+string & {\em \$default\+Message} & \\
+\hline
+string & {\em \$default\+Property\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+\begin{DoxyCodeInclude}
+<?php
+
+\textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_assert}{Assert}};
+
+\textcolor{keyword}{function} that($value, $defaultMessage = null, $defaultPropertyPath = null)
+\{
+    \textcolor{keywordflow}{return} Assert::that($value, $defaultMessage, $defaultPropertyPath);
+\}
+
+\textcolor{keyword}{function} \mbox{\hyperlink{namespace_assert_a378b25b5d71c403bdc11d30eac5af701}{thatAll}}($values, $defaultMessage = null, $defaultPropertyPath = null)
+\{
+    \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_assert_a378b25b5d71c403bdc11d30eac5af701}{Assert::thatAll}}($values, $defaultMessage, $defaultPropertyPath);
+\}
+
+\textcolor{keyword}{function} \mbox{\hyperlink{namespace_assert_af03f4db4476f5f158ed16b6e0bfce05f}{thatNullOr}}($value, $defaultMessage = null, $defaultPropertyPath = null)
+\{
+    \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_assert_af03f4db4476f5f158ed16b6e0bfce05f}{Assert::thatNullOr}}($value, $defaultMessage, $defaultPropertyPath);
+\}
+
+\textcolor{keyword}{function} \mbox{\hyperlink{namespace_assert_a46e40540c897ee751f88a5a37a38dd4d}{lazy}}()
+\{
+    \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_assert_a46e40540c897ee751f88a5a37a38dd4d}{Assert::lazy}}();
+\}
+\end{DoxyCodeInclude}
+ 

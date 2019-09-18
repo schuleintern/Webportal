@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/ical/lib/Property/Event/Geo.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_8c2bf97883123f540abbfca88bd92722.html">ical</a></li><li class="navelem"><a class="el" href="dir_4bb8978680eab854753bc6877770845b.html">lib</a></li><li class="navelem"><a class="el" href="dir_40e75e2cb094a0d97d1fd057990ce751.html">Property</a></li><li class="navelem"><a class="el" href="dir_9baf7d1cd260d928c1f1513e45fe8be8.html">Event</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Geo.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">/*</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file is part of the eluceo/iCal package.</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * (c) Markus Poerschke &lt;markus@eluceo.de&gt;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This source file is subject to the MIT license that is bundled</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * with this source code in the file LICENSE.</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> */</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_eluceo_1_1i_cal_1_1_property_1_1_event.html">Eluceo\iCal\Property\Event</a>;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;use <a class="code" href="namespace_eluceo_1_1i_cal_1_1_property.html">Eluceo\iCal\Property</a>;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span>Geo <span class="keyword">extends</span> Property</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">private</span> $latitude;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">private</span> $longitude;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> __construct(<span class="keywordtype">float</span> $latitude, <span class="keywordtype">float</span> $longitude)</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        $this-&gt;latitude = $latitude;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        $this-&gt;longitude = $longitude;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> ($this-&gt;latitude &lt; -90 || $this-&gt;latitude &gt; 90) {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">throw</span> new \InvalidArgumentException(</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="stringliteral">&quot;The geographical latitude must be a value between -90 and 90 degrees. &#39;{$this-&gt;latitude}&#39; was given.&quot;</span></div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            );</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">if</span> ($this-&gt;longitude &lt; -180 || $this-&gt;longitude &gt; 180) {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">throw</span> new \InvalidArgumentException(</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="stringliteral">&quot;The geographical longitude must be a value between -180 and 180 degrees. &#39;{$this-&gt;longitude}&#39; was given.&quot;</span></div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            );</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        parent::__construct(<span class="stringliteral">&#39;GEO&#39;</span>, <span class="keyword">new</span> Property\RawStringValue($this-&gt;getGeoLocationAsString()));</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo.html#a8610d5433703bb05b2f1e48a44b93a81">   60</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo.html#a8610d5433703bb05b2f1e48a44b93a81">fromString</a>(<span class="keywordtype">string</span> $geoLocationString): self</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        $geoLocationString = str_replace(<span class="charliteral">&#39;,&#39;</span>, <span class="charliteral">&#39;;&#39;</span>, $geoLocationString);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        $geoLocationString = str_replace(<span class="stringliteral">&#39;GEO:&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, $geoLocationString);</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        $parts = explode(<span class="charliteral">&#39;;&#39;</span>, $geoLocationString);</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">new</span> <span class="keyword">static</span>((float) $parts[0], (<span class="keywordtype">float</span>) $parts[1]);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> getGeoLocationAsString(<span class="keywordtype">string</span> $separator = <span class="charliteral">&#39;;&#39;</span>): string</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span> number_format($this-&gt;latitude, 6) . $separator . number_format($this-&gt;longitude, 6);</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo.html#a72280c9f83b6c60a67f4bc130dbc2c04">   86</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo.html#a72280c9f83b6c60a67f4bc130dbc2c04">getLatitude</a>(): float</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> $this-&gt;latitude;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo.html#ade59098963ef1feaa793994efbf8e521">   94</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo.html#ade59098963ef1feaa793994efbf8e521">getLongitude</a>(): float</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> $this-&gt;longitude;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div><div class="ttc" id="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo_html_a72280c9f83b6c60a67f4bc130dbc2c04"><div class="ttname"><a href="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo.html#a72280c9f83b6c60a67f4bc130dbc2c04">Eluceo\iCal\Property\Event\Geo\getLatitude</a></div><div class="ttdeci">getLatitude()</div><div class="ttdef"><b>Definition:</b> <a href="ical_2lib_2_property_2_event_2_geo_8php_source.html#l00086">Geo.php:86</a></div></div>
+<div class="ttc" id="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo_html_ade59098963ef1feaa793994efbf8e521"><div class="ttname"><a href="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo.html#ade59098963ef1feaa793994efbf8e521">Eluceo\iCal\Property\Event\Geo\getLongitude</a></div><div class="ttdeci">getLongitude()</div><div class="ttdef"><b>Definition:</b> <a href="ical_2lib_2_property_2_event_2_geo_8php_source.html#l00094">Geo.php:94</a></div></div>
+<div class="ttc" id="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo_html_a8610d5433703bb05b2f1e48a44b93a81"><div class="ttname"><a href="class_eluceo_1_1i_cal_1_1_property_1_1_event_1_1_geo.html#a8610d5433703bb05b2f1e48a44b93a81">Eluceo\iCal\Property\Event\Geo\fromString</a></div><div class="ttdeci">static fromString(string $geoLocationString)</div><div class="ttdef"><b>Definition:</b> <a href="ical_2lib_2_property_2_event_2_geo_8php_source.html#l00060">Geo.php:60</a></div></div>
+<div class="ttc" id="namespace_eluceo_1_1i_cal_1_1_property_html"><div class="ttname"><a href="namespace_eluceo_1_1i_cal_1_1_property.html">Eluceo\iCal\Property</a></div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_property_2_array_value_8php_source.html#l00012">ArrayValue.php:12</a></div></div>
+<div class="ttc" id="namespace_eluceo_1_1i_cal_1_1_property_1_1_event_html"><div class="ttname"><a href="namespace_eluceo_1_1i_cal_1_1_property_1_1_event.html">Eluceo\iCal\Property\Event</a></div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_property_2_event_2_attendees_8php_source.html#l00012">Attendees.php:12</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

@@ -1,0 +1,122 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}Apache Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Apache@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Apache}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}Apache\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_ab3d666cc6cc048bd766d26e1a9048cf9}{check}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_ab15a45837c02291e2a941136af47aa02}{challenge}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_a6ac30c835e88a17a95e83d9e5a3910de}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_a6ac30c835e88a17a95e83d9e5a3910de}} 
+{\bfseries \$principal\+Prefix} = \textquotesingle{}principals/\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache}{Apache}} authenticator
+
+This authentication backend assumes that authentication has been configured in apache, rather than within Sabre\+D\+AV.
+
+Make sure apache is properly configured for this to work.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 20 der Datei Apache.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_ab15a45837c02291e2a941136af47aa02}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_ab15a45837c02291e2a941136af47aa02}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Apache@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Apache}!challenge@{challenge}}
+\index{challenge@{challenge}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Apache@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Apache}}
+\subsubsection{\texorpdfstring{challenge()}{challenge()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Apache\+::challenge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+This method is called when a user could not be authenticated, and authentication was required for the current request.
+
+This gives you the opportunity to set authentication headers. The 401 status code will already be set.
+
+In this case of Basic Auth, this would for example mean that the following header needs to be set\+:
+
+\$response-\/$>$add\+Header(\textquotesingle{}W\+W\+W-\/\+Authenticate\textquotesingle{}, \textquotesingle{}Basic realm=Sabre\+D\+AV\textquotesingle{});
+
+Keep in mind that in the case of multiple authentication backends, other W\+W\+W-\/\+Authenticate headers may already have been set, and you\textquotesingle{}ll want to append your own W\+W\+W-\/\+Authenticate header instead of overwriting the existing one.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a486025eeb4b3b342e7bea4e692a83d94}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 92 der Datei Apache.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_ab3d666cc6cc048bd766d26e1a9048cf9}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_ab3d666cc6cc048bd766d26e1a9048cf9}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Apache@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Apache}!check@{check}}
+\index{check@{check}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Apache@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Apache}}
+\subsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Apache\+::check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+When this method is called, the backend must check if authentication was successful.
+
+The returned value must be one of the following
+
+\mbox{[}true, \char`\"{}principals/username\char`\"{}\mbox{]} \mbox{[}false, \char`\"{}reason for failure\char`\"{}\mbox{]}
+
+If authentication was successful, it\textquotesingle{}s expected that the authentication backend returns a so-\/called principal url.
+
+Examples of a principal url\+:
+
+principals/admin principals/user1 principals/users/joe principals/uid/123457
+
+If you don\textquotesingle{}t use Web\+D\+AV A\+CL (R\+F\+C3744) we recommend that you simply return a string such as\+:
+
+principals/users/\mbox{[}username\mbox{]}
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a404029177c1ed79456ad9283ec76d50a}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 57 der Datei Apache.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Auth/\+Backend/Apache.\+php\end{DoxyCompactItemize}

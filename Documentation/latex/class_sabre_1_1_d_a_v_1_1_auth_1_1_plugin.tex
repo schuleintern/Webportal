@@ -1,0 +1,318 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Plugin Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a1b5e2afac682f6b5a6e0c676ef6bb597}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}} \$auth\+Backend=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a846ed4fb5b949a03bf3f98d8100e3059}{add\+Backend}} (\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}} \$auth\+Backend)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a2bce3a74a48f0c4f1bc3301fb2b619d1}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a903a5c08cd4ed94be8469c5f872b6f65}{get\+Plugin\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a218a29b372e6b413fcb9ee632b206734}{get\+Current\+Principal}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a82bf49257f655c8d35789c7538843485}{before\+Method}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a8e6772b5d633a755b0e1ed81d0ea89e6}{check}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_afcb46d2853c7dd4121fe587af1a7334d}{challenge}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a7517785241c5bba0a97a78cc21475038}{get\+Login\+Failed\+Reasons}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a814681021297509c4bdd0d6fa8578960}{get\+Plugin\+Info}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_af88c5506e0997d4d1604b278f6edbf88}{\$auto\+Require\+Login}} = true
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a00261ff16b310b66aa32761a70e3da90}{\$backends}}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a93ab1cfb9577ce85eceeec43f4512ce7}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a93ab1cfb9577ce85eceeec43f4512ce7}} 
+{\bfseries \$current\+Principal}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_ae8b4a87d78418e1eb5603c5807c3100f}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_ae8b4a87d78418e1eb5603c5807c3100f}} 
+{\bfseries \$login\+Failed\+Reasons}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This plugin provides Authentication for a Web\+D\+AV server.
+
+It works by providing a Auth class. Several examples of these classes can be found in the Backend directory.
+
+It\textquotesingle{}s possible to provide more than one backend to this plugin. If more than one backend was provided, each backend will attempt to authenticate. Only if all backends fail, we throw a 401.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 25 der Datei Plugin.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a1b5e2afac682f6b5a6e0c676ef6bb597}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a1b5e2afac682f6b5a6e0c676ef6bb597}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}}}]{\$auth\+Backend = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates the authentication plugin
+
+
+\begin{DoxyParams}[1]{Parameter}
+Backend\textbackslash{}\+Backend\+Interface & {\em \$auth\+Backend} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 59 der Datei Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a846ed4fb5b949a03bf3f98d8100e3059}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a846ed4fb5b949a03bf3f98d8100e3059}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!add\+Backend@{add\+Backend}}
+\index{add\+Backend@{add\+Backend}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{add\+Backend()}{addBackend()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::add\+Backend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}}}]{\$auth\+Backend }\end{DoxyParamCaption})}
+
+Adds an authentication backend to the plugin.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Backend\textbackslash{}\+Backend\+Interface & {\em \$auth\+Backend} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 73 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a82bf49257f655c8d35789c7538843485}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a82bf49257f655c8d35789c7538843485}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!before\+Method@{before\+Method}}
+\index{before\+Method@{before\+Method}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{before\+Method()}{beforeMethod()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::before\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+This method is called before any H\+T\+TP method and forces users to be authenticated
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 130 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_afcb46d2853c7dd4121fe587af1a7334d}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_afcb46d2853c7dd4121fe587af1a7334d}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!challenge@{challenge}}
+\index{challenge@{challenge}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{challenge()}{challenge()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::challenge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+This method sends authentication challenges to the user.
+
+This method will for example cause a H\+T\+TP Basic backend to set a W\+W\+W-\/\+Authorization header, indicating to the client that it should authenticate.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 232 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a8e6772b5d633a755b0e1ed81d0ea89e6}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a8e6772b5d633a755b0e1ed81d0ea89e6}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!check@{check}}
+\index{check@{check}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+Checks authentication credentials, and logs the user in if possible.
+
+This method returns an array. The first item in the array is a boolean indicating if login was successful.
+
+If login was successful, the second item in the array will contain the current principal url/path of the logged in user.
+
+If login was not successful, the second item in the array will contain a an array with strings. The strings are a list of reasons why login was unsuccessful. For every auth backend there will be one reason, so usually there\textquotesingle{}s just one.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 191 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a218a29b372e6b413fcb9ee632b206734}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a218a29b372e6b413fcb9ee632b206734}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!get\+Current\+Principal@{get\+Current\+Principal}}
+\index{get\+Current\+Principal@{get\+Current\+Principal}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Current\+Principal()}{getCurrentPrincipal()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::get\+Current\+Principal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the currently logged-\/in principal.
+
+This will return a string such as\+:
+
+principals/username principals/users/username
+
+This method will return null if nobody is logged in.
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 117 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a7517785241c5bba0a97a78cc21475038}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a7517785241c5bba0a97a78cc21475038}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!get\+Login\+Failed\+Reasons@{get\+Login\+Failed\+Reasons}}
+\index{get\+Login\+Failed\+Reasons@{get\+Login\+Failed\+Reasons}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Login\+Failed\+Reasons()}{getLoginFailedReasons()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::get\+Login\+Failed\+Reasons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of reasons why login was unsuccessful.
+
+This method will return the login failed reasons for the last login operation. One for each auth backend.
+
+This method returns null if the last authentication attempt was successful, or if there was no authentication attempt yet.
+
+\begin{DoxyReturn}{Rückgabe}
+string\mbox{[}\mbox{]}$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 258 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a814681021297509c4bdd0d6fa8578960}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a814681021297509c4bdd0d6fa8578960}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!get\+Plugin\+Info@{get\+Plugin\+Info}}
+\index{get\+Plugin\+Info@{get\+Plugin\+Info}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Info()}{getPluginInfo()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::get\+Plugin\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a bunch of meta-\/data about the plugin.
+
+Providing this information is optional, and is mainly displayed by the Browser plugin.
+
+The description key in the returned array may contain html and will not be sanitized.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 275 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a903a5c08cd4ed94be8469c5f872b6f65}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a903a5c08cd4ed94be8469c5f872b6f65}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!get\+Plugin\+Name@{get\+Plugin\+Name}}
+\index{get\+Plugin\+Name@{get\+Plugin\+Name}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Name()}{getPluginName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::get\+Plugin\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a plugin name.
+
+Using this name other plugins will be able to access other plugins using D\+AV\+::get\+Plugin
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 99 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a2bce3a74a48f0c4f1bc3301fb2b619d1}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a2bce3a74a48f0c4f1bc3301fb2b619d1}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!initialize@{initialize}}
+\index{initialize@{initialize}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}}}]{\$server }\end{DoxyParamCaption})}
+
+Initializes the plugin. This function is automatically called by the server
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} & {\em \$server} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 85 der Datei Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_af88c5506e0997d4d1604b278f6edbf88}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_af88c5506e0997d4d1604b278f6edbf88}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!\$auto\+Require\+Login@{\$auto\+Require\+Login}}
+\index{\$auto\+Require\+Login@{\$auto\+Require\+Login}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{\$auto\+Require\+Login}{$autoRequireLogin}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::\$auto\+Require\+Login = true}
+
+By default this plugin will require that the user is authenticated, and refuse any access if the user is not authenticated.
+
+If this setting is set to false, we let the user through, whether they are authenticated or not.
+
+This is useful if you want to allow both authenticated and unauthenticated access to your server.
+
+
+\begin{DoxyParams}{Parameter}
+{\em bool} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 39 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a00261ff16b310b66aa32761a70e3da90}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_plugin_a00261ff16b310b66aa32761a70e3da90}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}!\$backends@{\$backends}}
+\index{\$backends@{\$backends}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Plugin}}
+\subsubsection{\texorpdfstring{\$backends}{$backends}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Plugin\+::\$backends\hspace{0.3cm}{\ttfamily [protected]}}
+
+authentication backends 
+
+Definiert in Zeile 44 der Datei Plugin.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Auth/Plugin.\+php\end{DoxyCompactItemize}

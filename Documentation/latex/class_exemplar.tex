@@ -1,0 +1,301 @@
+\hypertarget{class_exemplar}{}\section{Exemplar Klassenreferenz}
+\label{class_exemplar}\index{Exemplar@{Exemplar}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_exemplar_a74c905b900a76177e3785e4bd3f098a0}\label{class_exemplar_a74c905b900a76177e3785e4bd3f098a0}} 
+{\bfseries \+\_\+\+\_\+construct} (\$data, \$schulbuch=null)
+\item 
+\mbox{\hyperlink{class_exemplar_a3fe13dc1e6991a8506858d2a33ed0493}{get\+ID}} ()
+\item 
+\mbox{\hyperlink{class_exemplar_ad9c9b96e2cf33d90d90b72badf93ce0d}{get\+Schulbuch}} ()
+\item 
+\mbox{\Hypertarget{class_exemplar_a9ad7dc1847aaed60b872d26aa8b0752d}\label{class_exemplar_a9ad7dc1847aaed60b872d26aa8b0752d}} 
+{\bfseries delete} ()
+\item 
+\mbox{\hyperlink{class_exemplar_ab87886d72f44247d1399b7010bf83e77}{get\+Barcode}} ()
+\item 
+\mbox{\Hypertarget{class_exemplar_a464a00a6ad28b13a5b181835ad6f3b01}\label{class_exemplar_a464a00a6ad28b13a5b181835ad6f3b01}} 
+{\bfseries get\+Zustand} ()
+\item 
+\mbox{\hyperlink{class_exemplar_aa9bfcb9754d90418616cb38fdb815307}{set\+Zustand\+Scan}} (\$scan)
+\item 
+\mbox{\Hypertarget{class_exemplar_aa0bc3d419695a72ce987b2fa5b0aa4d9}\label{class_exemplar_aa0bc3d419695a72ce987b2fa5b0aa4d9}} 
+{\bfseries set\+Zustand} (\$zustand)
+\item 
+\mbox{\Hypertarget{class_exemplar_a1edfaa8197f75fe1edc94b6099564b91}\label{class_exemplar_a1edfaa8197f75fe1edc94b6099564b91}} 
+{\bfseries get\+Zustand\+Number} ()
+\item 
+\mbox{\Hypertarget{class_exemplar_a0afac04fa59b974ae18cd8a7db930e1d}\label{class_exemplar_a0afac04fa59b974ae18cd8a7db930e1d}} 
+{\bfseries get\+Anschaffungsjahr} ()
+\item 
+\mbox{\Hypertarget{class_exemplar_a31be1720afda969c0597aab61bce67b0}\label{class_exemplar_a31be1720afda969c0597aab61bce67b0}} 
+{\bfseries is\+Bankbuch} ()
+\item 
+\mbox{\Hypertarget{class_exemplar_a33e765966e1bfc30152c1620a8cb8c90}\label{class_exemplar_a33e765966e1bfc30152c1620a8cb8c90}} 
+{\bfseries get\+Lagerort} ()
+\item 
+\mbox{\hyperlink{class_exemplar_a0a8ec58fdeaf08fafbbaf75e04b8d8e4}{is\+Ausgeliehen}} ()
+\item 
+\mbox{\hyperlink{class_exemplar_a5f8f9bfa004e153aa958672c938dece9}{get\+Ausleihen}} ()
+\item 
+\mbox{\hyperlink{class_exemplar_afdf5cd68b1f49ccb86ad5dc5c898031e}{get\+Active\+Ausleihe}} ()
+\item 
+\mbox{\hyperlink{class_exemplar_ac413b03ee7276a2220533575142320c0}{lend\+To\+Schueler}} (\$\mbox{\hyperlink{classschueler}{schueler}}, \$start\+Date=\textquotesingle{}\textquotesingle{})
+\item 
+\mbox{\hyperlink{class_exemplar_a58d65f4745f391fa885d6094357ac08e}{lend\+To\+Lehrer}} (\$\mbox{\hyperlink{classlehrer}{lehrer}}, \$start\+Date=\textquotesingle{}\textquotesingle{})
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_exemplar_ad738af1ad88e971c599d2365c572c2ba}{get\+By\+ID}} (\$id)
+\item 
+static \mbox{\hyperlink{class_exemplar_a91081a317d95fa65aa30f7a4edd2de50}{get\+By\+Barcode}} (\$barcode)
+\item 
+static \mbox{\hyperlink{class_exemplar_a0803f8a7d209491b1ad4ed6e3acb9c6b}{get\+By\+Schulbuch}} (\$schulbuch)
+\item 
+static \mbox{\hyperlink{class_exemplar_a8d1c60ff17290739c77bf2c17cec4ff7}{get\+Bestand\+By\+Schulbuch}} (\$schulbuch, \$with\+Bankbuch)
+\item 
+\mbox{\Hypertarget{class_exemplar_aa6621e920a59a130ff8ac4e57e457672}\label{class_exemplar_aa6621e920a59a130ff8ac4e57e457672}} 
+static {\bfseries get\+Lent\+Bestand} (\$schulbuch, \$with\+Bankbuch)
+\item 
+static \mbox{\hyperlink{class_exemplar_aed8b02986848a49f42ad90e9a43870b9}{add\+Exemplar}} (\$schulbuch, \$barcode, \$zustand, \$anschaffungsjahr, \$is\+Bankbuch, \$lagerort)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 4 der Datei Exemplar.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_exemplar_aed8b02986848a49f42ad90e9a43870b9}\label{class_exemplar_aed8b02986848a49f42ad90e9a43870b9}} 
+\index{Exemplar@{Exemplar}!add\+Exemplar@{add\+Exemplar}}
+\index{add\+Exemplar@{add\+Exemplar}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{add\+Exemplar()}{addExemplar()}}
+{\footnotesize\ttfamily static Exemplar\+::add\+Exemplar (\begin{DoxyParamCaption}\item[{}]{\$schulbuch,  }\item[{}]{\$barcode,  }\item[{}]{\$zustand,  }\item[{}]{\$anschaffungsjahr,  }\item[{}]{\$is\+Bankbuch,  }\item[{}]{\$lagerort }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_schulbuch}{Schulbuch}} & {\em \$schulbuch} & \\
+\hline
+String & {\em \$barcode} & \\
+\hline
+int & {\em \$zustand} & \\
+\hline
+int & {\em \$anschaffungsjahr} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 239 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_afdf5cd68b1f49ccb86ad5dc5c898031e}\label{class_exemplar_afdf5cd68b1f49ccb86ad5dc5c898031e}} 
+\index{Exemplar@{Exemplar}!get\+Active\+Ausleihe@{get\+Active\+Ausleihe}}
+\index{get\+Active\+Ausleihe@{get\+Active\+Ausleihe}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{get\+Active\+Ausleihe()}{getActiveAusleihe()}}
+{\footnotesize\ttfamily Exemplar\+::get\+Active\+Ausleihe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+Buch\+Ausleihe$\vert$\+N\+U\+LL 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 139 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_a5f8f9bfa004e153aa958672c938dece9}\label{class_exemplar_a5f8f9bfa004e153aa958672c938dece9}} 
+\index{Exemplar@{Exemplar}!get\+Ausleihen@{get\+Ausleihen}}
+\index{get\+Ausleihen@{get\+Ausleihen}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{get\+Ausleihen()}{getAusleihen()}}
+{\footnotesize\ttfamily Exemplar\+::get\+Ausleihen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_buch_ausleihe}{Buch\+Ausleihe}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 131 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_ab87886d72f44247d1399b7010bf83e77}\label{class_exemplar_ab87886d72f44247d1399b7010bf83e77}} 
+\index{Exemplar@{Exemplar}!get\+Barcode@{get\+Barcode}}
+\index{get\+Barcode@{get\+Barcode}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{get\+Barcode()}{getBarcode()}}
+{\footnotesize\ttfamily Exemplar\+::get\+Barcode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+String 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 47 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_a8d1c60ff17290739c77bf2c17cec4ff7}\label{class_exemplar_a8d1c60ff17290739c77bf2c17cec4ff7}} 
+\index{Exemplar@{Exemplar}!get\+Bestand\+By\+Schulbuch@{get\+Bestand\+By\+Schulbuch}}
+\index{get\+Bestand\+By\+Schulbuch@{get\+Bestand\+By\+Schulbuch}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{get\+Bestand\+By\+Schulbuch()}{getBestandBySchulbuch()}}
+{\footnotesize\ttfamily static Exemplar\+::get\+Bestand\+By\+Schulbuch (\begin{DoxyParamCaption}\item[{}]{\$schulbuch,  }\item[{}]{\$with\+Bankbuch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_schulbuch}{Schulbuch}} & {\em \$schulbuch} & \\
+\hline
+boolean & {\em \$with\+Bankbuch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 198 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_a91081a317d95fa65aa30f7a4edd2de50}\label{class_exemplar_a91081a317d95fa65aa30f7a4edd2de50}} 
+\index{Exemplar@{Exemplar}!get\+By\+Barcode@{get\+By\+Barcode}}
+\index{get\+By\+Barcode@{get\+By\+Barcode}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{get\+By\+Barcode()}{getByBarcode()}}
+{\footnotesize\ttfamily static Exemplar\+::get\+By\+Barcode (\begin{DoxyParamCaption}\item[{}]{\$barcode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$barcode} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Exemplar$\vert$\+N\+U\+LL 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 168 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_ad738af1ad88e971c599d2365c572c2ba}\label{class_exemplar_ad738af1ad88e971c599d2365c572c2ba}} 
+\index{Exemplar@{Exemplar}!get\+By\+ID@{get\+By\+ID}}
+\index{get\+By\+ID@{get\+By\+ID}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{get\+By\+I\+D()}{getByID()}}
+{\footnotesize\ttfamily static Exemplar\+::get\+By\+ID (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+unknown & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Exemplar$\vert$\+N\+U\+LL 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 155 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_a0803f8a7d209491b1ad4ed6e3acb9c6b}\label{class_exemplar_a0803f8a7d209491b1ad4ed6e3acb9c6b}} 
+\index{Exemplar@{Exemplar}!get\+By\+Schulbuch@{get\+By\+Schulbuch}}
+\index{get\+By\+Schulbuch@{get\+By\+Schulbuch}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{get\+By\+Schulbuch()}{getBySchulbuch()}}
+{\footnotesize\ttfamily static Exemplar\+::get\+By\+Schulbuch (\begin{DoxyParamCaption}\item[{}]{\$schulbuch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_schulbuch}{Schulbuch}} & {\em \$schulbuch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_exemplar}{Exemplar}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 182 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_a3fe13dc1e6991a8506858d2a33ed0493}\label{class_exemplar_a3fe13dc1e6991a8506858d2a33ed0493}} 
+\index{Exemplar@{Exemplar}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily Exemplar\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 26 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_ad9c9b96e2cf33d90d90b72badf93ce0d}\label{class_exemplar_ad9c9b96e2cf33d90d90b72badf93ce0d}} 
+\index{Exemplar@{Exemplar}!get\+Schulbuch@{get\+Schulbuch}}
+\index{get\+Schulbuch@{get\+Schulbuch}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{get\+Schulbuch()}{getSchulbuch()}}
+{\footnotesize\ttfamily Exemplar\+::get\+Schulbuch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_schulbuch}{Schulbuch}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 34 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_a0a8ec58fdeaf08fafbbaf75e04b8d8e4}\label{class_exemplar_a0a8ec58fdeaf08fafbbaf75e04b8d8e4}} 
+\index{Exemplar@{Exemplar}!is\+Ausgeliehen@{is\+Ausgeliehen}}
+\index{is\+Ausgeliehen@{is\+Ausgeliehen}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{is\+Ausgeliehen()}{isAusgeliehen()}}
+{\footnotesize\ttfamily Exemplar\+::is\+Ausgeliehen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ist das \mbox{\hyperlink{class_exemplar}{Exemplar}} ausgeliehen? \begin{DoxyReturn}{Rückgabe}
+boolean 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 117 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_a58d65f4745f391fa885d6094357ac08e}\label{class_exemplar_a58d65f4745f391fa885d6094357ac08e}} 
+\index{Exemplar@{Exemplar}!lend\+To\+Lehrer@{lend\+To\+Lehrer}}
+\index{lend\+To\+Lehrer@{lend\+To\+Lehrer}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{lend\+To\+Lehrer()}{lendToLehrer()}}
+{\footnotesize\ttfamily Exemplar\+::lend\+To\+Lehrer (\begin{DoxyParamCaption}\item[{}]{\$lehrer,  }\item[{}]{\$start\+Date = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+lehrer & {\em \$lehrer} & \\
+\hline
+string & {\em \$start\+Date} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 228 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_ac413b03ee7276a2220533575142320c0}\label{class_exemplar_ac413b03ee7276a2220533575142320c0}} 
+\index{Exemplar@{Exemplar}!lend\+To\+Schueler@{lend\+To\+Schueler}}
+\index{lend\+To\+Schueler@{lend\+To\+Schueler}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{lend\+To\+Schueler()}{lendToSchueler()}}
+{\footnotesize\ttfamily Exemplar\+::lend\+To\+Schueler (\begin{DoxyParamCaption}\item[{}]{\$schueler,  }\item[{}]{\$start\+Date = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+Leiht das Buch an den Schüler aus 
+\begin{DoxyParams}[1]{Parameter}
+schueler & {\em \$schueler} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 218 der Datei Exemplar.\+class.\+php.
+
+\mbox{\Hypertarget{class_exemplar_aa9bfcb9754d90418616cb38fdb815307}\label{class_exemplar_aa9bfcb9754d90418616cb38fdb815307}} 
+\index{Exemplar@{Exemplar}!set\+Zustand\+Scan@{set\+Zustand\+Scan}}
+\index{set\+Zustand\+Scan@{set\+Zustand\+Scan}!Exemplar@{Exemplar}}
+\subsubsection{\texorpdfstring{set\+Zustand\+Scan()}{setZustandScan()}}
+{\footnotesize\ttfamily Exemplar\+::set\+Zustand\+Scan (\begin{DoxyParamCaption}\item[{}]{\$scan }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$scan} & gescanter String (Z\+U\+S\+T\+A\+N\+D-\/1 B\+IS Z\+U\+S\+T\+A\+N\+D-\/3) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+boolean 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 67 der Datei Exemplar.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/data/schulbuch/Exemplar.\+class.\+php\end{DoxyCompactItemize}

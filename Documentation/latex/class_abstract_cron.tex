@@ -1,0 +1,77 @@
+\hypertarget{class_abstract_cron}{}\section{Abstract\+Cron Klassenreferenz}
+\label{class_abstract_cron}\index{Abstract\+Cron@{Abstract\+Cron}}
+Klassendiagramm für Abstract\+Cron\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_abstract_cron}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_cron_a9bfe042ff6db377dc6e05bb217cac8b6}\label{class_abstract_cron_a9bfe042ff6db377dc6e05bb217cac8b6}} 
+{\bfseries execute} ()
+\item 
+\mbox{\Hypertarget{class_abstract_cron_aeb0aedf029fa60a8bae79c66d1f17f56}\label{class_abstract_cron_aeb0aedf029fa60a8bae79c66d1f17f56}} 
+{\bfseries get\+Name} ()
+\item 
+\mbox{\Hypertarget{class_abstract_cron_adfd40100017105bf56f64d7308d822ba}\label{class_abstract_cron_adfd40100017105bf56f64d7308d822ba}} 
+{\bfseries get\+Description} ()
+\item 
+\mbox{\hyperlink{class_abstract_cron_abf70f559a58a6ceeb823b81b51fbbfe1}{get\+Cron\+Result}} ()
+\item 
+\mbox{\hyperlink{class_abstract_cron_a2fcdc1fa0cf8a5f8c214371a96534d17}{inform\+Admin\+If\+Fail}} ()
+\item 
+\mbox{\Hypertarget{class_abstract_cron_ac483d93176b2175ba20b528b126c1428}\label{class_abstract_cron_ac483d93176b2175ba20b528b126c1428}} 
+{\bfseries execute\+Every\+X\+Seconds} ()
+\item 
+\mbox{\hyperlink{class_abstract_cron_a002e8742222233f71416c6d180bc42e9}{only\+Execute\+Separate}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 4 der Datei Abstract\+Cron.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_abstract_cron_abf70f559a58a6ceeb823b81b51fbbfe1}\label{class_abstract_cron_abf70f559a58a6ceeb823b81b51fbbfe1}} 
+\index{Abstract\+Cron@{Abstract\+Cron}!get\+Cron\+Result@{get\+Cron\+Result}}
+\index{get\+Cron\+Result@{get\+Cron\+Result}!Abstract\+Cron@{Abstract\+Cron}}
+\subsubsection{\texorpdfstring{get\+Cron\+Result()}{getCronResult()}}
+{\footnotesize\ttfamily Abstract\+Cron\+::get\+Cron\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{[}\textquotesingle{}success\textquotesingle{} =$>$ \textquotesingle{}true/false\textquotesingle{}, \textquotesingle{}result\+Text\textquotesingle{} =$>$ \textquotesingle{}Text, der in der Administration angezeigt wird.\textquotesingle{}\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_abstract_cron_a2fcdc1fa0cf8a5f8c214371a96534d17}\label{class_abstract_cron_a2fcdc1fa0cf8a5f8c214371a96534d17}} 
+\index{Abstract\+Cron@{Abstract\+Cron}!inform\+Admin\+If\+Fail@{inform\+Admin\+If\+Fail}}
+\index{inform\+Admin\+If\+Fail@{inform\+Admin\+If\+Fail}!Abstract\+Cron@{Abstract\+Cron}}
+\subsubsection{\texorpdfstring{inform\+Admin\+If\+Fail()}{informAdminIfFail()}}
+{\footnotesize\ttfamily Abstract\+Cron\+::inform\+Admin\+If\+Fail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Not implemented \begin{DoxyRefDesc}{Veraltet}
+\item[\mbox{\hyperlink{deprecated__deprecated000008}{Veraltet}}]\end{DoxyRefDesc}
+\begin{DoxyReturn}{Rückgabe}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_abstract_cron_a002e8742222233f71416c6d180bc42e9}\label{class_abstract_cron_a002e8742222233f71416c6d180bc42e9}} 
+\index{Abstract\+Cron@{Abstract\+Cron}!only\+Execute\+Separate@{only\+Execute\+Separate}}
+\index{only\+Execute\+Separate@{only\+Execute\+Separate}!Abstract\+Cron@{Abstract\+Cron}}
+\subsubsection{\texorpdfstring{only\+Execute\+Separate()}{onlyExecuteSeparate()}}
+{\footnotesize\ttfamily Abstract\+Cron\+::only\+Execute\+Separate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Soll der Cron nur separat ausgeführt werden? (Aufruf muss über cron.\+php?cronkey=...\&cron\+Name=\mbox{[}N\+A\+ME\mbox{]} erfolgen. Ausführungszeit wird ignoriert. \begin{DoxyReturn}{Rückgabe}
+boolean 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 37 der Datei Abstract\+Cron.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/cron/Abstract\+Cron.\+class.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,60 @@
+\hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_create_principal_support}{}\section{Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Principal\+Backend\textbackslash{}Create\+Principal\+Support Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_create_principal_support}\index{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+Create\+Principal\+Support@{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+Create\+Principal\+Support}}
+Klassendiagramm für Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Principal\+Backend\textbackslash{}Create\+Principal\+Support\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_create_principal_support}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_create_principal_support_aec4515b66518b61cc03eab775bd4cc82}{create\+Principal}} (\$path, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}} \$mk\+Col)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Implement this interface to add support for creating new principals to your principal backend.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 15 der Datei Create\+Principal\+Support.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_create_principal_support_aec4515b66518b61cc03eab775bd4cc82}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_create_principal_support_aec4515b66518b61cc03eab775bd4cc82}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal\+Backend\+::\+Create\+Principal\+Support@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal\+Backend\+::\+Create\+Principal\+Support}!create\+Principal@{create\+Principal}}
+\index{create\+Principal@{create\+Principal}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal\+Backend\+::\+Create\+Principal\+Support@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal\+Backend\+::\+Create\+Principal\+Support}}
+\subsubsection{\texorpdfstring{create\+Principal()}{createPrincipal()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+Create\+Principal\+Support\+::create\+Principal (\begin{DoxyParamCaption}\item[{}]{\$path,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}}}]{\$mk\+Col }\end{DoxyParamCaption})}
+
+Creates a new principal.
+
+This method receives a full path for the new principal. The mk\+Col object contains any additional webdav properties specified during the creation of the principal.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+Mk\+Col & {\em \$mk\+Col} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_p_d_o_a03f1b543079fbffa952356654d2cfca1}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+P\+DO}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V\+A\+C\+L/\+Principal\+Backend/Create\+Principal\+Support.\+php\end{DoxyCompactItemize}

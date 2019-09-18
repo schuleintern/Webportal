@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/xml/tests/Sabre/Xml/Element/Mock.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_f07ec50a1c819f77a21c12447b1731d9.html">xml</a></li><li class="navelem"><a class="el" href="dir_03c61327d79946dd9533152f4be43e8d.html">tests</a></li><li class="navelem"><a class="el" href="dir_1a7af4c603c9a034e7e787fc3f35a100.html">Sabre</a></li><li class="navelem"><a class="el" href="dir_41cdddf5b4748fcc4a20d74c9aa0427e.html">Xml</a></li><li class="navelem"><a class="el" href="dir_fca55bbd08ff735a00a6939ecf0c9d91.html">Element</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Mock.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_xml_1_1_element.html">Sabre\Xml\Element</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml.html">Sabre\Xml</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_sabre_1_1_xml_1_1_element_1_1_mock.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_xml_1_1_element_1_1_mock.html">Mock</a> <span class="keyword">implements</span> <a class="code" href="interface_sabre_1_1_xml_1_1_element.html">Xml\Element</a> {</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_sabre_1_1_xml_1_1_element_1_1_mock.html#aebc0b0e45033272c7a9f76f21973ef1e">   24</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_xml_1_1_element_1_1_mock.html#aebc0b0e45033272c7a9f76f21973ef1e">xmlSerialize</a>(Xml\<a class="code" href="class_sabre_1_1_xml_1_1_writer.html">Writer</a> $writer) {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        $writer-&gt;startElement(<span class="stringliteral">&#39;{http://sabredav.org/ns}elem1&#39;</span>);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        $writer-&gt;write(<span class="stringliteral">&#39;hiiii!&#39;</span>);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        $writer-&gt;endElement();</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_sabre_1_1_xml_1_1_element_1_1_mock.html#ae0a1963d550eb38ce5b09f7adee9e9e6">   53</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_xml_1_1_element_1_1_mock.html#ae0a1963d550eb38ce5b09f7adee9e9e6">xmlDeserialize</a>(Xml\<a class="code" href="class_sabre_1_1_xml_1_1_reader.html">Reader</a> $reader) {</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        $reader-&gt;next();</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;foobar&#39;</span>;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div><div class="ttc" id="namespace_sabre_1_1_xml_html"><div class="ttname"><a href="namespace_sabre_1_1_xml.html">Sabre\Xml</a></div><div class="ttdef"><b>Definition:</b> <a href="_context_stack_trait_8php_source.html#l00003">ContextStackTrait.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_element_1_1_mock_html_aebc0b0e45033272c7a9f76f21973ef1e"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_element_1_1_mock.html#aebc0b0e45033272c7a9f76f21973ef1e">Sabre\Xml\Element\Mock\xmlSerialize</a></div><div class="ttdeci">xmlSerialize(Xml\Writer $writer)</div><div class="ttdef"><b>Definition:</b> <a href="xml_2tests_2_sabre_2_xml_2_element_2_mock_8php_source.html#l00024">Mock.php:24</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_element_1_1_mock_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_element_1_1_mock.html">Sabre\Xml\Element\Mock</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2tests_2_sabre_2_xml_2_element_2_mock_8php_source.html#l00007">Mock.php:7</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_element_1_1_mock_html_ae0a1963d550eb38ce5b09f7adee9e9e6"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_element_1_1_mock.html#ae0a1963d550eb38ce5b09f7adee9e9e6">Sabre\Xml\Element\Mock\xmlDeserialize</a></div><div class="ttdeci">static xmlDeserialize(Xml\Reader $reader)</div><div class="ttdef"><b>Definition:</b> <a href="xml_2tests_2_sabre_2_xml_2_element_2_mock_8php_source.html#l00053">Mock.php:53</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_element_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_element.html">Sabre\Xml\Element</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_8php_source.html#l00003">Base.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_writer_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_writer.html">Sabre\Xml\Writer</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_writer_8php_source.html#l00031">Writer.php:31</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_reader_8php_source.html#l00020">Reader.php:20</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_xml_1_1_element_html"><div class="ttname"><a href="interface_sabre_1_1_xml_1_1_element.html">Sabre\Xml\Element</a></div><div class="ttdef"><b>Definition:</b> <a href="_element_8php_source.html#l00018">Element.php:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

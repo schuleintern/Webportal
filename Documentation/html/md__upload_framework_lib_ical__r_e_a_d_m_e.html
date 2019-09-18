@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Zap Calendar iCalendar Library</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title"><a class="el" href="namespace_zap.html">Zap</a> Calendar iCalendar Library </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>(<a href="https://github.com/zcontent/icalendar">https://github.com/zcontent/icalendar</a>)</p>
+<p>The <a class="el" href="namespace_zap.html">Zap</a> Calendar iCalendar Library is a PHP library for supporting the iCalendar (RFC 5545) standard.</p>
+<p>This PHP library is for reading and writing iCalendar formatted feeds and files. Features of the library include:</p>
+<ul>
+<li>Read AND write support for iCalendar files</li>
+<li>Object based creation and manipulation of iCalendar files</li>
+<li>Supports expansion of RRULE to a list of repeating dates</li>
+<li>Supports adding timezone info to iCalendar file</li>
+</ul>
+<p>All iCalendar data is stored in a PHP object tree. This allows any property to be added to the iCalendar feed without requiring specialized library function calls. With power comes responsibility. Missing or invalid properties can cause the resulting iCalendar file to be invalid. Visit <a href="http://icalendar.org">iCalendar.org</a> to view valid properties and test your feed using the site's <a href="http://icalendar.org/validator.html">iCalendar validator tool</a>.</p>
+<p>Library API documentation can be found at <a href="http://icalendar.org/zapcallibdocs">http://icalendar.org/zapcallibdocs</a></p>
+<p>See the examples folder for programs that read and write iCalendar files. At its simpliest, you need to include the library at the top of your program:</p>
+<div class="fragment"><div class="line">require_once($path_to_library . <span class="stringliteral">&quot;/zapcallib.php&quot;</span>);</div></div><!-- fragment --><p>Create an ical object using the <a class="el" href="class_z_ci_cal.html">ZCiCal</a> object:</p>
+<div class="fragment"><div class="line">$icalobj = <span class="keyword">new</span> <a class="code" href="class_z_ci_cal.html">ZCiCal</a>();</div></div><!-- fragment --><p>Add an event object:</p>
+<div class="fragment"><div class="line">$eventobj = <span class="keyword">new</span> <a class="code" href="class_z_ci_cal_node.html">ZCiCalNode</a>(<span class="stringliteral">&quot;VEVENT&quot;</span>, $icalobj-&gt;curnode);</div></div><!-- fragment --><p>Add a start and end date to the event:</p>
+<div class="fragment"><div class="line"><span class="comment">// add start date</span></div><div class="line">$eventobj-&gt;addNode(<span class="keyword">new</span> <a class="code" href="class_z_ci_cal_data_node.html">ZCiCalDataNode</a>(<span class="stringliteral">&quot;DTSTART:&quot;</span> . <a class="code" href="class_z_ci_cal.html#ad6053090c0bb9c5edc832790b33bee33">ZCiCal::fromSqlDateTime</a>(<span class="stringliteral">&quot;2020-01-01 12:00:00&quot;</span>)));</div><div class="line"></div><div class="line"><span class="comment">// add end date</span></div><div class="line">$eventobj-&gt;addNode(<span class="keyword">new</span> <a class="code" href="class_z_ci_cal_data_node.html">ZCiCalDataNode</a>(<span class="stringliteral">&quot;DTEND:&quot;</span> . <a class="code" href="class_z_ci_cal.html#ad6053090c0bb9c5edc832790b33bee33">ZCiCal::fromSqlDateTime</a>(<span class="stringliteral">&quot;2020-01-01 13:00:00&quot;</span>)));</div></div><!-- fragment --><p>Write the object in iCalendar format using the export() function call:</p>
+<div class="fragment"><div class="line">echo $icalobj-&gt;export();</div></div><!-- fragment --><p>This example will not validate since it is missing some required elements. Look at the <a class="el" href="simpleevent_8php_source.html">simpleevent.php</a> example for the minimum # of elements needed for a validated iCalendar file.</p>
+<p>To create a multi-event iCalendar file, simply create multiple event objects. For example:</p>
+<div class="fragment"><div class="line">$icalobj = <span class="keyword">new</span> <a class="code" href="class_z_ci_cal.html">ZCiCal</a>();</div><div class="line">$eventobj1 = <span class="keyword">new</span> <a class="code" href="class_z_ci_cal_node.html">ZCiCalNode</a>(<span class="stringliteral">&quot;VEVENT&quot;</span>, $icalobj-&gt;curnode);</div><div class="line">$eventobj1-&gt;addNode(<span class="keyword">new</span> <a class="code" href="class_z_ci_cal_data_node.html">ZCiCalDataNode</a>(<span class="stringliteral">&quot;SUMMARY:Event 1&quot;</span>));</div><div class="line">...</div><div class="line">$eventobj2 = <span class="keyword">new</span> <a class="code" href="class_z_ci_cal_node.html">ZCiCalNode</a>(<span class="stringliteral">&quot;VEVENT&quot;</span>, $icalobj-&gt;curnode);</div><div class="line">$eventobj2-&gt;addNode(<span class="keyword">new</span> <a class="code" href="class_z_ci_cal_data_node.html">ZCiCalDataNode</a>(<span class="stringliteral">&quot;SUMMARY:Event 2&quot;</span>));</div><div class="line">...</div></div><!-- fragment --><p>To read an existing iCalendar file/feed, create the <a class="el" href="class_z_ci_cal.html">ZCiCal</a> object with a string representing the contents of the iCalendar file:</p>
+<div class="fragment"><div class="line">$icalobj = <span class="keyword">new</span> <a class="code" href="class_z_ci_cal.html">ZCiCal</a>($icalstring);</div></div><!-- fragment --><p>Large iCalendar files can be read in chunks to reduce the amount of memory needed to hold the iCalendar feed in memory. This example reads 500 events at a time:</p>
+<div class="fragment"><div class="line">$icalobj = null;</div><div class="line">$eventcount = 0;</div><div class="line">$maxevents = 500;</div><div class="line"><span class="keywordflow">do</span></div><div class="line">{</div><div class="line">    $icalobj = newZCiCal($icalstring, $maxevents, $eventcount);</div><div class="line">    ...</div><div class="line">    $eventcount +=$maxevents;</div><div class="line">}</div><div class="line"><span class="keywordflow">while</span>($icalobj-&gt;countEvents() &gt;= $eventcount);</div></div><!-- fragment --><p>You can read the events from an imported (or created) iCalendar object in this manner:</p>
+<div class="fragment"><div class="line"><span class="keywordflow">foreach</span>($icalobj-&gt;tree-&gt;child as $node)</div><div class="line">{</div><div class="line">    <span class="keywordflow">if</span>($node-&gt;getName() == <span class="stringliteral">&quot;VEVENT&quot;</span>)</div><div class="line">    {</div><div class="line">        <span class="keywordflow">foreach</span>($node-&gt;data as $key =&gt; $value)</div><div class="line">        {</div><div class="line">            <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;SUMMARY&quot;</span>)</div><div class="line">            {</div><div class="line">                echo <span class="stringliteral">&quot;event title: &quot;</span> . $value-&gt;getValues() . <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><h2>Known Limitations</h2>
+<ul>
+<li>Since the library utilizes objects to read and write iCalendar data, the size of the iCalendar data is limited to the amount of available memory on the machine. The <a class="el" href="class_z_ci_cal.html">ZCiCal()</a> object supports reading a range of events to minimize memory space.</li>
+<li>The library ignores timezone info when importing files, instead utilizing PHP's timezone library for calculations (timezones are supported when exporting files). Imported timezones need to be aliased to a <a href="http://php.net/manual/en/timezones.php">PHP supported timezone</a>.</li>
+<li>At this time, the library does not support the "BYSETPOS" option in RRULE items.</li>
+<li>At this time, the maximum date supported is 2036 to avoid date math issues with 32 bit systems.</li>
+<li>Repeating events are limited to a maximum of 5,000 dates to avoid memory or infinite loop issues </li>
+</ul>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

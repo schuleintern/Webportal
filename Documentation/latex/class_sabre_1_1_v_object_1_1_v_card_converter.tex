@@ -1,0 +1,190 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_v_card_converter}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}V\+Card\+Converter Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_v_card_converter}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+V\+Card\+Converter@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+V\+Card\+Converter}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_v_card_converter_ad46934ad06f5d8074c05191c42201325}{convert}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_card}{Component\textbackslash{}\+V\+Card}} \$input, \$target\+Version)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_v_card_converter_a7d6b1368508f5e3e30eb05721b9b366d}{convert\+Property}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_card}{Component\textbackslash{}\+V\+Card}} \$input, \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_card}{Component\textbackslash{}\+V\+Card}} \$output, \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}} \$property, \$target\+Version)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_v_card_converter_a7d56560652cab8f3df3d0fac1d413d1f}{convert\+Binary\+To\+Uri}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_card}{Component\textbackslash{}\+V\+Card}} \$output, Property\textbackslash{}\+Binary \$new\+Property, array \&\$parameters)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_v_card_converter_a1e187d99bbed002fdee9632a37d51853}{convert\+Uri\+To\+Binary}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_card}{Component\textbackslash{}\+V\+Card}} \$output, Property\textbackslash{}\+Uri \$new\+Property)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_v_card_converter_a655867f4c28120c9698ea29ecd3ae97e}{convert\+Parameters40}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}} \$new\+Property, array \$parameters)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_v_card_converter_aae351e4520f11c14642b5ac113de290c}{convert\+Parameters30}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}} \$new\+Property, array \$parameters)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This utility converts vcards from one version to another.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 12 der Datei V\+Card\+Converter.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_v_card_converter_ad46934ad06f5d8074c05191c42201325}\label{class_sabre_1_1_v_object_1_1_v_card_converter_ad46934ad06f5d8074c05191c42201325}} 
+\index{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}!convert@{convert}}
+\index{convert@{convert}!Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}}
+\subsubsection{\texorpdfstring{convert()}{convert()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+V\+Card\+Converter\+::convert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_card}{Component\textbackslash{}\+V\+Card}}}]{\$input,  }\item[{}]{\$target\+Version }\end{DoxyParamCaption})}
+
+Converts a v\+Card object to a new version.
+
+target\+Version must be one of\+: \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a9bf39e799fa7116f9b599085c76097c2}{Document\+::\+V\+C\+A\+R\+D21}} \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a5103d6dcd6e9040808f2b30c1ccad9c1}{Document\+::\+V\+C\+A\+R\+D30}} \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_afa0952010d5ee8ba17096eba3ade6751}{Document\+::\+V\+C\+A\+R\+D40}}
+
+Currently only 3.\+0 and 4.\+0 as input and output versions.
+
+2.\+1 has some minor support for the input version, it\textquotesingle{}s incomplete at the moment though.
+
+If input and output version are identical, a clone is returned.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Component\textbackslash{}\+V\+Card & {\em \$input} & \\
+\hline
+int & {\em \$target\+Version} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 32 der Datei V\+Card\+Converter.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_v_card_converter_a7d56560652cab8f3df3d0fac1d413d1f}\label{class_sabre_1_1_v_object_1_1_v_card_converter_a7d56560652cab8f3df3d0fac1d413d1f}} 
+\index{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}!convert\+Binary\+To\+Uri@{convert\+Binary\+To\+Uri}}
+\index{convert\+Binary\+To\+Uri@{convert\+Binary\+To\+Uri}!Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}}
+\subsubsection{\texorpdfstring{convert\+Binary\+To\+Uri()}{convertBinaryToUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+V\+Card\+Converter\+::convert\+Binary\+To\+Uri (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_card}{Component\textbackslash{}\+V\+Card}}}]{\$output,  }\item[{Property\textbackslash{}\+Binary}]{\$new\+Property,  }\item[{array \&}]{\$parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Converts a B\+I\+N\+A\+RY property to a U\+RI property.
+
+v\+Card 4.\+0 no longer supports B\+I\+N\+A\+RY properties.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Component\textbackslash{}\+V\+Card & {\em \$output} & \\
+\hline
+Property\textbackslash{}\+Uri & {\em \$property} & The input property. \\
+\hline
+ & {\em \$parameters} & List of parameters that will eventually be added to the new property.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 276 der Datei V\+Card\+Converter.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_v_card_converter_aae351e4520f11c14642b5ac113de290c}\label{class_sabre_1_1_v_object_1_1_v_card_converter_aae351e4520f11c14642b5ac113de290c}} 
+\index{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}!convert\+Parameters30@{convert\+Parameters30}}
+\index{convert\+Parameters30@{convert\+Parameters30}!Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}}
+\subsubsection{\texorpdfstring{convert\+Parameters30()}{convertParameters30()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+V\+Card\+Converter\+::convert\+Parameters30 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}}}]{\$new\+Property,  }\item[{array}]{\$parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Adds parameters to a new property for v\+Card 3.\+0.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}} & {\em \$new\+Property} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 429 der Datei V\+Card\+Converter.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_v_card_converter_a655867f4c28120c9698ea29ecd3ae97e}\label{class_sabre_1_1_v_object_1_1_v_card_converter_a655867f4c28120c9698ea29ecd3ae97e}} 
+\index{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}!convert\+Parameters40@{convert\+Parameters40}}
+\index{convert\+Parameters40@{convert\+Parameters40}!Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}}
+\subsubsection{\texorpdfstring{convert\+Parameters40()}{convertParameters40()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+V\+Card\+Converter\+::convert\+Parameters40 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}}}]{\$new\+Property,  }\item[{array}]{\$parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Adds parameters to a new property for v\+Card 4.\+0.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}} & {\em \$new\+Property} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 383 der Datei V\+Card\+Converter.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_v_card_converter_a7d6b1368508f5e3e30eb05721b9b366d}\label{class_sabre_1_1_v_object_1_1_v_card_converter_a7d6b1368508f5e3e30eb05721b9b366d}} 
+\index{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}!convert\+Property@{convert\+Property}}
+\index{convert\+Property@{convert\+Property}!Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}}
+\subsubsection{\texorpdfstring{convert\+Property()}{convertProperty()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+V\+Card\+Converter\+::convert\+Property (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_card}{Component\textbackslash{}\+V\+Card}}}]{\$input,  }\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_card}{Component\textbackslash{}\+V\+Card}}}]{\$output,  }\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}}}]{\$property,  }\item[{}]{\$target\+Version }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Handles conversion of a single property.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Component\textbackslash{}\+V\+Card & {\em \$input} & \\
+\hline
+Component\textbackslash{}\+V\+Card & {\em \$output} & \\
+\hline
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}} & {\em \$property} & \\
+\hline
+int & {\em \$target\+Version} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 75 der Datei V\+Card\+Converter.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_v_card_converter_a1e187d99bbed002fdee9632a37d51853}\label{class_sabre_1_1_v_object_1_1_v_card_converter_a1e187d99bbed002fdee9632a37d51853}} 
+\index{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}!convert\+Uri\+To\+Binary@{convert\+Uri\+To\+Binary}}
+\index{convert\+Uri\+To\+Binary@{convert\+Uri\+To\+Binary}!Sabre\+::\+V\+Object\+::\+V\+Card\+Converter@{Sabre\+::\+V\+Object\+::\+V\+Card\+Converter}}
+\subsubsection{\texorpdfstring{convert\+Uri\+To\+Binary()}{convertUriToBinary()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+V\+Card\+Converter\+::convert\+Uri\+To\+Binary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_card}{Component\textbackslash{}\+V\+Card}}}]{\$output,  }\item[{Property\textbackslash{}\+Uri}]{\$new\+Property }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Converts a U\+RI property to a B\+I\+N\+A\+RY property.
+
+In v\+Card 4.\+0 attachments are encoded as data\+: uri. Even though these may be valid in v\+Card 3.\+0 as well, we should convert those to B\+I\+N\+A\+RY if possible, to improve compatibility.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Component\textbackslash{}\+V\+Card & {\em \$output} & \\
+\hline
+Property\textbackslash{}\+Uri & {\em \$property} & The input property.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}}$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 330 der Datei V\+Card\+Converter.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/V\+Card\+Converter.\+php\end{DoxyCompactItemize}

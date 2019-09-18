@@ -1,0 +1,38 @@
+This repository holds all interfaces/classes/traits related to https\+://github.com/php-\/fig/fig-\/standards/blob/master/accepted/\+P\+S\+R-\/3-\/logger-\/interface.\+md \char`\"{}\+P\+S\+R-\/3\char`\"{}.
+
+\mbox{\hyperlink{class_note}{Note}} that this is not a logger of its own. It is merely an interface that describes a logger. See the specification for more details.
+
+\subsection*{Usage }
+
+If you need a logger, you can use the interface like this\+:
+
+
+\begin{DoxyCode}
+<?php
+
+use \mbox{\hyperlink{namespace_psr_1_1_log_1_1_logger_interface}{Psr\(\backslash\)Log\(\backslash\)LoggerInterface}};
+
+\textcolor{keyword}{class }Foo
+\{
+    \textcolor{keyword}{private} $logger;
+
+    \textcolor{keyword}{public} \textcolor{keyword}{function} \_\_construct(LoggerInterface $logger = null)
+    \{
+        $this->logger = $logger;
+    \}
+
+    \textcolor{keyword}{public} \textcolor{keyword}{function} doSomething()
+    \{
+        \textcolor{keywordflow}{if} ($this->logger) \{
+            $this->logger->info(\textcolor{stringliteral}{'Doing work'});
+        \}
+
+        \textcolor{comment}{// do something useful}
+    \}
+\}
+\end{DoxyCode}
+
+
+You can then pick one of the implementations of the interface to get a logger.
+
+If you want to implement the interface, you can require this package and implement {\ttfamily Psr\textbackslash{}Log\textbackslash{}Logger\+Interface} in your code. Please read the https\+://github.com/php-\/fig/fig-\/standards/blob/master/accepted/\+P\+S\+R-\/3-\/logger-\/interface.\+md \char`\"{}specification text\char`\"{} for details. 

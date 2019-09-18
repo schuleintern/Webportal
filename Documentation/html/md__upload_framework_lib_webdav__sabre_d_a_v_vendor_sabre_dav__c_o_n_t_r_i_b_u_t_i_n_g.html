@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Contributing to sabre projects</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Contributing to sabre projects </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Want to contribute to sabre/dav? Here are some guidelines to ensure your patch gets accepted.</p>
+<h2>Building a new feature? Contact us first </h2>
+<p>We may not want to accept every feature that comes our way. Sometimes features are out of scope for our projects.</p>
+<p>We don't want to waste your time, so by having a quick chat with us first, you may find out quickly if the feature makes sense to us, and we can give some tips on how to best build the feature.</p>
+<p>If we don't accept the feature, it could be for a number of reasons. For instance, we've rejected features in the past because we felt uncomfortable assuming responsibility for maintaining the feature.</p>
+<p>In those cases, it's often possible to keep the feature separate from the sabre projects. sabre/dav for instance has a plugin system, and there's no reason the feature can't live in a project you own.</p>
+<p>In that case, definitely let us know about your plugin as well, so we can feature it on <a href="http://sabre.io/">sabre.io</a>.</p>
+<p>We are often on <a href="irc://freenode.net/#sabredav">IRC</a>, in the #sabredav channel on freenode. If there's no one there, post a message on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a>.</p>
+<h2>Coding standards </h2>
+<p>sabre projects follow:</p>
+<ol type="1">
+<li><a href="http://www.php-fig.org/psr/psr-1/">PSR-1</a></li>
+<li><a href="http://www.php-fig.org/psr/psr-4/">PSR-4</a></li>
+</ol>
+<p>sabre projects don't follow <a href="http://www.php-fig.org/psr/psr-2/">PSR-2</a>.</p>
+<p>In addition to that, here's a list of basic rules:</p>
+<ol type="1">
+<li>PHP 5.4 array syntax must be used every where. This means you use <code>[</code> and <code>]</code> instead of <code>array(</code> and <code>)</code>.</li>
+<li>Use PHP namespaces everywhere.</li>
+<li>Use 4 spaces for indentation.</li>
+<li>Try to keep your lines under 80 characters. This is not a hard rule, as there are many places in the source where it felt more sensibile to not do so. In particular, function declarations are never split over multiple lines.</li>
+<li>Opening braces (<code>{</code>) are <em>always</em> on the same line as the <code>class</code>, <code>if</code>, <code>function</code>, etc. they belong to.</li>
+<li><code>public</code> must be omitted from method declarations. It must also be omitted for static properties.</li>
+<li>All files should use unix-line endings (<code>\n</code>).</li>
+<li>Files must omit the closing php tag (<code>?&gt;</code>).</li>
+<li><code>true</code>, <code>false</code> and <code>null</code> are always lower-case.</li>
+<li>Constants are always upper-case.</li>
+<li>Any of the rules stated before may be broken where this is the pragmatic thing to do.</li>
+</ol>
+<h2>Unit test requirements </h2>
+<p>Any new feature or change requires unittests. We use <a href="http://phpunit.de/">PHPUnit</a> for all our tests.</p>
+<p>Adding unittests will greatly increase the likelyhood of us quickly accepting your pull request. If unittests are not included though for whatever reason, we'd still <em>love</em> your pull request.</p>
+<p>We may have to write the tests ourselves, which can increase the time it takes to accept the patch, but we'd still really like your contribution!</p>
+<p>To run the testsuite jump into the directory <code>cd tests</code> and trigger <code>phpunit</code>. Make sure you did a <code>composer install</code> beforehand. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

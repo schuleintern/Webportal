@@ -1,0 +1,131 @@
+\hypertarget{class_sabre_1_1_xml_1_1_element_1_1_base}{}\section{Sabre\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Base Klassenreferenz}
+\label{class_sabre_1_1_xml_1_1_element_1_1_base}\index{Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Base@{Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Base}}
+Klassendiagramm für Sabre\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_xml_1_1_element_1_1_base}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_base_a6d9aa0c2164fdbef10f6e631fe61dffb}{\+\_\+\+\_\+construct}} (\$value=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_base_a2666be672b289416482fbb23e1045dad}{xml\+Serialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Xml\textbackslash{}\+Writer}} \$writer)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_base_a7358dc9b94ce28633227d15cf95b3e80}{xml\+Deserialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Xml\textbackslash{}\+Reader}} \$reader)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_base_ac0e6afbe6eedc062ae39257fd8ec7ec8}\label{class_sabre_1_1_xml_1_1_element_1_1_base_ac0e6afbe6eedc062ae39257fd8ec7ec8}} 
+{\bfseries \$value}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The \mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_base}{Base}} X\+ML element is the standard parser \& generator that\textquotesingle{}s used by the X\+ML reader and writer.
+
+It spits out a simple P\+HP array structure during deserialization, that can also be directly injected back into \mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_a7ae8afe73ac4ca8d34a609b6ac16da5e}{Writer\+::write}}.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2009-\/2015 fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Base.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_base_a6d9aa0c2164fdbef10f6e631fe61dffb}\label{class_sabre_1_1_xml_1_1_element_1_1_base_a6d9aa0c2164fdbef10f6e631fe61dffb}} 
+\index{Sabre\+::\+Xml\+::\+Element\+::\+Base@{Sabre\+::\+Xml\+::\+Element\+::\+Base}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+Xml\+::\+Element\+::\+Base@{Sabre\+::\+Xml\+::\+Element\+::\+Base}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Base\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$value = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 32 der Datei Base.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_base_a7358dc9b94ce28633227d15cf95b3e80}\label{class_sabre_1_1_xml_1_1_element_1_1_base_a7358dc9b94ce28633227d15cf95b3e80}} 
+\index{Sabre\+::\+Xml\+::\+Element\+::\+Base@{Sabre\+::\+Xml\+::\+Element\+::\+Base}!xml\+Deserialize@{xml\+Deserialize}}
+\index{xml\+Deserialize@{xml\+Deserialize}!Sabre\+::\+Xml\+::\+Element\+::\+Base@{Sabre\+::\+Xml\+::\+Element\+::\+Base}}
+\subsubsection{\texorpdfstring{xml\+Deserialize()}{xmlDeserialize()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Base\+::xml\+Deserialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Xml\textbackslash{}\+Reader}}}]{\$reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The deserialize method is called during xml parsing.
+
+This method is called statictly, this is because in theory this method may be used as a type of constructor, or factory method.
+
+Often you want to return an instance of the current class, but you are free to return other data as well.
+
+Important note 2\+: You are responsible for advancing the reader to the next element. Not doing anything will result in a never-\/ending loop.
+
+If you just want to skip parsing for this element altogether, you can just call \$reader-\/$>$next();
+
+\$reader-\/$>$parse\+Inner\+Tree() will parse the entire sub-\/tree, and advance to the next element.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Xml\textbackslash{}\+Reader & {\em \$reader} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 84 der Datei Base.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_base_a2666be672b289416482fbb23e1045dad}\label{class_sabre_1_1_xml_1_1_element_1_1_base_a2666be672b289416482fbb23e1045dad}} 
+\index{Sabre\+::\+Xml\+::\+Element\+::\+Base@{Sabre\+::\+Xml\+::\+Element\+::\+Base}!xml\+Serialize@{xml\+Serialize}}
+\index{xml\+Serialize@{xml\+Serialize}!Sabre\+::\+Xml\+::\+Element\+::\+Base@{Sabre\+::\+Xml\+::\+Element\+::\+Base}}
+\subsubsection{\texorpdfstring{xml\+Serialize()}{xmlSerialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Base\+::xml\+Serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Xml\textbackslash{}\+Writer}}}]{\$writer }\end{DoxyParamCaption})}
+
+The xml\+Serialize metod is called during xml writing.
+
+Use the \$writer argument to write its own xml serialization.
+
+An important note\+: do {\itshape not} create a parent element. Any element implementing \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_serializable}{Xml\+Serializable}} should only ever write what\textquotesingle{}s considered its \textquotesingle{}inner xml\textquotesingle{}.
+
+The parent of the current element is responsible for writing a containing element.
+
+This allows serializers to be re-\/used for different element names.
+
+If you are opening new elements, you must also close them again.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} & {\em \$writer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 57 der Datei Base.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/xml/lib/\+Element/Base.\+php\end{DoxyCompactItemize}

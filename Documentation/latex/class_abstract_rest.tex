@@ -1,0 +1,84 @@
+\hypertarget{class_abstract_rest}{}\section{Abstract\+Rest Klassenreferenz}
+\label{class_abstract_rest}\index{Abstract\+Rest@{Abstract\+Rest}}
+Klassendiagramm für Abstract\+Rest\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_abstract_rest}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_rest_ac8f900bd7ee058da4862b5acc7f4470d}\label{class_abstract_rest_ac8f900bd7ee058da4862b5acc7f4470d}} 
+{\bfseries execute} (\$input, \$request)
+\item 
+\mbox{\Hypertarget{class_abstract_rest_aa382b0deae74d8fc57e484c10c29019c}\label{class_abstract_rest_aa382b0deae74d8fc57e484c10c29019c}} 
+{\bfseries get\+Allowed\+Method} ()
+\item 
+\mbox{\Hypertarget{class_abstract_rest_aa6a17f3aab3ebd433e8a921b1527856c}\label{class_abstract_rest_aa6a17f3aab3ebd433e8a921b1527856c}} 
+{\bfseries get\+Status\+Code} ()
+\item 
+\mbox{\hyperlink{class_abstract_rest_af1a1a4960dfd9cc1e3620fe66b98cb3f}{needs\+System\+Auth}} ()
+\item 
+\mbox{\hyperlink{class_abstract_rest_a78fbc82135f52b2abb7965a965d612a0}{check\+Auth}} (\$username, \$password)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_rest_a0bb8857a0f9362120e229989d851907b}\label{class_abstract_rest_a0bb8857a0f9362120e229989d851907b}} 
+{\bfseries malformed\+Request} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_rest_ab365449c3fa5edce8d7b38970aa19663}\label{class_abstract_rest_ab365449c3fa5edce8d7b38970aa19663}} 
+{\bfseries \$status\+Code} = 200
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 3 der Datei Abstract\+Rest.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_abstract_rest_a78fbc82135f52b2abb7965a965d612a0}\label{class_abstract_rest_a78fbc82135f52b2abb7965a965d612a0}} 
+\index{Abstract\+Rest@{Abstract\+Rest}!check\+Auth@{check\+Auth}}
+\index{check\+Auth@{check\+Auth}!Abstract\+Rest@{Abstract\+Rest}}
+\subsubsection{\texorpdfstring{check\+Auth()}{checkAuth()}}
+{\footnotesize\ttfamily Abstract\+Rest\+::check\+Auth (\begin{DoxyParamCaption}\item[{}]{\$username,  }\item[{}]{\$password }\end{DoxyParamCaption})}
+
+Überprüft die Authentifizierung 
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$username} & Benutzername \\
+\hline
+String & {\em \$password} & Passwort \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+boolean Login erfolgreich 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 36 der Datei Abstract\+Rest.\+class.\+php.
+
+\mbox{\Hypertarget{class_abstract_rest_af1a1a4960dfd9cc1e3620fe66b98cb3f}\label{class_abstract_rest_af1a1a4960dfd9cc1e3620fe66b98cb3f}} 
+\index{Abstract\+Rest@{Abstract\+Rest}!needs\+System\+Auth@{needs\+System\+Auth}}
+\index{needs\+System\+Auth@{needs\+System\+Auth}!Abstract\+Rest@{Abstract\+Rest}}
+\subsubsection{\texorpdfstring{needs\+System\+Auth()}{needsSystemAuth()}}
+{\footnotesize\ttfamily Abstract\+Rest\+::needs\+System\+Auth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Überprüft, ob ein Modul eine System Authentifizierung benötigt. (z.\+B. zum Abfragen aller Schülerdaten) \begin{DoxyReturn}{Rückgabe}
+boolean 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 26 der Datei Abstract\+Rest.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/rest/Abstract\+Rest.\+class.\+php\end{DoxyCompactItemize}

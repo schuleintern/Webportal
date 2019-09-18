@@ -1,0 +1,135 @@
+(\href{https://github.com/zcontent/icalendar}{\tt https\+://github.\+com/zcontent/icalendar})
+
+The \mbox{\hyperlink{namespace_zap}{Zap}} Calendar i\+Calendar Library is a P\+HP library for supporting the i\+Calendar (R\+FC 5545) standard.
+
+This P\+HP library is for reading and writing i\+Calendar formatted feeds and files. Features of the library include\+:
+
+
+\begin{DoxyItemize}
+\item Read A\+ND write support for i\+Calendar files
+\item Object based creation and manipulation of i\+Calendar files
+\item Supports expansion of R\+R\+U\+LE to a list of repeating dates
+\item Supports adding timezone info to i\+Calendar file
+\end{DoxyItemize}
+
+All i\+Calendar data is stored in a P\+HP object tree. This allows any property to be added to the i\+Calendar feed without requiring specialized library function calls. With power comes responsibility. Missing or invalid properties can cause the resulting i\+Calendar file to be invalid. Visit \href{http://icalendar.org}{\tt i\+Calendar.\+org} to view valid properties and test your feed using the site\textquotesingle{}s \href{http://icalendar.org/validator.html}{\tt i\+Calendar validator tool}.
+
+Library A\+PI documentation can be found at \href{http://icalendar.org/zapcallibdocs}{\tt http\+://icalendar.\+org/zapcallibdocs}
+
+See the examples folder for programs that read and write i\+Calendar files. At its simpliest, you need to include the library at the top of your program\+:
+
+
+\begin{DoxyCode}
+require\_once($path\_to\_library . \textcolor{stringliteral}{"/zapcallib.php"});
+\end{DoxyCode}
+
+
+Create an ical object using the \mbox{\hyperlink{class_z_ci_cal}{Z\+Ci\+Cal}} object\+:
+
+
+\begin{DoxyCode}
+$icalobj = \textcolor{keyword}{new} \mbox{\hyperlink{class_z_ci_cal}{ZCiCal}}();
+\end{DoxyCode}
+
+
+Add an event object\+:
+
+
+\begin{DoxyCode}
+$eventobj = \textcolor{keyword}{new} \mbox{\hyperlink{class_z_ci_cal_node}{ZCiCalNode}}(\textcolor{stringliteral}{"VEVENT"}, $icalobj->curnode);
+\end{DoxyCode}
+
+
+Add a start and end date to the event\+:
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// add start date}
+$eventobj->addNode(\textcolor{keyword}{new} \mbox{\hyperlink{class_z_ci_cal_data_node}{ZCiCalDataNode}}(\textcolor{stringliteral}{"DTSTART:"} . 
+      \mbox{\hyperlink{class_z_ci_cal_ad6053090c0bb9c5edc832790b33bee33}{ZCiCal::fromSqlDateTime}}(\textcolor{stringliteral}{"2020-01-01 12:00:00"})));
+
+\textcolor{comment}{// add end date}
+$eventobj->addNode(\textcolor{keyword}{new} \mbox{\hyperlink{class_z_ci_cal_data_node}{ZCiCalDataNode}}(\textcolor{stringliteral}{"DTEND:"} . 
+      \mbox{\hyperlink{class_z_ci_cal_ad6053090c0bb9c5edc832790b33bee33}{ZCiCal::fromSqlDateTime}}(\textcolor{stringliteral}{"2020-01-01 13:00:00"})));
+\end{DoxyCode}
+
+
+Write the object in i\+Calendar format using the export() function call\+:
+
+
+\begin{DoxyCode}
+echo $icalobj->export();
+\end{DoxyCode}
+
+
+This example will not validate since it is missing some required elements. Look at the \mbox{\hyperlink{simpleevent_8php_source}{simpleevent.\+php}} example for the minimum \# of elements needed for a validated i\+Calendar file.
+
+To create a multi-\/event i\+Calendar file, simply create multiple event objects. For example\+:
+
+
+\begin{DoxyCode}
+$icalobj = \textcolor{keyword}{new} \mbox{\hyperlink{class_z_ci_cal}{ZCiCal}}();
+$eventobj1 = \textcolor{keyword}{new} \mbox{\hyperlink{class_z_ci_cal_node}{ZCiCalNode}}(\textcolor{stringliteral}{"VEVENT"}, $icalobj->curnode);
+$eventobj1->addNode(\textcolor{keyword}{new} \mbox{\hyperlink{class_z_ci_cal_data_node}{ZCiCalDataNode}}(\textcolor{stringliteral}{"SUMMARY:Event 1"}));
+...
+$eventobj2 = \textcolor{keyword}{new} \mbox{\hyperlink{class_z_ci_cal_node}{ZCiCalNode}}(\textcolor{stringliteral}{"VEVENT"}, $icalobj->curnode);
+$eventobj2->addNode(\textcolor{keyword}{new} \mbox{\hyperlink{class_z_ci_cal_data_node}{ZCiCalDataNode}}(\textcolor{stringliteral}{"SUMMARY:Event 2"}));
+...
+\end{DoxyCode}
+
+
+To read an existing i\+Calendar file/feed, create the \mbox{\hyperlink{class_z_ci_cal}{Z\+Ci\+Cal}} object with a string representing the contents of the i\+Calendar file\+:
+
+
+\begin{DoxyCode}
+$icalobj = \textcolor{keyword}{new} \mbox{\hyperlink{class_z_ci_cal}{ZCiCal}}($icalstring);
+\end{DoxyCode}
+
+
+Large i\+Calendar files can be read in chunks to reduce the amount of memory needed to hold the i\+Calendar feed in memory. This example reads 500 events at a time\+:
+
+
+\begin{DoxyCode}
+$icalobj = null;
+$eventcount = 0;
+$maxevents = 500;
+\textcolor{keywordflow}{do}
+\{
+    $icalobj = newZCiCal($icalstring, $maxevents, $eventcount);
+    ...
+    $eventcount +=$maxevents;
+\}
+\textcolor{keywordflow}{while}($icalobj->countEvents() >= $eventcount);
+\end{DoxyCode}
+
+
+You can read the events from an imported (or created) i\+Calendar object in this manner\+:
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{foreach}($icalobj->tree->child as $node)
+\{
+    \textcolor{keywordflow}{if}($node->getName() == \textcolor{stringliteral}{"VEVENT"})
+    \{
+        \textcolor{keywordflow}{foreach}($node->data as $key => $value)
+        \{
+            \textcolor{keywordflow}{if}($key == \textcolor{stringliteral}{"SUMMARY"})
+            \{
+                echo \textcolor{stringliteral}{"event title: "} . $value->getValues() . \textcolor{stringliteral}{"\(\backslash\)n"};
+            \}
+        \}
+    \}
+\}
+\end{DoxyCode}
+
+
+\subsection*{Known Limitations}
+
+
+\begin{DoxyItemize}
+\item Since the library utilizes objects to read and write i\+Calendar data, the size of the i\+Calendar data is limited to the amount of available memory on the machine. The \mbox{\hyperlink{class_z_ci_cal}{Z\+Ci\+Cal()}} object supports reading a range of events to minimize memory space.
+\item The library ignores timezone info when importing files, instead utilizing P\+HP\textquotesingle{}s timezone library for calculations (timezones are supported when exporting files). Imported timezones need to be aliased to a \href{http://php.net/manual/en/timezones.php}{\tt P\+HP supported timezone}.
+\item At this time, the library does not support the \char`\"{}\+B\+Y\+S\+E\+T\+P\+O\+S\char`\"{} option in R\+R\+U\+LE items.
+\item At this time, the maximum date supported is 2036 to avoid date math issues with 32 bit systems.
+\item Repeating events are limited to a maximum of 5,000 dates to avoid memory or infinite loop issues 
+\end{DoxyItemize}

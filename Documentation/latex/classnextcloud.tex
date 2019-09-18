@@ -1,0 +1,94 @@
+\hypertarget{classnextcloud}{}\section{nextcloud Klassenreferenz}
+\label{classnextcloud}\index{nextcloud@{nextcloud}}
+Klassendiagramm für nextcloud\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classnextcloud}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnextcloud_ac5a3928ad0da76da36fdb920c3260688}\label{classnextcloud_ac5a3928ad0da76da36fdb920c3260688}} 
+{\bfseries execute} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnextcloud_a9722b3f9e3b00c01ee256ae02ee01579}\label{classnextcloud_a9722b3f9e3b00c01ee256ae02ee01579}} 
+static {\bfseries has\+Admin} ()
+\item 
+\mbox{\Hypertarget{classnextcloud_a5cb93c75f9761abe7370954f194ec8fc}\label{classnextcloud_a5cb93c75f9761abe7370954f194ec8fc}} 
+static {\bfseries display\+Administration} (\$self\+U\+RL)
+\item 
+\mbox{\Hypertarget{classnextcloud_a39ad28d6879a8681a2fc36d768ec02fc}\label{classnextcloud_a39ad28d6879a8681a2fc36d768ec02fc}} 
+static {\bfseries get\+Admin\+Menu\+Group} ()
+\item 
+\mbox{\Hypertarget{classnextcloud_ae4ddeeb0fcd5ce1003f7a453f2487b58}\label{classnextcloud_ae4ddeeb0fcd5ce1003f7a453f2487b58}} 
+static {\bfseries get\+Admin\+Menu\+Group\+Icon} ()
+\item 
+\mbox{\Hypertarget{classnextcloud_a7040d66cddaebae683db17aa662e845f}\label{classnextcloud_a7040d66cddaebae683db17aa662e845f}} 
+static {\bfseries get\+Admin\+Menu\+Icon} ()
+\item 
+\mbox{\Hypertarget{classnextcloud_a55900bf924de518da9f8b6dfa155e8e3}\label{classnextcloud_a55900bf924de518da9f8b6dfa155e8e3}} 
+static {\bfseries notify\+User\+Deleted} (\$user\+ID)
+\item 
+\mbox{\Hypertarget{classnextcloud_a7c3da9c4a5d038a63c0ffd9ab6b199fd}\label{classnextcloud_a7c3da9c4a5d038a63c0ffd9ab6b199fd}} 
+static {\bfseries has\+Settings} ()
+\item 
+\mbox{\Hypertarget{classnextcloud_a0bb6a5a5d038c447ec609eebe36661d3}\label{classnextcloud_a0bb6a5a5d038c447ec609eebe36661d3}} 
+static {\bfseries site\+Is\+Always\+Active} ()
+\item 
+\mbox{\Hypertarget{classnextcloud_a1e48a8741439b48789b35de42233ecb5}\label{classnextcloud_a1e48a8741439b48789b35de42233ecb5}} 
+static {\bfseries get\+Admin\+Group} ()
+\item 
+static \mbox{\hyperlink{classnextcloud_a97fe0ca8c7e3e973b531c315ffc17856}{get\+Settings\+Description}} ()
+\item 
+\mbox{\Hypertarget{classnextcloud_afa5ffacb051fd8746de396a1d6dd95aa}\label{classnextcloud_afa5ffacb051fd8746de396a1d6dd95aa}} 
+static {\bfseries get\+Site\+Display\+Name} ()
+\item 
+\mbox{\Hypertarget{classnextcloud_a697fd24d7425ba580e834b102be8ff1e}\label{classnextcloud_a697fd24d7425ba580e834b102be8ff1e}} 
+static {\bfseries only\+For\+School} ()
+\item 
+\mbox{\Hypertarget{classnextcloud_a410fbbd496a6916db2e5c534415fcdfe}\label{classnextcloud_a410fbbd496a6916db2e5c534415fcdfe}} 
+static {\bfseries update\+Password\+For\+Current\+User} (\$new\+Password, \$\mbox{\hyperlink{classuser}{user}}=null)
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 5 der Datei nextcloud.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{classnextcloud_a97fe0ca8c7e3e973b531c315ffc17856}\label{classnextcloud_a97fe0ca8c7e3e973b531c315ffc17856}} 
+\index{nextcloud@{nextcloud}!get\+Settings\+Description@{get\+Settings\+Description}}
+\index{get\+Settings\+Description@{get\+Settings\+Description}!nextcloud@{nextcloud}}
+\subsubsection{\texorpdfstring{get\+Settings\+Description()}{getSettingsDescription()}}
+{\footnotesize\ttfamily static nextcloud\+::get\+Settings\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Stellt eine Beschreibung der Einstellungen bereit, die für das Modul nötig sind. \begin{DoxyReturn}{Rückgabe}
+array(\+String, String) array( array( \textquotesingle{}name\textquotesingle{} =$>$ \char`\"{}\+Name der Einstellung (z.\+B. formblatt-\/is\+Active)\char`\"{}, \textquotesingle{}typ\textquotesingle{} =$>$ Z\+E\+I\+LE $\vert$ T\+E\+XT $\vert$ N\+U\+M\+M\+ER $\vert$ B\+O\+O\+L\+E\+AN, \textquotesingle{}titel\textquotesingle{} =$>$ \char`\"{}\+Titel der Beschreibung\char`\"{}, \textquotesingle{}text\textquotesingle{} =$>$ \char`\"{}\+Text der Beschreibung\char`\"{} ) , ) 
+\end{DoxyReturn}
+~\newline
+\$unterrichte = \mbox{\hyperlink{class_schueler_unterricht_a7d858e9aa456de9903063c17c7b1f1cd}{Schueler\+Unterricht\+::get\+Unterricht\+For\+Klasse}}(\$klassen\mbox{[}\$i\mbox{]});
+
+\$options = \mbox{[}\mbox{]};
+
+for(\$u = 0; \$u $<$ sizeof(\$unterrichte); \$u++) \{ ~\newline
+ \$options\mbox{[}\mbox{]} = \mbox{[} \textquotesingle{}key\textquotesingle{} =$>$ \$unterrichte\mbox{[}\$u\mbox{]}-\/$>$get\+Bezeichnung(), \textquotesingle{}name\textquotesingle{} =$>$ \$unterrichte\mbox{[}\$u\mbox{]}-\/$>$get\+Bezeichnung() \mbox{]}; \}
+
+\$settings\mbox{[}\mbox{]} = \mbox{[} \textquotesingle{}name\textquotesingle{} =$>$ \textquotesingle{}nextcloud-\/klasse-\/unterricht-\/tausch-\/\textquotesingle{} . \$klassen\mbox{[}\$i\mbox{]}-\/$>$get\+Klassen\+Name(), \textquotesingle{}typ\textquotesingle{} =$>$\textquotesingle{}S\+E\+L\+E\+CT\textquotesingle{}, \textquotesingle{}multiple\textquotesingle{} =$>$ true, \textquotesingle{}options\textquotesingle{} =$>$ \$options, \textquotesingle{}titel\textquotesingle{} =$>$ \textquotesingle{}Tauschordner für folgende Unterricht der Klasse \textquotesingle{} . \$klassen\mbox{[}\$i\mbox{]}-\/$>$get\+Klassen\+Name() . \textquotesingle{} erzeugen\textquotesingle{}, \textquotesingle{}text\textquotesingle{} =$>$ \char`\"{}\+Schreibzugriff für Schüler der Klasse, Schreibzugriff für den Lehrer des Unterrichts\char`\"{} \mbox{]};
+
+\$settings\mbox{[}\mbox{]} = \mbox{[} \textquotesingle{}name\textquotesingle{} =$>$ \textquotesingle{}nextcloud-\/klasse-\/unterricht-\/material-\/\textquotesingle{} . \$klassen\mbox{[}\$i\mbox{]}-\/$>$get\+Klassen\+Name(), \textquotesingle{}typ\textquotesingle{} =$>$\textquotesingle{}S\+E\+L\+E\+CT\textquotesingle{}, \textquotesingle{}multiple\textquotesingle{} =$>$ true, \textquotesingle{}options\textquotesingle{} =$>$ \$options, \textquotesingle{}titel\textquotesingle{} =$>$ \textquotesingle{}Materialordner für folgende Unterricht der Klasse \textquotesingle{} . \$klassen\mbox{[}\$i\mbox{]}-\/$>$get\+Klassen\+Name() . \textquotesingle{} erzeugen\textquotesingle{}, \textquotesingle{}text\textquotesingle{} =$>$ \char`\"{}\+Lesezugriff für Schüler der Klasse, Schreibzugriff für den Lehrer des Unterrichts\char`\"{} \mbox{]}; 
+
+Definiert in Zeile 69 der Datei nextcloud.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/page/nextcloud/nextcloud.\+class.\+php\end{DoxyCompactItemize}

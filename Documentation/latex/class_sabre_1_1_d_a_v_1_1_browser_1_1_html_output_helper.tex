@@ -1,0 +1,161 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Browser\textbackslash{}Html\+Output\+Helper Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Html\+Output\+Helper@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Html\+Output\+Helper}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a7c5605a84a03a7c8eaa945d9398b7696}{\+\_\+\+\_\+construct}} (\$base\+Uri, array \$namespace\+Map)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a0df2f5d6299fb36871fcfb1115d89a65}{full\+Url}} (\$path)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a21d932e333bf803f466092a80f2d101b}{h}} (\$input)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_ada89e16f2f3b82c3ffa2dd37b9408be2}{link}} (\$url, \$label=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_af4773ae31fecd86e59f7302ee5fcd160}{xml\+Name}} (\$element)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_acd8589729053db7d63762b8fd6d575d9}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_acd8589729053db7d63762b8fd6d575d9}} 
+{\bfseries \$base\+Uri}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_abf8dcf612c7b60ea2b720a08a0cbcf23}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_abf8dcf612c7b60ea2b720a08a0cbcf23}} 
+{\bfseries \$namespace\+Map}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This class provides a few utility functions for easily generating H\+T\+ML for the browser plugin.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei Html\+Output\+Helper.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a7c5605a84a03a7c8eaa945d9398b7696}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a7c5605a84a03a7c8eaa945d9398b7696}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Html\+Output\+Helper\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$base\+Uri,  }\item[{array}]{\$namespace\+Map }\end{DoxyParamCaption})}
+
+Creates the object.
+
+base\+Uri must point to the root of the application. This will be used to easily generate links.
+
+The namespace\+Map contains an array with the list of xml namespaces and their prefixes. Web\+D\+AV uses a lot of X\+ML with complex namespaces, so that can be used to make output a lot shorter.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$base\+Uri} & \\
+\hline
+array & {\em \$namespace\+Map} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 45 der Datei Html\+Output\+Helper.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a0df2f5d6299fb36871fcfb1115d89a65}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a0df2f5d6299fb36871fcfb1115d89a65}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper}!full\+Url@{full\+Url}}
+\index{full\+Url@{full\+Url}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper}}
+\subsubsection{\texorpdfstring{full\+Url()}{fullUrl()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Html\+Output\+Helper\+::full\+Url (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+Generates a \textquotesingle{}full\textquotesingle{} url based on a relative one.
+
+For relative urls, the base of the application is taken as the reference url, not the \textquotesingle{}current url of the current request\textquotesingle{}.
+
+Absolute urls are left alone.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 63 der Datei Html\+Output\+Helper.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a21d932e333bf803f466092a80f2d101b}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a21d932e333bf803f466092a80f2d101b}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper}!h@{h}}
+\index{h@{h}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper}}
+\subsubsection{\texorpdfstring{h()}{h()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Html\+Output\+Helper\+::h (\begin{DoxyParamCaption}\item[{}]{\$input }\end{DoxyParamCaption})}
+
+Escape string for H\+T\+ML output.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 75 der Datei Html\+Output\+Helper.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_ada89e16f2f3b82c3ffa2dd37b9408be2}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_ada89e16f2f3b82c3ffa2dd37b9408be2}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper}!link@{link}}
+\index{link@{link}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper}}
+\subsubsection{\texorpdfstring{link()}{link()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Html\+Output\+Helper\+::link (\begin{DoxyParamCaption}\item[{}]{\$url,  }\item[{}]{\$label = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Generates a full -\/tag.
+
+Url is automatically expanded. If label is not specified, we re-\/use the url.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$url} & \\
+\hline
+string & {\em \$label} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 91 der Datei Html\+Output\+Helper.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_af4773ae31fecd86e59f7302ee5fcd160}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_af4773ae31fecd86e59f7302ee5fcd160}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper}!xml\+Name@{xml\+Name}}
+\index{xml\+Name@{xml\+Name}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output\+Helper}}
+\subsubsection{\texorpdfstring{xml\+Name()}{xmlName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Html\+Output\+Helper\+::xml\+Name (\begin{DoxyParamCaption}\item[{}]{\$element }\end{DoxyParamCaption})}
+
+This method takes an xml element in clark-\/notation, and turns it into a shortened version with a prefix, if it was a known namespace.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$element} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 105 der Datei Html\+Output\+Helper.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Browser/Html\+Output\+Helper.\+php\end{DoxyCompactItemize}

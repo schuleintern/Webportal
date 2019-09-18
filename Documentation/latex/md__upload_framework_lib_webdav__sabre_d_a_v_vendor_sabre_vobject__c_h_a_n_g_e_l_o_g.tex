@@ -1,0 +1,693 @@
+\subsection*{4.\+1.\+2 (2016-\/12-\/15) }
+
+
+\begin{DoxyItemize}
+\item \#340\+: Support for {\ttfamily B\+Y\+Y\+E\+A\+R\+D\+AY} recurrence when {\ttfamily F\+R\+EQ=Y\+E\+A\+R\+LY}. ()
+\item \#341\+: Support for {\ttfamily B\+Y\+W\+E\+E\+K\+NO} recurrence when {\ttfamily F\+R\+EQ=Y\+E\+A\+R\+LY}. ()
+\item Updated to the latest windows timezone data mappings.
+\item \#344\+: Auto-\/detecting more Outlook 365-\/generated timezone identifiers. ()
+\item \#348\+: {\ttfamily Free\+Busy\+Generator} can now accept streams.
+\item Support sabre/xml 1.\+5 and 2.\+0.
+\item \#355\+: Support {\ttfamily Date\+Time\+Interface} in more places where only {\ttfamily Date\+Time} was supported. ().
+\item \#351\+: Fixing an inclusive/exclusive problem with {\ttfamily is\+In\+Time\+Range} and {\ttfamily fast\+Forward} with all-\/day events. (, thanks you are brilliant).
+\end{DoxyItemize}
+
+\subsection*{4.\+1.\+1 (2016-\/07-\/15) }
+
+
+\begin{DoxyItemize}
+\item \#327\+: Throwing {\ttfamily Invalid\+Data\+Exception} in more cases where invalid i\+Calendar dates and times were provided. ()
+\item \#331\+: Fix dealing with multiple overridden instances falling on the same date/time (-\/sugarcrm).
+\item \#333\+: Fix endless loop on invalid {\ttfamily B\+Y\+M\+O\+N\+TH} values in recurrence. ()
+\item \#339\+: Fixed a few {\ttfamily validate()} results when repair is off. ()
+\item \#338\+: Stripping invalid {\ttfamily B\+Y\+M\+O\+N\+TH=} rules during {\ttfamily validate()} ()
+\item \#336\+: Fix incorrect {\ttfamily B\+Y\+S\+E\+C\+O\+ND=} validation. ()
+\end{DoxyItemize}
+
+\subsection*{4.\+1.\+0 (2016-\/04-\/06) }
+
+
+\begin{DoxyItemize}
+\item \#309\+: When expanding recurring events, the first event should also have a {\ttfamily R\+E\+C\+U\+R\+R\+E\+N\+C\+E-\/\+ID} property.
+\item \#306\+: i\+Tip R\+E\+P\+L\+Ys to the first instance of a recurring event was not handled correctly.
+\item Slightly better error message during validation of {\ttfamily N} and {\ttfamily A\+DR} properties.
+\item \#312\+: Correctly extracing timezone in the i\+Tip broker, even when we don\textquotesingle{}t have a master event. (-\/sugar).
+\item When validating a component\textquotesingle{}s property that must appear once and which could automatically be repaired, make sure we report the change as \textquotesingle{}repaired\textquotesingle{}.
+\item Added a P\+H\+P\+Unit\+Assertions trait. This trait makes it easy to compare two vcards or i\+Calendar objects semantically.
+\item Better error message when parsing objects with an invalid {\ttfamily V\+A\+L\+UE} parameter.
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+3 (2016-\/03-\/12) }
+
+
+\begin{DoxyItemize}
+\item \#300\+: Added {\ttfamily V\+Card\+::get\+By\+Type()} to quickly get a property with a specific {\ttfamily T\+Y\+PE} parameter. ()
+\item \#302\+: {\ttfamily U\+N\+T\+IL} was not encoded correctly when converting to j\+Cal. ()
+\item \#303\+: {\ttfamily C\+O\+U\+NT} is now encoded as an int in j\+Cal instead of a string. ()
+\item \#295\+: {\ttfamily R\+R\+U\+LE} now has more validation and repair rules.
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+2 (2016-\/01-\/11) }
+
+
+\begin{DoxyItemize}
+\item \#288\+: Only decode {\ttfamily C\+H\+A\+R\+S\+ET} if we\textquotesingle{}re reading v\+Card 2.\+1. If it appears in any other document, we must ignore it.
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+1 (2016-\/01-\/04) }
+
+
+\begin{DoxyItemize}
+\item \#284\+: When generating {\ttfamily C\+A\+N\+C\+EL} i\+Tip messages, we now include {\ttfamily D\+T\+E\+ND}. ()
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+0 (2015-\/12-\/11) }
+
+
+\begin{DoxyItemize}
+\item \#274\+: When creating new v\+Cards, the default v\+Card version is now 4.\+0.
+\item \#275\+: {\ttfamily V\+E\+V\+E\+NT}, {\ttfamily V\+T\+O\+DO} and {\ttfamily V\+C\+A\+RD} now automatically get a {\ttfamily U\+ID} and {\ttfamily D\+T\+S\+T\+A\+MP} property if this was not already specified.
+\item {\ttfamily Parse\+Exception} now extends {\ttfamily \textbackslash{}Exception}.
+\item {\ttfamily Sabre\textbackslash{}V\+Object\textbackslash{}Reader\+::read} now has a {\ttfamily \$charset} argument.
+\item \#272\+: {\ttfamily Sabre\textbackslash{}V\+Object\textbackslash{}Recur\textbackslash{}Event\+Iterator\+::\$max\+Instances} is now {\ttfamily Sabre\textbackslash{}V\+Object\textbackslash{}Settings\+::\$max\+Recurrences} and is also honored by the Free\+Busy\+Generator.
+\item \#278\+: {\ttfamily expand()} did not work correctly on events with sub-\/components.
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+0-\/beta1 (2015-\/12-\/02) }
+
+
+\begin{DoxyItemize}
+\item \#258\+: Support for expanding events that use {\ttfamily R\+D\+A\+TE}. ()
+\item \#258\+: Correctly support T\+Z\+ID for events that use {\ttfamily R\+D\+A\+TE}. ()
+\item \#240\+: {\ttfamily Component\textbackslash{}V\+Calendar\+::expand()} now returns a new expanded {\ttfamily V\+Calendar} object, instead of editing the existing {\ttfamily V\+Calendar} in-\/place. This is a BC break.
+\item \#265\+: Using the new {\ttfamily Invalid\+Data\+Exception} in place of {\ttfamily Invalid\+Argument\+Exception} and {\ttfamily Logic\+Exception} in all places where we fail because there was something wrong with input data.
+\item \#227\+: Always add {\ttfamily V\+A\+L\+UE=U\+RI} to {\ttfamily P\+H\+O\+TO} properties.
+\item \#235\+: Always add {\ttfamily V\+A\+L\+UE=U\+RI} to {\ttfamily U\+RL} properties.
+\item It\textquotesingle{}s now possible to override which class is used instead of {\ttfamily Component\textbackslash{}V\+Calendar} or {\ttfamily Component\textbackslash{}V\+Card} during parsing.
+\item \#263\+: Lots of small cleanups. ()
+\item \#220\+: Automatically stop recurring after 3500 recurrences.
+\item \#41\+: Allow user to set different encoding than U\+T\+F-\/8 when decoding v\+Cards.
+\item \#41\+: Support the {\ttfamily E\+N\+C\+O\+D\+I\+NG} parameter from v\+Card 2.\+1. Both I\+S\+O-\/8859-\/1 and Windows-\/1252 are currently supported.
+\item \#185\+: Fix encoding/decoding of {\ttfamily T\+I\+ME} values in j\+Cal/j\+Card.
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+0-\/alpha2 (2015-\/09-\/04) }
+
+
+\begin{DoxyItemize}
+\item Updated windows timezone file to support new mexican timezone.
+\item \#239\+: Added a {\ttfamily Birthday\+Calendar\+Generator}. ()
+\item \#250\+: {\ttfamily is\+In\+Time\+Range()} now considers the timezone for floating dates and times. (-\/hackmann)
+\item Added a duplicate vcard merging tool for the command line.
+\item \#253\+: {\ttfamily is\+In\+Time\+Range()} now correctly handles events that throw the {\ttfamily No\+Instances\+Exception} exception. (, )
+\item \#254\+: The parser threw an {\ttfamily E\+\_\+\+N\+O\+T\+I\+CE} for certain invalid objects. It now correctly throws a {\ttfamily Parse\+Exception}.
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+0-\/alpha1 (2015-\/07-\/17) }
+
+
+\begin{DoxyItemize}
+\item sabre/vobject now requires P\+HP 5.\+5.
+\item \#244\+: P\+H\+P7 support.
+\item Lots of speedups and reduced memory usage!
+\item \#160\+: Support for x\+Cal a.\+k.\+a. R\+F\+C6321! ()
+\item \#192\+: Support for x\+Card a.\+k.\+a. R\+F\+C6351! ()
+\item \#139\+: We now accept {\ttfamily Date\+Time\+Interface} wherever it accepted {\ttfamily Date\+Time} before in arguments. This means that either {\ttfamily Date\+Time} or {\ttfamily Date\+Time\+Immutable} may be used everywhere.
+\item \#242\+: Full support for the {\ttfamily V\+A\+V\+A\+I\+L\+A\+B\+I\+L\+I\+TY} component, and calculating {\ttfamily V\+F\+R\+E\+E\+B\+U\+SY} based on {\ttfamily V\+A\+V\+A\+I\+L\+A\+B\+I\+L\+I\+TY} data.
+\item \#186\+: Fixing conversion of {\ttfamily U\+T\+C-\/\+O\+F\+F\+S\+ET} properties when going back and forward between j\+Cal and i\+Calendar.
+\item Properties, Components and Parameters now implement P\+HP\textquotesingle{}s {\ttfamily Json\+Serializable} interface.
+\item \#139\+: We now {\itshape always} return {\ttfamily Date\+Time\+Immutable} from any method. This could potentially have big implications if you manipulate Date objects anywhere.
+\item \#161\+: Simplified {\ttfamily Element\+List} by extending {\ttfamily Array\+Iterator}.
+\item Removed {\ttfamily Recurrence\+Iterator} (use Recur instead).
+\item Now using php-\/cs-\/fixer to automatically enforce and correct CS.
+\item \#233\+: The {\ttfamily +00\+:00} timezone is now recognized as U\+TC. ()
+\item \#237\+: Added a {\ttfamily destroy()} method to all documents. This method breaks any circular references, allowing P\+HP to free up memory.
+\item \#197\+: Made accessing properties and objects by their name a lot faster. This especially helps objects that have a lot of sub-\/components or properties, such as large i\+Calendar objects.
+\item \#197\+: The {\ttfamily \$children} property on components has been changed from {\ttfamily public} to {\ttfamily protected}. Use the {\ttfamily children()} method instead to get a flat list of objects.
+\item \#244\+: The {\ttfamily Float} and {\ttfamily Integer} classes have been renamed to {\ttfamily Float\+Value} and {\ttfamily Integer\+Value} to allow P\+HP 7 compatibility.
+\end{DoxyItemize}
+
+\subsection*{3.\+5.\+3 (2016-\/10-\/06) }
+
+
+\begin{DoxyItemize}
+\item \#331\+: Fix dealing with multiple overridden instances falling on the same date/time (-\/sugarcrm).
+\end{DoxyItemize}
+
+\subsection*{3.\+5.\+2 (2016-\/04-\/24) }
+
+
+\begin{DoxyItemize}
+\item \#312\+: Backported a fix related to i\+Tip processing of events with timezones, without a master event.
+\end{DoxyItemize}
+
+\subsection*{3.\+5.\+1 (2016-\/04-\/06) }
+
+
+\begin{DoxyItemize}
+\item \#309\+: When expanding recurring events, the first event should also have a {\ttfamily R\+E\+C\+U\+R\+R\+E\+N\+C\+E-\/\+ID} property.
+\item \#306\+: i\+Tip R\+E\+P\+L\+Ys to the first instance of a recurring event was not handled correctly.
+\end{DoxyItemize}
+
+\subsection*{3.\+5.\+0 (2016-\/01-\/11) }
+
+
+\begin{DoxyItemize}
+\item This release supports P\+HP 7, contrary to 3.\+4.\+x versions.
+\item BC Break\+: {\ttfamily Sabre\textbackslash{}V\+Object\textbackslash{}Property\textbackslash{}Float} has been renamed to {\ttfamily Sabre\textbackslash{}V\+Object\textbackslash{}Property\textbackslash{}Float\+Value}.
+\item BC Break\+: {\ttfamily Sabre\textbackslash{}V\+Object\textbackslash{}Property\textbackslash{}Integer} has been renamed to {\ttfamily Sabre\textbackslash{}V\+Object\textbackslash{}Property\textbackslash{}Integer\+Value}.
+\end{DoxyItemize}
+
+\subsection*{3.\+4.\+9 (2016-\/01-\/11) }
+
+
+\begin{DoxyItemize}
+\item This package now specifies in composer.\+json that it does not support P\+HP 7. For P\+HP 7, use version 3.\+5.\+x or 4.\+x.
+\end{DoxyItemize}
+
+\subsection*{3.\+4.\+8 (2016-\/01-\/04) }
+
+
+\begin{DoxyItemize}
+\item \#284\+: When generating {\ttfamily C\+A\+N\+C\+EL} i\+Tip messages, we now include {\ttfamily D\+T\+E\+ND}. ().
+\end{DoxyItemize}
+
+\subsection*{3.\+4.\+7 (2015-\/09-\/05) }
+
+
+\begin{DoxyItemize}
+\item \#253\+: Handle {\ttfamily is\+In\+Time\+Range} for recurring events that have 0 valid instances. (, ).
+\end{DoxyItemize}
+
+\subsection*{3.\+4.\+6 (2015-\/08-\/06) }
+
+
+\begin{DoxyItemize}
+\item \#250\+: Recurring all-\/day events are incorrectly included in time range requests when not using U\+TC in the time range. (-\/hackmann)
+\end{DoxyItemize}
+
+\subsection*{3.\+4.\+5 (2015-\/06-\/02) }
+
+
+\begin{DoxyItemize}
+\item \#229\+: Converting vcards from 3.\+0 to 4.\+0 that contained a {\ttfamily L\+A\+NG} property would throw an error.
+\end{DoxyItemize}
+
+\subsection*{3.\+4.\+4 (2015-\/05-\/27) }
+
+
+\begin{DoxyItemize}
+\item \#228\+: Fixed a \textquotesingle{}party crasher\textquotesingle{} bug in the i\+Tip broker. This would break scheduling in some cases.
+\end{DoxyItemize}
+
+\subsection*{3.\+4.\+3 (2015-\/05-\/19) }
+
+
+\begin{DoxyItemize}
+\item \#219\+: Corrected validation of {\ttfamily E\+X\+D\+A\+TE} properties with more than one value.
+\item \#212\+: {\ttfamily B\+Y\+S\+E\+T\+P\+OS} with values below {\ttfamily -\/1} was broken and could cause infinite loops.
+\item \#211\+: Fix {\ttfamily B\+Y\+D\+AY=-\/5\+TH} in recurrence iterator. ()
+\item \#216\+: {\ttfamily E\+N\+C\+O\+D\+I\+NG} parameter is now validated for all document types.
+\item \#217\+: Initializing v\+Card {\ttfamily D\+A\+TE} objects with a P\+HP Date\+Time object will now work correctly. ()
+\end{DoxyItemize}
+
+\subsection*{3.\+4.\+2 (2015-\/02-\/25) }
+
+
+\begin{DoxyItemize}
+\item \#210\+: i\+Tip\+: Replying to an event without a master event was broken.
+\end{DoxyItemize}
+
+\subsection*{3.\+4.\+1 (2015-\/02-\/24) }
+
+
+\begin{DoxyItemize}
+\item A minor change to ensure that unittests work correctly in the sabre/dav test-\/suite.
+\end{DoxyItemize}
+
+\subsection*{3.\+4.\+0 (2015-\/02-\/23) }
+
+
+\begin{DoxyItemize}
+\item \#196\+: Made parsing recurrence rules a lot faster on big calendars.
+\item Updated windows timezone mappings to latest unicode version.
+\item \#202\+: Support for parsing and validating {\ttfamily V\+A\+V\+A\+I\+L\+A\+B\+I\+L\+I\+TY} components. ()
+\item \#195\+: P\+HP 5.\+3 compatibility in \textquotesingle{}generatevcards\textquotesingle{} script. ()
+\item \#205\+: Improving handling of multiple {\ttfamily E\+X\+D\+A\+TE} when processing i\+Tip changes. (-\/hackmann)
+\item \#187\+: Fixed validator rules for {\ttfamily L\+A\+S\+T-\/\+M\+O\+D\+I\+F\+I\+ED} properties.
+\item \#188\+: Retain floating times when generating instances using {\ttfamily Recur\textbackslash{}Event\+Iterator}.
+\item \#203\+: Skip tests for timezones that are not supported on older P\+HP versions, instead of a hard fail.
+\item \#204\+: Dealing a bit better with v\+Card date-\/time values that contained milliseconds. (which is normally invalid). (-\/hackmann)
+\end{DoxyItemize}
+
+\subsection*{3.\+3.\+5 (2015-\/01-\/09) }
+
+
+\begin{DoxyItemize}
+\item \#168\+: Expanding calendars now removes objects with recurrence rules that don\textquotesingle{}t have a valid recurrence instance.
+\item \#177\+: S\+C\+H\+E\+D\+U\+L\+E-\/\+S\+T\+A\+T\+US should not contain a reason phrase, only a status code.
+\item \#175\+: Parser can now read and skip the U\+T\+F-\/8 B\+OM.
+\item \#179\+: Added {\ttfamily is\+Floating} to {\ttfamily D\+A\+T\+E-\/\+T\+I\+ME} properties.
+\item \#179\+: Fixed j\+Cal serialization of floating {\ttfamily D\+A\+T\+E-\/\+T\+I\+ME} properties.
+\item \#173\+: v\+Card converter failed for {\ttfamily X-\/\+A\+B\+D\+A\+TE} properties that had no {\ttfamily X-\/\+A\+B\+L\+A\+B\+EL}.
+\item \#180\+: Added {\ttfamily P\+R\+O\+F\+I\+L\+E\+\_\+\+C\+A\+L\+D\+AV} and {\ttfamily P\+R\+O\+F\+I\+L\+E\+\_\+\+C\+A\+R\+D\+D\+AV} to enable validation rules specific for Cal\+D\+A\+V/\+Card\+D\+AV servers.
+\item \#176\+: A missing {\ttfamily U\+ID} is no longer an error, but a warning for the v\+Card validator, unless {\ttfamily P\+R\+O\+F\+I\+L\+E\+\_\+\+C\+A\+R\+D\+D\+AV} is specified.
+\end{DoxyItemize}
+
+\subsection*{3.\+3.\+4 (2014-\/11-\/19) }
+
+
+\begin{DoxyItemize}
+\item \#154\+: Converting {\ttfamily A\+N\+N\+I\+V\+E\+R\+S\+A\+RY} to {\ttfamily X-\/\+A\+N\+N\+I\+V\+E\+R\+S\+A\+RY} and {\ttfamily X-\/\+A\+B\+D\+A\+TE} and vice-\/versa when converting to/from v\+Card 4.
+\item \#154\+: It\textquotesingle{}s now possible to easily select all v\+Card properties belonging to a single group with `\$vcard-\/$>$\{\textquotesingle{}I\+T\+E\+M1.'\}\`{} syntax. (-\/hackmann)
+\item \#156\+: Simpler way to check if a string is U\+T\+F-\/8. ()
+\item Unittest improvements.
+\item \#159\+: The recurrence iterator, freebusy generator and i\+Calendar D\+A\+TE and D\+A\+T\+E-\/\+T\+I\+ME properties can now all accept a reference timezone when working floating times or all-\/day events.
+\item \#159\+: Master events will no longer get a {\ttfamily R\+E\+C\+U\+R\+R\+E\+N\+C\+E-\/\+ID} when expanding.
+\item \#159\+: {\ttfamily R\+E\+C\+U\+R\+R\+E\+N\+C\+E-\/\+ID} for all-\/day events will now be correct when expanding.
+\item \#163\+: Added a {\ttfamily get\+Time\+Zone()} method to {\ttfamily V\+T\+I\+M\+E\+Z\+O\+NE} components.
+\end{DoxyItemize}
+
+\subsection*{3.\+3.\+3 (2014-\/10-\/09) }
+
+
+\begin{DoxyItemize}
+\item \#142\+: {\ttfamily C\+A\+N\+C\+EL} and {\ttfamily R\+E\+P\+LY} messages now include the {\ttfamily D\+T\+S\+T\+A\+RT} from the original event.
+\item \#143\+: {\ttfamily S\+C\+H\+E\+D\+U\+L\+E-\/\+A\+G\+E\+NT} on the {\ttfamily O\+R\+G\+A\+N\+I\+Z\+ER} property is respected.
+\item \#144\+: {\ttfamily P\+A\+R\+T\+S\+T\+AT=N\+E\+E\+D\+S-\/\+A\+C\+T\+I\+ON} is now set for new invites, if no {\ttfamily P\+A\+R\+T\+S\+T\+AT} is set to support the inbox feature of i\+OS.
+\item \#147\+: Bugs related to scheduling all-\/day events.
+\item \#148\+: Ignore events that have attendees but no organizer.
+\item \#149\+: Avoiding logging errors during timezone detection. This is a workaround for a P\+HP bug.
+\item Support for \char`\"{}\+Line Islands Standard Time\char`\"{} windows timezone.
+\item \#154\+: Correctly work around v\+Card parameters that have a value but no name.
+\end{DoxyItemize}
+
+\subsection*{3.\+3.\+2 (2014-\/09-\/19) }
+
+
+\begin{DoxyItemize}
+\item Changed\+: i\+Tip broker now sets R\+S\+VP status to false when replies are received.
+\item \#118\+: i\+Tip \mbox{\hyperlink{class_message}{Message}} now has a {\ttfamily get\+Schedule\+Status()} method.
+\item \#119\+: Support for detecting \textquotesingle{}significant changes\textquotesingle{}.
+\item \#120\+: Support for {\ttfamily S\+C\+H\+E\+D\+U\+L\+E-\/\+F\+O\+R\+C\+E-\/\+S\+E\+ND}.
+\item \#121\+: i\+Cal demands parameters containing the + sign to be quoted.
+\item \#122\+: Don\textquotesingle{}t generate R\+E\+P\+LY messages for events that have been cancelled.
+\item \#123\+: Added {\ttfamily S\+U\+M\+M\+A\+RY} to i\+Tip messages.
+\item \#130\+: Incorrect validation rules for {\ttfamily R\+E\+L\+A\+T\+ED} (should be {\ttfamily R\+E\+L\+A\+T\+E\+D-\/\+TO}).
+\item \#128\+: {\ttfamily A\+T\+T\+A\+CH} in i\+Calendar is {\ttfamily U\+RI} by default, not {\ttfamily B\+I\+N\+A\+RY}.
+\item \#131\+: R\+R\+U\+LE that doesn\textquotesingle{}t provide a single valid instance now throws an exception.
+\item \#136\+: Validator rejects {\itshape all} control characters. We were missing a few.
+\item \#133\+: Splitter objects will throw exceptions when receiving incompatible objects.
+\item \#127\+: Attendees who delete recurring event instances events they had already declined earlier will no longer generate another reply.
+\item \#125\+: Send C\+A\+N\+C\+EL messages when O\+R\+G\+A\+N\+I\+Z\+ER property gets deleted.
+\end{DoxyItemize}
+
+\subsection*{3.\+3.\+1 (2014-\/08-\/18) }
+
+
+\begin{DoxyItemize}
+\item Changed\+: It\textquotesingle{}s now possible to pass Date\+Time objects when using the magic setters on properties. (`\$event-\/$>$D\+T\+S\+T\+A\+RT = new Date\+Time(\textquotesingle{}now')\`{}).
+\item \#111\+: i\+Tip Broker does not process attendee adding events to E\+X\+D\+A\+TE.
+\item \#112\+: Event\+Iterator now sets T\+Z\+ID on R\+E\+C\+U\+R\+R\+E\+N\+C\+E-\/\+ID.
+\item \#113\+: Timezone support during creation of i\+Tip R\+E\+P\+LY messages.
+\item \#114\+: V\+T\+I\+M\+E\+Z\+O\+NE is retained when generating new R\+E\+Q\+U\+E\+ST objects.
+\item \#114\+: Support for \textquotesingle{}M\+A\+I\+L\+TO\+:\textquotesingle{} style email addresses (in uppercase) in the i\+Tip broker. This improves evolution support.
+\item \#115\+: Using R\+E\+Q\+U\+E\+S\+T-\/\+S\+T\+A\+T\+US from R\+E\+P\+LY messages and now propegating that into S\+C\+H\+E\+D\+U\+L\+E-\/\+S\+T\+A\+T\+US.
+\end{DoxyItemize}
+
+\subsection*{3.\+3.\+0 (2014-\/08-\/07) }
+
+
+\begin{DoxyItemize}
+\item We now use P\+S\+R-\/4 for the directory structure. This means that everything that was used to be in the {\ttfamily lib/\+Sabre/\+V\+Object} directory is now moved to {\ttfamily lib/}. If you use composer to load this library, you shouldn\textquotesingle{}t have to do anything about that though.
+\item V\+E\+V\+E\+NT now get populated with a D\+T\+S\+T\+A\+MP and U\+ID property by default.
+\item BC Break\+: Removed the \textquotesingle{}includes.\+php\textquotesingle{} file. Use composer instead.
+\item \#103\+: Added support for processing \href{http://tools.ietf.org/html/rfc5546}{\tt i\+Tip} messages. This allows a user to parse incoming i\+Tip messages and apply the result on existing calendars, or automatically generate invites/replies/cancellations based on changes that a user made on objects.
+\item \#75, \#58, \#18\+: Fixes related to overriding the first event in recurrences.
+\item Added\+: V\+Calendar\+::get\+Base\+Component to find the \textquotesingle{}master\textquotesingle{} component in a calendar.
+\item \#51\+: Support for iterating R\+D\+A\+TE properties.
+\item Fixed\+: Issue \#101\+: Recurrence\+Iterator\+::next\+Monthly() shows events that are excluded events with wrong time
+\end{DoxyItemize}
+
+\subsection*{3.\+2.\+4 (2014-\/07-\/14) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Issue \#98. The V\+Card\+Converter now takes {\ttfamily X-\/\+A\+P\+P\+L\+E-\/\+O\+M\+I\+T-\/\+Y\+E\+AR} into consideration when converting between v\+Card 3 and 4.
+\item Fixed\+: Issue \#96. Some support for Yahoo\textquotesingle{}s broken vcards.
+\item Fixed\+: P\+HP 5.\+3 support was broken in the cli tool.
+\end{DoxyItemize}
+
+\subsection*{3.\+2.\+3 (2014-\/06-\/12) }
+
+
+\begin{DoxyItemize}
+\item Validator now checks if D\+UE and D\+T\+S\+T\+A\+RT are of the same type in V\+T\+O\+DO, and ensures that D\+UE is always after D\+T\+S\+T\+A\+RT.
+\item Removed documentation from source repository, to \href{http://sabre.io/vobject/}{\tt http\+://sabre.\+io/vobject/}
+\item Expanded the vobject cli tool validation output to make it easier to find issues.
+\item Fixed\+: vobject repair. It was not working for i\+Calendar objects.
+\end{DoxyItemize}
+
+\subsection*{3.\+2.\+2 (2014-\/05-\/07) }
+
+
+\begin{DoxyItemize}
+\item Minor tweak in unittests to make it run on P\+HP 5.\+5.\+12. Json-\/prettifying slightly changed which caused the test to fail.
+\end{DoxyItemize}
+
+\subsection*{3.\+2.\+1 (2014-\/05-\/03) }
+
+
+\begin{DoxyItemize}
+\item Minor tweak to make the unittests run with the latest hhvm on travis.
+\item Updated timezone definitions.
+\item Updated copyright links to point to \href{http://sabre.io/}{\tt http\+://sabre.\+io/}
+\end{DoxyItemize}
+
+\subsection*{3.\+2.\+0 (2014-\/04-\/02) }
+
+
+\begin{DoxyItemize}
+\item Now hhvm compatible!
+\item The validator can now detect a {\itshape lot} more problems. Many rules for both i\+Calendar and v\+Card were added.
+\item Added\+: bin/generate\+\_\+vcards, a utility to generate random vcards for testing purposes. Patches are welcome to add more data.
+\item Updated\+: Windows timezone mapping to latest version from unicode.\+org
+\item Changed\+: The timezone maps are now loaded in from external files, in lib/\+Sabre/\+V\+Object/timezonedata.
+\item Added\+: Fixing badly encoded U\+RL\textquotesingle{}s from google contacts vcards.
+\item Fixed\+: Issue \#68. Couldn\textquotesingle{}t decode properties ending in a colon.
+\item Fixed\+: Issue \#72. Recurrence\+Iterator should respect timezone in the U\+N\+T\+IL clause.
+\item Fixed\+: Issue \#67. B\+Y\+M\+O\+N\+TH limit on D\+A\+I\+LY recurrences.
+\item Fixed\+: Issue \#26. Return a more descriptive error when coming across broken B\+Y\+D\+AY rules.
+\item Fixed\+: Issue \#28. Incorrect timezone detection for some timezones.
+\item Fixed\+: Issue \#70. Casting a parameter with a null value to string would fail.
+\item Added\+: Support for rfc6715 and rfc6474.
+\item Added\+: Support for Date\+Time objects in the V\+Card D\+A\+T\+E-\/\+A\+N\+D-\/\+O\+R-\/\+T\+I\+ME property.
+\item Added\+: U\+U\+I\+D\+Util, for easily creating unique identifiers.
+\item Fixed\+: Issue \#83. Creating new V\+A\+L\+UE=D\+A\+TE objects using php\textquotesingle{}s Date\+Time.
+\item Fixed\+: Issue \#86. Don\textquotesingle{}t go into an infinite loop when php errors are disabled and an invalid file is read.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+4 (2014-\/03-\/30) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue \#87\+: Several compatibility fixes related to timezone handling changes in P\+HP 5.\+5.\+10.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+3 (2013-\/10-\/02) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Support from properties from draft-\/daboo-\/valarm-\/extensions-\/04. Issue \#56.
+\item Fixed\+: Issue \#54. Parsing a stream of multiple vcards separated by more than one newline. Thanks  for the patch.
+\item Fixed\+: Serializing vcard 2.\+1 parameters with no name caused a literal \textquotesingle{}1\textquotesingle{} to be inserted.
+\item Added\+: V\+Card\+Converter removed properties that are no longer supported in v\+Card 4.\+0.
+\item Added\+: v\+Cards with a minimum number of values (such as N), but don\textquotesingle{}t have that many, are now automatically padded with empty components.
+\item Added\+: The v\+Card validator now also checks for a minimum number of components, and has the ability to repair these.
+\item Added\+: Some support for v\+Card 2.\+1 in the V\+Card converter, to upgrade to v\+Card 3.\+0 or 4.\+0.
+\item Fixed\+: Issue 60 Use Document\+::\$component\+Map when instantiating the top-\/level V\+Calendar and V\+Card components.
+\item Fixed\+: Issue 62\+: Parsing i\+Calendar parameters with no value.
+\item Added\+: --forgiving option to vobject utility.
+\item Fixed\+: Compound properties such as A\+DR were not correctly split up in v\+Card 2.\+1 quoted printable-\/encoded properties.
+\item Fixed\+: Issue 64\+: \mbox{\hyperlink{class_encoding}{Encoding}} of binary properties of converted v\+Cards. Thanks  for the patch.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+2 (2013-\/08-\/13) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Setting correct property group on V\+Card conversion
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+1 (2013-\/08-\/02) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue \#53. A regression in Recurrence\+Iterator.
+\end{DoxyItemize}
+
+\subsection*{3.\+1.\+0 (2013-\/07-\/27) }
+
+
+\begin{DoxyItemize}
+\item Added\+: bad-\/ass new cli debugging utility (in bin/vobject).
+\item Added\+: j\+Cal and j\+Card parser.
+\item Fixed\+: U\+RI properties should not escape ; and ,.
+\item Fixed\+: V\+Card 4 documents now correctly use U\+RI as a default value-\/type for P\+H\+O\+TO and others. B\+I\+N\+A\+RY no longer exists in v\+Card 4.
+\item Added\+: Utility to convert between 2.\+1, 3.\+0 and 4.\+0 v\+Cards.
+\item Added\+: You can now add() multiple parameters to a property in one call.
+\item Added\+: Parameter\+::has() for easily checking if a parameter value exists.
+\item Added\+: V\+Card\+::preferred() to find a preferred email, phone number, etc for a contact.
+\item Changed\+: All \$duration properties are now public.
+\item Added\+: A few validators for i\+Calendar documents.
+\item Fixed\+: Issue \#50. Recurrence\+Iterator gives incorrect result when exception events are out of order in the i\+Calendar file.
+\item Fixed\+: Issue \#48. Overridden events in the recurrence iterator that were past the U\+N\+T\+IL date were ignored.
+\item Added\+: get\+Duration for D\+U\+R\+A\+T\+I\+ON values such as T\+R\+I\+G\+G\+ER. Thanks to .
+\item Fixed\+: Issue \#52. v\+Card 2.\+1 parameters with no name may lose values if there\textquotesingle{}s more than 1. Thanks to .
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0 (2013-\/06-\/21) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: includes.\+php file was still broken. Our tool to generate it had some bugs.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/beta4 (2013-\/06-\/21) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: includes.\+php was no longer up to date.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/beta3 (2013-\/06-\/17) }
+
+
+\begin{DoxyItemize}
+\item Added\+: O\+P\+T\+I\+O\+N\+\_\+\+F\+O\+R\+G\+I\+V\+I\+NG now also allows slashes in property names.
+\item Fixed\+: Date\+Time\+Parser no longer fails on dates with years $<$ 1000 \& $>$ 4999
+\item Fixed\+: Issue 36\+: Workaround for the recurrenceiterator and caldav events with a missing base event.
+\item Fixed\+: j\+Card encoding of T\+I\+ME properties.
+\item Fixed\+: j\+Cal encoding of R\+E\+Q\+U\+E\+S\+T-\/\+S\+T\+A\+T\+US, G\+EO and P\+E\+R\+I\+OD values.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/beta2 (2013-\/06-\/10) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Corrected includes.\+php file.
+\item Fixed\+: v\+Card date-\/time parser supported extended-\/format dates as well.
+\item Changed\+: Properties have been moved to an I\+Calendar or V\+Card directory.
+\item Fixed\+: Couldn\textquotesingle{}t parse v\+Card 3 extended format dates and times.
+\item Fixed\+: Couldn\textquotesingle{}t export j\+Card D\+A\+TE values correctly.
+\item Fixed\+: Recursive loop in I\+Calendar property.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/beta1 (2013-\/06-\/07) }
+
+
+\begin{DoxyItemize}
+\item Added\+: json\+Serialize() for creating j\+Cal and j\+Card documents.
+\item Added\+: helper method to parse v\+Card dates and times.
+\item Added\+: Specialized classes for F\+L\+O\+AT, L\+A\+N\+G\+U\+A\+G\+E-\/\+T\+AG, T\+I\+ME, T\+I\+M\+E\+S\+T\+A\+MP, D\+A\+T\+E-\/\+A\+N\+D-\/\+O\+R-\/\+T\+I\+ME, C\+A\+L-\/\+A\+D\+D\+R\+E\+SS, U\+N\+K\+N\+O\+WN and U\+T\+C-\/\+O\+F\+F\+S\+ET properties.
+\item Removed\+: Comma\+Separated\+Text property. Now included into Text.
+\item Fixed\+: Multiple parameters with the same name are now correctly encoded.
+\item Fixed\+: Parameter values containing a comma are now enclosed in double-\/quotes.
+\item Fixed\+: Iterating parameter values should now fully work as expected.
+\item Fixed\+: Support for v\+Card 2.\+1 nameless parameters.
+\item Changed\+: \$value\+Map, \$component\+Map and \$property\+Map now all use fully-\/qualified class names, so they are actually overridable.
+\item Fixed\+: Updating D\+A\+T\+E-\/\+T\+I\+ME to D\+A\+TE values now behaves like expected.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/alpha4 (2013-\/05-\/31) }
+
+
+\begin{DoxyItemize}
+\item Added\+: It\textquotesingle{}s now possible to send parser options to the splitter classes.
+\item Added\+: A few tweaks to improve component and property creation.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/alpha3 (2013-\/05-\/13) }
+
+
+\begin{DoxyItemize}
+\item Changed\+: property\+Map, value\+Map and component\+Map are now static properties.
+\item Changed\+: Component\+::remove() will throw an exception when trying to a node that\textquotesingle{}s not a child of said component.
+\item Added\+: Splitter objects are now faster, line numbers are accurately reported and use less memory.
+\item Added\+: Mime\+Dir parser can now continue parsing with the same stream buffer.
+\item Fixed\+: vobjectvalidate.\+php is operational again.
+\item Fixed\+:  is properly stripped in text values.
+\item Fixed\+: Q\+U\+O\+T\+E\+D-\/\+P\+R\+I\+N\+T\+A\+B\+LE is now correctly encoded as well as encoded, for v\+Cards 2.\+1.
+\item Fixed\+: Parser assumes v\+Card 2.\+1, if no version was supplied.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/alpha2 (2013-\/05-\/22) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: v\+Card U\+RL properties were referencing a non-\/existant class.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/alpha1 (2013-\/05-\/21) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Now correctly dealing with escaping of properties. This solves the problem with double-\/backslashes where they don\textquotesingle{}t belong.
+\item Added\+: Easy support for properties with more than one value, using set\+Parts and get\+Parts.
+\item Added\+: Support for broken 2.\+1 v\+Cards produced by microsoft.
+\item Added\+: Automatically decoding quoted-\/printable values.
+\item Added\+: Automatically decoding base64 values.
+\item Added\+: Decoding R\+F\+C6868 parameter values (uses $^\wedge$ as an escape character).
+\item Added\+: Fancy new Mime\+Dir parser that can also parse streams.
+\item Added\+: Automatically mapping many, many properties to a property-\/class with specialized A\+PI\textquotesingle{}s.
+\item Added\+: remove() method for easily removing properties and sub-\/components components.
+\item Changed\+: Components, Properties and Parameters can no longer be created with Component\+::create, Property\+::create and Parameter\+::create. They must instead be created through the root component. (A V\+Calendar or V\+Card object).
+\item Changed\+: A\+PI for Date\+Time properties has slightly changed.
+\item Changed\+: the -\/$>$value property is now protected everywhere. Use get\+Parts() and get\+Value() instead.
+\item BC Break\+: No support for mac newlines (). Never came across these anyway.
+\item Added\+: add() method to the Property class.
+\item Added\+: It\textquotesingle{}s now possible to easy set multi-\/value properties as arrays.
+\item Added\+: When setting date-\/time properties you can just pass P\+HP\textquotesingle{}s Date\+Time object.
+\item Added\+: New components automatically get a bunch of default properties, such as V\+E\+R\+S\+I\+ON and C\+A\+L\+S\+C\+A\+LE.
+\item Added\+: You can add new sub-\/components much quicker with the magic setters, and add() method.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+7 (2015-\/01-\/21) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue \#94, a workaround for bad escaping of ; and , in compound properties. It\textquotesingle{}s not a full solution, but it\textquotesingle{}s an improvement for those stuck in the 2.\+1 versions.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+6 (2014-\/12-\/10) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Minor change to make sure that unittests succeed on every P\+HP version.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+5 (2014-\/06-\/03) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: \#94\+: Better parameter escaping.
+\item Changed\+: Documentation cleanups.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+4 (2014-\/03-\/30) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue \#87\+: Several compatibility fixes related to timezone handling changes in P\+HP 5.\+5.\+10.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+3 (2013-\/10-\/02) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue \#55.  must be stripped from property values.
+\item Fixed\+: Issue \#65. Putting quotes around parameter values that contain a colon.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+2 (2013-\/08-\/02) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue \#53. A regression in Recurrence\+Iterator.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+1 (2013-\/07-\/27) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Issue \#50. Recurrence\+Iterator gives incorrect result when exception events are out of order in the i\+Calendar file.
+\item Fixed\+: Issue \#48. Overridden events in the recurrence iterator that were past the U\+N\+T\+IL date were ignored.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+0 (2013-\/06-\/17) }
+
+
+\begin{DoxyItemize}
+\item This version is fully backwards compatible with 2.\+0.$\ast$. However, it contains a few new A\+PI\textquotesingle{}s that mimic the V\+Object 3 A\+PI. This allows it to be used a \textquotesingle{}bridge\textquotesingle{} version. Specifically, this new version exists so Sabre\+D\+AV 1.\+7 and 1.\+8 can run with both the 2 and 3 versions of this library.
+\item Added\+: Property\+::has\+Time().
+\item Added\+: Property\+::has\+Time().
+\item Added\+: Property\+::get\+Value().
+\item Added\+: Document class.
+\item Added\+: Document\+::create\+Component and Document\+::create\+Property.
+\item Added\+: Parameter\+::get\+Value().
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+7 (2013-\/03-\/05) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Microsoft re-\/uses their magic numbers for different timezones, specifically id 2 for both Sarajevo and Lisbon). A workaround was added to deal with this.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+6 (2013-\/02-\/17) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: The reader now properly parses parameters without a value.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+5 (2012-\/11-\/05) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: The Free\+Busy\+Generator is now properly using the factory methods for creation of components and properties.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+4 (2012-\/11-\/02) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Known Lotus Notes / Domino timezone id\textquotesingle{}s.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+3 (2012-\/10-\/29) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Support for \textquotesingle{}G\+M\+T+????\textquotesingle{} format in T\+Z\+ID\textquotesingle{}s.
+\item Added\+: Support for formats like System\+V/\+E\+S\+T5\+E\+DT in T\+Z\+ID\textquotesingle{}s.
+\item Fixed\+: Recurrence\+Iterator now repairs recurrence rules where U\+N\+T\+IL $<$ D\+T\+S\+T\+A\+RT.
+\item Added\+: Support for B\+Y\+H\+O\+UR in F\+R\+EQ=D\+A\+I\+LY ().
+\item Added\+: Support for B\+Y\+H\+O\+UR and B\+Y\+D\+AY in F\+R\+EQ=W\+E\+E\+K\+LY.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+2 (2012-\/10-\/06) }
+
+
+\begin{DoxyItemize}
+\item Added\+: includes.\+php file, to load the entire library in one go.
+\item Fixed\+: A problem with determining alarm triggers for T\+O\+DO\textquotesingle{}s.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+1 (2012-\/09-\/22) }
+
+
+\begin{DoxyItemize}
+\item Removed\+: Element class. It wasn\textquotesingle{}t used.
+\item Added\+: Basic validation and repair methods for broken input data.
+\item Fixed\+: Recurrence\+Iterator could infinitely loop when an I\+N\+T\+E\+R\+V\+AL of 0 was specified.
+\item Added\+: A cli script that can validate and automatically repair vcards and i\+Calendar objects.
+\item Added\+: A new \textquotesingle{}Compound\textquotesingle{} property, that can automatically split up parts for properties such as N, A\+DR, O\+RG and C\+A\+T\+E\+G\+O\+R\+I\+ES.
+\item Added\+: Splitter classes, that can split up large objects (such as exports) into individual objects (thanks  and -\/hackmann).
+\item Added\+: V\+F\+R\+E\+E\+B\+U\+SY component, which allows easily checking wether timeslots are available.
+\item Added\+: The Reader class now has a \textquotesingle{}F\+O\+R\+G\+I\+V\+I\+NG\textquotesingle{} option, which allows it to parse properties with incorrect characters in the name (at this time, it just allows underscores).
+\item Added\+: Also added the \textquotesingle{}I\+G\+N\+O\+R\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+N\+ES\textquotesingle{} option, to completely disregard any invalid lines.
+\item Fixed\+: A bug in Windows timezone-\/id mappings for times created in Greenlands timezone (sorry Greenlanders! I do care!).
+\item Fixed\+: D\+T\+E\+ND was not generated correctly for V\+F\+R\+E\+E\+B\+U\+SY reports.
+\item Fixed\+: Parser is at least 25\% faster with real-\/world data.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0 (2012-\/08-\/08) }
+
+
+\begin{DoxyItemize}
+\item V\+Object is now a separate project from Sabre\+D\+AV. See the Sabre\+D\+AV changelog for version information before 2.\+0.
+\item New\+: V\+Object library now uses P\+HP 5.\+3 namespaces.
+\item New\+: It\textquotesingle{}s possible to specify lists of parameters when constructing properties.
+\item New\+: made it easier to construct the Free\+Busy\+Generator. 
+\end{DoxyItemize}

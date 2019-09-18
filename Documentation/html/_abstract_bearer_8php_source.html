@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAV/Auth/Backend/AbstractBearer.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_641c95e6ed9dd2d5dcbadeacba03bd45.html">DAV</a></li><li class="navelem"><a class="el" href="dir_f78cc9598c78246cdd39ff5587e3a2af.html">Auth</a></li><li class="navelem"><a class="el" href="dir_d911926a16926b83e74da47caaa85fd6.html">Backend</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">AbstractBearer.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_auth_1_1_backend.html">Sabre\DAV\Auth\Backend</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespace_sabre_1_1_h_t_t_p_1_1_request_interface.html">Sabre\HTTP\RequestInterface</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;use <a class="code" href="namespace_sabre_1_1_h_t_t_p_1_1_response_interface.html">Sabre\HTTP\ResponseInterface</a>;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html">   23</a></span>&#160;<span class="keyword">abstract</span> <span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html">AbstractBearer</a> <span class="keyword">implements</span> <a class="code" href="interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface.html">BackendInterface</a> {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">protected</span> $realm = <span class="stringliteral">&#39;sabre/dav&#39;</span>;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#a46ee5dcc2d55566e686b4da20450189f">validateBearerToken</a>($bearerToken);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#a3919c15a2c08de4ecd42fd1741e6dc7a">   52</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#a3919c15a2c08de4ecd42fd1741e6dc7a">setRealm</a>($realm) {</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        $this-&gt;realm = $realm;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#ac43079a9c47779745f3435cb775da867">   86</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#ac43079a9c47779745f3435cb775da867">check</a>(<a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html">RequestInterface</a> $request, <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_response_interface.html">ResponseInterface</a> $response) {</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        $auth = <span class="keyword">new</span> <a class="code" href="class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer.html">HTTP\Auth\Bearer</a>(</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            $this-&gt;realm,</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            $request,</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            $response</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        );</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        $bearerToken = $auth-&gt;getToken($request);</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">if</span> (!$bearerToken) {</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> [<span class="keyword">false</span>, <span class="stringliteral">&quot;No &#39;Authorization: Bearer&#39; header found. Either the client didn&#39;t send one, or the server is mis-configured&quot;</span>];</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        $principalUrl = $this-&gt;<a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#a46ee5dcc2d55566e686b4da20450189f">validateBearerToken</a>($bearerToken);</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">if</span> (!$principalUrl) {</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">return</span> [<span class="keyword">false</span>, <span class="stringliteral">&quot;Bearer token was incorrect&quot;</span>];</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">return</span> [<span class="keyword">true</span>, $principalUrl];</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div><div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#afc3437d1b84fbf2f460331312cec07aa">  127</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#afc3437d1b84fbf2f460331312cec07aa">challenge</a>(<a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html">RequestInterface</a> $request, <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_response_interface.html">ResponseInterface</a> $response) {</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        $auth = <span class="keyword">new</span> <a class="code" href="class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer.html">HTTP\Auth\Bearer</a>(</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            $this-&gt;realm,</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            $request,</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            $response</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        );</div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        $auth-&gt;requireLogin();</div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer_html_a3919c15a2c08de4ecd42fd1741e6dc7a"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#a3919c15a2c08de4ecd42fd1741e6dc7a">Sabre\DAV\Auth\Backend\AbstractBearer\setRealm</a></div><div class="ttdeci">setRealm($realm)</div><div class="ttdef"><b>Definition:</b> <a href="_abstract_bearer_8php_source.html#l00052">AbstractBearer.php:52</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer_html_a46ee5dcc2d55566e686b4da20450189f"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#a46ee5dcc2d55566e686b4da20450189f">Sabre\DAV\Auth\Backend\AbstractBearer\validateBearerToken</a></div><div class="ttdeci">validateBearerToken($bearerToken)</div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_auth_1_1_backend_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_auth_1_1_backend.html">Sabre\DAV\Auth\Backend</a></div><div class="ttdef"><b>Definition:</b> <a href="_abstract_basic_8php_source.html#l00003">AbstractBasic.php:3</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_response_interface_html"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_response_interface.html">Sabre\HTTP\ResponseInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_response_interface_8php_source.html#l00012">ResponseInterface.php:12</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer_html_ac43079a9c47779745f3435cb775da867"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#ac43079a9c47779745f3435cb775da867">Sabre\DAV\Auth\Backend\AbstractBearer\check</a></div><div class="ttdeci">check(RequestInterface $request, ResponseInterface $response)</div><div class="ttdef"><b>Definition:</b> <a href="_abstract_bearer_8php_source.html#l00086">AbstractBearer.php:86</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_html"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface.html">Sabre\DAV\Auth\Backend\BackendInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_d_a_v_2_auth_2_backend_2_backend_interface_8php_source.html#l00015">BackendInterface.php:15</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_h_t_t_p_html"><div class="ttname"><a href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a></div><div class="ttdef"><b>Definition:</b> <a href="_response_mock_8php_source.html#l00003">ResponseMock.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer_html_afc3437d1b84fbf2f460331312cec07aa"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html#afc3437d1b84fbf2f460331312cec07aa">Sabre\DAV\Auth\Backend\AbstractBearer\challenge</a></div><div class="ttdeci">challenge(RequestInterface $request, ResponseInterface $response)</div><div class="ttdef"><b>Definition:</b> <a href="_abstract_bearer_8php_source.html#l00127">AbstractBearer.php:127</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer.html">Sabre\DAV\Auth\Backend\AbstractBearer</a></div><div class="ttdef"><b>Definition:</b> <a href="_abstract_bearer_8php_source.html#l00023">AbstractBearer.php:23</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html">Sabre\HTTP\RequestInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_request_interface_8php_source.html#l00012">RequestInterface.php:12</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_h_t_t_p_1_1_request_interface_html"><div class="ttname"><a href="namespace_sabre_1_1_h_t_t_p_1_1_request_interface.html">RequestInterface</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_h_t_t_p_1_1_response_interface_html"><div class="ttname"><a href="namespace_sabre_1_1_h_t_t_p_1_1_response_interface.html">ResponseInterface</a></div></div>
+<div class="ttc" id="class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer_html"><div class="ttname"><a href="class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer.html">Sabre\HTTP\Auth\Bearer</a></div><div class="ttdef"><b>Definition:</b> <a href="_bearer_8php_source.html#l00018">Bearer.php:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

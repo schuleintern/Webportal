@@ -1,0 +1,247 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Sync\textbackslash{}Plugin Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Plugin@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Plugin}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Sync\textbackslash{}Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_ad56bbdc39a58af73eeb1d73e64228077}{get\+Plugin\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a24ff1a4748ba92538d987bab9ffbbc49}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a05039bf63ca9db884f093af0882cf7b7}{get\+Supported\+Report\+Set}} (\$uri)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a825685010b7c503fd06174d72cb4907c}{sync\+Collection}} (\$uri, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_sync_collection_report}{Sync\+Collection\+Report}} \$report)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_af1f6a52f3153e077caa7f2b4087ef1f4}{prop\+Find}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{D\+A\+V\textbackslash{}\+Prop\+Find}} \$prop\+Find, \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{D\+A\+V\textbackslash{}\+I\+Node}} \$node)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_ac163c1ec0fd023d948512d50616a0ac5}{validate\+Tokens}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \&\$conditions)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_ac768ec02a4303531cbcea3bb52ba0aaf}{get\+Plugin\+Info}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a0ae4dd08d9d8a4ce72122b25a76483fb}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a0ae4dd08d9d8a4ce72122b25a76483fb}} 
+const {\bfseries S\+Y\+N\+C\+T\+O\+K\+E\+N\+\_\+\+P\+R\+E\+F\+IX} = \textquotesingle{}http\+://sabre.\+io/ns/sync/\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a5175d698d1de1ab6a6478faf8de1e6a5}{send\+Sync\+Collection\+Response}} (\$sync\+Token, \$collection\+Url, array \$added, array \$modified, array \$deleted, array \$properties)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a5b7531fc127e630e8be0fb7ef6f9164f}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a5b7531fc127e630e8be0fb7ef6f9164f}} 
+{\bfseries \$server}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This plugin all Web\+D\+A\+V-\/sync capabilities to the \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}}.
+
+Web\+D\+A\+V-\/sync is defined by rfc6578
+
+The sync capabilities only work with collections that implement Sabre.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 21 der Datei Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_ac768ec02a4303531cbcea3bb52ba0aaf}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_ac768ec02a4303531cbcea3bb52ba0aaf}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}!get\+Plugin\+Info@{get\+Plugin\+Info}}
+\index{get\+Plugin\+Info@{get\+Plugin\+Info}!Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Info()}{getPluginInfo()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Plugin\+::get\+Plugin\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a bunch of meta-\/data about the plugin.
+
+Providing this information is optional, and is mainly displayed by the Browser plugin.
+
+The description key in the returned array may contain html and will not be sanitized.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 267 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_ad56bbdc39a58af73eeb1d73e64228077}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_ad56bbdc39a58af73eeb1d73e64228077}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}!get\+Plugin\+Name@{get\+Plugin\+Name}}
+\index{get\+Plugin\+Name@{get\+Plugin\+Name}!Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Name()}{getPluginName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Plugin\+::get\+Plugin\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a plugin name.
+
+Using this name other plugins will be able to access other plugins using \+::get\+Plugin
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 40 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a05039bf63ca9db884f093af0882cf7b7}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a05039bf63ca9db884f093af0882cf7b7}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}!get\+Supported\+Report\+Set@{get\+Supported\+Report\+Set}}
+\index{get\+Supported\+Report\+Set@{get\+Supported\+Report\+Set}!Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Supported\+Report\+Set()}{getSupportedReportSet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Plugin\+::get\+Supported\+Report\+Set (\begin{DoxyParamCaption}\item[{}]{\$uri }\end{DoxyParamCaption})}
+
+Returns a list of reports this plugin supports.
+
+This will be used in the \{D\+AV\+:\}supported-\/report-\/set property. \mbox{\hyperlink{class_note}{Note}} that you still need to subscribe to the \textquotesingle{}report\textquotesingle{} event to actually implement them
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 86 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a24ff1a4748ba92538d987bab9ffbbc49}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a24ff1a4748ba92538d987bab9ffbbc49}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}!initialize@{initialize}}
+\index{initialize@{initialize}!Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Plugin\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}}}]{\$server }\end{DoxyParamCaption})}
+
+Initializes the plugin.
+
+This is when the plugin registers it\textquotesingle{}s hooks.
+
+
+\begin{DoxyParams}[1]{Parameter}
+D\+A\+V\textbackslash{}\+Server & {\em \$server} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 54 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_af1f6a52f3153e077caa7f2b4087ef1f4}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_af1f6a52f3153e077caa7f2b4087ef1f4}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}!prop\+Find@{prop\+Find}}
+\index{prop\+Find@{prop\+Find}!Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}}
+\subsubsection{\texorpdfstring{prop\+Find()}{propFind()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Plugin\+::prop\+Find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{D\+A\+V\textbackslash{}\+Prop\+Find}}}]{\$prop\+Find,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{D\+A\+V\textbackslash{}\+I\+Node}}}]{\$node }\end{DoxyParamCaption})}
+
+This method is triggered whenever properties are requested for a node. We intercept this to see if we must return a \{D\+AV\+:\}sync-\/token.
+
+
+\begin{DoxyParams}[1]{Parameter}
+D\+A\+V\textbackslash{}\+Prop\+Find & {\em \$prop\+Find} & \\
+\hline
+D\+A\+V\textbackslash{}\+I\+Node & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 208 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a5175d698d1de1ab6a6478faf8de1e6a5}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a5175d698d1de1ab6a6478faf8de1e6a5}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}!send\+Sync\+Collection\+Response@{send\+Sync\+Collection\+Response}}
+\index{send\+Sync\+Collection\+Response@{send\+Sync\+Collection\+Response}!Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}}
+\subsubsection{\texorpdfstring{send\+Sync\+Collection\+Response()}{sendSyncCollectionResponse()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Plugin\+::send\+Sync\+Collection\+Response (\begin{DoxyParamCaption}\item[{}]{\$sync\+Token,  }\item[{}]{\$collection\+Url,  }\item[{array}]{\$added,  }\item[{array}]{\$modified,  }\item[{array}]{\$deleted,  }\item[{array}]{\$properties }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Sends the response to a sync-\/collection request.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$sync\+Token} & \\
+\hline
+string & {\em \$collection\+Url} & \\
+\hline
+array & {\em \$added} & \\
+\hline
+array & {\em \$modified} & \\
+\hline
+array & {\em \$deleted} & \\
+\hline
+array & {\em \$properties} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 160 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a825685010b7c503fd06174d72cb4907c}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_a825685010b7c503fd06174d72cb4907c}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}!sync\+Collection@{sync\+Collection}}
+\index{sync\+Collection@{sync\+Collection}!Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}}
+\subsubsection{\texorpdfstring{sync\+Collection()}{syncCollection()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Plugin\+::sync\+Collection (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_request_1_1_sync_collection_report}{Sync\+Collection\+Report}}}]{\$report }\end{DoxyParamCaption})}
+
+This method handles the \{D\+AV\+:\}sync-\/collection H\+T\+TP R\+E\+P\+O\+RT.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+Sync\+Collection\+Report & {\em \$report} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 107 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_ac163c1ec0fd023d948512d50616a0ac5}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_plugin_ac163c1ec0fd023d948512d50616a0ac5}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}!validate\+Tokens@{validate\+Tokens}}
+\index{validate\+Tokens@{validate\+Tokens}!Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Plugin}}
+\subsubsection{\texorpdfstring{validate\+Tokens()}{validateTokens()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Plugin\+::validate\+Tokens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\&}]{\$conditions }\end{DoxyParamCaption})}
+
+The validate\+Tokens event is triggered before every request.
+
+It\textquotesingle{}s a moment where this plugin can check all the supplied lock tokens in the If\+: header, and check if they are valid.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+array & {\em \$conditions} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 229 der Datei Plugin.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Sync/Plugin.\+php\end{DoxyCompactItemize}

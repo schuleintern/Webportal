@@ -1,0 +1,165 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Schedule\textbackslash{}I\+Mip\+Plugin Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+I\+Mip\+Plugin@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+I\+Mip\+Plugin}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Schedule\textbackslash{}I\+Mip\+Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a35f25f091a1bb2ee925d52ec8dd2ffc9}{\+\_\+\+\_\+construct}} (\$sender\+Email)
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_afda440911d9173bcd4536e973630431f}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_afda440911d9173bcd4536e973630431f}} 
+{\bfseries initialize} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a7dfd2a619c0bbc08ab94af0d69dc144f}{get\+Plugin\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a821450dc46543e2eed9b9cfaa9b9e583}{schedule}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{I\+Tip\textbackslash{}\+Message}} \$i\+Tip\+Message)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a6c1434da8d1841179376506c6c24d7e9}{get\+Plugin\+Info}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a91e0bf21999c2b70d183e274c023b792}{mail}} (\$to, \$subject, \$body, array \$headers)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a295f8b43b0144a828677b6fabcebd415}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a295f8b43b0144a828677b6fabcebd415}} 
+{\bfseries \$sender\+Email}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a717f5f59ad6251efe12b15ce5e4a670a}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a717f5f59ad6251efe12b15ce5e4a670a}} 
+{\bfseries \$itip\+Message}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+i\+M\+IP handler.
+
+This class is responsible for sending out i\+M\+IP messages. i\+M\+IP is the email-\/based transport for i\+T\+IP. i\+T\+IP deals with scheduling operations for i\+Calendar objects.
+
+If you want to customize the email that gets sent out, you can do so by extending this class and overriding the send\+Message method.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 22 der Datei I\+Mip\+Plugin.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a35f25f091a1bb2ee925d52ec8dd2ffc9}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a35f25f091a1bb2ee925d52ec8dd2ffc9}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+I\+Mip\+Plugin\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$sender\+Email }\end{DoxyParamCaption})}
+
+Creates the email handler.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$sender\+Email,.} & The \textquotesingle{}sender\+Email\textquotesingle{} is the email that shows up in the \textquotesingle{}From\+:\textquotesingle{} address. This should generally be some kind of no-\/reply email address you own. \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 46 der Datei I\+Mip\+Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a6c1434da8d1841179376506c6c24d7e9}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a6c1434da8d1841179376506c6c24d7e9}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin}!get\+Plugin\+Info@{get\+Plugin\+Info}}
+\index{get\+Plugin\+Info@{get\+Plugin\+Info}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Info()}{getPluginInfo()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+I\+Mip\+Plugin\+::get\+Plugin\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a bunch of meta-\/data about the plugin.
+
+Providing this information is optional, and is mainly displayed by the Browser plugin.
+
+The description key in the returned array may contain html and will not be sanitized.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 180 der Datei I\+Mip\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a7dfd2a619c0bbc08ab94af0d69dc144f}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a7dfd2a619c0bbc08ab94af0d69dc144f}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin}!get\+Plugin\+Name@{get\+Plugin\+Name}}
+\index{get\+Plugin\+Name@{get\+Plugin\+Name}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Name()}{getPluginName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+I\+Mip\+Plugin\+::get\+Plugin\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a plugin name.
+
+Using this name other plugins will be able to access other plugins using \+::get\+Plugin
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 77 der Datei I\+Mip\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a91e0bf21999c2b70d183e274c023b792}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a91e0bf21999c2b70d183e274c023b792}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin}!mail@{mail}}
+\index{mail@{mail}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin}}
+\subsubsection{\texorpdfstring{mail()}{mail()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+I\+Mip\+Plugin\+::mail (\begin{DoxyParamCaption}\item[{}]{\$to,  }\item[{}]{\$subject,  }\item[{}]{\$body,  }\item[{array}]{\$headers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This function is responsible for sending the actual email.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$to} & Recipient email address \\
+\hline
+string & {\em \$subject} & Subject of the email \\
+\hline
+string & {\em \$body} & i\+Calendar body \\
+\hline
+array & {\em \$headers} & List of headers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 161 der Datei I\+Mip\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a821450dc46543e2eed9b9cfaa9b9e583}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_plugin_a821450dc46543e2eed9b9cfaa9b9e583}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin}!schedule@{schedule}}
+\index{schedule@{schedule}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+Plugin}}
+\subsubsection{\texorpdfstring{schedule()}{schedule()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+I\+Mip\+Plugin\+::schedule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{I\+Tip\textbackslash{}\+Message}}}]{\$i\+Tip\+Message }\end{DoxyParamCaption})}
+
+Event handler for the \textquotesingle{}schedule\textquotesingle{} event.
+
+
+\begin{DoxyParams}[1]{Parameter}
+I\+Tip\textbackslash{}\+Message & {\em \$i\+Tip\+Message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 89 der Datei I\+Mip\+Plugin.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Schedule/I\+Mip\+Plugin.\+php\end{DoxyCompactItemize}

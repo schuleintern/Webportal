@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAVACL/IACL.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_057cc690b43e2f0b1c83afa971c79763.html">DAVACL</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">IACL.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_a_c_l.html">Sabre\DAVACL</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html">   16</a></span>&#160;<span class="keyword">interface </span><a class="code" href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html">IACL</a> <span class="keyword">extends</span> <a class="code" href="interface_sabre_1_1_d_a_v_1_1_i_node.html">DAV\INode</a> {</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html#a05f531b4ae1a86eab4e6e95b0413390e">getOwner</a>();</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html#a8ba38d5a99d771d7ae2719dd483515f6">getGroup</a>();</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html#a8fe3b3a5b48eae789d7eb722b340045c">getACL</a>();</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html#a95e96725db02aae734ce5e7fbb438174">setACL</a>(array $acl);</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html#a9db850218d4002ed21bbd87665e0c614">getSupportedPrivilegeSet</a>();</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div><div class="ttc" id="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_html_a8ba38d5a99d771d7ae2719dd483515f6"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html#a8ba38d5a99d771d7ae2719dd483515f6">Sabre\DAVACL\IACL\getGroup</a></div><div class="ttdeci">getGroup()</div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_html_a95e96725db02aae734ce5e7fbb438174"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html#a95e96725db02aae734ce5e7fbb438174">Sabre\DAVACL\IACL\setACL</a></div><div class="ttdeci">setACL(array $acl)</div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_a_c_l_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_a_c_l.html">Sabre\DAVACL</a></div><div class="ttdef"><b>Definition:</b> <a href="_abstract_principal_collection_8php_source.html#l00003">AbstractPrincipalCollection.php:3</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_html_a9db850218d4002ed21bbd87665e0c614"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html#a9db850218d4002ed21bbd87665e0c614">Sabre\DAVACL\IACL\getSupportedPrivilegeSet</a></div><div class="ttdeci">getSupportedPrivilegeSet()</div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_html"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html">Sabre\DAVACL\IACL</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_a_c_l_8php_source.html#l00016">IACL.php:16</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_html_a05f531b4ae1a86eab4e6e95b0413390e"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html#a05f531b4ae1a86eab4e6e95b0413390e">Sabre\DAVACL\IACL\getOwner</a></div><div class="ttdeci">getOwner()</div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_1_1_i_node_html"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_1_1_i_node.html">Sabre\DAV\INode</a></div><div class="ttdef"><b>Definition:</b> <a href="_d_a_v_2_i_node_8php_source.html#l00012">INode.php:12</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_html_a8fe3b3a5b48eae789d7eb722b340045c"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html#a8fe3b3a5b48eae789d7eb722b340045c">Sabre\DAVACL\IACL\getACL</a></div><div class="ttdeci">getACL()</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

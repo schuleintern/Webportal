@@ -1,0 +1,80 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_settings}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Settings Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_settings}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Settings@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Settings}}
+\subsection*{Statische öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_settings_af44461f32762ddf79f5721235618a1ca}{\$min\+Date}} = \textquotesingle{}1900-\/01-\/01\textquotesingle{}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_settings_ab800269b5df1a028397507346f162bcf}{\$max\+Date}} = \textquotesingle{}2100-\/01-\/01\textquotesingle{}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_settings_ae70079c375fb5e7199334830e4e58aa4}{\$max\+Recurrences}} = 3500
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This class provides a list of global defaults for vobject.
+
+Some of these started to appear in various classes, so it made a bit more sense to centralize them, so it\textquotesingle{}s easier for user to find and change these.
+
+The global nature of them does mean that changing the settings for one instance has a global influence.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Settings.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_settings_ab800269b5df1a028397507346f162bcf}\label{class_sabre_1_1_v_object_1_1_settings_ab800269b5df1a028397507346f162bcf}} 
+\index{Sabre\+::\+V\+Object\+::\+Settings@{Sabre\+::\+V\+Object\+::\+Settings}!\$max\+Date@{\$max\+Date}}
+\index{\$max\+Date@{\$max\+Date}!Sabre\+::\+V\+Object\+::\+Settings@{Sabre\+::\+V\+Object\+::\+Settings}}
+\subsubsection{\texorpdfstring{\$max\+Date}{$maxDate}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Settings\+::\$max\+Date = \textquotesingle{}2100-\/01-\/01\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}
+
+The maximum date we accept for various calculations with dates, such as recurrences.
+
+The choice of 2100 is pretty arbitrary, but should cover most appointments made for many years to come. 
+
+Definiert in Zeile 37 der Datei Settings.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_settings_ae70079c375fb5e7199334830e4e58aa4}\label{class_sabre_1_1_v_object_1_1_settings_ae70079c375fb5e7199334830e4e58aa4}} 
+\index{Sabre\+::\+V\+Object\+::\+Settings@{Sabre\+::\+V\+Object\+::\+Settings}!\$max\+Recurrences@{\$max\+Recurrences}}
+\index{\$max\+Recurrences@{\$max\+Recurrences}!Sabre\+::\+V\+Object\+::\+Settings@{Sabre\+::\+V\+Object\+::\+Settings}}
+\subsubsection{\texorpdfstring{\$max\+Recurrences}{$maxRecurrences}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Settings\+::\$max\+Recurrences = 3500\hspace{0.3cm}{\ttfamily [static]}}
+
+The maximum number of recurrences that will be generated.
+
+This setting limits the maximum of recurring events that this library generates in its recurrence iterators.
+
+This is a security measure. Without this, it would be possible to craft specific events that recur many, many times, potentially D\+D\+O\+Sing the server.
+
+The default (3500) allows creation of a dialy event that goes on for 10 years, which is hopefully long enough for most.
+
+Set this value to -\/1 to disable this control altogether. 
+
+Definiert in Zeile 54 der Datei Settings.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_settings_af44461f32762ddf79f5721235618a1ca}\label{class_sabre_1_1_v_object_1_1_settings_af44461f32762ddf79f5721235618a1ca}} 
+\index{Sabre\+::\+V\+Object\+::\+Settings@{Sabre\+::\+V\+Object\+::\+Settings}!\$min\+Date@{\$min\+Date}}
+\index{\$min\+Date@{\$min\+Date}!Sabre\+::\+V\+Object\+::\+Settings@{Sabre\+::\+V\+Object\+::\+Settings}}
+\subsubsection{\texorpdfstring{\$min\+Date}{$minDate}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Settings\+::\$min\+Date = \textquotesingle{}1900-\/01-\/01\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}
+
+The minimum date we accept for various calculations with dates, such as recurrences.
+
+The choice of 1900 is pretty arbitrary, but it covers most common use-\/cases. In particular, it covers birthdates for virtually everyone alive on earth, which is less than 5 people at the time of writing. 
+
+Definiert in Zeile 28 der Datei Settings.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/Settings.\+php\end{DoxyCompactItemize}

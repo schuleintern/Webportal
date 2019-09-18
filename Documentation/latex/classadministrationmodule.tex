@@ -1,0 +1,112 @@
+\hypertarget{classadministrationmodule}{}\section{administrationmodule Klassenreferenz}
+\label{classadministrationmodule}\index{administrationmodule@{administrationmodule}}
+Klassendiagramm für administrationmodule\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classadministrationmodule}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classadministrationmodule_a13f088272a5a72363e7100c7f0084286}\label{classadministrationmodule_a13f088272a5a72363e7100c7f0084286}} 
+{\bfseries execute} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classadministrationmodule_ad511d7c0e5be0c6d257c396f1c1c54df}{get\+User\+List\+With\+Add\+Function}} (\$self\+U\+RL, \$name, \$action\+Add, \$action\+Delete, \$title, \$beschreibung, \$user\+Group)
+\item 
+\mbox{\Hypertarget{classadministrationmodule_a1babbdc7abbff23dc16e377cf2fdde76}\label{classadministrationmodule_a1babbdc7abbff23dc16e377cf2fdde76}} 
+static {\bfseries has\+Settings} ()
+\item 
+static \mbox{\hyperlink{classadministrationmodule_ab1155eaf2fecbdd7e5be823a1577f97e}{get\+Settings\+Description}} ()
+\item 
+\mbox{\Hypertarget{classadministrationmodule_adcb5f5f9d40b8c280bdde14aab3e73d8}\label{classadministrationmodule_adcb5f5f9d40b8c280bdde14aab3e73d8}} 
+static {\bfseries get\+Site\+Display\+Name} ()
+\item 
+static \mbox{\hyperlink{classadministrationmodule_a3385151fee17c9aa7cb6c16f50d28d10}{get\+User\+Groups}} ()
+\item 
+\mbox{\Hypertarget{classadministrationmodule_a9e450810729b43d11babb999ad09c446}\label{classadministrationmodule_a9e450810729b43d11babb999ad09c446}} 
+static {\bfseries site\+Is\+Always\+Active} ()
+\item 
+\mbox{\Hypertarget{classadministrationmodule_a6236a4a8b67f6ea6ce6c99ae5b90c316}\label{classadministrationmodule_a6236a4a8b67f6ea6ce6c99ae5b90c316}} 
+static {\bfseries has\+Admin} ()
+\item 
+\mbox{\Hypertarget{classadministrationmodule_a90782ee49a541ba8f6aa760d55005025}\label{classadministrationmodule_a90782ee49a541ba8f6aa760d55005025}} 
+static {\bfseries need2\+Factor} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 6 der Datei administrationmodule.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{classadministrationmodule_ab1155eaf2fecbdd7e5be823a1577f97e}\label{classadministrationmodule_ab1155eaf2fecbdd7e5be823a1577f97e}} 
+\index{administrationmodule@{administrationmodule}!get\+Settings\+Description@{get\+Settings\+Description}}
+\index{get\+Settings\+Description@{get\+Settings\+Description}!administrationmodule@{administrationmodule}}
+\subsubsection{\texorpdfstring{get\+Settings\+Description()}{getSettingsDescription()}}
+{\footnotesize\ttfamily static administrationmodule\+::get\+Settings\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Stellt eine Beschreibung der Einstellungen bereit, die für das Modul nötig sind. \begin{DoxyReturn}{Rückgabe}
+array(\+String, String) array( array( \textquotesingle{}name\textquotesingle{} =$>$ \char`\"{}\+Name der Einstellung (z.\+B. formblatt-\/is\+Active)\char`\"{}, \textquotesingle{}typ\textquotesingle{} =$>$ Z\+E\+I\+LE $\vert$ T\+E\+XT $\vert$ N\+U\+M\+M\+ER $\vert$ B\+O\+O\+L\+E\+AN, \textquotesingle{}titel\textquotesingle{} =$>$ \char`\"{}\+Titel der Beschreibung\char`\"{}, \textquotesingle{}text\textquotesingle{} =$>$ \char`\"{}\+Text der Beschreibung\char`\"{} ) , ) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 342 der Datei administrationmodule.\+class.\+php.
+
+\mbox{\Hypertarget{classadministrationmodule_a3385151fee17c9aa7cb6c16f50d28d10}\label{classadministrationmodule_a3385151fee17c9aa7cb6c16f50d28d10}} 
+\index{administrationmodule@{administrationmodule}!get\+User\+Groups@{get\+User\+Groups}}
+\index{get\+User\+Groups@{get\+User\+Groups}!administrationmodule@{administrationmodule}}
+\subsubsection{\texorpdfstring{get\+User\+Groups()}{getUserGroups()}}
+{\footnotesize\ttfamily static administrationmodule\+::get\+User\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Liest alle Nutzergruppen aus, die diese Seite verwendet. (Für die Benutzeradministration) \begin{DoxyReturn}{Rückgabe}
+array(array(\textquotesingle{}group\+Name\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{}, \textquotesingle{}beschreibung\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{})) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 355 der Datei administrationmodule.\+class.\+php.
+
+\mbox{\Hypertarget{classadministrationmodule_ad511d7c0e5be0c6d257c396f1c1c54df}\label{classadministrationmodule_ad511d7c0e5be0c6d257c396f1c1c54df}} 
+\index{administrationmodule@{administrationmodule}!get\+User\+List\+With\+Add\+Function@{get\+User\+List\+With\+Add\+Function}}
+\index{get\+User\+List\+With\+Add\+Function@{get\+User\+List\+With\+Add\+Function}!administrationmodule@{administrationmodule}}
+\subsubsection{\texorpdfstring{get\+User\+List\+With\+Add\+Function()}{getUserListWithAddFunction()}}
+{\footnotesize\ttfamily static administrationmodule\+::get\+User\+List\+With\+Add\+Function (\begin{DoxyParamCaption}\item[{}]{\$self\+U\+RL,  }\item[{}]{\$name,  }\item[{}]{\$action\+Add,  }\item[{}]{\$action\+Delete,  }\item[{}]{\$title,  }\item[{}]{\$beschreibung,  }\item[{}]{\$user\+Group }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Zeigt einen Kasten an, mit dem Benutzer zur Gruppe \$user\+Group hinzugefügt oder entfernt werden können.
+
+
+\begin{DoxyParams}[1]{Parameter}
+unknown & {\em \$self\+U\+RL} & U\+RL zur Administration \\
+\hline
+unknown & {\em \$name} & interner Name des Blocks (ohne Leerzeichen) \\
+\hline
+unknown & {\em \$action\+Add} & Aktion zum Hinzufügen \\
+\hline
+unknown & {\em \$action\+Delete} & Aktion zum Löschen \\
+\hline
+unknown & {\em \$title} & Titel des Blocks \\
+\hline
+unknown & {\em \$beschreibung} & Beschreibung des Blocks \\
+\hline
+unknown & {\em \$user\+Group} & Benutzergruppe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 302 der Datei administrationmodule.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/page/administration/administrationmodule.\+class.\+php\end{DoxyCompactItemize}

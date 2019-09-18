@@ -1,0 +1,90 @@
+\hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sync_support}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Sync\+Support Schnittstellenreferenz}
+\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sync_support}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sync\+Support@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sync\+Support}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Sync\+Support\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sync_support}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sync_support_abe47a53f20bbcd3f5634e1104ea84666}{get\+Changes\+For\+Calendar}} (\$calendar\+Id, \$sync\+Token, \$sync\+Level, \$limit=null)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Web\+D\+A\+V-\/sync support for Cal\+D\+AV backends.
+
+In order for backends to advertise support for Web\+D\+A\+V-\/sync, this interface must be implemented.
+
+Implementing this can result in a significant reduction of bandwidth and C\+PU time.
+
+For this to work, you {\itshape must} return a \{\href{http://sabredav.org/ns}{\tt http\+://sabredav.\+org/ns}\}sync-\/token property from get\+Calendars\+From\+User.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 21 der Datei Sync\+Support.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sync_support_abe47a53f20bbcd3f5634e1104ea84666}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_sync_support_abe47a53f20bbcd3f5634e1104ea84666}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sync\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sync\+Support}!get\+Changes\+For\+Calendar@{get\+Changes\+For\+Calendar}}
+\index{get\+Changes\+For\+Calendar@{get\+Changes\+For\+Calendar}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sync\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Sync\+Support}}
+\subsubsection{\texorpdfstring{get\+Changes\+For\+Calendar()}{getChangesForCalendar()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Sync\+Support\+::get\+Changes\+For\+Calendar (\begin{DoxyParamCaption}\item[{}]{\$calendar\+Id,  }\item[{}]{\$sync\+Token,  }\item[{}]{\$sync\+Level,  }\item[{}]{\$limit = {\ttfamily null} }\end{DoxyParamCaption})}
+
+The get\+Changes method returns all the changes that have happened, since the specified sync\+Token in the specified calendar.
+
+This function should return an array, such as the following\+:
+
+\mbox{[} \textquotesingle{}sync\+Token\textquotesingle{} =$>$ \textquotesingle{}The current synctoken\textquotesingle{}, \textquotesingle{}added\textquotesingle{} =$>$ \mbox{[} \textquotesingle{}new.\+txt\textquotesingle{}, \mbox{]}, \textquotesingle{}modified\textquotesingle{} =$>$ \mbox{[} \textquotesingle{}modified.\+txt\textquotesingle{}, \mbox{]}, \textquotesingle{}deleted\textquotesingle{} =$>$ \mbox{[} \textquotesingle{}foo.\+php.\+bak\textquotesingle{}, \textquotesingle{}old.\+txt\textquotesingle{} \mbox{]} );
+
+The returned sync\+Token property should reflect the {\itshape current} sync\+Token of the calendar, as reported in the \{\href{http://sabredav.org/ns}{\tt http\+://sabredav.\+org/ns}\}sync-\/token property This is $\ast$ needed here too, to ensure the operation is atomic.
+
+If the \$sync\+Token argument is specified as null, this is an initial sync, and all members should be reported.
+
+The modified property is an array of nodenames that have changed since the last token.
+
+The deleted property is an array with nodenames, that have been deleted from collection.
+
+The \$sync\+Level argument is basically the \textquotesingle{}depth\textquotesingle{} of the report. If it\textquotesingle{}s 1, you only have to report changes that happened only directly in immediate descendants. If it\textquotesingle{}s 2, it should also include changes from the nodes below the child collections. (grandchildren)
+
+The \$limit argument allows a client to specify how many results should be returned at most. If the limit is not specified, it should be treated as infinite.
+
+If the limit (infinite or not) is higher than you\textquotesingle{}re willing to return, you should throw a Sabre() exception.
+
+If the sync\+Token is expired (due to data cleanup) or unknown, you must return null.
+
+The limit is \textquotesingle{}suggestive\textquotesingle{}. You are free to ignore it.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$calendar\+Id} & \\
+\hline
+string & {\em \$sync\+Token} & \\
+\hline
+int & {\em \$sync\+Level} & \\
+\hline
+int & {\em \$limit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_p_d_o_aed8442b6c016203cfc3cfcb2054938e7}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Backend/Sync\+Support.\+php\end{DoxyCompactItemize}

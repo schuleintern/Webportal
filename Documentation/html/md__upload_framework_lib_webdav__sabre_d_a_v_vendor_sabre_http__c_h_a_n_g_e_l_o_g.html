@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: ChangeLog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ChangeLog </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h2>4.2.2 (2017-01-02) </h2>
+<ul>
+<li>#72: Handling clients that send invalid <code>Content-Length</code> headers.</li>
+</ul>
+<h2>4.2.1 (2016-01-06) </h2>
+<ul>
+<li>#56: <code>getBodyAsString</code> now returns at most as many bytes as the contents of the <code>Content-Length</code> header. This allows users to pass much larger strings without having to copy and truncate them.</li>
+<li>The client now sets a default <code>User-Agent</code> header identifying this library.</li>
+</ul>
+<h2>4.2.0 (2016-01-04) </h2>
+<ul>
+<li>This package now supports sabre/event 3.0.</li>
+</ul>
+<h2>4.1.0 (2015-09-04) </h2>
+<ul>
+<li>The async client wouldn't <code>wait()</code> for new http requests being started after the (previous) last request in the queue was resolved.</li>
+<li>Added <code>Sabre\HTTP\Auth\Bearer</code>, to easily extract a OAuth2 bearer token.</li>
+</ul>
+<h2>4.0.0 (2015-05-20) </h2>
+<ul>
+<li>Deprecated: All static functions from <code>Sabre\HTTP\URLUtil</code> and <code>Sabre\HTTP\Util</code> moved to a separate <code>functions.php</code>, which is also autoloaded. The old functions are still there, but will be removed in a future version. (#49)</li>
+</ul>
+<h2>4.0.0-alpha3 (2015-05-19) </h2>
+<ul>
+<li>Added a parser for the HTTP <code>Prefer</code> header, as defined in [RFC7240][rfc7240].</li>
+<li>Deprecated <code>Sabre\HTTP\Util::parseHTTPDate</code>, use <code>Sabre\HTTP\parseDate()</code>.</li>
+<li>Deprecated <code>Sabre\HTTP\Util::toHTTPDate</code> use <code>Sabre\HTTP\toDate()</code>.</li>
+</ul>
+<h2>4.0.0-alpha2 (2015-05-18) </h2>
+<ul>
+<li>#45: Don't send more data than what is promised in the HTTP content-length. ().</li>
+<li>#43: <code>getCredentials</code> returns null if incomplete. ()</li>
+<li>#48: Now using php-cs-fixer to make our CS consistent (yay!)</li>
+<li>This includes fixes released in version 3.0.5.</li>
+</ul>
+<h2>4.0.0-alpha1 (2015-02-25) </h2>
+<ul>
+<li>#41: Fixing bugs related to comparing URLs in <code>Request::getPath()</code>.</li>
+<li>#41: This library now uses the <code>sabre/uri</code> package for uri handling.</li>
+<li>Added <code>421 Misdirected Request</code> from the HTTP/2.0 spec.</li>
+</ul>
+<h2>3.0.5 (2015-05-11) </h2>
+<ul>
+<li>#47 #35: When re-using the client and doing any request after a <code>HEAD</code> request, the client discards the body.</li>
+</ul>
+<h2>3.0.4 (2014-12-10) </h2>
+<ul>
+<li>#38: The Authentication helpers no longer overwrite any existing <code>WWW-Authenticate</code> headers, but instead append new headers. This ensures that multiple authentication systems can exist in the same environment.</li>
+</ul>
+<h2>3.0.3 (2014-12-03) </h2>
+<ul>
+<li>Hiding <code>Authorization</code> header value from <code>Request::__toString</code>.</li>
+</ul>
+<h2>3.0.2 (2014-10-09) </h2>
+<ul>
+<li>When parsing <code>Accept:</code> headers, we're ignoring invalid parts. Before we would throw a PHP E_NOTICE.</li>
+</ul>
+<h2>3.0.1 (2014-09-29) </h2>
+<ul>
+<li>Minor change in unittests.</li>
+</ul>
+<h2>3.0.0 (2014-09-23) </h2>
+<ul>
+<li><code>getHeaders()</code> now returns header values as an array, just like psr/http.</li>
+<li>Added <code>hasHeader()</code>.</li>
+</ul>
+<h2>2.1.0-alpha1 (2014-09-15) </h2>
+<ul>
+<li>Changed: Copied most of the header-semantics for the PSR draft for representing HTTP messages. https://github.com/php-fig/fig-standards/blob/master/proposed/http-message.md "Reference here".</li>
+<li>This means that <code>setHeaders()</code> does not wipe out every existing header anymore.</li>
+<li>We also support multiple headers with the same name.</li>
+<li>Use <code>Request::getHeaderAsArray()</code> and <code>Response::getHeaderAsArray()</code> to get a hold off multiple headers with the same name.</li>
+<li>If you use <code>getHeader()</code>, and there's more than 1 header with that name, we concatenate all these with a comma.</li>
+<li><code>addHeader()</code> will now preserve an existing header with that name, and add a second header with the same name.</li>
+<li>The message class should be a lot faster now for looking up headers. No more array traversal, because we maintain a tiny index.</li>
+<li>Added: <code>URLUtil::resolve()</code> to make resolving relative urls super easy.</li>
+<li>Switched to PSR-4.</li>
+<li>#12: Circumventing CURL's FOLLOW_LOCATION and doing it in PHP instead. This fixes compatibility issues with people that have open_basedir turned on.</li>
+<li>Added: Content negotiation now correctly support mime-type parameters such as charset.</li>
+<li>Changed: <code>Util::negotiate()</code> is now deprecated. Use <code>Util::negotiateContentType()</code> instead.</li>
+<li>#14: The client now only follows http and https urls.</li>
+</ul>
+<h2>2.0.4 (2014-07-14) </h2>
+<ul>
+<li>Changed: No longer escaping @ in urls when it's not needed.</li>
+<li>Fixed: #7: Client now correctly deals with responses without a body.</li>
+</ul>
+<h2>2.0.3 (2014-04-17) </h2>
+<ul>
+<li>Now works on hhvm!</li>
+<li>Fixed: Now throwing an error when a Request object is being created with arguments that were valid for sabre/http 1.0. Hopefully this will aid with debugging for upgraders.</li>
+</ul>
+<h2>2.0.2 (2014-02-09) </h2>
+<ul>
+<li>Fixed: Potential security problem in the client.</li>
+</ul>
+<h2>2.0.1 (2014-01-09) </h2>
+<ul>
+<li>Fixed: getBodyAsString on an empty body now works.</li>
+<li>Fixed: Version string</li>
+</ul>
+<h2>2.0.0 (2014-01-08) </h2>
+<ul>
+<li>Removed: Request::createFromPHPRequest. This is now handled by Sapi::getRequest.</li>
+</ul>
+<h2>2.0.0alpha6 (2014-01-03) </h2>
+<ul>
+<li>Added: Asynchronous HTTP client. See <a class="el" href="asyncclient_8php_source.html">examples/asyncclient.php</a>.</li>
+<li>Fixed: Issue #4: Don't escape colon (:) when it's not needed.</li>
+<li>Fixed: Fixed a bug in the content negotation script.</li>
+<li>Fixed: Fallback for when CURLOPT_POSTREDIR is not defined (mainly for hhvm).</li>
+<li>Added: The Request and Response object now have a <code>__toString()</code> method that serializes the objects into a standard HTTP message. This is mainly for debugging purposes.</li>
+<li>Changed: Added Response::getStatusText(). This method returns the human-readable HTTP status message. This part has been removed from Response::getStatus(), which now always returns just the status code as an int.</li>
+<li>Changed: Response::send() is now Sapi::sendResponse($response).</li>
+<li>Changed: Request::createFromPHPRequest is now Sapi::getRequest().</li>
+<li>Changed: Message::getBodyAsStream and Message::getBodyAsString were added. The existing Message::getBody changed it's behavior, so be careful.</li>
+</ul>
+<h2>2.0.0alpha5 (2013-11-07) </h2>
+<ul>
+<li>Added: HTTP Status 451 Unavailable For Legal Reasons. Fight government censorship!</li>
+<li>Added: Ability to catch and retry http requests in the client when a curl error occurs.</li>
+<li>Changed: Request::getPath does not return the query part of the url, so everything after the ? is stripped.</li>
+<li>Added: a reverse proxy example.</li>
+</ul>
+<h2>2.0.0alpha4 (2013-08-07) </h2>
+<ul>
+<li>Fixed: Doing a GET request with the client uses the last used HTTP method instead.</li>
+<li>Added: HttpException</li>
+<li>Added: The Client class can now automatically emit exceptions when HTTP errors occurred.</li>
+</ul>
+<h2>2.0.0alpha3 (2013-07-24) </h2>
+<ul>
+<li>Changed: Now depends on sabre/event package.</li>
+<li>Changed: setHeaders() now overwrites any existing http headers.</li>
+<li>Added: getQueryParameters to RequestInterface.</li>
+<li>Added: Util::negotiate.</li>
+<li>Added: RequestDecorator, ResponseDecorator.</li>
+<li>Added: A very simple HTTP client.</li>
+<li>Added: addHeaders() to append a list of new headers.</li>
+<li>Fixed: Not erroring on unknown HTTP status codes.</li>
+<li>Fixed: Throwing exceptions on invalid HTTP status codes (not 3 digits).</li>
+<li>Fixed: Much better README.md</li>
+<li>Changed: getBody() now uses a bitfield to specify what type to return.</li>
+</ul>
+<h2>2.0.0alpha2 (2013-07-02) </h2>
+<ul>
+<li>Added: Digest &amp; AWS Authentication.</li>
+<li>Added: Message::getHttpVersion and Message::setHttpVersion.</li>
+<li>Added: Request::setRawServerArray, getRawServerValue.</li>
+<li>Added: Request::createFromPHPRequest</li>
+<li>Added: Response::send</li>
+<li>Added: Request::getQueryParameters</li>
+<li>Added: Utility for dealing with HTTP dates.</li>
+<li>Added: Request::setPostData and Request::getPostData.</li>
+<li>Added: Request::setAbsoluteUrl and Request::getAbsoluteUrl.</li>
+<li>Added: URLUtil, methods for calculation relative and base urls.</li>
+<li>Removed: Response::sendBody</li>
+</ul>
+<h2>2.0.0alpha1 (2012-10-07) </h2>
+<ul>
+<li>Fixed: Lots of small naming improvements</li>
+<li>Added: Introduction of <a class="el" href="class_message.html">Message</a>, MessageInterface, Response, ResponseInterface.</li>
+</ul>
+<p>Before 2.0.0, this package was built-into SabreDAV, where it first appeared in January 2009. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

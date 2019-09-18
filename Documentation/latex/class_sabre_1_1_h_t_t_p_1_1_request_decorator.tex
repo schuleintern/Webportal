@@ -1,0 +1,428 @@
+\hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Request\+Decorator Klassenreferenz}
+\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Request\+Decorator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_h_t_t_p_1_1_request_decorator}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ac403c648cdd078a700d33e442847a3bf}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$inner)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a696811a053a65fafc920dbdfde0bd545}{get\+Method}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a585f5ca3ea04942eb78b14a16ec48d46}{set\+Method}} (\$method)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a7d8a661f5bc1d045b4d1d9d315ff6aae}{get\+Url}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a7cb8a935719f2e497d30a8aabdef58b2}{set\+Url}} (\$url)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a5534f8c39e2618f40c5c1ff41c44a5ab}{get\+Absolute\+Url}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ad3a68a47dd02e6e338ce03dac1dc409a}{set\+Absolute\+Url}} (\$url)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ae083a7f3c8138b06e8beae5dfca6fd92}{get\+Base\+Url}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ade9d2cb79ced7689675d480ffe5cf781}{set\+Base\+Url}} (\$url)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a4349070826f60655b60ea18a61dc8c3c}{get\+Path}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a53b080a564c253e8eb531c6d3bc193c8}{get\+Query\+Parameters}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ac11069037a0860cdcdf128ee9ba307fb}{get\+Post\+Data}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ac355c936a5f6baddd65c55f8d5d81032}{set\+Post\+Data}} (array \$post\+Data)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a9e7d4fb06d30561c0bcf256a897afdaf}{get\+Raw\+Server\+Value}} (\$value\+Name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_acaa7bf6e2566bd2c554dc8f589c93f51}{set\+Raw\+Server\+Data}} (array \$data)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a95698fd1b0719895d4db58964832dd06}{\+\_\+\+\_\+to\+String}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request}{Request}} Decorator
+
+This helper class allows you to easily create decorators for the \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request}{Request}} object.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 15 der Datei Request\+Decorator.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ac403c648cdd078a700d33e442847a3bf}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ac403c648cdd078a700d33e442847a3bf}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$inner }\end{DoxyParamCaption})}
+
+Constructor.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} & {\em \$inner} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 24 der Datei Request\+Decorator.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a95698fd1b0719895d4db58964832dd06}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a95698fd1b0719895d4db58964832dd06}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}}
+\index{\+\_\+\+\_\+to\+String@{\+\_\+\+\_\+to\+String}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+to\+String()}{\_\_toString()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::\+\_\+\+\_\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Serializes the request object as a string.
+
+This is useful for debugging purposes.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 226 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a5534f8c39e2618f40c5c1ff41c44a5ab}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a5534f8c39e2618f40c5c1ff41c44a5ab}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!get\+Absolute\+Url@{get\+Absolute\+Url}}
+\index{get\+Absolute\+Url@{get\+Absolute\+Url}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{get\+Absolute\+Url()}{getAbsoluteUrl()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::get\+Absolute\+Url (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the absolute url.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_a8c8267e6a7d901a0f63f66a2ecc59a91}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 81 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ae083a7f3c8138b06e8beae5dfca6fd92}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ae083a7f3c8138b06e8beae5dfca6fd92}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!get\+Base\+Url@{get\+Base\+Url}}
+\index{get\+Base\+Url@{get\+Base\+Url}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{get\+Base\+Url()}{getBaseUrl()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::get\+Base\+Url (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the current base url.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_af5683bbd6dfff74d91ac4620ae328feb}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 104 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a696811a053a65fafc920dbdfde0bd545}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a696811a053a65fafc920dbdfde0bd545}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!get\+Method@{get\+Method}}
+\index{get\+Method@{get\+Method}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{get\+Method()}{getMethod()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::get\+Method (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the current H\+T\+TP method
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_a261109b4898971242fccc2097a880131}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 35 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a4349070826f60655b60ea18a61dc8c3c}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a4349070826f60655b60ea18a61dc8c3c}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!get\+Path@{get\+Path}}
+\index{get\+Path@{get\+Path}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{get\+Path()}{getPath()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::get\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the relative path.
+
+This is being calculated using the base url. This path will not start with a slash, so it will always return something like \textquotesingle{}example/path.\+html\textquotesingle{}.
+
+If the full path is equal to the base url, this method will return an empty string.
+
+This method will also urldecode the path, and if the url was incoded as I\+S\+O-\/8859-\/1, it will convert it to U\+T\+F-\/8.
+
+If the path is outside of the base url, a Logic\+Exception will be thrown.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_aea4dd5571c841fa1e41b05813299bae4}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 143 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ac11069037a0860cdcdf128ee9ba307fb}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ac11069037a0860cdcdf128ee9ba307fb}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!get\+Post\+Data@{get\+Post\+Data}}
+\index{get\+Post\+Data@{get\+Post\+Data}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{get\+Post\+Data()}{getPostData()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::get\+Post\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the P\+O\+ST data.
+
+This is equivalent to P\+HP\textquotesingle{}s \$\+\_\+\+P\+O\+ST superglobal.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_ae33360454f0d43e566b76de24682af33}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 169 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a53b080a564c253e8eb531c6d3bc193c8}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a53b080a564c253e8eb531c6d3bc193c8}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!get\+Query\+Parameters@{get\+Query\+Parameters}}
+\index{get\+Query\+Parameters@{get\+Query\+Parameters}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{get\+Query\+Parameters()}{getQueryParameters()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::get\+Query\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of query parameters.
+
+This is equivalent to P\+HP\textquotesingle{}s \$\+\_\+\+G\+ET superglobal.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_a9e54c49278b75692ba00bd4f5932856f}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 156 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a9e7d4fb06d30561c0bcf256a897afdaf}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a9e7d4fb06d30561c0bcf256a897afdaf}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!get\+Raw\+Server\+Value@{get\+Raw\+Server\+Value}}
+\index{get\+Raw\+Server\+Value@{get\+Raw\+Server\+Value}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{get\+Raw\+Server\+Value()}{getRawServerValue()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::get\+Raw\+Server\+Value (\begin{DoxyParamCaption}\item[{}]{\$value\+Name }\end{DoxyParamCaption})}
+
+Returns an item from the \+\_\+\+S\+E\+R\+V\+ER array.
+
+If the value does not exist in the array, null is returned.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$value\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_a96c2cbeb9c1e9c3431c0f98bc7c7d93c}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 201 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a7d8a661f5bc1d045b4d1d9d315ff6aae}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a7d8a661f5bc1d045b4d1d9d315ff6aae}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!get\+Url@{get\+Url}}
+\index{get\+Url@{get\+Url}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{get\+Url()}{getUrl()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::get\+Url (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the request url.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_a0b28a29e4efe43665cc2f23fbac62570}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 58 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ad3a68a47dd02e6e338ce03dac1dc409a}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ad3a68a47dd02e6e338ce03dac1dc409a}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!set\+Absolute\+Url@{set\+Absolute\+Url}}
+\index{set\+Absolute\+Url@{set\+Absolute\+Url}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{set\+Absolute\+Url()}{setAbsoluteUrl()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::set\+Absolute\+Url (\begin{DoxyParamCaption}\item[{}]{\$url }\end{DoxyParamCaption})}
+
+Sets the absolute url.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$url} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_a83a1eb456bef5552d0cbaae761f91ac1}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 93 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ade9d2cb79ced7689675d480ffe5cf781}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ade9d2cb79ced7689675d480ffe5cf781}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!set\+Base\+Url@{set\+Base\+Url}}
+\index{set\+Base\+Url@{set\+Base\+Url}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{set\+Base\+Url()}{setBaseUrl()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::set\+Base\+Url (\begin{DoxyParamCaption}\item[{}]{\$url }\end{DoxyParamCaption})}
+
+Sets a base url.
+
+This url is used for relative path calculations.
+
+The base url should default to /
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$url} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_a1666fb35c3bad57838f187bf40105be4}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 120 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a585f5ca3ea04942eb78b14a16ec48d46}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a585f5ca3ea04942eb78b14a16ec48d46}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!set\+Method@{set\+Method}}
+\index{set\+Method@{set\+Method}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{set\+Method()}{setMethod()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::set\+Method (\begin{DoxyParamCaption}\item[{}]{\$method }\end{DoxyParamCaption})}
+
+Sets the H\+T\+TP method
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$method} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_a91dcec67206436b8439e0256b6388da0}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 47 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ac355c936a5f6baddd65c55f8d5d81032}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_ac355c936a5f6baddd65c55f8d5d81032}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!set\+Post\+Data@{set\+Post\+Data}}
+\index{set\+Post\+Data@{set\+Post\+Data}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{set\+Post\+Data()}{setPostData()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::set\+Post\+Data (\begin{DoxyParamCaption}\item[{array}]{\$post\+Data }\end{DoxyParamCaption})}
+
+Sets the post data.
+
+This is equivalent to P\+HP\textquotesingle{}s \$\+\_\+\+P\+O\+ST superglobal.
+
+This would not have been needed, if P\+O\+ST data was accessible as php\+://input, but unfortunately we need to special case it.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$post\+Data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_a4ba8b65d991c82677688a785a9d4014a}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 186 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_acaa7bf6e2566bd2c554dc8f589c93f51}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_acaa7bf6e2566bd2c554dc8f589c93f51}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!set\+Raw\+Server\+Data@{set\+Raw\+Server\+Data}}
+\index{set\+Raw\+Server\+Data@{set\+Raw\+Server\+Data}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{set\+Raw\+Server\+Data()}{setRawServerData()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::set\+Raw\+Server\+Data (\begin{DoxyParamCaption}\item[{array}]{\$data }\end{DoxyParamCaption})}
+
+Sets the \+\_\+\+S\+E\+R\+V\+ER array.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_a025c72064e34e843a8fd402e6407894c}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 213 der Datei Request\+Decorator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a7cb8a935719f2e497d30a8aabdef58b2}\label{class_sabre_1_1_h_t_t_p_1_1_request_decorator_a7cb8a935719f2e497d30a8aabdef58b2}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}!set\+Url@{set\+Url}}
+\index{set\+Url@{set\+Url}!Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator@{Sabre\+::\+H\+T\+T\+P\+::\+Request\+Decorator}}
+\subsubsection{\texorpdfstring{set\+Url()}{setUrl()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Decorator\+::set\+Url (\begin{DoxyParamCaption}\item[{}]{\$url }\end{DoxyParamCaption})}
+
+Sets the request url.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$url} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface_aa588eaadc450324b11562119bb1933a0}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Request\+Interface}}.
+
+
+
+Definiert in Zeile 70 der Datei Request\+Decorator.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/lib/Request\+Decorator.\+php\end{DoxyCompactItemize}

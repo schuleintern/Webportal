@@ -1,0 +1,178 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Notifications\textbackslash{}Plugin Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Plugin@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Plugin}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Notifications\textbackslash{}Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_ae5ad126289787eca8c0f8ffc44b6afc7}{get\+Plugin\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a0533b4b740abd9f0b9880efc41b99242}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_afe5c2113cdf8ba5c86cb966cc61a1835}{prop\+Find}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}} \$prop\+Find, Base\+I\+Node \$node)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a3c35045fc42619bd7095bfcec7fc5e75}{http\+Get}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_ae4ae94078bdf6b64250e05cdb6a8aed4}{get\+Plugin\+Info}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a530c8d1a280038f15171a25a29d0883e}{N\+S\+\_\+\+C\+A\+L\+E\+N\+D\+A\+R\+S\+E\+R\+V\+ER}} = \textquotesingle{}http\+://calendarserver.\+org/ns/\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a37ddb1519380d120fee4e924c0181262}\label{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a37ddb1519380d120fee4e924c0181262}} 
+{\bfseries \$server}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Notifications plugin
+
+This plugin implements several features required by the caldav-\/notification draft specification.
+
+Before version 2.\+1.\+0 this functionality was part of Sabre but this has since been split up.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 27 der Datei Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_ae4ae94078bdf6b64250e05cdb6a8aed4}\label{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_ae4ae94078bdf6b64250e05cdb6a8aed4}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}!get\+Plugin\+Info@{get\+Plugin\+Info}}
+\index{get\+Plugin\+Info@{get\+Plugin\+Info}!Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Info()}{getPluginInfo()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Plugin\+::get\+Plugin\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a bunch of meta-\/data about the plugin.
+
+Providing this information is optional, and is mainly displayed by the Browser plugin.
+
+The description key in the returned array may contain html and will not be sanitized.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 170 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_ae5ad126289787eca8c0f8ffc44b6afc7}\label{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_ae5ad126289787eca8c0f8ffc44b6afc7}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}!get\+Plugin\+Name@{get\+Plugin\+Name}}
+\index{get\+Plugin\+Name@{get\+Plugin\+Name}!Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Name()}{getPluginName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Plugin\+::get\+Plugin\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a plugin name.
+
+Using this name other plugins will be able to access other plugins using \+::get\+Plugin
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 49 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a3c35045fc42619bd7095bfcec7fc5e75}\label{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a3c35045fc42619bd7095bfcec7fc5e75}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}!http\+Get@{http\+Get}}
+\index{http\+Get@{http\+Get}!Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}}
+\subsubsection{\texorpdfstring{http\+Get()}{httpGet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Plugin\+::http\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+This event is triggered before the usual G\+ET request handler.
+
+We use this to intercept G\+ET calls to notification nodes, and return the proper response.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 128 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a0533b4b740abd9f0b9880efc41b99242}\label{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a0533b4b740abd9f0b9880efc41b99242}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}!initialize@{initialize}}
+\index{initialize@{initialize}!Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Plugin\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}}}]{\$server }\end{DoxyParamCaption})}
+
+This initializes the plugin.
+
+This function is called by Sabre, after add\+Plugin is called.
+
+This method should set up the required event subscriptions.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Server & {\em \$server} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 66 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_afe5c2113cdf8ba5c86cb966cc61a1835}\label{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_afe5c2113cdf8ba5c86cb966cc61a1835}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}!prop\+Find@{prop\+Find}}
+\index{prop\+Find@{prop\+Find}!Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}}
+\subsubsection{\texorpdfstring{prop\+Find()}{propFind()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Plugin\+::prop\+Find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}}}]{\$prop\+Find,  }\item[{Base\+I\+Node}]{\$node }\end{DoxyParamCaption})}
+
+Prop\+Find
+
+
+\begin{DoxyParams}[1]{Parameter}
+Prop\+Find & {\em \$prop\+Find} & \\
+\hline
+Base\+I\+Node & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 89 der Datei Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a530c8d1a280038f15171a25a29d0883e}\label{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_plugin_a530c8d1a280038f15171a25a29d0883e}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}!N\+S\+\_\+\+C\+A\+L\+E\+N\+D\+A\+R\+S\+E\+R\+V\+ER@{N\+S\+\_\+\+C\+A\+L\+E\+N\+D\+A\+R\+S\+E\+R\+V\+ER}}
+\index{N\+S\+\_\+\+C\+A\+L\+E\+N\+D\+A\+R\+S\+E\+R\+V\+ER@{N\+S\+\_\+\+C\+A\+L\+E\+N\+D\+A\+R\+S\+E\+R\+V\+ER}!Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Notifications\+::\+Plugin}}
+\subsubsection{\texorpdfstring{N\+S\+\_\+\+C\+A\+L\+E\+N\+D\+A\+R\+S\+E\+R\+V\+ER}{NS\_CALENDARSERVER}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Plugin\+::\+N\+S\+\_\+\+C\+A\+L\+E\+N\+D\+A\+R\+S\+E\+R\+V\+ER = \textquotesingle{}http\+://calendarserver.\+org/ns/\textquotesingle{}}
+
+This is the namespace for the proprietary calendarserver extensions 
+
+Definiert in Zeile 32 der Datei Plugin.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Notifications/Plugin.\+php\end{DoxyCompactItemize}

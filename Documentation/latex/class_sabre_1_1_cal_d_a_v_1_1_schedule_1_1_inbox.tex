@@ -1,0 +1,232 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Schedule\textbackslash{}Inbox Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Schedule\textbackslash{}Inbox\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.745098cm]{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a904643dd961e3b98cf2d3b60ef7fb626}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support}{Backend\textbackslash{}\+Scheduling\+Support}} \$caldav\+Backend, \$principal\+Uri)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a17cc7b8dc7473e91f76d807d42562cf5}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_afd7af5894f052f0a2eb86455065fe495}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a8c56a7ba0178ffd33c6886a248bde08b}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_aaae98d89fe203488407265e19ec7e875}{get\+Owner}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a032faf190d9a2cb08354ecaeca948e8f}{get\+A\+CL}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_ac6cfa0cf27a7ed24ab31747623c62269}{calendar\+Query}} (array \$filters)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a48169fcd0464ab0c119e3e6ea8e1759b}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a48169fcd0464ab0c119e3e6ea8e1759b}} 
+{\bfseries \$caldav\+Backend}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_aab1bdbc43656cadea1aefdacdb78d501}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_aab1bdbc43656cadea1aefdacdb78d501}} 
+{\bfseries \$principal\+Uri}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The Cal\+D\+AV scheduling inbox
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Inbox.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a904643dd961e3b98cf2d3b60ef7fb626}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a904643dd961e3b98cf2d3b60ef7fb626}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_scheduling_support}{Backend\textbackslash{}\+Scheduling\+Support}}}]{\$caldav\+Backend,  }\item[{}]{\$principal\+Uri }\end{DoxyParamCaption})}
+
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameter}
+Backend\textbackslash{}\+Scheduling\+Support & {\em \$caldav\+Backend} & \\
+\hline
+string & {\em \$principal\+Uri} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 42 der Datei Inbox.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_ac6cfa0cf27a7ed24ab31747623c62269}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_ac6cfa0cf27a7ed24ab31747623c62269}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}!calendar\+Query@{calendar\+Query}}
+\index{calendar\+Query@{calendar\+Query}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}}
+\subsubsection{\texorpdfstring{calendar\+Query()}{calendarQuery()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox\+::calendar\+Query (\begin{DoxyParamCaption}\item[{array}]{\$filters }\end{DoxyParamCaption})}
+
+Performs a calendar-\/query on the contents of this calendar.
+
+The calendar-\/query is defined in R\+F\+C4791 \+: Cal\+D\+AV. Using the calendar-\/query it is possible for a client to request a specific set of object, based on contents of i\+Calendar properties, date-\/ranges and i\+Calendar component types (V\+T\+O\+DO, V\+E\+V\+E\+NT).
+
+This method should just return a list of (relative) urls that match this query.
+
+The list of filters are specified as an array. The exact array is documented by .
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container_abb74b291f0e04c59cf0ca1003d21ba77}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+I\+Calendar\+Object\+Container}}.
+
+
+
+Definiert in Zeile 184 der Datei Inbox.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a8c56a7ba0178ffd33c6886a248bde08b}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a8c56a7ba0178ffd33c6886a248bde08b}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}!create\+File@{create\+File}}
+\index{create\+File@{create\+File}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}}
+\subsubsection{\texorpdfstring{create\+File()}{createFile()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox\+::create\+File (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$data = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates a new file in the directory
+
+Data will either be supplied as a stream resource, or in certain cases as a string. Keep in mind that you may have to support either.
+
+After successful creation of the file, you may choose to return the E\+Tag of the new file here.
+
+The returned E\+Tag must be surrounded by double-\/quotes (The quotes should be part of the actual string).
+
+If you cannot accurately determine the E\+Tag, you should not return it. If you don\textquotesingle{}t store the file exactly as-\/is (you\textquotesingle{}re transforming it somehow) you should also not return an E\+Tag.
+
+This means that if a subsequent G\+ET to this new file does not exactly return the same contents of what was submitted here, you are strongly recommended to omit the E\+Tag.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & Name of the file \\
+\hline
+resource | string & {\em \$data} & Initial payload \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+null$\vert$string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a837d88dac548706770368200f83c2ebc}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 104 der Datei Inbox.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a032faf190d9a2cb08354ecaeca948e8f}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a032faf190d9a2cb08354ecaeca948e8f}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}!get\+A\+CL@{get\+A\+CL}}
+\index{get\+A\+CL@{get\+A\+CL}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}}
+\subsubsection{\texorpdfstring{get\+A\+C\+L()}{getACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox\+::get\+A\+CL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of A\+CE\textquotesingle{}s for this node.
+
+Each A\+CE has the following properties\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}privilege\textquotesingle{}, a string such as \{D\+AV\+:\}read or \{D\+AV\+:\}write. These are currently the only supported privileges
+\item \textquotesingle{}principal\textquotesingle{}, a url to the principal who owns the node
+\item \textquotesingle{}protected\textquotesingle{} (optional), indicating that this A\+CE is not allowed to be updated.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8fe3b3a5b48eae789d7eb722b340045c}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 135 der Datei Inbox.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_afd7af5894f052f0a2eb86455065fe495}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_afd7af5894f052f0a2eb86455065fe495}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}!get\+Children@{get\+Children}}
+\index{get\+Children@{get\+Children}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}}
+\subsubsection{\texorpdfstring{get\+Children()}{getChildren()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox\+::get\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns an array with all the child nodes
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a5344a6890e49fd7a81bb0e38b4c6d0be}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 67 der Datei Inbox.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a17cc7b8dc7473e91f76d807d42562cf5}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a17cc7b8dc7473e91f76d807d42562cf5}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the name of the node.
+
+This is used to generate the url.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 56 der Datei Inbox.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_aaae98d89fe203488407265e19ec7e875}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_aaae98d89fe203488407265e19ec7e875}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}!get\+Owner@{get\+Owner}}
+\index{get\+Owner@{get\+Owner}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+Inbox}}
+\subsubsection{\texorpdfstring{get\+Owner()}{getOwner()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox\+::get\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the owner principal
+
+This must be a url to a principal, or null if there\textquotesingle{}s no owner
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a05f531b4ae1a86eab4e6e95b0413390e}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 117 der Datei Inbox.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Schedule/Inbox.\+php\end{DoxyCompactItemize}

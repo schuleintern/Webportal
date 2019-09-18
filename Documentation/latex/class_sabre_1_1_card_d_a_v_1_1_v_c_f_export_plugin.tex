@@ -1,0 +1,152 @@
+\hypertarget{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin}{}\section{Sabre\textbackslash{}Card\+D\+AV\textbackslash{}V\+C\+F\+Export\+Plugin Klassenreferenz}
+\label{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin}\index{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+V\+C\+F\+Export\+Plugin@{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+V\+C\+F\+Export\+Plugin}}
+Klassendiagramm für Sabre\textbackslash{}Card\+D\+AV\textbackslash{}V\+C\+F\+Export\+Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_a5ff4a2ed1d11c23aaa03535c40dceeff}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_ae177b83aabedab3b79efd4272dfe42bc}{http\+Get}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_a9fdbf212e5f7b5a73803f21f8f26ab2d}{generate\+V\+CF}} (array \$nodes)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_ac8c76a8b670ae37a73679c03a8009b74}{get\+Plugin\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_ae5624d8d7cdd02424e6b128fc6545361}{get\+Plugin\+Info}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_a8869c86c2980b540ec95c646a520c9c3}\label{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_a8869c86c2980b540ec95c646a520c9c3}} 
+{\bfseries \$server}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+V\+CF Exporter
+
+This plugin adds the ability to export entire address books as .vcf files. This is useful for clients that don\textquotesingle{}t support Card\+D\+AV yet. They often do support vcf files.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/}) 
+
+Thomas Tanghus (\href{http://tanghus.net/}{\tt http\+://tanghus.\+net/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 22 der Datei V\+C\+F\+Export\+Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_a9fdbf212e5f7b5a73803f21f8f26ab2d}\label{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_a9fdbf212e5f7b5a73803f21f8f26ab2d}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin@{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin}!generate\+V\+CF@{generate\+V\+CF}}
+\index{generate\+V\+CF@{generate\+V\+CF}!Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin@{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin}}
+\subsubsection{\texorpdfstring{generate\+V\+C\+F()}{generateVCF()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+V\+C\+F\+Export\+Plugin\+::generate\+V\+CF (\begin{DoxyParamCaption}\item[{array}]{\$nodes }\end{DoxyParamCaption})}
+
+Merges all vcard objects, and builds one big vcf export
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$nodes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 113 der Datei V\+C\+F\+Export\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_ae5624d8d7cdd02424e6b128fc6545361}\label{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_ae5624d8d7cdd02424e6b128fc6545361}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin@{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin}!get\+Plugin\+Info@{get\+Plugin\+Info}}
+\index{get\+Plugin\+Info@{get\+Plugin\+Info}!Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin@{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Info()}{getPluginInfo()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+V\+C\+F\+Export\+Plugin\+::get\+Plugin\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a bunch of meta-\/data about the plugin.
+
+Providing this information is optional, and is mainly displayed by the Browser plugin.
+
+The description key in the returned array may contain html and will not be sanitized.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 162 der Datei V\+C\+F\+Export\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_ac8c76a8b670ae37a73679c03a8009b74}\label{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_ac8c76a8b670ae37a73679c03a8009b74}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin@{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin}!get\+Plugin\+Name@{get\+Plugin\+Name}}
+\index{get\+Plugin\+Name@{get\+Plugin\+Name}!Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin@{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Name()}{getPluginName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+V\+C\+F\+Export\+Plugin\+::get\+Plugin\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a plugin name.
+
+Using this name other plugins will be able to access other plugins using \+::get\+Plugin
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 145 der Datei V\+C\+F\+Export\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_ae177b83aabedab3b79efd4272dfe42bc}\label{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_ae177b83aabedab3b79efd4272dfe42bc}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin@{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin}!http\+Get@{http\+Get}}
+\index{http\+Get@{http\+Get}!Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin@{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin}}
+\subsubsection{\texorpdfstring{http\+Get()}{httpGet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+V\+C\+F\+Export\+Plugin\+::http\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+Intercepts G\+ET requests on addressbook urls ending with ?export.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 55 der Datei V\+C\+F\+Export\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_a5ff4a2ed1d11c23aaa03535c40dceeff}\label{class_sabre_1_1_card_d_a_v_1_1_v_c_f_export_plugin_a5ff4a2ed1d11c23aaa03535c40dceeff}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin@{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin}!initialize@{initialize}}
+\index{initialize@{initialize}!Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin@{Sabre\+::\+Card\+D\+A\+V\+::\+V\+C\+F\+Export\+Plugin}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+V\+C\+F\+Export\+Plugin\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}}}]{\$server }\end{DoxyParamCaption})}
+
+Initializes the plugin and registers event handlers
+
+
+\begin{DoxyParams}[1]{Parameter}
+D\+A\+V\textbackslash{}\+Server & {\em \$server} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 37 der Datei V\+C\+F\+Export\+Plugin.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Card\+D\+A\+V/V\+C\+F\+Export\+Plugin.\+php\end{DoxyCompactItemize}

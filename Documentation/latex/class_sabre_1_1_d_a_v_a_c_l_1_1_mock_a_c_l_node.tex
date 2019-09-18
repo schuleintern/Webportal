@@ -1,0 +1,188 @@
+\hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node}{}\section{Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Mock\+A\+C\+L\+Node Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node}\index{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node@{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node}}
+Klassendiagramm für Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Mock\+A\+C\+L\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_afdbbf540850fc022ae00a2239200f5ae}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_afdbbf540850fc022ae00a2239200f5ae}} 
+{\bfseries \+\_\+\+\_\+construct} (\$name, array \$acl=\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_accfb75d9c0a586cdb2501e323c6b0f02}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a24283bdd3d5c45d8aeae2fba3324fefa}{get\+Owner}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_af63c8a7655e4bb7eb9770369619af403}{get\+Group}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a2c9847639e9c69f53d39a8d71d704ab6}{get\+A\+CL}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a97023e609682d3ed8b6df9ef6d2004eb}{set\+A\+CL}} (array \$acl)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a9fe13e6c41773c26427f9b1ab46b3c8f}{get\+Supported\+Privilege\+Set}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a840ca8d28abaddf55531b29350742e20}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a840ca8d28abaddf55531b29350742e20}} 
+{\bfseries \$name}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_ace9c0a05b51d6c82688ad80302121ed7}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_ace9c0a05b51d6c82688ad80302121ed7}} 
+{\bfseries \$acl}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 7 der Datei Mock\+A\+C\+L\+Node.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a2c9847639e9c69f53d39a8d71d704ab6}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a2c9847639e9c69f53d39a8d71d704ab6}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}!get\+A\+CL@{get\+A\+CL}}
+\index{get\+A\+CL@{get\+A\+CL}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}}
+\subsubsection{\texorpdfstring{get\+A\+C\+L()}{getACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node\+::get\+A\+CL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of A\+CE\textquotesingle{}s for this node.
+
+Each A\+CE has the following properties\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}privilege\textquotesingle{}, a string such as \{D\+AV\+:\}read or \{D\+AV\+:\}write. These are currently the only supported privileges
+\item \textquotesingle{}principal\textquotesingle{}, a url to the principal who owns the node
+\item \textquotesingle{}protected\textquotesingle{} (optional), indicating that this A\+CE is not allowed to be updated.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8fe3b3a5b48eae789d7eb722b340045c}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 37 der Datei Mock\+A\+C\+L\+Node.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_af63c8a7655e4bb7eb9770369619af403}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_af63c8a7655e4bb7eb9770369619af403}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}!get\+Group@{get\+Group}}
+\index{get\+Group@{get\+Group}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}}
+\subsubsection{\texorpdfstring{get\+Group()}{getGroup()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node\+::get\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a group principal
+
+This must be a url to a principal, or null if there\textquotesingle{}s no owner
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8ba38d5a99d771d7ae2719dd483515f6}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 31 der Datei Mock\+A\+C\+L\+Node.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_accfb75d9c0a586cdb2501e323c6b0f02}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_accfb75d9c0a586cdb2501e323c6b0f02}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the name of the node.
+
+This is used to generate the url.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 19 der Datei Mock\+A\+C\+L\+Node.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a24283bdd3d5c45d8aeae2fba3324fefa}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a24283bdd3d5c45d8aeae2fba3324fefa}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}!get\+Owner@{get\+Owner}}
+\index{get\+Owner@{get\+Owner}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}}
+\subsubsection{\texorpdfstring{get\+Owner()}{getOwner()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node\+::get\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the owner principal
+
+This must be a url to a principal, or null if there\textquotesingle{}s no owner
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a05f531b4ae1a86eab4e6e95b0413390e}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 25 der Datei Mock\+A\+C\+L\+Node.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a9fe13e6c41773c26427f9b1ab46b3c8f}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a9fe13e6c41773c26427f9b1ab46b3c8f}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}!get\+Supported\+Privilege\+Set@{get\+Supported\+Privilege\+Set}}
+\index{get\+Supported\+Privilege\+Set@{get\+Supported\+Privilege\+Set}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}}
+\subsubsection{\texorpdfstring{get\+Supported\+Privilege\+Set()}{getSupportedPrivilegeSet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node\+::get\+Supported\+Privilege\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of supported privileges for this node.
+
+The returned data structure is a list of nested privileges. See Sabre\+::get\+Default\+Supported\+Privilege\+Set for a simple standard structure.
+
+If null is returned from this method, the default privilege set is used, which is fine for most common usecases.
+
+\begin{DoxyReturn}{Rückgabe}
+array$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a9db850218d4002ed21bbd87665e0c614}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 49 der Datei Mock\+A\+C\+L\+Node.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a97023e609682d3ed8b6df9ef6d2004eb}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_mock_a_c_l_node_a97023e609682d3ed8b6df9ef6d2004eb}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}!set\+A\+CL@{set\+A\+CL}}
+\index{set\+A\+CL@{set\+A\+CL}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Mock\+A\+C\+L\+Node}}
+\subsubsection{\texorpdfstring{set\+A\+C\+L()}{setACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Mock\+A\+C\+L\+Node\+::set\+A\+CL (\begin{DoxyParamCaption}\item[{array}]{\$acl }\end{DoxyParamCaption})}
+
+Updates the A\+CL
+
+This method will receive a list of new A\+CE\textquotesingle{}s as an array argument.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$acl} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a95e96725db02aae734ce5e7fbb438174}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 43 der Datei Mock\+A\+C\+L\+Node.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+D\+A\+V\+A\+C\+L/Mock\+A\+C\+L\+Node.\+php\end{DoxyCompactItemize}

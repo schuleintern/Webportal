@@ -1,0 +1,103 @@
+\hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Auth\textbackslash{}Abstract\+Auth Klassenreferenz}
+\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Abstract\+Auth@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Abstract\+Auth}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Auth\textbackslash{}Abstract\+Auth\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.428571cm]{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a3e57c1181e92b05fb4061b17e00b19ad}{\+\_\+\+\_\+construct}} (\$realm=\textquotesingle{}Sabre\+Tooth\textquotesingle{}, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a05b82808b4e609f9539c9f717bcb09be}{require\+Login}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_ac2cae42eda3dfb5e4ddb18dec56e34d2}{get\+Realm}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a59df9e3d46cdc7aaf970550826378256}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a59df9e3d46cdc7aaf970550826378256}} 
+{\bfseries \$realm}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a7e6adf955fd3e168312f350d55eb2864}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a7e6adf955fd3e168312f350d55eb2864}} 
+{\bfseries \$request}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a39b5b47ecff3025b744108d8a434d477}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a39b5b47ecff3025b744108d8a434d477}} 
+{\bfseries \$response}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+H\+T\+TP Authentication base class.
+
+This class provides some common functionality for the various base classes.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei Abstract\+Auth.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a3e57c1181e92b05fb4061b17e00b19ad}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a3e57c1181e92b05fb4061b17e00b19ad}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Abstract\+Auth\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$realm = {\ttfamily \textquotesingle{}SabreTooth\textquotesingle{}},  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+Creates the object
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$realm} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 46 der Datei Abstract\+Auth.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_ac2cae42eda3dfb5e4ddb18dec56e34d2}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_ac2cae42eda3dfb5e4ddb18dec56e34d2}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth}!get\+Realm@{get\+Realm}}
+\index{get\+Realm@{get\+Realm}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth}}
+\subsubsection{\texorpdfstring{get\+Realm()}{getRealm()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Abstract\+Auth\+::get\+Realm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the H\+T\+TP realm
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 67 der Datei Abstract\+Auth.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a05b82808b4e609f9539c9f717bcb09be}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a05b82808b4e609f9539c9f717bcb09be}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth}!require\+Login@{require\+Login}}
+\index{require\+Login@{require\+Login}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Abstract\+Auth}}
+\subsubsection{\texorpdfstring{require\+Login()}{requireLogin()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Abstract\+Auth\+::require\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+This method sends the needed H\+T\+TP header and statuscode (401) to force the user to login.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/lib/\+Auth/Abstract\+Auth.\+php\end{DoxyCompactItemize}

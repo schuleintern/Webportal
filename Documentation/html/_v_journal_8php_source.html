@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/vobject/lib/Component/VJournal.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_d45491ed8370ce848e382bcf93442678.html">vobject</a></li><li class="navelem"><a class="el" href="dir_1ed89ee66666afc6edd074eb1b9eee0f.html">lib</a></li><li class="navelem"><a class="el" href="dir_15c76502460f43db0499d9e9bf2bcba7.html">Component</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">VJournal.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_v_object_1_1_component.html">Sabre\VObject\Component</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_date_time_interface.html">DateTimeInterface</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_sabre_1_1_v_object.html">Sabre\VObject</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_component_1_1_v_journal.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_v_object_1_1_component_1_1_v_journal.html">VJournal</a> <span class="keyword">extends</span> <a class="code" href="class_sabre_1_1_v_object_1_1_component.html">VObject\Component</a> {</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_component_1_1_v_journal.html#a7f2c2e3b5ee038e1fbb374c99c3ece56">   31</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_v_object_1_1_component_1_1_v_journal.html#a7f2c2e3b5ee038e1fbb374c99c3ece56">isInTimeRange</a>(<a class="code" href="namespace_date_time_interface.html">DateTimeInterface</a> $start, <a class="code" href="namespace_date_time_interface.html">DateTimeInterface</a> $end) {</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        $dtstart = isset($this-&gt;DTSTART) ? $this-&gt;DTSTART-&gt;getDateTime() : null;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">if</span> ($dtstart) {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            $effectiveEnd = $dtstart;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">if</span> (!$this-&gt;DTSTART-&gt;hasTime()) {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                $effectiveEnd = $effectiveEnd-&gt;modify(<span class="stringliteral">&#39;+1 day&#39;</span>);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> ($start &lt;= $effectiveEnd &amp;&amp; $end &gt; $dtstart);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">function</span> getValidationRules() {</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> [</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="stringliteral">&#39;UID&#39;</span>     =&gt; 1,</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="stringliteral">&#39;DTSTAMP&#39;</span> =&gt; 1,</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="stringliteral">&#39;CLASS&#39;</span>         =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="stringliteral">&#39;CREATED&#39;</span>       =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="stringliteral">&#39;DTSTART&#39;</span>       =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="stringliteral">&#39;LAST-MODIFIED&#39;</span> =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="stringliteral">&#39;ORGANIZER&#39;</span>     =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="stringliteral">&#39;RECURRENCE-ID&#39;</span> =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="stringliteral">&#39;SEQUENCE&#39;</span>      =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="stringliteral">&#39;STATUS&#39;</span>        =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="stringliteral">&#39;SUMMARY&#39;</span>       =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="stringliteral">&#39;URL&#39;</span>           =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="stringliteral">&#39;RRULE&#39;</span> =&gt; <span class="charliteral">&#39;?&#39;</span>,</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="stringliteral">&#39;ATTACH&#39;</span>      =&gt; <span class="charliteral">&#39;*&#39;</span>,</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="stringliteral">&#39;ATTENDEE&#39;</span>    =&gt; <span class="charliteral">&#39;*&#39;</span>,</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="stringliteral">&#39;CATEGORIES&#39;</span>  =&gt; <span class="charliteral">&#39;*&#39;</span>,</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="stringliteral">&#39;COMMENT&#39;</span>     =&gt; <span class="charliteral">&#39;*&#39;</span>,</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="stringliteral">&#39;CONTACT&#39;</span>     =&gt; <span class="charliteral">&#39;*&#39;</span>,</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="stringliteral">&#39;DESCRIPTION&#39;</span> =&gt; <span class="charliteral">&#39;*&#39;</span>,</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="stringliteral">&#39;EXDATE&#39;</span>      =&gt; <span class="charliteral">&#39;*&#39;</span>,</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="stringliteral">&#39;RELATED-TO&#39;</span>  =&gt; <span class="charliteral">&#39;*&#39;</span>,</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="stringliteral">&#39;RDATE&#39;</span>       =&gt; <span class="charliteral">&#39;*&#39;</span>,</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        ];</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div><div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="class_sabre_1_1_v_object_1_1_component_1_1_v_journal.html#ac481d886ffa080ec747dda96d274bff5">   99</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_v_object_1_1_component_1_1_v_journal.html#ac481d886ffa080ec747dda96d274bff5">getDefaults</a>() {</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">return</span> [</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="stringliteral">&#39;UID&#39;</span>     =&gt; <span class="stringliteral">&#39;sabre-vobject-&#39;</span> . <a class="code" href="class_sabre_1_1_v_object_1_1_u_u_i_d_util.html#ac1ddb3af50bc514162f75bdfd03f8822">VObject\UUIDUtil::getUUID</a>(),</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="stringliteral">&#39;DTSTAMP&#39;</span> =&gt; date(<span class="stringliteral">&#39;Ymd\\THis\\Z&#39;</span>),</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        ];</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div><div class="ttc" id="namespace_sabre_1_1_v_object_html"><div class="ttname"><a href="namespace_sabre_1_1_v_object.html">Sabre\VObject</a></div><div class="ttdef"><b>Definition:</b> <a href="mergeduplicates_8php_source.html#l00004">mergeduplicates.php:4</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_component_1_1_v_journal_html_ac481d886ffa080ec747dda96d274bff5"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_component_1_1_v_journal.html#ac481d886ffa080ec747dda96d274bff5">Sabre\VObject\Component\VJournal\getDefaults</a></div><div class="ttdeci">getDefaults()</div><div class="ttdef"><b>Definition:</b> <a href="_v_journal_8php_source.html#l00099">VJournal.php:99</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_v_object_1_1_component_html"><div class="ttname"><a href="namespace_sabre_1_1_v_object_1_1_component.html">Sabre\VObject\Component</a></div><div class="ttdef"><b>Definition:</b> <a href="_available_8php_source.html#l00003">Available.php:3</a></div></div>
+<div class="ttc" id="namespace_date_time_interface_html"><div class="ttname"><a href="namespace_date_time_interface.html">DateTimeInterface</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_component_html"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_component.html">Sabre\VObject\Component</a></div><div class="ttdef"><b>Definition:</b> <a href="webdav_2_sabre_d_a_v_2vendor_2sabre_2vobject_2lib_2_component_8php_source.html#l00017">Component.php:17</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_component_1_1_v_journal_html"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_component_1_1_v_journal.html">Sabre\VObject\Component\VJournal</a></div><div class="ttdef"><b>Definition:</b> <a href="_v_journal_8php_source.html#l00017">VJournal.php:17</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_component_1_1_v_journal_html_a7f2c2e3b5ee038e1fbb374c99c3ece56"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_component_1_1_v_journal.html#a7f2c2e3b5ee038e1fbb374c99c3ece56">Sabre\VObject\Component\VJournal\isInTimeRange</a></div><div class="ttdeci">isInTimeRange(DateTimeInterface $start, DateTimeInterface $end)</div><div class="ttdef"><b>Definition:</b> <a href="_v_journal_8php_source.html#l00031">VJournal.php:31</a></div></div>
+<div class="ttc" id="class_sabre_1_1_v_object_1_1_u_u_i_d_util_html_ac1ddb3af50bc514162f75bdfd03f8822"><div class="ttname"><a href="class_sabre_1_1_v_object_1_1_u_u_i_d_util.html#ac1ddb3af50bc514162f75bdfd03f8822">Sabre\VObject\UUIDUtil\getUUID</a></div><div class="ttdeci">static getUUID()</div><div class="ttdef"><b>Definition:</b> <a href="vobject_2lib_2_u_u_i_d_util_8php_source.html#l00027">UUIDUtil.php:27</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

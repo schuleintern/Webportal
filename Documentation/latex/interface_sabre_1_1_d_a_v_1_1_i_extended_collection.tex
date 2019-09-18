@@ -1,0 +1,70 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_extended_collection}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}I\+Extended\+Collection Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_i_extended_collection}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Extended\+Collection@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Extended\+Collection}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}I\+Extended\+Collection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.166667cm]{interface_sabre_1_1_d_a_v_1_1_i_extended_collection}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_extended_collection_ae17c248155a90ae664ad7fb9854ddf63}{create\+Extended\+Collection}} (\$name, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}} \$mk\+Col)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_extended_collection}{I\+Extended\+Collection}} interface.
+
+This interface can be used to create special-\/type of collection-\/resources as defined by R\+FC 5689.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 15 der Datei I\+Extended\+Collection.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_extended_collection_ae17c248155a90ae664ad7fb9854ddf63}\label{interface_sabre_1_1_d_a_v_1_1_i_extended_collection_ae17c248155a90ae664ad7fb9854ddf63}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Extended\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Extended\+Collection}!create\+Extended\+Collection@{create\+Extended\+Collection}}
+\index{create\+Extended\+Collection@{create\+Extended\+Collection}!Sabre\+::\+D\+A\+V\+::\+I\+Extended\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Extended\+Collection}}
+\subsubsection{\texorpdfstring{create\+Extended\+Collection()}{createExtendedCollection()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Extended\+Collection\+::create\+Extended\+Collection (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}}}]{\$mk\+Col }\end{DoxyParamCaption})}
+
+Creates a new collection.
+
+This method will receive a \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}} object with all the information about the new collection that\textquotesingle{}s being created.
+
+The \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}} object contains information about the resource\+Type of the new collection. If you don\textquotesingle{}t support the specified resource\+Type, you should throw \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception}{Exception}}.
+
+The object also contains a list of Web\+D\+AV properties for the new collection.
+
+You should call the handle() method on this object to specify exactly which properties you are storing. This allows the system to figure out exactly which properties you didn\textquotesingle{}t store, which in turn allows other plugins (such as the propertystorage plugin) to handle storing the property for you.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}} & {\em \$mk\+Col} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception}{Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_home_a46df8b46b7364cd83b077a7863d7caa7}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Home}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ad3be16bc98c19b0e44565c2738787258}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_collection_ac9836bbc40898bb63ae0bf09fb24a73e}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Collection}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/I\+Extended\+Collection.\+php\end{DoxyCompactItemize}

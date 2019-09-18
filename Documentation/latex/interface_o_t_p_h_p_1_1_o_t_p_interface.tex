@@ -1,0 +1,283 @@
+\hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface}{}\section{O\+T\+P\+HP\textbackslash{}O\+T\+P\+Interface Schnittstellenreferenz}
+\label{interface_o_t_p_h_p_1_1_o_t_p_interface}\index{O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface}}
+Klassendiagramm für O\+T\+P\+HP\textbackslash{}O\+T\+P\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.800000cm]{interface_o_t_p_h_p_1_1_o_t_p_interface}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_afbc45b669ea3ae41d0b252901de69d54}{at}} (int \$timestamp)
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a3a3057844ac7376a733322275f955f5e}{verify}} (string \$otp, ?int \$input=null, ?int \$window=null)
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_ab32d0488aaaf79a6c6bcc2a63ef8a1f1}{get\+Secret}} ()
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a0cbf5bc9ceef09f331bad8842b2ca3ce}{set\+Label}} (string \$label)
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a6e678de1987420ba53f9a35e36828a8a}{get\+Label}} ()
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a8b532c6c1ea3bbbe61b6719f875bc959}{get\+Issuer}} ()
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a1892d913d0dd0e73ee3235494d47ba4d}{set\+Issuer}} (string \$issuer)
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_aea4b15b8f9dc0adc7924090e0908afb6}{is\+Issuer\+Included\+As\+Parameter}} ()
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_ab88b212c288fd17da38121979f9e50b1}{set\+Issuer\+Included\+As\+Parameter}} (bool \$issuer\+\_\+included\+\_\+as\+\_\+parameter)
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a7f449d46d42dd559ad6a0aa1deb3b2c0}{get\+Digits}} ()
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_afc5e0641afee53f57d7f9e97f65aa4e1}{get\+Digest}} ()
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_ade4b3c7737dea6a60bf81bfb4df6c6da}{get\+Parameter}} (string \$parameter)
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_aec06de027a5328d9d8116ff74540080d}{has\+Parameter}} (string \$parameter)
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_ac3b54b7ec1201cda34eafe25ecc8fa47}{get\+Parameters}} ()
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a7b2673de7bc53ea83beb65a1ad53a53c}{set\+Parameter}} (string \$parameter, \$value)
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a6e8f0a0c2f1c3ec16426a80fc9610089}{get\+Provisioning\+Uri}} ()
+\item 
+\mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a7ada4a07d246ce1582aa563955c9d671}{get\+Qr\+Code\+Uri}} (string \$uri=\textquotesingle{}https\+://chart.\+googleapis.\+com/chart?chs=200x200 \&chld=\+M$\vert$0 \&cht=qr \&chl=\{\+P\+R\+O\+V\+I\+S\+I\+O\+N\+I\+N\+G\+\_\+\+U\+R\+I\}\textquotesingle{}, string \$placeholder=\textquotesingle{}\{\+P\+R\+O\+V\+I\+S\+I\+O\+N\+I\+N\+G\+\_\+\+U\+R\+I\}\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 14 der Datei O\+T\+P\+Interface.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_afbc45b669ea3ae41d0b252901de69d54}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_afbc45b669ea3ae41d0b252901de69d54}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!at@{at}}
+\index{at@{at}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::at (\begin{DoxyParamCaption}\item[{int}]{\$timestamp }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$timestamp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string Return the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} at the specified timestamp 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a22513da78ec8fd1009910bc8f9a676f0}{O\+T\+P\+H\+P\textbackslash{}\+T\+O\+TP}} und \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p_a617f9d7e43bbea2ff1528ca41b647629}{O\+T\+P\+H\+P\textbackslash{}\+O\+TP}}.
+
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_afc5e0641afee53f57d7f9e97f65aa4e1}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_afc5e0641afee53f57d7f9e97f65aa4e1}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!get\+Digest@{get\+Digest}}
+\index{get\+Digest@{get\+Digest}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{get\+Digest()}{getDigest()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::get\+Digest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+string Digest algorithm used to calculate the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}}. Possible values are \textquotesingle{}md5\textquotesingle{}, \textquotesingle{}sha1\textquotesingle{}, \textquotesingle{}sha256\textquotesingle{} and \textquotesingle{}sha512\textquotesingle{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_a7f449d46d42dd559ad6a0aa1deb3b2c0}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_a7f449d46d42dd559ad6a0aa1deb3b2c0}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!get\+Digits@{get\+Digits}}
+\index{get\+Digits@{get\+Digits}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{get\+Digits()}{getDigits()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::get\+Digits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+int Number of digits in the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_a8b532c6c1ea3bbbe61b6719f875bc959}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_a8b532c6c1ea3bbbe61b6719f875bc959}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!get\+Issuer@{get\+Issuer}}
+\index{get\+Issuer@{get\+Issuer}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{get\+Issuer()}{getIssuer()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::get\+Issuer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null The issuer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_a6e678de1987420ba53f9a35e36828a8a}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_a6e678de1987420ba53f9a35e36828a8a}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!get\+Label@{get\+Label}}
+\index{get\+Label@{get\+Label}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{get\+Label()}{getLabel()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::get\+Label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null The label of the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_ade4b3c7737dea6a60bf81bfb4df6c6da}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_ade4b3c7737dea6a60bf81bfb4df6c6da}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!get\+Parameter@{get\+Parameter}}
+\index{get\+Parameter@{get\+Parameter}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{get\+Parameter()}{getParameter()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::get\+Parameter (\begin{DoxyParamCaption}\item[{string}]{\$parameter }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$parameter} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+null$\vert$mixed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_ac3b54b7ec1201cda34eafe25ecc8fa47}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_ac3b54b7ec1201cda34eafe25ecc8fa47}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!get\+Parameters@{get\+Parameters}}
+\index{get\+Parameters@{get\+Parameters}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{get\+Parameters()}{getParameters()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::get\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_a6e8f0a0c2f1c3ec16426a80fc9610089}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_a6e8f0a0c2f1c3ec16426a80fc9610089}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!get\+Provisioning\+Uri@{get\+Provisioning\+Uri}}
+\index{get\+Provisioning\+Uri@{get\+Provisioning\+Uri}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{get\+Provisioning\+Uri()}{getProvisioningUri()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::get\+Provisioning\+Uri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+string Get the provisioning U\+RI 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a85b294664fda16d6b87d80e645714ed0}{O\+T\+P\+H\+P\textbackslash{}\+T\+O\+TP}} und \mbox{\hyperlink{class_o_t_p_h_p_1_1_h_o_t_p_a468b545132d70bd82e48806243bd2269}{O\+T\+P\+H\+P\textbackslash{}\+H\+O\+TP}}.
+
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_a7ada4a07d246ce1582aa563955c9d671}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_a7ada4a07d246ce1582aa563955c9d671}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!get\+Qr\+Code\+Uri@{get\+Qr\+Code\+Uri}}
+\index{get\+Qr\+Code\+Uri@{get\+Qr\+Code\+Uri}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{get\+Qr\+Code\+Uri()}{getQrCodeUri()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::get\+Qr\+Code\+Uri (\begin{DoxyParamCaption}\item[{string}]{\$uri = {\ttfamily \textquotesingle{}https\+://chart.googleapis.com/chart?chs=200x200~\&chld=M$\vert$0~\&cht=qr~\&chl=\{PROVISIONING\+\_\+URI\}\textquotesingle{}},  }\item[{string}]{\$placeholder = {\ttfamily \textquotesingle{}\{PROVISIONING\+\_\+URI\}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & The Uri of the Q\+R\+Code generator with all parameters. By default the Googgle Chart A\+PI is used. This Uri M\+U\+ST contain a placeholder that will be replaced by the method. \\
+\hline
+string & {\em \$placeholder} & The placeholder to be replaced in the QR Code generator U\+RI. Default value is \{P\+R\+O\+V\+I\+S\+I\+O\+N\+I\+N\+G\+\_\+\+U\+RI\}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string Get the provisioning U\+RI 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p_ae493db3f8faece1824803b2798042232}{O\+T\+P\+H\+P\textbackslash{}\+O\+TP}}.
+
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_ab32d0488aaaf79a6c6bcc2a63ef8a1f1}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_ab32d0488aaaf79a6c6bcc2a63ef8a1f1}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!get\+Secret@{get\+Secret}}
+\index{get\+Secret@{get\+Secret}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{get\+Secret()}{getSecret()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::get\+Secret (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+string The secret of the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_aec06de027a5328d9d8116ff74540080d}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_aec06de027a5328d9d8116ff74540080d}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!has\+Parameter@{has\+Parameter}}
+\index{has\+Parameter@{has\+Parameter}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{has\+Parameter()}{hasParameter()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::has\+Parameter (\begin{DoxyParamCaption}\item[{string}]{\$parameter }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$parameter} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_aea4b15b8f9dc0adc7924090e0908afb6}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_aea4b15b8f9dc0adc7924090e0908afb6}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!is\+Issuer\+Included\+As\+Parameter@{is\+Issuer\+Included\+As\+Parameter}}
+\index{is\+Issuer\+Included\+As\+Parameter@{is\+Issuer\+Included\+As\+Parameter}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{is\+Issuer\+Included\+As\+Parameter()}{isIssuerIncludedAsParameter()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::is\+Issuer\+Included\+As\+Parameter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+bool If true, the issuer will be added as a parameter in the provisioning U\+RI 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_a1892d913d0dd0e73ee3235494d47ba4d}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_a1892d913d0dd0e73ee3235494d47ba4d}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!set\+Issuer@{set\+Issuer}}
+\index{set\+Issuer@{set\+Issuer}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{set\+Issuer()}{setIssuer()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::set\+Issuer (\begin{DoxyParamCaption}\item[{string}]{\$issuer }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$issuer} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_ab88b212c288fd17da38121979f9e50b1}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_ab88b212c288fd17da38121979f9e50b1}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!set\+Issuer\+Included\+As\+Parameter@{set\+Issuer\+Included\+As\+Parameter}}
+\index{set\+Issuer\+Included\+As\+Parameter@{set\+Issuer\+Included\+As\+Parameter}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{set\+Issuer\+Included\+As\+Parameter()}{setIssuerIncludedAsParameter()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::set\+Issuer\+Included\+As\+Parameter (\begin{DoxyParamCaption}\item[{bool}]{\$issuer\+\_\+included\+\_\+as\+\_\+parameter }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+bool & {\em \$issuer\+\_\+included\+\_\+as\+\_\+parameter} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\$this 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_a0cbf5bc9ceef09f331bad8842b2ca3ce}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_a0cbf5bc9ceef09f331bad8842b2ca3ce}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!set\+Label@{set\+Label}}
+\index{set\+Label@{set\+Label}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{set\+Label()}{setLabel()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::set\+Label (\begin{DoxyParamCaption}\item[{string}]{\$label }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$label} & The label of the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_a7b2673de7bc53ea83beb65a1ad53a53c}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_a7b2673de7bc53ea83beb65a1ad53a53c}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!set\+Parameter@{set\+Parameter}}
+\index{set\+Parameter@{set\+Parameter}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{set\+Parameter()}{setParameter()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::set\+Parameter (\begin{DoxyParamCaption}\item[{string}]{\$parameter,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$parameter} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\$this 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_o_t_p_h_p_1_1_o_t_p_interface_a3a3057844ac7376a733322275f955f5e}\label{interface_o_t_p_h_p_1_1_o_t_p_interface_a3a3057844ac7376a733322275f955f5e}} 
+\index{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}!verify@{verify}}
+\index{verify@{verify}!O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface@{O\+T\+P\+H\+P\+::\+O\+T\+P\+Interface}}
+\subsubsection{\texorpdfstring{verify()}{verify()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface\+::verify (\begin{DoxyParamCaption}\item[{string}]{\$otp,  }\item[{?int}]{\$input = {\ttfamily null},  }\item[{?int}]{\$window = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Verify that the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} is valid with the specified input. If no input is provided, the input is set to a default value or false is returned.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$otp} & \\
+\hline
+int | null & {\em \$input} & \\
+\hline
+int | null & {\em \$window} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_o_t_p_h_p_1_1_t_o_t_p_a09c72fb5facb96625474d20540ad7bf0}{O\+T\+P\+H\+P\textbackslash{}\+T\+O\+TP}} und \mbox{\hyperlink{class_o_t_p_h_p_1_1_h_o_t_p_a9d72e9295aa6f1e7df15a1abfef96683}{O\+T\+P\+H\+P\textbackslash{}\+H\+O\+TP}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/composer/vendor/spomky-\/labs/otphp/src/O\+T\+P\+Interface.\+php\end{DoxyCompactItemize}

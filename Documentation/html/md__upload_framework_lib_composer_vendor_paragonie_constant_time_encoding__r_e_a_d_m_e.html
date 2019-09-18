@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Constant-Time Encoding</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Constant-Time <a class="el" href="class_encoding.html">Encoding</a> </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a href="https://travis-ci.org/paragonie/constant_time_encoding"></a> <a href="https://packagist.org/packages/paragonie/constant_time_encoding"></a> <a href="https://packagist.org/packages/paragonie/constant_time_encoding"></a> <a href="https://packagist.org/packages/paragonie/constant_time_encoding"></a> <a href="https://packagist.org/packages/paragonie/constant_time_encoding"></a></p>
+<p>Based on the <a href="https://github.com/Sc00bz/ConstTimeEncoding">constant-time base64 implementation made by Steve "Sc00bz" Thomas</a>, this library aims to offer character encoding functions that do not leak information about what you are encoding/decoding via processor cache misses. Further reading on <a href="http://blog.ircmaxell.com/2014/11/its-all-about-time.html">cache-timing attacks</a>.</p>
+<p>Our fork offers the following enchancements:</p>
+<ul>
+<li><code>mbstring.func_overload</code> resistance</li>
+<li>Unit tests</li>
+<li>Composer- and Packagist-ready</li>
+<li>Base16 encoding</li>
+<li>Base32 encoding</li>
+<li>Uses <code>pack()</code> and <code>unpack()</code> instead of <code>chr()</code> and <code>ord()</code></li>
+</ul>
+<h2>PHP Version Requirements</h2>
+<p>Version 2 of this library should work on <b>PHP 7</b> or newer. For PHP 5 support, see <a href="https://github.com/paragonie/constant_time_encoding/tree/v1.x">the v1.x branch</a>.</p>
+<p>If you are adding this as a dependency to a project intended to work on both PHP 5 and PHP 7, please set the required version to <code>^1|^2</code> instead of just <code>^1</code> or <code>^2</code>.</p>
+<h2>How to Install</h2>
+<div class="fragment"><div class="line">composer require paragonie/constant_time_encoding</div></div><!-- fragment --><h2>How to Use</h2>
+<div class="fragment"><div class="line">use \ParagonIE\ConstantTime\Encoding;</div><div class="line"></div><div class="line"><span class="comment">// possibly (if applicable): </span></div><div class="line"><span class="comment">// require &#39;vendor/autoload.php&#39;;</span></div><div class="line"></div><div class="line">$data = random_bytes(32);</div><div class="line">echo Encoding::base64Encode($data), <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line">echo Encoding::base32EncodeUpper($data), <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line">echo Encoding::base32Encode($data), <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line">echo Encoding::hexEncode($data), <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line">echo Encoding::hexEncodeUpper($data), <span class="stringliteral">&quot;\n&quot;</span>;</div></div><!-- fragment --><p>Example output:</p>
+<div class="fragment"><div class="line">1VilPkeVqirlPifk5scbzcTTbMT2clp+Zkyv9VFFasE=</div><div class="line">2VMKKPSHSWVCVZJ6E7SONRY3ZXCNG3GE6ZZFU7TGJSX7KUKFNLAQ====</div><div class="line">2vmkkpshswvcvzj6e7sonry3zxcng3ge6zzfu7tgjsx7kukfnlaq====</div><div class="line">d558a53e4795aa2ae53e27e4e6c71bcdc4d36cc4f6725a7e664caff551456ac1</div><div class="line">D558A53E4795AA2AE53E27E4E6C71BDCC4D36CC4F6725A7E664CAFF551456AC1</div></div><!-- fragment --><p>If you only need a particular variant, you can just reference the required class like so:</p>
+<div class="fragment"><div class="line">use \ParagonIE\ConstantTime\Base64;</div><div class="line">use \ParagonIE\ConstantTime\Base32;</div><div class="line"></div><div class="line">$data = random_bytes(32);</div><div class="line">echo Base64::encode($data), <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line">echo Base32::encode($data), <span class="stringliteral">&quot;\n&quot;</span>;</div></div><!-- fragment --><p>Example output:</p>
+<div class="fragment"><div class="line">1VilPkeVqirlPifk5scbzcTTbMT2clp+Zkyv9VFFasE=</div><div class="line">2vmkkpshswvcvzj6e7sonry3zxcng3ge6zzfu7tgjsx7kukfnlaq====</div></div><!-- fragment --><h2>Support Contracts</h2>
+<p>If your company uses this library in their products or services, you may be interested in <a href="https://paragonie.com/enterprise">purchasing a support contract from Paragon Initiative Enterprises</a>. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

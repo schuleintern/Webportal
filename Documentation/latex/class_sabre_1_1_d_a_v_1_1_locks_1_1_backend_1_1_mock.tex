@@ -1,0 +1,164 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Locks\textbackslash{}Backend\textbackslash{}Mock Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Mock@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Mock}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Locks\textbackslash{}Backend\textbackslash{}Mock\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a34110fb10d7dac595e785beb4cef328b}{get\+Locks}} (\$uri, \$return\+Child\+Locks)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a2d04dfc74be5a35e34671b008372ed15}{lock}} (\$uri, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}} \$lock\+Info)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a0e83378cbf7fd7ee247a913870c41e2e}{unlock}} (\$uri, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}} \$lock\+Info)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_ae64e58888c3b627080afbf3fc21f2e28}{get\+Data}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a250dda69b59d41cb56c084bf6e758618}{put\+Data}} (array \$new\+Data)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a7e35caec8e825f8300d61e465af003c7}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a7e35caec8e825f8300d61e465af003c7}} 
+{\bfseries \$data} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Locks \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock}{Mock}} backend.
+
+This backend stores lock information in memory. Mainly useful for testing.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei Mock.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_ae64e58888c3b627080afbf3fc21f2e28}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_ae64e58888c3b627080afbf3fc21f2e28}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock}}
+\subsubsection{\texorpdfstring{get\+Data()}{getData()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Mock\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Loads the lockdata from the filesystem.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 121 der Datei Mock.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a34110fb10d7dac595e785beb4cef328b}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a34110fb10d7dac595e785beb4cef328b}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock}!get\+Locks@{get\+Locks}}
+\index{get\+Locks@{get\+Locks}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock}}
+\subsubsection{\texorpdfstring{get\+Locks()}{getLocks()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Mock\+::get\+Locks (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{}]{\$return\+Child\+Locks }\end{DoxyParamCaption})}
+
+Returns a list of Sabre objects
+
+This method should return all the locks for a particular uri, including locks that might be set on a parent uri.
+
+If return\+Child\+Locks is set to true, this method should also look for any locks in the subtree of the uri for locks.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+bool & {\em \$return\+Child\+Locks} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_aa9b7cf37a5acdca463fef77f96599d60}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 31 der Datei Mock.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a2d04dfc74be5a35e34671b008372ed15}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a2d04dfc74be5a35e34671b008372ed15}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock}!lock@{lock}}
+\index{lock@{lock}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock}}
+\subsubsection{\texorpdfstring{lock()}{lock()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Mock\+::lock (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}}}]{\$lock\+Info }\end{DoxyParamCaption})}
+
+Locks a uri
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}} & {\em \$lock\+Info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 67 der Datei Mock.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a250dda69b59d41cb56c084bf6e758618}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a250dda69b59d41cb56c084bf6e758618}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock}!put\+Data@{put\+Data}}
+\index{put\+Data@{put\+Data}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock}}
+\subsubsection{\texorpdfstring{put\+Data()}{putData()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Mock\+::put\+Data (\begin{DoxyParamCaption}\item[{array}]{\$new\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Saves the lockdata
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$new\+Data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 133 der Datei Mock.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a0e83378cbf7fd7ee247a913870c41e2e}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a0e83378cbf7fd7ee247a913870c41e2e}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock}!unlock@{unlock}}
+\index{unlock@{unlock}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Mock}}
+\subsubsection{\texorpdfstring{unlock()}{unlock()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Mock\+::unlock (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}}}]{\$lock\+Info }\end{DoxyParamCaption})}
+
+Removes a lock from a uri
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}} & {\em \$lock\+Info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 97 der Datei Mock.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+D\+A\+V/\+Locks/\+Backend/Mock.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,296 @@
+\hypertarget{class_sabre_1_1_xml_1_1_service}{}\section{Sabre\textbackslash{}Xml\textbackslash{}Service Klassenreferenz}
+\label{class_sabre_1_1_xml_1_1_service}\index{Sabre\textbackslash{}\+Xml\textbackslash{}\+Service@{Sabre\textbackslash{}\+Xml\textbackslash{}\+Service}}
+Klassendiagramm für Sabre\textbackslash{}Xml\textbackslash{}Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_xml_1_1_service}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_ae35b9eb37840ddd46780e21f5869cbcf}{get\+Reader}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_ae31e73ea53c5bdbfb46bc1c0f013307b}{get\+Writer}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_abd3ed5e5ca82193ab2499e94868dd555}{parse}} (\$input, \$context\+Uri=null, \&\$root\+Element\+Name=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_a0a0c8c86215a25cbaa71418a6bd08541}{expect}} (\$root\+Element\+Name, \$input, \$context\+Uri=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_a92af6e84cf7218c36bcbaaef4156b033}{write}} (\$root\+Element\+Name, \$value, \$context\+Uri=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_a9dd6c5eb721775a3fec5f749c89e35ce}{map\+Value\+Object}} (\$element\+Name, \$class\+Name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_a17fc0693945e665d84a2f8e8e515285c}{write\+Value\+Object}} (\$object, \$context\+Uri=null)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_ab9ce66b271d2167755c4903d34595cb4}{parse\+Clark\+Notation}} (\$str)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_a7ec72d25037edd6490e2bba3d3c6dba5}\label{class_sabre_1_1_xml_1_1_service_a7ec72d25037edd6490e2bba3d3c6dba5}} 
+{\bfseries \$element\+Map} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_ad54ce7850cbd105f5f45157d9e49a84c}\label{class_sabre_1_1_xml_1_1_service_ad54ce7850cbd105f5f45157d9e49a84c}} 
+{\bfseries \$namespace\+Map} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_aad1878352603ee24e609c14d56e68a1f}\label{class_sabre_1_1_xml_1_1_service_aad1878352603ee24e609c14d56e68a1f}} 
+{\bfseries \$class\+Map} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_af7a633198f85d799f96734e0ee43d18c}{\$value\+Object\+Map}} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+X\+ML parsing and writing service.
+
+You are encouraged to make a instance of this for your application and potentially extend it, as a central A\+PI point for dealing with xml and configuring the reader and writer.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2009-\/2015 fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei Service.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_a0a0c8c86215a25cbaa71418a6bd08541}\label{class_sabre_1_1_xml_1_1_service_a0a0c8c86215a25cbaa71418a6bd08541}} 
+\index{Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}!expect@{expect}}
+\index{expect@{expect}!Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}}
+\subsubsection{\texorpdfstring{expect()}{expect()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Service\+::expect (\begin{DoxyParamCaption}\item[{}]{\$root\+Element\+Name,  }\item[{}]{\$input,  }\item[{}]{\$context\+Uri = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Parses a document in full, and specify what the expected root element name is.
+
+This function works similar to parse, but the difference is that the user can specify what the expected name of the root element should be, in clark notation.
+
+This is useful in cases where you expected a specific document to be passed, and reduces the amount of if statements.
+
+It\textquotesingle{}s also possible to pass an array of expected root\+Elements if your code may expect more than one document type.
+
+
+\begin{DoxyParams}[1]{Parameter}
+ & {\em string$\vert$string\mbox{[}$\,$\mbox{]}} & \$root\+Element\+Name \\
+\hline
+string | resource & {\em \$input} & \\
+\hline
+string | null & {\em \$context\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 143 der Datei Service.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_ae35b9eb37840ddd46780e21f5869cbcf}\label{class_sabre_1_1_xml_1_1_service_ae35b9eb37840ddd46780e21f5869cbcf}} 
+\index{Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}!get\+Reader@{get\+Reader}}
+\index{get\+Reader@{get\+Reader}!Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}}
+\subsubsection{\texorpdfstring{get\+Reader()}{getReader()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Service\+::get\+Reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a fresh X\+ML \mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 66 der Datei Service.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_ae31e73ea53c5bdbfb46bc1c0f013307b}\label{class_sabre_1_1_xml_1_1_service_ae31e73ea53c5bdbfb46bc1c0f013307b}} 
+\index{Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}!get\+Writer@{get\+Writer}}
+\index{get\+Writer@{get\+Writer}!Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}}
+\subsubsection{\texorpdfstring{get\+Writer()}{getWriter()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Service\+::get\+Writer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a fresh xml writer
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 79 der Datei Service.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_a9dd6c5eb721775a3fec5f749c89e35ce}\label{class_sabre_1_1_xml_1_1_service_a9dd6c5eb721775a3fec5f749c89e35ce}} 
+\index{Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}!map\+Value\+Object@{map\+Value\+Object}}
+\index{map\+Value\+Object@{map\+Value\+Object}!Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}}
+\subsubsection{\texorpdfstring{map\+Value\+Object()}{mapValueObject()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Service\+::map\+Value\+Object (\begin{DoxyParamCaption}\item[{}]{\$element\+Name,  }\item[{}]{\$class\+Name }\end{DoxyParamCaption})}
+
+Map an xml element to a P\+HP class.
+
+Calling this function will automatically setup the \mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} and \mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} classes to turn a specific X\+ML element to a P\+HP class.
+
+For example, given a class such as \+:
+
+class Author \{ public \$first\+Name; public \$last\+Name; \}
+
+and an X\+ML element such as\+:
+
+$<$author xmlns=\char`\"{}http\+://example.\+org/ns\char`\"{}$>$ $<$first\+Name$>$...$<$/first\+Name$>$ $<$last\+Name$>$...$<$/last\+Name$>$ $<$/author$>$
+
+These can easily be mapped by calling\+:
+
+\$service-\/$>$map\+Value\+Object(\textquotesingle{}\{\href{http://example.org}{\tt http\+://example.\+org}\}author\textquotesingle{}, \textquotesingle{}Author\textquotesingle{});
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$element\+Name} & \\
+\hline
+object & {\em \$class\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 226 der Datei Service.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_abd3ed5e5ca82193ab2499e94868dd555}\label{class_sabre_1_1_xml_1_1_service_abd3ed5e5ca82193ab2499e94868dd555}} 
+\index{Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}!parse@{parse}}
+\index{parse@{parse}!Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}}
+\subsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Service\+::parse (\begin{DoxyParamCaption}\item[{}]{\$input,  }\item[{}]{\$context\+Uri = {\ttfamily null},  }\item[{\&}]{\$root\+Element\+Name = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Parses a document in full.
+
+Input may be specified as a string or readable stream resource. The returned value is the value of the root document.
+
+Specifying the \$context\+Uri allows the parser to figure out what the U\+RI of the document was. This allows relative U\+R\+Is within the document to be expanded easily.
+
+The \$root\+Element\+Name is specified by reference and will be populated with the root element name of the document.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | resource & {\em \$input} & \\
+\hline
+string | null & {\em \$context\+Uri} & \\
+\hline
+string | null & {\em \$root\+Element\+Name} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \mbox{\hyperlink{class_sabre_1_1_xml_1_1_parse_exception}{Parse\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Rückgabe}
+array$\vert$object$\vert$string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 107 der Datei Service.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_ab9ce66b271d2167755c4903d34595cb4}\label{class_sabre_1_1_xml_1_1_service_ab9ce66b271d2167755c4903d34595cb4}} 
+\index{Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}!parse\+Clark\+Notation@{parse\+Clark\+Notation}}
+\index{parse\+Clark\+Notation@{parse\+Clark\+Notation}!Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}}
+\subsubsection{\texorpdfstring{parse\+Clark\+Notation()}{parseClarkNotation()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+Xml\textbackslash{}\+Service\+::parse\+Clark\+Notation (\begin{DoxyParamCaption}\item[{}]{\$str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parses a clark-\/notation string, and returns the namespace and element name components.
+
+If the string was invalid, it will throw an Invalid\+Argument\+Exception.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$str} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em Invalid\+Argument\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 274 der Datei Service.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_a92af6e84cf7218c36bcbaaef4156b033}\label{class_sabre_1_1_xml_1_1_service_a92af6e84cf7218c36bcbaaef4156b033}} 
+\index{Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}!write@{write}}
+\index{write@{write}!Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Service\+::write (\begin{DoxyParamCaption}\item[{}]{\$root\+Element\+Name,  }\item[{}]{\$value,  }\item[{}]{\$context\+Uri = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Generates an X\+ML document in one go.
+
+The \$root\+Element must be specified in clark notation. The value must be a string, an array or an object implementing \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_serializable}{Xml\+Serializable}}. Basically, anything that\textquotesingle{}s supported by the \mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} object.
+
+\$context\+Uri can be used to specify a sort of \textquotesingle{}root\textquotesingle{} of the P\+HP application, in case the xml document is used as a http response.
+
+This allows an implementor to easily create U\+RI\textquotesingle{}s relative to the root of the domain.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$root\+Element\+Name} & \\
+\hline
+string | array | \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_serializable}{Xml\+Serializable}} & {\em \$value} & \\
+\hline
+string | null & {\em \$context\+Uri} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 186 der Datei Service.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_a17fc0693945e665d84a2f8e8e515285c}\label{class_sabre_1_1_xml_1_1_service_a17fc0693945e665d84a2f8e8e515285c}} 
+\index{Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}!write\+Value\+Object@{write\+Value\+Object}}
+\index{write\+Value\+Object@{write\+Value\+Object}!Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}}
+\subsubsection{\texorpdfstring{write\+Value\+Object()}{writeValueObject()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Service\+::write\+Value\+Object (\begin{DoxyParamCaption}\item[{}]{\$object,  }\item[{}]{\$context\+Uri = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Writes a value object.
+
+This function largely behaves similar to \mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_a92af6e84cf7218c36bcbaaef4156b033}{write()}}, except that it\textquotesingle{}s intended specifically to serialize a Value Object into an X\+ML document.
+
+The Value\+Object must have been previously registered using \mbox{\hyperlink{class_sabre_1_1_xml_1_1_service_a9dd6c5eb721775a3fec5f749c89e35ce}{map\+Value\+Object()}}.
+
+
+\begin{DoxyParams}[1]{Parameter}
+object & {\em \$object} & \\
+\hline
+string & {\em \$context\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 251 der Datei Service.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_service_af7a633198f85d799f96734e0ee43d18c}\label{class_sabre_1_1_xml_1_1_service_af7a633198f85d799f96734e0ee43d18c}} 
+\index{Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}!\$value\+Object\+Map@{\$value\+Object\+Map}}
+\index{\$value\+Object\+Map@{\$value\+Object\+Map}!Sabre\+::\+Xml\+::\+Service@{Sabre\+::\+Xml\+::\+Service}}
+\subsubsection{\texorpdfstring{\$value\+Object\+Map}{$valueObjectMap}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Service\+::\$value\+Object\+Map = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+A list of classes and which X\+ML elements they map to. 
+
+Definiert in Zeile 295 der Datei Service.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/xml/lib/Service.\+php\end{DoxyCompactItemize}

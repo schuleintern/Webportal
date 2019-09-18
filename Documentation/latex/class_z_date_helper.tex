@@ -1,0 +1,594 @@
+\hypertarget{class_z_date_helper}{}\section{Z\+Date\+Helper Klassenreferenz}
+\label{class_z_date_helper}\index{Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a07c2f5d03c39f5b0ad4f9309f567e3a0}{Day\+In\+Month}} (\$month, \$year)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a9026d7cb38c1f279754f7d43fb47572a}{is\+Today}} (\$date, \$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_addd7e6580a5e38133d5915a00d36decb}{is\+Before\+Today}} (\$date, \$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a6b6623063dc65177264c8c1f769f5cdb}{is\+After\+Today}} (\$date, \$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_aec94814bd48ff1c53fc0c7a68b5d00d9}{is\+Tomorrow}} (\$date, \$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_ac64e4613edfaf5e0975c85ff30959387}{is\+Future}} (\$date, \$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_af533ff8e331d811b7d789c5cbf76b068}{is\+Past}} (\$date, \$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a6122b39577d89c503d1c20a445fc1eff}{now}} (\$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a8b7c2fb18fe8636c447968640551aa7c}{is\+Weekend}} (\$date)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a40b4ee29889ec7c6444648bd4e7bbd99}{to\+Sql\+Date\+Time}} (\$t=0)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a52d3743449d3e0004b1a0f17d6c70cab}{to\+Sql\+Date}} (\$t=0)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a404f7e1c78c663b1f2ce4065f5bec5cd}{fromi\+Calto\+Unix\+Date\+Time}} (\$datetime)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_aac3b0504ccd4a287890e72c98b0b38b1}{from\+Unix\+Date\+Timetoi\+Cal}} (\$datetime)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a79c1056abc3d6c5d95e516e3de6bf76e}{i\+Cal\+Durationto\+Seconds}} (\$duration)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_abd18a3ed0bc7ad987c68ad39943fa486}{in\+Day}} (\$daystart, \$begin, \$end)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_ac366b0b42b39f55be33ef5b528cfac6a}{to\+Unix\+Date}} (\$datetime)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a99a5d6dacb113f1b30aa8c74439402f7}{to\+Unix\+Date\+Time}} (\$datetime)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a26dcb637376ca81977e693c547466a30}{add\+Date}} (\$date, \$hour, \$min, \$sec, \$month, \$day, \$year, \$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a19234db79253cd211a9af517b655d5a2}{get\+Date\+From\+Day}} (\$date, \$week, \$wday, \$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_afcea2d531550680027f1c4301613d6f6}{to\+Local\+Date\+Time}} (\$sqldate, \$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_ae48ebb7e1e9ed5de7c0d3254be081ffb}{to\+U\+T\+C\+Date\+Time}} (\$sqldate, \$tzid=\char`\"{}U\+TC\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a30f7c4e722fd5947833ab78e6b52e8fa}{get\+Abs\+Date}} (\$date, \$rdate=\char`\"{}\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_date_helper_a128b69a45ab5b5eeedda0cd93f6a9e05}{toi\+Cal\+Date\+Time}} (\$datetime=null)
+\item 
+static \mbox{\hyperlink{class_z_date_helper_aac48eb1fc2a5a8206b3c18e46f121a14}{toi\+Cal\+Date}} (\$datetime=null)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Helper class for various date functions 
+
+Definiert in Zeile 16 der Datei date.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_z_date_helper_a26dcb637376ca81977e693c547466a30}\label{class_z_date_helper_a26dcb637376ca81977e693c547466a30}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!add\+Date@{add\+Date}}
+\index{add\+Date@{add\+Date}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{add\+Date()}{addDate()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::add\+Date (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{}]{\$hour,  }\item[{}]{\$min,  }\item[{}]{\$sec,  }\item[{}]{\$month,  }\item[{}]{\$day,  }\item[{}]{\$year,  }\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Date math\+: add or substract from current date to get a new date
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$date} & date to add or subtract from\\
+\hline
+int & {\em \$hour} & add or subtract hours from date\\
+\hline
+int & {\em \$min} & add or subtract minutes from date\\
+\hline
+int & {\em \$sec} & add or subtract seconds from date\\
+\hline
+int & {\em \$month} & add or subtract months from date\\
+\hline
+int & {\em \$day} & add or subtract days from date\\
+\hline
+int & {\em \$year} & add or subtract years from date\\
+\hline
+string & {\em \$tzid} & P\+HP recognized timezone (default is U\+TC) \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 367 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a07c2f5d03c39f5b0ad4f9309f567e3a0}\label{class_z_date_helper_a07c2f5d03c39f5b0ad4f9309f567e3a0}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!Day\+In\+Month@{Day\+In\+Month}}
+\index{Day\+In\+Month@{Day\+In\+Month}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{Day\+In\+Month()}{DayInMonth()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::\+Day\+In\+Month (\begin{DoxyParamCaption}\item[{}]{\$month,  }\item[{}]{\$year }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Find the number of days in a month
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$month} & Month is between 1 and 12 inclusive\\
+\hline
+int & {\em \$year} & is between 1 and 32767 inclusive\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 27 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a404f7e1c78c663b1f2ce4065f5bec5cd}\label{class_z_date_helper_a404f7e1c78c663b1f2ce4065f5bec5cd}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!fromi\+Calto\+Unix\+Date\+Time@{fromi\+Calto\+Unix\+Date\+Time}}
+\index{fromi\+Calto\+Unix\+Date\+Time@{fromi\+Calto\+Unix\+Date\+Time}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{fromi\+Calto\+Unix\+Date\+Time()}{fromiCaltoUnixDateTime()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::fromi\+Calto\+Unix\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$datetime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Format i\+Cal date-\/time string to Unix timestamp
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$datetime} & in i\+Cal time format ( Y\+Y\+Y\+Y\+M\+M\+DD or Y\+Y\+Y\+Y\+M\+M\+D\+D\+T\+H\+H\+M\+M\+SS or Y\+Y\+Y\+Y\+M\+M\+D\+D\+T\+H\+H\+M\+M\+S\+SZ )\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int Unix timestamp 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 200 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_aac3b0504ccd4a287890e72c98b0b38b1}\label{class_z_date_helper_aac3b0504ccd4a287890e72c98b0b38b1}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!from\+Unix\+Date\+Timetoi\+Cal@{from\+Unix\+Date\+Timetoi\+Cal}}
+\index{from\+Unix\+Date\+Timetoi\+Cal@{from\+Unix\+Date\+Timetoi\+Cal}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{from\+Unix\+Date\+Timetoi\+Cal()}{fromUnixDateTimetoiCal()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::from\+Unix\+Date\+Timetoi\+Cal (\begin{DoxyParamCaption}\item[{}]{\$datetime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Format Unix timestamp to i\+Cal date-\/time string
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$datetime} & Unix timestamp\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 236 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a30f7c4e722fd5947833ab78e6b52e8fa}\label{class_z_date_helper_a30f7c4e722fd5947833ab78e6b52e8fa}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!get\+Abs\+Date@{get\+Abs\+Date}}
+\index{get\+Abs\+Date@{get\+Abs\+Date}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{get\+Abs\+Date()}{getAbsDate()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::get\+Abs\+Date (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{}]{\$rdate = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert from a relative date to an absolute date
+
+Examples of relative dates are \char`\"{}-\/2y\char`\"{} for 2 years ago, \char`\"{}18m\char`\"{} for 18 months after today. Relative date uses \char`\"{}y\char`\"{}, \char`\"{}m\char`\"{} and \char`\"{}d\char`\"{} for year, month and day. Relative date can be combined into comma separated list, i.\+e., \char`\"{}-\/1y,-\/1d\char`\"{} for 1 year and 1 day ago.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$date} & relative date string (i.\+e. \char`\"{}1y\char`\"{} for 1 year from today)\\
+\hline
+string & {\em \$rdate} & reference date, or blank for current date (in S\+QL date-\/time format)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string in S\+QL date-\/time format 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 492 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a19234db79253cd211a9af517b655d5a2}\label{class_z_date_helper_a19234db79253cd211a9af517b655d5a2}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!get\+Date\+From\+Day@{get\+Date\+From\+Day}}
+\index{get\+Date\+From\+Day@{get\+Date\+From\+Day}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{get\+Date\+From\+Day()}{getDateFromDay()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::get\+Date\+From\+Day (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{}]{\$week,  }\item[{}]{\$wday,  }\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Date math\+: get date from week and day in specifiec month
+
+This routine finds actual dates for the second Tuesday of the month, last Friday of the month, etc. For second Tuesday, use \$week = 1, \$wday = 2 for last Friday, use \$week = -\/1, \$wday = 5
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$date} & Unix timestamp\\
+\hline
+int & {\em \$week} & week number, 0 is first week, -\/1 is last\\
+\hline
+int & {\em \$wday} & day of week, 0 is Sunday, 6 is Saturday\\
+\hline
+string & {\em \$tzid} & P\+HP supported timezone\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int Unix timestamp 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 400 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a79c1056abc3d6c5d95e516e3de6bf76e}\label{class_z_date_helper_a79c1056abc3d6c5d95e516e3de6bf76e}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!i\+Cal\+Durationto\+Seconds@{i\+Cal\+Durationto\+Seconds}}
+\index{i\+Cal\+Durationto\+Seconds@{i\+Cal\+Durationto\+Seconds}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{i\+Cal\+Durationto\+Seconds()}{iCalDurationtoSeconds()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::i\+Cal\+Durationto\+Seconds (\begin{DoxyParamCaption}\item[{}]{\$duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert i\+Cal duration string to \# of seconds
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$duration} & i\+Cal duration string\\
+\hline
+\end{DoxyParams}
+return int 
+
+Definiert in Zeile 248 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_abd18a3ed0bc7ad987c68ad39943fa486}\label{class_z_date_helper_abd18a3ed0bc7ad987c68ad39943fa486}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!in\+Day@{in\+Day}}
+\index{in\+Day@{in\+Day}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{in\+Day()}{inDay()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::in\+Day (\begin{DoxyParamCaption}\item[{}]{\$daystart,  }\item[{}]{\$begin,  }\item[{}]{\$end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Check if day falls within date range
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$daystart} & start of day in Unix timestamp format\\
+\hline
+int & {\em \$begin} & Unix timestamp of starting date range\\
+\hline
+int & {\em \$end} & Unix timestamp of end date range\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 290 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a6b6623063dc65177264c8c1f769f5cdb}\label{class_z_date_helper_a6b6623063dc65177264c8c1f769f5cdb}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!is\+After\+Today@{is\+After\+Today}}
+\index{is\+After\+Today@{is\+After\+Today}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{is\+After\+Today()}{isAfterToday()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::is\+After\+Today (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is given date after today?
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$date} & date in Unix timestamp format\\
+\hline
+int & {\em \$tzid} & P\+HP recognized timezone (default is U\+TC)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 75 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_addd7e6580a5e38133d5915a00d36decb}\label{class_z_date_helper_addd7e6580a5e38133d5915a00d36decb}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!is\+Before\+Today@{is\+Before\+Today}}
+\index{is\+Before\+Today@{is\+Before\+Today}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{is\+Before\+Today()}{isBeforeToday()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::is\+Before\+Today (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is given date before today?
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$date} & date in Unix timestamp format\\
+\hline
+int & {\em \$tzid} & P\+HP recognized timezone (default is U\+TC)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 58 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_ac64e4613edfaf5e0975c85ff30959387}\label{class_z_date_helper_ac64e4613edfaf5e0975c85ff30959387}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!is\+Future@{is\+Future}}
+\index{is\+Future@{is\+Future}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{is\+Future()}{isFuture()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::is\+Future (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is given date in the future?
+
+This routine differs from \mbox{\hyperlink{class_z_date_helper_a6b6623063dc65177264c8c1f769f5cdb}{is\+After\+Today()}} in that \mbox{\hyperlink{class_z_date_helper_ac64e4613edfaf5e0975c85ff30959387}{is\+Future()}} will return true for date-\/time values later in the same day.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$date} & date in Unix timestamp format\\
+\hline
+int & {\em \$tzid} & P\+HP recognized timezone (default is U\+TC)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 111 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_af533ff8e331d811b7d789c5cbf76b068}\label{class_z_date_helper_af533ff8e331d811b7d789c5cbf76b068}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!is\+Past@{is\+Past}}
+\index{is\+Past@{is\+Past}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{is\+Past()}{isPast()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::is\+Past (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is given date in the past?
+
+This routine differs from \mbox{\hyperlink{class_z_date_helper_addd7e6580a5e38133d5915a00d36decb}{is\+Before\+Today()}} in that \mbox{\hyperlink{class_z_date_helper_af533ff8e331d811b7d789c5cbf76b068}{is\+Past()}} will return true for date-\/time values earlier in the same day.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$date} & date in Unix timestamp format\\
+\hline
+int & {\em \$tzid} & P\+HP recognized timezone (default is U\+TC)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 130 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a9026d7cb38c1f279754f7d43fb47572a}\label{class_z_date_helper_a9026d7cb38c1f279754f7d43fb47572a}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!is\+Today@{is\+Today}}
+\index{is\+Today@{is\+Today}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{is\+Today()}{isToday()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::is\+Today (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is given date today?
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$date} & date in Unix timestamp format\\
+\hline
+int & {\em \$tzid} & P\+HP recognized timezone (default is U\+TC)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 42 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_aec94814bd48ff1c53fc0c7a68b5d00d9}\label{class_z_date_helper_aec94814bd48ff1c53fc0c7a68b5d00d9}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!is\+Tomorrow@{is\+Tomorrow}}
+\index{is\+Tomorrow@{is\+Tomorrow}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{is\+Tomorrow()}{isTomorrow()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::is\+Tomorrow (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is given date tomorrow?
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$date} & date in Unix timestamp format\\
+\hline
+int & {\em \$tzid} & P\+HP recognized timezone (default is U\+TC)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 92 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a8b7c2fb18fe8636c447968640551aa7c}\label{class_z_date_helper_a8b7c2fb18fe8636c447968640551aa7c}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!is\+Weekend@{is\+Weekend}}
+\index{is\+Weekend@{is\+Weekend}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{is\+Weekend()}{isWeekend()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::is\+Weekend (\begin{DoxyParamCaption}\item[{}]{\$date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is given date fall on a weekend?
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$date} & Unix timestamp\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 158 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a6122b39577d89c503d1c20a445fc1eff}\label{class_z_date_helper_a6122b39577d89c503d1c20a445fc1eff}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!now@{now}}
+\index{now@{now}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{now()}{now()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::now (\begin{DoxyParamCaption}\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Return current Unix timestamp in local timezone
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$tzid} & P\+HP recognized timezone\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 144 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_aac48eb1fc2a5a8206b3c18e46f121a14}\label{class_z_date_helper_aac48eb1fc2a5a8206b3c18e46f121a14}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!toi\+Cal\+Date@{toi\+Cal\+Date}}
+\index{toi\+Cal\+Date@{toi\+Cal\+Date}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{toi\+Cal\+Date()}{toiCalDate()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::toi\+Cal\+Date (\begin{DoxyParamCaption}\item[{}]{\$datetime = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Format Unix timestamp to i\+Cal date format
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$datetime} & Unix timestamp\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string i\+Cal date-\/time string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 558 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a128b69a45ab5b5eeedda0cd93f6a9e05}\label{class_z_date_helper_a128b69a45ab5b5eeedda0cd93f6a9e05}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!toi\+Cal\+Date\+Time@{toi\+Cal\+Date\+Time}}
+\index{toi\+Cal\+Date\+Time@{toi\+Cal\+Date\+Time}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{toi\+Cal\+Date\+Time()}{toiCalDateTime()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::toi\+Cal\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$datetime = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Format Unix timestamp to i\+Cal date-\/time format
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$datetime} & Unix timestamp\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string i\+Cal date-\/time string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 544 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_afcea2d531550680027f1c4301613d6f6}\label{class_z_date_helper_afcea2d531550680027f1c4301613d6f6}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!to\+Local\+Date\+Time@{to\+Local\+Date\+Time}}
+\index{to\+Local\+Date\+Time@{to\+Local\+Date\+Time}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{to\+Local\+Date\+Time()}{toLocalDateTime()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::to\+Local\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$sqldate,  }\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert U\+TC date-\/time to local date-\/time
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$sqldate} & S\+QL date-\/time string\\
+\hline
+string & {\em \$tzid} & P\+HP recognized timezone (default is \char`\"{}\+U\+T\+C\char`\"{})\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string S\+QL date-\/time string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 433 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a52d3743449d3e0004b1a0f17d6c70cab}\label{class_z_date_helper_a52d3743449d3e0004b1a0f17d6c70cab}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!to\+Sql\+Date@{to\+Sql\+Date}}
+\index{to\+Sql\+Date@{to\+Sql\+Date}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{to\+Sql\+Date()}{toSqlDate()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::to\+Sql\+Date (\begin{DoxyParamCaption}\item[{}]{\$t = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Format Unix timestamp to S\+QL date
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$t} & Unix timestamp\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 185 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a40b4ee29889ec7c6444648bd4e7bbd99}\label{class_z_date_helper_a40b4ee29889ec7c6444648bd4e7bbd99}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!to\+Sql\+Date\+Time@{to\+Sql\+Date\+Time}}
+\index{to\+Sql\+Date\+Time@{to\+Sql\+Date\+Time}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{to\+Sql\+Date\+Time()}{toSqlDateTime()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::to\+Sql\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$t = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Format Unix timestamp to S\+QL date-\/time
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$t} & Unix timestamp\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 170 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_ac366b0b42b39f55be33ef5b528cfac6a}\label{class_z_date_helper_ac366b0b42b39f55be33ef5b528cfac6a}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!to\+Unix\+Date@{to\+Unix\+Date}}
+\index{to\+Unix\+Date@{to\+Unix\+Date}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{to\+Unix\+Date()}{toUnixDate()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::to\+Unix\+Date (\begin{DoxyParamCaption}\item[{}]{\$datetime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert S\+QL date or date-\/time to Unix timestamp
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$datetime} & S\+QL date or date-\/time\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int Unix date-\/time timestamp 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 314 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_a99a5d6dacb113f1b30aa8c74439402f7}\label{class_z_date_helper_a99a5d6dacb113f1b30aa8c74439402f7}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!to\+Unix\+Date\+Time@{to\+Unix\+Date\+Time}}
+\index{to\+Unix\+Date\+Time@{to\+Unix\+Date\+Time}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{to\+Unix\+Date\+Time()}{toUnixDateTime()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::to\+Unix\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$datetime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert S\+QL date or date-\/time to Unix date timestamp
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$datetime} & S\+QL date or date-\/time\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int Unix timestamp 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 330 der Datei date.\+php.
+
+\mbox{\Hypertarget{class_z_date_helper_ae48ebb7e1e9ed5de7c0d3254be081ffb}\label{class_z_date_helper_ae48ebb7e1e9ed5de7c0d3254be081ffb}} 
+\index{Z\+Date\+Helper@{Z\+Date\+Helper}!to\+U\+T\+C\+Date\+Time@{to\+U\+T\+C\+Date\+Time}}
+\index{to\+U\+T\+C\+Date\+Time@{to\+U\+T\+C\+Date\+Time}!Z\+Date\+Helper@{Z\+Date\+Helper}}
+\subsubsection{\texorpdfstring{to\+U\+T\+C\+Date\+Time()}{toUTCDateTime()}}
+{\footnotesize\ttfamily static Z\+Date\+Helper\+::to\+U\+T\+C\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$sqldate,  }\item[{}]{\$tzid = {\ttfamily \char`\"{}UTC\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert local date-\/time to U\+TC date-\/time
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$sqldate} & S\+QL date-\/time string\\
+\hline
+string & {\em \$tzid} & P\+HP recognized timezone (default is \char`\"{}\+U\+T\+C\char`\"{})\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string S\+QL date-\/time string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 458 der Datei date.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/ical/includes/date.\+php\end{DoxyCompactItemize}

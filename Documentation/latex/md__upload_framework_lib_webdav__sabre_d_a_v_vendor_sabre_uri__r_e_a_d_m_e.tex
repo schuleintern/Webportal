@@ -1,0 +1,46 @@
+sabre/uri is a lightweight library that provides several functions for working with U\+R\+Is, staying true to the rules of \href{https://tools.ietf.org/html/rfc3986/}{\tt R\+F\+C3986}.
+
+Partially inspired by \href{http://nodejs.org/api/url.html}{\tt Node.\+js U\+RL library}, and created to solve real problems in P\+HP applications. 100\% unitested and many tests are based on examples from R\+F\+C3986.
+
+The library provides the following functions\+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily resolve} to resolve relative urls.
+\item {\ttfamily normalize} to aid in comparing urls.
+\item {\ttfamily parse}, which works like P\+HP\textquotesingle{}s \href{http://php.net/manual/en/function.parse-url.php}{\tt parse\+\_\+url}.
+\item {\ttfamily build} to do the exact opposite of {\ttfamily parse}.
+\item {\ttfamily split} to easily get the \textquotesingle{}dirname\textquotesingle{} and \textquotesingle{}basename\textquotesingle{} of a U\+RL without all the problems those two functions have.
+\end{DoxyEnumerate}
+
+\subsection*{Further reading }
+
+
+\begin{DoxyItemize}
+\item \href{http://sabre.io/uri/install/}{\tt Installation}
+\item \href{http://sabre.io/uri/usage/}{\tt Usage}
+\end{DoxyItemize}
+
+\subsection*{Build status }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ branch  }&\textbf{ status   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ branch  }&\textbf{ status   }\\\cline{1-2}
+\endhead
+master  &\href{https://travis-ci.org/fruux/sabre-uri}{\tt }   \\\cline{1-2}
+\end{longtabu}
+
+
+\subsection*{Questions? }
+
+Head over to the \href{http://groups.google.com/group/sabredav-discuss}{\tt sabre/dav mailinglist}, or you can also just open a ticket on \href{https://github.com/fruux/sabre-uri/issues/}{\tt Git\+Hub}.
+
+\subsection*{Made at fruux }
+
+This library is being developed by \href{https://fruux.com/}{\tt fruux}. Drop us a line for commercial services or enterprise support. 

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: ChangeLog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ChangeLog </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h2>1.2.0 (2016-12-06) </h2>
+<ul>
+<li>Now throwing <code>InvalidUriException</code> if a uri passed to the <code>parse</code> function is invalid or could not be parsed.</li>
+<li>#11: Fix support for URIs that start with a triple slash. PHP's <code>parse_uri()</code> doesn't support them, so we now have a pure-php fallback in case it fails.</li>
+<li>#9: Fix support for relative URI's that have a non-uri encoded colon <code>:</code> in them.</li>
+</ul>
+<h2>1.1.1 (2016-10-27) </h2>
+<ul>
+<li>#10: Correctly support <a href="file://">file://</a> URIs in the build() method. ()</li>
+</ul>
+<h2>1.1.0 (2016-03-07) </h2>
+<ul>
+<li>#6: PHP's <code>parse_url()</code> corrupts strings if they contain certain non ascii-characters such as Chinese or Hebrew. sabre/uri's <code>parse()</code> function now percent-encodes these characters beforehand.</li>
+</ul>
+<h2>1.0.1 (2015-04-28) </h2>
+<ul>
+<li>#4: Using php-cs-fixer to automatically enforce conding standards.</li>
+<li>#5: Resolving to and building <code>mailto:</code> urls were not correctly handled.</li>
+</ul>
+<h2>1.0.0 (2015-01-27) </h2>
+<ul>
+<li>Added a <code>normalize</code> function.</li>
+<li>Added a <code>buildUri</code> function.</li>
+<li>Fixed a bug in the <code>resolve</code> when only a new fragment is specified.</li>
+</ul>
+<p>San José, CalConnect XXXII release!</p>
+<h2>0.0.1 (2014-11-17) </h2>
+<ul>
+<li>First version!</li>
+<li>Source was lifted from sabre/http package.</li>
+<li>Provides a <code>resolve</code> and a <code>split</code> function.</li>
+<li>Requires PHP 5.4.8 and up. </li>
+</ul>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

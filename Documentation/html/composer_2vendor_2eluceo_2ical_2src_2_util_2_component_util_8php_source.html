@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/composer/vendor/eluceo/ical/src/Util/ComponentUtil.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_ec5861416e7a0d204e3e0c2e4ac91989.html">composer</a></li><li class="navelem"><a class="el" href="dir_f4ae62192be4f13194f7451ebb94bf52.html">vendor</a></li><li class="navelem"><a class="el" href="dir_61abc59f9118dc6c05417ceb127809f7.html">eluceo</a></li><li class="navelem"><a class="el" href="dir_241a20011c23eb53144e95da770c557f.html">ical</a></li><li class="navelem"><a class="el" href="dir_1d8ae56a2ad04d4b80aed9176ff73a89.html">src</a></li><li class="navelem"><a class="el" href="dir_e6107e04c0d7d3b418f261d0f09bfc8b.html">Util</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ComponentUtil.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">/*</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file is part of the eluceo/iCal package.</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * (c) Markus Poerschke &lt;markus@eluceo.de&gt;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This source file is subject to the MIT license that is bundled</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * with this source code in the file LICENSE.</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> */</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_eluceo_1_1i_cal_1_1_util.html">Eluceo\iCal\Util</a>;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_eluceo_1_1i_cal_1_1_util_1_1_component_util.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_eluceo_1_1i_cal_1_1_util_1_1_component_util.html">ComponentUtil</a></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div><div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_eluceo_1_1i_cal_1_1_util_1_1_component_util.html#a8b295bedfc690ba2f52a884f52726d22">   28</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_eluceo_1_1i_cal_1_1_util_1_1_component_util.html#a8b295bedfc690ba2f52a884f52726d22">fold</a>($string)</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        $lines = [];</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">if</span> (function_exists(<span class="stringliteral">&#39;mb_strcut&#39;</span>)) {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">while</span> (strlen($string) &gt; 0) {</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">if</span> (strlen($string) &gt; 75) {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    $lines[] = mb_strcut($string, 0, 75, <span class="stringliteral">&#39;utf-8&#39;</span>);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    $string = <span class="charliteral">&#39; &#39;</span> . mb_strcut($string, 75, strlen($string), <span class="stringliteral">&#39;utf-8&#39;</span>);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                    $lines[] = $string;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                    $string = <span class="stringliteral">&#39;&#39;</span>;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                    <span class="keywordflow">break</span>;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            $array = preg_split(<span class="stringliteral">&#39;/(?&lt;!^)(?!$)/u&#39;</span>, $string);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            $line = <span class="stringliteral">&#39;&#39;</span>;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            $lineNo = 0;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">foreach</span> ($array as $char) {</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                $charLen = strlen($char);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                $lineLen = strlen($line);</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">if</span> ($lineLen + $charLen &gt; 75) {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    $line = <span class="charliteral">&#39; &#39;</span> . $char;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    ++$lineNo;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    $line .= $char;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                }</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                $lines[$lineNo] = $line;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> $lines;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div><div class="ttc" id="class_eluceo_1_1i_cal_1_1_util_1_1_component_util_html"><div class="ttname"><a href="class_eluceo_1_1i_cal_1_1_util_1_1_component_util.html">Eluceo\iCal\Util\ComponentUtil</a></div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_util_2_component_util_8php_source.html#l00014">ComponentUtil.php:14</a></div></div>
+<div class="ttc" id="class_eluceo_1_1i_cal_1_1_util_1_1_component_util_html_a8b295bedfc690ba2f52a884f52726d22"><div class="ttname"><a href="class_eluceo_1_1i_cal_1_1_util_1_1_component_util.html#a8b295bedfc690ba2f52a884f52726d22">Eluceo\iCal\Util\ComponentUtil\fold</a></div><div class="ttdeci">static fold($string)</div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_util_2_component_util_8php_source.html#l00028">ComponentUtil.php:28</a></div></div>
+<div class="ttc" id="namespace_eluceo_1_1i_cal_1_1_util_html"><div class="ttname"><a href="namespace_eluceo_1_1i_cal_1_1_util.html">Eluceo\iCal\Util</a></div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_util_2_component_util_8php_source.html#l00012">ComponentUtil.php:12</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

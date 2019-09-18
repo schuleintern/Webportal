@@ -1,0 +1,56 @@
+\hypertarget{class_upload_image}{}\section{Upload\+Image Klassenreferenz}
+\label{class_upload_image}\index{Upload\+Image@{Upload\+Image}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_upload_image_abbc32cd3c3f4c36f947d731578d6c782}\label{class_upload_image_abbc32cd3c3f4c36f947d731578d6c782}} 
+{\bfseries \+\_\+\+\_\+construct} (\$image\+ID=-\/1)
+\item 
+\mbox{\Hypertarget{class_upload_image_afdf7f82eb661f887462440a933e1a29f}\label{class_upload_image_afdf7f82eb661f887462440a933e1a29f}} 
+{\bfseries send\+Image} (\$max\+Width=-\/1)
+\item 
+\mbox{\hyperlink{class_upload_image_ae4f21ae36f850f3a2d2afe60337330aa}{upload\+New\+Image}} (\$form\+Name, \$max\+Size=4000000)
+\item 
+\mbox{\Hypertarget{class_upload_image_a569e91881704cbe710cb3b26a618a133}\label{class_upload_image_a569e91881704cbe710cb3b26a618a133}} 
+{\bfseries delete} ()
+\item 
+\mbox{\Hypertarget{class_upload_image_a0bee4c9aa2393494ec9a75ec8e2ee642}\label{class_upload_image_a0bee4c9aa2393494ec9a75ec8e2ee642}} 
+{\bfseries get\+Upload\+ID} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\begin{DoxyRefDesc}{Veraltet}
+\item[\mbox{\hyperlink{deprecated__deprecated000044}{Veraltet}}]Use \mbox{\hyperlink{class_file_upload}{File\+Upload}} instead. \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Noch zu erledigen}
+\item[\mbox{\hyperlink{todo__todo000002}{Noch zu erledigen}}]Migrate old Images to \mbox{\hyperlink{class_file_upload}{File\+Upload}} \end{DoxyRefDesc}
+
+
+Definiert in Zeile 8 der Datei Upload\+Image.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_upload_image_ae4f21ae36f850f3a2d2afe60337330aa}\label{class_upload_image_ae4f21ae36f850f3a2d2afe60337330aa}} 
+\index{Upload\+Image@{Upload\+Image}!upload\+New\+Image@{upload\+New\+Image}}
+\index{upload\+New\+Image@{upload\+New\+Image}!Upload\+Image@{Upload\+Image}}
+\subsubsection{\texorpdfstring{upload\+New\+Image()}{uploadNewImage()}}
+{\footnotesize\ttfamily Upload\+Image\+::upload\+New\+Image (\begin{DoxyParamCaption}\item[{}]{\$form\+Name,  }\item[{}]{\$max\+Size = {\ttfamily 4000000} }\end{DoxyParamCaption})}
+
+Läd ein Bild hoch. Das Formular muss $<$form action=\char`\"{}\mbox{[}script\mbox{]}\char`\"{} method=\char`\"{}post\char`\"{} enctype=\char`\"{}multipart/form-\/data\char`\"{}$>$ sein. Das Bild wird in J\+P\+EG konvertiert (Qualität 90) 
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$form\+Name} & Formularname \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+true -\/$>$ success (die Aktuelle Bild ID wird mit dem neuen Bild überschrieben. !true -\/$>$ Fehlercode Fehler 2\+: Bild ungültig 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 98 der Datei Upload\+Image.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/upload\+Image/Upload\+Image.\+class.\+php\end{DoxyCompactItemize}

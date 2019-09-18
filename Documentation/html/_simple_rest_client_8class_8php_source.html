@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/rest/SimpleRestClient.class.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_e3c36a4d062c140d2957713cf6edd11e.html">rest</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SimpleRestClient.class.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="class_simple_rest_client.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_simple_rest_client.html">SimpleRestClient</a> {</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    </div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_simple_rest_client.html#afa5508191003cde6db6b4cef280972df">   16</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_simple_rest_client.html#afa5508191003cde6db6b4cef280972df">doRESTApiCall</a>($url, $method, $path, $data, $addheaders = [], $user = NULL, $password = NULL) {</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        </div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        $query = json_encode($data);</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        </div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        $addheaders[] = <span class="stringliteral">&quot;schuleinternapirequest: true&quot;</span>;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        </div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        $process = curl_init($url . <span class="stringliteral">&quot;/&quot;</span> . $path);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        </div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">// curl_setopt($process, CURLOPT_HEADER, 0);</span></div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        </div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">sizeof</span>($addheaders) &gt; 0) {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            curl_setopt($process, CURLOPT_HTTPHEADER, $addheaders);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span>($user != NULL) {</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            curl_setopt($process, CURLOPT_USERPWD, $user . <span class="stringliteral">&quot;:&quot;</span> . $password);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        </div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        curl_setopt($process, CURLOPT_TIMEOUT, 30);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        </div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span>($method == <span class="stringliteral">&quot;POST&quot;</span>) curl_setopt($process, CURLOPT_POST, <span class="keyword">true</span>);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>($method == <span class="stringliteral">&quot;PUT&quot;</span>) curl_setopt($process, CURLOPT_CUSTOMREQUEST, <span class="stringliteral">&quot;PUT&quot;</span>);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>($method == <span class="stringliteral">&quot;DELETE&quot;</span>) curl_setopt($process, CURLOPT_CUSTOMREQUEST, <span class="stringliteral">&quot;DELETE&quot;</span>);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>($method == <span class="stringliteral">&quot;GET&quot;</span>) curl_setopt($process, CURLOPT_CUSTOMREQUEST, <span class="stringliteral">&quot;GET&quot;</span>);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>($method == <span class="stringliteral">&quot;PATCH&quot;</span>) curl_setopt($process, CURLOPT_CUSTOMREQUEST, <span class="stringliteral">&quot;PATCH&quot;</span>);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">else</span> die(<span class="stringliteral">&quot;No valid Method: &quot;</span> . $method);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        </div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        </div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        curl_setopt($process, CURLOPT_POSTFIELDS, $query);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        curl_setopt($process, CURLOPT_SSL_VERIFYPEER, <span class="keyword">false</span>);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        curl_setopt($process, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        $return = curl_exec($process);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        $statusCode = curl_getinfo($process, CURLINFO_HTTP_CODE);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        </div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        curl_close($process);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        </div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> [</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="stringliteral">&#39;statusCode&#39;</span> =&gt; $statusCode,</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="stringliteral">&#39;data&#39;</span> =&gt; json_decode($return)</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        ];</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div><div class="ttc" id="class_simple_rest_client_html_afa5508191003cde6db6b4cef280972df"><div class="ttname"><a href="class_simple_rest_client.html#afa5508191003cde6db6b4cef280972df">SimpleRestClient\doRESTApiCall</a></div><div class="ttdeci">static doRESTApiCall($url, $method, $path, $data, $addheaders=[], $user=NULL, $password=NULL)</div><div class="ttdef"><b>Definition:</b> <a href="_simple_rest_client_8class_8php_source.html#l00016">SimpleRestClient.class.php:16</a></div></div>
+<div class="ttc" id="class_simple_rest_client_html"><div class="ttname"><a href="class_simple_rest_client.html">SimpleRestClient</a></div><div class="ttdef"><b>Definition:</b> <a href="_simple_rest_client_8class_8php_source.html#l00004">SimpleRestClient.class.php:4</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

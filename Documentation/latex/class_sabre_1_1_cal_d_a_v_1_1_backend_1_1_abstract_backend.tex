@@ -1,0 +1,219 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Abstract\+Backend Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Abstract\+Backend\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.830065cm]{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a4fcc50d31b15897b3c20f9f3d9b7409f}{update\+Calendar}} (\$calendar\+Id, \textbackslash{}\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch}} \$prop\+Patch)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_adba5d18971acc5868a58d66eb9f72786}{get\+Multiple\+Calendar\+Objects}} (\$calendar\+Id, array \$uris)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a6da1dc50d10765046142ce703bc44925}{calendar\+Query}} (\$calendar\+Id, array \$filters)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a7b872ebd80eb25ebd9636b5d64caae8f}{get\+Calendar\+Object\+By\+U\+ID}} (\$principal\+Uri, \$uid)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a5cc13dcccf6fe380e9c44a2129e3b252}{validate\+Filter\+For\+Object}} (array \$object, array \$filters)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Abstract Calendaring backend. Extend this class to create your own backends.
+
+Checkout the \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface}{Backend\+Interface}} for all the methods that must be implemented.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei Abstract\+Backend.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a6da1dc50d10765046142ce703bc44925}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a6da1dc50d10765046142ce703bc44925}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}!calendar\+Query@{calendar\+Query}}
+\index{calendar\+Query@{calendar\+Query}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}}
+\subsubsection{\texorpdfstring{calendar\+Query()}{calendarQuery()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend\+::calendar\+Query (\begin{DoxyParamCaption}\item[{}]{\$calendar\+Id,  }\item[{array}]{\$filters }\end{DoxyParamCaption})}
+
+Performs a calendar-\/query on the contents of this calendar.
+
+The calendar-\/query is defined in R\+F\+C4791 \+: Cal\+D\+AV. Using the calendar-\/query it is possible for a client to request a specific set of object, based on contents of i\+Calendar properties, date-\/ranges and i\+Calendar component types (V\+T\+O\+DO, V\+E\+V\+E\+NT).
+
+This method should just return a list of (relative) urls that match this query.
+
+The list of filters are specified as an array. The exact array is documented by .
+
+\mbox{\hyperlink{class_note}{Note}} that it is extremely likely that get\+Calendar\+Object for every path returned from this method will be called almost immediately after. You may want to anticipate this to speed up these requests.
+
+This method provides a default implementation, which parses {\itshape all} the i\+Calendar objects in the specified calendar.
+
+This default may well be good enough for personal use, and calendars that aren\textquotesingle{}t very large. But if you anticipate high usage, big calendars or high loads, you are strongly adviced to optimize certain paths.
+
+The best way to do so is override this method and to optimize specifically for \textquotesingle{}common filters\textquotesingle{}.
+
+Requests that are extremely common are\+:
+\begin{DoxyItemize}
+\item requests for just V\+E\+V\+E\+N\+TS
+\item requests for just V\+T\+O\+DO
+\item requests with a time-\/range-\/filter on either V\+E\+V\+E\+NT or V\+T\+O\+DO.
+\end{DoxyItemize}
+
+..and combinations of these requests. It may not be worth it to try to handle every possible situation and just rely on the (relatively easy to use) \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator}{Calendar\+Query\+Validator}} to handle the rest.
+
+\mbox{\hyperlink{class_note}{Note}} that especially time-\/range-\/filters may be difficult to parse. A time-\/range filter specified on a V\+E\+V\+E\+NT must for instance also handle recurrence rules correctly. A good example of how to interprete all these filters can also simply be found in . This class is as correct as possible, so it gives you a good idea on what type of stuff you need to think of.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$calendar\+Id} & \\
+\hline
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_aecd41f613576b9d7d6d16d3039c692ae}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 108 der Datei Abstract\+Backend.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a7b872ebd80eb25ebd9636b5d64caae8f}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a7b872ebd80eb25ebd9636b5d64caae8f}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}!get\+Calendar\+Object\+By\+U\+ID@{get\+Calendar\+Object\+By\+U\+ID}}
+\index{get\+Calendar\+Object\+By\+U\+ID@{get\+Calendar\+Object\+By\+U\+ID}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}}
+\subsubsection{\texorpdfstring{get\+Calendar\+Object\+By\+U\+I\+D()}{getCalendarObjectByUID()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend\+::get\+Calendar\+Object\+By\+U\+ID (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri,  }\item[{}]{\$uid }\end{DoxyParamCaption})}
+
+Searches through all of a users calendars and calendar objects to find an object with a specific U\+ID.
+
+This method should return the path to this object, relative to the calendar home, so this path usually only contains two parts\+:
+
+calendarpath/objectpath.\+ics
+
+If the uid is not found, return null.
+
+This method should only consider $\ast$ objects that the principal owns, so any calendars owned by other principals that also appear in this collection should be ignored.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+string & {\em \$uid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_ac9fc5b145a94ba67e0a4fe1fb6d82022}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 173 der Datei Abstract\+Backend.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_adba5d18971acc5868a58d66eb9f72786}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_adba5d18971acc5868a58d66eb9f72786}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}!get\+Multiple\+Calendar\+Objects@{get\+Multiple\+Calendar\+Objects}}
+\index{get\+Multiple\+Calendar\+Objects@{get\+Multiple\+Calendar\+Objects}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}}
+\subsubsection{\texorpdfstring{get\+Multiple\+Calendar\+Objects()}{getMultipleCalendarObjects()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend\+::get\+Multiple\+Calendar\+Objects (\begin{DoxyParamCaption}\item[{}]{\$calendar\+Id,  }\item[{array}]{\$uris }\end{DoxyParamCaption})}
+
+Returns a list of calendar objects.
+
+This method should work identical to get\+Calendar\+Object, but instead return all the calendar objects in the list as an array.
+
+If the backend supports this, it may allow for some speed-\/ups.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$calendar\+Id} & \\
+\hline
+array & {\em \$uris} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_a1ac65bc67e50edce9db902083d0ceb51}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 51 der Datei Abstract\+Backend.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a4fcc50d31b15897b3c20f9f3d9b7409f}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a4fcc50d31b15897b3c20f9f3d9b7409f}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}!update\+Calendar@{update\+Calendar}}
+\index{update\+Calendar@{update\+Calendar}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}}
+\subsubsection{\texorpdfstring{update\+Calendar()}{updateCalendar()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend\+::update\+Calendar (\begin{DoxyParamCaption}\item[{}]{\$calendar\+Id,  }\item[{\textbackslash{}\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch}}}]{\$prop\+Patch }\end{DoxyParamCaption})}
+
+Updates properties for a calendar.
+
+The list of mutations is stored in a Sabre object. To do the actual updates, you must tell this object which properties you\textquotesingle{}re going to process with the handle() method.
+
+Calling the handle method is like telling the Prop\+Patch object \char`\"{}\+I
+promise I can handle updating this property\char`\"{}.
+
+Read the Prop\+Patch documentation for more info and examples.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$calendar\+Id} & \\
+\hline
+\textbackslash{}\+Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch & {\em \$prop\+Patch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_aee5f2b1f3631060205b16e69deb7f3c1}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 35 der Datei Abstract\+Backend.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a5cc13dcccf6fe380e9c44a2129e3b252}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_abstract_backend_a5cc13dcccf6fe380e9c44a2129e3b252}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}!validate\+Filter\+For\+Object@{validate\+Filter\+For\+Object}}
+\index{validate\+Filter\+For\+Object@{validate\+Filter\+For\+Object}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}}
+\subsubsection{\texorpdfstring{validate\+Filter\+For\+Object()}{validateFilterForObject()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend\+::validate\+Filter\+For\+Object (\begin{DoxyParamCaption}\item[{array}]{\$object,  }\item[{array}]{\$filters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method validates if a filter (as passed to calendar\+Query) matches the given object.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$object} & \\
+\hline
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 133 der Datei Abstract\+Backend.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Backend/Abstract\+Backend.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,550 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_calendar}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.635294cm]{class_sabre_1_1_cal_d_a_v_1_1_calendar}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_ab7922758f8fde9d3e2cb60625013bb30}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}} \$caldav\+Backend, \$calendar\+Info)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_ab6aa53fc6718604840c91f6842573382}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_ac0dbb7fd0a45e725bfbe0cebdadf92e7}{prop\+Patch}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}} \$prop\+Patch)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a44acbaebc3c3374606e67011a09c6685}{get\+Properties}} (\$requested\+Properties)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a79a4bc9d8be2331ab1891ace08a13a9a}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a438e79532992b4da02ed17df296a9346}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a9f26acb24cd7aa4059efc96489337a0b}{get\+Multiple\+Children}} (array \$paths)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a12d080fe5176db762382268f40f70c0f}{child\+Exists}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a3b7a4211a2077bce91c8e369b35279d7}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a5aefe3eda08406957905a989a95cde5d}{create\+File}} (\$name, \$calendar\+Data=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a0bfee16a5eea26ac932eefdd0f7ca380}{delete}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a4ed32462bdf6e4bfcefeff3349db7ba0}{set\+Name}} (\$new\+Name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a8edaf2f01edea7d84f31ef0500ce54ea}{get\+Last\+Modified}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_aa3425682a478cc4c10f8828290e55665}{get\+Owner}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a48cd2a6648e33d44c9e0e6ee0ba12407}{get\+A\+CL}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a2452b92f425e3b2c204734af593a4c1d}{get\+Child\+A\+CL}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a2a1378d9365a94fb2a301cf46e820b1a}{calendar\+Query}} (array \$filters)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a74fa64b6484a0cd7f3300d89a96d74d9}{get\+Sync\+Token}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a3df48ca7fbf0f4bed2cdaa3e9d3f651e}{get\+Changes}} (\$sync\+Token, \$sync\+Level, \$limit=null)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a6f93b947922784f9fe93400f93379597}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a6f93b947922784f9fe93400f93379597}} 
+{\bfseries \$calendar\+Info}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_ae26af1f4a174000cb63fd4746f8353ad}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_ae26af1f4a174000cb63fd4746f8353ad}} 
+{\bfseries \$caldav\+Backend}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This object represents a Cal\+D\+AV calendar.
+
+A calendar can contain multiple T\+O\+DO and or Events. These are represented as  objects.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 19 der Datei Calendar.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_ab7922758f8fde9d3e2cb60625013bb30}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_ab7922758f8fde9d3e2cb60625013bb30}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}}}]{\$caldav\+Backend,  }\item[{}]{\$calendar\+Info }\end{DoxyParamCaption})}
+
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameter}
+Backend\textbackslash{}\+Backend\+Interface & {\em \$caldav\+Backend} & \\
+\hline
+array & {\em \$calendar\+Info} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 43 der Datei Calendar.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a2a1378d9365a94fb2a301cf46e820b1a}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a2a1378d9365a94fb2a301cf46e820b1a}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!calendar\+Query@{calendar\+Query}}
+\index{calendar\+Query@{calendar\+Query}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{calendar\+Query()}{calendarQuery()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::calendar\+Query (\begin{DoxyParamCaption}\item[{array}]{\$filters }\end{DoxyParamCaption})}
+
+Performs a calendar-\/query on the contents of this calendar.
+
+The calendar-\/query is defined in R\+F\+C4791 \+: Cal\+D\+AV. Using the calendar-\/query it is possible for a client to request a specific set of object, based on contents of i\+Calendar properties, date-\/ranges and i\+Calendar component types (V\+T\+O\+DO, V\+E\+V\+E\+NT).
+
+This method should just return a list of (relative) urls that match this query.
+
+The list of filters are specified as an array. The exact array is documented by Sabre.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container_abb74b291f0e04c59cf0ca1003d21ba77}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+I\+Calendar\+Object\+Container}}.
+
+
+
+Definiert in Zeile 370 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a12d080fe5176db762382268f40f70c0f}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a12d080fe5176db762382268f40f70c0f}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!child\+Exists@{child\+Exists}}
+\index{child\+Exists@{child\+Exists}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{child\+Exists()}{childExists()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::child\+Exists (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Checks if a child-\/node exists.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a81b44dc1354370890279af58c34c7375}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 163 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a3b7a4211a2077bce91c8e369b35279d7}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a3b7a4211a2077bce91c8e369b35279d7}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!create\+Directory@{create\+Directory}}
+\index{create\+Directory@{create\+Directory}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{create\+Directory()}{createDirectory()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::create\+Directory (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Creates a new directory
+
+We actually block this, as subdirectories are not allowed in calendars.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a11e8eb888fffe1d792acebbe5bc59243}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 181 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a5aefe3eda08406957905a989a95cde5d}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a5aefe3eda08406957905a989a95cde5d}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!create\+File@{create\+File}}
+\index{create\+File@{create\+File}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{create\+File()}{createFile()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::create\+File (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$calendar\+Data = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates a new file
+
+The contents of the new file must be a valid \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar}{I\+Calendar}} string.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+resource & {\em \$calendar\+Data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a837d88dac548706770368200f83c2ebc}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 196 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a0bfee16a5eea26ac932eefdd0f7ca380}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a0bfee16a5eea26ac932eefdd0f7ca380}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!delete@{delete}}
+\index{delete@{delete}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Deletes the calendar.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a72cd0ee4e36dfced2b0412d14dbd73e6}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 210 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a48cd2a6648e33d44c9e0e6ee0ba12407}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a48cd2a6648e33d44c9e0e6ee0ba12407}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+A\+CL@{get\+A\+CL}}
+\index{get\+A\+CL@{get\+A\+CL}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+A\+C\+L()}{getACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+A\+CL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of A\+CE\textquotesingle{}s for this node.
+
+Each A\+CE has the following properties\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}privilege\textquotesingle{}, a string such as \{D\+AV\+:\}read or \{D\+AV\+:\}write. These are currently the only supported privileges
+\item \textquotesingle{}principal\textquotesingle{}, a url to the principal who owns the node
+\item \textquotesingle{}protected\textquotesingle{} (optional), indicating that this A\+CE is not allowed to be updated.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8fe3b3a5b48eae789d7eb722b340045c}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 265 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a3df48ca7fbf0f4bed2cdaa3e9d3f651e}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a3df48ca7fbf0f4bed2cdaa3e9d3f651e}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+Changes@{get\+Changes}}
+\index{get\+Changes@{get\+Changes}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Changes()}{getChanges()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+Changes (\begin{DoxyParamCaption}\item[{}]{\$sync\+Token,  }\item[{}]{\$sync\+Level,  }\item[{}]{\$limit = {\ttfamily null} }\end{DoxyParamCaption})}
+
+The get\+Changes method returns all the changes that have happened, since the specified sync\+Token and the current collection.
+
+This function should return an array, such as the following\+:
+
+\mbox{[} \textquotesingle{}sync\+Token\textquotesingle{} =$>$ \textquotesingle{}The current synctoken\textquotesingle{}, \textquotesingle{}added\textquotesingle{} =$>$ \mbox{[} \textquotesingle{}new.\+txt\textquotesingle{}, \mbox{]}, \textquotesingle{}modified\textquotesingle{} =$>$ \mbox{[} \textquotesingle{}modified.\+txt\textquotesingle{}, \mbox{]}, \textquotesingle{}deleted\textquotesingle{} =$>$ \mbox{[} \textquotesingle{}foo.\+php.\+bak\textquotesingle{}, \textquotesingle{}old.\+txt\textquotesingle{} \mbox{]} \mbox{]};
+
+The sync\+Token property should reflect the {\itshape current} sync\+Token of the collection, as reported \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a74fa64b6484a0cd7f3300d89a96d74d9}{get\+Sync\+Token()}}. This is needed here too, to ensure the operation is atomic.
+
+If the sync\+Token is specified as null, this is an initial sync, and all members should be reported.
+
+The modified property is an array of nodenames that have changed since the last token.
+
+The deleted property is an array with nodenames, that have been deleted from collection.
+
+The second argument is basically the \textquotesingle{}depth\textquotesingle{} of the report. If it\textquotesingle{}s 1, you only have to report changes that happened only directly in immediate descendants. If it\textquotesingle{}s 2, it should also include changes from the nodes below the child collections. (grandchildren)
+
+The third (optional) argument allows a client to specify how many results should be returned at most. If the limit is not specified, it should be treated as infinite.
+
+If the limit (infinite or not) is higher than you\textquotesingle{}re willing to return, you should throw a Sabre() exception.
+
+If the sync\+Token is expired (due to data cleanup) or unknown, you must return null.
+
+The limit is \textquotesingle{}suggestive\textquotesingle{}. You are free to ignore it.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$sync\+Token} & \\
+\hline
+int & {\em \$sync\+Level} & \\
+\hline
+int & {\em \$limit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_aa47423825bfcce42d78266f920393aed}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+I\+Sync\+Collection}}.
+
+
+
+Definiert in Zeile 457 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a79a4bc9d8be2331ab1891ace08a13a9a}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a79a4bc9d8be2331ab1891ace08a13a9a}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+Child@{get\+Child}}
+\index{get\+Child@{get\+Child}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Child()}{getChild()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+Child (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Returns a calendar object
+
+The contained calendar objects are for example Events or Todo\textquotesingle{}s.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a09f82b07550611752abb149f468b89c2}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 107 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a2452b92f425e3b2c204734af593a4c1d}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a2452b92f425e3b2c204734af593a4c1d}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+Child\+A\+CL@{get\+Child\+A\+CL}}
+\index{get\+Child\+A\+CL@{get\+Child\+A\+CL}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Child\+A\+C\+L()}{getChildACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+Child\+A\+CL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method returns the A\+CL\textquotesingle{}s for calendar objects in this calendar. The result of this method automatically gets passed to the calendar-\/object nodes in the calendar.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 314 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a438e79532992b4da02ed17df296a9346}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a438e79532992b4da02ed17df296a9346}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+Children@{get\+Children}}
+\index{get\+Children@{get\+Children}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Children()}{getChildren()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the full list of calendar objects
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a5344a6890e49fd7a81bb0e38b4c6d0be}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 124 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a8edaf2f01edea7d84f31ef0500ce54ea}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a8edaf2f01edea7d84f31ef0500ce54ea}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+Last\+Modified@{get\+Last\+Modified}}
+\index{get\+Last\+Modified@{get\+Last\+Modified}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Last\+Modified()}{getLastModified()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+Last\+Modified (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the last modification date as a unix timestamp.
+
+\begin{DoxyReturn}{Rückgabe}
+null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a06335f81c7d4ec2c6d9e327c8ce61014}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 234 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a9f26acb24cd7aa4059efc96489337a0b}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a9f26acb24cd7aa4059efc96489337a0b}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+Multiple\+Children@{get\+Multiple\+Children}}
+\index{get\+Multiple\+Children@{get\+Multiple\+Children}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Multiple\+Children()}{getMultipleChildren()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+Multiple\+Children (\begin{DoxyParamCaption}\item[{array}]{\$paths }\end{DoxyParamCaption})}
+
+This method receives a list of paths in it\textquotesingle{}s first argument. It must return an array with Node objects.
+
+If any children are not found, you do not have to return them.
+
+
+\begin{DoxyParams}{Parameter}
+{\em string\mbox{[}$\,$\mbox{]}} & \$paths \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_multi_get_a4d66db5c26d9247511687cd277799528}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Multi\+Get}}.
+
+
+
+Definiert in Zeile 145 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_ab6aa53fc6718604840c91f6842573382}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_ab6aa53fc6718604840c91f6842573382}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the name of the calendar
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 55 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_aa3425682a478cc4c10f8828290e55665}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_aa3425682a478cc4c10f8828290e55665}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+Owner@{get\+Owner}}
+\index{get\+Owner@{get\+Owner}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Owner()}{getOwner()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the owner principal
+
+This must be a url to a principal, or null if there\textquotesingle{}s no owner
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a05f531b4ae1a86eab4e6e95b0413390e}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 247 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a44acbaebc3c3374606e67011a09c6685}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a44acbaebc3c3374606e67011a09c6685}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+Properties@{get\+Properties}}
+\index{get\+Properties@{get\+Properties}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Properties()}{getProperties()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+Properties (\begin{DoxyParamCaption}\item[{}]{\$requested\+Properties }\end{DoxyParamCaption})}
+
+Returns the list of properties
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$requested\+Properties} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties_a0d2fcaacf74daaa5cf24ea53a057140a}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Properties}}.
+
+
+
+Definiert in Zeile 85 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a74fa64b6484a0cd7f3300d89a96d74d9}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a74fa64b6484a0cd7f3300d89a96d74d9}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!get\+Sync\+Token@{get\+Sync\+Token}}
+\index{get\+Sync\+Token@{get\+Sync\+Token}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Sync\+Token()}{getSyncToken()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::get\+Sync\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method returns the current sync-\/token for this collection. This can be any string.
+
+If null is returned from this function, the plugin assumes there\textquotesingle{}s no sync information available.
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_ae8b002d4a88dc34170f9468b5009e08f}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+I\+Sync\+Collection}}.
+
+
+
+Definiert in Zeile 385 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_ac0dbb7fd0a45e725bfbe0cebdadf92e7}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_ac0dbb7fd0a45e725bfbe0cebdadf92e7}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!prop\+Patch@{prop\+Patch}}
+\index{prop\+Patch@{prop\+Patch}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{prop\+Patch()}{propPatch()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::prop\+Patch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}}}]{\$prop\+Patch }\end{DoxyParamCaption})}
+
+Updates properties on this node.
+
+This method received a Prop\+Patch object, which contains all the information about the update.
+
+To update specific properties, call the \textquotesingle{}handle\textquotesingle{} method on this object. Read the Prop\+Patch documentation for more information.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Prop\+Patch & {\em \$prop\+Patch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties_a90973262bb85b17f98183ecd600acd84}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Properties}}.
+
+
+
+Definiert in Zeile 73 der Datei Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_a4ed32462bdf6e4bfcefeff3349db7ba0}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_a4ed32462bdf6e4bfcefeff3349db7ba0}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar}}
+\subsubsection{\texorpdfstring{set\+Name()}{setName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+::set\+Name (\begin{DoxyParamCaption}\item[{}]{\$new\+Name }\end{DoxyParamCaption})}
+
+Renames the calendar. \mbox{\hyperlink{class_note}{Note}} that most calendars use the \{D\+AV\+:\}displayname to display a name to display a name.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$new\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ac90fa5526e98def2e1f51bc57a772366}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 223 der Datei Calendar.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/Calendar.\+php\end{DoxyCompactItemize}

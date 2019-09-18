@@ -1,0 +1,75 @@
+\hypertarget{classdatabase}{}\section{database Klassenreferenz}
+\label{classdatabase}\index{database@{database}}
+Klassendiagramm für database\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdatabase}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdatabase_a15412a907ee6716524cf1f613cc2db6c}\label{classdatabase_a15412a907ee6716524cf1f613cc2db6c}} 
+{\bfseries execute} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdatabase_aebf54409f3fe5ac1ed08a031ffa2d562}\label{classdatabase_aebf54409f3fe5ac1ed08a031ffa2d562}} 
+static {\bfseries notify\+User\+Deleted} (\$user\+ID)
+\item 
+\mbox{\Hypertarget{classdatabase_a6f75532e5c19f578748903d2eee39607}\label{classdatabase_a6f75532e5c19f578748903d2eee39607}} 
+static {\bfseries has\+Settings} ()
+\item 
+static \mbox{\hyperlink{classdatabase_af4761528eebd534762e04a918ab26f70}{get\+Settings\+Description}} ()
+\item 
+\mbox{\Hypertarget{classdatabase_afb2cf1dac55df058fa21def29325bc77}\label{classdatabase_afb2cf1dac55df058fa21def29325bc77}} 
+static {\bfseries get\+Site\+Display\+Name} ()
+\item 
+static \mbox{\hyperlink{classdatabase_a9db9a8cf32d2dea7e5120ceb2b0d603d}{get\+User\+Groups}} ()
+\item 
+\mbox{\Hypertarget{classdatabase_aad1578665541ad17c073fe4559c8d5ee}\label{classdatabase_aad1578665541ad17c073fe4559c8d5ee}} 
+static {\bfseries only\+For\+School} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 4 der Datei database.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{classdatabase_af4761528eebd534762e04a918ab26f70}\label{classdatabase_af4761528eebd534762e04a918ab26f70}} 
+\index{database@{database}!get\+Settings\+Description@{get\+Settings\+Description}}
+\index{get\+Settings\+Description@{get\+Settings\+Description}!database@{database}}
+\subsubsection{\texorpdfstring{get\+Settings\+Description()}{getSettingsDescription()}}
+{\footnotesize\ttfamily static database\+::get\+Settings\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Stellt eine Beschreibung der Einstellungen bereit, die für das Modul nötig sind. \begin{DoxyReturn}{Rückgabe}
+array(\+String, String) array( array( \textquotesingle{}name\textquotesingle{} =$>$ \char`\"{}\+Name der Einstellung (z.\+B. formblatt-\/is\+Active)\char`\"{}, \textquotesingle{}typ\textquotesingle{} =$>$ Z\+E\+I\+LE $\vert$ T\+E\+XT $\vert$ N\+U\+M\+M\+ER $\vert$ B\+O\+O\+L\+E\+AN, \textquotesingle{}titel\textquotesingle{} =$>$ \char`\"{}\+Titel der Beschreibung\char`\"{}, \textquotesingle{}text\textquotesingle{} =$>$ \char`\"{}\+Text der Beschreibung\char`\"{} ) , ) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 241 der Datei database.\+class.\+php.
+
+\mbox{\Hypertarget{classdatabase_a9db9a8cf32d2dea7e5120ceb2b0d603d}\label{classdatabase_a9db9a8cf32d2dea7e5120ceb2b0d603d}} 
+\index{database@{database}!get\+User\+Groups@{get\+User\+Groups}}
+\index{get\+User\+Groups@{get\+User\+Groups}!database@{database}}
+\subsubsection{\texorpdfstring{get\+User\+Groups()}{getUserGroups()}}
+{\footnotesize\ttfamily static database\+::get\+User\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Liest alle Nutzergruppen aus, die diese Seite verwendet. (Für die Benutzeradministration) \begin{DoxyReturn}{Rückgabe}
+array(array(\textquotesingle{}group\+Name\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{}, \textquotesingle{}beschreibung\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{})) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 254 der Datei database.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/page/datenbanken/database.\+class.\+php\end{DoxyCompactItemize}

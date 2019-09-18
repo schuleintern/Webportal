@@ -1,0 +1,122 @@
+\hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Notification\+Support Schnittstellenreferenz}
+\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Notification\+Support@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Notification\+Support}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Notification\+Support\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_a80acc162d3dc807dc1eefa36c6b7cced}{get\+Notifications\+For\+Principal}} (\$principal\+Uri)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_acb6eb34436a6dd471cdd963af285c22f}{delete\+Notification}} (\$principal\+Uri, \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface}{Notification\+Interface}} \$notification)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_a689057e6de75fb97ca88a3af4bba4d62}{share\+Reply}} (\$href, \$status, \$calendar\+Uri, \$in\+Reply\+To, \$summary=null)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Adds caldav notification support to a backend.
+
+\mbox{\hyperlink{class_note}{Note}}\+: This feature is experimental, and may change in between different Sabre\+D\+AV versions.
+
+Notifications are defined at\+: \href{http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt}{\tt http\+://svn.\+calendarserver.\+org/repository/calendarserver/\+Calendar\+Server/trunk/doc/\+Extensions/caldav-\/notifications.\+txt}
+
+These notifications are basically a list of server-\/generated notifications displayed to the user. Users can dismiss notifications by deleting them.
+
+The primary usecase is to allow for calendar-\/sharing.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 25 der Datei Notification\+Support.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_acb6eb34436a6dd471cdd963af285c22f}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_acb6eb34436a6dd471cdd963af285c22f}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support}!delete\+Notification@{delete\+Notification}}
+\index{delete\+Notification@{delete\+Notification}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support}}
+\subsubsection{\texorpdfstring{delete\+Notification()}{deleteNotification()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Notification\+Support\+::delete\+Notification (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface}{Notification\+Interface}}}]{\$notification }\end{DoxyParamCaption})}
+
+This deletes a specific notifcation.
+
+This may be called by a client once it deems a notification handled.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+Notification\+Interface & {\em \$notification} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_aa3e5c69e15c12111c779ffeda8511361}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_a80acc162d3dc807dc1eefa36c6b7cced}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_a80acc162d3dc807dc1eefa36c6b7cced}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support}!get\+Notifications\+For\+Principal@{get\+Notifications\+For\+Principal}}
+\index{get\+Notifications\+For\+Principal@{get\+Notifications\+For\+Principal}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support}}
+\subsubsection{\texorpdfstring{get\+Notifications\+For\+Principal()}{getNotificationsForPrincipal()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Notification\+Support\+::get\+Notifications\+For\+Principal (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri }\end{DoxyParamCaption})}
+
+Returns a list of notifications for a given principal url.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Notification\+Interface\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a826daec9d320900a4b0c5d18cd53f82b}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_a689057e6de75fb97ca88a3af4bba4d62}\label{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_notification_support_a689057e6de75fb97ca88a3af4bba4d62}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support}!share\+Reply@{share\+Reply}}
+\index{share\+Reply@{share\+Reply}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Notification\+Support}}
+\subsubsection{\texorpdfstring{share\+Reply()}{shareReply()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Notification\+Support\+::share\+Reply (\begin{DoxyParamCaption}\item[{}]{\$href,  }\item[{}]{\$status,  }\item[{}]{\$calendar\+Uri,  }\item[{}]{\$in\+Reply\+To,  }\item[{}]{\$summary = {\ttfamily null} }\end{DoxyParamCaption})}
+
+This method is called when a user replied to a request to share.
+
+If the user chose to accept the share, this method should return the newly created calendar url.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$href} & The sharee who is replying (often a mailto\+: address) \\
+\hline
+int & {\em \$status} & One of the Sharing\+Plugin\+::\+S\+T\+A\+T\+U\+S\+\_\+$\ast$ constants \\
+\hline
+string & {\em \$calendar\+Uri} & The url to the calendar thats being shared \\
+\hline
+string & {\em \$in\+Reply\+To} & The unique id this message is a response to \\
+\hline
+string & {\em \$summary} & A description of the reply \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+null$\vert$string 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_sharing_a5ac03b4237d34ab9fcd5e5dc7414b83e}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Sharing}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Backend/Notification\+Support.\+php\end{DoxyCompactItemize}

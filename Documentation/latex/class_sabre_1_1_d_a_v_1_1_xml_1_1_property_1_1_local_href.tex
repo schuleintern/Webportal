@@ -1,0 +1,64 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_local_href}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Xml\textbackslash{}Property\textbackslash{}Local\+Href Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_local_href}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Local\+Href@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Local\+Href}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Xml\textbackslash{}Property\textbackslash{}Local\+Href\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.348281cm]{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_local_href}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_local_href_a5aaa48ba1511601561f56140369e9136}{\+\_\+\+\_\+construct}} (\$hrefs)
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_local_href}{Local\+Href}} property
+
+Like the \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_href}{Href}} property, this element represents \{D\+AV\+:\}href. The difference is that this is used strictly for paths on the server. The \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_local_href}{Local\+Href}} property will prepare the path so it\textquotesingle{}s a valid U\+RI.
+
+These two objects behave identically\+: new \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_local_href}{Local\+Href}}(\$path) new \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_href}{Href}}((\$path))
+
+Local\+Path basically ensures that your spaces are \%20, and everything that needs to be is uri encoded.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://www.rooftopsolutions.nl/}{\tt http\+://www.\+rooftopsolutions.\+nl/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 25 der Datei Local\+Href.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_local_href_a5aaa48ba1511601561f56140369e9136}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_local_href_a5aaa48ba1511601561f56140369e9136}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Property\+::\+Local\+Href@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Property\+::\+Local\+Href}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Property\+::\+Local\+Href@{Sabre\+::\+D\+A\+V\+::\+Xml\+::\+Property\+::\+Local\+Href}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Local\+Href\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$hrefs }\end{DoxyParamCaption})}
+
+Constructor
+
+You must either pass a string for a single href, or an array of hrefs.
+
+If auto-\/prefix is set to false, the hrefs will be treated as absolute and not relative to the servers base uri.
+
+
+\begin{DoxyParams}{Parameter}
+{\em string$\vert$string\mbox{[}$\,$\mbox{]}} & \$hrefs \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 37 der Datei Local\+Href.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Xml/\+Property/Local\+Href.\+php\end{DoxyCompactItemize}

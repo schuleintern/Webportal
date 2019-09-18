@@ -1,0 +1,328 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}I\+Tip\textbackslash{}Broker Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a434d78cfdc58d31dd1342b1d2ed19a7e}{process\+Message}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}} \$itip\+Message, \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}} \$existing\+Object=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_acb5d4eee69b3e712877343b031bddddf}{parse\+Event}} (\$calendar=null, \$user\+Href, \$old\+Calendar=null)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a3c313eeda38bb5e2e86950eb9978e563}\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a3c313eeda38bb5e2e86950eb9978e563}} 
+{\bfseries \$schedule\+Agent\+Server\+Rules} = true
+\item 
+{\bfseries \$significant\+Change\+Properties}
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_ae84bd0183c55a78d8b02da336d23245f}{process\+Message\+Request}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}} \$itip\+Message, \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}} \$existing\+Object=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a7531e6ef22578de6d2155651f70870d1}{process\+Message\+Cancel}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}} \$itip\+Message, \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}} \$existing\+Object=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a34e234968e4ec3f80414aebcb4d59b91}{process\+Message\+Reply}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}} \$itip\+Message, \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}} \$existing\+Object=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_af1fbc1b20cb3e90f182d5f5c27821ed0}{parse\+Event\+For\+Organizer}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}} \$calendar, array \$event\+Info, array \$old\+Event\+Info)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a7ccb74b74b3ad5cde0c12013c17fea70}{parse\+Event\+For\+Attendee}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}} \$calendar, array \$event\+Info, array \$old\+Event\+Info, \$attendee)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a09651ce5e508b8fc60528f77039c07de}{parse\+Event\+Info}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}} \$calendar=null)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The I\+Tip class is a utility class that helps with processing so-\/called i\+Tip messages.
+
+i\+Tip is defined in rfc5546, stands for i\+Calendar Transport-\/\+Independent Interoperability Protocol, and describes the underlying mechanism for using i\+Calendar for scheduling for for example through email (also known as I\+Mip) and Cal\+D\+AV Scheduling.
+
+This class helps by\+:
+
+
+\begin{DoxyEnumerate}
+\item Creating individual invites based on an i\+Calendar event for each attendee.
+\item Generating invite updates based on an i\+Calendar update. This may result in new invites, updates and cancellations for attendees, if that list changed.
+\item On the receiving end, it can create a local i\+Calendar event based on a received invite.
+\item It can also process an invite update on a local event, ensuring that any overridden properties from attendees are retained.
+\item It can create a accepted or declined i\+Tip reply based on an invite.
+\item It can process a reply from an invite and update an events attendee status based on a reply.
+\end{DoxyEnumerate}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 38 der Datei Broker.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_acb5d4eee69b3e712877343b031bddddf}\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_acb5d4eee69b3e712877343b031bddddf}} 
+\index{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}!parse\+Event@{parse\+Event}}
+\index{parse\+Event@{parse\+Event}!Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}}
+\subsubsection{\texorpdfstring{parse\+Event()}{parseEvent()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker\+::parse\+Event (\begin{DoxyParamCaption}\item[{}]{\$calendar = {\ttfamily null},  }\item[{}]{\$user\+Href,  }\item[{}]{\$old\+Calendar = {\ttfamily null} }\end{DoxyParamCaption})}
+
+This function parses a V\+C\+A\+L\+E\+N\+D\+AR object and figure out if any messages need to be sent.
+
+A V\+C\+A\+L\+E\+N\+D\+AR object will be created from the perspective of either an attendee, or an organizer. You must pass a string identifying the current user, so we can figure out who in the list of attendees or the organizer we are sending this message on behalf of.
+
+It\textquotesingle{}s possible to specify the current user as an array, in case the user has more than one identifying href (such as multiple emails).
+
+It \$old\+Calendar is specified, it is assumed that the operation is updating an existing event, which means that we need to look at the differences between events, and potentially send old attendees cancellations, and current attendees updates.
+
+If \$calendar is null, but \$old\+Calendar is specified, we treat the operation as if the user has deleted an event. If the user was an organizer, this means that we need to send cancellation notices to people. If the user was an attendee, we need to make sure that the organizer gets the \textquotesingle{}declined\textquotesingle{} message.
+
+
+\begin{DoxyParams}[1]{Parameter}
+V\+Calendar | string & {\em \$calendar} & \\
+\hline
+string | array & {\em \$user\+Href} & \\
+\hline
+V\+Calendar | string & {\em \$old\+Calendar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 169 der Datei Broker.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a7ccb74b74b3ad5cde0c12013c17fea70}\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a7ccb74b74b3ad5cde0c12013c17fea70}} 
+\index{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}!parse\+Event\+For\+Attendee@{parse\+Event\+For\+Attendee}}
+\index{parse\+Event\+For\+Attendee@{parse\+Event\+For\+Attendee}!Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}}
+\subsubsection{\texorpdfstring{parse\+Event\+For\+Attendee()}{parseEventForAttendee()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker\+::parse\+Event\+For\+Attendee (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}}}]{\$calendar,  }\item[{array}]{\$event\+Info,  }\item[{array}]{\$old\+Event\+Info,  }\item[{}]{\$attendee }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Parse an event update for an attendee.
+
+This function figures out if we need to send a reply to an organizer.
+
+
+\begin{DoxyParams}[1]{Parameter}
+V\+Calendar & {\em \$calendar} & \\
+\hline
+array & {\em \$event\+Info} & \\
+\hline
+array & {\em \$old\+Event\+Info} & \\
+\hline
+string & {\em \$attendee} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 645 der Datei Broker.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_af1fbc1b20cb3e90f182d5f5c27821ed0}\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_af1fbc1b20cb3e90f182d5f5c27821ed0}} 
+\index{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}!parse\+Event\+For\+Organizer@{parse\+Event\+For\+Organizer}}
+\index{parse\+Event\+For\+Organizer@{parse\+Event\+For\+Organizer}!Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}}
+\subsubsection{\texorpdfstring{parse\+Event\+For\+Organizer()}{parseEventForOrganizer()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker\+::parse\+Event\+For\+Organizer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}}}]{\$calendar,  }\item[{array}]{\$event\+Info,  }\item[{array}]{\$old\+Event\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method is used in cases where an event got updated, and we potentially need to send emails to attendees to let them know of updates in the events.
+
+We will detect which attendees got added, which got removed and create specific messages for these situations.
+
+
+\begin{DoxyParams}[1]{Parameter}
+V\+Calendar & {\em \$calendar} & \\
+\hline
+array & {\em \$event\+Info} & \\
+\hline
+array & {\em \$old\+Event\+Info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 468 der Datei Broker.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a09651ce5e508b8fc60528f77039c07de}\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a09651ce5e508b8fc60528f77039c07de}} 
+\index{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}!parse\+Event\+Info@{parse\+Event\+Info}}
+\index{parse\+Event\+Info@{parse\+Event\+Info}!Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}}
+\subsubsection{\texorpdfstring{parse\+Event\+Info()}{parseEventInfo()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker\+::parse\+Event\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}}}]{\$calendar = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Returns attendee information and information about instances of an event.
+
+Returns an array with the following keys\+:
+
+
+\begin{DoxyEnumerate}
+\item uid
+\item organizer
+\item organizer\+Name
+\item organizer\+Schedule\+Agent
+\item organizer\+Force\+Send
+\item instances
+\item attendees
+\item sequence
+\item exdate
+\item timezone -\/ strictly the timezone on which the recurrence rule is based on.
+\item significant\+Change\+Hash
+\item status 
+\begin{DoxyParams}[1]{Parameter}
+V\+Calendar & {\em \$calendar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+\end{DoxyEnumerate}
+
+Definiert in Zeile 831 der Datei Broker.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a434d78cfdc58d31dd1342b1d2ed19a7e}\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a434d78cfdc58d31dd1342b1d2ed19a7e}} 
+\index{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}!process\+Message@{process\+Message}}
+\index{process\+Message@{process\+Message}!Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}}
+\subsubsection{\texorpdfstring{process\+Message()}{processMessage()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker\+::process\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}}}]{\$itip\+Message,  }\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}}}]{\$existing\+Object = {\ttfamily null} }\end{DoxyParamCaption})}
+
+This method is used to process an incoming itip message.
+
+Examples\+:
+
+
+\begin{DoxyEnumerate}
+\item A user is an attendee to an event. The organizer sends an updated meeting using a new i\+Tip message with M\+E\+T\+H\+OD\+:R\+E\+Q\+U\+E\+ST. This function will process the message and update the attendee\textquotesingle{}s event accordingly.
+\item The organizer cancelled the event using M\+E\+T\+H\+OD\+:C\+A\+N\+C\+EL. We will update the users event to state S\+T\+A\+T\+US\+:C\+A\+N\+C\+E\+L\+L\+ED.
+\item An attendee sent a reply to an invite using M\+E\+T\+H\+OD\+:R\+E\+P\+LY. We can update the organizers event to update the A\+T\+T\+E\+N\+D\+EE with its correct P\+A\+R\+T\+S\+T\+AT.
+\end{DoxyEnumerate}
+
+The \$existing\+Object is updated in-\/place. If there is no existing object (because it\textquotesingle{}s a new invite for example) a new object will be created.
+
+If an existing object does not exist, and the method was C\+A\+N\+C\+EL or R\+E\+P\+LY, the message effectively gets ignored, and no \textquotesingle{}existing\+Object\textquotesingle{} will be created.
+
+The updated \$existing\+Object is also returned from this function.
+
+If the i\+Tip message was not supported, we will always return false.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}} & {\em \$itip\+Message} & \\
+\hline
+V\+Calendar & {\em \$existing\+Object} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+V\+Calendar$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 112 der Datei Broker.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a7531e6ef22578de6d2155651f70870d1}\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a7531e6ef22578de6d2155651f70870d1}} 
+\index{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}!process\+Message\+Cancel@{process\+Message\+Cancel}}
+\index{process\+Message\+Cancel@{process\+Message\+Cancel}!Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}}
+\subsubsection{\texorpdfstring{process\+Message\+Cancel()}{processMessageCancel()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker\+::process\+Message\+Cancel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}}}]{\$itip\+Message,  }\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}}}]{\$existing\+Object = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Processes incoming C\+A\+N\+C\+EL messages.
+
+This is a message from an organizer, and means that either an attendee got removed from an event, or an event got cancelled altogether.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}} & {\em \$itip\+Message} & \\
+\hline
+V\+Calendar & {\em \$existing\+Object} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+V\+Calendar$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 315 der Datei Broker.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a34e234968e4ec3f80414aebcb4d59b91}\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a34e234968e4ec3f80414aebcb4d59b91}} 
+\index{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}!process\+Message\+Reply@{process\+Message\+Reply}}
+\index{process\+Message\+Reply@{process\+Message\+Reply}!Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}}
+\subsubsection{\texorpdfstring{process\+Message\+Reply()}{processMessageReply()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker\+::process\+Message\+Reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}}}]{\$itip\+Message,  }\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}}}]{\$existing\+Object = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Processes incoming R\+E\+P\+LY messages.
+
+The message is a reply. This is for example an attendee telling an organizer he accepted the invite, or declined it.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}} & {\em \$itip\+Message} & \\
+\hline
+V\+Calendar & {\em \$existing\+Object} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+V\+Calendar$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 341 der Datei Broker.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_ae84bd0183c55a78d8b02da336d23245f}\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_ae84bd0183c55a78d8b02da336d23245f}} 
+\index{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}!process\+Message\+Request@{process\+Message\+Request}}
+\index{process\+Message\+Request@{process\+Message\+Request}!Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}}
+\subsubsection{\texorpdfstring{process\+Message\+Request()}{processMessageRequest()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker\+::process\+Message\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}}}]{\$itip\+Message,  }\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Calendar}}}]{\$existing\+Object = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Processes incoming R\+E\+Q\+U\+E\+ST messages.
+
+This is message from an organizer, and is either a new event invite, or an update to an existing one.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_i_tip_1_1_message}{Message}} & {\em \$itip\+Message} & \\
+\hline
+V\+Calendar & {\em \$existing\+Object} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+V\+Calendar$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 279 der Datei Broker.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a80a2b3eb438b244880a6e324d873987f}\label{class_sabre_1_1_v_object_1_1_i_tip_1_1_broker_a80a2b3eb438b244880a6e324d873987f}} 
+\index{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}!\$significant\+Change\+Properties@{\$significant\+Change\+Properties}}
+\index{\$significant\+Change\+Properties@{\$significant\+Change\+Properties}!Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker@{Sabre\+::\+V\+Object\+::\+I\+Tip\+::\+Broker}}
+\subsubsection{\texorpdfstring{\$significant\+Change\+Properties}{$significantChangeProperties}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+I\+Tip\textbackslash{}\+Broker\+::\$significant\+Change\+Properties}
+
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= [
+        \textcolor{stringliteral}{'DTSTART'},
+        \textcolor{stringliteral}{'DTEND'},
+        \textcolor{stringliteral}{'DURATION'},
+        \textcolor{stringliteral}{'DUE'},
+        \textcolor{stringliteral}{'RRULE'},
+        \textcolor{stringliteral}{'RDATE'},
+        \textcolor{stringliteral}{'EXDATE'},
+        \textcolor{stringliteral}{'STATUS'},
+    ]
+\end{DoxyCode}
+
+
+Definiert in Zeile 69 der Datei Broker.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+I\+Tip/Broker.\+php\end{DoxyCompactItemize}

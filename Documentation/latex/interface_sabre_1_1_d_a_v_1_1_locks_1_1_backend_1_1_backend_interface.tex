@@ -1,0 +1,102 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Locks\textbackslash{}Backend\textbackslash{}Backend\+Interface Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Locks\textbackslash{}Backend\textbackslash{}Backend\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.014389cm]{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_aa9b7cf37a5acdca463fef77f96599d60}{get\+Locks}} (\$uri, \$return\+Child\+Locks)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_a49409bfaeeacd965d275df670a6ad2fd}{lock}} (\$uri, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Locks\textbackslash{}\+Lock\+Info}} \$lock\+Info)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_ae575eb4b8b6ca5b5da7314d674df4cfe}{unlock}} (\$uri, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Locks\textbackslash{}\+Lock\+Info}} \$lock\+Info)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+If you are defining your own Locks backend, you must implement this interface.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 15 der Datei Backend\+Interface.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_aa9b7cf37a5acdca463fef77f96599d60}\label{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_aa9b7cf37a5acdca463fef77f96599d60}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface}!get\+Locks@{get\+Locks}}
+\index{get\+Locks@{get\+Locks}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{get\+Locks()}{getLocks()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::get\+Locks (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{}]{\$return\+Child\+Locks }\end{DoxyParamCaption})}
+
+Returns a list of Sabre objects
+
+This method should return all the locks for a particular uri, including locks that might be set on a parent uri.
+
+If return\+Child\+Locks is set to true, this method should also look for any locks in the subtree of the uri for locks.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+bool & {\em \$return\+Child\+Locks} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a990e9ac117f08b7b2f7e4fbc35fb5cd9}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+P\+DO}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_ab7391e753024cdc97580456fddb9c186}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+File}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_mock_a34110fb10d7dac595e785beb4cef328b}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_a49409bfaeeacd965d275df670a6ad2fd}\label{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_a49409bfaeeacd965d275df670a6ad2fd}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface}!lock@{lock}}
+\index{lock@{lock}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{lock()}{lock()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::lock (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Locks\textbackslash{}\+Lock\+Info}}}]{\$lock\+Info }\end{DoxyParamCaption})}
+
+Locks a uri
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+Locks\textbackslash{}\+Lock\+Info & {\em \$lock\+Info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_ae575eb4b8b6ca5b5da7314d674df4cfe}\label{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_ae575eb4b8b6ca5b5da7314d674df4cfe}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface}!unlock@{unlock}}
+\index{unlock@{unlock}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{unlock()}{unlock()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::unlock (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Locks\textbackslash{}\+Lock\+Info}}}]{\$lock\+Info }\end{DoxyParamCaption})}
+
+Removes a lock from a uri
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+Locks\textbackslash{}\+Lock\+Info & {\em \$lock\+Info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Locks/\+Backend/Backend\+Interface.\+php\end{DoxyCompactItemize}

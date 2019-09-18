@@ -1,0 +1,74 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_u_u_i_d_util}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}U\+U\+I\+D\+Util Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_u_u_i_d_util}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+U\+U\+I\+D\+Util@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+U\+U\+I\+D\+Util}}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_u_u_i_d_util_afd037e36233af098d57414f27aa8e449}{get\+U\+U\+ID}} ()
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_u_u_i_d_util_a78de4443f0efff2f057075ce1bf52176}{validate\+U\+U\+ID}} (\$uuid)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+U\+U\+ID Utility
+
+This class has static methods to generate and validate U\+U\+ID\textquotesingle{}s. U\+U\+I\+Ds are used a decent amount within various $\ast$\+D\+AV standards, so it made sense to include it.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei U\+U\+I\+D\+Util.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_u_u_i_d_util_afd037e36233af098d57414f27aa8e449}\label{class_sabre_1_1_d_a_v_1_1_u_u_i_d_util_afd037e36233af098d57414f27aa8e449}} 
+\index{Sabre\+::\+D\+A\+V\+::\+U\+U\+I\+D\+Util@{Sabre\+::\+D\+A\+V\+::\+U\+U\+I\+D\+Util}!get\+U\+U\+ID@{get\+U\+U\+ID}}
+\index{get\+U\+U\+ID@{get\+U\+U\+ID}!Sabre\+::\+D\+A\+V\+::\+U\+U\+I\+D\+Util@{Sabre\+::\+D\+A\+V\+::\+U\+U\+I\+D\+Util}}
+\subsubsection{\texorpdfstring{get\+U\+U\+I\+D()}{getUUID()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+U\+U\+I\+D\+Util\+::get\+U\+U\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a pseudo-\/random v4 U\+U\+ID
+
+This function is based on a comment by Andrew Moore on php.\+net
+
+\begin{DoxySeeAlso}{Siehe auch}
+\href{http://www.php.net/manual/en/function.uniqid.php#94959}{\tt http\+://www.\+php.\+net/manual/en/function.\+uniqid.\+php\#94959} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 26 der Datei U\+U\+I\+D\+Util.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_u_u_i_d_util_a78de4443f0efff2f057075ce1bf52176}\label{class_sabre_1_1_d_a_v_1_1_u_u_i_d_util_a78de4443f0efff2f057075ce1bf52176}} 
+\index{Sabre\+::\+D\+A\+V\+::\+U\+U\+I\+D\+Util@{Sabre\+::\+D\+A\+V\+::\+U\+U\+I\+D\+Util}!validate\+U\+U\+ID@{validate\+U\+U\+ID}}
+\index{validate\+U\+U\+ID@{validate\+U\+U\+ID}!Sabre\+::\+D\+A\+V\+::\+U\+U\+I\+D\+Util@{Sabre\+::\+D\+A\+V\+::\+U\+U\+I\+D\+Util}}
+\subsubsection{\texorpdfstring{validate\+U\+U\+I\+D()}{validateUUID()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+U\+U\+I\+D\+Util\+::validate\+U\+U\+ID (\begin{DoxyParamCaption}\item[{}]{\$uuid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Checks if a string is a valid U\+U\+ID.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uuid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 55 der Datei U\+U\+I\+D\+Util.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/U\+U\+I\+D\+Util.\+php\end{DoxyCompactItemize}

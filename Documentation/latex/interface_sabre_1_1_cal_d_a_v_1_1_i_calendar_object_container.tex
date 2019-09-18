@@ -1,0 +1,66 @@
+\hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}I\+Calendar\+Object\+Container Schnittstellenreferenz}
+\label{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+I\+Calendar\+Object\+Container@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+I\+Calendar\+Object\+Container}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}I\+Calendar\+Object\+Container\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=6.000000cm]{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container_abb74b291f0e04c59cf0ca1003d21ba77}{calendar\+Query}} (array \$filters)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This interface represents a node that may contain calendar objects.
+
+This is the shared parent for both the Inbox collection and calendars resources.
+
+In most cases you will likely want to look at \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar}{I\+Calendar}} instead of this interface.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei I\+Calendar\+Object\+Container.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container_abb74b291f0e04c59cf0ca1003d21ba77}\label{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container_abb74b291f0e04c59cf0ca1003d21ba77}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+I\+Calendar\+Object\+Container@{Sabre\+::\+Cal\+D\+A\+V\+::\+I\+Calendar\+Object\+Container}!calendar\+Query@{calendar\+Query}}
+\index{calendar\+Query@{calendar\+Query}!Sabre\+::\+Cal\+D\+A\+V\+::\+I\+Calendar\+Object\+Container@{Sabre\+::\+Cal\+D\+A\+V\+::\+I\+Calendar\+Object\+Container}}
+\subsubsection{\texorpdfstring{calendar\+Query()}{calendarQuery()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+I\+Calendar\+Object\+Container\+::calendar\+Query (\begin{DoxyParamCaption}\item[{array}]{\$filters }\end{DoxyParamCaption})}
+
+Performs a calendar-\/query on the contents of this calendar.
+
+The calendar-\/query is defined in R\+F\+C4791 \+: Cal\+D\+AV. Using the calendar-\/query it is possible for a client to request a specific set of object, based on contents of i\+Calendar properties, date-\/ranges and i\+Calendar component types (V\+T\+O\+DO, V\+E\+V\+E\+NT).
+
+This method should just return a list of (relative) urls that match this query.
+
+The list of filters are specified as an array. The exact array is documented by .
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a2a1378d9365a94fb2a301cf46e820b1a}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_ac6cfa0cf27a7ed24ab31747623c62269}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/I\+Calendar\+Object\+Container.\+php\end{DoxyCompactItemize}

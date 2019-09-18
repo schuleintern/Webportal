@@ -1,0 +1,242 @@
+\subsection*{4.\+2.\+2 (2017-\/01-\/02) }
+
+
+\begin{DoxyItemize}
+\item \#72\+: Handling clients that send invalid {\ttfamily Content-\/\+Length} headers.
+\end{DoxyItemize}
+
+\subsection*{4.\+2.\+1 (2016-\/01-\/06) }
+
+
+\begin{DoxyItemize}
+\item \#56\+: {\ttfamily get\+Body\+As\+String} now returns at most as many bytes as the contents of the {\ttfamily Content-\/\+Length} header. This allows users to pass much larger strings without having to copy and truncate them.
+\item The client now sets a default {\ttfamily User-\/\+Agent} header identifying this library.
+\end{DoxyItemize}
+
+\subsection*{4.\+2.\+0 (2016-\/01-\/04) }
+
+
+\begin{DoxyItemize}
+\item This package now supports sabre/event 3.\+0.
+\end{DoxyItemize}
+
+\subsection*{4.\+1.\+0 (2015-\/09-\/04) }
+
+
+\begin{DoxyItemize}
+\item The async client wouldn\textquotesingle{}t {\ttfamily wait()} for new http requests being started after the (previous) last request in the queue was resolved.
+\item Added {\ttfamily Sabre\textbackslash{}H\+T\+TP\textbackslash{}Auth\textbackslash{}Bearer}, to easily extract a O\+Auth2 bearer token.
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+0 (2015-\/05-\/20) }
+
+
+\begin{DoxyItemize}
+\item Deprecated\+: All static functions from {\ttfamily Sabre\textbackslash{}H\+T\+TP\textbackslash{}U\+R\+L\+Util} and {\ttfamily Sabre\textbackslash{}H\+T\+TP\textbackslash{}Util} moved to a separate {\ttfamily functions.\+php}, which is also autoloaded. The old functions are still there, but will be removed in a future version. (\#49)
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+0-\/alpha3 (2015-\/05-\/19) }
+
+
+\begin{DoxyItemize}
+\item Added a parser for the H\+T\+TP {\ttfamily Prefer} header, as defined in \mbox{[}R\+F\+C7240\mbox{]}\mbox{[}rfc7240\mbox{]}.
+\item Deprecated {\ttfamily Sabre\textbackslash{}H\+T\+TP\textbackslash{}Util\+::parse\+H\+T\+T\+P\+Date}, use {\ttfamily Sabre\textbackslash{}H\+T\+TP\textbackslash{}parse\+Date()}.
+\item Deprecated {\ttfamily Sabre\textbackslash{}H\+T\+TP\textbackslash{}Util\+::to\+H\+T\+T\+P\+Date} use {\ttfamily Sabre\textbackslash{}H\+T\+TP\textbackslash{}to\+Date()}.
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+0-\/alpha2 (2015-\/05-\/18) }
+
+
+\begin{DoxyItemize}
+\item \#45\+: Don\textquotesingle{}t send more data than what is promised in the H\+T\+TP content-\/length. ().
+\item \#43\+: {\ttfamily get\+Credentials} returns null if incomplete. ()
+\item \#48\+: Now using php-\/cs-\/fixer to make our CS consistent (yay!)
+\item This includes fixes released in version 3.\+0.\+5.
+\end{DoxyItemize}
+
+\subsection*{4.\+0.\+0-\/alpha1 (2015-\/02-\/25) }
+
+
+\begin{DoxyItemize}
+\item \#41\+: Fixing bugs related to comparing U\+R\+Ls in {\ttfamily Request\+::get\+Path()}.
+\item \#41\+: This library now uses the {\ttfamily sabre/uri} package for uri handling.
+\item Added {\ttfamily 421 Misdirected Request} from the H\+T\+T\+P/2.\+0 spec.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+5 (2015-\/05-\/11) }
+
+
+\begin{DoxyItemize}
+\item \#47 \#35\+: When re-\/using the client and doing any request after a {\ttfamily H\+E\+AD} request, the client discards the body.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+4 (2014-\/12-\/10) }
+
+
+\begin{DoxyItemize}
+\item \#38\+: The Authentication helpers no longer overwrite any existing {\ttfamily W\+W\+W-\/\+Authenticate} headers, but instead append new headers. This ensures that multiple authentication systems can exist in the same environment.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+3 (2014-\/12-\/03) }
+
+
+\begin{DoxyItemize}
+\item Hiding {\ttfamily Authorization} header value from {\ttfamily Request\+::\+\_\+\+\_\+to\+String}.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+2 (2014-\/10-\/09) }
+
+
+\begin{DoxyItemize}
+\item When parsing {\ttfamily Accept\+:} headers, we\textquotesingle{}re ignoring invalid parts. Before we would throw a P\+HP E\+\_\+\+N\+O\+T\+I\+CE.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+1 (2014-\/09-\/29) }
+
+
+\begin{DoxyItemize}
+\item Minor change in unittests.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0 (2014-\/09-\/23) }
+
+
+\begin{DoxyItemize}
+\item {\ttfamily get\+Headers()} now returns header values as an array, just like psr/http.
+\item Added {\ttfamily has\+Header()}.
+\end{DoxyItemize}
+
+\subsection*{2.\+1.\+0-\/alpha1 (2014-\/09-\/15) }
+
+
+\begin{DoxyItemize}
+\item Changed\+: Copied most of the header-\/semantics for the P\+SR draft for representing H\+T\+TP messages. https\+://github.com/php-\/fig/fig-\/standards/blob/master/proposed/http-\/message.\+md \char`\"{}\+Reference here\char`\"{}.
+\item This means that {\ttfamily set\+Headers()} does not wipe out every existing header anymore.
+\item We also support multiple headers with the same name.
+\item Use {\ttfamily Request\+::get\+Header\+As\+Array()} and {\ttfamily Response\+::get\+Header\+As\+Array()} to get a hold off multiple headers with the same name.
+\item If you use {\ttfamily get\+Header()}, and there\textquotesingle{}s more than 1 header with that name, we concatenate all these with a comma.
+\item {\ttfamily add\+Header()} will now preserve an existing header with that name, and add a second header with the same name.
+\item The message class should be a lot faster now for looking up headers. No more array traversal, because we maintain a tiny index.
+\item Added\+: {\ttfamily U\+R\+L\+Util\+::resolve()} to make resolving relative urls super easy.
+\item Switched to P\+S\+R-\/4.
+\item \#12\+: Circumventing C\+U\+RL\textquotesingle{}s F\+O\+L\+L\+O\+W\+\_\+\+L\+O\+C\+A\+T\+I\+ON and doing it in P\+HP instead. This fixes compatibility issues with people that have open\+\_\+basedir turned on.
+\item Added\+: Content negotiation now correctly support mime-\/type parameters such as charset.
+\item Changed\+: {\ttfamily Util\+::negotiate()} is now deprecated. Use {\ttfamily Util\+::negotiate\+Content\+Type()} instead.
+\item \#14\+: The client now only follows http and https urls.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+4 (2014-\/07-\/14) }
+
+
+\begin{DoxyItemize}
+\item Changed\+: No longer escaping @ in urls when it\textquotesingle{}s not needed.
+\item Fixed\+: \#7\+: Client now correctly deals with responses without a body.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+3 (2014-\/04-\/17) }
+
+
+\begin{DoxyItemize}
+\item Now works on hhvm!
+\item Fixed\+: Now throwing an error when a Request object is being created with arguments that were valid for sabre/http 1.\+0. Hopefully this will aid with debugging for upgraders.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+2 (2014-\/02-\/09) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Potential security problem in the client.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+1 (2014-\/01-\/09) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: get\+Body\+As\+String on an empty body now works.
+\item Fixed\+: Version string
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0 (2014-\/01-\/08) }
+
+
+\begin{DoxyItemize}
+\item Removed\+: Request\+::create\+From\+P\+H\+P\+Request. This is now handled by Sapi\+::get\+Request.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0alpha6 (2014-\/01-\/03) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Asynchronous H\+T\+TP client. See \mbox{\hyperlink{asyncclient_8php_source}{examples/asyncclient.\+php}}.
+\item Fixed\+: Issue \#4\+: Don\textquotesingle{}t escape colon (\+:) when it\textquotesingle{}s not needed.
+\item Fixed\+: Fixed a bug in the content negotation script.
+\item Fixed\+: Fallback for when C\+U\+R\+L\+O\+P\+T\+\_\+\+P\+O\+S\+T\+R\+E\+D\+IR is not defined (mainly for hhvm).
+\item Added\+: The Request and Response object now have a {\ttfamily \+\_\+\+\_\+to\+String()} method that serializes the objects into a standard H\+T\+TP message. This is mainly for debugging purposes.
+\item Changed\+: Added Response\+::get\+Status\+Text(). This method returns the human-\/readable H\+T\+TP status message. This part has been removed from Response\+::get\+Status(), which now always returns just the status code as an int.
+\item Changed\+: Response\+::send() is now Sapi\+::send\+Response(\$response).
+\item Changed\+: Request\+::create\+From\+P\+H\+P\+Request is now Sapi\+::get\+Request().
+\item Changed\+: Message\+::get\+Body\+As\+Stream and Message\+::get\+Body\+As\+String were added. The existing Message\+::get\+Body changed it\textquotesingle{}s behavior, so be careful.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0alpha5 (2013-\/11-\/07) }
+
+
+\begin{DoxyItemize}
+\item Added\+: H\+T\+TP Status 451 Unavailable For Legal Reasons. Fight government censorship!
+\item Added\+: Ability to catch and retry http requests in the client when a curl error occurs.
+\item Changed\+: Request\+::get\+Path does not return the query part of the url, so everything after the ? is stripped.
+\item Added\+: a reverse proxy example.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0alpha4 (2013-\/08-\/07) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Doing a G\+ET request with the client uses the last used H\+T\+TP method instead.
+\item Added\+: Http\+Exception
+\item Added\+: The Client class can now automatically emit exceptions when H\+T\+TP errors occurred.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0alpha3 (2013-\/07-\/24) }
+
+
+\begin{DoxyItemize}
+\item Changed\+: Now depends on sabre/event package.
+\item Changed\+: set\+Headers() now overwrites any existing http headers.
+\item Added\+: get\+Query\+Parameters to Request\+Interface.
+\item Added\+: Util\+::negotiate.
+\item Added\+: Request\+Decorator, Response\+Decorator.
+\item Added\+: A very simple H\+T\+TP client.
+\item Added\+: add\+Headers() to append a list of new headers.
+\item Fixed\+: Not erroring on unknown H\+T\+TP status codes.
+\item Fixed\+: Throwing exceptions on invalid H\+T\+TP status codes (not 3 digits).
+\item Fixed\+: Much better R\+E\+A\+D\+M\+E.\+md
+\item Changed\+: get\+Body() now uses a bitfield to specify what type to return.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0alpha2 (2013-\/07-\/02) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Digest \& A\+WS Authentication.
+\item Added\+: Message\+::get\+Http\+Version and Message\+::set\+Http\+Version.
+\item Added\+: Request\+::set\+Raw\+Server\+Array, get\+Raw\+Server\+Value.
+\item Added\+: Request\+::create\+From\+P\+H\+P\+Request
+\item Added\+: Response\+::send
+\item Added\+: Request\+::get\+Query\+Parameters
+\item Added\+: Utility for dealing with H\+T\+TP dates.
+\item Added\+: Request\+::set\+Post\+Data and Request\+::get\+Post\+Data.
+\item Added\+: Request\+::set\+Absolute\+Url and Request\+::get\+Absolute\+Url.
+\item Added\+: U\+R\+L\+Util, methods for calculation relative and base urls.
+\item Removed\+: Response\+::send\+Body
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0alpha1 (2012-\/10-\/07) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: Lots of small naming improvements
+\item Added\+: Introduction of \mbox{\hyperlink{class_message}{Message}}, Message\+Interface, Response, Response\+Interface.
+\end{DoxyItemize}
+
+Before 2.\+0.\+0, this package was built-\/into Sabre\+D\+AV, where it first appeared in January 2009. 

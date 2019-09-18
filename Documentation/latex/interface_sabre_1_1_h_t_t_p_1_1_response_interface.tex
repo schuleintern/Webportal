@@ -1,0 +1,98 @@
+\hypertarget{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Response\+Interface Schnittstellenreferenz}
+\label{interface_sabre_1_1_h_t_t_p_1_1_response_interface}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response\+Interface@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response\+Interface}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Response\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{interface_sabre_1_1_h_t_t_p_1_1_response_interface}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface_a4424cb29068d23ac01d92fdaf97351c8}{get\+Status}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface_a5fe5d34d36b2fa98e074a463f8368427}{get\+Status\+Text}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface_a918855cfff846d31ac733011952839c8}{set\+Status}} (\$status)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This interface represents a H\+T\+TP response.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 12 der Datei Response\+Interface.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_response_interface_a4424cb29068d23ac01d92fdaf97351c8}\label{interface_sabre_1_1_h_t_t_p_1_1_response_interface_a4424cb29068d23ac01d92fdaf97351c8}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface@{Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface}!get\+Status@{get\+Status}}
+\index{get\+Status@{get\+Status}!Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface@{Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface}}
+\subsubsection{\texorpdfstring{get\+Status()}{getStatus()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response\+Interface\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the current H\+T\+TP status code.
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response_afe2cf93ce624d99a248a1aaf6bd2986b}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response}} und \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response_decorator_ac5b7d13566a0597fd437ac8d72a5becc}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response\+Decorator}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_response_interface_a5fe5d34d36b2fa98e074a463f8368427}\label{interface_sabre_1_1_h_t_t_p_1_1_response_interface_a5fe5d34d36b2fa98e074a463f8368427}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface@{Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface}!get\+Status\+Text@{get\+Status\+Text}}
+\index{get\+Status\+Text@{get\+Status\+Text}!Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface@{Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface}}
+\subsubsection{\texorpdfstring{get\+Status\+Text()}{getStatusText()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response\+Interface\+::get\+Status\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the human-\/readable status string.
+
+In the case of a 200, this may for example be \textquotesingle{}OK\textquotesingle{}.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response_af303e7bec58ea83086d1b7fe6cd7060d}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response}} und \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response_decorator_a74d8862eeb17eeba7777ba54e0456918}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response\+Decorator}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_response_interface_a918855cfff846d31ac733011952839c8}\label{interface_sabre_1_1_h_t_t_p_1_1_response_interface_a918855cfff846d31ac733011952839c8}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface@{Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface}!set\+Status@{set\+Status}}
+\index{set\+Status@{set\+Status}!Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface@{Sabre\+::\+H\+T\+T\+P\+::\+Response\+Interface}}
+\subsubsection{\texorpdfstring{set\+Status()}{setStatus()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response\+Interface\+::set\+Status (\begin{DoxyParamCaption}\item[{}]{\$status }\end{DoxyParamCaption})}
+
+Sets the H\+T\+TP status code.
+
+This can be either the full H\+T\+TP status code with human readable string, for example\+: \char`\"{}403 I can\textquotesingle{}t let you do that, Dave\char`\"{}.
+
+Or just the code, in which case the appropriate default message will be added.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | int & {\em \$status} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response_aa2f393e4e475f4b6019b7add7a99be86}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response}} und \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response_decorator_a0b3f39d2f9af949ab2a1cd63516f2934}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Response\+Decorator}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/lib/Response\+Interface.\+php\end{DoxyCompactItemize}

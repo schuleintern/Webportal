@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/event/lib/coroutine.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_24f5a639bfe313bdf8ac077c874113c2.html">event</a></li><li class="navelem"><a class="el" href="dir_dc638bf17fc2162aac5ea3233ac165ad.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">coroutine.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_event.html">Sabre\Event</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_generator.html">Generator</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_exception.html">Exception</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">function</span> coroutine(callable $gen) {</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    $generator = $gen();</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span> (!$generator instanceof <a class="code" href="namespace_generator.html">Generator</a>) {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">throw</span> new \InvalidArgumentException(<span class="stringliteral">&#39;You must pass a generator function&#39;</span>);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// This is the value we&#39;re returning.</span></div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    $promise = <span class="keyword">new</span> Promise();</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    $lastYieldResult = null;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    $advanceGenerator = <span class="keyword">function</span>() use (&amp;$advanceGenerator, $generator, $promise, &amp;$lastYieldResult) {</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">while</span> ($generator-&gt;valid()) {</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            $yieldedValue = $generator-&gt;current();</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">if</span> ($yieldedValue instanceof Promise) {</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                $yieldedValue-&gt;then(</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <span class="keyword">function</span>($value) use ($generator, &amp;$advanceGenerator, &amp;$lastYieldResult) {</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        $lastYieldResult = $value;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        $generator-&gt;send($value);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        $advanceGenerator();</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    },</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="keyword">function</span>($reason) use ($generator, $advanceGenerator) {</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        <span class="keywordflow">if</span> ($reason instanceof <a class="code" href="namespace_exception.html">Exception</a>) {</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                            $generator-&gt;throw($reason);</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                        } elseif (is_scalar($reason)) {</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                            $generator-&gt;throw(<span class="keyword">new</span> <a class="code" href="namespace_exception.html">Exception</a>($reason));</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                            $type = is_object($reason) ? get_class($reason) : gettype($reason);</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                            $generator-&gt;throw(<span class="keyword">new</span> <a class="code" href="namespace_exception.html">Exception</a>(<span class="stringliteral">&#39;Promise was rejected with reason of type: &#39;</span> . $type));</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        }</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        $advanceGenerator();</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    }</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                )-&gt;error(<span class="keyword">function</span>($reason) use ($promise) {</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <span class="comment">// This error handler would be called, if something in the</span></div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    <span class="comment">// generator throws an exception, and it&#39;s not caught</span></div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    <span class="comment">// locally.</span></div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    $promise-&gt;reject($reason);</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                });</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="comment">// We need to break out of the loop, because $advanceGenerator</span></div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="comment">// will be called asynchronously when the promise has a result.</span></div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordflow">break</span>;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="comment">// If the value was not a promise, we&#39;ll just let it pass through.</span></div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                $lastYieldResult = $yieldedValue;</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                $generator-&gt;send($yieldedValue);</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            }</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">// If the generator is at the end, and we didn&#39;t run into an exception,</span></div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">// we can fullfill the promise with the last thing that was yielded to</span></div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">// us.</span></div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">if</span> (!$generator-&gt;valid() &amp;&amp; $promise-&gt;state === <a class="code" href="class_sabre_1_1_event_1_1_promise.html#aa7609f4a75ccc2d8ffff06cb4bb450da">Promise::PENDING</a>) {</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            $promise-&gt;fulfill($lastYieldResult);</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    };</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">try</span> {</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        $advanceGenerator();</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    } <span class="keywordflow">catch</span> (<a class="code" href="namespace_exception.html">Exception</a> $e) {</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        $promise-&gt;reject($e);</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> $promise;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div><div class="ttc" id="namespace_exception_html"><div class="ttname"><a href="namespace_exception.html">Exception</a></div></div>
+<div class="ttc" id="class_sabre_1_1_event_1_1_promise_html_aa7609f4a75ccc2d8ffff06cb4bb450da"><div class="ttname"><a href="class_sabre_1_1_event_1_1_promise.html#aa7609f4a75ccc2d8ffff06cb4bb450da">Sabre\Event\Promise\PENDING</a></div><div class="ttdeci">const PENDING</div><div class="ttdef"><b>Definition:</b> <a href="lib_2promise_8php_source.html#l00028">Promise.php:28</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_event_html"><div class="ttname"><a href="namespace_sabre_1_1_event.html">Sabre\Event</a></div><div class="ttdef"><b>Definition:</b> <a href="coroutine_8php_source.html#l00003">coroutine.php:3</a></div></div>
+<div class="ttc" id="namespace_generator_html"><div class="ttname"><a href="namespace_generator.html">Generator</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

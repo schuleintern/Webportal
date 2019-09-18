@@ -1,0 +1,235 @@
+\hypertarget{class_z_ci_cal_node}{}\section{Z\+Ci\+Cal\+Node Klassenreferenz}
+\label{class_z_ci_cal_node}\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_z_ci_cal_node_aaf2f2ad80629be8afe65d82a38ea80d6}{Z\+Ci\+Cal\+Node}} ( \$\+\_\+name, \& \$\+\_\+parent, \$first=false)
+\item 
+\mbox{\hyperlink{class_z_ci_cal_node_ac3b6389ed651b427432df1a4d7a85c2d}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_z_ci_cal_node_ab6f20676b8478e7dc0a70ce47995a28c}{add\+Node}} (\$node)
+\item 
+\mbox{\hyperlink{class_z_ci_cal_node_af8682a0d31d9afa68ba2bcea7b178963}{get\+Attrib}} (\$i)
+\item 
+\mbox{\hyperlink{class_z_ci_cal_node_aa8845828e858ae601b2ca44b0890e5e9}{set\+Attrib}} (\$value)
+\item 
+\& \mbox{\hyperlink{class_z_ci_cal_node_afb1305c51f153ab244078ea2e12ece52}{get\+Parent}} ()
+\item 
+\& \mbox{\hyperlink{class_z_ci_cal_node_a22f136b7820093017b9d5cc071feda63}{get\+First\+Child}} ()
+\item 
+\mbox{\hyperlink{class_z_ci_cal_node_a5d514a4d88635145e6a7e62e49e671ae}{print\+Tree}} (\& \$node=null, \$level=1)
+\item 
+\mbox{\hyperlink{class_z_ci_cal_node_ac540c57c04feb6550992f6b57e86db8a}{export}} (\& \$node=null, \$level=0)
+\item 
+\mbox{\hyperlink{class_z_ci_cal_node_a5a6d9ff591aeeed0c279b52995aac89c}{print\+Data\+Line}} (\$d, \$p)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_z_ci_cal_node_a7b6febcff6d479a8268ea8fe59c4dd5e}\label{class_z_ci_cal_node_a7b6febcff6d479a8268ea8fe59c4dd5e}} 
+{\bfseries \$name} =\char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{class_z_ci_cal_node_a490bf611e4f638174e2a97892cbdab77}\label{class_z_ci_cal_node_a490bf611e4f638174e2a97892cbdab77}} 
+{\bfseries \$parentnode} =null
+\item 
+\mbox{\Hypertarget{class_z_ci_cal_node_a685045c220357b08a539b02fa13b6a95}\label{class_z_ci_cal_node_a685045c220357b08a539b02fa13b6a95}} 
+{\bfseries \$child} = array()
+\item 
+\mbox{\Hypertarget{class_z_ci_cal_node_aa8d3e48ce94c0331dc9aa24fea17921a}\label{class_z_ci_cal_node_aa8d3e48ce94c0331dc9aa24fea17921a}} 
+{\bfseries \$data} = array()
+\item 
+\mbox{\Hypertarget{class_z_ci_cal_node_a6ec4f6da23f46e1ed18adf3bd6e2db0a}\label{class_z_ci_cal_node_a6ec4f6da23f46e1ed18adf3bd6e2db0a}} 
+{\bfseries \$next} =null
+\item 
+\mbox{\Hypertarget{class_z_ci_cal_node_ae00270c9689157772f2738c9a942648e}\label{class_z_ci_cal_node_ae00270c9689157772f2738c9a942648e}} 
+{\bfseries \$prev} =null
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Object for storing a list of unfolded i\+Calendar lines (\mbox{\hyperlink{class_z_ci_cal_data_node}{Z\+Ci\+Cal\+Data\+Node}} objects) 
+
+Definiert in Zeile 145 der Datei ical.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_z_ci_cal_node_ab6f20676b8478e7dc0a70ce47995a28c}\label{class_z_ci_cal_node_ab6f20676b8478e7dc0a70ce47995a28c}} 
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!add\+Node@{add\+Node}}
+\index{add\+Node@{add\+Node}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsubsection{\texorpdfstring{add\+Node()}{addNode()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+Node\+::add\+Node (\begin{DoxyParamCaption}\item[{}]{\$node }\end{DoxyParamCaption})}
+
+Add node to list
+
+
+\begin{DoxyParams}[1]{Parameter}
+object & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 212 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_node_ac540c57c04feb6550992f6b57e86db8a}\label{class_z_ci_cal_node_ac540c57c04feb6550992f6b57e86db8a}} 
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!export@{export}}
+\index{export@{export}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsubsection{\texorpdfstring{export()}{export()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+Node\+::export (\begin{DoxyParamCaption}\item[{\&}]{\$node = {\ttfamily null},  }\item[{}]{\$level = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+export tree to icalendar format
+
+
+\begin{DoxyParams}[1]{Parameter}
+object & {\em \$node} & Top level node to export\\
+\hline
+int & {\em \$level} & Level of recursion (usually leave this blank)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string i\+Calendar formatted output 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 311 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_node_af8682a0d31d9afa68ba2bcea7b178963}\label{class_z_ci_cal_node_af8682a0d31d9afa68ba2bcea7b178963}} 
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!get\+Attrib@{get\+Attrib}}
+\index{get\+Attrib@{get\+Attrib}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsubsection{\texorpdfstring{get\+Attrib()}{getAttrib()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+Node\+::get\+Attrib (\begin{DoxyParamCaption}\item[{}]{\$i }\end{DoxyParamCaption})}
+
+Get Attribute
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$i} & array id of attribute to get\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 235 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_node_a22f136b7820093017b9d5cc071feda63}\label{class_z_ci_cal_node_a22f136b7820093017b9d5cc071feda63}} 
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!get\+First\+Child@{get\+First\+Child}}
+\index{get\+First\+Child@{get\+First\+Child}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsubsection{\texorpdfstring{get\+First\+Child()}{getFirstChild()}}
+{\footnotesize\ttfamily \& Z\+Ci\+Cal\+Node\+::get\+First\+Child (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the first child of this object
+
+\begin{DoxyReturn}{Rückgabe}
+object The first child 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 263 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_node_ac3b6389ed651b427432df1a4d7a85c2d}\label{class_z_ci_cal_node_ac3b6389ed651b427432df1a4d7a85c2d}} 
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+Node\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the name of the object
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 202 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_node_afb1305c51f153ab244078ea2e12ece52}\label{class_z_ci_cal_node_afb1305c51f153ab244078ea2e12ece52}} 
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!get\+Parent@{get\+Parent}}
+\index{get\+Parent@{get\+Parent}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsubsection{\texorpdfstring{get\+Parent()}{getParent()}}
+{\footnotesize\ttfamily \& Z\+Ci\+Cal\+Node\+::get\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the parent object of this object
+
+\begin{DoxyReturn}{Rückgabe}
+object parent of this object 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 254 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_node_a5a6d9ff591aeeed0c279b52995aac89c}\label{class_z_ci_cal_node_a5a6d9ff591aeeed0c279b52995aac89c}} 
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!print\+Data\+Line@{print\+Data\+Line}}
+\index{print\+Data\+Line@{print\+Data\+Line}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsubsection{\texorpdfstring{print\+Data\+Line()}{printDataLine()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+Node\+::print\+Data\+Line (\begin{DoxyParamCaption}\item[{}]{\$d,  }\item[{}]{\$p }\end{DoxyParamCaption})}
+
+print an attribute line 
+
+Definiert in Zeile 386 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_node_a5d514a4d88635145e6a7e62e49e671ae}\label{class_z_ci_cal_node_a5d514a4d88635145e6a7e62e49e671ae}} 
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!print\+Tree@{print\+Tree}}
+\index{print\+Tree@{print\+Tree}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsubsection{\texorpdfstring{print\+Tree()}{printTree()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+Node\+::print\+Tree (\begin{DoxyParamCaption}\item[{\&}]{\$node = {\ttfamily null},  }\item[{}]{\$level = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Print object tree in H\+T\+ML for debugging purposes
+
+
+\begin{DoxyParams}[1]{Parameter}
+object & {\em \$node} & select part of tree to print, or leave blank for full tree\\
+\hline
+int & {\em \$level} & Level of recursion (usually leave this blank)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string -\/ H\+T\+ML formatted display of object tree 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 282 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_node_aa8845828e858ae601b2ca44b0890e5e9}\label{class_z_ci_cal_node_aa8845828e858ae601b2ca44b0890e5e9}} 
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!set\+Attrib@{set\+Attrib}}
+\index{set\+Attrib@{set\+Attrib}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsubsection{\texorpdfstring{set\+Attrib()}{setAttrib()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+Node\+::set\+Attrib (\begin{DoxyParamCaption}\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Set Attribute
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$value} & value of attribute to set \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 245 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_node_aaf2f2ad80629be8afe65d82a38ea80d6}\label{class_z_ci_cal_node_aaf2f2ad80629be8afe65d82a38ea80d6}} 
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\index{Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}!Z\+Ci\+Cal\+Node@{Z\+Ci\+Cal\+Node}}
+\subsubsection{\texorpdfstring{Z\+Ci\+Cal\+Node()}{ZCiCalNode()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+Node\+::\+Z\+Ci\+Cal\+Node (\begin{DoxyParamCaption}\item[{}]{\$\+\_\+name,  }\item[{\&}]{\$\+\_\+parent,  }\item[{}]{\$first = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Create \mbox{\hyperlink{class_z_ci_cal_node}{Z\+Ci\+Cal\+Node}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$\+\_\+name} & Name of node\\
+\hline
+object & {\em \$\+\_\+parent} & Parent node for this node\\
+\hline
+bool & {\em \$first} & Is this the first child for this parent? \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 162 der Datei ical.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/ical/includes/ical.\+php\end{DoxyCompactItemize}
