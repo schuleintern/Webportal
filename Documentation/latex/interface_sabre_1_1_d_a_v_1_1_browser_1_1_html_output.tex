@@ -1,0 +1,64 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Browser\textbackslash{}Html\+Output Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Html\+Output@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Html\+Output}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Browser\textbackslash{}Html\+Output\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.638298cm]{interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_a53a24f82474cef8c1fcf00e87de3bf7c}{to\+Html}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper}{Html\+Output\+Helper}} \$html)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Web\+D\+AV properties that implement this interface are able to generate their own html output for the browser plugin.
+
+This is only useful for display purposes, and might make it a bit easier for people to read and understand the value of some properties.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei Html\+Output.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_a53a24f82474cef8c1fcf00e87de3bf7c}\label{interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_a53a24f82474cef8c1fcf00e87de3bf7c}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output}!to\+Html@{to\+Html}}
+\index{to\+Html@{to\+Html}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Html\+Output}}
+\subsubsection{\texorpdfstring{to\+Html()}{toHtml()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Html\+Output\+::to\+Html (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper}{Html\+Output\+Helper}}}]{\$html }\end{DoxyParamCaption})}
+
+Generate html representation for this value.
+
+The html output is 100\% trusted, and no effort is being made to sanitize it. It\textquotesingle{}s up to the implementor to sanitize user provided values.
+
+The output must be in U\+T\+F-\/8.
+
+The base\+Uri parameter is a url to the root of the application, and can be used to construct local links.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper}{Html\+Output\+Helper}} & {\em \$html} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_property_1_1_current_user_privilege_set_ab15d2dbb957c67a5a58b5d93f4a47bfd}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Current\+User\+Privilege\+Set}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_report_set_a3775a63feb6a3353e4f00bea05f66fad}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Report\+Set}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_property_1_1_principal_a4b9de9a2e6d5a1cdb08a9da3199a1cca}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Principal}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_property_1_1_acl_a8540f16d374d6ce80a2555ddcb50468e}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Acl}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type_a05091dcffe3fd53144b2ba464b569cfc}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Resource\+Type}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_href_a893c9969f099f1b54c0f852b0684c28f}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Href}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_supported_method_set_afcab0ef1e0a50669a6591f27ae0f75b3}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Method\+Set}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_property_1_1_supported_privilege_set_ade307197eaf785d53793154ac0a0f2e6}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Property\textbackslash{}\+Supported\+Privilege\+Set}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Browser/Html\+Output.\+php\end{DoxyCompactItemize}

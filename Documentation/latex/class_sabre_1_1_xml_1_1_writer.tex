@@ -1,0 +1,213 @@
+\hypertarget{class_sabre_1_1_xml_1_1_writer}{}\section{Sabre\textbackslash{}Xml\textbackslash{}Writer Klassenreferenz}
+\label{class_sabre_1_1_xml_1_1_writer}\index{Sabre\textbackslash{}\+Xml\textbackslash{}\+Writer@{Sabre\textbackslash{}\+Xml\textbackslash{}\+Writer}}
+Klassendiagramm für Sabre\textbackslash{}Xml\textbackslash{}Writer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_xml_1_1_writer}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_a7ae8afe73ac4ca8d34a609b6ac16da5e}{write}} (\$value)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_a36f607e50b1cfff7637bbeeb63093400}{start\+Element}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_a251d9cb147ab5a8cd53453dee8915334}{write\+Element}} (\$name, \$content=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_a7af042e7d29fe5c49a42ee4e9c7a33db}{write\+Attributes}} (array \$attributes)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_a1bd8ec6a35705bf1b001d453049c8336}{write\+Attribute}} (\$name, \$value)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_writer_a614d39a2b894c36e679cb164a8689cdf}\label{class_sabre_1_1_xml_1_1_writer_a614d39a2b894c36e679cb164a8689cdf}} 
+{\bfseries \$adhoc\+Namespaces} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_writer_a11a8a03f0212d4502992f3ae56fd7c65}\label{class_sabre_1_1_xml_1_1_writer_a11a8a03f0212d4502992f3ae56fd7c65}} 
+{\bfseries \$namespaces\+Written} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The X\+ML \mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} class.
+
+This class works exactly as P\+HP\textquotesingle{}s built-\/in X\+M\+L\+Writer, with a few additions.
+
+Namespaces can be registered beforehand, globally. When the first element is written, namespaces will automatically be declared.
+
+The write\+Attribute, start\+Element and write\+Element can now take a clark-\/notation element name (example\+: \{\href{http://www.w3.org/2005/Atom}{\tt http\+://www.\+w3.\+org/2005/\+Atom}\}link).
+
+If, when writing the namespace is a known one a prefix will automatically be selected, otherwise a random prefix will be generated.
+
+Instead of standard string values, the writer can take \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_element}{Element}} classes (as defined by this library) to delegate the serialization.
+
+The \mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_a7ae8afe73ac4ca8d34a609b6ac16da5e}{write()}} method can take array structures to quickly write out simple xml trees.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2009-\/2015 fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 31 der Datei Writer.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_writer_a36f607e50b1cfff7637bbeeb63093400}\label{class_sabre_1_1_xml_1_1_writer_a36f607e50b1cfff7637bbeeb63093400}} 
+\index{Sabre\+::\+Xml\+::\+Writer@{Sabre\+::\+Xml\+::\+Writer}!start\+Element@{start\+Element}}
+\index{start\+Element@{start\+Element}!Sabre\+::\+Xml\+::\+Writer@{Sabre\+::\+Xml\+::\+Writer}}
+\subsubsection{\texorpdfstring{start\+Element()}{startElement()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Writer\+::start\+Element (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Opens a new element.
+
+You can either just use a local elementname, or you can use clark-\/ notation to start a new element.
+
+Example\+: \begin{DoxyVerb}$writer->startElement('{http://www.w3.org/2005/Atom}entry');
+\end{DoxyVerb}
+
+
+Would result in something like\+: \begin{DoxyVerb}<entry xmlns="http://w3.org/2005/Atom">
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 121 der Datei Writer.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_writer_a7ae8afe73ac4ca8d34a609b6ac16da5e}\label{class_sabre_1_1_xml_1_1_writer_a7ae8afe73ac4ca8d34a609b6ac16da5e}} 
+\index{Sabre\+::\+Xml\+::\+Writer@{Sabre\+::\+Xml\+::\+Writer}!write@{write}}
+\index{write@{write}!Sabre\+::\+Xml\+::\+Writer@{Sabre\+::\+Xml\+::\+Writer}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Writer\+::write (\begin{DoxyParamCaption}\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Writes a value to the output stream.
+
+The following values are supported\+:
+\begin{DoxyEnumerate}
+\item Scalar values will be written as-\/is, as text.
+\item Null values will be skipped (resulting in a short xml tag).
+\item If a value is an instance of an \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_element}{Element}} class, writing will be delegated to the object.
+\item If a value is an array, two formats are supported.
+\end{DoxyEnumerate}
+
+Array format 1\+: \mbox{[} \char`\"{}\{namespace\}name1\char`\"{} =$>$ \char`\"{}..\char`\"{}, \char`\"{}\{namespace\}name2\char`\"{} =$>$ \char`\"{}..\char`\"{}, \mbox{]}
+
+One element will be created for each key in this array. The values of this array support any format this method supports (this method is called recursively).
+
+Array format 2\+:
+
+\mbox{[} \mbox{[} \char`\"{}name\char`\"{} =$>$ \char`\"{}\{namespace\}name1\char`\"{} \char`\"{}value\char`\"{} =$>$ \char`\"{}..\char`\"{}, \char`\"{}attributes\char`\"{} =$>$ \mbox{[} \char`\"{}attr\char`\"{} =$>$ \char`\"{}attribute value\char`\"{}, \mbox{]} \mbox{]}, \mbox{[} \char`\"{}name\char`\"{} =$>$ \char`\"{}\{namespace\}name1\char`\"{} \char`\"{}value\char`\"{} =$>$ \char`\"{}..\char`\"{}, \char`\"{}attributes\char`\"{} =$>$ \mbox{[} \char`\"{}attr\char`\"{} =$>$ \char`\"{}attribute value\char`\"{}, \mbox{]} \mbox{]} \mbox{]}
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 98 der Datei Writer.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_writer_a1bd8ec6a35705bf1b001d453049c8336}\label{class_sabre_1_1_xml_1_1_writer_a1bd8ec6a35705bf1b001d453049c8336}} 
+\index{Sabre\+::\+Xml\+::\+Writer@{Sabre\+::\+Xml\+::\+Writer}!write\+Attribute@{write\+Attribute}}
+\index{write\+Attribute@{write\+Attribute}!Sabre\+::\+Xml\+::\+Writer@{Sabre\+::\+Xml\+::\+Writer}}
+\subsubsection{\texorpdfstring{write\+Attribute()}{writeAttribute()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Writer\+::write\+Attribute (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Writes a new attribute.
+
+The name may be specified in clark-\/notation.
+
+Returns true when successful.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 230 der Datei Writer.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_writer_a7af042e7d29fe5c49a42ee4e9c7a33db}\label{class_sabre_1_1_xml_1_1_writer_a7af042e7d29fe5c49a42ee4e9c7a33db}} 
+\index{Sabre\+::\+Xml\+::\+Writer@{Sabre\+::\+Xml\+::\+Writer}!write\+Attributes@{write\+Attributes}}
+\index{write\+Attributes@{write\+Attributes}!Sabre\+::\+Xml\+::\+Writer@{Sabre\+::\+Xml\+::\+Writer}}
+\subsubsection{\texorpdfstring{write\+Attributes()}{writeAttributes()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Writer\+::write\+Attributes (\begin{DoxyParamCaption}\item[{array}]{\$attributes }\end{DoxyParamCaption})}
+
+Writes a list of attributes.
+
+Attributes are specified as a key-\/$>$value array.
+
+The key is an attribute name. If the key is a \textquotesingle{}local\+Name\textquotesingle{}, the current xml namespace is assumed. If it\textquotesingle{}s a \textquotesingle{}clark notation key\textquotesingle{}, this namespace will be used instead.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$attributes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 211 der Datei Writer.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_writer_a251d9cb147ab5a8cd53453dee8915334}\label{class_sabre_1_1_xml_1_1_writer_a251d9cb147ab5a8cd53453dee8915334}} 
+\index{Sabre\+::\+Xml\+::\+Writer@{Sabre\+::\+Xml\+::\+Writer}!write\+Element@{write\+Element}}
+\index{write\+Element@{write\+Element}!Sabre\+::\+Xml\+::\+Writer@{Sabre\+::\+Xml\+::\+Writer}}
+\subsubsection{\texorpdfstring{write\+Element()}{writeElement()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Writer\+::write\+Element (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$content = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Write a full element tag and it\textquotesingle{}s contents.
+
+This method automatically closes the element as well.
+
+The element name may be specified in clark-\/notation.
+
+Examples\+:
+
+\$writer-\/$>$write\+Element(\textquotesingle{}\{\href{http://www.w3.org/2005/Atom}{\tt http\+://www.\+w3.\+org/2005/\+Atom}\}author\textquotesingle{},null); becomes\+: $<$author xmlns=\char`\"{}http\+://www.\+w3.\+org/2005\char`\"{}$>$
+
+\$writer-\/$>$write\+Element(\textquotesingle{}\{\href{http://www.w3.org/2005/Atom}{\tt http\+://www.\+w3.\+org/2005/\+Atom}\}author\textquotesingle{}, \mbox{[} \textquotesingle{}\{\href{http://www.w3.org/2005/Atom}{\tt http\+://www.\+w3.\+org/2005/\+Atom}\}name\textquotesingle{} =$>$ \textquotesingle{}Evert Pot\textquotesingle{}, \mbox{]}); becomes\+: $<$author xmlns=\char`\"{}http\+://www.\+w3.\+org/2005\char`\"{}$>$$<$name$>$Evert Pot$<$/name$>$$<$/author$>$
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+string & {\em \$content} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 189 der Datei Writer.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/xml/lib/Writer.\+php\end{DoxyCompactItemize}

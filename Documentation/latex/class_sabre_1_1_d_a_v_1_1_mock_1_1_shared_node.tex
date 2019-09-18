@@ -1,0 +1,175 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Mock\textbackslash{}Shared\+Node Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Mock\textbackslash{}Shared\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a4c3d4428d078adc3387c9c79c9027751}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a4c3d4428d078adc3387c9c79c9027751}} 
+{\bfseries \+\_\+\+\_\+construct} (\$name, \$access)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_ab4c6b66df500d3d781025ad0c16fa928}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a1b17b0c416f56f137a232a60ed8db525}{get\+Share\+Access}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a428e362da7ce65a09585099b1b61065f}{get\+Share\+Resource\+Uri}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a4dfbf2b033295cd266b532d7fcaed18c}{update\+Invites}} (array \$sharees)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a6deaecb18be485adbdc98b0132b4ab1e}{get\+Invites}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a0ba87d5b91bda5abfc7e16011c6fd5cb}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a0ba87d5b91bda5abfc7e16011c6fd5cb}} 
+{\bfseries \$name}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a9d7e7d6a90850b80d8fde614a16301a5}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a9d7e7d6a90850b80d8fde614a16301a5}} 
+{\bfseries \$access}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_af0216b512d0ded2c6f1994a5ed024242}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_af0216b512d0ded2c6f1994a5ed024242}} 
+{\bfseries \$invites} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 8 der Datei Shared\+Node.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a6deaecb18be485adbdc98b0132b4ab1e}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a6deaecb18be485adbdc98b0132b4ab1e}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node}!get\+Invites@{get\+Invites}}
+\index{get\+Invites@{get\+Invites}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node}}
+\subsubsection{\texorpdfstring{get\+Invites()}{getInvites()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node\+::get\+Invites (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of people whom this resource is shared with.
+
+Every item in the returned array must be a Sharee object with at least the following properties set\+:
+
+
+\begin{DoxyItemize}
+\item \$href
+\item \$share\+Access
+\item \$invite\+Status
+\end{DoxyItemize}
+
+and optionally\+:
+
+
+\begin{DoxyItemize}
+\item \$properties
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_aa4646ed6e564d50969a4117f0f03eecd}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node}}.
+
+
+
+Definiert in Zeile 120 der Datei Shared\+Node.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_ab4c6b66df500d3d781025ad0c16fa928}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_ab4c6b66df500d3d781025ad0c16fa928}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the name of the node.
+
+This is used to generate the url.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 21 der Datei Shared\+Node.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a1b17b0c416f56f137a232a60ed8db525}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a1b17b0c416f56f137a232a60ed8db525}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node}!get\+Share\+Access@{get\+Share\+Access}}
+\index{get\+Share\+Access@{get\+Share\+Access}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node}}
+\subsubsection{\texorpdfstring{get\+Share\+Access()}{getShareAccess()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node\+::get\+Share\+Access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the \textquotesingle{}access level\textquotesingle{} for the instance of this shared resource.
+
+The value should be one of the Sabre\+::\+A\+C\+C\+E\+S\+S\+\_\+ constants.
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a1c9b44f6acd1cd63b211bdf987b9d098}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node}}.
+
+
+
+Definiert in Zeile 35 der Datei Shared\+Node.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a428e362da7ce65a09585099b1b61065f}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a428e362da7ce65a09585099b1b61065f}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node}!get\+Share\+Resource\+Uri@{get\+Share\+Resource\+Uri}}
+\index{get\+Share\+Resource\+Uri@{get\+Share\+Resource\+Uri}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node}}
+\subsubsection{\texorpdfstring{get\+Share\+Resource\+Uri()}{getShareResourceUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node\+::get\+Share\+Resource\+Uri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function must return a U\+RI that uniquely identifies the shared resource. This U\+RI should be identical across instances, and is also used in several other X\+ML bodies to connect invites to resources.
+
+This may simply be a relative reference to the original shared instance, but it could also be a urn. As long as it\textquotesingle{}s a valid U\+RI and unique.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a54b1073bfc389995c722566e18426902}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node}}.
+
+
+
+Definiert in Zeile 52 der Datei Shared\+Node.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a4dfbf2b033295cd266b532d7fcaed18c}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_shared_node_a4dfbf2b033295cd266b532d7fcaed18c}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node}!update\+Invites@{update\+Invites}}
+\index{update\+Invites@{update\+Invites}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Shared\+Node}}
+\subsubsection{\texorpdfstring{update\+Invites()}{updateInvites()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Shared\+Node\+::update\+Invites (\begin{DoxyParamCaption}\item[{array}]{\$sharees }\end{DoxyParamCaption})}
+
+Updates the list of sharees.
+
+Every item must be a Sharee object.
+
+
+\begin{DoxyParams}{Parameter}
+{\em Sharee\mbox{[}$\,$\mbox{]}} & \$sharees \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a76948a1464503ea23d3dd8ff51b561ce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node}}.
+
+
+
+Definiert in Zeile 66 der Datei Shared\+Node.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+D\+A\+V/\+Mock/Shared\+Node.\+php\end{DoxyCompactItemize}

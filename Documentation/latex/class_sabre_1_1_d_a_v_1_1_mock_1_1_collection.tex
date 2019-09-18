@@ -1,0 +1,254 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Mock\textbackslash{}Collection Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Mock\textbackslash{}Collection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a1d2431f6f2645453c6bb3099fe643d7e}{\+\_\+\+\_\+construct}} (\$name, array \$children=\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_collection}{Collection}} \$parent=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_ac7ad2f771a34a1099214f0e4e19897f9}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a7d30a56a4eca887ee8ba5f6d819dc5dd}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a48e2f0896c892cdc0c3c6fe87b9da153}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a3814f1e53b147e13ebdddc6324639a80}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a34bd7edc09df3fc2f76dcbda0dc4863e}{add\+Node}} (\textbackslash{}\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}} \$node)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_abbb3c34e222824152a26a0e75718a164}{delete\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a7ac084bfb4f1ff2fd0c2f93155e2a5c6}{delete}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a25941c043967fad316c33cec38567636}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a25941c043967fad316c33cec38567636}} 
+{\bfseries \$name}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a03dd37b3a1f45bcae66d523f6d67ba0a}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a03dd37b3a1f45bcae66d523f6d67ba0a}} 
+{\bfseries \$children}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a7f3e346e64d49989fbb194f00aa22f1b}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a7f3e346e64d49989fbb194f00aa22f1b}} 
+{\bfseries \$parent}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Mock \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection}{Collection}}.
+
+This collection quickly allows you to create trees of nodes. Children are specified as an array.
+
+Every key a filename, every array value is either\+:
+\begin{DoxyItemize}
+\item an array, for a sub-\/collection
+\item a string, for a file
+\item An instance of .
+\end{DoxyItemize}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 22 der Datei Collection.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a1d2431f6f2645453c6bb3099fe643d7e}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a1d2431f6f2645453c6bb3099fe643d7e}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{array}]{\$children = {\ttfamily \mbox{[}\mbox{]}},  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_collection}{Collection}}}]{\$parent = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates the object
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+array & {\em \$children} & \\
+\hline
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection}{Collection}} & {\em \$parent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 36 der Datei Collection.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a34bd7edc09df3fc2f76dcbda0dc4863e}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a34bd7edc09df3fc2f76dcbda0dc4863e}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}!add\+Node@{add\+Node}}
+\index{add\+Node@{add\+Node}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}}
+\subsubsection{\texorpdfstring{add\+Node()}{addNode()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection\+::add\+Node (\begin{DoxyParamCaption}\item[{\textbackslash{}\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}}]{\$node }\end{DoxyParamCaption})}
+
+Adds an already existing node to this collection.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\textbackslash{}\+Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 129 der Datei Collection.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a48e2f0896c892cdc0c3c6fe87b9da153}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a48e2f0896c892cdc0c3c6fe87b9da153}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}!create\+Directory@{create\+Directory}}
+\index{create\+Directory@{create\+Directory}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}}
+\subsubsection{\texorpdfstring{create\+Directory()}{createDirectory()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection\+::create\+Directory (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Creates a new subdirectory
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a11e8eb888fffe1d792acebbe5bc59243}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 107 der Datei Collection.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a7d30a56a4eca887ee8ba5f6d819dc5dd}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a7d30a56a4eca887ee8ba5f6d819dc5dd}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}!create\+File@{create\+File}}
+\index{create\+File@{create\+File}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}}
+\subsubsection{\texorpdfstring{create\+File()}{createFile()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection\+::create\+File (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$data = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates a new file in the directory
+
+Data will either be supplied as a stream resource, or in certain cases as a string. Keep in mind that you may have to support either.
+
+After successful creation of the file, you may choose to return the E\+Tag of the new file here.
+
+The returned E\+Tag must be surrounded by double-\/quotes (The quotes should be part of the actual string).
+
+If you cannot accurately determine the E\+Tag, you should not return it. If you don\textquotesingle{}t store the file exactly as-\/is (you\textquotesingle{}re transforming it somehow) you should also not return an E\+Tag.
+
+This means that if a subsequent G\+ET to this new file does not exactly return the same contents of what was submitted here, you are strongly recommended to omit the E\+Tag.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & Name of the file \\
+\hline
+resource | string & {\em \$data} & Initial payload \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+null$\vert$string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a837d88dac548706770368200f83c2ebc}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 91 der Datei Collection.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a7ac084bfb4f1ff2fd0c2f93155e2a5c6}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a7ac084bfb4f1ff2fd0c2f93155e2a5c6}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}!delete@{delete}}
+\index{delete@{delete}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}}
+\subsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection\+::delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Deletes this collection and all its children,.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a72cd0ee4e36dfced2b0412d14dbd73e6}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 159 der Datei Collection.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_abbb3c34e222824152a26a0e75718a164}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_abbb3c34e222824152a26a0e75718a164}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}!delete\+Child@{delete\+Child}}
+\index{delete\+Child@{delete\+Child}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}}
+\subsubsection{\texorpdfstring{delete\+Child()}{deleteChild()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection\+::delete\+Child (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Removes a childnode from this node.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 141 der Datei Collection.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a3814f1e53b147e13ebdddc6324639a80}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a3814f1e53b147e13ebdddc6324639a80}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}!get\+Children@{get\+Children}}
+\index{get\+Children@{get\+Children}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}}
+\subsubsection{\texorpdfstring{get\+Children()}{getChildren()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection\+::get\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns an array with all the child nodes
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a5344a6890e49fd7a81bb0e38b4c6d0be}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 118 der Datei Collection.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_ac7ad2f771a34a1099214f0e4e19897f9}\label{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_ac7ad2f771a34a1099214f0e4e19897f9}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection@{Sabre\+::\+D\+A\+V\+::\+Mock\+::\+Collection}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the name of the node.
+
+This is used to generate the url.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 61 der Datei Collection.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+D\+A\+V/\+Mock/Collection.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,78 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_1_1_mock_plugin}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Schedule\textbackslash{}I\+Mip\textbackslash{}Mock\+Plugin Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_1_1_mock_plugin}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+I\+Mip\textbackslash{}\+Mock\+Plugin@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+I\+Mip\textbackslash{}\+Mock\+Plugin}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Schedule\textbackslash{}I\+Mip\textbackslash{}Mock\+Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_1_1_mock_plugin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_1_1_mock_plugin_afd29ed91262d68ca72d883363b1b96c5}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_1_1_mock_plugin_afd29ed91262d68ca72d883363b1b96c5}} 
+{\bfseries get\+Sent\+Emails} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_1_1_mock_plugin_a6b93fc1f0d5ac4face750441e6a9465b}{mail}} (\$to, \$subject, \$body, array \$headers)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_1_1_mock_plugin_af5af409b38469c178470029482fbb996}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_1_1_mock_plugin_af5af409b38469c178470029482fbb996}} 
+{\bfseries \$emails} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+i\+M\+IP handler.
+
+This class is responsible for sending out i\+M\+IP messages. i\+M\+IP is the email-\/based transport for i\+T\+IP. i\+T\+IP deals with scheduling operations for i\+Calendar objects.
+
+If you want to customize the email that gets sent out, you can do so by extending this class and overriding the send\+Message method.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 19 der Datei Mock\+Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_1_1_mock_plugin_a6b93fc1f0d5ac4face750441e6a9465b}\label{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_i_mip_1_1_mock_plugin_a6b93fc1f0d5ac4face750441e6a9465b}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+::\+Mock\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+::\+Mock\+Plugin}!mail@{mail}}
+\index{mail@{mail}!Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+::\+Mock\+Plugin@{Sabre\+::\+Cal\+D\+A\+V\+::\+Schedule\+::\+I\+Mip\+::\+Mock\+Plugin}}
+\subsubsection{\texorpdfstring{mail()}{mail()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+I\+Mip\textbackslash{}\+Mock\+Plugin\+::mail (\begin{DoxyParamCaption}\item[{}]{\$to,  }\item[{}]{\$subject,  }\item[{}]{\$body,  }\item[{array}]{\$headers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This function is responsible for sending the actual email.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$to} & Recipient email address \\
+\hline
+string & {\em \$subject} & Subject of the email \\
+\hline
+string & {\em \$body} & i\+Calendar body \\
+\hline
+array & {\em \$headers} & List of headers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 32 der Datei Mock\+Plugin.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+Cal\+D\+A\+V/\+Schedule/\+I\+Mip/Mock\+Plugin.\+php\end{DoxyCompactItemize}

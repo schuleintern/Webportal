@@ -1,0 +1,172 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}Abstract\+Basic Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Basic@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Basic}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}Abstract\+Basic\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.989324cm]{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a8582876ecef0d2d39ac54bb51773c1ab}{set\+Realm}} (\$realm)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a1dfc9862b792365d1a3ce06b026fe119}{check}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a114ac7dc4af3f4421d38b1c295eb0e92}{challenge}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_aa1843baa6ebd2f2405d3b3d66c68f84c}{validate\+User\+Pass}} (\$username, \$password)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a7eb634edfcb7af365a14cbfa1b0da3be}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a7eb634edfcb7af365a14cbfa1b0da3be}} 
+{\bfseries \$realm} = \textquotesingle{}sabre/dav\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_afc22c2b1de40fd662ca77968d6c680f2}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_afc22c2b1de40fd662ca77968d6c680f2}} 
+{\bfseries \$principal\+Prefix} = \textquotesingle{}principals/\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+H\+T\+TP Basic authentication backend class
+
+This class can be used by authentication objects wishing to use H\+T\+TP Basic Most of the digest logic is handled, implementors just need to worry about the validate\+User\+Pass method.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+James David Low (\href{http://jameslow.com/}{\tt http\+://jameslow.\+com/}) 
+
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 22 der Datei Abstract\+Basic.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a114ac7dc4af3f4421d38b1c295eb0e92}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a114ac7dc4af3f4421d38b1c295eb0e92}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic}!challenge@{challenge}}
+\index{challenge@{challenge}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic}}
+\subsubsection{\texorpdfstring{challenge()}{challenge()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Basic\+::challenge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+This method is called when a user could not be authenticated, and authentication was required for the current request.
+
+This gives you the opportunity to set authentication headers. The 401 status code will already be set.
+
+In this case of Basic Auth, this would for example mean that the following header needs to be set\+:
+
+\$response-\/$>$add\+Header(\textquotesingle{}W\+W\+W-\/\+Authenticate\textquotesingle{}, \textquotesingle{}Basic realm=Sabre\+D\+AV\textquotesingle{});
+
+Keep in mind that in the case of multiple authentication backends, other W\+W\+W-\/\+Authenticate headers may already have been set, and you\textquotesingle{}ll want to append your own W\+W\+W-\/\+Authenticate header instead of overwriting the existing one.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a486025eeb4b3b342e7bea4e692a83d94}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 133 der Datei Abstract\+Basic.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a1dfc9862b792365d1a3ce06b026fe119}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a1dfc9862b792365d1a3ce06b026fe119}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic}!check@{check}}
+\index{check@{check}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic}}
+\subsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Basic\+::check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+When this method is called, the backend must check if authentication was successful.
+
+The returned value must be one of the following
+
+\mbox{[}true, \char`\"{}principals/username\char`\"{}\mbox{]} \mbox{[}false, \char`\"{}reason for failure\char`\"{}\mbox{]}
+
+If authentication was successful, it\textquotesingle{}s expected that the authentication backend returns a so-\/called principal url.
+
+Examples of a principal url\+:
+
+principals/admin principals/user1 principals/users/joe principals/uid/123457
+
+If you don\textquotesingle{}t use Web\+D\+AV A\+CL (R\+F\+C3744) we recommend that you simply return a string such as\+:
+
+principals/users/\mbox{[}username\mbox{]}
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a404029177c1ed79456ad9283ec76d50a}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 93 der Datei Abstract\+Basic.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a8582876ecef0d2d39ac54bb51773c1ab}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a8582876ecef0d2d39ac54bb51773c1ab}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic}!set\+Realm@{set\+Realm}}
+\index{set\+Realm@{set\+Realm}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic}}
+\subsubsection{\texorpdfstring{set\+Realm()}{setRealm()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Basic\+::set\+Realm (\begin{DoxyParamCaption}\item[{}]{\$realm }\end{DoxyParamCaption})}
+
+Sets the authentication realm for this backend.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$realm} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 59 der Datei Abstract\+Basic.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_aa1843baa6ebd2f2405d3b3d66c68f84c}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_aa1843baa6ebd2f2405d3b3d66c68f84c}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic}!validate\+User\+Pass@{validate\+User\+Pass}}
+\index{validate\+User\+Pass@{validate\+User\+Pass}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Abstract\+Basic}}
+\subsubsection{\texorpdfstring{validate\+User\+Pass()}{validateUserPass()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Basic\+::validate\+User\+Pass (\begin{DoxyParamCaption}\item[{}]{\$username,  }\item[{}]{\$password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+Validates a username and password
+
+This method should return true or false depending on if login succeeded.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$username} & \\
+\hline
+string & {\em \$password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Auth/\+Backend/Abstract\+Basic.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,150 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Locks\textbackslash{}Backend\textbackslash{}P\+DO Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+P\+DO@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+P\+DO}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Locks\textbackslash{}Backend\textbackslash{}P\+DO\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a6047167851133f9f6eb8cc8176cd04db}{\+\_\+\+\_\+construct}} (\textbackslash{}\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o}{P\+DO}} \$pdo)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a990e9ac117f08b7b2f7e4fbc35fb5cd9}{get\+Locks}} (\$uri, \$return\+Child\+Locks)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a1fc812615f687620c1b7b794c3deae99}{lock}} (\$uri, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}} \$lock\+Info)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a3b9fc910d8feb630c5c145597e19ed80}{unlock}} (\$uri, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}} \$lock\+Info)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_aa21d6d44f2853700dd7563ede32f5a1d}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_aa21d6d44f2853700dd7563ede32f5a1d}} 
+{\bfseries \$table\+Name} = \textquotesingle{}locks\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a6058caa52e051c69361303949606d92b}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a6058caa52e051c69361303949606d92b}} 
+{\bfseries \$pdo}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The Lock manager allows you to handle all file-\/locks centrally.
+
+This Lock Manager stores all its data in a database. You must pass a \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o}{P\+DO}} connection object in the constructor.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei P\+D\+O.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a6047167851133f9f6eb8cc8176cd04db}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a6047167851133f9f6eb8cc8176cd04db}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+P\+D\+O\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\textbackslash{}\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o}{P\+DO}}}]{\$pdo }\end{DoxyParamCaption})}
+
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameter}
+\textbackslash{}\+P\+DO & {\em \$pdo} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 38 der Datei P\+D\+O.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a990e9ac117f08b7b2f7e4fbc35fb5cd9}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a990e9ac117f08b7b2f7e4fbc35fb5cd9}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO}!get\+Locks@{get\+Locks}}
+\index{get\+Locks@{get\+Locks}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO}}
+\subsubsection{\texorpdfstring{get\+Locks()}{getLocks()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+P\+D\+O\+::get\+Locks (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{}]{\$return\+Child\+Locks }\end{DoxyParamCaption})}
+
+Returns a list of Sabre objects
+
+This method should return all the locks for a particular uri, including locks that might be set on a parent uri.
+
+If return\+Child\+Locks is set to true, this method should also look for any locks in the subtree of the uri for locks.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+bool & {\em \$return\+Child\+Locks} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_aa9b7cf37a5acdca463fef77f96599d60}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 57 der Datei P\+D\+O.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a1fc812615f687620c1b7b794c3deae99}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a1fc812615f687620c1b7b794c3deae99}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO}!lock@{lock}}
+\index{lock@{lock}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO}}
+\subsubsection{\texorpdfstring{lock()}{lock()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+P\+D\+O\+::lock (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}}}]{\$lock\+Info }\end{DoxyParamCaption})}
+
+Locks a uri
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}} & {\em \$lock\+Info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 121 der Datei P\+D\+O.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a3b9fc910d8feb630c5c145597e19ed80}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_a3b9fc910d8feb630c5c145597e19ed80}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO}!unlock@{unlock}}
+\index{unlock@{unlock}!Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO@{Sabre\+::\+D\+A\+V\+::\+Locks\+::\+Backend\+::\+P\+DO}}
+\subsubsection{\texorpdfstring{unlock()}{unlock()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Backend\textbackslash{}\+P\+D\+O\+::unlock (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}}}]{\$lock\+Info }\end{DoxyParamCaption})}
+
+Removes a lock from a uri
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}} & {\em \$lock\+Info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 171 der Datei P\+D\+O.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Locks/\+Backend/P\+D\+O.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base64_url_safe}{}\section{Paragon\+IE\textbackslash{}Constant\+Time\textbackslash{}Base64\+Url\+Safe Klassenreferenz}
+\label{class_paragon_i_e_1_1_constant_time_1_1_base64_url_safe}\index{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base64\+Url\+Safe@{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base64\+Url\+Safe}}
+Klassendiagramm für Paragon\+IE\textbackslash{}Constant\+Time\textbackslash{}Base64\+Url\+Safe\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_paragon_i_e_1_1_constant_time_1_1_base64_url_safe}
+\end{center}
+\end{figure}
+\subsection*{Geschützte, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base64_url_safe_a17f3f8ae0a5bf506dca0acea77c59d7f}{decode6\+Bits}} (int \$src)
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base64_url_safe_ab0ad394993239ece8774597fb08dcbf6}{encode6\+Bits}} (int \$src)
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 34 der Datei Base64\+Url\+Safe.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base64_url_safe_a17f3f8ae0a5bf506dca0acea77c59d7f}\label{class_paragon_i_e_1_1_constant_time_1_1_base64_url_safe_a17f3f8ae0a5bf506dca0acea77c59d7f}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base64\+Url\+Safe@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base64\+Url\+Safe}!decode6\+Bits@{decode6\+Bits}}
+\index{decode6\+Bits@{decode6\+Bits}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base64\+Url\+Safe@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base64\+Url\+Safe}}
+\subsubsection{\texorpdfstring{decode6\+Bits()}{decode6Bits()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base64\+Url\+Safe\+::decode6\+Bits (\begin{DoxyParamCaption}\item[{int}]{\$src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Uses bitwise operators instead of table-\/lookups to turn 6-\/bit integers into 8-\/bit integers.
+
+\mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base64}{Base64}} character set\+: \mbox{[}A-\/Z\mbox{]} \mbox{[}a-\/z\mbox{]} \mbox{[}0-\/9\mbox{]} -\/ \+\_\+ 0x41-\/0x5a, 0x61-\/0x7a, 0x30-\/0x39, 0x2d, 0x5f
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 48 der Datei Base64\+Url\+Safe.\+php.
+
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base64_url_safe_ab0ad394993239ece8774597fb08dcbf6}\label{class_paragon_i_e_1_1_constant_time_1_1_base64_url_safe_ab0ad394993239ece8774597fb08dcbf6}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base64\+Url\+Safe@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base64\+Url\+Safe}!encode6\+Bits@{encode6\+Bits}}
+\index{encode6\+Bits@{encode6\+Bits}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base64\+Url\+Safe@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base64\+Url\+Safe}}
+\subsubsection{\texorpdfstring{encode6\+Bits()}{encode6Bits()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base64\+Url\+Safe\+::encode6\+Bits (\begin{DoxyParamCaption}\item[{int}]{\$src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Uses bitwise operators instead of table-\/lookups to turn 8-\/bit integers into 6-\/bit integers.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 77 der Datei Base64\+Url\+Safe.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/composer/vendor/paragonie/constant\+\_\+time\+\_\+encoding/src/Base64\+Url\+Safe.\+php\end{DoxyCompactItemize}

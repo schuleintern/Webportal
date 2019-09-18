@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/CalDAV/Xml/Notification/NotificationInterface.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_d96a284a623d22f018a48de34118fd50.html">CalDAV</a></li><li class="navelem"><a class="el" href="dir_da840aaef5f785ccdb1922e5090acb6a.html">Xml</a></li><li class="navelem"><a class="el" href="dir_7ff2d7062f10fcdab6edf9e379e28b71.html">Notification</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">NotificationInterface.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification.html">Sabre\CalDAV\Xml\Notification</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_writer.html">Sabre\Xml\Writer</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_xml_serializable.html">Sabre\Xml\XmlSerializable</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface.html">   15</a></span>&#160;<span class="keyword">interface </span><a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface.html">NotificationInterface</a> <span class="keyword">extends</span> <a class="code" href="interface_sabre_1_1_xml_1_1_xml_serializable.html">XmlSerializable</a> {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface.html#abb545ebd302b3bdf972d159065c6a8b4">xmlSerializeFull</a>(<a class="code" href="class_sabre_1_1_xml_1_1_writer.html">Writer</a> $writer);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface.html#a5fada5863f3ce0575c92bf56d4c76fdc">getId</a>();</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface.html#a5f87e03e47df0de258d637209fc906be">getETag</a>();</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div><div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface_html"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface.html">Sabre\CalDAV\Xml\Notification\NotificationInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_notification_interface_8php_source.html#l00015">NotificationInterface.php:15</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_html"><div class="ttname"><a href="namespace_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification.html">Sabre\CalDAV\Xml\Notification</a></div><div class="ttdef"><b>Definition:</b> <a href="_cal_d_a_v_2_xml_2_notification_2_invite_8php_source.html#l00003">Invite.php:3</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface_html_a5f87e03e47df0de258d637209fc906be"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface.html#a5f87e03e47df0de258d637209fc906be">Sabre\CalDAV\Xml\Notification\NotificationInterface\getETag</a></div><div class="ttdeci">getETag()</div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_xml_serializable_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_xml_serializable.html">XmlSerializable</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_writer_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_writer.html">Sabre\Xml\Writer</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_writer_8php_source.html#l00031">Writer.php:31</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface_html_abb545ebd302b3bdf972d159065c6a8b4"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface.html#abb545ebd302b3bdf972d159065c6a8b4">Sabre\CalDAV\Xml\Notification\NotificationInterface\xmlSerializeFull</a></div><div class="ttdeci">xmlSerializeFull(Writer $writer)</div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_writer_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_writer.html">Writer</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface_html_a5fada5863f3ce0575c92bf56d4c76fdc"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_xml_1_1_notification_1_1_notification_interface.html#a5fada5863f3ce0575c92bf56d4c76fdc">Sabre\CalDAV\Xml\Notification\NotificationInterface\getId</a></div><div class="ttdeci">getId()</div></div>
+<div class="ttc" id="interface_sabre_1_1_xml_1_1_xml_serializable_html"><div class="ttname"><a href="interface_sabre_1_1_xml_1_1_xml_serializable.html">Sabre\Xml\XmlSerializable</a></div><div class="ttdef"><b>Definition:</b> <a href="_xml_serializable_8php_source.html#l00013">XmlSerializable.php:13</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

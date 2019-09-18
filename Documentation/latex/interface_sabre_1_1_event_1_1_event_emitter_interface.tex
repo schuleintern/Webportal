@@ -1,0 +1,174 @@
+\hypertarget{interface_sabre_1_1_event_1_1_event_emitter_interface}{}\section{Sabre\textbackslash{}Event\textbackslash{}Event\+Emitter\+Interface Schnittstellenreferenz}
+\label{interface_sabre_1_1_event_1_1_event_emitter_interface}\index{Sabre\textbackslash{}\+Event\textbackslash{}\+Event\+Emitter\+Interface@{Sabre\textbackslash{}\+Event\textbackslash{}\+Event\+Emitter\+Interface}}
+Klassendiagramm für Sabre\textbackslash{}Event\textbackslash{}Event\+Emitter\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.361371cm]{interface_sabre_1_1_event_1_1_event_emitter_interface}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_event_emitter_interface_a53f550e464cd72da9d34bda91b21019e}{on}} (\$event\+Name, callable \$call\+Back, \$priority=100)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_event_emitter_interface_a99dae4b6fef528fa2f8c131d44139dec}{once}} (\$event\+Name, callable \$call\+Back, \$priority=100)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_event_emitter_interface_a1de715b914e779a2944b8980490ed242}{emit}} (\$event\+Name, array \$arguments=\mbox{[}$\,$\mbox{]}, callable \$continue\+Call\+Back=null)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_event_emitter_interface_a8e973625ec94c936744c77293c5203fa}{listeners}} (\$event\+Name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_event_emitter_interface_a4cce62eaf6e5359058bb091eade127aa}{remove\+Listener}} (\$event\+Name, callable \$listener)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_event_emitter_interface_a12f97185d78b53acc328adcd6f1681c9}{remove\+All\+Listeners}} (\$event\+Name=null)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Event Emitter Interface
+
+Anything that accepts listeners and emits events should implement this interface.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2013-\/2015 fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 15 der Datei Event\+Emitter\+Interface.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_event_1_1_event_emitter_interface_a1de715b914e779a2944b8980490ed242}\label{interface_sabre_1_1_event_1_1_event_emitter_interface_a1de715b914e779a2944b8980490ed242}} 
+\index{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}!emit@{emit}}
+\index{emit@{emit}!Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}}
+\subsubsection{\texorpdfstring{emit()}{emit()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Event\+Emitter\+Interface\+::emit (\begin{DoxyParamCaption}\item[{}]{\$event\+Name,  }\item[{array}]{\$arguments = {\ttfamily \mbox{[}\mbox{]}},  }\item[{callable}]{\$continue\+Call\+Back = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Emits an event.
+
+This method will return true if 0 or more listeners were succesfully handled. false is returned if one of the events broke the event chain.
+
+If the continue\+Call\+Back is specified, this callback will be called every time before the next event handler is called.
+
+If the continue\+Callback returns false, event propagation stops. This allows you to use the event\+Emitter as a means for listeners to implement functionality in your application, and break the event loop as soon as some condition is fulfilled.
+
+\mbox{\hyperlink{class_note}{Note}} that returning false from an event subscriber breaks propagation and returns false, but if the continue-\/callback stops propagation, this is still considered a \textquotesingle{}successful\textquotesingle{} operation and returns true.
+
+Lastly, if there are 5 event handlers for an event. The continue\+Callback will be called at most 4 times.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$event\+Name} & \\
+\hline
+array & {\em \$arguments} & \\
+\hline
+callback & {\em \$continue\+Call\+Back} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_sabre_1_1_event_1_1_event_emitter_interface_a8e973625ec94c936744c77293c5203fa}\label{interface_sabre_1_1_event_1_1_event_emitter_interface_a8e973625ec94c936744c77293c5203fa}} 
+\index{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}!listeners@{listeners}}
+\index{listeners@{listeners}!Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}}
+\subsubsection{\texorpdfstring{listeners()}{listeners()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Event\+Emitter\+Interface\+::listeners (\begin{DoxyParamCaption}\item[{}]{\$event\+Name }\end{DoxyParamCaption})}
+
+Returns the list of listeners for an event.
+
+The list is returned as an array, and the list of events are sorted by their priority.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$event\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+callable\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_sabre_1_1_event_1_1_event_emitter_interface_a53f550e464cd72da9d34bda91b21019e}\label{interface_sabre_1_1_event_1_1_event_emitter_interface_a53f550e464cd72da9d34bda91b21019e}} 
+\index{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}!on@{on}}
+\index{on@{on}!Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}}
+\subsubsection{\texorpdfstring{on()}{on()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Event\+Emitter\+Interface\+::on (\begin{DoxyParamCaption}\item[{}]{\$event\+Name,  }\item[{callable}]{\$call\+Back,  }\item[{}]{\$priority = {\ttfamily 100} }\end{DoxyParamCaption})}
+
+Subscribe to an event.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$event\+Name} & \\
+\hline
+callable & {\em \$call\+Back} & \\
+\hline
+int & {\em \$priority} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_sabre_1_1_event_1_1_event_emitter_interface_a99dae4b6fef528fa2f8c131d44139dec}\label{interface_sabre_1_1_event_1_1_event_emitter_interface_a99dae4b6fef528fa2f8c131d44139dec}} 
+\index{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}!once@{once}}
+\index{once@{once}!Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}}
+\subsubsection{\texorpdfstring{once()}{once()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Event\+Emitter\+Interface\+::once (\begin{DoxyParamCaption}\item[{}]{\$event\+Name,  }\item[{callable}]{\$call\+Back,  }\item[{}]{\$priority = {\ttfamily 100} }\end{DoxyParamCaption})}
+
+Subscribe to an event exactly once.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$event\+Name} & \\
+\hline
+callable & {\em \$call\+Back} & \\
+\hline
+int & {\em \$priority} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_sabre_1_1_event_1_1_event_emitter_interface_a12f97185d78b53acc328adcd6f1681c9}\label{interface_sabre_1_1_event_1_1_event_emitter_interface_a12f97185d78b53acc328adcd6f1681c9}} 
+\index{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}!remove\+All\+Listeners@{remove\+All\+Listeners}}
+\index{remove\+All\+Listeners@{remove\+All\+Listeners}!Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}}
+\subsubsection{\texorpdfstring{remove\+All\+Listeners()}{removeAllListeners()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Event\+Emitter\+Interface\+::remove\+All\+Listeners (\begin{DoxyParamCaption}\item[{}]{\$event\+Name = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Removes all listeners.
+
+If the event\+Name argument is specified, all listeners for that event are removed. If it is not specified, every listener for every event is removed.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$event\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_sabre_1_1_event_1_1_event_emitter_interface_a4cce62eaf6e5359058bb091eade127aa}\label{interface_sabre_1_1_event_1_1_event_emitter_interface_a4cce62eaf6e5359058bb091eade127aa}} 
+\index{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}!remove\+Listener@{remove\+Listener}}
+\index{remove\+Listener@{remove\+Listener}!Sabre\+::\+Event\+::\+Event\+Emitter\+Interface@{Sabre\+::\+Event\+::\+Event\+Emitter\+Interface}}
+\subsubsection{\texorpdfstring{remove\+Listener()}{removeListener()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Event\+Emitter\+Interface\+::remove\+Listener (\begin{DoxyParamCaption}\item[{}]{\$event\+Name,  }\item[{callable}]{\$listener }\end{DoxyParamCaption})}
+
+Removes a specific listener from an event.
+
+If the listener could not be found, this method will return false. If it was removed it will return true.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$event\+Name} & \\
+\hline
+callable & {\em \$listener} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/event/lib/Event\+Emitter\+Interface.\+php\end{DoxyCompactItemize}

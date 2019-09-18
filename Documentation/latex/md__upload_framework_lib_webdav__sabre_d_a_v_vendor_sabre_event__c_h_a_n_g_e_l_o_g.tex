@@ -1,0 +1,73 @@
+\subsection*{3.\+0.\+0 (2015-\/11-\/05) }
+
+
+\begin{DoxyItemize}
+\item Now requires P\+HP 5.\+5!
+\item {\ttfamily Promise\+::all()} is moved to {\ttfamily Promise\textbackslash{}all()}.
+\item Aside from the {\ttfamily Promise\textbackslash{}all()} function, there\textquotesingle{}s now also {\ttfamily Promise\textbackslash{}race()}.
+\item {\ttfamily Promise\textbackslash{}reject()} and {\ttfamily Promise\textbackslash{}resolve()} have also been added.
+\item Now 100\% compatible with the Ecmascript 6 Promise.
+\end{DoxyItemize}
+
+\subsection*{3.\+0.\+0-\/alpha1 (2015-\/10-\/23) }
+
+
+\begin{DoxyItemize}
+\item This package now requires P\+HP 5.\+5.
+\item \#26\+: Added an event loop implementation. Also knows as the Reactor Pattern.
+\item Renamed {\ttfamily Promise\+::error} to {\ttfamily Promise\+::otherwise} to be consistent with React\+P\+HP and Guzzle. The {\ttfamily error} method is kept for BC but will be removed in a future version.
+\item \#27\+: Support for Promise-\/based coroutines via the {\ttfamily Sabre\textbackslash{}Event\textbackslash{}coroutine} function.
+\item BC Break\+: Promises now use the Event\+Loop to run \char`\"{}then\char`\"{}-\/events in a separate execution context. In practise that means you need to run the event loop to wait for any {\ttfamily then}/{\ttfamily otherwise} callbacks to trigger.
+\item Promises now have a {\ttfamily wait()} method. Allowing you to make a promise synchronous and simply wait for a result (or exception) to happen.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+2 (2015-\/05-\/19) }
+
+
+\begin{DoxyItemize}
+\item This release has no functional changes. It\textquotesingle{}s just been brought up to date with the latest coding standards.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+1 (2014-\/10-\/06) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: {\ttfamily \$priority} was ignored in {\ttfamily Event\+Emitter\+::once} method.
+\item Fixed\+: Breaking the event chain was not possible in {\ttfamily Event\+Emitter\+::once}.
+\end{DoxyItemize}
+
+\subsection*{2.\+0.\+0 (2014-\/06-\/21) }
+
+
+\begin{DoxyItemize}
+\item Added\+: When calling emit, it\textquotesingle{}s now possible to specify a callback that will be triggered after each method handled. This is dubbed the \textquotesingle{}continue\+Callback\textquotesingle{} and can be used to implement strategy patterns.
+\item Added\+: Promise object!
+\item Changed\+: Event\+Emitter\+::listeners now returns just the callbacks for an event, and no longer returns the list by reference. The list is now automatically sorted by priority.
+\item \mbox{\hyperlink{class_update}{Update}}\+: Speed improvements.
+\item Updated\+: It\textquotesingle{}s now possible to remove all listeners for every event.
+\item Changed\+: Now uses psr-\/4 autoloading.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+1 (2014-\/06-\/12) }
+
+
+\begin{DoxyItemize}
+\item hhvm compatible!
+\item Fixed\+: Issue \#4. Compatiblitiy for P\+HP $<$ 5.\+4.\+14.
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+0 (2013-\/07-\/19) }
+
+
+\begin{DoxyItemize}
+\item Added\+: remove\+Listener, remove\+All\+Listeners
+\item Added\+: once, to only listen to an event emitting once.
+\item Added R\+E\+A\+D\+M\+E.\+md.
+\end{DoxyItemize}
+
+\subsection*{0.\+0.\+1-\/alpha (2013-\/06-\/29) }
+
+
+\begin{DoxyItemize}
+\item First version! 
+\end{DoxyItemize}

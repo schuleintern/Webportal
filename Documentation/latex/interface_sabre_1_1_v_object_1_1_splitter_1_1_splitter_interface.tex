@@ -1,0 +1,77 @@
+\hypertarget{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Splitter\textbackslash{}Splitter\+Interface Schnittstellenreferenz}
+\label{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+Splitter\+Interface@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+Splitter\+Interface}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Splitter\textbackslash{}Splitter\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_a41835a43cee318c5837cd48f7ab919b8}{\+\_\+\+\_\+construct}} (\$input)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_ae8684178a369fdafebc51e64a5b76ab8}{get\+Next}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+V\+Object splitter.
+
+The splitter is responsible for reading a large v\+Card or i\+Calendar object, and splitting it into multiple objects.
+
+This is for example for Card and Cal\+D\+AV, which require every event and vcard to exist in their own objects, instead of one large one.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Dominik Tobschall (\href{http://tobschall.de/}{\tt http\+://tobschall.\+de/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Splitter\+Interface.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_a41835a43cee318c5837cd48f7ab919b8}\label{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_a41835a43cee318c5837cd48f7ab919b8}} 
+\index{Sabre\+::\+V\+Object\+::\+Splitter\+::\+Splitter\+Interface@{Sabre\+::\+V\+Object\+::\+Splitter\+::\+Splitter\+Interface}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+V\+Object\+::\+Splitter\+::\+Splitter\+Interface@{Sabre\+::\+V\+Object\+::\+Splitter\+::\+Splitter\+Interface}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+Splitter\+Interface\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$input }\end{DoxyParamCaption})}
+
+Constructor.
+
+The splitter should receive an readable file stream as it\textquotesingle{}s input.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_ae8684178a369fdafebc51e64a5b76ab8}\label{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_ae8684178a369fdafebc51e64a5b76ab8}} 
+\index{Sabre\+::\+V\+Object\+::\+Splitter\+::\+Splitter\+Interface@{Sabre\+::\+V\+Object\+::\+Splitter\+::\+Splitter\+Interface}!get\+Next@{get\+Next}}
+\index{get\+Next@{get\+Next}!Sabre\+::\+V\+Object\+::\+Splitter\+::\+Splitter\+Interface@{Sabre\+::\+V\+Object\+::\+Splitter\+::\+Splitter\+Interface}}
+\subsubsection{\texorpdfstring{get\+Next()}{getNext()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+Splitter\+Interface\+::get\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Every time \mbox{\hyperlink{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_ae8684178a369fdafebc51e64a5b76ab8}{get\+Next()}} is called, a new object will be parsed, until we hit the end of the stream.
+
+When the end is reached, null will be returned.
+
+\begin{DoxyReturn}{Rückgabe}
+Sabre$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_splitter_1_1_i_calendar_a966d8ca4940e9327a203ea5e4e1cf101}{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+I\+Calendar}} und \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a0578fdb7544daa2e55d289168eb72292}{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+V\+Card}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+Splitter/Splitter\+Interface.\+php\end{DoxyCompactItemize}

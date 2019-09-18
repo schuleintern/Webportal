@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAV/Xml/Property/GetLastModified.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_641c95e6ed9dd2d5dcbadeacba03bd45.html">DAV</a></li><li class="navelem"><a class="el" href="dir_198cb0947a44dba54a042f893b55ef46.html">Xml</a></li><li class="navelem"><a class="el" href="dir_7f7f668f00c92d728b646cffbe39ee5b.html">Property</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">GetLastModified.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property.html">Sabre\DAV\Xml\Property</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_date_time.html">DateTime</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_date_time_zone.html">DateTimeZone</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_element.html">Sabre\Xml\Element</a>;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a>;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_writer.html">Sabre\Xml\Writer</a>;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html">GetLastModified</a> <span class="keyword">implements</span> <a class="code" href="interface_sabre_1_1_xml_1_1_element.html">Element</a> {</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span> $time;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#a823274634fbc829cd388091994bc0060">   36</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#a823274634fbc829cd388091994bc0060">__construct</a>($time) {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> ($time instanceof <a class="code" href="namespace_date_time.html">DateTime</a>) {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            $this-&gt;time = clone $time;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            $this-&gt;time = <span class="keyword">new</span> <a class="code" href="namespace_date_time.html">DateTime</a>(<span class="charliteral">&#39;@&#39;</span> . $time);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// Setting timezone to UTC</span></div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        $this-&gt;time-&gt;setTimezone(<span class="keyword">new</span> <a class="code" href="namespace_date_time_zone.html">DateTimeZone</a>(<span class="stringliteral">&#39;UTC&#39;</span>));</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#abd1d7359f75402fb533904a9350a30de">   54</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#abd1d7359f75402fb533904a9350a30de">getTime</a>() {</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> $this-&gt;time;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#a13dde5cac8cec9eca81c3a14f78fcea3">   75</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#a13dde5cac8cec9eca81c3a14f78fcea3">xmlSerialize</a>(<a class="code" href="class_sabre_1_1_xml_1_1_writer.html">Writer</a> $writer) {</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        $writer-&gt;<a class="code" href="class_sabre_1_1_xml_1_1_writer.html#a7ae8afe73ac4ca8d34a609b6ac16da5e">write</a>(</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            HTTP\<a class="code" href="class_sabre_1_1_h_t_t_p_1_1_util.html#af5a70c07fd3dab23788af555aa107b78">Util::toHTTPDate</a>($this-&gt;time)</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        );</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#a0856e52c758cb1bc236b65540005977e">  104</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#a0856e52c758cb1bc236b65540005977e">xmlDeserialize</a>(<a class="code" href="class_sabre_1_1_xml_1_1_reader.html">Reader</a> $reader) {</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span></div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keyword">new</span> <span class="keyword">self</span>(<span class="keyword">new</span> <a class="code" href="namespace_date_time.html">DateTime</a>($reader-&gt;<a class="code" href="class_sabre_1_1_xml_1_1_reader.html#a6621ccff3f12f0fd262de08e948fd2bb">parseInnerTree</a>()));</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified_html_a0856e52c758cb1bc236b65540005977e"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#a0856e52c758cb1bc236b65540005977e">Sabre\DAV\Xml\Property\GetLastModified\xmlDeserialize</a></div><div class="ttdeci">static xmlDeserialize(Reader $reader)</div><div class="ttdef"><b>Definition:</b> <a href="_get_last_modified_8php_source.html#l00104">GetLastModified.php:104</a></div></div>
+<div class="ttc" id="namespace_date_time_html"><div class="ttname"><a href="namespace_date_time.html">DateTime</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_reader_html_a6621ccff3f12f0fd262de08e948fd2bb"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_reader.html#a6621ccff3f12f0fd262de08e948fd2bb">Sabre\Xml\Reader\parseInnerTree</a></div><div class="ttdeci">parseInnerTree(array $elementMap=null)</div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_reader_8php_source.html#l00129">Reader.php:129</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_element_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_element.html">Sabre\Xml\Element</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_8php_source.html#l00003">Base.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_h_t_t_p_1_1_util_html_af5a70c07fd3dab23788af555aa107b78"><div class="ttname"><a href="class_sabre_1_1_h_t_t_p_1_1_util.html#af5a70c07fd3dab23788af555aa107b78">Sabre\HTTP\Util\toHTTPDate</a></div><div class="ttdeci">static toHTTPDate(\DateTime $dateTime)</div><div class="ttdef"><b>Definition:</b> <a href="_util_8php_source.html#l00069">Util.php:69</a></div></div>
+<div class="ttc" id="namespace_date_time_zone_html"><div class="ttname"><a href="namespace_date_time_zone.html">DateTimeZone</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html">Sabre\DAV\Xml\Property\GetLastModified</a></div><div class="ttdef"><b>Definition:</b> <a href="_get_last_modified_8php_source.html#l00022">GetLastModified.php:22</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_h_t_t_p_html"><div class="ttname"><a href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a></div><div class="ttdef"><b>Definition:</b> <a href="_response_mock_8php_source.html#l00003">ResponseMock.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified_html_abd1d7359f75402fb533904a9350a30de"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#abd1d7359f75402fb533904a9350a30de">Sabre\DAV\Xml\Property\GetLastModified\getTime</a></div><div class="ttdeci">getTime()</div><div class="ttdef"><b>Definition:</b> <a href="_get_last_modified_8php_source.html#l00054">GetLastModified.php:54</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_writer_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_writer.html">Sabre\Xml\Writer</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_writer_8php_source.html#l00031">Writer.php:31</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_reader_8php_source.html#l00020">Reader.php:20</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_writer_html_a7ae8afe73ac4ca8d34a609b6ac16da5e"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_writer.html#a7ae8afe73ac4ca8d34a609b6ac16da5e">Sabre\Xml\Writer\write</a></div><div class="ttdeci">write($value)</div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_writer_8php_source.html#l00098">Writer.php:98</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified_html_a823274634fbc829cd388091994bc0060"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#a823274634fbc829cd388091994bc0060">Sabre\DAV\Xml\Property\GetLastModified\__construct</a></div><div class="ttdeci">__construct($time)</div><div class="ttdef"><b>Definition:</b> <a href="_get_last_modified_8php_source.html#l00036">GetLastModified.php:36</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_reader.html">Reader</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified_html_a13dde5cac8cec9eca81c3a14f78fcea3"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_get_last_modified.html#a13dde5cac8cec9eca81c3a14f78fcea3">Sabre\DAV\Xml\Property\GetLastModified\xmlSerialize</a></div><div class="ttdeci">xmlSerialize(Writer $writer)</div><div class="ttdef"><b>Definition:</b> <a href="_get_last_modified_8php_source.html#l00075">GetLastModified.php:75</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property.html">Sabre\DAV\Xml\Property</a></div><div class="ttdef"><b>Definition:</b> <a href="_complex_8php_source.html#l00003">Complex.php:3</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_writer_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_writer.html">Writer</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_xml_1_1_element_html"><div class="ttname"><a href="interface_sabre_1_1_xml_1_1_element.html">Sabre\Xml\Element</a></div><div class="ttdef"><b>Definition:</b> <a href="_element_8php_source.html#l00018">Element.php:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

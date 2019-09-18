@@ -1,0 +1,118 @@
+\hypertarget{class_sabre_1_1_h_t_t_p_1_1_sapi}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Sapi Klassenreferenz}
+\label{class_sabre_1_1_h_t_t_p_1_1_sapi}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Sapi@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Sapi}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Sapi\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_h_t_t_p_1_1_sapi}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_sapi_a9a6f473099bc96ae72e657cb161ee6f1}{get\+Request}} ()
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_sapi_a7cce278b850e1864015eb19ac77d6a49}{send\+Response}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_sapi_a02a4fbdd30798f033220b6f04095c331}{create\+From\+Server\+Array}} (array \$server\+Array)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+P\+HP S\+A\+PI
+
+This object is responsible for\+:
+\begin{DoxyEnumerate}
+\item Constructing a \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request}{Request}} object based on the current H\+T\+TP request sent to the P\+HP process.
+\item Sending the \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response}{Response}} object back to the client.
+\end{DoxyEnumerate}
+
+It could be said that this class provides a mapping between the \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request}{Request}} and \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response}{Response}} objects, and php\textquotesingle{}s\+:
+
+
+\begin{DoxyItemize}
+\item \$\+\_\+\+S\+E\+R\+V\+ER
+\item \$\+\_\+\+P\+O\+ST
+\item \$\+\_\+\+F\+I\+L\+ES
+\item php\+://input
+\item echo()
+\item header()
+\item php\+://output
+\end{DoxyItemize}
+
+You can choose to either call all these methods statically, but you can also instantiate this as an object to allow for polymorhpism.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 31 der Datei Sapi.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_sapi_a02a4fbdd30798f033220b6f04095c331}\label{class_sabre_1_1_h_t_t_p_1_1_sapi_a02a4fbdd30798f033220b6f04095c331}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Sapi@{Sabre\+::\+H\+T\+T\+P\+::\+Sapi}!create\+From\+Server\+Array@{create\+From\+Server\+Array}}
+\index{create\+From\+Server\+Array@{create\+From\+Server\+Array}!Sabre\+::\+H\+T\+T\+P\+::\+Sapi@{Sabre\+::\+H\+T\+T\+P\+::\+Sapi}}
+\subsubsection{\texorpdfstring{create\+From\+Server\+Array()}{createFromServerArray()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Sapi\+::create\+From\+Server\+Array (\begin{DoxyParamCaption}\item[{array}]{\$server\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This static method will create a new \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request}{Request}} object, based on a P\+HP \$\+\_\+\+S\+E\+R\+V\+ER array.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$server\+Array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request}{Request}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 99 der Datei Sapi.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_sapi_a9a6f473099bc96ae72e657cb161ee6f1}\label{class_sabre_1_1_h_t_t_p_1_1_sapi_a9a6f473099bc96ae72e657cb161ee6f1}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Sapi@{Sabre\+::\+H\+T\+T\+P\+::\+Sapi}!get\+Request@{get\+Request}}
+\index{get\+Request@{get\+Request}!Sabre\+::\+H\+T\+T\+P\+::\+Sapi@{Sabre\+::\+H\+T\+T\+P\+::\+Sapi}}
+\subsubsection{\texorpdfstring{get\+Request()}{getRequest()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Sapi\+::get\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This static method will create a new \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request}{Request}} object, based on the current P\+HP request.
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request}{Request}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 39 der Datei Sapi.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_sapi_a7cce278b850e1864015eb19ac77d6a49}\label{class_sabre_1_1_h_t_t_p_1_1_sapi_a7cce278b850e1864015eb19ac77d6a49}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Sapi@{Sabre\+::\+H\+T\+T\+P\+::\+Sapi}!send\+Response@{send\+Response}}
+\index{send\+Response@{send\+Response}!Sabre\+::\+H\+T\+T\+P\+::\+Sapi@{Sabre\+::\+H\+T\+T\+P\+::\+Sapi}}
+\subsubsection{\texorpdfstring{send\+Response()}{sendResponse()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Sapi\+::send\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Sends the H\+T\+TP response back to a H\+T\+TP client.
+
+This calls php\textquotesingle{}s header() function and streams the body to php\+://output.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 56 der Datei Sapi.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/lib/Sapi.\+php\end{DoxyCompactItemize}

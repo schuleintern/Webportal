@@ -1,0 +1,119 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}Mock Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Mock@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Mock}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}Mock\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_afbf2beb193e0f8f180b43408b84d9546}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_afbf2beb193e0f8f180b43408b84d9546}} 
+{\bfseries set\+Principal} (\$principal)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_af99cedee6ef68eeff7c826d49c7a5b2e}{check}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_a9b95b147eaf9b94e7de858bc4c62cc2d}{challenge}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_a2b4c080950bf5b91d2d6213983dc6432}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_a2b4c080950bf5b91d2d6213983dc6432}} 
+{\bfseries \$fail} = false
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_ac080a835e16a8a914b9711960dc36984}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_ac080a835e16a8a914b9711960dc36984}} 
+{\bfseries \$invalid\+Check\+Response} = false
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_a98962fe66224422fd3aa6fec7ad528be}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_a98962fe66224422fd3aa6fec7ad528be}} 
+{\bfseries \$principal} = \textquotesingle{}principals/admin\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 8 der Datei Mock.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_a9b95b147eaf9b94e7de858bc4c62cc2d}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_a9b95b147eaf9b94e7de858bc4c62cc2d}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Mock}!challenge@{challenge}}
+\index{challenge@{challenge}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Mock}}
+\subsubsection{\texorpdfstring{challenge()}{challenge()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Mock\+::challenge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+This method is called when a user could not be authenticated, and authentication was required for the current request.
+
+This gives you the oppurtunity to set authentication headers. The 401 status code will already be set.
+
+In this case of Basic Auth, this would for example mean that the following header needs to be set\+:
+
+\$response-\/$>$add\+Header(\textquotesingle{}W\+W\+W-\/\+Authenticate\textquotesingle{}, \textquotesingle{}Basic realm=Sabre\+D\+AV\textquotesingle{});
+
+Keep in mind that in the case of multiple authentication backends, other W\+W\+W-\/\+Authenticate headers may already have been set, and you\textquotesingle{}ll want to append your own W\+W\+W-\/\+Authenticate header instead of overwriting the existing one.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a486025eeb4b3b342e7bea4e692a83d94}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 83 der Datei Mock.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_af99cedee6ef68eeff7c826d49c7a5b2e}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_mock_af99cedee6ef68eeff7c826d49c7a5b2e}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Mock}!check@{check}}
+\index{check@{check}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Mock@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Mock}}
+\subsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Mock\+::check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+When this method is called, the backend must check if authentication was successful.
+
+The returned value must be one of the following
+
+\mbox{[}true, \char`\"{}principals/username\char`\"{}\mbox{]} \mbox{[}false, \char`\"{}reason for failure\char`\"{}\mbox{]}
+
+If authentication was successful, it\textquotesingle{}s expected that the authentication backend returns a so-\/called principal url.
+
+Examples of a principal url\+:
+
+principals/admin principals/user1 principals/users/joe principals/uid/123457
+
+If you don\textquotesingle{}t use Web\+D\+AV A\+CL (R\+F\+C3744) we recommend that you simply return a string such as\+:
+
+principals/users/\mbox{[}username\mbox{]}
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a404029177c1ed79456ad9283ec76d50a}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 50 der Datei Mock.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+D\+A\+V/\+Auth/\+Backend/Mock.\+php\end{DoxyCompactItemize}

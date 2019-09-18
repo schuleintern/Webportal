@@ -1,0 +1,68 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l_1_1_element_1_1_key_value}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Parser\textbackslash{}X\+ML\textbackslash{}Element\textbackslash{}Key\+Value Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l_1_1_element_1_1_key_value}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Parser\textbackslash{}\+X\+M\+L\textbackslash{}\+Element\textbackslash{}\+Key\+Value@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Parser\textbackslash{}\+X\+M\+L\textbackslash{}\+Element\textbackslash{}\+Key\+Value}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Parser\textbackslash{}X\+ML\textbackslash{}Element\textbackslash{}Key\+Value\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l_1_1_element_1_1_key_value}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l_1_1_element_1_1_key_value_a62f4883ab08626374f264db50172dba1}{xml\+Deserialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Sabre\+Xml\textbackslash{}\+Reader}} \$reader)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Our own sabre/xml key-\/value element.
+
+It just removes the clark notation.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Ivan Enderlin  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei Key\+Value.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l_1_1_element_1_1_key_value_a62f4883ab08626374f264db50172dba1}\label{class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l_1_1_element_1_1_key_value_a62f4883ab08626374f264db50172dba1}} 
+\index{Sabre\+::\+V\+Object\+::\+Parser\+::\+X\+M\+L\+::\+Element\+::\+Key\+Value@{Sabre\+::\+V\+Object\+::\+Parser\+::\+X\+M\+L\+::\+Element\+::\+Key\+Value}!xml\+Deserialize@{xml\+Deserialize}}
+\index{xml\+Deserialize@{xml\+Deserialize}!Sabre\+::\+V\+Object\+::\+Parser\+::\+X\+M\+L\+::\+Element\+::\+Key\+Value@{Sabre\+::\+V\+Object\+::\+Parser\+::\+X\+M\+L\+::\+Element\+::\+Key\+Value}}
+\subsubsection{\texorpdfstring{xml\+Deserialize()}{xmlDeserialize()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Parser\textbackslash{}\+X\+M\+L\textbackslash{}\+Element\textbackslash{}\+Key\+Value\+::xml\+Deserialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Sabre\+Xml\textbackslash{}\+Reader}}}]{\$reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The deserialize method is called during xml parsing.
+
+This method is called staticly, this is because in theory this method may be used as a type of constructor, or factory method.
+
+Often you want to return an instance of the current class, but you are free to return other data as well.
+
+Important note 2\+: You are responsible for advancing the reader to the next element. Not doing anything will result in a never-\/ending loop.
+
+If you just want to skip parsing for this element altogether, you can just call \$reader-\/$>$next();
+
+\$reader-\/$>$parse\+Inner\+Tree() will parse the entire sub-\/tree, and advance to the next element.
+
+
+\begin{DoxyParams}[1]{Parameter}
+X\+M\+L\textbackslash{}\+Reader & {\em \$reader} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 40 der Datei Key\+Value.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+Parser/\+X\+M\+L/\+Element/Key\+Value.\+php\end{DoxyCompactItemize}

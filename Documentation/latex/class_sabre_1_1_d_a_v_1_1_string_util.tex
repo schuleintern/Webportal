@@ -1,0 +1,82 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_string_util}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}String\+Util Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_string_util}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+String\+Util@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+String\+Util}}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_string_util_a460ccddb1d59d9119e571aba5cf91278}{text\+Match}} (\$haystack, \$needle, \$collation, \$match\+Type=\textquotesingle{}contains\textquotesingle{})
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_string_util_a773e2aa880fb6286ae9ed9974c84c050}{ensure\+U\+T\+F8}} (\$input)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+String utility
+
+This class is mainly used to implement the \textquotesingle{}text-\/match\textquotesingle{} filter, used by both the Cal\+D\+AV calendar-\/query R\+E\+P\+O\+RT, and Card\+D\+AV addressbook-\/query R\+E\+P\+O\+RT. Because they both need it, it was decided to put it in Sabre instead.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei String\+Util.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_string_util_a773e2aa880fb6286ae9ed9974c84c050}\label{class_sabre_1_1_d_a_v_1_1_string_util_a773e2aa880fb6286ae9ed9974c84c050}} 
+\index{Sabre\+::\+D\+A\+V\+::\+String\+Util@{Sabre\+::\+D\+A\+V\+::\+String\+Util}!ensure\+U\+T\+F8@{ensure\+U\+T\+F8}}
+\index{ensure\+U\+T\+F8@{ensure\+U\+T\+F8}!Sabre\+::\+D\+A\+V\+::\+String\+Util@{Sabre\+::\+D\+A\+V\+::\+String\+Util}}
+\subsubsection{\texorpdfstring{ensure\+U\+T\+F8()}{ensureUTF8()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+String\+Util\+::ensure\+U\+T\+F8 (\begin{DoxyParamCaption}\item[{}]{\$input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method takes an input string, checks if it\textquotesingle{}s not valid U\+T\+F-\/8 and attempts to convert it to U\+T\+F-\/8 if it\textquotesingle{}s not.
+
+\mbox{\hyperlink{class_note}{Note}} that currently this can only convert I\+S\+O-\/8559-\/1 to U\+T\+F-\/8 (latin-\/1), anything else will likely fail.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 79 der Datei String\+Util.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_string_util_a460ccddb1d59d9119e571aba5cf91278}\label{class_sabre_1_1_d_a_v_1_1_string_util_a460ccddb1d59d9119e571aba5cf91278}} 
+\index{Sabre\+::\+D\+A\+V\+::\+String\+Util@{Sabre\+::\+D\+A\+V\+::\+String\+Util}!text\+Match@{text\+Match}}
+\index{text\+Match@{text\+Match}!Sabre\+::\+D\+A\+V\+::\+String\+Util@{Sabre\+::\+D\+A\+V\+::\+String\+Util}}
+\subsubsection{\texorpdfstring{text\+Match()}{textMatch()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+String\+Util\+::text\+Match (\begin{DoxyParamCaption}\item[{}]{\$haystack,  }\item[{}]{\$needle,  }\item[{}]{\$collation,  }\item[{}]{\$match\+Type = {\ttfamily \textquotesingle{}contains\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Checks if a needle occurs in a haystack ;)
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$haystack} & \\
+\hline
+string & {\em \$needle} & \\
+\hline
+string & {\em \$collation} & \\
+\hline
+string & {\em \$match\+Type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 27 der Datei String\+Util.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/String\+Util.\+php\end{DoxyCompactItemize}

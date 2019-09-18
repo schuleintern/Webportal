@@ -1,0 +1,66 @@
+\hypertarget{class_create_eltern_users}{}\section{Create\+Eltern\+Users Klassenreferenz}
+\label{class_create_eltern_users}\index{Create\+Eltern\+Users@{Create\+Eltern\+Users}}
+Klassendiagramm für Create\+Eltern\+Users\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_create_eltern_users}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_create_eltern_users_a23e592ee1b2064bd81504b3a18cc07aa}{execute}} ()
+\item 
+\mbox{\Hypertarget{class_create_eltern_users_acb3e321af90e12c3b1a9b04a2f58b137}\label{class_create_eltern_users_acb3e321af90e12c3b1a9b04a2f58b137}} 
+{\bfseries get\+Name} ()
+\item 
+\mbox{\Hypertarget{class_create_eltern_users_a2f50dbc7785c9d52e3d89a3a1c3d5242}\label{class_create_eltern_users_a2f50dbc7785c9d52e3d89a3a1c3d5242}} 
+{\bfseries get\+Description} ()
+\item 
+\mbox{\hyperlink{class_create_eltern_users_a60620ffbb7020ed8b25c767ffe9495d9}{get\+Cron\+Result}} ()
+\item 
+\mbox{\Hypertarget{class_create_eltern_users_a4040ca82196f6e295b73052b9507be7f}\label{class_create_eltern_users_a4040ca82196f6e295b73052b9507be7f}} 
+{\bfseries inform\+Admin\+If\+Fail} ()
+\item 
+\mbox{\Hypertarget{class_create_eltern_users_a7f7ffb172ff224006f16c4c666c17c4e}\label{class_create_eltern_users_a7f7ffb172ff224006f16c4c666c17c4e}} 
+{\bfseries execute\+Every\+X\+Seconds} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 3 der Datei Create\+Eltern\+Users.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_create_eltern_users_a23e592ee1b2064bd81504b3a18cc07aa}\label{class_create_eltern_users_a23e592ee1b2064bd81504b3a18cc07aa}} 
+\index{Create\+Eltern\+Users@{Create\+Eltern\+Users}!execute@{execute}}
+\index{execute@{execute}!Create\+Eltern\+Users@{Create\+Eltern\+Users}}
+\subsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily Create\+Eltern\+Users\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+~\newline
+\$eltern = \mbox{\hyperlink{class_d_b_a1f39c0489afad64328534850308fc9a9}{D\+B\+::get\+D\+B()}}-\/$>$query\+\_\+first(\char`\"{}\+S\+E\+L\+E\+C\+T $\ast$ F\+R\+O\+M eltern\+\_\+email W\+H\+E\+R\+E eltern\+User\+I\+D=\textquotesingle{}\char`\"{} . \$this-\/$>$data\mbox{[}\textquotesingle{}user\+ID\textquotesingle{}\mbox{]} . \char`\"{}\textquotesingle{}\char`\"{}); if(\$eltern\mbox{[}\textquotesingle{}eltern\+Schueler\+Asv\+ID\textquotesingle{}\mbox{]} != \char`\"{}\char`\"{}) \{ \$this-\/$>$is\+Eltern = true; \$this-\/$>$eltern\+Object = new eltern(\$this-\/$>$data\mbox{[}\textquotesingle{}user\+ID\textquotesingle{}\mbox{]}); \} 
+
+Definiert in Zeile 12 der Datei Create\+Eltern\+Users.\+class.\+php.
+
+\mbox{\Hypertarget{class_create_eltern_users_a60620ffbb7020ed8b25c767ffe9495d9}\label{class_create_eltern_users_a60620ffbb7020ed8b25c767ffe9495d9}} 
+\index{Create\+Eltern\+Users@{Create\+Eltern\+Users}!get\+Cron\+Result@{get\+Cron\+Result}}
+\index{get\+Cron\+Result@{get\+Cron\+Result}!Create\+Eltern\+Users@{Create\+Eltern\+Users}}
+\subsubsection{\texorpdfstring{get\+Cron\+Result()}{getCronResult()}}
+{\footnotesize\ttfamily Create\+Eltern\+Users\+::get\+Cron\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{[}\textquotesingle{}success\textquotesingle{} =$>$ \textquotesingle{}true/false\textquotesingle{}, \textquotesingle{}result\+Text\textquotesingle{} =$>$ \textquotesingle{}Text, der in der Administration angezeigt wird.\textquotesingle{}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 230 der Datei Create\+Eltern\+Users.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/cron/Create\+Eltern\+Users.\+class.\+php\end{DoxyCompactItemize}

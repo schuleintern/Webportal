@@ -1,0 +1,98 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_writer}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Writer Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_writer}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Writer@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Writer}}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_writer_a4d963d7f0ccff8230c8978804ef6c976}{write}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}} \$component)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_writer_ab3b3ef7e3ff4346ac0cc22afc11ef605}{write\+Json}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}} \$component, \$options=0)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_writer_ac12097b74fb8c21a7d446414d163ba4c}{write\+Xml}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}} \$component)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+i\+Calendar/v\+Card/j\+Cal/j\+Card/x\+Cal/x\+Card writer object.
+
+This object provides a few (static) convenience methods to quickly access the serializers.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Ivan Enderlin  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei Writer.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_writer_a4d963d7f0ccff8230c8978804ef6c976}\label{class_sabre_1_1_v_object_1_1_writer_a4d963d7f0ccff8230c8978804ef6c976}} 
+\index{Sabre\+::\+V\+Object\+::\+Writer@{Sabre\+::\+V\+Object\+::\+Writer}!write@{write}}
+\index{write@{write}!Sabre\+::\+V\+Object\+::\+Writer@{Sabre\+::\+V\+Object\+::\+Writer}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Writer\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}}}]{\$component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Serializes a v\+Card or i\+Calendar object.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}} & {\em \$component} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 26 der Datei Writer.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_writer_ab3b3ef7e3ff4346ac0cc22afc11ef605}\label{class_sabre_1_1_v_object_1_1_writer_ab3b3ef7e3ff4346ac0cc22afc11ef605}} 
+\index{Sabre\+::\+V\+Object\+::\+Writer@{Sabre\+::\+V\+Object\+::\+Writer}!write\+Json@{write\+Json}}
+\index{write\+Json@{write\+Json}!Sabre\+::\+V\+Object\+::\+Writer@{Sabre\+::\+V\+Object\+::\+Writer}}
+\subsubsection{\texorpdfstring{write\+Json()}{writeJson()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Writer\+::write\+Json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}}}]{\$component,  }\item[{}]{\$options = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Serializes a j\+Cal or j\+Card object.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}} & {\em \$component} & \\
+\hline
+int & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 40 der Datei Writer.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_writer_ac12097b74fb8c21a7d446414d163ba4c}\label{class_sabre_1_1_v_object_1_1_writer_ac12097b74fb8c21a7d446414d163ba4c}} 
+\index{Sabre\+::\+V\+Object\+::\+Writer@{Sabre\+::\+V\+Object\+::\+Writer}!write\+Xml@{write\+Xml}}
+\index{write\+Xml@{write\+Xml}!Sabre\+::\+V\+Object\+::\+Writer@{Sabre\+::\+V\+Object\+::\+Writer}}
+\subsubsection{\texorpdfstring{write\+Xml()}{writeXml()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Writer\+::write\+Xml (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}}}]{\$component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Serializes a x\+Cal or x\+Card object.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}} & {\em \$component} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 53 der Datei Writer.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/Writer.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,137 @@
+\hypertarget{class_note_wahlfach}{}\section{Note\+Wahlfach Klassenreferenz}
+\label{class_note_wahlfach}\index{Note\+Wahlfach@{Note\+Wahlfach}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_note_wahlfach_aa4804dc46cfcb7a08fa82b7b5505400c}\label{class_note_wahlfach_aa4804dc46cfcb7a08fa82b7b5505400c}} 
+{\bfseries \+\_\+\+\_\+construct} (\$data)
+\item 
+\mbox{\Hypertarget{class_note_wahlfach_a305d80be4bf9e108ddde2abab76d0920}\label{class_note_wahlfach_a305d80be4bf9e108ddde2abab76d0920}} 
+{\bfseries get\+ID} ()
+\item 
+\mbox{\Hypertarget{class_note_wahlfach_a696891e6cabf149d98db11858c17646b}\label{class_note_wahlfach_a696891e6cabf149d98db11858c17646b}} 
+{\bfseries get\+Bezeichnung} ()
+\item 
+\mbox{\Hypertarget{class_note_wahlfach_a58c2e2aa7e64f89ae9c4f191273b20a7}\label{class_note_wahlfach_a58c2e2aa7e64f89ae9c4f191273b20a7}} 
+{\bfseries get\+Unterricht} ()
+\item 
+\mbox{\hyperlink{class_note_wahlfach_ad97c4ed415adf9c581441f9d5b6897a7}{get\+Noten}} ()
+\item 
+\mbox{\hyperlink{class_note_wahlfach_a4c6534c50c430bef00759c235a60edd2}{get\+Note\+For\+Schueler}} (\$\mbox{\hyperlink{classschueler}{schueler}})
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_note_wahlfach_a57c87929c9a2e1c77510ceff5ae3a7ea}{get\+All\+Wahlfach\+For\+Teacher}} (\$teacher, \$zeugnis)
+\item 
+static \mbox{\hyperlink{class_note_wahlfach_a1101bb03cefffbd13ce9ea622615b2ea}{get\+All}} (\$zeugnis)
+\item 
+\mbox{\Hypertarget{class_note_wahlfach_a36ddb95c40c142fb923281aefce45c30}\label{class_note_wahlfach_a36ddb95c40c142fb923281aefce45c30}} 
+static {\bfseries get\+By\+ID} (\$id)
+\item 
+static \mbox{\hyperlink{class_note_wahlfach_a8019a6f967b3eb01e50e1e2709f12773}{add\+Unterricht\+As\+Wahlfach\+For\+Zeugnis}} (\$unterricht, \$zeugnis, \$bezeichnung)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Wahlfach Erfolg \begin{DoxyAuthor}{Autor}
+Christian 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 8 der Datei Note\+Wahlfach.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_note_wahlfach_a8019a6f967b3eb01e50e1e2709f12773}\label{class_note_wahlfach_a8019a6f967b3eb01e50e1e2709f12773}} 
+\index{Note\+Wahlfach@{Note\+Wahlfach}!add\+Unterricht\+As\+Wahlfach\+For\+Zeugnis@{add\+Unterricht\+As\+Wahlfach\+For\+Zeugnis}}
+\index{add\+Unterricht\+As\+Wahlfach\+For\+Zeugnis@{add\+Unterricht\+As\+Wahlfach\+For\+Zeugnis}!Note\+Wahlfach@{Note\+Wahlfach}}
+\subsubsection{\texorpdfstring{add\+Unterricht\+As\+Wahlfach\+For\+Zeugnis()}{addUnterrichtAsWahlfachForZeugnis()}}
+{\footnotesize\ttfamily static Note\+Wahlfach\+::add\+Unterricht\+As\+Wahlfach\+For\+Zeugnis (\begin{DoxyParamCaption}\item[{}]{\$unterricht,  }\item[{}]{\$zeugnis,  }\item[{}]{\$bezeichnung }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_schueler_unterricht}{Schueler\+Unterricht}} & {\em \$unterricht} & \\
+\hline
+\mbox{\hyperlink{class_note_zeugnis}{Note\+Zeugnis}} & {\em \$zeugnis} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 144 der Datei Note\+Wahlfach.\+class.\+php.
+
+\mbox{\Hypertarget{class_note_wahlfach_a1101bb03cefffbd13ce9ea622615b2ea}\label{class_note_wahlfach_a1101bb03cefffbd13ce9ea622615b2ea}} 
+\index{Note\+Wahlfach@{Note\+Wahlfach}!get\+All@{get\+All}}
+\index{get\+All@{get\+All}!Note\+Wahlfach@{Note\+Wahlfach}}
+\subsubsection{\texorpdfstring{get\+All()}{getAll()}}
+{\footnotesize\ttfamily static Note\+Wahlfach\+::get\+All (\begin{DoxyParamCaption}\item[{}]{\$zeugnis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_note_zeugnis}{Note\+Zeugnis}} & {\em \$zeugnis} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_note_wahlfach}{Note\+Wahlfach}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 115 der Datei Note\+Wahlfach.\+class.\+php.
+
+\mbox{\Hypertarget{class_note_wahlfach_a57c87929c9a2e1c77510ceff5ae3a7ea}\label{class_note_wahlfach_a57c87929c9a2e1c77510ceff5ae3a7ea}} 
+\index{Note\+Wahlfach@{Note\+Wahlfach}!get\+All\+Wahlfach\+For\+Teacher@{get\+All\+Wahlfach\+For\+Teacher}}
+\index{get\+All\+Wahlfach\+For\+Teacher@{get\+All\+Wahlfach\+For\+Teacher}!Note\+Wahlfach@{Note\+Wahlfach}}
+\subsubsection{\texorpdfstring{get\+All\+Wahlfach\+For\+Teacher()}{getAllWahlfachForTeacher()}}
+{\footnotesize\ttfamily static Note\+Wahlfach\+::get\+All\+Wahlfach\+For\+Teacher (\begin{DoxyParamCaption}\item[{}]{\$teacher,  }\item[{}]{\$zeugnis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+lehrer & {\em \$teacher} & \\
+\hline
+\mbox{\hyperlink{class_note_zeugnis}{Note\+Zeugnis}} & {\em \$zeugnis} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_note_wahlfach}{Note\+Wahlfach}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 84 der Datei Note\+Wahlfach.\+class.\+php.
+
+\mbox{\Hypertarget{class_note_wahlfach_a4c6534c50c430bef00759c235a60edd2}\label{class_note_wahlfach_a4c6534c50c430bef00759c235a60edd2}} 
+\index{Note\+Wahlfach@{Note\+Wahlfach}!get\+Note\+For\+Schueler@{get\+Note\+For\+Schueler}}
+\index{get\+Note\+For\+Schueler@{get\+Note\+For\+Schueler}!Note\+Wahlfach@{Note\+Wahlfach}}
+\subsubsection{\texorpdfstring{get\+Note\+For\+Schueler()}{getNoteForSchueler()}}
+{\footnotesize\ttfamily Note\+Wahlfach\+::get\+Note\+For\+Schueler (\begin{DoxyParamCaption}\item[{}]{\$schueler }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+schueler & {\em \$schueler} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_note_wahlfach_note}{Note\+Wahlfach\+Note}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 68 der Datei Note\+Wahlfach.\+class.\+php.
+
+\mbox{\Hypertarget{class_note_wahlfach_ad97c4ed415adf9c581441f9d5b6897a7}\label{class_note_wahlfach_ad97c4ed415adf9c581441f9d5b6897a7}} 
+\index{Note\+Wahlfach@{Note\+Wahlfach}!get\+Noten@{get\+Noten}}
+\index{get\+Noten@{get\+Noten}!Note\+Wahlfach@{Note\+Wahlfach}}
+\subsubsection{\texorpdfstring{get\+Noten()}{getNoten()}}
+{\footnotesize\ttfamily Note\+Wahlfach\+::get\+Noten (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_note_wahlfach_note}{Note\+Wahlfach\+Note}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 50 der Datei Note\+Wahlfach.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/noten/Note\+Wahlfach.\+class.\+php\end{DoxyCompactItemize}

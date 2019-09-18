@@ -1,0 +1,86 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_event}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Component\textbackslash{}V\+Event Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_component_1_1_v_event}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Event@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Event}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Component\textbackslash{}V\+Event\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.074074cm]{class_sabre_1_1_v_object_1_1_component_1_1_v_event}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_event_a784763b0a8689a0d549f478f6d855096}{is\+In\+Time\+Range}} (Date\+Time\+Interface \$start, Date\+Time\+Interface \$end)
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_event_af86dab16efba7da200606bd8f9f511d7}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_event_af86dab16efba7da200606bd8f9f511d7}} 
+{\bfseries get\+Validation\+Rules} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_event_af7f3b1c7d63bf9834f7722248db12b8a}{get\+Defaults}} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_event}{V\+Event}} component.
+
+This component contains some additional functionality specific for V\+E\+V\+E\+NT\textquotesingle{}s.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 19 der Datei V\+Event.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_event_af7f3b1c7d63bf9834f7722248db12b8a}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_event_af7f3b1c7d63bf9834f7722248db12b8a}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Event@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Event}!get\+Defaults@{get\+Defaults}}
+\index{get\+Defaults@{get\+Defaults}!Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Event@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Event}}
+\subsubsection{\texorpdfstring{get\+Defaults()}{getDefaults()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Event\+::get\+Defaults (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method should return a list of default property values.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 90 der Datei V\+Event.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_event_a784763b0a8689a0d549f478f6d855096}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_event_a784763b0a8689a0d549f478f6d855096}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Event@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Event}!is\+In\+Time\+Range@{is\+In\+Time\+Range}}
+\index{is\+In\+Time\+Range@{is\+In\+Time\+Range}!Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Event@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Event}}
+\subsubsection{\texorpdfstring{is\+In\+Time\+Range()}{isInTimeRange()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Event\+::is\+In\+Time\+Range (\begin{DoxyParamCaption}\item[{Date\+Time\+Interface}]{\$start,  }\item[{Date\+Time\+Interface}]{\$end }\end{DoxyParamCaption})}
+
+Returns true or false depending on if the event falls in the specified time-\/range. This is used for filtering purposes.
+
+The rules used to determine if an event falls within the specified time-\/range is based on the Cal\+D\+AV specification.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Date\+Time\+Interface & {\em \$start} & \\
+\hline
+Date\+Time\+Interface & {\em \$end} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 33 der Datei V\+Event.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+Component/V\+Event.\+php\end{DoxyCompactItemize}

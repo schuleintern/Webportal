@@ -1,0 +1,186 @@
+\hypertarget{class_o_t_p_h_p_1_1_o_t_p}{}\section{O\+T\+P\+HP\textbackslash{}O\+TP Klassenreferenz}
+\label{class_o_t_p_h_p_1_1_o_t_p}\index{O\+T\+P\+H\+P\textbackslash{}\+O\+TP@{O\+T\+P\+H\+P\textbackslash{}\+O\+TP}}
+Klassendiagramm für O\+T\+P\+HP\textbackslash{}O\+TP\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_o_t_p_h_p_1_1_o_t_p}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p_ae493db3f8faece1824803b2798042232}{get\+Qr\+Code\+Uri}} (string \$uri=\textquotesingle{}https\+://chart.\+googleapis.\+com/chart?chs=200x200 \&chld=\+M$\vert$0 \&cht=qr \&chl=\{\+P\+R\+O\+V\+I\+S\+I\+O\+N\+I\+N\+G\+\_\+\+U\+R\+I\}\textquotesingle{}, string \$placeholder=\textquotesingle{}\{\+P\+R\+O\+V\+I\+S\+I\+O\+N\+I\+N\+G\+\_\+\+U\+R\+I\}\textquotesingle{})
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p_a617f9d7e43bbea2ff1528ca41b647629}{at}} (int \$timestamp)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p_a1e13e5fab3ecfed56270b0e409828799}{\+\_\+\+\_\+construct}} (?string \$secret, string \$digest, int \$digits)
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p_a82e51d31ace373dd0ee8b483fc78e77b}{generate\+O\+TP}} (int \$input)
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p_abaca8e28e2692474e9c34fc2b24ec86e}{filter\+Options}} (array \&\$options)
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p_a4457811fb3eae85319da3c719e936f0c}{generate\+U\+RI}} (string \$type, array \$options)
+\item 
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p_aae30cf7398096ffa62a46db5b39fb0c3}{compare\+O\+TP}} (string \$safe, string \$\mbox{\hyperlink{classuser}{user}})
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 19 der Datei O\+T\+P.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_o_t_p_a1e13e5fab3ecfed56270b0e409828799}\label{class_o_t_p_h_p_1_1_o_t_p_a1e13e5fab3ecfed56270b0e409828799}} 
+\index{O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{?string}]{\$secret,  }\item[{string}]{\$digest,  }\item[{int}]{\$digits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} constructor.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | null & {\em \$secret} & \\
+\hline
+string & {\em \$digest} & \\
+\hline
+int & {\em \$digits} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 30 der Datei O\+T\+P.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_o_t_p_a617f9d7e43bbea2ff1528ca41b647629}\label{class_o_t_p_h_p_1_1_o_t_p_a617f9d7e43bbea2ff1528ca41b647629}} 
+\index{O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}!at@{at}}
+\index{at@{at}!O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}}
+\subsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+::at (\begin{DoxyParamCaption}\item[{int}]{\$timestamp }\end{DoxyParamCaption})}
+
+\{
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$timestamp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string Return the \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} at the specified timestamp
+\end{DoxyReturn}
+\} 
+
+Implementiert \mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_afbc45b669ea3ae41d0b252901de69d54}{O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface}}.
+
+
+
+Definiert in Zeile 69 der Datei O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_o_t_p_aae30cf7398096ffa62a46db5b39fb0c3}\label{class_o_t_p_h_p_1_1_o_t_p_aae30cf7398096ffa62a46db5b39fb0c3}} 
+\index{O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}!compare\+O\+TP@{compare\+O\+TP}}
+\index{compare\+O\+TP@{compare\+O\+TP}!O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}}
+\subsubsection{\texorpdfstring{compare\+O\+T\+P()}{compareOTP()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+::compare\+O\+TP (\begin{DoxyParamCaption}\item[{string}]{\$safe,  }\item[{string}]{\$user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$safe} & \\
+\hline
+string & {\em \$user} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 142 der Datei O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_o_t_p_abaca8e28e2692474e9c34fc2b24ec86e}\label{class_o_t_p_h_p_1_1_o_t_p_abaca8e28e2692474e9c34fc2b24ec86e}} 
+\index{O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}!filter\+Options@{filter\+Options}}
+\index{filter\+Options@{filter\+Options}!O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}}
+\subsubsection{\texorpdfstring{filter\+Options()}{filterOptions()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+::filter\+Options (\begin{DoxyParamCaption}\item[{array \&}]{\$options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 77 der Datei O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_o_t_p_a82e51d31ace373dd0ee8b483fc78e77b}\label{class_o_t_p_h_p_1_1_o_t_p_a82e51d31ace373dd0ee8b483fc78e77b}} 
+\index{O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}!generate\+O\+TP@{generate\+O\+TP}}
+\index{generate\+O\+TP@{generate\+O\+TP}!O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}}
+\subsubsection{\texorpdfstring{generate\+O\+T\+P()}{generateOTP()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+::generate\+O\+TP (\begin{DoxyParamCaption}\item[{int}]{\$input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string The \mbox{\hyperlink{class_o_t_p_h_p_1_1_o_t_p}{O\+TP}} at the specified input 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 52 der Datei O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_o_t_p_a4457811fb3eae85319da3c719e936f0c}\label{class_o_t_p_h_p_1_1_o_t_p_a4457811fb3eae85319da3c719e936f0c}} 
+\index{O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}!generate\+U\+RI@{generate\+U\+RI}}
+\index{generate\+U\+RI@{generate\+U\+RI}!O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}}
+\subsubsection{\texorpdfstring{generate\+U\+R\+I()}{generateURI()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+::generate\+U\+RI (\begin{DoxyParamCaption}\item[{string}]{\$type,  }\item[{array}]{\$options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$type} & \\
+\hline
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 94 der Datei O\+T\+P.\+php.
+
+\mbox{\Hypertarget{class_o_t_p_h_p_1_1_o_t_p_ae493db3f8faece1824803b2798042232}\label{class_o_t_p_h_p_1_1_o_t_p_ae493db3f8faece1824803b2798042232}} 
+\index{O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}!get\+Qr\+Code\+Uri@{get\+Qr\+Code\+Uri}}
+\index{get\+Qr\+Code\+Uri@{get\+Qr\+Code\+Uri}!O\+T\+P\+H\+P\+::\+O\+TP@{O\+T\+P\+H\+P\+::\+O\+TP}}
+\subsubsection{\texorpdfstring{get\+Qr\+Code\+Uri()}{getQrCodeUri()}}
+{\footnotesize\ttfamily O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+::get\+Qr\+Code\+Uri (\begin{DoxyParamCaption}\item[{string}]{\$uri = {\ttfamily \textquotesingle{}https\+://chart.googleapis.com/chart?chs=200x200\&chld=M$\vert$0\&cht=qr\&chl=\{PROVISIONING\+\_\+URI\}\textquotesingle{}},  }\item[{string}]{\$placeholder = {\ttfamily \textquotesingle{}\{PROVISIONING\+\_\+URI\}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+\{
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & The Uri of the Q\+R\+Code generator with all parameters. By default the Googgle Chart A\+PI is used. This Uri M\+U\+ST contain a placeholder that will be replaced by the method. \\
+\hline
+string & {\em \$placeholder} & The placeholder to be replaced in the QR Code generator U\+RI. Default value is \{P\+R\+O\+V\+I\+S\+I\+O\+N\+I\+N\+G\+\_\+\+U\+RI\}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string Get the provisioning U\+RI
+\end{DoxyReturn}
+\} 
+
+Implementiert \mbox{\hyperlink{interface_o_t_p_h_p_1_1_o_t_p_interface_a7ada4a07d246ce1582aa563955c9d671}{O\+T\+P\+H\+P\textbackslash{}\+O\+T\+P\+Interface}}.
+
+
+
+Definiert in Zeile 40 der Datei O\+T\+P.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/composer/vendor/spomky-\/labs/otphp/src/O\+T\+P.\+php\end{DoxyCompactItemize}

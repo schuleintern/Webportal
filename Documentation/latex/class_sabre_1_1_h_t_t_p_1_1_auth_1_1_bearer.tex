@@ -1,0 +1,80 @@
+\hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Auth\textbackslash{}Bearer Klassenreferenz}
+\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Bearer@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Bearer}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Auth\textbackslash{}Bearer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer_a4daccf2b0072a63872d46c7cdef2746c}{get\+Token}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer_a8b5df77b50fc94ce64b11e7ca103573c}{require\+Login}} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+H\+T\+TP \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer}{Bearer}} authentication utility.
+
+This class helps you setup bearer auth. The process is fairly simple\+:
+
+
+\begin{DoxyEnumerate}
+\item Instantiate the class.
+\item Call get\+Token (this will return null or a token as string)
+\item If you didn\textquotesingle{}t get a valid token, call \textquotesingle{}require\+Login\textquotesingle{}
+\end{DoxyEnumerate}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+FranÃ§ois Kooman (\href{mailto:fkooman@tuxed.net}{\tt fkooman@tuxed.\+net})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Bearer.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer_a4daccf2b0072a63872d46c7cdef2746c}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer_a4daccf2b0072a63872d46c7cdef2746c}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Bearer@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Bearer}!get\+Token@{get\+Token}}
+\index{get\+Token@{get\+Token}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Bearer@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Bearer}}
+\subsubsection{\texorpdfstring{get\+Token()}{getToken()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Bearer\+::get\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method returns a string with an access token.
+
+If no token was found, this method returns null.
+
+\begin{DoxyReturn}{Rückgabe}
+null$\vert$string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 27 der Datei Bearer.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer_a8b5df77b50fc94ce64b11e7ca103573c}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_bearer_a8b5df77b50fc94ce64b11e7ca103573c}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Bearer@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Bearer}!require\+Login@{require\+Login}}
+\index{require\+Login@{require\+Login}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Bearer@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Bearer}}
+\subsubsection{\texorpdfstring{require\+Login()}{requireLogin()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Bearer\+::require\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method sends the needed H\+T\+TP header and statuscode (401) to force authentication.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 49 der Datei Bearer.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/lib/\+Auth/Bearer.\+php\end{DoxyCompactItemize}

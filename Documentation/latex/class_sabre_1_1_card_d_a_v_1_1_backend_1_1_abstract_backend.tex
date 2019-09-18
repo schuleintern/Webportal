@@ -1,0 +1,70 @@
+\hypertarget{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_abstract_backend}{}\section{Sabre\textbackslash{}Card\+D\+AV\textbackslash{}Backend\textbackslash{}Abstract\+Backend Klassenreferenz}
+\label{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_abstract_backend}\index{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend@{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend}}
+Klassendiagramm für Sabre\textbackslash{}Card\+D\+AV\textbackslash{}Backend\textbackslash{}Abstract\+Backend\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_abstract_backend}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_abstract_backend_a0a53af7f95121ca77c6081b9ac250ecf}{get\+Multiple\+Cards}} (\$address\+Book\+Id, array \$uris)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Card\+D\+AV abstract Backend
+
+This class serves as a base-\/class for addressbook backends
+
+This class doesn\textquotesingle{}t do much, but it was added for consistency.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei Abstract\+Backend.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_abstract_backend_a0a53af7f95121ca77c6081b9ac250ecf}\label{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_abstract_backend_a0a53af7f95121ca77c6081b9ac250ecf}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}!get\+Multiple\+Cards@{get\+Multiple\+Cards}}
+\index{get\+Multiple\+Cards@{get\+Multiple\+Cards}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Abstract\+Backend}}
+\subsubsection{\texorpdfstring{get\+Multiple\+Cards()}{getMultipleCards()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend\+::get\+Multiple\+Cards (\begin{DoxyParamCaption}\item[{}]{\$address\+Book\+Id,  }\item[{array}]{\$uris }\end{DoxyParamCaption})}
+
+Returns a list of cards.
+
+This method should work identical to get\+Card, but instead return all the cards in the list as an array.
+
+If the backend supports this, it may allow for some speed-\/ups.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$address\+Book\+Id} & \\
+\hline
+array & {\em \$uris} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_acfd14d115d8d4a064fc746c8bebb75f5}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 30 der Datei Abstract\+Backend.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Card\+D\+A\+V/\+Backend/Abstract\+Backend.\+php\end{DoxyCompactItemize}

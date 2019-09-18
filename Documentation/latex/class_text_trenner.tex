@@ -1,0 +1,58 @@
+\hypertarget{class_text_trenner}{}\section{Text\+Trenner Klassenreferenz}
+\label{class_text_trenner}\index{Text\+Trenner@{Text\+Trenner}}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_text_trenner_a58fe9b3b283cb65c62d165d4b50f5275}{trenn\+Wort}} (\$wort, \$trenn\+Zeichen, \$max\+Length=0)
+\item 
+static \mbox{\hyperlink{class_text_trenner_ac15b95562b7542ced9e79a944482dee4}{import\+Trenn\+Dat}} (\$file)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 3 der Datei Text\+Trenner.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_text_trenner_ac15b95562b7542ced9e79a944482dee4}\label{class_text_trenner_ac15b95562b7542ced9e79a944482dee4}} 
+\index{Text\+Trenner@{Text\+Trenner}!import\+Trenn\+Dat@{import\+Trenn\+Dat}}
+\index{import\+Trenn\+Dat@{import\+Trenn\+Dat}!Text\+Trenner@{Text\+Trenner}}
+\subsubsection{\texorpdfstring{import\+Trenn\+Dat()}{importTrennDat()}}
+{\footnotesize\ttfamily static Text\+Trenner\+::import\+Trenn\+Dat (\begin{DoxyParamCaption}\item[{}]{\$file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Importiert eine trenn.\+dat Vorhandene Einträge werden aktualisiert. Selbst eingefügte Einträge bleiben erhalten. 
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$file} & Pfad zur trenn.\+dat \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 27 der Datei Text\+Trenner.\+class.\+php.
+
+\mbox{\Hypertarget{class_text_trenner_a58fe9b3b283cb65c62d165d4b50f5275}\label{class_text_trenner_a58fe9b3b283cb65c62d165d4b50f5275}} 
+\index{Text\+Trenner@{Text\+Trenner}!trenn\+Wort@{trenn\+Wort}}
+\index{trenn\+Wort@{trenn\+Wort}!Text\+Trenner@{Text\+Trenner}}
+\subsubsection{\texorpdfstring{trenn\+Wort()}{trennWort()}}
+{\footnotesize\ttfamily static Text\+Trenner\+::trenn\+Wort (\begin{DoxyParamCaption}\item[{}]{\$wort,  }\item[{}]{\$trenn\+Zeichen,  }\item[{}]{\$max\+Length = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Trennt ein Wort. 
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$wort} & Wort \\
+\hline
+String & {\em \$trenn\+Zeichen} & Zeichen zum Trenne. (z.\+B. \char`\"{}-\/\char`\"{} oder \char`\"{}-\/$<$br /$>$\char`\"{}) \\
+\hline
+int & {\em \$max\+Length} & Wird eine maximale Länge angegeben, wird das Wort passend getrennt. Wird keine Länge oder 0 angegeben, dann wird das Wort an der ersten passenden Stelle getrennt. \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 13 der Datei Text\+Trenner.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/data/trenn/Text\+Trenner.\+class.\+php\end{DoxyCompactItemize}

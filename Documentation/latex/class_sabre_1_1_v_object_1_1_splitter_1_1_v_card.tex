@@ -1,0 +1,98 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Splitter\textbackslash{}V\+Card Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+V\+Card@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+V\+Card}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Splitter\textbackslash{}V\+Card\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a1cff6b026f7995b3cc3dc8516bf7a24c}{\+\_\+\+\_\+construct}} (\$input, \$options=0)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a0578fdb7544daa2e55d289168eb72292}{get\+Next}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a07e1b56935db84d4d0fd762e0ae5410d}\label{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a07e1b56935db84d4d0fd762e0ae5410d}} 
+{\bfseries \$input}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a5cfe8584208c025871c5c9d9370804b8}\label{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a5cfe8584208c025871c5c9d9370804b8}} 
+{\bfseries \$parser}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Splitter.
+
+This class is responsible for splitting up \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card}{V\+Card}} objects.
+
+It is assumed that the input stream contains 1 or more V\+C\+A\+RD objects. This class checks for B\+E\+G\+IN\+:V\+C\+A\+RD and E\+ND\+:V\+C\+A\+RD and parses each encountered component individually.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Dominik Tobschall (\href{http://tobschall.de/}{\tt http\+://tobschall.\+de/}) 
+
+Armin Hackmann  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 22 der Datei V\+Card.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a1cff6b026f7995b3cc3dc8516bf7a24c}\label{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a1cff6b026f7995b3cc3dc8516bf7a24c}} 
+\index{Sabre\+::\+V\+Object\+::\+Splitter\+::\+V\+Card@{Sabre\+::\+V\+Object\+::\+Splitter\+::\+V\+Card}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+V\+Object\+::\+Splitter\+::\+V\+Card@{Sabre\+::\+V\+Object\+::\+Splitter\+::\+V\+Card}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+V\+Card\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$input,  }\item[{}]{\$options = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Constructor.
+
+The splitter should receive an readable file stream as it\textquotesingle{}s input.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource & {\em \$input} & \\
+\hline
+int & {\em \$options} & Parser options, see the O\+P\+T\+I\+O\+NS constants. \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 46 der Datei V\+Card.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a0578fdb7544daa2e55d289168eb72292}\label{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a0578fdb7544daa2e55d289168eb72292}} 
+\index{Sabre\+::\+V\+Object\+::\+Splitter\+::\+V\+Card@{Sabre\+::\+V\+Object\+::\+Splitter\+::\+V\+Card}!get\+Next@{get\+Next}}
+\index{get\+Next@{get\+Next}!Sabre\+::\+V\+Object\+::\+Splitter\+::\+V\+Card@{Sabre\+::\+V\+Object\+::\+Splitter\+::\+V\+Card}}
+\subsubsection{\texorpdfstring{get\+Next()}{getNext()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+V\+Card\+::get\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Every time get\+Next() is called, a new object will be parsed, until we hit the end of the stream.
+
+When the end is reached, null will be returned.
+
+\begin{DoxyReturn}{Rückgabe}
+Sabre$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_ae8684178a369fdafebc51e64a5b76ab8}{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Splitter\textbackslash{}\+Splitter\+Interface}}.
+
+
+
+Definiert in Zeile 61 der Datei V\+Card.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+Splitter/V\+Card.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,49 @@
+\hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Subscriptions\textbackslash{}I\+Subscription Schnittstellenreferenz}
+\label{interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+I\+Subscription@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+I\+Subscription}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Subscriptions\textbackslash{}I\+Subscription\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription}
+\end{center}
+\end{figure}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription}{I\+Subscription}}
+
+Nodes implementing this interface represent calendar subscriptions.
+
+The subscription node doesn\textquotesingle{}t do much, other than returning and updating subscription-\/related properties.
+
+The following properties should be supported\+:
+
+
+\begin{DoxyEnumerate}
+\item \{D\+AV\+:\}displayname
+\item \{\href{http://apple.com/ns/ical/}{\tt http\+://apple.\+com/ns/ical/}\}refreshrate
+\item \{\href{http://calendarserver.org/ns/}{\tt http\+://calendarserver.\+org/ns/}\}subscribed-\/strip-\/todos (omit if todos should not be stripped).
+\item \{\href{http://calendarserver.org/ns/}{\tt http\+://calendarserver.\+org/ns/}\}subscribed-\/strip-\/alarms (omit if alarms should not be stripped).
+\item \{\href{http://calendarserver.org/ns/}{\tt http\+://calendarserver.\+org/ns/}\}subscribed-\/strip-\/attachments (omit if attachments should not be stripped).
+\item \{\href{http://calendarserver.org/ns/}{\tt http\+://calendarserver.\+org/ns/}\}source (Must be a Sabre).
+\item \{\href{http://apple.com/ns/ical/}{\tt http\+://apple.\+com/ns/ical/}\}calendar-\/color
+\item \{\href{http://apple.com/ns/ical/}{\tt http\+://apple.\+com/ns/ical/}\}calendar-\/order
+\end{DoxyEnumerate}
+
+It is recommended to support every property.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 37 der Datei I\+Subscription.\+php.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Subscriptions/I\+Subscription.\+php\end{DoxyCompactItemize}

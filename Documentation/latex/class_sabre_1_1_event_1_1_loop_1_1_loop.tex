@@ -1,0 +1,375 @@
+\hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop}{}\section{Sabre\textbackslash{}Event\textbackslash{}Loop\textbackslash{}Loop Klassenreferenz}
+\label{class_sabre_1_1_event_1_1_loop_1_1_loop}\index{Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop@{Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_a6b333de79a4c2db471ce2fe2144d351c}{set\+Timeout}} (callable \$cb, \$timeout)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_a0dced1006c02c2923492f711efd77667}{set\+Interval}} (callable \$cb, \$timeout)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_a688063f34dc5f12a4a6d25e529644563}{clear\+Interval}} (\$interval\+Id)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_aa0f81262bf1101bba12dbe6abde5bb6b}{next\+Tick}} (callable \$cb)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_af2a360be696de46a5685a0b4a3d754aa}{add\+Read\+Stream}} (\$stream, callable \$cb)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_aa914653c243a74d75a50bd6c97d252b9}{add\+Write\+Stream}} (\$stream, callable \$cb)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_a2eb117cbdc18fcdbbfe595bab3b24fc3}{remove\+Read\+Stream}} (\$stream)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_a95eed71fade8365671ee032a6f70253a}{remove\+Write\+Stream}} (\$stream)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_a78cbef0bbe4c97ae0d1f63dbbeb2a066}{run}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_a6eda85416ced852119a02beaf25a3b87}{tick}} (\$block=false)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_acba1cc3bebed99530f33dcb2fce9b024}{stop}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_a0817ff51d002d3a190ca40dd64c21975}{run\+Next\+Ticks}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_a94fcec1fcdf17207fc39b24126202a3e}{run\+Timers}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_loop_1_1_loop_a54c3ac0ed67f872108ea4eff28a80703}{run\+Streams}} (\$timeout)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a85a8ab7da5b96a97d92b8bddd619d959}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a85a8ab7da5b96a97d92b8bddd619d959}} 
+{\bfseries \$running} = false
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a3c9a04639409c31df4959e0c1085f150}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a3c9a04639409c31df4959e0c1085f150}} 
+{\bfseries \$timers} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a74ee38d3ced27ec6770caefe0c94550a}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a74ee38d3ced27ec6770caefe0c94550a}} 
+{\bfseries \$next\+Tick} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a917eaae391f601aa4e4c504097702cc8}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a917eaae391f601aa4e4c504097702cc8}} 
+{\bfseries \$read\+Streams} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_ae95184627d8d9487069129527a1c16ac}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_ae95184627d8d9487069129527a1c16ac}} 
+{\bfseries \$write\+Streams} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a3818c205943b50f9d42c1481f1a9cd2b}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a3818c205943b50f9d42c1481f1a9cd2b}} 
+{\bfseries \$read\+Callbacks} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a059ca18d95717dec560375f86d4fbe36}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a059ca18d95717dec560375f86d4fbe36}} 
+{\bfseries \$write\+Callbacks} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+A simple eventloop implementation.
+
+This eventloop supports\+:
+\begin{DoxyItemize}
+\item next\+Tick
+\item set\+Timeout for delayed functions
+\item set\+Interval for repeating functions
+\item stream events using stream\+\_\+select
+\end{DoxyItemize}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2007-\/2015 fruux GmbH. (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Loop.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_af2a360be696de46a5685a0b4a3d754aa}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_af2a360be696de46a5685a0b4a3d754aa}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!add\+Read\+Stream@{add\+Read\+Stream}}
+\index{add\+Read\+Stream@{add\+Read\+Stream}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{add\+Read\+Stream()}{addReadStream()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::add\+Read\+Stream (\begin{DoxyParamCaption}\item[{}]{\$stream,  }\item[{callable}]{\$cb }\end{DoxyParamCaption})}
+
+Adds a read stream.
+
+The callback will be called as soon as there is something to read from the stream.
+
+You M\+U\+ST call remove\+Read\+Stream after you are done with the stream, to prevent the eventloop from never stopping.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource & {\em \$stream} & \\
+\hline
+callable & {\em \$cb} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 132 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_aa914653c243a74d75a50bd6c97d252b9}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_aa914653c243a74d75a50bd6c97d252b9}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!add\+Write\+Stream@{add\+Write\+Stream}}
+\index{add\+Write\+Stream@{add\+Write\+Stream}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{add\+Write\+Stream()}{addWriteStream()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::add\+Write\+Stream (\begin{DoxyParamCaption}\item[{}]{\$stream,  }\item[{callable}]{\$cb }\end{DoxyParamCaption})}
+
+Adds a write stream.
+
+The callback will be called as soon as the system reports it\textquotesingle{}s ready to receive writes on the stream.
+
+You M\+U\+ST call remove\+Write\+Stream after you are done with the stream, to prevent the eventloop from never stopping.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource & {\em \$stream} & \\
+\hline
+callable & {\em \$cb} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 152 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a688063f34dc5f12a4a6d25e529644563}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a688063f34dc5f12a4a6d25e529644563}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!clear\+Interval@{clear\+Interval}}
+\index{clear\+Interval@{clear\+Interval}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{clear\+Interval()}{clearInterval()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::clear\+Interval (\begin{DoxyParamCaption}\item[{}]{\$interval\+Id }\end{DoxyParamCaption})}
+
+Stops a running internval.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$interval\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 100 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_aa0f81262bf1101bba12dbe6abde5bb6b}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_aa0f81262bf1101bba12dbe6abde5bb6b}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!next\+Tick@{next\+Tick}}
+\index{next\+Tick@{next\+Tick}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{next\+Tick()}{nextTick()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::next\+Tick (\begin{DoxyParamCaption}\item[{callable}]{\$cb }\end{DoxyParamCaption})}
+
+Runs a function immediately at the next iteration of the loop.
+
+
+\begin{DoxyParams}[1]{Parameter}
+callable & {\em \$cb} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 112 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a2eb117cbdc18fcdbbfe595bab3b24fc3}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a2eb117cbdc18fcdbbfe595bab3b24fc3}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!remove\+Read\+Stream@{remove\+Read\+Stream}}
+\index{remove\+Read\+Stream@{remove\+Read\+Stream}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{remove\+Read\+Stream()}{removeReadStream()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::remove\+Read\+Stream (\begin{DoxyParamCaption}\item[{}]{\$stream }\end{DoxyParamCaption})}
+
+Stop watching a stream for reads.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource & {\em \$stream} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 165 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a95eed71fade8365671ee032a6f70253a}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a95eed71fade8365671ee032a6f70253a}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!remove\+Write\+Stream@{remove\+Write\+Stream}}
+\index{remove\+Write\+Stream@{remove\+Write\+Stream}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{remove\+Write\+Stream()}{removeWriteStream()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::remove\+Write\+Stream (\begin{DoxyParamCaption}\item[{}]{\$stream }\end{DoxyParamCaption})}
+
+Stop watching a stream for writes.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource & {\em \$stream} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 180 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a78cbef0bbe4c97ae0d1f63dbbeb2a066}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a78cbef0bbe4c97ae0d1f63dbbeb2a066}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!run@{run}}
+\index{run@{run}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Runs the loop.
+
+This function will run continiously, until there\textquotesingle{}s no more events to handle.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 198 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a0817ff51d002d3a190ca40dd64c21975}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a0817ff51d002d3a190ca40dd64c21975}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!run\+Next\+Ticks@{run\+Next\+Ticks}}
+\index{run\+Next\+Ticks@{run\+Next\+Ticks}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{run\+Next\+Ticks()}{runNextTicks()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::run\+Next\+Ticks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Executes all \textquotesingle{}next\+Tick\textquotesingle{} callbacks.
+
+return void 
+
+Definiert in Zeile 268 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a54c3ac0ed67f872108ea4eff28a80703}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a54c3ac0ed67f872108ea4eff28a80703}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!run\+Streams@{run\+Streams}}
+\index{run\+Streams@{run\+Streams}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{run\+Streams()}{runStreams()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::run\+Streams (\begin{DoxyParamCaption}\item[{}]{\$timeout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Runs all pending stream events.
+
+
+\begin{DoxyParams}[1]{Parameter}
+float & {\em \$timeout} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 308 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a94fcec1fcdf17207fc39b24126202a3e}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a94fcec1fcdf17207fc39b24126202a3e}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!run\+Timers@{run\+Timers}}
+\index{run\+Timers@{run\+Timers}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{run\+Timers()}{runTimers()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::run\+Timers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Runs all pending timers.
+
+After running the timer callbacks, this function returns the number of seconds until the next timer should be executed.
+
+If there\textquotesingle{}s no more pending timers, this function returns null.
+
+\begin{DoxyReturn}{Rückgabe}
+float 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 289 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a0dced1006c02c2923492f711efd77667}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a0dced1006c02c2923492f711efd77667}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!set\+Interval@{set\+Interval}}
+\index{set\+Interval@{set\+Interval}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{set\+Interval()}{setInterval()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::set\+Interval (\begin{DoxyParamCaption}\item[{callable}]{\$cb,  }\item[{}]{\$timeout }\end{DoxyParamCaption})}
+
+Executes a function every x seconds.
+
+The value this function returns can be used to stop the interval with clear\+Interval.
+
+
+\begin{DoxyParams}[1]{Parameter}
+callable & {\em \$cb} & \\
+\hline
+float & {\em \$timeout} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 71 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a6b333de79a4c2db471ce2fe2144d351c}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a6b333de79a4c2db471ce2fe2144d351c}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!set\+Timeout@{set\+Timeout}}
+\index{set\+Timeout@{set\+Timeout}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{set\+Timeout()}{setTimeout()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::set\+Timeout (\begin{DoxyParamCaption}\item[{callable}]{\$cb,  }\item[{}]{\$timeout }\end{DoxyParamCaption})}
+
+Executes a function after x seconds.
+
+
+\begin{DoxyParams}[1]{Parameter}
+callable & {\em \$cb} & \\
+\hline
+float & {\em \$timeout} & timeout in seconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 27 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_acba1cc3bebed99530f33dcb2fce9b024}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_acba1cc3bebed99530f33dcb2fce9b024}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!stop@{stop}}
+\index{stop@{stop}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Stops a running eventloop
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 257 der Datei Loop.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_event_1_1_loop_1_1_loop_a6eda85416ced852119a02beaf25a3b87}\label{class_sabre_1_1_event_1_1_loop_1_1_loop_a6eda85416ced852119a02beaf25a3b87}} 
+\index{Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}!tick@{tick}}
+\index{tick@{tick}!Sabre\+::\+Event\+::\+Loop\+::\+Loop@{Sabre\+::\+Event\+::\+Loop\+::\+Loop}}
+\subsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Event\textbackslash{}\+Loop\textbackslash{}\+Loop\+::tick (\begin{DoxyParamCaption}\item[{}]{\$block = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Executes all pending events.
+
+If \$block is turned true, this function will block until any event is triggered.
+
+If there are now timeouts, next\+Tick callbacks or events in the loop at all, this function will exit immediately.
+
+This function will return true if there are {\itshape any} events left in the loop after the tick.
+
+
+\begin{DoxyParams}[1]{Parameter}
+bool & {\em \$block} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 226 der Datei Loop.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/event/lib/\+Loop/Loop.\+php\end{DoxyCompactItemize}

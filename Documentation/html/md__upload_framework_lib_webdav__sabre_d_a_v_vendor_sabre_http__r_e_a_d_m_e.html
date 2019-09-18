@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: sabre/http</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">sabre/http </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This library provides a toolkit to make working with the HTTP protocol easier.</p>
+<p>Most PHP scripts run within a HTTP request but accessing information about the HTTP request is cumbersome at least.</p>
+<p>There's bad practices, inconsistencies and confusion. This library is effectively a wrapper around the following PHP constructs:</p>
+<p>For Input:</p>
+<ul>
+<li><code>$_GET</code>,</li>
+<li><code>$_POST</code>,</li>
+<li><code>$_SERVER</code>,</li>
+<li><code>php://input</code> or <code>$HTTP_RAW_POST_DATA</code>.</li>
+</ul>
+<p>For output:</p>
+<ul>
+<li><code>php://output</code> or <code>echo</code>,</li>
+<li><code>header()</code>.</li>
+</ul>
+<p>What this library provides, is a <code>Request</code> object, and a <code>Response</code> object.</p>
+<p>The objects are extendable and easily mockable.</p>
+<h2>Build status </h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">branch  </th><th class="markdownTableHeadNone">status   </th></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">master  </td><td class="markdownTableBodyNone"><a href="https://travis-ci.org/fruux/sabre-http"></a>   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone">3.0  </td><td class="markdownTableBodyNone"><a href="https://travis-ci.org/fruux/sabre-http"></a>   </td></tr>
+</table>
+<h2>Installation </h2>
+<p>Make sure you have <a href="http://getcomposer.org/">composer</a> installed. In your project directory, create, or edit a <code>composer.json</code> file, and make sure it contains something like this:</p>
+<div class="fragment"><div class="line">{</div><div class="line">    &quot;require&quot; : {</div><div class="line">        &quot;sabre/http&quot; : &quot;~3.0.0&quot;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><p>After that, just hit <code>composer install</code> and you should be rolling.</p>
+<h2>Quick history </h2>
+<p>This library came to existence in 2009, as a part of the <a href="http://sabre.io/"><code>sabre/dav</code></a> project, which uses it heavily.</p>
+<p>It got split off into a separate library to make it easier to manage releases and hopefully giving it use outside of the scope of just <code>sabre/dav</code>.</p>
+<p>Although completely independently developed, this library has a LOT of overlap with <a href="https://github.com/symfony/HttpFoundation">Symfony's <code>HttpFoundation</code></a>.</p>
+<p>Said library does a lot more stuff and is significantly more popular, so if you are looking for something to fulfill this particular requirement, I'd recommend also considering <a href="https://github.com/symfony/HttpFoundation"><code>HttpFoundation</code></a>.</p>
+<h2>Getting started </h2>
+<p>First and foremost, this library wraps the superglobals. The easiest way to instantiate a request object is as follows:</p>
+<div class="fragment"><div class="line">use <a class="code" href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a>;</div><div class="line"></div><div class="line">include <span class="stringliteral">&#39;vendor/autoload.php&#39;</span>;</div><div class="line"></div><div class="line">$request = HTTP\Sapi::getRequest();</div></div><!-- fragment --><p>This line should only happen once in your entire application. Everywhere else you should pass this request object around using dependency injection.</p>
+<p>You should always typehint on it's interface:</p>
+<div class="fragment"><div class="line"><span class="keyword">function</span> handleRequest(HTTP\RequestInterface $request) {</div><div class="line"></div><div class="line">    <span class="comment">// Do something with this request :)</span></div><div class="line"></div><div class="line">}</div></div><!-- fragment --><p>A response object you can just create as such:</p>
+<div class="fragment"><div class="line">use <a class="code" href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a>;</div><div class="line"></div><div class="line">include <span class="stringliteral">&#39;vendor/autoload.php&#39;</span>;</div><div class="line"></div><div class="line">$response = <span class="keyword">new</span> HTTP\Response();</div><div class="line">$response-&gt;setStatus(201); <span class="comment">// created !</span></div><div class="line">$response-&gt;setHeader(<span class="stringliteral">&#39;X-Foo&#39;</span>, <span class="stringliteral">&#39;bar&#39;</span>);</div><div class="line">$response-&gt;setBody(</div><div class="line">    <span class="stringliteral">&#39;success!&#39;</span></div><div class="line">);</div></div><!-- fragment --><p>After you fully constructed your response, you must call:</p>
+<div class="fragment"><div class="line">HTTP\Sapi::sendResponse($response);</div></div><!-- fragment --><p>This line should generally also appear once in your application (at the very end).</p>
+<h2>Decorators </h2>
+<p>It may be useful to extend the <code>Request</code> and <code>Response</code> objects in your application, if you for example would like them to carry a bit more information about the current request.</p>
+<p>For instance, you may want to add an <code>isLoggedIn</code> method to the Request object.</p>
+<p>Simply extending Request and Response may pose some problems:</p>
+<ol type="1">
+<li>You may want to extend the objects with new behaviors differently, in different subsystems of your application,</li>
+<li>The <code>Sapi::getRequest</code> factory always returns a instance of <code>Request</code> so you would have to override the factory method as well,</li>
+<li>By controlling the instantation and depend on specific <code>Request</code> and <code>Response</code> instances in your library or application, you make it harder to work with other applications which also use <code>sabre/http</code>.</li>
+</ol>
+<p>In short: it would be bad design. Instead, it's recommended to use the <a href="http://en.wikipedia.org/wiki/Decorator_pattern">decorator pattern</a> to add new behavior where you need it. <code>sabre/http</code> provides helper classes to quickly do this.</p>
+<p>Example:</p>
+<div class="fragment"><div class="line">use <a class="code" href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a>;</div><div class="line"></div><div class="line"><span class="keyword">class </span>MyRequest <span class="keyword">extends</span> HTTP\RequestDecorator {</div><div class="line"></div><div class="line">    <span class="keyword">function</span> isLoggedIn() {</div><div class="line"></div><div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"></div><div class="line">    }</div><div class="line"></div><div class="line">}</div></div><!-- fragment --><p>Our application assumes that the true <code>Request</code> object was instantiated somewhere else, by some other subsystem. This could simply be a call like <code>$request = Sapi::getRequest()</code> at the top of your application, but could also be somewhere in a unittest.</p>
+<p>All we know in the current subsystem, is that we received a <code>$request</code> and that it implements <code>Sabre\HTTP\RequestInterface</code>. To decorate this object, all we need to do is:</p>
+<div class="fragment"><div class="line">$request = <span class="keyword">new</span> MyRequest($request);</div></div><!-- fragment --><p>And that's it, we now have an <code>isLoggedIn</code> method, without having to mess with the core instances.</p>
+<h2>Client </h2>
+<p>This package also contains a simple wrapper around <a href="http://php.net/curl">cURL</a>, which will allow you to write simple clients, using the <code>Request</code> and <code>Response</code> objects you're already familiar with.</p>
+<p>It's by no means a replacement for something like <a href="http://guzzlephp.org/">Guzzle</a>, but it provides a simple and lightweight API for making the occasional API call.</p>
+<h3>Usage</h3>
+<div class="fragment"><div class="line">use <a class="code" href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a>;</div><div class="line"></div><div class="line">$request = <span class="keyword">new</span> HTTP\Request(<span class="stringliteral">&#39;GET&#39;</span>, <span class="stringliteral">&#39;http://example.org/&#39;</span>);</div><div class="line">$request-&gt;setHeader(<span class="stringliteral">&#39;X-Foo&#39;</span>, <span class="stringliteral">&#39;Bar&#39;</span>);</div><div class="line"></div><div class="line">$client = <span class="keyword">new</span> HTTP\Client();</div><div class="line">$response = $client-&gt;send($request);</div><div class="line"></div><div class="line">echo $response-&gt;getBodyAsString();</div></div><!-- fragment --><p>The client emits 3 event using <a href="https://github.com/fruux/sabre-event"><code>sabre/event</code></a>. <code>beforeRequest</code>, <code>afterRequest</code> and <code>error</code>.</p>
+<div class="fragment"><div class="line">$client = <span class="keyword">new</span> HTTP\Client();</div><div class="line">$client-&gt;on(<span class="stringliteral">&#39;beforeRequest&#39;</span>, <span class="keyword">function</span>($request) {</div><div class="line"></div><div class="line">    <span class="comment">// You could use beforeRequest to for example inject a few extra headers.</span></div><div class="line">    <span class="comment">// into the Request object.</span></div><div class="line"></div><div class="line">});</div><div class="line"></div><div class="line">$client-&gt;on(<span class="stringliteral">&#39;afterRequest&#39;</span>, <span class="keyword">function</span>($request, $response) {</div><div class="line"></div><div class="line">    <span class="comment">// The afterRequest event could be a good time to do some logging, or</span></div><div class="line">    <span class="comment">// do some rewriting in the response.</span></div><div class="line"></div><div class="line">});</div><div class="line"></div><div class="line">$client-&gt;on(<span class="stringliteral">&#39;error&#39;</span>, <span class="keyword">function</span>($request, $response, &amp;$retry, $retryCount) {</div><div class="line"></div><div class="line">    <span class="comment">// The error event is triggered for every response with a HTTP code higher</span></div><div class="line">    <span class="comment">// than 399.</span></div><div class="line"></div><div class="line">});</div><div class="line"></div><div class="line">$client-&gt;on(<span class="stringliteral">&#39;error:401&#39;</span>, <span class="keyword">function</span>($request, $response, &amp;$retry, $retryCount) {</div><div class="line"></div><div class="line">    <span class="comment">// You can also listen for specific error codes. This example shows how</span></div><div class="line">    <span class="comment">// to inject HTTP authentication headers if a 401 was returned.</span></div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> ($retryCount &gt; 1) {</div><div class="line">        <span class="comment">// We&#39;re only going to retry exactly once.</span></div><div class="line">    }</div><div class="line"></div><div class="line">    $request-&gt;setHeader(<span class="stringliteral">&#39;Authorization&#39;</span>, <span class="stringliteral">&#39;Basic xxxxxxxxxx&#39;</span>);</div><div class="line">    $retry = <span class="keyword">true</span>;</div><div class="line"></div><div class="line">});</div></div><!-- fragment --><h3>Asynchronous requests</h3>
+<p>The <code>Client</code> also supports doing asynchronous requests. This is especially handy if you need to perform a number of requests, that are allowed to be executed in parallel.</p>
+<p>The underlying system for this is simply <a href="http://php.net/curl_multi_init">cURL's multi request handler</a>, but this provides a much nicer API to handle this.</p>
+<p>Sample usage:</p>
+<div class="fragment"><div class="line">use <a class="code" href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a>;</div><div class="line"></div><div class="line">$request = <span class="keyword">new</span> Request(<span class="stringliteral">&#39;GET&#39;</span>, <span class="stringliteral">&#39;http://localhost/&#39;</span>);</div><div class="line">$client = <span class="keyword">new</span> Client();</div><div class="line"></div><div class="line"><span class="comment">// Executing 1000 requests</span></div><div class="line"><span class="keywordflow">for</span> ($i = 0; $i &lt; 1000; $i++) {</div><div class="line">    $client-&gt;sendAsync(</div><div class="line">        $request,</div><div class="line">        <span class="keyword">function</span>(ResponseInterface $response) {</div><div class="line">            <span class="comment">// Success handler</span></div><div class="line">        },</div><div class="line">        <span class="keyword">function</span>($error) {</div><div class="line">            <span class="comment">// Error handler</span></div><div class="line">        }</div><div class="line">    ); </div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// Wait for all requests to get a result.</span></div><div class="line">$client-&gt;wait();</div></div><!-- fragment --><p>Check out <code><a class="el" href="asyncclient_8php_source.html">examples/asyncclient.php</a></code> for more information.</p>
+<h2>Writing a reverse proxy </h2>
+<p>With all these tools combined, it becomes very easy to write a simple reverse http proxy.</p>
+<div class="fragment"><div class="line">use</div><div class="line">    <a class="code" href="namespace_sabre_1_1_h_t_t_p_1_1_sapi.html">Sabre\HTTP\Sapi</a>,</div><div class="line">    <a class="code" href="namespace_sabre_1_1_h_t_t_p_1_1_client.html">Sabre\HTTP\Client</a>;</div><div class="line"></div><div class="line"><span class="comment">// The url we&#39;re proxying to.</span></div><div class="line">$remoteUrl = <span class="stringliteral">&#39;http://example.org/&#39;</span>;</div><div class="line"></div><div class="line"><span class="comment">// The url we&#39;re proxying from. Please note that this must be a relative url,</span></div><div class="line"><span class="comment">// and basically acts as the base url.</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// If youre $remoteUrl doesn&#39;t end with a slash, this one probably shouldn&#39;t</span></div><div class="line"><span class="comment">// either.</span></div><div class="line">$myBaseUrl = <span class="stringliteral">&#39;/reverseproxy.php&#39;</span>;</div><div class="line"><span class="comment">// $myBaseUrl = &#39;/~evert/sabre/http/examples/reverseproxy.php/&#39;;</span></div><div class="line"></div><div class="line">$request = Sapi::getRequest();</div><div class="line">$request-&gt;setBaseUrl($myBaseUrl);</div><div class="line"></div><div class="line">$subRequest = clone $request;</div><div class="line"></div><div class="line"><span class="comment">// Removing the Host header.</span></div><div class="line">$subRequest-&gt;removeHeader(<span class="stringliteral">&#39;Host&#39;</span>);</div><div class="line"></div><div class="line"><span class="comment">// Rewriting the url.</span></div><div class="line">$subRequest-&gt;setUrl($remoteUrl . $request-&gt;getPath());</div><div class="line"></div><div class="line">$client = <span class="keyword">new</span> Client();</div><div class="line"></div><div class="line"><span class="comment">// Sends the HTTP request to the server</span></div><div class="line">$response = $client-&gt;send($subRequest);</div><div class="line"></div><div class="line"><span class="comment">// Sends the response back to the client that connected to the proxy.</span></div><div class="line">Sapi::sendResponse($response);</div></div><!-- fragment --><h2>The Request and Response API's </h2>
+<h3>Request</h3>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">function</span> __construct($method = null, $url = null, array $headers = null, $body = null);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getMethod();</div><div class="line"></div><div class="line"><span class="keyword">function</span> setMethod($method);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getUrl();</div><div class="line"></div><div class="line"><span class="keyword">function</span> setUrl($url);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getAbsoluteUrl();</div><div class="line"></div><div class="line"><span class="keyword">function</span> setAbsoluteUrl($url);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getBaseUrl();</div><div class="line"></div><div class="line"><span class="keyword">function</span> setBaseUrl($url);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getPath();</div><div class="line"></div><div class="line"><span class="keyword">function</span> getQueryParameters();</div><div class="line"></div><div class="line"><span class="keyword">function</span> getPostData();</div><div class="line"></div><div class="line"><span class="keyword">function</span> setPostData(array $postData);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getRawServerValue($valueName);</div><div class="line"></div><div class="line"><span class="keyword">function</span> setRawServerData(array $data);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getBodyAsStream();</div><div class="line"></div><div class="line"><span class="keyword">function</span> getBodyAsString();</div><div class="line"></div><div class="line"><span class="keyword">function</span> getBody();</div><div class="line"></div><div class="line"><span class="keyword">function</span> setBody($body);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getHeaders();</div><div class="line"></div><div class="line"><span class="keyword">function</span> getHeader($name);</div><div class="line"></div><div class="line"><span class="keyword">function</span> setHeader($name, $value);</div><div class="line"></div><div class="line"><span class="keyword">function</span> setHeaders(array $headers);</div><div class="line"></div><div class="line"><span class="keyword">function</span> addHeaders(array $headers);</div><div class="line"></div><div class="line"><span class="keyword">function</span> removeHeader($name);</div><div class="line"></div><div class="line"><span class="keyword">function</span> setHttpVersion($version);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getHttpVersion();</div></div><!-- fragment --><h3>Response</h3>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keyword">function</span> getStatus();</div><div class="line"></div><div class="line"><span class="keyword">function</span> setStatus($status);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getBodyAsStream();</div><div class="line"></div><div class="line"><span class="keyword">function</span> getBodyAsString();</div><div class="line"></div><div class="line"><span class="keyword">function</span> getBody();</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">function</span> setBody($body);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getHeaders();</div><div class="line"></div><div class="line"><span class="keyword">function</span> getHeader($name);</div><div class="line"></div><div class="line"><span class="keyword">function</span> setHeader($name, $value);</div><div class="line"></div><div class="line"><span class="keyword">function</span> setHeaders(array $headers);</div><div class="line"></div><div class="line"><span class="keyword">function</span> addHeaders(array $headers);</div><div class="line"></div><div class="line"><span class="keyword">function</span> removeHeader($name);</div><div class="line"></div><div class="line"><span class="keyword">function</span> setHttpVersion($version);</div><div class="line"></div><div class="line"><span class="keyword">function</span> getHttpVersion();</div></div><!-- fragment --><h2>Made at fruux </h2>
+<p>This library is being developed by <a href="https://fruux.com/">fruux</a>. Drop us a line for commercial services or enterprise support. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

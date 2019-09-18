@@ -1,0 +1,209 @@
+\subsection*{1.\+5.\+0 (2016-\/10-\/09) }
+
+
+\begin{DoxyItemize}
+\item Now requires P\+HP 5.\+5.
+\item Using {\ttfamily finally} to always roll back the context stack when serializing.
+\item \#94\+: Fixed an infinite loop condition when reading some invalid X\+ML documents.
+\end{DoxyItemize}
+
+\subsection*{1.\+4.\+2 (2016-\/05-\/19) }
+
+
+\begin{DoxyItemize}
+\item The {\ttfamily context\+Stack} in the Reader object is now correctly rolled back in error conditions ().
+\item repeating\+Elements deserializer now still parses if a bare element name without clark notation was given.
+\item {\ttfamily \$element\+Map} in the Reader now also supports bare element names.
+\item {\ttfamily Service\+::expect()} can now also work with bare element names.
+\end{DoxyItemize}
+
+\subsection*{1.\+4.\+1 (2016-\/03-\/12) }
+
+
+\begin{DoxyItemize}
+\item Parsing clark-\/notation is now cached. This can speed up parsing large documents with lots of repeating elements a fair bit. ().
+\end{DoxyItemize}
+
+\subsection*{1.\+4.\+0 (2016-\/02-\/14) }
+
+
+\begin{DoxyItemize}
+\item Any array thrown into the serializer with numeric keys is now simply traversed and each individual item is serialized. This fixes an issue related to serializing value objects with array children.
+\item When serializing value objects, properties that have a null value or an empty array are now skipped. We believe this to be the saner default, but does constitute a BC break for those depending on this.
+\item Serializing array properties in value objects was broken.
+\end{DoxyItemize}
+
+\subsection*{1.\+3.\+0 (2015-\/12-\/29) }
+
+
+\begin{DoxyItemize}
+\item The {\ttfamily Service} class adds a new {\ttfamily map\+Value\+Object} method which provides basic capabilities to map between Value\+Objects and X\+ML.
+\item \#61\+: You can now specify serializers for specific classes, allowing you separate the object you want to serialize from the serializer. This uses the {\ttfamily \$class\+Map} property which is defined on both the {\ttfamily Service} and {\ttfamily Writer}.
+\item It\textquotesingle{}s now possible to pass an array of possible root elements to {\ttfamily Sabre\textbackslash{}Xml\textbackslash{}Service\+::expect()}.
+\item Moved some parsing logic to {\ttfamily Reader\+::get\+Deserializer\+For\+Element\+Name()}, so people with more advanced use-\/cases can implement their own logic there.
+\item \#63\+: When serializing elements using arrays, the {\ttfamily value} key in the array is now optional.
+\item \#62\+: Added a {\ttfamily key\+Value} deserializer function. This can be used instead of the {\ttfamily Element\textbackslash{}Key\+Value} class and is a lot more flexible. ()
+\item Also added an {\ttfamily enum} deserializer function to replace {\ttfamily Element\textbackslash{}Elements}.
+\item Using an empty string for a namespace prefix now has the same effect as {\ttfamily null}.
+\end{DoxyItemize}
+
+\subsection*{1.\+2.\+0 (2015-\/08-\/30) }
+
+
+\begin{DoxyItemize}
+\item \#53\+: Added {\ttfamily parse\+Get\+Elements}, a function like {\ttfamily parse\+Inner\+Tree}, except that it always returns an array of elements, or an empty array.
+\end{DoxyItemize}
+
+\subsection*{1.\+1.\+0 (2015-\/06-\/29) }
+
+
+\begin{DoxyItemize}
+\item \#44, \#45\+: Catching broken and invalid X\+ML better and throwing {\ttfamily Sabre\textbackslash{}Xml\textbackslash{}Lib\+X\+M\+L\+Exception} whenever we encounter errors. (, )
+\end{DoxyItemize}
+
+\subsection*{1.\+0.\+0 (2015-\/05-\/25) }
+
+
+\begin{DoxyItemize}
+\item No functional changes since 0.\+4.\+3. Marking it as 1.\+0.\+0 as a promise for A\+PI stability.
+\item Using php-\/cs-\/fixer for automated CS enforcement.
+\end{DoxyItemize}
+
+\subsection*{0.\+4.\+3 (2015-\/04-\/01) }
+
+
+\begin{DoxyItemize}
+\item Minor tweaks for the public release.
+\end{DoxyItemize}
+
+\subsection*{0.\+4.\+2 (2015-\/03-\/20) }
+
+
+\begin{DoxyItemize}
+\item Removed {\ttfamily constants.\+php} again. They messed with P\+H\+P\+Unit and don\textquotesingle{}t really provide a great benefit.
+\item \#41\+: Correctly handle self-\/closing xml elements.
+\end{DoxyItemize}
+
+\subsection*{0.\+4.\+1 (2015-\/03-\/19) }
+
+
+\begin{DoxyItemize}
+\item \#40\+: An element with an empty namespace (xmlns=\char`\"{}\char`\"{}) is not allowed to have a prefix. This is now fixed.
+\end{DoxyItemize}
+
+\subsection*{0.\+4.\+0 (2015-\/03-\/18) }
+
+
+\begin{DoxyItemize}
+\item Added {\ttfamily Sabre\textbackslash{}Xml\textbackslash{}Service}. This is intended as a simple way to centrally configure xml applications and easily parse/write things from there. \#35, \#38.
+\item Renamed \textquotesingle{}base\+Uri\textquotesingle{} to \textquotesingle{}context\+Uri\textquotesingle{} everywhere.
+\item \#36\+: Added a few convenience constants to {\ttfamily lib/constants.\+php}.
+\item {\ttfamily Sabre\textbackslash{}Xml\textbackslash{}Util\+::parse\+Clark\+Notation} is now in the {\ttfamily Sabre\textbackslash{}Xml\textbackslash{}Service} class.
+\end{DoxyItemize}
+
+\subsection*{0.\+3.\+1 (2015-\/02-\/08) }
+
+
+\begin{DoxyItemize}
+\item Added {\ttfamily Xml\+Deserializable} to match {\ttfamily Xml\+Serializable}.
+\end{DoxyItemize}
+
+\subsection*{0.\+3.\+0 (2015-\/02-\/06) }
+
+
+\begin{DoxyItemize}
+\item Added {\ttfamily \$element\+Map} argument to parse\+Inner\+Tree, for quickly overriding parsing rules within an element.
+\end{DoxyItemize}
+
+\subsection*{0.\+2.\+2 (2015-\/02-\/05) }
+
+
+\begin{DoxyItemize}
+\item Now depends on sabre/uri 1.\+0.
+\end{DoxyItemize}
+
+\subsection*{0.\+2.\+1 (2014-\/12-\/17) }
+
+
+\begin{DoxyItemize}
+\item Lib\+X\+M\+L\+Exception now inherits from Parse\+Exception, so it\textquotesingle{}s easy for users to catch any exception thrown by the parser.
+\end{DoxyItemize}
+
+\subsection*{0.\+2.\+0 (2014-\/12-\/05) }
+
+
+\begin{DoxyItemize}
+\item Major BC Break\+: method names for the Element interface have been renamed from {\ttfamily serialize\+Xml} and {\ttfamily deserialize\+Xml} to {\ttfamily xml\+Serialize} and {\ttfamily xml\+Deserialize}. This is so that it matches P\+HP\textquotesingle{}s {\ttfamily Json\+Serializable} interface.
+\item \#25\+: Added {\ttfamily Xml\+Serializable} to allow people to write serializers without having to implement a deserializer in the same class.
+\item \#26\+: Renamed the {\ttfamily Sabre\textbackslash{}X\+ML} namespace to {\ttfamily Sabre\textbackslash{}Xml}. Due to composer magic and the fact that P\+HP namespace are case-\/insensitive, this should not affect anyone, unless you are doing exact string matches on class names.
+\item \#23\+: It\textquotesingle{}s not possible to automatically extract or serialize Xml fragments from documents using {\ttfamily Sabre\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Xml\+Fragment}.
+\end{DoxyItemize}
+
+\subsection*{0.\+1.\+0 (2014-\/11-\/24) }
+
+
+\begin{DoxyItemize}
+\item \#16\+: Added ability to override {\ttfamily element\+Map}, {\ttfamily namespace\+Map} and {\ttfamily base\+Uri} for a fragment of a document during reading an writing using {\ttfamily push\+Context} and {\ttfamily pop\+Context}.
+\item Removed\+: {\ttfamily Writer\+::\$context} and {\ttfamily Reader\+::\$context}.
+\item \#15\+: Added {\ttfamily Reader\+::\$base\+Uri} to match {\ttfamily Writer\+::\$base\+Uri}.
+\item \#20\+: Allow callbacks to be used instead of {\ttfamily Element} classes in the {\ttfamily Reader}.
+\item \#25\+: Added {\ttfamily read\+Text} to quickly grab all text from a node and advance the reader to the next node.
+\item \#15\+: Added {\ttfamily Sabre\textbackslash{}X\+ML\textbackslash{}Element\textbackslash{}Uri}.
+\end{DoxyItemize}
+
+\subsection*{0.\+0.\+6 (2014-\/09-\/26) }
+
+
+\begin{DoxyItemize}
+\item Added\+: {\ttfamily C\+Data} element.
+\item \#13\+: Better support for xml with no namespaces. ()
+\item Switched to P\+S\+R-\/4 directory structure.
+\end{DoxyItemize}
+
+\subsection*{0.\+0.\+5 (2013-\/03-\/27) }
+
+
+\begin{DoxyItemize}
+\item Added\+: base\+Uri property to the Writer class.
+\item Added\+: The write\+Element method can now write complex elements.
+\item Added\+: Throwing exception when invalid objects are written.
+\end{DoxyItemize}
+
+\subsection*{0.\+0.\+4 (2013-\/03-\/14) }
+
+
+\begin{DoxyItemize}
+\item Fixed\+: The Key\+Value parser was skipping over elements when there was no whitespace between them.
+\item Fixed\+: Clearing libxml errors after parsing.
+\item Added\+: Support for C\+D\+A\+TA.
+\item Added\+: Context properties.
+\end{DoxyItemize}
+
+\subsection*{0.\+0.\+3 (2013-\/02-\/22) }
+
+
+\begin{DoxyItemize}
+\item Changed\+: Reader\+::parse returns an array with 1 level less depth.
+\item Added\+: A Lib\+X\+M\+L\+Exception is now thrown if the X\+M\+L\+Reader comes across an error.
+\item Fixed\+: Both the Elements and Key\+Value parsers had severe issues with nesting.
+\item Fixed\+: The reader now detects when the end of the document is hit before it should (because we\textquotesingle{}re still parsing an element).
+\end{DoxyItemize}
+
+\subsection*{0.\+0.\+2 (2013-\/02-\/17) }
+
+
+\begin{DoxyItemize}
+\item Added\+: Elements parser.
+\item Added\+: Key\+Value parser.
+\item Change\+: Reader\+::parse\+Sub\+Tree is now named parse\+Inner\+Tree, and returns either a string (in case of a text-\/node), or an array (in case there were child elements).
+\item Added\+: Reader\+::parse\+Current\+Element is now public.
+\end{DoxyItemize}
+
+\subsection*{0.\+0.\+1 (2013-\/02-\/07) }
+
+
+\begin{DoxyItemize}
+\item First alpha release
+\end{DoxyItemize}
+
+Project started\+: 2012-\/11-\/13. First experiments in June 2009. 

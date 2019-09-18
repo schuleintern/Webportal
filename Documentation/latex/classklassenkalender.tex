@@ -1,0 +1,108 @@
+\hypertarget{classklassenkalender}{}\section{klassenkalender Klassenreferenz}
+\label{classklassenkalender}\index{klassenkalender@{klassenkalender}}
+Klassendiagramm für klassenkalender\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classklassenkalender}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classklassenkalender_a6875035fc1f29e41d3e98dbf295d97b0}{execute}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classklassenkalender_a617b8c34a9ac5ba541ec79a4b9881a20}\label{classklassenkalender_a617b8c34a9ac5ba541ec79a4b9881a20}} 
+static {\bfseries notify\+User\+Deleted} (\$user\+ID)
+\item 
+\mbox{\Hypertarget{classklassenkalender_a16cf8ab82815d25f2417a80f283c2a14}\label{classklassenkalender_a16cf8ab82815d25f2417a80f283c2a14}} 
+static {\bfseries has\+Settings} ()
+\item 
+static \mbox{\hyperlink{classklassenkalender_a37e40b207b67a98131fbcc95f928b2f9}{get\+Settings\+Description}} ()
+\item 
+\mbox{\Hypertarget{classklassenkalender_a5f460c193fdcb3985eb417b28c25e450}\label{classklassenkalender_a5f460c193fdcb3985eb417b28c25e450}} 
+static {\bfseries get\+Site\+Display\+Name} ()
+\item 
+static \mbox{\hyperlink{classklassenkalender_adc32be61b75209d170e29f990c104bcf}{get\+User\+Groups}} ()
+\item 
+\mbox{\Hypertarget{classklassenkalender_a8f413eba6744371f9f506a22c1612158}\label{classklassenkalender_a8f413eba6744371f9f506a22c1612158}} 
+static {\bfseries get\+Admin\+Group} ()
+\item 
+\mbox{\Hypertarget{classklassenkalender_a86fc6d13c8dbdf07eab443df713c46d8}\label{classklassenkalender_a86fc6d13c8dbdf07eab443df713c46d8}} 
+static {\bfseries has\+Admin} ()
+\item 
+\mbox{\Hypertarget{classklassenkalender_ac1b2181ce823363da0c24ac1e280eb35}\label{classklassenkalender_ac1b2181ce823363da0c24ac1e280eb35}} 
+static {\bfseries display\+Administration} (\$self\+U\+RL)
+\item 
+\mbox{\Hypertarget{classklassenkalender_a589883b60dceb9e52f705df4141d2ba0}\label{classklassenkalender_a589883b60dceb9e52f705df4141d2ba0}} 
+static {\bfseries get\+Admin\+Menu\+Group} ()
+\item 
+\mbox{\Hypertarget{classklassenkalender_a483b299ed3b2490985f1fdcb519028e8}\label{classklassenkalender_a483b299ed3b2490985f1fdcb519028e8}} 
+static {\bfseries get\+Admin\+Menu\+Group\+Icon} ()
+\item 
+\mbox{\Hypertarget{classklassenkalender_a4896a1f1ccf27d19538012efa1eac414}\label{classklassenkalender_a4896a1f1ccf27d19538012efa1eac414}} 
+static {\bfseries get\+Admin\+Menu\+Icon} ()
+\item 
+\mbox{\Hypertarget{classklassenkalender_ac744a502b42797b76208874f096a40ed}\label{classklassenkalender_ac744a502b42797b76208874f096a40ed}} 
+static {\bfseries get\+Action\+Schuljahreswechsel} ()
+\item 
+\mbox{\Hypertarget{classklassenkalender_a713d3619246dd97f46d7aa04420873b8}\label{classklassenkalender_a713d3619246dd97f46d7aa04420873b8}} 
+static {\bfseries do\+Schuljahreswechsel} (\$sql\+Date\+First\+School\+Day)
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 3 der Datei klassenkalender.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{classklassenkalender_a6875035fc1f29e41d3e98dbf295d97b0}\label{classklassenkalender_a6875035fc1f29e41d3e98dbf295d97b0}} 
+\index{klassenkalender@{klassenkalender}!execute@{execute}}
+\index{execute@{execute}!klassenkalender@{klassenkalender}}
+\subsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily klassenkalender\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\$f2 = \mbox{\hyperlink{class_d_b_a1f39c0489afad64328534850308fc9a9}{D\+B\+::get\+D\+B()}}-\/$>$query(\char`\"{}\+S\+E\+L\+E\+C\+T D\+I\+S\+T\+I\+N\+C\+T stunde\+Fach F\+R\+O\+M stundenplan\+\_\+stunden\char`\"{} . ((!\$this-\/$>$is\+Admin) ? (\char`\"{} W\+H\+E\+R\+E stundenplan\+I\+D=\textquotesingle{}\$current\+Stundenplan\+I\+D\textquotesingle{} A\+N\+D stunde\+Lehrer L\+I\+K\+E \textquotesingle{}\char`\"{} . \$lehrer . \char`\"{}\textquotesingle{}\char`\"{}) \+: (\char`\"{} W\+H\+E\+R\+E stundenplan\+I\+D=\textquotesingle{}\$current\+Stundenplan\+I\+D\textquotesingle{}\char`\"{})) . \char`\"{} O\+R\+D\+E\+R B\+Y stunde\+Fach\char`\"{});
+
+while(\$f = \mbox{\hyperlink{class_d_b_a1f39c0489afad64328534850308fc9a9}{D\+B\+::get\+D\+B()}}-\/$>$fetch\+\_\+array(\$f2)) \{ \$select\+My\+Subjects .= \char`\"{}$<$option value=\textbackslash{}\char`\"{}\char`\"{} . \$f\mbox{[}\textquotesingle{}stunde\+Fach\textquotesingle{}\mbox{]} . \char`\"{}"$>$\char`\"{} . \$f\mbox{[}\textquotesingle{}stunde\+Fach\textquotesingle{}\mbox{]} . \char`\"{}$<$/option$>$~\newline
+"; \} 
+
+Definiert in Zeile 60 der Datei klassenkalender.\+class.\+php.
+
+\mbox{\Hypertarget{classklassenkalender_a37e40b207b67a98131fbcc95f928b2f9}\label{classklassenkalender_a37e40b207b67a98131fbcc95f928b2f9}} 
+\index{klassenkalender@{klassenkalender}!get\+Settings\+Description@{get\+Settings\+Description}}
+\index{get\+Settings\+Description@{get\+Settings\+Description}!klassenkalender@{klassenkalender}}
+\subsubsection{\texorpdfstring{get\+Settings\+Description()}{getSettingsDescription()}}
+{\footnotesize\ttfamily static klassenkalender\+::get\+Settings\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Stellt eine Beschreibung der Einstellungen bereit, die für das Modul nötig sind. \begin{DoxyReturn}{Rückgabe}
+array(\+String, String) array( array( \textquotesingle{}name\textquotesingle{} =$>$ \char`\"{}\+Name der Einstellung (z.\+B. formblatt-\/is\+Active)\char`\"{}, \textquotesingle{}typ\textquotesingle{} =$>$ Z\+E\+I\+LE $\vert$ T\+E\+XT $\vert$ N\+U\+M\+M\+ER $\vert$ B\+O\+O\+L\+E\+AN, \textquotesingle{}titel\textquotesingle{} =$>$ \char`\"{}\+Titel der Beschreibung\char`\"{}, \textquotesingle{}text\textquotesingle{} =$>$ \char`\"{}\+Text der Beschreibung\char`\"{} ) , ) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1080 der Datei klassenkalender.\+class.\+php.
+
+\mbox{\Hypertarget{classklassenkalender_adc32be61b75209d170e29f990c104bcf}\label{classklassenkalender_adc32be61b75209d170e29f990c104bcf}} 
+\index{klassenkalender@{klassenkalender}!get\+User\+Groups@{get\+User\+Groups}}
+\index{get\+User\+Groups@{get\+User\+Groups}!klassenkalender@{klassenkalender}}
+\subsubsection{\texorpdfstring{get\+User\+Groups()}{getUserGroups()}}
+{\footnotesize\ttfamily static klassenkalender\+::get\+User\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Liest alle Nutzergruppen aus, die diese Seite verwendet. (Für die Benutzeradministration) \begin{DoxyReturn}{Rückgabe}
+array(array(\textquotesingle{}group\+Name\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{}, \textquotesingle{}beschreibung\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{})) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 1187 der Datei klassenkalender.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/page/kalender/klassenkalender.\+class.\+php\end{DoxyCompactItemize}

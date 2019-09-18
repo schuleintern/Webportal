@@ -1,0 +1,190 @@
+\hypertarget{class_message_folder}{}\section{Message\+Folder Klassenreferenz}
+\label{class_message_folder}\index{Message\+Folder@{Message\+Folder}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_message_folder_a2e2c9df9958ab08b6f45456d7a13073d}\label{class_message_folder_a2e2c9df9958ab08b6f45456d7a13073d}} 
+{\bfseries \+\_\+\+\_\+construct} (\$is\+Standard\+Folder, \$data, \$\mbox{\hyperlink{classuser}{user}}, \$folder)
+\item 
+\mbox{\Hypertarget{class_message_folder_a2b7cebebd9b77c777af887b8b796ae93}\label{class_message_folder_a2b7cebebd9b77c777af887b8b796ae93}} 
+{\bfseries get\+Name} ()
+\item 
+\mbox{\Hypertarget{class_message_folder_ad300fec41e5a25c7bad4f81d9bffaf59}\label{class_message_folder_ad300fec41e5a25c7bad4f81d9bffaf59}} 
+{\bfseries get\+ID} ()
+\item 
+\mbox{\hyperlink{class_message_folder_a8157f15aee7a7968f6ce4dd8c4901de5}{get\+User}} ()
+\item 
+\mbox{\Hypertarget{class_message_folder_a3ccdea86ab97317c9188733375716059}\label{class_message_folder_a3ccdea86ab97317c9188733375716059}} 
+{\bfseries get\+Folder\+S\+QL} ()
+\item 
+\mbox{\hyperlink{class_message_folder_ab287a9fb727864cdfc8364fac94b1f71}{get\+Messages}} (\$limit, \$offset)
+\item 
+\mbox{\Hypertarget{class_message_folder_a52b02a1f807585dc7dad048501172cdf}\label{class_message_folder_a52b02a1f807585dc7dad048501172cdf}} 
+{\bfseries get\+Messages\+Search} (\$search)
+\item 
+\mbox{\hyperlink{class_message_folder_ab7640b7d73b5037920efeadb25e5aa3a}{get\+Message\+Number}} ()
+\item 
+\mbox{\hyperlink{class_message_folder_a86065e5cc85eb0c995f79053bdfa122b}{get\+Unread\+Message\+Number}} ()
+\item 
+\mbox{\hyperlink{class_message_folder_a33202c1c3c693ab579c53fca35e69862}{delete\+Messages}} (\$message\+I\+Ds)
+\item 
+\mbox{\Hypertarget{class_message_folder_a359f449acf9e34a77814febbdfc1d54b}\label{class_message_folder_a359f449acf9e34a77814febbdfc1d54b}} 
+{\bfseries mark\+Read\+Status} (\$message\+I\+Ds, \$status)
+\item 
+\mbox{\hyperlink{class_message_folder_aae912619f4d1d5569c2eaf623c949ee2}{move\+Messages}} (\$message\+I\+Ds, \$folder)
+\item 
+\mbox{\Hypertarget{class_message_folder_ae378590d1d89df880e98a035e2834de4}\label{class_message_folder_ae378590d1d89df880e98a035e2834de4}} 
+{\bfseries delete} ()
+\item 
+\mbox{\Hypertarget{class_message_folder_af5ed0eed92777398ea63ef80a10c8dfe}\label{class_message_folder_af5ed0eed92777398ea63ef80a10c8dfe}} 
+{\bfseries is\+Own\+Folder} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_message_folder_a59eef48eb10e6fb6b004d8a82098b957}{get\+My\+Folders}} (\$\mbox{\hyperlink{classuser}{user}})
+\item 
+\mbox{\Hypertarget{class_message_folder_ac1a2f7efcb468a964599985c9eb80431}\label{class_message_folder_ac1a2f7efcb468a964599985c9eb80431}} 
+static {\bfseries create\+Folder} (\$name)
+\item 
+static \mbox{\hyperlink{class_message_folder_ac7969e79fb16a5a531e0caa99ceac307}{get\+Folder}} (\$\mbox{\hyperlink{classuser}{user}}, \$folder, \$folder\+ID)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 4 der Datei Message\+Folder.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_message_folder_a33202c1c3c693ab579c53fca35e69862}\label{class_message_folder_a33202c1c3c693ab579c53fca35e69862}} 
+\index{Message\+Folder@{Message\+Folder}!delete\+Messages@{delete\+Messages}}
+\index{delete\+Messages@{delete\+Messages}!Message\+Folder@{Message\+Folder}}
+\subsubsection{\texorpdfstring{delete\+Messages()}{deleteMessages()}}
+{\footnotesize\ttfamily Message\+Folder\+::delete\+Messages (\begin{DoxyParamCaption}\item[{}]{\$message\+I\+Ds }\end{DoxyParamCaption})}
+
+T\+O\+DO\+: Nachrichten mit Lesebestätigung nicht löschen lassen. 
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$message\+I\+Ds} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 84 der Datei Message\+Folder.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_folder_ac7969e79fb16a5a531e0caa99ceac307}\label{class_message_folder_ac7969e79fb16a5a531e0caa99ceac307}} 
+\index{Message\+Folder@{Message\+Folder}!get\+Folder@{get\+Folder}}
+\index{get\+Folder@{get\+Folder}!Message\+Folder@{Message\+Folder}}
+\subsubsection{\texorpdfstring{get\+Folder()}{getFolder()}}
+{\footnotesize\ttfamily static Message\+Folder\+::get\+Folder (\begin{DoxyParamCaption}\item[{}]{\$user,  }\item[{}]{\$folder,  }\item[{}]{\$folder\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+user & {\em \$user} & \\
+\hline
+String & {\em \$folder} & \\
+\hline
+int & {\em \$folder\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+N\+U\+L\+L$\vert$\+Message\+Folder 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 157 der Datei Message\+Folder.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_folder_ab7640b7d73b5037920efeadb25e5aa3a}\label{class_message_folder_ab7640b7d73b5037920efeadb25e5aa3a}} 
+\index{Message\+Folder@{Message\+Folder}!get\+Message\+Number@{get\+Message\+Number}}
+\index{get\+Message\+Number@{get\+Message\+Number}!Message\+Folder@{Message\+Folder}}
+\subsubsection{\texorpdfstring{get\+Message\+Number()}{getMessageNumber()}}
+{\footnotesize\ttfamily Message\+Folder\+::get\+Message\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Anzahl der Nachrichten im Ordner (total) \begin{DoxyReturn}{Rückgabe}
+number 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 68 der Datei Message\+Folder.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_folder_ab287a9fb727864cdfc8364fac94b1f71}\label{class_message_folder_ab287a9fb727864cdfc8364fac94b1f71}} 
+\index{Message\+Folder@{Message\+Folder}!get\+Messages@{get\+Messages}}
+\index{get\+Messages@{get\+Messages}!Message\+Folder@{Message\+Folder}}
+\subsubsection{\texorpdfstring{get\+Messages()}{getMessages()}}
+{\footnotesize\ttfamily Message\+Folder\+::get\+Messages (\begin{DoxyParamCaption}\item[{}]{\$limit,  }\item[{}]{\$offset }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_message}{Message}}\mbox{[}\mbox{]} Nachrichten im Verzeichnis 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 55 der Datei Message\+Folder.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_folder_a59eef48eb10e6fb6b004d8a82098b957}\label{class_message_folder_a59eef48eb10e6fb6b004d8a82098b957}} 
+\index{Message\+Folder@{Message\+Folder}!get\+My\+Folders@{get\+My\+Folders}}
+\index{get\+My\+Folders@{get\+My\+Folders}!Message\+Folder@{Message\+Folder}}
+\subsubsection{\texorpdfstring{get\+My\+Folders()}{getMyFolders()}}
+{\footnotesize\ttfamily static Message\+Folder\+::get\+My\+Folders (\begin{DoxyParamCaption}\item[{}]{\$user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+user & {\em \$user} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_message_folder}{Message\+Folder}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 131 der Datei Message\+Folder.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_folder_a86065e5cc85eb0c995f79053bdfa122b}\label{class_message_folder_a86065e5cc85eb0c995f79053bdfa122b}} 
+\index{Message\+Folder@{Message\+Folder}!get\+Unread\+Message\+Number@{get\+Unread\+Message\+Number}}
+\index{get\+Unread\+Message\+Number@{get\+Unread\+Message\+Number}!Message\+Folder@{Message\+Folder}}
+\subsubsection{\texorpdfstring{get\+Unread\+Message\+Number()}{getUnreadMessageNumber()}}
+{\footnotesize\ttfamily Message\+Folder\+::get\+Unread\+Message\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Anzahl der ungelesenden Nachrichten \begin{DoxyReturn}{Rückgabe}
+number 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 76 der Datei Message\+Folder.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_folder_a8157f15aee7a7968f6ce4dd8c4901de5}\label{class_message_folder_a8157f15aee7a7968f6ce4dd8c4901de5}} 
+\index{Message\+Folder@{Message\+Folder}!get\+User@{get\+User}}
+\index{get\+User@{get\+User}!Message\+Folder@{Message\+Folder}}
+\subsubsection{\texorpdfstring{get\+User()}{getUser()}}
+{\footnotesize\ttfamily Message\+Folder\+::get\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Rückgabe}
+N\+U\+L\+L$\vert$user 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 43 der Datei Message\+Folder.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_folder_aae912619f4d1d5569c2eaf623c949ee2}\label{class_message_folder_aae912619f4d1d5569c2eaf623c949ee2}} 
+\index{Message\+Folder@{Message\+Folder}!move\+Messages@{move\+Messages}}
+\index{move\+Messages@{move\+Messages}!Message\+Folder@{Message\+Folder}}
+\subsubsection{\texorpdfstring{move\+Messages()}{moveMessages()}}
+{\footnotesize\ttfamily Message\+Folder\+::move\+Messages (\begin{DoxyParamCaption}\item[{}]{\$message\+I\+Ds,  }\item[{}]{\$folder }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+ & {\em int\mbox{[}$\,$\mbox{]}} & \$message\+I\+Ds \\
+\hline
+\mbox{\hyperlink{class_message_folder}{Message\+Folder}} & {\em \$folder} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 110 der Datei Message\+Folder.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/messages/Message\+Folder.\+class.\+php\end{DoxyCompactItemize}

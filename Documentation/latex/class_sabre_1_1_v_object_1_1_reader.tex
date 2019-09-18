@@ -1,0 +1,146 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_reader}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Reader Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_reader}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Reader@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Reader}}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_reader_a0a88110e710521426ffa6e4493de627d}{read}} (\$data, \$options=0, \$charset=\textquotesingle{}U\+TF-\/8\textquotesingle{})
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_reader_a059a23a7322407b049144914267630b3}{read\+Json}} (\$data, \$options=0)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_reader_ac23b07f0e5dfc628302e0168de765b16}{read\+X\+ML}} (\$data, \$options=0)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_reader_a2588463d692eeb803101164828e708a7}{O\+P\+T\+I\+O\+N\+\_\+\+F\+O\+R\+G\+I\+V\+I\+NG}} = 1
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_reader_a385ec22924843a98e5cb0844fd9230f0}{O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+N\+ES}} = 2
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+i\+Calendar/v\+Card/j\+Cal/j\+Card/x\+Cal/x\+Card reader object.
+
+This object provides a few (static) convenience methods to quickly access the parsers.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 15 der Datei Reader.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_reader_a0a88110e710521426ffa6e4493de627d}\label{class_sabre_1_1_v_object_1_1_reader_a0a88110e710521426ffa6e4493de627d}} 
+\index{Sabre\+::\+V\+Object\+::\+Reader@{Sabre\+::\+V\+Object\+::\+Reader}!read@{read}}
+\index{read@{read}!Sabre\+::\+V\+Object\+::\+Reader@{Sabre\+::\+V\+Object\+::\+Reader}}
+\subsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Reader\+::read (\begin{DoxyParamCaption}\item[{}]{\$data,  }\item[{}]{\$options = {\ttfamily 0},  }\item[{}]{\$charset = {\ttfamily \textquotesingle{}UTF-\/8\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parses a v\+Card or i\+Calendar object, and returns the top component.
+
+The options argument is a bitfield. Pass any of the O\+P\+T\+I\+O\+NS constant to alter the parsers\textquotesingle{} behaviour.
+
+You can either supply a string, or a readable stream for input.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | resource & {\em \$data} & \\
+\hline
+int & {\em \$options} & \\
+\hline
+string & {\em \$charset} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document}{Document}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 42 der Datei Reader.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_reader_a059a23a7322407b049144914267630b3}\label{class_sabre_1_1_v_object_1_1_reader_a059a23a7322407b049144914267630b3}} 
+\index{Sabre\+::\+V\+Object\+::\+Reader@{Sabre\+::\+V\+Object\+::\+Reader}!read\+Json@{read\+Json}}
+\index{read\+Json@{read\+Json}!Sabre\+::\+V\+Object\+::\+Reader@{Sabre\+::\+V\+Object\+::\+Reader}}
+\subsubsection{\texorpdfstring{read\+Json()}{readJson()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Reader\+::read\+Json (\begin{DoxyParamCaption}\item[{}]{\$data,  }\item[{}]{\$options = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parses a j\+Card or j\+Cal object, and returns the top component.
+
+The options argument is a bitfield. Pass any of the O\+P\+T\+I\+O\+NS constant to alter the parsers\textquotesingle{} behaviour.
+
+You can either a string, a readable stream, or an array for it\textquotesingle{}s input. Specifying the array is useful if json\+\_\+decode was already called on the input.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | resource | array & {\em \$data} & \\
+\hline
+int & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document}{Document}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 67 der Datei Reader.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_reader_ac23b07f0e5dfc628302e0168de765b16}\label{class_sabre_1_1_v_object_1_1_reader_ac23b07f0e5dfc628302e0168de765b16}} 
+\index{Sabre\+::\+V\+Object\+::\+Reader@{Sabre\+::\+V\+Object\+::\+Reader}!read\+X\+ML@{read\+X\+ML}}
+\index{read\+X\+ML@{read\+X\+ML}!Sabre\+::\+V\+Object\+::\+Reader@{Sabre\+::\+V\+Object\+::\+Reader}}
+\subsubsection{\texorpdfstring{read\+X\+M\+L()}{readXML()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Reader\+::read\+X\+ML (\begin{DoxyParamCaption}\item[{}]{\$data,  }\item[{}]{\$options = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parses a x\+Card or x\+Cal object, and returns the top component.
+
+The options argument is a bitfield. Pass any of the O\+P\+T\+I\+O\+NS constant to alter the parsers\textquotesingle{} behaviour.
+
+You can either supply a string, or a readable stream for input.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | resource & {\em \$data} & \\
+\hline
+int & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document}{Document}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 89 der Datei Reader.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_reader_a2588463d692eeb803101164828e708a7}\label{class_sabre_1_1_v_object_1_1_reader_a2588463d692eeb803101164828e708a7}} 
+\index{Sabre\+::\+V\+Object\+::\+Reader@{Sabre\+::\+V\+Object\+::\+Reader}!O\+P\+T\+I\+O\+N\+\_\+\+F\+O\+R\+G\+I\+V\+I\+NG@{O\+P\+T\+I\+O\+N\+\_\+\+F\+O\+R\+G\+I\+V\+I\+NG}}
+\index{O\+P\+T\+I\+O\+N\+\_\+\+F\+O\+R\+G\+I\+V\+I\+NG@{O\+P\+T\+I\+O\+N\+\_\+\+F\+O\+R\+G\+I\+V\+I\+NG}!Sabre\+::\+V\+Object\+::\+Reader@{Sabre\+::\+V\+Object\+::\+Reader}}
+\subsubsection{\texorpdfstring{O\+P\+T\+I\+O\+N\+\_\+\+F\+O\+R\+G\+I\+V\+I\+NG}{OPTION\_FORGIVING}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Reader\+::\+O\+P\+T\+I\+O\+N\+\_\+\+F\+O\+R\+G\+I\+V\+I\+NG = 1}
+
+If this option is passed to the reader, it will be less strict about the validity of the lines. 
+
+Definiert in Zeile 21 der Datei Reader.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_reader_a385ec22924843a98e5cb0844fd9230f0}\label{class_sabre_1_1_v_object_1_1_reader_a385ec22924843a98e5cb0844fd9230f0}} 
+\index{Sabre\+::\+V\+Object\+::\+Reader@{Sabre\+::\+V\+Object\+::\+Reader}!O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+N\+ES@{O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+N\+ES}}
+\index{O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+N\+ES@{O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+N\+ES}!Sabre\+::\+V\+Object\+::\+Reader@{Sabre\+::\+V\+Object\+::\+Reader}}
+\subsubsection{\texorpdfstring{O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+N\+ES}{OPTION\_IGNORE\_INVALID\_LINES}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Reader\+::\+O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+N\+ES = 2}
+
+If this option is turned on, any lines we cannot parse will be ignored by the reader. 
+
+Definiert in Zeile 27 der Datei Reader.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/Reader.\+php\end{DoxyCompactItemize}

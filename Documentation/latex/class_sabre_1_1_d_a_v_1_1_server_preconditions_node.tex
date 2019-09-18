@@ -1,0 +1,99 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_server_preconditions_node}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Server\+Preconditions\+Node Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_server_preconditions_node}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Preconditions\+Node@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Preconditions\+Node}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Server\+Preconditions\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_sabre_1_1_d_a_v_1_1_server_preconditions_node}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_preconditions_node_a87cade6d2776963f690d121cbed1360d}{get\+E\+Tag}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_preconditions_node_a313a36fb41543920bfe25f44da6ccf8b}{get\+Last\+Modified}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_preconditions_node_a9ce3a4066f4fd316af509df2aea3ca69}{get\+Name}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 323 der Datei Server\+Precondition\+Test.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_preconditions_node_a87cade6d2776963f690d121cbed1360d}\label{class_sabre_1_1_d_a_v_1_1_server_preconditions_node_a87cade6d2776963f690d121cbed1360d}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node@{Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node}!get\+E\+Tag@{get\+E\+Tag}}
+\index{get\+E\+Tag@{get\+E\+Tag}!Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node@{Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node}}
+\subsubsection{\texorpdfstring{get\+E\+Tag()}{getETag()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Preconditions\+Node\+::get\+E\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the E\+Tag for a file
+
+An E\+Tag is a unique identifier representing the current version of the file. If the file changes, the E\+Tag M\+U\+ST change.
+
+Return null if the E\+Tag can not effectively be determined.
+
+The E\+Tag must be surrounded by double-\/quotes, so something like this would make a valid E\+Tag\+:
+
+return \textquotesingle{}\char`\"{}someetag\char`\"{}\textquotesingle{};
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_file_a2b207a6037dcbd4e7373b977dc60117f}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+File}}.
+
+
+
+Definiert in Zeile 325 der Datei Server\+Precondition\+Test.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_preconditions_node_a313a36fb41543920bfe25f44da6ccf8b}\label{class_sabre_1_1_d_a_v_1_1_server_preconditions_node_a313a36fb41543920bfe25f44da6ccf8b}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node@{Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node}!get\+Last\+Modified@{get\+Last\+Modified}}
+\index{get\+Last\+Modified@{get\+Last\+Modified}!Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node@{Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node}}
+\subsubsection{\texorpdfstring{get\+Last\+Modified()}{getLastModified()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Preconditions\+Node\+::get\+Last\+Modified (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the last modification time, as a unix timestamp. Return null if the information is not available.
+
+\begin{DoxyReturn}{Rückgabe}
+int$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a06335f81c7d4ec2c6d9e327c8ce61014}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 331 der Datei Server\+Precondition\+Test.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_preconditions_node_a9ce3a4066f4fd316af509df2aea3ca69}\label{class_sabre_1_1_d_a_v_1_1_server_preconditions_node_a9ce3a4066f4fd316af509df2aea3ca69}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node@{Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node@{Sabre\+::\+D\+A\+V\+::\+Server\+Preconditions\+Node}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Preconditions\+Node\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the name of the node.
+
+This is used to generate the url.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 338 der Datei Server\+Precondition\+Test.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+D\+A\+V/Server\+Precondition\+Test.\+php\end{DoxyCompactItemize}

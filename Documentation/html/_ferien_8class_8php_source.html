@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/data/Ferien.class.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_60121d3519f63e87d89e2258bedb299b.html">data</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Ferien.class.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php </div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_ferien.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ferien.html">Ferien</a> {</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> $ferien = array();</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    </div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_ferien.html#a872ea30510b7706d003efe33b77da591">   16</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_ferien.html#a872ea30510b7706d003efe33b77da591">isFerien</a>($sqlDate) {</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">sizeof</span>(self::$ferien) == 0) self::initFerien();</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        </div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">for</span>($i = 0; $i &lt; <span class="keyword">sizeof</span>(self::$ferien); $i++) {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">if</span>(</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <a class="code" href="class_date_functions.html#aabb363330f429af11853ac89cf98507b">DateFunctions::isSQLDateAtOrAfterAnother</a>($sqlDate, self::$ferien[$i][<span class="stringliteral">&#39;ferienStart&#39;</span>])</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                    &amp;&amp;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <a class="code" href="class_date_functions.html#a1beb9cf5f7b803048831b6b23aeb0749">DateFunctions::isSQLDateAtOrBeforeAnother</a>($sqlDate, self::$ferien[$i][<span class="stringliteral">&#39;ferienEnde&#39;</span>])</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            ) {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="keywordflow">return</span> self::$ferien[$i][<span class="stringliteral">&#39;ferienName&#39;</span>];</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            }</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        </div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> null;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">function</span> initFerien() {</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        $ferien = <a class="code" href="class_d_b.html#a1f39c0489afad64328534850308fc9a9">DB::getDB</a>()-&gt;query(<span class="stringliteral">&quot;SELECT * FROM kalender_ferien WHERE ferienSchuljahr=&#39;&quot;</span> . <a class="code" href="class_d_b.html#a30c984e1dee257f1b9d3b62cbae0ac41">DB::getSettings</a>()-&gt;getValue(<span class="stringliteral">&quot;general-schuljahr&quot;</span>) . <span class="stringliteral">&quot;&#39;&quot;</span>);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">while</span>($f = <a class="code" href="class_d_b.html#a1f39c0489afad64328534850308fc9a9">DB::getDB</a>()-&gt;fetch_array($ferien)) self::$ferien[] = $f;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> getBeforeShowForDatePicker() {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        $html = <span class="charliteral">&#39;,&#39;</span> . <span class="stringliteral">&quot;\r\n&quot;</span> . <span class="stringliteral">&#39;beforeShowDay: function (checkDate) {&#39;</span> . <span class="stringliteral">&quot;\r\n&quot;</span>;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        </div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">sizeof</span>(self::$ferien) == 0) self::initFerien();</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        </div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        $ferien = self::$ferien;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        </div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span>($i = 0; $i &lt; <span class="keyword">sizeof</span>($ferien); $i++) {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            $start = explode(<span class="stringliteral">&quot;-&quot;</span>,$ferien[$i][<span class="stringliteral">&#39;ferienStart&#39;</span>]);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            $ende = explode(<span class="stringliteral">&quot;-&quot;</span>,$ferien[$i][<span class="stringliteral">&#39;ferienEnde&#39;</span>]);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            </div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            $html .= <span class="stringliteral">&#39;var date&#39;</span> . $ferien[$i][<span class="stringliteral">&#39;ferienID&#39;</span>] . <span class="stringliteral">&#39;s = new Date(&#39;</span> . $start[0] . <span class="charliteral">&#39;,&#39;</span> . ($start[1]) . <span class="charliteral">&#39;,&#39;</span> . $start[2] . <span class="stringliteral">&#39;);&#39;</span> . <span class="stringliteral">&quot;\r\n&quot;</span>;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            $html .= <span class="stringliteral">&#39;var date&#39;</span> . $ferien[$i][<span class="stringliteral">&#39;ferienID&#39;</span>] . <span class="stringliteral">&#39;e = new Date(&#39;</span> . $ende[0] . <span class="charliteral">&#39;,&#39;</span> . ($ende[1]) . <span class="charliteral">&#39;,&#39;</span> . $ende[2] . <span class="stringliteral">&#39;);&#39;</span> . <span class="stringliteral">&quot;\r\n&quot;</span>;         </div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            $html .= <span class="stringliteral">&#39;if(checkDate &gt;= date&#39;</span> . $ferien[$i][<span class="stringliteral">&#39;ferienID&#39;</span>] . <span class="stringliteral">&#39;s &#39;</span>;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            $html .= <span class="stringliteral">&#39;&amp;&amp; checkDate &lt;= date&#39;</span> . $ferien[$i][<span class="stringliteral">&#39;ferienID&#39;</span>] . <span class="stringliteral">&#39;e ) {&#39;</span> . <span class="stringliteral">&quot;\r\n&quot;</span>;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            $html .= <span class="stringliteral">&quot;return [false, &#39;&#39;, &#39;&quot;</span> . $ferien[$i][<span class="stringliteral">&#39;ferienName&#39;</span>] . <span class="stringliteral">&quot;&#39;];\r\n}\r\n&quot;</span>;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        $html .= <span class="stringliteral">&quot;return [true, &#39;&#39;, &#39;&#39;];\r\n&quot;</span>;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        </div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        $html .= <span class="charliteral">&#39;}&#39;</span> . <span class="stringliteral">&quot;\r\n\r\n&quot;</span>;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> $html;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;?&gt;</div><div class="ttc" id="class_d_b_html_a30c984e1dee257f1b9d3b62cbae0ac41"><div class="ttname"><a href="class_d_b.html#a30c984e1dee257f1b9d3b62cbae0ac41">DB\getSettings</a></div><div class="ttdeci">static getSettings()</div><div class="ttdef"><b>Definition:</b> <a href="_d_b_8class_8php_source.html#l00069">DB.class.php:69</a></div></div>
+<div class="ttc" id="class_date_functions_html_a1beb9cf5f7b803048831b6b23aeb0749"><div class="ttname"><a href="class_date_functions.html#a1beb9cf5f7b803048831b6b23aeb0749">DateFunctions\isSQLDateAtOrBeforeAnother</a></div><div class="ttdeci">static isSQLDateAtOrBeforeAnother($date, $other)</div><div class="ttdef"><b>Definition:</b> <a href="_date_functions_8class_8php_source.html#l00165">DateFunctions.class.php:165</a></div></div>
+<div class="ttc" id="class_d_b_html_a1f39c0489afad64328534850308fc9a9"><div class="ttname"><a href="class_d_b.html#a1f39c0489afad64328534850308fc9a9">DB\getDB</a></div><div class="ttdeci">static getDB()</div><div class="ttdef"><b>Definition:</b> <a href="_d_b_8class_8php_source.html#l00043">DB.class.php:43</a></div></div>
+<div class="ttc" id="class_ferien_html_a872ea30510b7706d003efe33b77da591"><div class="ttname"><a href="class_ferien.html#a872ea30510b7706d003efe33b77da591">Ferien\isFerien</a></div><div class="ttdeci">static isFerien($sqlDate)</div><div class="ttdef"><b>Definition:</b> <a href="_ferien_8class_8php_source.html#l00016">Ferien.class.php:16</a></div></div>
+<div class="ttc" id="class_ferien_html"><div class="ttname"><a href="class_ferien.html">Ferien</a></div><div class="ttdef"><b>Definition:</b> <a href="_ferien_8class_8php_source.html#l00008">Ferien.class.php:8</a></div></div>
+<div class="ttc" id="class_date_functions_html_aabb363330f429af11853ac89cf98507b"><div class="ttname"><a href="class_date_functions.html#aabb363330f429af11853ac89cf98507b">DateFunctions\isSQLDateAtOrAfterAnother</a></div><div class="ttdeci">static isSQLDateAtOrAfterAnother($date, $other)</div><div class="ttdef"><b>Definition:</b> <a href="_date_functions_8class_8php_source.html#l00150">DateFunctions.class.php:150</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

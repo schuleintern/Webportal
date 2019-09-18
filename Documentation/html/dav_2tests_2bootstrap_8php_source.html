@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/tests/bootstrap.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_3b73ca86a190240609bd293492658134.html">tests</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">bootstrap.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;set_include_path(__DIR__ . <span class="stringliteral">&#39;/../lib/&#39;</span> . PATH_SEPARATOR . __DIR__ . PATH_SEPARATOR . get_include_path());</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;$autoLoader = include __DIR__ . <span class="stringliteral">&#39;/../vendor/autoload.php&#39;</span>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// SabreDAV tests auto loading</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;$autoLoader-&gt;add(<span class="stringliteral">&#39;Sabre\\&#39;</span>, __DIR__);</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// VObject tests auto loading</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;$autoLoader-&gt;addPsr4(<span class="stringliteral">&#39;Sabre\\VObject\\&#39;</span>, __DIR__ . <span class="stringliteral">&#39;/../vendor/sabre/vobject/tests/VObject&#39;</span>);</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;$autoLoader-&gt;addPsr4(<span class="stringliteral">&#39;Sabre\\Xml\\&#39;</span>, __DIR__ . <span class="stringliteral">&#39;/../vendor/sabre/xml/tests/Sabre/Xml&#39;</span>);</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;date_default_timezone_set(<span class="stringliteral">&#39;UTC&#39;</span>);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;$config = [</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="stringliteral">&#39;SABRE_TEMPDIR&#39;</span>   =&gt; dirname(__FILE__) . <span class="stringliteral">&#39;/temp/&#39;</span>,</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="stringliteral">&#39;SABRE_HASSQLITE&#39;</span> =&gt; in_array(<span class="stringliteral">&#39;sqlite&#39;</span>, PDO::getAvailableDrivers()),</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="stringliteral">&#39;SABRE_HASMYSQL&#39;</span>  =&gt; in_array(<span class="stringliteral">&#39;mysql&#39;</span>, PDO::getAvailableDrivers()),</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="stringliteral">&#39;SABRE_HASPGSQL&#39;</span>  =&gt; in_array(<span class="stringliteral">&#39;pgsql&#39;</span>, PDO::getAvailableDrivers()),</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="stringliteral">&#39;SABRE_MYSQLDSN&#39;</span>  =&gt; <span class="stringliteral">&#39;mysql:host=127.0.0.1;dbname=sabredav_test&#39;</span>,</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="stringliteral">&#39;SABRE_MYSQLUSER&#39;</span> =&gt; <span class="stringliteral">&#39;sabredav&#39;</span>,</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="stringliteral">&#39;SABRE_MYSQLPASS&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>,</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="stringliteral">&#39;SABRE_PGSQLDSN&#39;</span>  =&gt; <span class="stringliteral">&#39;pgsql:host=localhost;dbname=sabredav_test;user=sabredav;password=sabredav&#39;</span>,</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;];</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordflow">if</span> (file_exists(__DIR__ . <span class="stringliteral">&#39;/config.user.php&#39;</span>)) {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    include __DIR__ . <span class="stringliteral">&#39;/config.user.php&#39;</span>;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">foreach</span> ($userConfig as $key =&gt; $value) {</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        $config[$key] = $value;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordflow">foreach</span> ($config as $key =&gt; $value) {</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (!defined($key)) define($key, $value);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordflow">if</span> (!file_exists(SABRE_TEMPDIR)) mkdir(SABRE_TEMPDIR);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordflow">if</span> (file_exists(<span class="stringliteral">&#39;.sabredav&#39;</span>)) unlink(<span class="stringliteral">&#39;.sabredav&#39;</span>);</div></div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

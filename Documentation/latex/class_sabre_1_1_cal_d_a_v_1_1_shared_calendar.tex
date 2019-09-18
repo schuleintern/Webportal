@@ -1,0 +1,216 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Shared\+Calendar Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Shared\+Calendar\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.196079cm]{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a6a543caf4cf5c259d9a8de538fbd5e11}{get\+Share\+Access}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a0c3380bdb7a9c6e9f7c347477e7d0dd9}{get\+Share\+Resource\+Uri}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a6b8b622de08517a514d91581f95f09fa}{update\+Invites}} (array \$sharees)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_afb00675ab09e20eb1b1542c7b482119d}{get\+Invites}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_afb4a48cd8825815b3bca60b342fb3dec}{set\+Publish\+Status}} (\$value)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_acc8f8f7412ce13e3c6d59eeb5fa3db35}{get\+A\+CL}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a8cd7a4f9142e95e15052370c34a30cc7}{get\+Child\+A\+CL}} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+This object represents a Cal\+D\+AV calendar that is shared by a different user.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 14 der Datei Shared\+Calendar.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_acc8f8f7412ce13e3c6d59eeb5fa3db35}\label{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_acc8f8f7412ce13e3c6d59eeb5fa3db35}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}!get\+A\+CL@{get\+A\+CL}}
+\index{get\+A\+CL@{get\+A\+CL}!Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}}
+\subsubsection{\texorpdfstring{get\+A\+C\+L()}{getACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar\+::get\+A\+CL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of A\+CE\textquotesingle{}s for this node.
+
+Each A\+CE has the following properties\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}privilege\textquotesingle{}, a string such as \{D\+AV\+:\}read or \{D\+AV\+:\}write. These are currently the only supported privileges
+\item \textquotesingle{}principal\textquotesingle{}, a url to the principal who owns the node
+\item \textquotesingle{}protected\textquotesingle{} (optional), indicating that this A\+CE is not allowed to be updated.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8fe3b3a5b48eae789d7eb722b340045c}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 110 der Datei Shared\+Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a8cd7a4f9142e95e15052370c34a30cc7}\label{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a8cd7a4f9142e95e15052370c34a30cc7}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}!get\+Child\+A\+CL@{get\+Child\+A\+CL}}
+\index{get\+Child\+A\+CL@{get\+Child\+A\+CL}!Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Child\+A\+C\+L()}{getChildACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar\+::get\+Child\+A\+CL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method returns the A\+CL\textquotesingle{}s for calendar objects in this calendar. The result of this method automatically gets passed to the calendar-\/object nodes in the calendar.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 185 der Datei Shared\+Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_afb00675ab09e20eb1b1542c7b482119d}\label{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_afb00675ab09e20eb1b1542c7b482119d}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}!get\+Invites@{get\+Invites}}
+\index{get\+Invites@{get\+Invites}!Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Invites()}{getInvites()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar\+::get\+Invites (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of people whom this resource is shared with.
+
+Every item in the returned array must be a Sharee object with at least the following properties set\+:
+
+
+\begin{DoxyItemize}
+\item \$href
+\item \$share\+Access
+\item \$invite\+Status
+\end{DoxyItemize}
+
+and optionally\+:
+
+
+\begin{DoxyItemize}
+\item \$properties
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_aa4646ed6e564d50969a4117f0f03eecd}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node}}.
+
+
+
+Definiert in Zeile 77 der Datei Shared\+Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a6a543caf4cf5c259d9a8de538fbd5e11}\label{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a6a543caf4cf5c259d9a8de538fbd5e11}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}!get\+Share\+Access@{get\+Share\+Access}}
+\index{get\+Share\+Access@{get\+Share\+Access}!Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Share\+Access()}{getShareAccess()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar\+::get\+Share\+Access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the \textquotesingle{}access level\textquotesingle{} for the instance of this shared resource.
+
+The value should be one of the Sabre\+::\+A\+C\+C\+E\+S\+S\+\_\+ constants.
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a1c9b44f6acd1cd63b211bdf987b9d098}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node}}.
+
+
+
+Definiert in Zeile 24 der Datei Shared\+Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a0c3380bdb7a9c6e9f7c347477e7d0dd9}\label{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a0c3380bdb7a9c6e9f7c347477e7d0dd9}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}!get\+Share\+Resource\+Uri@{get\+Share\+Resource\+Uri}}
+\index{get\+Share\+Resource\+Uri@{get\+Share\+Resource\+Uri}!Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}}
+\subsubsection{\texorpdfstring{get\+Share\+Resource\+Uri()}{getShareResourceUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar\+::get\+Share\+Resource\+Uri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function must return a U\+RI that uniquely identifies the shared resource. This U\+RI should be identical across instances, and is also used in several other X\+ML bodies to connect invites to resources.
+
+This may simply be a relative reference to the original shared instance, but it could also be a urn. As long as it\textquotesingle{}s a valid U\+RI and unique.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a54b1073bfc389995c722566e18426902}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node}}.
+
+
+
+Definiert in Zeile 41 der Datei Shared\+Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_afb4a48cd8825815b3bca60b342fb3dec}\label{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_afb4a48cd8825815b3bca60b342fb3dec}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}!set\+Publish\+Status@{set\+Publish\+Status}}
+\index{set\+Publish\+Status@{set\+Publish\+Status}!Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}}
+\subsubsection{\texorpdfstring{set\+Publish\+Status()}{setPublishStatus()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar\+::set\+Publish\+Status (\begin{DoxyParamCaption}\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Marks this calendar as published.
+
+Publishing a calendar should automatically create a read-\/only, public, subscribable calendar.
+
+
+\begin{DoxyParams}[1]{Parameter}
+bool & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_i_shared_calendar_ae4570744db00653320964124880c8f93}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+I\+Shared\+Calendar}}.
+
+
+
+Definiert in Zeile 92 der Datei Shared\+Calendar.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a6b8b622de08517a514d91581f95f09fa}\label{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a6b8b622de08517a514d91581f95f09fa}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}!update\+Invites@{update\+Invites}}
+\index{update\+Invites@{update\+Invites}!Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar@{Sabre\+::\+Cal\+D\+A\+V\+::\+Shared\+Calendar}}
+\subsubsection{\texorpdfstring{update\+Invites()}{updateInvites()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Shared\+Calendar\+::update\+Invites (\begin{DoxyParamCaption}\item[{array}]{\$sharees }\end{DoxyParamCaption})}
+
+Updates the list of sharees.
+
+Every item must be a Sharee object.
+
+
+\begin{DoxyParams}{Parameter}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a76948a1464503ea23d3dd8ff51b561ce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sharing\textbackslash{}\+I\+Shared\+Node}}.
+
+
+
+Definiert in Zeile 55 der Datei Shared\+Calendar.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/Shared\+Calendar.\+php\end{DoxyCompactItemize}

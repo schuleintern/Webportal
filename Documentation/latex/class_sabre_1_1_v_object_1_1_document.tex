@@ -1,0 +1,317 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_document}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Document Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_document}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Document\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.372881cm]{class_sabre_1_1_v_object_1_1_document}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a3d735f6345e32ba5fac61f29fea4ed40}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a393de9a7021c76cc033b076e6420f5e3}{get\+Document\+Type}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_acbcbc5eab895f859204360f31b9e6b74}{create}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a2bcf38455c8396773dc0845075785e2d}{create\+Component}} (\$name, array \$\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_a93c24cb817d101bf72ff065f64f8f2fd}{children}}=null, \$defaults=true)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a5cf7fd018f6a8bef965083e2fb511db0}{create\+Property}} (\$name, \$value=null, array \$parameters=null, \$value\+Type=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a6c80f6f00bf876fc919a0eb87db534b4}{get\+Class\+Name\+For\+Property\+Value}} (\$value\+Param)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a163c8f27bc993c650e7c87867e8ebfcf}{get\+Class\+Name\+For\+Property\+Name}} (\$property\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a5e8fe2b5a5107495924f84e28793cf54}{U\+N\+K\+N\+O\+WN}} = 1
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_abcff078283beb9fb80f260288fb8db15}{V\+C\+A\+L\+E\+N\+D\+A\+R10}} = 2
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a92a69a1be5aa5b3a714c7840c2db1ccd}{I\+C\+A\+L\+E\+N\+D\+A\+R20}} = 3
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a9bf39e799fa7116f9b599085c76097c2}{V\+C\+A\+R\+D21}} = 4
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_a5103d6dcd6e9040808f2b30c1ccad9c1}{V\+C\+A\+R\+D30}} = 5
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document_afa0952010d5ee8ba17096eba3ade6751}{V\+C\+A\+R\+D40}} = 6
+\end{DoxyCompactItemize}
+\subsection*{Statische öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_af3cb86a17691cd526488bb1b32ec7c01}\label{class_sabre_1_1_v_object_1_1_document_af3cb86a17691cd526488bb1b32ec7c01}} 
+static {\bfseries \$default\+Name}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a41a11f42813a81769cfe285e4688a4b2}\label{class_sabre_1_1_v_object_1_1_document_a41a11f42813a81769cfe285e4688a4b2}} 
+static {\bfseries \$property\+Map} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a82ed6334035f6493903b75127e089083}\label{class_sabre_1_1_v_object_1_1_document_a82ed6334035f6493903b75127e089083}} 
+static {\bfseries \$component\+Map} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_ada70fe952041983b20110482f57fb34c}\label{class_sabre_1_1_v_object_1_1_document_ada70fe952041983b20110482f57fb34c}} 
+static {\bfseries \$value\+Map} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document}{Document}}.
+
+A document is just like a component, except that it\textquotesingle{}s also the top level element.
+
+Both a V\+C\+A\+L\+E\+N\+D\+AR and a V\+C\+A\+RD are considered documents.
+
+This class also provides a registry for document types.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 19 der Datei Document.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a3d735f6345e32ba5fac61f29fea4ed40}\label{class_sabre_1_1_v_object_1_1_document_a3d735f6345e32ba5fac61f29fea4ed40}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates a new document.
+
+We\textquotesingle{}re changing the default behavior slightly here. First, we don\textquotesingle{}t want to have to specify a name (we already know it), and we want to allow children to be specified in the first argument.
+
+But, the default behavior also works.
+
+So the two sigs\+:
+
+new \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document}{Document}}(array \$children = \mbox{[}\mbox{]}, \$defaults = true); new \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_document}{Document}}(string \$name, array \$children = \mbox{[}\mbox{]}, \$defaults = true)
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 97 der Datei Document.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_acbcbc5eab895f859204360f31b9e6b74}\label{class_sabre_1_1_v_object_1_1_document_acbcbc5eab895f859204360f31b9e6b74}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!create@{create}}
+\index{create@{create}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::create (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Creates a new component or property.
+
+If it\textquotesingle{}s a known component, we will automatically call create\+Component. otherwise, we\textquotesingle{}ll assume it\textquotesingle{}s a property and call create\+Property instead.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+string & {\em \$arg1,...} & Unlimited number of args\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 132 der Datei Document.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a2bcf38455c8396773dc0845075785e2d}\label{class_sabre_1_1_v_object_1_1_document_a2bcf38455c8396773dc0845075785e2d}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!create\+Component@{create\+Component}}
+\index{create\+Component@{create\+Component}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{create\+Component()}{createComponent()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::create\+Component (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{array}]{\$children = {\ttfamily null},  }\item[{}]{\$defaults = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Creates a new component.
+
+This method automatically searches for the correct component class, based on its name.
+
+You can specify the children either in key=$>$value syntax, in which case properties will automatically be created, or you can just pass a list of \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}} and \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}} object.
+
+By default, a set of sensible values will be added to the component. For an i\+Calendar object, this may be something like C\+A\+L\+S\+C\+A\+LE\+:G\+R\+E\+G\+O\+R\+I\+AN. To ensure that this does not happen, set \$defaults to false.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+array & {\em \$children} & \\
+\hline
+bool & {\em \$defaults} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 166 der Datei Document.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a5cf7fd018f6a8bef965083e2fb511db0}\label{class_sabre_1_1_v_object_1_1_document_a5cf7fd018f6a8bef965083e2fb511db0}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!create\+Property@{create\+Property}}
+\index{create\+Property@{create\+Property}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{create\+Property()}{createProperty()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::create\+Property (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$value = {\ttfamily null},  }\item[{array}]{\$parameters = {\ttfamily null},  }\item[{}]{\$value\+Type = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Factory method for creating new properties.
+
+This method automatically searches for the correct property class, based on its name.
+
+You can specify the parameters either in key=$>$value syntax, in which case parameters will automatically be created, or you can just pass a list of \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parameter}{Parameter}} objects.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+array & {\em \$parameters} & \\
+\hline
+string & {\em \$value\+Type} & Force a specific valuetype, such as U\+RI or T\+E\+XT\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{Property}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 196 der Datei Document.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a163c8f27bc993c650e7c87867e8ebfcf}\label{class_sabre_1_1_v_object_1_1_document_a163c8f27bc993c650e7c87867e8ebfcf}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!get\+Class\+Name\+For\+Property\+Name@{get\+Class\+Name\+For\+Property\+Name}}
+\index{get\+Class\+Name\+For\+Property\+Name@{get\+Class\+Name\+For\+Property\+Name}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{get\+Class\+Name\+For\+Property\+Name()}{getClassNameForPropertyName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::get\+Class\+Name\+For\+Property\+Name (\begin{DoxyParamCaption}\item[{}]{\$property\+Name }\end{DoxyParamCaption})}
+
+Returns the default class for a property name.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$property\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 260 der Datei Document.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a6c80f6f00bf876fc919a0eb87db534b4}\label{class_sabre_1_1_v_object_1_1_document_a6c80f6f00bf876fc919a0eb87db534b4}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!get\+Class\+Name\+For\+Property\+Value@{get\+Class\+Name\+For\+Property\+Value}}
+\index{get\+Class\+Name\+For\+Property\+Value@{get\+Class\+Name\+For\+Property\+Value}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{get\+Class\+Name\+For\+Property\+Value()}{getClassNameForPropertyValue()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::get\+Class\+Name\+For\+Property\+Value (\begin{DoxyParamCaption}\item[{}]{\$value\+Param }\end{DoxyParamCaption})}
+
+This method returns a full class-\/name for a value parameter.
+
+For instance, D\+T\+S\+T\+A\+RT may have V\+A\+L\+UE=D\+A\+TE. In that case we will look in our value\+Map table and return the appropriate class name.
+
+This method returns null if we don\textquotesingle{}t have a specialized class.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$value\+Param} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 244 der Datei Document.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a393de9a7021c76cc033b076e6420f5e3}\label{class_sabre_1_1_v_object_1_1_document_a393de9a7021c76cc033b076e6420f5e3}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!get\+Document\+Type@{get\+Document\+Type}}
+\index{get\+Document\+Type@{get\+Document\+Type}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{get\+Document\+Type()}{getDocumentType()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::get\+Document\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the current document type.
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 115 der Datei Document.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a92a69a1be5aa5b3a714c7840c2db1ccd}\label{class_sabre_1_1_v_object_1_1_document_a92a69a1be5aa5b3a714c7840c2db1ccd}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!I\+C\+A\+L\+E\+N\+D\+A\+R20@{I\+C\+A\+L\+E\+N\+D\+A\+R20}}
+\index{I\+C\+A\+L\+E\+N\+D\+A\+R20@{I\+C\+A\+L\+E\+N\+D\+A\+R20}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{I\+C\+A\+L\+E\+N\+D\+A\+R20}{ICALENDAR20}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::\+I\+C\+A\+L\+E\+N\+D\+A\+R20 = 3}
+
+i\+Calendar 2.\+0. 
+
+Definiert in Zeile 34 der Datei Document.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a5e8fe2b5a5107495924f84e28793cf54}\label{class_sabre_1_1_v_object_1_1_document_a5e8fe2b5a5107495924f84e28793cf54}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!U\+N\+K\+N\+O\+WN@{U\+N\+K\+N\+O\+WN}}
+\index{U\+N\+K\+N\+O\+WN@{U\+N\+K\+N\+O\+WN}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{U\+N\+K\+N\+O\+WN}{UNKNOWN}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::\+U\+N\+K\+N\+O\+WN = 1}
+
+Unknown document type. 
+
+Definiert in Zeile 24 der Datei Document.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_abcff078283beb9fb80f260288fb8db15}\label{class_sabre_1_1_v_object_1_1_document_abcff078283beb9fb80f260288fb8db15}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!V\+C\+A\+L\+E\+N\+D\+A\+R10@{V\+C\+A\+L\+E\+N\+D\+A\+R10}}
+\index{V\+C\+A\+L\+E\+N\+D\+A\+R10@{V\+C\+A\+L\+E\+N\+D\+A\+R10}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{V\+C\+A\+L\+E\+N\+D\+A\+R10}{VCALENDAR10}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::\+V\+C\+A\+L\+E\+N\+D\+A\+R10 = 2}
+
+v\+Calendar 1.\+0. 
+
+Definiert in Zeile 29 der Datei Document.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a9bf39e799fa7116f9b599085c76097c2}\label{class_sabre_1_1_v_object_1_1_document_a9bf39e799fa7116f9b599085c76097c2}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!V\+C\+A\+R\+D21@{V\+C\+A\+R\+D21}}
+\index{V\+C\+A\+R\+D21@{V\+C\+A\+R\+D21}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{V\+C\+A\+R\+D21}{VCARD21}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::\+V\+C\+A\+R\+D21 = 4}
+
+v\+Card 2.\+1. 
+
+Definiert in Zeile 39 der Datei Document.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_a5103d6dcd6e9040808f2b30c1ccad9c1}\label{class_sabre_1_1_v_object_1_1_document_a5103d6dcd6e9040808f2b30c1ccad9c1}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!V\+C\+A\+R\+D30@{V\+C\+A\+R\+D30}}
+\index{V\+C\+A\+R\+D30@{V\+C\+A\+R\+D30}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{V\+C\+A\+R\+D30}{VCARD30}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::\+V\+C\+A\+R\+D30 = 5}
+
+v\+Card 3.\+0. 
+
+Definiert in Zeile 44 der Datei Document.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_document_afa0952010d5ee8ba17096eba3ade6751}\label{class_sabre_1_1_v_object_1_1_document_afa0952010d5ee8ba17096eba3ade6751}} 
+\index{Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}!V\+C\+A\+R\+D40@{V\+C\+A\+R\+D40}}
+\index{V\+C\+A\+R\+D40@{V\+C\+A\+R\+D40}!Sabre\+::\+V\+Object\+::\+Document@{Sabre\+::\+V\+Object\+::\+Document}}
+\subsubsection{\texorpdfstring{V\+C\+A\+R\+D40}{VCARD40}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Document\+::\+V\+C\+A\+R\+D40 = 6}
+
+v\+Card 4.\+0. 
+
+Definiert in Zeile 49 der Datei Document.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/Document.\+php\end{DoxyCompactItemize}

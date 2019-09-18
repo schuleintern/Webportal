@@ -1,0 +1,149 @@
+\hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection}{}\section{Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}FS\textbackslash{}Home\+Collection Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection}\index{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+Home\+Collection@{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+Home\+Collection}}
+Klassendiagramm für Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}FS\textbackslash{}Home\+Collection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.621723cm]{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_a247ea82e5b929d9ec808b5c08ec284ca}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface}{Backend\+Interface}} \$principal\+Backend, \$storage\+Path, \$principal\+Prefix=\textquotesingle{}principals\textquotesingle{})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_aeecd8557ff4548558c0cbe1e2aca45bf}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_ac336410af0388b8642713396d6a98eb5}{get\+Child\+For\+Principal}} (array \$principal\+Info)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_a20aa5b9fe8e871143f0b616fd7bedfe5}{get\+A\+CL}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_ae400f4aab4047519000d797b5441366f}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_ae400f4aab4047519000d797b5441366f}} 
+{\bfseries \$collection\+Name} = \textquotesingle{}home\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_ac769e1dae4a826f4004fff5a397c38dc}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_ac769e1dae4a826f4004fff5a397c38dc}} 
+{\bfseries \$storage\+Path}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This collection contains a collection for every principal. It is similar to /home on many unix systems.
+
+The per-\/user collections can only be accessed by the user who owns the collection.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 22 der Datei Home\+Collection.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_a247ea82e5b929d9ec808b5c08ec284ca}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_a247ea82e5b929d9ec808b5c08ec284ca}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+Home\+Collection\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface}{Backend\+Interface}}}]{\$principal\+Backend,  }\item[{}]{\$storage\+Path,  }\item[{}]{\$principal\+Prefix = {\ttfamily \textquotesingle{}principals\textquotesingle{}} }\end{DoxyParamCaption})}
+
+Creates the home collection.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Backend\+Interface & {\em \$principal\+Backend} & \\
+\hline
+string & {\em \$storage\+Path} & Where the actual files are stored. \\
+\hline
+string & {\em \$principal\+Prefix} & list of principals to iterate. \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 47 der Datei Home\+Collection.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_a20aa5b9fe8e871143f0b616fd7bedfe5}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_a20aa5b9fe8e871143f0b616fd7bedfe5}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection}!get\+A\+CL@{get\+A\+CL}}
+\index{get\+A\+CL@{get\+A\+CL}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection}}
+\subsubsection{\texorpdfstring{get\+A\+C\+L()}{getACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+Home\+Collection\+::get\+A\+CL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of A\+CE\textquotesingle{}s for this node.
+
+Each A\+CE has the following properties\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}privilege\textquotesingle{}, a string such as \{D\+AV\+:\}read or \{D\+AV\+:\}write. These are currently the only supported privileges
+\item \textquotesingle{}principal\textquotesingle{}, a url to the principal who owns the node
+\item \textquotesingle{}protected\textquotesingle{} (optional), indicating that this A\+CE is not allowed to be updated.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8fe3b3a5b48eae789d7eb722b340045c}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 116 der Datei Home\+Collection.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_ac336410af0388b8642713396d6a98eb5}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_ac336410af0388b8642713396d6a98eb5}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection}!get\+Child\+For\+Principal@{get\+Child\+For\+Principal}}
+\index{get\+Child\+For\+Principal@{get\+Child\+For\+Principal}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection}}
+\subsubsection{\texorpdfstring{get\+Child\+For\+Principal()}{getChildForPrincipal()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+Home\+Collection\+::get\+Child\+For\+Principal (\begin{DoxyParamCaption}\item[{array}]{\$principal\+Info }\end{DoxyParamCaption})}
+
+Returns a principals\textquotesingle{} collection of files.
+
+The passed array contains principal information, and is guaranteed to at least contain a uri item. Other properties may or may not be supplied by the authentication backend.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$principal\+Info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile 77 der Datei Home\+Collection.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_aeecd8557ff4548558c0cbe1e2aca45bf}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_home_collection_aeecd8557ff4548558c0cbe1e2aca45bf}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+F\+S\+::\+Home\+Collection}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+Home\+Collection\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the name of the node.
+
+This is used to generate the url.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 61 der Datei Home\+Collection.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V\+A\+C\+L/\+F\+S/Home\+Collection.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,421 @@
+\hypertarget{class_z_ci_cal}{}\section{Z\+Ci\+Cal Klassenreferenz}
+\label{class_z_ci_cal}\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_z_ci_cal_a6ab69b77d026ec34e365254a2983dd2b}{Z\+Ci\+Cal}} (\$data=\char`\"{}\char`\"{}, \$maxevents=1000000, \$startevent=0)
+\item 
+\mbox{\hyperlink{class_z_ci_cal_a73b0dcc6ab0ad3cde8278043f086dce2}{count\+Events}} ()
+\item 
+\mbox{\hyperlink{class_z_ci_cal_a42cb8c07e556085f8851534b51131c31}{count\+Venues}} ()
+\item 
+\mbox{\hyperlink{class_z_ci_cal_acfb2970b97e2dd3cdba13ba5dc9a1514}{export}} ()
+\item 
+\& \mbox{\hyperlink{class_z_ci_cal_ae688f91daf6de26451b26b2fc6da0454}{get\+First\+Event}} ()
+\item 
+\& \mbox{\hyperlink{class_z_ci_cal_aa7e551ed399211dec2f63f4610e0ac1c}{get\+Next\+Event}} (\$event)
+\item 
+\& \mbox{\hyperlink{class_z_ci_cal_addfaf8b37c42f06213b22cdb2faceb67}{get\+First\+Venue}} ()
+\item 
+\& \mbox{\hyperlink{class_z_ci_cal_a39f53526421aa7122720bd5fae17b886}{get\+Next\+Venue}} (\$venue)
+\item 
+\& \mbox{\hyperlink{class_z_ci_cal_afda835926af9504bffa24baa201793cf}{get\+First\+Child}} (\& \$thisnode)
+\item 
+\& \mbox{\hyperlink{class_z_ci_cal_a58f91909ccb0ce0cd0252427945b0049}{get\+Next\+Sibling}} (\& \$thisnode)
+\item 
+\& \mbox{\hyperlink{class_z_ci_cal_a14d0d0b4ce2320b9fff1ecc5a6311867}{get\+Prev\+Sibling}} (\& \$thisnode)
+\item 
+\mbox{\hyperlink{class_z_ci_cal_ae50256ea2ae21dbfca3f22e92f78d753}{to\+Unix\+Date\+Time}} (\$datetime)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_z_ci_cal_a08385d87a6168835952fdc8e6118ee42}{from\+Unix\+Date\+Time}} (\$datetime=null)
+\item 
+static \mbox{\hyperlink{class_z_ci_cal_aeec969693d373f541b999e32d8b8f8c1}{from\+Unix\+Date}} (\$datetime=null)
+\item 
+static \mbox{\hyperlink{class_z_ci_cal_ad6053090c0bb9c5edc832790b33bee33}{from\+Sql\+Date\+Time}} (\$datetime=\char`\"{}\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_ci_cal_a14cab50872568db88b1d132a6dab73e6}{to\+Sql\+Date\+Time}} (\$datetime=\char`\"{}\char`\"{})
+\item 
+static \mbox{\hyperlink{class_z_ci_cal_a4d7326050f7f906a9c608176f6894904}{get\+T\+Z\+Values}} (\$node)
+\item 
+static \mbox{\hyperlink{class_z_ci_cal_acfd0acd8b506d8646a053d14b57bf35b}{format\+Content}} (\$content)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_z_ci_cal_a1c5737ed9cd91680ebd7a823509f55d2}\label{class_z_ci_cal_a1c5737ed9cd91680ebd7a823509f55d2}} 
+{\bfseries \$tree} =null
+\item 
+\mbox{\Hypertarget{class_z_ci_cal_ada7bfd258dc5abcdbdfc774c457093c8}\label{class_z_ci_cal_ada7bfd258dc5abcdbdfc774c457093c8}} 
+{\bfseries \$curnode} =null
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The main i\+Calendar object containing Z\+Ci\+Cal\+Data\+Nodes and Z\+Ci\+Cal\+Nodes. 
+
+Definiert in Zeile 418 der Datei ical.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_z_ci_cal_a73b0dcc6ab0ad3cde8278043f086dce2}\label{class_z_ci_cal_a73b0dcc6ab0ad3cde8278043f086dce2}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!count\+Events@{count\+Events}}
+\index{count\+Events@{count\+Events}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{count\+Events()}{countEvents()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+::count\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Count\+Events()
+
+Return the \# of V\+E\+V\+E\+N\+Ts in the object
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 609 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_a42cb8c07e556085f8851534b51131c31}\label{class_z_ci_cal_a42cb8c07e556085f8851534b51131c31}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!count\+Venues@{count\+Venues}}
+\index{count\+Venues@{count\+Venues}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{count\+Venues()}{countVenues()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+::count\+Venues (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Count\+Venues()
+
+Return the \# of V\+V\+E\+N\+U\+Es in the object
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 628 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_acfb2970b97e2dd3cdba13ba5dc9a1514}\label{class_z_ci_cal_acfb2970b97e2dd3cdba13ba5dc9a1514}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!export@{export}}
+\index{export@{export}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{export()}{export()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+::export (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Export object to string
+
+This function exports all objects to an i\+Calendar string
+
+\begin{DoxyReturn}{Rückgabe}
+string an i\+Calendar formatted string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 647 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_acfd0acd8b506d8646a053d14b57bf35b}\label{class_z_ci_cal_acfd0acd8b506d8646a053d14b57bf35b}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!format\+Content@{format\+Content}}
+\index{format\+Content@{format\+Content}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{format\+Content()}{formatContent()}}
+{\footnotesize\ttfamily static Z\+Ci\+Cal\+::format\+Content (\begin{DoxyParamCaption}\item[{}]{\$content }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Escape slashes, commas and semicolons in strings
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$content} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+escaped string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 915 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_ad6053090c0bb9c5edc832790b33bee33}\label{class_z_ci_cal_ad6053090c0bb9c5edc832790b33bee33}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!from\+Sql\+Date\+Time@{from\+Sql\+Date\+Time}}
+\index{from\+Sql\+Date\+Time@{from\+Sql\+Date\+Time}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{from\+Sql\+Date\+Time()}{fromSqlDateTime()}}
+{\footnotesize\ttfamily static Z\+Ci\+Cal\+::from\+Sql\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$datetime = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Format into i\+Cal time format from S\+QL date or S\+QL date-\/time format
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$datetime} & S\+QL date or S\+QL date-\/time string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string i\+Cal formatted string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 831 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_aeec969693d373f541b999e32d8b8f8c1}\label{class_z_ci_cal_aeec969693d373f541b999e32d8b8f8c1}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!from\+Unix\+Date@{from\+Unix\+Date}}
+\index{from\+Unix\+Date@{from\+Unix\+Date}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{from\+Unix\+Date()}{fromUnixDate()}}
+{\footnotesize\ttfamily static Z\+Ci\+Cal\+::from\+Unix\+Date (\begin{DoxyParamCaption}\item[{}]{\$datetime = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\hyperlink{class_z_ci_cal_aeec969693d373f541b999e32d8b8f8c1}{from\+Unix\+Date()}}
+
+Take Unix timestamp and format to i\+Cal date string
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$datetime} & Unix timestamp, leave blank for current date/time\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string formatted i\+Cal date string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 817 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_a08385d87a6168835952fdc8e6118ee42}\label{class_z_ci_cal_a08385d87a6168835952fdc8e6118ee42}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!from\+Unix\+Date\+Time@{from\+Unix\+Date\+Time}}
+\index{from\+Unix\+Date\+Time@{from\+Unix\+Date\+Time}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{from\+Unix\+Date\+Time()}{fromUnixDateTime()}}
+{\footnotesize\ttfamily static Z\+Ci\+Cal\+::from\+Unix\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$datetime = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\hyperlink{class_z_ci_cal_a08385d87a6168835952fdc8e6118ee42}{from\+Unix\+Date\+Time()}}
+
+Take Unix timestamp and format to i\+Cal date/time string
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$datetime} & Unix timestamp, leave blank for current date/time\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string formatted i\+Cal date/time string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 799 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_afda835926af9504bffa24baa201793cf}\label{class_z_ci_cal_afda835926af9504bffa24baa201793cf}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!get\+First\+Child@{get\+First\+Child}}
+\index{get\+First\+Child@{get\+First\+Child}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{get\+First\+Child()}{getFirstChild()}}
+{\footnotesize\ttfamily \& Z\+Ci\+Cal\+::get\+First\+Child (\begin{DoxyParamCaption}\item[{\&}]{\$thisnode }\end{DoxyParamCaption})}
+
+Get first child in object list Use \mbox{\hyperlink{class_z_ci_cal_a58f91909ccb0ce0cd0252427945b0049}{get\+Next\+Sibling()}} and get\+Previous\+Sibling() to navigate through list
+
+
+\begin{DoxyParams}[1]{Parameter}
+object & {\em \$thisnode} & The parent object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+object The child object 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 733 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_ae688f91daf6de26451b26b2fc6da0454}\label{class_z_ci_cal_ae688f91daf6de26451b26b2fc6da0454}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!get\+First\+Event@{get\+First\+Event}}
+\index{get\+First\+Event@{get\+First\+Event}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{get\+First\+Event()}{getFirstEvent()}}
+{\footnotesize\ttfamily \& Z\+Ci\+Cal\+::get\+First\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get first event in object list Use \mbox{\hyperlink{class_z_ci_cal_aa7e551ed399211dec2f63f4610e0ac1c}{get\+Next\+Event()}} to navigate through list
+
+\begin{DoxyReturn}{Rückgabe}
+object The first event, or null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 657 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_addfaf8b37c42f06213b22cdb2faceb67}\label{class_z_ci_cal_addfaf8b37c42f06213b22cdb2faceb67}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!get\+First\+Venue@{get\+First\+Venue}}
+\index{get\+First\+Venue@{get\+First\+Venue}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{get\+First\+Venue()}{getFirstVenue()}}
+{\footnotesize\ttfamily \& Z\+Ci\+Cal\+::get\+First\+Venue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get first venue in object list Use \mbox{\hyperlink{class_z_ci_cal_a39f53526421aa7122720bd5fae17b886}{get\+Next\+Venue()}} to navigate through list
+
+\begin{DoxyReturn}{Rückgabe}
+object The first venue, or null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 694 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_aa7e551ed399211dec2f63f4610e0ac1c}\label{class_z_ci_cal_aa7e551ed399211dec2f63f4610e0ac1c}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!get\+Next\+Event@{get\+Next\+Event}}
+\index{get\+Next\+Event@{get\+Next\+Event}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{get\+Next\+Event()}{getNextEvent()}}
+{\footnotesize\ttfamily \& Z\+Ci\+Cal\+::get\+Next\+Event (\begin{DoxyParamCaption}\item[{}]{\$event }\end{DoxyParamCaption})}
+
+Get next event in object list
+
+
+\begin{DoxyParams}[1]{Parameter}
+object & {\em \$event} & The current event object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+object Returns the next event or null if past last event 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 681 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_a58f91909ccb0ce0cd0252427945b0049}\label{class_z_ci_cal_a58f91909ccb0ce0cd0252427945b0049}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!get\+Next\+Sibling@{get\+Next\+Sibling}}
+\index{get\+Next\+Sibling@{get\+Next\+Sibling}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{get\+Next\+Sibling()}{getNextSibling()}}
+{\footnotesize\ttfamily \& Z\+Ci\+Cal\+::get\+Next\+Sibling (\begin{DoxyParamCaption}\item[{\&}]{\$thisnode }\end{DoxyParamCaption})}
+
+Get next sibling in object list
+
+
+\begin{DoxyParams}[1]{Parameter}
+object & {\em \$thisnode} & The current object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+object Returns the next sibling 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 750 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_a39f53526421aa7122720bd5fae17b886}\label{class_z_ci_cal_a39f53526421aa7122720bd5fae17b886}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!get\+Next\+Venue@{get\+Next\+Venue}}
+\index{get\+Next\+Venue@{get\+Next\+Venue}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{get\+Next\+Venue()}{getNextVenue()}}
+{\footnotesize\ttfamily \& Z\+Ci\+Cal\+::get\+Next\+Venue (\begin{DoxyParamCaption}\item[{}]{\$venue }\end{DoxyParamCaption})}
+
+Get next venue in object list
+
+
+\begin{DoxyParams}[1]{Parameter}
+object & {\em \$venue} & The current venue object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+object Returns the next venue or null if past last venue 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 718 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_a14d0d0b4ce2320b9fff1ecc5a6311867}\label{class_z_ci_cal_a14d0d0b4ce2320b9fff1ecc5a6311867}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!get\+Prev\+Sibling@{get\+Prev\+Sibling}}
+\index{get\+Prev\+Sibling@{get\+Prev\+Sibling}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{get\+Prev\+Sibling()}{getPrevSibling()}}
+{\footnotesize\ttfamily \& Z\+Ci\+Cal\+::get\+Prev\+Sibling (\begin{DoxyParamCaption}\item[{\&}]{\$thisnode }\end{DoxyParamCaption})}
+
+Get previous sibling in object list
+
+
+\begin{DoxyParams}[1]{Parameter}
+object & {\em \$thisnode} & The current object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+object Returns the previous sibling 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 761 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_a4d7326050f7f906a9c608176f6894904}\label{class_z_ci_cal_a4d7326050f7f906a9c608176f6894904}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!get\+T\+Z\+Values@{get\+T\+Z\+Values}}
+\index{get\+T\+Z\+Values@{get\+T\+Z\+Values}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{get\+T\+Z\+Values()}{getTZValues()}}
+{\footnotesize\ttfamily static Z\+Ci\+Cal\+::get\+T\+Z\+Values (\begin{DoxyParamCaption}\item[{}]{\$node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Pull timezone data from node and put in array
+
+Returning array contains the following array keys\+: tzoffsetfrom, tzoffsetto, tzname, dtstart, rrule
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$node} & timezone object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 867 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_a14cab50872568db88b1d132a6dab73e6}\label{class_z_ci_cal_a14cab50872568db88b1d132a6dab73e6}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!to\+Sql\+Date\+Time@{to\+Sql\+Date\+Time}}
+\index{to\+Sql\+Date\+Time@{to\+Sql\+Date\+Time}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{to\+Sql\+Date\+Time()}{toSqlDateTime()}}
+{\footnotesize\ttfamily static Z\+Ci\+Cal\+::to\+Sql\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$datetime = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Format i\+Cal time format to either S\+QL date or S\+QL date-\/time format
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$datetime} & icalendar formatted date or date-\/time\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string S\+QL date or S\+QL date-\/time string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 848 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_ae50256ea2ae21dbfca3f22e92f78d753}\label{class_z_ci_cal_ae50256ea2ae21dbfca3f22e92f78d753}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!to\+Unix\+Date\+Time@{to\+Unix\+Date\+Time}}
+\index{to\+Unix\+Date\+Time@{to\+Unix\+Date\+Time}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{to\+Unix\+Date\+Time()}{toUnixDateTime()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+::to\+Unix\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$datetime }\end{DoxyParamCaption})}
+
+Read date/time in i\+Cal formatted string
+
+
+\begin{DoxyParams}{Parameter}
+{\em string} & i\+Cal formated date/time string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int Unix timestamp 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 773 der Datei ical.\+php.
+
+\mbox{\Hypertarget{class_z_ci_cal_a6ab69b77d026ec34e365254a2983dd2b}\label{class_z_ci_cal_a6ab69b77d026ec34e365254a2983dd2b}} 
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\index{Z\+Ci\+Cal@{Z\+Ci\+Cal}!Z\+Ci\+Cal@{Z\+Ci\+Cal}}
+\subsubsection{\texorpdfstring{Z\+Ci\+Cal()}{ZCiCal()}}
+{\footnotesize\ttfamily Z\+Ci\+Cal\+::\+Z\+Ci\+Cal (\begin{DoxyParamCaption}\item[{}]{\$data = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{\$maxevents = {\ttfamily 1000000},  }\item[{}]{\$startevent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+The main i\+Calendar object containing Z\+Ci\+Cal\+Data\+Nodes and Z\+Ci\+Cal\+Nodes.
+
+use maxevents and startevent to read events in multiple passes (to save memory)
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$data} & icalendar feed string (empty if creating new feed)\\
+\hline
+int & {\em \$maxevents} & maximum \# of events to read\\
+\hline
+int & {\em \$startevent} & starting event to read\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 437 der Datei ical.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/ical/includes/ical.\+php\end{DoxyCompactItemize}

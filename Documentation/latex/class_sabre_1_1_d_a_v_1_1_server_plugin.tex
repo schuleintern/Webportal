@@ -1,0 +1,165 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_server_plugin}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Server\+Plugin Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_server_plugin}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Plugin@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Plugin}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Server\+Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_sabre_1_1_d_a_v_1_1_server_plugin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_aeb2fadb199224163c831cf5f04a1373e}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_a8681879236fa589ad92f0614682f28a7}{get\+Features}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_a1c68444d4e319cfd8f839380602fbbd3}{get\+H\+T\+T\+P\+Methods}} (\$path)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_a6699c5a1e4c8385d2eff910b7295ebaf}{get\+Plugin\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_af0a442be6b6758ebf8b05dbc4720137b}{get\+Supported\+Report\+Set}} (\$uri)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_ac1a279060733c3a19d4fd1aaab00d01c}{get\+Plugin\+Info}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The baseclass for all server plugins.
+
+Plugins can modify or extend the servers behaviour.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 14 der Datei Server\+Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_plugin_a8681879236fa589ad92f0614682f28a7}\label{class_sabre_1_1_d_a_v_1_1_server_plugin_a8681879236fa589ad92f0614682f28a7}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}!get\+Features@{get\+Features}}
+\index{get\+Features@{get\+Features}!Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Features()}{getFeatures()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Plugin\+::get\+Features (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method should return a list of server-\/features.
+
+This is for example \textquotesingle{}versioning\textquotesingle{} and is added to the D\+AV\+: header in an O\+P\+T\+I\+O\+NS response.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 37 der Datei Server\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_plugin_a1c68444d4e319cfd8f839380602fbbd3}\label{class_sabre_1_1_d_a_v_1_1_server_plugin_a1c68444d4e319cfd8f839380602fbbd3}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}!get\+H\+T\+T\+P\+Methods@{get\+H\+T\+T\+P\+Methods}}
+\index{get\+H\+T\+T\+P\+Methods@{get\+H\+T\+T\+P\+Methods}!Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}}
+\subsubsection{\texorpdfstring{get\+H\+T\+T\+P\+Methods()}{getHTTPMethods()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Plugin\+::get\+H\+T\+T\+P\+Methods (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+Use this method to tell the server this plugin defines additional H\+T\+TP methods.
+
+This method is passed a uri. It should only return H\+T\+TP methods that are available for the specified uri.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 53 der Datei Server\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_plugin_ac1a279060733c3a19d4fd1aaab00d01c}\label{class_sabre_1_1_d_a_v_1_1_server_plugin_ac1a279060733c3a19d4fd1aaab00d01c}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}!get\+Plugin\+Info@{get\+Plugin\+Info}}
+\index{get\+Plugin\+Info@{get\+Plugin\+Info}!Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Info()}{getPluginInfo()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Plugin\+::get\+Plugin\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a bunch of meta-\/data about the plugin.
+
+Providing this information is optional, and is mainly displayed by the Browser plugin.
+
+The description key in the returned array may contain html and will not be sanitized.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 100 der Datei Server\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_plugin_a6699c5a1e4c8385d2eff910b7295ebaf}\label{class_sabre_1_1_d_a_v_1_1_server_plugin_a6699c5a1e4c8385d2eff910b7295ebaf}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}!get\+Plugin\+Name@{get\+Plugin\+Name}}
+\index{get\+Plugin\+Name@{get\+Plugin\+Name}!Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Plugin\+Name()}{getPluginName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Plugin\+::get\+Plugin\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a plugin name.
+
+Using this name other plugins will be able to access other plugins using \+::get\+Plugin
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 67 der Datei Server\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_plugin_af0a442be6b6758ebf8b05dbc4720137b}\label{class_sabre_1_1_d_a_v_1_1_server_plugin_af0a442be6b6758ebf8b05dbc4720137b}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}!get\+Supported\+Report\+Set@{get\+Supported\+Report\+Set}}
+\index{get\+Supported\+Report\+Set@{get\+Supported\+Report\+Set}!Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Supported\+Report\+Set()}{getSupportedReportSet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Plugin\+::get\+Supported\+Report\+Set (\begin{DoxyParamCaption}\item[{}]{\$uri }\end{DoxyParamCaption})}
+
+Returns a list of reports this plugin supports.
+
+This will be used in the \{D\+AV\+:\}supported-\/report-\/set property. \mbox{\hyperlink{class_note}{Note}} that you still need to subscribe to the \textquotesingle{}report\textquotesingle{} event to actually implement them
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 83 der Datei Server\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_server_plugin_aeb2fadb199224163c831cf5f04a1373e}\label{class_sabre_1_1_d_a_v_1_1_server_plugin_aeb2fadb199224163c831cf5f04a1373e}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}!initialize@{initialize}}
+\index{initialize@{initialize}!Sabre\+::\+D\+A\+V\+::\+Server\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Server\+Plugin}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Server\+Plugin\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}}}]{\$server }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+This initializes the plugin.
+
+This function is called by Sabre, after add\+Plugin is called.
+
+This method should set up the required event subscriptions.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} & {\em \$server} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/Server\+Plugin.\+php\end{DoxyCompactItemize}

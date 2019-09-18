@@ -1,0 +1,125 @@
+\hypertarget{class_m_v_fach}{}\section{M\+V\+Fach Klassenreferenz}
+\label{class_m_v_fach}\index{M\+V\+Fach@{M\+V\+Fach}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_v_fach_a30bdeecec432ba8bb8af8dafe8d9a246}\label{class_m_v_fach_a30bdeecec432ba8bb8af8dafe8d9a246}} 
+{\bfseries \+\_\+\+\_\+construct} (\$mvs, \$unterricht, \$zeugnis\+ID)
+\item 
+\mbox{\hyperlink{class_m_v_fach_a104b7ee3fd0b05b84ad4ee6b698d2152}{get\+Note\+For\+Schueler}} (\$\mbox{\hyperlink{classschueler}{schueler}})
+\item 
+\mbox{\Hypertarget{class_m_v_fach_a03c606412196db62569d5eb8979f74fd}\label{class_m_v_fach_a03c606412196db62569d5eb8979f74fd}} 
+{\bfseries is\+All\+Set} ()
+\item 
+\mbox{\hyperlink{class_m_v_fach_ad2edfefedd671c3934ca2cd8485ed61c}{set\+Note\+For\+Schueler}} (\$\mbox{\hyperlink{classschueler}{schueler}}, \$m\+Note, \$v\+Note, \$kommentar)
+\item 
+\mbox{\hyperlink{class_m_v_fach_ae6a57013878e155f5aadd8ac66871c11}{get\+M\+Schnitt}} ()
+\item 
+\mbox{\hyperlink{class_m_v_fach_a288515118682a13a0f292db7b3522aed}{get\+V\+Schnitt}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_m_v_fach_a76838e23cc646aa6d0cd6cb69ecf0bb8}{get\+By\+Unterricht\+ID}} (\$unterricht, \$zeugnis\+ID)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Mitarbeit / Verhalten \begin{DoxyAuthor}{Autor}
+Christian 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 8 der Datei M\+V\+Fach.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_m_v_fach_a76838e23cc646aa6d0cd6cb69ecf0bb8}\label{class_m_v_fach_a76838e23cc646aa6d0cd6cb69ecf0bb8}} 
+\index{M\+V\+Fach@{M\+V\+Fach}!get\+By\+Unterricht\+ID@{get\+By\+Unterricht\+ID}}
+\index{get\+By\+Unterricht\+ID@{get\+By\+Unterricht\+ID}!M\+V\+Fach@{M\+V\+Fach}}
+\subsubsection{\texorpdfstring{get\+By\+Unterricht\+I\+D()}{getByUnterrichtID()}}
+{\footnotesize\ttfamily static M\+V\+Fach\+::get\+By\+Unterricht\+ID (\begin{DoxyParamCaption}\item[{}]{\$unterricht,  }\item[{}]{\$zeugnis\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_schueler_unterricht}{Schueler\+Unterricht}} & {\em \$unterricht} & \\
+\hline
+int & {\em \$zeugnis\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+M\+V\+Fach$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 124 der Datei M\+V\+Fach.\+class.\+php.
+
+\mbox{\Hypertarget{class_m_v_fach_ae6a57013878e155f5aadd8ac66871c11}\label{class_m_v_fach_ae6a57013878e155f5aadd8ac66871c11}} 
+\index{M\+V\+Fach@{M\+V\+Fach}!get\+M\+Schnitt@{get\+M\+Schnitt}}
+\index{get\+M\+Schnitt@{get\+M\+Schnitt}!M\+V\+Fach@{M\+V\+Fach}}
+\subsubsection{\texorpdfstring{get\+M\+Schnitt()}{getMSchnitt()}}
+{\footnotesize\ttfamily M\+V\+Fach\+::get\+M\+Schnitt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Klassenschnitt für Mitarbeit \begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 81 der Datei M\+V\+Fach.\+class.\+php.
+
+\mbox{\Hypertarget{class_m_v_fach_a104b7ee3fd0b05b84ad4ee6b698d2152}\label{class_m_v_fach_a104b7ee3fd0b05b84ad4ee6b698d2152}} 
+\index{M\+V\+Fach@{M\+V\+Fach}!get\+Note\+For\+Schueler@{get\+Note\+For\+Schueler}}
+\index{get\+Note\+For\+Schueler@{get\+Note\+For\+Schueler}!M\+V\+Fach@{M\+V\+Fach}}
+\subsubsection{\texorpdfstring{get\+Note\+For\+Schueler()}{getNoteForSchueler()}}
+{\footnotesize\ttfamily M\+V\+Fach\+::get\+Note\+For\+Schueler (\begin{DoxyParamCaption}\item[{}]{\$schueler }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+unknown & {\em \$schueler} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+M\+V$\vert$\+N\+U\+LL 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 39 der Datei M\+V\+Fach.\+class.\+php.
+
+\mbox{\Hypertarget{class_m_v_fach_a288515118682a13a0f292db7b3522aed}\label{class_m_v_fach_a288515118682a13a0f292db7b3522aed}} 
+\index{M\+V\+Fach@{M\+V\+Fach}!get\+V\+Schnitt@{get\+V\+Schnitt}}
+\index{get\+V\+Schnitt@{get\+V\+Schnitt}!M\+V\+Fach@{M\+V\+Fach}}
+\subsubsection{\texorpdfstring{get\+V\+Schnitt()}{getVSchnitt()}}
+{\footnotesize\ttfamily M\+V\+Fach\+::get\+V\+Schnitt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Klassenschnitt für Verhalten \begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 101 der Datei M\+V\+Fach.\+class.\+php.
+
+\mbox{\Hypertarget{class_m_v_fach_ad2edfefedd671c3934ca2cd8485ed61c}\label{class_m_v_fach_ad2edfefedd671c3934ca2cd8485ed61c}} 
+\index{M\+V\+Fach@{M\+V\+Fach}!set\+Note\+For\+Schueler@{set\+Note\+For\+Schueler}}
+\index{set\+Note\+For\+Schueler@{set\+Note\+For\+Schueler}!M\+V\+Fach@{M\+V\+Fach}}
+\subsubsection{\texorpdfstring{set\+Note\+For\+Schueler()}{setNoteForSchueler()}}
+{\footnotesize\ttfamily M\+V\+Fach\+::set\+Note\+For\+Schueler (\begin{DoxyParamCaption}\item[{}]{\$schueler,  }\item[{}]{\$m\+Note,  }\item[{}]{\$v\+Note,  }\item[{}]{\$kommentar }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+schueler & {\em \$schueler} & \\
+\hline
+int & {\em \$m\+Note} & \\
+\hline
+int & {\em \$v\+Note} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 63 der Datei M\+V\+Fach.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/noten/M\+V\+Fach.\+class.\+php\end{DoxyCompactItemize}

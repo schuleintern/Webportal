@@ -1,0 +1,205 @@
+\hypertarget{class_message_recipient}{}\section{Message\+Recipient Klassenreferenz}
+\label{class_message_recipient}\index{Message\+Recipient@{Message\+Recipient}}
+Klassendiagramm für Message\+Recipient\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_message_recipient}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_message_recipient_abe2dbb08ba4dda9c79c574dd44ee553e}\label{class_message_recipient_abe2dbb08ba4dda9c79c574dd44ee553e}} 
+{\bfseries \+\_\+\+\_\+construct} (\$message\+I\+Ds=\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{class_message_recipient_a065ec30c3693ce595b8b1cd2a729ea68}{get\+Display\+Name}} ()
+\item 
+\mbox{\hyperlink{class_message_recipient_abe6c45dd132b1182089eb936f8034d02}{get\+Save\+String}} ()
+\item 
+\mbox{\hyperlink{class_message_recipient_a4e2b6cab31e815a8e894ae5a860887a0}{get\+Recipient\+User\+I\+Ds}} ()
+\item 
+\mbox{\hyperlink{class_message_recipient_a6222eaf2087b16cd705a811998bea076}{get\+Missing\+Names}} ()
+\item 
+\mbox{\Hypertarget{class_message_recipient_aa875e7aa4b16c512b97ee816ba8cbaa6}\label{class_message_recipient_aa875e7aa4b16c512b97ee816ba8cbaa6}} 
+{\bfseries is\+Sent} ()
+\item 
+\mbox{\hyperlink{class_message_recipient_a68aea67ca0874a045bdfbcfc5a62ffb1}{get\+Sent\+Messages\+With\+This\+Recipient}} ()
+\item 
+\mbox{\hyperlink{class_message_recipient_a02af7aa2d9bedac2cc7911ae886c6eb6}{get\+Sent\+Info\+Table}} (\$main\+Message)
+\item 
+\mbox{\hyperlink{class_message_recipient_a1762af3cbc0d04dd81eae942f8fc0172}{get\+Percent\+Confirmed}} ()
+\item 
+\mbox{\hyperlink{class_message_recipient_ac9dce37505bc22950687cc62f28e69cb}{get\+Total\+Count\+Sent\+Messages}} ()
+\item 
+\mbox{\hyperlink{class_message_recipient_a817d8fbe382a7cde13468f380a29fa07}{get\+Total\+Count\+Sent\+Confirmed\+Messages}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_message_recipient_a97bf719f14b23c67217a57bc448ac782}{get\+All\+Instances}} ()
+\item 
+static \mbox{\hyperlink{class_message_recipient_ad2319ccbb714795150888063e729f728}{is\+Save\+String\+Recipient\+For\+This\+Recipient\+Group}} (\$save\+String)
+\item 
+static \mbox{\hyperlink{class_message_recipient_a60a3f2e316b8469fd5a0a85f1090bce1}{get\+Instance\+For\+Save\+String}} (\$save\+String)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_message_recipient_a6bb3d5c13a5b2a111912aa05f6c1a4fa}\label{class_message_recipient_a6bb3d5c13a5b2a111912aa05f6c1a4fa}} 
+{\bfseries \$is\+Sent\+Recipient} = false
+\item 
+\mbox{\Hypertarget{class_message_recipient_a32fdb5e6b3a0bc73934adc0dccf42b60}\label{class_message_recipient_a32fdb5e6b3a0bc73934adc0dccf42b60}} 
+{\bfseries \$messages} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 3 der Datei Message\+Recipient.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_message_recipient_a97bf719f14b23c67217a57bc448ac782}\label{class_message_recipient_a97bf719f14b23c67217a57bc448ac782}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+All\+Instances@{get\+All\+Instances}}
+\index{get\+All\+Instances@{get\+All\+Instances}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+All\+Instances()}{getAllInstances()}}
+{\footnotesize\ttfamily static Message\+Recipient\+::get\+All\+Instances (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [abstract]}}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_message_recipient}{Message\+Recipient}}\mbox{[}\mbox{]} alle Möglichen Objekte der Empfängerliste, für die der Benutzer Zugriff hat. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_message_recipient_a065ec30c3693ce595b8b1cd2a729ea68}\label{class_message_recipient_a065ec30c3693ce595b8b1cd2a729ea68}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+Display\+Name@{get\+Display\+Name}}
+\index{get\+Display\+Name@{get\+Display\+Name}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+Display\+Name()}{getDisplayName()}}
+{\footnotesize\ttfamily Message\+Recipient\+::get\+Display\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+\begin{DoxyReturn}{Rückgabe}
+String Anzeigename für Empfänger 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_message_recipient_a60a3f2e316b8469fd5a0a85f1090bce1}\label{class_message_recipient_a60a3f2e316b8469fd5a0a85f1090bce1}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+Instance\+For\+Save\+String@{get\+Instance\+For\+Save\+String}}
+\index{get\+Instance\+For\+Save\+String@{get\+Instance\+For\+Save\+String}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+Instance\+For\+Save\+String()}{getInstanceForSaveString()}}
+{\footnotesize\ttfamily static Message\+Recipient\+::get\+Instance\+For\+Save\+String (\begin{DoxyParamCaption}\item[{}]{\$save\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [abstract]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$save\+String} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_message_recipient}{Message\+Recipient}} Empfängerobjekt 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_message_recipient_a6222eaf2087b16cd705a811998bea076}\label{class_message_recipient_a6222eaf2087b16cd705a811998bea076}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+Missing\+Names@{get\+Missing\+Names}}
+\index{get\+Missing\+Names@{get\+Missing\+Names}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+Missing\+Names()}{getMissingNames()}}
+{\footnotesize\ttfamily Message\+Recipient\+::get\+Missing\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+\begin{DoxyReturn}{Rückgabe}
+String\mbox{[}\mbox{]} Liste der nicht elektronisch erreichbaren Empfänger (nicht in \mbox{\hyperlink{class_message_recipient_a4e2b6cab31e815a8e894ae5a860887a0}{get\+Recipient\+User\+I\+Ds()}} enthalten.) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_message_recipient_a1762af3cbc0d04dd81eae942f8fc0172}\label{class_message_recipient_a1762af3cbc0d04dd81eae942f8fc0172}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+Percent\+Confirmed@{get\+Percent\+Confirmed}}
+\index{get\+Percent\+Confirmed@{get\+Percent\+Confirmed}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+Percent\+Confirmed()}{getPercentConfirmed()}}
+{\footnotesize\ttfamily Message\+Recipient\+::get\+Percent\+Confirmed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ermittelt die Prozentzahl der bestätigten Nachrichten. \begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 186 der Datei Message\+Recipient.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_recipient_a4e2b6cab31e815a8e894ae5a860887a0}\label{class_message_recipient_a4e2b6cab31e815a8e894ae5a860887a0}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+Recipient\+User\+I\+Ds@{get\+Recipient\+User\+I\+Ds}}
+\index{get\+Recipient\+User\+I\+Ds@{get\+Recipient\+User\+I\+Ds}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+Recipient\+User\+I\+Ds()}{getRecipientUserIDs()}}
+{\footnotesize\ttfamily Message\+Recipient\+::get\+Recipient\+User\+I\+Ds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+\begin{DoxyReturn}{Rückgabe}
+int\mbox{[}\mbox{]} User\+I\+Ds für den Empfang 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_message_recipient_abe6c45dd132b1182089eb936f8034d02}\label{class_message_recipient_abe6c45dd132b1182089eb936f8034d02}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+Save\+String@{get\+Save\+String}}
+\index{get\+Save\+String@{get\+Save\+String}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+Save\+String()}{getSaveString()}}
+{\footnotesize\ttfamily Message\+Recipient\+::get\+Save\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+\begin{DoxyReturn}{Rückgabe}
+String Speicher-\/\+String für Empfänger 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_message_recipient_a02af7aa2d9bedac2cc7911ae886c6eb6}\label{class_message_recipient_a02af7aa2d9bedac2cc7911ae886c6eb6}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+Sent\+Info\+Table@{get\+Sent\+Info\+Table}}
+\index{get\+Sent\+Info\+Table@{get\+Sent\+Info\+Table}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+Sent\+Info\+Table()}{getSentInfoTable()}}
+{\footnotesize\ttfamily Message\+Recipient\+::get\+Sent\+Info\+Table (\begin{DoxyParamCaption}\item[{}]{\$main\+Message }\end{DoxyParamCaption})}
+
+Gibt die Tabelle mit den gesendeten Nachrichten zur Info aus. 
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_message}{Message}} & {\em \$main\+Message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 92 der Datei Message\+Recipient.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_recipient_a68aea67ca0874a045bdfbcfc5a62ffb1}\label{class_message_recipient_a68aea67ca0874a045bdfbcfc5a62ffb1}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+Sent\+Messages\+With\+This\+Recipient@{get\+Sent\+Messages\+With\+This\+Recipient}}
+\index{get\+Sent\+Messages\+With\+This\+Recipient@{get\+Sent\+Messages\+With\+This\+Recipient}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+Sent\+Messages\+With\+This\+Recipient()}{getSentMessagesWithThisRecipient()}}
+{\footnotesize\ttfamily Message\+Recipient\+::get\+Sent\+Messages\+With\+This\+Recipient (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gibt alle Nachrichten zurück, die mit diesem Empfänger (muss ein Empfangsempfänger sein) gesendet wurden. \begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_message}{Message}}\mbox{[}\mbox{]} Nachrichten 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 84 der Datei Message\+Recipient.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_recipient_a817d8fbe382a7cde13468f380a29fa07}\label{class_message_recipient_a817d8fbe382a7cde13468f380a29fa07}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+Total\+Count\+Sent\+Confirmed\+Messages@{get\+Total\+Count\+Sent\+Confirmed\+Messages}}
+\index{get\+Total\+Count\+Sent\+Confirmed\+Messages@{get\+Total\+Count\+Sent\+Confirmed\+Messages}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+Total\+Count\+Sent\+Confirmed\+Messages()}{getTotalCountSentConfirmedMessages()}}
+{\footnotesize\ttfamily Message\+Recipient\+::get\+Total\+Count\+Sent\+Confirmed\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ermittelt die Anzahl der gesendeten Nachrichten. \begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 214 der Datei Message\+Recipient.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_recipient_ac9dce37505bc22950687cc62f28e69cb}\label{class_message_recipient_ac9dce37505bc22950687cc62f28e69cb}} 
+\index{Message\+Recipient@{Message\+Recipient}!get\+Total\+Count\+Sent\+Messages@{get\+Total\+Count\+Sent\+Messages}}
+\index{get\+Total\+Count\+Sent\+Messages@{get\+Total\+Count\+Sent\+Messages}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{get\+Total\+Count\+Sent\+Messages()}{getTotalCountSentMessages()}}
+{\footnotesize\ttfamily Message\+Recipient\+::get\+Total\+Count\+Sent\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ermittelt die Anzahl der gesendeten Nachrichten. \begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 206 der Datei Message\+Recipient.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_recipient_ad2319ccbb714795150888063e729f728}\label{class_message_recipient_ad2319ccbb714795150888063e729f728}} 
+\index{Message\+Recipient@{Message\+Recipient}!is\+Save\+String\+Recipient\+For\+This\+Recipient\+Group@{is\+Save\+String\+Recipient\+For\+This\+Recipient\+Group}}
+\index{is\+Save\+String\+Recipient\+For\+This\+Recipient\+Group@{is\+Save\+String\+Recipient\+For\+This\+Recipient\+Group}!Message\+Recipient@{Message\+Recipient}}
+\subsubsection{\texorpdfstring{is\+Save\+String\+Recipient\+For\+This\+Recipient\+Group()}{isSaveStringRecipientForThisRecipientGroup()}}
+{\footnotesize\ttfamily static Message\+Recipient\+::is\+Save\+String\+Recipient\+For\+This\+Recipient\+Group (\begin{DoxyParamCaption}\item[{}]{\$save\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [abstract]}}
+
+Überprüft, ob der angegebene Speicherstring Teil der Empfängergrupppe ist 
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$save\+String} & \\
+\hline
+\end{DoxyParams}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/messages/recipients/Message\+Recipient.\+class.\+php\end{DoxyCompactItemize}

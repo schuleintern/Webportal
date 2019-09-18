@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/data/termine/Termin.class.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_60121d3519f63e87d89e2258bedb299b.html">data</a></li><li class="navelem"><a class="el" href="dir_6ba2e7a04ed04846b0e70fc8c6e0ec52.html">termine</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Termin.class.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="interface_termin.html">    8</a></span>&#160;<span class="keyword">interface </span><a class="code" href="interface_termin.html">Termin</a> {</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a2fca19815ee61713254ac18782205feb">getTitle</a>();</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    </div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a9ed1a03f1247bfa10a8e56f5fd8634cd">getStartDate</a>();</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#afa0a9c0bb04251fde3dcd65e45ebec18">getEndDate</a>();</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#aeea92d8a1dccea73510e4c4b71a828c7">getLocation</a>();</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#aa603cfdfcdc2f480324d94adc2e846f5">isWholeDay</a>();</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a50c2f45c4958f1bb77c1606d5f7a0323">getStunden</a>();</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a6421df2bc4f4e75c3b451e71ce104780">getStartTime</a>();</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a2c967074ee189a6e1fcf0a40cb71a4a4">getEndTime</a>();</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a3ee9c6ae1bcd6424f57abaac24b7341b">isMultiDay</a>();</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#ae3de2ba7c4262d588bb9190f51456c38">getAllAtDate</a>($date);</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#ab8fc2d7a5e328d9dbab94f469e6d23e5">getAllBetweenDays</a>($date1, $date2);</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    </div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a5e994b8b00058d167d82514053de3c88">isLeistungsnachweis</a>();</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    </div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#aab8e358f66111c5075f20bd0938497f5">isKlassentermin</a>();</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    </div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a120ec73226cde99fbd20fbf8c2162604">isElterntermin</a>();</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#ab40fb4c2e09479bfe5749243f59246c1">isLehrertermin</a>();</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    </div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a158a3cb7853407a73722ea80b5ef3e55">publishToHomepage</a>();</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    </div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a3c724598a080bd6ed8a997474ed32cdc">getCreatorName</a>();</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    </div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="interface_termin.html#a14c16fb57c12e605e3eabefd640c7b71">getCreationTime</a>();</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div><div class="ttc" id="interface_termin_html"><div class="ttname"><a href="interface_termin.html">Termin</a></div><div class="ttdef"><b>Definition:</b> <a href="_termin_8class_8php_source.html#l00008">Termin.class.php:8</a></div></div>
+<div class="ttc" id="interface_termin_html_aab8e358f66111c5075f20bd0938497f5"><div class="ttname"><a href="interface_termin.html#aab8e358f66111c5075f20bd0938497f5">Termin\isKlassentermin</a></div><div class="ttdeci">isKlassentermin()</div></div>
+<div class="ttc" id="interface_termin_html_a6421df2bc4f4e75c3b451e71ce104780"><div class="ttname"><a href="interface_termin.html#a6421df2bc4f4e75c3b451e71ce104780">Termin\getStartTime</a></div><div class="ttdeci">getStartTime()</div></div>
+<div class="ttc" id="interface_termin_html_a50c2f45c4958f1bb77c1606d5f7a0323"><div class="ttname"><a href="interface_termin.html#a50c2f45c4958f1bb77c1606d5f7a0323">Termin\getStunden</a></div><div class="ttdeci">getStunden()</div></div>
+<div class="ttc" id="interface_termin_html_ab40fb4c2e09479bfe5749243f59246c1"><div class="ttname"><a href="interface_termin.html#ab40fb4c2e09479bfe5749243f59246c1">Termin\isLehrertermin</a></div><div class="ttdeci">isLehrertermin()</div></div>
+<div class="ttc" id="interface_termin_html_a2c967074ee189a6e1fcf0a40cb71a4a4"><div class="ttname"><a href="interface_termin.html#a2c967074ee189a6e1fcf0a40cb71a4a4">Termin\getEndTime</a></div><div class="ttdeci">getEndTime()</div></div>
+<div class="ttc" id="interface_termin_html_a158a3cb7853407a73722ea80b5ef3e55"><div class="ttname"><a href="interface_termin.html#a158a3cb7853407a73722ea80b5ef3e55">Termin\publishToHomepage</a></div><div class="ttdeci">publishToHomepage()</div></div>
+<div class="ttc" id="interface_termin_html_a5e994b8b00058d167d82514053de3c88"><div class="ttname"><a href="interface_termin.html#a5e994b8b00058d167d82514053de3c88">Termin\isLeistungsnachweis</a></div><div class="ttdeci">isLeistungsnachweis()</div></div>
+<div class="ttc" id="interface_termin_html_a9ed1a03f1247bfa10a8e56f5fd8634cd"><div class="ttname"><a href="interface_termin.html#a9ed1a03f1247bfa10a8e56f5fd8634cd">Termin\getStartDate</a></div><div class="ttdeci">getStartDate()</div></div>
+<div class="ttc" id="interface_termin_html_a3ee9c6ae1bcd6424f57abaac24b7341b"><div class="ttname"><a href="interface_termin.html#a3ee9c6ae1bcd6424f57abaac24b7341b">Termin\isMultiDay</a></div><div class="ttdeci">isMultiDay()</div></div>
+<div class="ttc" id="interface_termin_html_a2fca19815ee61713254ac18782205feb"><div class="ttname"><a href="interface_termin.html#a2fca19815ee61713254ac18782205feb">Termin\getTitle</a></div><div class="ttdeci">getTitle()</div></div>
+<div class="ttc" id="interface_termin_html_ae3de2ba7c4262d588bb9190f51456c38"><div class="ttname"><a href="interface_termin.html#ae3de2ba7c4262d588bb9190f51456c38">Termin\getAllAtDate</a></div><div class="ttdeci">static getAllAtDate($date)</div></div>
+<div class="ttc" id="interface_termin_html_a14c16fb57c12e605e3eabefd640c7b71"><div class="ttname"><a href="interface_termin.html#a14c16fb57c12e605e3eabefd640c7b71">Termin\getCreationTime</a></div><div class="ttdeci">getCreationTime()</div></div>
+<div class="ttc" id="interface_termin_html_a120ec73226cde99fbd20fbf8c2162604"><div class="ttname"><a href="interface_termin.html#a120ec73226cde99fbd20fbf8c2162604">Termin\isElterntermin</a></div><div class="ttdeci">isElterntermin()</div></div>
+<div class="ttc" id="interface_termin_html_ab8fc2d7a5e328d9dbab94f469e6d23e5"><div class="ttname"><a href="interface_termin.html#ab8fc2d7a5e328d9dbab94f469e6d23e5">Termin\getAllBetweenDays</a></div><div class="ttdeci">static getAllBetweenDays($date1, $date2)</div></div>
+<div class="ttc" id="interface_termin_html_aeea92d8a1dccea73510e4c4b71a828c7"><div class="ttname"><a href="interface_termin.html#aeea92d8a1dccea73510e4c4b71a828c7">Termin\getLocation</a></div><div class="ttdeci">getLocation()</div></div>
+<div class="ttc" id="interface_termin_html_aa603cfdfcdc2f480324d94adc2e846f5"><div class="ttname"><a href="interface_termin.html#aa603cfdfcdc2f480324d94adc2e846f5">Termin\isWholeDay</a></div><div class="ttdeci">isWholeDay()</div></div>
+<div class="ttc" id="interface_termin_html_afa0a9c0bb04251fde3dcd65e45ebec18"><div class="ttname"><a href="interface_termin.html#afa0a9c0bb04251fde3dcd65e45ebec18">Termin\getEndDate</a></div><div class="ttdeci">getEndDate()</div></div>
+<div class="ttc" id="interface_termin_html_a3c724598a080bd6ed8a997474ed32cdc"><div class="ttname"><a href="interface_termin.html#a3c724598a080bd6ed8a997474ed32cdc">Termin\getCreatorName</a></div><div class="ttdeci">getCreatorName()</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

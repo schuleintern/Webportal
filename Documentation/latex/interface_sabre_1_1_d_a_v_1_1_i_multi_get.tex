@@ -1,0 +1,66 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_multi_get}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}I\+Multi\+Get Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_i_multi_get}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Multi\+Get@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Multi\+Get}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}I\+Multi\+Get\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.643449cm]{interface_sabre_1_1_d_a_v_1_1_i_multi_get}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_multi_get_a4d66db5c26d9247511687cd277799528}{get\+Multiple\+Children}} (array \$paths)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_multi_get}{I\+Multi\+Get}}
+
+This interface adds a tiny bit of functionality to collections.
+
+There a certain situations, in particular in relation to Web\+D\+A\+V-\/\+Sync, Cal\+D\+AV and Card\+D\+AV, where information for a list of items will be requested.
+
+Because the \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a09f82b07550611752abb149f468b89c2}{get\+Child()}} call is the main abstraction method, this can in reality result in many database calls, which could potentially be optimized.
+
+The Multi\+Get interface is used by the server in these cases.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 23 der Datei I\+Multi\+Get.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_multi_get_a4d66db5c26d9247511687cd277799528}\label{interface_sabre_1_1_d_a_v_1_1_i_multi_get_a4d66db5c26d9247511687cd277799528}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Multi\+Get@{Sabre\+::\+D\+A\+V\+::\+I\+Multi\+Get}!get\+Multiple\+Children@{get\+Multiple\+Children}}
+\index{get\+Multiple\+Children@{get\+Multiple\+Children}!Sabre\+::\+D\+A\+V\+::\+I\+Multi\+Get@{Sabre\+::\+D\+A\+V\+::\+I\+Multi\+Get}}
+\subsubsection{\texorpdfstring{get\+Multiple\+Children()}{getMultipleChildren()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Multi\+Get\+::get\+Multiple\+Children (\begin{DoxyParamCaption}\item[{array}]{\$paths }\end{DoxyParamCaption})}
+
+This method receives a list of paths in it\textquotesingle{}s first argument. It must return an array with \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_node}{Node}} objects.
+
+If any children are not found, you do not have to return them.
+
+
+\begin{DoxyParams}{Parameter}
+{\em string\mbox{[}$\,$\mbox{]}} & \$paths \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_multi_get_tester_a41fc2b413304bdfa1bdb6924689ca616}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Tree\+Multi\+Get\+Tester}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a9f26acb24cd7aa4059efc96489337a0b}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_a2075137110f456a965e38fdb3b254bb6}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/I\+Multi\+Get.\+php\end{DoxyCompactItemize}

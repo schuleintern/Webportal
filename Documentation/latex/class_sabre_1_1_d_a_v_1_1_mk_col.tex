@@ -1,0 +1,115 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_mk_col}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Mk\+Col Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_mk_col}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mk\+Col@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mk\+Col}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Mk\+Col\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_1_1_mk_col}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col_ad55d7f010ebe4b4aa4f53f946e1a4285}{\+\_\+\+\_\+construct}} (array \$resource\+Type, array \$mutations)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col_a892e7df32c05f8a9fe3bbf834f5d20a5}{get\+Resource\+Type}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col_aa9c37040f281f37be090d2e4dd66d559}{has\+Resource\+Type}} (\$resource\+Type)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mk_col_a4c246ef4cc0319ece8804991113968f4}\label{class_sabre_1_1_d_a_v_1_1_mk_col_a4c246ef4cc0319ece8804991113968f4}} 
+{\bfseries \$resource\+Type}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This class represents a M\+K\+C\+OL operation.
+
+M\+K\+C\+OL creates a new collection. M\+K\+C\+OL comes in two flavours\+:
+
+
+\begin{DoxyEnumerate}
+\item M\+K\+C\+OL with no body, signifies the creation of a simple collection.
+\item M\+K\+C\+OL with a request body. This can create a collection with a specific resource type, and a set of properties that should be set on the new collection. This can be used to create caldav calendars, carddav address books, etc.
+\end{DoxyEnumerate}
+
+Property updates must always be atomic. This means that a property update must either completely succeed, or completely fail.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 23 der Datei Mk\+Col.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mk_col_ad55d7f010ebe4b4aa4f53f946e1a4285}\label{class_sabre_1_1_d_a_v_1_1_mk_col_ad55d7f010ebe4b4aa4f53f946e1a4285}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mk\+Col@{Sabre\+::\+D\+A\+V\+::\+Mk\+Col}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Mk\+Col@{Sabre\+::\+D\+A\+V\+::\+Mk\+Col}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mk\+Col\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{array}]{\$resource\+Type,  }\item[{array}]{\$mutations }\end{DoxyParamCaption})}
+
+Creates the M\+K\+C\+OL object.
+
+
+\begin{DoxyParams}[1]{Parameter}
+ & {\em string\mbox{[}$\,$\mbox{]}} & \$resource\+Type List of resourcetype values. \\
+\hline
+array & {\em \$mutations} & List of new properties values. \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 38 der Datei Mk\+Col.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mk_col_a892e7df32c05f8a9fe3bbf834f5d20a5}\label{class_sabre_1_1_d_a_v_1_1_mk_col_a892e7df32c05f8a9fe3bbf834f5d20a5}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mk\+Col@{Sabre\+::\+D\+A\+V\+::\+Mk\+Col}!get\+Resource\+Type@{get\+Resource\+Type}}
+\index{get\+Resource\+Type@{get\+Resource\+Type}!Sabre\+::\+D\+A\+V\+::\+Mk\+Col@{Sabre\+::\+D\+A\+V\+::\+Mk\+Col}}
+\subsubsection{\texorpdfstring{get\+Resource\+Type()}{getResourceType()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mk\+Col\+::get\+Resource\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the resourcetype of the new collection.
+
+\begin{DoxyReturn}{Rückgabe}
+string\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 50 der Datei Mk\+Col.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mk_col_aa9c37040f281f37be090d2e4dd66d559}\label{class_sabre_1_1_d_a_v_1_1_mk_col_aa9c37040f281f37be090d2e4dd66d559}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mk\+Col@{Sabre\+::\+D\+A\+V\+::\+Mk\+Col}!has\+Resource\+Type@{has\+Resource\+Type}}
+\index{has\+Resource\+Type@{has\+Resource\+Type}!Sabre\+::\+D\+A\+V\+::\+Mk\+Col@{Sabre\+::\+D\+A\+V\+::\+Mk\+Col}}
+\subsubsection{\texorpdfstring{has\+Resource\+Type()}{hasResourceType()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mk\+Col\+::has\+Resource\+Type (\begin{DoxyParamCaption}\item[{}]{\$resource\+Type }\end{DoxyParamCaption})}
+
+Returns true or false if the M\+K\+C\+OL operation has at least the specified resource type.
+
+If the resourcetype is specified as an array, all resourcetypes are checked.
+
+
+\begin{DoxyParams}{Parameter}
+{\em string$\vert$string\mbox{[}$\,$\mbox{]}} & \$resource\+Type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 66 der Datei Mk\+Col.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/Mk\+Col.\+php\end{DoxyCompactItemize}

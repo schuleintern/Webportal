@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/CalDAV/Backend/BackendInterface.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_d96a284a623d22f018a48de34118fd50.html">CalDAV</a></li><li class="navelem"><a class="el" href="dir_c32cb64187fb091f3a769825ea4706d7.html">Backend</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">BackendInterface.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_cal_d_a_v_1_1_backend.html">Sabre\CalDAV\Backend</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html">   12</a></span>&#160;<span class="keyword">interface </span><a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html">BackendInterface</a> {</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a41d069c48af0155b8e6e04bee46c70ba">getCalendarsForUser</a>($principalUri);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#ac792d2e1791c49d7c895a1c8b9f3b60a">createCalendar</a>($principalUri, $calendarUri, array $properties);</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#aee5f2b1f3631060205b16e69deb7f3c1">updateCalendar</a>($calendarId, \<a class="code" href="namespace_sabre.html">Sabre</a>\DAV\<a class="code" href="class_sabre_1_1_d_a_v_1_1_prop_patch.html">PropPatch</a> $propPatch);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a909fbc63f768c2bf8409416d3f24e898">deleteCalendar</a>($calendarId);</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#aaa786269ba9eb1731fb659b67f684ac2">getCalendarObjects</a>($calendarId);</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a8c082fae6a4008fc9c2fa43ae61b9833">getCalendarObject</a>($calendarId, $objectUri);</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a1ac65bc67e50edce9db902083d0ceb51">getMultipleCalendarObjects</a>($calendarId, array $uris);</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a338ac93ff39e5ed7a9330df875b9efa4">createCalendarObject</a>($calendarId, $objectUri, $calendarData);</div><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div><div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#af27aef382054a5b2945673944439f716">updateCalendarObject</a>($calendarId, $objectUri, $calendarData);</div><div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div><div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a2bb33e6316187c3254fe38d3cf61e416">deleteCalendarObject</a>($calendarId, $objectUri);</div><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#aecd41f613576b9d7d6d16d3039c692ae">calendarQuery</a>($calendarId, array $filters);</div><div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div><div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#ac9fc5b145a94ba67e0a4fe1fb6d82022">getCalendarObjectByUID</a>($principalUri, $uid);</div><div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div><div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div><div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html">Sabre\CalDAV\Backend\BackendInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_cal_d_a_v_2_backend_2_backend_interface_8php_source.html#l00012">BackendInterface.php:12</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_a338ac93ff39e5ed7a9330df875b9efa4"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a338ac93ff39e5ed7a9330df875b9efa4">Sabre\CalDAV\Backend\BackendInterface\createCalendarObject</a></div><div class="ttdeci">createCalendarObject($calendarId, $objectUri, $calendarData)</div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_ac792d2e1791c49d7c895a1c8b9f3b60a"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#ac792d2e1791c49d7c895a1c8b9f3b60a">Sabre\CalDAV\Backend\BackendInterface\createCalendar</a></div><div class="ttdeci">createCalendar($principalUri, $calendarUri, array $properties)</div></div>
+<div class="ttc" id="namespace_sabre_html"><div class="ttname"><a href="namespace_sabre.html">Sabre</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_a2bb33e6316187c3254fe38d3cf61e416"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a2bb33e6316187c3254fe38d3cf61e416">Sabre\CalDAV\Backend\BackendInterface\deleteCalendarObject</a></div><div class="ttdeci">deleteCalendarObject($calendarId, $objectUri)</div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_prop_patch_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_prop_patch.html">Sabre\DAV\PropPatch</a></div><div class="ttdef"><b>Definition:</b> <a href="_prop_patch_8php_source.html#l00020">PropPatch.php:20</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_af27aef382054a5b2945673944439f716"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#af27aef382054a5b2945673944439f716">Sabre\CalDAV\Backend\BackendInterface\updateCalendarObject</a></div><div class="ttdeci">updateCalendarObject($calendarId, $objectUri, $calendarData)</div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_ac9fc5b145a94ba67e0a4fe1fb6d82022"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#ac9fc5b145a94ba67e0a4fe1fb6d82022">Sabre\CalDAV\Backend\BackendInterface\getCalendarObjectByUID</a></div><div class="ttdeci">getCalendarObjectByUID($principalUri, $uid)</div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_aaa786269ba9eb1731fb659b67f684ac2"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#aaa786269ba9eb1731fb659b67f684ac2">Sabre\CalDAV\Backend\BackendInterface\getCalendarObjects</a></div><div class="ttdeci">getCalendarObjects($calendarId)</div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_a909fbc63f768c2bf8409416d3f24e898"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a909fbc63f768c2bf8409416d3f24e898">Sabre\CalDAV\Backend\BackendInterface\deleteCalendar</a></div><div class="ttdeci">deleteCalendar($calendarId)</div></div>
+<div class="ttc" id="namespace_sabre_1_1_cal_d_a_v_1_1_backend_html"><div class="ttname"><a href="namespace_sabre_1_1_cal_d_a_v_1_1_backend.html">Sabre\CalDAV\Backend</a></div><div class="ttdef"><b>Definition:</b> <a href="_cal_d_a_v_2_backend_2_abstract_backend_8php_source.html#l00003">AbstractBackend.php:3</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_a41d069c48af0155b8e6e04bee46c70ba"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a41d069c48af0155b8e6e04bee46c70ba">Sabre\CalDAV\Backend\BackendInterface\getCalendarsForUser</a></div><div class="ttdeci">getCalendarsForUser($principalUri)</div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_aecd41f613576b9d7d6d16d3039c692ae"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#aecd41f613576b9d7d6d16d3039c692ae">Sabre\CalDAV\Backend\BackendInterface\calendarQuery</a></div><div class="ttdeci">calendarQuery($calendarId, array $filters)</div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_a1ac65bc67e50edce9db902083d0ceb51"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a1ac65bc67e50edce9db902083d0ceb51">Sabre\CalDAV\Backend\BackendInterface\getMultipleCalendarObjects</a></div><div class="ttdeci">getMultipleCalendarObjects($calendarId, array $uris)</div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_aee5f2b1f3631060205b16e69deb7f3c1"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#aee5f2b1f3631060205b16e69deb7f3c1">Sabre\CalDAV\Backend\BackendInterface\updateCalendar</a></div><div class="ttdeci">updateCalendar($calendarId, \Sabre\DAV\PropPatch $propPatch)</div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface_html_a8c082fae6a4008fc9c2fa43ae61b9833"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface.html#a8c082fae6a4008fc9c2fa43ae61b9833">Sabre\CalDAV\Backend\BackendInterface\getCalendarObject</a></div><div class="ttdeci">getCalendarObject($calendarId, $objectUri)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

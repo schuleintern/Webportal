@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAV/Browser/MapGetToPropFind.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_641c95e6ed9dd2d5dcbadeacba03bd45.html">DAV</a></li><li class="navelem"><a class="el" href="dir_ecd10d7ec53e119e13ed20a48b9cd6db.html">Browser</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MapGetToPropFind.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_browser.html">Sabre\DAV\Browser</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_sabre_1_1_h_t_t_p_1_1_request_interface.html">Sabre\HTTP\RequestInterface</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespace_sabre_1_1_h_t_t_p_1_1_response_interface.html">Sabre\HTTP\ResponseInterface</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find.html">MapGetToPropFind</a> <span class="keyword">extends</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_server_plugin.html">DAV\ServerPlugin</a> {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">protected</span> $server;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find.html#a670227e1e22db49ee63f9a681b1fcf8f">   34</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find.html#a670227e1e22db49ee63f9a681b1fcf8f">initialize</a>(DAV\<a class="code" href="class_sabre_1_1_d_a_v_1_1_server.html">Server</a> $server) {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        $this-&gt;server = $server;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        $this-&gt;server-&gt;on(<span class="stringliteral">&#39;method:GET&#39;</span>, [$this, <span class="stringliteral">&#39;httpGet&#39;</span>], 90);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find.html#a3d55cafd618f975cb9c00bf4b93d6801">   47</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find.html#a3d55cafd618f975cb9c00bf4b93d6801">httpGet</a>(<a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html">RequestInterface</a> $request, <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_response_interface.html">ResponseInterface</a> $response) {</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        $node = $this-&gt;server-&gt;tree-&gt;getNodeForPath($request-&gt;getPath());</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> ($node instanceof DAV\<a class="code" href="interface_sabre_1_1_d_a_v_1_1_i_file.html">IFile</a>) <span class="keywordflow">return</span>;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        $subRequest = clone $request;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        $subRequest-&gt;setMethod(<span class="stringliteral">&#39;PROPFIND&#39;</span>);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        $this-&gt;server-&gt;invokeMethod($subRequest, $response);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div><div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_browser_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_browser.html">Sabre\DAV\Browser</a></div><div class="ttdef"><b>Definition:</b> <a href="_guess_content_type_8php_source.html#l00003">GuessContentType.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_server_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_server.html">Sabre\DAV\Server</a></div><div class="ttdef"><b>Definition:</b> <a href="_server_8php_source.html#l00023">Server.php:23</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_response_interface_html"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_response_interface.html">Sabre\HTTP\ResponseInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_response_interface_8php_source.html#l00012">ResponseInterface.php:12</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find.html">Sabre\DAV\Browser\MapGetToPropFind</a></div><div class="ttdef"><b>Definition:</b> <a href="_map_get_to_prop_find_8php_source.html#l00019">MapGetToPropFind.php:19</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html">Sabre\HTTP\RequestInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_request_interface_8php_source.html#l00012">RequestInterface.php:12</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_1_1_i_file_html"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_1_1_i_file.html">Sabre\DAV\IFile</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_file_8php_source.html#l00016">IFile.php:16</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_html_a3d55cafd618f975cb9c00bf4b93d6801"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find.html#a3d55cafd618f975cb9c00bf4b93d6801">Sabre\DAV\Browser\MapGetToPropFind\httpGet</a></div><div class="ttdeci">httpGet(RequestInterface $request, ResponseInterface $response)</div><div class="ttdef"><b>Definition:</b> <a href="_map_get_to_prop_find_8php_source.html#l00047">MapGetToPropFind.php:47</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_html_a670227e1e22db49ee63f9a681b1fcf8f"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find.html#a670227e1e22db49ee63f9a681b1fcf8f">Sabre\DAV\Browser\MapGetToPropFind\initialize</a></div><div class="ttdeci">initialize(DAV\Server $server)</div><div class="ttdef"><b>Definition:</b> <a href="_map_get_to_prop_find_8php_source.html#l00034">MapGetToPropFind.php:34</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_server_plugin_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_server_plugin.html">Sabre\DAV\ServerPlugin</a></div><div class="ttdef"><b>Definition:</b> <a href="_server_plugin_8php_source.html#l00014">ServerPlugin.php:14</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_h_t_t_p_1_1_request_interface_html"><div class="ttname"><a href="namespace_sabre_1_1_h_t_t_p_1_1_request_interface.html">RequestInterface</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_h_t_t_p_1_1_response_interface_html"><div class="ttname"><a href="namespace_sabre_1_1_h_t_t_p_1_1_response_interface.html">ResponseInterface</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

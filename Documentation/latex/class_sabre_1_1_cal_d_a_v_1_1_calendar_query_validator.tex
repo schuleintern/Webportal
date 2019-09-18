@@ -1,0 +1,193 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar\+Query\+Validator Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Query\+Validator@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Query\+Validator}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_acc59d0c2a512557c9ad291e65762fe6c}{validate}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Calendar}} \$v\+Object, array \$filters)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_ab03f2a3891827550be41971f3288242a}{validate\+Comp\+Filters}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{V\+Object\textbackslash{}\+Component}} \$parent, array \$filters)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_a4dc37f4b1d5e2157a8a2b756b057c69c}{validate\+Prop\+Filters}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{V\+Object\textbackslash{}\+Component}} \$parent, array \$filters)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_aad38620b45ef8ff83fdf0005eb04b2c4}{validate\+Param\+Filters}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{V\+Object\textbackslash{}\+Property}} \$parent, array \$filters)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_addd29269c57d2be2c4c5408b7e28e800}{validate\+Text\+Match}} (\$check, array \$text\+Match)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_a2fa19b566b8b1fff7ce656198597b942}{validate\+Time\+Range}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_node}{V\+Object\textbackslash{}\+Node}} \$component, \$start, \$end)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Calendar\+Query Validator
+
+This class is responsible for checking if an i\+Calendar object matches a set of filters. The main function to do this is \textquotesingle{}validate\textquotesingle{}.
+
+This is used to determine which icalendar objects should be returned for a calendar-\/query R\+E\+P\+O\+RT request.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 21 der Datei Calendar\+Query\+Validator.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_acc59d0c2a512557c9ad291e65762fe6c}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_acc59d0c2a512557c9ad291e65762fe6c}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}!validate@{validate}}
+\index{validate@{validate}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}}
+\subsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Query\+Validator\+::validate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Calendar}}}]{\$v\+Object,  }\item[{array}]{\$filters }\end{DoxyParamCaption})}
+
+Verify if a list of filters applies to the calendar data object
+
+The list of filters must be formatted as parsed by 
+
+
+\begin{DoxyParams}[1]{Parameter}
+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Calendar & {\em \$v\+Object} & \\
+\hline
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 32 der Datei Calendar\+Query\+Validator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_ab03f2a3891827550be41971f3288242a}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_ab03f2a3891827550be41971f3288242a}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}!validate\+Comp\+Filters@{validate\+Comp\+Filters}}
+\index{validate\+Comp\+Filters@{validate\+Comp\+Filters}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}}
+\subsubsection{\texorpdfstring{validate\+Comp\+Filters()}{validateCompFilters()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Query\+Validator\+::validate\+Comp\+Filters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{V\+Object\textbackslash{}\+Component}}}]{\$parent,  }\item[{array}]{\$filters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method checks the validity of comp-\/filters.
+
+A list of comp-\/filters needs to be specified. Also the parent of the component we\textquotesingle{}re checking should be specified, not the component to check itself.
+
+
+\begin{DoxyParams}[1]{Parameter}
+V\+Object\textbackslash{}\+Component & {\em \$parent} & \\
+\hline
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 58 der Datei Calendar\+Query\+Validator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_aad38620b45ef8ff83fdf0005eb04b2c4}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_aad38620b45ef8ff83fdf0005eb04b2c4}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}!validate\+Param\+Filters@{validate\+Param\+Filters}}
+\index{validate\+Param\+Filters@{validate\+Param\+Filters}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}}
+\subsubsection{\texorpdfstring{validate\+Param\+Filters()}{validateParamFilters()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Query\+Validator\+::validate\+Param\+Filters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property}{V\+Object\textbackslash{}\+Property}}}]{\$parent,  }\item[{array}]{\$filters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method checks the validity of param-\/filters.
+
+A list of param-\/filters needs to be specified. Also the parent of the parameter we\textquotesingle{}re checking should be specified, not the parameter to check itself.
+
+
+\begin{DoxyParams}[1]{Parameter}
+V\+Object\textbackslash{}\+Property & {\em \$parent} & \\
+\hline
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 197 der Datei Calendar\+Query\+Validator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_a4dc37f4b1d5e2157a8a2b756b057c69c}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_a4dc37f4b1d5e2157a8a2b756b057c69c}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}!validate\+Prop\+Filters@{validate\+Prop\+Filters}}
+\index{validate\+Prop\+Filters@{validate\+Prop\+Filters}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}}
+\subsubsection{\texorpdfstring{validate\+Prop\+Filters()}{validatePropFilters()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Query\+Validator\+::validate\+Prop\+Filters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{V\+Object\textbackslash{}\+Component}}}]{\$parent,  }\item[{array}]{\$filters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method checks the validity of prop-\/filters.
+
+A list of prop-\/filters needs to be specified. Also the parent of the property we\textquotesingle{}re checking should be specified, not the property to check itself.
+
+
+\begin{DoxyParams}[1]{Parameter}
+V\+Object\textbackslash{}\+Component & {\em \$parent} & \\
+\hline
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 127 der Datei Calendar\+Query\+Validator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_addd29269c57d2be2c4c5408b7e28e800}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_addd29269c57d2be2c4c5408b7e28e800}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}!validate\+Text\+Match@{validate\+Text\+Match}}
+\index{validate\+Text\+Match@{validate\+Text\+Match}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}}
+\subsubsection{\texorpdfstring{validate\+Text\+Match()}{validateTextMatch()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Query\+Validator\+::validate\+Text\+Match (\begin{DoxyParamCaption}\item[{}]{\$check,  }\item[{array}]{\$text\+Match }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method checks the validity of a text-\/match.
+
+A single text-\/match should be specified as well as the specific property or parameter we need to validate.
+
+
+\begin{DoxyParams}[1]{Parameter}
+V\+Object\textbackslash{}\+Node | string & {\em \$check} & Value to check against. \\
+\hline
+array & {\em \$text\+Match} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 253 der Datei Calendar\+Query\+Validator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_a2fa19b566b8b1fff7ce656198597b942}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_a2fa19b566b8b1fff7ce656198597b942}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}!validate\+Time\+Range@{validate\+Time\+Range}}
+\index{validate\+Time\+Range@{validate\+Time\+Range}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Query\+Validator}}
+\subsubsection{\texorpdfstring{validate\+Time\+Range()}{validateTimeRange()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Query\+Validator\+::validate\+Time\+Range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_node}{V\+Object\textbackslash{}\+Node}}}]{\$component,  }\item[{}]{\$start,  }\item[{}]{\$end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Validates if a component matches the given time range.
+
+This is all based on the rules specified in rfc4791, which are quite complex.
+
+
+\begin{DoxyParams}[1]{Parameter}
+V\+Object\textbackslash{}\+Node & {\em \$component} & \\
+\hline
+Date\+Time & {\em \$start} & \\
+\hline
+Date\+Time & {\em \$end} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 276 der Datei Calendar\+Query\+Validator.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/Calendar\+Query\+Validator.\+php\end{DoxyCompactItemize}

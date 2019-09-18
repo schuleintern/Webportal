@@ -1,0 +1,196 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Principal\textbackslash{}User Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Principal\textbackslash{}User\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.382979cm]{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a7ae49dc82db4732ad0aecc1520a1d909}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a333444a54f6dca549deb3013bb15c191}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a8cfa81741e17a5489ea7c33306407d72}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a98c22dc6958f352eadf92c960bd3bf19}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a4a3f312b08c5c80ff35fdf00ae8c92f8}{child\+Exists}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_ac9de38316e6e254deb3a844a0d3c7d84}{get\+A\+CL}} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+Cal\+D\+AV principal
+
+This is a standard user-\/principal for Cal\+D\+AV. This principal is also a collection and returns the caldav-\/proxy-\/read and caldav-\/proxy-\/write child principals.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 19 der Datei User.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a4a3f312b08c5c80ff35fdf00ae8c92f8}\label{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a4a3f312b08c5c80ff35fdf00ae8c92f8}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}!child\+Exists@{child\+Exists}}
+\index{child\+Exists@{child\+Exists}!Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}}
+\subsubsection{\texorpdfstring{child\+Exists()}{childExists()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User\+::child\+Exists (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Returns whether or not the child node exists
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a81b44dc1354370890279af58c34c7375}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 95 der Datei User.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a333444a54f6dca549deb3013bb15c191}\label{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a333444a54f6dca549deb3013bb15c191}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}!create\+Directory@{create\+Directory}}
+\index{create\+Directory@{create\+Directory}!Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}}
+\subsubsection{\texorpdfstring{create\+Directory()}{createDirectory()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User\+::create\+Directory (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Creates a new subdirectory
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em D\+AV} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a11e8eb888fffe1d792acebbe5bc59243}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 42 der Datei User.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a7ae49dc82db4732ad0aecc1520a1d909}\label{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a7ae49dc82db4732ad0aecc1520a1d909}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}!create\+File@{create\+File}}
+\index{create\+File@{create\+File}!Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}}
+\subsubsection{\texorpdfstring{create\+File()}{createFile()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User\+::create\+File (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$data = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates a new file in the directory
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & Name of the file \\
+\hline
+resource & {\em \$data} & Initial payload, passed as a readable stream resource. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em D\+AV} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a837d88dac548706770368200f83c2ebc}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 29 der Datei User.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_ac9de38316e6e254deb3a844a0d3c7d84}\label{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_ac9de38316e6e254deb3a844a0d3c7d84}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}!get\+A\+CL@{get\+A\+CL}}
+\index{get\+A\+CL@{get\+A\+CL}!Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}}
+\subsubsection{\texorpdfstring{get\+A\+C\+L()}{getACL()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User\+::get\+A\+CL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of A\+CE\textquotesingle{}s for this node.
+
+Each A\+CE has the following properties\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}privilege\textquotesingle{}, a string such as \{D\+AV\+:\}read or \{D\+AV\+:\}write. These are currently the only supported privileges
+\item \textquotesingle{}principal\textquotesingle{}, a url to the principal who owns the node
+\item \textquotesingle{}protected\textquotesingle{} (optional), indicating that this A\+CE is not allowed to be updated.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_a8fe3b3a5b48eae789d7eb722b340045c}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+A\+CL}}.
+
+
+
+Definiert in Zeile 118 der Datei User.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a8cfa81741e17a5489ea7c33306407d72}\label{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a8cfa81741e17a5489ea7c33306407d72}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}!get\+Child@{get\+Child}}
+\index{get\+Child@{get\+Child}!Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}}
+\subsubsection{\texorpdfstring{get\+Child()}{getChild()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User\+::get\+Child (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Returns a specific child node, referenced by its name
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+D\+AV 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a09f82b07550611752abb149f468b89c2}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 54 der Datei User.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a98c22dc6958f352eadf92c960bd3bf19}\label{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a98c22dc6958f352eadf92c960bd3bf19}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}!get\+Children@{get\+Children}}
+\index{get\+Children@{get\+Children}!Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User@{Sabre\+::\+Cal\+D\+A\+V\+::\+Principal\+::\+User}}
+\subsubsection{\texorpdfstring{get\+Children()}{getChildren()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User\+::get\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns an array with all the child nodes
+
+\begin{DoxyReturn}{Rückgabe}
+D\+AV\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a5344a6890e49fd7a81bb0e38b4c6d0be}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}.
+
+
+
+Definiert in Zeile 75 der Datei User.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/\+Principal/User.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,108 @@
+\hypertarget{classlogin}{}\section{login Klassenreferenz}
+\label{classlogin}\index{login@{login}}
+Klassendiagramm für login\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classlogin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlogin_a50ce566ed051d8c3748992037128db70}\label{classlogin_a50ce566ed051d8c3748992037128db70}} 
+{\bfseries execute} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlogin_a4fa22c75b5a1eb9533e204fe22bedd63}\label{classlogin_a4fa22c75b5a1eb9533e204fe22bedd63}} 
+static {\bfseries unique\+\_\+salt} ()
+\item 
+\mbox{\Hypertarget{classlogin_a19f5a630db1c4e4cfd1f7a086cf97e59}\label{classlogin_a19f5a630db1c4e4cfd1f7a086cf97e59}} 
+static {\bfseries hash} (\$password)
+\item 
+\mbox{\Hypertarget{classlogin_aed3ed716525360c6328d0e1ad0500340}\label{classlogin_aed3ed716525360c6328d0e1ad0500340}} 
+static {\bfseries check\+\_\+password} (\$hash, \$password)
+\item 
+\mbox{\Hypertarget{classlogin_a14f2620a43a6088eb0dd39221a2ad9c6}\label{classlogin_a14f2620a43a6088eb0dd39221a2ad9c6}} 
+static {\bfseries notify\+User\+Added} (\$user\+ID)
+\item 
+\mbox{\Hypertarget{classlogin_a70da03492deb4a0b3f6b62d36341f3d4}\label{classlogin_a70da03492deb4a0b3f6b62d36341f3d4}} 
+static {\bfseries get\+Lehrer\+Zugangsdaten} ()
+\item 
+\mbox{\Hypertarget{classlogin_a8fa1576a1cd4c6559e41b6445a03ffe4}\label{classlogin_a8fa1576a1cd4c6559e41b6445a03ffe4}} 
+static {\bfseries get\+Schueler\+Zugangsdaten} ()
+\item 
+\mbox{\Hypertarget{classlogin_a22b4f3f2fe36b1f2d5144df106564e34}\label{classlogin_a22b4f3f2fe36b1f2d5144df106564e34}} 
+static {\bfseries get\+Eltern\+Codes} ()
+\item 
+\mbox{\Hypertarget{classlogin_a05457e7a8ca67b7be87eecdea9764e3c}\label{classlogin_a05457e7a8ca67b7be87eecdea9764e3c}} 
+static {\bfseries notify\+User\+Deleted} (\$user\+ID)
+\item 
+\mbox{\Hypertarget{classlogin_afbb75408cc636558b4e22335446850cf}\label{classlogin_afbb75408cc636558b4e22335446850cf}} 
+static {\bfseries has\+Settings} ()
+\item 
+static \mbox{\hyperlink{classlogin_a72c5c4f3647e3756f3b8163e6cd308f2}{get\+Settings\+Description}} ()
+\item 
+\mbox{\Hypertarget{classlogin_a97d798e919d64a0b6537f897313b2feb}\label{classlogin_a97d798e919d64a0b6537f897313b2feb}} 
+static {\bfseries get\+Site\+Display\+Name} ()
+\item 
+static \mbox{\hyperlink{classlogin_a7a98ec5a1152b564785795dcf0c8c214}{get\+User\+Groups}} ()
+\item 
+\mbox{\Hypertarget{classlogin_ae881695209cc939ee4f850101ac7576b}\label{classlogin_ae881695209cc939ee4f850101ac7576b}} 
+static {\bfseries site\+Is\+Always\+Active} ()
+\item 
+\mbox{\Hypertarget{classlogin_a1fdcd0d9086c68573a5c6ed3ef5ba2f5}\label{classlogin_a1fdcd0d9086c68573a5c6ed3ef5ba2f5}} 
+static {\bfseries get\+Admin\+Menu\+Group} ()
+\item 
+\mbox{\Hypertarget{classlogin_af54ff35b17f7ca0b3b0c1d291ab654ff}\label{classlogin_af54ff35b17f7ca0b3b0c1d291ab654ff}} 
+static {\bfseries get\+Admin\+Menu\+Group\+Icon} ()
+\item 
+\mbox{\Hypertarget{classlogin_acbd5cf3339fcca785764f826e7a9ea81}\label{classlogin_acbd5cf3339fcca785764f826e7a9ea81}} 
+static {\bfseries has\+Admin} ()
+\item 
+\mbox{\Hypertarget{classlogin_a33ec491c7871141513fed3548fb50713}\label{classlogin_a33ec491c7871141513fed3548fb50713}} 
+static {\bfseries get\+Admin\+Group} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 5 der Datei login.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{classlogin_a72c5c4f3647e3756f3b8163e6cd308f2}\label{classlogin_a72c5c4f3647e3756f3b8163e6cd308f2}} 
+\index{login@{login}!get\+Settings\+Description@{get\+Settings\+Description}}
+\index{get\+Settings\+Description@{get\+Settings\+Description}!login@{login}}
+\subsubsection{\texorpdfstring{get\+Settings\+Description()}{getSettingsDescription()}}
+{\footnotesize\ttfamily static login\+::get\+Settings\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Stellt eine Beschreibung der Einstellungen bereit, die für das Modul nötig sind. \begin{DoxyReturn}{Rückgabe}
+array(\+String, String) array( array( \textquotesingle{}name\textquotesingle{} =$>$ \char`\"{}\+Name der Einstellung (z.\+B. formblatt-\/is\+Active)\char`\"{}, \textquotesingle{}typ\textquotesingle{} =$>$ Z\+E\+I\+LE $\vert$ T\+E\+XT $\vert$ N\+U\+M\+M\+ER $\vert$ B\+O\+O\+L\+E\+AN, \textquotesingle{}titel\textquotesingle{} =$>$ \char`\"{}\+Titel der Beschreibung\char`\"{}, \textquotesingle{}text\textquotesingle{} =$>$ \char`\"{}\+Text der Beschreibung\char`\"{} ) , ) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 430 der Datei login.\+class.\+php.
+
+\mbox{\Hypertarget{classlogin_a7a98ec5a1152b564785795dcf0c8c214}\label{classlogin_a7a98ec5a1152b564785795dcf0c8c214}} 
+\index{login@{login}!get\+User\+Groups@{get\+User\+Groups}}
+\index{get\+User\+Groups@{get\+User\+Groups}!login@{login}}
+\subsubsection{\texorpdfstring{get\+User\+Groups()}{getUserGroups()}}
+{\footnotesize\ttfamily static login\+::get\+User\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Liest alle Nutzergruppen aus, die diese Seite verwendet. (Für die Benutzeradministration) \begin{DoxyReturn}{Rückgabe}
+array(array(\textquotesingle{}group\+Name\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{}, \textquotesingle{}beschreibung\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{})) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 450 der Datei login.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/page/loginlogout/login.\+class.\+php\end{DoxyCompactItemize}

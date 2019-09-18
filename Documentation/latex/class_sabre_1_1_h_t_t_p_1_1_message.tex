@@ -1,0 +1,448 @@
+\hypertarget{class_sabre_1_1_h_t_t_p_1_1_message}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Message Klassenreferenz}
+\label{class_sabre_1_1_h_t_t_p_1_1_message}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.848797cm]{class_sabre_1_1_h_t_t_p_1_1_message}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_ae4b1d83743287c4e0f6500fbb4ff3c13}{get\+Body\+As\+Stream}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_aa6a73aa5da947ec18adcf254abb4c0ef}{get\+Body\+As\+String}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_adbab038f2bd823f11e4ade75cc792f14}{get\+Body}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_aef29d4593bbe2debd17bfbcd501e5dcd}{set\+Body}} (\$body)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_aba056637d07f07a2cfa23f893f12940d}{get\+Headers}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_abcaf141342d71f887630dac0a6eca95a}{has\+Header}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_aea639d7fd0ca29dadee89eba3f2e3b8d}{get\+Header}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a15a679683a423df9878d08e208433448}{get\+Header\+As\+Array}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a81f40ecdcfb4dfad362f800a5be8813c}{set\+Header}} (\$name, \$value)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_abe99bdab90115cca0489dc36037ef872}{set\+Headers}} (array \$headers)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a0eeb8ea72e67ded5a4c08f940298a321}{add\+Header}} (\$name, \$value)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a93a5ab3baa93035f13f38c9652cb8ee0}{add\+Headers}} (array \$headers)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a0a6fae5616cd2131464eb1263e78c5c7}{remove\+Header}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a92fc3c197a8d7c713c7ccafc61989147}{set\+Http\+Version}} (\$version)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a690263e84e9503548b5ed73e0518433a}{get\+Http\+Version}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_aa7882b8ecea7c480903d72055513a7f1}\label{class_sabre_1_1_h_t_t_p_1_1_message_aa7882b8ecea7c480903d72055513a7f1}} 
+{\bfseries \$body}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_aa48b6058fad21b4cf6495f7423440456}\label{class_sabre_1_1_h_t_t_p_1_1_message_aa48b6058fad21b4cf6495f7423440456}} 
+{\bfseries \$headers} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_aa7276a27a26142c71007f19f09e75a42}\label{class_sabre_1_1_h_t_t_p_1_1_message_aa7276a27a26142c71007f19f09e75a42}} 
+{\bfseries \$http\+Version} = \textquotesingle{}1.\+1\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This is the abstract base class for both the \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_request}{Request}} and \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_response}{Response}} objects.
+
+This object contains a few simple methods that are shared by both.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 14 der Datei Message.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_a0eeb8ea72e67ded5a4c08f940298a321}\label{class_sabre_1_1_h_t_t_p_1_1_message_a0eeb8ea72e67ded5a4c08f940298a321}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!add\+Header@{add\+Header}}
+\index{add\+Header@{add\+Header}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{add\+Header()}{addHeader()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::add\+Header (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Adds a H\+T\+TP header.
+
+This method will not overwrite any existing H\+T\+TP header, but instead add another value. Individual values can be retrieved with get\+Headers\+As\+Array.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ab64fcf12f65ca467a36b0f00961dd06b}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 235 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_a93a5ab3baa93035f13f38c9652cb8ee0}\label{class_sabre_1_1_h_t_t_p_1_1_message_a93a5ab3baa93035f13f38c9652cb8ee0}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!add\+Headers@{add\+Headers}}
+\index{add\+Headers@{add\+Headers}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{add\+Headers()}{addHeaders()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::add\+Headers (\begin{DoxyParamCaption}\item[{array}]{\$headers }\end{DoxyParamCaption})}
+
+Adds a new set of H\+T\+TP headers.
+
+Any existing headers will not be overwritten.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$headers} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a1c33f24f28689265b5c436939cc898b1}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 260 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_adbab038f2bd823f11e4ade75cc792f14}\label{class_sabre_1_1_h_t_t_p_1_1_message_adbab038f2bd823f11e4ade75cc792f14}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!get\+Body@{get\+Body}}
+\index{get\+Body@{get\+Body}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{get\+Body()}{getBody()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::get\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the message body, as it\textquotesingle{}s internal representation.
+
+This could be either a string or a stream.
+
+\begin{DoxyReturn}{Rückgabe}
+resource$\vert$string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a0738667a55e423f8510c84035b99f73d}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 92 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_ae4b1d83743287c4e0f6500fbb4ff3c13}\label{class_sabre_1_1_h_t_t_p_1_1_message_ae4b1d83743287c4e0f6500fbb4ff3c13}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!get\+Body\+As\+Stream@{get\+Body\+As\+Stream}}
+\index{get\+Body\+As\+Stream@{get\+Body\+As\+Stream}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{get\+Body\+As\+Stream()}{getBodyAsStream()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::get\+Body\+As\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the body as a readable stream resource.
+
+\mbox{\hyperlink{class_note}{Note}} that the stream may not be rewindable, and therefore may only be read once.
+
+\begin{DoxyReturn}{Rückgabe}
+resource 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a8f6211306846a4789498647c03d02442}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 47 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_aa6a73aa5da947ec18adcf254abb4c0ef}\label{class_sabre_1_1_h_t_t_p_1_1_message_aa6a73aa5da947ec18adcf254abb4c0ef}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!get\+Body\+As\+String@{get\+Body\+As\+String}}
+\index{get\+Body\+As\+String@{get\+Body\+As\+String}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{get\+Body\+As\+String()}{getBodyAsString()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::get\+Body\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the body as a string.
+
+\mbox{\hyperlink{class_note}{Note}} that because the underlying data may be based on a stream, this method could only work correctly the first time.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a2e5fd4e2e19115840ba859a096666d9d}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 68 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_aea639d7fd0ca29dadee89eba3f2e3b8d}\label{class_sabre_1_1_h_t_t_p_1_1_message_aea639d7fd0ca29dadee89eba3f2e3b8d}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!get\+Header@{get\+Header}}
+\index{get\+Header@{get\+Header}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{get\+Header()}{getHeader()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::get\+Header (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Returns a specific H\+T\+TP header, based on it\textquotesingle{}s name.
+
+The name must be treated as case-\/insensitive. If the header does not exist, this method must return null.
+
+If a header appeared more than once in a H\+T\+TP request, this method will concatenate all the values with a comma.
+
+\mbox{\hyperlink{class_note}{Note}} that this not make sense for all headers. Some, such as {\ttfamily Set-\/\+Cookie} cannot be logically combined with a comma. In those cases you {\itshape should} use \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a15a679683a423df9878d08e208433448}{get\+Header\+As\+Array()}}.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ac83dfeddea2be33e620b32b07ae057c5}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 154 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_a15a679683a423df9878d08e208433448}\label{class_sabre_1_1_h_t_t_p_1_1_message_a15a679683a423df9878d08e208433448}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!get\+Header\+As\+Array@{get\+Header\+As\+Array}}
+\index{get\+Header\+As\+Array@{get\+Header\+As\+Array}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{get\+Header\+As\+Array()}{getHeaderAsArray()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::get\+Header\+As\+Array (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Returns a H\+T\+TP header as an array.
+
+For every time the H\+T\+TP header appeared in the request or response, an item will appear in the array.
+
+If the header did not exists, this method will return an empty array.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ab39e08a0f6abaa7540e0ea7e056760b3}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 176 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_aba056637d07f07a2cfa23f893f12940d}\label{class_sabre_1_1_h_t_t_p_1_1_message_aba056637d07f07a2cfa23f893f12940d}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!get\+Headers@{get\+Headers}}
+\index{get\+Headers@{get\+Headers}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{get\+Headers()}{getHeaders()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::get\+Headers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns all the H\+T\+TP headers as an array.
+
+Every header is returned as an array, with one or more values.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_af4af3d2f6712193eec05494ad2b014ab}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 116 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_a690263e84e9503548b5ed73e0518433a}\label{class_sabre_1_1_h_t_t_p_1_1_message_a690263e84e9503548b5ed73e0518433a}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!get\+Http\+Version@{get\+Http\+Version}}
+\index{get\+Http\+Version@{get\+Http\+Version}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{get\+Http\+Version()}{getHttpVersion()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::get\+Http\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the H\+T\+TP version.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a0dd9057fca16d4947ecdbe6bc425caff}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 309 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_abcaf141342d71f887630dac0a6eca95a}\label{class_sabre_1_1_h_t_t_p_1_1_message_abcaf141342d71f887630dac0a6eca95a}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!has\+Header@{has\+Header}}
+\index{has\+Header@{has\+Header}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{has\+Header()}{hasHeader()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::has\+Header (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Will return true or false, depending on if a H\+T\+TP header exists.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ac2cb6b88f6fc6cf05a2d751dc555ec0d}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 132 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_a0a6fae5616cd2131464eb1263e78c5c7}\label{class_sabre_1_1_h_t_t_p_1_1_message_a0a6fae5616cd2131464eb1263e78c5c7}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!remove\+Header@{remove\+Header}}
+\index{remove\+Header@{remove\+Header}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{remove\+Header()}{removeHeader()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::remove\+Header (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Removes a H\+T\+TP header.
+
+The specified header name must be treated as case-\/insensitive. This method should return true if the header was successfully deleted, and false if the header did not exist.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a8753c1a48f9b80b341983bc414fbd85d}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 279 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_aef29d4593bbe2debd17bfbcd501e5dcd}\label{class_sabre_1_1_h_t_t_p_1_1_message_aef29d4593bbe2debd17bfbcd501e5dcd}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!set\+Body@{set\+Body}}
+\index{set\+Body@{set\+Body}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{set\+Body()}{setBody()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::set\+Body (\begin{DoxyParamCaption}\item[{}]{\$body }\end{DoxyParamCaption})}
+
+Replaces the body resource with a new stream or string.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource | string & {\em \$body} & \\
+\hline
+\end{DoxyParams}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a9bda348f19928cf4972ba2835d0be73c}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 103 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_a81f40ecdcfb4dfad362f800a5be8813c}\label{class_sabre_1_1_h_t_t_p_1_1_message_a81f40ecdcfb4dfad362f800a5be8813c}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!set\+Header@{set\+Header}}
+\index{set\+Header@{set\+Header}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{set\+Header()}{setHeader()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::set\+Header (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Updates a H\+T\+TP header.
+
+The case-\/sensitivity of the name value must be retained as-\/is.
+
+If the header already existed, it will be overwritten.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+ & {\em string$\vert$string\mbox{[}$\,$\mbox{]}} & \$value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_aa9ddcda903d1c71710cc1bcc0b415b9c}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 199 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_abe99bdab90115cca0489dc36037ef872}\label{class_sabre_1_1_h_t_t_p_1_1_message_abe99bdab90115cca0489dc36037ef872}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!set\+Headers@{set\+Headers}}
+\index{set\+Headers@{set\+Headers}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{set\+Headers()}{setHeaders()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::set\+Headers (\begin{DoxyParamCaption}\item[{array}]{\$headers }\end{DoxyParamCaption})}
+
+Sets a new set of H\+T\+TP headers.
+
+The headers array should contain headernames for keys, and their value should be specified as either a string or an array.
+
+Any header that already existed will be overwritten.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$headers} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_afd622b82029b37f47af76f83b17ba12f}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 216 der Datei Message.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_message_a92fc3c197a8d7c713c7ccafc61989147}\label{class_sabre_1_1_h_t_t_p_1_1_message_a92fc3c197a8d7c713c7ccafc61989147}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}!set\+Http\+Version@{set\+Http\+Version}}
+\index{set\+Http\+Version@{set\+Http\+Version}!Sabre\+::\+H\+T\+T\+P\+::\+Message@{Sabre\+::\+H\+T\+T\+P\+::\+Message}}
+\subsubsection{\texorpdfstring{set\+Http\+Version()}{setHttpVersion()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+::set\+Http\+Version (\begin{DoxyParamCaption}\item[{}]{\$version }\end{DoxyParamCaption})}
+
+Sets the H\+T\+TP version.
+
+Should be 1.\+0 or 1.\+1.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$version} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a3b078aad665c00c171bc2a9b7ac05d6d}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Message\+Interface}}.
+
+
+
+Definiert in Zeile 298 der Datei Message.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/lib/Message.\+php\end{DoxyCompactItemize}

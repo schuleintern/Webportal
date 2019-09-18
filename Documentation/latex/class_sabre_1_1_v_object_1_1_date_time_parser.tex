@@ -1,0 +1,264 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_date_time_parser}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Date\+Time\+Parser Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_date_time_parser}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Date\+Time\+Parser@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Date\+Time\+Parser}}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_date_time_parser_ab10b31447333e1efb739a123192be007}{parse\+Date\+Time}} (\$dt, Date\+Time\+Zone \$tz=null)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_date_time_parser_adcb7e7d8e2864a53b0ec84c05c50e7d2}{parse\+Date}} (\$date, Date\+Time\+Zone \$tz=null)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_date_time_parser_a82605dd628113547fd15e3963df7f15c}{parse\+Duration}} (\$duration, \$as\+String=false)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_date_time_parser_a7d1e054afb052dc1a0e371a16bbdaf87}{parse}} (\$date, \$reference\+Tz=null)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_date_time_parser_a0700bbb6a7298fe08e999b9948fb0e16}{parse\+V\+Card\+Date\+Time}} (\$date)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_date_time_parser_ab54a3f395455e9bb9b4ab1487a8b06e5}{parse\+V\+Card\+Time}} (\$date)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_date_time_parser_a148b5f57f80dbe7fd35b088b0ba479d9}{parse\+V\+Card\+Date\+And\+Or\+Time}} (\$date)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_date_time_parser}{Date\+Time\+Parser}}.
+
+This class is responsible for parsing the several different date and time formats i\+Calendar and v\+Cards have.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 19 der Datei Date\+Time\+Parser.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_date_time_parser_a7d1e054afb052dc1a0e371a16bbdaf87}\label{class_sabre_1_1_v_object_1_1_date_time_parser_a7d1e054afb052dc1a0e371a16bbdaf87}} 
+\index{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}!parse@{parse}}
+\index{parse@{parse}!Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}}
+\subsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Date\+Time\+Parser\+::parse (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{}]{\$reference\+Tz = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parses either a Date or Date\+Time, or Duration value.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$date} & \\
+\hline
+Date\+Time\+Zone | string & {\em \$reference\+Tz} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Date\+Time\+Immutable$\vert$\+Date\+Interval 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 205 der Datei Date\+Time\+Parser.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_date_time_parser_adcb7e7d8e2864a53b0ec84c05c50e7d2}\label{class_sabre_1_1_v_object_1_1_date_time_parser_adcb7e7d8e2864a53b0ec84c05c50e7d2}} 
+\index{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}!parse\+Date@{parse\+Date}}
+\index{parse\+Date@{parse\+Date}!Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}}
+\subsubsection{\texorpdfstring{parse\+Date()}{parseDate()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Date\+Time\+Parser\+::parse\+Date (\begin{DoxyParamCaption}\item[{}]{\$date,  }\item[{Date\+Time\+Zone}]{\$tz = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parses an i\+Calendar (rfc5545) formatted date and returns a Date\+Time\+Immutable object.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$date} & \\
+\hline
+Date\+Time\+Zone & {\em \$tz} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Date\+Time\+Immutable 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 65 der Datei Date\+Time\+Parser.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_date_time_parser_ab10b31447333e1efb739a123192be007}\label{class_sabre_1_1_v_object_1_1_date_time_parser_ab10b31447333e1efb739a123192be007}} 
+\index{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}!parse\+Date\+Time@{parse\+Date\+Time}}
+\index{parse\+Date\+Time@{parse\+Date\+Time}!Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}}
+\subsubsection{\texorpdfstring{parse\+Date\+Time()}{parseDateTime()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Date\+Time\+Parser\+::parse\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$dt,  }\item[{Date\+Time\+Zone}]{\$tz = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parses an i\+Calendar (rfc5545) formatted datetime and returns a Date\+Time\+Immutable object.
+
+Specifying a reference timezone is optional. It will only be used if the non-\/\+U\+TC format is used. The argument is used as a reference, the returned Date\+Time\+Immutable object will still be in the U\+TC timezone.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$dt} & \\
+\hline
+Date\+Time\+Zone & {\em \$tz} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Date\+Time\+Immutable 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 34 der Datei Date\+Time\+Parser.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_date_time_parser_a82605dd628113547fd15e3963df7f15c}\label{class_sabre_1_1_v_object_1_1_date_time_parser_a82605dd628113547fd15e3963df7f15c}} 
+\index{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}!parse\+Duration@{parse\+Duration}}
+\index{parse\+Duration@{parse\+Duration}!Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}}
+\subsubsection{\texorpdfstring{parse\+Duration()}{parseDuration()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Date\+Time\+Parser\+::parse\+Duration (\begin{DoxyParamCaption}\item[{}]{\$duration,  }\item[{}]{\$as\+String = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parses an i\+Calendar (R\+F\+C5545) formatted duration value.
+
+This method will either return a Date\+Time\+Interval object, or a string suitable for strtotime or Date\+Time\+::modify.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$duration} & \\
+\hline
+bool & {\em \$as\+String} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Date\+Interval$\vert$string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 99 der Datei Date\+Time\+Parser.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_date_time_parser_a148b5f57f80dbe7fd35b088b0ba479d9}\label{class_sabre_1_1_v_object_1_1_date_time_parser_a148b5f57f80dbe7fd35b088b0ba479d9}} 
+\index{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}!parse\+V\+Card\+Date\+And\+Or\+Time@{parse\+V\+Card\+Date\+And\+Or\+Time}}
+\index{parse\+V\+Card\+Date\+And\+Or\+Time@{parse\+V\+Card\+Date\+And\+Or\+Time}!Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}}
+\subsubsection{\texorpdfstring{parse\+V\+Card\+Date\+And\+Or\+Time()}{parseVCardDateAndOrTime()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Date\+Time\+Parser\+::parse\+V\+Card\+Date\+And\+Or\+Time (\begin{DoxyParamCaption}\item[{}]{\$date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method parses a v\+Card date and or time value.
+
+This can be used for the D\+A\+TE, D\+A\+T\+E-\/\+T\+I\+ME and D\+A\+T\+E-\/\+A\+N\+D-\/\+O\+R-\/\+T\+I\+ME value.
+
+This method returns an array, not a Date\+Time value. The elements in the array are in the following order\+: year, month, date, hour, minute, second, timezone Almost any part of the string may be omitted. It\textquotesingle{}s for example legal to just specify seconds, leave out the year, etc.
+
+Timezone is either returned as \textquotesingle{}Z\textquotesingle{} or as \textquotesingle{}+0800\textquotesingle{}
+
+For any non-\/specified values null is returned.
+
+List of date formats that are supported\+: 20150128 2015-\/01 --01 --0128 ---28
+
+List of supported time formats\+: 13 1353 135301 -\/53 -\/5301 --01 (unreachable, see the tests) --01Z --01+1234
+
+List of supported date-\/time formats\+: 20150128\+T13 --0128\+T13 ---28\+T13 ---28\+T1353 ---28\+T135301 ---28\+T13Z ---28\+T13+1234
+
+See the regular expressions for all the possible patterns.
+
+Times may be postfixed by a timezone offset. This can be either \textquotesingle{}Z\textquotesingle{} for U\+TC, or a string like -\/0500 or +1100.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$date} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 509 der Datei Date\+Time\+Parser.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_date_time_parser_a0700bbb6a7298fe08e999b9948fb0e16}\label{class_sabre_1_1_v_object_1_1_date_time_parser_a0700bbb6a7298fe08e999b9948fb0e16}} 
+\index{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}!parse\+V\+Card\+Date\+Time@{parse\+V\+Card\+Date\+Time}}
+\index{parse\+V\+Card\+Date\+Time@{parse\+V\+Card\+Date\+Time}!Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}}
+\subsubsection{\texorpdfstring{parse\+V\+Card\+Date\+Time()}{parseVCardDateTime()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Date\+Time\+Parser\+::parse\+V\+Card\+Date\+Time (\begin{DoxyParamCaption}\item[{}]{\$date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method parses a v\+Card date and or time value.
+
+This can be used for the D\+A\+TE, D\+A\+T\+E-\/\+T\+I\+ME, T\+I\+M\+E\+S\+T\+A\+MP and D\+A\+T\+E-\/\+A\+N\+D-\/\+O\+R-\/\+T\+I\+ME value.
+
+This method returns an array, not a Date\+Time value.
+
+The elements in the array are in the following order\+: year, month, date, hour, minute, second, timezone
+
+Almost any part of the string may be omitted. It\textquotesingle{}s for example legal to just specify seconds, leave out the year, etc.
+
+Timezone is either returned as \textquotesingle{}Z\textquotesingle{} or as \textquotesingle{}+0800\textquotesingle{}
+
+For any non-\/specified values null is returned.
+
+List of date formats that are supported\+: Y\+Y\+YY Y\+Y\+Y\+Y-\/\+MM Y\+Y\+Y\+Y\+M\+M\+DD --M\+M\+DD ---DD
+
+Y\+Y\+Y\+Y-\/\+M\+M-\/\+DD --M\+M-\/\+DD ---DD
+
+List of supported time formats\+:
+
+HH H\+H\+MM H\+H\+M\+M\+SS -\/\+M\+M\+SS --SS
+
+HH HH\+:MM H\+H\+:\+MM\+:SS -\/\+MM\+:SS --SS
+
+A full basic-\/format date-\/time string looks like \+: 20130603\+T133901
+
+A full extended-\/format date-\/time string looks like \+: 2013-\/06-\/03\+T13\+:39\+:01
+
+Times may be postfixed by a timezone offset. This can be either \textquotesingle{}Z\textquotesingle{} for U\+TC, or a string like -\/0500 or +1100.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$date} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 273 der Datei Date\+Time\+Parser.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_date_time_parser_ab54a3f395455e9bb9b4ab1487a8b06e5}\label{class_sabre_1_1_v_object_1_1_date_time_parser_ab54a3f395455e9bb9b4ab1487a8b06e5}} 
+\index{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}!parse\+V\+Card\+Time@{parse\+V\+Card\+Time}}
+\index{parse\+V\+Card\+Time@{parse\+V\+Card\+Time}!Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser@{Sabre\+::\+V\+Object\+::\+Date\+Time\+Parser}}
+\subsubsection{\texorpdfstring{parse\+V\+Card\+Time()}{parseVCardTime()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Date\+Time\+Parser\+::parse\+V\+Card\+Time (\begin{DoxyParamCaption}\item[{}]{\$date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method parses a v\+Card T\+I\+ME value.
+
+This method returns an array, not a Date\+Time value.
+
+The elements in the array are in the following order\+: hour, minute, second, timezone
+
+Almost any part of the string may be omitted. It\textquotesingle{}s for example legal to just specify seconds, leave out the hour etc.
+
+Timezone is either returned as \textquotesingle{}Z\textquotesingle{} or as \textquotesingle{}+08\+:00\textquotesingle{}
+
+For any non-\/specified values null is returned.
+
+List of supported time formats\+:
+
+HH H\+H\+MM H\+H\+M\+M\+SS -\/\+M\+M\+SS --SS
+
+HH HH\+:MM H\+H\+:\+MM\+:SS -\/\+MM\+:SS --SS
+
+A full basic-\/format time string looks like \+: 133901
+
+A full extended-\/format time string looks like \+: 13\+:39\+:01
+
+Times may be postfixed by a timezone offset. This can be either \textquotesingle{}Z\textquotesingle{} for U\+TC, or a string like -\/0500 or +11\+:00.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$date} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 397 der Datei Date\+Time\+Parser.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/Date\+Time\+Parser.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAV/Auth/Backend/File.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_641c95e6ed9dd2d5dcbadeacba03bd45.html">DAV</a></li><li class="navelem"><a class="el" href="dir_f78cc9598c78246cdd39ff5587e3a2af.html">Auth</a></li><li class="navelem"><a class="el" href="dir_d911926a16926b83e74da47caaa85fd6.html">Backend</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">File.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_auth_1_1_backend.html">Sabre\DAV\Auth\Backend</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html">File</a> <span class="keyword">extends</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_digest.html">AbstractDigest</a> {</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">protected</span> $users = [];</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html#a9e267641e8da23b83338f7b27c2daef3">   32</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html#a9e267641e8da23b83338f7b27c2daef3">__construct</a>($filename = null) {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">if</span> (!is_null($filename))</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            $this-&gt;<a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html#a1dae0863ae70e48299ef2b550d8709e2">loadFile</a>($filename);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html#a1dae0863ae70e48299ef2b550d8709e2">   46</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html#a1dae0863ae70e48299ef2b550d8709e2">loadFile</a>($filename) {</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">foreach</span> (file($filename, FILE_IGNORE_NEW_LINES) as $line) {</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span> (substr_count($line, <span class="stringliteral">&quot;:&quot;</span>) !== 2)</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_exception.html">DAV\Exception</a>(<span class="stringliteral">&#39;Malformed htdigest file. Every line should contain 2 colons&#39;</span>);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            list($username, $realm, $A1) = explode(<span class="charliteral">&#39;:&#39;</span>, $line);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">if</span> (!preg_match(<span class="stringliteral">&#39;/^[a-zA-Z0-9]{32}$/&#39;</span>, $A1))</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_exception.html">DAV\Exception</a>(<span class="stringliteral">&#39;Malformed htdigest file. Invalid md5 hash&#39;</span>);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            $this-&gt;users[$realm . <span class="charliteral">&#39;:&#39;</span> . $username] = $A1;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html#a1efe27436ef25c589c35e84cea0bb837">   71</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html#a1efe27436ef25c589c35e84cea0bb837">getDigestHash</a>($realm, $username) {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> isset($this-&gt;users[$realm . <span class="charliteral">&#39;:&#39;</span> . $username]) ? $this-&gt;users[$realm . <span class="charliteral">&#39;:&#39;</span> . $username] : <span class="keyword">false</span>;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_d_a_v_1_1_exception_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_exception.html">Sabre\DAV\Exception</a></div><div class="ttdef"><b>Definition:</b> <a href="_exception_8php_source.html#l00018">Exception.php:18</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file_html_a9e267641e8da23b83338f7b27c2daef3"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html#a9e267641e8da23b83338f7b27c2daef3">Sabre\DAV\Auth\Backend\File\__construct</a></div><div class="ttdeci">__construct($filename=null)</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_auth_2_backend_2_file_8php_source.html#l00032">File.php:32</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_auth_1_1_backend_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_auth_1_1_backend.html">Sabre\DAV\Auth\Backend</a></div><div class="ttdef"><b>Definition:</b> <a href="_abstract_basic_8php_source.html#l00003">AbstractBasic.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_digest_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_digest.html">Sabre\DAV\Auth\Backend\AbstractDigest</a></div><div class="ttdef"><b>Definition:</b> <a href="_abstract_digest_8php_source.html#l00021">AbstractDigest.php:21</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html">Sabre\DAV\Auth\Backend\File</a></div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_auth_2_backend_2_file_8php_source.html#l00016">File.php:16</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file_html_a1dae0863ae70e48299ef2b550d8709e2"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html#a1dae0863ae70e48299ef2b550d8709e2">Sabre\DAV\Auth\Backend\File\loadFile</a></div><div class="ttdeci">loadFile($filename)</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_auth_2_backend_2_file_8php_source.html#l00046">File.php:46</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file_html_a1efe27436ef25c589c35e84cea0bb837"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_file.html#a1efe27436ef25c589c35e84cea0bb837">Sabre\DAV\Auth\Backend\File\getDigestHash</a></div><div class="ttdeci">getDigestHash($realm, $username)</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_auth_2_backend_2_file_8php_source.html#l00071">File.php:71</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

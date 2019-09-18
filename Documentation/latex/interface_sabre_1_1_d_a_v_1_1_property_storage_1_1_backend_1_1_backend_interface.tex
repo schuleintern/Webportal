@@ -1,0 +1,146 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Property\+Storage\textbackslash{}Backend\textbackslash{}Backend\+Interface Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Property\+Storage\textbackslash{}Backend\textbackslash{}Backend\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.656805cm]{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_a08b66469a69989bdc8d016b10071e01c}{prop\+Find}} (\$path, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}} \$prop\+Find)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_ad0060806625e44b35b8d1ea42d900d4d}{prop\+Patch}} (\$path, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}} \$prop\+Patch)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_a4930add42ecbd12a23515224b7c73e6c}{delete}} (\$path)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_a6ada599e02c26b6452b0b06b78d48505}{move}} (\$source, \$destination)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Propertystorage backend interface.
+
+Propertystorage backends must implement this interface to be used by the propertystorage plugin.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Backend\+Interface.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_a4930add42ecbd12a23515224b7c73e6c}\label{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_a4930add42ecbd12a23515224b7c73e6c}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface}!delete@{delete}}
+\index{delete@{delete}!Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::delete (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+This method is called after a node is deleted.
+
+This allows a backend to clean up all associated properties.
+
+The delete method will get called once for the deletion of an entire tree.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_p_d_o_a4a9b088694e295dba8ad668e85808d7f}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_mock_a6c1045261abf7f52248c8f0b217f90ae}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_a6ada599e02c26b6452b0b06b78d48505}\label{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_a6ada599e02c26b6452b0b06b78d48505}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface}!move@{move}}
+\index{move@{move}!Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::move (\begin{DoxyParamCaption}\item[{}]{\$source,  }\item[{}]{\$destination }\end{DoxyParamCaption})}
+
+This method is called after a successful M\+O\+VE
+
+This should be used to migrate all properties from one path to another. \mbox{\hyperlink{class_note}{Note}} that entire collections may be moved, so ensure that all properties for children are also moved along.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$source} & \\
+\hline
+string & {\em \$destination} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_p_d_o_ab9d5112e4e012c25158c1d8fb66c2fa3}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_mock_a91070b060260a58c766f281f67228b5f}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_a08b66469a69989bdc8d016b10071e01c}\label{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_a08b66469a69989bdc8d016b10071e01c}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface}!prop\+Find@{prop\+Find}}
+\index{prop\+Find@{prop\+Find}!Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{prop\+Find()}{propFind()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::prop\+Find (\begin{DoxyParamCaption}\item[{}]{\$path,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}}}]{\$prop\+Find }\end{DoxyParamCaption})}
+
+Fetches properties for a path.
+
+This method received a \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}} object, which contains all the information about the properties that need to be fetched.
+
+Usually you would just want to call \textquotesingle{}get404\+Properties\textquotesingle{} on this object, as this will give you the {\itshape exact} list of properties that need to be fetched, and haven\textquotesingle{}t yet.
+
+However, you can also support the \textquotesingle{}allprops\textquotesingle{} property here. In that case, you should check for \$prop\+Find-\/$>$is\+All\+Props().
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}} & {\em \$prop\+Find} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_p_d_o_a3261703333018d1154443fae0828eaf8}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_mock_ae13c6fc2f23d340c09a9f62aa93a0ef9}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_ad0060806625e44b35b8d1ea42d900d4d}\label{interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_ad0060806625e44b35b8d1ea42d900d4d}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface}!prop\+Patch@{prop\+Patch}}
+\index{prop\+Patch@{prop\+Patch}!Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+D\+A\+V\+::\+Property\+Storage\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{prop\+Patch()}{propPatch()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::prop\+Patch (\begin{DoxyParamCaption}\item[{}]{\$path,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}}}]{\$prop\+Patch }\end{DoxyParamCaption})}
+
+Updates properties for a path
+
+This method received a \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}} object, which contains all the information about the update.
+
+Usually you would want to call \textquotesingle{}handle\+Remaining\textquotesingle{} on this object, to get; a list of all properties that need to be stored.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}} & {\em \$prop\+Patch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_p_d_o_ad4d5bc14b0dcbb4546a0d8f999924cf1}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_mock_aaee3eb54769430ea1b1a80ea58b774fe}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Property\+Storage\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Property\+Storage/\+Backend/Backend\+Interface.\+php\end{DoxyCompactItemize}

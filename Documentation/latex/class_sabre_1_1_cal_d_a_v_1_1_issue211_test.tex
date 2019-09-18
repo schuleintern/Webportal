@@ -1,0 +1,102 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_issue211_test}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Issue211\+Test Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_issue211_test}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Issue211\+Test@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Issue211\+Test}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Issue211\+Test\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_cal_d_a_v_1_1_issue211_test}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_issue211_test_a2c369984f00704d3f012447a2cbaccd4}\label{class_sabre_1_1_cal_d_a_v_1_1_issue211_test_a2c369984f00704d3f012447a2cbaccd4}} 
+{\bfseries test\+Issue211} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_issue211_test_aff57d4119e6ae5f45a18954795dc886f}\label{class_sabre_1_1_cal_d_a_v_1_1_issue211_test_aff57d4119e6ae5f45a18954795dc886f}} 
+{\bfseries \$setup\+Cal\+D\+AV} = true
+\item 
+{\bfseries \$caldav\+Calendars}
+\item 
+{\bfseries \$caldav\+Calendar\+Objects}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This unittest is created to check for an endless loop in Sabre
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 14 der Datei Issue211\+Test.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_issue211_test_a6b616d0d423ae8edaf04125a0e64f17c}\label{class_sabre_1_1_cal_d_a_v_1_1_issue211_test_a6b616d0d423ae8edaf04125a0e64f17c}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Issue211\+Test@{Sabre\+::\+Cal\+D\+A\+V\+::\+Issue211\+Test}!\$caldav\+Calendar\+Objects@{\$caldav\+Calendar\+Objects}}
+\index{\$caldav\+Calendar\+Objects@{\$caldav\+Calendar\+Objects}!Sabre\+::\+Cal\+D\+A\+V\+::\+Issue211\+Test@{Sabre\+::\+Cal\+D\+A\+V\+::\+Issue211\+Test}}
+\subsubsection{\texorpdfstring{\$caldav\+Calendar\+Objects}{$caldavCalendarObjects}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Issue211\+Test\+::\$caldav\+Calendar\+Objects\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= [
+        1 => [
+            \textcolor{stringliteral}{'event.ics'} => [
+                \textcolor{stringliteral}{'calendardata'} => \textcolor{stringliteral}{'BEGIN:VCALENDAR}
+\textcolor{stringliteral}{VERSION:2.0}
+\textcolor{stringliteral}{BEGIN:VEVENT}
+\textcolor{stringliteral}{UID:20120418T172519CEST-3510gh1hVw}
+\textcolor{stringliteral}{DTSTAMP:20120418T152519Z}
+\textcolor{stringliteral}{DTSTART;VALUE=DATE:20120330}
+\textcolor{stringliteral}{DTEND;VALUE=DATE:20120531}
+\textcolor{stringliteral}{EXDATE;TZID=Europe/Berlin:20120330T000000}
+\textcolor{stringliteral}{RRULE:FREQ=YEARLY;INTERVAL=1}
+\textcolor{stringliteral}{SEQUENCE:1}
+\textcolor{stringliteral}{SUMMARY:Birthday}
+\textcolor{stringliteral}{TRANSP:TRANSPARENT}
+\textcolor{stringliteral}{BEGIN:VALARM}
+\textcolor{stringliteral}{ACTION:EMAIL}
+\textcolor{stringliteral}{ATTENDEE:MAILTO:xxx@domain.de}
+\textcolor{stringliteral}{DESCRIPTION:Dies ist eine Kalender Erinnerung}
+\textcolor{stringliteral}{SUMMARY:Kalender Alarm Erinnerung}
+\textcolor{stringliteral}{TRIGGER;VALUE=DATE-TIME:20120329T060000Z}
+\textcolor{stringliteral}{END:VALARM}
+\textcolor{stringliteral}{END:VEVENT}
+\textcolor{stringliteral}{END:VCALENDAR}
+\textcolor{stringliteral}{'}
+\end{DoxyCode}
+
+
+Definiert in Zeile 27 der Datei Issue211\+Test.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_issue211_test_a8b3dced0f9e6e2dcd60e3cecb15b4a37}\label{class_sabre_1_1_cal_d_a_v_1_1_issue211_test_a8b3dced0f9e6e2dcd60e3cecb15b4a37}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Issue211\+Test@{Sabre\+::\+Cal\+D\+A\+V\+::\+Issue211\+Test}!\$caldav\+Calendars@{\$caldav\+Calendars}}
+\index{\$caldav\+Calendars@{\$caldav\+Calendars}!Sabre\+::\+Cal\+D\+A\+V\+::\+Issue211\+Test@{Sabre\+::\+Cal\+D\+A\+V\+::\+Issue211\+Test}}
+\subsubsection{\texorpdfstring{\$caldav\+Calendars}{$caldavCalendars}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Issue211\+Test\+::\$caldav\+Calendars\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= [
+        [
+            \textcolor{stringliteral}{'id'}           => 1,
+            \textcolor{stringliteral}{'name'}         => \textcolor{stringliteral}{'Calendar'}
+\end{DoxyCode}
+
+
+Definiert in Zeile 18 der Datei Issue211\+Test.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+Cal\+D\+A\+V/Issue211\+Test.\+php\end{DoxyCompactItemize}

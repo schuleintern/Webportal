@@ -1,0 +1,78 @@
+\hypertarget{classvplan}{}\section{vplan Klassenreferenz}
+\label{classvplan}\index{vplan@{vplan}}
+Klassendiagramm für vplan\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvplan}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvplan_a5def77bb05fa71495afe27811eb6b04e}\label{classvplan_a5def77bb05fa71495afe27811eb6b04e}} 
+{\bfseries execute} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvplan_a3c9572918b9a337095c0465c3172056f}\label{classvplan_a3c9572918b9a337095c0465c3172056f}} 
+static {\bfseries has\+Settings} ()
+\item 
+static \mbox{\hyperlink{classvplan_a6b33712013b53420f3ef89c3c6d406ae}{get\+Settings\+Description}} ()
+\item 
+\mbox{\Hypertarget{classvplan_ab503ff530ad3977c124f9432834a764f}\label{classvplan_ab503ff530ad3977c124f9432834a764f}} 
+static {\bfseries get\+Site\+Display\+Name} ()
+\item 
+static \mbox{\hyperlink{classvplan_aac77500cfdc4bb62e53666612c2f9dff}{get\+User\+Groups}} ()
+\item 
+\mbox{\Hypertarget{classvplan_a00ac9748e8a0af90b1826caa66e34533}\label{classvplan_a00ac9748e8a0af90b1826caa66e34533}} 
+static {\bfseries site\+Is\+Always\+Active} ()
+\item 
+\mbox{\Hypertarget{classvplan_a11efaaf09630aec6acb8561cf4d535f6}\label{classvplan_a11efaaf09630aec6acb8561cf4d535f6}} 
+static {\bfseries has\+Admin} ()
+\item 
+\mbox{\Hypertarget{classvplan_a88ead18b9795d8d24650369d61ba6873}\label{classvplan_a88ead18b9795d8d24650369d61ba6873}} 
+static {\bfseries user\+Has\+Access} (\$\mbox{\hyperlink{classuser}{user}})
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 3 der Datei vplan.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{classvplan_a6b33712013b53420f3ef89c3c6d406ae}\label{classvplan_a6b33712013b53420f3ef89c3c6d406ae}} 
+\index{vplan@{vplan}!get\+Settings\+Description@{get\+Settings\+Description}}
+\index{get\+Settings\+Description@{get\+Settings\+Description}!vplan@{vplan}}
+\subsubsection{\texorpdfstring{get\+Settings\+Description()}{getSettingsDescription()}}
+{\footnotesize\ttfamily static vplan\+::get\+Settings\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Stellt eine Beschreibung der Einstellungen bereit, die für das Modul nötig sind. \begin{DoxyReturn}{Rückgabe}
+array(\+String, String) array( array( \textquotesingle{}name\textquotesingle{} =$>$ \char`\"{}\+Name der Einstellung (z.\+B. formblatt-\/is\+Active)\char`\"{}, \textquotesingle{}typ\textquotesingle{} =$>$ Z\+E\+I\+LE $\vert$ T\+E\+XT $\vert$ N\+U\+M\+M\+ER $\vert$ B\+O\+O\+L\+E\+AN, \textquotesingle{}titel\textquotesingle{} =$>$ \char`\"{}\+Titel der Beschreibung\char`\"{}, \textquotesingle{}text\textquotesingle{} =$>$ \char`\"{}\+Text der Beschreibung\char`\"{} ) , ) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 304 der Datei vplan.\+class.\+php.
+
+\mbox{\Hypertarget{classvplan_aac77500cfdc4bb62e53666612c2f9dff}\label{classvplan_aac77500cfdc4bb62e53666612c2f9dff}} 
+\index{vplan@{vplan}!get\+User\+Groups@{get\+User\+Groups}}
+\index{get\+User\+Groups@{get\+User\+Groups}!vplan@{vplan}}
+\subsubsection{\texorpdfstring{get\+User\+Groups()}{getUserGroups()}}
+{\footnotesize\ttfamily static vplan\+::get\+User\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Liest alle Nutzergruppen aus, die diese Seite verwendet. (Für die Benutzeradministration) \begin{DoxyReturn}{Rückgabe}
+array(array(\textquotesingle{}group\+Name\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{}, \textquotesingle{}beschreibung\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{})) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 317 der Datei vplan.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/page/vplan/vplan.\+class.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,112 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Mount\textbackslash{}Plugin Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mount\textbackslash{}\+Plugin@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mount\textbackslash{}\+Plugin}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Mount\textbackslash{}Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_a7ddc2563e92fdbb763da7fbbaf250f6c}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_aa6ebbdbaea16e2d4d78e855ec7c18af3}{http\+Get}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_aa6c2281e553a847b3201275327e0541a}{dav\+Mount}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response, \$uri)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_a12c022b32e469c375d7ba7d7724fa2f4}\label{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_a12c022b32e469c375d7ba7d7724fa2f4}} 
+{\bfseries \$server}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This plugin provides support for R\+F\+C4709\+: Mounting Web\+D\+AV servers
+
+Simply append ?mount to any collection to generate the davmount response.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_aa6c2281e553a847b3201275327e0541a}\label{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_aa6c2281e553a847b3201275327e0541a}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin}!dav\+Mount@{dav\+Mount}}
+\index{dav\+Mount@{dav\+Mount}!Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin}}
+\subsubsection{\texorpdfstring{dav\+Mount()}{davMount()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mount\textbackslash{}\+Plugin\+::dav\+Mount (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response,  }\item[{}]{\$uri }\end{DoxyParamCaption})}
+
+Generates the davmount response
+
+
+\begin{DoxyParams}[1]{Parameter}
+Response\+Interface & {\em \$response} & \\
+\hline
+string & {\em \$uri} & absolute uri \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 72 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_aa6ebbdbaea16e2d4d78e855ec7c18af3}\label{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_aa6ebbdbaea16e2d4d78e855ec7c18af3}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin}!http\+Get@{http\+Get}}
+\index{http\+Get@{http\+Get}!Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin}}
+\subsubsection{\texorpdfstring{http\+Get()}{httpGet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mount\textbackslash{}\+Plugin\+::http\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+\textquotesingle{}before\+Method\textquotesingle{} event handles. This event handles intercepts G\+ET requests ending with ?mount
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 48 der Datei Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_a7ddc2563e92fdbb763da7fbbaf250f6c}\label{class_sabre_1_1_d_a_v_1_1_mount_1_1_plugin_a7ddc2563e92fdbb763da7fbbaf250f6c}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin}!initialize@{initialize}}
+\index{initialize@{initialize}!Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Mount\+::\+Plugin}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mount\textbackslash{}\+Plugin\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}}}]{\$server }\end{DoxyParamCaption})}
+
+Initializes the plugin and registers event handles
+
+
+\begin{DoxyParams}[1]{Parameter}
+D\+A\+V\textbackslash{}\+Server & {\em \$server} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 33 der Datei Plugin.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Mount/Plugin.\+php\end{DoxyCompactItemize}

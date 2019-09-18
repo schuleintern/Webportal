@@ -1,0 +1,266 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Prop\+Patch Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_prop_patch}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Prop\+Patch\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_1_1_prop_patch}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch_a8e9765d3a06e62c02c7d456783a92b64}{\+\_\+\+\_\+construct}} (array \$mutations)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch_a8557ab29cd9f90c1d2459a6848338315}{handle}} (\$properties, callable \$callback)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch_a9908d93d975bc2cf4d85e8dbff42cd92}{handle\+Remaining}} (callable \$callback)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch_a9112bf164a32f52e6967c9cace1eecb8}{set\+Result\+Code}} (\$properties, \$result\+Code)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch_ae1af4f2a5645b3c72bb2ab8359562452}{set\+Remaining\+Result\+Code}} (\$result\+Code)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch_aa99c5975683d4d41a7f20d660380575a}{get\+Remaining\+Mutations}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch_a4ef0dca1d6eafc8bf30fa1ede367cecb}{get\+Remaining\+Values}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch_a17d4198c780f4b4e1bb36943506d67e1}{commit}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch_afbe27359bdd164d4a3ebcb66fb61fd73}{get\+Result}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch_af414b039ec976327251bd681765f33c5}{get\+Mutations}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_a10d690dd83537c2f3f15e836419b1314}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_a10d690dd83537c2f3f15e836419b1314}} 
+{\bfseries \$mutations}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_a33635c11fd05f8c4f779e5689636088e}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_a33635c11fd05f8c4f779e5689636088e}} 
+{\bfseries \$result} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_a64dd54714eee2a93ec2f6fb9acd9090b}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_a64dd54714eee2a93ec2f6fb9acd9090b}} 
+{\bfseries \$property\+Update\+Callbacks} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_afc5528b2a5a3ff09329f852183707c30}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_afc5528b2a5a3ff09329f852183707c30}} 
+{\bfseries \$failed} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This class represents a set of properties that are going to be updated.
+
+Usually this is simply a P\+R\+O\+P\+P\+A\+T\+CH request, but it can also be used for internal updates.
+
+Property updates must always be atomic. This means that a property update must either completely succeed, or completely fail.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 20 der Datei Prop\+Patch.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_a8e9765d3a06e62c02c7d456783a92b64}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_a8e9765d3a06e62c02c7d456783a92b64}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{array}]{\$mutations }\end{DoxyParamCaption})}
+
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$mutations} & A list of updates \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 59 der Datei Prop\+Patch.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_a17d4198c780f4b4e1bb36943506d67e1}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_a17d4198c780f4b4e1bb36943506d67e1}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}!commit@{commit}}
+\index{commit@{commit}!Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}}
+\subsubsection{\texorpdfstring{commit()}{commit()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch\+::commit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Performs the actual update, and calls all callbacks.
+
+This method returns true or false depending on if the operation was successful.
+
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+If anywhere in this operation updating a property failed, we must update all other properties accordingly.
+
+Definiert in Zeile 225 der Datei Prop\+Patch.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_af414b039ec976327251bd681765f33c5}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_af414b039ec976327251bd681765f33c5}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}!get\+Mutations@{get\+Mutations}}
+\index{get\+Mutations@{get\+Mutations}!Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}}
+\subsubsection{\texorpdfstring{get\+Mutations()}{getMutations()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch\+::get\+Mutations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the full list of mutations
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 367 der Datei Prop\+Patch.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_aa99c5975683d4d41a7f20d660380575a}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_aa99c5975683d4d41a7f20d660380575a}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}!get\+Remaining\+Mutations@{get\+Remaining\+Mutations}}
+\index{get\+Remaining\+Mutations@{get\+Remaining\+Mutations}!Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}}
+\subsubsection{\texorpdfstring{get\+Remaining\+Mutations()}{getRemainingMutations()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch\+::get\+Remaining\+Mutations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of properties that don\textquotesingle{}t have a result code yet.
+
+This method returns a list of property names, but not its values.
+
+\begin{DoxyReturn}{Rückgabe}
+string\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 184 der Datei Prop\+Patch.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_a4ef0dca1d6eafc8bf30fa1ede367cecb}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_a4ef0dca1d6eafc8bf30fa1ede367cecb}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}!get\+Remaining\+Values@{get\+Remaining\+Values}}
+\index{get\+Remaining\+Values@{get\+Remaining\+Values}!Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}}
+\subsubsection{\texorpdfstring{get\+Remaining\+Values()}{getRemainingValues()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch\+::get\+Remaining\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of properties that don\textquotesingle{}t have a result code yet.
+
+This method returns list of properties and their values.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 204 der Datei Prop\+Patch.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_afbe27359bdd164d4a3ebcb66fb61fd73}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_afbe27359bdd164d4a3ebcb66fb61fd73}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}!get\+Result@{get\+Result}}
+\index{get\+Result@{get\+Result}!Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}}
+\subsubsection{\texorpdfstring{get\+Result()}{getResult()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch\+::get\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the result of the operation.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 356 der Datei Prop\+Patch.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_a8557ab29cd9f90c1d2459a6848338315}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_a8557ab29cd9f90c1d2459a6848338315}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}!handle@{handle}}
+\index{handle@{handle}!Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}}
+\subsubsection{\texorpdfstring{handle()}{handle()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch\+::handle (\begin{DoxyParamCaption}\item[{}]{\$properties,  }\item[{callable}]{\$callback }\end{DoxyParamCaption})}
+
+Call this function if you wish to handle updating certain properties. For instance, your class may be responsible for handling updates for the \{D\+AV\+:\}displayname property.
+
+In that case, call this method with the first argument \char`\"{}\{\+D\+A\+V\+:\}displayname\char`\"{} and a second argument that\textquotesingle{}s a method that does the actual updating.
+
+It\textquotesingle{}s possible to specify more than one property as an array.
+
+The callback must return a boolean or an it. If the result is true, the operation was considered successful. If it\textquotesingle{}s false, it\textquotesingle{}s consided failed.
+
+If the result is an integer, we\textquotesingle{}ll use that integer as the http status code associated with the operation.
+
+
+\begin{DoxyParams}[1]{Parameter}
+ & {\em string$\vert$string\mbox{[}$\,$\mbox{]}} & \$properties \\
+\hline
+callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 87 der Datei Prop\+Patch.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_a9908d93d975bc2cf4d85e8dbff42cd92}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_a9908d93d975bc2cf4d85e8dbff42cd92}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}!handle\+Remaining@{handle\+Remaining}}
+\index{handle\+Remaining@{handle\+Remaining}!Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}}
+\subsubsection{\texorpdfstring{handle\+Remaining()}{handleRemaining()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch\+::handle\+Remaining (\begin{DoxyParamCaption}\item[{callable}]{\$callback }\end{DoxyParamCaption})}
+
+Call this function if you wish to handle {\itshape all} properties that haven\textquotesingle{}t been handled by anything else yet. \mbox{\hyperlink{class_note}{Note}} that you effectively claim with this that you promise to process {\itshape all} properties that are coming in.
+
+
+\begin{DoxyParams}[1]{Parameter}
+callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 123 der Datei Prop\+Patch.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_ae1af4f2a5645b3c72bb2ab8359562452}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_ae1af4f2a5645b3c72bb2ab8359562452}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}!set\+Remaining\+Result\+Code@{set\+Remaining\+Result\+Code}}
+\index{set\+Remaining\+Result\+Code@{set\+Remaining\+Result\+Code}!Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}}
+\subsubsection{\texorpdfstring{set\+Remaining\+Result\+Code()}{setRemainingResultCode()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch\+::set\+Remaining\+Result\+Code (\begin{DoxyParamCaption}\item[{}]{\$result\+Code }\end{DoxyParamCaption})}
+
+Sets the result code for all properties that did not have a result yet.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$result\+Code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 168 der Datei Prop\+Patch.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_prop_patch_a9112bf164a32f52e6967c9cace1eecb8}\label{class_sabre_1_1_d_a_v_1_1_prop_patch_a9112bf164a32f52e6967c9cace1eecb8}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}!set\+Result\+Code@{set\+Result\+Code}}
+\index{set\+Result\+Code@{set\+Result\+Code}!Sabre\+::\+D\+A\+V\+::\+Prop\+Patch@{Sabre\+::\+D\+A\+V\+::\+Prop\+Patch}}
+\subsubsection{\texorpdfstring{set\+Result\+Code()}{setResultCode()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch\+::set\+Result\+Code (\begin{DoxyParamCaption}\item[{}]{\$properties,  }\item[{}]{\$result\+Code }\end{DoxyParamCaption})}
+
+Sets the result code for one or more properties.
+
+
+\begin{DoxyParams}[1]{Parameter}
+ & {\em string$\vert$string\mbox{[}$\,$\mbox{]}} & \$properties \\
+\hline
+int & {\em \$result\+Code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 150 der Datei Prop\+Patch.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/Prop\+Patch.\+php\end{DoxyCompactItemize}

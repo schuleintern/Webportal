@@ -1,0 +1,107 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Exception\textbackslash{}Locked Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Exception\textbackslash{}\+Locked@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Exception\textbackslash{}\+Locked}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Exception\textbackslash{}Locked\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_af7e916f724fb6dd17aef1059a4cb7ce1}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Lock\+Info}} \$lock=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_a8d4b466b707377f563b86b7af70c82ae}{get\+H\+T\+T\+P\+Code}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_af9fffe148ea513b21e69aee0b98a87b6}{serialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}} \$server, \textbackslash{}D\+O\+M\+Element \$error\+Node)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_a9c6ff6a415aa24065067c3ad587f86e2}\label{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_a9c6ff6a415aa24065067c3ad587f86e2}} 
+{\bfseries \$lock}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked}{Locked}}
+
+The 423 is thrown when a client tried to access a resource that was locked, without supplying a valid lock token
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei Locked.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_af7e916f724fb6dd17aef1059a4cb7ce1}\label{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_af7e916f724fb6dd17aef1059a4cb7ce1}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked@{Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked@{Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Exception\textbackslash{}\+Locked\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Lock\+Info}}}]{\$lock = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates the exception
+
+A Lock\+Info object should be passed if the user should be informed which lock actually has the file locked.
+
+
+\begin{DoxyParams}[1]{Parameter}
+D\+A\+V\textbackslash{}\+Locks\textbackslash{}\+Lock\+Info & {\em \$lock} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 33 der Datei Locked.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_a8d4b466b707377f563b86b7af70c82ae}\label{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_a8d4b466b707377f563b86b7af70c82ae}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked@{Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked}!get\+H\+T\+T\+P\+Code@{get\+H\+T\+T\+P\+Code}}
+\index{get\+H\+T\+T\+P\+Code@{get\+H\+T\+T\+P\+Code}!Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked@{Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked}}
+\subsubsection{\texorpdfstring{get\+H\+T\+T\+P\+Code()}{getHTTPCode()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Exception\textbackslash{}\+Locked\+::get\+H\+T\+T\+P\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the H\+T\+TP statuscode for this exception
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 44 der Datei Locked.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_af9fffe148ea513b21e69aee0b98a87b6}\label{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_af9fffe148ea513b21e69aee0b98a87b6}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked@{Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked}!serialize@{serialize}}
+\index{serialize@{serialize}!Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked@{Sabre\+::\+D\+A\+V\+::\+Exception\+::\+Locked}}
+\subsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Exception\textbackslash{}\+Locked\+::serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}}}]{\$server,  }\item[{\textbackslash{}D\+O\+M\+Element}]{\$error\+Node }\end{DoxyParamCaption})}
+
+This method allows the exception to include additional information into the Web\+D\+AV error response
+
+
+\begin{DoxyParams}[1]{Parameter}
+D\+A\+V\textbackslash{}\+Server & {\em \$server} & \\
+\hline
+\textbackslash{}\+D\+O\+M\+Element & {\em \$error\+Node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 57 der Datei Locked.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Exception/Locked.\+php\end{DoxyCompactItemize}

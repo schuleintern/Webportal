@@ -1,0 +1,98 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}Basic\+Call\+Back Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Basic\+Call\+Back@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Basic\+Call\+Back}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Auth\textbackslash{}Backend\textbackslash{}Basic\+Call\+Back\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back_ad630bf98331d3277cf33ee591b698b22}{\+\_\+\+\_\+construct}} (callable \$call\+Back)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back_ad1e4a0b64809985e9bdaa8fd4f6fb871}{validate\+User\+Pass}} (\$username, \$password)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back_ad8deaff08a0db131929280590ee0bf88}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back_ad8deaff08a0db131929280590ee0bf88}} 
+{\bfseries \$call\+Back}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Extremely simply H\+T\+TP Basic auth backend.
+
+This backend basically works by calling a callback, which receives a username and password. The callback must return true or false depending on if authentication was correct.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei Basic\+Call\+Back.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back_ad630bf98331d3277cf33ee591b698b22}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back_ad630bf98331d3277cf33ee591b698b22}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Basic\+Call\+Back@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Basic\+Call\+Back}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Basic\+Call\+Back@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Basic\+Call\+Back}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Basic\+Call\+Back\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{callable}]{\$call\+Back }\end{DoxyParamCaption})}
+
+Creates the backend.
+
+A callback must be provided to handle checking the username and password.
+
+
+\begin{DoxyParams}[1]{Parameter}
+callable & {\em \$call\+Back} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 35 der Datei Basic\+Call\+Back.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back_ad1e4a0b64809985e9bdaa8fd4f6fb871}\label{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_basic_call_back_ad1e4a0b64809985e9bdaa8fd4f6fb871}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Basic\+Call\+Back@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Basic\+Call\+Back}!validate\+User\+Pass@{validate\+User\+Pass}}
+\index{validate\+User\+Pass@{validate\+User\+Pass}!Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Basic\+Call\+Back@{Sabre\+::\+D\+A\+V\+::\+Auth\+::\+Backend\+::\+Basic\+Call\+Back}}
+\subsubsection{\texorpdfstring{validate\+User\+Pass()}{validateUserPass()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Auth\textbackslash{}\+Backend\textbackslash{}\+Basic\+Call\+Back\+::validate\+User\+Pass (\begin{DoxyParamCaption}\item[{}]{\$username,  }\item[{}]{\$password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Validates a username and password
+
+This method should return true or false depending on if login succeeded.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$username} & \\
+\hline
+string & {\em \$password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 51 der Datei Basic\+Call\+Back.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Auth/\+Backend/Basic\+Call\+Back.\+php\end{DoxyCompactItemize}

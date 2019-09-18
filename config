@@ -1,5 +1,8 @@
 PROJECT_NAME = "SchuleIntern"
 OUTPUT_DIRECTORY = "Documentation"
 OUTPUT_LANGUAGE = "German"
-INPUT = "Upload/framework/lib/page"
+INPUT = "Upload/framework"
+EXCLUDE = Upload/framework/lib/webdav/SabreDAV Upload/framework/lib/tcpdf Upload/framework/lib/sms/ Upload/framework/lib/phpword/ Upload/framework/lib/phpseclib Upload/framework/lib/phpexcel
 RECURSIVE = "YES"
+SOURCE_BROWSER = "YES"
+VERBATIM_HEADERS="YES"

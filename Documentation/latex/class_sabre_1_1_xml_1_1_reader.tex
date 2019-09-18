@@ -1,0 +1,223 @@
+\hypertarget{class_sabre_1_1_xml_1_1_reader}{}\section{Sabre\textbackslash{}Xml\textbackslash{}Reader Klassenreferenz}
+\label{class_sabre_1_1_xml_1_1_reader}\index{Sabre\textbackslash{}\+Xml\textbackslash{}\+Reader@{Sabre\textbackslash{}\+Xml\textbackslash{}\+Reader}}
+Klassendiagramm für Sabre\textbackslash{}Xml\textbackslash{}Reader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_xml_1_1_reader}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader_ac55a1656052682d30a6f43aeb48220ca}{get\+Clark}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader_af918d81cafeab81a7e1eab0c32c25da7}{parse}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader_a1a77fcd5dbe2db9ed238f9e7afd4c6e2}{parse\+Get\+Elements}} (array \$element\+Map=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader_a6621ccff3f12f0fd262de08e948fd2bb}{parse\+Inner\+Tree}} (array \$element\+Map=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader_ae0c223537bae036b13bc4da2e2881179}{read\+Text}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader_a0e72167035aa4fe05e7ed54b4f9f44bd}{parse\+Current\+Element}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader_a174dc5b37a08e3842ccfa96ed7d7bfff}{parse\+Attributes}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader_ae2db9561397736daa69f003dc364356f}{get\+Deserializer\+For\+Element\+Name}} (\$name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The \mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} class expands upon P\+HP\textquotesingle{}s built-\/in X\+M\+L\+Reader.
+
+The intended usage, is to assign certain X\+ML elements to P\+HP classes. These need to be registered using the \$element\+Map public property.
+
+After this is done, a single call to \mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader_af918d81cafeab81a7e1eab0c32c25da7}{parse()}} will parse the entire document, and delegate sub-\/sections of the document to element classes.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2009-\/2015 fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 20 der Datei Reader.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_reader_ac55a1656052682d30a6f43aeb48220ca}\label{class_sabre_1_1_xml_1_1_reader_ac55a1656052682d30a6f43aeb48220ca}} 
+\index{Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}!get\+Clark@{get\+Clark}}
+\index{get\+Clark@{get\+Clark}!Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}}
+\subsubsection{\texorpdfstring{get\+Clark()}{getClark()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Reader\+::get\+Clark (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the current nodename in clark-\/notation.
+
+For example\+: \char`\"{}\{http\+://www.\+w3.\+org/2005/\+Atom\}feed\char`\"{}. Or if no namespace is defined\+: \char`\"{}\{\}feed\char`\"{}.
+
+This method returns null if we\textquotesingle{}re not currently on an element.
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 34 der Datei Reader.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_reader_ae2db9561397736daa69f003dc364356f}\label{class_sabre_1_1_xml_1_1_reader_ae2db9561397736daa69f003dc364356f}} 
+\index{Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}!get\+Deserializer\+For\+Element\+Name@{get\+Deserializer\+For\+Element\+Name}}
+\index{get\+Deserializer\+For\+Element\+Name@{get\+Deserializer\+For\+Element\+Name}!Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}}
+\subsubsection{\texorpdfstring{get\+Deserializer\+For\+Element\+Name()}{getDeserializerForElementName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Reader\+::get\+Deserializer\+For\+Element\+Name (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Returns the function that should be used to parse the element identified by it\textquotesingle{}s clark-\/notation name.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+callable 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 300 der Datei Reader.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_reader_af918d81cafeab81a7e1eab0c32c25da7}\label{class_sabre_1_1_xml_1_1_reader_af918d81cafeab81a7e1eab0c32c25da7}} 
+\index{Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}!parse@{parse}}
+\index{parse@{parse}!Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}}
+\subsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Reader\+::parse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reads the entire document.
+
+This function returns an array with the following three elements\+:
+\begin{DoxyItemize}
+\item name -\/ The root element name.
+\item value -\/ The value for the root element.
+\item attributes -\/ An array of attributes.
+\end{DoxyItemize}
+
+This function will also disable the standard libxml error handler (which usually just results in P\+HP errors), and throw exceptions instead.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 57 der Datei Reader.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_reader_a174dc5b37a08e3842ccfa96ed7d7bfff}\label{class_sabre_1_1_xml_1_1_reader_a174dc5b37a08e3842ccfa96ed7d7bfff}} 
+\index{Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}!parse\+Attributes@{parse\+Attributes}}
+\index{parse\+Attributes@{parse\+Attributes}!Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}}
+\subsubsection{\texorpdfstring{parse\+Attributes()}{parseAttributes()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Reader\+::parse\+Attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Grabs all the attributes from the current element, and returns them as a key-\/value array.
+
+If the attributes are part of the same namespace, they will simply be short keys. If they are defined on a different namespace, the attribute name will be retured in clark-\/notation.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 268 der Datei Reader.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_reader_a0e72167035aa4fe05e7ed54b4f9f44bd}\label{class_sabre_1_1_xml_1_1_reader_a0e72167035aa4fe05e7ed54b4f9f44bd}} 
+\index{Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}!parse\+Current\+Element@{parse\+Current\+Element}}
+\index{parse\+Current\+Element@{parse\+Current\+Element}!Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}}
+\subsubsection{\texorpdfstring{parse\+Current\+Element()}{parseCurrentElement()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Reader\+::parse\+Current\+Element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Parses the current X\+ML element.
+
+This method returns arn array with 3 properties\+:
+\begin{DoxyItemize}
+\item name -\/ A clark-\/notation X\+ML element name.
+\item value -\/ The parsed value.
+\item attributes -\/ A key-\/value list of attributes.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 235 der Datei Reader.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_reader_a1a77fcd5dbe2db9ed238f9e7afd4c6e2}\label{class_sabre_1_1_xml_1_1_reader_a1a77fcd5dbe2db9ed238f9e7afd4c6e2}} 
+\index{Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}!parse\+Get\+Elements@{parse\+Get\+Elements}}
+\index{parse\+Get\+Elements@{parse\+Get\+Elements}!Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}}
+\subsubsection{\texorpdfstring{parse\+Get\+Elements()}{parseGetElements()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Reader\+::parse\+Get\+Elements (\begin{DoxyParamCaption}\item[{array}]{\$element\+Map = {\ttfamily null} }\end{DoxyParamCaption})}
+
+parse\+Get\+Elements parses everything in the current sub-\/tree, and returns a an array of elements.
+
+Each element has a \textquotesingle{}name\textquotesingle{}, \textquotesingle{}value\textquotesingle{} and \textquotesingle{}attributes\textquotesingle{} key.
+
+If the the element didn\textquotesingle{}t contain sub-\/elements, an empty array is always returned. If there was any text inside the element, it will be discarded.
+
+If the \$element\+Map argument is specified, the existing element\+Map will be overridden while parsing the tree, and restored after this process.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$element\+Map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 105 der Datei Reader.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_reader_a6621ccff3f12f0fd262de08e948fd2bb}\label{class_sabre_1_1_xml_1_1_reader_a6621ccff3f12f0fd262de08e948fd2bb}} 
+\index{Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}!parse\+Inner\+Tree@{parse\+Inner\+Tree}}
+\index{parse\+Inner\+Tree@{parse\+Inner\+Tree}!Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}}
+\subsubsection{\texorpdfstring{parse\+Inner\+Tree()}{parseInnerTree()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Reader\+::parse\+Inner\+Tree (\begin{DoxyParamCaption}\item[{array}]{\$element\+Map = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Parses all elements below the current element.
+
+This method will return a string if this was a text-\/node, or an array if there were sub-\/elements.
+
+If there\textquotesingle{}s both text and sub-\/elements, the text will be discarded.
+
+If the \$element\+Map argument is specified, the existing element\+Map will be overridden while parsing the tree, and restored after this process.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$element\+Map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array$\vert$string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 129 der Datei Reader.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_reader_ae0c223537bae036b13bc4da2e2881179}\label{class_sabre_1_1_xml_1_1_reader_ae0c223537bae036b13bc4da2e2881179}} 
+\index{Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}!read\+Text@{read\+Text}}
+\index{read\+Text@{read\+Text}!Sabre\+::\+Xml\+::\+Reader@{Sabre\+::\+Xml\+::\+Reader}}
+\subsubsection{\texorpdfstring{read\+Text()}{readText()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Reader\+::read\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reads all text below the current element, and returns this as a string.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 211 der Datei Reader.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/xml/lib/Reader.\+php\end{DoxyCompactItemize}

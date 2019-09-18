@@ -1,0 +1,155 @@
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_collection}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}I\+Collection Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_1_1_i_collection}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}I\+Collection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{interface_sabre_1_1_d_a_v_1_1_i_collection}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a837d88dac548706770368200f83c2ebc}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a11e8eb888fffe1d792acebbe5bc59243}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a09f82b07550611752abb149f468b89c2}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a5344a6890e49fd7a81bb0e38b4c6d0be}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a81b44dc1354370890279af58c34c7375}{child\+Exists}} (\$name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{I\+Collection}} Interface
+
+This interface should be implemented by each class that represents a collection
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 14 der Datei I\+Collection.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_collection_a81b44dc1354370890279af58c34c7375}\label{interface_sabre_1_1_d_a_v_1_1_i_collection_a81b44dc1354370890279af58c34c7375}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Collection}!child\+Exists@{child\+Exists}}
+\index{child\+Exists@{child\+Exists}!Sabre\+::\+D\+A\+V\+::\+I\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Collection}}
+\subsubsection{\texorpdfstring{child\+Exists()}{childExists()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection\+::child\+Exists (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Checks if a child-\/node with the specified name exists
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_home_a2798ea68cdc85f2273a5fe800b9693c5}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Home}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a12d080fe5176db762382268f40f70c0f}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_directory_tester_aa220332b01cdebf6cfdbfb23a4808849}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Tree\+Directory\+Tester}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_directory_a30d9098d57f5e0ffb0cdb782f2a22ec0}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+Directory}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_directory_a7fd5c47b0712920ba3d565f9c878ff46}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+Directory}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a4a3f312b08c5c80ff35fdf00ae8c92f8}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_collection_ae51aca8bc4fecd69064bdd0cf2cda6fa}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Collection}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_collection_a11e8eb888fffe1d792acebbe5bc59243}\label{interface_sabre_1_1_d_a_v_1_1_i_collection_a11e8eb888fffe1d792acebbe5bc59243}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Collection}!create\+Directory@{create\+Directory}}
+\index{create\+Directory@{create\+Directory}!Sabre\+::\+D\+A\+V\+::\+I\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Collection}}
+\subsubsection{\texorpdfstring{create\+Directory()}{createDirectory()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection\+::create\+Directory (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Creates a new subdirectory
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a3b7a4211a2077bce91c8e369b35279d7}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_home_af17460f3f37b15f588e86d24a2c83d07}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Home}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_directory_tester_ad78897c04381c71772aab8c6d16adfea}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Tree\+Directory\+Tester}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_a0a262a569151f7c6ea00dab8b1eb6401}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_aa96416a748fd5423662ad389f75ed5ef}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a48e2f0896c892cdc0c3c6fe87b9da153}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_collection_a575855fe925f4aae78a6a5fd829029ff}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_directory_a14dbd580c21095860343679d4a407b41}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+Directory}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_directory_ad12fb8ed1ed2c09ecf644068f349a0c8}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+Directory}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a333444a54f6dca549deb3013bb15c191}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_collection_a837d88dac548706770368200f83c2ebc}\label{interface_sabre_1_1_d_a_v_1_1_i_collection_a837d88dac548706770368200f83c2ebc}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Collection}!create\+File@{create\+File}}
+\index{create\+File@{create\+File}!Sabre\+::\+D\+A\+V\+::\+I\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Collection}}
+\subsubsection{\texorpdfstring{create\+File()}{createFile()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection\+::create\+File (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$data = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates a new file in the directory
+
+Data will either be supplied as a stream resource, or in certain cases as a string. Keep in mind that you may have to support either.
+
+After successful creation of the file, you may choose to return the E\+Tag of the new file here.
+
+The returned E\+Tag must be surrounded by double-\/quotes (The quotes should be part of the actual string).
+
+If you cannot accurately determine the E\+Tag, you should not return it. If you don\textquotesingle{}t store the file exactly as-\/is (you\textquotesingle{}re transforming it somehow) you should also not return an E\+Tag.
+
+This means that if a subsequent G\+ET to this new file does not exactly return the same contents of what was submitted here, you are strongly recommended to omit the E\+Tag.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & Name of the file \\
+\hline
+resource | string & {\em \$data} & Initial payload \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+null$\vert$string 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a5aefe3eda08406957905a989a95cde5d}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_acb96c33f5ef4268215b9d6c9bfcb46de}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_directory_tester_a5da227a7e00590c41d809acc7131e455}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Tree\+Directory\+Tester}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_home_a093e54517bdfc3d347aafa746d03e4dc}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Home}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a134a28efb6add7eec8f9e79c21763ea3}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a8c56a7ba0178ffd33c6886a248bde08b}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a7d30a56a4eca887ee8ba5f6d819dc5dd}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_collection_af2ab7895780c34b2e0eb4d7c3972d0f3}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_directory_af0c5ff461938c2cc3ab1b474166a5d57}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+Directory}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_directory_a5f0b8f6641480deb70c711d32e33d59b}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+Directory}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a7ae49dc82db4732ad0aecc1520a1d909}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_collection_a09f82b07550611752abb149f468b89c2}\label{interface_sabre_1_1_d_a_v_1_1_i_collection_a09f82b07550611752abb149f468b89c2}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Collection}!get\+Child@{get\+Child}}
+\index{get\+Child@{get\+Child}!Sabre\+::\+D\+A\+V\+::\+I\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Collection}}
+\subsubsection{\texorpdfstring{get\+Child()}{getChild()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection\+::get\+Child (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Returns a specific child node, referenced by its name
+
+This method must throw Sabre if the node does not exist.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_home_a3bec69b865192277e087af7d3ec9da46}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Home}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_directory_tester_af843be3a9a6ffd2a67572e8ab4a9c261}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Tree\+Directory\+Tester}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_ae7b3aaf05451966e44a11ce81f97ea28}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_abstract_principal_collection_a98e600c953e0ffa2b0736bac07fd51c1}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Abstract\+Principal\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a79a4bc9d8be2331ab1891ace08a13a9a}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_simple_collection_af59d485179f257e2aea9bb2985ade514}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Simple\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_directory_a48a768e92b00f3d33f567830a7be8932}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+Directory}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_directory_afb99c60f4a32c08a46d6bf3aa77e1089}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+Directory}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_aec8e795845ea7326b2fbe8198769e4cc}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_f_s_1_1_collection_adeea47e4d71cd6ae12100e49b46b1d2b}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+F\+S\textbackslash{}\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a8cfa81741e17a5489ea7c33306407d72}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User}} und \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_collection_ab9ce539f25ea9222f3a3bfd4d9673c02}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Collection}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_collection_a5344a6890e49fd7a81bb0e38b4c6d0be}\label{interface_sabre_1_1_d_a_v_1_1_i_collection_a5344a6890e49fd7a81bb0e38b4c6d0be}} 
+\index{Sabre\+::\+D\+A\+V\+::\+I\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Collection}!get\+Children@{get\+Children}}
+\index{get\+Children@{get\+Children}!Sabre\+::\+D\+A\+V\+::\+I\+Collection@{Sabre\+::\+D\+A\+V\+::\+I\+Collection}}
+\subsubsection{\texorpdfstring{get\+Children()}{getChildren()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Collection\+::get\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns an array with all the child nodes
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_directory_mock_a82552ec5014fe8fa6c33521bb5c17cef}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Directory\+Mock}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_home_aa97108e2047c34a8d17ee6bbac1f4e67}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Home}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_a6df725f024e566d1d94f5fc312c2c17d}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book\+Home}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a438e79532992b4da02ed17df296a9346}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_directory_a1e4053591ca60a6abd189f88b6ed1bba}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\+Ext\textbackslash{}\+Directory}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mock_1_1_collection_a3814f1e53b147e13ebdddc6324639a80}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Mock\textbackslash{}\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_subscription_a167dfe0d1f2dd478b1e3e80da4240d98}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Subscriptions\textbackslash{}\+Subscription}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_simple_collection_abd14f5c14daf0ab6cb480c9894b25f16}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Simple\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_directory_ab955171be88f9c130fd8d71f5d271aab}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+F\+S\textbackslash{}\+Directory}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_abstract_principal_collection_abf3123b838a191b0a60d2324ba3e95dc}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Abstract\+Principal\+Collection}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_a0ce5bf311d7c56481966ddf34d2b2563}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Address\+Book}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_principal_1_1_user_a98c22dc6958f352eadf92c960bd3bf19}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Principal\textbackslash{}\+User}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_afd7af5894f052f0a2eb86455065fe495}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Inbox}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_outbox_a08366beb598d4e73e772562cd342cba9}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Schedule\textbackslash{}\+Outbox}} und \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection_ad32780b546f2afcf90bd761741735831}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Notifications\textbackslash{}\+Collection}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/I\+Collection.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,132 @@
+\hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_mock}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Client\+Mock Klassenreferenz}
+\label{class_sabre_1_1_h_t_t_p_1_1_client_mock}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+Mock@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+Mock}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Client\+Mock\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_sabre_1_1_h_t_t_p_1_1_client_mock}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_mock_ac83aafac44e24b308a22a4043b4f308d}{create\+Curl\+Settings\+Array}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_mock_a14f13401b12eaeafc2c9a1eadef76cb8}{parse\+Curl\+Result}} (\$response, \$curl\+Handle)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_mock_afd41b0c0bf662a9d56c46add525a66e5}{do\+Request}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_mock_adc3f829c4f3cc4f4fc47925fc143363d}{curl\+Stuff}} (\$curl\+Handle)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_mock_a8883ea353a5269d0b820e8c0503cadfc}{curl\+Exec}} (\$curl\+Handle)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_mock_a636c09cd3576322768bbc89e37cbc58b}\label{class_sabre_1_1_h_t_t_p_1_1_client_mock_a636c09cd3576322768bbc89e37cbc58b}} 
+{\bfseries \$persisted\+Settings} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 379 der Datei Client\+Test.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_mock_ac83aafac44e24b308a22a4043b4f308d}\label{class_sabre_1_1_h_t_t_p_1_1_client_mock_ac83aafac44e24b308a22a4043b4f308d}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock@{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock}!create\+Curl\+Settings\+Array@{create\+Curl\+Settings\+Array}}
+\index{create\+Curl\+Settings\+Array@{create\+Curl\+Settings\+Array}!Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock@{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock}}
+\subsubsection{\texorpdfstring{create\+Curl\+Settings\+Array()}{createCurlSettingsArray()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+Mock\+::create\+Curl\+Settings\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request }\end{DoxyParamCaption})}
+
+Making this method public.
+
+We are also going to persist all settings this method generates. While the underlying object doesn\textquotesingle{}t behave exactly the same, it helps us simulate what curl does internally, and helps us identify problems with settings that are set by {\itshape some} methods and not correctly reset by other methods after subsequent use. forces 
+
+Definiert in Zeile 393 der Datei Client\+Test.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_mock_a8883ea353a5269d0b820e8c0503cadfc}\label{class_sabre_1_1_h_t_t_p_1_1_client_mock_a8883ea353a5269d0b820e8c0503cadfc}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock@{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock}!curl\+Exec@{curl\+Exec}}
+\index{curl\+Exec@{curl\+Exec}!Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock@{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock}}
+\subsubsection{\texorpdfstring{curl\+Exec()}{curlExec()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+Mock\+::curl\+Exec (\begin{DoxyParamCaption}\item[{}]{\$curl\+Handle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Calls curl\+\_\+exec
+
+This method exists so it can easily be overridden and mocked.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource & {\em \$curl\+Handle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 460 der Datei Client\+Test.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_mock_adc3f829c4f3cc4f4fc47925fc143363d}\label{class_sabre_1_1_h_t_t_p_1_1_client_mock_adc3f829c4f3cc4f4fc47925fc143363d}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock@{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock}!curl\+Stuff@{curl\+Stuff}}
+\index{curl\+Stuff@{curl\+Stuff}!Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock@{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock}}
+\subsubsection{\texorpdfstring{curl\+Stuff()}{curlStuff()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+Mock\+::curl\+Stuff (\begin{DoxyParamCaption}\item[{}]{\$curl\+Handle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Returns a bunch of information about a curl request.
+
+This method exists so it can easily be overridden and mocked.
+
+
+\begin{DoxyParams}[1]{Parameter}
+resource & {\em \$curl\+Handle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 438 der Datei Client\+Test.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_mock_afd41b0c0bf662a9d56c46add525a66e5}\label{class_sabre_1_1_h_t_t_p_1_1_client_mock_afd41b0c0bf662a9d56c46add525a66e5}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock@{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock}!do\+Request@{do\+Request}}
+\index{do\+Request@{do\+Request}!Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock@{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock}}
+\subsubsection{\texorpdfstring{do\+Request()}{doRequest()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+Mock\+::do\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request }\end{DoxyParamCaption})}
+
+This method is responsible for performing a single request.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 416 der Datei Client\+Test.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_client_mock_a14f13401b12eaeafc2c9a1eadef76cb8}\label{class_sabre_1_1_h_t_t_p_1_1_client_mock_a14f13401b12eaeafc2c9a1eadef76cb8}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock@{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock}!parse\+Curl\+Result@{parse\+Curl\+Result}}
+\index{parse\+Curl\+Result@{parse\+Curl\+Result}!Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock@{Sabre\+::\+H\+T\+T\+P\+::\+Client\+Mock}}
+\subsubsection{\texorpdfstring{parse\+Curl\+Result()}{parseCurlResult()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+Mock\+::parse\+Curl\+Result (\begin{DoxyParamCaption}\item[{}]{\$response,  }\item[{}]{\$curl\+Handle }\end{DoxyParamCaption})}
+
+Making this method public. 
+
+Definiert in Zeile 404 der Datei Client\+Test.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/tests/\+H\+T\+T\+P/Client\+Test.\+php\end{DoxyCompactItemize}

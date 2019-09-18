@@ -1,0 +1,73 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_property_1_1_flat_text}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Property\textbackslash{}Flat\+Text Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_property_1_1_flat_text}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Property\textbackslash{}\+Flat\+Text@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Property\textbackslash{}\+Flat\+Text}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Property\textbackslash{}Flat\+Text\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.731707cm]{class_sabre_1_1_v_object_1_1_property_1_1_flat_text}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property_1_1_flat_text_acb5942fc9d114d68013b6a15303d5967}{set\+Quoted\+Printable\+Value}} (\$val)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_property_1_1_flat_text_a1743f6266b50ddad610abf99c1442a11}\label{class_sabre_1_1_v_object_1_1_property_1_1_flat_text_a1743f6266b50ddad610abf99c1442a11}} 
+{\bfseries \$delimiter} = \textquotesingle{},\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_property_1_1_flat_text}{Flat\+Text}} property.
+
+This object represents certain T\+E\+XT values.
+
+Specifically, this property is used for text values where there is only 1 part. Semi-\/colons and colons will be de-\/escaped when deserializing, but if any semi-\/colons or commas appear without a backslash, we will not assume that they are delimiters.
+
+v\+Card 2.\+1 specifically has a whole bunch of properties where this may happen, as it only defines a delimiter for a few properties.
+
+v\+Card 4.\+0 states something similar. An unescaped semi-\/colon {\itshape may} be a delimiter, depending on the property.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 25 der Datei Flat\+Text.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_property_1_1_flat_text_acb5942fc9d114d68013b6a15303d5967}\label{class_sabre_1_1_v_object_1_1_property_1_1_flat_text_acb5942fc9d114d68013b6a15303d5967}} 
+\index{Sabre\+::\+V\+Object\+::\+Property\+::\+Flat\+Text@{Sabre\+::\+V\+Object\+::\+Property\+::\+Flat\+Text}!set\+Quoted\+Printable\+Value@{set\+Quoted\+Printable\+Value}}
+\index{set\+Quoted\+Printable\+Value@{set\+Quoted\+Printable\+Value}!Sabre\+::\+V\+Object\+::\+Property\+::\+Flat\+Text@{Sabre\+::\+V\+Object\+::\+Property\+::\+Flat\+Text}}
+\subsubsection{\texorpdfstring{set\+Quoted\+Printable\+Value()}{setQuotedPrintableValue()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Property\textbackslash{}\+Flat\+Text\+::set\+Quoted\+Printable\+Value (\begin{DoxyParamCaption}\item[{}]{\$val }\end{DoxyParamCaption})}
+
+Sets the value as a quoted-\/printable encoded string.
+
+Overriding this so we\textquotesingle{}re not splitting on a ; delimiter.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$val} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 43 der Datei Flat\+Text.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+Property/Flat\+Text.\+php\end{DoxyCompactItemize}

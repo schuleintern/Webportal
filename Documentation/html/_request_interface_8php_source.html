@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/http/lib/RequestInterface.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_f9a1fc45c9241a0b32bd37c6e55f3050.html">http</a></li><li class="navelem"><a class="el" href="dir_c2ac64cb069c2eb015aa8e4ba2646ab0.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">RequestInterface.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html">   12</a></span>&#160;<span class="keyword">interface </span><a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html">RequestInterface</a> <span class="keyword">extends</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_message_interface.html">MessageInterface</a> {</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a261109b4898971242fccc2097a880131">getMethod</a>();</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a91dcec67206436b8439e0256b6388da0">setMethod</a>($method);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a0b28a29e4efe43665cc2f23fbac62570">getUrl</a>();</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#aa588eaadc450324b11562119bb1933a0">setUrl</a>($url);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a8c8267e6a7d901a0f63f66a2ecc59a91">getAbsoluteUrl</a>();</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a83a1eb456bef5552d0cbaae761f91ac1">setAbsoluteUrl</a>($url);</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#af5683bbd6dfff74d91ac4620ae328feb">getBaseUrl</a>();</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a1666fb35c3bad57838f187bf40105be4">setBaseUrl</a>($url);</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#aea4dd5571c841fa1e41b05813299bae4">getPath</a>();</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a9e54c49278b75692ba00bd4f5932856f">getQueryParameters</a>();</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#ae33360454f0d43e566b76de24682af33">getPostData</a>();</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a4ba8b65d991c82677688a785a9d4014a">setPostData</a>(array $postData);</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a96c2cbeb9c1e9c3431c0f98bc7c7d93c">getRawServerValue</a>($valueName);</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keyword">function</span> <a class="code" href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a025c72064e34e843a8fd402e6407894c">setRawServerData</a>(array $data);</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;}</div><div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_a261109b4898971242fccc2097a880131"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a261109b4898971242fccc2097a880131">Sabre\HTTP\RequestInterface\getMethod</a></div><div class="ttdeci">getMethod()</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_aea4dd5571c841fa1e41b05813299bae4"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#aea4dd5571c841fa1e41b05813299bae4">Sabre\HTTP\RequestInterface\getPath</a></div><div class="ttdeci">getPath()</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_a8c8267e6a7d901a0f63f66a2ecc59a91"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a8c8267e6a7d901a0f63f66a2ecc59a91">Sabre\HTTP\RequestInterface\getAbsoluteUrl</a></div><div class="ttdeci">getAbsoluteUrl()</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_a91dcec67206436b8439e0256b6388da0"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a91dcec67206436b8439e0256b6388da0">Sabre\HTTP\RequestInterface\setMethod</a></div><div class="ttdeci">setMethod($method)</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_a0b28a29e4efe43665cc2f23fbac62570"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a0b28a29e4efe43665cc2f23fbac62570">Sabre\HTTP\RequestInterface\getUrl</a></div><div class="ttdeci">getUrl()</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_aa588eaadc450324b11562119bb1933a0"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#aa588eaadc450324b11562119bb1933a0">Sabre\HTTP\RequestInterface\setUrl</a></div><div class="ttdeci">setUrl($url)</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_a1666fb35c3bad57838f187bf40105be4"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a1666fb35c3bad57838f187bf40105be4">Sabre\HTTP\RequestInterface\setBaseUrl</a></div><div class="ttdeci">setBaseUrl($url)</div></div>
+<div class="ttc" id="namespace_sabre_1_1_h_t_t_p_html"><div class="ttname"><a href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a></div><div class="ttdef"><b>Definition:</b> <a href="_response_mock_8php_source.html#l00003">ResponseMock.php:3</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_a96c2cbeb9c1e9c3431c0f98bc7c7d93c"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a96c2cbeb9c1e9c3431c0f98bc7c7d93c">Sabre\HTTP\RequestInterface\getRawServerValue</a></div><div class="ttdeci">getRawServerValue($valueName)</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html">Sabre\HTTP\RequestInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_request_interface_8php_source.html#l00012">RequestInterface.php:12</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_a83a1eb456bef5552d0cbaae761f91ac1"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a83a1eb456bef5552d0cbaae761f91ac1">Sabre\HTTP\RequestInterface\setAbsoluteUrl</a></div><div class="ttdeci">setAbsoluteUrl($url)</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_a025c72064e34e843a8fd402e6407894c"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a025c72064e34e843a8fd402e6407894c">Sabre\HTTP\RequestInterface\setRawServerData</a></div><div class="ttdeci">setRawServerData(array $data)</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_ae33360454f0d43e566b76de24682af33"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#ae33360454f0d43e566b76de24682af33">Sabre\HTTP\RequestInterface\getPostData</a></div><div class="ttdeci">getPostData()</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_a4ba8b65d991c82677688a785a9d4014a"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a4ba8b65d991c82677688a785a9d4014a">Sabre\HTTP\RequestInterface\setPostData</a></div><div class="ttdeci">setPostData(array $postData)</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_a9e54c49278b75692ba00bd4f5932856f"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#a9e54c49278b75692ba00bd4f5932856f">Sabre\HTTP\RequestInterface\getQueryParameters</a></div><div class="ttdeci">getQueryParameters()</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_request_interface_html_af5683bbd6dfff74d91ac4620ae328feb"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_request_interface.html#af5683bbd6dfff74d91ac4620ae328feb">Sabre\HTTP\RequestInterface\getBaseUrl</a></div><div class="ttdeci">getBaseUrl()</div></div>
+<div class="ttc" id="interface_sabre_1_1_h_t_t_p_1_1_message_interface_html"><div class="ttname"><a href="interface_sabre_1_1_h_t_t_p_1_1_message_interface.html">Sabre\HTTP\MessageInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_message_interface_8php_source.html#l00013">MessageInterface.php:13</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

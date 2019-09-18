@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAV/Xml/Property/ResourceType.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_641c95e6ed9dd2d5dcbadeacba03bd45.html">DAV</a></li><li class="navelem"><a class="el" href="dir_198cb0947a44dba54a042f893b55ef46.html">Xml</a></li><li class="navelem"><a class="el" href="dir_7f7f668f00c92d728b646cffbe39ee5b.html">Property</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ResourceType.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property.html">Sabre\DAV\Xml\Property</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output.html">Sabre\DAV\Browser\HtmlOutput</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper.html">Sabre\DAV\Browser\HtmlOutputHelper</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_element.html">Sabre\Xml\Element</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a>;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html">ResourceType</a> <span class="keyword">extends</span> Element\Elements implements <a class="code" href="interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output.html">HtmlOutput</a> {</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#acefba16580025c64bac676b7c63d156e">   33</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#acefba16580025c64bac676b7c63d156e">__construct</a>($resourceTypes = null) {</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        parent::__construct((array)$resourceTypes);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#ab056426f26aa3e850ba82274cfcf757e">   46</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#ab056426f26aa3e850ba82274cfcf757e">getValue</a>() {</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> $this-&gt;value;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#a66cae7ceb677ebd2803455972dfeab35">   58</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#a66cae7ceb677ebd2803455972dfeab35">is</a>($type) {</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> in_array($type, $this-&gt;value);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#a999ff65c2b8075252dd1dd6629fefc6d">   70</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#a999ff65c2b8075252dd1dd6629fefc6d">add</a>($type) {</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        $this-&gt;value[] = $type;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        $this-&gt;value = array_unique($this-&gt;value);</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#adef04ac0175c27977f6b038768537835">   98</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#adef04ac0175c27977f6b038768537835">xmlDeserialize</a>(<a class="code" href="class_sabre_1_1_xml_1_1_reader.html">Reader</a> $reader) {</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">return</span></div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keyword">new</span> <span class="keyword">self</span>(parent::xmlDeserialize($reader));</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div><div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#a05091dcffe3fd53144b2ba464b569cfc">  119</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#a05091dcffe3fd53144b2ba464b569cfc">toHtml</a>(<a class="code" href="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper.html">HtmlOutputHelper</a> $html) {</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">return</span> implode(</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="stringliteral">&#39;, &#39;</span>,</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            array_map([$html, <span class="stringliteral">&#39;xmlName&#39;</span>], $this-&gt;<a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#ab056426f26aa3e850ba82274cfcf757e">getValue</a>())</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        );</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div><div class="ttc" id="interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_html"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_1_1_browser_1_1_html_output.html">Sabre\DAV\Browser\HtmlOutput</a></div><div class="ttdef"><b>Definition:</b> <a href="_html_output_8php_source.html#l00016">HtmlOutput.php:16</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output.html">HtmlOutput</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type_html_adef04ac0175c27977f6b038768537835"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#adef04ac0175c27977f6b038768537835">Sabre\DAV\Xml\Property\ResourceType\xmlDeserialize</a></div><div class="ttdeci">static xmlDeserialize(Reader $reader)</div><div class="ttdef"><b>Definition:</b> <a href="_resource_type_8php_source.html#l00098">ResourceType.php:98</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type_html_a999ff65c2b8075252dd1dd6629fefc6d"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#a999ff65c2b8075252dd1dd6629fefc6d">Sabre\DAV\Xml\Property\ResourceType\add</a></div><div class="ttdeci">add($type)</div><div class="ttdef"><b>Definition:</b> <a href="_resource_type_8php_source.html#l00070">ResourceType.php:70</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type_html_a66cae7ceb677ebd2803455972dfeab35"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#a66cae7ceb677ebd2803455972dfeab35">Sabre\DAV\Xml\Property\ResourceType\is</a></div><div class="ttdeci">is($type)</div><div class="ttdef"><b>Definition:</b> <a href="_resource_type_8php_source.html#l00058">ResourceType.php:58</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_element_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_element.html">Sabre\Xml\Element</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_8php_source.html#l00003">Base.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type_html_acefba16580025c64bac676b7c63d156e"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#acefba16580025c64bac676b7c63d156e">Sabre\DAV\Xml\Property\ResourceType\__construct</a></div><div class="ttdeci">__construct($resourceTypes=null)</div><div class="ttdef"><b>Definition:</b> <a href="_resource_type_8php_source.html#l00033">ResourceType.php:33</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_reader_8php_source.html#l00020">Reader.php:20</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type_html_ab056426f26aa3e850ba82274cfcf757e"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#ab056426f26aa3e850ba82274cfcf757e">Sabre\DAV\Xml\Property\ResourceType\getValue</a></div><div class="ttdeci">getValue()</div><div class="ttdef"><b>Definition:</b> <a href="_resource_type_8php_source.html#l00046">ResourceType.php:46</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html">Sabre\DAV\Xml\Property\ResourceType</a></div><div class="ttdef"><b>Definition:</b> <a href="_resource_type_8php_source.html#l00021">ResourceType.php:21</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper.html">HtmlOutputHelper</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper.html">Sabre\DAV\Browser\HtmlOutputHelper</a></div><div class="ttdef"><b>Definition:</b> <a href="_html_output_helper_8php_source.html#l00016">HtmlOutputHelper.php:16</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_reader.html">Reader</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property.html">Sabre\DAV\Xml\Property</a></div><div class="ttdef"><b>Definition:</b> <a href="_complex_8php_source.html#l00003">Complex.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type_html_a05091dcffe3fd53144b2ba464b569cfc"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_resource_type.html#a05091dcffe3fd53144b2ba464b569cfc">Sabre\DAV\Xml\Property\ResourceType\toHtml</a></div><div class="ttdeci">toHtml(HtmlOutputHelper $html)</div><div class="ttdef"><b>Definition:</b> <a href="_resource_type_8php_source.html#l00119">ResourceType.php:119</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

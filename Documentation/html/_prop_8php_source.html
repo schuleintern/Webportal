@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAV/Xml/Element/Prop.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_641c95e6ed9dd2d5dcbadeacba03bd45.html">DAV</a></li><li class="navelem"><a class="el" href="dir_198cb0947a44dba54a042f893b55ef46.html">Xml</a></li><li class="navelem"><a class="el" href="dir_f677609baa4893bd50025c150b6d3b04.html">Element</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Prop.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_element.html">Sabre\DAV\Xml\Element</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_complex.html">Sabre\DAV\Xml\Property\Complex</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_xml_deserializable.html">Sabre\Xml\XmlDeserializable</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_prop.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_prop.html">Prop</a> <span class="keyword">implements</span> <a class="code" href="interface_sabre_1_1_xml_1_1_xml_deserializable.html">XmlDeserializable</a> {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_prop.html#acd9e1f30391301515157fe322d4a6eb2">   43</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_prop.html#acd9e1f30391301515157fe322d4a6eb2">xmlDeserialize</a>(<a class="code" href="class_sabre_1_1_xml_1_1_reader.html">Reader</a> $reader) {</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// If there&#39;s no children, we don&#39;t do anything.</span></div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> ($reader-&gt;isEmptyElement) {</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            $reader-&gt;next();</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> [];</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        $values = [];</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        $reader-&gt;read();</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">do</span> {</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">if</span> ($reader-&gt;nodeType === Reader::ELEMENT) {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                $clark = $reader-&gt;<a class="code" href="class_sabre_1_1_xml_1_1_reader.html#ac55a1656052682d30a6f43aeb48220ca">getClark</a>();</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                $values[$clark] = self::parseCurrentElement($reader)[<span class="stringliteral">&#39;value&#39;</span>];</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                $reader-&gt;read();</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        } <span class="keywordflow">while</span> ($reader-&gt;nodeType !== Reader::END_ELEMENT);</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        $reader-&gt;read();</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> $values;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">function</span> parseCurrentElement(<a class="code" href="class_sabre_1_1_xml_1_1_reader.html">Reader</a> $reader) {</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        $name = $reader-&gt;<a class="code" href="class_sabre_1_1_xml_1_1_reader.html#ac55a1656052682d30a6f43aeb48220ca">getClark</a>();</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span> (array_key_exists($name, $reader-&gt;elementMap)) {</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            $deserializer = $reader-&gt;elementMap[$name];</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">if</span> (is_subclass_of($deserializer, <span class="stringliteral">&#39;Sabre\\Xml\\XmlDeserializable&#39;</span>)) {</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                $value = call_user_func([$deserializer, <span class="stringliteral">&#39;xmlDeserialize&#39;</span>], $reader);</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            } elseif (is_callable($deserializer)) {</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                $value = call_user_func($deserializer, $reader);</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                $type = gettype($deserializer);</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">if</span> ($type === <span class="stringliteral">&#39;string&#39;</span>) {</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    $type .= <span class="stringliteral">&#39; (&#39;</span> . $deserializer . <span class="charliteral">&#39;)&#39;</span>;</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                } elseif ($type === <span class="stringliteral">&#39;object&#39;</span>) {</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    $type .= <span class="stringliteral">&#39; (&#39;</span> . get_class($deserializer) . <span class="charliteral">&#39;)&#39;</span>;</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                }</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">throw</span> new \LogicException(<span class="stringliteral">&#39;Could not use this type as a deserializer: &#39;</span> . $type);</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            }</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            $value = <a class="code" href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_complex.html#a6c74a2adbbaaac3558dadde60a473220">Complex::xmlDeserialize</a>($reader);</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> [</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="stringliteral">&#39;name&#39;</span>  =&gt; $name,</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="stringliteral">&#39;value&#39;</span> =&gt; $value,</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        ];</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_xml_1_1_reader_html_ac55a1656052682d30a6f43aeb48220ca"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_reader.html#ac55a1656052682d30a6f43aeb48220ca">Sabre\Xml\Reader\getClark</a></div><div class="ttdeci">getClark()</div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_reader_8php_source.html#l00034">Reader.php:34</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_element_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_element.html">Sabre\DAV\Xml\Element</a></div><div class="ttdef"><b>Definition:</b> <a href="_prop_8php_source.html#l00003">Prop.php:3</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_xml_deserializable_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_xml_deserializable.html">XmlDeserializable</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_prop_html_acd9e1f30391301515157fe322d4a6eb2"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_prop.html#acd9e1f30391301515157fe322d4a6eb2">Sabre\DAV\Xml\Element\Prop\xmlDeserialize</a></div><div class="ttdeci">static xmlDeserialize(Reader $reader)</div><div class="ttdef"><b>Definition:</b> <a href="_prop_8php_source.html#l00043">Prop.php:43</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_reader_8php_source.html#l00020">Reader.php:20</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_reader.html">Reader</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_xml_1_1_xml_deserializable_html"><div class="ttname"><a href="interface_sabre_1_1_xml_1_1_xml_deserializable.html">Sabre\Xml\XmlDeserializable</a></div><div class="ttdef"><b>Definition:</b> <a href="_xml_deserializable_8php_source.html#l00013">XmlDeserializable.php:13</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_complex_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_complex.html">Complex</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_prop_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_element_1_1_prop.html">Sabre\DAV\Xml\Element\Prop</a></div><div class="ttdef"><b>Definition:</b> <a href="_prop_8php_source.html#l00020">Prop.php:20</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_complex_html_a6c74a2adbbaaac3558dadde60a473220"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_xml_1_1_property_1_1_complex.html#a6c74a2adbbaaac3558dadde60a473220">Sabre\DAV\Xml\Property\Complex\xmlDeserialize</a></div><div class="ttdeci">static xmlDeserialize(Reader $reader)</div><div class="ttdef"><b>Definition:</b> <a href="_complex_8php_source.html#l00041">Complex.php:41</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

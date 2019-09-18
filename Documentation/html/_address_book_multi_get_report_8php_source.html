@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/CardDAV/Xml/Request/AddressBookMultiGetReport.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_d95a430f5abc6a7f426a5dcd7f52b1ff.html">CardDAV</a></li><li class="navelem"><a class="el" href="dir_12a3d283f42354f9140aa99582636697.html">Xml</a></li><li class="navelem"><a class="el" href="dir_02d71d54931dc4f3696016df95ac26a2.html">Request</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">AddressBookMultiGetReport.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_card_d_a_v_1_1_xml_1_1_request.html">Sabre\CardDAV\Xml\Request</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_card_d_a_v_1_1_plugin.html">Sabre\CardDAV\Plugin</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_sabre_1_1_uri.html">Sabre\Uri</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;use <a class="code" href="namespace_sabre_1_1_xml_1_1_xml_deserializable.html">Sabre\Xml\XmlDeserializable</a>;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_sabre_1_1_card_d_a_v_1_1_xml_1_1_request_1_1_address_book_multi_get_report.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_card_d_a_v_1_1_xml_1_1_request_1_1_address_book_multi_get_report.html">AddressBookMultiGetReport</a> <span class="keyword">implements</span> <a class="code" href="interface_sabre_1_1_xml_1_1_xml_deserializable.html">XmlDeserializable</a> {</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span> $properties;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">public</span> $hrefs;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span> $contentType = null;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">public</span> $version = null;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_sabre_1_1_card_d_a_v_1_1_xml_1_1_request_1_1_address_book_multi_get_report.html#a7d63d7736ac0c6fe905d9db5a1192d92">   75</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_card_d_a_v_1_1_xml_1_1_request_1_1_address_book_multi_get_report.html#a7d63d7736ac0c6fe905d9db5a1192d92">xmlDeserialize</a>(<a class="code" href="class_sabre_1_1_xml_1_1_reader.html">Reader</a> $reader) {</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        $elems = $reader-&gt;<a class="code" href="class_sabre_1_1_xml_1_1_reader.html#a6621ccff3f12f0fd262de08e948fd2bb">parseInnerTree</a>([</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="stringliteral">&#39;{urn:ietf:params:xml:ns:carddav}address-data&#39;</span> =&gt; <span class="stringliteral">&#39;Sabre\\CardDAV\\Xml\\Filter\\AddressData&#39;</span>,</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="stringliteral">&#39;{DAV:}prop&#39;</span>                                   =&gt; <span class="stringliteral">&#39;Sabre\\Xml\\Element\\KeyValue&#39;</span>,</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        ]);</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        $newProps = [</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="stringliteral">&#39;hrefs&#39;</span>      =&gt; [],</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="stringliteral">&#39;properties&#39;</span> =&gt; []</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        ];</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">foreach</span> ($elems as $elem) {</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">switch</span> ($elem[<span class="stringliteral">&#39;name&#39;</span>]) {</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">case</span> <span class="stringliteral">&#39;{DAV:}prop&#39;</span> :</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    $newProps[<span class="stringliteral">&#39;properties&#39;</span>] = array_keys($elem[<span class="stringliteral">&#39;value&#39;</span>]);</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    <span class="keywordflow">if</span> (isset($elem[<span class="stringliteral">&#39;value&#39;</span>][<span class="charliteral">&#39;{&#39;</span> . <a class="code" href="class_sabre_1_1_card_d_a_v_1_1_plugin.html#ab2f9b3534cc38e89d3905dd6ea1ee042">Plugin::NS_CARDDAV</a> . <span class="stringliteral">&#39;}address-data&#39;</span>])) {</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        $newProps += $elem[<span class="stringliteral">&#39;value&#39;</span>][<span class="charliteral">&#39;{&#39;</span> . <a class="code" href="class_sabre_1_1_card_d_a_v_1_1_plugin.html#ab2f9b3534cc38e89d3905dd6ea1ee042">Plugin::NS_CARDDAV</a> . <span class="stringliteral">&#39;}address-data&#39;</span>];</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                    }</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    <span class="keywordflow">break</span>;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">case</span> <span class="stringliteral">&#39;{DAV:}href&#39;</span> :</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    $newProps[<span class="stringliteral">&#39;hrefs&#39;</span>][] = Uri\resolve($reader-&gt;contextUri, $elem[<span class="stringliteral">&#39;value&#39;</span>]);</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    <span class="keywordflow">break</span>;</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            }</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        $obj = <span class="keyword">new</span> <span class="keyword">self</span>();</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">foreach</span> ($newProps as $key =&gt; $value) {</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            $obj-&gt;$key = $value;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> $obj;</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_xml_1_1_reader_html_a6621ccff3f12f0fd262de08e948fd2bb"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_reader.html#a6621ccff3f12f0fd262de08e948fd2bb">Sabre\Xml\Reader\parseInnerTree</a></div><div class="ttdeci">parseInnerTree(array $elementMap=null)</div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_reader_8php_source.html#l00129">Reader.php:129</a></div></div>
+<div class="ttc" id="class_sabre_1_1_card_d_a_v_1_1_xml_1_1_request_1_1_address_book_multi_get_report_html"><div class="ttname"><a href="class_sabre_1_1_card_d_a_v_1_1_xml_1_1_request_1_1_address_book_multi_get_report.html">Sabre\CardDAV\Xml\Request\AddressBookMultiGetReport</a></div><div class="ttdef"><b>Definition:</b> <a href="_address_book_multi_get_report_8php_source.html#l00022">AddressBookMultiGetReport.php:22</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_card_d_a_v_1_1_plugin_html"><div class="ttname"><a href="namespace_sabre_1_1_card_d_a_v_1_1_plugin.html">Plugin</a></div></div>
+<div class="ttc" id="class_sabre_1_1_card_d_a_v_1_1_xml_1_1_request_1_1_address_book_multi_get_report_html_a7d63d7736ac0c6fe905d9db5a1192d92"><div class="ttname"><a href="class_sabre_1_1_card_d_a_v_1_1_xml_1_1_request_1_1_address_book_multi_get_report.html#a7d63d7736ac0c6fe905d9db5a1192d92">Sabre\CardDAV\Xml\Request\AddressBookMultiGetReport\xmlDeserialize</a></div><div class="ttdeci">static xmlDeserialize(Reader $reader)</div><div class="ttdef"><b>Definition:</b> <a href="_address_book_multi_get_report_8php_source.html#l00075">AddressBookMultiGetReport.php:75</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_xml_deserializable_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_xml_deserializable.html">XmlDeserializable</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_card_d_a_v_1_1_xml_1_1_request_html"><div class="ttname"><a href="namespace_sabre_1_1_card_d_a_v_1_1_xml_1_1_request.html">Sabre\CardDAV\Xml\Request</a></div><div class="ttdef"><b>Definition:</b> <a href="_address_book_multi_get_report_8php_source.html#l00003">AddressBookMultiGetReport.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="class_sabre_1_1_xml_1_1_reader.html">Sabre\Xml\Reader</a></div><div class="ttdef"><b>Definition:</b> <a href="xml_2lib_2_reader_8php_source.html#l00020">Reader.php:20</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_uri_html"><div class="ttname"><a href="namespace_sabre_1_1_uri.html">Sabre\Uri</a></div><div class="ttdef"><b>Definition:</b> <a href="webdav_2_sabre_d_a_v_2vendor_2sabre_2uri_2lib_2functions_8php_source.html#l00003">functions.php:3</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_xml_1_1_reader_html"><div class="ttname"><a href="namespace_sabre_1_1_xml_1_1_reader.html">Reader</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_xml_1_1_xml_deserializable_html"><div class="ttname"><a href="interface_sabre_1_1_xml_1_1_xml_deserializable.html">Sabre\Xml\XmlDeserializable</a></div><div class="ttdef"><b>Definition:</b> <a href="_xml_deserializable_8php_source.html#l00013">XmlDeserializable.php:13</a></div></div>
+<div class="ttc" id="class_sabre_1_1_card_d_a_v_1_1_plugin_html_ab2f9b3534cc38e89d3905dd6ea1ee042"><div class="ttname"><a href="class_sabre_1_1_card_d_a_v_1_1_plugin.html#ab2f9b3534cc38e89d3905dd6ea1ee042">Sabre\CardDAV\Plugin\NS_CARDDAV</a></div><div class="ttdeci">const NS_CARDDAV</div><div class="ttdef"><b>Definition:</b> <a href="_card_d_a_v_2_plugin_8php_source.html#l00033">Plugin.php:33</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

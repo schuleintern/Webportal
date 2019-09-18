@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/composer/vendor/beberlei/assert/lib/Assert/InvalidArgumentException.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_ec5861416e7a0d204e3e0c2e4ac91989.html">composer</a></li><li class="navelem"><a class="el" href="dir_f4ae62192be4f13194f7451ebb94bf52.html">vendor</a></li><li class="navelem"><a class="el" href="dir_79ab8b28a7f2a9040a323f74f6e783cb.html">beberlei</a></li><li class="navelem"><a class="el" href="dir_da792943d38069ceb57e20a111bb91c2.html">assert</a></li><li class="navelem"><a class="el" href="dir_c53959dcdc0928e762464d415fcab163.html">lib</a></li><li class="navelem"><a class="el" href="dir_ba900995d275e5968b5202742dbc232e.html">Assert</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">InvalidArgumentException.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_assert.html">Assert</a>;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_assert_1_1_invalid_argument_exception.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="namespace_invalid_argument_exception.html">InvalidArgumentException</a> <span class="keyword">extends</span> <a class="code" href="class_assert_1_1_invalid_argument_exception.html">\InvalidArgumentException</a> implements <a class="code" href="interface_assert_1_1_assertion_failed_exception.html">AssertionFailedException</a></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">private</span> $propertyPath;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">private</span> $value;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">private</span> $constraints;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> __construct($message, $code, $propertyPath, $value, array $constraints = [])</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        parent::__construct($message, $code);</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        $this-&gt;propertyPath = $propertyPath;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        $this-&gt;value = $value;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        $this-&gt;constraints = $constraints;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_assert_1_1_invalid_argument_exception.html#ad40878e016aa62cd12ce509db06c9882">   41</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_assert_1_1_invalid_argument_exception.html#ad40878e016aa62cd12ce509db06c9882">getPropertyPath</a>()</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> $this-&gt;propertyPath;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_assert_1_1_invalid_argument_exception.html#ad987d6866cd903ac8217836ddded8a92">   51</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_assert_1_1_invalid_argument_exception.html#ad987d6866cd903ac8217836ddded8a92">getValue</a>()</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> $this-&gt;value;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_assert_1_1_invalid_argument_exception.html#a1c24a475f0988131f0193d74681eb121">   61</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_assert_1_1_invalid_argument_exception.html#a1c24a475f0988131f0193d74681eb121">getConstraints</a>()</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">return</span> $this-&gt;constraints;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div><div class="ttc" id="class_assert_1_1_invalid_argument_exception_html"><div class="ttname"><a href="class_assert_1_1_invalid_argument_exception.html">Assert\InvalidArgumentException</a></div><div class="ttdef"><b>Definition:</b> <a href="_invalid_argument_exception_8php_source.html#l00017">InvalidArgumentException.php:17</a></div></div>
+<div class="ttc" id="class_assert_1_1_invalid_argument_exception_html_ad987d6866cd903ac8217836ddded8a92"><div class="ttname"><a href="class_assert_1_1_invalid_argument_exception.html#ad987d6866cd903ac8217836ddded8a92">Assert\InvalidArgumentException\getValue</a></div><div class="ttdeci">getValue()</div><div class="ttdef"><b>Definition:</b> <a href="_invalid_argument_exception_8php_source.html#l00051">InvalidArgumentException.php:51</a></div></div>
+<div class="ttc" id="class_assert_1_1_invalid_argument_exception_html_a1c24a475f0988131f0193d74681eb121"><div class="ttname"><a href="class_assert_1_1_invalid_argument_exception.html#a1c24a475f0988131f0193d74681eb121">Assert\InvalidArgumentException\getConstraints</a></div><div class="ttdeci">getConstraints()</div><div class="ttdef"><b>Definition:</b> <a href="_invalid_argument_exception_8php_source.html#l00061">InvalidArgumentException.php:61</a></div></div>
+<div class="ttc" id="class_assert_1_1_invalid_argument_exception_html_ad40878e016aa62cd12ce509db06c9882"><div class="ttname"><a href="class_assert_1_1_invalid_argument_exception.html#ad40878e016aa62cd12ce509db06c9882">Assert\InvalidArgumentException\getPropertyPath</a></div><div class="ttdeci">getPropertyPath()</div><div class="ttdef"><b>Definition:</b> <a href="_invalid_argument_exception_8php_source.html#l00041">InvalidArgumentException.php:41</a></div></div>
+<div class="ttc" id="namespace_invalid_argument_exception_html"><div class="ttname"><a href="namespace_invalid_argument_exception.html">InvalidArgumentException</a></div></div>
+<div class="ttc" id="interface_assert_1_1_assertion_failed_exception_html"><div class="ttname"><a href="interface_assert_1_1_assertion_failed_exception.html">Assert\AssertionFailedException</a></div><div class="ttdef"><b>Definition:</b> <a href="_assertion_failed_exception_8php_source.html#l00019">AssertionFailedException.php:19</a></div></div>
+<div class="ttc" id="namespace_assert_html"><div class="ttname"><a href="namespace_assert.html">Assert</a></div><div class="ttdef"><b>Definition:</b> <a href="_assert_8php_source.html#l00015">Assert.php:15</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

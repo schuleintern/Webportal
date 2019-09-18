@@ -1,0 +1,98 @@
+\hypertarget{class_sabre_1_1_xml_1_1_element_1_1_cdata}{}\section{Sabre\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Cdata Klassenreferenz}
+\label{class_sabre_1_1_xml_1_1_element_1_1_cdata}\index{Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Cdata@{Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Cdata}}
+Klassendiagramm für Sabre\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Cdata\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_xml_1_1_element_1_1_cdata}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_cdata_a6a902087ca527d78a10c6d00870c35c2}{\+\_\+\+\_\+construct}} (\$value)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_cdata_ad0130ea08e4557560fb82b5ad3e556e9}{xml\+Serialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Xml\textbackslash{}\+Writer}} \$writer)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_cdata_ae78e39135b25a33cc2a08eca22e6c521}\label{class_sabre_1_1_xml_1_1_element_1_1_cdata_ae78e39135b25a33cc2a08eca22e6c521}} 
+{\bfseries \$value}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+C\+D\+A\+TA element.
+
+This element allows you to easily inject C\+D\+A\+TA.
+
+\mbox{\hyperlink{class_note}{Note}} that we strongly recommend avoiding C\+D\+A\+TA nodes, unless you definitely know what you\textquotesingle{}re doing, or you\textquotesingle{}re working with unchangable systems that require C\+D\+A\+TA.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2009-\/2015 fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 20 der Datei Cdata.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_cdata_a6a902087ca527d78a10c6d00870c35c2}\label{class_sabre_1_1_xml_1_1_element_1_1_cdata_a6a902087ca527d78a10c6d00870c35c2}} 
+\index{Sabre\+::\+Xml\+::\+Element\+::\+Cdata@{Sabre\+::\+Xml\+::\+Element\+::\+Cdata}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+Xml\+::\+Element\+::\+Cdata@{Sabre\+::\+Xml\+::\+Element\+::\+Cdata}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Cdata\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 34 der Datei Cdata.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_cdata_ad0130ea08e4557560fb82b5ad3e556e9}\label{class_sabre_1_1_xml_1_1_element_1_1_cdata_ad0130ea08e4557560fb82b5ad3e556e9}} 
+\index{Sabre\+::\+Xml\+::\+Element\+::\+Cdata@{Sabre\+::\+Xml\+::\+Element\+::\+Cdata}!xml\+Serialize@{xml\+Serialize}}
+\index{xml\+Serialize@{xml\+Serialize}!Sabre\+::\+Xml\+::\+Element\+::\+Cdata@{Sabre\+::\+Xml\+::\+Element\+::\+Cdata}}
+\subsubsection{\texorpdfstring{xml\+Serialize()}{xmlSerialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Cdata\+::xml\+Serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Xml\textbackslash{}\+Writer}}}]{\$writer }\end{DoxyParamCaption})}
+
+The xml\+Serialize metod is called during xml writing.
+
+Use the \$writer argument to write its own xml serialization.
+
+An important note\+: do {\itshape not} create a parent element. Any element implementing Xml\+Serializble should only ever write what\textquotesingle{}s considered its \textquotesingle{}inner xml\textquotesingle{}.
+
+The parent of the current element is responsible for writing a containing element.
+
+This allows serializers to be re-\/used for different element names.
+
+If you are opening new elements, you must also close them again.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} & {\em \$writer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 58 der Datei Cdata.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/xml/lib/\+Element/Cdata.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/http/lib/Util.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_f9a1fc45c9241a0b32bd37c6e55f3050.html">http</a></li><li class="navelem"><a class="el" href="dir_c2ac64cb069c2eb015aa8e4ba2646ab0.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Util.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_sabre_1_1_h_t_t_p_1_1_util.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_h_t_t_p_1_1_util.html">Util</a> {</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_sabre_1_1_h_t_t_p_1_1_util.html#a84017f44dd698a9cbcab00dd9dff2fa6">   24</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_h_t_t_p_1_1_util.html#a84017f44dd698a9cbcab00dd9dff2fa6">negotiateContentType</a>($acceptHeaderValue, array $availableOptions) {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_sabre_1_1_h_t_t_p_1_1_util.html#a84017f44dd698a9cbcab00dd9dff2fa6">negotiateContentType</a>($acceptHeaderValue, $availableOptions);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_sabre_1_1_h_t_t_p_1_1_util.html#a45eded309d00db4d7e93464446d43a22">   38</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_h_t_t_p_1_1_util.html#a45eded309d00db4d7e93464446d43a22">negotiate</a>($acceptHeaderValue, array $availableOptions) {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_sabre_1_1_h_t_t_p_1_1_util.html#a84017f44dd698a9cbcab00dd9dff2fa6">negotiateContentType</a>($acceptHeaderValue, $availableOptions);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_sabre_1_1_h_t_t_p_1_1_util.html#a7f83550cc060ab44c47f302ea4cebb30">   53</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_h_t_t_p_1_1_util.html#a7f83550cc060ab44c47f302ea4cebb30">parseHTTPDate</a>($dateHeader) {</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> parseDate($dateHeader);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_sabre_1_1_h_t_t_p_1_1_util.html#af5a70c07fd3dab23788af555aa107b78">   69</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_h_t_t_p_1_1_util.html#af5a70c07fd3dab23788af555aa107b78">toHTTPDate</a>(\<a class="code" href="namespace_date_time.html">DateTime</a> $dateTime) {</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> toDate($dateTime);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div><div class="ttc" id="namespace_date_time_html"><div class="ttname"><a href="namespace_date_time.html">DateTime</a></div></div>
+<div class="ttc" id="class_sabre_1_1_h_t_t_p_1_1_util_html_a84017f44dd698a9cbcab00dd9dff2fa6"><div class="ttname"><a href="class_sabre_1_1_h_t_t_p_1_1_util.html#a84017f44dd698a9cbcab00dd9dff2fa6">Sabre\HTTP\Util\negotiateContentType</a></div><div class="ttdeci">static negotiateContentType($acceptHeaderValue, array $availableOptions)</div><div class="ttdef"><b>Definition:</b> <a href="_util_8php_source.html#l00024">Util.php:24</a></div></div>
+<div class="ttc" id="class_sabre_1_1_h_t_t_p_1_1_util_html_af5a70c07fd3dab23788af555aa107b78"><div class="ttname"><a href="class_sabre_1_1_h_t_t_p_1_1_util.html#af5a70c07fd3dab23788af555aa107b78">Sabre\HTTP\Util\toHTTPDate</a></div><div class="ttdeci">static toHTTPDate(\DateTime $dateTime)</div><div class="ttdef"><b>Definition:</b> <a href="_util_8php_source.html#l00069">Util.php:69</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_h_t_t_p_html"><div class="ttname"><a href="namespace_sabre_1_1_h_t_t_p.html">Sabre\HTTP</a></div><div class="ttdef"><b>Definition:</b> <a href="_response_mock_8php_source.html#l00003">ResponseMock.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_h_t_t_p_1_1_util_html_a7f83550cc060ab44c47f302ea4cebb30"><div class="ttname"><a href="class_sabre_1_1_h_t_t_p_1_1_util.html#a7f83550cc060ab44c47f302ea4cebb30">Sabre\HTTP\Util\parseHTTPDate</a></div><div class="ttdeci">static parseHTTPDate($dateHeader)</div><div class="ttdef"><b>Definition:</b> <a href="_util_8php_source.html#l00053">Util.php:53</a></div></div>
+<div class="ttc" id="class_sabre_1_1_h_t_t_p_1_1_util_html_a45eded309d00db4d7e93464446d43a22"><div class="ttname"><a href="class_sabre_1_1_h_t_t_p_1_1_util.html#a45eded309d00db4d7e93464446d43a22">Sabre\HTTP\Util\negotiate</a></div><div class="ttdeci">static negotiate($acceptHeaderValue, array $availableOptions)</div><div class="ttdef"><b>Definition:</b> <a href="_util_8php_source.html#l00038">Util.php:38</a></div></div>
+<div class="ttc" id="class_sabre_1_1_h_t_t_p_1_1_util_html"><div class="ttname"><a href="class_sabre_1_1_h_t_t_p_1_1_util.html">Sabre\HTTP\Util</a></div><div class="ttdef"><b>Definition:</b> <a href="_util_8php_source.html#l00014">Util.php:14</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

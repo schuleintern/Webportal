@@ -1,0 +1,125 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_time_zone_util}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Time\+Zone\+Util Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_time_zone_util}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Time\+Zone\+Util@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Time\+Zone\+Util}}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_time_zone_util_a02b390e9e541b47def813c13964d5cd6}{get\+Time\+Zone}} (\$tzid, \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}} \$vcalendar=null, \$fail\+If\+Uncertain=false)
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_time_zone_util_a6458d5871069796f71115791bd1b8db8}{load\+Tz\+Maps}} ()
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_time_zone_util_a81310986f7bd1b2db4b431aef6d0bc73}{get\+Identifiers\+BC}} ()
+\end{DoxyCompactItemize}
+\subsection*{Statische öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_time_zone_util_a460481190515f4248db4062cb1b0ba69}\label{class_sabre_1_1_v_object_1_1_time_zone_util_a460481190515f4248db4062cb1b0ba69}} 
+static {\bfseries \$map} = null
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_time_zone_util_a78c2a08411fd8f446b73081033fc89e3}{\$microsoft\+Exchange\+Map}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Time zone name translation.
+
+This file translates well-\/known time zone names into \char`\"{}\+Olson database\char`\"{} time zone names.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Frank Edelhaeuser (\href{mailto:fedel@users.sourceforge.net}{\tt fedel@users.\+sourceforge.\+net}) 
+
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 15 der Datei Time\+Zone\+Util.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_time_zone_util_a81310986f7bd1b2db4b431aef6d0bc73}\label{class_sabre_1_1_v_object_1_1_time_zone_util_a81310986f7bd1b2db4b431aef6d0bc73}} 
+\index{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util@{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util}!get\+Identifiers\+BC@{get\+Identifiers\+BC}}
+\index{get\+Identifiers\+BC@{get\+Identifiers\+BC}!Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util@{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util}}
+\subsubsection{\texorpdfstring{get\+Identifiers\+B\+C()}{getIdentifiersBC()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Time\+Zone\+Util\+::get\+Identifiers\+BC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method returns an array of timezone identifiers, that are supported by Date\+Time\+Zone(), but not returned by Date\+Time\+Zone\+::list\+Identifiers().
+
+We\textquotesingle{}re not using Date\+Time\+Zone\+::list\+Identifiers(\+Date\+Time\+Zone\+::\+A\+L\+L\+\_\+\+W\+I\+T\+H\+\_\+\+B\+C) because\+:
+\begin{DoxyItemize}
+\item It\textquotesingle{}s not supported by some P\+HP versions as well as H\+H\+VM.
+\item It also returns identifiers, that are invalid values for new Date\+Time\+Zone() on some P\+HP versions. (See \mbox{\hyperlink{php-bc_8php_source}{timezonedata/php-\/bc.\+php}} and timezonedata \mbox{\hyperlink{php-workaround_8php_source}{php-\/workaround.\+php}})
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 272 der Datei Time\+Zone\+Util.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_time_zone_util_a02b390e9e541b47def813c13964d5cd6}\label{class_sabre_1_1_v_object_1_1_time_zone_util_a02b390e9e541b47def813c13964d5cd6}} 
+\index{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util@{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util}!get\+Time\+Zone@{get\+Time\+Zone}}
+\index{get\+Time\+Zone@{get\+Time\+Zone}!Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util@{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util}}
+\subsubsection{\texorpdfstring{get\+Time\+Zone()}{getTimeZone()}}
+{\footnotesize\ttfamily static static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Time\+Zone\+Util\+::get\+Time\+Zone (\begin{DoxyParamCaption}\item[{}]{\$tzid,  }\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component}{Component}}}]{\$vcalendar = {\ttfamily null},  }\item[{}]{\$fail\+If\+Uncertain = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method will try to find out the correct timezone for an i\+Calendar date-\/time value.
+
+You must pass the contents of the T\+Z\+ID parameter, as well as the full calendar.
+
+If the lookup fails, this method will return the default P\+HP timezone (as configured using date\+\_\+default\+\_\+timezone\+\_\+set, or the date.\+timezone ini setting).
+
+Alternatively, if \$fail\+If\+Uncertain is set to true, it will throw an exception if we cannot accurately determine the timezone.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$tzid} & \\
+\hline
+Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component & {\em \$vcalendar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Date\+Time\+Zone 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 125 der Datei Time\+Zone\+Util.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_time_zone_util_a6458d5871069796f71115791bd1b8db8}\label{class_sabre_1_1_v_object_1_1_time_zone_util_a6458d5871069796f71115791bd1b8db8}} 
+\index{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util@{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util}!load\+Tz\+Maps@{load\+Tz\+Maps}}
+\index{load\+Tz\+Maps@{load\+Tz\+Maps}!Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util@{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util}}
+\subsubsection{\texorpdfstring{load\+Tz\+Maps()}{loadTzMaps()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Time\+Zone\+Util\+::load\+Tz\+Maps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method will load in all the tz mapping information, if it\textquotesingle{}s not yet done. 
+
+Definiert in Zeile 248 der Datei Time\+Zone\+Util.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_time_zone_util_a78c2a08411fd8f446b73081033fc89e3}\label{class_sabre_1_1_v_object_1_1_time_zone_util_a78c2a08411fd8f446b73081033fc89e3}} 
+\index{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util@{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util}!\$microsoft\+Exchange\+Map@{\$microsoft\+Exchange\+Map}}
+\index{\$microsoft\+Exchange\+Map@{\$microsoft\+Exchange\+Map}!Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util@{Sabre\+::\+V\+Object\+::\+Time\+Zone\+Util}}
+\subsubsection{\texorpdfstring{\$microsoft\+Exchange\+Map}{$microsoftExchangeMap}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Time\+Zone\+Util\+::\$microsoft\+Exchange\+Map\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= [
+        0  => \textcolor{stringliteral}{'UTC'}
+\end{DoxyCode}
+List of microsoft exchange timezone ids.
+
+Source\+: \href{http://msdn.microsoft.com/en-us/library/aa563018(loband).aspx}{\tt http\+://msdn.\+microsoft.\+com/en-\/us/library/aa563018(loband).\+aspx} 
+
+Definiert in Zeile 24 der Datei Time\+Zone\+Util.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/Time\+Zone\+Util.\+php\end{DoxyCompactItemize}

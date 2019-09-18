@@ -1,0 +1,125 @@
+\hypertarget{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment}{}\section{Sabre\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Xml\+Fragment Klassenreferenz}
+\label{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment}\index{Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Xml\+Fragment@{Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Xml\+Fragment}}
+Klassendiagramm für Sabre\textbackslash{}Xml\textbackslash{}Element\textbackslash{}Xml\+Fragment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_a1c7df4a62d2e9de7c79105f2f5aadd03}\label{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_a1c7df4a62d2e9de7c79105f2f5aadd03}} 
+{\bfseries \+\_\+\+\_\+construct} (\$xml)
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_ad17571d9032b11ae10c90b8e39e65a82}\label{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_ad17571d9032b11ae10c90b8e39e65a82}} 
+{\bfseries get\+Xml} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_af7abb5c313d08e5ee12a4dfa37be6b2c}{xml\+Serialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} \$writer)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_a91fd5741f54051de0eeb6779d7d7917f}{xml\+Deserialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$reader)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_adfa7791a9a6eb897ab7170d2ae1eedc5}\label{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_adfa7791a9a6eb897ab7170d2ae1eedc5}} 
+{\bfseries \$xml}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+The \mbox{\hyperlink{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment}{Xml\+Fragment}} element allows you to extract a portion of your xml tree, and get a well-\/formed xml string.
+
+This goes a bit beyond {\ttfamily inner\+Xml} and friends, as we\textquotesingle{}ll also match all the correct namespaces.
+
+Please note that the X\+ML fragment\+:
+
+
+\begin{DoxyEnumerate}
+\item Will not have an $<$?xml declaration.
+\item Or a D\+TD
+\item It will have all the relevant xmlns attributes.
+\item It may not have a root element. 
+\end{DoxyEnumerate}
+
+Definiert in Zeile 23 der Datei Xml\+Fragment.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_a91fd5741f54051de0eeb6779d7d7917f}\label{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_a91fd5741f54051de0eeb6779d7d7917f}} 
+\index{Sabre\+::\+Xml\+::\+Element\+::\+Xml\+Fragment@{Sabre\+::\+Xml\+::\+Element\+::\+Xml\+Fragment}!xml\+Deserialize@{xml\+Deserialize}}
+\index{xml\+Deserialize@{xml\+Deserialize}!Sabre\+::\+Xml\+::\+Element\+::\+Xml\+Fragment@{Sabre\+::\+Xml\+::\+Element\+::\+Xml\+Fragment}}
+\subsubsection{\texorpdfstring{xml\+Deserialize()}{xmlDeserialize()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Xml\+Fragment\+::xml\+Deserialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The deserialize method is called during xml parsing.
+
+This method is called statictly, this is because in theory this method may be used as a type of constructor, or factory method.
+
+Often you want to return an instance of the current class, but you are free to return other data as well.
+
+You are responsible for advancing the reader to the next element. Not doing anything will result in a never-\/ending loop.
+
+If you just want to skip parsing for this element altogether, you can just call \$reader-\/$>$next();
+
+\$reader-\/$>$parse\+Inner\+Tree() will parse the entire sub-\/tree, and advance to the next element.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} & {\em \$reader} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_deserializable_a19e0eca545b9a0d93f7d6b69085ade30}{Sabre\textbackslash{}\+Xml\textbackslash{}\+Xml\+Deserializable}}.
+
+
+
+Definiert in Zeile 139 der Datei Xml\+Fragment.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_af7abb5c313d08e5ee12a4dfa37be6b2c}\label{class_sabre_1_1_xml_1_1_element_1_1_xml_fragment_af7abb5c313d08e5ee12a4dfa37be6b2c}} 
+\index{Sabre\+::\+Xml\+::\+Element\+::\+Xml\+Fragment@{Sabre\+::\+Xml\+::\+Element\+::\+Xml\+Fragment}!xml\+Serialize@{xml\+Serialize}}
+\index{xml\+Serialize@{xml\+Serialize}!Sabre\+::\+Xml\+::\+Element\+::\+Xml\+Fragment@{Sabre\+::\+Xml\+::\+Element\+::\+Xml\+Fragment}}
+\subsubsection{\texorpdfstring{xml\+Serialize()}{xmlSerialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Xml\+Fragment\+::xml\+Serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}}}]{\$writer }\end{DoxyParamCaption})}
+
+The xml\+Serialize metod is called during xml writing.
+
+Use the \$writer argument to write its own xml serialization.
+
+An important note\+: do {\itshape not} create a parent element. Any element implementing Xml\+Serializble should only ever write what\textquotesingle{}s considered its \textquotesingle{}inner xml\textquotesingle{}.
+
+The parent of the current element is responsible for writing a containing element.
+
+This allows serializers to be re-\/used for different element names.
+
+If you are opening new elements, you must also close them again.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} & {\em \$writer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_serializable_aa78f3ee43aa699be8347181653a53d8c}{Sabre\textbackslash{}\+Xml\textbackslash{}\+Xml\+Serializable}}.
+
+
+
+Definiert in Zeile 58 der Datei Xml\+Fragment.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/xml/lib/\+Element/Xml\+Fragment.\+php\end{DoxyCompactItemize}

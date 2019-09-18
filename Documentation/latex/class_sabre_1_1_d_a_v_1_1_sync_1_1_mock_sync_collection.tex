@@ -1,0 +1,124 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Sync\textbackslash{}Mock\+Sync\+Collection Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Mock\+Sync\+Collection@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Mock\+Sync\+Collection}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Sync\textbackslash{}Mock\+Sync\+Collection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.921569cm]{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a9fc3b8d7c6e94be4c34c9b2761494f9c}{get\+Sync\+Token}} ()
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_aee1ed27ed63ba11166d91f591ff30c2f}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_aee1ed27ed63ba11166d91f591ff30c2f}} 
+{\bfseries add\+Change} (array \$added, array \$modified, array \$deleted)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a22c2494bef62d74a044ee7b6f79c4f2f}{get\+Changes}} (\$sync\+Token, \$sync\+Level, \$limit=null)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a21d9b1616884570f9881fd9bae32538d}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a21d9b1616884570f9881fd9bae32538d}} 
+{\bfseries \$change\+Log} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a8cbc3be1c1fe87c053c191b2404a6abf}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a8cbc3be1c1fe87c053c191b2404a6abf}} 
+{\bfseries \$token} = null
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+This mocks a \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection}{I\+Sync\+Collection}}, for unittesting.
+
+This object behaves the same as \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_simple_collection}{Simple\+Collection}}. Call add\+Change to update the \textquotesingle{}changelog\textquotesingle{} that this class uses for the collection.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei Mock\+Sync\+Collection.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a22c2494bef62d74a044ee7b6f79c4f2f}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a22c2494bef62d74a044ee7b6f79c4f2f}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Mock\+Sync\+Collection@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Mock\+Sync\+Collection}!get\+Changes@{get\+Changes}}
+\index{get\+Changes@{get\+Changes}!Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Mock\+Sync\+Collection@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Mock\+Sync\+Collection}}
+\subsubsection{\texorpdfstring{get\+Changes()}{getChanges()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Mock\+Sync\+Collection\+::get\+Changes (\begin{DoxyParamCaption}\item[{}]{\$sync\+Token,  }\item[{}]{\$sync\+Level,  }\item[{}]{\$limit = {\ttfamily null} }\end{DoxyParamCaption})}
+
+The get\+Changes method returns all the changes that have happened, since the specified sync\+Token and the current collection.
+
+This function should return an array, such as the following\+:
+
+array( \textquotesingle{}sync\+Token\textquotesingle{} =$>$ \textquotesingle{}The current synctoken\textquotesingle{}, \textquotesingle{}modified\textquotesingle{} =$>$ array( \textquotesingle{}new.\+txt\textquotesingle{}, ), \textquotesingle{}deleted\textquotesingle{} =$>$ array( \textquotesingle{}foo.\+php.\+bak\textquotesingle{}, \textquotesingle{}old.\+txt\textquotesingle{} ) );
+
+The sync\+Token property should reflect the {\itshape current} sync\+Token of the collection, as reported \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a9fc3b8d7c6e94be4c34c9b2761494f9c}{get\+Sync\+Token()}}. This is needed here too, to ensure the operation is atomic.
+
+If the sync\+Token is specified as null, this is an initial sync, and all members should be reported.
+
+The modified property is an array of nodenames that have changed since the last token.
+
+The deleted property is an array with nodenames, that have been deleted from collection.
+
+The second argument is basically the \textquotesingle{}depth\textquotesingle{} of the report. If it\textquotesingle{}s 1, you only have to report changes that happened only directly in immediate descendants. If it\textquotesingle{}s 2, it should also include changes from the nodes below the child collections. (grandchildren)
+
+The third (optional) argument allows a client to specify how many results should be returned at most. If the limit is not specified, it should be treated as infinite.
+
+If the limit (infinite or not) is higher than you\textquotesingle{}re willing to return, you should throw a Sabre() exception.
+
+If the sync\+Token is expired (due to data cleanup) or unknown, you must return null.
+
+The limit is \textquotesingle{}suggestive\textquotesingle{}. You are free to ignore it.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$sync\+Token} & \\
+\hline
+int & {\em \$sync\+Level} & \\
+\hline
+int & {\em \$limit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_aa47423825bfcce42d78266f920393aed}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+I\+Sync\+Collection}}.
+
+
+
+Definiert in Zeile 102 der Datei Mock\+Sync\+Collection.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a9fc3b8d7c6e94be4c34c9b2761494f9c}\label{class_sabre_1_1_d_a_v_1_1_sync_1_1_mock_sync_collection_a9fc3b8d7c6e94be4c34c9b2761494f9c}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Mock\+Sync\+Collection@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Mock\+Sync\+Collection}!get\+Sync\+Token@{get\+Sync\+Token}}
+\index{get\+Sync\+Token@{get\+Sync\+Token}!Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Mock\+Sync\+Collection@{Sabre\+::\+D\+A\+V\+::\+Sync\+::\+Mock\+Sync\+Collection}}
+\subsubsection{\texorpdfstring{get\+Sync\+Token()}{getSyncToken()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+Mock\+Sync\+Collection\+::get\+Sync\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method returns the current sync-\/token for this collection. This can be any string.
+
+If null is returned from this function, the plugin assumes there\textquotesingle{}s no sync information available.
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_ae8b002d4a88dc34170f9468b5009e08f}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Sync\textbackslash{}\+I\+Sync\+Collection}}.
+
+
+
+Definiert in Zeile 32 der Datei Mock\+Sync\+Collection.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+D\+A\+V/\+Sync/Mock\+Sync\+Collection.\+php\end{DoxyCompactItemize}

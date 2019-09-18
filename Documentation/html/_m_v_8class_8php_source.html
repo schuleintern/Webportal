@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/noten/MV.class.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0a3f0f9795dd784af78ebf76a1ec06ae.html">noten</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MV.class.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_m_v.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_m_v.html">MV</a> {</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">private</span> $data;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">private</span> $unterricht = null;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    </div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">private</span> $schueler = null;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    </div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> __construct($data) {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        $this-&gt;data = $data;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        $this-&gt;<a class="code" href="classschueler.html">schueler</a> = schueler::getByAsvID($data[<span class="stringliteral">&#39;schuelerAsvID&#39;</span>]);</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> getMNote() {</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> $this-&gt;data[<span class="stringliteral">&#39;mNote&#39;</span>];</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> getVNote() {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> $this-&gt;data[<span class="stringliteral">&#39;vNote&#39;</span>];</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> getSchueler() {</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> $this-&gt;schueler;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> getKommentar() {</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> $this-&gt;data[<span class="stringliteral">&#39;noteKommentar&#39;</span>];</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div><div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_m_v.html#af9c7f6a0dbe70bca94e08a4d29a1c5db">   52</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="class_m_v.html#af9c7f6a0dbe70bca94e08a4d29a1c5db">getByUnterrichtAndSchueler</a>($unterricht, $schueler, $zeugnis) {</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        $faecher = [$unterricht-&gt;getFach()-&gt;getKurzform()];</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        $bezeichnungen = [$unterricht-&gt;getBezeichnung()];</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        $koppel = $unterricht-&gt;getKoppelUnterricht();</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        </div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">for</span>($i = 0; $i &lt; <span class="keyword">sizeof</span>($koppel); $i++) {</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            $faecher[] = $koppel[$i]-&gt;getFach()-&gt;getKurzform();</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            $bezeichnungen[] = $koppel[$i]-&gt;getBezeichnung();</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        $data = <a class="code" href="class_d_b.html#a1f39c0489afad64328534850308fc9a9">DB::getDB</a>()-&gt;query_first(<span class="stringliteral">&quot;SELECT * FROM noten_mv WHERE mvFachKurzform IN(&#39;&quot;</span> . implode(<span class="stringliteral">&quot;&#39;,&#39;&quot;</span>,$faecher) . <span class="stringliteral">&quot;&#39;) AND mvUnterrichtName IN (&#39;&quot;</span> . implode(<span class="stringliteral">&quot;&#39;,&#39;&quot;</span>, $bezeichnungen) . <span class="stringliteral">&quot;&#39;) AND zeugnisID=&#39;&quot;</span> . $zeugnis-&gt;getID() . <span class="stringliteral">&quot;&#39; AND schuelerAsvID=&#39;&quot;</span> . $schueler-&gt;getAsvID() . <span class="stringliteral">&quot;&#39;&quot;</span>);;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        </div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;       <span class="comment">//  $data = DB::getDB()-&gt;query_first(&quot;SELECT * FROM noten_mv WHERE mvFachKurzform LIKE &#39;&quot; . $unterricht-&gt;getFach()-&gt;getKurzform() . &quot;&#39; AND mvUnterrichtName=&#39;&quot; . $unterricht-&gt;getBezeichnung() . &quot;&#39; AND schuelerAsvID=&#39;&quot; . $schueler-&gt;getAsvID() . &quot;&#39; AND zeugnisID=&#39;&quot; . $zeugnis-&gt;getID() . &quot;&#39;&quot;);</span></div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">if</span>($data[<span class="stringliteral">&#39;mvUnterrichtName&#39;</span>] != <span class="stringliteral">&quot;&quot;</span>) <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_m_v.html">MV</a>($data);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        </div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> null;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div><div class="ttc" id="classschueler_html"><div class="ttname"><a href="classschueler.html">schueler</a></div><div class="ttdef"><b>Definition:</b> <a href="schueler_8class_8php_source.html#l00007">schueler.class.php:7</a></div></div>
+<div class="ttc" id="class_m_v_html"><div class="ttname"><a href="class_m_v.html">MV</a></div><div class="ttdef"><b>Definition:</b> <a href="_m_v_8class_8php_source.html#l00008">MV.class.php:8</a></div></div>
+<div class="ttc" id="class_d_b_html_a1f39c0489afad64328534850308fc9a9"><div class="ttname"><a href="class_d_b.html#a1f39c0489afad64328534850308fc9a9">DB\getDB</a></div><div class="ttdeci">static getDB()</div><div class="ttdef"><b>Definition:</b> <a href="_d_b_8class_8php_source.html#l00043">DB.class.php:43</a></div></div>
+<div class="ttc" id="class_m_v_html_af9c7f6a0dbe70bca94e08a4d29a1c5db"><div class="ttname"><a href="class_m_v.html#af9c7f6a0dbe70bca94e08a4d29a1c5db">MV\getByUnterrichtAndSchueler</a></div><div class="ttdeci">static getByUnterrichtAndSchueler($unterricht, $schueler, $zeugnis)</div><div class="ttdef"><b>Definition:</b> <a href="_m_v_8class_8php_source.html#l00052">MV.class.php:52</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

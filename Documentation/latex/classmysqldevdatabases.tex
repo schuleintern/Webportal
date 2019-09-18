@@ -1,0 +1,70 @@
+\hypertarget{classmysqldevdatabases}{}\section{mysqldevdatabases Klassenreferenz}
+\label{classmysqldevdatabases}\index{mysqldevdatabases@{mysqldevdatabases}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_a40d6083a43dfc4ca0a579142f1abbed6}\label{classmysqldevdatabases_a40d6083a43dfc4ca0a579142f1abbed6}} 
+{\bfseries connect} ()
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_aed7fbeb49ef0862f78617c55ab4afe48}\label{classmysqldevdatabases_aed7fbeb49ef0862f78617c55ab4afe48}} 
+{\bfseries geterrdesc} ()
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_add1897236b21e19b2cfea0caea2c9d22}\label{classmysqldevdatabases_add1897236b21e19b2cfea0caea2c9d22}} 
+{\bfseries geterrno} ()
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_ac4de84c35757458e976e566ace92ab13}\label{classmysqldevdatabases_ac4de84c35757458e976e566ace92ab13}} 
+{\bfseries query} (\$query\+\_\+string, \$silent=0)
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_a7f8fc36f5b870e171c484e82252166dc}\label{classmysqldevdatabases_a7f8fc36f5b870e171c484e82252166dc}} 
+{\bfseries fetch\+\_\+array} (\$query\+\_\+id=null)
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_a4e2cc078defc8e88f8eba2594bf9ab7a}\label{classmysqldevdatabases_a4e2cc078defc8e88f8eba2594bf9ab7a}} 
+{\bfseries free\+\_\+result} (\$query\+\_\+id=-\/1)
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_a68b745fcff225f927ad8633afc7b2898}\label{classmysqldevdatabases_a68b745fcff225f927ad8633afc7b2898}} 
+{\bfseries query\+\_\+first} (\$query\+\_\+string)
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_aba52a0d8f38b30d4a76bc2589c34a91e}\label{classmysqldevdatabases_aba52a0d8f38b30d4a76bc2589c34a91e}} 
+{\bfseries num\+\_\+rows} (\$query\+\_\+id=-\/1)
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_aeffbfc0db4327864ddc2f15b0b6899ab}\label{classmysqldevdatabases_aeffbfc0db4327864ddc2f15b0b6899ab}} 
+{\bfseries affected\+\_\+rows} ()
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_ac07c62827445cfff71419a15330a5876}\label{classmysqldevdatabases_ac07c62827445cfff71419a15330a5876}} 
+{\bfseries insert\+\_\+id} ()
+\item 
+\mbox{\hyperlink{classmysqldevdatabases_a2586a7e38266035410c83c0e7b801d8c}{escape\+String}} (\$string)
+\item 
+\mbox{\Hypertarget{classmysqldevdatabases_a2d4464928fc68c96a5efbdd0e5b8cd70}\label{classmysqldevdatabases_a2d4464928fc68c96a5efbdd0e5b8cd70}} 
+{\bfseries print\+\_\+error} (\$msg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 4 der Datei mysqldevdatabases.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{classmysqldevdatabases_a2586a7e38266035410c83c0e7b801d8c}\label{classmysqldevdatabases_a2586a7e38266035410c83c0e7b801d8c}} 
+\index{mysqldevdatabases@{mysqldevdatabases}!escape\+String@{escape\+String}}
+\index{escape\+String@{escape\+String}!mysqldevdatabases@{mysqldevdatabases}}
+\subsubsection{\texorpdfstring{escape\+String()}{escapeString()}}
+{\footnotesize\ttfamily mysqldevdatabases\+::escape\+String (\begin{DoxyParamCaption}\item[{}]{\$string }\end{DoxyParamCaption})}
+
+Escaped einen String (gegen S\+QL Injections) 
+\begin{DoxyParams}[1]{Parameter}
+String & {\em \$string} & S\+QL Abfrage // T\+O\+DO\+: Umstellung alles auf prepared Statements \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 106 der Datei mysqldevdatabases.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/db/mysqldevdatabases.\+class.\+php\end{DoxyCompactItemize}

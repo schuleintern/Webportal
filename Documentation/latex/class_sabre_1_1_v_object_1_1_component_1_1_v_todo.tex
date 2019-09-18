@@ -1,0 +1,121 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_todo}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Component\textbackslash{}V\+Todo Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_component_1_1_v_todo}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Todo@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Todo}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Component\textbackslash{}V\+Todo\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.113208cm]{class_sabre_1_1_v_object_1_1_component_1_1_v_todo}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_a75eb793a476f7c67c08772893295758d}{is\+In\+Time\+Range}} (Date\+Time\+Interface \$start, Date\+Time\+Interface \$end)
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_ac13a8e8c1d2638dafa1d3ea9bc4a7f1b}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_ac13a8e8c1d2638dafa1d3ea9bc4a7f1b}} 
+{\bfseries get\+Validation\+Rules} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_af551857c3fd98e083a39ec8b6d04e9d3}{validate}} (\$options=0)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_a8e729cac6b23ca5467e80ce9f7841110}{get\+Defaults}} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_todo}{V\+Todo}} component.
+
+This component contains some additional functionality specific for V\+T\+O\+D\+Os.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei V\+Todo.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_a8e729cac6b23ca5467e80ce9f7841110}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_a8e729cac6b23ca5467e80ce9f7841110}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo}!get\+Defaults@{get\+Defaults}}
+\index{get\+Defaults@{get\+Defaults}!Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo}}
+\subsubsection{\texorpdfstring{get\+Defaults()}{getDefaults()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Todo\+::get\+Defaults (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method should return a list of default property values.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 184 der Datei V\+Todo.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_a75eb793a476f7c67c08772893295758d}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_a75eb793a476f7c67c08772893295758d}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo}!is\+In\+Time\+Range@{is\+In\+Time\+Range}}
+\index{is\+In\+Time\+Range@{is\+In\+Time\+Range}!Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo}}
+\subsubsection{\texorpdfstring{is\+In\+Time\+Range()}{isInTimeRange()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Todo\+::is\+In\+Time\+Range (\begin{DoxyParamCaption}\item[{Date\+Time\+Interface}]{\$start,  }\item[{Date\+Time\+Interface}]{\$end }\end{DoxyParamCaption})}
+
+Returns true or false depending on if the event falls in the specified time-\/range. This is used for filtering purposes.
+
+The rules used to determine if an event falls within the specified time-\/range is based on the Cal\+D\+AV specification.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Date\+Time\+Interface & {\em \$start} & \\
+\hline
+Date\+Time\+Interface & {\em \$end} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 31 der Datei V\+Todo.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_af551857c3fd98e083a39ec8b6d04e9d3}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_todo_af551857c3fd98e083a39ec8b6d04e9d3}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo}!validate@{validate}}
+\index{validate@{validate}!Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Todo}}
+\subsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Todo\+::validate (\begin{DoxyParamCaption}\item[{}]{\$options = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Validates the node for correctness.
+
+The following options are supported\+: \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_node_ac97a7fb85c1f871523336cd1ec6b29a9}{Node\+::\+R\+E\+P\+A\+IR}} -\/ May attempt to automatically repair the problem.
+
+This method returns an array with detected problems. Every element has the following properties\+:
+
+
+\begin{DoxyItemize}
+\item level -\/ problem level.
+\item message -\/ A human-\/readable string describing the issue.
+\item node -\/ A reference to the problematic node.
+\end{DoxyItemize}
+
+The level means\+: 1 -\/ The issue was repaired (only happens if R\+E\+P\+A\+IR was turned on) 2 -\/ An inconsequential issue 3 -\/ A severe issue.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 147 der Datei V\+Todo.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+Component/V\+Todo.\+php\end{DoxyCompactItemize}

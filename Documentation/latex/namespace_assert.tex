@@ -1,0 +1,115 @@
+\hypertarget{namespace_assert}{}\section{Assert-\/\+Namensbereichsreferenz}
+\label{namespace_assert}\index{Assert@{Assert}}
+\subsection*{Klassen}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_assert_1_1_assert}{Assert}}
+\item 
+class \mbox{\hyperlink{class_assert_1_1_assertion}{Assertion}}
+\item 
+class \mbox{\hyperlink{class_assert_1_1_assertion_chain}{Assertion\+Chain}}
+\item 
+interface \mbox{\hyperlink{interface_assert_1_1_assertion_failed_exception}{Assertion\+Failed\+Exception}}
+\item 
+class \mbox{\hyperlink{class_assert_1_1_invalid_argument_exception}{Invalid\+Argument\+Exception}}
+\item 
+class \mbox{\hyperlink{class_assert_1_1_lazy_assertion}{Lazy\+Assertion}}
+\item 
+class \mbox{\hyperlink{class_assert_1_1_lazy_assertion_exception}{Lazy\+Assertion\+Exception}}
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_assert_a9f799d4c3164256a91a606990538a24c}\label{namespace_assert_a9f799d4c3164256a91a606990538a24c}} 
+{\bfseries that} (\$value, \$default\+Message=null, \$default\+Property\+Path=null)
+\item 
+\mbox{\hyperlink{namespace_assert_a378b25b5d71c403bdc11d30eac5af701}{that\+All}} (\$values, \$default\+Message=null, \$default\+Property\+Path=null)
+\item 
+\mbox{\hyperlink{namespace_assert_af03f4db4476f5f158ed16b6e0bfce05f}{that\+Null\+Or}} (\$value, \$default\+Message=null, \$default\+Property\+Path=null)
+\item 
+\mbox{\hyperlink{namespace_assert_a46e40540c897ee751f88a5a37a38dd4d}{lazy}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{namespace_assert}{Assert}}
+
+L\+I\+C\+E\+N\+SE
+
+This source file is subject to the M\+IT license that is bundled with this package in the file L\+I\+C\+E\+N\+S\+E.\+txt. If you did not receive a copy of the license and are unable to obtain it through the world-\/wide-\/web, please send an email to \href{mailto:kontakt@beberlei.de}{\tt kontakt@beberlei.\+de} so I can send you a copy immediately. 
+
+\subsection{Dokumentation der Funktionen}
+\mbox{\Hypertarget{namespace_assert_a46e40540c897ee751f88a5a37a38dd4d}\label{namespace_assert_a46e40540c897ee751f88a5a37a38dd4d}} 
+\index{Assert@{Assert}!lazy@{lazy}}
+\index{lazy@{lazy}!Assert@{Assert}}
+\subsubsection{\texorpdfstring{lazy()}{lazy()}}
+{\footnotesize\ttfamily Assert\textbackslash{}lazy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a lazy assertion object.
+
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Beispiele\+: ]\par
+\mbox{\hyperlink{_2_users_2chris_2git_2_webportal_2_upload_2framework_2lib_2composer_2vendor_2beberlei_2assert_2lacf450f68139c1e41d10488936b869cb}{/\+Users/chris/git/\+Webportal/\+Upload/framework/lib/composer/vendor/beberlei/assert/lib/\+Assert/\+Assert.\+php}} und \mbox{\hyperlink{_2_users_2chris_2git_2_webportal_2_upload_2framework_2lib_2composer_2vendor_2beberlei_2assert_2l71b2cff1f382ea0076479e3e4857df11}{/\+Users/chris/git/\+Webportal/\+Upload/framework/lib/composer/vendor/beberlei/assert/lib/\+Assert/functions.\+php}}.\end{Desc}
+
+
+Definiert in Zeile 77 der Datei functions.\+php.
+
+\mbox{\Hypertarget{namespace_assert_a378b25b5d71c403bdc11d30eac5af701}\label{namespace_assert_a378b25b5d71c403bdc11d30eac5af701}} 
+\index{Assert@{Assert}!that\+All@{that\+All}}
+\index{that\+All@{that\+All}!Assert@{Assert}}
+\subsubsection{\texorpdfstring{that\+All()}{thatAll()}}
+{\footnotesize\ttfamily Assert\textbackslash{}that\+All (\begin{DoxyParamCaption}\item[{}]{\$values,  }\item[{}]{\$default\+Message = {\ttfamily null},  }\item[{}]{\$default\+Property\+Path = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Start validation on a set of values, returns \mbox{\hyperlink{class_assert_1_1_assertion_chain}{Assertion\+Chain}}.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$values} & \\
+\hline
+string & {\em \$default\+Message} & \\
+\hline
+string & {\em \$default\+Property\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Beispiele\+: ]\par
+\mbox{\hyperlink{_2_users_2chris_2git_2_webportal_2_upload_2framework_2lib_2composer_2vendor_2beberlei_2assert_2lacf450f68139c1e41d10488936b869cb}{/\+Users/chris/git/\+Webportal/\+Upload/framework/lib/composer/vendor/beberlei/assert/lib/\+Assert/\+Assert.\+php}} und \mbox{\hyperlink{_2_users_2chris_2git_2_webportal_2_upload_2framework_2lib_2composer_2vendor_2beberlei_2assert_2l71b2cff1f382ea0076479e3e4857df11}{/\+Users/chris/git/\+Webportal/\+Upload/framework/lib/composer/vendor/beberlei/assert/lib/\+Assert/functions.\+php}}.\end{Desc}
+
+
+Definiert in Zeile 51 der Datei functions.\+php.
+
+\mbox{\Hypertarget{namespace_assert_af03f4db4476f5f158ed16b6e0bfce05f}\label{namespace_assert_af03f4db4476f5f158ed16b6e0bfce05f}} 
+\index{Assert@{Assert}!that\+Null\+Or@{that\+Null\+Or}}
+\index{that\+Null\+Or@{that\+Null\+Or}!Assert@{Assert}}
+\subsubsection{\texorpdfstring{that\+Null\+Or()}{thatNullOr()}}
+{\footnotesize\ttfamily Assert\textbackslash{}that\+Null\+Or (\begin{DoxyParamCaption}\item[{}]{\$value,  }\item[{}]{\$default\+Message = {\ttfamily null},  }\item[{}]{\$default\+Property\+Path = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Start validation and allow N\+U\+LL, returns \mbox{\hyperlink{class_assert_1_1_assertion_chain}{Assertion\+Chain}}.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$value} & \\
+\hline
+string & {\em \$default\+Message} & \\
+\hline
+string & {\em \$default\+Property\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Veraltet}
+\item[\mbox{\hyperlink{deprecated__deprecated000003}{Veraltet}}]In favour of \mbox{\hyperlink{namespace_assert_af03f4db4476f5f158ed16b6e0bfce05f}{Assert\+::that\+Null\+Or}}(\$value, \$default\+Message = null, \$default\+Property\+Path = null) \end{DoxyRefDesc}
+\begin{Desc}
+\item[Beispiele\+: ]\par
+\mbox{\hyperlink{_2_users_2chris_2git_2_webportal_2_upload_2framework_2lib_2composer_2vendor_2beberlei_2assert_2lacf450f68139c1e41d10488936b869cb}{/\+Users/chris/git/\+Webportal/\+Upload/framework/lib/composer/vendor/beberlei/assert/lib/\+Assert/\+Assert.\+php}} und \mbox{\hyperlink{_2_users_2chris_2git_2_webportal_2_upload_2framework_2lib_2composer_2vendor_2beberlei_2assert_2l71b2cff1f382ea0076479e3e4857df11}{/\+Users/chris/git/\+Webportal/\+Upload/framework/lib/composer/vendor/beberlei/assert/lib/\+Assert/functions.\+php}}.\end{Desc}
+
+
+Definiert in Zeile 67 der Datei functions.\+php.
+

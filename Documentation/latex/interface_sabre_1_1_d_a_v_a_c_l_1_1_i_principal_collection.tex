@@ -1,0 +1,96 @@
+\hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection}{}\section{Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}I\+Principal\+Collection Schnittstellenreferenz}
+\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection}\index{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+Principal\+Collection@{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+Principal\+Collection}}
+Klassendiagramm für Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}I\+Principal\+Collection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.146067cm]{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a83dd9fdd55c446e8cc9fad302095f463}{search\+Principals}} (array \$search\+Properties, \$\mbox{\hyperlink{classtest}{test}}=\textquotesingle{}allof\textquotesingle{})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a7b8893f6a37a399cf37afe5dfda85d33}{find\+By\+Uri}} (\$uri)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal}{Principal}} Collection interface.
+
+Implement this interface to ensure that your principal collection can be searched using the principal-\/property-\/search R\+E\+P\+O\+RT.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei I\+Principal\+Collection.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a7b8893f6a37a399cf37afe5dfda85d33}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a7b8893f6a37a399cf37afe5dfda85d33}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+Principal\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+Principal\+Collection}!find\+By\+Uri@{find\+By\+Uri}}
+\index{find\+By\+Uri@{find\+By\+Uri}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+Principal\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+Principal\+Collection}}
+\subsubsection{\texorpdfstring{find\+By\+Uri()}{findByUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+Principal\+Collection\+::find\+By\+Uri (\begin{DoxyParamCaption}\item[{}]{\$uri }\end{DoxyParamCaption})}
+
+Finds a principal by its U\+RI.
+
+This method may receive any type of uri, but mailto\+: addresses will be the most common.
+
+Implementation of this A\+PI is optional. It is currently used by the Cal\+D\+AV system to find principals based on their email addresses. If this A\+PI is not implemented, some features may not work correctly.
+
+This method must return a relative principal path, or null, if the principal was not found or you refuse to find it.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_abstract_principal_collection_aea345cf559cc83b45134fea498854293}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Abstract\+Principal\+Collection}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a83dd9fdd55c446e8cc9fad302095f463}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a83dd9fdd55c446e8cc9fad302095f463}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+Principal\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+Principal\+Collection}!search\+Principals@{search\+Principals}}
+\index{search\+Principals@{search\+Principals}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+Principal\+Collection@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+I\+Principal\+Collection}}
+\subsubsection{\texorpdfstring{search\+Principals()}{searchPrincipals()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+I\+Principal\+Collection\+::search\+Principals (\begin{DoxyParamCaption}\item[{array}]{\$search\+Properties,  }\item[{}]{\$test = {\ttfamily \textquotesingle{}allof\textquotesingle{}} }\end{DoxyParamCaption})}
+
+This method is used to search for principals matching a set of properties.
+
+This search is specifically used by R\+F\+C3744\textquotesingle{}s principal-\/property-\/search R\+E\+P\+O\+RT. You should at least allow searching on \href{http://sabredav.org/ns}{\tt http\+://sabredav.\+org/ns}\}email-\/address.
+
+The actual search should be a unicode-\/non-\/case-\/sensitive search. The keys in search\+Properties are the Web\+D\+AV property names, while the values are the property values to search on.
+
+By default, if multiple properties are submitted to this method, the various properties should be combined with \textquotesingle{}A\+ND\textquotesingle{}. If \$test is set to \textquotesingle{}anyof\textquotesingle{}, it should be combined using \textquotesingle{}OR\textquotesingle{}.
+
+This method should simply return a list of \textquotesingle{}child names\textquotesingle{}, which may be used to call \$this-\/$>$get\+Child in the future.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$search\+Properties} & \\
+\hline
+string & {\em \$test} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_abstract_principal_collection_acb5760aa6f3fd56f345b28df38e87249}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Abstract\+Principal\+Collection}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V\+A\+C\+L/I\+Principal\+Collection.\+php\end{DoxyCompactItemize}

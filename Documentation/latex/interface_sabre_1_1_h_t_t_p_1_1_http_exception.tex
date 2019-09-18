@@ -1,0 +1,57 @@
+\hypertarget{interface_sabre_1_1_h_t_t_p_1_1_http_exception}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Http\+Exception Schnittstellenreferenz}
+\label{interface_sabre_1_1_h_t_t_p_1_1_http_exception}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Http\+Exception@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Http\+Exception}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Http\+Exception\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_sabre_1_1_h_t_t_p_1_1_http_exception}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_http_exception_a3f276c42a877c12d0fe55b644e9dad73}{get\+Http\+Status}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+An exception representing a H\+T\+TP error.
+
+This can be used as a generic exception in your application, if you\textquotesingle{}d like to map H\+T\+TP errors to exceptions.
+
+If you\textquotesingle{}d like to use this, create a new exception class, extending Exception and implementing this interface.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Http\+Exception.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_http_exception_a3f276c42a877c12d0fe55b644e9dad73}\label{interface_sabre_1_1_h_t_t_p_1_1_http_exception_a3f276c42a877c12d0fe55b644e9dad73}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Http\+Exception@{Sabre\+::\+H\+T\+T\+P\+::\+Http\+Exception}!get\+Http\+Status@{get\+Http\+Status}}
+\index{get\+Http\+Status@{get\+Http\+Status}!Sabre\+::\+H\+T\+T\+P\+::\+Http\+Exception@{Sabre\+::\+H\+T\+T\+P\+::\+Http\+Exception}}
+\subsubsection{\texorpdfstring{get\+Http\+Status()}{getHttpStatus()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Http\+Exception\+::get\+Http\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The http status code for the error.
+
+This may either be just the number, or a number and a human-\/readable message, separated by a space.
+
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_client_http_exception_a1112cedae2996f53423d24c2f0193a12}{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Client\+Http\+Exception}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/lib/Http\+Exception.\+php\end{DoxyCompactItemize}

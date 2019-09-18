@@ -1,0 +1,109 @@
+\hypertarget{class_message_answer}{}\section{Message\+Answer Klassenreferenz}
+\label{class_message_answer}\index{Message\+Answer@{Message\+Answer}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_message_answer_a26927f01f5d52a8d1ca4cf89d16434c4}\label{class_message_answer_a26927f01f5d52a8d1ca4cf89d16434c4}} 
+{\bfseries \+\_\+\+\_\+construct} (\$data)
+\item 
+\mbox{\Hypertarget{class_message_answer_a81aeb932aeed595027f1b7f72e3842db}\label{class_message_answer_a81aeb932aeed595027f1b7f72e3842db}} 
+{\bfseries get\+ID} ()
+\item 
+\mbox{\Hypertarget{class_message_answer_af447c90ff04cd576af1bed601bb21197}\label{class_message_answer_af447c90ff04cd576af1bed601bb21197}} 
+{\bfseries get\+Question\+ID} ()
+\item 
+\mbox{\Hypertarget{class_message_answer_a13659db6ab4e527da9a5c75c8f4c2973}\label{class_message_answer_a13659db6ab4e527da9a5c75c8f4c2973}} 
+{\bfseries get\+Answer\+Data} ()
+\item 
+\mbox{\Hypertarget{class_message_answer_a2b35e16d5bbb0d98fa1ea870160d78ac}\label{class_message_answer_a2b35e16d5bbb0d98fa1ea870160d78ac}} 
+{\bfseries get\+Message\+ID} ()
+\item 
+\mbox{\Hypertarget{class_message_answer_a0120968940d6f041fd8ed0c3c05e3465}\label{class_message_answer_a0120968940d6f041fd8ed0c3c05e3465}} 
+{\bfseries delete} ()
+\item 
+\mbox{\Hypertarget{class_message_answer_a38b77f0020edfc07d0b2f5b25cc91b9b}\label{class_message_answer_a38b77f0020edfc07d0b2f5b25cc91b9b}} 
+{\bfseries update\+Answer} (\$data)
+\item 
+\mbox{\hyperlink{class_message_answer_a880b6000aa29dd9a98eaf66d7d090eba}{get\+By\+Message\+ID}} (\$id)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_message_answer_a883af5afad6d2399954096c0a5fb25fb}{get\+By\+Message\+I\+D\+And\+Question\+ID}} (\$id, \$question\+ID)
+\item 
+static \mbox{\hyperlink{class_message_answer_a3268cc849880c5209261359a2976dda8}{get\+By\+Question\+ID}} (\$id)
+\item 
+\mbox{\Hypertarget{class_message_answer_a7fdf413007b7770e52add7d5aa3e0d3a}\label{class_message_answer_a7fdf413007b7770e52add7d5aa3e0d3a}} 
+static {\bfseries create\+Answer} (\$question\+ID, \$message\+ID, \$data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 2 der Datei Message\+Answer.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_message_answer_a880b6000aa29dd9a98eaf66d7d090eba}\label{class_message_answer_a880b6000aa29dd9a98eaf66d7d090eba}} 
+\index{Message\+Answer@{Message\+Answer}!get\+By\+Message\+ID@{get\+By\+Message\+ID}}
+\index{get\+By\+Message\+ID@{get\+By\+Message\+ID}!Message\+Answer@{Message\+Answer}}
+\subsubsection{\texorpdfstring{get\+By\+Message\+I\+D()}{getByMessageID()}}
+{\footnotesize\ttfamily Message\+Answer\+::get\+By\+Message\+ID (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_message_answer}{Message\+Answer}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 67 der Datei Message\+Answer.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_answer_a883af5afad6d2399954096c0a5fb25fb}\label{class_message_answer_a883af5afad6d2399954096c0a5fb25fb}} 
+\index{Message\+Answer@{Message\+Answer}!get\+By\+Message\+I\+D\+And\+Question\+ID@{get\+By\+Message\+I\+D\+And\+Question\+ID}}
+\index{get\+By\+Message\+I\+D\+And\+Question\+ID@{get\+By\+Message\+I\+D\+And\+Question\+ID}!Message\+Answer@{Message\+Answer}}
+\subsubsection{\texorpdfstring{get\+By\+Message\+I\+D\+And\+Question\+I\+D()}{getByMessageIDAndQuestionID()}}
+{\footnotesize\ttfamily static Message\+Answer\+::get\+By\+Message\+I\+D\+And\+Question\+ID (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$question\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$id} & \\
+\hline
+int & {\em \$question\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Message\+Answer$\vert$\+N\+U\+LL 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 39 der Datei Message\+Answer.\+class.\+php.
+
+\mbox{\Hypertarget{class_message_answer_a3268cc849880c5209261359a2976dda8}\label{class_message_answer_a3268cc849880c5209261359a2976dda8}} 
+\index{Message\+Answer@{Message\+Answer}!get\+By\+Question\+ID@{get\+By\+Question\+ID}}
+\index{get\+By\+Question\+ID@{get\+By\+Question\+ID}!Message\+Answer@{Message\+Answer}}
+\subsubsection{\texorpdfstring{get\+By\+Question\+I\+D()}{getByQuestionID()}}
+{\footnotesize\ttfamily static Message\+Answer\+::get\+By\+Question\+ID (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_message_answer}{Message\+Answer}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 50 der Datei Message\+Answer.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/messages/Message\+Answer.\+class.\+php\end{DoxyCompactItemize}

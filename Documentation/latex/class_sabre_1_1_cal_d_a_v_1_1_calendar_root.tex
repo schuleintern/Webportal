@@ -1,0 +1,122 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_root}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar\+Root Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_root}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Root@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Root}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Calendar\+Root\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.495631cm]{class_sabre_1_1_cal_d_a_v_1_1_calendar_root}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_a33589a31edb7c16ea8914075cccdd9e0}{\+\_\+\+\_\+construct}} (Principal\+Backend\textbackslash{}\+Backend\+Interface \$principal\+Backend, \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}} \$caldav\+Backend, \$principal\+Prefix=\textquotesingle{}principals\textquotesingle{})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_a360248ff540e3fb0845cf76d17f87ec5}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_ad74dd214d75c15a3ec2472ac44df595a}{get\+Child\+For\+Principal}} (array \$principal)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_a70c331eee098fe9551e992bb6a1629fb}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_a70c331eee098fe9551e992bb6a1629fb}} 
+{\bfseries \$caldav\+Backend}
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+Calendars collection
+
+This object is responsible for generating a list of calendar-\/homes for each user.
+
+This is the top-\/most node for the calendars tree. In most servers this class represents the \char`\"{}/calendars\char`\"{} path.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 20 der Datei Calendar\+Root.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_a33589a31edb7c16ea8914075cccdd9e0}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_a33589a31edb7c16ea8914075cccdd9e0}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Root\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{Principal\+Backend\textbackslash{}\+Backend\+Interface}]{\$principal\+Backend,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_backend_interface}{Backend\textbackslash{}\+Backend\+Interface}}}]{\$caldav\+Backend,  }\item[{}]{\$principal\+Prefix = {\ttfamily \textquotesingle{}principals\textquotesingle{}} }\end{DoxyParamCaption})}
+
+Constructor
+
+This constructor needs both an authentication and a caldav backend.
+
+By default this class will show a list of calendar collections for principals in the \textquotesingle{}principals\textquotesingle{} collection. If your main principals are actually located in a different path, use the \$principal\+Prefix argument to override this.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Principal\+Backend\textbackslash{}\+Backend\+Interface & {\em \$principal\+Backend} & \\
+\hline
+Backend\textbackslash{}\+Backend\+Interface & {\em \$caldav\+Backend} & \\
+\hline
+string & {\em \$principal\+Prefix} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 43 der Datei Calendar\+Root.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_ad74dd214d75c15a3ec2472ac44df595a}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_ad74dd214d75c15a3ec2472ac44df595a}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root}!get\+Child\+For\+Principal@{get\+Child\+For\+Principal}}
+\index{get\+Child\+For\+Principal@{get\+Child\+For\+Principal}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root}}
+\subsubsection{\texorpdfstring{get\+Child\+For\+Principal()}{getChildForPrincipal()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Root\+::get\+Child\+For\+Principal (\begin{DoxyParamCaption}\item[{array}]{\$principal }\end{DoxyParamCaption})}
+
+This method returns a node for a principal.
+
+The passed array contains principal information, and is guaranteed to at least contain a uri item. Other properties may or may not be supplied by the authentication backend.
+
+
+\begin{DoxyParams}[1]{Parameter}
+array & {\em \$principal} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+
+\end{DoxyReturn}
+
+
+Definiert in Zeile 74 der Datei Calendar\+Root.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_a360248ff540e3fb0845cf76d17f87ec5}\label{class_sabre_1_1_cal_d_a_v_1_1_calendar_root_a360248ff540e3fb0845cf76d17f87ec5}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root@{Sabre\+::\+Cal\+D\+A\+V\+::\+Calendar\+Root}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Calendar\+Root\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the nodename
+
+We\textquotesingle{}re overriding this, because the default will be the \textquotesingle{}principal\+Prefix\textquotesingle{}, and we want it to be Sabre\+::\+C\+A\+L\+E\+N\+D\+A\+R\+\_\+\+R\+O\+OT
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_ab616fe836b1ae36af12126a2bc934dce}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+I\+Node}}.
+
+
+
+Definiert in Zeile 58 der Datei Calendar\+Root.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Cal\+D\+A\+V/Calendar\+Root.\+php\end{DoxyCompactItemize}

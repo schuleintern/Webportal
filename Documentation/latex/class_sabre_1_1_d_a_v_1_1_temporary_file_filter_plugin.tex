@@ -1,0 +1,338 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Temporary\+File\+Filter\+Plugin Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Temporary\+File\+Filter\+Plugin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a762fe944736fc5eb23a8de3d5a2582d9}{\+\_\+\+\_\+construct}} (\$data\+Dir=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a4348c841bd5edb67a52fa9d5d18bdefa}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a693a9809f2410fb0099e63abed9e334d}{before\+Method}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a898e57067feb939319b25e8432459c79}{before\+Create\+File}} (\$uri, \$data, \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{I\+Collection}} \$parent, \$modified)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_aba5aac1b4d8f285c393e9a0c8f21a100}{http\+Get}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$hR, \$temp\+Location)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a630c7e3321fcdecfa1411afa5df4976d}{http\+Put}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$hR, \$temp\+Location)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a76eb0e2c6608bfbea0da86ff4dc83992}{http\+Delete}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$hR, \$temp\+Location)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a567e0f9723b210d6076b25c7c7056cc0}{http\+Propfind}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$hR, \$temp\+Location)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries \$temporary\+File\+Patterns}
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a3f82b019bf7484f8c71a4c89c46d3ccf}{is\+Temp\+File}} (\$path)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_ae35ab33945ebc7fb6cdbe8d192cdcc22}{get\+Data\+Dir}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a32eb6ab589d2eb12b3be12c4eccd9d3c}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a32eb6ab589d2eb12b3be12c4eccd9d3c}} 
+{\bfseries \$server}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Temporary \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_file}{File}} Filter Plugin
+
+The purpose of this filter is to intercept some of the garbage files operation systems and applications tend to generate when mounting a Web\+D\+AV share as a disk.
+
+It will intercept these files and place them in a separate directory. these files are not deleted automatically, so it is advisable to delete these after they are not accessed for 24 hours.
+
+Currently it supports\+:
+\begin{DoxyItemize}
+\item O\+S/X style resource forks and .D\+S\+\_\+\+Store
+\item desktop.\+ini and Thumbs.\+db (windows)
+\item .$\ast$.swp (vim temporary files)
+\item .dat.$\ast$ (smultron temporary files)
+\end{DoxyItemize}
+
+Additional patterns can be added, by adding on to the temporary\+File\+Patterns property.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 33 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a762fe944736fc5eb23a8de3d5a2582d9}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a762fe944736fc5eb23a8de3d5a2582d9}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$data\+Dir = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates the plugin.
+
+Make sure you specify a directory for your files. If you don\textquotesingle{}t, we will use P\+HP\textquotesingle{}s directory for session-\/storage instead, and you might not want that.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | null & {\em \$data\+Dir} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 75 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a898e57067feb939319b25e8432459c79}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a898e57067feb939319b25e8432459c79}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!before\+Create\+File@{before\+Create\+File}}
+\index{before\+Create\+File@{before\+Create\+File}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{before\+Create\+File()}{beforeCreateFile()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::before\+Create\+File (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{}]{\$data,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{I\+Collection}}}]{\$parent,  }\item[{}]{\$modified }\end{DoxyParamCaption})}
+
+This method is invoked if some subsystem creates a new file.
+
+This is used to deal with H\+T\+TP L\+O\+CK requests which create a new file.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+resource & {\em \$data} & \\
+\hline
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{I\+Collection}} & {\em \$parent} & \\
+\hline
+bool & {\em \$modified} & Should be set to true, if this event handler changed \&\$data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 142 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a693a9809f2410fb0099e63abed9e334d}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a693a9809f2410fb0099e63abed9e334d}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!before\+Method@{before\+Method}}
+\index{before\+Method@{before\+Method}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{before\+Method()}{beforeMethod()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::before\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+This method is called before any H\+T\+TP method handler
+
+This method intercepts any G\+ET, D\+E\+L\+E\+TE, P\+UT and P\+R\+O\+P\+F\+I\+ND calls to filenames that are known to match the \textquotesingle{}temporary file\textquotesingle{} regex.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 110 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_ae35ab33945ebc7fb6cdbe8d192cdcc22}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_ae35ab33945ebc7fb6cdbe8d192cdcc22}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!get\+Data\+Dir@{get\+Data\+Dir}}
+\index{get\+Data\+Dir@{get\+Data\+Dir}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{get\+Data\+Dir()}{getDataDir()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::get\+Data\+Dir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method returns the directory where the temporary files should be stored.
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 293 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a76eb0e2c6608bfbea0da86ff4dc83992}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a76eb0e2c6608bfbea0da86ff4dc83992}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!http\+Delete@{http\+Delete}}
+\index{http\+Delete@{http\+Delete}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{http\+Delete()}{httpDelete()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::http\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$hR,  }\item[{}]{\$temp\+Location }\end{DoxyParamCaption})}
+
+This method handles the D\+E\+L\+E\+TE method.
+
+If the file didn\textquotesingle{}t exist, it will return false, which will make the standard H\+T\+TP D\+E\+L\+E\+TE handler kick in.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$hR} & \\
+\hline
+string & {\em \$temp\+Location} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 239 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_aba5aac1b4d8f285c393e9a0c8f21a100}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_aba5aac1b4d8f285c393e9a0c8f21a100}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!http\+Get@{http\+Get}}
+\index{http\+Get@{http\+Get}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{http\+Get()}{httpGet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::http\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$hR,  }\item[{}]{\$temp\+Location }\end{DoxyParamCaption})}
+
+This method handles the G\+ET method for temporary files. If the file doesn\textquotesingle{}t exist, it will return false which will kick in the regular system for the G\+ET method.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$hR} & \\
+\hline
+string & {\em \$temp\+Location} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 191 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a567e0f9723b210d6076b25c7c7056cc0}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a567e0f9723b210d6076b25c7c7056cc0}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!http\+Propfind@{http\+Propfind}}
+\index{http\+Propfind@{http\+Propfind}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{http\+Propfind()}{httpPropfind()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::http\+Propfind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$hR,  }\item[{}]{\$temp\+Location }\end{DoxyParamCaption})}
+
+This method handles the P\+R\+O\+P\+F\+I\+ND method.
+
+It\textquotesingle{}s a very lazy method, it won\textquotesingle{}t bother checking the request body for which properties were requested, and just sends back a default set of properties.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$hR} & \\
+\hline
+string & {\em \$temp\+Location} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 262 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a630c7e3321fcdecfa1411afa5df4976d}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a630c7e3321fcdecfa1411afa5df4976d}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!http\+Put@{http\+Put}}
+\index{http\+Put@{http\+Put}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{http\+Put()}{httpPut()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::http\+Put (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$hR,  }\item[{}]{\$temp\+Location }\end{DoxyParamCaption})}
+
+This method handles the P\+UT method.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$hR} & \\
+\hline
+string & {\em \$temp\+Location} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 212 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a4348c841bd5edb67a52fa9d5d18bdefa}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a4348c841bd5edb67a52fa9d5d18bdefa}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!initialize@{initialize}}
+\index{initialize@{initialize}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}}}]{\$server }\end{DoxyParamCaption})}
+
+Initialize the plugin
+
+This is called automatically be the \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} class after this plugin is added with Sabre\+::add\+Plugin()
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} & {\em \$server} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 92 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a3f82b019bf7484f8c71a4c89c46d3ccf}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_a3f82b019bf7484f8c71a4c89c46d3ccf}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!is\+Temp\+File@{is\+Temp\+File}}
+\index{is\+Temp\+File@{is\+Temp\+File}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{is\+Temp\+File()}{isTempFile()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::is\+Temp\+File (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method will check if the url matches the temporary file pattern if it does, it will return an path based on \$this-\/$>$data\+Dir for the temporary file storage.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool$\vert$string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 163 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_ae6fb7ed50bc144e947091d6e19d9807b}\label{class_sabre_1_1_d_a_v_1_1_temporary_file_filter_plugin_ae6fb7ed50bc144e947091d6e19d9807b}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}!\$temporary\+File\+Patterns@{\$temporary\+File\+Patterns}}
+\index{\$temporary\+File\+Patterns@{\$temporary\+File\+Patterns}!Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin@{Sabre\+::\+D\+A\+V\+::\+Temporary\+File\+Filter\+Plugin}}
+\subsubsection{\texorpdfstring{\$temporary\+File\+Patterns}{$temporaryFilePatterns}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Temporary\+File\+Filter\+Plugin\+::\$temporary\+File\+Patterns}
+
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= [
+        \textcolor{stringliteral}{'/^\(\backslash\).\_(.*)$/'},     
+        \textcolor{stringliteral}{'/^.DS\_Store$/'},   
+        \textcolor{stringliteral}{'/^desktop.ini$/'}, 
+        \textcolor{stringliteral}{'/^Thumbs.db$/'},   
+        \textcolor{stringliteral}{'/^.(.*).swp$/'},   
+        \textcolor{stringliteral}{'/^\(\backslash\).dat(.*)$/'},   
+        \textcolor{stringliteral}{'/^~lock.(.*)#$/'}, 
+    ]
+\end{DoxyCode}
+
+
+Definiert in Zeile 41 der Datei Temporary\+File\+Filter\+Plugin.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/Temporary\+File\+Filter\+Plugin.\+php\end{DoxyCompactItemize}

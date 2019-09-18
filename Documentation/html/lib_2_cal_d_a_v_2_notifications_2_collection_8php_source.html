@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/CalDAV/Notifications/Collection.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_d96a284a623d22f018a48de34118fd50.html">CalDAV</a></li><li class="navelem"><a class="el" href="dir_74b67d871cbbc1e7a9722e2d5940d1e2.html">Notifications</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Collection.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_cal_d_a_v_1_1_notifications.html">Sabre\CalDAV\Notifications</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_cal_d_a_v.html">Sabre\CalDAV</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a>;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v_a_c_l.html">Sabre\DAVACL</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html">Collection</a> <span class="keyword">extends</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_collection.html">DAV\Collection</a> implements <a class="code" href="interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_collection.html">ICollection</a>, <a class="code" href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html">DAVACL\IACL</a> {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    use <a class="code" href="namespace_d_a_v_a_c_l_1_1_a_c_l_trait.html">DAVACL\ACLTrait</a>;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">protected</span> $caldavBackend;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">protected</span> $principalUri;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#a8bf6d75629c075e08230aeffee783aff">   47</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#a8bf6d75629c075e08230aeffee783aff">__construct</a>(CalDAV\Backend\NotificationSupport $caldavBackend, $principalUri) {</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        $this-&gt;caldavBackend = $caldavBackend;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        $this-&gt;principalUri = $principalUri;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#ad32780b546f2afcf90bd761741735831">   59</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#ad32780b546f2afcf90bd761741735831">getChildren</a>() {</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        $children = [];</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        $notifications = $this-&gt;caldavBackend-&gt;getNotificationsForPrincipal($this-&gt;principalUri);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">foreach</span> ($notifications as $notification) {</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            $children[] = <span class="keyword">new</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node.html">Node</a>(</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                $this-&gt;caldavBackend,</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                $this-&gt;principalUri,</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                $notification</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            );</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> $children;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#a611b7fd53e6e29320c1a627bc964da3e">   82</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#a611b7fd53e6e29320c1a627bc964da3e">getName</a>() {</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;notifications&#39;</span>;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#a2da08679114fa20070147096aacfca72">   95</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#a2da08679114fa20070147096aacfca72">getOwner</a>() {</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> $this-&gt;principalUri;</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection_html_a8bf6d75629c075e08230aeffee783aff"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#a8bf6d75629c075e08230aeffee783aff">Sabre\CalDAV\Notifications\Collection\__construct</a></div><div class="ttdeci">__construct(CalDAV\Backend\NotificationSupport $caldavBackend, $principalUri)</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_cal_d_a_v_2_notifications_2_collection_8php_source.html#l00047">Collection.php:47</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_a_c_l_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_a_c_l.html">Sabre\DAVACL</a></div><div class="ttdef"><b>Definition:</b> <a href="_abstract_principal_collection_8php_source.html#l00003">AbstractPrincipalCollection.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection_html_a2da08679114fa20070147096aacfca72"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#a2da08679114fa20070147096aacfca72">Sabre\CalDAV\Notifications\Collection\getOwner</a></div><div class="ttdeci">getOwner()</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_cal_d_a_v_2_notifications_2_collection_8php_source.html#l00095">Collection.php:95</a></div></div>
+<div class="ttc" id="namespace_d_a_v_a_c_l_1_1_a_c_l_trait_html"><div class="ttname"><a href="namespace_d_a_v_a_c_l_1_1_a_c_l_trait.html">ACLTrait</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l_html"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_a_c_l_1_1_i_a_c_l.html">Sabre\DAVACL\IACL</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_a_c_l_8php_source.html#l00016">IACL.php:16</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_cal_d_a_v_1_1_notifications_html"><div class="ttname"><a href="namespace_sabre_1_1_cal_d_a_v_1_1_notifications.html">Sabre\CalDAV\Notifications</a></div><div class="ttdef"><b>Definition:</b> <a href="lib_2_cal_d_a_v_2_notifications_2_collection_8php_source.html#l00003">Collection.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_collection_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_collection.html">Sabre\DAV\Collection</a></div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_collection_8php_source.html#l00015">Collection.php:15</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node_html"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node.html">Sabre\CalDAV\Notifications\Node</a></div><div class="ttdef"><b>Definition:</b> <a href="dav_2lib_2_cal_d_a_v_2_notifications_2_node_8php_source.html#l00021">Node.php:21</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection_html"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html">Sabre\CalDAV\Notifications\Collection</a></div><div class="ttdef"><b>Definition:</b> <a href="lib_2_cal_d_a_v_2_notifications_2_collection_8php_source.html#l00023">Collection.php:23</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection_html_ad32780b546f2afcf90bd761741735831"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#ad32780b546f2afcf90bd761741735831">Sabre\CalDAV\Notifications\Collection\getChildren</a></div><div class="ttdeci">getChildren()</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_cal_d_a_v_2_notifications_2_collection_8php_source.html#l00059">Collection.php:59</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_cal_d_a_v_html"><div class="ttname"><a href="namespace_sabre_1_1_cal_d_a_v.html">Sabre\CalDAV</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_collection_html"><div class="ttname"><a href="interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_collection.html">Sabre\CalDAV\Notifications\ICollection</a></div><div class="ttdef"><b>Definition:</b> <a href="_cal_d_a_v_2_notifications_2_i_collection_8php_source.html#l00021">ICollection.php:21</a></div></div>
+<div class="ttc" id="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection_html_a611b7fd53e6e29320c1a627bc964da3e"><div class="ttname"><a href="class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_collection.html#a611b7fd53e6e29320c1a627bc964da3e">Sabre\CalDAV\Notifications\Collection\getName</a></div><div class="ttdeci">getName()</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_cal_d_a_v_2_notifications_2_collection_8php_source.html#l00082">Collection.php:82</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

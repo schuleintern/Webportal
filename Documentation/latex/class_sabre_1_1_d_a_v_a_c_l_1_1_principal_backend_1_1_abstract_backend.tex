@@ -1,0 +1,70 @@
+\hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_abstract_backend}{}\section{Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Principal\+Backend\textbackslash{}Abstract\+Backend Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_abstract_backend}\index{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+Abstract\+Backend@{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+Abstract\+Backend}}
+Klassendiagramm für Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Principal\+Backend\textbackslash{}Abstract\+Backend\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.658228cm]{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_abstract_backend}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_abstract_backend_a2ffb47954e7df053074c2f319e4e2c7e}{find\+By\+Uri}} (\$uri, \$principal\+Prefix)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Abstract \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal}{Principal}} Backend
+
+Currently this class has no function. It\textquotesingle{}s here for consistency and so we have a non-\/bc-\/breaking way to add a default generic implementation to functions we may add in the future.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 16 der Datei Abstract\+Backend.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_abstract_backend_a2ffb47954e7df053074c2f319e4e2c7e}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_abstract_backend_a2ffb47954e7df053074c2f319e4e2c7e}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal\+Backend\+::\+Abstract\+Backend}!find\+By\+Uri@{find\+By\+Uri}}
+\index{find\+By\+Uri@{find\+By\+Uri}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal\+Backend\+::\+Abstract\+Backend@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Principal\+Backend\+::\+Abstract\+Backend}}
+\subsubsection{\texorpdfstring{find\+By\+Uri()}{findByUri()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+Abstract\+Backend\+::find\+By\+Uri (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{}]{\$principal\+Prefix }\end{DoxyParamCaption})}
+
+Finds a principal by its U\+RI.
+
+This method may receive any type of uri, but mailto\+: addresses will be the most common.
+
+Implementation of this A\+PI is optional. It is currently used by the Cal\+D\+AV system to find principals based on their email addresses. If this A\+PI is not implemented, some features may not work correctly.
+
+This method must return a relative principal path, or null, if the principal was not found or you refuse to find it.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$uri} & \\
+\hline
+string & {\em \$principal\+Prefix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a949777beae7b9f2478278e080b7abc71}{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Principal\+Backend\textbackslash{}\+Backend\+Interface}}.
+
+
+
+Definiert in Zeile 35 der Datei Abstract\+Backend.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V\+A\+C\+L/\+Principal\+Backend/Abstract\+Backend.\+php\end{DoxyCompactItemize}

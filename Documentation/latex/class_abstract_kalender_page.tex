@@ -1,0 +1,129 @@
+\hypertarget{class_abstract_kalender_page}{}\section{Abstract\+Kalender\+Page Klassenreferenz}
+\label{class_abstract_kalender_page}\index{Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}}
+Klassendiagramm für Abstract\+Kalender\+Page\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.857143cm]{class_abstract_kalender_page}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_kalender_page_a6e5d41527d29eddb9b2c3f846bca69d1}{check\+Kalender\+Access}} ()
+\item 
+\mbox{\hyperlink{class_abstract_kalender_page_afd9823119959b5f77a833e7666510f4b}{update\+Termin\+Dates}} (\$termin\+ID, \$start, \$end, \$is\+All\+Day=true, \$new\+Start\+Time=\textquotesingle{}\textquotesingle{}, \$new\+End\+Time=\textquotesingle{}\textquotesingle{})
+\item 
+\mbox{\hyperlink{class_abstract_kalender_page_a9ca1f9b4dd18edaef203ee9d5c20f2cd}{get\+Termine\+From\+Database}} (\$begin=\textquotesingle{}\textquotesingle{}, \$end=\textquotesingle{}\textquotesingle{})
+\item 
+\mbox{\hyperlink{class_abstract_kalender_page_ae95ebf53fc82e90beccfb6d81045331f}{send\+I\+C\+S\+Feed\+U\+RL}} ()
+\item 
+\mbox{\Hypertarget{class_abstract_kalender_page_a10005f1b3468980ea3fe3ba479e16ca2}\label{class_abstract_kalender_page_a10005f1b3468980ea3fe3ba479e16ca2}} 
+{\bfseries execute} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_kalender_page_a8cedfe3054b3a64918b20d773ab1653f}\label{class_abstract_kalender_page_a8cedfe3054b3a64918b20d773ab1653f}} 
+static {\bfseries has\+Settings} ()
+\item 
+\mbox{\Hypertarget{class_abstract_kalender_page_a8c9d4c6d8fd431fb8ef093bd61ee696f}\label{class_abstract_kalender_page_a8c9d4c6d8fd431fb8ef093bd61ee696f}} 
+static {\bfseries get\+Settings\+Description} ()
+\item 
+\mbox{\Hypertarget{class_abstract_kalender_page_a1bcc711b4183ee1e845dbfd4d8372477}\label{class_abstract_kalender_page_a1bcc711b4183ee1e845dbfd4d8372477}} 
+static {\bfseries get\+Site\+Display\+Name} ()
+\item 
+static \mbox{\hyperlink{class_abstract_kalender_page_aa13b71bde8552e68ad01019cb3c8ae73}{get\+User\+Groups}} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_kalender_page_a5e528ab8c173c052fa15ff719fc3bc35}\label{class_abstract_kalender_page_a5e528ab8c173c052fa15ff719fc3bc35}} 
+{\bfseries \$table\+Name}
+\item 
+\mbox{\Hypertarget{class_abstract_kalender_page_a3444bf0feb9603ea944bdc7183330a3e}\label{class_abstract_kalender_page_a3444bf0feb9603ea944bdc7183330a3e}} 
+{\bfseries \$title}
+\item 
+\mbox{\Hypertarget{class_abstract_kalender_page_ad67e3c33685f2cba865af6dac560bcaa}\label{class_abstract_kalender_page_ad67e3c33685f2cba865af6dac560bcaa}} 
+{\bfseries \$is\+External\+Kalender} = false
+\item 
+\mbox{\Hypertarget{class_abstract_kalender_page_a6cac7834306f762c697aeb6fa6a187d1}\label{class_abstract_kalender_page_a6cac7834306f762c697aeb6fa6a187d1}} 
+{\bfseries \$kalender\+ID} = 0
+\item 
+\mbox{\Hypertarget{class_abstract_kalender_page_a5991e269dfc789b53aa9fd9ece247d9c}\label{class_abstract_kalender_page_a5991e269dfc789b53aa9fd9ece247d9c}} 
+{\bfseries \$is\+Admin} = false
+\item 
+\mbox{\Hypertarget{class_abstract_kalender_page_a760cbe0bbb90ed071df2e1c5b3205c8e}\label{class_abstract_kalender_page_a760cbe0bbb90ed071df2e1c5b3205c8e}} 
+{\bfseries \$edit\+Only\+Own} = false
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 4 der Datei Abstract\+Kalender\+Page.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_abstract_kalender_page_a6e5d41527d29eddb9b2c3f846bca69d1}\label{class_abstract_kalender_page_a6e5d41527d29eddb9b2c3f846bca69d1}} 
+\index{Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}!check\+Kalender\+Access@{check\+Kalender\+Access}}
+\index{check\+Kalender\+Access@{check\+Kalender\+Access}!Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}}
+\subsubsection{\texorpdfstring{check\+Kalender\+Access()}{checkKalenderAccess()}}
+{\footnotesize\ttfamily Abstract\+Kalender\+Page\+::check\+Kalender\+Access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Prüft, ob man Zugriff auf den Kalender hat und setzt das Attribut is\+Admin \begin{DoxySeeAlso}{Siehe auch}
+\$this-\/$>$is\+Admin 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_abstract_kalender_page_a9ca1f9b4dd18edaef203ee9d5c20f2cd}\label{class_abstract_kalender_page_a9ca1f9b4dd18edaef203ee9d5c20f2cd}} 
+\index{Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}!get\+Termine\+From\+Database@{get\+Termine\+From\+Database}}
+\index{get\+Termine\+From\+Database@{get\+Termine\+From\+Database}!Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}}
+\subsubsection{\texorpdfstring{get\+Termine\+From\+Database()}{getTermineFromDatabase()}}
+{\footnotesize\ttfamily Abstract\+Kalender\+Page\+::get\+Termine\+From\+Database (\begin{DoxyParamCaption}\item[{}]{\$begin = {\ttfamily \textquotesingle{}\textquotesingle{}},  }\item[{}]{\$end = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+\begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_abstract_termin}{Abstract\+Termin}}\mbox{[}\mbox{]} Termine 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_abstract_kalender_page_aa13b71bde8552e68ad01019cb3c8ae73}\label{class_abstract_kalender_page_aa13b71bde8552e68ad01019cb3c8ae73}} 
+\index{Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}!get\+User\+Groups@{get\+User\+Groups}}
+\index{get\+User\+Groups@{get\+User\+Groups}!Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}}
+\subsubsection{\texorpdfstring{get\+User\+Groups()}{getUserGroups()}}
+{\footnotesize\ttfamily static Abstract\+Kalender\+Page\+::get\+User\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Liest alle Nutzergruppen aus, die diese Seite verwendet. (Für die Benutzeradministration) \begin{DoxyReturn}{Rückgabe}
+array(array(\textquotesingle{}group\+Name\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{}, \textquotesingle{}beschreibung\textquotesingle{} =$>$ \textquotesingle{}\textquotesingle{})) 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 726 der Datei Abstract\+Kalender\+Page.\+class.\+php.
+
+\mbox{\Hypertarget{class_abstract_kalender_page_ae95ebf53fc82e90beccfb6d81045331f}\label{class_abstract_kalender_page_ae95ebf53fc82e90beccfb6d81045331f}} 
+\index{Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}!send\+I\+C\+S\+Feed\+U\+RL@{send\+I\+C\+S\+Feed\+U\+RL}}
+\index{send\+I\+C\+S\+Feed\+U\+RL@{send\+I\+C\+S\+Feed\+U\+RL}!Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}}
+\subsubsection{\texorpdfstring{send\+I\+C\+S\+Feed\+U\+R\+L()}{sendICSFeedURL()}}
+{\footnotesize\ttfamily Abstract\+Kalender\+Page\+::send\+I\+C\+S\+Feed\+U\+RL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Sendet die I\+CS Feed U\+RL als J\+S\+ON \mbox{\Hypertarget{class_abstract_kalender_page_afd9823119959b5f77a833e7666510f4b}\label{class_abstract_kalender_page_afd9823119959b5f77a833e7666510f4b}} 
+\index{Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}!update\+Termin\+Dates@{update\+Termin\+Dates}}
+\index{update\+Termin\+Dates@{update\+Termin\+Dates}!Abstract\+Kalender\+Page@{Abstract\+Kalender\+Page}}
+\subsubsection{\texorpdfstring{update\+Termin\+Dates()}{updateTerminDates()}}
+{\footnotesize\ttfamily Abstract\+Kalender\+Page\+::update\+Termin\+Dates (\begin{DoxyParamCaption}\item[{}]{\$termin\+ID,  }\item[{}]{\$start,  }\item[{}]{\$end,  }\item[{}]{\$is\+All\+Day = {\ttfamily true},  }\item[{}]{\$new\+Start\+Time = {\ttfamily \textquotesingle{}\textquotesingle{}},  }\item[{}]{\$new\+End\+Time = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$termin} & \\
+\hline
+String & {\em \$start} & \\
+\hline
+String & {\em \$end} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 39 der Datei Abstract\+Kalender\+Page.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/abstract\+Pages/Abstract\+Kalender\+Page.\+class.\+php\end{DoxyCompactItemize}

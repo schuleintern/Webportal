@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/CONTRIBUTING.md Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/CONTRIBUTING.md</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;Contributing to sabre projects</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;==============================</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;Want to contribute to sabre/dav? Here are some guidelines to ensure your patch</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;gets accepted.</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;Building a new feature? Contact us first</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;----------------------------------------</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;We may not want to accept every feature that comes our way. Sometimes</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;features are out of scope for our projects.</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;We don&#39;t want to waste your time, so by having a quick chat with us first,</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;you may find out quickly if the feature makes sense to us, and we can give</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;some tips on how to best build the feature.</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;If we don&#39;t accept the feature, it could be for a number of reasons. For</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;instance, we&#39;ve rejected features in the past because we felt uncomfortable</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;assuming responsibility for maintaining the feature.</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;In those cases, it&#39;s often possible to keep the feature separate from the</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;sabre projects. sabre/dav for instance has a plugin system, and there&#39;s no</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;reason the feature can&#39;t live in a project you own.</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;In that case, definitely let us know about your plugin as well, so we can</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;feature it on [sabre.io][4].</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;We are often on [IRC][5], in the #sabredav channel on freenode. If there&#39;s</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;no one there, post a message on the [mailing list][6].</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;Coding standards</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;----------------</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;sabre projects follow:</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;1. [PSR-1][1]</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;2. [PSR-4][2]</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;sabre projects don&#39;t follow [PSR-2][3].</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;In addition to that, here&#39;s a list of basic rules:</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;1. PHP 5.4 array syntax must be used every where. This means you use `[` and</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;   `]` instead of `array(` and `)`.</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;2. Use PHP namespaces everywhere.</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;3. Use 4 spaces for indentation.</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;4. Try to keep your lines under 80 characters. This is not a hard rule, as</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;   there are many places in the source where it felt more sensibile to not</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;   do so. In particular, function declarations are never split over multiple</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;   lines.</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;5. Opening braces (`{`) are _always_ on the same line as the `class`, `if`,</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;   `function`, etc. they belong to.</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;6. `public` must be omitted from method declarations. It must also be omitted</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   for static properties.</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;7. All files should use unix-line endings (`\n`).</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;8. Files must omit the closing php tag (`?&gt;`).</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;9. `true`, `false` and `null` are always lower-case.</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;10. Constants are always upper-case.</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;11. Any of the rules stated before may be broken where this is the pragmatic</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    thing to do.</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;Unit test requirements</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;----------------------</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;Any new feature or change requires unittests. We use [PHPUnit][7] for all our</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;tests.</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;Adding unittests will greatly increase the likelyhood of us quickly accepting</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;your pull request. If unittests are not included though for whatever reason,</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;we&#39;d still _love_ your pull request.</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;We may have to write the tests ourselves, which can increase the time it takes</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;to accept the patch, but we&#39;d still really like your contribution!</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;To run the testsuite jump into the directory `cd tests` and trigger `phpunit`.</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;Make sure you did a `composer install` beforehand.</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;[1]: http://www.php-fig.org/psr/psr-1/</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;[2]: http://www.php-fig.org/psr/psr-4/</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;[3]: http://www.php-fig.org/psr/psr-2/</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;[4]: http://sabre.io/</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;[5]: irc://freenode.net/#sabredav</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;[6]: http://groups.google.com/group/sabredav-discuss</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;[7]: http://phpunit.de/</div></div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

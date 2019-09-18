@@ -1,0 +1,291 @@
+\hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32}{}\section{Paragon\+IE\textbackslash{}Constant\+Time\textbackslash{}Base32 Klassenreferenz}
+\label{class_paragon_i_e_1_1_constant_time_1_1_base32}\index{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32@{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32}}
+Klassendiagramm für Paragon\+IE\textbackslash{}Constant\+Time\textbackslash{}Base32\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_paragon_i_e_1_1_constant_time_1_1_base32}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_af563051c30335628aff64b65b035ae3f}{decode}} (string \$src, bool \$strict\+Padding=false)
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_afc291be096a3ad6bff476416daacedfa}{decode\+Upper}} (string \$src, bool \$strict\+Padding=false)
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_af1ba6da288e869c1e1add91f3301a702}{encode}} (string \$src)
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_a9a1fc843fe2ba88d15dd1839751a551d}{encode\+Unpadded}} (string \$src)
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_a80ad7226938f9bf180633489ad5b97b3}{encode\+Upper}} (string \$src)
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_ade34e06da009cc022f1fcc26e4953fe4}{encode\+Upper\+Unpadded}} (string \$src)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_a28eda6ea4db8f9e62ed89afcb6658a59}{decode5\+Bits}} (int \$src)
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_a136d63488f57c44b94d573dc7f047fd9}{decode5\+Bits\+Upper}} (int \$src)
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_a663f1dc13e3fb19c03b7335894931978}{encode5\+Bits}} (int \$src)
+\item 
+static \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_aa456c4efdc8c51e5f55b58baca3f2f6d}{encode5\+Bits\+Upper}} (int \$src)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 34 der Datei Base32.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32_af563051c30335628aff64b65b035ae3f}\label{class_paragon_i_e_1_1_constant_time_1_1_base32_af563051c30335628aff64b65b035ae3f}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}!decode@{decode}}
+\index{decode@{decode}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}}
+\subsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32\+::decode (\begin{DoxyParamCaption}\item[{string}]{\$src,  }\item[{bool}]{\$strict\+Padding = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Decode a Base32-\/encoded string into raw binary
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementiert \mbox{\hyperlink{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface_a614b43269cc9bc0291bd79e79ccfc278}{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Encoder\+Interface}}.
+
+
+
+Definiert in Zeile 43 der Datei Base32.\+php.
+
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32_a28eda6ea4db8f9e62ed89afcb6658a59}\label{class_paragon_i_e_1_1_constant_time_1_1_base32_a28eda6ea4db8f9e62ed89afcb6658a59}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}!decode5\+Bits@{decode5\+Bits}}
+\index{decode5\+Bits@{decode5\+Bits}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}}
+\subsubsection{\texorpdfstring{decode5\+Bits()}{decode5Bits()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32\+::decode5\+Bits (\begin{DoxyParamCaption}\item[{int}]{\$src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Uses bitwise operators instead of table-\/lookups to turn 5-\/bit integers into 8-\/bit integers.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 114 der Datei Base32.\+php.
+
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32_a136d63488f57c44b94d573dc7f047fd9}\label{class_paragon_i_e_1_1_constant_time_1_1_base32_a136d63488f57c44b94d573dc7f047fd9}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}!decode5\+Bits\+Upper@{decode5\+Bits\+Upper}}
+\index{decode5\+Bits\+Upper@{decode5\+Bits\+Upper}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}}
+\subsubsection{\texorpdfstring{decode5\+Bits\+Upper()}{decode5BitsUpper()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32\+::decode5\+Bits\+Upper (\begin{DoxyParamCaption}\item[{int}]{\$src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Uses bitwise operators instead of table-\/lookups to turn 5-\/bit integers into 8-\/bit integers.
+
+Uppercase variant.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 136 der Datei Base32.\+php.
+
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32_afc291be096a3ad6bff476416daacedfa}\label{class_paragon_i_e_1_1_constant_time_1_1_base32_afc291be096a3ad6bff476416daacedfa}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}!decode\+Upper@{decode\+Upper}}
+\index{decode\+Upper@{decode\+Upper}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}}
+\subsubsection{\texorpdfstring{decode\+Upper()}{decodeUpper()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32\+::decode\+Upper (\begin{DoxyParamCaption}\item[{string}]{\$src,  }\item[{bool}]{\$strict\+Padding = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Decode an uppercase Base32-\/encoded string into raw binary
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definiert in Zeile 55 der Datei Base32.\+php.
+
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32_af1ba6da288e869c1e1add91f3301a702}\label{class_paragon_i_e_1_1_constant_time_1_1_base32_af1ba6da288e869c1e1add91f3301a702}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}!encode@{encode}}
+\index{encode@{encode}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}}
+\subsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32\+::encode (\begin{DoxyParamCaption}\item[{string}]{\$src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Encode into \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32}{Base32}} (R\+FC 4648)
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementiert \mbox{\hyperlink{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface_a6b9b7e0f5446b6b08b074a9fc7ae3c61}{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Encoder\+Interface}}.
+
+
+
+Definiert in Zeile 67 der Datei Base32.\+php.
+
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32_a663f1dc13e3fb19c03b7335894931978}\label{class_paragon_i_e_1_1_constant_time_1_1_base32_a663f1dc13e3fb19c03b7335894931978}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}!encode5\+Bits@{encode5\+Bits}}
+\index{encode5\+Bits@{encode5\+Bits}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}}
+\subsubsection{\texorpdfstring{encode5\+Bits()}{encode5Bits()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32\+::encode5\+Bits (\begin{DoxyParamCaption}\item[{int}]{\$src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Uses bitwise operators instead of table-\/lookups to turn 8-\/bit integers into 5-\/bit integers.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 156 der Datei Base32.\+php.
+
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32_aa456c4efdc8c51e5f55b58baca3f2f6d}\label{class_paragon_i_e_1_1_constant_time_1_1_base32_aa456c4efdc8c51e5f55b58baca3f2f6d}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}!encode5\+Bits\+Upper@{encode5\+Bits\+Upper}}
+\index{encode5\+Bits\+Upper@{encode5\+Bits\+Upper}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}}
+\subsubsection{\texorpdfstring{encode5\+Bits\+Upper()}{encode5BitsUpper()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32\+::encode5\+Bits\+Upper (\begin{DoxyParamCaption}\item[{int}]{\$src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Uses bitwise operators instead of table-\/lookups to turn 8-\/bit integers into 5-\/bit integers.
+
+Uppercase variant.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 175 der Datei Base32.\+php.
+
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32_a9a1fc843fe2ba88d15dd1839751a551d}\label{class_paragon_i_e_1_1_constant_time_1_1_base32_a9a1fc843fe2ba88d15dd1839751a551d}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}!encode\+Unpadded@{encode\+Unpadded}}
+\index{encode\+Unpadded@{encode\+Unpadded}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}}
+\subsubsection{\texorpdfstring{encode\+Unpadded()}{encodeUnpadded()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32\+::encode\+Unpadded (\begin{DoxyParamCaption}\item[{string}]{\$src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Encode into \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32}{Base32}} (R\+FC 4648)
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definiert in Zeile 78 der Datei Base32.\+php.
+
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32_a80ad7226938f9bf180633489ad5b97b3}\label{class_paragon_i_e_1_1_constant_time_1_1_base32_a80ad7226938f9bf180633489ad5b97b3}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}!encode\+Upper@{encode\+Upper}}
+\index{encode\+Upper@{encode\+Upper}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}}
+\subsubsection{\texorpdfstring{encode\+Upper()}{encodeUpper()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32\+::encode\+Upper (\begin{DoxyParamCaption}\item[{string}]{\$src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Encode into uppercase \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32}{Base32}} (R\+FC 4648)
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definiert in Zeile 90 der Datei Base32.\+php.
+
+\mbox{\Hypertarget{class_paragon_i_e_1_1_constant_time_1_1_base32_ade34e06da009cc022f1fcc26e4953fe4}\label{class_paragon_i_e_1_1_constant_time_1_1_base32_ade34e06da009cc022f1fcc26e4953fe4}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}!encode\+Upper\+Unpadded@{encode\+Upper\+Unpadded}}
+\index{encode\+Upper\+Unpadded@{encode\+Upper\+Unpadded}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Base32}}
+\subsubsection{\texorpdfstring{encode\+Upper\+Unpadded()}{encodeUpperUnpadded()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32\+::encode\+Upper\+Unpadded (\begin{DoxyParamCaption}\item[{string}]{\$src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Encode into uppercase \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32}{Base32}} (R\+FC 4648)
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$src} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definiert in Zeile 102 der Datei Base32.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/composer/vendor/paragonie/constant\+\_\+time\+\_\+encoding/src/Base32.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/webdav/SabreDAV/vendor/sabre/dav/lib/DAV/FS/File.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_0074f0c512da6ccbce794209bb0f60f7.html">webdav</a></li><li class="navelem"><a class="el" href="dir_66a467a27a7a6387d887351d44107643.html">SabreDAV</a></li><li class="navelem"><a class="el" href="dir_deb7f50d6f384013839279a4e1c030d1.html">vendor</a></li><li class="navelem"><a class="el" href="dir_c6a71851137c038a31f5cfe758eafcc6.html">sabre</a></li><li class="navelem"><a class="el" href="dir_a63573852a53140e3928b36e4f554dee.html">dav</a></li><li class="navelem"><a class="el" href="dir_c3cce2806ac56adae2d219f867991a2a.html">lib</a></li><li class="navelem"><a class="el" href="dir_641c95e6ed9dd2d5dcbadeacba03bd45.html">DAV</a></li><li class="navelem"><a class="el" href="dir_9b61a9e117d31aaf418407e8e78a30e3.html">FS</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">File.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sabre_1_1_d_a_v_1_1_f_s.html">Sabre\DAV\FS</a>;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;use <a class="code" href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sabre_1_1_d_a_v_1_1_file.html">File</a> <span class="keyword">extends</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_node.html">Node</a> implements <a class="code" href="interface_sabre_1_1_d_a_v_1_1_i_file.html">DAV\IFile</a> {</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#adad097762986bc953af13c17fdae517c">   22</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#adad097762986bc953af13c17fdae517c">put</a>($data) {</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        file_put_contents($this-&gt;path, $data);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        clearstatcache(<span class="keyword">true</span>, $this-&gt;path);</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#aee10f79224dfccf81bf9ca61e3cfba43">   34</a></span>&#160;    <span class="keyword">function</span> <span class="keyword">get</span>() {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> fopen($this-&gt;path, <span class="charliteral">&#39;r&#39;</span>);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#a87df46fb2d0d38657b31d7ff00c3a519">   45</a></span>&#160;    <span class="keyword">function</span> <span class="keyword">delete</span>() {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        unlink($this-&gt;path);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#a5c081df437f59b33c8402123ceb45439">   56</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#a5c081df437f59b33c8402123ceb45439">getSize</a>() {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> filesize($this-&gt;path);</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#a133fec88700f329ed4aa9a7e6c1fd5cd">   72</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#a133fec88700f329ed4aa9a7e6c1fd5cd">getETag</a>() {</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> <span class="charliteral">&#39;&quot;&#39;</span> . sha1(</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            fileinode($this-&gt;path) .</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            filesize($this-&gt;path) .</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            filemtime($this-&gt;path)</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        ) . <span class="charliteral">&#39;&quot;&#39;</span>;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#aca06c255562df9fc5b200760d29424d2">   89</a></span>&#160;    <span class="keyword">function</span> <a class="code" href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#aca06c255562df9fc5b200760d29424d2">getContentType</a>() {</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> null;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div><div class="ttc" id="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file_html_a133fec88700f329ed4aa9a7e6c1fd5cd"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#a133fec88700f329ed4aa9a7e6c1fd5cd">Sabre\DAV\FS\File\getETag</a></div><div class="ttdeci">getETag()</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_f_s_2_file_8php_source.html#l00072">File.php:72</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v.html">Sabre\DAV</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_file_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_file.html">Sabre\DAV\File</a></div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_file_8php_source.html#l00015">File.php:15</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_f_s_1_1_node_html"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_node.html">Sabre\DAV\FS\Node</a></div><div class="ttdef"><b>Definition:</b> <a href="dav_2lib_2_d_a_v_2_f_s_2_node_8php_source.html#l00017">Node.php:17</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file_html_adad097762986bc953af13c17fdae517c"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#adad097762986bc953af13c17fdae517c">Sabre\DAV\FS\File\put</a></div><div class="ttdeci">put($data)</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_f_s_2_file_8php_source.html#l00022">File.php:22</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file_html_a5c081df437f59b33c8402123ceb45439"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#a5c081df437f59b33c8402123ceb45439">Sabre\DAV\FS\File\getSize</a></div><div class="ttdeci">getSize()</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_f_s_2_file_8php_source.html#l00056">File.php:56</a></div></div>
+<div class="ttc" id="interface_sabre_1_1_d_a_v_1_1_i_file_html"><div class="ttname"><a href="interface_sabre_1_1_d_a_v_1_1_i_file.html">Sabre\DAV\IFile</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_file_8php_source.html#l00016">IFile.php:16</a></div></div>
+<div class="ttc" id="namespace_sabre_1_1_d_a_v_1_1_f_s_html"><div class="ttname"><a href="namespace_sabre_1_1_d_a_v_1_1_f_s.html">Sabre\DAV\FS</a></div><div class="ttdef"><b>Definition:</b> <a href="_directory_8php_source.html#l00003">Directory.php:3</a></div></div>
+<div class="ttc" id="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file_html_aca06c255562df9fc5b200760d29424d2"><div class="ttname"><a href="class_sabre_1_1_d_a_v_1_1_f_s_1_1_file.html#aca06c255562df9fc5b200760d29424d2">Sabre\DAV\FS\File\getContentType</a></div><div class="ttdeci">getContentType()</div><div class="ttdef"><b>Definition:</b> <a href="lib_2_d_a_v_2_f_s_2_file_8php_source.html#l00089">File.php:89</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

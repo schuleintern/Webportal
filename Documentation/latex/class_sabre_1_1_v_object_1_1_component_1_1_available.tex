@@ -1,0 +1,96 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_available}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Component\textbackslash{}Available Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_component_1_1_available}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+Available@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+Available}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Component\textbackslash{}Available\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.964912cm]{class_sabre_1_1_v_object_1_1_component_1_1_available}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_available_a4590a817c682aa722c326ca1717f9266}{get\+Effective\+Start\+End}} ()
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_available_aaceec7d2953a2a9d17e8312f0172ad25}\label{class_sabre_1_1_v_object_1_1_component_1_1_available_aaceec7d2953a2a9d17e8312f0172ad25}} 
+{\bfseries get\+Validation\+Rules} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_available_abaedf6fbced847ec3fb3af9cabdbfa35}{validate}} (\$options=0)
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+The \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_available}{Available}} sub-\/component.
+
+This component adds functionality to a component, specific for A\+V\+A\+I\+L\+A\+B\+LE components.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Ivan Enderlin  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei Available.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_available_a4590a817c682aa722c326ca1717f9266}\label{class_sabre_1_1_v_object_1_1_component_1_1_available_a4590a817c682aa722c326ca1717f9266}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+Available@{Sabre\+::\+V\+Object\+::\+Component\+::\+Available}!get\+Effective\+Start\+End@{get\+Effective\+Start\+End}}
+\index{get\+Effective\+Start\+End@{get\+Effective\+Start\+End}!Sabre\+::\+V\+Object\+::\+Component\+::\+Available@{Sabre\+::\+V\+Object\+::\+Component\+::\+Available}}
+\subsubsection{\texorpdfstring{get\+Effective\+Start\+End()}{getEffectiveStartEnd()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+Available\+::get\+Effective\+Start\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the \textquotesingle{}effective start\textquotesingle{} and \textquotesingle{}effective end\textquotesingle{} of this V\+A\+V\+A\+I\+L\+A\+B\+I\+L\+I\+TY component.
+
+We use the D\+T\+S\+T\+A\+RT and D\+T\+E\+ND or D\+U\+R\+A\+T\+I\+ON to determine this.
+
+The returned value is an array containing Date\+Time\+Immutable instances. If either the start or end is \textquotesingle{}unbounded\textquotesingle{} its value will be null instead.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 31 der Datei Available.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_available_abaedf6fbced847ec3fb3af9cabdbfa35}\label{class_sabre_1_1_v_object_1_1_component_1_1_available_abaedf6fbced847ec3fb3af9cabdbfa35}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+Available@{Sabre\+::\+V\+Object\+::\+Component\+::\+Available}!validate@{validate}}
+\index{validate@{validate}!Sabre\+::\+V\+Object\+::\+Component\+::\+Available@{Sabre\+::\+V\+Object\+::\+Component\+::\+Available}}
+\subsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+Available\+::validate (\begin{DoxyParamCaption}\item[{}]{\$options = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Validates the node for correctness.
+
+The following options are supported\+: \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_node_ac97a7fb85c1f871523336cd1ec6b29a9}{Node\+::\+R\+E\+P\+A\+IR}} -\/ May attempt to automatically repair the problem. \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_node_a0aac3de0b04bcc44bbf0e22ae47a51c3}{Node\+::\+P\+R\+O\+F\+I\+L\+E\+\_\+\+C\+A\+R\+D\+D\+AV}} -\/ Validate the v\+Card for Card\+D\+AV purposes. \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_node_a1e68f819b7b5537929290e061ffeacc5}{Node\+::\+P\+R\+O\+F\+I\+L\+E\+\_\+\+C\+A\+L\+D\+AV}} -\/ Validate the i\+Calendar for Cal\+D\+AV purposes.
+
+This method returns an array with detected problems. Every element has the following properties\+:
+
+
+\begin{DoxyItemize}
+\item level -\/ problem level.
+\item message -\/ A human-\/readable string describing the issue.
+\item node -\/ A reference to the problematic node.
+\end{DoxyItemize}
+
+The level means\+: 1 -\/ The issue was repaired (only happens if R\+E\+P\+A\+IR was turned on). 2 -\/ A warning. 3 -\/ An error.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 111 der Datei Available.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+Component/Available.\+php\end{DoxyCompactItemize}

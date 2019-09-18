@@ -1,0 +1,136 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Browser\textbackslash{}Guess\+Content\+Type Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Guess\+Content\+Type@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Guess\+Content\+Type}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Browser\textbackslash{}Guess\+Content\+Type\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_a9e2afe74ab53f8a8ce4e4436b73cf345}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_a5b09b78a39fb500a3ba14a1a3d23ca74}{prop\+Find}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}} \$prop\+Find, \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} \$node)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries \$extension\+Map}
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_afbdfcf2103442a5fb32ed6d905fedb2f}{get\+Content\+Type}} (\$file\+Name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type}{Guess\+Content\+Type}} plugin
+
+A lot of the built-\/in \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_file}{File}} objects just return application/octet-\/stream as a content-\/type by default. This is a problem for some clients, because they expect a correct contenttype.
+
+There\textquotesingle{}s really no accurate, fast and portable way to determine the contenttype so this extension does what the rest of the world does, and guesses it based on the file extension.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 25 der Datei Guess\+Content\+Type.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_afbdfcf2103442a5fb32ed6d905fedb2f}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_afbdfcf2103442a5fb32ed6d905fedb2f}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type}!get\+Content\+Type@{get\+Content\+Type}}
+\index{get\+Content\+Type@{get\+Content\+Type}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type}}
+\subsubsection{\texorpdfstring{get\+Content\+Type()}{getContentType()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Guess\+Content\+Type\+::get\+Content\+Type (\begin{DoxyParamCaption}\item[{}]{\$file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Simple method to return the contenttype
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$file\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 90 der Datei Guess\+Content\+Type.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_a9e2afe74ab53f8a8ce4e4436b73cf345}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_a9e2afe74ab53f8a8ce4e4436b73cf345}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type}!initialize@{initialize}}
+\index{initialize@{initialize}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Guess\+Content\+Type\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}}}]{\$server }\end{DoxyParamCaption})}
+
+Initializes the plugin
+
+
+\begin{DoxyParams}[1]{Parameter}
+D\+A\+V\textbackslash{}\+Server & {\em \$server} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 56 der Datei Guess\+Content\+Type.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_a5b09b78a39fb500a3ba14a1a3d23ca74}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_a5b09b78a39fb500a3ba14a1a3d23ca74}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type}!prop\+Find@{prop\+Find}}
+\index{prop\+Find@{prop\+Find}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type}}
+\subsubsection{\texorpdfstring{prop\+Find()}{propFind()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Guess\+Content\+Type\+::prop\+Find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}}}]{\$prop\+Find,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}}}]{\$node }\end{DoxyParamCaption})}
+
+Our P\+R\+O\+P\+F\+I\+ND handler
+
+Here we set a contenttype, if the node didn\textquotesingle{}t already have one.
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_find}{Prop\+Find}} & {\em \$prop\+Find} & \\
+\hline
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{I\+Node}} & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 73 der Datei Guess\+Content\+Type.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_ab1e5bdb88280adaf4c9534336906964c}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_guess_content_type_ab1e5bdb88280adaf4c9534336906964c}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type}!\$extension\+Map@{\$extension\+Map}}
+\index{\$extension\+Map@{\$extension\+Map}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Guess\+Content\+Type}}
+\subsubsection{\texorpdfstring{\$extension\+Map}{$extensionMap}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Guess\+Content\+Type\+::\$extension\+Map}
+
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= [
+
+        
+        \textcolor{stringliteral}{'jpg'} => \textcolor{stringliteral}{'image/jpeg'}
+\end{DoxyCode}
+
+
+Definiert in Zeile 34 der Datei Guess\+Content\+Type.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Browser/Guess\+Content\+Type.\+php\end{DoxyCompactItemize}

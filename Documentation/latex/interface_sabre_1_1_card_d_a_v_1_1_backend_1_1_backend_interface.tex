@@ -1,0 +1,334 @@
+\hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface}{}\section{Sabre\textbackslash{}Card\+D\+AV\textbackslash{}Backend\textbackslash{}Backend\+Interface Schnittstellenreferenz}
+\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface}\index{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface@{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface}}
+Klassendiagramm für Sabre\textbackslash{}Card\+D\+AV\textbackslash{}Backend\textbackslash{}Backend\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.081784cm]{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a47302ae5f71c46e7e729f20fb4be65ec}{get\+Address\+Books\+For\+User}} (\$principal\+Uri)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a3cc3f076e53032bd38ea272353df4899}{update\+Address\+Book}} (\$address\+Book\+Id, \textbackslash{}\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch}} \$prop\+Patch)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a448b1c8ec1f0daaaa301bbc8e94ca32a}{create\+Address\+Book}} (\$principal\+Uri, \$url, array \$properties)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_ae49e515bcce7a2b4f6b9d95dd6d575e9}{delete\+Address\+Book}} (\$address\+Book\+Id)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_aa616e3059b786eb7d97340f8527c4e3c}{get\+Cards}} (\$addressbook\+Id)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a01e1ff7122fa275f20cbae9f5bb0fff6}{get\+Card}} (\$address\+Book\+Id, \$card\+Uri)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_acfd14d115d8d4a064fc746c8bebb75f5}{get\+Multiple\+Cards}} (\$address\+Book\+Id, array \$uris)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_ad37206b24b501cd47594af594c3e3401}{create\+Card}} (\$address\+Book\+Id, \$card\+Uri, \$card\+Data)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a56f24a21facd52a79d65ee9fc893688f}{update\+Card}} (\$address\+Book\+Id, \$card\+Uri, \$card\+Data)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_ac48343c04095e3e3a509da9f5b65ae0a}{delete\+Card}} (\$address\+Book\+Id, \$card\+Uri)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Card\+D\+AV Backend Interface
+
+Any Card\+D\+AV backend must implement this interface.
+
+\mbox{\hyperlink{class_note}{Note}} that there are references to \textquotesingle{}address\+Book\+Id\textquotesingle{} scattered throughout the class. The value of the address\+Book\+Id is completely up to you, it can be any arbitrary value you can use as an unique identifier.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Backend\+Interface.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a448b1c8ec1f0daaaa301bbc8e94ca32a}\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a448b1c8ec1f0daaaa301bbc8e94ca32a}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}!create\+Address\+Book@{create\+Address\+Book}}
+\index{create\+Address\+Book@{create\+Address\+Book}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{create\+Address\+Book()}{createAddressBook()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::create\+Address\+Book (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri,  }\item[{}]{\$url,  }\item[{array}]{\$properties }\end{DoxyParamCaption})}
+
+Creates a new address book.
+
+This method should return the id of the new address book. The id can be in any format, including ints, strings, arrays or objects.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+string & {\em \$url} & Just the \textquotesingle{}basename\textquotesingle{} of the url. \\
+\hline
+array & {\em \$properties} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_p_d_o_a8c739255019e1925ac97bcb09bd4e7ed}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_mock_aeaadfec8bfde286ae0db2af6d21e28b6}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_ad37206b24b501cd47594af594c3e3401}\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_ad37206b24b501cd47594af594c3e3401}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}!create\+Card@{create\+Card}}
+\index{create\+Card@{create\+Card}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{create\+Card()}{createCard()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::create\+Card (\begin{DoxyParamCaption}\item[{}]{\$address\+Book\+Id,  }\item[{}]{\$card\+Uri,  }\item[{}]{\$card\+Data }\end{DoxyParamCaption})}
+
+Creates a new card.
+
+The addressbook id will be passed as the first argument. This is the same id as it is returned from the get\+Address\+Books\+For\+User method.
+
+The card\+Uri is a base uri, and doesn\textquotesingle{}t include the full path. The card\+Data argument is the vcard body, and is passed as a string.
+
+It is possible to return an E\+Tag from this method. This E\+Tag is for the newly created resource, and must be enclosed with double quotes (that is, the string itself must contain the double quotes).
+
+You should only return the E\+Tag if you store the carddata as-\/is. If a subsequent G\+ET request on the same card does not have the same body, byte-\/by-\/byte and you did return an E\+Tag here, clients tend to get confused.
+
+If you don\textquotesingle{}t return an E\+Tag, you can just return null.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$address\+Book\+Id} & \\
+\hline
+string & {\em \$card\+Uri} & \\
+\hline
+string & {\em \$card\+Data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_p_d_o_aebebc1ae25c4d4eee6224bad6111c5c3}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_mock_a6f2d1d6c112993ecbd728d382214d692}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_ae49e515bcce7a2b4f6b9d95dd6d575e9}\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_ae49e515bcce7a2b4f6b9d95dd6d575e9}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}!delete\+Address\+Book@{delete\+Address\+Book}}
+\index{delete\+Address\+Book@{delete\+Address\+Book}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{delete\+Address\+Book()}{deleteAddressBook()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::delete\+Address\+Book (\begin{DoxyParamCaption}\item[{}]{\$address\+Book\+Id }\end{DoxyParamCaption})}
+
+Deletes an entire addressbook and all its contents
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$address\+Book\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_p_d_o_aac696010f7d615154ad82c7b3e209d9c}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_mock_a942dc08fd06c6f1ebadfcf226b102ed0}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_ac48343c04095e3e3a509da9f5b65ae0a}\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_ac48343c04095e3e3a509da9f5b65ae0a}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}!delete\+Card@{delete\+Card}}
+\index{delete\+Card@{delete\+Card}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{delete\+Card()}{deleteCard()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::delete\+Card (\begin{DoxyParamCaption}\item[{}]{\$address\+Book\+Id,  }\item[{}]{\$card\+Uri }\end{DoxyParamCaption})}
+
+Deletes a card
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$address\+Book\+Id} & \\
+\hline
+string & {\em \$card\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_p_d_o_adcf44f8f25f73d511a8f9287957b2e62}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_mock_a20a607167096ba3a163823f1113afd86}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a47302ae5f71c46e7e729f20fb4be65ec}\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a47302ae5f71c46e7e729f20fb4be65ec}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}!get\+Address\+Books\+For\+User@{get\+Address\+Books\+For\+User}}
+\index{get\+Address\+Books\+For\+User@{get\+Address\+Books\+For\+User}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{get\+Address\+Books\+For\+User()}{getAddressBooksForUser()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::get\+Address\+Books\+For\+User (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri }\end{DoxyParamCaption})}
+
+Returns the list of addressbooks for a specific user.
+
+Every addressbook should have the following properties\+: id -\/ an arbitrary unique id uri -\/ the \textquotesingle{}basename\textquotesingle{} part of the url principaluri -\/ Same as the passed parameter
+
+Any additional clark-\/notation property may be passed besides this. Some common ones are \+: \{D\+AV\+:\}displayname \{urn\+:ietf\+:params\+:xml\+:ns\+:carddav\}addressbook-\/description \{\href{http://calendarserver.org/ns/}{\tt http\+://calendarserver.\+org/ns/}\}getctag
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_p_d_o_ab7e926f24a4120ec0acc3b5315c555be}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_mock_a0ae33e7e452d483b0450754be445bc34}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a01e1ff7122fa275f20cbae9f5bb0fff6}\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a01e1ff7122fa275f20cbae9f5bb0fff6}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}!get\+Card@{get\+Card}}
+\index{get\+Card@{get\+Card}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{get\+Card()}{getCard()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::get\+Card (\begin{DoxyParamCaption}\item[{}]{\$address\+Book\+Id,  }\item[{}]{\$card\+Uri }\end{DoxyParamCaption})}
+
+Returns a specfic card.
+
+The same set of properties must be returned as with get\+Cards. The only exception is that \textquotesingle{}carddata\textquotesingle{} is absolutely required.
+
+If the card does not exist, you must return false.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$address\+Book\+Id} & \\
+\hline
+string & {\em \$card\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_p_d_o_a8ce1c064d4f5842c62cab2320033135e}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_mock_addd43d557934b5d834d562269900646c}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_aa616e3059b786eb7d97340f8527c4e3c}\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_aa616e3059b786eb7d97340f8527c4e3c}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}!get\+Cards@{get\+Cards}}
+\index{get\+Cards@{get\+Cards}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{get\+Cards()}{getCards()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::get\+Cards (\begin{DoxyParamCaption}\item[{}]{\$addressbook\+Id }\end{DoxyParamCaption})}
+
+Returns all cards for a specific addressbook id.
+
+This method should return the following properties for each card\+:
+\begin{DoxyItemize}
+\item carddata -\/ raw vcard data
+\item uri -\/ Some unique url
+\item lastmodified -\/ A unix timestamp
+\end{DoxyItemize}
+
+It\textquotesingle{}s recommended to also return the following properties\+:
+\begin{DoxyItemize}
+\item etag -\/ A unique etag. This must change every time the card changes.
+\item size -\/ The size of the card in bytes.
+\end{DoxyItemize}
+
+If these last two properties are provided, less time will be spent calculating them. If they are specified, you can also ommit carddata. This may speed up certain requests, especially with large cards.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$addressbook\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_p_d_o_a39891db02d86c2242de352c83f839ece}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_mock_a82ab931451727b736b6a498d15e588c1}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_acfd14d115d8d4a064fc746c8bebb75f5}\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_acfd14d115d8d4a064fc746c8bebb75f5}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}!get\+Multiple\+Cards@{get\+Multiple\+Cards}}
+\index{get\+Multiple\+Cards@{get\+Multiple\+Cards}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{get\+Multiple\+Cards()}{getMultipleCards()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::get\+Multiple\+Cards (\begin{DoxyParamCaption}\item[{}]{\$address\+Book\+Id,  }\item[{array}]{\$uris }\end{DoxyParamCaption})}
+
+Returns a list of cards.
+
+This method should work identical to get\+Card, but instead return all the cards in the list as an array.
+
+If the backend supports this, it may allow for some speed-\/ups.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$address\+Book\+Id} & \\
+\hline
+array & {\em \$uris} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_p_d_o_a14ec8708e8c2a04e7b0d23fc526b23dd}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_abstract_backend_a0a53af7f95121ca77c6081b9ac250ecf}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Abstract\+Backend}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a3cc3f076e53032bd38ea272353df4899}\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a3cc3f076e53032bd38ea272353df4899}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}!update\+Address\+Book@{update\+Address\+Book}}
+\index{update\+Address\+Book@{update\+Address\+Book}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{update\+Address\+Book()}{updateAddressBook()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::update\+Address\+Book (\begin{DoxyParamCaption}\item[{}]{\$address\+Book\+Id,  }\item[{\textbackslash{}\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch}}}]{\$prop\+Patch }\end{DoxyParamCaption})}
+
+Updates properties for an address book.
+
+The list of mutations is stored in a Sabre object. To do the actual updates, you must tell this object which properties you\textquotesingle{}re going to process with the handle() method.
+
+Calling the handle method is like telling the Prop\+Patch object \char`\"{}\+I
+promise I can handle updating this property\char`\"{}.
+
+Read the Prop\+Patch documentation for more info and examples.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$address\+Book\+Id} & \\
+\hline
+\textbackslash{}\+Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch & {\em \$prop\+Patch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_p_d_o_a570d00636a96b320a21c6c52fdaf2c16}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_mock_aa450469f499cdd00033137f6c9071ca1}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+\mbox{\Hypertarget{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a56f24a21facd52a79d65ee9fc893688f}\label{interface_sabre_1_1_card_d_a_v_1_1_backend_1_1_backend_interface_a56f24a21facd52a79d65ee9fc893688f}} 
+\index{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}!update\+Card@{update\+Card}}
+\index{update\+Card@{update\+Card}!Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface@{Sabre\+::\+Card\+D\+A\+V\+::\+Backend\+::\+Backend\+Interface}}
+\subsubsection{\texorpdfstring{update\+Card()}{updateCard()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Backend\+Interface\+::update\+Card (\begin{DoxyParamCaption}\item[{}]{\$address\+Book\+Id,  }\item[{}]{\$card\+Uri,  }\item[{}]{\$card\+Data }\end{DoxyParamCaption})}
+
+Updates a card.
+
+The addressbook id will be passed as the first argument. This is the same id as it is returned from the get\+Address\+Books\+For\+User method.
+
+The card\+Uri is a base uri, and doesn\textquotesingle{}t include the full path. The card\+Data argument is the vcard body, and is passed as a string.
+
+It is possible to return an E\+Tag from this method. This E\+Tag should match that of the updated resource, and must be enclosed with double quotes (that is\+: the string itself must contain the actual quotes).
+
+You should only return the E\+Tag if you store the carddata as-\/is. If a subsequent G\+ET request on the same card does not have the same body, byte-\/by-\/byte and you did return an E\+Tag here, clients tend to get confused.
+
+If you don\textquotesingle{}t return an E\+Tag, you can just return null.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$address\+Book\+Id} & \\
+\hline
+string & {\em \$card\+Uri} & \\
+\hline
+string & {\em \$card\+Data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string$\vert$null 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_p_d_o_af9221a622af0f1584732f5ed661bdd19}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+P\+DO}} und \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_backend_1_1_mock_ae3df244681bdd69bf887496c2223bace}{Sabre\textbackslash{}\+Card\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+Card\+D\+A\+V/\+Backend/Backend\+Interface.\+php\end{DoxyCompactItemize}

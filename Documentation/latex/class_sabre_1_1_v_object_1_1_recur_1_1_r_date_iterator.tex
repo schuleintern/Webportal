@@ -1,0 +1,212 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Recur\textbackslash{}R\+Date\+Iterator Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Recur\textbackslash{}\+R\+Date\+Iterator@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Recur\textbackslash{}\+R\+Date\+Iterator}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Recur\textbackslash{}R\+Date\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a1047352b62ec02e80d4f7a3a8cb6dcd3}{\+\_\+\+\_\+construct}} (\$rrule, Date\+Time\+Interface \$start)
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a0e07f275c24e67ce8a81c9f92bd1ff1b}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a0e07f275c24e67ce8a81c9f92bd1ff1b}} 
+{\bfseries current} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_afe2444c7f5c2222c234180a44c58d7e7}{key}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_aa7faa7b88f6fafb55c84755ee51dcf91}{valid}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a300b6634344f0600f28d06b56ab16d66}{rewind}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a33a2480b6c001f5236bf6c74a2b86fdc}{next}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a5e8d99b21a968d3adc19846905e15ad9}{is\+Infinite}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_ac39804d81fa446898ac17aaec0347eda}{fast\+Forward}} (Date\+Time\+Interface \$dt)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_ac73801496df3c83e6abfc5118460c77b}{parse\+R\+Date}} (\$rdate)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_ad7a4abe53cde774b5236972d89ce9a1e}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_ad7a4abe53cde774b5236972d89ce9a1e}} 
+{\bfseries \$start\+Date}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a318816a3c4235d001e9ccb8b2bfd5865}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a318816a3c4235d001e9ccb8b2bfd5865}} 
+{\bfseries \$current\+Date}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a169ecc33f7502fd54cd3a30a57d9af31}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a169ecc33f7502fd54cd3a30a57d9af31}} 
+{\bfseries \$counter} = 0
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a8611a495bd603c6ab4e8be375ec6d68e}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a8611a495bd603c6ab4e8be375ec6d68e}} 
+{\bfseries \$dates} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+R\+Rule\+Parser.
+
+This class receives an R\+R\+U\+LE string, and allows you to iterate to get a list of dates in that recurrence.
+
+For instance, passing\+: F\+R\+EQ=D\+A\+I\+LY;L\+I\+M\+IT=5 will cause the iterator to contain 5 items, one for each day.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 22 der Datei R\+Date\+Iterator.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a1047352b62ec02e80d4f7a3a8cb6dcd3}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a1047352b62ec02e80d4f7a3a8cb6dcd3}} 
+\index{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Recur\textbackslash{}\+R\+Date\+Iterator\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$rrule,  }\item[{Date\+Time\+Interface}]{\$start }\end{DoxyParamCaption})}
+
+Creates the Iterator.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | array & {\em \$rrule} & \\
+\hline
+Date\+Time\+Interface & {\em \$start} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 30 der Datei R\+Date\+Iterator.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_ac39804d81fa446898ac17aaec0347eda}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_ac39804d81fa446898ac17aaec0347eda}} 
+\index{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}!fast\+Forward@{fast\+Forward}}
+\index{fast\+Forward@{fast\+Forward}!Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}}
+\subsubsection{\texorpdfstring{fast\+Forward()}{fastForward()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Recur\textbackslash{}\+R\+Date\+Iterator\+::fast\+Forward (\begin{DoxyParamCaption}\item[{Date\+Time\+Interface}]{\$dt }\end{DoxyParamCaption})}
+
+This method allows you to quickly go to the next occurrence after the specified date.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Date\+Time\+Interface & {\em \$dt} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 121 der Datei R\+Date\+Iterator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a5e8d99b21a968d3adc19846905e15ad9}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a5e8d99b21a968d3adc19846905e15ad9}} 
+\index{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}!is\+Infinite@{is\+Infinite}}
+\index{is\+Infinite@{is\+Infinite}!Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}}
+\subsubsection{\texorpdfstring{is\+Infinite()}{isInfinite()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Recur\textbackslash{}\+R\+Date\+Iterator\+::is\+Infinite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns true if this recurring event never ends.
+
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 107 der Datei R\+Date\+Iterator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_afe2444c7f5c2222c234180a44c58d7e7}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_afe2444c7f5c2222c234180a44c58d7e7}} 
+\index{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}!key@{key}}
+\index{key@{key}!Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}}
+\subsubsection{\texorpdfstring{key()}{key()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Recur\textbackslash{}\+R\+Date\+Iterator\+::key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the current item number.
+
+\begin{DoxyReturn}{Rückgabe}
+int 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 52 der Datei R\+Date\+Iterator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a33a2480b6c001f5236bf6c74a2b86fdc}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a33a2480b6c001f5236bf6c74a2b86fdc}} 
+\index{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}!next@{next}}
+\index{next@{next}!Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}}
+\subsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Recur\textbackslash{}\+R\+Date\+Iterator\+::next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Goes on to the next iteration.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 87 der Datei R\+Date\+Iterator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_ac73801496df3c83e6abfc5118460c77b}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_ac73801496df3c83e6abfc5118460c77b}} 
+\index{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}!parse\+R\+Date@{parse\+R\+Date}}
+\index{parse\+R\+Date@{parse\+R\+Date}!Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}}
+\subsubsection{\texorpdfstring{parse\+R\+Date()}{parseRDate()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Recur\textbackslash{}\+R\+Date\+Iterator\+::parse\+R\+Date (\begin{DoxyParamCaption}\item[{}]{\$rdate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method receives a string from an R\+R\+U\+LE property, and populates this class with all the values.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string | array & {\em \$rrule} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 165 der Datei R\+Date\+Iterator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a300b6634344f0600f28d06b56ab16d66}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_a300b6634344f0600f28d06b56ab16d66}} 
+\index{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}!rewind@{rewind}}
+\index{rewind@{rewind}!Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}}
+\subsubsection{\texorpdfstring{rewind()}{rewind()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Recur\textbackslash{}\+R\+Date\+Iterator\+::rewind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resets the iterator.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 75 der Datei R\+Date\+Iterator.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_aa7faa7b88f6fafb55c84755ee51dcf91}\label{class_sabre_1_1_v_object_1_1_recur_1_1_r_date_iterator_aa7faa7b88f6fafb55c84755ee51dcf91}} 
+\index{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}!valid@{valid}}
+\index{valid@{valid}!Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator@{Sabre\+::\+V\+Object\+::\+Recur\+::\+R\+Date\+Iterator}}
+\subsubsection{\texorpdfstring{valid()}{valid()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Recur\textbackslash{}\+R\+Date\+Iterator\+::valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns whether the current item is a valid item for the recurrence iterator.
+
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 64 der Datei R\+Date\+Iterator.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+Recur/R\+Date\+Iterator.\+php\end{DoxyCompactItemize}

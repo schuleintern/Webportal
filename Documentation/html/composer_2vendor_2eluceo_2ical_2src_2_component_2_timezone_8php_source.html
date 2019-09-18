@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SchuleIntern: Upload/framework/lib/composer/vendor/eluceo/ical/src/Component/Timezone.php Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SchuleIntern
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_61632385f601d7770e35e4c8904ddc33.html">Upload</a></li><li class="navelem"><a class="el" href="dir_812cdbf44ae3e957979ea7d20d9682e9.html">framework</a></li><li class="navelem"><a class="el" href="dir_25f7db0a5a969d00f4981acb1578de3a.html">lib</a></li><li class="navelem"><a class="el" href="dir_ec5861416e7a0d204e3e0c2e4ac91989.html">composer</a></li><li class="navelem"><a class="el" href="dir_f4ae62192be4f13194f7451ebb94bf52.html">vendor</a></li><li class="navelem"><a class="el" href="dir_61abc59f9118dc6c05417ceb127809f7.html">eluceo</a></li><li class="navelem"><a class="el" href="dir_241a20011c23eb53144e95da770c557f.html">ical</a></li><li class="navelem"><a class="el" href="dir_1d8ae56a2ad04d4b80aed9176ff73a89.html">src</a></li><li class="navelem"><a class="el" href="dir_25197602ff588e750153d81df222e94c.html">Component</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Timezone.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">/*</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file is part of the eluceo/iCal package.</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * (c) Markus Poerschke &lt;markus@eluceo.de&gt;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This source file is subject to the MIT license that is bundled</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * with this source code in the file LICENSE.</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> */</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_eluceo_1_1i_cal_1_1_component.html">Eluceo\iCal\Component</a>;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;use <a class="code" href="namespace_eluceo_1_1i_cal_1_1_component.html">Eluceo\iCal\Component</a>;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;use <a class="code" href="namespace_eluceo_1_1i_cal_1_1_property_bag.html">Eluceo\iCal\PropertyBag</a>;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_eluceo_1_1i_cal_1_1_component_1_1_timezone.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_eluceo_1_1i_cal_1_1_component_1_1_timezone.html">Timezone</a> <span class="keyword">extends</span> <a class="code" href="class_eluceo_1_1i_cal_1_1_component.html">Component</a></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">protected</span> $timezone;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> __construct($timezone)</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        $this-&gt;timezone = $timezone;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_eluceo_1_1i_cal_1_1_component_1_1_timezone.html#aa6dd55a9a67eec7d5a41ef9bfecda0fe">   35</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_eluceo_1_1i_cal_1_1_component_1_1_timezone.html#aa6dd55a9a67eec7d5a41ef9bfecda0fe">getType</a>()</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;VTIMEZONE&#39;</span>;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_eluceo_1_1i_cal_1_1_component_1_1_timezone.html#acacd4943d69ebc9db900c33748c4e404">   43</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_eluceo_1_1i_cal_1_1_component_1_1_timezone.html#acacd4943d69ebc9db900c33748c4e404">buildPropertyBag</a>()</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        $propertyBag = <span class="keyword">new</span> <a class="code" href="class_eluceo_1_1i_cal_1_1_property_bag.html">PropertyBag</a>();</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        $propertyBag-&gt;set(<span class="stringliteral">&#39;TZID&#39;</span>, $this-&gt;timezone);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        $propertyBag-&gt;set(<span class="stringliteral">&#39;X-LIC-LOCATION&#39;</span>, $this-&gt;timezone);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> $propertyBag;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> getZoneIdentifier()</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> $this-&gt;timezone;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div><div class="ttc" id="class_eluceo_1_1i_cal_1_1_component_1_1_timezone_html"><div class="ttname"><a href="class_eluceo_1_1i_cal_1_1_component_1_1_timezone.html">Eluceo\iCal\Component\Timezone</a></div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_component_2_timezone_8php_source.html#l00020">Timezone.php:20</a></div></div>
+<div class="ttc" id="class_eluceo_1_1i_cal_1_1_property_bag_html"><div class="ttname"><a href="class_eluceo_1_1i_cal_1_1_property_bag.html">Eluceo\iCal\PropertyBag</a></div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_property_bag_8php_source.html#l00014">PropertyBag.php:14</a></div></div>
+<div class="ttc" id="namespace_eluceo_1_1i_cal_1_1_property_bag_html"><div class="ttname"><a href="namespace_eluceo_1_1i_cal_1_1_property_bag.html">PropertyBag</a></div></div>
+<div class="ttc" id="class_eluceo_1_1i_cal_1_1_component_1_1_timezone_html_aa6dd55a9a67eec7d5a41ef9bfecda0fe"><div class="ttname"><a href="class_eluceo_1_1i_cal_1_1_component_1_1_timezone.html#aa6dd55a9a67eec7d5a41ef9bfecda0fe">Eluceo\iCal\Component\Timezone\getType</a></div><div class="ttdeci">getType()</div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_component_2_timezone_8php_source.html#l00035">Timezone.php:35</a></div></div>
+<div class="ttc" id="class_eluceo_1_1i_cal_1_1_component_html"><div class="ttname"><a href="class_eluceo_1_1i_cal_1_1_component.html">Eluceo\iCal\Component</a></div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_component_8php_source.html#l00019">Component.php:19</a></div></div>
+<div class="ttc" id="namespace_eluceo_1_1i_cal_1_1_component_html"><div class="ttname"><a href="namespace_eluceo_1_1i_cal_1_1_component.html">Eluceo\iCal\Component</a></div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_component_2_alarm_8php_source.html#l00012">Alarm.php:12</a></div></div>
+<div class="ttc" id="class_eluceo_1_1i_cal_1_1_component_1_1_timezone_html_acacd4943d69ebc9db900c33748c4e404"><div class="ttname"><a href="class_eluceo_1_1i_cal_1_1_component_1_1_timezone.html#acacd4943d69ebc9db900c33748c4e404">Eluceo\iCal\Component\Timezone\buildPropertyBag</a></div><div class="ttdeci">buildPropertyBag()</div><div class="ttdef"><b>Definition:</b> <a href="composer_2vendor_2eluceo_2ical_2src_2_component_2_timezone_8php_source.html#l00043">Timezone.php:43</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

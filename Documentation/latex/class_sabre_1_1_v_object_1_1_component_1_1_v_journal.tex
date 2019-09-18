@@ -1,0 +1,86 @@
+\hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_journal}{}\section{Sabre\textbackslash{}V\+Object\textbackslash{}Component\textbackslash{}V\+Journal Klassenreferenz}
+\label{class_sabre_1_1_v_object_1_1_component_1_1_v_journal}\index{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Journal@{Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Journal}}
+Klassendiagramm für Sabre\textbackslash{}V\+Object\textbackslash{}Component\textbackslash{}V\+Journal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.973568cm]{class_sabre_1_1_v_object_1_1_component_1_1_v_journal}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_journal_a7f2c2e3b5ee038e1fbb374c99c3ece56}{is\+In\+Time\+Range}} (Date\+Time\+Interface \$start, Date\+Time\+Interface \$end)
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_journal_a8a6bfb7b19af3cbb68bd831443fa1485}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_journal_a8a6bfb7b19af3cbb68bd831443fa1485}} 
+{\bfseries get\+Validation\+Rules} ()
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_journal_ac481d886ffa080ec747dda96d274bff5}{get\+Defaults}} ()
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_journal}{V\+Journal}} component.
+
+This component contains some additional functionality specific for V\+J\+O\+U\+R\+N\+A\+Ls.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 17 der Datei V\+Journal.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_journal_ac481d886ffa080ec747dda96d274bff5}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_journal_ac481d886ffa080ec747dda96d274bff5}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Journal@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Journal}!get\+Defaults@{get\+Defaults}}
+\index{get\+Defaults@{get\+Defaults}!Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Journal@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Journal}}
+\subsubsection{\texorpdfstring{get\+Defaults()}{getDefaults()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Journal\+::get\+Defaults (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method should return a list of default property values.
+
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 99 der Datei V\+Journal.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_v_object_1_1_component_1_1_v_journal_a7f2c2e3b5ee038e1fbb374c99c3ece56}\label{class_sabre_1_1_v_object_1_1_component_1_1_v_journal_a7f2c2e3b5ee038e1fbb374c99c3ece56}} 
+\index{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Journal@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Journal}!is\+In\+Time\+Range@{is\+In\+Time\+Range}}
+\index{is\+In\+Time\+Range@{is\+In\+Time\+Range}!Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Journal@{Sabre\+::\+V\+Object\+::\+Component\+::\+V\+Journal}}
+\subsubsection{\texorpdfstring{is\+In\+Time\+Range()}{isInTimeRange()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+V\+Object\textbackslash{}\+Component\textbackslash{}\+V\+Journal\+::is\+In\+Time\+Range (\begin{DoxyParamCaption}\item[{Date\+Time\+Interface}]{\$start,  }\item[{Date\+Time\+Interface}]{\$end }\end{DoxyParamCaption})}
+
+Returns true or false depending on if the event falls in the specified time-\/range. This is used for filtering purposes.
+
+The rules used to determine if an event falls within the specified time-\/range is based on the Cal\+D\+AV specification.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Date\+Time\+Interface & {\em \$start} & \\
+\hline
+Date\+Time\+Interface & {\em \$end} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 31 der Datei V\+Journal.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/vobject/lib/\+Component/V\+Journal.\+php\end{DoxyCompactItemize}

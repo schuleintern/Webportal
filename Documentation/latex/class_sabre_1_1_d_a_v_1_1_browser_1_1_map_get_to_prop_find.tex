@@ -1,0 +1,88 @@
+\hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find}{}\section{Sabre\textbackslash{}D\+AV\textbackslash{}Browser\textbackslash{}Map\+Get\+To\+Prop\+Find Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find}\index{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Map\+Get\+To\+Prop\+Find@{Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Map\+Get\+To\+Prop\+Find}}
+Klassendiagramm für Sabre\textbackslash{}D\+AV\textbackslash{}Browser\textbackslash{}Map\+Get\+To\+Prop\+Find\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_a670227e1e22db49ee63f9a681b1fcf8f}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}} \$server)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_a3d55cafd618f975cb9c00bf4b93d6801}{http\+Get}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_a580dbb7012562000163cbc01246a13a9}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_a580dbb7012562000163cbc01246a13a9}} 
+{\bfseries \$server}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This is a simple plugin that will map any G\+ET request for non-\/files to P\+R\+O\+P\+F\+I\+ND allprops-\/requests.
+
+This should allow easy debugging of P\+R\+O\+P\+F\+I\+ND
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 19 der Datei Map\+Get\+To\+Prop\+Find.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_a3d55cafd618f975cb9c00bf4b93d6801}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_a3d55cafd618f975cb9c00bf4b93d6801}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Map\+Get\+To\+Prop\+Find@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Map\+Get\+To\+Prop\+Find}!http\+Get@{http\+Get}}
+\index{http\+Get@{http\+Get}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Map\+Get\+To\+Prop\+Find@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Map\+Get\+To\+Prop\+Find}}
+\subsubsection{\texorpdfstring{http\+Get()}{httpGet()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Map\+Get\+To\+Prop\+Find\+::http\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+This method intercepts G\+ET requests to non-\/files, and changes it into an H\+T\+TP P\+R\+O\+P\+F\+I\+ND request
+
+
+\begin{DoxyParams}[1]{Parameter}
+Request\+Interface & {\em \$request} & \\
+\hline
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 47 der Datei Map\+Get\+To\+Prop\+Find.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_a670227e1e22db49ee63f9a681b1fcf8f}\label{class_sabre_1_1_d_a_v_1_1_browser_1_1_map_get_to_prop_find_a670227e1e22db49ee63f9a681b1fcf8f}} 
+\index{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Map\+Get\+To\+Prop\+Find@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Map\+Get\+To\+Prop\+Find}!initialize@{initialize}}
+\index{initialize@{initialize}!Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Map\+Get\+To\+Prop\+Find@{Sabre\+::\+D\+A\+V\+::\+Browser\+::\+Map\+Get\+To\+Prop\+Find}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Browser\textbackslash{}\+Map\+Get\+To\+Prop\+Find\+::initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{D\+A\+V\textbackslash{}\+Server}}}]{\$server }\end{DoxyParamCaption})}
+
+Initializes the plugin and subscribes to events
+
+
+\begin{DoxyParams}[1]{Parameter}
+D\+A\+V\textbackslash{}\+Server & {\em \$server} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 34 der Datei Map\+Get\+To\+Prop\+Find.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V/\+Browser/Map\+Get\+To\+Prop\+Find.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,72 @@
+\hypertarget{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface}{}\section{Paragon\+IE\textbackslash{}Constant\+Time\textbackslash{}Encoder\+Interface Schnittstellenreferenz}
+\label{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface}\index{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Encoder\+Interface@{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Encoder\+Interface}}
+Klassendiagramm für Paragon\+IE\textbackslash{}Constant\+Time\textbackslash{}Encoder\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.390728cm]{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface_a6b9b7e0f5446b6b08b074a9fc7ae3c61}{encode}} (string \$bin\+String)
+\item 
+static \mbox{\hyperlink{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface_a614b43269cc9bc0291bd79e79ccfc278}{decode}} (string \$encoded\+String, bool \$strict\+Padding=false)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 32 der Datei Encoder\+Interface.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface_a614b43269cc9bc0291bd79e79ccfc278}\label{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface_a614b43269cc9bc0291bd79e79ccfc278}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Encoder\+Interface@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Encoder\+Interface}!decode@{decode}}
+\index{decode@{decode}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Encoder\+Interface@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Encoder\+Interface}}
+\subsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Encoder\+Interface\+::decode (\begin{DoxyParamCaption}\item[{string}]{\$encoded\+String,  }\item[{bool}]{\$strict\+Padding = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert a binary string into a hexadecimal string without cache-\/timing leaks
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$encoded\+String} & \\
+\hline
+bool & {\em \$strict\+Padding} & Error on invalid padding \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string (raw binary) 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_af563051c30335628aff64b65b035ae3f}{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32}}.
+
+\mbox{\Hypertarget{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface_a6b9b7e0f5446b6b08b074a9fc7ae3c61}\label{interface_paragon_i_e_1_1_constant_time_1_1_encoder_interface_a6b9b7e0f5446b6b08b074a9fc7ae3c61}} 
+\index{Paragon\+I\+E\+::\+Constant\+Time\+::\+Encoder\+Interface@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Encoder\+Interface}!encode@{encode}}
+\index{encode@{encode}!Paragon\+I\+E\+::\+Constant\+Time\+::\+Encoder\+Interface@{Paragon\+I\+E\+::\+Constant\+Time\+::\+Encoder\+Interface}}
+\subsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily static Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Encoder\+Interface\+::encode (\begin{DoxyParamCaption}\item[{string}]{\$bin\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert a binary string into a hexadecimal string without cache-\/timing leaks
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$bin\+String} & (raw binary) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Implementiert in \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base32_af1ba6da288e869c1e1add91f3301a702}{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base32}} und \mbox{\hyperlink{class_paragon_i_e_1_1_constant_time_1_1_base64_ac7133a444b198643a07447d558d43669}{Paragon\+I\+E\textbackslash{}\+Constant\+Time\textbackslash{}\+Base64}}.
+
+
+
+Die Dokumentation für diese Schnittstelle wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/composer/vendor/paragonie/constant\+\_\+time\+\_\+encoding/src/Encoder\+Interface.\+php\end{DoxyCompactItemize}

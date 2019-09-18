@@ -1,0 +1,104 @@
+\hypertarget{class_recipient_handler}{}\section{Recipient\+Handler Klassenreferenz}
+\label{class_recipient_handler}\index{Recipient\+Handler@{Recipient\+Handler}}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_recipient_handler_a68ed7b47ea0cf4ee5ece3fa25960a819}{\+\_\+\+\_\+construct}} (\$save\+String)
+\item 
+\mbox{\hyperlink{class_recipient_handler_aa12bbece1bc22c4fa0337f793d9198ca}{add\+Recipient}} (\$recipient)
+\item 
+\mbox{\hyperlink{class_recipient_handler_ad4a308d96eb6a1d46fea7dfd2d01b886}{get\+Save\+Complete\+Save\+String}} ()
+\item 
+\mbox{\hyperlink{class_recipient_handler_a664b5c58ae2681228991ae107b198062}{remove\+Save\+String}} (\$save\+String)
+\item 
+\mbox{\hyperlink{class_recipient_handler_ad9b32fff134b74e35ab26f98cbaad68e}{get\+All\+Recipients}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+
+
+Definiert in Zeile 3 der Datei Recipient\+Handler.\+class.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_recipient_handler_a68ed7b47ea0cf4ee5ece3fa25960a819}\label{class_recipient_handler_a68ed7b47ea0cf4ee5ece3fa25960a819}} 
+\index{Recipient\+Handler@{Recipient\+Handler}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Recipient\+Handler@{Recipient\+Handler}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Recipient\+Handler\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$save\+String }\end{DoxyParamCaption})}
+
+Erstellt einen neuen Recipienthandler 
+\begin{DoxyParams}{Parameter}
+{\em \$save\+String} & bisheriger Save\+String \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 34 der Datei Recipient\+Handler.\+class.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_recipient_handler_aa12bbece1bc22c4fa0337f793d9198ca}\label{class_recipient_handler_aa12bbece1bc22c4fa0337f793d9198ca}} 
+\index{Recipient\+Handler@{Recipient\+Handler}!add\+Recipient@{add\+Recipient}}
+\index{add\+Recipient@{add\+Recipient}!Recipient\+Handler@{Recipient\+Handler}}
+\subsubsection{\texorpdfstring{add\+Recipient()}{addRecipient()}}
+{\footnotesize\ttfamily Recipient\+Handler\+::add\+Recipient (\begin{DoxyParamCaption}\item[{}]{\$recipient }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameter}
+\mbox{\hyperlink{class_message_recipient}{Message\+Recipient}} & {\em \$recipient} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 90 der Datei Recipient\+Handler.\+class.\+php.
+
+\mbox{\Hypertarget{class_recipient_handler_ad9b32fff134b74e35ab26f98cbaad68e}\label{class_recipient_handler_ad9b32fff134b74e35ab26f98cbaad68e}} 
+\index{Recipient\+Handler@{Recipient\+Handler}!get\+All\+Recipients@{get\+All\+Recipients}}
+\index{get\+All\+Recipients@{get\+All\+Recipients}!Recipient\+Handler@{Recipient\+Handler}}
+\subsubsection{\texorpdfstring{get\+All\+Recipients()}{getAllRecipients()}}
+{\footnotesize\ttfamily Recipient\+Handler\+::get\+All\+Recipients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Alle Empfänger \begin{DoxyReturn}{Rückgabe}
+\mbox{\hyperlink{class_message_recipient}{Message\+Recipient}}\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 128 der Datei Recipient\+Handler.\+class.\+php.
+
+\mbox{\Hypertarget{class_recipient_handler_ad4a308d96eb6a1d46fea7dfd2d01b886}\label{class_recipient_handler_ad4a308d96eb6a1d46fea7dfd2d01b886}} 
+\index{Recipient\+Handler@{Recipient\+Handler}!get\+Save\+Complete\+Save\+String@{get\+Save\+Complete\+Save\+String}}
+\index{get\+Save\+Complete\+Save\+String@{get\+Save\+Complete\+Save\+String}!Recipient\+Handler@{Recipient\+Handler}}
+\subsubsection{\texorpdfstring{get\+Save\+Complete\+Save\+String()}{getSaveCompleteSaveString()}}
+{\footnotesize\ttfamily Recipient\+Handler\+::get\+Save\+Complete\+Save\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Kompletter Save\+String (getrennt mit \char`\"{};\char`\"{} für das Formular.) \begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 98 der Datei Recipient\+Handler.\+class.\+php.
+
+\mbox{\Hypertarget{class_recipient_handler_a664b5c58ae2681228991ae107b198062}\label{class_recipient_handler_a664b5c58ae2681228991ae107b198062}} 
+\index{Recipient\+Handler@{Recipient\+Handler}!remove\+Save\+String@{remove\+Save\+String}}
+\index{remove\+Save\+String@{remove\+Save\+String}!Recipient\+Handler@{Recipient\+Handler}}
+\subsubsection{\texorpdfstring{remove\+Save\+String()}{removeSaveString()}}
+{\footnotesize\ttfamily Recipient\+Handler\+::remove\+Save\+String (\begin{DoxyParamCaption}\item[{}]{\$save\+String }\end{DoxyParamCaption})}
+
+Entfernt den Savestring 
+\begin{DoxyParams}[1]{Parameter}
+unknown & {\em \$save\+String} & \\
+\hline
+\end{DoxyParams}
+
+
+Definiert in Zeile 114 der Datei Recipient\+Handler.\+class.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/messages/Recipient\+Handler.\+class.\+php\end{DoxyCompactItemize}

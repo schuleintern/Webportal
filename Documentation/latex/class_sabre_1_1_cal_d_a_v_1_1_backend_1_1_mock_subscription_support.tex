@@ -1,0 +1,183 @@
+\hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support}{}\section{Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Mock\+Subscription\+Support Klassenreferenz}
+\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support}\index{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Subscription\+Support@{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Subscription\+Support}}
+Klassendiagramm für Sabre\textbackslash{}Cal\+D\+AV\textbackslash{}Backend\textbackslash{}Mock\+Subscription\+Support\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.660131cm]{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_a6586395148ea71f7d9bf101f8b9ee517}{get\+Subscriptions\+For\+User}} (\$principal\+Uri)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_aa8c4a1d6cdef00c3191810599cfb1e7d}{create\+Subscription}} (\$principal\+Uri, \$uri, array \$properties)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_a3ca7bea943b42a3bf2118ef745f41d31}{update\+Subscription}} (\$subscription\+Id, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{D\+A\+V\textbackslash{}\+Prop\+Patch}} \$prop\+Patch)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_a5172791acb23c4690d2991a86e898e9f}{delete\+Subscription}} (\$subscription\+Id)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_aee952c9a7d03930094fd23b72ad5b84a}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_aee952c9a7d03930094fd23b72ad5b84a}} 
+{\bfseries \$subs} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+This is a mock Cal\+D\+AV backend that supports subscriptions.
+
+All data is retained in memory temporarily. It\textquotesingle{}s primary purpose is unit-\/tests.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 18 der Datei Mock\+Subscription\+Support.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_aa8c4a1d6cdef00c3191810599cfb1e7d}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_aa8c4a1d6cdef00c3191810599cfb1e7d}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support}!create\+Subscription@{create\+Subscription}}
+\index{create\+Subscription@{create\+Subscription}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support}}
+\subsubsection{\texorpdfstring{create\+Subscription()}{createSubscription()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Subscription\+Support\+::create\+Subscription (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri,  }\item[{}]{\$uri,  }\item[{array}]{\$properties }\end{DoxyParamCaption})}
+
+Creates a new subscription for a principal.
+
+If the creation was a success, an id must be returned that can be used to reference this subscription in other methods, such as update\+Subscription.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+string & {\em \$uri} & \\
+\hline
+array & {\em \$properties} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_subscription_support_a7dec0655bb91ca14f58aa4f5db4242f7}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Subscription\+Support}}.
+
+
+
+Definiert in Zeile 74 der Datei Mock\+Subscription\+Support.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_a5172791acb23c4690d2991a86e898e9f}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_a5172791acb23c4690d2991a86e898e9f}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support}!delete\+Subscription@{delete\+Subscription}}
+\index{delete\+Subscription@{delete\+Subscription}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support}}
+\subsubsection{\texorpdfstring{delete\+Subscription()}{deleteSubscription()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Subscription\+Support\+::delete\+Subscription (\begin{DoxyParamCaption}\item[{}]{\$subscription\+Id }\end{DoxyParamCaption})}
+
+Deletes a subscription
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$subscription\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_subscription_support_adaaf00fe6295b0809c84e9b78cdae5e3}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Subscription\+Support}}.
+
+
+
+Definiert in Zeile 141 der Datei Mock\+Subscription\+Support.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_a6586395148ea71f7d9bf101f8b9ee517}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_a6586395148ea71f7d9bf101f8b9ee517}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support}!get\+Subscriptions\+For\+User@{get\+Subscriptions\+For\+User}}
+\index{get\+Subscriptions\+For\+User@{get\+Subscriptions\+For\+User}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support}}
+\subsubsection{\texorpdfstring{get\+Subscriptions\+For\+User()}{getSubscriptionsForUser()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Subscription\+Support\+::get\+Subscriptions\+For\+User (\begin{DoxyParamCaption}\item[{}]{\$principal\+Uri }\end{DoxyParamCaption})}
+
+Returns a list of subscriptions for a principal.
+
+Every subscription is an array with the following keys\+:
+\begin{DoxyItemize}
+\item id, a unique id that will be used by other functions to modify the subscription. This can be the same as the uri or a database key.
+\item uri. This is just the \textquotesingle{}base uri\textquotesingle{} or \textquotesingle{}filename\textquotesingle{} of the subscription.
+\item principaluri. The owner of the subscription. Almost always the same as principal\+Uri passed to this method.
+\item source. Url to the actual feed
+\end{DoxyItemize}
+
+Furthermore, all the subscription info must be returned too\+:
+
+
+\begin{DoxyEnumerate}
+\item \{D\+AV\+:\}displayname
+\item \{\href{http://apple.com/ns/ical/}{\tt http\+://apple.\+com/ns/ical/}\}refreshrate
+\item \{\href{http://calendarserver.org/ns/}{\tt http\+://calendarserver.\+org/ns/}\}subscribed-\/strip-\/todos (omit if todos should not be stripped).
+\item \{\href{http://calendarserver.org/ns/}{\tt http\+://calendarserver.\+org/ns/}\}subscribed-\/strip-\/alarms (omit if alarms should not be stripped).
+\item \{\href{http://calendarserver.org/ns/}{\tt http\+://calendarserver.\+org/ns/}\}subscribed-\/strip-\/attachments (omit if attachments should not be stripped).
+\item \{\href{http://apple.com/ns/ical/}{\tt http\+://apple.\+com/ns/ical/}\}calendar-\/color
+\item \{\href{http://apple.com/ns/ical/}{\tt http\+://apple.\+com/ns/ical/}\}calendar-\/order
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$principal\+Uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+array 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_subscription_support_ae57d04c00b532488fe930f2119b4eb5c}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Subscription\+Support}}.
+
+
+
+Definiert in Zeile 54 der Datei Mock\+Subscription\+Support.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_a3ca7bea943b42a3bf2118ef745f41d31}\label{class_sabre_1_1_cal_d_a_v_1_1_backend_1_1_mock_subscription_support_a3ca7bea943b42a3bf2118ef745f41d31}} 
+\index{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support}!update\+Subscription@{update\+Subscription}}
+\index{update\+Subscription@{update\+Subscription}!Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support@{Sabre\+::\+Cal\+D\+A\+V\+::\+Backend\+::\+Mock\+Subscription\+Support}}
+\subsubsection{\texorpdfstring{update\+Subscription()}{updateSubscription()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Mock\+Subscription\+Support\+::update\+Subscription (\begin{DoxyParamCaption}\item[{}]{\$subscription\+Id,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{D\+A\+V\textbackslash{}\+Prop\+Patch}}}]{\$prop\+Patch }\end{DoxyParamCaption})}
+
+Updates a subscription
+
+The list of mutations is stored in a Sabre object. To do the actual updates, you must tell this object which properties you\textquotesingle{}re going to process with the handle() method.
+
+Calling the handle method is like telling the Prop\+Patch object \char`\"{}\+I
+promise I can handle updating this property\char`\"{}.
+
+Read the Prop\+Patch documentation for more info and examples.
+
+
+\begin{DoxyParams}[1]{Parameter}
+mixed & {\em \$subscription\+Id} & \\
+\hline
+\textbackslash{}\+Sabre\textbackslash{}\+D\+A\+V\textbackslash{}\+Prop\+Patch & {\em \$prop\+Patch} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_backend_1_1_subscription_support_a20f5a3472fb23eca7bde970c959dee66}{Sabre\textbackslash{}\+Cal\+D\+A\+V\textbackslash{}\+Backend\textbackslash{}\+Subscription\+Support}}.
+
+
+
+Definiert in Zeile 112 der Datei Mock\+Subscription\+Support.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/tests/\+Sabre/\+Cal\+D\+A\+V/\+Backend/Mock\+Subscription\+Support.\+php\end{DoxyCompactItemize}

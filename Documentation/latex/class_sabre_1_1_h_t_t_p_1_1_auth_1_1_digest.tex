@@ -1,0 +1,294 @@
+\hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest}{}\section{Sabre\textbackslash{}H\+T\+TP\textbackslash{}Auth\textbackslash{}Digest Klassenreferenz}
+\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest}\index{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest@{Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest}}
+Klassendiagramm für Sabre\textbackslash{}H\+T\+TP\textbackslash{}Auth\textbackslash{}Digest\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_af86154e7d1c3ee6d78eaf7b9bfdd9e7c}{\+\_\+\+\_\+construct}} (\$realm=\textquotesingle{}Sabre\+Tooth\textquotesingle{}, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$response)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_ab728a5988c652dadc47058f99eccaefd}{init}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a11ee647072118c6062f8f8b59e61f981}{set\+Q\+OP}} (\$qop)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a5598d7b0be03b258c592384cb00aa26b}{validate\+A1}} (\$A1)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a4bc25689fa17ba401cab58832cc62c25}{validate\+Password}} (\$password)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_aac357fbd44dec1343d672e2514af677d}{get\+Username}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_aedfbedd45800cddf8528fee9a017561f}{require\+Login}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_af76d324b665e0ae32491d2e1b65a433b}{get\+Digest}} ()
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_afa5c1b1dc098039d2a3b4f9fcd655ce8}{Q\+O\+P\+\_\+\+A\+U\+TH}} = 1
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_aced4679aaa583cf7e685b1cad2da26c1}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_aced4679aaa583cf7e685b1cad2da26c1}} 
+const {\bfseries Q\+O\+P\+\_\+\+A\+U\+T\+H\+I\+NT} = 2
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a178ae979d08871d75cd67b6ad92135c1}{validate}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a030fa596c49a9aa42e59c745ab88b91b}{parse\+Digest}} (\$digest)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a69c56eb299b0f415a6c65d2e7ba1db67}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a69c56eb299b0f415a6c65d2e7ba1db67}} 
+{\bfseries \$nonce}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_addabac9e9c890d19a8f5ec10b8a589db}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_addabac9e9c890d19a8f5ec10b8a589db}} 
+{\bfseries \$opaque}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_ae3f597c2bf45b70b053d53b7b4ec0232}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_ae3f597c2bf45b70b053d53b7b4ec0232}} 
+{\bfseries \$digest\+Parts}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_ae6fb0e670ea7eb070ba1a020c135202b}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_ae6fb0e670ea7eb070ba1a020c135202b}} 
+{\bfseries \$\+A1}
+\item 
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a43aa43bba4178bffd75149796c6c249a}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a43aa43bba4178bffd75149796c6c249a}} 
+{\bfseries \$qop} = self\+::\+Q\+O\+P\+\_\+\+A\+U\+TH
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+H\+T\+TP \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest}{Digest}} Authentication handler
+
+Use this class for easy http digest authentication. Instructions\+:
+
+
+\begin{DoxyEnumerate}
+\item Create the object
+\item Call the set\+Realm() method with the realm you plan to use
+\item Call the init method function.
+\item Call the get\+User\+Name() function. This function may return null if no authentication information was supplied. Based on the username you should check your internal database for either the associated password, or the so-\/called A1 hash of the digest.
+\item Call either \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a4bc25689fa17ba401cab58832cc62c25}{validate\+Password()}} or \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a5598d7b0be03b258c592384cb00aa26b}{validate\+A1()}}. This will return true or false.
+\item To make sure an authentication prompt is displayed, call the \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_aedfbedd45800cddf8528fee9a017561f}{require\+Login()}} method.
+\end{DoxyEnumerate}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 30 der Datei Digest.\+php.
+
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_af86154e7d1c3ee6d78eaf7b9bfdd9e7c}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_af86154e7d1c3ee6d78eaf7b9bfdd9e7c}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+construct()}{\_\_construct()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$realm = {\ttfamily \textquotesingle{}SabreTooth\textquotesingle{}},  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+Initializes the object 
+
+Definiert in Zeile 47 der Datei Digest.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_af76d324b665e0ae32491d2e1b65a433b}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_af76d324b665e0ae32491d2e1b65a433b}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!get\+Digest@{get\+Digest}}
+\index{get\+Digest@{get\+Digest}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{get\+Digest()}{getDigest()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::get\+Digest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method returns the full digest string.
+
+It should be compatibile with mod\+\_\+php format and other webservers.
+
+If the header could not be found, null will be returned
+
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 199 der Datei Digest.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_aac357fbd44dec1343d672e2514af677d}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_aac357fbd44dec1343d672e2514af677d}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!get\+Username@{get\+Username}}
+\index{get\+Username@{get\+Username}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{get\+Username()}{getUsername()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::get\+Username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the username for the request
+
+\begin{DoxyReturn}{Rückgabe}
+string 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 125 der Datei Digest.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_ab728a5988c652dadc47058f99eccaefd}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_ab728a5988c652dadc47058f99eccaefd}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!init@{init}}
+\index{init@{init}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gathers all information from the headers
+
+This method needs to be called prior to anything else.
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 62 der Datei Digest.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a030fa596c49a9aa42e59c745ab88b91b}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a030fa596c49a9aa42e59c745ab88b91b}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!parse\+Digest@{parse\+Digest}}
+\index{parse\+Digest@{parse\+Digest}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{parse\+Digest()}{parseDigest()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::parse\+Digest (\begin{DoxyParamCaption}\item[{}]{\$digest }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Parses the different pieces of the digest string into an array.
+
+This method returns false if an incomplete digest was supplied
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$digest} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 214 der Datei Digest.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_aedfbedd45800cddf8528fee9a017561f}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_aedfbedd45800cddf8528fee9a017561f}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!require\+Login@{require\+Login}}
+\index{require\+Login@{require\+Login}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{require\+Login()}{requireLogin()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::require\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns an H\+T\+TP 401 header, forcing login
+
+This should be called when username and password are incorrect, or not supplied at all
+
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 169 der Datei Digest.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a11ee647072118c6062f8f8b59e61f981}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a11ee647072118c6062f8f8b59e61f981}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!set\+Q\+OP@{set\+Q\+OP}}
+\index{set\+Q\+OP@{set\+Q\+OP}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{set\+Q\+O\+P()}{setQOP()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::set\+Q\+OP (\begin{DoxyParamCaption}\item[{}]{\$qop }\end{DoxyParamCaption})}
+
+Sets the quality of protection value.
+
+Possible values are\+: Sabre\+::\+Q\+O\+P\+\_\+\+A\+U\+TH Sabre\+::\+Q\+O\+P\+\_\+\+A\+U\+T\+H\+I\+NT
+
+Multiple values can be specified using logical OR.
+
+Q\+O\+P\+\_\+\+A\+U\+T\+H\+I\+NT ensures integrity of the request body, but this is not supported by most H\+T\+TP clients. Q\+O\+P\+\_\+\+A\+U\+T\+H\+I\+NT also requires the entire request body to be md5\textquotesingle{}ed, which can put strains on C\+PU and memory.
+
+
+\begin{DoxyParams}[1]{Parameter}
+int & {\em \$qop} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+void 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 85 der Datei Digest.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a178ae979d08871d75cd67b6ad92135c1}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a178ae979d08871d75cd67b6ad92135c1}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!validate@{validate}}
+\index{validate@{validate}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::validate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Validates the digest challenge
+
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 136 der Datei Digest.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a5598d7b0be03b258c592384cb00aa26b}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a5598d7b0be03b258c592384cb00aa26b}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!validate\+A1@{validate\+A1}}
+\index{validate\+A1@{validate\+A1}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{validate\+A1()}{validateA1()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::validate\+A1 (\begin{DoxyParamCaption}\item[{}]{\$\+A1 }\end{DoxyParamCaption})}
+
+Validates the user.
+
+The A1 parameter should be md5(\$username . \textquotesingle{}\+:\textquotesingle{} . \$realm . \textquotesingle{}\+:\textquotesingle{} . \$password);
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$\+A1} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 99 der Datei Digest.\+php.
+
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a4bc25689fa17ba401cab58832cc62c25}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a4bc25689fa17ba401cab58832cc62c25}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!validate\+Password@{validate\+Password}}
+\index{validate\+Password@{validate\+Password}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{validate\+Password()}{validatePassword()}}
+{\footnotesize\ttfamily Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::validate\+Password (\begin{DoxyParamCaption}\item[{}]{\$password }\end{DoxyParamCaption})}
+
+Validates authentication through a password. The actual password must be provided here. It is strongly recommended not store the password in plain-\/text and use validate\+A1 instead.
+
+
+\begin{DoxyParams}[1]{Parameter}
+string & {\em \$password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+bool 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 113 der Datei Digest.\+php.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\mbox{\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_afa5c1b1dc098039d2a3b4f9fcd655ce8}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_afa5c1b1dc098039d2a3b4f9fcd655ce8}} 
+\index{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}!Q\+O\+P\+\_\+\+A\+U\+TH@{Q\+O\+P\+\_\+\+A\+U\+TH}}
+\index{Q\+O\+P\+\_\+\+A\+U\+TH@{Q\+O\+P\+\_\+\+A\+U\+TH}!Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest@{Sabre\+::\+H\+T\+T\+P\+::\+Auth\+::\+Digest}}
+\subsubsection{\texorpdfstring{Q\+O\+P\+\_\+\+A\+U\+TH}{QOP\_AUTH}}
+{\footnotesize\ttfamily const Sabre\textbackslash{}\+H\+T\+T\+P\textbackslash{}\+Auth\textbackslash{}\+Digest\+::\+Q\+O\+P\+\_\+\+A\+U\+TH = 1}
+
+These constants are used in \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_digest_a11ee647072118c6062f8f8b59e61f981}{set\+Q\+O\+P()}}; 
+
+Definiert in Zeile 35 der Datei Digest.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/http/lib/\+Auth/Digest.\+php\end{DoxyCompactItemize}

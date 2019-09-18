@@ -1,0 +1,74 @@
+\hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_request_1_1_principal_search_property_set_report}{}\section{Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Xml\textbackslash{}Request\textbackslash{}Principal\+Search\+Property\+Set\+Report Klassenreferenz}
+\label{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_request_1_1_principal_search_property_set_report}\index{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Request\textbackslash{}\+Principal\+Search\+Property\+Set\+Report@{Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Request\textbackslash{}\+Principal\+Search\+Property\+Set\+Report}}
+Klassendiagramm für Sabre\textbackslash{}D\+A\+V\+A\+CL\textbackslash{}Xml\textbackslash{}Request\textbackslash{}Principal\+Search\+Property\+Set\+Report\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_request_1_1_principal_search_property_set_report}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_request_1_1_principal_search_property_set_report_aac942dda2c328563364c634768d34a80}{xml\+Deserialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$reader)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_request_1_1_principal_search_property_set_report}{Principal\+Search\+Property\+Set\+Report}} request parser.
+
+This class parses the \{D\+AV\+:\}principal-\/search-\/property-\/set R\+E\+P\+O\+RT, as defined in\+:
+
+\href{https://tools.ietf.org/html/rfc3744#section-9.5}{\tt https\+://tools.\+ietf.\+org/html/rfc3744\#section-\/9.\+5}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\tt https\+://fruux.\+com/}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Autor}
+Evert Pot (\href{http://evertpot.com/}{\tt http\+://evertpot.\+com/})  \href{http://sabre.io/license/}{\tt http\+://sabre.\+io/license/} Modified B\+SD License 
+\end{DoxyAuthor}
+
+
+Definiert in Zeile 21 der Datei Principal\+Search\+Property\+Set\+Report.\+php.
+
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\mbox{\Hypertarget{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_request_1_1_principal_search_property_set_report_aac942dda2c328563364c634768d34a80}\label{class_sabre_1_1_d_a_v_a_c_l_1_1_xml_1_1_request_1_1_principal_search_property_set_report_aac942dda2c328563364c634768d34a80}} 
+\index{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Xml\+::\+Request\+::\+Principal\+Search\+Property\+Set\+Report@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Xml\+::\+Request\+::\+Principal\+Search\+Property\+Set\+Report}!xml\+Deserialize@{xml\+Deserialize}}
+\index{xml\+Deserialize@{xml\+Deserialize}!Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Xml\+::\+Request\+::\+Principal\+Search\+Property\+Set\+Report@{Sabre\+::\+D\+A\+V\+A\+C\+L\+::\+Xml\+::\+Request\+::\+Principal\+Search\+Property\+Set\+Report}}
+\subsubsection{\texorpdfstring{xml\+Deserialize()}{xmlDeserialize()}}
+{\footnotesize\ttfamily static Sabre\textbackslash{}\+D\+A\+V\+A\+C\+L\textbackslash{}\+Xml\textbackslash{}\+Request\textbackslash{}\+Principal\+Search\+Property\+Set\+Report\+::xml\+Deserialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The deserialize method is called during xml parsing.
+
+This method is called statically, this is because in theory this method may be used as a type of constructor, or factory method.
+
+Often you want to return an instance of the current class, but you are free to return other data as well.
+
+You are responsible for advancing the reader to the next element. Not doing anything will result in a never-\/ending loop.
+
+If you just want to skip parsing for this element altogether, you can just call \$reader-\/$>$next();
+
+\$reader-\/$>$parse\+Inner\+Tree() will parse the entire sub-\/tree, and advance to the next element.
+
+
+\begin{DoxyParams}[1]{Parameter}
+Reader & {\em \$reader} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+mixed 
+\end{DoxyReturn}
+
+
+Implementiert \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_deserializable_a19e0eca545b9a0d93f7d6b69085ade30}{Sabre\textbackslash{}\+Xml\textbackslash{}\+Xml\+Deserializable}}.
+
+
+
+Definiert in Zeile 44 der Datei Principal\+Search\+Property\+Set\+Report.\+php.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+Upload/framework/lib/webdav/\+Sabre\+D\+A\+V/vendor/sabre/dav/lib/\+D\+A\+V\+A\+C\+L/\+Xml/\+Request/Principal\+Search\+Property\+Set\+Report.\+php\end{DoxyCompactItemize}
