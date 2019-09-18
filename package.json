@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "doxygen": "^0.3.2"
+  }
+}
