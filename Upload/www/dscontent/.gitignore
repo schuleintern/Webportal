@@ -1,0 +1,7 @@
+# Keine Dateien aus diesem Verzeichnis in git ablegen
+*
+
+# Unterordner ausschließen
+*/
+
+!.gitignore

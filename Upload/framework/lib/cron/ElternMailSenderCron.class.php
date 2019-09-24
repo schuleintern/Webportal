@@ -43,7 +43,7 @@ class ElternMailSenderCron extends AbstractCron {
 			        
 			        $subject = $mails[$i]->getSubject();
 			        
-			        if($mails[$i]->getUser() != null) $sender = $mails[$i]->getSender()->getDisplayName();
+			        if($mails[$i]->getSender() != null) $sender = $mails[$i]->getSender()->getDisplayName();
 			        else $sender = null;
 			        
 			        $attachmentsHTML = "";
