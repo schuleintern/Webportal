@@ -73,15 +73,6 @@ class FachschaftRecipient extends MessageRecipient {
 		            $allLehrer[] = $lehrer;
 		        }
 		    }
-		    $teachers = $fach->getFachLehrer();
-		    
-		    for($i = 0; $i < sizeof($teachers); $i++) {
-		        
-		        $lehrer = $teachers[$i];
-		        if($lehrer != null) {
-		            $allLehrer[] = $lehrer;
-		        }
-		    }
 		    
 		    return $allLehrer;
 		    
