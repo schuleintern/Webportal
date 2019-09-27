@@ -295,7 +295,7 @@ function schuleinternautoloader($class) {
 	
 	
 	if($class == "mPDF") {
-		include_once '../framework/lib/html2pdf/mpdf.php';
+		include_once '../framework/lib/mpdf/mpdf.php';
 		return;
 	}
 	if($class == 'TCPDF') {

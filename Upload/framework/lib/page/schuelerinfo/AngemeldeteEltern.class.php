@@ -83,7 +83,7 @@ class AngemeldeteEltern extends AbstractPage {
 			
 		}
 		
-		$mpdf->Output("ElternMail Alle Teilnehmer.pdf",'D');
+		$mpdf->Output("ElternMailAlleTeilnehmer.pdf",'I');
 		exit(0);
 		
 	}
@@ -133,7 +133,7 @@ class AngemeldeteEltern extends AbstractPage {
 			
 		}
 		
-		$mpdf->Output("ElternMail Alle Teilnehmer.pdf",'D');
+		$mpdf->Output("ElternMailAlleTeilnehmer.pdf",'I');
 		exit(0);
 		
 	}
