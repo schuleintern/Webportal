@@ -495,6 +495,16 @@ class MessageCompose extends AbstractPage {
 				
 				$isReply = false;
 				
+
+				if($_REQUEST['forwardMessage'] != "") {
+							
+						$forwardMessage = Message::getByID(intval($_REQUEST['forwardMessage']));
+						if($forwardMessage!= null) {
+								if($forwardMessage->getUserID() == DB::getSession()->getUserID()) {
+									$messageSender->setForwardMessage($forwardMessage);
+								}
+						}
+				}
 				
 				if($_REQUEST['replyMessage'] != "") {
 				    
@@ -537,8 +547,27 @@ class MessageCompose extends AbstractPage {
 	private function showForm() {
 	
 		$isReply = false;
+		$isForward = false;
 		
-		
+		if($_REQUEST['forwardMessage'] != "") {
+		    
+			$forwardMessage = Message::getByID(intval($_REQUEST['forwardMessage']));
+			if($forwardMessage!= null) {
+					if($forwardMessage->getUserID() == DB::getSession()->getUserID()) {
+						//print_r($forwardMessage->getSender()->getDisplayNameWithFunction()); exit;	
+						// --> Erlaubt
+							$isForward = true;
+							
+							$replyJSONData = [
+									'key' => 'U:' . $forwardMessage->getSender()->getUserID(),
+									'name' => $forwardMessage->getSender()->getDisplayNameWithFunction()
+							];
+							
+							$replyJSONData = json_encode($replyJSONData);
+					}
+			}
+	}
+
 		if($_REQUEST['replyMessage'] != "") {
 		    
 		    $replyMessage = Message::getByID(intval($_REQUEST['replyMessage']));

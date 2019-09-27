@@ -148,7 +148,23 @@
 
               <div class="mailbox-read-message">
                 {$message->getText()}
-                
+								
+								
+								<if($message->isForward())><then>
+									<div class="callout">
+									<b>Nachricht von:</b><br />
+										
+									<if($forwardMessage->getSender() != null)><then>
+										Absender: {$forwardMessage->getSender()->getDisplayName()}<br />
+									 </then><else>
+										 Absender: <i>Unbekannt</i><br />
+									 </else></if>
+					Betreff: {$forwardMessage->getSubject()}<br /><br />
+					{$forwardMessage->getText()}</div>
+									</then></if>
+
+
+
                 <if($message->isReply())><then>
                 <div class="callout">
                 <b>Antwort auf:</b><br />
@@ -173,6 +189,9 @@
             <!-- /.box-footer -->
             <div class="box-footer">
               <div class="pull-right">
+
+								
+
               	<if($message->allowAnswer())><then>
              	
                 	<button type="submit" class="btn btn-default" name="action" value="reply"><i class="fa fa-reply"></i> Antworten</button>
@@ -184,7 +203,10 @@
                 <else>
                 	<button type="button" class="btn btn-default" disabled="disabled"><i class="fa fa-reply"></i> Antworten</button><br />
               		<small>Der Absender erlaubt nicht, dass Sie auf diese Nachricht antworten. (v.a. bei Rundmails)</small>
-                </else></if>
+								</else></if>
+								
+								<button type="submit" class="btn btn-default" name="action" value="forward"><i class="fa fa-forward"></i> Weiterleiten</button>
+								
               </div>
               		<button type="submit" class="btn btn-default" name="action" value="deleteMessage"><i class="fa fa-trash-o"></i> Löschen</button>
               		<a href="index.php?page=MessageRead&messageID={$message->getID()}&action=print" class="btn btn-default"><i class="fa fa-file-pdf-o"></i> Drucken (PDF)</a>
