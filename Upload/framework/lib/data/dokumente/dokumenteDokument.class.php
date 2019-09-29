@@ -52,7 +52,7 @@ class dokumenteDokument {
 		header('Expires: 0');
 		header('Cache-Control: must-revalidate');
 		header('Pragma: public');
-		header('Content-Length: ' . filesize("dokumente/" . $this->getID() . ".dat"));
+		header('Content-Length: ' . filesize("../data/dokumente/" . $this->getID() . ".dat"));
 
 		readfile("../data/dokumente/" . $this->getID() . ".dat");
 
