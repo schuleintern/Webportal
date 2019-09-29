@@ -240,6 +240,9 @@ class UpdateExterneKalender extends AbstractCron {
     			" . implode(",",$inserts));
     		        
     		    }
+
+
+                $this->result .= "Kalender " . $kalender['kalenderName'] . " importiert. (" . sizeof($inserts) . " Termine.)\r\n";
     		    
     		    
     		}
