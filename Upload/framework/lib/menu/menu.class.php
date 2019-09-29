@@ -628,26 +628,7 @@ class menu {
     }
     
        
-    
-    
-    if(DB::isLoggedIn() && $this->isActive("editPersons") && in_array("Webportal_Fotoseite",DB::getSession()->getGroupNames())) {
-        $pages = array("editPersons", "editPicture", "editPrintSettings","editSections","exportPictures","printPage");
-        
-        $html .= '<li class="' . ((in_array($_REQUEST['page'],$pages)) ? ("active ") : ("")) . 'treeview">
-              <a href="#">
-                <i class="fa fa-image"></i> <span>Lehrer Fotoseite</span> <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">';
-        $html .= '<li' . (($_REQUEST['page'] == "editPersons" || $_REQUEST['page'] == "editPicture")?(" class=\"active\""):("")) . '><a href="index.php?page=editPersons"><i class="fa fa-users"></i> Personen bearbeiten</a></li>';
-        $html .= '<li' . (($_REQUEST['page'] == "editSections")?(" class=\"active\""):("")) . '><a href="index.php?page=editSections"><i class="fa fa-puzzle-piece"></i> Sektionen bearbeiten</a></li>';
-        $html .= '<li' . (($_REQUEST['page'] == "editPrintSettings")?(" class=\"active\""):("")) . '><a href="index.php?page=editPrintSettings"><i class="fa fa-cogs"></i> Druckeinstellungen</a></li>';
-        $html .= '<li' . (($_REQUEST['page'] == "exportPictures")?(" class=\"active\""):("")) . '><a href="index.php?page=exportPictures"><i class="fa fa-file-archive-o"></i> Bilder als ZIP exportieren</a></li>';
-        $html .= '<li' . (($_REQUEST['page'] == "printPage")?(" class=\"active\""):("")) . '><a href="index.php?page=printPage"><i class="fa fa-print"></i> Seite drucken</a></li>';
-        
-        
-        $html .= '</ul>
-        </li>';
-    }
+
     
     
     if(DB::isLoggedIn() && $this->isActive("AllInkMail") && DB::getSession()->isTeacher()) {

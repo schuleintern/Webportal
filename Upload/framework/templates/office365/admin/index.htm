@@ -17,6 +17,7 @@
 			</div>
 		</then>
 		<else>
+			<if($canConnectToOffice365)><then>
 			<hr>
 			Bisher ist keine Verbindung mit Ihrem Office 365 Tenant herstellt worden.
 			<br />
@@ -27,6 +28,8 @@
 				<input type="text" name="tenant" placeholder="testschule.onmicrosoft.com" class="form-control">
 				<button type="submit" class="form-control"><i class="fa fa-plug"></i> Mit Office 365 verbinden</button>
 			</form>
+			</then>
+			<else>Keine Verbindung mit Office 365 möglich. Geben Sie bitte zuerst die Daten Ihrer APP in den Einstellungen an.</else></if>
 		</else></if>
 	</div>
 </div>
