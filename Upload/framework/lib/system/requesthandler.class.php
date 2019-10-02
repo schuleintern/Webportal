@@ -160,15 +160,6 @@ class requesthandler {
     'register' => [
       'elternregister',
     ],
-    'rsufotoseite' => [
-      'editPersons',
-      'editPicture',
-      'editPrintSettings',
-      'editSections',
-      'exportPictures',
-      'getPicture',
-      'printPage',
-    ],
     'stundenplan' => [
         'stundenplan'
 

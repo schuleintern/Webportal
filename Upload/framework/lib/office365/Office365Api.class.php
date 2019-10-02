@@ -10,7 +10,7 @@ class Office365Api {
         $currentBearerLifeTime = DB::getSettings()->getValue('office365-bearer-lifetime');
 
         if($currentBearerLifeTime > time()) return $currentBearer;
-
+        https://login.microsoftonline.com/' . $tenant . '/oauth2/v2.0/token
 
         // Neuen Bearer anfordern
 
@@ -28,7 +28,12 @@ class Office365Api {
         curl_setopt($process, CURLOPT_POST, true);
 
         $postData = http_build_query(
-            DB::getGlobalSettings()->office365AppCredentials
+            [
+                'client_id' => DB::getSettings()->getValue('office365-app-id'),
+                'scope' => 'https://graph.microsoft.com/.default',
+                'client_secret' => DB::getSettings()->getValue('office365-app-secret'),
+                'grant_type' => 'client_credentials'
+            ]
         );
 
         curl_setopt($process, CURLOPT_POSTFIELDS, $postData);
