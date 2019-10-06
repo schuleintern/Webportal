@@ -44,6 +44,15 @@ class dokumenteDokument {
 	}
 	
 	public function sendFile() {
+
+		$filename = "../data/dokumente/" . $this->getID() . ".dat";
+		$filesize = filesize($filename);
+
+		if (!file_exists($filename) || $filesize <= 0) {
+			// TODO: error msg at user interface ?
+			return false;
+		}
+		
 		DB::getDB()->query("UPDATE dokumente_dateien SET dateiDownloads=dateiDownloads+1 WHERE dateiID='" . $this->getID() . "'");
 		
 		header('Content-Description: Dateidownload');
@@ -52,9 +61,9 @@ class dokumenteDokument {
 		header('Expires: 0');
 		header('Cache-Control: must-revalidate');
 		header('Pragma: public');
-		header('Content-Length: ' . filesize("../data/dokumente/" . $this->getID() . ".dat"));
+		header('Content-Length: ' . $filesize);
 
-		readfile("../data/dokumente/" . $this->getID() . ".dat");
+		readfile($filename);
 
 		exit(0);
 	}
