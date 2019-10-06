@@ -70,8 +70,14 @@ class UpdateExterneKalender extends AbstractCron {
     									else {
     										$event['isWholeDay'] = 0;
     										// Zeit suchen
-    										$time = substr($val, strpos($val,'T')+1);
-    										$time = (substr($time, 0, 2)+$addHour) . ":" . substr($time, 2, 2);
+												$time = substr($val, strpos($val,'T')+1);
+												// Bugfix Issue#38
+												// Eingaben mit dem Format x:xx bekommen eine 0 vorangestellt
+												$hour = (substr($time, 0, 2) + $addHour);
+												if (strlen($hour) < 2) {
+													$hour = "0".$hour;
+												}
+    										$time = $hour . ":" . substr($time, 2, 2);
     										$event['startTime'] = $time;
     									}
     									break;
