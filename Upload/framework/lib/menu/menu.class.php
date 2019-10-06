@@ -931,9 +931,12 @@ class menu {
   
   private function unterricht() {
 
+      $html = "";
 
 
-
+      if($this->isActive("lerntutoren") && (DB::getSession()->isPupil() || DB::getSession()->isEltern() || DB::getSession()->isTeacher())) {
+          $html .= $this->getMenuItem("lerntutoren", "Lerntutoren", "fa fa-graduation-cap");
+      }
 
     if((($this->isActive("mebis") || $this->isActive("database"))&& (DB::getSession()->isTeacher() || DB::getSession()->isPupil()))) {
       $html .= $this->startDropDown(['mebis','database'], "Unterrichtstools", "fa fa-cubes");
@@ -948,7 +951,7 @@ class menu {
 
      $html .= $this->endDropDown();
     }
-    
+
     if($html != "") {
         
         $this->html .= $this->getTrenner('<i class="fa fa-graduation-cap"></i> Unterricht</i>');

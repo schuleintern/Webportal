@@ -181,6 +181,9 @@ class requesthandler {
       'userprofileuserimage',
         'TwoFactor'
     ],
+      'lerntutoren' => [
+          'lerntutoren'
+      ],
     'vplan' => [
       'updatevplan',
       'vplan'
