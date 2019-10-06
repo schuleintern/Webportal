@@ -34,19 +34,9 @@ class AngemeldeteEltern extends AbstractPage {
 		while($klasse = DB::getDB()->fetch_array($klassenData)) {
 			$klassen[] = $klasse['schuelerKlasse'];
 		}
-		
-		$mpdf=new mPDF('utf-8', 'A4-P');
-		
-		$mpdf->ignore_invalid_utf8 = true;
-		
-		
-		eval("\$header = \"" . DB::getTPL()->get("elternmail/elternmailteilnehmer/printAllTeilnehmer/index") . "\";");
-		
-		$header = ($header);
-		
-		$mpdf->WriteHTML($header,1);
-		
-		
+
+		$print = new PrintNormalPageA4WithHeader("Angemeldete Eltern");
+
 		
 		for($i = 0; $i < sizeof($klassen); $i++) {
 			$anzahlSchueler = DB::getDB()->query_first("SELECT COUNT(schuelerAsvID) FROM schueler WHERE schuelerKlasse='" . $klassen[$i] . "'");
@@ -76,14 +66,17 @@ class AngemeldeteEltern extends AbstractPage {
 			eval("\$klasse = \"" . DB::getTPL()->get("elternmail/elternmailteilnehmer/printAllTeilnehmer/bit") . "\";");
 			
 			$klasse = ($klasse);
+
+			$print->setHTMLContent($klasse);
 			
-			$mpdf->WriteHTML($klasse,2);
+			// $mpdf->WriteHTML($klasse,2);
 			
-			if($i != (sizeof($klassen)-1)) $mpdf->AddPage();
+			// if($i != (sizeof($klassen)-1)) $mpdf->AddPage();
 			
 		}
-		
-		$mpdf->Output("ElternMail Alle Teilnehmer.pdf",'D');
+
+		$print->send();
+
 		exit(0);
 		
 	}
@@ -95,21 +88,11 @@ class AngemeldeteEltern extends AbstractPage {
 		while($klasse = DB::getDB()->fetch_array($klassenData)) {
 			$klassen[] = $klasse['schuelerKlasse'];
 		}
-		
-		$mpdf=new mPDF('utf-8', 'A4-P');
-		
-		$mpdf->ignore_invalid_utf8 = true;
-		
-		
-		eval("\$header = \"" . DB::getTPL()->get("elternmail/elternmailteilnehmer/printAllNichtTeilnehmer/index") . "\";");
-		
-		$header = ($header);
-		
-		$mpdf->WriteHTML($header,1);
-		
-		
-		
-		for($i = 0; $i < sizeof($klassen); $i++) {
+
+        $print = new PrintNormalPageA4WithHeader("Nicht angemeldete Eltern");
+
+
+        for($i = 0; $i < sizeof($klassen); $i++) {
 			
 			$angemeldetData = "";
 			
@@ -127,14 +110,12 @@ class AngemeldeteEltern extends AbstractPage {
 			
 			$klasse = ($klasse);
 			
-			$mpdf->WriteHTML($klasse,2);
-			
-			if($i != (sizeof($klassen)-1)) $mpdf->AddPage();
+			$print->setHTMLContent($klasse);
 			
 		}
 		
-		$mpdf->Output("ElternMail Alle Teilnehmer.pdf",'D');
-		exit(0);
+        $print->send();
+        exit(0);
 		
 	}
 	
