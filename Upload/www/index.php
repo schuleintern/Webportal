@@ -37,8 +37,12 @@ include("../framework/lib/system/errorhandler.php");
 
 set_error_handler('schuleinternerrorhandler',E_ALL);
 
-if($_SERVER['SERVER_PORT'] != 443 && $_REQUEST['page'] != "updatevplan" && $_REQUEST['page'] != "digitalSignage" && $_SERVER['REMOTE_ADDR'] != "127.0.0.1" && $_SERVER['REMOTE_ADDR'] != "::1" && !DB::isDebug()) {			// Wir wollen SSL erzwingen!
-  header("Location: " . DB::getGlobalSettings()->urlToIndexPHP);
+if($_SERVER['SERVER_PORT'] != 443 && $_REQUEST['page'] != "updatevplan" && $_REQUEST['page'] != "digitalSignage" && !DB::isDebug()) {
+    if(isset($_REQUEST['ssl']) && $_REQUEST['ssl'] == 1) {
+        new errorPage('Der Zugriff auf das Portal ist nur über SSL möglich. <br /><br ><br ><br><br><pre>Im Debug Modus ist auch ein Zugriff ohne SSL möglich.</pre>');
+        exit();
+    }
+  header("Location: " . DB::getGlobalSettings()->urlToIndexPHP . "?ssl=1");
 }
 
 new requesthandler((isset($_REQUEST['page']) && $_REQUEST['page'] != "") ? $_REQUEST['page'] : 'index');
