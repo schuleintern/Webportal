@@ -25,9 +25,11 @@ class Update extends AbstractPage {
       $toVersion = $updateInfo['updateToVersion'];
 
       // Updates durchführen
+      $this->performUpdate($fromVersion,$toVersion);
 
       // Abschluss
       unlink("../data/update.json");
+
 
       new infoPage("Update durchgeführt. Portal ist wieder in Betrieb.", "index.php");
   }
@@ -36,6 +38,10 @@ class Update extends AbstractPage {
 
 
       return true;
+  }
+
+  private function from100to101() {
+
   }
 
   public static function getSettingsDescription() {

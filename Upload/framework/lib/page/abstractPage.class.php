@@ -55,20 +55,6 @@ abstract class AbstractPage {
 			$this->title = $title;
 			$this->sitename = $sitename;
 			
-			if (isset ( $_GET ['accessFromApp'] )) {
-				if (in_array ( $_GET ['accessFromApp'], array (
-						'ANDROIDAPP',
-						'IOSAPP',
-						'WINDOWSPHONEAPP' 
-				) )) {
-					if (! isset ( $_COOKIE ['schuleinterndevicetype'] )) {
-						setcookie ( "schuleinterndevicetype", $_GET ['accessFromApp'] );
-						header ( "Location: index.php" );
-						exit ( 0 );
-					}
-				}
-			}
-			
 			if (isset ( $_COOKIE ['schuleinternsession'] )) {
 				
 				DB::initSession ( $_COOKIE ['schuleinternsession'] );
@@ -93,9 +79,9 @@ abstract class AbstractPage {
 			$needTwoFactor = false;
 			
 			if(DB::isLoggedIn() && TwoFactor::is2FAActive() && TwoFactor::enforcedForUser(DB::getSession()->getUser())) {
-			    $needTwoFactor = true;
-			}
-			
+                $needTwoFactor = true;
+            }
+
 			$pagesWithoutTwoFactor = [
 			    'login',
 			    'logout',
