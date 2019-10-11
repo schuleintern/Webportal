@@ -135,7 +135,7 @@
       	
         <p class="login-box-msg">Bitte anmelden, um <expression>DB::getGlobalSettings()->siteNameHTMLDisplay</expression> nutzen zu können.</p>
           
-        
+        <p><expression>DB::getSettings()->getValue('login-loginmessage')</expression></p>
            
         <form id="loginform">
           <input type="hidden" name="redirectPage" value="$redirectPage" />
