@@ -322,8 +322,7 @@ class TagebuchPDFCreator {
 	    }
 	    
 	    $pdf->send();
-	    exit(0);
-	    
+
 	    $upload = FileUpload::uploadFromTCPdf('Klassentagebuch - Klasse - ' . $this->klasse . " - von " . $this->startDate . " bis " . $this->endDate. '.pdf', $pdf);
 	    
 	    return $upload['uploadobject'];

@@ -11,9 +11,12 @@ class CreateTagebuchPDFs extends AbstractCron {
 	    for($i = 0; $i < 4; $i++) {
 	        if(!$this->createOnePDF()) break;
 	    }
+	    echo("OK");
 	}
 	
 	private function createOnePDF() {
+
+	    echo("OK");
 	
 	    $missingPDF = DB::getDB()->query_first("SELECT * FROM klassentagebuch_pdf WHERE pdfUploadID=0 LIMIT 1");
 	    
@@ -39,8 +42,8 @@ class CreateTagebuchPDFs extends AbstractCron {
 	            DB::getDB()->query("UPDATE klassentagebuch_pdf SET pdfUploadID='" . $upload->getID() . "'
                 WHERE
                     pdfKlasse = '" . DB::getDB()->escapeString($missingPDF['pdfKlasse']) . "' AND
-pdfJahr = '" . DB::getDB()->escapeString($missingPDF['pdfJahr']) . "' AND
-pdfMonat = '" . DB::getDB()->escapeString($missingPDF['pdfMonat']) . "'
+                    pdfJahr = '" . DB::getDB()->escapeString($missingPDF['pdfJahr']) . "' AND
+                    pdfMonat = '" . DB::getDB()->escapeString($missingPDF['pdfMonat']) . "'
                 ");
 	        }
 	        
@@ -58,11 +61,6 @@ pdfMonat = '" . DB::getDB()->escapeString($missingPDF['pdfMonat']) . "'
 		return "";
 	}
 	
-	/**
-	 *
-	 *
-	 * @return ['success' => 'true/false', 'resultText' => 'Text, der in der Administration angezeigt wird.']
-	 */
 	public function getCronResult() {
 	    return ['success' => true, 'resultText' => implode(", ", $this->created)];
 	}
