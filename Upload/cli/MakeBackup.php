@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 
 /**
  *  
@@ -8,7 +9,7 @@
  * 
  * @author Christian Marienfeld <post@chrisland.de>
  * @copyright 2019
- * @version 1.0
+ * @version 1.1
  * 
  * How To Use:
  * 
@@ -161,7 +162,7 @@ class Backup {
         $this->fileZip->addFromString("BackupInfo.json", json_encode($this->info) );
         $this->fileZip->close();
 
-        @unlink('../data/backup/' . $this->filename . "_Database.sql");
+        $this->deleteDirectory('../data/backup/sql-dump');
 
         // Display Messages
         foreach($this->debug as $value) {
@@ -202,26 +203,126 @@ class Backup {
 
         $this->setDebug('Erstelle Backup der Datenbank nach backup/' . $this->filename . "_Database.sql");
 
-        try {
-            $dump = new \Ifsnop\Mysqldump\Mysqldump('mysql:host=' . $this->settings->dbSettigns['host']. ';dbname=' . $this->settings->dbSettigns['database']. '', $this->settings->dbSettigns['user'], $this->settings->dbSettigns['password']);
-            $dump->start('../data/backup/' . $this->filename . "_Database.sql");
-        } catch (\Exception $e) {
-            $this->setDebug('Fehler bei der Sicherung der Datenbank: ' . $e->getMessage());
-            $this->exitAndEnd();
-        }
-        $this->setDebug("Erstellen des Datenbankbackups fertig.");
+        $list = array();
 
-        if ( !$this->addFileToZip(
-            '../data/backup/' . $this->filename . "_Database.sql",
-            "Database.sql"
-            ) ) {
-            $this->setDebug("ERROR: Datenbankbackup konnte nicht zur ZIP Datei hinzugefügt werden.");
+        $mysqli = new mysqli($this->settings->dbSettigns['host'], $this->settings->dbSettigns['user'], $this->settings->dbSettigns['password'], $this->settings->dbSettigns['database']);
+        if ($mysqli->connect_errno) {
+            echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
             $this->exitAndEnd();
         }
+
+        // $result = $mysqli->query("show tables");
+        // while($table = mysqli_fetch_array($result)) {
+        //     array_push($list, $table[0]);
+        // }
+
+
+        $result = $mysqli->query("SHOW TABLE STATUS");
+        
+        $tables = array();
+        while($row = mysqli_fetch_array($result)) {
+            /* We return the size in Kilobytes */
+            $total_size = ($row[ "Data_length" ] + 
+                        $row[ "Index_length" ]) / 1024;
+            $tables[$row['Name']] = sprintf("%.2f", $total_size);
+        }
+        
+        // SQL Dump größe auf ca 4Mb halten
+        $temp = 0;
+        $maxKb = 4000;
+        $nr = 0;
+        $arr = array();
+        foreach($tables as $key => $table) {
+
+            if ($key == 'messages_messages') {
+                continue;
+            }
+
+            $temp += $table;
+
+            if ($temp > $maxKb) {
+                $nr++;
+                $temp = 0;
+            }
+            if ( !is_array( $arr[$nr] ) ) {
+                $arr[$nr] = array();
+            }
+            array_push($arr[$nr], $key);
+
+            // if ($key == 'messages_messages') {
+            //     $nr++;
+            // }
+
+        }
+
+        // echo "<pre>";
+        // print_r($arr);
+        // echo "</pre>";
+        // exit;
+
+        mkdir('../data/backup/sql-dump/');
+
+        foreach($arr as $key => $table) {
+
+            if ( strpos((string)$table, 'messages_') ) {
+                continue;
+            }
+            $file = '../data/backup/sql-dump/dump-'.$key.".sql";
+          
+            try {
+                $dump = new \Ifsnop\Mysqldump\Mysqldump('mysql:host=' . $this->settings->dbSettigns['host']. ';dbname=' . $this->settings->dbSettigns['database']. '',
+                    $this->settings->dbSettigns['user'],
+                    $this->settings->dbSettigns['password'],
+                    array(
+                        'compress' => 'none', //\Ifsnop\Mysqldump\Mysqldump::GZIP,
+                        'add-drop-table' => true,
+                        //'no-data' => true,
+                        'include-tables' => $table
+                    )
+                );
+    
+                $dump->start($file);
+
+            } catch (\Exception $e) {
+                $this->setDebug('Fehler bei der Sicherung der Datenbank: ' . $e->getMessage());
+                $this->exitAndEnd();
+            }
+
+            if ( !$this->addFileToZip(
+                $file,
+                "sql-dump/dump_".$key.".sql"
+                ) ) {
+                $this->setDebug("ERROR: Datenbankbackup konnte nicht zur ZIP Datei hinzugefügt werden.");
+                $this->exitAndEnd();
+            }
+
+        }
+        
+        $this->setDebug("Erstellen des Datenbankbackups fertig.");
 
         return true;
     } 
 
+    public function deleteDirectory($dirPath) {
+
+        if (is_dir($dirPath)) {
+            $objects = scandir($dirPath);
+            foreach ($objects as $object) {
+                if ($object != "." && $object !="..") {
+                    if (filetype($dirPath . '/' . $object) == "dir") {
+                    $this->deleteDirectory($dirPath . '/' . $object);
+                    } else {
+                    unlink($dirPath . '/' . $object);
+                    }
+                }
+            }
+            reset($objects);
+            rmdir($dirPath);
+            return true;
+        }
+        
+    }
+        
     private function folderDump($backupFolders) {
 
         $this->setDebug("Sichere Dateien...");
