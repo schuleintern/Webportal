@@ -6,7 +6,14 @@
     </div>
     <div class="box-body">
 
-        Folgende Lerntutoren stehen zur Verfügung. Falls Sie oder du Interesse an einer Zusammenarbeit haben, dann können Sie oder du den Lerntutor direkt kontaktieren.
+        <if($istSelbstTutor)><then>
+
+            <a href="index.php?page=lerntutoren&mode=tutoransicht" class="btn btn-block btn-default"><i class="fa fa-table"></i> Zur Lerntutoransicht (Buchungen)</a>
+
+        </then></if>
+
+        Folgende Lerntutoren stehen zur Verfügung. Falls Sie oder du Interesse an einer Zusammenarbeit haben, dann können Sie oder du den Lerntutor direkt kontaktieren.<br/>
+        Bitte beachten: Die Projektleitung ist in CC über die Nachrichten zu informieren.<br /><br />
 
         <table class="table table-striped">
             <tr>
@@ -15,30 +22,7 @@
                 <th>Jahrgangsstufe</th>
                 <th>Kontaktieren</th>
             </tr>
-            <tr>
-                <td>Daniela, Musterfrau (Klasse 10A)</td>
-                <td>PH</td>
-                <td>7</td>
-                <td><a class="btn btn-primary"><i class="fa fa-paper-plane"></i> Kontaktieren</a></td>
-            </tr>
-            <tr>
-                <td>Daniela, Musterfrau (Klasse 10A)</td>
-                <td>PH</td>
-                <td>8</td>
-                <td><a class="btn btn-primary"><i class="fa fa-paper-plane"></i> Kontaktieren</a></td>
-            </tr>
-            <tr>
-                <td>Max, Mustermann (Klasse 10B)</td>
-                <td>BWR</td>
-                <td>9</td>
-                <td><a class="btn btn-primary"><i class="fa fa-paper-plane"></i> Kontaktieren</a></td>
-            </tr>
-            <tr>
-                <td>Michael, Mustermann (Klasse 10B)</td>
-                <td>D</td>
-                <td>8</td>
-                <td><a class="btn btn-primary"><i class="fa fa-paper-plane"></i> Kontaktieren</a></td>
-            </tr>
+            $slotsHTML
         </table>
 
     </div>
