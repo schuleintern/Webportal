@@ -948,28 +948,54 @@ class MessageCompose extends AbstractPage {
 		
 		
 		if($_REQUEST['recipient'] != "") {
-		    $saveString = $_REQUEST['recipient'];
-		    
-		    $messageHandler = new RecipientHandler("");
-		    $messageHandler->addRecipientFromSaveString($saveString);
-		    
-		    $recipientObject = $messageHandler->getAllRecipients()[0];
-		    
-		    if($recipientObject instanceof UnknownRecipient) {
-		        
-		    }
-		    else {
-		        $presetRecipient = true;
-		        
-		        $presetJsonData = [
-		            'key' => $recipientObject->getSaveString(),
-		            'name' => $recipientObject->getDisplayName()
-		        ];
-		        
-		        $presetJsonData = json_encode($presetJsonData);
-		    }
+            $saveString = $_REQUEST['recipient'];
 
-		}
+            $messageHandler = new RecipientHandler("");
+            $messageHandler->addRecipientFromSaveString($saveString);
+
+            $recipientObject = $messageHandler->getAllRecipients()[0];
+
+            if($recipientObject instanceof UnknownRecipient) {
+
+            }
+            else {
+                $presetRecipient = true;
+
+                $presetJsonData = [
+                    'key' => $recipientObject->getSaveString(),
+                    'name' => $recipientObject->getDisplayName()
+                ];
+
+                $presetJsonData = json_encode($presetJsonData);
+            }
+
+        }
+
+        $presetCCRecipient = false;
+
+        if($_REQUEST['ccrecipient'] != "") {
+            $saveString = $_REQUEST['ccrecipient'];
+
+            $messageHandler = new RecipientHandler("");
+            $messageHandler->addRecipientFromSaveString($saveString);
+
+            $recipientObject = $messageHandler->getAllRecipients()[0];
+
+            if($recipientObject instanceof UnknownRecipient) {
+
+            }
+            else {
+                $presetCCRecipient = true;
+
+                $presetCCJsonData = [
+                    'key' => $recipientObject->getSaveString(),
+                    'name' => $recipientObject->getDisplayName()
+                ];
+
+                $presetCCJsonData = json_encode($presetCCJsonData);
+            }
+
+        }
 		
 		
 		$signature = "";

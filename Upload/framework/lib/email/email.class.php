@@ -89,7 +89,7 @@ class email {
 	 */
 	public static function sendBatchMails() {
 		
-		$mails = DB::getDB()->query("SELECT mailID FROM mail_send WHERE mailSent=0 AND mailCrawler=1 LIMIT 10");
+		$mails = DB::getDB()->query("SELECT mailID FROM mail_send WHERE mailSent=0 AND mailCrawler=1 LIMIT 25");
 		
 		$noError = true;
 		

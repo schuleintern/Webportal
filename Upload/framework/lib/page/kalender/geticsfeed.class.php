@@ -133,8 +133,14 @@ class geticsfeed extends AbstractPage {
               echo("internal error. ICS Feed invalid.");
               exit(0);
           }
+
+          $grades = klasse::getByUnterrichtForTeacher($lehrer->getTeacherObject());
+
+          $myGrades = [];
+
+          for($i = 0; $i < sizeof($grades); $i++) $myGrades[] = $grades[$i]->getKlassenName();
           
-          $myGrades = $currentStundenplan->getAllGradesForTeacher($kuerzel);
+          // $myGrades = $currentStundenplan->getAllGradesForTeacher($kuerzel);
           
           $lnwData = Leistungsnachweis::getByClass($myGrades,$this->startDate,$this->endDate);
           $termine = Klassentermin::getByClass($myGrades,$this->startDate,$this->endDate);

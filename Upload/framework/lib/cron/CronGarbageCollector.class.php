@@ -9,9 +9,16 @@ class CronGarbageCollector extends AbstractCron {
 	}
 
 	public function execute() {
-		DB::getDB()->query("DELETE FROM mail_send WHERE mailSent < (UNIX_TIMESTAMP() - 259200)");
+
+        /**
+         * Alte
+         */
 		DB::getDB()->query("DELETE FROM cron_execution WHERE cronStartTime < (UNIX_TIMESTAMP() - 259200)");
-	}
+
+        // Briefe löschen, die älter als 30 Minuten sind und nicht dauerhaft gespeichert werden sollen.
+        DB::getDB()->query("DELETE FROM schueler_briefe WHERE briefSaveLonger > 0 AND UNIX_TIMESTAMP() > (briefSaveLonger+30*60)");
+
+    }
 	
 	public function getName() {
 		return "Datenbank aufräumen";

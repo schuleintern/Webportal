@@ -18,8 +18,7 @@ class ElternMailSenderCron extends AbstractCron {
 	}
 	
 	public function execute() {		
-		error_reporting(E_ALL);
-		
+
 		if(DB::getGlobalSettings()->schulnummer != "9400") {
 			
 			$mails = Message::getUnsentMailsViaEMail();

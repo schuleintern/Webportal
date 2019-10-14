@@ -27,6 +27,15 @@ class Update extends AbstractPage {
       // Updates durchführen
       $this->performUpdate($fromVersion,$toVersion);
 
+      if($this->performUpdate($fromVersion, $toVersion)){
+          DB::getSettings()->setValue("current-release-id", $updateInfo['updateToReleaseID']);
+          DB::getSettings()->setValue('currentVersion', DB::getVersion());
+      }
+      else {
+          echo("Kein Update möglich.");
+          exit(0);
+      }
+
       // Abschluss
       unlink("../data/update.json");
 

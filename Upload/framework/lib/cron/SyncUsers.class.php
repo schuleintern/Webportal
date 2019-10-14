@@ -15,14 +15,12 @@ class SyncUsers extends AbstractCron {
 	}
 
 	public function execute() {
-		error_reporting(E_ALL);
-
 		if(DB::getGlobalSettings()->schulnummer == "9400") {
 			$this->result = "Kein UserSync in der DEMO Version";
 			return;
 		}
 
-		include_once("userlib.class.php");
+		include_once("../data/config/userlib.class.php");
 
 		$this->userlib = new userlib();
 

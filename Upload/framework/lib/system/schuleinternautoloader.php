@@ -109,6 +109,10 @@ $classes = [
 	    'TerminCollector',
 	    'ICSFeed'
 	],
+    'data/lerntutoren' => [
+        'Lerntutor',
+        'LerntutorSlot'
+    ],
 	'data/user' => [
 		'user',
 		'usergroup'

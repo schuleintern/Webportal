@@ -401,10 +401,15 @@ class FileUpload {
 		
 		
 		$newID = DB::getDB()->insert_id();
-		
+
+		$path = getcwd();
+
 		$saveDir = "/../data/uploads/" . $newID . ".dat";
-		
-		$tcpdf->Output($saveDir, 'F');
+
+        $saveDir = $path . $saveDir;
+
+
+        $tcpdf->Output($saveDir, 'F');
 				
 		$data = DB::getDB()->query_first("SELECT * FROM uploads WHERE uploadID='" . $newID. "'");
 		
