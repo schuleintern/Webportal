@@ -72,6 +72,11 @@ class ausleihe extends AbstractPage {
 
 	public function execute() {
 		
+
+		eval("echo(\"" .DB::getTPL()->get("ausleihe/ausleihe_index_v2") . "\");");
+
+
+		/*
 		if(isset($_REQUEST['objektID'])) {
 			
 			$objekt = DB::getDB()->query_first("SELECT * FROM ausleihe_objekte WHERE isActive=1 AND objektID='" . addslashes($_REQUEST['objektID']) . "'");
@@ -161,6 +166,8 @@ class ausleihe extends AbstractPage {
 		}
 				
 		eval("echo(\"" .DB::getTPL()->get("ausleihe/ausleihe_index") . "\");");
+
+		*/
 	}
 
 	
