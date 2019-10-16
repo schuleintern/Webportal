@@ -650,13 +650,10 @@ class klassenkalender extends AbstractPage {
 
         eval("\$print =\"" . DB::getTPL()->get("klassenkalender/klassenkalender_print") . "\";");
 
-        $print = ($print);
+          $pdf = new PrintNormalPageA4WithHeader("Klassenkalender");
+          $pdf->setHTMLContent($print);
+          $pdf->send();
 
-      $mpdf=new mPDF('utf-8', "A4-P");
-      $mpdf->Bookmark("Klassenkalender");
-      $mpdf->WriteHTML($print);
-
-      $mpdf->Output("Klassenkalender.pdf","D");
         exit(0);
       }
       else {
