@@ -57,7 +57,7 @@ class cronhandler {
 		         * @var AbstractCron $cron
 		         */
 		        $cron = new $cronName();
-		        if($cron->onlyExecuteSeparate()) {
+		        if(true || $cron->onlyExecuteSeparate()) {      // Jeder Cron sollte einzeln immer ausführbar sein.
 		            
 		            
 		            
