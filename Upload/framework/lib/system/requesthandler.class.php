@@ -182,7 +182,7 @@ class requesthandler {
         'TwoFactor'
     ],
       'lerntutoren' => [
-          'lerntutoren'
+          'Lerntutoren'
       ],
     'vplan' => [
       'updatevplan',

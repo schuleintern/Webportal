@@ -934,8 +934,8 @@ class menu {
       $html = "";
 
 
-      if($this->isActive("lerntutoren") && (DB::getSession()->isPupil() || DB::getSession()->isEltern() || DB::getSession()->isTeacher())) {
-          $html .= $this->getMenuItem("lerntutoren", "Lerntutoren", "fa fa-graduation-cap");
+      if($this->isActive("Lerntutoren") && (DB::getSession()->isPupil() || DB::getSession()->isEltern() || DB::getSession()->isTeacher())) {
+          $html .= $this->getMenuItem("Lerntutoren", "Lerntutoren", "fa fa-graduation-cap");
       }
 
     if((($this->isActive("mebis") || $this->isActive("database"))&& (DB::getSession()->isTeacher() || DB::getSession()->isPupil()))) {
