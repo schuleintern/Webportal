@@ -11,13 +11,10 @@ class CreateTagebuchPDFs extends AbstractCron {
 	    for($i = 0; $i < 4; $i++) {
 	        if(!$this->createOnePDF()) break;
 	    }
-	    echo("OK");
 	}
 	
 	private function createOnePDF() {
 
-	    echo("OK");
-	
 	    $missingPDF = DB::getDB()->query_first("SELECT * FROM klassentagebuch_pdf WHERE pdfUploadID=0 LIMIT 1");
 	    
 	    
