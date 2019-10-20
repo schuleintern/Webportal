@@ -207,6 +207,37 @@ class session {
 	    DB::getDB()->query("UPDATE sessions SET sessionStore='" . DB::getDB()->escapeString($this->data['sessionStore']) . "' WHERE sessionID='" . $this->data['sessionID'] . "'");
 	    
 	}
+
+
+	public static function loginAndCreateSession($userID, $keepLogin = false) {
+        DB::getDB()->query("UPDATE users SET userFailedLoginCount=0 WHERE userID='" . $userID . "'");
+
+        $sessionID = substr(base64_encode(random_bytes(1000)), 0, 220);
+
+        $deviceType = "NORMAL";
+
+        DB::getDB()->query("INSERT INTO sessions 
+					(sessionID, sessionUserID, sessionType, sessionIP, sessionLastActivity, sessionBrowser, sessionDevice)
+					values
+						(
+							'" . $sessionID . "',
+							'" . $userID . "',
+							'" . (($_POST['keeplogin'] > 0) ? ("SAVED") : ("NORMAL")) . "',
+							'" . $_SERVER['REMOTE_ADDR'] . "',
+							UNIX_TIMESTAMP(),
+							'" . $_SERVER['HTTP_USER_AGENT'] . "',
+							'" . $deviceType . "'
+						)
+			");
+
+        if(DB::isDebug()) {
+            // Im Debug kein Secure Cookie
+            setcookie("schuleinternsession", $sessionID, (($keepLogin) ? (time() + 365 * 24 * 60 * 60) : (0)), "/", null, false, true);
+        }
+        else {
+            setcookie("schuleinternsession", $sessionID, (($keepLogin) ? (time() + 365 * 24 * 60 * 60) : (0)), "/", null, true, true);
+        }
+    }
 	
 	
 }

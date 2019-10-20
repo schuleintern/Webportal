@@ -16,8 +16,7 @@ class MessageConfirm extends AbstractPage {
 		
 		$mail = Message::getByID(intval($mailID));
 		if($mail != null && $mail->needConfirmation() && $mail->getConfirmationSecret() == $code) {
-		    
-		    
+
 		    if($mail->getUser() != null) {
 		        $userID = $mail->getUser()->getUserID();
 		        
@@ -33,15 +32,15 @@ class MessageConfirm extends AbstractPage {
 		        $redirectURL = "index.php?page=MessageRead&messageID=38032&messageID=" . $mail->getID() . $append;
 		        
 		        
-		        if(!DB::isLoggedIn()) {
-		          $loginKey = md5(rand()) . md5(rand());
-		            
-		           DB::getDB()->query("INSERT INTO singlesignon_loginkeys (loginkeyKey, loginKeyValidUntil, loginkeyUserID) values('" . $loginKey . "','" . (time()+10) . "','" . $userID . "')");
-		           
-		           header("Location: index.php?page=login&loginkey=" . $loginKey . "&redirectURL=" . urlencode($redirectURL));
-		           exit(0);
-		        
+		        if(!DB::isLoggedIn() && $userID > 0) {
+                    session::loginAndCreateSession($userID, false);
+
+                    header("Location: " . $redirectURL);
+                    exit(0);
 		        }
+		        else if(DB::isLoggedIn()) {
+		            new errorPage("Eingeloggt, aber ohne userID");
+                }
 		        else {
 		          header("Location: " . $redirectURL);
 		          exit(0);
