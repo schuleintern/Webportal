@@ -8,12 +8,11 @@
 
         <if($istSelbstTutor)><then>
 
-            <a href="index.php?page=lerntutoren&mode=tutoransicht" class="btn btn-block btn-default"><i class="fa fa-table"></i> Zur Lerntutoransicht (Buchungen)</a>
+            <a href="index.php?page=Lerntutoren&mode=tutoransicht" class="btn btn-block btn-default"><i class="fa fa-table"></i> Zur Lerntutoransicht (Buchungen)</a>
 
         </then></if>
 
-        Folgende Lerntutoren stehen zur Verfügung. Falls Sie oder du Interesse an einer Zusammenarbeit haben, dann können Sie oder du den Lerntutor direkt kontaktieren.<br/>
-        Bitte beachten: Die Projektleitung ist in CC über die Nachrichten zu informieren.<br /><br />
+        <expression>DB::getSettings()->getValue('lerntutoren-disclaimer')</expression>
 
         <table class="table table-striped">
             <tr>

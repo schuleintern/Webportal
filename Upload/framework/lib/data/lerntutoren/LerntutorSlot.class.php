@@ -17,13 +17,14 @@ class LerntutorSlot {
      */
     public function __construct($data) {
         $this->data = $data;
+        $this->schuelerBelegt = schueler::getByAsvID($data['slotSchuelerBelegt']);
     }
 
     /**
      * @return schueler|null
      */
     public function getSchuelerBelegt() {
-        return $this->schueler;
+        return $this->schuelerBelegt;
     }
 
     public function getFach() {
@@ -46,6 +47,19 @@ class LerntutorSlot {
      */
     public function delete() {
         DB::getDB()->query("DELETE FROM lerntutoren_slots WHERE slotID='" . $this->getID() . "'");
+    }
+
+    /**
+     * @param schueler $schueler
+     */
+    public function assignSchueler($schueler) {
+        if($schueler == null) {
+            $schuelerAsvID = null;
+            DB::getDB()->query("UPDATE lerntutoren_slots SET slotSchuelerBelegt=null WHERE slotID='" . $this->getID() . "'");
+        }
+        else {
+            DB::getDB()->query("UPDATE lerntutoren_slots SET slotSchuelerBelegt='" . $schueler->getAsvID() . "' WHERE slotID='" . $this->getID() . "'");
+        }
     }
 
     /**
