@@ -147,7 +147,7 @@ class AdminUpdate extends AbstractPage {
         eval("\$html = \"" . DB::getTPL()->get("administration/update/updatedownloaded") . "\";");
 
 	    // Wartungsmodus, um Frameworkdateien freizugeben.
-        if(!DB::isDebug()) file_put_contents("../data/wartungsmodus/status.dat","heute");
+        file_put_contents("../data/wartungsmodus/status.dat","heute");
 
         return $html;
     }

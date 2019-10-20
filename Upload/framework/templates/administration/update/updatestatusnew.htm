@@ -15,13 +15,8 @@
         Versionsinfo:
         <pre>$newVersionText</pre>
 
-        <form action="$selfURL&doUpdate=1" method="post">
-
-            <label><input type="checkbox" name="confirmUpdate" value="1" class="icheck" required> Update durchführen.</label><br>
-            <label><input type="checkbox" name="confirmBackup" value="1" class="icheck" required> Ich habe ein Backup erstellt. (Siehe <a href="https://doku.schule-intern.de/display/ADMINHANDBUCH/Datensicherung" target="_blank">Handbuch</a>) <br /></label>
-
-            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-download"></i> Update durchführen</button>
-
+        <form action="$selfURL&doUpdate=1" method="post" id="updateForm">
+            <button type="button" class="btn btn-primary btn-block" id="updateSubmitButton"><i class="fa fa-download"></i> Update durchführen</button>
         </form>
 
     </div>
@@ -35,5 +30,15 @@
             increaseArea: '20%' // optional
         });
 
+    });
+
+    $(document).ready(function () {
+        $("#updateForm").click( function() {
+            confirmAction("Soll das Update durchgeführt werden und haben Sie ein Backup durchgeführt?",null, function() {
+                $("#updateSubmitButton").attr("disabled", true);
+                $("#updateSubmitButton").html("<i class=\"fa fa-refresh fa-spin\"></I> Bitte warten ...");
+               $("#updateForm").submit();
+            })
+        });
     });
 </script>

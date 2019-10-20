@@ -9,6 +9,18 @@
         Um Das Update jetzt zu installieren, klicken Sie bitte hier:
 
         <br /><br />
-        <a href="update.php?key={$random}" class="btn btn-primary btn-lg btn-block"><i class="fa fa-upload"></i> Update durchführen<br /><small>KLICKEN SIE NUR EINMAL</small></a>
+
+        <button class="btn btn-primary btn-lg btn-block" id="doUpdateButton"><i class="fa fa-upload"></i> Update durchführen</button>
     </div>
 </div>
+
+
+<script>
+
+
+    $("#doUpdateButton").click(function() {
+        $("#doUpdateButton").attr("disabled", true);
+        $("#doUpdateButton").html("<i class=\"fa fa-refresh fa-spin\"></i> Bitte warten ...");
+        window.location.href='update.php?key={$random}';
+    });
+</script>

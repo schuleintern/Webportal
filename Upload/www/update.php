@@ -46,7 +46,7 @@ if($wartungsmodus != "") {
 
         Update wird durchgeführt...<br /><br />
 
-        Sichere alte Anwendungsdaten..<br />
+        Sichere alte Anwendungsdaten...<br />
         <?php
 
         if(rename("../framework", "../framework_old_" . $updateInfo['updateFromVersion'])) {
