@@ -113,9 +113,10 @@ class AdminUpdate extends AbstractPage {
 
         $url = DB::getGlobalSettings()->updateServer . "/api/release/" . $versionInfo['id'] . "/download";
 
-        mkdir("../data/update");
 
         self::deleteAll("../data/update");
+
+        mkdir("../data/update");
 
         file_put_contents("../data/update/update.zip", fopen($url, 'r'));
 
