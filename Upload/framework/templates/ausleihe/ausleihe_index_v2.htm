@@ -1,26 +1,84 @@
 {$this->header}
 
-	<div class="box">
-		<div class="box-body">
-$content
+<div class="box">
+	<div class="box-body">
 
+		<div id=app></div>
+		<script>
+			var globals = {
+				objects: $objects,
+				myDates: $myDates
+			}
+			
+		</script>
+		<script src=components/ausleihe/dist/js/chunk-vendors.js></script>
+		<script src=components/ausleihe/dist/js/app.js></script>
 
-$userID
-
-<div id=app></div>
-<script>
-  var globals = {
-    userID: 0 // $userID 
-  }
-  
-</script>
-<script src=components/ausleihe/dist/js/chunk-vendors.js></script>
-<script src=components/ausleihe/dist/js/app.js></script>
-
-
-
-
-
-</div></div>
+	</div>
+</div>
 				
 {$this->footer}
+
+<style>
+
+	.calendar {
+	
+	}
+	.calendar ul,li {
+		list-style: none;
+	}
+	
+	
+	.calendar .days {
+		display: flex;
+	
+	}
+	
+	.calendar .days li {
+		flex: 1;
+		/* max-width: 4rem; */
+		
+	}
+	
+	.calendar .dates {
+		display: flex;
+	
+	}
+	
+	.calendar .dates li {
+		flex: 1;
+		min-height: 1rem;
+		/* max-width: 4rem; */
+		background-color: aqua;
+	}
+	
+	.calendar .current-day {
+		color: red;
+	}
+
+	#ausleihe-form {
+		display: none;
+	}
+
+	#ausleihe-form .objects .active {
+		border: 1px solid red;
+	}
+
+	#ausleihe-form  .errorMsg {
+		color: red;
+	}
+
+	#ausleihe-form .disable {
+		color: red;
+	}
+
+	.nextEvents ul li  {
+		display: flex;
+	}
+
+	.nextEvents ul li div {
+		flex:1;
+	}
+
+	</style>
+	

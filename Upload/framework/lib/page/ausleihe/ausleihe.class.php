@@ -72,6 +72,207 @@ class ausleihe extends AbstractPage {
 
 	public function execute() {
 		
+		if(isset($_REQUEST['action'])) {
+
+			if ( $_REQUEST['action'] == 'getWeek') {
+
+				if ( !$_GET['bis'] ) {
+					die('missing data');
+				}
+				if ( !$_GET['von'] ) {
+					die('missing data');
+				}
+
+				$von = date('Y-m-d', $_GET['von']);
+				$bis = date('Y-m-d', $_GET['bis']);
+
+				//echo $von.' '.$bis;
+
+				// $data = DB::getDB()->query("SELECT * FROM ausleihe_ausleihe WHERE
+				// 	ausleiheDatum > '$von'
+				// ");
+
+				//$data = DB::getDB()->query("SELECT * FROM ausleihe_ausleihe");
+
+				//$record = DB::getDB()->fetch_array($data);
+
+
+				$result = array();
+				$data = DB::getDB()->query("SELECT * FROM ausleihe_ausleihe WHERE
+					ausleiheDatum >= '$von' AND ausleiheDatum <= '$bis'
+				");
+
+				while($a = DB::getDB()->fetch_array($data)) {
+					$result[] = array(
+						'ausleiheID' => $a['ausleiheID'],
+						'ausleiheDatum' => $a['ausleiheDatum'],
+						'ausleiheStunde' => $a['ausleiheStunde'],
+						'ausleiheObjektID' => $a['ausleiheObjektID'],
+						'ausleiheObjektIndex' => $a['ausleiheObjektIndex'],
+						'ausleiheKlasse' => $a['ausleiheKlasse'],
+						'ausleiheLehrer' => $a['ausleiheLehrer'],
+						'ausleiheAusleiherUserID' => $a['ausleiheAusleiherUserID']
+					);
+				}	
+
+				// echo "###<pre>";
+				// print_r($result);
+				// echo "</pre>";
+
+				echo json_encode($result, true);
+				exit;
+
+			} // if close
+
+			if ( $_REQUEST['action'] == 'setEvent') {
+
+				if ( !$_POST['objektID'] ) {
+					echo json_encode( array('error'=>true,'errorMsg'=>'Bitte wählen Sie ein Objekt aus.') , true);
+					exit;
+				}
+				if (!$this->displayName
+					|| !$_POST['datum']
+					|| !$_POST['objektID']
+					|| !$_POST['stunde']
+					|| !$_POST['klasse']) {
+					echo json_encode( array('error'=>true,'errorMsg'=>'Missing Data!') , true);
+					exit;
+				}
+
+				if ( !DB::getDB()->query("INSERT INTO ausleihe_ausleihe
+						(
+							ausleiheObjektID,
+							ausleiheObjektIndex,
+							ausleiheDatum,
+							ausleiheLehrer,
+							ausleiheStunde,
+							ausleiheKlasse
+						) 
+						values(
+							'" . $_POST['objektID'] . "',
+							'" . 0 . "',
+							'" . $_POST['datum'] . "',
+							'" . $this->displayName . "',
+							'" . $_POST['stunde'] . "',
+							'" . $_POST['klasse'] . "'
+						)
+				") ) {
+					echo json_encode( array('error'=>true,'errorMsg'=>'Fehler beim Hinzufügen!') , true);
+					exit;
+				}
+
+				echo json_encode( array('insert' => true), true);
+				exit;
+
+
+
+			} // if close
+
+			if ( $_REQUEST['action'] == 'deleteEvent') {
+
+				$ausleiheID = $_GET['ausleiheID'];
+				if (!$ausleiheID) {
+					echo json_encode( array('error'=>true,'errorMsg'=>'Missing Data!') , true);
+					exit;
+				}
+
+				if(strtolower($o['ausleiheLehrer']) == strtolower($this->displayName) || $this->isAdmin) {
+					if ( DB::getDB()->query("DELETE FROM ausleihe_ausleihe WHERE ausleiheID='" . $ausleiheID . "'") ) {
+						echo json_encode( array('delete' => true), true);
+						exit;
+					}
+				} else {
+					echo json_encode( array('error'=>true,'errorMsg'=>'Missing Rights!') , true);
+					exit;
+				}
+
+			} // if close
+
+			if ( $_REQUEST['action'] == 'checkEvent') {
+
+
+				if (!$_POST['datum']
+					|| !$_POST['stunde']) {
+					echo json_encode( array('error'=>true,'errorMsg'=>'Missing Data!') , true);
+					exit;
+				}
+
+				$objects = array();
+				$data = DB::getDB()->query("SELECT ausleiheID, ausleiheObjektID FROM ausleihe_ausleihe
+					WHERE ausleiheDatum = '".$_POST['datum']."'
+					AND ausleiheStunde = ".(int)$_POST['stunde']."
+				");
+
+				$return = array('check' => false, 'objects' =>array());
+				while($a = DB::getDB()->fetch_array($data)) {
+					if ($a['ausleiheID']) {
+						$return['check'] = true;
+						array_push($return['objects'], array(
+							'ausleiheID' => $a['ausleiheID'],
+							'ausleiheObjektID' => $a['ausleiheObjektID']
+						) );
+					}
+				}	
+
+				echo json_encode( $return );
+				exit;
+
+			} // if close
+			
+			
+
+			// Immer Exit wenn GET-action
+			exit;
+		}
+
+		// SQL get Objects
+		$objects = array();
+		$data = DB::getDB()->query("SELECT * FROM ausleihe_objekte WHERE
+			isActive = 1
+		");
+
+		while($a = DB::getDB()->fetch_array($data)) {
+			$objects[] = array(
+				'objektID' => $a['objektID'],
+				'objektName' => $a['objektName'],
+				'objektAnzahl' => $a['objektAnzahl']
+			);
+		}	
+		// echo "<pre>";
+		// print_r($objects);
+		// echo "</pre>";
+		$objects = json_encode($objects, true);
+
+
+		// SQL get user next events
+		$today = date('Y-m-d', time());
+		$myDates = array();
+		$data = DB::getDB()->query("SELECT a.*, b.objektName
+			FROM ausleihe_ausleihe as a 
+			LEFT JOIN ausleihe_objekte as b
+			ON a.ausleiheObjektID = b.objektID
+			WHERE a.ausleiheLehrer = '$this->displayName'
+			AND a.ausleiheDatum >= '$today'
+			ORDER BY a.ausleiheDatum 
+		");
+
+
+
+
+		while($a = DB::getDB()->fetch_array($data)) {
+			$date = new DateTime($a['ausleiheDatum']);
+			$myDates[] = array(
+				'ausleiheID' => $a['ausleiheID'],
+				'ausleiheDatum' => $date->format('d.m.Y D.'),
+				'ausleiheStunde' => $a['ausleiheStunde'],
+				'objektName' => $a['objektName'],
+				'ausleiheKlasse' => $a['ausleiheKlasse']
+			);
+		}
+
+
+		$myDates = json_encode($myDates, true);
+
 
 		eval("echo(\"" .DB::getTPL()->get("ausleihe/ausleihe_index_v2") . "\");");
 
