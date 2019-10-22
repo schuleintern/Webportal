@@ -2,20 +2,17 @@
   <form id="ausleihe-form" v-on:submit.prevent 
     class="form box box-solid box-warning">
 
-    
     <div class="flexbox">
       <h2>Reservieren</h2>
       
-
       <input type="hidden" v-model="form.objektID"  required /> 
       <input type="hidden" class="readonly" v-model="form.objektName" readonly required /> 
       <input type="hidden" class="readonly" v-model="form.stunde" min="1" max="10" required />
-      <input type="hidden" class="readonly" v-model="form.datum" readonly required/>
-
+      <input type="hidden" class="readonly" v-model="form.datum[1]" readonly required/>
 
       <ul>
         <li>
-          <h4>am {{form.datum}} für die {{form.stunde}}. Stunde</h4>
+          <h4>am {{form.datum[0] | moment("Do MMMM YYYY")}} für die {{form.stunde}}. Stunde</h4>
           <h5>{{form.objektName}}</h5>
         </li>
         <li>
@@ -165,7 +162,7 @@ export default {
     },
     submitHandler: function () {
 
-      if (!this.form.datum) { return false; }
+      if (!this.form.datum[1]) { return false; }
       if (!this.form.klasse) { return false; }
       if (!this.form.objektID) {
         this.errorMsg = 'Bitte wählen Sie rechts ein Objekt aus.';
@@ -176,6 +173,8 @@ export default {
       if (this.selectedObject) {
         this.selectedObject.classList.remove('active');
       }
+
+      this.form.datum = this.form.datum[1]; // war nur fuer frontend
 
       EventBus.$emit('form--submit', this.form);
 

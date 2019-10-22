@@ -32,7 +32,7 @@
                 <!-- Apply any bg-* class to to the info-box to color it -->
                 <div class="info-box bg-green"
                   v-bind:key="key" v-for="(date, key) in dates"
-                  v-if="date.ausleiheStunde == hour && date.ausleiheDatum == day">
+                  v-if="date.ausleiheStunde == hour && date.ausleiheDatum == day[1]">
                   <!-- <span class="info-box-icon"><i class="fa fa-calendar"></i></span> -->
                   <!-- <div class="info-box-content"> -->
                     <span class="info-box-text">{{date.ausleiheLehrer}} / {{date.ausleiheKlasse}}</span>
@@ -104,7 +104,8 @@ export default {
       var arr = [];
       var foo = this.$moment(this.firstDayWeek);
       for(let i = 0; i < 7; i++) {
-        arr.push( foo.format('YYYY-MM-D') );
+        //arr.push( foo.format('YYYY-MM-D') );
+        arr.push( [foo, this.$moment(foo).format('YYYY-MM-D')] );
         foo = this.$moment(foo).add(1, 'day')
       }
       return arr;

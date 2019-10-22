@@ -7,8 +7,8 @@
           <td class="table-width-date">Datum</td>
           <td class="table-width-hour">Stunde</td>
           <td class="table-width-object">Objekt</td>
-          <td class="table-width-object"></td>
-          <td>Klasse</td>
+          <td></td>
+          <td class="table-width-object">Klasse</td>
           <td class="table-width-del"></td>
         </tr>
       </thead>
@@ -69,6 +69,7 @@ export default {
       if (!item.ausleiheID) {
         return false;
       }
+      this.comit = false;
       EventBus.$emit('nextevents--delete', {
         ausleiheID: item.ausleiheID
       });
