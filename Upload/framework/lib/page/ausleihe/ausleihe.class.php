@@ -115,8 +115,12 @@ class ausleihe extends AbstractPage {
 				if ($_GET['filter'] != 'false') {
 					$filter = json_decode($_GET['filter']);
 
-					if ( isset($filter->object) && $filter->object ) {
-						$q .= " AND ausleiheObjektID = ".(int)$filter->object;
+					// echo "###<pre>";
+					// print_r($filter);
+					// echo "</pre>";
+
+					if ( isset($filter->object) && isset($filter->object->objektID) && $filter->object->objektID ) {
+						$q .= " AND ausleiheObjektID = ".(int)$filter->object->objektID;
 					}
 			
 				}
@@ -331,6 +335,7 @@ class ausleihe extends AbstractPage {
 
 		// SQL get Objects
 		$objects = array();
+		$objectsEasy = array();
 		$data = DB::getDB()->query("SELECT * FROM ausleihe_objekte WHERE
 			isActive = 1 ORDER BY sortOrder
 		");
@@ -368,11 +373,20 @@ class ausleihe extends AbstractPage {
 			}
 
 			
+			$arrEasy = array(
+				'objektID' => $a['objektID'],
+				'objektName' => $a['objektName'],
+				'objektAnzahl' => $a['objektAnzahl'],
+				'sumItems' => $a['sumItems']
+			);
+			$objectsEasy[] = $arrEasy;
+			
 		}	
 		// echo "<pre>";
 		// print_r($objects);
 		// echo "</pre>";
 		$objects = json_encode($objects, true);
+		$objectsEasy = json_encode($objectsEasy, true);
 
 		/*
 		// SQL get user next events

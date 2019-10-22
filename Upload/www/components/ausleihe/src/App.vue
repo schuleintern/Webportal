@@ -13,7 +13,7 @@
         <ul class="dropdown-menu" role="menu">
           <li @click="setFilterHandler(false, $event)">Alle</li>
           <li class="divider"></li>
-          <li v-bind:key="index" v-for="(item, index) in objects"
+          <li v-bind:key="index" v-for="(item, index) in objectsEasy"
             @click="setFilterHandler(item, $event)">
             {{item.objektName}}
           </li>
@@ -42,7 +42,7 @@ import NextEvents from './components/NextEvents.vue'
 
 const axios = require('axios').default;
 
-axios.defaults.headers.common['x-authorization'] = '112233' // for all requests
+//axios.defaults.headers.common['x-authorization'] = '112233' // for all requests
 
 export default {
   name: 'app',
@@ -59,7 +59,7 @@ export default {
       loading: false,
       myDates: [],
       disableObjects: [],
-      objects: globals.objects,
+      objectsEasy: globals.objectsEasy,
 
       showFirstDayWeek: false,
       showLastDayWeek: false,
@@ -204,7 +204,7 @@ export default {
 
   
       if (object.objektID) {
-        this.selectedFilter = {'object': object.objektID };
+        this.selectedFilter = {'object': object };
       } else {
         this.selectedFilter = false;
       }
