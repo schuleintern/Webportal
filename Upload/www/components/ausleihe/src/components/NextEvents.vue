@@ -1,22 +1,36 @@
 <template>
   <div class="nextEvents">
-    <h2>Ihre reservierten Objekte (TOD: per ajax nachladen)</h2>
-    <ul>
-      <li class="header">
-        <div>Datum</div>
-        <div>Stunde</div>
-        <div>Klasse</div>
-        <div>Objekt</div>
-        <div></div>
-      </li>
-      <li v-bind:key="index" v-for="(item, index) in dates">
-        <div>{{item.ausleiheDatum}}</div>
-        <div>{{item.ausleiheStunde}}</div>
-        <div>{{item.ausleiheKlasse}}</div>
-        <div>{{item.objektName}}</div>
-        <div @click="deleteHandler(item)">Löschen</div>
-      </li>
-    </ul>
+    <h2>Ihre reservierten Objekte</h2>
+    <table>
+      <thead>
+        <tr class="header">
+          <td class="table-width-date">Datum</td>
+          <td class="table-width-hour">Stunde</td>
+          <td class="table-width-object">Objekt</td>
+          <td class="table-width-object"></td>
+          <td>Klasse</td>
+          <td class="table-width-del"></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-bind:key="index" v-for="(item, index) in dates">
+          <td>{{item.ausleiheDatum}}</td>
+          <td>{{item.ausleiheStunde}}</td>
+          <td>{{item.objektName}} <span v-if="item.sub.length > 0"> ({{item.part}}/{{item.sum}})</span></td>
+          <td><span v-if="item.sub.length > 0">{{item.sub}}</span></td>
+          <td>{{item.ausleiheKlasse}}</td>
+          <td>
+            <div v-if="comit -1 != index || false"
+              @click="deleteHandler(item, index)" class="text-red" >
+              <i class="fa fa-trash"></i>
+            </div>
+            <button v-if="comit -1 == index" class="btn btn-danger"
+              @click="deleteSecondHandler(item, index)">
+              Entgültig entfernen!</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
 
   </div>
@@ -30,26 +44,27 @@ export default {
   },
   data: function () {
     return {
-     
+     comit: false
     }
   },
   created: function () {
 
-    EventBus.$on('nextevents--delete-success', data => {
+    var that = this;
 
-      var that = this;
-      this.dates.forEach( function (value, index, array) {
-        if( value.ausleiheID == data.ausleiheID) {
-          that.dates = that.dates.splice(index,1);
-        }
-      });
-
-    });
-
+    EventBus.$emit('nextevents--reload', {});
+    
   },
   methods: {
 
-    deleteHandler: function (item) {
+    deleteHandler: function (item, index) {
+
+      if (!item.ausleiheID) {
+        return false;
+      }
+      this.comit = index+1;
+
+    },
+    deleteSecondHandler: function (item, index) {
 
       if (!item.ausleiheID) {
         return false;

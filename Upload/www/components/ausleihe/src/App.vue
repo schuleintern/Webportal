@@ -1,10 +1,35 @@
 <template>
   <div id="app">
-    TODO: filter: Objects
-    <div v-if="loading == true">LOADING....</div>
-    <Calendar v-show="loading == false" v-bind:dates="dates"></Calendar>
-    <Form v-bind:errorMsg="errorMsg" v-bind:disableObjects="disableObjects"></Form>
-    <NextEvents v-bind:dates="myDates"></NextEvents>
+    
+    <div v-if="loading == true" class="overlay">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+
+    
+    <div class="header">
+      <div class="spacer"></div>
+      <div class="filter dropdown">
+        <a href="#" class="dropdown-toggle btn btn-info" data-toggle="dropdown">{{selectedFilterName}} <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li @click="setFilterHandler(false, $event)">Alle</li>
+          <li class="divider"></li>
+          <li v-bind:key="index" v-for="(item, index) in objects"
+            @click="setFilterHandler(item, $event)">
+            {{item.objektName}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="main-box" class="">
+      <Calendar  v-bind:dates="dates"></Calendar>
+      <Form v-bind:errorMsg="errorMsg" v-bind:disableObjects="disableObjects"></Form>
+    </div>
+
+    <div v-show="myDates.length > 0" class="nextEventsWrap box box-success">
+      <NextEvents v-bind:dates="myDates"></NextEvents>
+    </div>
+
   </div>
 </template>
 
@@ -32,8 +57,14 @@ export default {
       dates: [],
       errorMsg: '',
       loading: false,
-      myDates: globals.myDates,
-      disableObjects: []
+      myDates: [],
+      disableObjects: [],
+      objects: globals.objects,
+
+      showFirstDayWeek: false,
+      showLastDayWeek: false,
+      selectedFilterName: 'Filter ',
+      selectedFilter: false
     }
   },
   created: function () {
@@ -41,6 +72,20 @@ export default {
     //console.log(globals);
     var that = this;
 
+    EventBus.$on('nextevents--reload', data => {
+
+      that.ajaxGet(
+        'index.php?page=ausleihe&action=myDates',
+        {},
+        function (response, that) {
+          
+          if (response.data) {
+            that.myDates = response.data;
+          }
+        }
+      );
+
+    });
 
     EventBus.$on('nextevents--delete', data => {
 
@@ -59,15 +104,11 @@ export default {
           if (response.data.delete == true) {
            
             EventBus.$emit('calendar--reload', {} );
-            EventBus.$emit('nextevents--delete-success', { 
-              ausleiheID: ausleiheID
-            } );
+            EventBus.$emit('nextevents--reload', {});
 
           } else {
             that.errorMsg = response.data.errorMsg;
           }
-
-          
 
           that.loading = false;
         }
@@ -109,6 +150,7 @@ export default {
           if (response.data.insert == true) {
             EventBus.$emit('calendar--reload', {} );
             EventBus.$emit('form--close', {});
+            EventBus.$emit('nextevents--reload', {});
 
           } else {
             that.errorMsg = response.data.errorMsg;
@@ -122,12 +164,16 @@ export default {
 
     EventBus.$on('calendar--changedDate', data => {
 
+      this.showFirstDayWeek = data.von;
+      this.showLastDayWeek = data.bis;
+
       this.loading = true;
       that.ajaxGet(
         'index.php?page=ausleihe&action=getWeek',
         {
-          von: data.von.unix(),
-          bis: data.bis.unix()
+          von: this.showFirstDayWeek,
+          bis: this.showLastDayWeek,
+          filter: this.selectedFilter || false
         },
         function (response, that) {
           that.dates = response.data;
@@ -154,7 +200,23 @@ export default {
   },
   methods: {
 
+    setFilterHandler: function (object, event) {
 
+  
+      if (object.objektID) {
+        this.selectedFilter = {'object': object.objektID };
+      } else {
+        this.selectedFilter = false;
+      }
+      //console.log(object);
+      this.selectedFilterName = object.objektName || 'Filter';
+      
+      EventBus.$emit('calendar--changedDate', {
+        von: this.showFirstDayWeek,
+        bis: this.showLastDayWeek
+      });
+
+    },
     ajaxGet: function (url, params, callback, error, allways) {
 
       var that = this;

@@ -98,20 +98,57 @@ class ausleihe extends AbstractPage {
 
 
 				$result = array();
-				$data = DB::getDB()->query("SELECT * FROM ausleihe_ausleihe WHERE
-					ausleiheDatum >= '$von' AND ausleiheDatum <= '$bis'
-				");
+				
+				// $q = "SELECT * FROM ausleihe_ausleihe WHERE
+				// 	ausleiheDatum >= '$von' AND ausleiheDatum <= '$bis'
+				// ";
+
+				$q = "SELECT a.*, b.objektName, b.objektAnzahl, b.sumItems
+					FROM ausleihe_ausleihe as a 
+					LEFT JOIN ausleihe_objekte as b
+					ON a.ausleiheObjektID = b.objektID
+					WHERE ausleiheDatum >= '$von'
+					AND ausleiheDatum <= '$bis'
+					";
+
+
+				if ($_GET['filter'] != 'false') {
+					$filter = json_decode($_GET['filter']);
+
+					if ( isset($filter->object) && $filter->object ) {
+						$q .= " AND ausleiheObjektID = ".(int)$filter->object;
+					}
+			
+				}
+
+
+				$data = DB::getDB()->query($q);
 
 				while($a = DB::getDB()->fetch_array($data)) {
+
+					$sum = 0;
+					$sub = array();
+					if ( (int)$a['sumItems'] && (int)$a['objektAnzahl'] ) {
+						$num = ( (int)$a['sumItems'] * $a['ausleiheObjektIndex'] ) + 1;
+						for ($i = 0; $i < (int)$a['sumItems'] ; $i++) {
+							array_push($sub, $num);
+							$num++;
+						}
+						$sum = (int)$a['objektAnzahl'] / (int)$a['sumItems'];
+					}
+
 					$result[] = array(
 						'ausleiheID' => $a['ausleiheID'],
 						'ausleiheDatum' => $a['ausleiheDatum'],
 						'ausleiheStunde' => $a['ausleiheStunde'],
 						'ausleiheObjektID' => $a['ausleiheObjektID'],
-						'ausleiheObjektIndex' => $a['ausleiheObjektIndex'],
 						'ausleiheKlasse' => $a['ausleiheKlasse'],
 						'ausleiheLehrer' => $a['ausleiheLehrer'],
-						'ausleiheAusleiherUserID' => $a['ausleiheAusleiherUserID']
+						'ausleiheAusleiherUserID' => $a['ausleiheAusleiherUserID'],
+						'objektName' => $a['objektName'],
+						'sub' => $sub,
+						'part' => $a['ausleiheObjektIndex'] +1,
+						'sum' => $sum
 					);
 				}	
 
@@ -126,6 +163,10 @@ class ausleihe extends AbstractPage {
 
 			if ( $_REQUEST['action'] == 'setEvent') {
 
+				// echo "###<pre>";
+				// print_r($_POST);
+				// echo "</pre>";
+
 				if ( !$_POST['objektID'] ) {
 					echo json_encode( array('error'=>true,'errorMsg'=>'Bitte wählen Sie ein Objekt aus.') , true);
 					exit;
@@ -139,6 +180,12 @@ class ausleihe extends AbstractPage {
 					exit;
 				}
 
+				$sub = 0;
+				if ($_POST['sub'] != 'false') {
+					$sub = (int)$_POST['sub'] -1;
+				}
+				
+
 				if ( !DB::getDB()->query("INSERT INTO ausleihe_ausleihe
 						(
 							ausleiheObjektID,
@@ -150,7 +197,7 @@ class ausleihe extends AbstractPage {
 						) 
 						values(
 							'" . $_POST['objektID'] . "',
-							'" . 0 . "',
+							'" . $sub . "',
 							'" . $_POST['datum'] . "',
 							'" . $this->displayName . "',
 							'" . $_POST['stunde'] . "',
@@ -198,7 +245,10 @@ class ausleihe extends AbstractPage {
 				}
 
 				$objects = array();
-				$data = DB::getDB()->query("SELECT ausleiheID, ausleiheObjektID FROM ausleihe_ausleihe
+				$data = DB::getDB()->query("SELECT a.ausleiheID, a.ausleiheObjektID, a.ausleiheObjektIndex, b.objektAnzahl, b.sumItems
+					FROM ausleihe_ausleihe as a
+					LEFT JOIN ausleihe_objekte as b
+					ON a.ausleiheObjektID = b.objektID
 					WHERE ausleiheDatum = '".$_POST['datum']."'
 					AND ausleiheStunde = ".(int)$_POST['stunde']."
 				");
@@ -207,10 +257,15 @@ class ausleihe extends AbstractPage {
 				while($a = DB::getDB()->fetch_array($data)) {
 					if ($a['ausleiheID']) {
 						$return['check'] = true;
-						array_push($return['objects'], array(
+						$arr = array(
 							'ausleiheID' => $a['ausleiheID'],
-							'ausleiheObjektID' => $a['ausleiheObjektID']
-						) );
+							'ausleiheObjektID' => $a['ausleiheObjektID'],
+							'sub' => 0
+						);
+						if ( (int)$a['objektAnzahl'] && (int)$a['sumItems']) {
+							$arr['sub'] = $a['ausleiheObjektIndex'] +1;
+						}
+						array_push($return['objects'], $arr );
 					}
 				}	
 
@@ -219,7 +274,56 @@ class ausleihe extends AbstractPage {
 
 			} // if close
 			
-			
+
+			if ( $_REQUEST['action'] == 'myDates') {
+				
+				$return = array();
+
+				// SQL get user next events
+				$today = date('Y-m-d', time());
+
+				$data = DB::getDB()->query("SELECT a.*, b.objektName, b.objektAnzahl, b.sumItems
+					FROM ausleihe_ausleihe as a 
+					LEFT JOIN ausleihe_objekte as b
+					ON a.ausleiheObjektID = b.objektID
+					WHERE a.ausleiheLehrer = '$this->displayName'
+					AND a.ausleiheDatum >= '$today'
+					ORDER BY a.ausleiheDatum 
+				");
+
+				while($a = DB::getDB()->fetch_array($data)) {
+					$date = new DateTime($a['ausleiheDatum']);
+
+					$sum = 0;
+					$sub = array();
+					if ( (int)$a['sumItems'] && (int)$a['objektAnzahl'] ) {
+						$num = ( (int)$a['sumItems'] * $a['ausleiheObjektIndex'] ) + 1;
+						for ($i = 0; $i < (int)$a['sumItems'] ; $i++) {
+							array_push($sub, $num);
+							$num++;
+						}
+						$sum = (int)$a['objektAnzahl'] / (int)$a['sumItems'];
+					}
+
+					$return[] = array(
+						'ausleiheID' => $a['ausleiheID'],
+						'ausleiheDatum' => $date->format('d.m.Y D.'),
+						'ausleiheStunde' => $a['ausleiheStunde'],
+						'objektName' => $a['objektName'],
+						'ausleiheKlasse' => $a['ausleiheKlasse'],
+						'ausleiheObjektIndex' => $a['ausleiheObjektIndex'],
+						'objektName' => $a['objektName'],
+						'sub' => $sub,
+						'part' => $a['ausleiheObjektIndex'] +1,
+						'sum' => $sum
+					);
+				}
+
+				
+				echo json_encode( $return );
+				exit;
+
+			} // if close
 
 			// Immer Exit wenn GET-action
 			exit;
@@ -228,22 +332,49 @@ class ausleihe extends AbstractPage {
 		// SQL get Objects
 		$objects = array();
 		$data = DB::getDB()->query("SELECT * FROM ausleihe_objekte WHERE
-			isActive = 1
+			isActive = 1 ORDER BY sortOrder
 		");
 
 		while($a = DB::getDB()->fetch_array($data)) {
-			$objects[] = array(
-				'objektID' => $a['objektID'],
-				'objektName' => $a['objektName'],
-				'objektAnzahl' => $a['objektAnzahl']
-			);
+
+			
+
+			if ( (int)$a['objektAnzahl'] && (int)$a['sumItems'] ) {
+
+				$diff = (int)$a['objektAnzahl'] / (int)$a['sumItems'];
+
+				for($i = 0; $i < $diff; $i++) {
+
+					$sub = $i +1;
+					$arr = array(
+						'objektID' => $a['objektID'],
+						'objektName' => $a['objektName'].' ('.$sub.'/'.$diff.')',
+						'objektAnzahl' => $a['objektAnzahl'],
+						'sumItems' => $a['sumItems'],
+						'sub' => $sub
+					);
+					$objects[] = $arr;
+				}
+
+			} else {
+
+				$arr = array(
+					'objektID' => $a['objektID'],
+					'objektName' => $a['objektName'],
+					'objektAnzahl' => $a['objektAnzahl'],
+					'sumItems' => $a['sumItems']
+				);
+				$objects[] = $arr;
+			}
+
+			
 		}	
 		// echo "<pre>";
 		// print_r($objects);
 		// echo "</pre>";
 		$objects = json_encode($objects, true);
 
-
+		/*
 		// SQL get user next events
 		$today = date('Y-m-d', time());
 		$myDates = array();
@@ -255,9 +386,6 @@ class ausleihe extends AbstractPage {
 			AND a.ausleiheDatum >= '$today'
 			ORDER BY a.ausleiheDatum 
 		");
-
-
-
 
 		while($a = DB::getDB()->fetch_array($data)) {
 			$date = new DateTime($a['ausleiheDatum']);
@@ -272,6 +400,7 @@ class ausleihe extends AbstractPage {
 
 
 		$myDates = json_encode($myDates, true);
+		*/
 
 
 		eval("echo(\"" .DB::getTPL()->get("ausleihe/ausleihe_index_v2") . "\");");
