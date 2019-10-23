@@ -3,6 +3,11 @@
 abstract class AbstractRest {
     protected $statusCode = 200;
 
+    /**
+     * @var user
+     */
+    public $user = null;
+
 	public function __construct() {
 		
 	}
@@ -36,7 +41,15 @@ abstract class AbstractRest {
 	public function checkAuth($username, $password) {
 	    return false;
 	}
-	
+
+    /**
+     * Setzt die Auth Methode auf User (Cookie)
+     * @return bool
+     */
+	public function needsUserAuth() {
+	    return false;
+    }
+
 }	
 
 ?>
