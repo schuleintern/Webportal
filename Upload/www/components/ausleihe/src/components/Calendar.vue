@@ -27,8 +27,8 @@
           <tbody>
             <tr v-bind:key="i" v-for="(hour, i) in shoolHours">
               <td class="hourLabel">{{hour}}</td>
-              <td v-bind:key="j" v-for="(day, j) in daysInWeekFormat">
-                
+              <td v-bind:key="j" v-for="(day, j) in daysInWeekFormat" >
+
                 <!-- Apply any bg-* class to to the info-box to color it -->
                 <div class="info-box bg-green"
                   v-bind:key="key" v-for="(date, key) in dates"
@@ -47,8 +47,7 @@
                     </span> -->
                   <!-- </div>/.info-box-content -->
                 </div><!-- /.info-box -->
-                
-                <button @click="addDate(day,hour,$event)"
+                <button v-if="day[1] >= getToday" @click="addDate(day,hour,$event)"
                   class="eventAdd btn btn-outline fa fa-plus"></button>
                   
               </td>
@@ -92,6 +91,10 @@ export default {
 
   },
   computed: {
+    getToday: function () {
+        var t = this;
+        return t.today.format('YYYY-MM-D');
+    },
     year: function () {
         var t = this;
         return t.firstDayWeek.format('Y');
