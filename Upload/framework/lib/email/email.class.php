@@ -116,25 +116,25 @@ class email {
 			return -1;
 		}
 	}
-	
-	private static function sendMailWithID($id, $overrideDebug=false) {
-		
+
+    	private static function sendMailWithID($id, $overrideDebug=false) {
+
 				$m = DB::getDB()->query_first("SELECT * FROM mail_send WHERE mailID='" . $id . "'");
 
 
 				if(DB::getSettings()->getValue("mail-server") == "") return;
 
-			
+
 				$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
-	
+
 				$mail->IsSMTP(); // telling the class to use SMTP
 
-        $mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+                if(DB::isDebug()) $mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;                      // Enable verbose debug output
 
 
-        $mail->Host       = DB::getSettings()->getValue("mail-server");
+                $mail->Host       = DB::getSettings()->getValue("mail-server");
 			  $mail->Port = DB::getSettings()->getValue("mail-server-port");
-			  
+
 			  if(DB::getSettings()->getBoolean("mail-server-auth")) {
 			     $mail->Username   = DB::getSettings()->getValue("mail-server-username");;
 			     $mail->Password   = DB::getSettings()->getValue("mail-server-password");
@@ -167,32 +167,32 @@ class email {
 			  else {
 			      $mail->SMTPAuth   = false;
 			  }
-			  
+
 			  if($m['mailIsHTML'] > 0) $mail->isHTML(true);
 			  else $mail->isHTML(false);
-			  
+
 			  $mail->CharSet = 'UTF-8';
-			  
+
 			  $mail->AddAddress($m['mailRecipient']);
-			  
-	
+
+
 			  $mail->SetFrom(DB::getSettings()->getValue("mail-server-sender"), DB::getGlobalSettings()->schoolName);
-			  
+
 			  if($m['mailCC'] != "") {
 			  	$adresses = explode(";",$m['mailCC']);
 			  	for($i = 0; $i < sizeof($adresses); $i++) {
 			  		$mail->AddCC($adresses[$i]);
 			  	}
 			  }
-			  
+
 			  $mail->Subject = $m['mailSubject'];
-			  
+
 			  $mail->Body = $m['mailText'];
-			  
+
 			  $attachments = explode(",",$m['mailAttachments']);
-			  
+
 			  for($i = 0; $i < sizeof($attachments); $i++) {
-			      
+
 			      if(self::$attachmentCache[$attachments[$i]] != null) {
 			          $file = self::$attachmentCache[$attachments[$i]];
 			      }
@@ -200,26 +200,26 @@ class email {
 			          $file = FileUpload::getByID($attachments[$i]);
 			          self::$attachmentCache[$attachments[$i]] = $file;
 			      }
-			      
+
 			      if($file != null) {
 			          $mail->addAttachment($file->getFilePath(), $file->getFileName() . "." . $file->getExtension());
 			      }
 			  }
-	
-			  
+
+
 			  if($m['replyTo'] != "") {
 			  	$mail->AddReplyTo($m['replyTo']);
 			  }
-			
+
 			  if($m['mailLesebestaetigung'] > 0) {
 			  	$mail->addCustomHeader("Disposition-Notification-To: " . DB::getSettings()->getValue("mail-server-sender"));
 			  	$mail->AddCustomHeader("X-Confirm-Reading-To: " . DB::getSettings()->getValue("mail-server-sender"));
 			  	$mail->AddCustomHeader("Return-receipt-to: " . DB::getSettings()->getValue("mail-server-sender"));
 			  }
-	
+
 			  if($mail->Send()) {
 			  	DB::getDB()->query("UPDATE mail_send SET mailSent=UNIX_TIMESTAMP() WHERE mailID='" . $m['mailID'] . "'");
-			  }		
+			  }
 	}
 	
 	public function setLesebestaetigung() {
