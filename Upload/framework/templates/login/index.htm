@@ -13,8 +13,41 @@
     <link href="cssjs/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
 
+	  <if(DB::getSettings()->getInteger("login-background-image") > 0)><then>
+
+	  <style>
+		  body, html {
+			  height: 100%;
+		  }
+
+		  .schuleinternloginimage {
+			  /* The image used */
+			  background-image: url("<expression>DB::getSettings()->getUpload('login-background-image')->getURLToFile()</expression>");
+
+			  /* Full height */
+			  height: 100%;
+
+			  /* Center and scale the image nicely */
+			  background-position: center;
+			  background-repeat: no-repeat;
+			  background-size: cover;
+		  }
+
+	  </style>
+
+  </then></if>
+
   </head>
-  <body class="login-page">
+
+
+  	<if(DB::getSettings()->getInteger("login-background-image") > 0)>
+  		<then>
+			<body class="login-page schuleinternloginimage">
+		</then>
+  		<else>
+			<body class="login-page">
+		</else>
+	</if>
   
   
   	<if(DB::getGlobalSettings()->schulnummer == "9400")><then>

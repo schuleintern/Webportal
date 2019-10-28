@@ -1,0 +1,13 @@
+<tr>
+	<td><b>{$settings[$s]['titel']}</b><br /><small>{$settings[$s]['text']}</small></td>
+	<td>
+		<if(DB::getSettings()->getInteger($settings[$s]['name']) > 0)><then>
+			<a href="<expression>DB::getSettings()->getUpload($settings[$s]['name'])->getURLToFile()</expression>" target="_blank">
+				<img src="<expression>DB::getSettings()->getUpload($settings[$s]['name'])->getURLToFile()</expression>" width="100">
+			</a>
+		<label><input type="checkbox" class="icheck" name="{$settings[$s]['name']}_delete" value="1"> Upload löschen</label>
+		</then>
+		</if>
+		<input type="file" accept="image/x-png,image/jpeg" name="{$settings[$s]['name']}" class="form-control">
+	</td>
+</tr>

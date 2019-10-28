@@ -20,6 +20,14 @@ class settings {
 	public function getInteger($setting) {
         return intval($this->settingsValues[$setting]);
     }
+
+    /**
+     * @param $setting
+     * @return FileUpload|null
+     */
+    public function getUpload($setting) {
+	    return FileUpload::getByID(self::getInteger($setting));
+    }
 	
 	public function setValue($setting, $value) {
 		$this->settingsValues[$setting] = $value;

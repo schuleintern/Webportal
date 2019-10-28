@@ -56,7 +56,7 @@
 					        </div>
 					        </then></if>
 					        <div class="tab-pane<if($_GET['settings'] == 'saved' || $html == '')><then> active</then></if>" id="settings{$module}">
-					        	<form action="index.php?page=administrationmodule&module=$module&action=modulesavesettings" method="post">
+					        	<form action="index.php?page=administrationmodule&module=$module&action=modulesavesettings" method="post" enctype="multipart/form-data">
 					        	
 					        	<if($_GET['settings'] == 'saved')><then>
 					        		<div class="callout callout-success"><i class="fa fa-check"></i> Die Einstellungen wurden erfolgreich gespeichert</div>
