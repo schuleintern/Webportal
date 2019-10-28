@@ -177,10 +177,21 @@ class FileUpload {
 			new errorPage("Upload existiert nicht!");
 			exit(0);
 		}
+
+
+		$fileextension = $this->getExtension();
+		$fileextension = strtolower($fileextension);
+
+		// Hat Dateiname schon eine Erweiterung?
+        $filename = $this->getFileName();
+
+        if(substr($filename,-(strlen(($fileextension)))) != $fileextension) {
+            $filename =  $filename . "." . $fileextension;
+        }
 				
 		header('Content-Description: Dateidownload');
 		header('Content-Type: ' . $this->getMimeType());
-		header('Content-Disposition: attachment; filename="'. $this->getFileName() . '"');
+		header('Content-Disposition: attachment; filename="'. $filename . '"');
 		header('Expires: 0');
 		header('Cache-Control: must-revalidate');
 		header('Pragma: public');

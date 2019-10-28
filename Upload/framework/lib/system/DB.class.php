@@ -24,7 +24,24 @@ class DB {
 
 	public static $mySettings = array();
 
-	public static function boo() {
+    /**
+     * @var \Monolog\Logger
+     */
+	private static $errorLogger = null;
+
+    /**
+     * @var \Monolog\Logger
+     */
+    private static $infoLogger = null;
+
+    /**
+     * @var \Monolog\Logger
+     */
+    private static $activityLog = null;
+
+
+
+    public static function boo() {
 	    self::$globalsettings = new GlobalSettings();
 	}
 
@@ -35,6 +52,8 @@ class DB {
 		self::$db->connect();
 		self::$settings = new settings();
 		self::$settings->init();
+
+		
 	}
 
     /**

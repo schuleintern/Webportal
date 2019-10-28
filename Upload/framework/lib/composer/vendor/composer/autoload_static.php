@@ -13,11 +13,17 @@ class ComposerStaticInitbcedc20e3fca730de592729cd3dc932b
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'ParagonIE\\ConstantTime\\' => 23,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'O' => 
         array (
             'OTPHP\\' => 6,
+        ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
         ),
         'K' => 
         array (
@@ -34,13 +40,25 @@ class ComposerStaticInitbcedc20e3fca730de592729cd3dc932b
     );
 
     public static $prefixDirsPsr4 = array (
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'ParagonIE\\ConstantTime\\' => 
         array (
             0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'OTPHP\\' => 
         array (
             0 => __DIR__ . '/..' . '/spomky-labs/otphp/src',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'KasApi\\' => 
         array (

@@ -43,6 +43,12 @@ class AdminMailSettings extends AbstractPage {
                 'text' => ""
             ],
             [
+                'name' => "mail-server-auth-auto-tls",
+                'typ' => 'BOOLEAN',
+                'titel' => "Automatisches TLS versuchen?",
+                'text' => ""
+            ],
+            [
                 'name' => "mail-server-sender",
                 'typ' => 'ZEILE',
                 'titel' => "Absenderadresse",
@@ -60,6 +66,26 @@ class AdminMailSettings extends AbstractPage {
                 'titel' => "Passwort",
                 'text' => ""
             ],
+            [
+                'name' => "mail-server-securetype",
+                'typ' => 'SELECT',
+                'options' => [
+                    [
+                        'value' => '',
+                        'name' => 'Keine'
+                    ],
+                    [
+                        'value' => 'starttls',
+                        'name' => 'STARTTLS'
+                    ],
+                    [
+                        'value' => 'smtps',
+                        'name' => 'SMTPS'
+                    ]
+                ],
+                'titel' => "Verschlüsselung",
+                'text' => ""
+            ],
 		];
 	}
 	
@@ -73,7 +99,7 @@ class AdminMailSettings extends AbstractPage {
 	}
 	
 	public static function getAdminMenuIcon() {
-		return 'fa fa-paperplane';
+		return 'fa fa-server';
 	}
 	
 	public static function getAdminMenuGroupIcon() {

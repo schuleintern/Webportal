@@ -1,5 +1,7 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 /**
  * Stellt Funktionen zum versenden von E-Mails zur verfügung.
@@ -29,10 +31,9 @@ class email {
 	private static $attachmentCache = [];
 
 	public function __construct($recipient,$subject,$message) {
-		include_once('../framework/lib/email/phpmailer/class.phpmailer.php');
-		include_once('../framework/lib/email/phpmailer/class.smtp.php');
-		
-		$this->recipient = $recipient;
+
+
+	    $this->recipient = $recipient;
 		$this->subject = $subject;
 		$this->text = $message;
 		$this->lesebestaetigung = false;
@@ -89,7 +90,7 @@ class email {
 	 */
 	public static function sendBatchMails() {
 		
-		$mails = DB::getDB()->query("SELECT mailID FROM mail_send WHERE mailSent=0 AND mailCrawler=1 LIMIT 25");
+		$mails = DB::getDB()->query("SELECT mailID FROM mail_send WHERE mailSent=0 AND mailCrawler=1 LIMIT 2");
 		
 		$noError = true;
 		
@@ -101,7 +102,9 @@ class email {
 				$count++;
 			}
 			catch(Exception $e) {
-				$noError = false;
+                print_r($e->errorMessage());die();
+
+                $noError = false;
 			}
 			catch(phpmailerException $e) {
 				$noError = false;
@@ -125,14 +128,40 @@ class email {
 				$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 	
 				$mail->IsSMTP(); // telling the class to use SMTP
-	
-			  $mail->Host       = DB::getSettings()->getValue("mail-server");
+
+        $mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+
+
+        $mail->Host       = DB::getSettings()->getValue("mail-server");
 			  $mail->Port = DB::getSettings()->getValue("mail-server-port");
 			  
 			  if(DB::getSettings()->getBoolean("mail-server-auth")) {
 			     $mail->Username   = DB::getSettings()->getValue("mail-server-username");;
 			     $mail->Password   = DB::getSettings()->getValue("mail-server-password");
 			     $mail->SMTPAuth   = DB::getSettings()->getBoolean("mail-server-auth");
+
+                  if(DB::getSettings()->getBoolean("mail-server-auth-auto-tls")) {
+                      $mail->SMTPAutoTLS = true;
+                      $mail->SMTPSecure   = PHPMailer::ENCRYPTION_SMTPS;
+
+                  }
+                  else {
+                      $mail->SMTPAutoTLS = false;
+                      if( DB::getSettings()->getValue("mail-server-securetype") != "") {
+                          if(DB::getSettings()->getValue("mail-server-securetype") ==  'starttls') {
+                              $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                          }
+                          elseif(DB::getSettings()->getValue("mail-server-securetype") ==  'smtps') {
+                              $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                          }
+                      }
+                      else {
+                          $mail->SMTPSecure = '';
+                      }
+                  }
+
+
+
 
               }
 			  else {

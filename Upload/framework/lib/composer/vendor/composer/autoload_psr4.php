@@ -6,8 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'ParagonIE\\ConstantTime\\' => array($vendorDir . '/paragonie/constant_time_encoding/src'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'OTPHP\\' => array($vendorDir . '/spomky-labs/otphp/src'),
+    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'KasApi\\' => array($vendorDir . '/wazaari/kasapi-php/src/KasApi'),
     'Eluceo\\iCal\\' => array($vendorDir . '/eluceo/ical/src'),
     'Assert\\' => array($vendorDir . '/beberlei/assert/lib/Assert'),

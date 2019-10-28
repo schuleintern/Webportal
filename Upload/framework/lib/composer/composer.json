@@ -2,7 +2,9 @@
     "require": {
         "eluceo/ical": "^0.14.0",
         "spomky-labs/otphp": "^9.1",
-        "wazaari/kasapi-php": "dev-master"
+        "wazaari/kasapi-php": "dev-master",
+        "monolog/monolog": "^2.0",
+        "phpmailer/phpmailer": "^6.1"
         
     }
     
