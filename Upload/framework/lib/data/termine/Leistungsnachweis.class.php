@@ -200,15 +200,16 @@ class Leistungsnachweis {
     	if($afterDate != "") {
     		if($where != "") $where .= " AND ";
     		else $where .= " WHERE ";
-    		
-    		$where .= " eintragDatumStart >= '" . $afterDate . "'";
+
+            $where .= " (eintragDatumStart >= '" . $afterDate . "' OR (eintragDatumStart <= '$afterDate' AND eintragDatumEnde >= '$afterDate'))";
+
     	}
     	
     	if($beforeDate != "") {
     		if($where != "") $where .= " AND ";
     		else $where .= " WHERE ";
-    	
-    		$where .= " eintragDatumStart <= '" . $beforeDate . "'";
+
+            $where .= " (eintragDatumStart <= '" . $beforeDate . "' OR (eintragDatumStart >= '$beforeDate' AND eintragDatumEnde <= '$beforeDate'))";
     	}
     	
     	$all = [];
@@ -226,11 +227,11 @@ class Leistungsnachweis {
     	$where = " WHERE eintragLehrer LIKE '" . $teacher . "'";
     	 
     	if($afterDate != "") {
-    		$where .= " AND eintragDatumStart >= '" . $afterDate . "'";
-    	}
+            $where .= " AND (eintragDatumStart >= '" . $afterDate . "' OR (eintragDatumStart <= '$afterDate' AND eintragDatumEnde >= '$afterDate'))";
+        }
     	if($beforeDate != "") {
-    		$where .= " AND eintragDatumStart <= '" . $beforeDate . "'";
-    	}
+            $where .= " AND (eintragDatumStart <= '" . $beforeDate . "' OR (eintragDatumStart >= '$beforeDate' AND eintragDatumEnde <= '$beforeDate'))";
+        }
     	 
     	$all = [];
     	$data = DB::getDB()->query("SELECT * FROM kalender_lnw $where ORDER BY eintragDatumStart ASC, eintragKlasse ASC");
@@ -291,4 +292,4 @@ class Leistungsnachweis {
     }
 
 }
-
+

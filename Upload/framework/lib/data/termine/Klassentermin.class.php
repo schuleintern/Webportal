@@ -108,15 +108,15 @@ class Klassentermin {
   	if($afterDate != "") {
   		if($where != "") $where .= " AND ";
   		else $where .= " WHERE ";
-  
-  		$where .= " eintragDatumStart >= '" . $afterDate . "' ";
+
+        $where .= " (eintragDatumStart >= '" . $afterDate . "' OR (eintragDatumStart <= '$afterDate' AND eintragDatumEnde >= '$afterDate'))";
   	}
   	
   	if($beforeDate != "") {
   		if($where != "") $where .= " AND ";
   		else $where .= " WHERE ";
-  	
-  		$where .= " eintragDatumStart <= '" . $beforeDate . "' ";
+
+        $where .= " (eintragDatumStart <= '" . $beforeDate . "' OR (eintragDatumStart >= '$beforeDate' AND eintragDatumEnde <= '$beforeDate'))";
   	}
   	 
   	$all = [];
@@ -133,11 +133,11 @@ class Klassentermin {
   	$where = " WHERE eintragLehrer LIKE '" . $teacher . "'";
   
   	if($afterDate != "") {
-  		$where .= " AND eintragDatumStart >= '" . $afterDate . "' OR (eintragDatumStart <= '$afterDate' AND eintragDatumEnde >= '$afterDate')";
+  		$where .= " AND (eintragDatumStart >= '" . $afterDate . "' OR (eintragDatumStart <= '$afterDate' AND eintragDatumEnde >= '$afterDate'))";
   	}
   	
   	if($beforeDate != "") {
-  		$where .= " AND eintragDatumStart <= '" . $beforeDate . "' OR (eintragDatumStart >= '$beforeDate' AND eintragDatumEnde <= '$beforeDate')";
+  		$where .= " AND (eintragDatumStart <= '" . $beforeDate . "' OR (eintragDatumStart >= '$beforeDate' AND eintragDatumEnde <= '$beforeDate'))";
   	}
   
   	$all = [];

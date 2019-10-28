@@ -733,7 +733,7 @@ class klassenkalender extends AbstractPage {
     else if($class == "allMyTermine") {
         $lnwData = Leistungsnachweis::getBayTeacher($lehrer,$onlyFromToday,$untilDate);
         $termine = Klassentermin::getBayTeacher($lehrer,$onlyFromTodayDate,$untilDate);
-      $showGrade = true;
+        $showGrade = true;
     }
     elseif(substr($class,0,3) == "all") {
       $showGrade = true;
