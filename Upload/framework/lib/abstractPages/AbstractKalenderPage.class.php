@@ -584,7 +584,7 @@ abstract class AbstractKalenderPage extends AbstractPage {
 		    ];
 		    
 		    // Suche Kategorie
-		    
+		    /** @var AbstractKalenderKategorie $kategorie */
 		    $kategorie = $termine[$i]->getKategorie();
 		    
 		    $kategorieName = '';

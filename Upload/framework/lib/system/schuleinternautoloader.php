@@ -107,7 +107,9 @@ $classes = [
 	    'AndererKalenderTermin',
 	    'KalenderKategorie',
 	    'TerminCollector',
-	    'ICSFeed'
+	    'ICSFeed',
+        'AbstractKalenderKategorie',
+        'ExternerKalenderKategorie'
 	],
     'data/lerntutoren' => [
         'Lerntutor',

@@ -14,6 +14,19 @@ class test extends AbstractPage {
   public function execute() {
       // Put Tests here.
       // Only access for Admins
+
+    error_reporting(E_ALL);
+
+
+      $cron = new UpdateExterneKalender();
+      $cron->execute();
+
+      header("Content-type: application/json");
+
+      print_r($cron->getCronResult());
+      exit(0);
+
+
   }
 
   public static function hasSettings() {

@@ -1,12 +1,11 @@
 <?php
 
-class KalenderKategorie {
+class KalenderKategorie extends AbstractKalenderKategorie {
     
     private static $cache = [];
-    
-    private $data;
-    
+
     public function __construct($data) {
+        parent::__construct($data);
         $this->data = $data;
     }
     
