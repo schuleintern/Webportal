@@ -76,7 +76,8 @@ class requesthandler {
       'administrationcron',
       'administrationgroups',
         'AdminMailSettings',
-        'AdminUpdate'
+        'AdminUpdate',
+        'AdministrationEltern'
     ],
     'aufeinenblick' => [
       'aufeinenblick',

@@ -1,0 +1,26 @@
+<tr>
+	<td>{$users[$i]->getUserName()}
+		<if(DB::getGlobalSettings()->eleternUserMode == 'ASV_CODE')><then>
+			<br /><button class="btn btn-danger btn-xs" onclick="confirmAction('Soll der Benutzer wirklich gelöscht werden?','{$selfURL}&action=deleteUser&userID={$users[$i]->getUserID()}')"><i class="fa fa-trash"></i> Benutzer löschen</button>
+		</then></if>
+	</td>
+	<td>{$users[$i]->getFirstName()}</td>
+	<td>{$users[$i]->getLastName()}</td>
+	<td>{$zugeordneteKinder}</td>
+	<td>{$users[$i]->getFailedLoginCount()}</td>
+
+	<td>
+		<if($isAdmin)><then>
+		<i class="fa fa-check"></i>
+		</then>
+		<else>
+			<i class="fa fa-ban"></i>
+		</else>
+		</if>
+	</td>
+	<td>
+		<!-- <button class="btn btn-primary"><i class="fa fa-pencil"></i></button> -->
+		<button class="btn btn-warning" onclick="changePassword({$users[$i]->getUserID()}, '<expression>addslashes($users[$i]->getUserName())</expression>')"><i class="fa fa-key"></i></button>
+
+	</td>
+</tr>

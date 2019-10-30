@@ -90,6 +90,10 @@ class user {
       DB::getDB()->query("UPDATE users SET userLastLoginTime=UNIX_TIMESTAMP() WHERE userID='" . $this->getUserID() . "'");
   }
 
+  public function getFailedLoginCount(){
+      return $this->data['userFailedLoginCount'];
+  }
+
   public function getData($key) {
     return $this->data[$key];
   }
@@ -131,6 +135,10 @@ class user {
           return $this->data['userMailInitialPassword'];
       }
       else return null;
+  }
+
+  public function setPassword($password) {
+      DB::getDB()->query("UPDATE users SET userCachedPasswordHash='" . DB::getDB()->escapeString(login::hash($password)) . "', userCachedPasswordHashTime=UNIX_TIMESTAMP() WHERE userID='" . $this->getUserID() . "'");
   }
   
   public function setAllInklMailCreated($mail, $password) {
@@ -446,6 +454,20 @@ class user {
 
     return $all;
   }
+
+    /**
+     * @return user[]
+     */
+    public static function getAllEltern() {
+        $data = DB::getDB()->query("SELECT * FROM users WHERE userNetwork='SCHULEINTERN_ELTERN'");
+
+        $all = [];
+        while($u = DB::getDB()->fetch_array($data)) {
+            $all[] = new user($u);
+        }
+
+        return $all;
+    }
 
   public static function getCountSchueler() {
       $count = DB::getDB()->query_first("SELECT COUNT(*) FROM users WHERE userID IN (SELECT schuelerUserID FROM schueler)");

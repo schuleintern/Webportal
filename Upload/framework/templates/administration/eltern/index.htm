@@ -1,0 +1,122 @@
+<expression>self::$showMessage</expression>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-female"></i> Elternbenutzer</h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<table id="users" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Benutzername / E-Mail</th>
+							<th>Rufname</th>
+							<th>Name</th>
+							<th>Zugeordnete Kinder</th>
+							<th>Fehlgeschlagene Logins</th>
+							<th>Admin</th>
+							<th>Aktionen</th>
+						</tr>
+					</thead>
+					<tbody>
+						{$userHTML}
+					</tbody>
+				</table>
+	</div>
+</div>
+
+<script src="cssjs/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="cssjs/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+  $(function () {
+    $('#users').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "pageLength": 20,
+      "language": {
+    		"sEmptyTable":   	"Keine Daten in der Tabelle vorhanden",
+    		"sInfo":         	"_START_ bis _END_ von _TOTAL_ Einträgen",
+    		"sInfoEmpty":    	"0 bis 0 von 0 Einträgen",
+    		"sInfoFiltered": 	"(gefiltert von _MAX_ Einträgen)",
+    		"sInfoPostFix":  	"",
+    		"sInfoThousands":  	".",
+    		"sLengthMenu":   	"_MENU_ Einträge anzeigen",
+    		"sLoadingRecords": 	"Wird geladen...",
+    		"sProcessing":   	"Bitte warten...",
+    		"sSearch":       	"Einträge suchen",
+    		"sZeroRecords":  	"Keine Einträge vorhanden.",
+    		"oPaginate": {
+    			"sFirst":    	"Erste",
+    			"sPrevious": 	"Zurück",
+    			"sNext":     	"Nächste",
+    			"sLast":     	"Letzte"
+    		},
+    		"oAria": {
+    			"sSortAscending":  ": aktivieren, um Spalte aufsteigend zu sortieren",
+    			"sSortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
+    		}
+      }
+    });
+  });
+  
+  $( "#buttonShowFilter" ).click(function() {
+	  $( "#filter" ).show( "slow" );
+	  $( "#buttonShowFilter" ).hide( "slow" );
+	});
+
+</script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+<script>
+
+	function changePassword(userID, username) {
+		$("#changePasswordUserID").val(userID);
+		$("#changePasswordUserName").html(username);
+		$("#resetPassword").modal("show");
+	}
+
+</script>
+
+
+<div class="modal fade" id="resetPassword" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title"><i class="fa fa-key"></i> Kennwort ändern für <div id="changePasswordUserName"></div></h4>
+
+			</div>
+			<div class="modal-body">
+				<form action="$selfURL&action=resetPassword" method="post">
+
+					<input type="hidden" name="userID" id="changePasswordUserID">
+
+					<div class="row">
+						<div class="col-md-12">
+
+						<div class="input-group">
+						<label>Neues Passwort (Es gelten keine Kennwortrichtlinien!)</label>
+						<input type="text" name="password" class="form-control" placeholder="Neues Passwort">
+					</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Kennwort zurücksetzen</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
