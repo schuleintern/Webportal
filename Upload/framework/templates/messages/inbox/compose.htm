@@ -27,15 +27,27 @@
 		              	<td><span id="currentBCCRecipientsHTML"></span></td>
 		            </tr>         	
               </table>
-              <if($isReply)><then>
+              <if($isForward)><then>
+								<input type="hidden" name="forwardMessage" value="{$forwardMessage->getID()}">
+								<hr noshade>
+									<p>Weiterleiten von "{$forwardMessage->getSubject()}" <button type="button" class="btn btn-sm btn-info" data-target="#replyMessage" data-toggle="modal"><i class="fa fa-commenting-o"></i> Nachricht anzeigen</button></p>
+							</then></if>
+							<if($isReply)><then>
               <input type="hidden" name="replyMessage" value="{$replyMessage->getID()}">
               <hr noshade>
               	<p>Antwort auf "{$replyMessage->getSubject()}" <button type="button" class="btn btn-sm btn-info" data-target="#replyMessage" data-toggle="modal"><i class="fa fa-commenting-o"></i> Nachricht anzeigen</button></p>
               </then></if>
               <div class="form-group">
-                <if($isReply)><then>
-               		<input type="hidden" name="messageSubject" value="RE: {$replyMessage->getSubject()}">
-               	</then><else>
+                <if($isReply OR $isForward)><then>
+										<if($isReply)><then>
+											<input type="hidden" name="messageSubject" value="RE: {$replyMessage->getSubject()}">
+										</then></if>
+										<if($isForward)><then>
+											<input type="hidden" name="messageSubject" value="FW: {$forwardMessage->getSubject()}">
+										</then></if>
+               		
+								 </then>
+								 <else>
                	    <input class="form-control" placeholder="Betreff: " name="messageSubject" value="{$preSubject}">
                	</else></if>
               </div>
@@ -680,24 +692,43 @@
 		     </div>
 		    </div>
 		    
-		    <if($isReply)><then>
+		    <if($isForward)><then>
+
+					<div class="modal fade" id="replyMessage" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+							<div class="modal-header">	    
+								<h4 class="modal-title"><i class="fa fa-commenting-o"></i> Ursprüngliche Nachricht</h4>
+							</div>
+							<div class="modal-body">
+								Absender: {$forwardMessage->getSender()->getDisplayName()}<br />
+								Betreff: {$forwardMessage->getSubject()}<br /><br />
+								{$forwardMessage->getText()}
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</then></if>
+
+			<if($isReply)><then>
 			
-		<div class="modal fade" id="replyMessage" tabindex="-1" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		    <div class="modal-header">	    
-		    	<h4 class="modal-title"><i class="fa fa-commenting-o"></i> Ursprüngliche Nachricht</h4>
-		      </div>
-		      <div class="modal-body">
-				Absender: {$replyMessage->getSender()->getDisplayName()}<br />
-				Betreff: {$replyMessage->getSubject()}<br /><br />
-				{$replyMessage->getText()}
-		      </div>
-		      </div>
-		     </div>
-		    </div>
-		    
-		    </then></if>
+					<div class="modal fade" id="replyMessage" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+							<div class="modal-header">	    
+								<h4 class="modal-title"><i class="fa fa-commenting-o"></i> Ursprüngliche Nachricht</h4>
+							</div>
+							<div class="modal-body">
+								Absender: {$replyMessage->getSender()->getDisplayName()}<br />
+								Betreff: {$replyMessage->getSubject()}<br /><br />
+								{$replyMessage->getText()}
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</then></if>
 		    
 		    
 		    <script>
@@ -936,16 +967,23 @@ function addRecipientActionFromSelectParentsKlassen() {
 
 
 
+<if($isForward)><then>
+
+$(document).ready(function() {
+	if ($forwardJSONData.key == 'attachments') {
+		currentAttachmentList = $forwardJSONData.value;
+		updateAttachmentFields();
+	}
+});
+
+</then></if>
+
 
 <if($isReply)><then>
-
 
 $(document).ready(function() {
 	addRecipientAction($replyJSONData);
 });
-
-
-
 
 </then></if>
 

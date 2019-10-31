@@ -156,9 +156,12 @@ class MessageRead extends AbstractPage {
         exit(0);
       }
     }
-    else if($_POST['action'] == 'reply') {
-      header("Location: index.php?page=MessageCompose&replyMessage=" . $message->getID());
+    else if($_POST['action'] == 'forward') {
+      header("Location: index.php?page=MessageCompose&forwardMessage=" . $message->getID());
       exit(0);
+    } else if($_POST['action'] == 'reply') {
+        header("Location: index.php?page=MessageCompose&replyMessage=" . $message->getID());
+        exit(0);
     }
     else if($_POST['action'] == 'replyAll') {
         header("Location: index.php?page=MessageCompose&replyAllMessage=" . $message->getID());
@@ -233,6 +236,10 @@ class MessageRead extends AbstractPage {
     }
 
 
+    if($message->isForward()) {
+		$forwardMessage = $message->getForwardMessage();
+    }
+    
     if($message->isReply()) {
 		$replyMessage = $message->getReplyMessage();
     }
