@@ -6,7 +6,7 @@
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">
-		<table id="users" class="table table-bordered table-striped">
+		<table id="users" class="table table-striped">
 					<thead>
 						<tr>
 							<th>Benutzername / E-Mail</th>
@@ -72,7 +72,7 @@
 
 <script>
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
 
@@ -84,6 +84,177 @@ $(document).ready(function(){
 		$("#resetPassword").modal("show");
 	}
 
+	var userData = null;
+
+
+	function editUser(userID) {
+		$.ajax({
+			url:"{$selfURL}&action=getElternData&userID="+userID,
+			success:function(data) {
+				console.log(data);
+				if(data.success) {
+					userData = data;
+					$("#editUserUsername").html(data.username);
+					setUserInfo();
+					$("#editUser").modal("show");
+				}
+			}
+		});
+	}
+
+	function setUserInfo() {
+
+		if(userData.isAdmin) {
+			$("#adminStatus").html("<i class=\"fa fa-check\"></i> Hat Adminrechte");
+			$("#toggleAdminStatus").html("<i class=\"fa fa-ban\"></i> Adminrechte entfernen</i>");
+		}
+		else {
+			$("#adminStatus").html("<i class=\"fa fa-ban\"></i> Hat Adminrechte");
+			$("#toggleAdminStatus").html("<i class=\"fa fa-check\"></i> Globale Adminrechte erteilen</i>");
+
+		}
+
+		console.log(userData);
+
+		var kinderliste = "<ul>";
+
+
+		var hasKinder = false;
+
+		for(i = 0; i < userData.kinder.length; i++) {
+			if(userData.kinder[i].asvID != "") {
+				hasKinder = true;
+				kinderliste += "<li>" + userData.kinder[i].name + " (Klasse " + userData.kinder[i].klasse + ") <button class='btn btn-danger btn-xs' onclick=\"removeKind('" +
+						userData.kinder[i].asvID + "')\"><i class='fa fa-trash'></i></button></li>";
+			}
+		}
+
+		if(!hasKinder) window.location.reload();
+
+		kinderliste += "</ul>";
+
+		$("#kinderliste").html(kinderliste);
+	}
+
+	function toggleAdminStatus() {
+		$.ajax({
+			async: false,
+			url: "{$selfURL}&action=toggleAdminStatus&userID=" + userData.userid,
+			success: function(data) {
+				$.ajax({
+					url:"{$selfURL}&action=getElternData&userID="+userData.userid,
+					success:function(data) {
+						userData = data;
+						setUserInfo();
+					}
+				});
+			}
+		});
+	}
+
+	function removeKind(asvID) {
+
+		if (userData.kinder.length == 1) {
+			confirmAction("Wenn Sie die letzte Zuordnung löschen, wird auch der Nutzer gelöscht. Sind Sie sicher?",null, function() {
+				removeKindDo(asvID);
+			});
+		}
+		else {
+			removeKindDo(asvID);
+		}
+	}
+
+	function removeKindDo(asvID) {
+		var success = false;
+
+		for(i = 0; i < userData.kinder.length; i++) {
+			if(userData.kinder[i].asvID == asvID) {
+				$.ajax({
+					async: false,
+					url: "{$selfURL}&action=removeKind&userID=" + userData.userid + "&asvID=" + asvID,
+					success: function(data) {
+						success = data.success;
+					}
+				});
+				userData.kinder[i].asvID = '';
+			}
+		}
+
+		if(success) {
+			setUserInfo();
+		}
+
+	}
+
+</script>
+
+
+
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title"><i class="fa fa-user"></i> Benutzer bearbeiten <span id="editUserUsername"></span></h4>
+
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="col-md-6">
+					<b>Kinder:</b>
+					<br />
+					<div id="kinderliste"></div>
+
+					<div class="input-group">
+						<label>Kind hinzufügen:</label>
+						<input type="text" id="searchSchueler" class="form-control" placeholder="Schüler suchen...">
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div id="adminStatus"></div><br />
+					<button class="btn btn-default" id="toggleAdminStatus" type="button" onclick="toggleAdminStatus()"></button>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	</div>
+</div>
+
+
+<script>
+	$(function() {
+
+		$("#searchSchueler").autocomplete({
+			source: "{$selfURL}&action=ajaxSearchSchueler",
+			minLength: 2,
+			select: function(event, ui) {
+				var id = ui.item.id;
+				var display = ui.item.label;
+
+				$.ajax({
+					async: false,
+					url: "{$selfURL}&action=addKind&userID=" + userData.userid + "&asvID=" + id,
+					success: function(data) {
+						$.ajax({
+							url:"{$selfURL}&action=getElternData&userID="+userData.userid,
+							success:function(data) {
+								userData = data;
+								$("#searchSchueler").val("");
+								setUserInfo();
+							}
+						});
+					}
+				});
+
+			},
+
+			open: function(event, ui) {
+				$(".ui-autocomplete").css("z-index", 999999);
+			}
+		});
+
+	});
 </script>
 
 
@@ -91,7 +262,7 @@ $(document).ready(function(){
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title"><i class="fa fa-key"></i> Kennwort ändern für <div id="changePasswordUserName"></div></h4>
+				<h4 class="modal-title"><i class="fa fa-key"></i> Kennwort ändern für <span id="changePasswordUserName"></span></h4>
 
 			</div>
 			<div class="modal-body">
@@ -99,21 +270,10 @@ $(document).ready(function(){
 
 					<input type="hidden" name="userID" id="changePasswordUserID">
 
-					<div class="row">
-						<div class="col-md-12">
-
-						<div class="input-group">
 						<label>Neues Passwort (Es gelten keine Kennwortrichtlinien!)</label>
-						<input type="text" name="password" class="form-control" placeholder="Neues Passwort">
-					</div>
-						</div>
-					</div>
+						<input type="text" name="password" class="form-control" placeholder="Neues Passwort"><br /><br />
 
-					<div class="row">
-						<div class="col-md-12">
 							<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Kennwort zurücksetzen</button>
-						</div>
-					</div>
 
 				</form>
 			</div>
