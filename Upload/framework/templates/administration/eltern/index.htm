@@ -124,12 +124,21 @@ $(document).ready(function(){
 		for(i = 0; i < userData.kinder.length; i++) {
 			if(userData.kinder[i].asvID != "") {
 				hasKinder = true;
-				kinderliste += "<li>" + userData.kinder[i].name + " (Klasse " + userData.kinder[i].klasse + ") <button class='btn btn-danger btn-xs' onclick=\"removeKind('" +
+				kinderliste += "<li>" + userData.kinder[i].name + " (Klasse " + userData.kinder[i].klasse + ")";
+
+				if(userData.kindEditable) {
+					kinderliste += "<button class='btn btn-danger btn-xs' onclick=\"removeKind('" +
 						userData.kinder[i].asvID + "')\"><i class='fa fa-trash'></i></button></li>";
+				}
 			}
 		}
 
 		if(!hasKinder) window.location.reload();
+
+		if(!userData.kindEditable) {
+			$("#searchSchueler").hide();
+			$("#infoASVEdit").show();
+		}
 
 		kinderliste += "</ul>";
 
@@ -198,6 +207,8 @@ $(document).ready(function(){
 
 		</div>
 		<div class="modal-body">
+			<div class="callout callout-info" id="infoASVEdit" style="display: none"><i class="fa fa-exclamation-circle"></i> Sie können die Kinderzuordnungen nur durch Änderungen in der ASV ändern.</div>
+
 			<div class="row">
 				<div class="col-md-6">
 					<b>Kinder:</b>
@@ -205,8 +216,7 @@ $(document).ready(function(){
 					<div id="kinderliste"></div>
 
 					<div class="input-group">
-						<label>Kind hinzufügen:</label>
-						<input type="text" id="searchSchueler" class="form-control" placeholder="Schüler suchen...">
+						<input type="text" id="searchSchueler" class="form-control" placeholder="Kind hinzufügen ...">
 					</div>
 				</div>
 				<div class="col-md-3">
