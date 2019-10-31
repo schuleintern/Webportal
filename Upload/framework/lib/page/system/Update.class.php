@@ -39,6 +39,10 @@ class Update extends AbstractPage {
       // Template Cache leeren
       DB::getDB()->query("TRUNCATE `templates`");
 
+      // CLI Scripte erneuern
+      rename("../cli", "../cli_" . $fromVersion);
+      rename("../data/update/Upload/cli", "../cli");
+
       // Abschluss
       unlink("../data/update.json");
 
