@@ -969,9 +969,12 @@ function addRecipientActionFromSelectParentsKlassen() {
 
 <if($isForward)><then>
 
-// $(document).ready(function() {
-// 	addRecipientAction($replyJSONData);
-// });
+$(document).ready(function() {
+	if ($forwardJSONData.key == 'attachments') {
+		currentAttachmentList = $forwardJSONData.value;
+		updateAttachmentFields();
+	}
+});
 
 </then></if>
 

@@ -553,18 +553,27 @@ class MessageCompose extends AbstractPage {
 		    
 			$forwardMessage = Message::getByID(intval($_REQUEST['forwardMessage']));
 			if($forwardMessage!= null) {
-					if($forwardMessage->getUserID() == DB::getSession()->getUserID()) {
-						//print_r($forwardMessage->getSender()->getDisplayNameWithFunction()); exit;	
-						// --> Erlaubt
-							$isForward = true;
-							
-							$replyJSONData = [
-									'key' => 'U:' . $forwardMessage->getSender()->getUserID(),
-									'name' => $forwardMessage->getSender()->getDisplayNameWithFunction()
-							];
-							
-							$replyJSONData = json_encode($replyJSONData);
+
+					$isForward = true;
+
+					$arr = array();
+					$attachments = $forwardMessage->getAttachments();
+					if ($attachments[0]) {
+						for($i = 0; $i < sizeof($attachments); $i++) {
+							array_push($arr, array(
+								'attachmentID' => $attachments[$i]->getID(),
+								'attachmentFileName' => $attachments[$i]->getUpload()->getFileName(),
+								'attachmentAccessCode' => $attachments[$i]->getAccessCode(),
+								'attachmentURL' => $attachments[$i]->getUpload()->getURLToFile(true)
+							));
+						}
+
+						$forwardJSONData = json_encode([
+							'key' => 'attachments',
+							'value' => $arr
+						]);
 					}
+
 			}
 	}
 
