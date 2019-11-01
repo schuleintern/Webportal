@@ -136,6 +136,12 @@ class Message {
 	 * @var Message
 	 */
 	private $replyToMessage = null;
+
+	/**
+	 * Nachricht welche weiter geleitet wurde
+	 * @var Message
+	 */
+	private $forwardFromMessage = null;
 	
 	/**
 	 * Geheimer Text zur Bestätigung der Nachricht
@@ -189,6 +195,10 @@ class Message {
 		$this->isConfirmed = $data['messageIsConfirmed'] > 0;
 		$this->confirmationSecret = $data['messageConfirmSecret'];
 		
+		if($data['messageIsForwardFrom'] > 0) {
+			$this->forwardFromMessage = Message::getByID($data['messageIsForwardFrom']);
+		}
+
 		if($data['messageIsReplyTo'] > 0) {
 			$this->replyToMessage = Message::getByID($data['messageIsReplyTo']);
 		}
@@ -346,6 +356,14 @@ class Message {
 		return $this->userID;
 	}
 	
+	public function isForward() {
+		return $this->forwardFromMessage != null;
+	}
+
+	public function getForwardMessage() {
+		return $this->forwardFromMessage;
+	}
+
 	public function isReply() {
 		return $this->replyToMessage != null;
 	}

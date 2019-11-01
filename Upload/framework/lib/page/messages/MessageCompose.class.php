@@ -495,6 +495,16 @@ class MessageCompose extends AbstractPage {
 				
 				$isReply = false;
 				
+
+				if($_REQUEST['forwardMessage'] != "") {
+							
+						$forwardMessage = Message::getByID(intval($_REQUEST['forwardMessage']));
+						if($forwardMessage!= null) {
+								if($forwardMessage->getUserID() == DB::getSession()->getUserID()) {
+									$messageSender->setForwardMessage($forwardMessage);
+								}
+						}
+				}
 				
 				if($_REQUEST['replyMessage'] != "") {
 				    
@@ -537,8 +547,36 @@ class MessageCompose extends AbstractPage {
 	private function showForm() {
 	
 		$isReply = false;
+		$isForward = false;
 		
-		
+		if($_REQUEST['forwardMessage'] != "") {
+		    
+			$forwardMessage = Message::getByID(intval($_REQUEST['forwardMessage']));
+			if($forwardMessage!= null) {
+
+					$isForward = true;
+
+					$arr = array();
+					$attachments = $forwardMessage->getAttachments();
+					if ($attachments[0]) {
+						for($i = 0; $i < sizeof($attachments); $i++) {
+							array_push($arr, array(
+								'attachmentID' => $attachments[$i]->getID(),
+								'attachmentFileName' => $attachments[$i]->getUpload()->getFileName(),
+								'attachmentAccessCode' => $attachments[$i]->getAccessCode(),
+								'attachmentURL' => $attachments[$i]->getUpload()->getURLToFile(true)
+							));
+						}
+
+						$forwardJSONData = json_encode([
+							'key' => 'attachments',
+							'value' => $arr
+						]);
+					}
+
+			}
+	}
+
 		if($_REQUEST['replyMessage'] != "") {
 		    
 		    $replyMessage = Message::getByID(intval($_REQUEST['replyMessage']));
