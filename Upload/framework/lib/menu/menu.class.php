@@ -588,7 +588,7 @@ class menu {
         
         $meineKlassen = array ();
         
-        if (in_array ( "Webportal_Projektverwaltung_Admin", DB::getSession ()->getGroupNames () )) {
+        if (DB::getSession()->getUser()->isMember("Webportal_Projektverwaltung_Admin") || DB::getSession()->isAdmin()) {
             $meineKlassen = grade::getAllGradesAtLevel ( 9 );
         } else {
             $grs = DB::getDB ()->query( "SELECT * FROM projekt_lehrer2grade WHERE lehrerUserID='" . DB::getSession ()->getData("userID") . "'" );
@@ -605,8 +605,8 @@ class menu {
                 
             }
         }
-        
-        if(in_array("Webportal_Projektverwaltung_Admin", DB::getSession()->getGroupNames())){
+
+        if (DB::getSession()->getUser()->isMember("Webportal_Projektverwaltung_Admin") || DB::getSession()->isAdmin()) {
             $projektVerwaltungShow .= '<li' . (($_REQUEST['page'] == "projektverwaltung" && $_GET['action'] == "admin")?(" class=\"active\""):("")) . '><a href="index.php?page=projektverwaltung&action=admin"><i class="fa fa-briefcase"></i> Projektverwaltung Admin</a></li>';
         }
         
