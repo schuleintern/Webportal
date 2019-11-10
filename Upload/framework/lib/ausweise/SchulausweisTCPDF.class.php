@@ -1,6 +1,6 @@
 <?php
 
-class ISGYAusweisTCPDF extends TCPDF {
+class SchulausweisTCPDF extends TCPDF {
     private $ausweis;
     
     /**

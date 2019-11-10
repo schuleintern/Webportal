@@ -22,8 +22,8 @@ $classes = [
     
     'ausweise' => [
         'AbstractAusweis',
-        'ISGYAusweis',
-        'ISGYAusweisTCPDF'
+        'Schulausweis',
+        'SchulausweisTCPDF'
     ],
     
 	'captcha' => [

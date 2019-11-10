@@ -1,13 +1,13 @@
 <?php
 
-class ISGYAusweis extends AbstractAusweis {
+class Schulausweis extends AbstractAusweis {
     /**
      * {@inheritDoc}
      * @see AbstractAusweis::getAusweisPDFFront()
      */
     public function getAusweisPDFFront() {
         
-        $pdf = new ISGYAusweisTCPDF($this, true, false);
+        $pdf = new SchulausweisTCPDF($this, true, false);
         return $pdf;
     }
 
@@ -16,7 +16,7 @@ class ISGYAusweis extends AbstractAusweis {
      * @see AbstractAusweis::getAusweisPDFBack()
      */
     public function getAusweisPDFBack() {
-        $pdf = new ISGYAusweisTCPDF($this, false, true);
+        $pdf = new SchulausweisTCPDF($this, false, true);
         return $pdf;
     }
 
