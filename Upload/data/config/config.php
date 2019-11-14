@@ -94,7 +94,7 @@ class GlobalSettings {
      * UNTIS, SPM++, SPM++V2
      * @var string
      */
-    public $stundenplanSoftware = "SPM++";
+    public $stundenplanSoftware = "WILLI";
 
     /**
      * Hat eine Notenverwaltung?

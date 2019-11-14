@@ -4,7 +4,11 @@
 class updatevplan extends AbstractPage {
     public function __construct() {
         parent::__construct("Startseite");
-        
+
+
+       //$this->updateVplan("schuelerheute", DB::getSettings()->getValue("vplan-censor-schuelerheute"));
+       //exit();
+
         header("Content-Type: text/html; charset=UTF-8");
         
         if($_REQUEST['key'] != DB::getSettings()->getValue("vplan-updateKey")) die(("Kein Zugriff, da Zugriffstoken nicht korrekt! (Fehler 7)"));
@@ -97,6 +101,7 @@ class updatevplan extends AbstractPage {
         $infoText = "";
         
         $allLehrer = lehrer::getAllKuerzel();
+        $alleLehrerObjekte = lehrer::getAll();
         
         if(DB::getGlobalSettings()->stundenplanSoftware == "UNTIS") {
             for($i = 1; $i < 20; $i++) {
@@ -255,7 +260,99 @@ class updatevplan extends AbstractPage {
             echo("Update $name OK\n");
             
         }
-        
+
+        if(DB::getGlobalSettings()->stundenplanSoftware == "WILLI") {
+            $data = file("vplan/$name/seite1.htm");
+
+            $vplanUpdate = "n/a";
+
+            // Suche Datum
+            for($i = 0; $i < sizeof($data); $i++) {
+                if(substr($data[$i], 0, strlen("<h2>")) == "<h2>") {
+                    $planDate = substr($data[$i], strlen("<h2>Vertretungsplan f&uuml;r "), strpos($data[$i],"</h2>")-29);
+                    $vplanUpdate = substr($data[$i], strpos($data[$i],"</h2>")+15, 12);
+                }
+            }
+
+
+            // Suche Vertretungen
+
+            $vertretungenTabelle = "";
+            $isInVPlanTable = false;
+            $isInHeader = false;
+
+            for($i = 0; $i < sizeof($data); $i++) {
+                if($data[$i] == "<h4>Vertretungen:</h4> <table class=\"k\" border-width=\"3\"><tr><th width=\"75\">\r\n") {
+                    $isInVPlanTable = true;
+                    $vertretungenTabelle = "<table class=\"table table-striped\">";
+                    $vertretungenTabelle .= "<tr><th>Klasse</th><th>Lehrkraft</th><th>Stunde</th><th>Vertreten durch</th><th>Raum</th><th>Kommentar</th></tr>\r\n";
+                    $isInHeader = true;
+                    continue;
+                }
+
+                if($data[$i] == "<h4>Vertretungen:</h4> <table class=\"l\" border-width=\"3\"><tr><th width=\"200\">\r\n") {
+                    $isInVPlanTable = true;
+                    $vertretungenTabelle = "<table class=\"table table-striped\">";
+                    $vertretungenTabelle .= "<tr><th>Lehrkraft</th><th>Stunde</th><th>Klasse</th><th>Raum</th><th>Kommentar</th></tr>\r\n";
+                    $isInHeader = true;
+                    continue;
+                }
+
+                if($isInHeader) {
+                    if($data[$i] == "</tr>\r\n") {
+                        $isInHeader = false;
+                        continue;
+                    }
+                    else continue;
+                }
+
+                if($data[$i] == "</table>\r\n") {
+                    $isInVPlanTable = false;
+                    $vertretungenTabelle .= "</table>";
+                    continue;
+                }
+
+                if($isInVPlanTable) {
+
+                    $line = $data[$i];
+
+                    $line = str_replace("\n","",$line);
+                    $line = str_replace("\r","",$line);
+
+
+
+                    if($censor) {
+                        for($lk = 0; $lk < sizeof($alleLehrerObjekte); $lk++) {
+                            $line = str_replace("(" . $alleLehrerObjekte[$lk]->getKuerzel() . ")", "(---*)", $line);
+                            $line = str_replace($alleLehrerObjekte[$lk]->getName() . " " . $alleLehrerObjekte[$lk]->getRufname(), "---*", $line);
+                            $line = str_replace("&nbsp;" . $alleLehrerObjekte[$lk]->getKuerzel() . "</td>", "---*</td>", $line);
+                        }
+                    }
+
+                    if(strpos($line,"</tr>") !== false) {
+                        $line .= "\r\n";
+                    }
+
+                    $vertretungenTabelle .= str_replace(" class=\"k\"","",
+                        str_replace(" class=\"l\"","",
+                            str_replace("<tbody>","",
+                                str_replace("</tbody>","",$line))
+                    ));
+                }
+            }
+
+
+
+
+            $data = implode("",$data);
+
+            echo($data);
+
+            DB::getDB()->query("UPDATE vplan SET vplanDate='" . $planDate . "', $saveToField='" . (addslashes($vertretungenTabelle)) . "', vplanUpdateTime=UNIX_TIMESTAMP(), vplanUpdate='$vplanUpdate', vplanInfo='" . addslashes($infoText) . "' WHERE vplanName='" . $name . "'");
+
+
+        }
+
         if(DB::getGlobalSettings()->stundenplanSoftware == "SPM++") {
             // Datum suchen
             // Es gibt nur eine XML Datei.
