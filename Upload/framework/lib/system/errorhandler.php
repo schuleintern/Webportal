@@ -82,7 +82,7 @@ Kontext: " . print_R($context, true);
 
     <div class="login-box">
       <div class="login-logo">
-        <a href="index.php"><img src="imagesSchool/Icon.png" width="150" border="0"></a>
+        <a href="index.php"><img src="index.php?page=SkinSettings&action=getLogo" width="150" border="0"></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       	<div class="callout callout-danger"><i class="fa fa-exclamation-triangle"></i> Fehler bei der Ausführung der Anfrage.</div>
