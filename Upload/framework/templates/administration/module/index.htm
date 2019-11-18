@@ -2,8 +2,6 @@
 
 <script src="cssjs/plugins/tinymce/tinymce.min.js"></script>
 <script src="cssjs/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-
-
 <script src="cssjs/plugins/select2/select2.full.min.js"></script>
 
 
@@ -71,7 +69,7 @@
 									$settingsHTML
 								
 								</table>
-								
+
 								
 								<br />
 								
@@ -100,25 +98,24 @@
 	<div class="col-md-2">
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title"><i class="fa fa-user"></i> Zugriff auf diese Moduladministration</h3>
+				<h3 class="box-title"><i class="fa fa-user"></i> Administratoren</h3>
 			</div>
 			<div class="box-body">
-				<b>Globale Administratoren</b><br />
-				<small><i>Haben auf alle Module Zugriff</i></small>
-				<ul>
+				<b><i class="fa fas fa-users-cog"></i> Hauptadministratoren</b>
+				<table class="table table-striped table-hover">
 					$globalAdminGroupList
-				</ul>
+				</table>
 				<hr noshade>
-				<b>Weitere Administratoren</b><br />
-				<small>Haben nur auf dieses Modul (und eventuell andere) Zugriff</small>
+				<b><i class="fa fas fa-user-cog"></i> Moduladministratoren</b><br />
+				<table class="table table-striped table-hover">
+
 				<if($adminGroupList != "")><then>
-				<ul>
 					$adminGroupList
-				</ul>
-				</then><else><br /><i>Keine weiteren Administratoren definiert.</i></else></if>
-				
+			</then><else><tr><td><i class="fas fa-ban"></i> Bisher keine</td></tr></else></if>
+				</table>
+
 				<if(DB::getSession()->isAdmin())><then>
-				<form><button type="button" class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#addpersontoadmingroup" ><i class="fa fa-plus"></i> Person hinzufügen</button></form>
+				<form><button type="button" class="btn btn-primary btn-block btn-flat btn-sm" data-toggle="modal" data-target="#addpersontoadmingroup" ><i class="fa fa-user-plus"></i> Admin hinzufügen</button></form>
 				</then></if>
 			</div>
 		</div>

@@ -115,7 +115,7 @@ class menu {
 
 
 
-    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationactivatepages', 'Module de-/aktivieren', 'fa fa-check');
+    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationactivatepages', 'Modulstatus', 'fas fa-toggle-on');
 
 
     $displayActions = [];
