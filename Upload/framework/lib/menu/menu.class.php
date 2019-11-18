@@ -262,7 +262,7 @@ class menu {
     
        
 
-    $html .= $this->getMenuItem("aufeinenblick", "Auf einen Blick", "fa fa-calendar-check-o");
+    $html .= $this->getMenuItem("aufeinenblick", " Auf einen Blick", "fa fa-calendar-check");
 
 
     if(DB::isLoggedIn() && $this->isActive("vplan") && (DB::getSession()->isTeacher() || DB::getSettings()->getValue("vplan-schueleractive") != 0)) {
@@ -540,7 +540,7 @@ class menu {
         
         if(DB::getSession()->isTeacher()) $zuBestaetigen = DB::getDB()->query_first("SELECT COUNT(laufzettelID) AS zubestaetigen FROM laufzettel WHERE laufzettelDatum >= CURDATE() AND laufzettelID IN (SELECT laufzettelID FROM laufzettel_stunden WHERE laufzettelLehrer LIKE '" . DB::getSession()->getTeacherObject()->getKuerzel() . "' AND laufzettelZustimmung=0)");
         
-        $html .= $this->startDropDown(['laufzettel'], 'Laufzettel', 'fa fa-file-text-o',[],$zuBestaetigen['zubestaetigen']);
+        $html .= $this->startDropDown(['laufzettel'], 'Laufzettel', 'fa fa-user-check',[],$zuBestaetigen['zubestaetigen']);
         
         
         $html .= $this->getMenuItem('laufzettel', 'Zu bestätigen', 'fa fa-check', ['mode' => 'myLaufzettel'], $zuBestaetigen['zubestaetigen']);

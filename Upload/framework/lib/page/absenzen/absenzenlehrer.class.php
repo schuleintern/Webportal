@@ -803,7 +803,7 @@ class absenzenlehrer extends AbstractPage {
   }
   
   public static function getAdminMenuGroupIcon() {
-  	return 'fa fa-hospital-o';
+  	return 'fa fas fa-procedures';
   }
   
 

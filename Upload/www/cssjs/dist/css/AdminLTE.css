@@ -2356,6 +2356,8 @@ a:focus {
   font-size: 12px;
 }
 .btn-app > .fa,
+.btn-app > .far,
+.btn-app > .fab,
 .btn-app > .glyphicon,
 .btn-app > .ion {
   font-size: 20px;
