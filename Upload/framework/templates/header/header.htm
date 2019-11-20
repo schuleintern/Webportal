@@ -114,7 +114,7 @@
 	                </a>
 	                </li>
 				</then></if>
-             	<!-- <li><a href="#" onclick="javascript:location.reload()" title="Aktualisieren"><i class="fa fa-refresh"></i></a> -->
+             	<!-- <li><a href="#" onclick="javascript:location.reload()" title="Aktualisieren"><i class="fa fas fa-sync-alt"></i></a> -->
 			<!-- 
 			<li class="dropdown tasks-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -146,21 +146,31 @@
 	          	<li>
 	            	<a href="#helpmodal" data-toggle="modal"><i class="fa fa-question-circle"></i></a>
 	          	</li>
-	          	</then></if>           
-				
-				
-				
-				<if(DB::getSession()->isAnyAdmin())>
+	          	</then></if>
+
+                 <if($isAdmin)><then>
+
+                 <li class="messages-menu">
+
+                 <a href="index.php?page=administrationmodule&module={$_REQUEST['page']}" class="btn btn-warning"><i class="fa fa-wrench"></i> Moduladministration</a>
+
+                 </li>
+                </then></if>
+
+
+
+
+                 <if(DB::getSession()->isAnyAdmin())>
 				<then>
-				
-					<li class="messages-menu"><a href="index.php?page=administration"><i class="fa fa-cogs"></i> Admin</a></li>
+
+                    <li class="messages-menu"><a href="index.php?page=administration"><i class="fa fa-cogs"></i> Admin</a></li>
 							
 				
 				
 				</then>
 				</if>
 				
-				<li class="messages-menu"><a href="index.php?page=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+				<li class="messages-menu"><a href="index.php?page=logout"><i class="fas fa-sign-out-alt"></i></a></li>
 				
 				
 				{$this->loginStatus}
@@ -209,12 +219,10 @@
 
           <h1>
             $siteTitle
-          
-          	<if($isAdmin)><then><small><a href="index.php?page=administrationmodule&module={$_REQUEST['page']}" class="btn btn-sm btn-info"><i class="fa fa-wrench"></i></a></small></then></if>
-          	$infoMessages
+              $infoMessages
           	$infoLaufzettel
           </h1>
-          <ol class="breadcrumb">
+            <ol class="breadcrumb">
             <li><a href="index.php?page=index&gplsession={$_GET['gplsession']}"><i class="fa fa-dashboard"></i> Startseite</a></li>
             $sitemapline
           </ol>

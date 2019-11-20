@@ -266,7 +266,7 @@
 	  
 	  $("#addButton").prop("disabled",true);
 	  
-	  $("#addButton").html("<i class=\"fa fa-refresh fa-spin\"></i> Termin wird gespeichert");
+	  $("#addButton").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Termin wird gespeichert");
 	  
 	  
 		$.ajax({
@@ -313,7 +313,7 @@
   function deleteEventConfirmed() {
 		  $("#deleteButton").prop("disabled",true);
 		  
-		  $("#deleteButton").html("<i class=\"fa fa-refresh fa-spin\"></i> Termin wird gelöscht");
+		  $("#deleteButton").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Termin wird gelöscht");
 		  
 		  
 			$.ajax({
@@ -351,7 +351,7 @@
   function editEvent() {
 	  $("#editButton").prop("disabled",true);
 	  
-	  $("#editButton").html("<i class=\"fa fa-refresh fa-spin\"></i> Termin wird gespeichert");
+	  $("#editButton").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Termin wird gespeichert");
 	  
 	  
 		$.ajax({
@@ -389,7 +389,7 @@
 	function openICSFeed() {
 		  $("#buttonics").prop("disabled",true);
 		  
-		  $("#buttonics").html("<i class=\"fa fa-refresh fa-spin\"></i> Wird abgerufen");
+		  $("#buttonics").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Wird abgerufen");
 	
 		$.ajax({
 			type: "POST",
@@ -451,7 +451,7 @@
   
   <div id="schulkalender"></div></div>
   	<div class="overlay" id="isloading">
-		<i class="fa fa-refresh fa-spin"></i>
+		<i class="fa fas fa-sync-alt fa-spin"></i>
 	</div>
 </div>
 

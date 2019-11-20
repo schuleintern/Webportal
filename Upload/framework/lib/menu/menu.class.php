@@ -25,7 +25,7 @@ class menu {
       $myUnterricht = SchuelerUnterricht::getUnterrichtForLehrer(DB::getSession()->getTeacherObject());
 
 
-      $this->html .= $this->startDropDown(['NotenEingabe'], 'Noteneingabe', 'fa fa-pencil');
+      $this->html .= $this->startDropDown(['NotenEingabe'], 'Noteneingabe', 'fa fas fa-pencil-alt');
 
       $unterrichtShown = [];
 
@@ -41,7 +41,7 @@ class menu {
 
               $schueler = $myUnterricht[$i]->getSchueler();
             if(sizeof($schueler) > 0) {
-              $this->html .= $this->getMenuItem('NotenEingabe', $myUnterricht[$i]->getAllKlassenAsList()  . ": " . $myUnterricht[$i]->getFach()->getKurzform() . " (" . $myUnterricht[$i]->getBezeichnung() . ")", 'fa fa-group',['unterrichtID' => $myUnterricht[$i]->getID()]);
+              $this->html .= $this->getMenuItem('NotenEingabe', $myUnterricht[$i]->getAllKlassenAsList()  . ": " . $myUnterricht[$i]->getFach()->getKurzform() . " (" . $myUnterricht[$i]->getBezeichnung() . ")", 'fa fa-award ',['unterrichtID' => $myUnterricht[$i]->getID()]);
 
             }
           }
@@ -307,7 +307,7 @@ class menu {
             
             if(DB::getSession()->isTeacher() ) {
                 
-                $html .= $this->getMenuItem("klassenkalender", "Meine Klassen", "fa fa-users", ['grade' => 'allMyGrades']);
+                $html .= $this->getMenuItem("klassenkalender", "Meine Klassen", "fa fas fa-users", ['grade' => 'allMyGrades']);
                 $html .= $this->getMenuItem("klassenkalender", "Alle Klassen", "fa fa-users", ['grade' => 'all_grades']);
                 $html .= $this->getMenuItem("klassenkalender", "Von mir eingetragen", "fa fa-users", ['grade' => 'allMyTermine']);
                 
@@ -320,7 +320,7 @@ class menu {
                 }
                 
                 if($htmlMyGrades != "") {
-                    $html .= $this->startDropDown(['klassenkalender'], "Meine Klassen", "fa fa-group");
+                    $html .= $this->startDropDown(['klassenkalender'], "Meine Klassen", "fa fa-users");
                     
                     $html .= $htmlMyGrades;
                     
@@ -891,7 +891,7 @@ class menu {
     
     
     if($html != "") {
-        $this->html .= $this->getTrenner('<i class="fa fa-pencil-square"></i> Verwaltung</i>');
+        $this->html .= $this->getTrenner('<i class="fa fas fa-pencil-alt-square"></i> Verwaltung</i>');
         $this->html .= $html;
     }
     

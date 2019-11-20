@@ -8,7 +8,8 @@
     <title><expression>DB::getGlobalSettings()->siteNamePlain</expression> - Anmeldung</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="cssjs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="cssjs/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	  <link href="cssjs/font/fontawesome/css/all.css" rel="stylesheet" type="text/css" />
+	  <link href="cssjs/font/fontawesome/js/v4-shims.js" rel="stylesheet" type="text/css" />
     <link href="cssjs/font/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
@@ -21,13 +22,10 @@
 		  }
 
 		  .schuleinternloginimage {
-			  /* The image used */
 			  background-image: url("<expression>DB::getSettings()->getUpload('login-background-image')->getURLToFile()</expression>");
 
-			  /* Full height */
 			  height: 100%;
 
-			  /* Center and scale the image nicely */
 			  background-position: center;
 			  background-repeat: no-repeat;
 			  background-size: cover;
@@ -148,7 +146,7 @@
             	<hr noshade="noshade">
       
       	<div style="text-align:center">	
-      		<a href="index.php?page=impressum"><i class="fa fa-info"></i> Impressum</a> | <a href="index.php?page=impressum#Datenschutz"><i class="fa fa-info"></i> Datenschutz</a>
+      		<a href="index.php?page=impressum" class="btn btn-primary"><i class="fa fa-info"></i> Impressum</a> | <a href="index.php?page=impressum#Datenschutz" class="btn btn-primary"><i class="fa fa-info"></i> Datenschutz</a>
       </div>
       
      </div>
@@ -194,7 +192,7 @@
 	            <div class="col-xs-12">    
 	              <div class="checkbox icheck">
 	                <label>
-	                  <input type="checkbox" name="keeplogin" value="1"> Anmeldung speichern<br/><small>Nicht auf gemeinsam genutzten Geräten aktivieren.</small>
+						<input type="checkbox" name="keeplogin" value="1"></small> Anmeldung speichern
 	                </label>
 	              </div>                      
 	            </div>
@@ -222,20 +220,20 @@
         </then></if>
                 
         <hr noshade>
-        	<button type="submit" class="btn btn-primary btn-block " data-toggle="modal" data-target="#elternforgotPW"><i class="fa fa-question"></i> Ich habe mein Passwort vergessen</button>  
+        	<button type="submit" class="btn btn-primary btn-block " data-toggle="modal" data-target="#elternforgotPW"><i class="fa fa-question"></i> Ich habe mein Passwort vergessen</button>
 
       	
       	<hr noshade>
 
       
         <div class="row">
-      		<div class="col-xs-12" style="text-align: center">Schule und Betreiber des Angebotes:<br /><expression>DB::getGlobalSettings()->schoolName</expression></div>
+			<div class="col-xs-12" style="text-align: center"><strong>Schule und Betreiber des Angebotes:</strong><br /><expression>DB::getGlobalSettings()->schoolName</expression></div>
       	</div>
       
       	<hr noshade="noshade">
       
       	<div style="text-align:center">	
-      		<a href="index.php?page=impressum"><i class="fa fa-info"></i> Impressum</a> | <a href="index.php?page=impressum#Datenschutz"><i class="fa fa-info"></i> Datenschutz</a>
+      		<a href="index.php?page=impressum" class="btn btn-default"><i class="fa fa-info"></i> Impressum</a> <a href="index.php?page=impressum#Datenschutz" class="btn btn-default"><i class="fa fa-info"></i> Datenschutz</a>
 
       	</div>
 
@@ -358,7 +356,7 @@
 	$('#registerCode').on('input', function() {
 		var value = $(this).val();
 	    if ( value.length == 16) {
-	    	$("#KindName").html("<i class=\"fa fa-refresh fa-spin\"></i> Der Code wird überprüft...");
+	    	$("#KindName").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Der Code wird überprüft...");
 	    	
     		$.ajax({
     			type: "POST",
@@ -437,7 +435,7 @@
 	    	
 			$("#registerButtonSubmit").prop("disabled", true);
 
-	    	$("#registerButtonSubmit").html('<i class="fa fa-refresh fa-spin"></i> Bitte warten ...');	
+	    	$("#registerButtonSubmit").html('<i class="fas fa-sync-alt fa-spin"></i> Bitte warten ...');
 	    	
     		$.ajax({
     			type: "POST",
@@ -685,8 +683,8 @@
     	function login() {
 
     		$("#loginbutton").prop("disabled",true);
-    		$("#loginbutton").html("<i class=\"fa fa-refresh fa-spin\"></i> Bitte warten ...");
-    		// fa fa-refresh fa-spin
+    		$("#loginbutton").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Bitte warten ...");
+    		// fa fas fa-sync-alt fa-spin
     		
     		
     		$.ajax({

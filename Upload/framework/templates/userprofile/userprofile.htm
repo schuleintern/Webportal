@@ -67,7 +67,7 @@
 		<td><p>{$realname}</p>
 			<if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE" && DB::getSession()->isEltern())>
 			<then>
-				<form><button type="button" class="btn" data-toggle="modal" data-target="#changename"><i class="fa fa-pencil"></i> Namen ändern</button></form>
+				<form><button type="button" class="btn" data-toggle="modal" data-target="#changename"><i class="fa fas fa-pencil-alt"></i> Namen ändern</button></form>
 			</then></if>
 		
 		</td>
@@ -77,7 +77,7 @@
 		<td><p><strong>E-Mail</strong></p>			<button class="btn btn-default btn-xs" id="changemail" type="button" onclick="mailAendern()" hidden><i class="fa fa-at"></i> E-Mailadresse aktualisieren</button>
 		</td>
 		<td>
-			<div id="mailAdresse"><i class="fa fa-refresh fa-spin"></i> Wird geladen</div><br />
+			<div id="mailAdresse"><i class="fa fas fa-sync-alt fa-spin"></i> Wird geladen</div><br />
 			<div id="mailAdresseNotChangeable" hidden="hidden" class="callout callout-info">Sie können die Adresse leider nicht selbst ändern. Wenden Sie sich dazu bitte direkt an die Schule.</div>
 			
 			<div id="mailOptions" hidden>
@@ -238,7 +238,7 @@
 		<td>
 			<b>Signatur</b><br />
 			<small>Wird beim Verfassen von Nachrichten angehängt.</small>
-			<button class="btn btn-default btn-xs" type="button" data-toggle="modal" data-target="#editSignature"><i class="fa fa-pencil"></i> Bearbeiten</button>
+			<button class="btn btn-default btn-xs" type="button" data-toggle="modal" data-target="#editSignature"><i class="fa fas fa-pencil-alt"></i> Bearbeiten</button>
 		</td>
 		<td>
 			{$data->getUser()->getSignature()}<br />
@@ -292,7 +292,7 @@
 							<input type="number" placeholder="123456" class="form-control" id="newMailCode">
 						</div>
 						
-						<button class="btn btn-primary" type="button" id="buttonNewMail" onclick="requestCode()"><i class="fa fa-refresh"></i> E-Mailadresse aktualisieren</button>
+						<button class="btn btn-primary" type="button" id="buttonNewMail" onclick="requestCode()"><i class="fa fas fa-sync-alt"></i> E-Mailadresse aktualisieren</button>
 						<button class="btn btn-primary" type="button" id="buttonNewMailCode" onclick="sendCode()" hidden="hidden"><i class="fa fa-check"></i> Code eingeben</button>
 					</div>
 	</div>

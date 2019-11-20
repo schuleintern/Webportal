@@ -36,7 +36,7 @@
         $("#updateForm").click( function() {
             confirmAction("Soll das Update durchgeführt werden und haben Sie ein Backup durchgeführt?",null, function() {
                 $("#updateSubmitButton").attr("disabled", true);
-                $("#updateSubmitButton").html("<i class=\"fa fa-refresh fa-spin\"></I> Bitte warten ...");
+                $("#updateSubmitButton").html("<i class=\"fa fas fa-sync-alt fa-spin\"></I> Bitte warten ...");
                $("#updateForm").submit();
             })
         });

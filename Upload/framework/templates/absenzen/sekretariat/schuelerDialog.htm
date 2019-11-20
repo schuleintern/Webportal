@@ -31,7 +31,7 @@
 	        <li><a href="#tab8<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-plane"></i> Beurlaubung erfassen</a></li>
 	        <li><a href="#tab5<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-phone"></i> Befreiung</a></li>
 	        <li><a href="#tab6<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-bed"></i> Krankenzimmer</a></li>
-	        <li><a href="index.php?page=absenzensekretariat&mode=editAbsenzen&schuelerAsvID=<expression>$schueler->getAsvID()</expression>&activeKlasse={$_GET['activeKlasse']}&currentDate={$currentDate}"><i class="fa fa-pencil"></i> Alle Absenzen bearbeiten / ansehen</a></li>
+	        <li><a href="index.php?page=absenzensekretariat&mode=editAbsenzen&schuelerAsvID=<expression>$schueler->getAsvID()</expression>&activeKlasse={$_GET['activeKlasse']}&currentDate={$currentDate}"><i class="fa fas fa-pencil-alt"></i> Alle Absenzen bearbeiten / ansehen</a></li>
 	        <li><a href="index.php?page=absenzenberichte&mode=schuelerbericht&schuelerAsvID={$schueler->getAsvID()}"><i class="fa fa-file-pdf-o"></i> Schülerbericht</a></li>
 	        <if(!DB::getSettings()->getBoolean('absenzen-generelleattestpflicht'))><then><li><a href="#tab7<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-exclamation"></i> Attestpflicht</a></li></then></if>
 	        <li><a href="#tab10<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-bell"></i> Merker</a></li>

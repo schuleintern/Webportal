@@ -65,7 +65,7 @@
 	function openICSFeed() {
 		  $("#buttonics").prop("disabled",true);
 		  
-		  $("#buttonics").html("<i class=\"fa fa-refresh fa-spin\"></i> Wird abgerufen");
+		  $("#buttonics").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Wird abgerufen");
 	
 		$.ajax({
 			type: "POST",
@@ -110,7 +110,7 @@
 	<div id='schulkalender' style="width:100%"></div>
 	</div>
 		<div class="overlay" id="isloading">
-		<i class="fa fa-refresh fa-spin"></i>
+		<i class="fa fas fa-sync-alt fa-spin"></i>
 	</div>
 </div>
 

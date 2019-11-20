@@ -3,73 +3,84 @@
 /**
  * Aufruf nach einem Update
  */
-class Update extends AbstractPage {
+class Update extends AbstractPage
+{
 
-  public function __construct() {
-    parent::__construct ( array (
-      "Update"
-    ) );
-  }
+    public function __construct()
+    {
+        parent::__construct(array(
+            "Update"
+        ));
+    }
 
-  public function execute() {
-      $updateInfo = file_get_contents("../data/update.json");
+    public function execute()
+    {
+        $updateInfo = file_get_contents("../data/update.json");
 
-      if($updateInfo === false) {
-          echo("update fail. (not availible)");
-          exit(0);
-      }
+        if ($updateInfo === false) {
+            echo("update fail. (not availible)");
+            exit(0);
+        }
 
-      $updateInfo = json_decode($updateInfo, true);
+        $updateInfo = json_decode($updateInfo, true);
 
-      $fromVersion = $updateInfo['updateFromVersion'];
-      $toVersion = $updateInfo['updateToVersion'];
+        $fromVersion = $updateInfo['updateFromVersion'];
+        $toVersion = $updateInfo['updateToVersion'];
 
-      // Updates durchführen
-      $this->performUpdate($fromVersion,$toVersion);
+        // Updates durchführen
+        $this->performUpdate($fromVersion, $toVersion);
 
-      if($this->performUpdate($fromVersion, $toVersion)){
-          DB::getSettings()->setValue("current-release-id", $updateInfo['updateToReleaseID']);
-          DB::getSettings()->setValue('currentVersion', DB::getVersion());
-      }
-      else {
-          echo("Kein Update möglich.");
-          exit(0);
-      }
+        if ($this->performUpdate($fromVersion, $toVersion)) {
+            DB::getSettings()->setValue("current-release-id", $updateInfo['updateToReleaseID']);
+            DB::getSettings()->setValue('currentVersion', DB::getVersion());
+        } else {
+            echo("Kein Update möglich.");
+            exit(0);
+        }
 
-      // Template Cache leeren
-      DB::getDB()->query("TRUNCATE `templates`");
+        // Template Cache leeren
+        DB::getDB()->query("TRUNCATE `templates`");
 
-      // CLI Scripte erneuern
-      rename("../cli", "../cli_" . $fromVersion);
-      rename("../data/update/Upload/cli", "../cli");
+        // CLI Scripte erneuern
+        rename("../cli", "../cli_" . $fromVersion);
+        rename("../data/update/Upload/cli", "../cli");
 
-      // Abschluss
-      unlink("../data/update.json");
+        // Abschluss
+        unlink("../data/update.json");
 
 
-      new infoPage("Update durchgeführt. Portal ist wieder in Betrieb.", "index.php");
-  }
+        new infoPage("Update durchgeführt. Portal ist wieder in Betrieb.", "index.php");
+    }
 
-  private function performUpdate($from, $to) {
+    private function performUpdate($from, $to)
+    {
 
-      if($from == "1.0" && $to == "1.0.1") {
-          $this->from100to101();
-      }
+        if ($from == "1.0" && $to == "1.0.1") {
+            $this->from100to101();
+        }
 
-      if($from == "1.0.0" && $to == "1.0.1") {
-          $this->from100to101();
-      }
+        if ($from == "1.0.0" && $to == "1.0.1") {
+            $this->from100to101();
+        }
 
-      if($from == "1.0.1" && $to == "1.0.1") {
-          $this->from100to101();
-      }
+        if ($from == "1.0.1" && $to == "1.0.1") {
+            $this->from100to101();
+        }
 
-      return true;
-  }
+        return true;
+    }
 
-  private function from100to101() {
-      // Änderungen an Datenbank:
-      $sql = "CREATE TABLE `lerntutoren` (
+    private function from101to200()
+    {
+        // Druckheader kopieren
+
+
+    }
+
+    private function from100to101()
+    {
+        // Änderungen an Datenbank:
+        $sql = "CREATE TABLE `lerntutoren` (
             `lerntutorID`  int(11) NOT NULL AUTO_INCREMENT ,
             `lerntutorSchuelerAsvID`  varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL ,
             PRIMARY KEY (`lerntutorID`)
@@ -79,7 +90,7 @@ class Update extends AbstractPage {
             ROW_FORMAT=Dynamic
             ;";
 
-      $sql2 = "
+        $sql2 = "
             CREATE TABLE `lerntutoren_slots` (
             `slotID`  int(11) NOT NULL AUTO_INCREMENT ,
             `slotLerntutorID`  int(11) NOT NULL ,
@@ -94,20 +105,21 @@ class Update extends AbstractPage {
             ;";
 
 
-      DB::getDB()->query($sql, true);
-      DB::getDB()->query($sql2, true);
+        DB::getDB()->query($sql, true);
+        DB::getDB()->query($sql2, true);
 
-      return true;
+        return true;
 
-  }
+    }
 
-    private static function deleteAll($dir) {
-        if(is_file($dir)) unlink($dir);
-        else if(is_dir($dir)) {
+    private static function deleteAll($dir)
+    {
+        if (is_file($dir)) unlink($dir);
+        else if (is_dir($dir)) {
             $dirContent = opendir($dir);
 
-            while($content = readdir($dirContent)) {
-                if($content != '.' && $content != "..") {
+            while ($content = readdir($dirContent)) {
+                if ($content != '.' && $content != "..") {
                     self::deleteAll($content);
                 }
             }
@@ -116,34 +128,41 @@ class Update extends AbstractPage {
         }
     }
 
-  public static function getSettingsDescription() {
-    return [];
-  }
+    public static function getSettingsDescription()
+    {
+        return [];
+    }
 
-  public static function getSiteDisplayName() {
-    return "Update";
-  }
+    public static function getSiteDisplayName()
+    {
+        return "Update";
+    }
 
-  public static function hasSettings() {
-    return false;
-  }
+    public static function hasSettings()
+    {
+        return false;
+    }
 
-  public static function getUserGroups() {
-    return array();
+    public static function getUserGroups()
+    {
+        return array();
 
-  }
+    }
 
-  public static function siteIsAlwaysActive() {
-    return true;
-  }
+    public static function siteIsAlwaysActive()
+    {
+        return true;
+    }
 
-  public static function hasAdmin() {
-    return false;
-  }
+    public static function hasAdmin()
+    {
+        return false;
+    }
 
-  public static function displayAdministration($selfURL) {
-    return '';
-  }
+    public static function displayAdministration($selfURL)
+    {
+        return '';
+    }
 }
 
 ?>

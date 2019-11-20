@@ -489,7 +489,7 @@ class NotenEingabe extends AbstractPage {
 
                 $htmlSchueler .= " <button type=\"button\" class=\"btn btn-xs\"
                         onclick=\"javascript:editArbeit(" . $arbs[$a]->getID() . ",'" . addslashes($arbs[$a]->getName()) . "'," . $arbs[$a]->getGewichtung() . ",'" . $datum . "'," . $muendlich . ")\">
-                    <i class=\"fa fa-pencil-square-o\"></i></button><br />";
+                    <i class=\"fa fas fa-pencil-alt-square-o\"></i></button><br />";
                 
                 $htmlSchueler .= " <a href=\"index.php?page=NotenRespizienz&mode=klassenlehrer&action=generateRespBogen&unterrichtID=" . $unterricht->getID() . "&arbeitID=" . $arbs[$a]->getID() . "\" class=\"btn btn-sm btn-default\">";
                 $htmlSchueler .= "<i class=\"fa fa-file-o\"></i> Abgabeliste</a>";
@@ -498,7 +498,7 @@ class NotenEingabe extends AbstractPage {
                     $htmlSchueler .= '<br /><button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i></button>';
                 }
                 else {
-                    $htmlSchueler .= '<br /><button type="button" class="btn btn-sm" onclick="javascript:window.location.href=\'index.php?page=NotenEingabe&unterrichtID=' . $unterricht->getID() . "&editArbeit=" . $arbs[$a]->getID() . '\';"><i class="fa fa-pencil"></i> Noten</button>';
+                    $htmlSchueler .= '<br /><button type="button" class="btn btn-sm" onclick="javascript:window.location.href=\'index.php?page=NotenEingabe&unterrichtID=' . $unterricht->getID() . "&editArbeit=" . $arbs[$a]->getID() . '\';"><i class="fa fas fa-pencil-alt"></i> Noten</button>';
                 }
 
                 $htmlSchueler .= "</td>";
@@ -1026,11 +1026,11 @@ class NotenEingabe extends AbstractPage {
   }
   
   public static function getAdminMenuGroupIcon() {
-      return "fa fa-pencil";
+      return "fa fas fa-award";
   }
   
   public static function getAdminMenuIcon() {
-      return "fa fa-cogs";
+      return "fa fas fa-award";
   }
   
   public static function hasAdmin() {

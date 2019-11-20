@@ -5,10 +5,6 @@ class updatevplan extends AbstractPage {
     public function __construct() {
         parent::__construct("Startseite");
 
-
-       //$this->updateVplan("schuelerheute", DB::getSettings()->getValue("vplan-censor-schuelerheute"));
-       //exit();
-
         header("Content-Type: text/html; charset=UTF-8");
         
         if($_REQUEST['key'] != DB::getSettings()->getValue("vplan-updateKey")) die(("Kein Zugriff, da Zugriffstoken nicht korrekt! (Fehler 7)"));
@@ -612,7 +608,7 @@ class updatevplan extends AbstractPage {
     }
     
     public static function getAdminMenuIcon() {
-        return 'fa fa-refresh';
+        return 'fa fas fa-sync-alt';
     }
     
     public static function getAdminMenuGroup() {

@@ -3,7 +3,7 @@
 	<if(DB::getGlobalSettings()->stundenplanSoftware == "UNTIS")><then>
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title"><i class="fa fa-refresh"></i> Vertretungsplan manuell aktualisieren</h3>
+				<h3 class="box-title"><i class="fa fas fa-sync-alt"></i> Vertretungsplan manuell aktualisieren</h3>
 			</div>
 			<div class="box-body">
 				<if($_GET['updated'] > 0)><then>
@@ -17,7 +17,7 @@
 						<input type="file" class="form-control" accept=".txt" name="vplanFile">
 					
 				
-				<button type="submit" class="form-control"><i class="fa fa-refresh"></i> Vertretungsplan aktualisieren</button>
+				<button type="submit" class="form-control"><i class="fa fas fa-sync-alt"></i> Vertretungsplan aktualisieren</button>
 				</form>
 			</div>
 		</div>
@@ -26,7 +26,7 @@
 	<if(DB::getGlobalSettings()->stundenplanSoftware == "TIME2007")><then>
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title"><i class="fa fa-refresh"></i> Vertretungsplan manuell aktualisieren</h3>
+				<h3 class="box-title"><i class="fa fas fa-sync-alt"></i> Vertretungsplan manuell aktualisieren</h3>
 			</div>
 			<div class="box-body">
 				<if($_GET['updated'] > 0)><then>
@@ -46,7 +46,7 @@
 				<input type="file" class="form-control" accept=".html" name="vplanFileLehrer">
 					
 				
-				<button type="submit" class="form-control"><i class="fa fa-refresh"></i> Vertretungsplan aktualisieren</button>
+				<button type="submit" class="form-control"><i class="fa fas fa-sync-alt"></i> Vertretungsplan aktualisieren</button>
 				</form>
 			</div>
 		</div>

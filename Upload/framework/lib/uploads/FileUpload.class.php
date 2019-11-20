@@ -167,6 +167,8 @@ class FileUpload {
 		if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
 			return 'n/a';
 		}
+
+
 		
 		return str_replace(".",",",round(filesize("../data/uploads/" . $this->getID() . ".dat") / 1024 / 1024,2)) . " MB";
 	}
@@ -304,6 +306,59 @@ class FileUpload {
 
 
 		return self::uploadFileImpl($fieldName, self::$mimesPicture, $fileName);	
+	}
+
+
+    /**
+     * @param $filepath
+     * @param $filename
+     * @return array
+     */
+	public static function uploadPictureFromFile($filepath, $filename) {
+        $ext = strtolower(array_pop(explode('.',$filepath)));
+
+        if (function_exists('finfo_open')) {
+            $finfo = finfo_open(FILEINFO_MIME);
+            $mimetype = finfo_file($finfo, $filepath);
+            finfo_close($finfo);
+            $mimetype = str_replace("; charset=binary", "", $mimetype);
+            $mimetype = str_replace("; charset=utf-8", "", $mimetype);
+
+            if(!in_array($mimetype, self::$mimesPicture)) {
+                $mime = null;
+            }
+            else $mime = $mimetype;
+        }
+        else new errorPage("MIME Type kann nicht bestimmt werden!");
+
+        DB::getDB()->query("INSERT INTO uploads
+				(
+					uploadFileName,
+					uploadFileExtension,
+					uploadFileMimeType,
+					uploadTime,
+					uploaderUserID
+				) values(
+					'" . DB::getDB()->escapeString($filename) . "',
+					'" . $ext . "',
+					'" . $mime . "',
+					UNIX_TIMESTAMP(),
+					" . DB::getSession()->getUser()->getUserID() . "				
+				)
+			");
+
+        $newID = DB::getDB()->insert_id();
+
+        move_uploaded_file($filepath, "../data/uploads/" . $newID . ".dat");
+
+        $data = DB::getDB()->query_first("SELECT * FROM uploads WHERE uploadID='" . $newID. "'");
+
+        return [
+            'result' => true,
+            'uploadobject' => new FileUpload($data),
+            'mimeerror' => false,
+            'text' => "Upload OK"
+        ];
 	}
 	
 	public static function uploadPDF($fieldName, $fileName) {

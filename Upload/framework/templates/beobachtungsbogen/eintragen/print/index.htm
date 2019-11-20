@@ -48,7 +48,7 @@ body {
 </style>
 </head>
 <body>
-<div class="logo"><img src="imagesSchool/Briefkopf.jpg" height="31"> Klasse {$this->klasse} (Fach {$this->fach})</div>
+<div class="logo"><img src="<expression>DB::getGlobalSettings()->urlToIndexPHP</expression>?page=printSettings&action=GetPrintHeader" height="31"> Klasse {$this->klasse} (Fach {$this->fach})</div>
 <b>$titel</b><br />
 Lehrer: {$this->myRealName} - <i>Gedruckt: {$heute}</i> - <small>Nur zu eigenen Verwendung.</small><br /><br />
 

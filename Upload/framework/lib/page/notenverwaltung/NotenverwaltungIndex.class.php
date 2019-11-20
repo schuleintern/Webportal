@@ -53,7 +53,7 @@ class NotenverwaltungIndex extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroupIcon() {
-	    return "fa fa-pencil";
+	    return "fa fas fa-award";
 	}
 	
 	public static function getAdminMenuIcon() {

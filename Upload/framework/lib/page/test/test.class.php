@@ -15,16 +15,12 @@ class test extends AbstractPage {
       // Put Tests here.
       // Only access for Admins
 
-    error_reporting(E_ALL);
 
+    $briefkopf = FileUpload::uploadPictureFromFile("imagesSchool/Briefkopf.jpg", "print-header");
+    DB::getSettings()->setValue("print-header", $briefkopf['uploadobject']->getID());
 
-      $cron = new UpdateExterneKalender();
-      $cron->execute();
+    echo("OK");
 
-      header("Content-type: application/json");
-
-      print_r($cron->getCronResult());
-      exit(0);
 
 
   }

@@ -221,7 +221,7 @@
 	function openICSFeed() {
 		  $("#buttonics").prop("disabled",true);
 		  
-		  $("#buttonics").html("<i class=\"fa fa-refresh fa-spin\"></i> Wird abgerufen");
+		  $("#buttonics").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Wird abgerufen");
 	
 		$.ajax({
 			type: "POST",
@@ -256,7 +256,7 @@
 	<div class="box-body">
 		<div class="row">
 			<div class="col-md-3">
-				<form><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#selectGrade"><i class="fa fa-refresh"></i> Klasse wechseln</button></form>
+				<form><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#selectGrade"><i class="fa fas fa-sync-alt"></i> Klasse wechseln</button></form>
 			</div>
 			<div class="col-md-3">
 				<form><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterEvents"><i class="fa fa-filter"></i> Termine filtern</button></form>
@@ -290,7 +290,7 @@
 	</div>
 	
 	<div class="overlay" id="isloading">
-		<i class="fa fa-refresh fa-spin"></i>
+		<i class="fa fas fa-sync-alt fa-spin"></i>
 	</div>
 </div>
 
