@@ -135,6 +135,12 @@ class email {
                 $mail->Host       = DB::getSettings()->getValue("mail-server");
 			  $mail->Port = DB::getSettings()->getValue("mail-server-port");
 
+
+			  if(DB::getSettings()->getValue('mail-reply-to') != "") {
+			      $mail->addReplyTo(DB::getSettings()->getValue('mail-reply-to'), DB::getSettings()->getValue('mail-reply-to-name'));
+              }
+
+
 			  if(DB::getSettings()->getBoolean("mail-server-auth")) {
 			     $mail->Username   = DB::getSettings()->getValue("mail-server-username");;
 			     $mail->Password   = DB::getSettings()->getValue("mail-server-password");

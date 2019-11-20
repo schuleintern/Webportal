@@ -27,7 +27,7 @@ class AdminMailSettings extends AbstractPage {
             [
                 'name' => "",
                 'typ' => 'TRENNER',
-                'titel' => "Allgemeine Einstellungen",
+                'titel' => "Allgemeine Einstellungen zum Mailversand",
                 'text' => ""
             ],
             [
@@ -35,6 +35,12 @@ class AdminMailSettings extends AbstractPage {
                 'typ' => 'ZEILE',
                 'titel' => "Antwort Adresse für abgehende Mails (ReplyTo)",
                 'text' => "Wenn der Empfänger auf Antworten in seinem Mailprogramm klickt, wird diese Mail als Absender eingetragen. (Optionale Option)"
+            ],
+            [
+                'name' => "mail-reply-to-name",
+                'typ' => 'ZEILE',
+                'titel' => "Name der Antwortadresse (z.B. Sekretariat Realschule Testhausen) - NICHT E-Mailadresse",
+                'text' => ""
             ],
             [
                 'name' => "",
