@@ -932,6 +932,8 @@ function addRecipientActionFromSelect2(select2Element) {
 			'name': selectedElements[i]['text']
 		});
 	}
+
+	select2Element.empty();
 	
 	addRecipientAction(newData);
 	
