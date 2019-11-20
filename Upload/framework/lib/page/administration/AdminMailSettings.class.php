@@ -146,9 +146,20 @@ class AdminMailSettings extends AbstractPage {
 	}
 
 	public static function displayAdministration($selfURL) {
+	    if($_REQUEST['action'] == 'sendTestMail') {
+	        $recipient = $_REQUEST['recipient'];
+
+	        $mail = new email($recipient, "Testmail von " . DB::getGlobalSettings()->siteNamePlain, "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.");
+	        $mail->sendInstantMail();
+        }
 
 	    $html = "";
-		return $html;
+
+	    eval("\$html = \"" . DB::getTPL()->get("administration/mailsettings/index") . "\";");
+
+	    return $html;
+
+
 	}
 		
 }
