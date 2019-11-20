@@ -139,9 +139,17 @@
             </ul>
           </li> -->
 				
-				<li class="dropdown messages-menu"><a href="index.php?page=MessageInbox"><i class="fa fa-envelope"></i></a></li>
-				
-				
+				<li class="dropdown messages-menu">
+                </li>
+
+                 <li class="dropdown messages-menu">
+                     <a href="index.php?page=MessageInbox">
+                         <i class="fa fa-envelope"></i>
+                         <span class="label label-success">$countMessage</span>
+                     </a>
+                 </li>
+
+
 				<if($this->helpPage != "")><then>
 	          	<li>
 	            	<a href="#helpmodal" data-toggle="modal"><i class="fa fa-question-circle"></i></a>
@@ -219,7 +227,6 @@
 
           <h1>
             $siteTitle
-              $infoMessages
           	$infoLaufzettel
           </h1>
             <ol class="breadcrumb">
