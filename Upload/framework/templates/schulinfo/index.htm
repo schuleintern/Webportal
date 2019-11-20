@@ -14,7 +14,7 @@
 				<i class="fa fa-phone"></i> <expression>DB::getSettings()->getValue("schulinfo-telefon")</expression><br />
 				<i class="fa fa-print"></i> <expression>DB::getSettings()->getValue("schulinfo-fax")</expression><br />
 				
-				<i class="fa fa-envelope-o"></i> <expression>DB::getSettings()->getValue("schulinfo-email")</expression><br />
+				<i class="fa fa-envelope"></i> <expression>DB::getSettings()->getValue("schulinfo-email")</expression><br />
 				<i class="fa fa-link"></i> <a href="http://<expression>DB::getSettings()->getValue("schulinfo-homepage")</expression>" target="_blank"><expression>DB::getSettings()->getValue("schulinfo-homepage")</expression></a><br />
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 	<then>
 		<div class="col-md-4">
 			<div class="box">
-				<div class="box-header"><h3 class="box-title"><i class="fa fa-user-o"></i> Schulleitung</h3>
+				<div class="box-header"><h3 class="box-title"><i class="fa fa-user"></i> Schulleitung</h3>
 				<if(!DB::getSettings()->getBoolean("schulinfo-schulleiter-show"))><then>
 					<small>Nicht für Eltern und Schüler sichtbar</small>
 				</then></if>
@@ -44,7 +44,7 @@
 	
 	<div class="col-md-4">
 			<div class="box">
-				<div class="box-header"><h3 class="box-title"><i class="fa fa-user-o"></i> Statistik</h3></div>
+				<div class="box-header"><h3 class="box-title"><i class="fa fa-user"></i> Statistik</h3></div>
 				<div class="box-body">
 					<table class="table table-striped">
 						<tr>
@@ -67,7 +67,7 @@
 	<then>
 
 			<div class="box">
-				<div class="box-header"><h3 class="box-title"><i class="fa fa-user-o"></i> Lehrer</h3>
+				<div class="box-header"><h3 class="box-title"><i class="fa fa-user"></i> Lehrer</h3>
 				<if(!DB::getSettings()->getBoolean("schulinfo-lehrer-show"))><then>
 					<small>Nicht für Eltern und Schüler sichtbar</small>
 				</then></if>
@@ -87,7 +87,7 @@
 	<if(DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSettings()->getBoolean("schulinfo-personalrat-show"))>
 	<then>
 			<div class="box">
-				<div class="box-header"><h3 class="box-title"><i class="fa fa-user-o"></i> Personalrat</h3>
+				<div class="box-header"><h3 class="box-title"><i class="fa fa-user"></i> Personalrat</h3>
 				<if(!DB::getSettings()->getBoolean("schulinfo-personalrat-show"))><then>
 					<small>Nicht für Eltern und Schüler sichtbar</small>
 				</then></if>
@@ -114,7 +114,7 @@
 	<then>
 		<div class="col-md-6">
 			<div class="box">
-				<div class="box-header"><h3 class="box-title"><i class="fa fa-user-o"></i> Fächer</h3>
+				<div class="box-header"><h3 class="box-title"><i class="fa fa-user"></i> Fächer</h3>
 				<if(!DB::getSettings()->getBoolean("schulinfo-faecher-show"))><then>
 					<small>Nicht für Eltern und Schüler sichtbar</small>
 				</then></if>

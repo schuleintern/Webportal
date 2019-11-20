@@ -41,14 +41,14 @@
 					<if($hasSlots)><then>
 					
 					<div class="input-group">
-	                	<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+	                	<span class="input-group-addon"><i class="fa fa-clock"></i></span>
 						<input type="text" name="sprechtagFirstSlotTime" autocomplete="off" class="form-control timepicker" disabled="true" value="<expression>date('H:i',self::$currentSprechtag['sprechtagBeginTime'])</expression>">
 					</div>					
 					
 					
 					</then><else>
 										<div class="input-group">
-	                	<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+	                	<span class="input-group-addon"><i class="fa fa-clock"></i></span>
 					<input type="text" name="sprechtagFirstSlotTime" maxlength="5" autocomplete="off" class="form-control timepicker" value="<expression>date('H:i',self::$currentSprechtag['sprechtagBeginTime'])</expression>">
 					</div>				
 					</else></if>
@@ -63,7 +63,7 @@
 						<input type="text" name="sprechtagBuchbarAbDatum" autocomplete="off" class="form-control datepickerSprechtag" value="<expression>date('d.m.Y',self::$currentSprechtag['sprechtagBuchbarAb'])</expression>">
 					</div>
 					<div class="input-group">
-	                	<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+	                	<span class="input-group-addon"><i class="fa fa-clock"></i></span>
 					<input type="text" name="sprechtagBuchbarAbUhrzeit" autocomplete="off" maxlength="5" class="form-control" value="<expression>date('H:i',self::$currentSprechtag['sprechtagBuchbarAb'])</expression>">
 					</div>
 				</td>
@@ -132,13 +132,13 @@
 	
 			<p><a href="$selfURL&mode=editSlots&sprechtagID=$sprechtagID" class="btn btn-primary"><i class="fa fa-table"></i> Slots bearbeiten</a></p>
 			<p><a href="$selfURL&mode=editTeacher&sprechtagID=$sprechtagID" class="btn btn-primary"><i class="fa fa-female"></i> Lehrer bearbeiten</a></p>
-			<p><a href="$selfURL&mode=printZettel&sprechtagID=$sprechtagID" class="btn btn-primary"><i class="fa fa-file-pdf-o"></i> Aushangzettel drucken</a></p>
-			<p><a href="$selfURL&mode=printZettel&sprechtagID=$sprechtagID&showMail=1" class="btn btn-primary"><i class="fa fa-file-pdf-o"></i> Aushangzettel drucken (mit E-Mailadressen)</a></p>
+			<p><a href="$selfURL&mode=printZettel&sprechtagID=$sprechtagID" class="btn btn-primary"><i class="fa fa-file-pdf"></i> Aushangzettel drucken</a></p>
+			<p><a href="$selfURL&mode=printZettel&sprechtagID=$sprechtagID&showMail=1" class="btn btn-primary"><i class="fa fa-file-pdf"></i> Aushangzettel drucken (mit E-Mailadressen)</a></p>
 			
 			<p><a href="$selfURL&mode=exportCSV&sprechtagID=$sprechtagID" class="btn btn-primary"><i class="fa fa-table"></i> CSV Export</a></p>
 			
 			
-			<p><a href="$selfURL&mode=printZettel&sprechtagID=$sprechtagID&noNames=1" class="btn btn-primary"><i class="fa fa-file-pdf-o"></i> Aushangzettel ohne Namen drucken</a></p>
+			<p><a href="$selfURL&mode=printZettel&sprechtagID=$sprechtagID&noNames=1" class="btn btn-primary"><i class="fa fa-file-pdf"></i> Aushangzettel ohne Namen drucken</a></p>
 			
 			<p><a href="#"  class="btn btn-danger "onclick="javascrpipt:confirmAction('Soll der Elternsprechtag wirklich gelöscht werden?','$selfURL&mode=deleteSprechtag&sprechtagID=$sprechtagID');"><i class="fa fa-trash"></i> Sprechtag löschen<br /><small> (mit Sicherheitsabfrage)</small></a></p>
 			

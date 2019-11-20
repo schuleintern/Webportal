@@ -143,23 +143,23 @@ class FileUpload {
 	public function getFileTypeIcon() {
 		switch(strtolower($this->getExtension())) {
 			case 'pdf':
-				return 'fa fa-file-pdf-o';
+				return 'fa fa-file-pdf';
 				
 			case 'doc':
 			case 'docx':
-			    return 'fa fa-file-word-o';
+			    return 'fa fa-file-word';
 			    
 			case 'xls':
 			case 'xlsx':
-			    return 'fa fa-file-excel-o';
+			    return 'fa fa-file-excel';
 			    
 			case 'ppt':
 			case 'pptx':
-			    return 'fa fa-file-powerpoint-o';
+			    return 'fa fa-file-powerpoint';
 			    
 			
 			default:
-				return 'fa fa-file-o';
+				return 'fa fa-file';
 		}
 	}
 	

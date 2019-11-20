@@ -10,11 +10,11 @@ function updateIcon(currentIndex)
 {
 	var input = document.getElementById("input" + (currentIndex)).value;
 	
-	if(input == '1') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-smile-o"></i><i class="fa fa-smile-o"></i>';
-	else if(input == '2') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-smile-o"></i>';
-	else if(input == '3') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-meh-o"></i>';
-	else if(input == '4') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-frown-o"></i>';
-	else if(input == '5') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-frown-o"></i><i class="fa fa-frown-o"></i>';
+	if(input == '1') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-smile"></i><i class="fa fa-smile"></i>';
+	else if(input == '2') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-smile"></i>';
+	else if(input == '3') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-meh"></i>';
+	else if(input == '4') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-frown"></i>';
+	else if(input == '5') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-frown"></i><i class="fa fa-frown"></i>';
 	else if(input == 'x' || input == 'X' || input == ' ' || input == '') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-ban"></i>';
 	else document.getElementById("icon" + (currentIndex)).innerHTML = '<font color=\"red\"><i class="fa fa-exclamation-circle"></i></font>';
 }
@@ -48,11 +48,11 @@ function checkInputTyp2(index) {
               	<li>Geben Sie folgende Zahlen ein:<br />
               	<table class="table table-border">
               		<tr>
-              			<th style="width:5%"><i class="fa fa-smile-o" style="transform: scale(2.0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-smile-o" style="transform: scale(2.0)"></i></th>
-              			<th style="width:5%"><i class="fa fa-smile-o" style="transform: scale(2.0)"></i></th>
-              			<th style="width:5%"><i class="fa fa-meh-o" style="transform: scale(2.0)"></i></th>
-              			<th style="width:5%"><i class="fa fa-frown-o" style="transform: scale(2.0)"></i></th>
-              			<th style="width:5%"><i class="fa fa-frown-o" style="transform: scale(2.0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-frown-o" style="transform: scale(2.0)"></i></th>
+              			<th style="width:5%"><i class="fa fa-smile" style="transform: scale(2.0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-smile" style="transform: scale(2.0)"></i></th>
+              			<th style="width:5%"><i class="fa fa-smile" style="transform: scale(2.0)"></i></th>
+              			<th style="width:5%"><i class="fa fa-meh" style="transform: scale(2.0)"></i></th>
+              			<th style="width:5%"><i class="fa fa-frown" style="transform: scale(2.0)"></i></th>
+              			<th style="width:5%"><i class="fa fa-frown" style="transform: scale(2.0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-frown" style="transform: scale(2.0)"></i></th>
               		</tr>
               		<tr>
               			<td><font size="+2">1</font></td>

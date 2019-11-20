@@ -685,7 +685,7 @@ abstract class AbstractKalenderPage extends AbstractPage {
 		        'eintragZeitpunkt' => '',
 		        'betrifft' => '',
 		        'stunden' => '',
-		        'icon' => 'fa fa-sun-o',
+		        'icon' => 'fa fa-sun',
 		        'allDay' => true,
 		        'klassen' => '&nbsp;',
 		        'ort' => 'Bayern',

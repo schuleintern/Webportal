@@ -166,9 +166,9 @@ class respizienz extends AbstractPage {
 	                
 	                    
 	                    if($file->getExtension()  == 'zip') {
-	                        $icon = "fa fa-file-zip-o";
+	                        $icon = "fa fa-file-zip";
 	                    }
-	                    else $icon = "fa fa-file-pdf-o";
+	                    else $icon = "fa fa-file-pdf";
 	                    
         	            $downloadFile .= "<a href=\"" . $file->getURLToFile() . "\"><i class=\"$icon\"></i> Download</a>";
         	            
@@ -227,9 +227,9 @@ class respizienz extends AbstractPage {
 	                    
 	                    
 	                    if($file->getExtension()  == 'zip') {
-	                        $icon = "fa fa-file-zip-o";
+	                        $icon = "fa fa-file-zip";
 	                    }
-	                    else $icon = "fa fa-file-pdf-o";
+	                    else $icon = "fa fa-file-pdf";
 	                    
 	                    $downloadFileFSL .= "<a href=\"" . $file->getURLToFile() . "\"><i class=\"$icon\"></i> Download</a>";
 
@@ -278,9 +278,9 @@ class respizienz extends AbstractPage {
 	                    
 	                    
 	                    if($file->getExtension()  == 'zip') {
-	                        $icon = "fa fa-file-zip-o";
+	                        $icon = "fa fa-file-zip";
 	                    }
-	                    else $icon = "fa fa-file-pdf-o";
+	                    else $icon = "fa fa-file-pdf";
 	                    
 	                    $downloadFileSL .= "<a href=\"" . $file->getURLToFile() . "\"><i class=\"$icon\"></i> Download</a>";
 	                    

@@ -268,7 +268,7 @@ class NotenZeugnisKlassenleitung extends AbstractPage {
           
           
           if($mvNote != null && $mvNote->getKommentar() != "") {
-              $mvTabelle .= '<td><button type="button" class="btn btn-xs" data-toggle="tooltip" data-html="true" title="' . $mvNote->getKommentar() . '"><i class="fa fa-file-o"></i></button></td>';
+              $mvTabelle .= '<td><button type="button" class="btn btn-xs" data-toggle="tooltip" data-html="true" title="' . $mvNote->getKommentar() . '"><i class="fa fa-file"></i></button></td>';
           }
               
           else {

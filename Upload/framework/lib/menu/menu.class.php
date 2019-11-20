@@ -381,7 +381,7 @@ class menu {
     
     
     if($html != "") {
-        $this->html .= $this->getTrenner('<i class="fa fa-clock-o"></i> Aktuelles</a>');
+        $this->html .= $this->getTrenner('<i class="fa fa-clock"></i> Aktuelles</a>');
         $this->html .= $html;
     }
     
@@ -442,18 +442,18 @@ class menu {
             
             
             if($this->isActive("office365users") && (DB::getSession()->isTeacher() || DB::getSession()->isPupil())) {
-                $html .= $this->getMenuItem("office365users", "Office 365 Account", "fa fa-file-word-o");
+                $html .= $this->getMenuItem("office365users", "Office 365 Account", "fa fa-file-word");
             }
             
             
             if($this->isActive("office365info") && (DB::getSession()->isTeacher() || DB::getSession()->isPupil())) {
-                $html .= $this->getMenuItem("office365info", "Office 365 Login", "fa fa-file-word-o");
+                $html .= $this->getMenuItem("office365info", "Office 365 Login", "fa fa-file-word");
             }
             
             
             
             if($this->isActive("homeuseprogram") && DB::getSession()->isTeacher()) {
-                $html .= $this->getMenuItem("homeuseprogram", "Home Use Program (Office)", "fa fa-file-word-o");
+                $html .= $this->getMenuItem("homeuseprogram", "Home Use Program (Office)", "fa fa-file-word");
             }
 
            
@@ -557,7 +557,7 @@ class menu {
         
         /*
          $html .= '<li' . (($_REQUEST['page'] == "laufzettel" && $_GET['mode'] == "addLaufzettel")?(" class=\"active\""):("")) . '><a href="index.php?page=laufzettel&mode=addLaufzettel"><i class="fa fa-plus"></i> Laufzettel erstellen</a></li>';
-         $html .= '<li' . (($_REQUEST['page'] == "laufzettel" && $_GET['mode'] == "myOwnLaufzettel")?(" class=\"active\""):("")) . '><a href="index.php?page=laufzettel&mode=myOwnLaufzettel"><i class="fa fa-file-text-o"></i> Meine Laufzettel</a></li>';
+         $html .= '<li' . (($_REQUEST['page'] == "laufzettel" && $_GET['mode'] == "myOwnLaufzettel")?(" class=\"active\""):("")) . '><a href="index.php?page=laufzettel&mode=myOwnLaufzettel"><i class="fa fa-file-text"></i> Meine Laufzettel</a></li>';
          
          $html .= '</ul>
          </li>';*/
@@ -707,7 +707,7 @@ class menu {
                                     
                                     
                                     $tagebuchHTML .= $this->getMenuItem('klassentagebuchauswertung', 'Schulleitung', 'fa fa-check', ['mode' => 'schulleitung'], $fehlend[0]);
-                                    $tagebuchHTML .= $this->getMenuItem('klassentagebuchauswertung', 'PDF Export', 'fa fa-file-pdf-o', ['mode' => 'pdfexport']);
+                                    $tagebuchHTML .= $this->getMenuItem('klassentagebuchauswertung', 'PDF Export', 'fa fa-file-pdf', ['mode' => 'pdfexport']);
                                 }
                             }
                             
@@ -787,7 +787,7 @@ class menu {
     
     if($ausweisHTML != "") {
         
-        $html .= $this->startDropDown(['Ausweis'], "Ausweis", "fa fa-address-card-o");
+        $html .= $this->startDropDown(['Ausweis'], "Ausweis", "fa fa-address-card");
         
         $html .= $ausweisHTML;
         
@@ -829,7 +829,7 @@ class menu {
     }
 
     if($this->isActive("beurlaubungantrag") && beurlaubungantrag::userHasAccess(DB::getSession()->getUser())) {
-        $absenzen .= $this->getMenuItem("beurlaubungantrag", "Beurlaubungsantrag", "fa fa-sun-o");
+        $absenzen .= $this->getMenuItem("beurlaubungantrag", "Beurlaubungsantrag", "fa fa-sun");
     }
     
 
