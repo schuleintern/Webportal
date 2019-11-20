@@ -102,7 +102,7 @@ class menu {
 
 
     if($_REQUEST['page'] == 'administrationmodule' && $this->isActive($_REQUEST['module'])) {
-        $modulAdminHTML .= "<li><div class=\"callout callout-danger\"><a href=\"index.php?page=index\"><i class=\"fa fa-arrow-left\"></i><span> Administration verlassen</span></div></li>";
+        $modulAdminHTML .= "<li class='btn btn-danger'><a href=\"index.php?page=index\"><i class=\"fa fa-arrow-left\"></i><span> Administration verlassen</span></li>";
     }
     else {
         $modulAdminHTML .= "<li><div class=\"callout callout-danger\"><a href=\"index.php\"><i class=\"fa fa-arrow-left\"></i><span> Administration verlassen</span></div></li>";

@@ -1,9 +1,9 @@
 <div class="tab-pane<if($i==0)><then> active</then></if>" id="{$allCrons[$i]}">
 <b>{$cronObject->getDescription()}</b>
 <br />
-Ausführung: Alle $executeEveryMinutes Minuten
+	<div class="pull-right">Ausführung: Alle $executeEveryMinutes Minuten</div>
 <br />
-<i>Es werden nur die letzten 20 Ausführungen angezeigt.</i>
+	<button type="button" class="btn btn-success" onclick="executeCron('{$allCrons[$i]}', '{$cronObject->getName()}')"><i class="fa fas fa-running"></i> Cron einmalig manuell ausführen</button>
 <table class="table table-striped table-hover">
 	<tr>
 		<th>Startzeit</th>

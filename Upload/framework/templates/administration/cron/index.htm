@@ -5,6 +5,17 @@
 	</div>
 	
 	<div class="box-body">
+
+		<div class="input-group btn-block">
+			<label>1. Cronjob (Alle 5 Minuten)</label>
+			<input type="text" value="$url1" class="form-control">
+		</div>
+
+		<div class="input-group btn-block">
+			<label>2. Cronjob (Alle 2 Minuten)</label>
+			<input type="text" value="$url2" class="form-control">
+		</div><br /><br />
+
 		<div class="nav-tabs-custom">
 			<ul class="nav nav-tabs">
 				$htmlList
@@ -15,4 +26,61 @@
 		</div>
 	</div>
 
+	<p>Es werden nur die letzten 20 Ausführungen angezeigt.</p>
+
+
 </div>
+
+
+<script>
+
+	function executeCron(name,displayName) {
+		$("#cronExecution").modal("show");
+
+		$("#isloading").show();
+		$("#cronOK").hide();
+		$("#cronFail").hide();
+		$("#cronResult").val("");
+
+		$("#cronName").html(displayName);
+
+		$.ajax({
+			url:"{$selfURL}&executeCron="+name,
+			success:function(data) {
+				console.log(data);
+				if(data.Result.success) {
+					$("#cronOK").show();
+				}
+				else {
+					$("#cronFail").show();
+				}
+
+				$("#cronResult").val(JSON.stringify(data.Result, null, 4));
+				$("#isloading").hide();
+			}
+		});
+	}
+
+</script>
+
+<div class="modal fade" id="cronExecution" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title"><i class="fa fa-running"></i> Cron Manuell ausführen (<span id="cronName"></span>)</h4>
+			</div>
+			<div class="modal-body">
+				<div class="callout callout-success" id="cronOK" style="display: none"><i class="fas fa-check"></i> Erfolgreich</div>
+				<div class="callout callout-danger" id="cronFail" style="display: none"><i class="fas fa-ban"></i> Nicht erfolgreich</div>
+				<textarea class="form-control" rows="20" id="cronResult"></textarea>
+			</div>
+			<div class="overlay" id="isloading">
+				<i class="fa fas fa-sync-alt fa-spin"></i>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+

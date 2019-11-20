@@ -24,6 +24,24 @@ class AdminMailSettings extends AbstractPage {
 	
 	public static function getSettingsDescription() {
 		return [
+            [
+                'name' => "",
+                'typ' => 'TRENNER',
+                'titel' => "Allgemeine Einstellungen",
+                'text' => ""
+            ],
+            [
+                'name' => "mail-reply-to",
+                'typ' => 'ZEILE',
+                'titel' => "Antwort Adresse für abgehende Mails (ReplyTo)",
+                'text' => "Wenn der Empfänger auf Antworten in seinem Mailprogramm klickt, wird diese Mail als Absender eingetragen. (Optionale Option)"
+            ],
+            [
+                'name' => "",
+                'typ' => 'TRENNER',
+                'titel' => "Mailserver Einstellungen",
+                'text' => ""
+            ],
 			[
 				'name' => "mail-server",
 				'typ' => 'ZEILE',
