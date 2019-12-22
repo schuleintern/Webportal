@@ -110,7 +110,8 @@
 			  </table>
             </div>
             <div class="box-footer">
-				<button type="submit" class="btn btn-primary" name="action" value="send"><i class="fa fa-envelope"></i> Nachricht senden</button>
+				<input type="hidden" name="action" value="send">
+				<button type="button" class="btn btn-primary" id="composeSendButton" onclick="sendMessage()"><i class="fa fa-envelope"></i> Nachricht senden</button>
             </div>
           </div>
           
@@ -154,6 +155,8 @@
 	</div>
 	
 	<script>
+
+
 
 
 	var currentAttachmentList = [];
@@ -828,6 +831,15 @@ function updateHiddenField(field, data) {
 	}
 	
 	field.val(list);
+}
+
+function sendMessage() {
+	if(currentRecipients.length == 0) {
+		fireErrorMessage("Kein Empfänger angegeben!", "Es muss mindestens ein Empfänger angegeben sein!");
+	}
+	else {
+		$("#composeForm").submit();
+	}
 }
 
 function updateListHTML(field, data, type) {
