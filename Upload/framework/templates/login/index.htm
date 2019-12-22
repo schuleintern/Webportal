@@ -220,7 +220,7 @@
         </then></if>
                 
         <hr noshade>
-        	<button type="submit" class="btn btn-primary btn-block " data-toggle="modal" data-target="#elternforgotPW"><i class="fa fa-question"></i> Ich habe mein Passwort vergessen</button>
+        	<button type="button" class="btn btn-primary btn-block " data-toggle="modal" data-target="#elternforgotPW"><i class="fa fa-question"></i> Ich habe mein Passwort vergessen</button>
 
       	
       	<hr noshade>
@@ -700,7 +700,8 @@
     					$("#mathCaptchaContent").html(data.captchaHTML);
     					$("#mathCaptcha").fadeIn();
     					
-    					
+    					$("#passwordfield").val("");
+
     					$("#loginbutton").prop("disabled",false);
     					
     					$("#loginbutton").html('<i class="fa fa-lock"></i> Anmelden / Login');
@@ -709,8 +710,11 @@
     					$("#loginerror").fadeIn(400);
     					
     					$("#loginbutton").prop("disabled",false);
-    					
-    					$("#loginbutton").html('<i class="fa fa-lock"></i> Anmelden / Login');
+
+						$("#passwordfield").val("");
+
+
+						$("#loginbutton").html('<i class="fa fa-lock"></i> Anmelden / Login');
     					
     					
     				}
