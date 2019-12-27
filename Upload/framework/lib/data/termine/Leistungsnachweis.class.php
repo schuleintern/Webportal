@@ -88,6 +88,13 @@ class Leistungsnachweis {
     public function getFach() {
       return $this->data['eintragFach'];
     }
+
+    /**
+     * @return fach|NULL
+     */
+    public function getFachObjekt() {
+        return Fach::getByKurzform($this->getFach());
+    }
     
     public function isAngekuendigt() {
         return $this->getArt() == 'SCHULAUFGABE' || $this->getArt() == 'KURZARBEIT';

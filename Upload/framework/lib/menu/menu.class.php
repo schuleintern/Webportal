@@ -504,15 +504,19 @@ class menu {
 
     if($this->isActive("respizienz") && respizienz::userHasAccess(DB::getSession()->getUser())) {
 
-        $html .= $this->startDropDown(['respizienz'], "Digitale Respizienz", 'fa fa-briefcase');
+        $html .= $this->startDropDown(['respizienz'], DB::getSettings()->getValue("resp-name"), 'fa fa-briefcase');
 
 
         $html .= $this->getMenuItem("respizienz", "Fachlehrer", "fa fa-briefcase", ['mode' => '']);
 
-        if(DB::getSession()->isTeacher() && DB::getSession()->getTeacherObject()->isFachschaftsleitung())
+        if(DB::getSession()->isTeacher() && DB::getSession()->getTeacherObject()->isFachschaftsleitung()
+            && DB::getSettings()->getBoolean("resp-activate-fb")
+        )
             $html .= $this->getMenuItem("respizienz", "Fachschaftsleitung", "fa fa-briefcase", ['mode' => 'fachbetreuer']);
 
-        if(DB::getSession()->isTeacher() && DB::getSession()->getTeacherObject()->isSchulleitung())
+        if(DB::getSession()->isTeacher() && DB::getSession()->getTeacherObject()->isSchulleitung()
+                    && DB::getSettings()->getBoolean("resp-activate-sl")
+        )
             $html .= $this->getMenuItem("respizienz", "Schulleitung", "fa fa-briefcase", ['mode' => 'schulleitung']);
 
 
