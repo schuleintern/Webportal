@@ -145,10 +145,6 @@ class Leistungsnachweis {
             
             $days = DateFunctions::getDifferenceInDays($this->getDatumStart());
             
-            // echo($this->getDatumStart()."\r\n");
-            // echo($days."\r\n");
-            
-            
             if($days < $frist) {
                 $show = true;
             }
