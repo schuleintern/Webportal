@@ -175,6 +175,7 @@ class MessageSender{
 			'messageText',
 			'messageSender',
 			'messageRecipients',
+            'messageRecipientsPreview',
 		    'messageCCRecipients',
 		    'messageBCCRecipients',
 			'messageTime',
@@ -198,7 +199,10 @@ class MessageSender{
 		for($i = 0; $i < sizeof($this->messageQuestions); $i++) $messageQuestionIDs[] = $this->messageQuestions[$i]->getID();
 		
 		$messageQuestionIDs = implode(";",$messageQuestionIDs);
-		
+
+        $recipientNames = [];
+
+        for($i = 0; $i < sizeof($this->recipients); $i++) $recipientNames[] = $this->recipients[$i]->getDisplayName();
 		
 
 		$saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
@@ -216,6 +220,7 @@ class MessageSender{
 					'" . $this->text . "',
 					'" . $this->sender->getUserID() . "',
 					'" . implode(";",$saveStringsRecipients) . "',
+					'" . implode(", ", $recipientNames) . "',
                     '" . implode(";",$saveStringsCCRecipients) . "',
                     '" . implode(";",$saveStringsBCCRecipients) . "',
 					UNIX_TIMESTAMP(),
@@ -251,8 +256,8 @@ class MessageSender{
 	        'messageCCRecipients',
 	        'messageBCCRecipients',
 	        'messageTime',
-					'messageIsReplyTo',
-					'messageIsForwardFrom',
+            'messageIsReplyTo',
+			'messageIsForwardFrom',
 	        'messageFolder',
 	        'messageIsRead',
 	        'messageNeedConfirmation',

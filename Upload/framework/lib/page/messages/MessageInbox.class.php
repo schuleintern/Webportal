@@ -211,11 +211,13 @@ class MessageInbox extends AbstractPage {
 			if($isSentFolder) {
 			    $recipients = [];
 			    
-			    $recipientsObjects = $message->getRecipients();
+			    /**$recipientsObjects = $message->getRecipients();
 			    
 			    for($r = 0; $r < sizeof($recipientsObjects); $r++) {
 			        $recipients[] = $recipientsObjects[$r]->getDisplayName();
-			    }
+			    } **/
+
+			    $recipientsPreview = $messages[$i]->getRecipientsPreview();
 			}
 
 			eval("\$messageHTML .= \"" . DB::getTPL()->get("messages/inbox/message") . "\";");
