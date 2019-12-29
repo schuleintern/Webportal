@@ -13,24 +13,24 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table class="table table-striped">
+              <table class="table table-striped table-bordered">
               		<tr>
-		              	<td style="width:10%"><b>Empfänger</b><br /><button type="button" class="btn btn-xs" onclick="addrecipient()"><i class="fa fa-user-plus"></i></button></td>
+		              	<td style="width:10%"><b>Empfänger</b><br /><button type="button" class="btn btn-sm btn-block btn-default" onclick="addrecipient()"><i class="fa fa-user-plus"></i></button></td>
 		              	<td><span id="currentRecipientsHTML"></span></td>
 		            </tr>
 		        	<tr>
-		              	<td><b>Kopieempfänger</b><br /><button type="button" class="btn btn-xs" onclick="addccrecipient()"><i class="fa fa-user-plus"></i></button></td>
+		              	<td><b>Kopieempfänger</b><br /><button type="button" class="btn btn-btn-sm btn-block btn-default" onclick="addccrecipient()"><i class="fa fa-user-plus"></i></button></td>
 		              	<td><span id="currentCCRecipientsHTML"></span></td>
 		            </tr>
 		     		<tr>
-		              	<td><b>Verdeckte Kopieempfänger</b><br /><button type="button" class="btn btn-xs" onclick="addbccrecipient()"><i class="fa fa-user-plus"></i></button></td>
+		              	<td><b>Verdeckte Kopieempfänger</b><br /><button type="button" class="btn btn-btn-sm btn-block btn-default" onclick="addbccrecipient()"><i class="fa fa-user-plus"></i></button></td>
 		              	<td><span id="currentBCCRecipientsHTML"></span></td>
 		            </tr>         	
               </table>
               <if($isForward)><then>
 								<input type="hidden" name="forwardMessage" value="{$forwardMessage->getID()}">
 								<hr noshade>
-									<p>Weiterleiten von "{$forwardMessage->getSubject()}" <button type="button" class="btn btn-sm btn-info" data-target="#replyMessage" data-toggle="modal"><i class="fa fa-commenting"></i> Nachricht anzeigen</button></p>
+									<p>Weiterleiten von "{$forwardMessage->getSubject()}" <button type="button" class="btn btn-sm btn-info" data-target="#replyMessage" data-toggle="modal"><i class="fa fa-comment"></i> Nachricht anzeigen</button></p>
 							</then></if>
 							<if($isReply)><then>
               <input type="hidden" name="replyMessage" value="{$replyMessage->getID()}">
@@ -63,7 +63,7 @@
               
               <table class="table table-striped">
               		<tr>
-		              	<td style="width:10%"><b>Dateianhänge</b><br /><button type="button" class="btn btn-xs" data-toggle="modal" data-target="#addAttachment"><i class="fa fa-upload"></i></button></td>
+		              	<td style="width:10%"><b>Dateianhänge</b><br /><button type="button" class="btn btn-sm btn-default btn-block" data-toggle="modal" data-target="#addAttachment"><i class="fa fa-upload"></i> Datei anhängen</button></td>
 		              	<td><span id="currentAttachmentHTML"></span></td>
 		            </tr>
 		            
@@ -73,7 +73,7 @@
               
               <if($canAskQuestions)><then>
                    <tr>
-		              	<td style="width:10%"><b>Datenabfragen:</b><br /><button type="button" class="btn btn-xs" data-toggle="modal" data-target="#addQuestion"><i class="fa fa-question-circle"></i><i class="fa fa-plus"></i></button></td>
+		              	<td style="width:10%"><b>Datenabfragen:</b><br /><button type="button" class="btn btn-sm btn-default btn-block" data-toggle="modal" data-target="#addQuestion"><i class="fa fa-question-circle"></i><i class="fa fa-plus"></i> Abfrage hinzufügen</button></td>
 		              	<td><span id="questionHTML"></span></td>
 		           </tr>
               </then></if>
@@ -414,7 +414,7 @@
 				        <if($canContactAnyTeacher)><then>
 				        
 					        <div class="tab-pane active" id="lehrer">
-					        	<table class="table table-striped">
+					        	<table class="table table-striped table-bordered">
 					        		<if($allTeacher)><then>
 					        		<tr>
 					        			<td style="width:20%">&nbsp;</td>
@@ -701,7 +701,7 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 							<div class="modal-header">	    
-								<h4 class="modal-title"><i class="fa fa-commenting"></i> Ursprüngliche Nachricht</h4>
+								<h4 class="modal-title"><i class="fa fa-comment"></i> Ursprüngliche Nachricht</h4>
 							</div>
 							<div class="modal-body">
 								Absender: {$forwardMessage->getSender()->getDisplayName()}<br />
@@ -720,7 +720,7 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 							<div class="modal-header">	    
-								<h4 class="modal-title"><i class="fa fa-commenting"></i> Ursprüngliche Nachricht</h4>
+								<h4 class="modal-title"><i class="fa fa-comment"></i> Ursprüngliche Nachricht</h4>
 							</div>
 							<div class="modal-body">
 								Absender: {$replyMessage->getSender()->getDisplayName()}<br />

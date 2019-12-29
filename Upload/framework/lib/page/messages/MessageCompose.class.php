@@ -558,7 +558,6 @@ class MessageCompose extends AbstractPage {
 
 					$arr = array();
 					$attachments = $forwardMessage->getAttachments();
-					if ($attachments[0]) {
 						for($i = 0; $i < sizeof($attachments); $i++) {
 							array_push($arr, array(
 								'attachmentID' => $attachments[$i]->getID(),
@@ -572,8 +571,6 @@ class MessageCompose extends AbstractPage {
 							'key' => 'attachments',
 							'value' => $arr
 						]);
-					}
-
 			}
 	}
 
