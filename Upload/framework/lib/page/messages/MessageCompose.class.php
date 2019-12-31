@@ -601,7 +601,6 @@ class MessageCompose extends AbstractPage {
     		    if($replyMessage!= null) {
     		        if($replyMessage->getUserID() == DB::getSession()->getUserID()) {
     		            // --> Erlaubt
-    		            $isReply = true;
     		            $isReplyAll = true;
     		            
     		            
