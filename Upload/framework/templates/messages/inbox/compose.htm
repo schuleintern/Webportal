@@ -242,11 +242,17 @@
 			            return myXhr;
 			        },
 			        success: function (data) {
-			        	currentAttachmentList.push(data);
-			        	
 
-			        	updateAttachmentFields();
-			        					    
+			        	if(data.uploadOK) {
+							currentAttachmentList.push(data);
+
+
+							updateAttachmentFields();
+
+						}
+			        	else {
+							fireErrorMessage("Upload fehlgeschlagen", "Leider kann diese Dateu nicht angehängt werden!");
+						}
 					    $('#uploadFileProgress').fadeOut();
 					    $('#uploadFileFormGroup').fadeIn();
 					    $('#buttonUploadFile').fadeIn();

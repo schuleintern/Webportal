@@ -368,7 +368,7 @@ class MessageCompose extends AbstractPage {
 		        
 		    case  'uploadAttachment':
 
-		        $upload = FileUpload::uploadOfficePdfOrPicture('attachmentFile','');
+		        $upload = FileUpload::uploadOfficeFilesPicturesTextAndZip('attachmentFile','');
 		        
 		        $result = [
 		            'uploadOK' => false,

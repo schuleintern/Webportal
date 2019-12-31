@@ -395,6 +395,23 @@ class FileUpload {
 		
 		return self::uploadFileImpl($fieldName, $mimes, $fileName);	
 	}
+
+	public static function uploadOfficeFilesPicturesTextAndZip($fieldName, $fileName) {
+        $mimes = self::$mimeTypesMSOffice;
+
+        $mimes[] = 'application/pdf';
+        $mimes[] = 'text/csv';
+	    $mimes[] = 'text/plain';
+        $mimes[] = 'application/zip';
+
+        $mimes = array_merge($mimes, self::$mimesPicture);
+
+        for($i = 0; $i < sizeof(self::$mimesPicture); $i++) {
+            $mimes[] = self::$mimesPicture[$i];
+        }
+
+        return self::uploadFileImpl($fieldName, $mimes, $fileName);
+    }
 	
 	public static function uploadOfficeDocument($fieldName, $fileName) {
 		return self::uploadFileImpl($fieldName, self::$mimeTypesMSOffice, $fileName);
