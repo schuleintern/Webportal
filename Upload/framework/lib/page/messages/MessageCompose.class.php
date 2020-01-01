@@ -977,7 +977,7 @@ class MessageCompose extends AbstractPage {
 		$htmlGroups = "";
 		
 		for($i = 0; $i < sizeof($groups); $i++) {
-		    $htmlGroups .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary btn-block\">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
+		    $htmlGroups .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary \">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
 		}
 		
 		
