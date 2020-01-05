@@ -158,24 +158,20 @@ class Update extends AbstractPage
         rename("../data/update/Upload/www/cssjs", "./cssjs");
 
         // Update cron.php
-        rename("./cron.php", "./cron_old_101.php.invalid");
+        rename("./cron.php", "../cron_old_101.php.invalid");
         rename("../data/update/Upload/www/cron.php", "./cron.php");
-        unlink("./cron_old_101.php.invalid");
 
         // Update rest.php
-        rename("./rest.php", "./rest_old_101.php.invalid");
+        rename("./rest.php", "../rest_old_101.php.invalid");
         rename("../data/update/Upload/www/rest.php", "./rest.php");
-        unlink("./rest_old_101.php.invalid");
 
         // Update update.php
-        rename("./update.php", "./update_old_101.php.invalid");
+        rename("./update.php", "../update_old_101.php.invalid");
         rename("../data/update/Upload/www/update.php", "./update.php");
-        unlink("./update_old_101.php.invalid");
 
         // Update index.php
-        rename("./index.php", "./index_old_101.php.invalid");
+        rename("./index.php", "../index_old_101.php.invalid");
         rename("../data/update/Upload/www/index.php", "./index.php");
-        unlink("./index_old_101.php.invalid");
 
         return true;
     }
