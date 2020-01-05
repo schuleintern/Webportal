@@ -77,11 +77,11 @@ class Update extends AbstractPage
     private function from101to110()
     {
         // Druckheader kopieren
-        $upload = FileUpload::uploadPictureFromFile("imagesSchool/Briefkopf.jpg", "Briefkopf");
+        $upload = FileUpload::uploadPictureFromFile("./imagesSchool/Briefkopf.jpg", "Briefkopf.jpg");
         DB::getSettings()->setValue("print-header", $upload['uploadobject']->getID());
 
         // Logo kopieren
-        $upload = FileUpload::uploadPictureFromFile("imagesSchool/Icon.png", "SeitenLogo");
+        $upload = FileUpload::uploadPictureFromFile("./imagesSchool/Icon.png", "SeitenLogo.png");
         DB::getSettings()->setValue("global-logo", $upload['uploadobject']->getID());
 
 
@@ -159,22 +159,22 @@ class Update extends AbstractPage
 
         // Update cron.php
         rename("./cron.php", "./cron_old_101.php.invalid");
-        rename("../data/update/Upload/www/cron.php", "cron.php");
+        rename("../data/update/Upload/www/cron.php", "./cron.php");
         unlink("./cron_old_101.php.invalid");
 
         // Update rest.php
         rename("./rest.php", "./rest_old_101.php.invalid");
-        rename("../data/update/Upload/www/rest.php", "rest.php");
+        rename("../data/update/Upload/www/rest.php", "./rest.php");
         unlink("./rest_old_101.php.invalid");
 
         // Update update.php
         rename("./update.php", "./update_old_101.php.invalid");
-        rename("../data/update/Upload/www/update.php", "update.php");
+        rename("../data/update/Upload/www/update.php", "./update.php");
         unlink("./update_old_101.php.invalid");
 
         // Update index.php
         rename("./index.php", "./index_old_101.php.invalid");
-        rename("../data/update/Upload/www/index.php", "index.php");
+        rename("../data/update/Upload/www/index.php", "./index.php");
         unlink("./index_old_101.php.invalid");
 
         return true;
