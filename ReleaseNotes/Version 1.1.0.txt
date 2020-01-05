@@ -35,6 +35,8 @@
 - Office 365 Integration
     o Bei Kalendern, die über die GraphApi abgerufen werden, werden auch die Kategorieren importiert. (https://github.com/schuleintern/Webportal/issues/68)
 - Kalender: Termin wird im Folgemonat nun angezeigt https://github.com/schuleintern/Webportal/issues/72
+- Lerntutoren: Schüler mit Klasse
+
 Administration
 - Elternbenutzer können nun einfacher administriert werden.
     o Anzeige der zugeordneten Kinder ((https://github.com/schuleintern/Webportal/issues/81)
@@ -48,6 +50,7 @@ Administration
 - Modulstatusseite: Anpassungen / Layout
 - Logo / Briefkopf sind nun über die GUI änderbar.
 - GPLv2 Lizenztext hinzugefügt.
+
 
 Technisch
 - Umstellung auf \n statt \r\n
