@@ -67,14 +67,111 @@ class Update extends AbstractPage
             $this->from100to101();
         }
 
+        if ($from == "1.0.1" && $to == "1.1.0") {
+            $this->from101to110();
+        }
+
         return true;
     }
 
-    private function from101to200()
+    private function from101to110()
     {
         // Druckheader kopieren
+        $upload = FileUpload::uploadPictureFromFile("imagesSchool/Briefkopf.jpg", "Briefkopf");
+        DB::getSettings()->setValue("print-header", $upload['uploadobject']->getID());
+
+        // Logo kopieren
+        $upload = FileUpload::uploadPictureFromFile("imagesSchool/Icon.png", "SeitenLogo");
+        DB::getSettings()->setValue("global-logo", $upload['uploadobject']->getID());
 
 
+        // Falls Digitale Respizienz aktiv, diese migrieren
+        if(AbstractPage::isActive('respizienz')) {
+            DB::getSettings()->setValue('resp-mode','RESP');
+            DB::getSettings()->setValue('resp-name','Digitale Respizienz');
+            DB::getSettings()->setValue('resp-activate-fb',true);
+            DB::getSettings()->setValue('resp-activate-sl',true);
+
+            $faecher = fach::getAll();
+
+
+            for ($i = 0; $i < sizeof($faecher); $i++) {
+                $asdID = $faecher[$i]->getASDID();
+
+                DB::getSettings()->setValue('resp-' . $asdID . '-SA', true);
+                DB::getSettings()->setValue('resp-' . $asdID . '-EX', true);
+                DB::getSettings()->setValue('resp-' . $asdID . '-PLNW', true);
+                DB::getSettings()->setValue('resp-' . $asdID . '-KA', true);
+                DB::getSettings()->setValue('resp-' . $asdID . '-MODUS', true);
+            }
+
+        }
+
+
+        $sql = ["ALTER TABLE `absenzen_beurlaubung_antrag` MODIFY COLUMN `antragKLGenehmigtDate`  date NULL DEFAULT '' AFTER `antragKLGenehmigt`", "
+                ALTER TABLE `absenzen_beurlaubung_antrag` MODIFY COLUMN `antragSLgenehmigtDate`  date NULL DEFAULT '' AFTER `antragSLgenehmigt`", "
+                ALTER TABLE `ausweise` MODIFY COLUMN `ausweisArt`  enum('SCHUELER','LEHRER','MITARBEITER','GAST') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '' AFTER `ausweisErsteller`", "
+                ALTER TABLE `dokumente_dateien` MODIFY COLUMN `dateiAvailibleDate`  date NULL DEFAULT '' AFTER `dateiName`", "
+                CREATE TABLE `externe_kalender_kategorien` (
+                `kalenderID`  int(11) NOT NULL ,
+                `kategorieName`  varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL ,
+                `kategorieText`  text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL ,
+                `kategorieFarbe`  varchar(7) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '#000000' ,
+                `kategorieIcon`  varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'fa fa-calendar' ,
+                PRIMARY KEY (`kalenderID`, `kategorieName`)
+                )
+                ENGINE=InnoDB
+                DEFAULT CHARACTER SET=latin1 COLLATE=latin1_swedish_ci
+                ROW_FORMAT=Dynamic
+                ", "
+                ALTER TABLE `kalender_extern` ADD COLUMN `eintragExternalID`  text CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `eintragKommentar`", "
+                ALTER TABLE `kalender_extern` ADD COLUMN `eintragExternalChangeKey`  text CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `eintragExternalID`", "
+                ALTER TABLE `kalender_extern` ADD COLUMN `eintragKategorieName`  varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' AFTER `eintragExternalChangeKey`", "
+                ALTER TABLE `laufzettel_stunden` MODIFY COLUMN `laufzettelZustimmungZeit`  int(11) NULL DEFAULT '' AFTER `laufzettelZustimmung`", "
+                ALTER TABLE `laufzettel_stunden` MODIFY COLUMN `laufzettelZustimmungKommentar`  mediumtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `laufzettelZustimmungZeit`", "
+                ALTER TABLE `mail_change_requests` ROW_FORMAT=Dynamic", "
+                ALTER TABLE `messages_messages` ADD COLUMN `messageRecipientsPreview`  longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `messageRecipients`", "
+                ALTER TABLE `messages_messages` ADD COLUMN `messageIsForwardFrom`  int(11) NOT NULL DEFAULT 0 AFTER `messageIsDeleted`", "
+                ALTER TABLE `nextcloud_users` ROW_FORMAT=Dynamic", "
+                ALTER TABLE `noten_arbeiten` MODIFY COLUMN `arbeitDatum`  date NULL DEFAULT '' AFTER `arbeitFachKurzform`", "
+                ALTER TABLE `noten_bemerkung_textvorlagen_gruppen` MODIFY COLUMN `koppelMVNote`  enum('M','V') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '' AFTER `gruppeName`", "
+                ALTER TABLE `noten_noten` MODIFY COLUMN `noteDatum`  date NULL DEFAULT '' AFTER `noteArbeitID`", "
+                ALTER TABLE `schaukasten_bildschirme` MODIFY COLUMN `schaukastenMode`  enum('L','P') CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' AFTER `schaukastenResolutionY`", "
+                ALTER TABLE `schaukasten_bildschirme` MODIFY COLUMN `schaukastenScreenShot`  blob NULL AFTER `schaukastenIsActive`", "
+                ALTER TABLE `schueler` MODIFY COLUMN `schuelerAustrittDatum`  date NULL DEFAULT '' AFTER `schuelerJahrgangsstufe`", "
+                ALTER TABLE `schueler_nachteilsausgleich` MODIFY COLUMN `gueltigBis`  date NULL DEFAULT '' AFTER `kommentar`", "
+                ALTER TABLE `schueler_nachteilsausgleich` MODIFY COLUMN `gewichtung`  enum('11','12','21') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '' AFTER `gueltigBis`", "
+                ALTER TABLE `schulbuch_ausleihe` MODIFY COLUMN `ausleiheEndDatum`  date NULL DEFAULT '' AFTER `ausleiheStartDatum`", "
+                ALTER TABLE `stundenplan_plaene` MODIFY COLUMN `stundenplanAb`  date NULL DEFAULT '' AFTER `stundenplanID`", "
+                ALTER TABLE `stundenplan_plaene` MODIFY COLUMN `stundenplanBis`  date NULL DEFAULT '' AFTER `stundenplanAb`", "
+                ALTER TABLE `users` MODIFY COLUMN `userMobilePhoneNumber`  text CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `userFailedLoginCount`"
+        ];
+
+        // Datenbank Update
+        for($i = 0; $i < sizeof($sql); $i++) {
+            DB::getDB()->query($sql[$i],true);        // Datenbank Update
+        }
+
+
+        // Update der CSS / JS Dateien
+        rename("./cssjs", "../cssjs_old_101");
+        rename("../data/update/Upload/www/cssjs", "./cssjs");
+
+        // Update cron.php
+        if(unlink("cron.php")) rename("../data/update/Upload/www/cron.php", "./cron.php");
+
+        // Update rest.php
+        if(unlink("rest.php")) rename("../data/update/Upload/www/rest.php", "./rest.php");
+
+        // Update update.php
+        if(unlink("update.php")) rename("../data/update/Upload/www/update.php", "./update.php");
+
+        // Update index.php
+        if(unlink("index.php")) rename("../data/update/Upload/www/index.php", "./index.php");
+
+
+
+        return true;
     }
 
     private function from100to101()
