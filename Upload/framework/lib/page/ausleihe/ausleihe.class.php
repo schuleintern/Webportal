@@ -501,7 +501,7 @@ class ausleihe extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroupIcon() {
-		return 'fa fa-file-o';
+		return 'fa fa-file';
 	}
 	
 	

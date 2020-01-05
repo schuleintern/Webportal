@@ -138,7 +138,7 @@ class digitalSignageWebsites extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroupIcon() {
-		return 'fa fa-television';
+		return 'fa fa-tv';
 	}
 	
 	public static function getAdminMenuIcon() {

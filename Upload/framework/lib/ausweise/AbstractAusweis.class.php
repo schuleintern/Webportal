@@ -3,11 +3,6 @@
 
 abstract class AbstractAusweis {
 
-    private static $knownSchoolClasses = [
-        '0366' => 'ISGYAusweis',
-        '0740' => 'ISGYAusweis'
-    ];
-
     private $data = [];
 
     public function __construct() {
@@ -354,16 +349,7 @@ abstract class AbstractAusweis {
      * @return AbstractAusweis|NULL
      */
     public static function getMyAusweisObject() {
-        $schulnummer = DB::getGlobalSettings()->schulnummer;
-
-        $className = self::$knownSchoolClasses[$schulnummer];
-        
-        if($className != "") {
-            include_once("../framework/lib/ausweis/" . $className . ".class.php");
-            return new $className();
-        }
-
-        else return null;       // NULL, wenn für Schule keine Ausweis registriert ist.
+        return new Schulausweis();
     }
 
 }

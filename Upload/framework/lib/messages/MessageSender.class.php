@@ -57,6 +57,8 @@ class MessageSender{
 	 * @var Message
 	 */
 	private $replyMessage = null;
+
+	private $forwardMessage = null;
 	
 	private $priority = 'NORMAL';
 	
@@ -152,6 +154,10 @@ class MessageSender{
 	public function setReplyMessage($message) {
 		$this->replyMessage = $message;
 	}
+
+	public function setForwardMessage($message) {
+		$this->forwardMessage = $message;
+	}
 	
 	/**
 	 * 
@@ -169,10 +175,12 @@ class MessageSender{
 			'messageText',
 			'messageSender',
 			'messageRecipients',
+            'messageRecipientsPreview',
 		    'messageCCRecipients',
 		    'messageBCCRecipients',
 			'messageTime',
 			'messageIsReplyTo',
+			'messageIsForwardFrom',
 			'messageFolder',
 			'messageIsRead',
 			'messageNeedConfirmation',
@@ -191,7 +199,10 @@ class MessageSender{
 		for($i = 0; $i < sizeof($this->messageQuestions); $i++) $messageQuestionIDs[] = $this->messageQuestions[$i]->getID();
 		
 		$messageQuestionIDs = implode(";",$messageQuestionIDs);
-		
+
+        $recipientNames = [];
+
+        for($i = 0; $i < sizeof($this->recipients); $i++) $recipientNames[] = $this->recipients[$i]->getDisplayName();
 		
 
 		$saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
@@ -209,10 +220,12 @@ class MessageSender{
 					'" . $this->text . "',
 					'" . $this->sender->getUserID() . "',
 					'" . implode(";",$saveStringsRecipients) . "',
+					'" . implode(", ", $recipientNames) . "',
                     '" . implode(";",$saveStringsCCRecipients) . "',
                     '" . implode(";",$saveStringsBCCRecipients) . "',
 					UNIX_TIMESTAMP(),
 					'" . (($this->replyMessage != null) ? ($this->replyMessage->getID()) : 0) . "',
+					'" . (($this->forwardMessage != null) ? ($this->forwardMessage->getID()) : 0) . "',
 					'GESENDETE',1," . (($this->needConfirmation) ? 1 : 0) . ",
 					'',
 					'" . implode(",",$this->attachments) . "',
@@ -243,7 +256,8 @@ class MessageSender{
 	        'messageCCRecipients',
 	        'messageBCCRecipients',
 	        'messageTime',
-	        'messageIsReplyTo',
+            'messageIsReplyTo',
+			'messageIsForwardFrom',
 	        'messageFolder',
 	        'messageIsRead',
 	        'messageNeedConfirmation',
@@ -276,6 +290,7 @@ class MessageSender{
                     '" . $this->bccRecipientHandler->getSaveCompleteSaveString() . "',
 					UNIX_TIMESTAMP(),
 					'" . (($this->replyMessage != null) ? ($this->replyMessage->getID()) : 0) . "',
+					'" . (($this->forwardMessage != null) ? ($this->forwardMessage->getID()) : 0) . "',
 					'POSTEINGANG',0," . ($this->needConfirmation ? 1 : 0) . ",
 					'" . substr(md5(rand()),0,9) . "',
 					'" . implode(",",$this->attachments) . "',

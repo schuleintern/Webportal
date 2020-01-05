@@ -51,6 +51,17 @@ class LeistungsnachweisRespizienz extends Leistungsnachweis {
     }
 
     /**
+     * Ist dieses Fach und dieser Typ LNW in den Einstellungen aktiviert?
+     *
+     */
+    public function isActive() {
+        $fach = $this->getFachObjekt();
+        if($fach == null) return false;
+
+        return DB::getSettings()->getBoolean('resp-' . $fach->getASDID() . '-' . $this->getArtKurztext());
+    }
+
+    /**
      *
      * @return boolean
      */

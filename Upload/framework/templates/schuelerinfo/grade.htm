@@ -32,7 +32,7 @@
 					<tr>
 						<th style="width:5%">#</th>
 						<if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren'))><then>
-							<th style="width:70px"><i class="fa fa-picture-o"></i></th>
+							<th style="width:70px"><i class="fa fa-picture"></i></th>
 						</then></if>
 						<th style="width:30%">Schülername</th>
 						<th>Aktionen</th>
@@ -63,14 +63,14 @@
 					(Unterricht {$currentUnterricht->getBezeichnung()})</then></if>
 				
 				drucken:<br />
-				<a href="index.php?page=schuelerinfo&mode=klasse&klasse={$klasse->getKlassenname()}&unterrichtID=<expression>intval($_REQUEST['unterrichtID'])</expression>&doPrint=simpleList"><i class="fa fa-file-pdf-o"></i> Namensliste</a><br />
-				<a href="index.php?page=schuelerinfo&mode=klasse&klasse={$klasse->getKlassenname()}&unterrichtID=<expression>intval($_REQUEST['unterrichtID'])</expression>&doPrint=listWithNA"><i class="fa fa-file-pdf-o"></i> Namensliste mit Nachteilsausgleich</a><br />
+				<a href="index.php?page=schuelerinfo&mode=klasse&klasse={$klasse->getKlassenname()}&unterrichtID=<expression>intval($_REQUEST['unterrichtID'])</expression>&doPrint=simpleList"><i class="fa fa-file-pdf"></i> Namensliste</a><br />
+				<a href="index.php?page=schuelerinfo&mode=klasse&klasse={$klasse->getKlassenname()}&unterrichtID=<expression>intval($_REQUEST['unterrichtID'])</expression>&doPrint=listWithNA"><i class="fa fa-file-pdf"></i> Namensliste mit Nachteilsausgleich</a><br />
 				
 				
 				<if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren'))>
                       <then>
-                       <a href="index.php?page=schuelerinfo&mode=getFotoUebersicht&klasse={$klasse->getKlassenname()}"><i class="fa fa-file-pdf-o"></i> Fotoübersicht</a><br />
-                       <a href="index.php?page=schuelerinfo&mode=getFotoZip&klasse={$klasse->getKlassenname()}"><i class="fa fa-file-archive-o"></i> Alle Fotos der Klasse als ZIP Datei</a><br />
+                       <a href="index.php?page=schuelerinfo&mode=getFotoUebersicht&klasse={$klasse->getKlassenname()}"><i class="fa fa-file-pdf"></i> Fotoübersicht</a><br />
+                       <a href="index.php?page=schuelerinfo&mode=getFotoZip&klasse={$klasse->getKlassenname()}"><i class="fa fa-file-archive"></i> Alle Fotos der Klasse als ZIP Datei</a><br />
                 </then></if>
 			
 			</div>

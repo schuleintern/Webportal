@@ -75,7 +75,7 @@ abstract class AbstractTermin {
 	
 	/**
 	 * 
-	 * @return KalenderKategorie
+	 * @return AbstractKalenderKategorie
 	 */
 	public function getKategorie() {
 	    return null;
@@ -88,6 +88,13 @@ abstract class AbstractTermin {
 	public function setNotDeleteAble() {
 	    $this->deleteable = false;
 	}
+
+    /**
+     * @return string|null
+     */
+	public function getColor() {
+	    return null;
+    }
 	
 }
 

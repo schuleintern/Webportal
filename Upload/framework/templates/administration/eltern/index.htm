@@ -1,0 +1,292 @@
+<expression>self::$showMessage</expression>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-female"></i> Elternbenutzer</h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<table id="users" class="table table-striped">
+					<thead>
+						<tr>
+							<th>Benutzername / E-Mail</th>
+							<th>Rufname</th>
+							<th>Name</th>
+							<th>Zugeordnete Kinder</th>
+							<th>Fehlgeschlagene Logins</th>
+							<th>Admin</th>
+							<th>Aktionen</th>
+						</tr>
+					</thead>
+					<tbody>
+						{$userHTML}
+					</tbody>
+				</table>
+	</div>
+</div>
+
+<script src="cssjs/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="cssjs/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+  $(function () {
+    $('#users').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "pageLength": 20,
+      "language": {
+    		"sEmptyTable":   	"Keine Daten in der Tabelle vorhanden",
+    		"sInfo":         	"_START_ bis _END_ von _TOTAL_ Einträgen",
+    		"sInfoEmpty":    	"0 bis 0 von 0 Einträgen",
+    		"sInfoFiltered": 	"(gefiltert von _MAX_ Einträgen)",
+    		"sInfoPostFix":  	"",
+    		"sInfoThousands":  	".",
+    		"sLengthMenu":   	"_MENU_ Einträge anzeigen",
+    		"sLoadingRecords": 	"Wird geladen...",
+    		"sProcessing":   	"Bitte warten...",
+    		"sSearch":       	"Einträge suchen",
+    		"sZeroRecords":  	"Keine Einträge vorhanden.",
+    		"oPaginate": {
+    			"sFirst":    	"Erste",
+    			"sPrevious": 	"Zurück",
+    			"sNext":     	"Nächste",
+    			"sLast":     	"Letzte"
+    		},
+    		"oAria": {
+    			"sSortAscending":  ": aktivieren, um Spalte aufsteigend zu sortieren",
+    			"sSortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
+    		}
+      }
+    });
+  });
+  
+  $( "#buttonShowFilter" ).click(function() {
+	  $( "#filter" ).show( "slow" );
+	  $( "#buttonShowFilter" ).hide( "slow" );
+	});
+
+</script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+<script>
+
+	function changePassword(userID, username) {
+		$("#changePasswordUserID").val(userID);
+		$("#changePasswordUserName").html(username);
+		$("#resetPassword").modal("show");
+	}
+
+	var userData = null;
+
+
+	function editUser(userID) {
+		$.ajax({
+			url:"{$selfURL}&action=getElternData&userID="+userID,
+			success:function(data) {
+				console.log(data);
+				if(data.success) {
+					userData = data;
+					$("#editUserUsername").html(data.username);
+					setUserInfo();
+					$("#editUser").modal("show");
+				}
+			}
+		});
+	}
+
+	function setUserInfo() {
+
+		if(userData.isAdmin) {
+			$("#adminStatus").html("<i class=\"fa fa-check\"></i> Hat Adminrechte");
+			$("#toggleAdminStatus").html("<i class=\"fa fa-ban\"></i> Adminrechte entfernen</i>");
+		}
+		else {
+			$("#adminStatus").html("<i class=\"fa fa-ban\"></i> Hat keine Adminrechte");
+			$("#toggleAdminStatus").html("<i class=\"fa fa-check\"></i> Globale Adminrechte erteilen</i>");
+
+		}
+
+		console.log(userData);
+
+		var kinderliste = "<ul>";
+
+
+		var hasKinder = false;
+
+		for(i = 0; i < userData.kinder.length; i++) {
+			if(userData.kinder[i].asvID != "") {
+				hasKinder = true;
+				kinderliste += "<li>" + userData.kinder[i].name + " (Klasse " + userData.kinder[i].klasse + ")";
+
+				if(userData.kindEditable) {
+					kinderliste += "<button class='btn btn-danger btn-xs' onclick=\"removeKind('" +
+						userData.kinder[i].asvID + "')\"><i class='fa fa-trash'></i></button></li>";
+				}
+			}
+		}
+
+		if(!hasKinder) window.location.reload();
+
+		if(!userData.kindEditable) {
+			$("#searchSchueler").hide();
+			$("#infoASVEdit").show();
+		}
+
+		kinderliste += "</ul>";
+
+		$("#kinderliste").html(kinderliste);
+	}
+
+	function toggleAdminStatus() {
+		$.ajax({
+			async: false,
+			url: "{$selfURL}&action=toggleAdminStatus&userID=" + userData.userid,
+			success: function(data) {
+				$.ajax({
+					url:"{$selfURL}&action=getElternData&userID="+userData.userid,
+					success:function(data) {
+						userData = data;
+						setUserInfo();
+					}
+				});
+			}
+		});
+	}
+
+	function removeKind(asvID) {
+
+		if (userData.kinder.length == 1) {
+			confirmAction("Wenn Sie die letzte Zuordnung löschen, wird auch der Nutzer gelöscht. Sind Sie sicher?",null, function() {
+				removeKindDo(asvID);
+			});
+		}
+		else {
+			removeKindDo(asvID);
+		}
+	}
+
+	function removeKindDo(asvID) {
+		var success = false;
+
+		for(i = 0; i < userData.kinder.length; i++) {
+			if(userData.kinder[i].asvID == asvID) {
+				$.ajax({
+					async: false,
+					url: "{$selfURL}&action=removeKind&userID=" + userData.userid + "&asvID=" + asvID,
+					success: function(data) {
+						success = data.success;
+					}
+				});
+				userData.kinder[i].asvID = '';
+			}
+		}
+
+		if(success) {
+			setUserInfo();
+		}
+
+	}
+
+</script>
+
+
+
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title"><i class="fa fa-user"></i> Benutzer bearbeiten <span id="editUserUsername"></span></h4>
+
+		</div>
+		<div class="modal-body">
+			<div class="callout callout-info" id="infoASVEdit" style="display: none"><i class="fa fa-exclamation-circle"></i> Sie können die Kinderzuordnungen nur durch Änderungen in der ASV ändern.</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<b>Kinder:</b>
+					<br />
+					<div id="kinderliste"></div>
+
+					<div class="input-group">
+						<input type="text" id="searchSchueler" class="form-control" placeholder="Kind hinzufügen ...">
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div id="adminStatus"></div><br />
+					<button class="btn btn-default" id="toggleAdminStatus" type="button" onclick="toggleAdminStatus()"></button>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	</div>
+</div>
+
+
+<script>
+	$(function() {
+
+		$("#searchSchueler").autocomplete({
+			source: "{$selfURL}&action=ajaxSearchSchueler",
+			minLength: 2,
+			select: function(event, ui) {
+				var id = ui.item.id;
+				var display = ui.item.label;
+
+				$.ajax({
+					async: false,
+					url: "{$selfURL}&action=addKind&userID=" + userData.userid + "&asvID=" + id,
+					success: function(data) {
+						$.ajax({
+							url:"{$selfURL}&action=getElternData&userID="+userData.userid,
+							success:function(data) {
+								userData = data;
+								$("#searchSchueler").val("");
+								setUserInfo();
+							}
+						});
+					}
+				});
+
+			},
+
+			open: function(event, ui) {
+				$(".ui-autocomplete").css("z-index", 999999);
+			}
+		});
+
+	});
+</script>
+
+
+<div class="modal fade" id="resetPassword" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title"><i class="fa fa-key"></i> Kennwort ändern für <span id="changePasswordUserName"></span></h4>
+
+			</div>
+			<div class="modal-body">
+				<form action="$selfURL&action=resetPassword" method="post">
+
+					<input type="hidden" name="userID" id="changePasswordUserID">
+
+						<label>Neues Passwort (Es gelten keine Kennwortrichtlinien!)</label>
+						<input type="text" name="password" class="form-control" placeholder="Neues Passwort"><br /><br />
+
+							<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Kennwort zurücksetzen</button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

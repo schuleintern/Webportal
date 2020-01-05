@@ -740,7 +740,7 @@ class schulbuecher extends AbstractPage {
       $html .= "<button type=\"button\" class=\"btn btn-info btn-xs\" onclick=\"javascript:window.location.href='index.php?page=schulbuecher&mode=bestandOfBook&schulbuchID=" . $books[$i]->getID() . "'\"><i class=\"fa fa-briefcase\"></i> Bestand verwalten</button><br />";
       $html .= "<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick=\"javascript:confirmAction('Soll das Buch inkl. allen Exemplaren und allen aktiven Ausleihen gelöscht werden?','index.php?page=schulbuecher&mode=deleteBook&schulbuchID=" . $books[$i]->getID() . "')\"><i class=\"fa fa-trash\"></i> Buch löschen</button><br />";
 
-      $html .= "<button type=\"button\" class=\"btn btn-info btn-xs\" onclick=\"javascript: editBook(" . $books[$i]->getID() . ",'" . addslashes($books[$i]->getName()) . "','" . addslashes($books[$i]->getVerlag()) . "','" . addslashes($books[$i]->getISBN()) . "','" . addslashes($books[$i]->getPreisInEuro()) . "','" . addslashes($books[$i]->getFach()) . "','" . addslashes($books[$i]->getKlasse()) . "');\"><i class=\"fa fa-pencil\"></i> Buch bearbeiten</button>";
+      $html .= "<button type=\"button\" class=\"btn btn-info btn-xs\" onclick=\"javascript: editBook(" . $books[$i]->getID() . ",'" . addslashes($books[$i]->getName()) . "','" . addslashes($books[$i]->getVerlag()) . "','" . addslashes($books[$i]->getISBN()) . "','" . addslashes($books[$i]->getPreisInEuro()) . "','" . addslashes($books[$i]->getFach()) . "','" . addslashes($books[$i]->getKlasse()) . "');\"><i class=\"fa fas fa-pencil-alt\"></i> Buch bearbeiten</button>";
       
       $html .= "</td>";
 

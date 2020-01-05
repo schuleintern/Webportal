@@ -156,9 +156,12 @@ class MessageRead extends AbstractPage {
         exit(0);
       }
     }
-    else if($_POST['action'] == 'reply') {
-      header("Location: index.php?page=MessageCompose&replyMessage=" . $message->getID());
+    else if($_POST['action'] == 'forward') {
+      header("Location: index.php?page=MessageCompose&forwardMessage=" . $message->getID());
       exit(0);
+    } else if($_POST['action'] == 'reply') {
+        header("Location: index.php?page=MessageCompose&replyMessage=" . $message->getID());
+        exit(0);
     }
     else if($_POST['action'] == 'replyAll') {
         header("Location: index.php?page=MessageCompose&replyAllMessage=" . $message->getID());
@@ -233,6 +236,10 @@ class MessageRead extends AbstractPage {
     }
 
 
+    if($message->isForward()) {
+		$forwardMessage = $message->getForwardMessage();
+    }
+    
     if($message->isReply()) {
 		$replyMessage = $message->getReplyMessage();
     }
@@ -246,7 +253,7 @@ class MessageRead extends AbstractPage {
     
     for($i = 0; $i < sizeof($attachments); $i++) {
         
-        $type = "fa fa-file-o";
+        $type = "fa fa-file";
         
         $file = $attachments[$i]->getUpload();
         
@@ -269,7 +276,7 @@ class MessageRead extends AbstractPage {
                   <span class="mailbox-attachment-icon has-img"><img src="' . $file->getURLToFile() . '&showPDFPreview=200"></span>
                       
                   <div class="mailbox-attachment-info">
-                    <a href="' . $file->getURLToFile(true) . '" class="mailbox-attachment-name"><i class="fa fa-file-pdf-o"></i> ' . $file->getFileName() . '</a>
+                    <a href="' . $file->getURLToFile(true) . '" class="mailbox-attachment-name"><i class="fa fa-file-pdf"></i> ' . $file->getFileName() . '</a>
                         <span class="mailbox-attachment-size">
                          ' . $file->getFileSize() . '
                           <a href="' . $file->getURLToFile(true) . '" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>

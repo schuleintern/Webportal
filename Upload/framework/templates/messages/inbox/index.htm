@@ -16,8 +16,8 @@
             <div class="box-body no-padding">
               <div class="mailbox-controls">
                 <div class="btn-group">
-              		<button type="button" class="btn btn-default btn-sm checkbox-toggle" onclick="javascript:$('.checkMessage').iCheck('check');" title="Alle auswählen"><i class="fa fa-check-square-o"></i></button>
-                	<button type="button" class="btn btn-default btn-sm checkbox-toggle" onclick="javascript:$('.checkMessage').iCheck('uncheck');" title="Alle nicht auswählen"><i class="fa fa-square-o"></i></button>
+              		<button type="button" class="btn btn-default btn-sm checkbox-toggle" onclick="javascript:$('.checkMessage').iCheck('check');" title="Alle auswählen"><i class="fa fa-check-square"></i></button>
+                	<button type="button" class="btn btn-default btn-sm checkbox-toggle" onclick="javascript:$('.checkMessage').iCheck('uncheck');" title="Alle nicht auswählen"><i class="fa fa-square"></i></button>
                 </div>
                 
                 <if($folder->getFolderSQL() != 'GESENDETE')><then>
@@ -37,17 +37,17 @@
                 </then></if>
                 
                  <div class="btn-group">
-                 	<button type="submit" class="btn btn-default btn-sm" name="action" value="markAsRead" title="Als gelesen markieren"><i class="fa fa-envelope-open-o"></i></button>
-                 	<button type="submit" class="btn btn-default btn-sm" name="action" value="markAsUnRead" title="Als ungelesen markieren"><i class="fa fa-envelope-o"></i></button>
+                 	<button type="submit" class="btn btn-default btn-sm" name="action" value="markAsRead" title="Als gelesen markieren"><i class="fa fa-envelope-open"></i></button>
+                 	<button type="submit" class="btn btn-default btn-sm" name="action" value="markAsUnRead" title="Als ungelesen markieren"><i class="fa fa-envelope"></i></button>
                  </div>
                 
                 </then></if>
                 <div class="btn-group">
                 
-                  <button type="submit" class="btn btn-default btn-sm" name="action" value="deleteSelected" title="Löschen"><i class="fa fa-trash-o"></i></button>
+                  <button type="submit" class="btn btn-default btn-sm" name="action" value="deleteSelected" title="Löschen"><i class="fa fa-trash"></i></button>
                 </div>
                 <!-- /.btn-group -->
-                <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                <button type="submit" class="btn btn-default btn-sm"><i class="fa fas fa-sync-alt"></i></button>
                 <div class="pull-right">
                   <div class="btn-group">
                     <if($page == 1)><then>
@@ -110,14 +110,14 @@
             <div class="box-footer no-padding">
               <div class="mailbox-controls">
                 <div class="btn-group">
-              		<button type="button" class="btn btn-default btn-sm checkbox-toggle" onclick="javascript:$('.checkMessage').iCheck('check');" title="Alle auswählen"><i class="fa fa-check-square-o"></i></button>
-                	<button type="button" class="btn btn-default btn-sm checkbox-toggle" onclick="javascript:$('.checkMessage').iCheck('uncheck');" title="Alle nicht auswählen"><i class="fa fa-square-o"></i></button>
+              		<button type="button" class="btn btn-default btn-sm checkbox-toggle" onclick="javascript:$('.checkMessage').iCheck('check');" title="Alle auswählen"><i class="fa fa-check-square"></i></button>
+                	<button type="button" class="btn btn-default btn-sm checkbox-toggle" onclick="javascript:$('.checkMessage').iCheck('uncheck');" title="Alle nicht auswählen"><i class="fa fa-square"></i></button>
                 </div>
                 <div class="btn-group">
-                  <button type="submit" class="btn btn-default btn-sm" name="action" value="deleteSelected" title="Löschen"><i class="fa fa-trash-o"></i></button>
+                  <button type="submit" class="btn btn-default btn-sm" name="action" value="deleteSelected" title="Löschen"><i class="fa fa-trash"></i></button>
                 </div>
                 <!-- /.btn-group -->
-                <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                <button type="submit" class="btn btn-default btn-sm"><i class="fa fas fa-sync-alt"></i></button>
                 <div class="pull-right">
                   Seite $page/$numberPages (Nachricht $ersteNummer bis $letzteNummer von $totalMessages)
                   <div class="btn-group">

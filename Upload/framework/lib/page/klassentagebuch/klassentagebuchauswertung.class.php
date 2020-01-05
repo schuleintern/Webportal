@@ -504,7 +504,7 @@ class klassentagebuchauswertung extends AbstractPage {
           $fehlHTML .= "<td>" . $f['fehlKlasse'] . "</td>";
           $fehlHTML .= "<td>" . $f['fehlStunde'] . "</td>";
           $fehlHTML .= "<td>" . $f['fehlFach'] . "</td>";
-          $fehlHTML .= "<td><a href=\"index.php?page=klassentagebuch&goBackURL=" . urlencode("index.php?page=klassentagebuchauswertung") . "&mode=showGrade&currentDate=" . DateFunctions::getNaturalDateFromMySQLDate($f['fehlDatum']) . "&triggerAdd=1&stunde=" . $f['fehlStunde'] . "&fach=" . urlencode($f['fehlFach']) . "&grade=" . urlencode($f['fehlKlasse']) . "\"><i class=\"fa fa-pencil\"></i> Eintrag hinzufügen</a></td>";
+          $fehlHTML .= "<td><a href=\"index.php?page=klassentagebuch&goBackURL=" . urlencode("index.php?page=klassentagebuchauswertung") . "&mode=showGrade&currentDate=" . DateFunctions::getNaturalDateFromMySQLDate($f['fehlDatum']) . "&triggerAdd=1&stunde=" . $f['fehlStunde'] . "&fach=" . urlencode($f['fehlFach']) . "&grade=" . urlencode($f['fehlKlasse']) . "\"><i class=\"fa fas fa-pencil-alt\"></i> Eintrag hinzufügen</a></td>";
 
           $fehlHTML .= "</tr>";
       }

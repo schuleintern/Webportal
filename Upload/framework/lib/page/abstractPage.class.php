@@ -259,6 +259,9 @@ abstract class AbstractPage {
 
 			if(DB::isLoggedIn()) {
 				$image = DB::getDB()->query_first("SELECT uploadID FROM image_uploads WHERE uploadUserName LIKE '" . DB::getSession()->getData("userName") . "'");
+
+
+
 				if($image['uploadID'] > 0) $this->userImage = "index.php?page=userprofileuserimage&getImage=profile";
 				else $this->userImage = "cssjs/images/userimages/default.png";
 			}

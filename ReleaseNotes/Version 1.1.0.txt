@@ -1,0 +1,63 @@
+- Login wurde nicht gespeichert
+- Nachrichtensystem:
+    o Nachrichten können nun weiter geleitet werden. (https://github.com/schuleintern/Webportal/issues/34)
+    o Anzahl der Nachrichten in einem Ordner anzeigbar (https://github.com/schuleintern/Webportal/issues/111)
+    o Kleiner Änderung an Gruppen. (Kein "Gruppe" mehr vor dem Namen) (https://github.com/schuleintern/Webportal/issues/107)
+    o Beim Antworten wurden Empfänger dupliziert. (https://github.com/schuleintern/Webportal/issues/101)
+    o Anhänge waren nicht in allten angegebenen Formaten möglich. (https://github.com/schuleintern/Webportal/issues/110)
+    o Deutliche Performanceverbesserung bei der Ansicht der Ordner.
+    o Statistik nun korrekt (https://github.com/schuleintern/Webportal/issues/102)
+    o Keine Übernahme vorheriger Empfänger bei vorheriger Auswahl von Empfängern. (https://github.com/schuleintern/Webportal/issues/73)
+- Elternsprechtag
+    o Buchungen nur noch für Kinder aus den angegebenen Klassen möglich. (https://github.com/schuleintern/Webportal/issues/105)
+- Auf einen Blick / Kalender: LNW erscheint zur richtigen Zeit, wenn Stunden angegeben sind. (https://github.com/schuleintern/Webportal/issues/113)
+- Respizientmodul:
+    o Möglichkeit zwischen Respizienz und Archivierung zu Unterscheiden (z.B. nur reine Archivierung praktischer LNW in IT)
+    o Einschränkung auf Fächer möglich
+- Stundenplan
+    o Ausdruck in A3 möglich. (Macht bei großen Plänen Sinn. Ist dann auch auf A4 über den AdobeReader ausdruckbar.)
+    o PDF Layout optimiert.
+    o Kleine Anpassung bei Lehrerauswahl (Eingabe von Namen möglich)
+    o Import aus Willi erkennt nun auch Kopplungen
+- Schülerinfo
+    o Unterrichte werden wieder korrekt angezeigt (https://github.com/schuleintern/Webportal/issues/83)
+- Login Seite
+    o Layout Anpassungen
+    o Möglichkeit ein ganzseitiges Hintergrundbild hinzuzufügen
+- Design / Layout
+    o Umstellung auf AwesomeFont5
+    o HeaderLayout angepasst. (Anzahl der ungelesenen Nachrichten beim Briefumschlag)
+    o Template (AdminLTE) aktualisiert.
+- Projektverwaltungstool war nicht erreichbar über das Menü (https://github.com/schuleintern/Webportal/issues/104)
+- iCAL Feed robuster (https://github.com/schuleintern/Webportal/issues/80)
+- Schulinfo: "kein Lehrer mehr" wird zu "Nicht mehr an der Schule" (https://github.com/schuleintern/Webportal/issues/100)
+- Schüler, die eine E-Mailadresse in der ASV haben und der Modus auf ASV für die Elternbenutzer steht, haben eine Elternkennung bekommen. (https://github.com/schuleintern/Webportal/issues/96)
+- Office 365 Integration
+    o Bei Kalendern, die über die GraphApi abgerufen werden, werden auch die Kategorieren importiert. (https://github.com/schuleintern/Webportal/issues/68)
+- Kalender: Termin wird im Folgemonat nun angezeigt https://github.com/schuleintern/Webportal/issues/72
+- Lerntutoren: Schüler mit Klasse
+
+Administration
+- Elternbenutzer können nun einfacher administriert werden.
+    o Anzeige der zugeordneten Kinder ((https://github.com/schuleintern/Webportal/issues/81)
+    o Möglichkeit Kinder manuell hinzuzufügen (Nur bei Registrierungscodes)
+- E-Mails
+    o Mehr Einstellungsmöglichkeiten
+    o Testmail möglich (https://github.com/schuleintern/Webportal/issues/109)
+    o ReplyTo Adresse setzbar. (https://github.com/schuleintern/Webportal/issues/108)
+- Cronjobs
+    o Manuell ausführbar über die Administration
+- Modulstatusseite: Anpassungen / Layout
+- Logo / Briefkopf sind nun über die GUI änderbar.
+- GPLv2 Lizenztext hinzugefügt.
+
+
+Technisch
+- Umstellung auf \n statt \r\n
+- Update jQuery auf 3.4.1
+- Fehlende Benutzerbilder führen nicht zu einem Fehler
+- Mailversand auf 40 Mails pro Cron Aufruf umgestellt
+- Updateprozess aktualisiert nun auch CLI Tools.
+- Backup Script verbessert. (Achtung Crons müssen angepasst werden!) (https://github.com/schuleintern/Webportal/pull/98)
+- Diverse Aufräumarbeiten
+- Composer Module aktualisiert.

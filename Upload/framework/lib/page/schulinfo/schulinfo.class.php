@@ -133,7 +133,7 @@ class schulinfo extends AbstractPage {
 					break;
 
 					case 'keinlehrer':
-						$lehrerHTML .= "Kein Lehrer mehr";
+						$lehrerHTML .= "Nicht mehr an der Schule";
 					break;
 				}
 

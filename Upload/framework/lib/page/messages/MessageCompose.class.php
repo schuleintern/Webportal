@@ -368,7 +368,7 @@ class MessageCompose extends AbstractPage {
 		        
 		    case  'uploadAttachment':
 
-		        $upload = FileUpload::uploadOfficePdfOrPicture('attachmentFile','');
+		        $upload = FileUpload::uploadOfficeFilesPicturesTextAndZip('attachmentFile','');
 		        
 		        $result = [
 		            'uploadOK' => false,
@@ -495,6 +495,16 @@ class MessageCompose extends AbstractPage {
 				
 				$isReply = false;
 				
+
+				if($_REQUEST['forwardMessage'] != "") {
+							
+						$forwardMessage = Message::getByID(intval($_REQUEST['forwardMessage']));
+						if($forwardMessage!= null) {
+								if($forwardMessage->getUserID() == DB::getSession()->getUserID()) {
+									$messageSender->setForwardMessage($forwardMessage);
+								}
+						}
+				}
 				
 				if($_REQUEST['replyMessage'] != "") {
 				    
@@ -537,8 +547,33 @@ class MessageCompose extends AbstractPage {
 	private function showForm() {
 	
 		$isReply = false;
+		$isForward = false;
 		
-		
+		if($_REQUEST['forwardMessage'] != "") {
+		    
+			$forwardMessage = Message::getByID(intval($_REQUEST['forwardMessage']));
+			if($forwardMessage!= null) {
+
+					$isForward = true;
+
+					$arr = array();
+					$attachments = $forwardMessage->getAttachments();
+						for($i = 0; $i < sizeof($attachments); $i++) {
+							array_push($arr, array(
+								'attachmentID' => $attachments[$i]->getID(),
+								'attachmentFileName' => $attachments[$i]->getUpload()->getFileName(),
+								'attachmentAccessCode' => $attachments[$i]->getAccessCode(),
+								'attachmentURL' => $attachments[$i]->getUpload()->getURLToFile(true)
+							));
+						}
+
+						$forwardJSONData = json_encode([
+							'key' => 'attachments',
+							'value' => $arr
+						]);
+			}
+	}
+
 		if($_REQUEST['replyMessage'] != "") {
 		    
 		    $replyMessage = Message::getByID(intval($_REQUEST['replyMessage']));
@@ -566,7 +601,6 @@ class MessageCompose extends AbstractPage {
     		    if($replyMessage!= null) {
     		        if($replyMessage->getUserID() == DB::getSession()->getUserID()) {
     		            // --> Erlaubt
-    		            $isReply = true;
     		            $isReplyAll = true;
     		            
     		            
@@ -943,7 +977,7 @@ class MessageCompose extends AbstractPage {
 		$htmlGroups = "";
 		
 		for($i = 0; $i < sizeof($groups); $i++) {
-		    $htmlGroups .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary btn-block\">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
+		    $htmlGroups .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary \">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
 		}
 		
 		

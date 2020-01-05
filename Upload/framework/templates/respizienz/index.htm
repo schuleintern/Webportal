@@ -6,7 +6,7 @@
 
 <div class="box">
 	<div class="box-header">
-		<h3 class="box-title"><i class="fa fa-briefcase"></i> Digitale Respizienz und Archivierung von Leistungsnachweisen</h3>
+		<h3 class="box-title"><i class="fa fa-briefcase"></i> $ueberschrift</h3>
 		<if($isSchulleitung)><then><br />
 			<h3 class="box-title"> <b>Schulleitung</b></h3>
 		</then></if>
@@ -25,8 +25,12 @@
 					<th>Fach</th>
 					<th>Lehrer</th>
 					<th>Digitale Archivierung</th>
-					<th>Respizienz Fachschaftsleitung</th>
-					<th>Respizienz Schulleitung</th>
+
+					<if(DB::getSettings()->getValue('resp-mode') == 'RESP')><then>
+						<th>Respizienz Fachschaftsleitung</th>
+						<th>Respizienz Schulleitung</th>
+					</then></if>
+
 					<th>Aktionen</th>
 				</tr>
 			</thead>

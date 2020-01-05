@@ -1,0 +1,38 @@
+
+<p>Für folgende Fächer soll die Repizienz oder die digitale Archivierung verfügbar sein:</p>
+
+<form action="$selfURL&action=save" method="post">
+
+
+$table
+
+
+    <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-save"></i> Speichern</button>
+
+
+</form>
+
+
+<script>
+
+    $(function() {
+
+
+        $('.lnwtype').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+
+    })
+
+
+    function selectAll(className) {
+        $('.' + className).iCheck("check");
+    }
+
+    function unSelectAll(className) {
+        $('.' + className).iCheck("uncheck");
+    }
+
+</script>

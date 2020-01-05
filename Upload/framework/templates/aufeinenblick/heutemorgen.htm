@@ -11,7 +11,7 @@
             <if(DB::getSession()->isTeacher() || DB::getSettings()->getValue("vplan-schueleractive") != 0)><then>
                <div class="box box-success{$vplanCollapse}">
 				  <div class="box-header with-border">
-				    <h3 class="box-title" data-widget="collapse"><i class="fa fa-check"></i> Vertretungsplan $update</h3>
+				    <h3 class="box-title" data-widget="collapse"><i class="fa fas fa-redo-alt"></i> Vertretungsplan $update</h3>
 				    <div class="box-tools pull-right">
 				      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa {$faVplanIcon}"></i></button>
 				    </div>

@@ -22,8 +22,8 @@ $classes = [
     
     'ausweise' => [
         'AbstractAusweis',
-        'ISGYAusweis',
-        'ISGYAusweisTCPDF'
+        'Schulausweis',
+        'SchulausweisTCPDF'
     ],
     
 	'captcha' => [
@@ -107,7 +107,9 @@ $classes = [
 	    'AndererKalenderTermin',
 	    'KalenderKategorie',
 	    'TerminCollector',
-	    'ICSFeed'
+	    'ICSFeed',
+        'AbstractKalenderKategorie',
+        'ExternerKalenderKategorie'
 	],
     'data/lerntutoren' => [
         'Lerntutor',

@@ -115,7 +115,7 @@
 	function openICSFeed() {
 		  $("#buttonics").prop("disabled",true);
 		  
-		  $("#buttonics").html("<i class=\"fa fa-refresh fa-spin\"></i> Wird abgerufen");
+		  $("#buttonics").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Wird abgerufen");
 	
 		$.ajax({
 			type: "POST",
@@ -159,7 +159,7 @@
 		</div>
   <div id="schulkalender"></div></div>
   	<div class="overlay" id="isloading">
-		<i class="fa fa-refresh fa-spin"></i>
+		<i class="fa fas fa-sync-alt fa-spin"></i>
 	</div>
 </div>
 
@@ -170,7 +170,7 @@
 	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	    
 	    	<div id="terminicon" style="float: right;margin: 10px;font-size:20pt"></div>
-	    	<h4 class="modal-title" id="eventTitleICS"><i class="fa fa-calendar-plus-o"></i> ICS Feed der Termine ($gradeDisplay)</h4>
+	    	<h4 class="modal-title" id="eventTitleICS"><i class="fa fa-calendar-plus"></i> ICS Feed der Termine ($gradeDisplay)</h4>
 	    	
 	      </div>
 	      <div class="modal-body">

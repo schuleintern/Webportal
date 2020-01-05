@@ -1,0 +1,10 @@
+<p>Nehmen Sie die Einstellungen für den Mailserver im Tab "Einstellungen" vor.</p>
+<br />
+<h3>Testmail senden</h3>
+<form action="$selfURL&action=sendTestMail" method="post">
+    <div class="input-group btn-block">
+        <label>Empfänger</label>
+        <input type="email" class="form-control" name="recipient" value="<expression>DB::getSession()->getUser()->getEMail()</expression>">
+    </div>
+    <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-paper-plane"></i> Testmail senden</button>
+</form>

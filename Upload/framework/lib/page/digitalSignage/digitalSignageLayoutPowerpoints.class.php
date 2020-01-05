@@ -134,11 +134,11 @@ class digitalSignageLayoutPowerpoints extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroupIcon() {
-		return 'fa fa-television';
+		return 'fa fa-tv';
 	}
 	
 	public static function getAdminMenuIcon() {
-		return 'fa fa-photo';
+		return 'fa fa-file-powerpoint';
 	}
 	
 	public static function siteIsAlwaysActive() {

@@ -164,6 +164,14 @@ class vplan extends AbstractPage {
 						if(DB::getGlobalSettings()->stundenplanSoftware == "TIME2007") {
 							$search = DB::getSession()->getTeacherObject()->getName();
 						}
+
+						if(DB::getGlobalSettings()->stundenplanSoftware == 'WILLI') {
+                            $multisearch = true;
+						    $search = [
+						        DB::getSession()->getTeacherObject()->getKuerzel(),
+                                DB::getSession()->getTeacherObject()->getName() . " " . DB::getSession()->getTeacherObject()->getRufname(),
+                            ];
+                        }
 						
 					}
 					else $search = "";
@@ -183,8 +191,10 @@ class vplan extends AbstractPage {
 					else if(DB::getGlobalSettings()->stundenplanSoftware == "TIME2007") {
 						$header = "<h4>Meine Vertretungen</h4><table class=\"table table-bordered\"><tr><th>Lehrer</th><th>Std.</th><th>Klasse</th><th>Fach</th><th>Raum</th><th>für</th><th>Bemerkung</th></tr>";
 					}
-					
-					
+
+                    else if(DB::getGlobalSettings()->stundenplanSoftware == "WILLI") {
+                        $header = "<h4>Meine Vertretungen</h4><table class=\"table table-bordered\"><tr><th>Lehrkraft</th><th>Stunde</th><th>Klasse</th><th>Raum</th><th>Kommentar</th></tr>";
+                    }
 				}
 				else {
 						
@@ -220,6 +230,10 @@ class vplan extends AbstractPage {
 					else if(DB::getGlobalSettings()->stundenplanSoftware == "TIME2007") {
 						$header = "<h4>Meine Vertretungen</h4><table class=\"table table-bordered\"><tr><th>Klasse</th><th>Std.</th><th>Lehrer/Fach</th><th>vertr. durch</th><th>Fach</th><th>Raum</th><th>Bemerkung</th></tr>";
 					}
+
+                    else if(DB::getGlobalSettings()->stundenplanSoftware == "WILLI") {
+                        $header = "<h4>Meine Vertretungen</h4><table class=\"table table-bordered\"><tr><th>Klasse</th><th>Lehrkraft</th><th>Stunde</th><th>Vertreten durch</th><th>Raum</th></tr>";
+                    }
 					
 					
 					

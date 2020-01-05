@@ -3,15 +3,27 @@
 class SkinSettings extends AbstractPage {
 
   public function __construct() {
-    new errorPage('Kein direkter Aufruf');
   }
 
   public function execute() {
-  	
+		if($_REQUEST['action'] == 'getLogo') {
+			$upload = DB::getSettings()->getUpload('global-logo');
+			if($upload != null) $upload->sendFile();
+			else {
+				return header("Location: cssjs/images/Icon.png");
+				exit(0);
+			}
+		}
   }
 
   public static function getSettingsDescription() {
   	return array(
+  		[
+  			'name' => 'global-logo',
+			'typ' => 'BILD',
+			'titel' => 'Logo für die Seite',
+			'text' => 'Vorlage kann unter <a href=\"https://doku.schule-intern.de/display/ADMINHANDBUCH/Logo\">Administrationshandbuch</a> herunter geladen werden. Bitte hier ein Bild hochladen.'
+		],
   		array(
   			'name' => "global-skin-default-color",
   			'typ' => 'SELECT',

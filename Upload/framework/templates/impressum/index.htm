@@ -19,7 +19,8 @@
     <title><expression>DB::getGlobalSettings()->siteNamePlain</expression> - Anmeldung</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="cssjs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="cssjs/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+      <link href="cssjs/font/fontawesome/css/all.css" rel="stylesheet" type="text/css" />
+      <link href="cssjs/font/fontawesome/js/v4-shims.js" rel="stylesheet" type="text/css" />
     <link href="cssjs/font/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
@@ -30,18 +31,48 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
+
+      <if(DB::getSettings()->getInteger("login-background-image") > 0)><then>
+
+      <style>
+          body, html {
+              height: 100%;
+          }
+
+          .schuleinternloginimage {
+              background-image: url("<expression>DB::getSettings()->getUpload('login-background-image')->getURLToFile()</expression>");
+
+              height: 100%;
+
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+          }
+
+      </style>
+
+  </then></if>
   </head>
-  <body class="login-page">
-  	
-    <div class="login-box">
+  <if(DB::getSettings()->getInteger("login-background-image") > 0)>
+  <then>
+      <body class="login-page schuleinternloginimage">
+  </then>
+  <else>
+      <body class="login-page">
+  </else>
+  </if>
+
+  <div class="login-box" style="width:80%">
       <div class="login-logo">
-        <a href="index.php"><expression>DB::getGlobalSettings()->siteNameHTMLDisplay</expression></a>
+          <a href="index.php"><img src="index.php?page=SkinSettings&action=getLogo" width="150" border="0"></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       
      	 <h3>Impressum</h3>
      	 
-     	      	 <a href="#" onclick="javascript:history.go(-1)"><i class="fa fa-arrow-left"></i> Zurück</a>
+     	      	 <a href="#" onclick="javascript:history.go(-1)" class="btn btn-primary btn-sm btn-block"><i class="fa fa-arrow-left"></i> Zurück</a>
      	 
      	 <hr noshade>
   </else>
@@ -53,15 +84,17 @@
       	      	
       	<hr noshade>
       	
-      	<form><button type="button" class="btn" onclick="window.location.href='index.php?page=datenschutz'"><i class="fa fa-info-circle"></i> Datenschutz</button></form>
+      	<form><button type="button" class="btn btn-default btn-block" onclick="window.location.href='index.php?page=datenschutz'"><i class="fa fa-info-circle"></i> Datenschutz</button></form>
       	
       	<hr noshade>
       	<a id="software"></a>
+<div style="text-align: center">
       	Software:<br />
-      	<img src="cssjs/imagesSpitschka/logo_schule_intern.png" width="200"><br />
+      	<img src="cssjs/images/logo_schule_intern.png" width="200"><br />
       	Version <expression>DB::getVersion()</expression><br />
-Infos: <a href="https://www.schule-intern.de">https://www.schule-intern.de</a><br />
-<br />SchuleIntern ist freie Software unter der GPLv2 Lizenz.
+<a href="https://www.schule-intern.de" class="btn btn-default btn-block">https://www.schule-intern.de</a>
+<br />SchuleIntern ist freie Software unter der GPLv2 Lizenz.<br />
+</div>
 
 <if(DB::isLoggedIn())><then>
 </div></div>{$this->footer}

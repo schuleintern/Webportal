@@ -20,7 +20,7 @@
 		<if($mail['sendElternKlassen'] != "")><then>
 	
 	
-			<br /><br /><a href="index.php?page=elternmailsender&mode=printFehlListen&mailID={$mail['mailID']}"><i class="fa fa-file-pdf-o"></i> Fehllisten drucken</a></td>
+			<br /><br /><a href="index.php?page=elternmailsender&mode=printFehlListen&mailID={$mail['mailID']}"><i class="fa fa-file-pdf"></i> Fehllisten drucken</a></td>
 	
 		</then></if>
 	<td width="10%">$klassenStringSchueler</td>
@@ -35,7 +35,7 @@
 	<td>
 		<if($mail['hasFormElements'] > 0)>
 			<then>
-				<a href="index.php?page=elternmailsender&mode=getAnswers&mailID={$mail['mailID']}"><i class="fa fa-file-excel-o"></i> Als Excel Datei herunteladen</a>
+				<a href="index.php?page=elternmailsender&mode=getAnswers&mailID={$mail['mailID']}"><i class="fa fa-file-excel"></i> Als Excel Datei herunteladen</a>
 			</then>
 		</if>
 	<td width="10%">$mailStatus</td>

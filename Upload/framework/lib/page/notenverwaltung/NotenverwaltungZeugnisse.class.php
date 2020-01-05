@@ -298,7 +298,7 @@ pause\r\n";
               $schuelerHTML .= "<i>Bisher nicht erzeugt</i>";
           }
 
-          $schuelerHTML .= "</td><td><a href=\"index.php?page=NotenverwaltungZeugnisse&action=printZeugnis&zeugnisID=" . $zeugnis->getID() . "&klasse=" . urlencode($klasse->getKlassenName()) . "&mode=generateZeugnis&schuelerAsvID=" . urlencode($schueler[$i]->getAsvID()) . "\"><i class=\"fa fa-refresh\"></i> Zeugnis generieren</a><br />";
+          $schuelerHTML .= "</td><td><a href=\"index.php?page=NotenverwaltungZeugnisse&action=printZeugnis&zeugnisID=" . $zeugnis->getID() . "&klasse=" . urlencode($klasse->getKlassenName()) . "&mode=generateZeugnis&schuelerAsvID=" . urlencode($schueler[$i]->getAsvID()) . "\"><i class=\"fa fas fa-sync-alt\"></i> Zeugnis generieren</a><br />";
 
 
           $schuelerHTML .= "</tr>";

@@ -34,7 +34,8 @@ class UploadImage {
 		if(!file_exists($imageFile)) {
 			// Bild existiert nicht!
 			// Fehlerbild senden
-			$imageFile = "../data/imageUploads/0.jpg";
+			header("Location: /cssjs/images/userimages/default.png");
+			exit(0);
 		}
 		
 		$oldSize = getImageSize($imageFile);

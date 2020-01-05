@@ -27,12 +27,12 @@
         <div class="tabbable">
 	        <ul class="nav nav-tabs">
 	        <li class="active"><a href="#tab1<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-bed"></i> Krankmeldung erfassen</a></li>
-	        <li><a href="#tab9<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-clock-o"></i> Verspätung</a></li>
+	        <li><a href="#tab9<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-clock"></i> Verspätung</a></li>
 	        <li><a href="#tab8<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-plane"></i> Beurlaubung erfassen</a></li>
 	        <li><a href="#tab5<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-phone"></i> Befreiung</a></li>
 	        <li><a href="#tab6<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-bed"></i> Krankenzimmer</a></li>
-	        <li><a href="index.php?page=absenzensekretariat&mode=editAbsenzen&schuelerAsvID=<expression>$schueler->getAsvID()</expression>&activeKlasse={$_GET['activeKlasse']}&currentDate={$currentDate}"><i class="fa fa-pencil"></i> Alle Absenzen bearbeiten / ansehen</a></li>
-	        <li><a href="index.php?page=absenzenberichte&mode=schuelerbericht&schuelerAsvID={$schueler->getAsvID()}"><i class="fa fa-file-pdf-o"></i> Schülerbericht</a></li>
+	        <li><a href="index.php?page=absenzensekretariat&mode=editAbsenzen&schuelerAsvID=<expression>$schueler->getAsvID()</expression>&activeKlasse={$_GET['activeKlasse']}&currentDate={$currentDate}"><i class="fa fas fa-pencil-alt"></i> Alle Absenzen bearbeiten / ansehen</a></li>
+	        <li><a href="index.php?page=absenzenberichte&mode=schuelerbericht&schuelerAsvID={$schueler->getAsvID()}"><i class="fa fa-file-pdf"></i> Schülerbericht</a></li>
 	        <if(!DB::getSettings()->getBoolean('absenzen-generelleattestpflicht'))><then><li><a href="#tab7<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-exclamation"></i> Attestpflicht</a></li></then></if>
 	        <li><a href="#tab10<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-bell"></i> Merker</a></li>
 	        <li><a href="#tab3<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-mobile"></i> Kontakte</a></li>
@@ -88,7 +88,7 @@
 			      					
 			      					<div class="row">
 			      						<div class="col-md-4">
-			      							<button type="submit" name="entschuldigt" value="1" class="btn btn-success" style="width:100%"><i class="fa fa-check-square-o"></i> Krankmeldung speichern (entschuldigt)</button>
+			      							<button type="submit" name="entschuldigt" value="1" class="btn btn-success" style="width:100%"><i class="fa fa-check-square"></i> Krankmeldung speichern (entschuldigt)</button>
 			      						
 			      						</div>
 			      						
@@ -99,7 +99,7 @@
 			      						
 			      						
 			      						<div class="col-md-4">
-			      							<button type="submit" name="entschuldigt" value="2" class="btn btn-primary" style="width:100%"><i class="fa fa-clock-o"></i> Kommt später</button>
+			      							<button type="submit" name="entschuldigt" value="2" class="btn btn-primary" style="width:100%"><i class="fa fa-clock"></i> Kommt später</button>
 			      						
 			      						</div>
 			      						
@@ -216,7 +216,7 @@
 		        			<td><textarea name="verspaetungKommentar" rows="5" class="form-control" placeholder="z.B. S-Bahn Verspätung"></textarea></td>
 		        		</tr>
 		        	</table>
-		        	<button type="submit" class="form-control"><i class="fa fa-clock-o"></i> Verspätung eintragen</button>
+		        	<button type="submit" class="form-control"><i class="fa fa-clock"></i> Verspätung eintragen</button>
 		        	
 		        	</form>
 		        </div>
@@ -280,7 +280,7 @@
 			      			</tr>
 			      			<tr>
 			      				<td colspan="2">
-			      					<button type="submit" name="entschuldigt" value="1" class="form-control"><i class="fa fa-check-square-o"></i> Beurlaubung anlegen</button>			      				
+			      					<button type="submit" name="entschuldigt" value="1" class="form-control"><i class="fa fa-check-square"></i> Beurlaubung anlegen</button>
 			      					</td>
 			      			</tr>
 			      			

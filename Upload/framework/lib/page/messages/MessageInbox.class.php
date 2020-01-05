@@ -20,6 +20,11 @@ class MessageInbox extends AbstractPage {
 		}
 		
 		$perPage = 20;
+
+		if(DB::getSettings()->getInteger('messages-inbox-messages-per-page') > 0) {
+		    $perPage = DB::getSettings()->getInteger('messages-inbox-messages-per-page');
+        }
+
 		$page = intval($_GET['pageNumber']);
 		
 		if($page > 0) {
@@ -211,11 +216,13 @@ class MessageInbox extends AbstractPage {
 			if($isSentFolder) {
 			    $recipients = [];
 			    
-			    $recipientsObjects = $message->getRecipients();
+			    /**$recipientsObjects = $message->getRecipients();
 			    
 			    for($r = 0; $r < sizeof($recipientsObjects); $r++) {
 			        $recipients[] = $recipientsObjects[$r]->getDisplayName();
-			    }
+			    } **/
+
+			    $recipientsPreview = $messages[$i]->getRecipientsPreview();
 			}
 
 			eval("\$messageHTML .= \"" . DB::getTPL()->get("messages/inbox/message") . "\";");
@@ -260,10 +267,15 @@ class MessageInbox extends AbstractPage {
 	}
 	
 	public static function getSettingsDescription() {
-		$settings = [];
-		
-		
-		return $settings;
+		return [
+            [
+                'name' => "messages-inbox-messages-per-page",
+                'typ' => 'NUMMER',
+                'titel' => "Nachrichten pro Seite",
+                'text' => ""
+            ]
+        ];
+
 	}
 	
 	public static function getSiteDisplayName() {
@@ -271,45 +283,37 @@ class MessageInbox extends AbstractPage {
 	}
 	
 	public static function hasSettings() {
-		return false;
+		return true;
 	}
+
+	public static function hasAdmin() {
+	    return true;
+    }
 	
-	/**
-	 * Liest alle Nutzergruppen aus, die diese Seite verwendet. (Für die Benutzeradministration)
-	 * @return array(array('groupName' => '', 'beschreibung' => ''))
-	 */
-	public static function getUserGroups() {
-		return array();
-		
-	}
-	
+
 	public static function siteIsAlwaysActive() {
 		return true;
 	}
 	
-	public static function hasAdmin() {
-		return false;
-	}
-	
 	public static function getAdminGroup() {
-		return "NONE";
+		return "Webportal_Admin_Nachrichten_Inbox";
 	}
 	
 	public static function displayAdministration($selfURL) {
-		
+		return "";
 	}
-	
-	public static function getAdminMenuIcon() {
-		return 'fa fa-info-circle';
-	}
-	
-	public static function getAdminMenuGroupIcon() {
-		return 'fa fa-info-circle';
-	}
-	
-	public static function getAdminMenuGroup() {
-		return 'Schulinformationen';
-	}
+
+    public static function getAdminMenuIcon() {
+        return 'fa fa-comments';
+    }
+
+    public static function getAdminMenuGroupIcon() {
+        return 'fa fa-comments';
+    }
+
+    public static function getAdminMenuGroup() {
+        return 'Nachrichten';
+    }
 }
 
 

@@ -11,14 +11,10 @@ class administration extends AbstractPage {
 		$this->needLicense = false;
 		$this->sitename = "Administration / Allgemeines";
 		
-		parent::__construct(array("Administration", "Allgemeines / Infos / Statistik"), false, true);
+		parent::__construct(array("Administration", "Allgemeines, Lizenz"), false, true);
 		
 		$this->checkLogin();
-		
-		
-		/**
-		 * @deprecated
-		 */
+
 		if(!DB::getSession()->isAnyAdmin()) {
 			// Nur für Admins
 			header("Location: index.php");
@@ -28,20 +24,6 @@ class administration extends AbstractPage {
 	}
 
 	public function execute() {
-		
-		switch($_GET['action']) {
-			default:
-				$this->index();
-			break;
-		}
-	}
-	
-	private function index() {
-		
-		// Statistik
-		
-		// Angemeldete Benutzer (Aktiv innerhalb der letzten 10 Minuten)
-		
 		$users = DB::getDB()->query("SELECT * FROM sessions JOIN users ON sessions.sessionUserID=users.userID WHERE sessionLastActivity > (UNIX_TIMESTAMP()-600)");
 		
 		$userList = "";

@@ -55,20 +55,46 @@ class Message {
 	 * Empfänger der Nachricht
 	 * @var MessageRecipient[]
 	 */
-	private $recipients = [];
+	private $recipients = null;
+
+    /**
+     * Empfänger der Nachricht. (Daten aus der Datenbank)
+     * @var string
+     */
+	private $recipientRawData = "";
+
+    /**
+     * Vorschau der Empfänger.
+     * @var string 
+     */
+	private $recipientsPreview = "";
 	
 	/**
 	 * 
 	 * @var MessageRecipient[]
 	 */
-	private $ccRecipients = [];
-	
+	private $ccRecipients = null;
+
+
+    /**
+     * Kopieempfänger der Nachricht. (Rohdaten aus der Datenbank.)
+     * @var string
+     */
+	private $ccrecipientRawData = "";
+
 	
 	/**
 	 * 
 	 * @var MessageRecipient[]
 	 */
-	private $bccRecipients = [];
+	private $bccRecipients = null;
+
+
+    /**
+     * Verdeckte Kopieempfänger der Nachricht. (Rohdaten aus der Datenbank.)
+     * @var string
+     */
+	private $bccrecipientRawData = "";
 	
 	
 	/**
@@ -136,6 +162,12 @@ class Message {
 	 * @var Message
 	 */
 	private $replyToMessage = null;
+
+	/**
+	 * Nachricht welche weiter geleitet wurde
+	 * @var Message
+	 */
+	private $forwardFromMessage = null;
 	
 	/**
 	 * Geheimer Text zur Bestätigung der Nachricht
@@ -165,17 +197,23 @@ class Message {
 		$this->sender = user::getUserByID($data['messageSender']);
 		$this->folder = $data['messageFolder'];
 		$this->folderID = $data['messageFolderID'];
+
+		$this->recipientRawData = $data['messageRecipients'];
+
+		$this->recipientsPreview = $data['messageRecipientsPreview'];
+
+		// $rh = new RecipientHandler($data['messageRecipients']);
+		// $this->recipients = $rh->getAllRecipients();
 		
-		$rh = new RecipientHandler($data['messageRecipients']);
-		$this->recipients = $rh->getAllRecipients();
-		
-		$rhcc = new RecipientHandler($data['messageCCRecipients']);
-		$this->ccRecipients = $rhcc->getAllRecipients();
+		// $rhcc = new RecipientHandler($data['messageCCRecipients']);
+		// $this->ccRecipients = $rhcc->getAllRecipients();
 		
 		
-		$rhbcc = new RecipientHandler($data['messageBCCRecipients']);
-		$this->bccRecipients = $rhbcc->getAllRecipients();
-				
+		// $rhbcc = new RecipientHandler($data['messageBCCRecipients']);
+		// $this->bccRecipients = $rhbcc->getAllRecipients();
+
+
+
 		$this->isRead = $data['messageIsRead'];
 		
 		$this->priority = $data['messagePriority'];
@@ -189,6 +227,10 @@ class Message {
 		$this->isConfirmed = $data['messageIsConfirmed'] > 0;
 		$this->confirmationSecret = $data['messageConfirmSecret'];
 		
+		if($data['messageIsForwardFrom'] > 0) {
+			$this->forwardFromMessage = Message::getByID($data['messageIsForwardFrom']);
+		}
+
 		if($data['messageIsReplyTo'] > 0) {
 			$this->replyToMessage = Message::getByID($data['messageIsReplyTo']);
 		}
@@ -267,24 +309,56 @@ class Message {
 	 * @return MessageRecipient[]
 	 */
 	public function getRecipients() {
+	    if($this->recipients == null) {
+            $rh = new RecipientHandler($this->recipientRawData);
+            $this->recipients = $rh->getAllRecipients();
+        }
 		return $this->recipients;
 	}
+
+    /**
+     * @return string
+     */
+	public function getRecipientsPreview() {
+	    if($this->recipientsPreview == "") {
+            $recs = $this->getRecipients();
+
+            $recsNames = [];
+
+            for($i = 0; $i < sizeof($recs); $i++) {
+                $recsNames[] = $recs[$i]->getDisplayName();
+            }
+
+            $this->recipientsPreview = implode(", ", $recsNames);
+
+            DB::getDB()->query("UPDATE messages_messages SET messageRecipientsPreview='" . DB::getDB()->escapeString($this->recipientsPreview) . "' WHERE messageID='" . $this->getID() . "'");
+        }
+
+	    return $this->recipientsPreview;
+    }
 	
 	/**
 	 *
 	 * @return MessageRecipient[]
 	 */
-	public function getCCRecipients() {
-	    return $this->ccRecipients;
-	}
-	
+    public function getCCRecipients() {
+        if($this->ccRecipients == null) {
+            $rh = new RecipientHandler($this->ccrecipientRawData);
+            $this->ccRecipients = $rh->getAllRecipients();
+        }
+        return $this->ccRecipients;
+    }
 	/**
 	 *
 	 * @return MessageRecipient[]
 	 */
 	public function getBCCRecipients() {
-	    return $this->bccRecipients;
-	}
+        if($this->bccRecipients == null) {
+            $rh = new RecipientHandler($this->bccrecipientRawData);
+            $this->bccRecipients = $rh->getAllRecipients();
+        }
+        return $this->bccRecipients;
+    }
 	
 	/**
 	 * 
@@ -346,6 +420,14 @@ class Message {
 		return $this->userID;
 	}
 	
+	public function isForward() {
+		return $this->forwardFromMessage != null;
+	}
+
+	public function getForwardMessage() {
+		return $this->forwardFromMessage;
+	}
+
 	public function isReply() {
 		return $this->replyToMessage != null;
 	}
@@ -460,7 +542,7 @@ class Message {
 			$addSQL = " AND messageFolderID='" . $folderID . "' ";
 		}
 		
-		$messagesSQL = DB::getDB()->query_first("SELECT count(messageID) FROM messages_messages WHERE messageUserID='" . $user->getUserID() . "' AND messageFolder='" . $folder . "' $addSQL");
+		$messagesSQL = DB::getDB()->query_first("SELECT count(messageID) FROM messages_messages WHERE messageIsDeleted=0 AND messageUserID='" . $user->getUserID() . "' AND messageFolder='" . $folder . "' $addSQL");
 		
 		return $messagesSQL[0];
 	}

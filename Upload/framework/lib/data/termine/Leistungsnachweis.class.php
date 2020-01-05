@@ -88,6 +88,13 @@ class Leistungsnachweis {
     public function getFach() {
       return $this->data['eintragFach'];
     }
+
+    /**
+     * @return fach|NULL
+     */
+    public function getFachObjekt() {
+        return Fach::getByKurzform($this->getFach());
+    }
     
     public function isAngekuendigt() {
         return $this->getArt() == 'SCHULAUFGABE' || $this->getArt() == 'KURZARBEIT';
@@ -137,10 +144,6 @@ class Leistungsnachweis {
             $show = false;
             
             $days = DateFunctions::getDifferenceInDays($this->getDatumStart());
-            
-            // echo($this->getDatumStart()."\r\n");
-            // echo($days."\r\n");
-            
             
             if($days < $frist) {
                 $show = true;
@@ -200,15 +203,16 @@ class Leistungsnachweis {
     	if($afterDate != "") {
     		if($where != "") $where .= " AND ";
     		else $where .= " WHERE ";
-    		
-    		$where .= " eintragDatumStart >= '" . $afterDate . "'";
+
+            $where .= " (eintragDatumStart >= '" . $afterDate . "' OR (eintragDatumStart <= '$afterDate' AND eintragDatumEnde >= '$afterDate'))";
+
     	}
     	
     	if($beforeDate != "") {
     		if($where != "") $where .= " AND ";
     		else $where .= " WHERE ";
-    	
-    		$where .= " eintragDatumStart <= '" . $beforeDate . "'";
+
+            $where .= " (eintragDatumStart <= '" . $beforeDate . "' OR (eintragDatumStart >= '$beforeDate' AND eintragDatumEnde <= '$beforeDate'))";
     	}
     	
     	$all = [];
@@ -226,11 +230,11 @@ class Leistungsnachweis {
     	$where = " WHERE eintragLehrer LIKE '" . $teacher . "'";
     	 
     	if($afterDate != "") {
-    		$where .= " AND eintragDatumStart >= '" . $afterDate . "'";
-    	}
+            $where .= " AND (eintragDatumStart >= '" . $afterDate . "' OR (eintragDatumStart <= '$afterDate' AND eintragDatumEnde >= '$afterDate'))";
+        }
     	if($beforeDate != "") {
-    		$where .= " AND eintragDatumStart <= '" . $beforeDate . "'";
-    	}
+            $where .= " AND (eintragDatumStart <= '" . $beforeDate . "' OR (eintragDatumStart >= '$beforeDate' AND eintragDatumEnde <= '$beforeDate'))";
+        }
     	 
     	$all = [];
     	$data = DB::getDB()->query("SELECT * FROM kalender_lnw $where ORDER BY eintragDatumStart ASC, eintragKlasse ASC");
@@ -291,4 +295,4 @@ class Leistungsnachweis {
     }
 
 }
-
+

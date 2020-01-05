@@ -4,9 +4,9 @@
 	                </td>
                     <td class="mailbox-star">
                     	<if($message->isRead())><then>
-                    		<i class="fa fa-envelope-open-o"></i>
+                    		<i class="fa fa-envelope-open"></i>
                     	</then><else>
-                    		<i class="fa fa-envelope-o"></i>
+                    		<i class="fa fa-envelope"></i>
                     	</else></if>
                     </td>
                     <td class="mailbox-star">
@@ -30,7 +30,7 @@
 						
 						    <if($isSentFolder)><then>
                     	
-	                    		<expression>implode(", ", $recipients)</expression>
+	                    		{$recipientsPreview}
 	                    	
 	                    	</then>
 	                    	<else>
@@ -70,7 +70,7 @@
                     </td>
                     <td class="mailbox-attachment">
                     	<if($message->hasAttachment())><then>
-                    		<i class="fa fa-file-o" title="Anhänge"></i>
+                    		<i class="fa fa-file" title="Anhänge"></i>
                     	</then></if>
                     </td>
                     <td class="mailbox-date"><expression>functions::makeDateFromTimestamp($message->getTime())</expression>

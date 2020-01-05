@@ -260,10 +260,10 @@ class absenzenlehrer extends AbstractPage {
         }
 
         if($absenzen[$i]->isSchriftlichEntschuldigt()) {
-          $krankmeldungenHTML .= " <small class=\"label label-success\"><i class=\"fa fa-pencil\"></i><i class=\"fa fa-check\"></i></small>";
+          $krankmeldungenHTML .= " <small class=\"label label-success\"><i class=\"fa fas fa-pencil-alt\"></i><i class=\"fa fa-check\"></i></small>";
         }
         else {
-          $krankmeldungenHTML .= " <small class=\"label label-warning\"><i class=\"fa fa-pencil\"></i><i class=\"fa fa-ban\"></i></small>";
+          $krankmeldungenHTML .= " <small class=\"label label-warning\"><i class=\"fa fas fa-pencil-alt\"></i><i class=\"fa fa-ban\"></i></small>";
 
         }
 
@@ -803,7 +803,7 @@ class absenzenlehrer extends AbstractPage {
   }
   
   public static function getAdminMenuGroupIcon() {
-  	return 'fa fa-hospital-o';
+  	return 'fa fas fa-procedures';
   }
   
 

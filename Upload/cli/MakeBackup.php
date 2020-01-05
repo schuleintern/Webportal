@@ -15,6 +15,16 @@ error_reporting(E_ALL);
  * 
  * .../cli/MakeBackup.php
  *
+ * METHOD:
+ * ---------- SSH / cli
+ *
+ * $ php MakeBackup.php
+ * $ php MakeBackup.php data
+ * $ php MakeBackup.php full
+ * $ php MakeBackup.php database
+ *
+ * ---------- Client / Get
+ *
  * Parameter: action[GET]
  * 
  * .../cli/MakeBackup.php
@@ -64,8 +74,22 @@ class Backup {
     public function execute() {
 
         include("vendor/autoload.php");
+		
+		if ($_SERVER['SSH_CONNECTION']) {
+			// execute from cli/ssh
+			$action = $_SERVER['argv'][1];
+			echo("-------------------------------------\r\n");
+			echo("SchuleIntern Backup....\r\n");
+			echo("-------------------------------------\r\n");
+			echo ("Bitte warten ....\r\n");
+			echo ("(Dies kann einige Minuten dauern.)\r\n");
+			
+		} if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+			// execute from client/get
+			$action = $_GET['action'];
+		}
 
-        $action = $_GET['action'];
+        
         if (!$action) {
             $action = 'data';
         }
@@ -166,7 +190,14 @@ class Backup {
 
         // Display Messages
         foreach($this->debug as $value) {
-            echo $value.'<br>';
+
+            if ($_SERVER['SSH_CONNECTION']) {
+				// execute from cli/ssh
+				echo ("$value\r\n");
+			} if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+				// execute from client/get
+				echo $value.'<br>';
+			}
         }
 
     }
@@ -211,11 +242,6 @@ class Backup {
             $this->exitAndEnd();
         }
 
-        // $result = $mysqli->query("show tables");
-        // while($table = mysqli_fetch_array($result)) {
-        //     array_push($list, $table[0]);
-        // }
-
 
         $result = $mysqli->query("SHOW TABLE STATUS");
         
@@ -249,16 +275,8 @@ class Backup {
             }
             array_push($arr[$nr], $key);
 
-            // if ($key == 'messages_messages') {
-            //     $nr++;
-            // }
-
         }
 
-        // echo "<pre>";
-        // print_r($arr);
-        // echo "</pre>";
-        // exit;
 
         mkdir('../data/backup/sql-dump/');
 
@@ -397,3 +415,4 @@ class Backup {
 
 $backup = new Backup;
 $backup->execute();
+

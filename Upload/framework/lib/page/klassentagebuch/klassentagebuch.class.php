@@ -777,7 +777,7 @@ class klassentagebuch extends AbstractPage {
   		$tableContent .= "<b>" . $entry->getGrade() . " - </b>";
   		$tableContent .= "<b>" . ($entry->getFach() != "" ?  $entry->getFach() : "<i>Kein Fach</i>") . "</b>";
   		if($entry->isVertretung()) $tableContent .= " <i>Vertretung</i>";
-  		$tableContent .= "<br /><i class=\"fa fa-pencil-square-o\"></i> " . ($entry->getStoff() != "" ? $entry->getStoff() : ("<i>Kein Stoff angegeben</i>"));
+  		$tableContent .= "<br /><i class=\"fa fas fa-pencil-alt-square-o\"></i> " . ($entry->getStoff() != "" ? $entry->getStoff() : ("<i>Kein Stoff angegeben</i>"));
 
   		if($entry->getHausaufgabe() != "") {
   			$tableContent .= "<br /><i class=\"fa fa-home\"></i> " . $entry->getHausaufgabe();
@@ -862,7 +862,7 @@ class klassentagebuch extends AbstractPage {
   	if($entry->getTeacher() == DB::getSession()->getTeacherObject()->getKuerzel()) {
   		$tableContent .= "<br />";
 
-  		if(!$entry->isAusfall()) $tableContent .= "<button type=\"button\" class=\"btn btn-xs\" data-toggle=\"modal\" data-target=\"#editentry{$entry->getID()}\"><i class=\"fa fa-pencil\"></i> Eintrag bearbeiten</button> " ;
+  		if(!$entry->isAusfall()) $tableContent .= "<button type=\"button\" class=\"btn btn-xs\" data-toggle=\"modal\" data-target=\"#editentry{$entry->getID()}\"><i class=\"fa fas fa-pencil-alt\"></i> Eintrag bearbeiten</button> " ;
   		$tableContent .= "<button type=\"button\" class=\"btn btn-xs\" onclick=\"confirmAction('Soll der Eintrag wirklich gelöscht werden?','index.php?page=klassentagebuch&mode=deleteKlassenbuchEntry&entryID=" . $entry->getID() . "&returnTo=teacher&currentDate=" . $this->currentDateNatural . "')\"><i class=\"fa fa-trash\"></i> Eintrag löschen</button> " ;
 
 
@@ -993,7 +993,7 @@ class klassentagebuch extends AbstractPage {
             if($entries[$e]->getGrade() != $grade) $tableContent .= "<b>" . $entries[$e]->getGrade() . "</b> - ";   // Kopplungklasse anzeigen
             $tableContent .= "<b>" . ($entries[$e]->getFach() != "" ?  $entries[$e]->getFach() : "<i>Kein Fach</i>") . "</b> (" . $entries[$e]->getTeacher() . ")";
             if($entries[$e]->isVertretung()) $tableContent .= " <i>Vertretung</i>";
-            $tableContent .= "<br /><i class=\"fa fa-pencil-square-o\"></i> " . ($entries[$e]->getStoff() != "" ? $entries[$e]->getStoff() : ("<i>Kein Stoff angegeben</i>"));
+            $tableContent .= "<br /><i class=\"fa fas fa-pencil-alt-square-o\"></i> " . ($entries[$e]->getStoff() != "" ? $entries[$e]->getStoff() : ("<i>Kein Stoff angegeben</i>"));
 
             if($entries[$e]->getHausaufgabe() != "") {
               $tableContent .= "<br /><i class=\"fa fa-home\"></i> " . $entries[$e]->getHausaufgabe();
@@ -1068,7 +1068,7 @@ class klassentagebuch extends AbstractPage {
           if(DB::getSession()->isTeacher() && $entries[$e]->getTeacher() == DB::getSession()->getTeacherObject()->getKuerzel()) {
             $tableContent .= "<br />";
 
-            if(!$entries[$e]->isAusfall()) $tableContent .= "<button type=\"button\" class=\"btn btn-xs\" data-toggle=\"modal\" data-target=\"#editentry{$entries[$e]->getID()}\"><i class=\"fa fa-pencil\"></i> Eintrag bearbeiten</button> " ;
+            if(!$entries[$e]->isAusfall()) $tableContent .= "<button type=\"button\" class=\"btn btn-xs\" data-toggle=\"modal\" data-target=\"#editentry{$entries[$e]->getID()}\"><i class=\"fa fas fa-pencil-alt\"></i> Eintrag bearbeiten</button> " ;
             $tableContent .= "<button type=\"button\" class=\"btn btn-xs\" onclick=\"confirmAction('Soll der Eintrag wirklich gelöscht werden?','index.php?page=klassentagebuch&mode=deleteKlassenbuchEntry&entryID=" . $entries[$e]->getID() . "&grade=" . $_REQUEST['grade'] . "&currentDate=" . $this->currentDateNatural . "')\"><i class=\"fa fa-trash\"></i> Eintrag löschen</button> " ;
 
 
@@ -1194,10 +1194,10 @@ class klassentagebuch extends AbstractPage {
 	        }
 
 	        if($absenzen[$i]->isSchriftlichEntschuldigt()) {
-	          $krankmeldungenHTML .= " <small class=\"label label-success\"><i class=\"fa fa-pencil\"></i><i class=\"fa fa-check\"></i></small>";
+	          $krankmeldungenHTML .= " <small class=\"label label-success\"><i class=\"fa fas fa-pencil-alt\"></i><i class=\"fa fa-check\"></i></small>";
 	        }
 	        else {
-	          $krankmeldungenHTML .= " <small class=\"label label-warning\"><i class=\"fa fa-pencil\"></i><i class=\"fa fa-ban\"></i></small>";
+	          $krankmeldungenHTML .= " <small class=\"label label-warning\"><i class=\"fa fas fa-pencil-alt\"></i><i class=\"fa fa-ban\"></i></small>";
 
 	        }
 
@@ -1219,7 +1219,7 @@ class klassentagebuch extends AbstractPage {
 
 	        if($this->currentDateSQL == DateFunctions::getTodayAsSQLDate()) {
 
-                $krankmeldungenHTML .= "<br /><button type=\"buton\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#editAbsenzStunden\" onclick=\"javascript:editStunden(" . $absenzen[$i]->getID() . ",'" . implode("#",$stunden) . "'," . !$absenzen[$i]->isEntschuldigt() . ")\"><i class=\"fa fa-pencil\"></i> Stunden bearbeiten</button>";
+                $krankmeldungenHTML .= "<br /><button type=\"buton\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#editAbsenzStunden\" onclick=\"javascript:editStunden(" . $absenzen[$i]->getID() . ",'" . implode("#",$stunden) . "'," . !$absenzen[$i]->isEntschuldigt() . ")\"><i class=\"fa fas fa-pencil-alt\"></i> Stunden bearbeiten</button>";
 	        }
 
 	        $krankmeldungenHTML .= "</td>";
@@ -1309,8 +1309,8 @@ class klassentagebuch extends AbstractPage {
 
 	  		if($entries[$i]->isVertretung()) $html .= "Vetretungsstunde<br />";
 
-	  		if($entries[$i]->getStoff() != '') $html .= "<i class=\"fa fa-pencil-square-o\"></i> " . $entries[$i]->getStoff() . "<br />";
-	  		else $html .= "<i class=\"fa fa-pencil-square-o\"></i> <i>Kein Stoff</i><br />";
+	  		if($entries[$i]->getStoff() != '') $html .= "<i class=\"fa fas fa-pencil-alt-square-o\"></i> " . $entries[$i]->getStoff() . "<br />";
+	  		else $html .= "<i class=\"fa fas fa-pencil-alt-square-o\"></i> <i>Kein Stoff</i><br />";
 
 	  		if($entries[$i]->getHausaufgabe() != '') $html .= "<i class=\"fa fa-home\"></i> " . $entries[$i]->getHausaufgabe() . "<br />";
 	  		else $html .= "<i class=\"fa fa-home\"></i> <i>Keine Hausaufgabe</i><br />";

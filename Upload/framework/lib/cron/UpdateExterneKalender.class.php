@@ -170,6 +170,8 @@ class UpdateExterneKalender extends AbstractCron {
     		    $terminData = Office365Api::getTermine($kalender['office365Username']);
     		    
     		    $calData = [];
+
+    		    $alleKategorien = [];
     		    
     		    
     		    for($i = 0; $i < sizeof($terminData); $i++) {
@@ -193,7 +195,13 @@ class UpdateExterneKalender extends AbstractCron {
     		        if($dateStart != $dateEnd) {
     		            $dateEnd = DateFunctions::substractOneDayToMySqlDate($dateEnd);
     		        }
-    		        
+
+    		        $kategorie = [];
+
+    		        // Kategorie (Es wird nur die erste Kategorie übernommen
+                    if(is_array($terminData[$i]->categories) && sizeof($terminData[$i]->categories) > 0) {
+                        $kategorie = $terminData[$i]->categories[0];
+                    }
     		        
     		        $calData[] = [
     		          'titel' => $terminData[$i]->subject,
@@ -203,17 +211,23 @@ class UpdateExterneKalender extends AbstractCron {
     		          'startTime' => $timeStart,
     		          'endTime' => $timeEnde,
     		          'ort' => $terminData[$i]->location->displayName,
-    		          'isWholeDay' => ($terminData[$i]->isAllDay > 0) ? 1 : 0
+    		          'isWholeDay' => ($terminData[$i]->isAllDay > 0) ? 1 : 0,
+                        'externalID' => $terminData[$i]->id,
+                        'changeKey' => $terminData[$i]->changeKey,
+                      'kategorie' => $kategorie
     		        ];
     		    }
     		    
     		    
     		    if(sizeof($calData) > 0) {
-    		        DB::getDB()->query("DELETE FROM kalender_extern WHERE kalenderID='" . $kalender['kalenderID'] . "'");
-    		        
-    		        $inserts = [];
-    		        
-    		        for($v = 0; $v < sizeof($calData); $v++) {
+
+    		        $inserts = 0;
+
+                    DB::getDB()->query("DELETE FROM kalender_extern WHERE kalenderID='" . $kalender['kalenderID'] . "'");
+
+
+
+                    for($v = 0; $v < sizeof($calData); $v++) {
     		            $line = "('" . $kalender['kalenderID'] . "',";
     		            $line .= "'" . DB::getDB()->escapeString($calData[$v]['titel']) . "',";
     		            $line .= "'" . DB::getDB()->escapeString($calData[$v]['dateStart']) . "',";
@@ -224,40 +238,54 @@ class UpdateExterneKalender extends AbstractCron {
     		            
     		            $line .= "UNIX_TIMESTAMP(),";
     		            $line .= "'" . DB::getDB()->escapeString($calData[$v]['ort']) . "',";
-    		            $line .= "'" . DB::getDB()->escapeString($calData[$v]['beschreibung']) . "')";
+    		            $line .= "'" . DB::getDB()->escapeString($calData[$v]['beschreibung']) . "',";
+
+                        $line .= "'" . DB::getDB()->escapeString($calData[$v]['externalID']) . "',";
+                        $line .= "'" . DB::getDB()->escapeString($calData[$v]['changeKey']) . "',";
+                        $line .= "'" . DB::getDB()->escapeString($calData[$v]['kategorie']) . "'";
+                        $line .= ")";
     		            
-    		            $inserts[] = $line;
+    		            $inserts++;
+
+                        DB::getDB()->query("INSERT INTO kalender_extern
+    		            
+                            (
+                                kalenderID,
+                                eintragTitel,
+                                eintragDatumStart,
+                                eintragDatumEnde,
+                                eintragIsWholeDay,
+                                eintragUhrzeitStart,
+                                eintragUhrzeitEnde,
+                                eintragEintragZeitpunkt,
+                                eintragOrt,
+                                eintragKommentar,
+                                eintragExternalID,
+                                eintragExternalChangeKey,
+                                eintragKategorieName
+                            ) VALUES
+                            " . $line);
     		        }
-    		        
-    		        DB::getDB()->query("INSERT INTO kalender_extern
-    		            
-    				(
-    					kalenderID,
-    					eintragTitel,
-    					eintragDatumStart,
-    					eintragDatumEnde,
-    					eintragIsWholeDay,
-    					eintragUhrzeitStart,
-    					eintragUhrzeitEnde,
-    					eintragEintragZeitpunkt,
-    					eintragOrt,
-    					eintragKommentar
-    				) VALUES
-    			" . implode(",",$inserts));
+
+
     		        
     		    }
 
 
-                $this->result .= "Kalender " . $kalender['kalenderName'] . " importiert. (" . sizeof($inserts) . " Termine.)\r\n";
+    		    for($k = 0; $k < sizeof($alleKategorien); $k++) {
+    		        DB::getDB()->query("INSERT INTO externe_kalender_kategorien (kalenderID, kategorieName) 
+                        values(
+                            '" . $kalender['kalenderID'] . "',
+                            '" . DB::getDB()->escapeString($alleKategorien[$k]) . "'
+                    ) ON DUPLICATE KEY UPDATE kalenderID=kalenderID");
+                }
+
+
+                $this->result .= "Kalender " . $kalender['kalenderName'] . " importiert. (" . ($inserts) . " Termine.)\r\n";
     		    
     		    
     		}
 		}
-
-		
-		
-		if(DB::isDebug()) echo($this->result);
-
 	}
 	
 	

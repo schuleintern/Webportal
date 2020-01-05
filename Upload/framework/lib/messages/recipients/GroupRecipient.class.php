@@ -23,8 +23,8 @@ class GroupRecipient extends MessageRecipient {
 	}
 	
 	public function getDisplayName() {
-	    if(substr($this->group->getName(),0,strlen("group_")) == "group_") return "Gruppe " . substr($this->group->getName(),strlen("group_"));
-		return 'Gruppe ' . $this->group->getName();
+	    if(substr($this->group->getName(),0,strlen("group_")) == "group_") return substr($this->group->getName(),strlen("group_"));
+		return $this->group->getName();
 	}
 	
 	public function getRecipientUserIDs() {
