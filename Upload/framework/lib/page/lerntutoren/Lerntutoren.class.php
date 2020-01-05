@@ -187,7 +187,7 @@ class Lerntutoren extends AbstractPage {
                 $slotsHTML .= '
                 <tr>
                     <td>
-                        ' . $tutoren[$i]->getSchueler()->getCompleteSchuelerName() . ' (Klasse ' . $tutoren[$i]->getKlasse() . ')
+                        ' . $tutoren[$i]->getSchueler()->getCompleteSchuelerName() . ' (Klasse ' . $tutoren[$i]->getSchueler()->getKlasse() . ')
                     </td>
                     <td>
                        ' . $slots[$s]->getFach() . '
