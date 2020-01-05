@@ -169,7 +169,7 @@
         <p><expression>DB::getSettings()->getValue('login-loginmessage')</expression></p>
            
         <form id="loginform">
-          <input type="hidden" name="redirectPage" value="$redirectPage" />
+          <input type="hidden" name="redirectPage" value="$redirectPage" id="redirectPage"/>
           <div class="form-group has-feedback">
             <input type="text" class="form-control" name="username" placeholder="Benutzername oder E-Mail (für Eltern)" value="$valueusername" required="required" autofocus="autofocus" id="usernamefield" />
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -192,7 +192,7 @@
 	            <div class="col-xs-12">    
 	              <div class="checkbox icheck">
 	                <label>
-						<input type="checkbox" name="keeplogin" value="1"></small> Anmeldung speichern
+						<input type="checkbox" name="keeplogin" value="1" id="keeplogin"></small> Anmeldung speichern
 	                </label>
 	              </div>                      
 	            </div>
@@ -690,7 +690,12 @@
     		$.ajax({
     			type: "POST",
     			url: 'index.php?page=login&authorize=1',
-    			data: $( "#loginform" ).serialize(),
+    			data: {
+					"redirectPage": $("#redirectPage").val(),
+					"username": $("#usernamefield").val(),
+					"password": $("#passwordfield").val(),
+					"keepLogin": $("#keeplogin").iCheck('update')[0].checked
+				},
     			success: function(data, textStatus, jqXHR) {
     				if(data.success) {
     					window.location.href='index.php';

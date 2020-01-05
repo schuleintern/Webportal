@@ -121,7 +121,7 @@ class login extends AbstractPage {
 		if($success != false) {
 			// Create Session
 			
-            $session = session::loginAndCreateSession($user['userID'], $_POST['keepLogin'] > 0);
+            $session = session::loginAndCreateSession($user['userID'], $_POST['keepLogin']);
 			
 			
 			if($isAjaxRequest) {
