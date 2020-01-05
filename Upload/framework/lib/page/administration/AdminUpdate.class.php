@@ -116,7 +116,7 @@ class AdminUpdate extends AbstractPage {
 
         self::deleteAll("../data/update");
 
-        mkdir("../data/update");
+        mkdir("../data/update",0777);
 
         file_put_contents("../data/update/update.zip", fopen($url, 'r'));
 
