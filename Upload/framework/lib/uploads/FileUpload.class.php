@@ -314,7 +314,7 @@ class FileUpload {
      * @param $filename
      * @return array
      */
-	public static function uploadPictureFromFile($filepath, $filename) {
+    public static function uploadPictureFromFile($filepath, $filename) {
         $ext = strtolower(array_pop(explode('.',$filepath)));
 
         if (function_exists('finfo_open')) {
@@ -349,7 +349,7 @@ class FileUpload {
 
         $newID = DB::getDB()->insert_id();
 
-        move_uploaded_file($filepath, "../data/uploads/" . $newID . ".dat");
+        copy($filepath, "../data/uploads/" . $newID . ".dat");
 
         $data = DB::getDB()->query_first("SELECT * FROM uploads WHERE uploadID='" . $newID. "'");
 
@@ -359,7 +359,7 @@ class FileUpload {
             'mimeerror' => false,
             'text' => "Upload OK"
         ];
-	}
+    }
 	
 	public static function uploadPDF($fieldName, $fileName) {
 		$mimePDF = [
