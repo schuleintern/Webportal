@@ -71,6 +71,15 @@ class Update extends AbstractPage
             $this->from101to110();
         }
 
+        if ($from == "1.1.0" && $to == "1.1.1") {
+            $this->from110to111();
+        }
+
+        return true;
+    }
+
+    private function from110to111() {
+        // Nichts zu erlegigen
         return true;
     }
 
