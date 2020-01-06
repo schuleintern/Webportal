@@ -837,8 +837,8 @@ class klassenkalender extends AbstractPage {
 
       $icon = "fa fas fa-pencil-alt";
 
-      $startzeit = "10:59:00";
-      $endzeit = "11:59:00";
+      $startzeit = "00:00:00";
+      $endzeit = "00:00:00";
 
       $isAllDay = true;
 
