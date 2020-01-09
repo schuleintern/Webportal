@@ -133,7 +133,7 @@ class email {
 
 
                 $mail->Host       = DB::getSettings()->getValue("mail-server");
-			  $mail->Port = DB::getSettings()->getValue("mail-server-port");
+			  $mail->Port = DB::getSettings()->getValue("mail-server-port") != "" ? DB::getSettings()->getValue("mail-server-port") : 25;
 
 
 			  if(DB::getSettings()->getValue('mail-reply-to') != "") {
