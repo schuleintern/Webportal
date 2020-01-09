@@ -1,7 +1,7 @@
 {
-    "Name": "Version 1.1.0 (Januar 2020) - Patch 1",
-    "ChangeLog": "- Fix: Sitzung wurde bei \"Angemeldet bleiben\" doch nicht gespeichert.\n- Fix: Kalendereinträge nicht mehr sichtbar",
+    "Name": "Version 1.1.2 (Januar 2020) - Patch 2",
+    "ChangeLog": "",
     "MajorVersion": 1,
     "MinorVersion": 1,
-    "PatchVersion": 1
+    "PatchVersion": 2
 }
