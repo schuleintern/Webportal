@@ -571,7 +571,7 @@ class absenzensekretariat extends AbstractPage {
       $absenzenHTML .= "<td>";
 
       if($absenzen[$i]->getKommentar() != "") {
-        $absenzenHTML .= "<a href=\"#\" data-toggle=\"tooltip\" title=\"" . $absenzen[$i]->getKommentar() . "\"><i class=\"fa fa-sticky-note-o\"></i></a> ";
+        $absenzenHTML .= "<a href=\"#\" data-toggle=\"tooltip\" title=\"" . $absenzen[$i]->getKommentar() . "\"><i class=\"far fa-sticky-note\"></i></a> ";
       }
       if($absenzen[$i]->isBeurlaubung()) $absenzenHTML .= "<span class=\"label label-info\">Beurlaubung</span>";
       else if($absenzen[$i]->isBefreiung()) $absenzenHTML .= "<span class=\"label label-info\">Befreiung</span>";
@@ -1709,7 +1709,7 @@ class absenzensekretariat extends AbstractPage {
         $schuelerListeHTML .= "</a>";
 
         if(AbsenzSchuelerInfo::getComment($activeKlasse->getSchueler()[$i]) != "") {
-          $schuelerListeHTML .= " <a href=\"#\" data-toggle=\"tooltip\" title=\"" . @htmlspecialchars((AbsenzSchuelerInfo::getComment($activeKlasse->getSchueler()[$i]))) . "\"><i class=\"fa fa-sticky-note-o\"></i></a> ";
+          $schuelerListeHTML .= " <a href=\"#\" data-toggle=\"tooltip\" title=\"" . @htmlspecialchars((AbsenzSchuelerInfo::getComment($activeKlasse->getSchueler()[$i]))) . "\"><i class=\"far fa-sticky-note\"></i></a> ";
         }
 
 
@@ -1775,7 +1775,7 @@ class absenzensekretariat extends AbstractPage {
       }
 
       if($absenzen[$i]->getKommentar() != "") {
-        $krankmeldungenHTML .= " <a href=\"#\" data-toggle=\"tooltip\" title=\"" . @htmlspecialchars(($absenzen[$i]->getKommentar())) . "\"><i class=\"fa fa-sticky-note-o\"></i></a> ";
+        $krankmeldungenHTML .= " <a href=\"#\" data-toggle=\"tooltip\" title=\"" . @htmlspecialchars(($absenzen[$i]->getKommentar())) . "\"><i class=\"far fa-sticky-note\"></i></a> ";
       }
 
       if($absenzen[$i]->kommtSpaeter()) {
@@ -1882,7 +1882,7 @@ class absenzensekretariat extends AbstractPage {
       $verspaetungHTML .= "<td>";
 
       if($v['verspaetungKommentar'] != "") {
-        $verspaetungHTML .= "<a href=\"#\" data-toggle=\"tooltip\" title=\"" . $v['verspaetungKommentar'] . "\"><i class=\"fa fa-sticky-note\"></i></a> ";
+        $verspaetungHTML .= "<a href=\"#\" data-toggle=\"tooltip\" title=\"" . $v['verspaetungKommentar'] . "\"><i class=\"far fa-sticky-note\"></i></a> ";
       }
 
       $verspaetungHTML .= "<a href=\"index.php?page=absenzensekretariat&mode=deleteVerspaetung&verspaetungID=" . $v['verspaetungID'] . "&currentDate=" . $currentDate . "&activeKlasse=" . $_GET['activeKlasse'] . "\"><i class=\"fa fa-trash\"></i>";
