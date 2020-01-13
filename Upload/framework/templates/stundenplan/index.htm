@@ -1,14 +1,15 @@
 {$this->header}
-<if($selectMenu != "")><then>
 	<div class="box">
-		<div class="box-header">
-			$selectMenu
-		</div>
+		<if($selectMenu != "")><then>
+			<div class="box-header">
+					$selectMenu
+				</div>
+		</then></if>
 		<div class="box-body">
 			<div class="pull-right">$pdfSaveLink</div>
 		</div>
 	</div>
-</then></if>
+
 
 
 <div class="box">
