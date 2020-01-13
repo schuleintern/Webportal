@@ -551,7 +551,7 @@ class stundenplan extends AbstractPage {
 
 
         if($this->isPrint) $html = "<table border=\"1\" width=\"100%\" cellpadding=\"2\" nobr=\"true\">";
-        else $html = "<table class=\"table table-striped table-bordered table-hover\">";
+        else $html = "<table class=\"table table-bordered\">";
 
         if($this->isPrint) $html .= "<tr><th style=\"width:10%\"><b>Stunde</b></th><th style=\"width:18%\" colspan=\"{$maxcells[0]}\"><b>Montag</b></th><th style=\"width:18%\" colspan=\"{$maxcells[1]}\"><b>Dienstag</b></th><th style=\"width:18%\" colspan=\"{$maxcells[2]}\"><b>Mittwoch</b></th><th style=\"width:18%\" colspan=\"{$maxcells[3]}\"><b>Donnerstag</b></th><th style=\"width:18%\" colspan=\"{$maxcells[4]}\"><b>Freitag</b></th></tr>";
         else $html .= "<tr><th style=\"width:10%\">Stunde</th><th style=\"width:18%; \" colspan=\"{$maxcells[0]}\">Montag</th><th style=\"width:18%; \" colspan=\"{$maxcells[1]}\">Dienstag</th><th style=\"width:18; %\" colspan=\"{$maxcells[2]}\">Mittwoch</th><th style=\"width:18%; \" colspan=\"{$maxcells[3]}\">Donnerstag</th><th style=\"width:18%; \" colspan=\"{$maxcells[4]}\">Freitag</th></tr>";
