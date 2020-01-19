@@ -203,7 +203,8 @@ abstract class AbstractPage {
 			    
 			    $countMessage = Message::getUnreadMessageNumber(DB::getSession()->getUser(), "POSTEINGANG", 0);
 			    
-			    $infoMessages = "<a href=\"index.php?page=MessageInbox&folder=POSTEINGANG\" class=\"btn btn-danger btn-xs\"><i class=\"fa fa-envelope fa-spin\"></i> $countMessage ungelesene Nachricht" . (($countMessage > 1) ? "en" : "") . "</a>";
+			    if(DB::getSettings()->getBoolean('messages-banner-new-messages')) $infoMessages = "<a href=\"index.php?page=MessageInbox&folder=POSTEINGANG\" class=\"btn btn-danger btn-xs\"><i class=\"fa fa-envelope fa-spin\"></i> $countMessage ungelesene Nachricht" . (($countMessage > 1) ? "en" : "") . "</a>";
+			    else $infoMessages = "";
 			}
 			
 			// Fremdsession
