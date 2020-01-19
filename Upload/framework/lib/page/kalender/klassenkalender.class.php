@@ -270,6 +270,8 @@ class klassenkalender extends AbstractPage {
           if($lnw != null) {
               if($this->isAdmin || strtolower($lnw->getLehrer()) == strtolower($lehrer)) {
                   $lnw->setDatumStart($_POST['newDate']);
+                  $lnw->setDatumEnde($_POST['newDate']);        // LNWs haben nur eine Dauer von maximal einen Tag
+
                   $success = true;
               }
           }

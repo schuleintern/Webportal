@@ -1,7 +1,7 @@
 {
-    "Name": "Version 1.1.0 (Januar 2020) - Patch 1",
-    "ChangeLog": "- Fix: Sitzung wurde bei \"Angemeldet bleiben\" doch nicht gespeichert.\n- Fix: Kalendereinträge nicht mehr sichtbar",
+    "Name": "Version 1.1.2 (Januar 2020) - Patch 2",
+    "ChangeLog": "- Diverse Buttons / Icons wieder da (https://github.com/schuleintern/Webportal/issues/123)\n- Updateprozess stabilisiert\n- Absenzenverwaltung: Druck von Befreiungen mit falschem Druckkopf\n- Nachrichten: Roter Banner kann in den Einstellungen aktiviert werden.\n- All-Inkl Mail Account Erzeugung versteckt, da noch nicht fertig.",
     "MajorVersion": 1,
     "MinorVersion": 1,
-    "PatchVersion": 1
+    "PatchVersion": 2
 }

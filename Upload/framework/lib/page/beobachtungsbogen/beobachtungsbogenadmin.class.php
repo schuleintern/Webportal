@@ -94,7 +94,7 @@ class beobachtungsbogenadmin extends AbstractPage {
 						// Lehrer der Klasse holen
 						$zuordnungen = DB::getDB()->query("SELECT DISTINCT stundeLehrer, stundeFach FROM stundenplan_stunden WHERE stundenplanID='" . $stundenplan->getStundenplanID() . "' AND stundeKlasse LIKE '" . $grades[$i]->getKlassenName() . "%'");
 						while($zuordnung = DB::getDB()->fetch_array($zuordnungen)) {
-							if($zuordnung['stundeFach'] != "" && stundenplandata::isNormalFach($zuordnung['stundeFach'])) {
+							if($zuordnung['stundeFach'] != "") {
 								DB::getDB()->query("INSERT INTO beobachtungsbogen_klasse_fach_lehrer
 									(beobachtungsbogenID, klasseName, fachName, lehrerKuerzel)
 										values(
@@ -342,7 +342,7 @@ class beobachtungsbogenadmin extends AbstractPage {
 							// Lehrer der Klasse holen
 							$zuordnungen = DB::getDB()->query("SELECT DISTINCT stundeLehrer, stundeFach FROM stundenplan_stunden WHERE stundenplanID='" . $stundenplan->getStundenplanID() . "' AND stundeKlasse LIKE '" . $grades[$i]->getKlassenName() . "%'");
 							while($zuordnung = DB::getDB()->fetch_array($zuordnungen)) {
-								if($zuordnung['stundeFach'] != "" && stundenplandata::isNormalFach($zuordnung['stundeFach'])) {
+								if($zuordnung['stundeFach'] != "") {
 									DB::getDB()->query("INSERT INTO beobachtungsbogen_klasse_fach_lehrer
 									(beobachtungsbogenID, klasseName, fachName, lehrerKuerzel)
 										values(

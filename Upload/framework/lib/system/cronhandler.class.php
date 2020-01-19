@@ -20,7 +20,8 @@ class cronhandler {
             'CronGarbageCollector',
             'CronNextCloud',
             'CronVerspaetungAuswertung',
-            'CreateTagebuchPDFs'
+            'CreateTagebuchPDFs',
+            'DeleteOldElternUser'
 	];
 	
 	

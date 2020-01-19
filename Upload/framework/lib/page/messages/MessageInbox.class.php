@@ -273,6 +273,12 @@ class MessageInbox extends AbstractPage {
                 'typ' => 'NUMMER',
                 'titel' => "Nachrichten pro Seite",
                 'text' => ""
+            ],
+            [
+                'name' => "messages-banner-new-messages",
+                'typ' => 'BOOLEAN',
+                'titel' => "Banner bei neuen Nachrichten auf jeder Seite anzeigen?",
+                'text' => ""
             ]
         ];
 

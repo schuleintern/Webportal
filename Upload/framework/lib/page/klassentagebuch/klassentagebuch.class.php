@@ -641,7 +641,7 @@ class klassentagebuch extends AbstractPage {
 
         $tableContent .= "(" . $stundenplanData[$i-1][$s]['subject'] . ")";
 
-        $tableContent .= "<br /><button type=\"button\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#history$dialogID\"><i class=\"fa fa-clock-o\"></i></button>";
+        $tableContent .= "<br /><button type=\"button\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#history$dialogID\"><i class=\"fa fa-clock\"></i></button>";
 
         $grade = $stundenplanData[$i-1][$s]['grade'];
         $fach = $stundenplanData[$i-1][$s]['subject'];
@@ -777,7 +777,7 @@ class klassentagebuch extends AbstractPage {
   		$tableContent .= "<b>" . $entry->getGrade() . " - </b>";
   		$tableContent .= "<b>" . ($entry->getFach() != "" ?  $entry->getFach() : "<i>Kein Fach</i>") . "</b>";
   		if($entry->isVertretung()) $tableContent .= " <i>Vertretung</i>";
-  		$tableContent .= "<br /><i class=\"fa fas fa-pencil-alt-square-o\"></i> " . ($entry->getStoff() != "" ? $entry->getStoff() : ("<i>Kein Stoff angegeben</i>"));
+  		$tableContent .= "<br /><i class=\"fa fas fa-pencil-alt-square\"></i> " . ($entry->getStoff() != "" ? $entry->getStoff() : ("<i>Kein Stoff angegeben</i>"));
 
   		if($entry->getHausaufgabe() != "") {
   			$tableContent .= "<br /><i class=\"fa fa-home\"></i> " . $entry->getHausaufgabe();
@@ -959,7 +959,7 @@ class klassentagebuch extends AbstractPage {
         if($s > 0) $tableContent .= "<br />";
         $tableContent .= "<b>" . $stundenplan[$i][$s]['subject'] . "</b> (" . $stundenplan[$i][$s]['teacher'] . ")";
         $tableContent .= "<br />" . $stundenplan[$i][$s]['room'];
-        if($canEdit) $tableContent .= "<br /><button type=\"button\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#history$dialogID\"><i class=\"fa fa-clock-o\"></i></button>";
+        if($canEdit) $tableContent .= "<br /><button type=\"button\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#history$dialogID\"><i class=\"fa fa-clock\"></i></button>";
         $fach = $stundenplan[$i][$s]['subject'];
         $lehrer = $stundenplan[$i][$s]['teacher'];
         if($this->isTeacher && $lehrer == DB::getSession()->getTeacherObject()->getKuerzel()) $myFach = $fach;
@@ -993,7 +993,7 @@ class klassentagebuch extends AbstractPage {
             if($entries[$e]->getGrade() != $grade) $tableContent .= "<b>" . $entries[$e]->getGrade() . "</b> - ";   // Kopplungklasse anzeigen
             $tableContent .= "<b>" . ($entries[$e]->getFach() != "" ?  $entries[$e]->getFach() : "<i>Kein Fach</i>") . "</b> (" . $entries[$e]->getTeacher() . ")";
             if($entries[$e]->isVertretung()) $tableContent .= " <i>Vertretung</i>";
-            $tableContent .= "<br /><i class=\"fa fas fa-pencil-alt-square-o\"></i> " . ($entries[$e]->getStoff() != "" ? $entries[$e]->getStoff() : ("<i>Kein Stoff angegeben</i>"));
+            $tableContent .= "<br /><i class=\"fa fas fa-pencil-alt-square\"></i> " . ($entries[$e]->getStoff() != "" ? $entries[$e]->getStoff() : ("<i>Kein Stoff angegeben</i>"));
 
             if($entries[$e]->getHausaufgabe() != "") {
               $tableContent .= "<br /><i class=\"fa fa-home\"></i> " . $entries[$e]->getHausaufgabe();
@@ -1178,11 +1178,11 @@ class klassentagebuch extends AbstractPage {
 	        }
 
 	        if($absenzen[$i]->getKommentar() != "") {
-	          $krankmeldungenHTML .= " <a href=\"#\" data-toggle=\"tooltip\" title=\"" . @htmlspecialchars(($absenzen[$i]->getKommentar())) . "\"><i class=\"fa fa-sticky-note-o\"></i></a> ";
+	          $krankmeldungenHTML .= " <a href=\"#\" data-toggle=\"tooltip\" title=\"" . @htmlspecialchars(($absenzen[$i]->getKommentar())) . "\"><i class=\"fa fa-sticky-note\"></i></a> ";
 	        }
 
 	        if($absenzen[$i]->kommtSpaeter()) {
-	          $krankmeldungenHTML .= " <span class=\"label label-danger\"><i class=\"fa fa-clock-o\"></i> Kommt später</span>";
+	          $krankmeldungenHTML .= " <span class=\"label label-danger\"><i class=\"fa fa-clock\"></i> Kommt später</span>";
 	        }
 
 	        if($absenzen[$i]->isBeurlaubung()) {
@@ -1206,7 +1206,7 @@ class klassentagebuch extends AbstractPage {
 	        }
 
 	        if(!$absenzen[$i]->isEntschuldigt()) {
-	            $krankmeldungenHTML .= "<br /><button type=\"buton\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#editAbsenzStunden\" onclick=\"javascript:jetztGekommen(" . $absenzen[$i]->getID() . ",'" . implode("#",$stunden) . "'," . 0 . ")\"><i class=\"fa fa-clock-o\"></i> Jetzt gekommen</button>";
+	            $krankmeldungenHTML .= "<br /><button type=\"buton\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#editAbsenzStunden\" onclick=\"javascript:jetztGekommen(" . $absenzen[$i]->getID() . ",'" . implode("#",$stunden) . "'," . 0 . ")\"><i class=\"fa fa-clock\"></i> Jetzt gekommen</button>";
 	        }
 
 
@@ -1309,8 +1309,8 @@ class klassentagebuch extends AbstractPage {
 
 	  		if($entries[$i]->isVertretung()) $html .= "Vetretungsstunde<br />";
 
-	  		if($entries[$i]->getStoff() != '') $html .= "<i class=\"fa fas fa-pencil-alt-square-o\"></i> " . $entries[$i]->getStoff() . "<br />";
-	  		else $html .= "<i class=\"fa fas fa-pencil-alt-square-o\"></i> <i>Kein Stoff</i><br />";
+	  		if($entries[$i]->getStoff() != '') $html .= "<i class=\"fa fas fa-pencil-alt-square\"></i> " . $entries[$i]->getStoff() . "<br />";
+	  		else $html .= "<i class=\"fa fas fa-pencil-alt-square\"></i> <i>Kein Stoff</i><br />";
 
 	  		if($entries[$i]->getHausaufgabe() != '') $html .= "<i class=\"fa fa-home\"></i> " . $entries[$i]->getHausaufgabe() . "<br />";
 	  		else $html .= "<i class=\"fa fa-home\"></i> <i>Keine Hausaufgabe</i><br />";

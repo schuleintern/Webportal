@@ -154,9 +154,7 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 		if($_GET['doPrint'] > 0) {
 			// $print = ($print);
 			
-			$mpdf=new mPDF('utf-8', 'A4-P');
-			
-			$mpdf->ignore_invalid_utf8 = true;
+			$mpdf = new PrintNormalPageA4WithoutHeader("Beobachtungsboegen_" . $this->klasse . ".pdf");
 			
 			$this->bogen['beobachtungsbogenDatum'] = functions::getFormatedDateFromSQLDate($this->bogen['beobachtungsbogenDatum']);
 			
@@ -164,7 +162,7 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 			eval("\$header = \"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/print/print_header") . "\";");
 			
 			$header = ($header);
-			
+            $mpdf->AddPage();
 			$mpdf->WriteHTML($header,1);
 			
 			$klasse = $_POST['klasse'];
@@ -235,13 +233,20 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 					
 				$SCHUELER = ($SCHUELER);
 				
-				$mpdf->WriteHTML($SCHUELER,2);
+				$mpdf->WriteHTML($SCHUELER,1);
 				if($i != (sizeof($this->schueler)-1)) $mpdf->AddPage();
 				
 				// if($i == 1) break;
 			}
-			
-			$mpdf->Output("../data/beobachtungsboegen/" . $this->bogenID . "-" . $this->klasse . "-" . time() . "-" . $this->myRealName . ".pdf","F");
+
+
+            $path = getcwd();
+
+            $saveDir = "/../data/beobachtungsboegen/" . $this->bogenID . "-" . $this->klasse . "-" . time() . "-" . $this->myRealName . ".pdf";
+
+            $saveDir = $path . $saveDir;
+
+			$mpdf->Output($saveDir,"F");
 			
 			$mpdf->Output("Beobachtungsboegen_" . $this->klasse . ".pdf",'D');
 			
@@ -412,7 +417,7 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 				$only = "<br /><small>nur $smiley1 bis $smiley3</small>";
 			}
 			else $only = "";
-			$MATRIX .= "<th>" . $this->fragen[$i]['frageText'] . "$only</th>";
+			$MATRIX .= "<th>" . strip_tags($this->fragen[$i]['frageText']) . "$only</th>";
 		}
 	
 		$MATRIX .= "</tr>";
@@ -442,12 +447,12 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 		eval("\$printHTML = \"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/viewresults/print") . "\";");
 			
 		$printHTML = ($printHTML);
-			
-		$mpdf=new mPDF('utf-8', 'A4-L');
-		$mpdf->Bookmark("Ergebisse " . $this->klasse);
-		$mpdf->WriteHTML($printHTML);
-		$mpdf->Output("Ergebisse_Klasse_" . $this->klasse . ".pdf","D");
-		
+
+
+		$print = new PrintNormalPageA4WithoutHeader("Ergebisse_Klasse_" . $this->klasse . ".pdf");
+		$print->setHTMLContent($printHTML);
+		$print->send();
+
 		exit(0);
 	}
 	
@@ -458,7 +463,7 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 		$fragenHTML = "";
 		
 		for($i = 0; $i < sizeof($this->fragen); $i++) {
-			$fragenHTML .= "<tr><td>" . ($i+1) . "</td><td>" . $this->fragen[$i]['frageText'] . "</td></tr>\n";
+			$fragenHTML .= "<tr><td>" . ($i+1) . "</td><td>" . ($this->fragen[$i]['frageText']) . "</td></tr>\n";
 		}
 		
 		$MATRIX = "<tr><th>Schüler/in / Fach</th>";
@@ -499,7 +504,7 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 		$fragenHTML = "";
 	
 		for($i = 0; $i < sizeof($this->fragen); $i++) {
-			$fragenHTML .= "<tr><td>" . ($i+1) . "</td><td>" . $this->fragen[$i]['frageText'] . "</td></tr>\n";
+			$fragenHTML .= "<tr><td>" . ($i+1) . "</td><td>" . strip_tags($this->fragen[$i]['frageText']) . "</td></tr>\n";
 		}
 	
 		$MATRIX = "<tr><th>Schüler/in / Fach</th>";
@@ -535,12 +540,11 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 		eval("\$printHTML = \"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/viewbeobachtungen/print") . "\";");
 			
 		$printHTML = ($printHTML);
-			
-		$mpdf=new mPDF('utf-8', 'A4-L');
-		$mpdf->Bookmark("Beobachtungen " . $this->klasse);
-		$mpdf->WriteHTML($printHTML);
-		$mpdf->Output("Alle_Beobachtungen_Klasse_" . $this->klasse . ".pdf","D");
-		
+
+
+        $print = new PrintNormalPageA4WithoutHeader("Alle_Beobachtungen_Klasse_" . $this->klasse . ".pdf");
+        $print->setHTMLContent($printHTML);
+        $print->send();
 		exit(0);
 	}
 	

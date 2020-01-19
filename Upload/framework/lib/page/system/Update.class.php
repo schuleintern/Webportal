@@ -75,7 +75,18 @@ class Update extends AbstractPage
             $this->from110to111();
         }
 
+        if ($from == "1.1.1" && $to == "1.1.2") {
+            $this->from111to112();
+        }
         return true;
+    }
+
+
+    private function from111to112() {
+        updateCssJSFolder(111);
+        $this->updateTextFileInWWWDir("update.php");
+
+        DB::getDB()->query("UPDATE kalender_lnw SET eintragDatumEnde=eintragDatumStart");       // Bugfix Kalender Termine nach verschieben mit falschem Enddatum
     }
 
     private function from110to111() {
@@ -117,9 +128,9 @@ class Update extends AbstractPage
         }
 
 
-        $sql = ["ALTER TABLE `absenzen_beurlaubung_antrag` MODIFY COLUMN `antragKLGenehmigtDate`  date NULL DEFAULT '' AFTER `antragKLGenehmigt`", "
-                ALTER TABLE `absenzen_beurlaubung_antrag` MODIFY COLUMN `antragSLgenehmigtDate`  date NULL DEFAULT '' AFTER `antragSLgenehmigt`", "
-                ALTER TABLE `ausweise` MODIFY COLUMN `ausweisArt`  enum('SCHUELER','LEHRER','MITARBEITER','GAST') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '' AFTER `ausweisErsteller`", "
+        $sql = ["ALTER TABLE `absenzen_beurlaubung_antrag` MODIFY COLUMN `antragKLGenehmigtDate`  date NULL DEFAULT null AFTER `antragKLGenehmigt`", "
+                ALTER TABLE `absenzen_beurlaubung_antrag` MODIFY COLUMN `antragSLgenehmigtDate`  date NULL DEFAULT null AFTER `antragSLgenehmigt`", "
+                ALTER TABLE `ausweise` MODIFY COLUMN `ausweisArt`  enum('SCHUELER','LEHRER','MITARBEITER','GAST') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `ausweisErsteller`", "
                 ALTER TABLE `dokumente_dateien` MODIFY COLUMN `dateiAvailibleDate`  date NULL DEFAULT '' AFTER `dateiName`", "
                 CREATE TABLE `externe_kalender_kategorien` (
                 `kalenderID`  int(11) NOT NULL ,
@@ -202,6 +213,16 @@ class Update extends AbstractPage
 
         return true;
 
+    }
+
+
+    private function updateCssJSFolder($oldVersion) {
+        rename("./cssjs", "../cssjs_old_$oldVersion" . rand(1000,9999));
+        rename("../data/update/Upload/www/cssjs", "./cssjs");
+    }
+
+    private function updateTextFileInWWWDir($fileName) {
+        file_put_contents($fileName, file_get_contents("../data/update/Upload/www/" . $fileName));
     }
 
     private static function deleteAll($dir)

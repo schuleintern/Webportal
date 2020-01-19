@@ -49,7 +49,7 @@ if($wartungsmodus != "") {
         Sichere alte Anwendungsdaten...<br />
         <?php
 
-        if(rename("../framework", "../framework_old_" . $updateInfo['updateFromVersion'])) {
+        if(rename("../framework", "../framework_old_" . $updateInfo['updateFromVersion'] . "_" . rand(1000,9999))) {
             echo("Alte Version gesichert.<br >");
             echo("Spiele neue Programmversion ein...<br />");
             if(rename("../data/update/Upload/framework", "../framework")) {
