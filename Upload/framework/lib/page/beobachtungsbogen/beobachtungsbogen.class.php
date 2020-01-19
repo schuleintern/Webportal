@@ -248,12 +248,11 @@ class beobachtungsbogen extends AbstractPage {
 		eval("\$printHTML = \"" . DB::getTPL()->get("beobachtungsbogen/eintragen/print/index") . "\";");
 			
 		$printHTML = ($printHTML);
-			
-		$mpdf=new mPDF('utf-8', 'A4-P');
-		$mpdf->Bookmark("Beobachtungen " . $this->klasse);
-		$mpdf->WriteHTML($printHTML);
-		$mpdf->Output("Eigene_Beobachtungen_Klasse_" . $this->klasse . ".pdf","D");
-		
+
+		$print = new PrintNormalPageA4WithoutHeader("Eigene_Beobachtungen_Klasse_" . $this->klasse . ".pdf");
+		$print->setHTMLContent($printHTML);
+		$print->send();
+
 		exit(0);
 	}
 	
