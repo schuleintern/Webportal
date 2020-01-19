@@ -809,7 +809,7 @@ class menu {
       $absenzen .= $this->startDropDown($pages, "Absenzen Sekretariat", "fa fa-bed");
       $absenzen .= $this->getMenuItem("absenzensekretariat", "Hauptansicht", "fa fa-bed",['mode' => '']);
       $absenzen .= $this->getMenuItem("absenzenberichte", "Berichte", "fa fa-print");
-      $absenzen .= $this->getMenuItem("absenzenstatistik", "Statistik", "fa fa-pie-chart");
+      $absenzen .= $this->getMenuItem("absenzenstatistik", "Statistik", "fa fas fa-chart-pie");
       $absenzen .= $this->getMenuItem("absenzensekretariat", "Sammelbeurlaubung", "fa fa-bed",['mode' => 'sammelbeurlaubung']);
       $absenzen .= $this->getMenuItem("absenzensekretariat", "Periodische Beurlaubung", "fa fa-bed",['mode' => 'periodischeBeurlaubung']);
       $absenzen .= $this->getMenuItem("absenzensekretariat", "fpA Zeiten", "fa fa-wrench",['mode' => 'klassenanwesenheit']);
