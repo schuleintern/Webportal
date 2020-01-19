@@ -77,6 +77,11 @@ class Leistungsnachweis {
         DB::getDB()->query("UPDATE kalender_lnw SET eintragDatumStart = '" . DB::getDB()->escapeString($newDate) . "', eintragEintragZeitpunkt=UNIX_TIMESTAMP() WHERE eintragID='" . $this->getID() . "'");    
     }
 
+    public function setDatumEnde($newDate) {
+        DB::getDB()->query("UPDATE kalender_lnw SET eintragDatumEnde = '" . DB::getDB()->escapeString($newDate) . "', eintragEintragZeitpunkt=UNIX_TIMESTAMP() WHERE eintragID='" . $this->getID() . "'");
+    }
+
+
     public function getBetrifft() {
       return $this->data['eintragBetrifft'];
     }

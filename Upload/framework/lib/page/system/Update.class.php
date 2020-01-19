@@ -85,6 +85,8 @@ class Update extends AbstractPage
     private function from111to112() {
         updateCssJSFolder(111);
         $this->updateTextFileInWWWDir("update.php");
+
+        DB::getDB()->query("UPDATE kalender_lnw SET eintragDatumEnde=eintragDatumStart");       // Bugfix Kalender Termine nach verschieben mit falschem Enddatum
     }
 
     private function from110to111() {
