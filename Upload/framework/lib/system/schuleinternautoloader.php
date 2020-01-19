@@ -55,7 +55,8 @@ $classes = [
 	    'CronNextCloud',
 	    'CronVerspaetungAuswertung',
 	    'CreateTagebuchPDFs',
-	    'CronAllInklMail'		
+	    // 'CronAllInklMail',
+        'DeleteOldElternUser'
 	],
 	'data/schulbuch' => [
 		'BuchAusleihe',

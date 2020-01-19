@@ -87,7 +87,7 @@ class GlobalSettings {
      * KLASSENELTERN
      * @var string
      */
-    public $elternUserMode = "ASV_MAIL";
+    public $elternUserMode = "ASV_CODE";
 
     /**
      * Verwendete Stundenplan Software

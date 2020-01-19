@@ -635,10 +635,10 @@ class menu {
 
     
     
-    if(DB::isLoggedIn() && $this->isActive("AllInkMail") && DB::getSession()->isTeacher()) {
-        $html .= '<li' . (($_REQUEST['page'] == "AllInkMail")?(" class=\"active\""):("")) . '><a href="index.php?page=AllInkMail"><i class="fa fa-envelope"></i> Mail Account</a></li>';
-        
-    }
+   // if(DB::isLoggedIn() && $this->isActive("AllInkMail") && DB::getSession()->isTeacher()) {
+   //     $html .= '<li' . (($_REQUEST['page'] == "AllInkMail")?(" class=\"active\""):("")) . '><a href="index.php?page=AllInkMail"><i class="fa fa-envelope"></i> Mail Account</a></li>';
+   //
+   // }
     
     
     if($html != "") {

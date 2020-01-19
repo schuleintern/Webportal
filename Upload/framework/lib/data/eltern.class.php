@@ -69,6 +69,23 @@ class eltern {
 	}
 
     /**
+     * Ermittelt alle ASVIDs der Kinder ohne zu überprüfen, ob diese existieren.
+     * @return  string[]
+     */
+	public function getRawKinderASVIDs() {
+
+	    $asvIDs = [];
+
+        $schuelers = DB::getDB()->query("SELECT elternSchuelerAsvID FROM eltern_email WHERE elternUserID='" . $this->userID . "'");
+        while($s = DB::getDB()->fetch_array($schuelers)) {
+            $asvIDs[] = $s['elternSchuelerAsvID'];
+        }
+
+        return $asvIDs;
+
+    }
+
+    /**
      * @param schueler $schueler
      */
 	public function addSchueler($schueler) {
@@ -89,6 +106,28 @@ class eltern {
             DB::getDB()->query("DELETE FROM eltern_email WHERE 
             elternEMail='" . DB::getDB()->escapeString($this->email) . "'
             AND elternSchuelerAsvID='" . $schueler->getAsvID() . "'
+            AND elternUserID='" . $this->userID . "'
+            ");
+        }
+
+
+    }
+
+    /**
+     * @param string $asvID
+     */
+    public function removeSchuelerByASVID($asvID) {
+        $rawASVIds = $this->getRawKinderASVIDs();
+
+        if(sizeof($rawASVIds) == 1) {
+            // Letzter Schüler wird entfernt
+            // --> Benutzer löschen (Löscht auch Zuordnungen der Eltern)
+            user::getUserByID($this->userID)->deleteUser();
+        }
+        else {
+            DB::getDB()->query("DELETE FROM eltern_email WHERE 
+            elternEMail='" . DB::getDB()->escapeString($this->email) . "'
+            AND elternSchuelerAsvID='" . $asvID . "'
             AND elternUserID='" . $this->userID . "'
             ");
         }

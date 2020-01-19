@@ -39,9 +39,9 @@ class requesthandler {
     'json' => [
         'jsonApi'
     ],
-    'allinklmail' => [
+    /*'allinklmail' => [
         'AllInkMail'
-    ],
+    ],*/
     'absenzen' => [
       'absenzenberichte',
       'absenzenlehrer',
