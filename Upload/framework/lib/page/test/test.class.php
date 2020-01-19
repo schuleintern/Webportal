@@ -16,13 +16,6 @@ class test extends AbstractPage {
       // Only access for Admins
 
 
-    $briefkopf = FileUpload::uploadPictureFromFile("imagesSchool/Briefkopf.jpg", "print-header");
-    DB::getSettings()->setValue("print-header", $briefkopf['uploadobject']->getID());
-
-    echo("OK");
-
-
-
   }
 
   public static function hasSettings() {

@@ -45,15 +45,13 @@
 </then></if>
 
 <if($hasKrankmeldungen)><then>
-	<div class="callout callout-info">
-      <a href="#" data-toggle="modal" data-target="#krankmeldungen"><i class="icon fa fa-warning"></i> Es liegen Online - Krankmeldungen vor, die noch nicht bearbeitet wurden. Hier klicken, um die Krankmeldungen zu bearbeiten.</a>
-     </div>
-</then></if>
+      <button class="btn btn-block btn-warning" data-toggle="modal" data-target="#krankmeldungen"><i class="fas fa-exclamation-triangle"></i> Es liegen Online - Krankmeldungen vor, die noch nicht bearbeitet wurden. Hier klicken, um die Krankmeldungen zu bearbeiten.</button>
+<br /></then></if>
 
 
 <if($hasBeurlaubungen)><then>
 	<div class="callout callout-info">
-      <a href="#" data-toggle="modal" data-target="#beurlaubungen"><i class="icon fa fa-warning"></i> Es liegen Online - Beurlaubungen vor, die noch nicht bearbeitet wurden. Hier klicken, um die Beurlaubungen zu bearbeiten.</a>
+      <a href="#" data-toggle="modal" data-target="#beurlaubungen"><i class="far fa-warning"></i> Es liegen Online - Beurlaubungen vor, die noch nicht bearbeitet wurden. Hier klicken, um die Beurlaubungen zu bearbeiten.</a>
      </div>
 </then></if>
 
@@ -271,7 +269,7 @@ $dialogHTML
 					</tr>
 					$krankmeldungHTML
 				</table>
-				<button type="submit" class="form-control"><i class="fa fa-add"></i> Krankmeldungen verarbeiten</button>
+				<button type="submit" class="btn btn-block btn-primary"><i class="fas fa-check-square"></i> Krankmeldungen verarbeiten</button>
 				</form>
 		      </div>
 		      <div class="modal-footer">
