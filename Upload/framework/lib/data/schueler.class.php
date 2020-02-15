@@ -345,6 +345,20 @@ class schueler {
 		
 		return [];
 	}
+
+	/**
+	 * @return schueler[] alle Ganztags Schüler
+	 */
+	public function getGanztagsSchueler($orderBy='schuelerName, schuelerRufname') {
+		if(sizeof(self::$all) == 0) {
+			$alle = DB::getDB()->query("SELECT * FROM schueler WHERE schuelerGanztagBetreuung != 0 ORDER BY $orderBy");
+			while($s = DB::getDB()->fetch_array($alle)) {
+				self::$all[] = new schueler($s);
+			}
+		}
+
+		return self::$all;
+	}
 }
 
 ?>

@@ -130,6 +130,9 @@ class requesthandler {
     'klassenlisten' => [
       'klassenlisten',
     ],
+    'ganztags' => [
+      'ganztags',
+    ],
     'krankmeldung' => [
       'krankmeldung',
     ],
