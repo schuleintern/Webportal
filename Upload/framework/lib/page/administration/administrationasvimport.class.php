@@ -547,7 +547,8 @@ class administrationasvimport extends AbstractPage {
 							"adressen" => $adressen,
 							"unterricht" => $unterrichtListe,
 							"ausbildungsrichtung" => $ausbildungsrichtung,
-							'sprachen' => $sprachen
+							'sprachen' => $sprachen,
+							"ganztag_betreuung" => (strval($schueler->ganztag_betreuung)),
 							);
 
 
@@ -752,7 +753,8 @@ class administrationasvimport extends AbstractPage {
 							schuelerGeburtsland,
 							schuelerJahrgangsstufe,
 							schulerEintrittJahrgangsstufe,
-							schuelerEintrittDatum
+							schuelerEintrittDatum,
+							schuelerGanztagBetreuung
 						) values (
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['asvid']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['name']) . "',
@@ -768,7 +770,8 @@ class administrationasvimport extends AbstractPage {
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['geburtsland']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufe']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufeeintritt']) . "',
-							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "'
+							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "',
+							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung']) . "'
 						) ON DUPLICATE KEY UPDATE
 							schuelerAsvID='" . self::$klassen[$i]['schueler'][$s]['asvid'] . "',
 							schuelerName='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['name']) . "',
@@ -784,7 +787,8 @@ class administrationasvimport extends AbstractPage {
 							schuelerGeburtsland='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['geburtsland']) . "',
 							schuelerJahrgangsstufe = '" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufe']) . "',
 							schulerEintrittJahrgangsstufe='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufeeintritt']) . "',
-							schuelerEintrittDatum='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "'
+							schuelerEintrittDatum='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "',
+							schuelerGanztagBetreuung='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung']) . "'
 						");
 
 				$values = "";
