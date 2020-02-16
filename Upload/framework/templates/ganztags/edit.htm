@@ -2,15 +2,15 @@
 
 <div class="box">
 	<div class="box-header">
-		<h3 class="box-title"><i class="fa fa-list"></i>Bearbeite Schüler aus der Ganztags Betreuung</h3>
+		<h3 class="box-title"><i class="fa fa-list"></i> Bearbeite Ganztags Betreuung</h3>
 	</div>
 	<div class="box-body">
  
 		<form action="index.php?page=ganztagsEdit&save=1&id=$asvid" method="Post">
 			<table class="table table-striped">
 				<tr>
-					<td width="20%">Info</td>
-					<td><input type="text" name="info" class="form-control" value="$schueler_info"></td>
+					<td width="20%">Schüler</td>
+					<td>$schueler_name</td>
 				</tr>
 				<tr>
 					<td width="20%">Gruppe</td>
@@ -36,6 +36,10 @@
 						<input type="checkbox" id="tag_so" name="tag_so" class="" $checked_tag_so value="1">
 						<label for="tag_so">Sonntag</label>
 					</td>
+				</tr>
+				<tr>
+					<td width="20%">Info</td>
+					<td><input type="text" name="info" class="form-control" value="$schueler_info"></td>
 				</tr>
 
 			</table>

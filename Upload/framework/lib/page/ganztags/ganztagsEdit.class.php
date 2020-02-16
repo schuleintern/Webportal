@@ -6,7 +6,7 @@ class ganztagsEdit extends AbstractPage {
 
 	public function __construct() {
 		
-		parent::__construct(array("Lehrertools", "ganztagsEdit"));
+		parent::__construct(array("Lehrertools", "Ganztags Bearbeiten"));
 				
 		
 		$this->checkLogin();
@@ -86,31 +86,35 @@ class ganztagsEdit extends AbstractPage {
 		$asvid = $_REQUEST['id'];
 
 		$schueler_query = DB::getDB()->query("SELECT * FROM ganztags_schueler WHERE asvid = '".DB::getDB()->escapeString($_REQUEST["id"])."' ");
-		$schueler = false;
-		while($row = mysqli_fetch_array($schueler_query)) { $schueler = $row; }
+		$ganztags = false;
+		while($row = mysqli_fetch_array($schueler_query)) { $ganztags = $row; }
 
-		$schueler_info = $schueler['info'];
+		$schueler_info = $ganztags['info'];
+		
+		$schueler = schueler::getByAsvID($asvid);
+
+		$schueler_name = $schueler->getCompleteSchuelerName();
 
 		$checked_tag_mo = '';
-		if ($schueler['tag_mo']) { $checked_tag_mo = 'checked="checked"'; }
+		if ($ganztags['tag_mo']) { $checked_tag_mo = 'checked="checked"'; }
 
 		$checked_tag_di = '';
-		if ($schueler['tag_di']) { $checked_tag_di = 'checked="checked"'; }
+		if ($ganztags['tag_di']) { $checked_tag_di = 'checked="checked"'; }
 
 		$checked_tag_mi = '';
-		if ($schueler['tag_mi']) { $checked_tag_mi = 'checked="checked"'; }
+		if ($ganztags['tag_mi']) { $checked_tag_mi = 'checked="checked"'; }
 
 		$checked_tag_do = '';
-		if ($schueler['tag_do']) { $checked_tag_do = 'checked="checked"'; }
+		if ($ganztags['tag_do']) { $checked_tag_do = 'checked="checked"'; }
 
 		$checked_tag_fr = '';
-		if ($schueler['tag_fr']) { $checked_tag_fr = 'checked="checked"'; }
+		if ($ganztags['tag_fr']) { $checked_tag_fr = 'checked="checked"'; }
 
 		$checked_tag_sa = '';
-		if ($schueler['tag_sa']) { $checked_tag_sa = 'checked="checked"'; }
+		if ($ganztags['tag_sa']) { $checked_tag_sa = 'checked="checked"'; }
 
 		$checked_tag_so = '';
-		if ($schueler['tag_so']) { $checked_tag_so = 'checked="checked"'; }
+		if ($ganztags['tag_so']) { $checked_tag_so = 'checked="checked"'; }
 		
 
 		$gruppen_query = DB::getDB()->query("SELECT * FROM ganztags_gruppen ORDER BY sortOrder ");
@@ -118,7 +122,7 @@ class ganztagsEdit extends AbstractPage {
 		$select_gruppe .= '<option value=""> - </option>';
 		while($row = mysqli_fetch_array($gruppen_query)) {
 			$selected = '';
-			if($row['id'] == $schueler['gruppe']) {
+			if($row['id'] == $ganztags['gruppe']) {
 				$selected = 'selected="selected"';
 			}
 			$select_gruppe .= '<option value="'.$row['id'].'" '.$selected.'>'.$row['name'].'</option>';
