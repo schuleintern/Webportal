@@ -132,6 +132,7 @@ class requesthandler {
     ],
     'ganztags' => [
       'ganztags',
+      'ganztagsEdit'
     ],
     'krankmeldung' => [
       'krankmeldung',

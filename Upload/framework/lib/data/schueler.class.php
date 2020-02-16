@@ -102,6 +102,31 @@ class schueler {
 		return $this->data['schulerEintrittJahrgangsstufe'];
 	}
 	
+	public function getGanztags() {
+		$tage = [];
+		if ($this->data['tag_mo']) { $tage[] = 'Mo'; }
+		if ($this->data['tag_di']) { $tage[] = 'Di'; }
+		if ($this->data['tag_mi']) { $tage[] = 'Mi'; }
+		if ($this->data['tag_do']) { $tage[] = 'Do'; }
+		if ($this->data['tag_fr']) { $tage[] = 'Fr'; }
+		if ($this->data['tag_sa']) { $tage[] = 'Sa'; }
+		if ($this->data['tag_so']) { $tage[] = 'So'; }
+
+		$gruppe = [];
+		if ( $this->data['gruppe'] ) {
+			$gruppen_query = DB::getDB()->query("SELECT `name` AS `gruppe_name` FROM ganztags_gruppen WHERE id = ".$this->data['gruppe']." ");
+			while($row = mysqli_fetch_array($gruppen_query)) { $gruppe = $row; }
+		}
+		
+		return [
+			'info' => $this->data['info'],
+			'gruppe_id' => $this->data['gruppe'],
+			'gruppe_name' => $gruppe['gruppe_name'],
+			'tage_anz' => count($tage),
+			'tage' => implode(', ', $tage)
+		];
+	}
+
 	public function getNachteilsausgleich() {
 	    return SchuelerNachteilsausgleich::getNachteilsausgleichForSchueler($this);
 	}
@@ -349,9 +374,11 @@ class schueler {
 	/**
 	 * @return schueler[] alle Ganztags Schüler
 	 */
-	public function getGanztagsSchueler($orderBy='schuelerName, schuelerRufname') {
+	public function getGanztagsSchueler($orderBy='schueler.schuelerName, schueler.schuelerRufname') {
 		if(sizeof(self::$all) == 0) {
-			$alle = DB::getDB()->query("SELECT * FROM schueler WHERE schuelerGanztagBetreuung != 0 ORDER BY $orderBy");
+			$alle = DB::getDB()->query("SELECT schueler.* , ganztags.*  FROM schueler
+			LEFT JOIN ganztags_schueler AS `ganztags` ON schueler.schuelerAsvID LIKE ganztags.asvid 
+			WHERE schueler.schuelerGanztagBetreuung != 0 ORDER BY $orderBy");
 			while($s = DB::getDB()->fetch_array($alle)) {
 				self::$all[] = new schueler($s);
 			}

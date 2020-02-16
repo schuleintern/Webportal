@@ -10,7 +10,7 @@ class ganztags extends AbstractPage {
 
 	public function __construct() {
 		
-		parent::__construct(array("Lehrertools", "ganztags"));
+		parent::__construct(array("Lehrertools", "Ganztags"));
 				
 		$this->checkLogin();
 		
@@ -33,10 +33,6 @@ class ganztags extends AbstractPage {
 
 	public function execute() {
 		
-		include_once("../framework/lib/phpexcel/PHPExcel.php");
-				
-		$today = date("d.m.Y");
-		
 		if(!$this->isTeacher) {
 			DB::showError("Diese Seite ist leider für Sie nicht sichtbar.");
 			die();
@@ -45,12 +41,22 @@ class ganztags extends AbstractPage {
 		$schueler = schueler::getGanztagsSchueler();
 
 		foreach($schueler as $item) {
+			
+			if ($item->getGeschlecht() == 'w') {
+				$gender = '<i class="fa fa-venus" aria-hidden="true" style="color:red"></i>';
+			} else {
+				$gender = '<i class="fa fa-mars" aria-hidden="true" style="color:blue"></i>';
+			}
 			$html .= '<tr>';
-			$html .= '<td>'.$item->getKlassenObjekt()->getKlassenName().'</td>';
 			$html .= '<td>'.$item->getVornamen().'</td>';
 			$html .= '<td>'.$item->getRufname().'</td>';
 			$html .= '<td>'.$item->getName().'</td>';
-			$html .= '<td>'.$item->getGeschlecht().'</td>';
+			$html .= '<td>'.$gender.'</td>';
+			$html .= '<td>'.$item->getKlassenObjekt()->getKlassenName().'</td>';
+			$html .= '<td>'.$item->getGanztags()['gruppe_name'].'</td>';
+			$html .= '<td>'.$item->getGanztags()['tage'].' ('.$item->getGanztags()['tage_anz'].') '.'</td>';
+			$html .= '<td>'.$item->getGanztags()['info'].'</td>';
+			$html .= '<td> <a href="index.php?page=ganztagsEdit&id='.$item->getID().'"><i class="fa fa-edit"></i> </a> </td>';
 			$html .= '</tr>';
 		}
 		
@@ -104,28 +110,55 @@ class ganztags extends AbstractPage {
 	
 
 	public static function displayAdministration($selfURL) {
-		if($_REQUEST['action'] == "addListenAccess") {
-			$group = usergroup::getGroupByName("Webportal_Klassenlisten_Sehen");
-			$group->addUser(intval($_POST['userID']));
-			header("Location: $selfURL");
-			exit(0);
-		}
 		 
-		if($_REQUEST['action'] == "removeListenAccess") {
-			$group = usergroup::getGroupByName("Webportal_Klassenlisten_Sehen");
-			$group->removeUser(intval($_REQUEST['userID']));
-			header("Location: $selfURL");
-			exit(0);
+		if($_REQUEST['add'] > 0) {
+			DB::getDB()->query("INSERT INTO ganztags_gruppen (`name`, `sortOrder`)
+					values (
+						'" . DB::getDB()->escapeString($_POST['ganztagsName']) . "',
+						" . DB::getDB()->escapeString($_POST['ganztagsSortOrder']) . "
+					) ");
 		}
-		 
-		$html = 'Auf die Klassenlisten haben nur Lehrer Zugriff.<br />Über die Benutzerauswahl rechts können weitere Benutzer freigegeben werden.';
+
+		if($_REQUEST['delete'] > 0) {
+			DB::getDB()->query("DELETE FROM ganztags_gruppen WHERE id='" . $_REQUEST['delete'] . "'");
+		}
 		
-		// $html .= 'Auf den Klassenkalender haben nur Lehrer Zugriff.';
-		 
-		$box = administrationmodule::getUserListWithAddFunction($selfURL, "klassenlistenzugriff", "addListenAccess", "removeListenAccess", "Benutzer mit Zugriff auf die Klassenlisten","Lehrer haben immer Zugriff. Für einen Zugriff auf die Klassenlisten ohne ein Lehrer zu sein hier die Benutzer auswählen. (Gilt vor allem für Sekretariatskräfte.)", "Webportal_Klassenlisten_Sehen");
-		 
-		$html = "<div class=\"row\"><div class=\"col-md-9\">$html</div><div class=\"col-md-3\">$box</div></div>";
-		 
+		if($_REQUEST['save'] > 0) {
+			$objekte = DB::getDB()->query("SELECT * FROM ganztags_gruppen ORDER BY sortOrder ASC");
+			
+			$objektData = array();
+			while($o = DB::getDB()->fetch_array($objekte)) {
+				DB::getDB()->query("UPDATE ganztags_gruppen SET 
+						name='" . DB::getDB()->escapeString($_POST["name_".$o['id']]) . "',
+						sortOrder='" . DB::getDB()->escapeString($_POST["sortOrder_".$o['id']]) . "'
+						WHERE id='" . $o['id'] . "'");
+			}
+			
+			
+			header("Location: $selfURL");
+			exit(0);
+		}
+
+		$html = '';
+
+		$objekte = DB::getDB()->query("SELECT * FROM ganztags_gruppen ORDER BY sortOrder ASC");
+		
+		$objektData = array();
+		while($o = DB::getDB()->fetch_array($objekte)) $objektData[] = $o;
+
+		$objektHTML = "";
+		for($i = 0; $i < sizeof($objektData); $i++) {
+			$objektHTML .= "<tr>";
+				$objektHTML .= "<td><input type=\"text\" name=\"name_" . $objektData[$i]['id'] . "\" class=\"form-control\" value=\"" . $objektData[$i]['name'] . "\"></td>";
+				$objektHTML .= "<td><input type=\"number\" name=\"sortOrder_" . $objektData[$i]['id'] . "\" class=\"form-control\" value=\"" . @htmlspecialchars($objektData[$i]['sortOrder']) . "\"></td>";
+				$objektHTML .= "<td><a href=\"#\" onclick=\"javascript:if(confirm('Soll das Objekt wirklisch gelöscht werden?')) window.location.href='$selfURL&delete=" . $objektData[$i]['id'] . "';\"><i class=\"fa fa-trash\"></i> Löschen</a></td>";
+				
+				$objektHTML .= "</tr>";
+		}
+	
+		$html .= $objektHTML;
+		eval("\$html = \"" . DB::getTPL()->get("ganztags/admin") . "\";");
+
 		return $html;
 	}
 }

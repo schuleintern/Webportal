@@ -2,33 +2,34 @@
 
 <form action="index.php?page=ganztags" method="post">
 
-<div class="box">
-	<div class="box-header">
-		<h3 class="box-title"><i class="fa fa-list"></i> Schüler aus der Ganztags Betreuung</h3>
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title"><i class="fa fa-list"></i> Schüler aus der Ganztags Betreuung</h3>
+		</div>
+		<div class="box-body">
+			<table id="dataTable" border="0" style="width:100%; border:0;" class="display">
+				<thead>
+					<tr>
+						<th>Rufname</th>
+						<th>Vorname</th>
+						<th>Name</th>
+						<th></th>
+						<th>Klasse</th>
+						<th>Gruppe</th>
+						<th>Tage</th>
+						<th>Info</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					$html
+				</tbody>
+			</table>
+			
+		</div>
 	</div>
-	<div class="box-body">
-		<table id="dataTable" border="0" style="width:100%; border:0;" class="display">
-			<thead>
-				<tr>
-					<th>Klasse</th>
-					<th>Rufname</th>
-					<th>Vorname</th>
-					<th>Name</th>
-					<th>Geschlecht</th>
-					
-				</tr>
-			</thead>
-			<tbody>
-				$html
-			</tbody>
-		</table>
-		
-
-	</div>
-</div>
 
 </form>
-
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
@@ -44,7 +45,8 @@
       "ordering": true,
       "info": true,
       "autoWidth": false,
-      "pageLength": 20,
+      "pageLength": 200,
+			"order": [[ 4, "asc" ]],
       "language": {
     		"sEmptyTable":   	"Keine Daten in der Tabelle vorhanden",
     		"sInfo":         	"_START_ bis _END_ von _TOTAL_ Einträgen",

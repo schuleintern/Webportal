@@ -1,0 +1,52 @@
+{$this->header}
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-list"></i>Bearbeite Schüler aus der Ganztags Betreuung</h3>
+	</div>
+	<div class="box-body">
+ 
+		<form action="index.php?page=ganztagsEdit&save=1&id=$asvid" method="Post">
+			<table class="table table-striped">
+				<tr>
+					<td width="20%">Info</td>
+					<td><input type="text" name="info" class="form-control" value="$schueler_info"></td>
+				</tr>
+				<tr>
+					<td width="20%">Gruppe</td>
+					<td>
+						$select_gruppe
+					</td>
+				</tr>
+				<tr>
+					<td width="20%">Tage</td>
+					<td>
+						<input type="checkbox" id="tag_mo" name="tag_mo" class="" $checked_tag_mo value="1">
+						<label for="tag_mo">Montag</label>
+						<input type="checkbox" id="tag_di" name="tag_di" class="" $checked_tag_di value="1">
+						<label for="tag_di">Dienstag</label>
+						<input type="checkbox" id="tag_mi" name="tag_mi" class="" $checked_tag_mi value="1">
+						<label for="tag_mi">Mittwoch</label>
+						<input type="checkbox" id="tag_do" name="tag_do" class="" $checked_tag_do value="1">
+						<label for="tag_do">Donnerstag</label>
+						<input type="checkbox" id="tag_fr" name="tag_fr" class="" $checked_tag_fr value="1">
+						<label for="tag_fr">Freitag</label>
+						<input type="checkbox" id="tag_sa" name="tag_sa" class="" $checked_tag_sa value="1">
+						<label for="tag_sa">Samstag</label>
+						<input type="checkbox" id="tag_so" name="tag_so" class="" $checked_tag_so value="1">
+						<label for="tag_so">Sonntag</label>
+					</td>
+				</tr>
+
+			</table>
+			
+			<input type="hidden" name="asvid" value="$asvid" />
+			<button type="submit" class="form-control">Schueler speichern</button>
+		</form>
+
+	</div>
+</div>
+
+
+
+{$this->footer}
