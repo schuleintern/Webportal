@@ -43,7 +43,10 @@ abstract class AbstractPage {
 	private static $activePages = array();
 	
 	public function __construct($pageline, $ignoreSession = false, $isAdmin = false, $isNotenverwaltung = false) {
-		$this->sitename = addslashes ( trim ( $_REQUEST ['page'] ) );
+
+        header("X-Frame-Options: deny");
+
+	    $this->sitename = addslashes ( trim ( $_REQUEST ['page'] ) );
 				
 		if ($this->sitename != "" && in_array($this->sitename, requesthandler::getAllowedActions()) && !self::isActive ( $this->sitename )) {
 			// TODO: Sinnvolle Fehlermeldung
