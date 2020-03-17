@@ -19,10 +19,11 @@ class forgotPassword extends AbstractPage {
 		if(isset($_GET['action'])) {
 			// Mail suchen
 			if($_GET['action'] == 'step1') {
+		
+
+				$esis = DB::getDB()->query_first("SELECT * FROM users WHERE userName LIKE '" . DB::getDB()->escapeString(trim($_POST['email'])) . "' ");
 				
 
-				$esis = DB::getDB()->query_first("SELECT * FROM users WHERE userName LIKE '" . DB::getDB()->escapeString(trim($_POST['email'])) . "' AND userNetwork='SCHULEINTERN_ELTERN'");
-				
 				if($esis['userCanChangePassword'] == 0) {
 				    echo(json_encode(['success' => false]));
 				    exit(0);
@@ -31,10 +32,12 @@ class forgotPassword extends AbstractPage {
 				if($esis['userID'] > 0) {
 					// Erzeuge Passwort vergessen Link
 					$found = true;
-					$this->createMail($esis['userID'], strtolower(trim($_POST['email'])));
+					$this->createMail($esis['userID'], $esis['userEMail'] );
+					echo(json_encode(['success' => true]));
+					exit(0);
 				}
 				
-				echo(json_encode(['success' => true]));
+				echo(json_encode(['success' => false]));
 				exit(0);
 				
 			}
