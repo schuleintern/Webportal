@@ -200,7 +200,7 @@ class Message {
 
 		$this->recipientRawData = $data['messageRecipients'];
 
-		$this->recipientsPreview = $data['messageRecipientsPreview'];
+		$this->recipientsPreview = DB::getDB()->decodeString($data['messageRecipientsPreview']);
 
 		// $rh = new RecipientHandler($data['messageRecipients']);
 		// $this->recipients = $rh->getAllRecipients();
@@ -331,7 +331,7 @@ class Message {
 
             $this->recipientsPreview = implode(", ", $recsNames);
 
-            DB::getDB()->query("UPDATE messages_messages SET messageRecipientsPreview='" . DB::getDB()->escapeString($this->recipientsPreview) . "' WHERE messageID='" . $this->getID() . "'");
+            DB::getDB()->query("UPDATE messages_messages SET messageRecipientsPreview='" . DB::getDB()->encodeString($this->recipientsPreview) . "' WHERE messageID='" . $this->getID() . "'");
         }
 
 	    return $this->recipientsPreview;
