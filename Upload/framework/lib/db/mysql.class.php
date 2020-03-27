@@ -111,7 +111,30 @@ class mysql {
      */
   	public function escapeString($string) {
   		return mysqli_real_escape_string($this->mysqli, $string);
-  	}
+		}
+		
+		/** Kodiert String mit Sonderzeichen in DB konform
+		 * siehe: decodeString()
+		 * @author: Christian Marienfeld
+		 * 
+     * @param $string
+     * @return string
+     */
+  	public function encodeString($string) {
+			return mysqli_real_escape_string($this->mysqli, urlencode(trim($string)));
+		}
+
+		/** Dekodiert String
+		 * siehe: encodeString()
+		 * @author: Christian Marienfeld
+		 * 
+     * @param $string
+     * @return string
+     */
+  	public function decodeString($string) {
+  		return urldecode($string);
+		}
+		
 
 	// TODO: Error nur Anzeigen, wenn im Debugging Modus!
   	public function print_error($msg) {
