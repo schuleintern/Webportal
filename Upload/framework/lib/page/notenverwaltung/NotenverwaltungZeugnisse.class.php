@@ -153,7 +153,7 @@ class NotenverwaltungZeugnisse extends AbstractPage {
 
 
       $zip = new ZipArchive();
-      $filename = "temp/pdf_zeugnisse_export" . md5(rand()) . ".zip";
+      $filename = "../data/temp/pdf_zeugnisse_export" . md5(rand()) . ".zip";
 
       if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
           die("cannot open --> $filename\n");
@@ -355,6 +355,18 @@ pause\r\n";
       $templateProcessor->setValue("{KLASSE}", $schueler->getKlasse());
 
       $templateProcessor->setValue("{SCHUELERNAME}", $schuelerName);
+
+
+      // {DENSCHUELERSCHUELERIN}
+      if($schueler->getGeschlecht() == "w") {
+          $templateProcessor->setValue("{DENSCHUELERSCHUELERIN}", "die Schülerin");
+      }
+      else {
+          $templateProcessor->setValue("{DENSCHUELERSCHUELERIN}", "den Schüler");
+      }
+
+
+
       $templateProcessor->setValue("{GEBURTSDATUM}", $schueler->getGeburtstagAsNaturalDate());
       $templateProcessor->setValue("{GEBURTSORT}", $schueler->getGeburtsort());
       $templateProcessor->setValue("{SCHULJAHR}", DB::getSettings()->getValue("general-schuljahr"));
@@ -431,6 +443,10 @@ pause\r\n";
                   $noten["{N12}"] = $zeugnisNoten[$z]->getWertText();
                   break;
 
+              case 'C':
+                  $noten["{N11}"] = $zeugnisNoten[$z]->getWertText();
+                  break;
+
               case 'Ph':
                   $noten["{N10}"] = $zeugnisNoten[$z]->getWertText();
                   break;
@@ -445,10 +461,6 @@ pause\r\n";
 
               case 'WIn':
                   $noten["{N21}"] = $zeugnisNoten[$z]->getWertText();
-                  break;
-
-              case 'Inf':
-                  $noten["{N9}"] = $zeugnisNoten[$z]->getWertText();
                   break;
 
               case 'Inf':
@@ -507,6 +519,11 @@ pause\r\n";
               case 'Eth':
                   $noten["{N2}"] = $zeugnisNoten[$z]->getWertText();
                   break;
+
+              case 'WR':
+                  $noten["{N16}"] = $zeugnisNoten[$z]->getWertText();
+                  break;
+
           }
       }
 

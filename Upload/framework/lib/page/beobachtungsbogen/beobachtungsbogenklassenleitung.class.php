@@ -12,6 +12,10 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 	private $klasse = NULL;
 	private $myUserID = NULL;
 	private $myRealName = NULL;
+
+    /**
+     * @var schueler[]
+     */
 	private $schueler = array();
 	private $fragen = array();
 	private $faecher = array();
@@ -126,7 +130,7 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 					header('Expires: 0');
 					header('Cache-Control: must-revalidate');
 					header('Pragma: public');
-					header('Content-Length: ' . filesize("beobachtungsboegen/" . $file . ".pdf"));
+					header('Content-Length: ' . filesize("../data/beobachtungsboegen/" . $file . ".pdf"));
 					readfile("../data/beobachtungsboegen/" . $file . ".pdf");
 					
 					exit(0);
@@ -159,11 +163,11 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 			$this->bogen['beobachtungsbogenDatum'] = functions::getFormatedDateFromSQLDate($this->bogen['beobachtungsbogenDatum']);
 			
 			
-			eval("\$header = \"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/print/print_header") . "\";");
+			// eval("\$header = \"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/print/print_header") . "\";");
 			
-			$header = ($header);
+			// $header = ($header);
             $mpdf->AddPage();
-			$mpdf->WriteHTML($header,1);
+			// $mpdf->WriteHTML($header,1);
 			
 			$klasse = $_POST['klasse'];
 						
@@ -172,7 +176,7 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 				$results = $this->getFragenResultsForPupil($this->schueler[$i]['userID']);
 			
 				$name = $_POST['name_' . $this->schueler[$i]['userID']];
-				
+
 				$fragenHTML = "";
 				
 				$mpdf->Bookmark($name);
@@ -180,11 +184,11 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 				$lineA = true;
 				
 				for($f = 0; $f < sizeof($this->fragen); $f++) {
-					$option1 = " - ";
-					$option2 = " - ";
-					$option3 = " - ";
-					$option4 = " - ";
-					$option5 = " - ";
+					$option1 = " -- ";
+					$option2 = " -- ";
+					$option3 = " -- ";
+					$option4 = " -- ";
+					$option5 = " -- ";
 					
 					if($lineA) $bgColor = "#CDCDCD";
 					else $bgColor = "#FFFFFF";
@@ -195,19 +199,19 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 					
 					if($frageResult != "k") {
 						if($frageResult <= -1.5) {
-							$option1 = "X";
+							$option1 = "<b>X</b>";
 						}
 						elseif($frageResult <= -0.5) {
-							$option2 = "X";
+							$option2 = "<b>X</b>";
 						}
 						elseif($frageResult <= 0.5) {
-							$option3 = "X";
+							$option3 = "<b>X</b>";
 						}
 						elseif($frageResult <= 1.5) {
-							$option4 = "X";
+							$option4 = "<b>X</b>";
 						}
 						else {
-							$option5 = "X";
+							$option5 = "<b>X</b>";
 						}
 					}
 					
@@ -230,10 +234,9 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 				}
 				
 				eval("\$SCHUELER = \"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/print/print_schueler") . "\";");
-					
-				$SCHUELER = ($SCHUELER);
-				
-				$mpdf->WriteHTML($SCHUELER,1);
+
+                $mpdf->SetFont("dejavusans","",10);
+                $mpdf->WriteHTML($SCHUELER,1);
 				if($i != (sizeof($this->schueler)-1)) $mpdf->AddPage();
 				
 				// if($i == 1) break;
@@ -311,7 +314,7 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 	}
 	
 	private function getSelectFromAVG($note,$anzahl,$userID,$frage,$frageTyp) {
-		$html = "<select name=\"" . $userID . "-" . $frage . "\" class=\"form-control\" style=\"font-family:'FontAwesome', Arial;\">";
+		$html = "<select name=\"" . $userID . "-" . $frage . "\" class=\"form-control\" style=\"font-family:'Font Awesome 5 Free', Arial;\">";
 		
 		$selected = array(
 				"","","","","",""
@@ -335,11 +338,11 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 		
 		
 		$html .= "<option value=\"k\"{$selected[0]}>Keine Wertung</option>";
-		$html .= "<option value=\"-2\"{$selected[1]}>&#xf118;&#xf118;</option>";
-		$html .= "<option value=\"-1\"{$selected[2]}>&#xf118;</option>";
-		$html .= "<option  value=\"0\"{$selected[3]}>&#xf11a;</option>";
-		if($frageTyp == 1) $html .= "<option  value=\"1\"{$selected[4]}>&#xf119;</option>";
-		if($frageTyp == 1) $html .= "<option  value=\"2\"{$selected[5]}>&#xf119;&#xf119;</option>";
+		$html .= "<option value=\"-2\"{$selected[1]} style=\"font-family: 'Font Awesome 5 Free'\">&#xf118;&#xf118;</option>";
+		$html .= "<option value=\"-1\"{$selected[2]} style=\"font-family: 'Font Awesome 5 Free'\">&#xf118;</option>";
+		$html .= "<option  value=\"0\"{$selected[3]} style=\"font-family: 'Font Awesome 5 Free'\">&#xf11a;</option>";
+		if($frageTyp == 1) $html .= "<option  value=\"1\"{$selected[4]} style=\"font-family: 'Font Awesome 5 Free'\">&#xf119;</option>";
+		if($frageTyp == 1) $html .= "<option  value=\"2\"{$selected[5]} style=\"font-family: 'Font Awesome 5 Free'\">&#xf119;&#xf119;</option>";
 		
 		$html .= "</select>\r\n";
 		

@@ -102,19 +102,17 @@ class email {
 				$count++;
 			}
 			catch(Exception $e) {
-                print_r($e->errorMessage());die();
-
                 $noError = false;
 			}
 			catch(phpmailerException $e) {
 				$noError = false;
 			}
+			finally {
+                DB::getDB()->query("UPDATE mail_send SET mailSent=UNIX_TIMESTAMP() WHERE mailID='" . $m['mailID'] . "'");
+            }
 		}
 		
-		if($noError) return $count;
-		else {
-			return -1;
-		}
+		return $count;
 	}
 
     	private static function sendMailWithID($id, $overrideDebug=false) {
@@ -125,7 +123,7 @@ class email {
 				if(DB::getSettings()->getValue("mail-server") == "") return;
 
 
-				$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
+				$mail = new PHPMailer(false); // the true param means it will throw exceptions on errors, which we need to catch
 
 				$mail->IsSMTP(); // telling the class to use SMTP
 

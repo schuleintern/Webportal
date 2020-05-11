@@ -164,6 +164,9 @@ class NotenCalculcator {
         $noteKlein = -1;
 
         $summeNoten = 0;
+
+        $gewichte = 0;
+
         $gewichtungSchulaufgaben = 0;
         for($i = 0; $i < sizeof($this->noten); $i++) {
             if($this->noten[$i]->nurWennBesser() && $withoutNurWennBesserNoten) continue;
@@ -247,7 +250,9 @@ class NotenCalculcator {
 
 
             for($i = 0; $i < sizeof($this->noten); $i++) {
-                if($this->noten[$i]->nurWennBesser() && $withOutNurWennBesserNoten) continue;
+                if($this->noten[$i]->nurWennBesser() && $withOutNurWennBesserNoten) {
+                    continue;
+                }
                 
                 if($this->noten[$i]->getArbeit()->getBereich() == 'SA') {
 
@@ -278,14 +283,13 @@ class NotenCalculcator {
                 $this->schnittKlein = $noteKlein;
             }
 
-            
             $result = 0;
             
             if($noteKlein >= 0 && $noteSchulaufgaben >= 0) {
                 $result =  self::NoteRunden(
                     (
                         ($this->gewichtGross*$noteSchulaufgaben) + ($this->gewichtKlein*$noteKlein))
-                    / 
+                            /
                         ($this->gewichtGross + $this->gewichtKlein)
                 );
             }
@@ -295,7 +299,7 @@ class NotenCalculcator {
             
             
             if($withOutNurWennBesserNoten) return $result;
-            
+
             if($this->isNotenNurWennBesser) {
                 $nurWennBesser = $this->calcNoten($ignoreNotenschutz, true);
                 if($nurWennBesser <= $result) return $nurWennBesser;
