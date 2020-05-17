@@ -49,13 +49,19 @@ class ganztags extends AbstractPage {
 			}
 			$html .= '<tr>';
 			$html .= '<td>'.$item->getVornamen().'</td>';
-			$html .= '<td>'.$item->getRufname().'</td>';
+			//$html .= '<td>'.$item->getRufname().'</td>';
 			$html .= '<td>'.$item->getName().'</td>';
 			$html .= '<td>'.$gender.'</td>';
 			$html .= '<td>'.$item->getKlassenObjekt()->getKlassenName().'</td>';
 			$html .= '<td>'.$item->getGanztags()['gruppe_name'].'</td>';
-			$html .= '<td>'.$item->getGanztags()['tage'].' ('.$item->getGanztags()['tage_anz'].') '.'</td>';
-			$html .= '<td>'.$item->getGanztags()['info'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags()['tag_mo'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags()['tag_di'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags()['tag_mi'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags()['tag_do'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags()['tag_fr'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags()['tag_sa'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags()['tag_so'].'</td>';
+			$html .= '<td width="20%">'.$item->getGanztags()['info'].'</td>';
 			$html .= '<td> <a href="index.php?page=ganztagsEdit&id='.$item->getID().'"><i class="fa fa-edit"></i> </a> </td>';
 			$html .= '</tr>';
 		}
