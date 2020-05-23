@@ -123,7 +123,7 @@ class email {
 				if(DB::getSettings()->getValue("mail-server") == "") return;
 
 
-				$mail = new PHPMailer(false); // the true param means it will throw exceptions on errors, which we need to catch
+				$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 
 				$mail->IsSMTP(); // telling the class to use SMTP
 
@@ -221,9 +221,13 @@ class email {
 			  	$mail->AddCustomHeader("Return-receipt-to: " . DB::getSettings()->getValue("mail-server-sender"));
 			  }
 
-			  if($mail->Send()) {
-			  	DB::getDB()->query("UPDATE mail_send SET mailSent=UNIX_TIMESTAMP() WHERE mailID='" . $m['mailID'] . "'");
+			  try {
+			      $mail->Send();
+                  DB::getDB()->query("UPDATE mail_send SET mailSent=UNIX_TIMESTAMP() WHERE mailID='" . $m['mailID'] . "'");
 			  }
+			  catch(Exception $exception) {
+
+              }
 	}
 	
 	public function setLesebestaetigung() {
