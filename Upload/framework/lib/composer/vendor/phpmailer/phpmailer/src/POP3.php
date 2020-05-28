@@ -45,7 +45,7 @@ class POP3
      *
      * @var string
      */
-    const VERSION = '6.1.1';
+    const VERSION = '6.1.6';
 
     /**
      * Default POP3 port number.
@@ -230,6 +230,8 @@ class POP3
         }
 
         //  connect to the POP3 server
+        $errno = 0;
+        $errstr = '';
         $this->pop_conn = fsockopen(
             $host, //  POP3 Host
             $port, //  Port #
@@ -364,7 +366,7 @@ class POP3
      */
     protected function checkResponse($string)
     {
-        if (substr($string, 0, 3) !== '+OK') {
+        if (strpos($string, '+OK') !== 0) {
             $this->setError("Server reported an error: $string");
 
             return false;
