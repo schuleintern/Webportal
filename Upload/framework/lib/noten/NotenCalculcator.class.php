@@ -209,7 +209,12 @@ class NotenCalculcator {
         else return '--';
     }
 
-    private function calcNoten($ignoreNotenschutz = false, $withOutNurWennBesserNoten = false) {
+    /**
+     * @param bool $ignoreNotenschutz
+     * @param bool $withOutNurWennBesserNoten
+     * @return float|int|string
+     */
+    private function calcNoten($ignoreNotenschutz = false, $withOutNurWennBesserNoten = false, $dontRecalcNotenOhneNurWennBesserNoten = false) {
 
         if(schulinfo::isGymnasium()) {
             $this->gewichtGross = 2;
@@ -296,15 +301,24 @@ class NotenCalculcator {
 
             else if($noteKlein >= 0) $result =   self::NoteRunden($noteKlein);
             else if($noteSchulaufgaben >= 0) $result =   self::NoteRunden($noteSchulaufgaben);
-            
+
+
             
             if($withOutNurWennBesserNoten) return $result;
 
-            if($this->isNotenNurWennBesser) {
+            if($this->isNotenNurWennBesser && !$dontRecalcNotenOhneNurWennBesserNoten) {
                 $nurWennBesser = $this->calcNoten($ignoreNotenschutz, true);
-                if($nurWennBesser <= $result) return $nurWennBesser;
+                if($nurWennBesser <= $result) {
+                    return $nurWennBesser;
+                }
+                else {
+                    $this->calcNoten($ignoreNotenschutz, false, true);
+                    return $result;
+                }
             }
-            else return $result;
+            else {
+                return $result;
+            }
 
         }
         else {

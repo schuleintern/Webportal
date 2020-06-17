@@ -76,6 +76,64 @@ class Notenbogen {
             $this->unterrichtsNoten[] = new UnterrichtsNoten($this->unterricht[$i], $this->schueler);
         }
 
+        // TEMP ISGY
+        // TODO: Wieder weg machen
+
+        $unterrichteArbeitenSchueler = DB::getDB()->query("SELECT DISTINCT arbeitUnterrichtName FROM noten_arbeiten JOIN noten_noten ON noten_noten.noteArbeitID=noten_arbeiten.arbeitID WHERE noten_noten.noteSchuelerASVID='" . $schueler->getAsvID() . "'");
+
+        $alleUnterrichtSchuelerMitNoten = [];
+        while($unterrichtElement = DB::getDB()->fetch_array($unterrichteInSchueler)) {
+            $alleUnterrichtSchuelerMitNoten[] = $unterrichtElement['arbeitUnterrichtName'];
+        }
+
+        $fehlendeUnterrichte = [];
+        for($i = 0; $i < sizeof($alleUnterrichtSchuelerMitNoten); $i++) {
+            $found = false;
+
+            for($u = 0; $u < sizeof($this->unterricht); $u++) {
+                if($this->unterricht[$u]->getBezeichnung() == $alleUnterrichtSchuelerMitNoten[$i]) $found = true;
+            }
+
+            if(!$found) {
+                $fehlendeUnterrichte[] = $alleUnterrichtSchuelerMitNoten[$i];
+            }
+
+        }
+
+        $unterrichtID = 99999999;
+
+        for($j = 0; $j < sizeof($fehlendeUnterrichte); $j++) {
+            $data = DB::getDB()->query_first("SELECT * FROM noten_arbeiten JOIN noten_noten ON noten_noten.noteArbeitID=noten_arbeiten.arbeitID WHERE noten_noten.noteSchuelerASVID='" . $schueler->getAsvID() . "' AND noten_arbeiten.arbeitUnterrichtName='" . $fehlendeUnterrichte[$j] . "'");
+
+            $fachID = DB::getDB()->query_first("SELECT fachID FROM faecher WHERE fachKurzform='" . $data['arbeitFachKurzform'] . "'");
+            $fachID = $fachID['fachID'];
+
+            $lehrerID = DB::getDB()->query_first("SELECT lehrerID FROM lehrer WHERE lehrerKuerzel='" . $data['arbeitLehrerKuerzel'] . "'");
+            $lehrerID = $lehrerID['lehrerID'];
+
+            $fakeUnterricht = new SchuelerUnterricht([
+                'unterrichtFachID' => $fachID,
+                'unterrichtLehrerID' => $lehrerID,
+
+                'unterrichtID' => $unterrichtID,
+                'unterrichtBezeichnung' => $fehlendeUnterrichte[$j],
+                'unterrichtArt' => 'Pflichtunterricht',
+                'unterrichtIsWissenschaftlich' => 1
+
+            ], true);
+
+            $unterrichtID++;
+
+            $this->unterricht[] = $fakeUnterricht;
+            $this->unterrichtsNoten[] = new UnterrichtsNoten($fakeUnterricht, $this->schueler);
+        }
+
+
+        // Ende Temp Änderung ISGY
+
+        // alte Unterrichte dazu laden
+
+
         // Sortiere nach Datenbank.
 
 
@@ -169,8 +227,8 @@ class Notenbogen {
             
             $table .= " (" . $this->unterrichtsNoten[$i]->getUnterricht()->getFach()->getKurzform() . ")";
 
-            $name = $this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getGeschlecht() == 'w' ? "Frau" : "Herr";
-            $name .= " " . $this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getName();
+            $name = ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer() != null ? ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getGeschlecht() == 'w' ? "Frau" : "Herr") : "n/a");
+            $name .= " " . ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer() != null ? ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getName()) : ("n/a"));
 
             $table .= "<br /><small>" . $name. "</small>";
 
@@ -285,8 +343,8 @@ class Notenbogen {
 
             $table .= $this->unterrichtsNoten[$i]->getUnterricht()->getFach()->getKurzform();
 
-            $name = $this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getGeschlecht() == 'w' ? "Frau" : "Herr";
-            $name .= " " . $this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getName();
+            $name = ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer() != null ? ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getGeschlecht() == 'w' ? "Frau" : "Herr") : ("n/a"));
+            $name .= ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer() != null ? (" " . $this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getName()) : (""));
 
             $table .= "<br /><small>" . $name. "</small>";
 
