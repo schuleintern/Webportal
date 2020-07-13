@@ -84,6 +84,7 @@ class NotenCalculcator {
      * @param Note $note
      */
     public function addNote($note) {
+        if($note->getWert() == 0) return;       // TODO: Bei Oberstufe übergehen!
         $this->noten[] = $note;
         if($note->nurWennBesser()) $this->isNotenNurWennBesser = true;
     }

@@ -335,14 +335,13 @@ pause\r\n";
           }
       }
 
-      $schuelerName = $schueler->getVornamen() . " " . $schueler->getName();
+      $nachname = "";
 
-      // $name = str_split (mb_strtoupper($schueler->getName(),'UTF-8'));
+      if($schueler->getNamensbestandteilVorgestellt() != "") $nachname .= $schueler->getNamensbestandteilVorgestellt() . " ";
+      $nachname .= $schueler->getName();
+      if($schueler->getNamensbestandteilNachgestellt() != "") $nachname .= " " . $schueler->getNamensbestandteilNachgestellt();
 
-      // for($a = 0; $a < sizeof($name); $a++) $schuelerName .= (($a > 0) ? " " : "") . $name[$a];
-
-    // $schuelerName = utf8_encode($schuelerName);
-
+      $schuelerName = $schueler->getVornamen() . " " . $nachname;
 
       include_once("../framework/lib/phpword/vendor/autoload.php");
 

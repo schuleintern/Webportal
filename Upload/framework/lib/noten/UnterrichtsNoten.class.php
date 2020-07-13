@@ -191,6 +191,10 @@ class UnterrichtsNoten {
     public function getSchnitt() {
         return $this->schnitt;        
     }
+
+    public function getSchnittFormated() {
+        return number_format($this->getSchnitt(), 2, ",",".");
+    }
     
     /**
      * 

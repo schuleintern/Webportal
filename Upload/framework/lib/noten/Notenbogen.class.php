@@ -506,16 +506,16 @@ class Notenbogen {
 
 
 
-        $tableHeader = "<tr><th style=\"width:12%\">&nbsp;</th>";
+        $tableHeader = "<tr><th style=\"width:12%\"><small>&nbsp;</small></th>";
 
         $width = 30;
         if(schulinfo::isGymnasium()) $width -= 8;
 
-        if($hasAnySchulaufgaben) $tableHeader  .= "<th style=\"width:$width%\">Große <br />Leistungsnachweise</th>";
+        if($hasAnySchulaufgaben) $tableHeader  .= "<th style=\"width:$width%\"><small>Große <br />Leistungsnachweise</small></th>";
 
 
         if(schulinfo::isGymnasium()) {
-            if($hasAnySchulaufgaben) $tableHeader  .= "<th style=\"width:8%\">&Oslash;<br />Große</th>";
+            if($hasAnySchulaufgaben) $tableHeader  .= "<th style=\"width:8%\">&Oslash;<br /><small>Große</small></th>";
         }
 
 
@@ -529,40 +529,37 @@ class Notenbogen {
         if(schulinfo::isGymnasium()) $width -= 8;
 
 
-        if($colspan > 1) $tableHeader .= "<th colspan=\"$colspan\" style=\"width:$width%\">Kleine <br />Leistungsnachweise</th>";
+        if($colspan > 1) $tableHeader .= "<th colspan=\"$colspan\" style=\"width:$width%\"><small>Kleine <br />Leistungsnachweise</small></th>";
 
         if(schulinfo::isGymnasium()) {
-            if($colspan) $tableHeader  .= "<th style=\"width:8%\">&Oslash;<br />Kleine</th>";
+            if($colspan) $tableHeader  .= "<th style=\"width:8%\">&Oslash;<br /><small>Kleine</small></th>";
         }
 
-        $tableHeader .= "<th style=\"width:8%\">&Oslash;<br />Gesamt</th>";
+        $tableHeader .= "<th style=\"width:8%\">&Oslash;<br /><small>Gesamt</small></th>";
 
         // TODO: ZB
 
         $tableHeader .= "</tr>";
 
-        $tableHeader .= "<tr><th>&nbsp;</th>";
+        $tableHeader .= "<tr><th><small>&nbsp;</small></th>";
 
-        if($hasAnySchulaufgaben) $tableHeader .= "<th>Schulaufgaben</th>";
+        if($hasAnySchulaufgaben) $tableHeader .= "<th><small>Schulaufgaben</small></th>";
 
         if(schulinfo::isGymnasium()) {
-            if($hasAnySchulaufgaben) $tableHeader  .= "<th>&nbsp;</th>";
+            if($hasAnySchulaufgaben) $tableHeader  .= "<th><small>&nbsp;</small></th>";
         }
 
 
-        if($hasAnyKurzarbeiten) $tableHeader .= "<th>Kurzarbeiten</th>";
+        if($hasAnyKurzarbeiten) $tableHeader .= "<th><small>Kurzarbeiten</small></th>";
 
-        if($hasAnyExen) $tableHeader .= "<th>Stegreifaufgaben</th>";
-        if($hasAnyMuendlich) $tableHeader .= "<th>mündliche Noten</th>";
+        if($hasAnyExen) $tableHeader .= "<th><small>Stegreifaufgaben</small></th>";
+        if($hasAnyMuendlich) $tableHeader .= "<th><small>mündliche Noten</small></th>";
 
         if(schulinfo::isGymnasium()) {
-            if($colspan > 0) $tableHeader  .= "<th>&nbsp;</th>";
+            if($colspan > 0) $tableHeader  .= "<th><small>&nbsp;</small></th>";
         }
 
-        $tableHeader .= "<th>&nbsp;</th></tr>";
-
-//          echo("<table border=10 cellspacing=10>" . $tableHeader . $table . "</table>");
-//          die();
+        $tableHeader .= "<th><small>&nbsp;</small></th></tr>";
 
         return $tableHeader . $table;
     }

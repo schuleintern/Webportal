@@ -47,7 +47,17 @@ class schueler {
 	}
 
 	public function getCompleteSchuelerName() {
-		return $this->data['schuelerName'] . ", "  . $this->data['schuelerRufname'];
+	    $name = "";
+	    if($this->getNamensbestandteilVorgestellt() != "") {
+	        $name = $this->getNamensbestandteilVorgestellt() . " ";
+        }
+		$name .= $this->data['schuelerName'] . ", "  . $this->data['schuelerRufname'];
+
+        if($this->getNamensbestandteilNachgestellt() != "") {
+            $name .= " " . $this->getNamensbestandteilNachgestellt();
+        }
+
+        return $name;
 	}
 	
 	public function getGeschlecht() {
@@ -101,6 +111,14 @@ class schueler {
 	public function getEintrittJahrgangsstufe() {
 		return $this->data['schulerEintrittJahrgangsstufe'];
 	}
+
+	public function getNamensbestandteilVorgestellt() {
+	    return $this->data['schuelerNameVorgestellt'];
+    }
+
+    public function getNamensbestandteilNachgestellt() {
+        return $this->data['schuelerNameNachgestellt'];
+    }
 	
 	public function getNachteilsausgleich() {
 	    return SchuelerNachteilsausgleich::getNachteilsausgleichForSchueler($this);

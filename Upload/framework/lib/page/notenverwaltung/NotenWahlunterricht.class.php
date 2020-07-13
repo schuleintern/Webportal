@@ -22,13 +22,7 @@ class NotenWahlunterricht extends AbstractPage {
 
 
   public function __construct() {
-
-    if(!DB::getGlobalSettings()->hasNotenverwaltung) {
-      die("Notenverwaltung nicht lizenziert.");
-    }
-
-
-    parent::__construct(['Notenverwaltung', 'Zeugnis', 'Wahlunterricht'],false,false,true);
+      parent::__construct(['Notenverwaltung', 'Zeugnis', 'Wahlunterricht'],false,false,true);
 
     if(!DB::getSession()->isTeacher()) {
       new errorPage();

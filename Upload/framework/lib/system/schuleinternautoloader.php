@@ -249,7 +249,8 @@ $classes = [
 	    'NoteWahlfachNote',
 	    'NoteVerrechnung',
 	    'NoteZeugnisBemerkung',
-	    'NoteGewichtung'
+	    'NoteGewichtung',
+        'NotenFremdsprachenNiveaustufen'
 	],
     'noten/bemerkung' => [
         'NoteBemerkungGruppe',

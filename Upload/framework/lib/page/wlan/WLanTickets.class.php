@@ -257,9 +257,7 @@ class WLanTickets extends AbstractPage {
 	    
 	    if($_REQUEST['action'] == 'upload') {
 	        $upload = FileUpload::uploadCSV("csvfilesophos", "");
-	        
-	        // Debugger::debugObject($upload,1);
-	        
+
 	        if($upload['result']) {
 	            // Datei einlesen
 	            
@@ -268,6 +266,7 @@ class WLanTickets extends AbstractPage {
 	            header("Location: $selfURL");
 	            exit(0);
 	        }
+	        else die("NICHT OK");
 	        
 	    }
 	    
