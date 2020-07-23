@@ -22,7 +22,10 @@ class aufeinenblick extends AbstractPage {
 
     if(!DB::getSession()->isTeacher() && !DB::getSession()->isPupil() && !DB::getSession()->isEltern()) {
       eval("DB::getTPL()->out(\"" . DB::getTPL()->get("index") . "\");");
-      exit(0);
+      
+      PAGE::kill(true);
+
+      //exit(0);
     }
 
     $this->loadMySettings();
