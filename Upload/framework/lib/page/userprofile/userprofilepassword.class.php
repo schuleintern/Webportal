@@ -57,7 +57,8 @@ class userprofilepassword extends AbstractPage {
 						$message = "<font color=red>Das Passwort muss für diesen Benutzer geändert werden. (Meistens bei der ersten Anmeldung oder nach Zurücksetzen des Passwortes.)</font>";
 					}
 					eval("echo(\"".DB::getTPL()->get("userprofile/changepassword")."\");");
-					exit(0);
+					PAGE::kill();
+					//exit(0);
 				
 			break;
 			

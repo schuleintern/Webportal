@@ -326,7 +326,8 @@ abstract class AbstractPage {
 			$valueusername = "";
 
 			eval("echo(\"".DB::getTPL()->get("login/index")."\");");
-			exit(0);
+			PAGE::kill(true);
+      //exit(0);
 		}
 	}
 

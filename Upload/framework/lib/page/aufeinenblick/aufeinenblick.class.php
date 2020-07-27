@@ -134,7 +134,8 @@ class aufeinenblick extends AbstractPage {
 
       eval("echo(\"" . DB::getTPL()->get("aufeinenblick/settings/index") . "\");");
 
-      exit(0);
+      PAGE::kill(true);
+      //exit(0);
     }
 
     Stundenplan::getCurrentStunde();
@@ -146,6 +147,7 @@ class aufeinenblick extends AbstractPage {
 
     // if($stundenplan == null) {
     // eval("echo(\"" . DB::getTPL()->get("aufeinenblick/nocurrentstundenplan") . "\");");
+    // PAGE::kill(true);
     // exit(0);
     // }
 

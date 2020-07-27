@@ -157,7 +157,8 @@ class beobachtungsbogenadmin extends AbstractPage {
 				}
 				
 				eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/admin/add") . "\");");
-				exit(0);
+				PAGE::kill(true);
+      	//exit(0);
 			}
 			
 		}
@@ -194,7 +195,8 @@ class beobachtungsbogenadmin extends AbstractPage {
 				$bogen = DB::getDB()->query_first("SELECT * FROM beobachtungsbogen_boegen WHERE beobachtungsbogenID='" . intval($_GET['deleteBogen']) . "'");
 				eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/admin/deletebogen") . "\");");
 				
-				exit(0);
+				PAGE::kill(true);
+      	//exit(0);
 			}
 		}
 		
@@ -297,7 +299,8 @@ class beobachtungsbogenadmin extends AbstractPage {
 			
 			
 			eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/admin/matrix") . "\");");
-			exit(0);
+			PAGE::kill(true);
+      //exit(0);
 			
 			
 		}
@@ -501,7 +504,8 @@ class beobachtungsbogenadmin extends AbstractPage {
 			}
 			
 			eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/admin/edit") . "\");");
-			exit(0);
+			PAGE::kill(true);
+      //exit(0);
 		}
 		
 		if($_GET['editNachfristen'] > 0) {
@@ -532,7 +536,8 @@ class beobachtungsbogenadmin extends AbstractPage {
 			}
 			
 			eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/admin/nachfrist") . "\");");
-			exit(0);
+			PAGE::kill(true);
+      //exit(0);
 		}
 		
 		$currentBoegen = DB::getDB()->query("SELECT * FROM beobachtungsbogen_boegen ORDER BY beobachtungsbogenDatum DESC");
