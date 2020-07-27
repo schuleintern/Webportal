@@ -56,7 +56,7 @@ class mysql {
 			$debug['error'] = "Invalid SQL: ".$query_string;
 		}
 		
-		Debugger::addQuery($debug);
+		Debugger::debugQuery($debug);
 
 		return $this->query_id;
 	}
@@ -73,7 +73,7 @@ class mysql {
 			$debug['error'] = "Invalid SQL: ".$query_string;
 		}
 
-		Debugger::addQuery($debug);
+		Debugger::debugQuery($debug);
 
 		return $this->query_id;
 	}
@@ -104,7 +104,7 @@ class mysql {
 		$returnarray = $this->fetch_array($this->query_id);
 		$this->free_result($this->query_id);
 
-		Debugger::addQuery($debug);
+		Debugger::debugQuery($debug);
 		return $returnarray;
 	}
 

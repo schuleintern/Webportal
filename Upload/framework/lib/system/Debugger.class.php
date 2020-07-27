@@ -67,7 +67,7 @@ class Debugger {
 		return $html;
 	}
 
-	public static function addQuery($query) {
+	public static function debugQuery($query) {
 		if ($query['query']) {
 			array_push( self::$queries, $query );
 		}
