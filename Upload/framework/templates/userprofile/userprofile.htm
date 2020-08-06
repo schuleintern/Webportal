@@ -224,6 +224,12 @@
 		    		});
 					
 			}
+
+			function submitAutoresponse() {
+					
+				$('#form-Autoresponse').submit();
+			
+			}
 			
 			function validateEmail(email) {
 				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -266,6 +272,34 @@
 		<td><p><strong>Benutzerbild</strong></p></td>
 		<td><img src="{$this->userImage}" width="100"/><br /><form><button type="button" class="btn" onclick="window.location.href='index.php?page=userprofileuserimage'"><i class="fa fa-image"></i> Ändern</button></form></td>
 	</tr>
+
+	<tr>
+		<td>
+			<b>Abwesenheit</b><br />
+			<small>Auf Nachrichten wird automatisch geantwortet</small>
+		</td>
+		<td>
+			<form action="index.php?page=userprofile&action=updateAutoresponse" method="post" id="form-Autoresponse">
+				<input type="checkbox" name="value" value="1" onclick="submitAutoresponse()" {$data->getUser()->getAutoresponseChecked()} />
+				
+				<br />
+			</form>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<b>Abwesenheitsnotiz</b><br />
+			<small>Wird automatisch als Nachricht geantwortet</small>
+			<button class="btn btn-default btn-xs" type="button" data-toggle="modal" data-target="#editAutoresponseText"><i class="fa fas fa-pencil-alt"></i> Bearbeiten</button>
+		</td>
+		<td>
+			{$data->getUser()->getAutoresponseText()}<br />
+			
+		</td>
+	</tr>
+
+
 </table>
 
 
@@ -301,12 +335,12 @@
 
 
 <div class="modal fade" id="editSignature" tabindex="-1" role="dialog">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content" style="height: auto; min-height: 95%; border-radius: 0;">
-				    <div class="modal-header">	    
-				    	<h4 class="modal-title"><i class="fa fa-envelope"></i> Signatur bearbeiten<br />						 <small>Kein HTML erlaubt</small>
-				    	</h4>
-				      </div>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content" style="height: auto; min-height: 95%; border-radius: 0;">
+		<div class="modal-header">	    
+			<h4 class="modal-title"><i class="fa fa-envelope"></i> Signatur bearbeiten<br />						 <small>Kein HTML erlaubt</small>
+			</h4>
+			</div>
 					<div class="modal-body">
 						<form action="index.php?page=userprofile&action=updateSig" method="post">
 						<div class="form-group">
@@ -317,8 +351,30 @@
 						<button class="btn btn-primary btn-block" type="submit" id="buttonNewMail" onclick="requestCode()"><i class="fa fa-save"></i> Speichern</button>
 						</form>
 					</div>
+		</div>
 	</div>
-</div>
+</div>	
+
+
+<div class="modal fade" id="editAutoresponseText" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content" style="height: auto; min-height: 95%; border-radius: 0;">
+		<div class="modal-header">	    
+			<h4 class="modal-title"><i class="fa fa-envelope"></i> Abwesenheitsnotiz bearbeiten<br />						 <small>Kein HTML erlaubt</small>
+			</h4>
+			</div>
+					<div class="modal-body">
+						<form action="index.php?page=userprofile&action=updateAutoresponseText" method="post">
+						<div class="form-group">
+							<label>Abwesenheitsnotiz</small></label>
+							<textarea name="sig" class="form-control" rows="10">{$data->getUser()->getRawAutoresponseText()}</textarea>
+						</div>
+						
+						<button class="btn btn-primary btn-block" type="submit" id="buttonNewMail" onclick="requestCode()"><i class="fa fa-save"></i> Speichern</button>
+						</form>
+					</div>
+		</div>
+	</div>
 </div>	
 
 {$this->footer}

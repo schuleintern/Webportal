@@ -168,7 +168,7 @@ class MessageSender{
 	    $this->messageQuestions[] = $question;
 	}
 	
-	public function send() {
+	public function send($onlyOnce = false) {
 		$fields = [
 			'messageUserID',
 			'messageSubject',
@@ -200,9 +200,9 @@ class MessageSender{
 		
 		$messageQuestionIDs = implode(";",$messageQuestionIDs);
 
-        $recipientNames = [];
+		$recipientNames = [];
 
-        for($i = 0; $i < sizeof($this->recipients); $i++) $recipientNames[] = $this->recipients[$i]->getDisplayName();
+		for($i = 0; $i < sizeof($this->recipients); $i++) $recipientNames[] = $this->recipients[$i]->getDisplayName();
 		
 
 		$saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
@@ -221,8 +221,8 @@ class MessageSender{
 					'" . $this->sender->getUserID() . "',
 					'" . implode(";",$saveStringsRecipients) . "',
 					'" . implode(", ", $recipientNames) . "',
-                    '" . implode(";",$saveStringsCCRecipients) . "',
-                    '" . implode(";",$saveStringsBCCRecipients) . "',
+          '" . implode(";",$saveStringsCCRecipients) . "',
+          '" . implode(";",$saveStringsBCCRecipients) . "',
 					UNIX_TIMESTAMP(),
 					'" . (($this->replyMessage != null) ? ($this->replyMessage->getID()) : 0) . "',
 					'" . (($this->forwardMessage != null) ? ($this->forwardMessage->getID()) : 0) . "',
@@ -231,14 +231,65 @@ class MessageSender{
 					'" . implode(",",$this->attachments) . "',
 					'" . $this->priority . "',
 					'" . ($this->allowAnswer ? 1 : 0) . "',
-                    '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
-                    '" . $messageQuestionIDs . "'
+					'" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
+					'" . $messageQuestionIDs . "'
 					)
 				";
 		DB::getDB()->query("INSERT INTO messages_messages (" . implode(",", $fields) . ") VALUES " . implode(",",$insert));
 		
+
+		/*
+		* AutoResponse
+		*/
+
+		if ($onlyOnce == false) {
+			$this->sendAutoResponse($this->recipients);
+		}
+
+
 	}
 	
+
+	/**
+	 * 
+	 * Auto Response Mails
+	 */
+	private function sendAutoResponse($recipients) {
+
+		for($i = 0; $i < sizeof($recipients); $i++) {
+
+			$users = $recipients[$i]->getRecipientUserIDs();
+			for($u = 0; $u < sizeof($users); $u++) {
+
+				$d = DB::getDB()->query_first("SELECT userAutoresponse, userAutoresponseText FROM users WHERE userID=" . $users[$u]);
+
+				if ( $d['userAutoresponse'] == 1 ) {
+					// Send Autorespondermail
+
+					$messageAutoresponse = new MessageSender();
+
+					$sender = user::getUserByID($users[$u]);
+
+					$messageAutoresponse->setSender($sender);
+					
+					$messageAutoresponse->setSubject('Abwesenheitsnotiz!');
+					$messageAutoresponse->setText( nl2br($d['userAutoresponseText']) );
+
+					$to = new UserRecipient($this->sender);
+
+					$recipientHandler = new RecipientHandler( $to->getSaveString() );
+					$messageAutoresponse->setRecipients($recipientHandler);				
+
+					$messageAutoresponse->dontAllowAnswer();
+					$messageAutoresponse->send(true);
+
+				}
+			}
+		}
+
+	}
+
+
 	/**
 	 * 
 	 * @param MessageRecipient[] $recipients
