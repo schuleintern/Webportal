@@ -175,9 +175,9 @@ class MessageSender{
 			'messageText',
 			'messageSender',
 			'messageRecipients',
-            'messageRecipientsPreview',
-		    'messageCCRecipients',
-		    'messageBCCRecipients',
+      'messageRecipientsPreview',
+		  'messageCCRecipients',
+		  'messageBCCRecipients',
 			'messageTime',
 			'messageIsReplyTo',
 			'messageIsForwardFrom',
@@ -188,8 +188,8 @@ class MessageSender{
 			'messageAttachments',
 			'messagePriority',
 			'messageAllowAnswer',
-		    'messageHasQuestions',
-		    'messageQuestionIDs'
+		  'messageHasQuestions',
+		  'messageQuestionIDs'
 		];
 		
 		$saveStrings = [];
@@ -202,8 +202,9 @@ class MessageSender{
 
 		$recipientNames = [];
 
-		for($i = 0; $i < sizeof($this->recipients); $i++) $recipientNames[] = $this->recipients[$i]->getDisplayName();
-		
+		for($i = 0; $i < sizeof($this->recipients); $i++) {
+			$recipientNames[] = DB::getDB()->encodeString($this->recipients[$i]->getDisplayName());
+		} 
 
 		$saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
 		$saveStringsCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->ccRecipients, $messageQuestionIDs);
@@ -220,7 +221,7 @@ class MessageSender{
 					'" . $this->text . "',
 					'" . $this->sender->getUserID() . "',
 					'" . implode(";",$saveStringsRecipients) . "',
-					'" . implode(", ", $recipientNames) . "',
+					'" . implode(", ", $recipientNames ) . "',
           '" . implode(";",$saveStringsCCRecipients) . "',
           '" . implode(";",$saveStringsBCCRecipients) . "',
 					UNIX_TIMESTAMP(),
@@ -231,8 +232,8 @@ class MessageSender{
 					'" . implode(",",$this->attachments) . "',
 					'" . $this->priority . "',
 					'" . ($this->allowAnswer ? 1 : 0) . "',
-					'" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
-					'" . $messageQuestionIDs . "'
+          '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
+          '" . $messageQuestionIDs . "'
 					)
 				";
 		DB::getDB()->query("INSERT INTO messages_messages (" . implode(",", $fields) . ") VALUES " . implode(",",$insert));
