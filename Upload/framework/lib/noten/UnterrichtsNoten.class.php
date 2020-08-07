@@ -72,7 +72,7 @@ class UnterrichtsNoten {
     public function __construct($unterricht, $schueler) {
         $this->unterricht = $unterricht;
         $this->schueler = $schueler;
-        $this->arbeiten = NoteArbeit::getByUnterrichtID($this->unterricht->getID());
+        $this->arbeiten = NoteArbeit::getByUnterrichtID($this->unterricht->getID(), $unterricht);
         $this->notenCalculator = new NotenCalculcator($this->schueler, $unterricht->getFach());
         
         $gesamtNoten = 0;
@@ -190,6 +190,10 @@ class UnterrichtsNoten {
      */
     public function getSchnitt() {
         return $this->schnitt;        
+    }
+
+    public function getSchnittFormated() {
+        return number_format($this->getSchnitt(), 2, ",",".");
     }
     
     /**

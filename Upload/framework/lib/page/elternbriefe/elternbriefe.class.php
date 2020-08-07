@@ -127,7 +127,8 @@ class elternbriefe extends AbstractPage {
 				else {
 					$brief['briefTitel'] = @htmlspecialchars(($brief['briefTitel']));
 					eval("echo(\"" . DB::getTPL()->get("elternbriefe/edit") . "\");");
-					exit(0);
+					PAGE::kill(true);
+      		//exit(0);
 				}
 			}
 			else {

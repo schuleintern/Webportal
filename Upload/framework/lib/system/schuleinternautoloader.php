@@ -165,7 +165,8 @@ $classes = [
 		'settings',
 		'Debugger',
 		'Encoding',
-	    'resthandler'
+		'resthandler',
+		'PAGE'
 	],
 	'tpl' => [
 		'TemplateParser',
@@ -249,7 +250,8 @@ $classes = [
 	    'NoteWahlfachNote',
 	    'NoteVerrechnung',
 	    'NoteZeugnisBemerkung',
-	    'NoteGewichtung'
+	    'NoteGewichtung',
+        'NotenFremdsprachenNiveaustufen'
 	],
     'noten/bemerkung' => [
         'NoteBemerkungGruppe',

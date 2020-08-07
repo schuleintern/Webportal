@@ -45,7 +45,8 @@ class forgotPassword extends AbstractPage {
 			    
 			    eval("echo(\"".DB::getTPL()->get("login/index")."\");");
 			    
-			    exit();
+			    PAGE::kill(true);
+      		//exit(0);
 			}
 			
 			if($_GET['action'] == 'step3') {

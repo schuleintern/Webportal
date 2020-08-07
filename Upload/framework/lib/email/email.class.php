@@ -102,19 +102,17 @@ class email {
 				$count++;
 			}
 			catch(Exception $e) {
-                print_r($e->errorMessage());die();
-
                 $noError = false;
 			}
 			catch(phpmailerException $e) {
 				$noError = false;
 			}
+			finally {
+                DB::getDB()->query("UPDATE mail_send SET mailSent=UNIX_TIMESTAMP() WHERE mailID='" . $m['mailID'] . "'");
+            }
 		}
 		
-		if($noError) return $count;
-		else {
-			return -1;
-		}
+		return $count;
 	}
 
     	private static function sendMailWithID($id, $overrideDebug=false) {
@@ -223,9 +221,13 @@ class email {
 			  	$mail->AddCustomHeader("Return-receipt-to: " . DB::getSettings()->getValue("mail-server-sender"));
 			  }
 
-			  if($mail->Send()) {
-			  	DB::getDB()->query("UPDATE mail_send SET mailSent=UNIX_TIMESTAMP() WHERE mailID='" . $m['mailID'] . "'");
+			  try {
+			      $mail->Send();
+                  DB::getDB()->query("UPDATE mail_send SET mailSent=UNIX_TIMESTAMP() WHERE mailID='" . $m['mailID'] . "'");
 			  }
+			  catch(Exception $exception) {
+
+              }
 	}
 	
 	public function setLesebestaetigung() {

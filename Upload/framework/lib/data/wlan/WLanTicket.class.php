@@ -144,7 +144,9 @@ class WLanTicket {
      */
     public static function uploadSophosFile($file, $type) {
         $data = file($file->getFilePath());
-        
+
+        Debugger::debugObject($data,1);
+
         for($i = 1; $i < sizeof($data); $i++) {
             $line = explode(";",str_replace("\"","",$data[$i]));
             

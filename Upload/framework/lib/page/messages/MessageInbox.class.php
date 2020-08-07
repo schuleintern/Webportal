@@ -8,7 +8,6 @@ class MessageInbox extends AbstractPage {
 	}
 	
 	public function execute() {
-	
 		$folder = DB::getDB()->escapeString($_REQUEST['folder']);
 		$folderID = intval($_REQUEST['folderID']);
 		
@@ -263,7 +262,8 @@ class MessageInbox extends AbstractPage {
 		
 		eval("\$FRAMECONTENT = \"" . DB::getTPL()->get("messages/inbox/index") . "\";");
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("messages/inbox/frame") . "\");");
-		exit(0);
+		//exit(0);
+		PAGE::kill(true);
 	}
 	
 	public static function getSettingsDescription() {

@@ -146,7 +146,7 @@ class SyncUsers extends AbstractCron {
 										userLastName='" . DB::getDB()->escapeString($realElements[$u]->lastname) . "',
 										userAsvID='" . $realElements[$u]->asvid . "',
 										userLastPasswordChangeRemote='" . $realElements[$u]->lastpwdchange . "',
-										userEmail='" . $realElements[$u]->mail . "'
+										userEmail='" . DB::getDB()->escapeString($realElements[$u]->mail) . "'
 										WHERE userID='" . $allUsers[$i]['userID'] . "'");
 	                    }
 	                    else {

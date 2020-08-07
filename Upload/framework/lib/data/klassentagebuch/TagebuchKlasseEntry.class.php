@@ -176,6 +176,8 @@ class TagebuchKlasseEntry {
    *
    */
   public function showEntryNow() {
+
+      if(DB::getSettings()->getBoolean('klassentagebuch-view-entries-all-times')) return true;
       
     // Für den Lehrer selbst immer anzeigen
   	if(DB::getSession()->isTeacher() && $this->getTeacher() == DB::getSession()->getTeacherObject()->getKuerzel()) return true;
@@ -186,7 +188,12 @@ class TagebuchKlasseEntry {
   	}
   	
   	// Heute: Erst Anzeigen, wenn Stunde zu Ende
-  	else if(DateFunctions::getTodayAsSQLDate() == $this->getDate()) {  	    
+  	else if(DateFunctions::getTodayAsSQLDate() == $this->getDate()) {
+
+  	    if(DB::getSettings()->getBoolean('klassentagebuch-view-entries-begin-day')) {
+  	        return true;
+        }
+
   	    $stunde = $this->getStunde();
   	    
   	    $tag = DateFunctions::getWeekDayFromSQLDateISO($this->getDate());

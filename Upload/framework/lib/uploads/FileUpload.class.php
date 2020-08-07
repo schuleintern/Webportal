@@ -529,8 +529,10 @@ class FileUpload {
 			finfo_close($finfo);
 			$mimetype = str_replace("; charset=binary", "", $mimetype);
 			$mimetype = str_replace("; charset=utf-8", "", $mimetype);
+            $mimetype = str_replace("; charset=us-ascii", "", $mimetype);
 						
 			if(!in_array($mimetype, $mimes)) {
+			    $mimeerror = $mimetype;
 				$mime = null;
 			}
 			else $mime = $mimetype;
@@ -573,7 +575,7 @@ class FileUpload {
 					'result' => false,
 					'uploadobject' => null,
 					'mimeerror' => true,
-					'text' => "wrong mime type"
+					'text' => "wrong mime type: $mimeerror"
 			];
 		}
 	}

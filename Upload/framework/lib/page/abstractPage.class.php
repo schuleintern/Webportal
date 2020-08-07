@@ -17,7 +17,7 @@ abstract class AbstractPage {
 
 	public $header = "";
 
-	public $footer = "";
+	// public $footer = ""; // moved to PAGE.class.php
 
 	/**
 	 * @deprecated Eigener Requesthandler
@@ -43,7 +43,10 @@ abstract class AbstractPage {
 	private static $activePages = array();
 	
 	public function __construct($pageline, $ignoreSession = false, $isAdmin = false, $isNotenverwaltung = false) {
-		$this->sitename = addslashes ( trim ( $_REQUEST ['page'] ) );
+
+        header("X-Frame-Options: deny");
+
+	    $this->sitename = addslashes ( trim ( $_REQUEST ['page'] ) );
 				
 		if ($this->sitename != "" && in_array($this->sitename, requesthandler::getAllowedActions()) && !self::isActive ( $this->sitename )) {
 			// TODO: Sinnvolle Fehlermeldung
@@ -244,8 +247,14 @@ abstract class AbstractPage {
 			else $isAdmin = false;
 			
 			
+			
+
 			eval ( "\$this->header =  \"" . DB::getTPL ()->get ( 'header/header' ) . "\";" );
-			eval ( "\$this->footer =  \"" . DB::getTPL ()->get ( 'footer' ) . "\";" );
+			
+			/*
+				 moved to PAGE.class.php
+			// eval ( "\$this->footer =  \"" . DB::getTPL ()->get ( 'footer' ) . "\";" );
+			*/
 		}
 	}
 
@@ -317,7 +326,8 @@ abstract class AbstractPage {
 			$valueusername = "";
 
 			eval("echo(\"".DB::getTPL()->get("login/index")."\");");
-			exit(0);
+			PAGE::kill(true);
+      //exit(0);
 		}
 	}
 

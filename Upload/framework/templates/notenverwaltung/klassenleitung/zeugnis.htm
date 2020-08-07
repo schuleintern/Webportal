@@ -2,16 +2,25 @@
 
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title"><i class="fa fa-group"></i> {$this->klasse->getKlassenName()}</h3>
+				<h3 class="box-title"><i class="fa fa-users"></i> Klasse {$this->klasse->getKlassenName()}</h3>
 				<if($gradeChangeAble)><then>
 				
-					Klasse wechseln: 
+
 				
-					<form action="index.php?page=NotenZeugnisKlassenleitung&zeugnisID={$this->zeugnis->getID()}&action=showGrade" method="post">
-						<select name="klasse">
-						$gradeSelect
-						</select>
-						<button class="btn btn-xs"><i class="fa fas fa-sync-alt"></i> Klasse wechseln</button>
+					<form action="index.php" method="get">
+						<input type="hidden" name="page" value="NotenZeugnisKlassenleitung">
+						<input type="hidden" name="zeugnisID" value="{$this->zeugnis->getID()}">
+						<input type="hidden" name="action" value="showGrade">
+
+						<div class="input-group">
+							<div class="input-group-btn">
+								<button class="btn btn-primary"><i class="fa fas fa-sync-alt"></i> Klasse wechseln</button>
+							</div>
+							<select name="klasse" class="form-control">
+								$gradeSelect
+							</select>
+
+						</div>
 					</form>
 				
 				</then>
@@ -23,7 +32,7 @@
 	<div class="col-md-2">
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title"><i class="fa fa-group"></i> SchülerInnen</h3>
+				<h3 class="box-title"><i class="fa fa-users"></i> SchülerInnen</h3>
 			</div>
 			<div class="box-body no-padding">
 				<table class="table table-striped">
@@ -50,7 +59,7 @@
 				</then></if>
 		
 		<if($_REQUEST['saved'] == 1)><then>
-			<div class="callout callout-success">Die Bemerkungen wurden für diesen Schüler gespeichert.</div>
+		<div class="callout callout-success"><i class="fa fa-check"></i> Die Bemerkungen wurden für diesen Schüler gespeichert.</div>
 		</then></if>
 		
 		<div class="box">
@@ -71,7 +80,7 @@
 					<div class="box-header">
 						<h3 class="box-title"><i class="fa fa-check"></i> Zeugnisnoten</h3>
 						
-						<button class="btn btn-primary" onclick="showNotenbogen('{$activeSchuler->getAsvID()}','{$activeSchuler->getCompleteSchuelerName()}')"><i class="fa fa-table"></i> Notenbogen anzeigen</button>
+						<button class="btn btn-primary btn-sm pull-right" onclick="showNotenbogen('{$activeSchuler->getAsvID()}','{$activeSchuler->getCompleteSchuelerName()}')"><i class="fa fa-table"></i> Notenbogen anzeigen</button>
 					</div>
 					<div class="box-body no-padding">
 						<table class="table table-striped">
@@ -121,6 +130,11 @@
 		<div class="box">
 			<div class="box-header">
 				<h3 class="box-title"><i class="fa fas fa-pencil-alt"></i> Bemerkung (unterer Teil (Wahlfächer, sonstiges))</h3>
+
+				<if($niveauText != "")><then>
+					<button class="btn btn-danger pull-right" type="button" onclick="addTextPlain($('#text2'),'{$niveauText}')"><i class="fa fa-plus-circle"></i> Bermerkungen über Fremdsprachenniveustufen einfügen</button>
+				</then></if>
+
 			</div>
 			<div class="box-body no-padding">
 				<textarea name="text2" id="text2" class="form-control" rows="10">$text2</textarea>
@@ -136,6 +150,7 @@
 				<select name="klassenziel" class="form-control">
 					<option value="0"$selectedNichtErreicht>Klassenziel nicht erreicht</option>
 					<option value="1"$selectedErreicht>Klassenziel erreicht</option>
+					<option value="2"$selectedVorrueckenAufProbe>Vorrücken auf Probe</option>
 				</select>
 			</div>
 		</div>
@@ -172,6 +187,50 @@
 </div>
 
 
+<div class="modal fade" id="confirmNote" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					<i class="fa fa-plus"></i> Zeugnisnote bestätigen
+				</h4>
+			</div>
+			<div class="modal-body">
+
+				<form
+						action="index.php?page=NotenZeugnisKlassenleitung&action=confirmZeugnisNote&klasse={$this->klasse->getKlassenName()}"
+						method="post">
+					<input type="hidden" name="schuelerAsvID" value="" id="schuelerAsvIDConfirmNote">
+					<input type="hidden" name="zeugnisID" value="" id="zeugnisIDConfirmNote">
+					<input type="hidden" name="fach" value="" id="fachConfirmNote">
+					<input type="hidden" name="normalCalcNote" value="" id="normalCalcNoteConfirmNote">
+
+					<table class="table table-striped">
+						<tr>
+							<td style="width:20%"><b>Schnitt</b></td>
+							<td><input type="text" name="noteSchnitt" id="noteSchnittConfirmNote" readonly></td>
+						</tr>
+						<tr>
+							<td style="width:20%"><b>Notenwert</b><br /><small>z.B. 3, +4, -3</small></td>
+							<td><input type="text" name="notenWert" id="notenwertPaedNote"></td>
+						</tr>
+						<tr>
+							<td><b>Kommentar</b></td>
+							<td><textarea name="noteKommentar" id="noteKommentarConfirmNote" class="form-control" rows="10"></textarea></td>
+						</tr>
+					</table>
+					<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Note bestätigen</button>
+					<button type="submit" class="btn btn-danger" name="deleteIt" value="1"><i class="fa fa-trash"></i> Note löschen</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script>
 
 	function showNotenbogen(schuelerAsvID, schuelerName) {
@@ -201,6 +260,24 @@
 	
 	function addText(field, select) {
 		field.val(field.val() + $('#'+select).val());
+	}
+
+	function addTextPlain(field, text) {
+		field.val(field.val() + text);
+	}
+
+	function confirmNote(schuelerAsvID, zeugnisID, fach, kommentar, notenwert, normalCalcNote, noteSchnitt) {
+		$("#noteKommentarConfirmNote").val(kommentar);
+
+		$("#fachConfirmNote").val(fach);
+		$("#zeugnisIDConfirmNote").val(zeugnisID);
+		$("#schuelerAsvIDConfirmNote").val(schuelerAsvID);
+		$("#normalCalcNoteConfirmNote").val(normalCalcNote);
+		$("#noteSchnittConfirmNote").val(noteSchnitt);
+
+		$("#notenwertPaedNote").val(notenwert);
+
+		$('#confirmNote').modal('show');
 	}
 	
 	</script>
