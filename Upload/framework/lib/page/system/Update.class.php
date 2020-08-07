@@ -28,8 +28,6 @@ class Update extends AbstractPage
         $toVersion = $updateInfo['updateToVersion'];
 
         // Updates durchführen
-        $this->performUpdate($fromVersion, $toVersion);
-
         if ($this->performUpdate($fromVersion, $toVersion)) {
             DB::getSettings()->setValue("current-release-id", $updateInfo['updateToReleaseID']);
             DB::getSettings()->setValue('currentVersion', DB::getVersion());
