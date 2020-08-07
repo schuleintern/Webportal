@@ -78,9 +78,19 @@ class Update extends AbstractPage
         if ($from == "1.1.1" && $to == "1.1.2") {
             $this->from111to112();
         }
+
+        if ($from == "1.1.1" && $to == "1.2.0") {
+            $this->from111to120();
+        }
+
         return true;
     }
 
+    private function from111to120() {
+
+        DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponse` tinyint(1) NOT NULL DEFAULT '0';");
+        DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponseText` longtext NOT NULL;");
+    }
 
     private function from111to112() {
         $this->updateCssJSFolder(111);
