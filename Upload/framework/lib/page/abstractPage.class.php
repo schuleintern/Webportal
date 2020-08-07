@@ -17,7 +17,7 @@ abstract class AbstractPage {
 
 	public $header = "";
 
-	public $footer = "";
+	// public $footer = ""; // moved to PAGE.class.php
 
 	/**
 	 * @deprecated Eigener Requesthandler
@@ -247,8 +247,14 @@ abstract class AbstractPage {
 			else $isAdmin = false;
 			
 			
+			
+
 			eval ( "\$this->header =  \"" . DB::getTPL ()->get ( 'header/header' ) . "\";" );
-			eval ( "\$this->footer =  \"" . DB::getTPL ()->get ( 'footer' ) . "\";" );
+			
+			/*
+				 moved to PAGE.class.php
+			// eval ( "\$this->footer =  \"" . DB::getTPL ()->get ( 'footer' ) . "\";" );
+			*/
 		}
 	}
 
@@ -320,7 +326,8 @@ abstract class AbstractPage {
 			$valueusername = "";
 
 			eval("echo(\"".DB::getTPL()->get("login/index")."\");");
-			exit(0);
+			PAGE::kill(true);
+      //exit(0);
 		}
 	}
 
