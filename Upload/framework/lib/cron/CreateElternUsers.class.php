@@ -107,8 +107,7 @@ class CreateElternUsers extends AbstractCron {
 	    			if($user != null) $user->deleteUser();
 
                 }
-	    		
-	    		
+
 	    		// Benutzer anlegen
 	    		// Keine Elternbenutzer für Schüler anlegen
                 $newEltern = DB::getDB()->query("SELECT DISTINCT elternEMail FROM eltern_email JOIN eltern_adressen ON eltern_email.elternAdresseID=eltern_adressen.adresseID WHERE elternUserID=0 AND adresseWessen!='S'");

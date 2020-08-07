@@ -58,6 +58,10 @@ class NotenZeugnisKlassenleitung extends AbstractPage {
           case 'showGrade':
               $this->showGrade();
           break;
+
+          case 'confirmZeugnisNote':
+              $this->confirmZeugnisNote();
+          break;
           
           case 'getNotenBogenJSON':
               $this->getNotenbogenJSON();
@@ -119,11 +123,36 @@ class NotenZeugnisKlassenleitung extends AbstractPage {
             
       return false;
   }
+
+  private function confirmZeugnisNote() {
+      if($this->klasse == null) new errorPage("Keine Klasse angegeben!");
+
+      if(!$this->checkGradeAccess($this->klasse)) {
+          new errorPage("Kein Zugriff!");
+      }
+
+      $schueler = schueler::getByAsvID($_REQUEST['schuelerAsvID']);
+      $zeugnis = NoteZeugnis::getByID($_REQUEST['zeugnisID']);
+      $fach = fach::getByKurzform($_REQUEST['fach']);
+
+      $_REQUEST['noteKommentar'] .= "\r\n" . "Bestätigt durch Klassenleitung " . DB::getSession()->getUser()->getTeacherObject()->getKuerzel();
+
+      if($_REQUEST['deleteIt'] > 0) {
+          NoteZeugnisNote::deleteNoteForSchuelerAndFach($schueler, $zeugnis, $fach);
+      }
+      else {
+          NoteZeugnisNote::setNoteForSchuelerAndZeugnisAndFach($schueler, $zeugnis, $fach, $_REQUEST['notenWert'], $_REQUEST['noteKommentar'], $_REQUEST['normalCalcNote'] != $_REQUEST['notenWert']);
+      }
+
+      header("Location: index.php?page=NotenZeugnisKlassenleitung&zeugnisID=" . $zeugnis->getID() . "&action=showGrade&klasse=" . $schueler->getKlasse() . "&selectSchueler=" . $schueler->getAsvID());
+      exit(0);
+
+  }
   
   private function showGrade() {
-      
+
       if($this->klasse == null) new errorPage();
-      
+
       if(!$this->checkGradeAccess($this->klasse)) {
           new errorPage("Kein Zugriff!");
       }
@@ -169,8 +198,17 @@ class NotenZeugnisKlassenleitung extends AbstractPage {
       if($_REQUEST['mode'] == 'saveBemerkung') {
           NoteZeugnisBemerkung::setText1($_REQUEST['text1'], $activeSchuler, $this->zeugnis);
           NoteZeugnisBemerkung::setText2($_REQUEST['text2'], $activeSchuler, $this->zeugnis);
-          NoteZeugnisBemerkung::setKlassenzielErreicht($_POST['klassenziel'] > 0, $activeSchuler, $this->zeugnis);
-          
+
+          if($_POST['klassenziel'] == 1) {
+              NoteZeugnisBemerkung::setKlassenzielErreicht(true, $activeSchuler, $this->zeugnis);
+          }
+          elseif($_POST['klassenziel'] == 2) {
+              NoteZeugnisBemerkung::setVorrueckenAufProbe(true, $activeSchuler, $this->zeugnis);
+          }
+          else {
+              NoteZeugnisBemerkung::setKlassenzielErreicht(false, $activeSchuler, $this->zeugnis);
+          }
+
           header("Location: index.php?page=NotenZeugnisKlassenleitung&zeugnisID=" . $this->zeugnis->getID() . "&action=showGrade&klasse=" . $this->klasse->getKlassenName() . "&selectSchueler=" . $activeSchuler->getAsvID() . "&saved=1");
           exit();
       }
@@ -281,45 +319,105 @@ class NotenZeugnisKlassenleitung extends AbstractPage {
       
       
       // Zeugnisnoten
-      
-      $zeugnisNoten = NoteZeugnisNote::getZeugnisNotenForSchueler($this->zeugnis, $activeSchuler);
-      
+
+      // Alle Noten laden
+      $notenbogen = new Notenbogen($activeSchuler);
+      $unterrichtMitNoten = $notenbogen->getUnterricht();
+      $unterrichtMitNotenNoten = $notenbogen->getUnterrichtsNoten();
+
       $notenTabelle .= "<tr>";
 
-      for($i = 0; $i < sizeof($zeugnisNoten); $i++) {
-          $notenTabelle .= "<th>" . $zeugnisNoten[$i]->getFach()->getKurzform() . "</th>";
+      for($i = 0; $i < sizeof($unterrichtMitNoten); $i++) {
+          $notenTabelle .= "<td style='text-align: center'><b>" . $unterrichtMitNoten[$i]->getFach()->getKurzform() . "</b></td>";
       }
-      
+
       $notenTabelle .= "</tr>";
+      $notenTabelle .= "<tr>";
+
+      for($i = 0; $i < sizeof($unterrichtMitNoten); $i++) {
+            $notenTabelle .= "<td style='text-align: center'>&oslash;  " . $unterrichtMitNotenNoten[$i]->getSchnittFormated() . "</td>";
+      }
+
+      $notenTabelle .= "</tr>";
+
+
+
+      $zeugnisNoten = NoteZeugnisNote::getZeugnisNotenForSchueler($this->zeugnis, $activeSchuler);
+
       
       $anzahlFuenf = 0;
       $anzahlSechs = 0;
       
       $notenTabelle .= "<tr>";
-      
-      for($i = 0; $i < sizeof($zeugnisNoten); $i++) {
-          if($zeugnisNoten[$i]->getWert() > 0) {
-              $farbe = Note::getNotenColor($zeugnisNoten[$i]->getWert());
-              
-              if($zeugnisNoten[$i]->getWert() == 5) {
-                  $anzahlFuenf++;
+
+      for($u = 0; $u < sizeof($unterrichtMitNoten); $u++) {
+
+          $found = false;
+
+          for ($i = 0; $i < sizeof($zeugnisNoten); $i++) {
+              if($zeugnisNoten[$i]->getFach()->getKurzform() == $unterrichtMitNoten[$u]->getFach()->getKurzform()) {
+                  $found = true;
+                  if ($zeugnisNoten[$i]->getWert() > 0) {
+                      $farbe = Note::getNotenColor($zeugnisNoten[$i]->getWert());
+
+                      if ($zeugnisNoten[$i]->getWert() == 5) {
+                          $anzahlFuenf++;
+                      }
+
+                      if ($zeugnisNoten[$i]->getWert() == 6) {
+                          $anzahlSechs++;
+                      }
+
+                      $notenTabelle .= "<td style='text-align: center'><font color=\"" . $farbe . "\" size=\"+2\">" . $zeugnisNoten[$i]->getWert() . "</font></td>";
+                  } else {
+                      $notenTabelle .= "<td style='text-align: center'>--</td>";
+                  }
+                  break;
               }
-              
-              if($zeugnisNoten[$i]->getWert() == 6) {
-                  $anzahlSechs++;
-              }
-              
-              $notenTabelle .= "<td><font color=\"" . $farbe . "\" size=\"+2\">" . $zeugnisNoten[$i]->getWert() . "</font></td>";
           }
-          else {
-              $notenTabelle .= "<td>--</td>";
+
+          if(!$found) {
+              $notenTabelle .= "<td style='text-align: center; color: #ff0000; font-size: 14pt'>--<br /><i class='fa fa-exclamation-circle'></i></td>";
           }
       }
+
       
       $notenTabelle .= "</tr>";
-      
-      
-      
+
+      $notenTabelle .= "<tr>";
+
+      for($u = 0; $u < sizeof($unterrichtMitNoten); $u++) {
+
+          $zeugnisNote = "";
+          $kommentar = "";
+
+          for ($i = 0; $i < sizeof($zeugnisNoten); $i++) {
+              if ($zeugnisNoten[$i]->getFach()->getKurzform() == $unterrichtMitNoten[$u]->getFach()->getKurzform()) {
+                  $zeugnisNote = $zeugnisNoten[$i]->getWert();
+                  $kommentar = $zeugnisNoten[$i]->getPaedBegruendung();
+              }
+          }
+
+          $schnitt = $unterrichtMitNotenNoten[$u]->getSchnitt();
+          $schnittFormated = $unterrichtMitNotenNoten[$u]->getSchnittFormated();
+
+          $notenTabelle .= "<td><button class='btn btn-default btn-xs btn-block' onclick=\"
+                confirmNote(
+                    '{$activeSchuler->getAsvID()}',
+                    '{$this->zeugnis->getID()}',
+                    '{$unterrichtMitNoten[$u]->getFach()->getKurzform()}',
+                    '" . addslashes(str_replace("\r","",str_replace("\n","",$kommentar))) . "',
+                    '{$zeugnisNote}',
+                    '" . round($schnitt, 0, PHP_ROUND_HALF_DOWN) . "',
+                    '$schnittFormated')\"><i class='fa fa-check'></i></button>";
+
+      }
+
+      $notenTabelle .= "</tr>";
+
+
+
+
       // /Zeugnisnoten
       
       
@@ -420,6 +518,7 @@ class NotenZeugnisKlassenleitung extends AbstractPage {
       
       if($bemerkung != null) {
           if($bemerkung->klassenzielErreicht()) $selectedErreicht = " selected";
+          elseif($bemerkung->vorrueckenAufProbe()) $selectedVorrueckenAufProbe = " selected";
           else $selectecNichtErreicht = " selected";
       }
       
@@ -429,11 +528,27 @@ class NotenZeugnisKlassenleitung extends AbstractPage {
       for($i = 0; $i < sizeof($schueler); $i++) {
           $active = "";
           
-          if($schueler[$i]->getAsvID() == $activeSchuler->getAsvID()) $active = " style=\"background-color: lightblue\"";
+          if($schueler[$i]->getAsvID() == $activeSchuler->getAsvID()) $active = " style=\"background-color: #CECECE\"";
           
-          $schuelerTabelle .= "<tr><td>" . ($i+1) . "</td><td$active><a href=\"index.php?page=NotenZeugnisKlassenleitung&zeugnisID=" . $this->zeugnis->getID() . "&action=showGrade&klasse=" . $this->klasse->getKlassenName() . "&selectSchueler=" . $schueler[$i]->getAsvID() . "\">" . $schueler[$i]->getCompleteSchuelerName() . "</a></td></tr>";
+          $schuelerTabelle .= "<tr><td style='text-align: left; width: 20px'>" . ($i+1) . "</td><td$active><a href=\"index.php?page=NotenZeugnisKlassenleitung&zeugnisID=" . $this->zeugnis->getID() . "&action=showGrade&klasse=" . $this->klasse->getKlassenName() . "&selectSchueler=" . $schueler[$i]->getAsvID() . "\">" . $schueler[$i]->getCompleteSchuelerName() . "</a></td>
+
+                <td style='text-align: right; width: 20px'>";
+
+          if($schueler[$i]->getGeschlecht() == "w") $schuelerTabelle .= "<i class='fa fa-female'></i>";
+          if($schueler[$i]->getGeschlecht() == "m") $schuelerTabelle .= "<i class='fa fa-male'></i>";
+
+          $schuelerTabelle .= "</td>
+
+
+                </tr>";
       }
-      
+
+
+      // Niveaustufen
+      $niveaustufen = new NotenFremdsprachenNiveaustufen($activeSchuler->getKlassenObjekt()->getKlassenstufe(), $zeugnisNoten);
+
+      $niveauText = $niveaustufen->getText();
+
       eval("DB::getTPL()->out(\"" . DB::getTPL()->get("notenverwaltung/klassenleitung/zeugnis") . "\");");
       
   }

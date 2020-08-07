@@ -96,7 +96,28 @@ class userprofile extends AbstractPage {
 	        DB::getSession()->getUser()->setSignature($_REQUEST['sig']);
 	        header("Location: index.php?page=userprofile");
 	        exit(0);
-	    }
+			}
+			
+			if($_REQUEST['action'] == "updateAutoresponse") {
+			//	print_r($_REQUEST); exit;
+
+				//DB::getSession()->getUser()->setAutoresponse($_REQUEST['value']);
+
+				//print_r($_REQUEST['value']);
+
+				DB::getSession()->getUser()->setAutoresponse($_REQUEST['value']);
+
+				
+
+				header("Location: index.php?page=userprofile");
+				exit(0);
+			}
+
+			if($_REQUEST['action'] == "updateAutoresponseText") {
+				DB::getSession()->getUser()->setAutoresponseText($_REQUEST['sig']);
+				header("Location: index.php?page=userprofile");
+				exit(0);
+			}
 	    
 	    
 	    

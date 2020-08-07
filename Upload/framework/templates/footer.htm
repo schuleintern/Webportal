@@ -125,6 +125,141 @@
 	   
 	   </script>
 	   
-    
+		
+		<if(DB::isDebug())>
+			<then>
+				<style>
+					#devTools {
+						background-color: #222;
+						color: #fff;
+						position: fixed;
+						bottom: 0;
+						left: 0;
+						height: 3rem;
+						width: 100vw;
+						z-index: 9999999999999;
+						display: flex;
+
+					}
+
+					#devTools .devLabel {
+						flex: 1;
+						background-color: #008d4c;
+						background-image: url('images/dev/devIcon.svg');
+						background-position: 1rem center;
+						background-repeat: no-repeat;
+						background-size: auto 80%;
+						width: 100%;
+						height: 100%;
+						min-width: 12rem;
+						max-width: 12rem;
+						margin-right: 3rem;;
+					}
+					#devTools .devIcon {
+						
+						background-position: left center;
+						background-repeat: no-repeat;
+						background-size: auto 60%;
+						width: 100%;
+						height: 100%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						padding-right: 1rem;
+						font-size: 100%;
+						cursor: pointer;
+					}
+
+
+					#devTools .queries {
+						flex: 1;
+						min-width: 12rem;
+						max-width: 12rem;
+						height: 100%;
+					}
+
+					#devTools .queries .devIcon {
+						background-image: url('images/dev/query.svg');
+					}
+
+					#devTools .dump {
+						flex: 1;
+						min-width: 12rem;
+						max-width: 12rem;
+						height: 100%;
+					}
+					#devTools .dump .devIcon {
+						background-image: url('images/dev/dump.svg');
+					}
+
+
+					#devTools .item {
+						padding: 1rem;
+					}
+					#devTools .item:nth-child(odd) {
+						background-color: rgb(46, 46, 46);
+					}
+					#devTools .item-header {
+						font-size: 90%;
+						padding-bottom: 0.3rem;
+					}
+
+
+					#devTools .devContent {
+						position: fixed;
+						top: 20vh;
+						left: 10vw;
+						width: 80vw;
+						height: 70vh;
+						display: none;
+						background-color: #222;
+						border: 1px solid #000;
+						overflow: auto;
+						
+					}
+					#devTools .devContent .devContentClose {
+						background-color: #dd4b39;
+						background-image: url('images/dev/devClose.svg');
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: auto 40%;
+						height: 5rem;
+						width: 5rem;
+						border-radius: 2.5rem;
+						position: fixed;
+						left: 88vw;
+						top: 17vh;
+						cursor: pointer;
+					}
+					#devTools .devContent .error {
+						background-color: #dd4b39;
+						padding: 1rem;
+					}
+				</style>
+				<div id="devTools">
+					<div class="devLabel"></div>
+					{$devTools}
+				</div>
+				<script>
+					var openContent = false;
+					$('#devTools .devIcon').click(function (e) {
+						if (openContent) {
+							openContent.hide();
+						}
+						openContent = $(e.target).next('.devContent');
+						if (openContent) {
+							openContent.show();
+						}
+						
+					});
+					$('#devTools .devContentClose').click(function (e) {
+						if (openContent) {
+							openContent.hide();
+						}
+					});
+				</script>
+			</then>
+		</if>
+
     </body>
 </html>

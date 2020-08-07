@@ -180,7 +180,8 @@ class krankmeldung extends AbstractPage {
 				}
 				
 				eval("echo(\"" . DB::getTPL()->get("krankmeldung/ok") . "\");");
-				exit();
+				PAGE::kill(true);
+     	 //exit(0);
 			}
 			else {
 				$this->showNewKrankmeldungForm("Die Datumsangaben sind nicht korrekt!");
@@ -229,7 +230,8 @@ class krankmeldung extends AbstractPage {
 		}
 		
 		eval("echo(\"" . DB::getTPL()->get("krankmeldung/deleteok") . "\");");
-		exit(0);
+		PAGE::kill(true);
+    //exit(0);
 		
 	}
 	
@@ -312,7 +314,8 @@ class krankmeldung extends AbstractPage {
 		
 				
 		eval("echo(\"" . DB::getTPL()->get("krankmeldung/new") . "\");");
-		exit(0);
+		PAGE::kill(true);
+    //exit(0);
 	}
 	
 	public static function hasSettings() {

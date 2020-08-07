@@ -189,12 +189,22 @@ class administrationasvimport extends AbstractPage {
 		foreach($simpleXML->schulen[0]->schule->faecher->fach as $fach) {
 			self::$faecher[] = array(
 					"id" => strval($fach->xml_id),
-			        'asdid' => strval($fach->asd_fach),
+			    'asdid' => strval($fach->asd_fach),
 					"kurzform" => strval($fach->kurzform),
 					"langform" => strval($fach->langform),
-			        'istselbsterstellt' => strval($fach->ist_selbst_erstellt)
+			    'istselbsterstellt' => strval($fach->ist_selbst_erstellt)
 			);
 		}
+
+		// Ganztags
+
+		self::$faecher[] = array(
+			"id" => 1,
+			'asdid' => 0,
+			"kurzform" => "OGS",
+			"langform" => "Ganztags Betreuung",
+			'istselbsterstellt' => 1
+		);
 
 
 		// Ordnungszahlen retten
@@ -267,6 +277,22 @@ class administrationasvimport extends AbstractPage {
 					'pseudokoppel' => $isPseudoKoppel
 			);
 		}
+
+		// Ganztags
+		self::$unterricht[] = array(
+			"lehrer" => 0,
+			"fachid" => 1,
+			"bezeichnung" => "Ganztags",
+			"unterrichtsart" => '',
+			"stunden" => 12,
+			"wissenschaftlich" => 0,
+			"startdatum" => 0,
+			"enddatum" => 0,
+			'klassenunterricht' => 0,
+			'koppeltext' => '',
+			'pseudokoppel' => 0
+	);
+
 
 		$doneActions .= "Unterricht eingelesen\r\n";
 
@@ -534,7 +560,9 @@ class administrationasvimport extends AbstractPage {
 							"name" => (strval($schueler->familienname)),
 							"vornamen" => (strval($schueler->vornamen)),
 							"rufname" => (strval($schueler->rufname)),
-							"geschlecht" => (strval($schueler->geschlecht)) == "1" ? "m" : "w",
+                            "namevorgestellt" => (strval($schueler->namensbestandteil_vorangestellt)),
+                            "namenachgestellt" => (strval($schueler->namensbestandteil_nachgestellt)),
+                            "geschlecht" => (strval($schueler->geschlecht)) == "1" ? "m" : "w",
 							"geburtsdatum" => (strval($schueler->geburtsdatum)),
 							"austrittsdatum" => strval($schueler->austrittsdatum),
 							"bekenntnis" => $religion[strval($schueler->religionszugehoerigkeit)],
@@ -547,7 +575,8 @@ class administrationasvimport extends AbstractPage {
 							"adressen" => $adressen,
 							"unterricht" => $unterrichtListe,
 							"ausbildungsrichtung" => $ausbildungsrichtung,
-							'sprachen' => $sprachen
+							'sprachen' => $sprachen,
+							"ganztag_betreuung" => (strval($schueler->ganztag_betreuung)),
 							);
 
 
@@ -592,6 +621,8 @@ class administrationasvimport extends AbstractPage {
 					$zeugnisname = strval($daten->zeugnisname_1);
 					$amtsbezeichnungID = intval($daten->amtsbezeichnung);
 					$asvID = strval($daten->lokales_differenzierungsmerkmal);
+					$nameNachgestellt = $daten->namensbestandteil_nachgestellt;
+					$nameVorgestellt = $daten->namensbestandteil_vorangestellt;
 					break;
 				}
 			}
@@ -603,6 +634,8 @@ class administrationasvimport extends AbstractPage {
     				"datenid" => intval($lehrer->lehrkraftdaten_nicht_schulbezogen_id),
     				"kuerzel" => (strval($lehrer->namenskuerzel)),
     				"name" => ($name),
+    				"namevorgestellt" => $nameVorgestellt,
+    				"namenachgestellt" => $nameNachgestellt,
     				"vornamen" => ($vornamen),
     				"rufname" => ($rufname),
     				"geschlecht" => $geschlecht,
@@ -653,7 +686,9 @@ class administrationasvimport extends AbstractPage {
 						lehrerRufname,
 						lehrerGeschlecht,
 						lehrerZeugnisunterschrift,
-						lehrerAmtsbezeichnung
+						lehrerAmtsbezeichnung,
+						lehrerNameVorgestellt,
+						lehrerNameNachgestellt
 					) values(
 						'" . DB::getDB()->escapeString($lehrer[$i]['xmlid']) . "',
 						'" . DB::getDB()->escapeString($lehrer[$i]['asvid']) . "',
@@ -663,7 +698,9 @@ class administrationasvimport extends AbstractPage {
 						'" . DB::getDB()->escapeString($lehrer[$i]['rufname']) . "',
 						'" . DB::getDB()->escapeString($lehrer[$i]['geschlecht']) . "',
 						'" . DB::getDB()->escapeString($lehrer[$i]['zeugnisname']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['amtsbezeichnung']) . "'
+						'" . DB::getDB()->escapeString($lehrer[$i]['amtsbezeichnung']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['namevorgestellt']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['namenachgestellt']) . "'
 					) ON DUPLICATE KEY UPDATE
 						lehrerID='" . DB::getDB()->escapeString($lehrer[$i]['xmlid']) . "',
 						lehrerKuerzel='" . DB::getDB()->escapeString($lehrer[$i]['kuerzel']) . "',
@@ -673,7 +710,9 @@ class administrationasvimport extends AbstractPage {
 						lehrerGeschlecht='" . DB::getDB()->escapeString($lehrer[$i]['geschlecht']) . "',
 						lehrerZeugnisunterschrift='" . DB::getDB()->escapeString($lehrer[$i]['zeugnisname']) . "',
 						lehrerAmtsbezeichnung='" . DB::getDB()->escapeString($lehrer[$i]['amtsbezeichnung']) . "',
-						lehrerUserID=lehrerUserID
+						lehrerUserID=lehrerUserID,
+						lehrerNameVorgestellt='" . DB::getDB()->escapeString($lehrer[$i]['namevorgestellt']) . "',
+						lehrerNameNachgestellt='" . DB::getDB()->escapeString($lehrer[$i]['namenachgestellt']) . "'
 			");
 		}
 
@@ -752,7 +791,11 @@ class administrationasvimport extends AbstractPage {
 							schuelerGeburtsland,
 							schuelerJahrgangsstufe,
 							schulerEintrittJahrgangsstufe,
-							schuelerEintrittDatum
+							schuelerEintrittDatum, 
+							schuelerNameVorgestellt,
+							schuelerNameNachgestellt,
+              schuelerGanztagBetreuung
+
 						) values (
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['asvid']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['name']) . "',
@@ -768,7 +811,11 @@ class administrationasvimport extends AbstractPage {
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['geburtsland']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufe']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufeeintritt']) . "',
-							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "'
+							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "',
+							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung']) . "',
+							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namevorgestellt']) . "',
+							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namenachgestellt']) . "'
+
 						) ON DUPLICATE KEY UPDATE
 							schuelerAsvID='" . self::$klassen[$i]['schueler'][$s]['asvid'] . "',
 							schuelerName='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['name']) . "',
@@ -784,7 +831,10 @@ class administrationasvimport extends AbstractPage {
 							schuelerGeburtsland='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['geburtsland']) . "',
 							schuelerJahrgangsstufe = '" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufe']) . "',
 							schulerEintrittJahrgangsstufe='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufeeintritt']) . "',
-							schuelerEintrittDatum='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "'
+							schuelerEintrittDatum='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "',
+							schuelerGanztagBetreuung='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung']) . "',
+							schuelerNameVorgestellt='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namevorgestellt']) . "',
+							schuelerNameNachgestellt='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namenachgestellt']) . "'
 						");
 
 				$values = "";
@@ -807,6 +857,11 @@ class administrationasvimport extends AbstractPage {
 				}
 
 				if($values != "") DB::getDB()->query("INSERT INTO unterricht_besuch (unterrichtID, schuelerAsvID) values " . $values);
+
+				// Ganztags
+
+				if(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung'] != "") DB::getDB()->query("INSERT INTO unterricht_besuch (unterrichtID, schuelerAsvID) values ('1','" . self::$klassen[$i]['schueler'][$s]['asvid'] . "')");
+
 			}
 		}
 

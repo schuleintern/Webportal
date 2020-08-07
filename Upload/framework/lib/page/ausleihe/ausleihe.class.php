@@ -320,8 +320,13 @@ class ausleihe extends AbstractPage {
 			
 			for($i = 0; $i < sizeof($datesAusleiheData); $i++) {
 				// Ferien prüfen
-				$ferien = DB::getDB()->query_first("SELECT * FROM kalender_ferien WHERE ferienStart<='" . $datesAusleiheData[$i] . "' AND ferienEnde >= '" . $datesAusleiheData[$i] . "'");
-				
+				// $ferien = DB::getDB()->query_first("SELECT * FROM kalender_ferien WHERE ferienStart<='" . $datesAusleiheData[$i] . "' AND ferienEnde >= '" . $datesAusleiheData[$i] . "'");
+
+
+                // TODO wieder raus nehmen:
+                $ferien['ferienID'] = 0;
+
+
 				if($ferien['ferienID'] > 0 && $s == 1) {
 					$html .= "<td rowspan=\"" . $showStunden . "\" colspan=\"" . $anzahl . "\" align=\"center\" style=\"vertical-align: middle;\"><i class=\"fa fa-pagelines\"></i> <b>" . $ferien['ferienName'] . "</b></td>";
 				}

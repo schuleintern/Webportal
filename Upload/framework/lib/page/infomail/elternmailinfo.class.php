@@ -169,7 +169,8 @@ class elternmailinfo extends AbstractPage {
 
         if($mail['mailRequireConfirmation'] == 0) {
           eval("echo(\"" . DB::getTPL()->get("elternmail/info/no_confirmation_required") . "\");");
-          exit(0);
+          PAGE::kill(true);
+          //exit(0);
         }
 
         // Rücklauf für Klasse anzeigen

@@ -106,12 +106,11 @@ class NoteZeugnisNote {
         else return [];
         
     }
-    
+
     /**
-     *
-     * @param NoteZeugnis $zeugnis
-     * @param schueler $schueler
-     * 
+     * @param $zeugnis
+     * @param $schueler
+     * @return NoteZeugnisNote[]
      */
     public static function getZeugnisNotenForSchueler($zeugnis, $schueler) {
 

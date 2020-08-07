@@ -202,6 +202,9 @@ class Message {
 
 		$this->recipientsPreview = DB::getDB()->decodeString($data['messageRecipientsPreview']);
 
+		$this->ccrecipientRawData = $data['messageCCRecipients'];
+		$this->bccrecipientRawData = $data['messageBCCRecipients'];
+		
 		// $rh = new RecipientHandler($data['messageRecipients']);
 		// $this->recipients = $rh->getAllRecipients();
 		

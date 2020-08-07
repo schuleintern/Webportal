@@ -84,6 +84,7 @@ class NotenCalculcator {
      * @param Note $note
      */
     public function addNote($note) {
+        if($note->getWert() == 0) return;       // TODO: Bei Oberstufe übergehen!
         $this->noten[] = $note;
         if($note->nurWennBesser()) $this->isNotenNurWennBesser = true;
     }
@@ -164,6 +165,9 @@ class NotenCalculcator {
         $noteKlein = -1;
 
         $summeNoten = 0;
+
+        $gewichte = 0;
+
         $gewichtungSchulaufgaben = 0;
         for($i = 0; $i < sizeof($this->noten); $i++) {
             if($this->noten[$i]->nurWennBesser() && $withoutNurWennBesserNoten) continue;
@@ -206,7 +210,12 @@ class NotenCalculcator {
         else return '--';
     }
 
-    private function calcNoten($ignoreNotenschutz = false, $withOutNurWennBesserNoten = false) {
+    /**
+     * @param bool $ignoreNotenschutz
+     * @param bool $withOutNurWennBesserNoten
+     * @return float|int|string
+     */
+    private function calcNoten($ignoreNotenschutz = false, $withOutNurWennBesserNoten = false, $dontRecalcNotenOhneNurWennBesserNoten = false) {
 
         if(schulinfo::isGymnasium()) {
             $this->gewichtGross = 2;
@@ -247,7 +256,9 @@ class NotenCalculcator {
 
 
             for($i = 0; $i < sizeof($this->noten); $i++) {
-                if($this->noten[$i]->nurWennBesser() && $withOutNurWennBesserNoten) continue;
+                if($this->noten[$i]->nurWennBesser() && $withOutNurWennBesserNoten) {
+                    continue;
+                }
                 
                 if($this->noten[$i]->getArbeit()->getBereich() == 'SA') {
 
@@ -278,29 +289,37 @@ class NotenCalculcator {
                 $this->schnittKlein = $noteKlein;
             }
 
-            
             $result = 0;
             
             if($noteKlein >= 0 && $noteSchulaufgaben >= 0) {
                 $result =  self::NoteRunden(
                     (
                         ($this->gewichtGross*$noteSchulaufgaben) + ($this->gewichtKlein*$noteKlein))
-                    / 
+                            /
                         ($this->gewichtGross + $this->gewichtKlein)
                 );
             }
 
             else if($noteKlein >= 0) $result =   self::NoteRunden($noteKlein);
             else if($noteSchulaufgaben >= 0) $result =   self::NoteRunden($noteSchulaufgaben);
-            
+
+
             
             if($withOutNurWennBesserNoten) return $result;
-            
-            if($this->isNotenNurWennBesser) {
+
+            if($this->isNotenNurWennBesser && !$dontRecalcNotenOhneNurWennBesserNoten) {
                 $nurWennBesser = $this->calcNoten($ignoreNotenschutz, true);
-                if($nurWennBesser <= $result) return $nurWennBesser;
+                if($nurWennBesser <= $result) {
+                    return $nurWennBesser;
+                }
+                else {
+                    $this->calcNoten($ignoreNotenschutz, false, true);
+                    return $result;
+                }
             }
-            else return $result;
+            else {
+                return $result;
+            }
 
         }
         else {
