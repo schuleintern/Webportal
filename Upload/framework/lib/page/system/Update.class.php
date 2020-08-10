@@ -111,6 +111,9 @@ class Update extends AbstractPage
         DB::getDB()->query("ALTER TABLE `schueler` ADD `schuelerGanztagBetreuung` int(11) NOT NULL DEFAULT '0';", true);
 
         $this->updateCssJSFolder(111);
+
+        rename("./images", "../images_old_$oldVersion" . rand(1000,9999));
+        rename("../data/update/Upload/www/images", "./images");
         
     }
 
