@@ -8,7 +8,7 @@ ALTER TABLE `users`
 ADD `userAutoresponseText` longtext NOT NULL;
 
 -- Create syntax for TABLE 'ganztags_gruppen'
-CREATE TABLE `ganztags_gruppen` (
+CREATE TABLE IF NOT EXISTS `ganztags_gruppen` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `sortOrder` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE `ganztags_gruppen` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- Create syntax for TABLE 'ganztags_schueler'
-CREATE TABLE `ganztags_schueler` (
+CREATE TABLE IF NOT EXISTS `ganztags_schueler` (
   `asvid` varchar(200) NOT NULL DEFAULT '',
   `info` varchar(255) DEFAULT NULL,
   `gruppe` int(11) DEFAULT NULL,

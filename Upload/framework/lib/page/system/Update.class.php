@@ -86,8 +86,32 @@ class Update extends AbstractPage
 
     private function from111to120() {
 
-        DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponse` tinyint(1) NOT NULL DEFAULT '0';");
-        DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponseText` longtext NOT NULL;");
+        DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponse` tinyint(1) NOT NULL DEFAULT '0';", true);
+        DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponseText` longtext NOT NULL;", true);
+        
+        DB::getDB()->query("CREATE TABLE IF NOT EXISTS `ganztags_gruppen` ("
+            ."`id` int(11) unsigned NOT NULL AUTO_INCREMENT,"
+            ."`sortOrder` int(11) DEFAULT NULL,"
+            ."`name` varchar(255) DEFAULT NULL,"
+            ."PRIMARY KEY (`id`)"
+            .") ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;", true);
+        DB::getDB()->query("CREATE TABLE IF NOT EXISTS `ganztags_schueler` ("
+            ."`asvid` varchar(200) NOT NULL DEFAULT '',"
+            ."`info` varchar(255) DEFAULT NULL,"
+            ."`gruppe` int(11) DEFAULT NULL,"
+            ."`tag_mo` tinyint(1) DEFAULT NULL,"
+            ."`tag_di` tinyint(1) DEFAULT NULL,"
+            ."`tag_mi` tinyint(1) DEFAULT NULL,"
+            ."`tag_do` tinyint(1) DEFAULT NULL,"
+            ."`tag_fr` tinyint(1) DEFAULT NULL,"
+            ."`tag_sa` tinyint(1) DEFAULT NULL,"
+            ."`tag_so` tinyint(1) DEFAULT NULL,"
+            ."PRIMARY KEY (`asvid`)"
+            .") ENGINE=InnoDB DEFAULT CHARSET=utf8;", true);
+        DB::getDB()->query("ALTER TABLE `schueler` ADD `schuelerGanztagBetreuung` int(11) NOT NULL DEFAULT '0';", true);
+
+        $this->updateCssJSFolder(111);
+        
     }
 
     private function from111to112() {
