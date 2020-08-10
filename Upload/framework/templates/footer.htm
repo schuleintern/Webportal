@@ -139,7 +139,11 @@
 						width: 100vw;
 						z-index: 9999999999999;
 						display: flex;
+						justify-content: space-between;
+					}
 
+					#devTools .spacer {
+						flex: 1;
 					}
 
 					#devTools .devLabel {
@@ -180,6 +184,18 @@
 
 					#devTools .queries .devIcon {
 						background-image: url('images/dev/query.svg');
+					}
+
+					#devTools #devToolsClose {
+						flex: 1;
+						min-width: 3rem;
+						max-width: 3rem;
+						background-image: url('images/dev/devClose.svg');
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: auto 40%;
+						height: 100%;
+						background-color: rgb(46, 46, 46);
 					}
 
 					#devTools .dump {
@@ -239,6 +255,8 @@
 				<div id="devTools">
 					<div class="devLabel"></div>
 					{$devTools}
+					<div class="spacer"></div>
+					<div id="devToolsClose"></div>
 				</div>
 				<script>
 					var openContent = false;
@@ -256,6 +274,9 @@
 						if (openContent) {
 							openContent.hide();
 						}
+					});
+					$('#devToolsClose').click(function (e) {
+						$('#devTools').hide();
 					});
 				</script>
 			</then>
