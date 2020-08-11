@@ -59,7 +59,18 @@ class AdminBackup extends AbstractPage {
 	}
 
     public static function displayAdministration($selfURL) {
-        $html = "---backup----";
+        //$html = "---backup----";
+
+
+
+        $directory = '../data/backup';
+        $scanned_directory = array_diff(scandir($directory), array('..', '.'));
+
+        print_r($scanned_directory);
+
+        eval("\$html = \"" . DB::getTPL()->get("administration/backup/list") . "\";");
+
+
         return $html;
     }
  
