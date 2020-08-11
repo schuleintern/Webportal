@@ -284,7 +284,8 @@ class administrationmodule extends AbstractPage {
 		
 		
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("administration/module/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+		//exit(0);
 		
 	}
 	
