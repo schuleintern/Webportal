@@ -368,7 +368,8 @@ class MessageRead extends AbstractPage {
 
     eval("\$FRAMECONTENT = \"" . DB::getTPL()->get("messages/inbox/read") . "\";");
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get("messages/inbox/frame") . "\");");
-    exit(0);
+    //exit(0);
+    PAGE::kill(true);
   }
   
   /**
