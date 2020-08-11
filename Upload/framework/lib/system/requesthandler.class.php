@@ -77,6 +77,7 @@ class requesthandler {
       'administrationgroups',
         'AdminMailSettings',
         'AdminUpdate',
+        'AdminBackup',
         'AdministrationEltern'
     ],
     'aufeinenblick' => [
@@ -174,7 +175,8 @@ class requesthandler {
       'GetMathCaptcha',
       'index',
       'info',
-        'Update'
+      'Update',
+      'Backup'
     ],
     'userprofile' => [
       'changeuseridinsession',
