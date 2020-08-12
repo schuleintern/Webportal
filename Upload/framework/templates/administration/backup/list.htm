@@ -1,11 +1,14 @@
 <div class="box">
 
-  {{$files_json}}
- 
+  <a href="{$selfURL}&task=1&action=database">make Backup</a>
 
+  
+  
+  <br><br>
   <div id=app></div>
   <script>
     var globals = {
+      selfURL: '$selfURL',
       files: $files_json
     }
     

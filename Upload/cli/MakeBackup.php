@@ -39,7 +39,7 @@ error_reporting(E_ALL);
  * 
  */
 
-class Backup {
+class MakeBackup {
 
     private $debug = array();
     private $settings = false;
@@ -74,7 +74,7 @@ class Backup {
     public function execute() {
 
         include("vendor/autoload.php");
-		
+
 		if ($_SERVER['SSH_CONNECTION']) {
 			// execute from cli/ssh
 			$action = $_SERVER['argv'][1];
@@ -169,7 +169,7 @@ class Backup {
             return false;
         }
 
-        include("../data/config/config.php");
+        include_once("./../data/config/config.php");
         $this->settings = new GlobalSettings();
 
         return true;
@@ -413,6 +413,6 @@ class Backup {
 
 }
 
-$backup = new Backup;
-$backup->execute();
+//$backup = new Backup;
+//$backup->execute();
 

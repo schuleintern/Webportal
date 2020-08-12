@@ -62,15 +62,49 @@ class AdminBackup extends AbstractPage {
 
 			$html = '';
 
-        $directory = '../data/backup';
-        $files_json = json_encode(FILE::getFilesInFolder($directory, true, 'zip'));
+			if($_REQUEST['task'] == "1") {
+				echo $_REQUEST['task']; 
+				//echo var_dump( include('./../cli/MakeBackup.php') );
+				include('./../cli/MakeBackup.php');
+				//echo '#'.realpath(".");
 
-				// echo '<pre>';
-        // print_r($files_json);
-				// echo '</pre>';
+				$backup = new MakeBackup;
+				//$backup->execute();
 
-	
-        eval("\$html = \"" . DB::getTPL()->get("administration/backup/list") . "\";");
+				echo '---end';
+				exit;
+			}
+
+			if($_REQUEST['task'] == "2") {
+				$file = $_REQUEST['path'];
+
+				if (file_exists($file)) {
+					header('Content-Description: File Transfer');
+					header('Content-Type: application/octet-stream');
+					header('Content-Disposition: attachment; filename="'.basename($file).'"');
+					header('Expires: 0');
+					header('Cache-Control: must-revalidate');
+					header('Pragma: public');
+					header('Content-Length: ' . filesize($file));
+
+					echo $file;
+					//readfile($file);
+					exit;
+				} else {
+					echo 'no file';
+				}
+				exit;
+			}
+
+			$directory = '../data/backup';
+			$files_json = json_encode(FILE::getFilesInFolder($directory, true, 'zip'));
+
+			// echo '<pre>';
+			// print_r($files_json);
+			// echo '</pre>';
+
+
+			eval("\$html = \"" . DB::getTPL()->get("administration/backup/list") . "\";");
 
 
         return $html;

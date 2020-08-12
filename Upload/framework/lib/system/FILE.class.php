@@ -74,12 +74,29 @@ class FILE {
     
     if ($filepath) {
       $foo = stat($filepath);
+      if ($foo['size']) {
+        $foo['formatSize'] =  self::formatBytes($foo['size']);
+      }
+      if ($foo['mtime']) {
+        $foo['formatMtime'] =  date('d.m.Y', $foo['mtime']);
+      }
+      
       $foo['extension'] = pathinfo($filepath, PATHINFO_EXTENSION);
+      $foo['filepath'] = $filepath;
+      $foo['filepathAbsolute'] = str_replace("\\",'/',"http://".$_SERVER['HTTP_HOST'].substr(getcwd(),strlen($_SERVER['DOCUMENT_ROOT']))).'/'.$filepath;
       return $foo;
     }
     return false;
   }
 
+
+  public static function formatBytes($size, $precision = 2) { 
+    $base = log($size, 1024);
+    $suffixes = array('', 'kb', 'mb', 'g', 't');   
+
+    return round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
+
+} 
 
 
 }

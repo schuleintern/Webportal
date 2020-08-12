@@ -1,0 +1,95 @@
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-1 {
+  flex: 1;
+}
+.flex-2 {
+  flex: 2;
+}
+.flex-3 {
+  flex: 3;
+}
+.flex-4 {
+  flex: 4;
+}
+.flex-5 {
+  flex: 5;
+}
+.flex-6 {
+  flex: 6;
+}
+.flex-7 {
+  flex: 7;
+}
+.flex-8 {
+  flex: 8;
+}
+
+.flex-9 {
+  flex: 9;
+}
+
+.flex-10 {
+  flex: 10;
+}
+
+
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.noListStyle {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.height_35 {
+  max-height: 35vh !important;
+}
+
+
+
+.margin-r-xs {
+  margin-right: 0.3rem;
+}
+.margin-r-s {
+  margin-right: 0.6rem;
+}
+
+
+.margin-b-s {
+  margin-bottom: 0.6rem;
+}
+.margin-b-m {
+  margin-bottom: 1.3rem;
+}
+.margin-b-l {
+  margin-bottom: 2.3rem;
+}
+
+
+.line-oddEven:nth-child(odd)  {
+  background-color: #f9f9f9;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-lineHeight-m {
+  line-height: 200%;
+}
