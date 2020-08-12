@@ -59,15 +59,17 @@ class AdminBackup extends AbstractPage {
 	}
 
     public static function displayAdministration($selfURL) {
-        //$html = "---backup----";
 
-
+			$html = '';
 
         $directory = '../data/backup';
-        $scanned_directory = array_diff(scandir($directory), array('..', '.'));
+        $files_json = json_encode(FILE::getFilesInFolder($directory, true, 'zip'));
 
-        print_r($scanned_directory);
+				// echo '<pre>';
+        // print_r($files_json);
+				// echo '</pre>';
 
+	
         eval("\$html = \"" . DB::getTPL()->get("administration/backup/list") . "\";");
 
 
