@@ -20,7 +20,7 @@
               <li class="flex-1">{{entry.formatSize}}</li>
               <li class="flex-1">{{entry.formatMtime}}</li>
               <li class="flex-1">
-                <a v-bind:href="selfURL+'&task=get&path='+entry.filepath">Download</a>
+                <a v-bind:href="selfURL+'&task=get&path='+encodeURIComponent(entry.filepath)">Download</a>
               </li>
             </ul>
           </li>
@@ -36,12 +36,12 @@
      
       <div class="padding-m">
         <div v-if="task == 'execute'">
-          <i class="fa fa-spinner fa-spin"></i>
+          Vorgang wird durchgeführt...<i class="margin-l-s fa fa-spinner fa-spin"></i>
         </div>
         <div v-if="task == 'end'">
           <h4 v-show="error" class="text-red">{{error}}</h4>
-          <div v-show="result" class="box padding-m" >{{result}}</div>
           <a v-bind:href="selfURL">Zurück zur Liste</a>
+          <div v-show="result" class="box padding-m" v-html="result"></div>
         </div>
       </div>
 
@@ -51,7 +51,8 @@
           <select class="width-form" v-model="art">
             <option value="database">Nur Datenbank</option>
             <option value="data">Eigene Daten und Datenbank</option>
-            <option value="full">Daten, System und Datenbank</option>
+            <option value="system">System und Datenbank</option>
+            <option value="full">Eigene Daten, System und Datenbank</option>
           </select>
         </li>
         <li class="padding-m">

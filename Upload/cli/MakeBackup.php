@@ -22,6 +22,7 @@ error_reporting(E_ALL);
  * $ php MakeBackup.php data
  * $ php MakeBackup.php full
  * $ php MakeBackup.php database
+ * $ php MakeBackup.php system
  *
  * ---------- Client / Get
  *
@@ -36,6 +37,9 @@ error_reporting(E_ALL);
  * 
  * .../cli/MakeBackup.php?action=database
  * sql dump
+ * 
+ * .../cli/MakeBackup.php?action=system
+ * only system folders and sql dump
  * 
  */
 
@@ -52,7 +56,8 @@ class MakeBackup {
 
     private $blacklistFolderPaths = array(
         '../data/backup',
-        '../data/temp'
+        '../data/temp',
+        '../data/update'
     );
     private $blacklistFolder = array(
         'node_modules'
@@ -71,7 +76,7 @@ class MakeBackup {
         }
     }
 
-    public function execute() {
+    public function execute($action = 'data') {
 
         include("vendor/autoload.php");
 
@@ -118,6 +123,11 @@ class MakeBackup {
 
             $backupDatabase = true;
             $backupFolders = false;
+
+        } else if ($action == 'system') {
+
+            $backupDatabase = true;
+            $backupFolders = ['cli','framework','www'];
 
         } else {
             echo '- wrong action -';

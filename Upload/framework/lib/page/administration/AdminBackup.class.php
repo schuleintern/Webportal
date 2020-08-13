@@ -65,29 +65,38 @@ class AdminBackup extends AbstractPage {
 				include('./../cli/MakeBackup.php');
 
 				$backup = new MakeBackup;
-				$backup->execute();
+				$backup->execute( $_REQUEST['action'] );
 
 				exit;
 			}
 
 			if($_REQUEST['task'] == "get") {
-				$file = $_REQUEST['path'];
+				$file = urldecode( $_REQUEST['path'] );
 
+				set_time_limit(0);
 				if (file_exists($file)) {
-					header('Content-Description: File Transfer');
-					header('Content-Type: application/octet-stream');
-					header('Content-Disposition: attachment; filename="'.basename($file).'"');
-					header('Expires: 0');
-					header('Cache-Control: must-revalidate');
-					header('Pragma: public');
-					header('Content-Length: ' . filesize($file));
 
+					ini_set(‘memory_limit’, ‘300M’);
+					
+					header('Content-Description: File Transfer');
+          header('Content-Type: application/octet-stream');
+          header('Content-Disposition: attachment; filename="'.basename($file).'"');
+          header('Content-Transfer-Encoding: binary');
+          header('Expires: 0');
+          header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+          header('Pragma: public');
+          header('Content-Length: ' . filesize($file));
+          ob_clean();
+          flush();
 					readfile($file);
+					
+
 					exit;
 
 				} else {
 					echo 'no file';
 				}
+				flush();
 				exit;
 			}
 
