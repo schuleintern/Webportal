@@ -88,7 +88,7 @@ class Update extends AbstractPage
         return true;
     }
 
-    private function from111to120() {
+    private function from120to121() {
 
     }
     
