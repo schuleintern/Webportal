@@ -62,20 +62,21 @@ class AdminBackup extends AbstractPage {
 
 			$html = '';
 
-			if($_REQUEST['task'] == "1") {
-				echo $_REQUEST['task']; 
-				//echo var_dump( include('./../cli/MakeBackup.php') );
+			if($_REQUEST['task'] == "make") {
+				
+				echo 'ok';
 				include('./../cli/MakeBackup.php');
-				//echo '#'.realpath(".");
 
 				$backup = new MakeBackup;
-				//$backup->execute();
+				$backup->execute();
 
-				echo '---end';
+				echo 'ok2';
+
+				//header("Location: $selfURL");
 				exit;
 			}
 
-			if($_REQUEST['task'] == "2") {
+			if($_REQUEST['task'] == "get") {
 				$file = $_REQUEST['path'];
 
 				if (file_exists($file)) {

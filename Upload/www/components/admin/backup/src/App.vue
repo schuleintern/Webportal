@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="flex">
 
+    <button v-on:click="onMakeBackup()">GO</button>
     <ul class="flex noListStyle">
       <li>
         <ul class="flex-row noListStyle text-bold">
@@ -17,7 +18,7 @@
           <li class="flex-1">{{entry.formatSize}}</li>
           <li class="flex-1">{{entry.formatMtime}}</li>
           <li class="flex-1">
-            <a v-bind:href="selfURL+'&task=2&path='+entry.filepath">Download</a>
+            <a v-bind:href="selfURL+'&task=get&path='+entry.filepath">Download</a>
           </li>
         </ul>
       </li>
@@ -29,6 +30,8 @@
 <script>
 
 // import Folders from './components/Folders.vue'
+const axios = require('axios').default;
+
 
 export default {
   name: 'app',
@@ -47,6 +50,37 @@ export default {
   },
   methods: {
 
+    onMakeBackup: function () {
+
+      console.log('--- click');
+
+      axios.get( this.selfURL+'&task=make&action=database',
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      ).then(function(response){
+        
+        console.log('SUCCESS!!', response);
+
+        if ( response.data ) {
+
+          console.log(response.data);
+
+        }
+      })
+      .catch(function(){
+        console.log('FAILURE!!');
+      })
+      .finally(function () {
+        // always executed
+        //that.clearFileUpload();
+      }); 
+
+
+
+    }
   }
 }
 </script>
