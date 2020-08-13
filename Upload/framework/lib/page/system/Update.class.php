@@ -81,9 +81,17 @@ class Update extends AbstractPage
             $this->from111to120();
         }
 
+        if ($from == "1.2.0" && $to == "1.2.1") {
+            $this->from120to121();
+        }
+
         return true;
     }
 
+    private function from111to120() {
+
+    }
+    
     private function from111to120() {
 
         DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponse` tinyint(1) NOT NULL DEFAULT '0';", true);
