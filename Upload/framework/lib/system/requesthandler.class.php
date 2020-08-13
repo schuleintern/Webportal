@@ -78,6 +78,7 @@ class requesthandler {
         'AdminMailSettings',
         'AdminUpdate',
         'AdminBackup',
+        'AdminDatabase',
         'AdministrationEltern'
     ],
     'aufeinenblick' => [
