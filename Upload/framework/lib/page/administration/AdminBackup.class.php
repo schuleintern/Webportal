@@ -60,19 +60,13 @@ class AdminBackup extends AbstractPage {
 
     public static function displayAdministration($selfURL) {
 
-			$html = '';
-
 			if($_REQUEST['task'] == "make") {
 				
-				echo 'ok';
 				include('./../cli/MakeBackup.php');
 
 				$backup = new MakeBackup;
 				$backup->execute();
 
-				echo 'ok2';
-
-				//header("Location: $selfURL");
 				exit;
 			}
 
@@ -88,27 +82,23 @@ class AdminBackup extends AbstractPage {
 					header('Pragma: public');
 					header('Content-Length: ' . filesize($file));
 
-					echo $file;
-					//readfile($file);
+					readfile($file);
 					exit;
+
 				} else {
 					echo 'no file';
 				}
 				exit;
 			}
 
+			$html = '';
+
 			$directory = '../data/backup';
 			$files_json = json_encode(FILE::getFilesInFolder($directory, true, 'zip'));
 
-			// echo '<pre>';
-			// print_r($files_json);
-			// echo '</pre>';
-
-
 			eval("\$html = \"" . DB::getTPL()->get("administration/backup/list") . "\";");
 
-
-        return $html;
+      return $html;
     }
  
 		

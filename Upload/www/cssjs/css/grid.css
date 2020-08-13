@@ -53,17 +53,19 @@
                                   supported by Chrome, Opera and Firefox */
 }
 
-.noListStyle {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+
 
 .height_35 {
   max-height: 35vh !important;
 }
 
+.width-form {
+  width: 20rem;
+}
 
+.padding-m {
+  padding: 1.3rem;
+}
 
 .margin-r-xs {
   margin-right: 0.3rem;
@@ -81,15 +83,4 @@
 }
 .margin-b-l {
   margin-bottom: 2.3rem;
-}
-
-
-.line-oddEven:nth-child(odd)  {
-  background-color: #f9f9f9;
-}
-.text-bold {
-  font-weight: bold;
-}
-.text-lineHeight-m {
-  line-height: 200%;
 }

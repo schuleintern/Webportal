@@ -99,3 +99,23 @@ button.btn-blau {
 .bg-white {
   background-color: #ffffff;
 }
+
+
+
+.noListStyle {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.line-oddEven:nth-child(odd)  {
+  background-color: #f9f9f9;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-lineHeight-m {
+  line-height: 200%;
+}
+.text-red {
+  color: #dd4b39;
+}
