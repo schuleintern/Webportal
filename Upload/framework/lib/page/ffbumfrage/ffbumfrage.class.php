@@ -65,7 +65,8 @@ class ffbumfrage extends AbstractPage {
 	    }
 	    
 	    eval("DB::getTPL()->out(\"" . DB::getTPL()->get('ffbumfrage/index') . "\");");
-	    exit(0);
+	    PAGE::kill(true);
+			//exit(0);
 	    
 	}
 	

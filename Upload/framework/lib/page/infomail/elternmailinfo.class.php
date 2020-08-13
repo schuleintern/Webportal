@@ -63,7 +63,8 @@ class elternmailinfo extends AbstractPage {
 
         if(sizeof($mailData) == 0) {
           eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/info/nomaildata") . "\");");
-          exit(0);
+          PAGE::kill(true);
+		    	//exit(0);
         }
 
         $mailHTML = "";
@@ -76,12 +77,14 @@ class elternmailinfo extends AbstractPage {
         }
 
         eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/info/letters") . "\");");
-        exit(0);
+        PAGE::kill(true);
+		  	//exit(0);
 
       }
       else {
         eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/info/noklassenleitung") . "\");");
-        exit(0);
+        PAGE::kill(true);
+		  	//exit(0);
       }
 
 
@@ -143,7 +146,8 @@ class elternmailinfo extends AbstractPage {
     }
 
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/info/group") . "\");");
-    exit(0);
+    PAGE::kill(true);
+			//exit(0);
 
   }
 
@@ -229,7 +233,8 @@ class elternmailinfo extends AbstractPage {
           }
 
           eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/info/klasse") . "\");");
-          exit(0);
+          PAGE::kill(true);
+		    	//exit(0);
 
         }
         else {

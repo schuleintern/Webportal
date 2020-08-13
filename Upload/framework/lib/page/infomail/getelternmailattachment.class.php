@@ -30,7 +30,8 @@ class getelternmailattachment extends AbstractPage {
 		}
 		else {
 			eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/attachment/attachmentNotFound") . "\");");
-			exit(0);
+			PAGE::kill(true);
+			//exit(0);
 		}
 		
 		print_r($attachment);

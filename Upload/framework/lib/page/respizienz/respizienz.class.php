@@ -372,7 +372,8 @@ class respizienz extends AbstractPage {
 	    
 	    
 	    eval("DB::getTPL()->out(\"" . DB::getTPL()->get('respizienz/index') . "\");");
-	    exit();
+	    PAGE::kill(true);
+	    //exit(0);
 	    
 	}
 	

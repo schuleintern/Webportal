@@ -904,7 +904,8 @@ class klassentagebuch extends AbstractPage {
     		exit(0);
     	}
       eval("DB::getTPL()->out(\"" . DB::getTPL()->get("klassentagebuch/noklasse") . "\");");
-      exit(0);
+      PAGE::kill(true);
+			//exit(0);
     }
 
     $stundenplan = $this->currentStundenplan->getPlan(['grade',$grade])[$this->currentWeekDay-1];

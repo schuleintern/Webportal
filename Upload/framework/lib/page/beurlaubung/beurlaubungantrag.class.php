@@ -623,7 +623,8 @@ Begründung: ' . $antrag->getBegruendung() . "<br /><br /><i>Dies ist eine autom
 	    eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/beurlaubungantrag/eltern/result") . "\");");
 	    
 	    // header("Location: index.php?page=beurlaubungantrag");
-	    exit(0);
+	    PAGE::kill(true);
+			//exit(0);
 	}
 	
 	private function meineBeurlaubungen() {

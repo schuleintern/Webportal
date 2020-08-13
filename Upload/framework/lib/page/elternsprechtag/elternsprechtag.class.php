@@ -673,7 +673,8 @@ class elternsprechtag extends AbstractPage {
 		
 		
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternsprechtag/eltern") . "\");");
-		exit(0);
+		PAGE::kill(true);
+			//exit(0);
 	}
 	
 	private function teacherView() {
@@ -709,7 +710,8 @@ class elternsprechtag extends AbstractPage {
 		}
 		
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternsprechtag/teacher") . "\");");
-		exit(0);
+		PAGE::kill(true);
+			//exit(0);
 	}
 	
 	public static function displayAdministration($selfURL) {
@@ -1446,7 +1448,8 @@ class elternsprechtag extends AbstractPage {
 	
 	private function noCurrentDay() {
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternsprechtag/noday") . "\");");
-		exit(0);
+		PAGE::kill(true);
+			//exit(0);
 	}
 
 
