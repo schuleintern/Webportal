@@ -74,6 +74,21 @@ button.btn-blau {
   color: #fff;
 }
 
+.btn-orange {
+  background-color: #f39c12;
+  border-color: #f39c12;
+  color: #fff;
+}
+
+.btn-orange:hover {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+
+.bg-red {
+  background-color: #dd4b39; 
+}
 
 
 .border {
