@@ -504,7 +504,8 @@ class elternmailsender extends AbstractPage {
 			
 			
 			eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/send/sent") . "\");");
-			exit(0);
+			PAGE::kill(true);
+			//exit(0);
 		}
 		else {
 			$this->showSendForm();

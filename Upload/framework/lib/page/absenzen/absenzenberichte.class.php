@@ -681,7 +681,8 @@ class absenzenberichte extends AbstractPage {
 			$dayName = $dayNames[date("N")-1];
 			
 			eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/berichte/index") . "\");");
-			exit(0);
+			PAGE::kill(true);
+			//exit(0);
 		}
 		
 		else {

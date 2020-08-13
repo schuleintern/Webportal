@@ -175,7 +175,8 @@ class TwoFactor extends AbstractPage {
 	    
 	    if(!$has2FA) {
 	        eval("DB::getTPL()->out(\"" . DB::getTPL()->get("userprofile/2fa/initsession/no2fa") . "\");");
-	        exit(0);
+	        PAGE::kill(true);
+					//exit(0);
 	    }
 	    
 	    
@@ -219,7 +220,8 @@ class TwoFactor extends AbstractPage {
 	    
 	    
 	    eval("DB::getTPL()->out(\"" . DB::getTPL()->get("userprofile/2fa/initsession/index") . "\");");
-	    exit(0);
+	    PAGE::kill(true);
+			//exit(0);
 	    
 	    
 	    

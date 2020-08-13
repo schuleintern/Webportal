@@ -28,7 +28,8 @@ class confirmelternmail extends AbstractPage {
 					if(DB::isLoggedIn()) eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/confirm/confirmed_logged_in") . "\");");
 					else eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/confirm/confirmed") . "\");");
 					
-					exit(0);
+					PAGE::kill(true);
+					//exit(0);
 				}
 			}
 			else if($elternMail['hasFormElements'] > 0) {
@@ -88,7 +89,8 @@ class confirmelternmail extends AbstractPage {
 				}
 				if(DB::isLoggedIn()) eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/confirm/form_fields_logged_in") . "\");");
 				else eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/confirm/form_fields") . "\");");
-				exit(0);
+				PAGE::kill(true);
+				//exit(0);
 			}
 		}
 		
