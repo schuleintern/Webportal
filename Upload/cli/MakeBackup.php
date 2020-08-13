@@ -22,6 +22,7 @@ error_reporting(E_ALL);
  * $ php MakeBackup.php data
  * $ php MakeBackup.php full
  * $ php MakeBackup.php database
+ * $ php MakeBackup.php system
  *
  * ---------- Client / Get
  *
@@ -37,9 +38,12 @@ error_reporting(E_ALL);
  * .../cli/MakeBackup.php?action=database
  * sql dump
  * 
+ * .../cli/MakeBackup.php?action=system
+ * only system folders and sql dump
+ * 
  */
 
-class Backup {
+class MakeBackup {
 
     private $debug = array();
     private $settings = false;
@@ -52,7 +56,8 @@ class Backup {
 
     private $blacklistFolderPaths = array(
         '../data/backup',
-        '../data/temp'
+        '../data/temp',
+        '../data/update'
     );
     private $blacklistFolder = array(
         'node_modules'
@@ -71,10 +76,10 @@ class Backup {
         }
     }
 
-    public function execute() {
+    public function execute($action = 'data') {
 
         include("vendor/autoload.php");
-		
+
 		if ($_SERVER['SSH_CONNECTION']) {
 			// execute from cli/ssh
 			$action = $_SERVER['argv'][1];
@@ -118,6 +123,11 @@ class Backup {
 
             $backupDatabase = true;
             $backupFolders = false;
+
+        } else if ($action == 'system') {
+
+            $backupDatabase = true;
+            $backupFolders = ['cli','framework','www'];
 
         } else {
             echo '- wrong action -';
@@ -169,7 +179,7 @@ class Backup {
             return false;
         }
 
-        include("../data/config/config.php");
+        include_once("./../data/config/config.php");
         $this->settings = new GlobalSettings();
 
         return true;
@@ -413,6 +423,6 @@ class Backup {
 
 }
 
-$backup = new Backup;
-$backup->execute();
+//$backup = new Backup;
+//$backup->execute();
 

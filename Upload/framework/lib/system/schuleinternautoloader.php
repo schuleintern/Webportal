@@ -166,7 +166,8 @@ $classes = [
 		'Debugger',
 		'Encoding',
 		'resthandler',
-		'PAGE'
+		'PAGE',
+		'FILE'
 	],
 	'tpl' => [
 		'TemplateParser',
