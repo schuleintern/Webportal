@@ -1,11 +1,11 @@
 <tr>
 	<td>{$sections[$i]->getname()}
-		<form><button type="button" class="btn" data-toggle="modal" data-target="#rename{$sections[$i]->getID()}"><i class="fa fa-pencil"></i></button></form>
+		<form><button type="button" class="btn" data-toggle="modal" data-target="#rename{$sections[$i]->getID()}"><i class="fa fas fa-pencil-alt"></i></button></form>
 		<div class="modal fade" id="rename{$sections[$i]->getID()}" tabindex="-1" role="dialog">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	    <div class="modal-header">	    
-	    	<h4 class="modal-title"><i class="fa fa-pencil"></i> Bereich umbenennen</h4>
+	    	<h4 class="modal-title"><i class="fa fas fa-pencil-alt"></i> Bereich umbenennen</h4>
 	      </div>
 	      <div class="modal-body">
 	      	<form action="{$selfURL}&action=renameSection&sectionID={$sections[$i]->getID()}" method="post">
@@ -21,7 +21,7 @@
 	
 	<td>
 		<form>
-			<button type="button" class="btn btn-info" onclick="window.location.href='$selfURL&action=manageFiles&sectionID={$sections[$i]->getID()}'"><i class="fa fa-files-o"></i></button>
+			<button type="button" class="btn btn-info" onclick="window.location.href='$selfURL&action=manageFiles&sectionID={$sections[$i]->getID()}'"><i class="fa fa-files"></i></button>
 		</form>
 	</td>
 	<td>

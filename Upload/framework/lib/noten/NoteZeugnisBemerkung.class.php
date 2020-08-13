@@ -29,7 +29,11 @@ class NoteZeugnisBemerkung {
     }
 
     public function klassenzielErreicht() {
-        return $this->data['klassenzielErreicht'] > 0;
+        return $this->data['klassenzielErreicht'] == 1;
+    }
+
+    public function vorrueckenAufProbe() {
+        return $this->data['klassenzielErreicht'] == 2;
     }
     
     public static function getDefaultText1($schueler, $zeugnis) {
@@ -109,6 +113,20 @@ class NoteZeugnisBemerkung {
         DB::getDB()->query("INSERT INTO noten_zeugnis_bemerkung (bemerkungSchuelerAsvID, bemerkungZeugnisID, klassenzielErreicht) values('" . $schueler->getAsvID() . "','" . $zeugnis->getID() . "','" . DB::getDB()->escapeString($klassenzielErreicht ? 1 : 0) . "')
             
             ON DUPLICATE KEY UPDATE klassenzielErreicht='" . DB::getDB()->escapeString($klassenzielErreicht ? 1 : 0) . "'
+            
+        ");
+    }
+
+    /**
+     *
+     * @param boolean $vorrueckenAufProbe
+     * @param schueler $schueler
+     * @param NoteZeugnis $zeugnis
+     */
+    public static function setVorrueckenAufProbe($vorrueckenAufProbe, $schueler, $zeugnis) {
+        DB::getDB()->query("INSERT INTO noten_zeugnis_bemerkung (bemerkungSchuelerAsvID, bemerkungZeugnisID, klassenzielErreicht) values('" . $schueler->getAsvID() . "','" . $zeugnis->getID() . "','" . DB::getDB()->escapeString($klassenzielErreicht ? 1 : 0) . "')
+            
+            ON DUPLICATE KEY UPDATE klassenzielErreicht='" . DB::getDB()->escapeString($vorrueckenAufProbe ? 2 : 0) . "'
             
         ");
     }

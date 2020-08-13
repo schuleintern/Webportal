@@ -1,11 +1,15 @@
 {$this->header}
-<if($selectMenu != "")><then>
 	<div class="box">
+		<if($selectMenu != "")><then>
+			<div class="box-header">
+					$selectMenu
+				</div>
+		</then></if>
 		<div class="box-body">
-			$selectMenu
+			<div class="pull-right">$pdfSaveLink</div>
 		</div>
 	</div>
-</then></if>
+
 
 
 <div class="box">
@@ -13,7 +17,6 @@
 		{$planNavigation}
 	</div>
 	<div class="box-body">
-	<div>$pdfSaveLink</div>
 $html
 </div>
 </div>

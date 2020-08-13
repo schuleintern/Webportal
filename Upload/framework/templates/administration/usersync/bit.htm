@@ -14,9 +14,9 @@
 				<td><code>{$userSync['syncLastSyncResult']}</code></td>				
 				
 				<td>
-					<a href="{$selfURL}&action=editUserSync&syncID={$userSync['syncID']}"><i class="fa fa-pencil"></i> Bearbeiten</a><br />
+					<a href="{$selfURL}&action=editUserSync&syncID={$userSync['syncID']}"><i class="fa fas fa-pencil-alt"></i> Bearbeiten</a><br />
 					<a href="javascript:if(confirm('Soll der Sync wirklich gelöscht werden?')) window.location.href='{$selfURL}&action=deleteUserSync&syncID={$userSync['syncID']}'"><i class="fa fa-trash"></i> Löschen</a><br />
-					<a href="{$selfURL}&action=doUserSync&syncID={$userSync['syncID']}"><i class="fa fa-refresh"></i> Manuell synchronisieren</a><br />
+					<a href="{$selfURL}&action=doUserSync&syncID={$userSync['syncID']}"><i class="fa fas fa-sync-alt"></i> Manuell synchronisieren</a><br />
 				
 				</td>
 			</tr>

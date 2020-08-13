@@ -489,16 +489,16 @@ class NotenEingabe extends AbstractPage {
 
                 $htmlSchueler .= " <button type=\"button\" class=\"btn btn-xs\"
                         onclick=\"javascript:editArbeit(" . $arbs[$a]->getID() . ",'" . addslashes($arbs[$a]->getName()) . "'," . $arbs[$a]->getGewichtung() . ",'" . $datum . "'," . $muendlich . ")\">
-                    <i class=\"fa fa-pencil-square-o\"></i></button><br />";
+                    <i class=\"fa fas fa-pencil-alt\"></i></button><br />";
                 
                 $htmlSchueler .= " <a href=\"index.php?page=NotenRespizienz&mode=klassenlehrer&action=generateRespBogen&unterrichtID=" . $unterricht->getID() . "&arbeitID=" . $arbs[$a]->getID() . "\" class=\"btn btn-sm btn-default\">";
-                $htmlSchueler .= "<i class=\"fa fa-file-o\"></i> Abgabeliste</a>";
+                $htmlSchueler .= "<i class=\"fas fa fa-print\"></i> Abgabeliste</a>";
 
                 if($arbs[$a]->getID() == $_REQUEST['editArbeit']) {
                     $htmlSchueler .= '<br /><button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i></button>';
                 }
                 else {
-                    $htmlSchueler .= '<br /><button type="button" class="btn btn-sm" onclick="javascript:window.location.href=\'index.php?page=NotenEingabe&unterrichtID=' . $unterricht->getID() . "&editArbeit=" . $arbs[$a]->getID() . '\';"><i class="fa fa-pencil"></i> Noten</button>';
+                    $htmlSchueler .= '<br /><button type="button" class="btn btn-sm" onclick="javascript:window.location.href=\'index.php?page=NotenEingabe&unterrichtID=' . $unterricht->getID() . "&editArbeit=" . $arbs[$a]->getID() . '\';"><i class="fa fas fa-pencil-alt"></i> Noten</button>';
                 }
 
                 $htmlSchueler .= "</td>";
@@ -586,9 +586,9 @@ class NotenEingabe extends AbstractPage {
         else {
             $htmlSchueler .= "<label class=\"label label-success\">Notenbestätigung möglich</label><br /><br />";
 
-            $htmlSchueler .= "<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"confirmAction('Mit dieser Aktion werden die Zeugnisnoten nach Standardrundung automatisch eingetragen. Eventuelle pädagogische Noten können Sie danach manuell vergeben.','index.php?page=NotenEingabe&unterrichtID=" . $unterricht->getID() . "&mode=confirmAllNoten&zeugnisID=" . $zeugnisse[$i]->getZeugnis()->getID() . "');\"><i class=\"fa fa-check\"></i> Alle nicht bestätigten Noten<br />mit Standardrundung bestätigen</button><br />";
+            $htmlSchueler .= "<button type=\"button\" class=\"btn btn-primary btn-xs btn-block\" onclick=\"confirmAction('Mit dieser Aktion werden die Zeugnisnoten nach Standardrundung automatisch eingetragen. Eventuelle pädagogische Noten können Sie danach manuell vergeben.','index.php?page=NotenEingabe&unterrichtID=" . $unterricht->getID() . "&mode=confirmAllNoten&zeugnisID=" . $zeugnisse[$i]->getZeugnis()->getID() . "');\"><i class=\"fa fa-check\"></i> Alle nicht bestätigten Noten<br />mit Standardrundung bestätigen</button><br />";
         
-            $htmlSchueler .= "<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick=\"confirmAction('Alle bestätigten Noten wieder entfernen? Sie können auch einzelne Zeugnisnoten wieder entfernen.','index.php?page=NotenEingabe&unterrichtID=" . $unterricht->getID() . "&mode=deconfirmAllNoten&zeugnisID=" . $zeugnisse[$i]->getZeugnis()->getID() . "');\"><i class=\"fa fa-trash\"></i> Alle bestätigten Noten entfernen</button>";
+            $htmlSchueler .= "<button type=\"button\" class=\"btn btn-danger btn-xs btn-block\" onclick=\"confirmAction('Alle bestätigten Noten wieder entfernen? Sie können auch einzelne Zeugnisnoten wieder entfernen.','index.php?page=NotenEingabe&unterrichtID=" . $unterricht->getID() . "&mode=deconfirmAllNoten&zeugnisID=" . $zeugnisse[$i]->getZeugnis()->getID() . "');\"><i class=\"fa fa-trash\"></i> Alle bestätigten Noten entfernen</button>";
             
         
         }
@@ -834,49 +834,61 @@ class NotenEingabe extends AbstractPage {
 
 
       if($hasVerrechnung != null) {
-          
-          $verrechnung = NoteVerrechnung::getVerrechnungForUnterricht($this->unterricht, $schueler[$i]);
-          
-          $otherFach = $verrechnung->getOtherFach($this->unterricht);
 
-          $unterrichtNote = new UnterrichtsNoten($otherFach, $schueler[$i]);
+          $verrechnungFound = false;
 
-          if($unterrichtNote->hasNoten()) {
-              $htmlSchueler .= "<td><font size=\"+2\">" . number_format($unterrichtNote->getNotenCalculator()->getSchnitt(),2,",",".") . "</font>";
+          for($v = 0; $v < sizeof($verrechnungen); $v++) {
 
-              if($unterrichtNote->getNotenCalculator()->isNotenschutzrechnung()) {
-                  $htmlSchueler .= "<br ><small>§34 Abs. 7 Nr. 2 BaySchO</small>";
+              if($verrechnungFound) break;
+
+
+              $verrechnung = $verrechnungen[$v];
+
+
+              $otherFach = $verrechnung->getOtherFach($this->unterricht);
+
+              $unterrichtNote = new UnterrichtsNoten($otherFach, $schueler[$i]);
+
+              if ($unterrichtNote->hasNoten()) {
+                  $htmlSchueler .= "<td><font size=\"+2\">" . number_format($unterrichtNote->getNotenCalculator()->getSchnitt(), 2, ",", ".") . "</font>";
+
+                  if ($unterrichtNote->getNotenCalculator()->isNotenschutzrechnung()) {
+                      $htmlSchueler .= "<br ><small>§34 Abs. 7 Nr. 2 BaySchO</small>";
+                  }
+
+                  $htmlSchueler .= "</td>";
+
+                  $verrechnungFound = true;
+              } else {
+                  if($i == sizeof($verrechnungen)-1)
+                        $htmlSchueler .= "<td>--</td>";
               }
 
-              $htmlSchueler .= "</td>";
+              $noteMyFach = $notenCalculator->getSchnitt();
+              $noteOtherFach = $unterrichtNote->getNotenCalculator()->getSchnitt();
+
+              $gesamtNote = 0;
+
+              if ($noteMyFach > 0 && $noteOtherFach > 0) {
+                  // Verrechnen
+
+                  $summe = $verrechnung->getMyGewicht($this->unterricht) * $noteMyFach + $verrechnung->getOtherGewicht($this->unterricht) * $noteOtherFach;
+
+                  $gesamtNote = NotenCalculcator::NoteRunden($summe / ($verrechnung->getGewicht1() + $verrechnung->getGewicht2()));
+              } else if ($noteMyFach > 0) {
+                  $gesamtNote = $noteMyFach;
+              } else if ($noteOtherFach > 0) {
+                  $gesamtNote = $noteOtherFach;
+              }
+
+              $gesamtSchnitt = $gesamtNote;
+
           }
+
+          if ($gesamtNote > 0) $htmlSchueler .= "<td><font size=\"+2\">" . number_format($gesamtNote, 2, ",", ".") . "</font></td>";
           else {
               $htmlSchueler .= "<td>--</td>";
           }
-
-          $noteMyFach = $notenCalculator->getSchnitt();
-          $noteOtherFach = $unterrichtNote->getNotenCalculator()->getSchnitt();
-
-          $gesamtNote = 0;
-
-          if($noteMyFach > 0 && $noteOtherFach > 0) {
-              // Verrechnen
-
-              $summe = $verrechnung->getMyGewicht($this->unterricht) * $noteMyFach + $verrechnung->getOtherGewicht($this->unterricht) * $noteOtherFach;
-
-              $gesamtNote = NotenCalculcator::NoteRunden($summe / ($verrechnung->getGewicht1() + $verrechnung->getGewicht2()));
-          }
-          else if($noteMyFach > 0) {
-              $gesamtNote = $noteMyFach;
-          }
-          else if($noteOtherFach > 0) {
-              $gesamtNote = $noteOtherFach;
-          }
-
-          $gesamtSchnitt = $gesamtNote;
-
-          if($gesamtNote > 0) $htmlSchueler .= "<td><font size=\"+2\">" . number_format($gesamtNote,2,",",".") . "</font></td>";
-          else $htmlSchueler .= "<td>--</td>";
       }
 
 
@@ -942,13 +954,13 @@ class NotenEingabe extends AbstractPage {
               $noteSchnitt = "---";
           }
           else {
-              $noteSchnitt = number_format($notenCalculator->getSchnitt(),2,",",".");
+              $noteSchnitt = number_format($gesamtNote,2,",",".");
           }
 
           if($zeugnisse[$z]->isNotenschlussVorbei()) $disabled = " disabled=\"disabled\"";
           else $disabled = "";
 
-          $htmlSchueler .= "<td><button type=\"button\" $disabled class=\"btn btn-xs\" style=\"width:100%\" onclick=\"confirmNote('" . $schueler[$i]->getAsvID() . "','" . $zeugnisse[$z]->getZeugnis()->getID() . "','" . $this->unterricht->getFach()->getKurzform() . "','" . $presetKommentar . "','" . $presetNote . "','" . $normalCalcNote . "','" . $noteSchnitt . "')\">";
+          $htmlSchueler .= "<td><button type=\"button\" $disabled class=\"btn btn-xs\" style=\"width:100%\" onclick=\"confirmNote('" . $schueler[$i]->getAsvID() . "','" . $zeugnisse[$z]->getZeugnis()->getID() . "','" . $this->unterricht->getFach()->getKurzform() . "','" . $presetKommentar . "','" . $presetNote . "','" . $normalCalcNote . "','" . ($noteSchnitt) . "')\">";
 
           $htmlSchueler .= $buttonInnerHTML;
 
@@ -1026,11 +1038,11 @@ class NotenEingabe extends AbstractPage {
   }
   
   public static function getAdminMenuGroupIcon() {
-      return "fa fa-pencil";
+      return "fa fas fa-award";
   }
   
   public static function getAdminMenuIcon() {
-      return "fa fa-cogs";
+      return "fa fas fa-award";
   }
   
   public static function hasAdmin() {

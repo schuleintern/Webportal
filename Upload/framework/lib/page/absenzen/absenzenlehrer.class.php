@@ -260,10 +260,10 @@ class absenzenlehrer extends AbstractPage {
         }
 
         if($absenzen[$i]->isSchriftlichEntschuldigt()) {
-          $krankmeldungenHTML .= " <small class=\"label label-success\"><i class=\"fa fa-pencil\"></i><i class=\"fa fa-check\"></i></small>";
+          $krankmeldungenHTML .= " <small class=\"label label-success\"><i class=\"fa fas fa-pencil-alt\"></i><i class=\"fa fa-check\"></i></small>";
         }
         else {
-          $krankmeldungenHTML .= " <small class=\"label label-warning\"><i class=\"fa fa-pencil\"></i><i class=\"fa fa-ban\"></i></small>";
+          $krankmeldungenHTML .= " <small class=\"label label-warning\"><i class=\"fa fas fa-pencil-alt\"></i><i class=\"fa fa-ban\"></i></small>";
 
         }
 
@@ -429,7 +429,8 @@ class absenzenlehrer extends AbstractPage {
             }
             
             eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/lehrer/schueler_verspaetungen") . "\");");
-            exit(0);
+            PAGE::kill(true);
+			      //exit(0);
             
         }
         else {
@@ -531,7 +532,8 @@ class absenzenlehrer extends AbstractPage {
       }
 
       eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/lehrer/schueler") . "\");");
-      exit(0);
+      PAGE::kill(true);
+			//exit(0);
 
     }
     else {
@@ -648,7 +650,8 @@ class absenzenlehrer extends AbstractPage {
 
 
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/lehrer/index") . "\");");
-    exit(0);
+    PAGE::kill(true);
+			//exit(0);
   }
 
 
@@ -667,7 +670,8 @@ class absenzenlehrer extends AbstractPage {
 
     if(sizeof($klassen) == 0) {
       eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/lehrer/keine_klasse") . "\");");
-      exit(0);
+      PAGE::kill(true);
+			//exit(0);
     }
 
     if(sizeof($klassen) == 1) {
@@ -682,6 +686,8 @@ class absenzenlehrer extends AbstractPage {
     }
 
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/lehrer/multi_klasse") . "\");");
+    PAGE::kill(true);
+			//exit(0);
   }
 
 
@@ -803,7 +809,7 @@ class absenzenlehrer extends AbstractPage {
   }
   
   public static function getAdminMenuGroupIcon() {
-  	return 'fa fa-hospital-o';
+  	return 'fa fas fa-procedures';
   }
   
 

@@ -93,34 +93,30 @@ class MessageCompose extends AbstractPage {
 		     break;
 		     
 		    case 'getPupilJSON':
-		        $pupilRecipients = MessageSendRights::getAllowedPupils();
-		        
-	        
+
 		        $responseData = [
 		            'results' => []
 		        ];
 		        
-		        
 		        if($_REQUEST['term'] != "") {
 		            $search = strtolower($_REQUEST['term']);
-		        }
-		        else {
+		        } else {
 		            $search = null;
 		        }
 		        
-		        
-		        
-		        
-		        for($i = 0; $i < sizeof($pupilRecipients); $i++) {
-		            if($search != null && strpos(strtolower($pupilRecipients[$i]->getDisplayName()), $search) > 0) {
-    		            $responseData['results'][] = [
-    		                'id' => $pupilRecipients[$i]->getSaveString(),
-    		                'text' => $pupilRecipients[$i]->getDisplayName()
-    		                
-    		            ];
-		            }
-		        }
-		        
+		        if($search != null) {
+							$pupilRecipients = MessageSendRights::getAllowedPupils();
+
+							for($i = 0; $i < sizeof($pupilRecipients); $i++) {
+								if(strpos(strtolower($pupilRecipients[$i]->getDisplayName()), $search) !== false) {
+									$responseData['results'][] = [
+										'id' => $pupilRecipients[$i]->getSaveString(),
+										'text' => $pupilRecipients[$i]->getDisplayName()
+									];
+								}
+							}
+						}
+
 		        header("Content-type: text/json");
 		        echo json_encode($responseData);
 		        exit(0);
@@ -368,7 +364,7 @@ class MessageCompose extends AbstractPage {
 		        
 		    case  'uploadAttachment':
 
-		        $upload = FileUpload::uploadOfficePdfOrPicture('attachmentFile','');
+		        $upload = FileUpload::uploadOfficeFilesPicturesTextAndZip('attachmentFile','');
 		        
 		        $result = [
 		            'uploadOK' => false,
@@ -495,6 +491,16 @@ class MessageCompose extends AbstractPage {
 				
 				$isReply = false;
 				
+
+				if($_REQUEST['forwardMessage'] != "") {
+							
+						$forwardMessage = Message::getByID(intval($_REQUEST['forwardMessage']));
+						if($forwardMessage!= null) {
+								if($forwardMessage->getUserID() == DB::getSession()->getUserID()) {
+									$messageSender->setForwardMessage($forwardMessage);
+								}
+						}
+				}
 				
 				if($_REQUEST['replyMessage'] != "") {
 				    
@@ -537,8 +543,33 @@ class MessageCompose extends AbstractPage {
 	private function showForm() {
 	
 		$isReply = false;
+		$isForward = false;
 		
-		
+		if($_REQUEST['forwardMessage'] != "") {
+		    
+			$forwardMessage = Message::getByID(intval($_REQUEST['forwardMessage']));
+			if($forwardMessage!= null) {
+
+					$isForward = true;
+
+					$arr = array();
+					$attachments = $forwardMessage->getAttachments();
+						for($i = 0; $i < sizeof($attachments); $i++) {
+							array_push($arr, array(
+								'attachmentID' => $attachments[$i]->getID(),
+								'attachmentFileName' => $attachments[$i]->getUpload()->getFileName(),
+								'attachmentAccessCode' => $attachments[$i]->getAccessCode(),
+								'attachmentURL' => $attachments[$i]->getUpload()->getURLToFile(true)
+							));
+						}
+
+						$forwardJSONData = json_encode([
+							'key' => 'attachments',
+							'value' => $arr
+						]);
+			}
+	}
+
 		if($_REQUEST['replyMessage'] != "") {
 		    
 		    $replyMessage = Message::getByID(intval($_REQUEST['replyMessage']));
@@ -566,7 +597,6 @@ class MessageCompose extends AbstractPage {
     		    if($replyMessage!= null) {
     		        if($replyMessage->getUserID() == DB::getSession()->getUserID()) {
     		            // --> Erlaubt
-    		            $isReply = true;
     		            $isReplyAll = true;
     		            
     		            
@@ -943,7 +973,7 @@ class MessageCompose extends AbstractPage {
 		$htmlGroups = "";
 		
 		for($i = 0; $i < sizeof($groups); $i++) {
-		    $htmlGroups .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary btn-block\">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
+		    $htmlGroups .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary \">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
 		}
 		
 		
@@ -1007,8 +1037,8 @@ class MessageCompose extends AbstractPage {
 		
 		eval("\$FRAMECONTENT = \"" . DB::getTPL()->get("messages/inbox/compose") . "\";");
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("messages/inbox/frame") . "\");");
-		exit(0);
-		
+		//exit(0);
+		PAGE::kill(true);
 	}
 	
 	public static function getSettingsDescription() {

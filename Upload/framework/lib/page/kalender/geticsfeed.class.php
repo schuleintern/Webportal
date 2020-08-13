@@ -46,6 +46,8 @@ class geticsfeed extends AbstractPage {
    */
   private function sendAndererKalender($feed) {
       $vCalendar = new \Eluceo\iCal\Component\Calendar(DB::getGlobalSettings()->siteNamePlain);
+      $vCalendar->setPublishedTTL('P1H');
+
       // $vCalendar->setName($name);
   
       $data = json_decode($feed->getFeedData());
@@ -203,14 +205,12 @@ class geticsfeed extends AbstractPage {
       $feedText = "";
       
       $vCalendar = new \Eluceo\iCal\Component\Calendar(DB::getGlobalSettings()->siteNamePlain);
+      $vCalendar->setPublishedTTL('P1H');
       $vCalendar->setName($name);
       
       
       for($i = 0; $i < sizeof($lnwData); $i++) {
           if($lnwData[$i]->showForNotTeacher() || $withEx) {
-              
-              
-              
               $vCalendar->addComponent(ICSFeed::getICSFeedObject(
                   "LNW" . $lnwData[$i]->getID(),
                   (($showGrade) ? ($lnwData[$i]->getKlasse() . ": ") : "") . $lnwData[$i]->getArtLangtext() . " in " . $lnwData[$i]->getFach() . " bei " . $lnwData[$i]->getLehrer(),

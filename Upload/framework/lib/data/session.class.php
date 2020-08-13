@@ -222,7 +222,7 @@ class session {
 						(
 							'" . $sessionID . "',
 							'" . $userID . "',
-							'" . (($_POST['keeplogin'] > 0) ? ("SAVED") : ("NORMAL")) . "',
+							'" . ($keepLogin ? ("SAVED") : ("NORMAL")) . "',
 							'" . $_SERVER['REMOTE_ADDR'] . "',
 							UNIX_TIMESTAMP(),
 							'" . $_SERVER['HTTP_USER_AGENT'] . "',

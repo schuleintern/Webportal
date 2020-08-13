@@ -28,12 +28,12 @@
 	<td>
 	<img src="$layoutImage" width="150">
 		
-	<form><button type="button" class="btn" data-toggle="modal" data-target="#layout{$b['schaukastenID']}"><i class="fa fa-pencil"></i></button></form>
+	<form><button type="button" class="btn" data-toggle="modal" data-target="#layout{$b['schaukastenID']}"><i class="fa fas fa-pencil-alt"></i></button></form>
 		<div class="modal fade" id="layout{$b['schaukastenID']}" tabindex="-1" role="dialog">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	    <div class="modal-header">	    
-	    	<h4 class="modal-title"><i class="fa fa-pencil"></i> Layout ändern</h4>
+	    	<h4 class="modal-title"><i class="fa fas fa-pencil-alt"></i> Layout ändern</h4>
 	      </div>
 	      <div class="modal-body">
 	      	<form action="{$selfURL}&action=changeLayout&screenID={$b['schaukastenID']}" method="post">
@@ -61,12 +61,12 @@
 	<td>
 	$contentList
 	
-	<form><button type="button" class="btn" data-toggle="modal" data-target="#content{$b['schaukastenID']}"><i class="fa fa-pencil"></i></button></form>
+	<form><button type="button" class="btn" data-toggle="modal" data-target="#content{$b['schaukastenID']}"><i class="fa fas fa-pencil-alt"></i></button></form>
 		<div class="modal fade" id="content{$b['schaukastenID']}" tabindex="-1" role="dialog">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	    <div class="modal-header">	    
-	    	<h4 class="modal-title"><i class="fa fa-pencil"></i> Inhalt ändern</h4>
+	    	<h4 class="modal-title"><i class="fa fas fa-pencil-alt"></i> Inhalt ändern</h4>
 	      </div>
 	      <div class="modal-body">
 	      	<form action="{$selfURL}&action=changeContent&screenID={$b['schaukastenID']}" method="post">

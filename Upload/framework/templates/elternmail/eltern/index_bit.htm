@@ -22,7 +22,7 @@
 					<then>
 						<font color="green"><i class="fa fa-check"></i> Empfang bestätigt</font>
 						<if($mailData[$i]['hasFormElements'] > 0)><then><br />
-							<a href="index.php?page=confirmelternmail&mailID={$mailData[$i]['mailID']}&a={$mailData[$i]['mailConfirmLinkSecret']}"><i class="fa fa-pencil"></i> Eingegebene Daten ändern</a>
+							<a href="index.php?page=confirmelternmail&mailID={$mailData[$i]['mailID']}&a={$mailData[$i]['mailConfirmLinkSecret']}"><i class="fa fas fa-pencil-alt"></i> Eingegebene Daten ändern</a>
 						</then></if>
 					</then>
 					<else>

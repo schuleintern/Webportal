@@ -22,8 +22,8 @@ $classes = [
     
     'ausweise' => [
         'AbstractAusweis',
-        'ISGYAusweis',
-        'ISGYAusweisTCPDF'
+        'Schulausweis',
+        'SchulausweisTCPDF'
     ],
     
 	'captcha' => [
@@ -55,7 +55,8 @@ $classes = [
 	    'CronNextCloud',
 	    'CronVerspaetungAuswertung',
 	    'CreateTagebuchPDFs',
-	    'CronAllInklMail'		
+	    // 'CronAllInklMail',
+        'DeleteOldElternUser'
 	],
 	'data/schulbuch' => [
 		'BuchAusleihe',
@@ -107,7 +108,9 @@ $classes = [
 	    'AndererKalenderTermin',
 	    'KalenderKategorie',
 	    'TerminCollector',
-	    'ICSFeed'
+	    'ICSFeed',
+        'AbstractKalenderKategorie',
+        'ExternerKalenderKategorie'
 	],
     'data/lerntutoren' => [
         'Lerntutor',
@@ -162,7 +165,9 @@ $classes = [
 		'settings',
 		'Debugger',
 		'Encoding',
-	    'resthandler'
+		'resthandler',
+		'PAGE',
+		'FILE'
 	],
 	'tpl' => [
 		'TemplateParser',
@@ -246,7 +251,8 @@ $classes = [
 	    'NoteWahlfachNote',
 	    'NoteVerrechnung',
 	    'NoteZeugnisBemerkung',
-	    'NoteGewichtung'
+	    'NoteGewichtung',
+        'NotenFremdsprachenNiveaustufen'
 	],
     'noten/bemerkung' => [
         'NoteBemerkungGruppe',

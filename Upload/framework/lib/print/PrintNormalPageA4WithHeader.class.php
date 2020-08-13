@@ -39,7 +39,7 @@ class PrintNormalPageA4WithHeader extends TCPDF {
     public function Header() {
         // Logo
         if($this->page == 1|| $this->showHeaderOnEachPage) {
-           $image_file = 'imagesSchool/Briefkopf.jpg';
+           $image_file = DB::getGlobalSettings()->urlToIndexPHP . '/index.php?page=printSettings&action=GetPrintHeader';
 
           
           $this->Image($image_file, 15, 10, '180', '', 'JPG', '', 'M', false, 300, '', false, false, 0, false, false, false);

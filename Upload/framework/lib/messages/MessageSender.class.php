@@ -57,6 +57,8 @@ class MessageSender{
 	 * @var Message
 	 */
 	private $replyMessage = null;
+
+	private $forwardMessage = null;
 	
 	private $priority = 'NORMAL';
 	
@@ -152,6 +154,10 @@ class MessageSender{
 	public function setReplyMessage($message) {
 		$this->replyMessage = $message;
 	}
+
+	public function setForwardMessage($message) {
+		$this->forwardMessage = $message;
+	}
 	
 	/**
 	 * 
@@ -162,17 +168,19 @@ class MessageSender{
 	    $this->messageQuestions[] = $question;
 	}
 	
-	public function send() {
+	public function send($onlyOnce = false) {
 		$fields = [
 			'messageUserID',
 			'messageSubject',
 			'messageText',
 			'messageSender',
 			'messageRecipients',
-		    'messageCCRecipients',
-		    'messageBCCRecipients',
+      'messageRecipientsPreview',
+		  'messageCCRecipients',
+		  'messageBCCRecipients',
 			'messageTime',
 			'messageIsReplyTo',
+			'messageIsForwardFrom',
 			'messageFolder',
 			'messageIsRead',
 			'messageNeedConfirmation',
@@ -180,8 +188,8 @@ class MessageSender{
 			'messageAttachments',
 			'messagePriority',
 			'messageAllowAnswer',
-		    'messageHasQuestions',
-		    'messageQuestionIDs'
+		  'messageHasQuestions',
+		  'messageQuestionIDs'
 		];
 		
 		$saveStrings = [];
@@ -191,8 +199,12 @@ class MessageSender{
 		for($i = 0; $i < sizeof($this->messageQuestions); $i++) $messageQuestionIDs[] = $this->messageQuestions[$i]->getID();
 		
 		$messageQuestionIDs = implode(";",$messageQuestionIDs);
-		
-		
+
+		$recipientNames = [];
+
+		for($i = 0; $i < sizeof($this->recipients); $i++) {
+			$recipientNames[] = DB::getDB()->encodeString($this->recipients[$i]->getDisplayName());
+		} 
 
 		$saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
 		$saveStringsCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->ccRecipients, $messageQuestionIDs);
@@ -209,23 +221,76 @@ class MessageSender{
 					'" . $this->text . "',
 					'" . $this->sender->getUserID() . "',
 					'" . implode(";",$saveStringsRecipients) . "',
-                    '" . implode(";",$saveStringsCCRecipients) . "',
-                    '" . implode(";",$saveStringsBCCRecipients) . "',
+					'" . implode(", ", $recipientNames ) . "',
+          '" . implode(";",$saveStringsCCRecipients) . "',
+          '" . implode(";",$saveStringsBCCRecipients) . "',
 					UNIX_TIMESTAMP(),
 					'" . (($this->replyMessage != null) ? ($this->replyMessage->getID()) : 0) . "',
+					'" . (($this->forwardMessage != null) ? ($this->forwardMessage->getID()) : 0) . "',
 					'GESENDETE',1," . (($this->needConfirmation) ? 1 : 0) . ",
 					'',
 					'" . implode(",",$this->attachments) . "',
 					'" . $this->priority . "',
 					'" . ($this->allowAnswer ? 1 : 0) . "',
-                    '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
-                    '" . $messageQuestionIDs . "'
+          '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
+          '" . $messageQuestionIDs . "'
 					)
 				";
 		DB::getDB()->query("INSERT INTO messages_messages (" . implode(",", $fields) . ") VALUES " . implode(",",$insert));
 		
+
+		/*
+		* AutoResponse
+		*/
+
+		if ($onlyOnce == false) {
+			$this->sendAutoResponse($this->recipients);
+		}
+
+
 	}
 	
+
+	/**
+	 * 
+	 * Auto Response Mails
+	 */
+	private function sendAutoResponse($recipients) {
+
+		for($i = 0; $i < sizeof($recipients); $i++) {
+
+			$users = $recipients[$i]->getRecipientUserIDs();
+			for($u = 0; $u < sizeof($users); $u++) {
+
+				$d = DB::getDB()->query_first("SELECT userAutoresponse, userAutoresponseText FROM users WHERE userID=" . $users[$u]);
+
+				if ( $d['userAutoresponse'] == 1 ) {
+					// Send Autorespondermail
+
+					$messageAutoresponse = new MessageSender();
+
+					$sender = user::getUserByID($users[$u]);
+
+					$messageAutoresponse->setSender($sender);
+					
+					$messageAutoresponse->setSubject('Abwesenheitsnotiz!');
+					$messageAutoresponse->setText( nl2br($d['userAutoresponseText']) );
+
+					$to = new UserRecipient($this->sender);
+
+					$recipientHandler = new RecipientHandler( $to->getSaveString() );
+					$messageAutoresponse->setRecipients($recipientHandler);				
+
+					$messageAutoresponse->dontAllowAnswer();
+					$messageAutoresponse->send(true);
+
+				}
+			}
+		}
+
+	}
+
+
 	/**
 	 * 
 	 * @param MessageRecipient[] $recipients
@@ -243,7 +308,8 @@ class MessageSender{
 	        'messageCCRecipients',
 	        'messageBCCRecipients',
 	        'messageTime',
-	        'messageIsReplyTo',
+            'messageIsReplyTo',
+			'messageIsForwardFrom',
 	        'messageFolder',
 	        'messageIsRead',
 	        'messageNeedConfirmation',
@@ -276,6 +342,7 @@ class MessageSender{
                     '" . $this->bccRecipientHandler->getSaveCompleteSaveString() . "',
 					UNIX_TIMESTAMP(),
 					'" . (($this->replyMessage != null) ? ($this->replyMessage->getID()) : 0) . "',
+					'" . (($this->forwardMessage != null) ? ($this->forwardMessage->getID()) : 0) . "',
 					'POSTEINGANG',0," . ($this->needConfirmation ? 1 : 0) . ",
 					'" . substr(md5(rand()),0,9) . "',
 					'" . implode(",",$this->attachments) . "',

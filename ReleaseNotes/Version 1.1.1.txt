@@ -1,0 +1,2 @@
+- Fix: Sitzung wurde bei "Angemeldet bleiben" doch nicht gespeichert.
+- Fix: Kalendereinträge nicht mehr sichtbar

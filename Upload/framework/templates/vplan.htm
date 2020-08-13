@@ -18,98 +18,100 @@
 				$vplanTH
 				$listPlan
 			</table>
+
+
+
+               <br />
+               <style type="text/css">
+
+                   .mon_title
+                   {
+                       font-weight: bold;
+                       font-size: 120%;
+                       clear: both;
+                       margin: 0;
+                   }
+
+                   .inline_header
+                   {
+                       font-weight: bold;
+                   }
+
+                   table.info
+                   {
+                       color: #000000;
+                       font-size: 100%;
+                       border: 1px;
+                       border-style:solid;
+                       border-collapse:collapse;
+                       padding: 8px 4px;
+                   }
+
+                   table.mon_list
+                   {
+                       color: #000000;
+                       width: 100%;
+                       font-size: 100%;
+                       border: 1px;
+                       border-style:solid;
+                       border-collapse:collapse;
+                   }
+
+                   table.mon_head
+                   {
+                       color: #000000;
+                       width: 100%;
+                       font-size: 100%;
+                   }
+
+                   td.info,
+                   th.list,
+                   td.list,
+                   tr.list
+                   {
+                       border: 1px;
+                       border-style: solid;
+                       border-color: black;
+                       margin: 0px;
+                       border-collapse:collapse;
+                       padding: 3px;
+                   }
+
+                   tr.odd { background: #fad3a6; }
+                   tr.even { background: #fdecd9; }
+
+               </style>
+
+
+               $header
+
+               $ownData
+
+               <if((DB::getSession()->isEltern() || DB::getSession()->isPupil()) && DB::getSettings()->getBoolean('vplan-only-own'))><then>
+
+               &nbsp;
+
+           </then>
+               <else>
+
+                   $info
+
+               </else></if>
+
+               <if(DB::getGlobalSettings()->schulnummer == "9400")><then>
+               <div class="callout callout-info">
+                   Die Demoversion enthält für jede Klasse / Lehrer eine Vertretung. (Die Vertretungen ergeben keinen Sinn. Sie sind rein zufällig.)</div>
+           </then></if>
+
+               <if((DB::getSession()->isEltern() || DB::getSession()->isPupil()) && DB::getSettings()->getBoolean('vplan-only-own'))><then></then><else>$images</else></if>
+
+
+               <br />
+               $censor
+
 			</div>
 		</div>
 
-
-<br />
-<style type="text/css">
-
-.mon_title 
-{ 
-	font-weight: bold; 
-	font-size: 120%; 
-	clear: both; 
-	margin: 0; 
-}
-
-.inline_header
-{
-	font-weight: bold; 
-}
-
-table.info
-{
-	color: #000000; 
-	font-size: 100%;
-	border: 1px;
-	border-style:solid;
-	border-collapse:collapse;
-	padding: 8px 4px;
-}
-
-table.mon_list
-{
-	color: #000000; 
-	width: 100%; 
-	font-size: 100%;
-	border: 1px;
-	border-style:solid;
-	border-collapse:collapse;
-}
-
-table.mon_head
-{
-	color: #000000; 
-	width: 100%; 
-	font-size: 100%;
-}
-
-td.info,
-th.list,
-td.list,
-tr.list
-{
-	border: 1px;
-	border-style: solid;
-	border-color: black;
-	margin: 0px;
-	border-collapse:collapse;
-	padding: 3px;
-}
-
-tr.odd { background: #fad3a6; }
-tr.even { background: #fdecd9; }
-
-</style>
-
-
-$header<br />
-
-$ownData
-</table>
-
-<if((DB::getSession()->isEltern() || DB::getSession()->isPupil()) && DB::getSettings()->getBoolean('vplan-only-own'))><then>
-
-&nbsp;
-
-</then>
-<else>
-
-$info
-
-</else></if>
-
-<if(DB::getGlobalSettings()->schulnummer == "9400")><then>
-<div class="callout callout-info">
-Die Demoversion enthält für jede Klasse / Lehrer eine Vertretung. (Die Vertretungen ergeben keinen Sinn. Sie sind rein zufällig.)</div>
-</then></if>
-
-<if((DB::getSession()->isEltern() || DB::getSession()->isPupil()) && DB::getSettings()->getBoolean('vplan-only-own'))><then></then><else>$images</else></if>
-
-
-<br />
-$censor
 
 </div>
 {$this->footer}

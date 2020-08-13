@@ -1,0 +1,93 @@
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-users"></i> {$title}</h3>
+	</div>
+	<div class="box-body">
+		{$beschreibung}
+				
+		<table class="table table-hover table-striped">
+			$userList
+		</table>
+				
+		
+		
+		<form><button type="button" class="btn btn-primary btn-block " data-toggle="modal" data-target="#{$name}" ><i class="fa fa-plus"></i> Benutzer hinzufügen</button></form>
+	</div>
+		
+</div>
+
+	<div class="modal fade" id="{$name}" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document" >
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-user"></i> {$title}</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form action="$selfURL&action={$actionAdd}" method="post">
+							<input type="hidden" name="userID" id="userIDadd{$name}" value="">
+							
+							<b>Ausgewählte Benutzer:</b>
+							<div id="selectedUserName{$name}"></div>
+							<br>
+							<span id="resetSelectedUserName{$name}" style="display:none">
+								<button type="button" class="btn btn-danger btn-sm" ><i class="fa fa-trash"></i></button>
+							</span>
+							
+							
+							<div class="form-group">
+								<label>Geben Sie einen Namen oder einen Benutzerteil ein, um nach einem Benutzer zu suchen:</label>
+								<input type="text" name="userDisplayName" placeholder="Benutzerteil eingeben" class="form-control" id="selectUser{$name}">
+
+							</div>
+							
+							<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> Benutzer hinzufügen</button>
+						</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Schließen</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		<script>
+$(function() {
+	 
+	 var val = [];
+	 var display = [];
+
+    $("#selectUser{$name}").autocomplete({
+        source: "index.php?page=administrationmodule&action=ajaxCompleUserName&module={$_REQUEST['module']}",
+        minLength: 2,
+        select: function(event, ui) {
+            var id = ui.item.id;
+            display.push(ui.item.label);
+						val.push(id);
+            $("#userIDadd{$name}").val(val.join(','));
+            $("#selectedUserName{$name}").html(display.join('<br>'));
+            $("#resetSelectedUserName{$name}").show();
+						$(this).val('');
+						event.preventDefault();
+        },
+        
+        open: function(event, ui) {
+            $(".ui-autocomplete").css("z-index", 999999);
+        }
+    });
+		
+		$('#resetSelectedUserName{$name}').on('click', function () {
+			val = [];
+			display = [];
+			$("#userIDadd{$name}").val(val);
+			$("#selectedUserName{$name}").html(display.join('<br>'));
+			$('#resetSelectedUserName{$name}').hide();
+			$('#selectUser{$name}').val('');
+
+		});
+
+});
+
+</script>

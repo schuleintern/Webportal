@@ -116,7 +116,7 @@ class AdminUpdate extends AbstractPage {
 
         self::deleteAll("../data/update");
 
-        mkdir("../data/update");
+        mkdir("../data/update",0777);
 
         file_put_contents("../data/update/update.zip", fopen($url, 'r'));
 
@@ -128,7 +128,7 @@ class AdminUpdate extends AbstractPage {
             die('Installationsdatei konnte nicht entpackt werden.');
         }
 
-        $random = random_int(10000000,99999999999);
+        $random = random_int(100000,999999);
 
         // Wartungsinformation eintragen
 

@@ -22,7 +22,7 @@ class GlobalSettings {
         'port' => 3306,
         'user' => 'root',
         'password' => '',
-        'database' => 'schuleintern.dev'
+        'database' => 'schuleintern_dev'
     );
 
     /**
@@ -87,14 +87,14 @@ class GlobalSettings {
      * KLASSENELTERN
      * @var string
      */
-    public $elternUserMode = "ASV_MAIL";
+    public $elternUserMode = "ASV_CODE";
 
     /**
      * Verwendete Stundenplan Software
      * UNTIS, SPM++, SPM++V2
      * @var string
      */
-    public $stundenplanSoftware = "SPM++";
+    public $stundenplanSoftware = "WILLI";
 
     /**
      * Hat eine Notenverwaltung?
@@ -123,6 +123,6 @@ class GlobalSettings {
      * Domain des Update Servers
      * @var string
      */
-        public $updateServer = "http://update.schule-intern.de";
+        public $updateServer = "http://schuleintern-update.chrisland.de";
 
 }

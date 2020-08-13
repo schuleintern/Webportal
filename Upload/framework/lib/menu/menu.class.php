@@ -25,7 +25,7 @@ class menu {
       $myUnterricht = SchuelerUnterricht::getUnterrichtForLehrer(DB::getSession()->getTeacherObject());
 
 
-      $this->html .= $this->startDropDown(['NotenEingabe'], 'Noteneingabe', 'fa fa-pencil');
+      $this->html .= $this->startDropDown(['NotenEingabe'], 'Noteneingabe', 'fa fas fa-pencil-alt');
 
       $unterrichtShown = [];
 
@@ -41,7 +41,7 @@ class menu {
 
               $schueler = $myUnterricht[$i]->getSchueler();
             if(sizeof($schueler) > 0) {
-              $this->html .= $this->getMenuItem('NotenEingabe', $myUnterricht[$i]->getAllKlassenAsList()  . ": " . $myUnterricht[$i]->getFach()->getKurzform() . " (" . $myUnterricht[$i]->getBezeichnung() . ")", 'fa fa-group',['unterrichtID' => $myUnterricht[$i]->getID()]);
+              $this->html .= $this->getMenuItem('NotenEingabe', $myUnterricht[$i]->getAllKlassenAsList()  . ": " . $myUnterricht[$i]->getFach()->getKurzform() . " (" . $myUnterricht[$i]->getBezeichnung() . ")", 'fa fa-award ',['unterrichtID' => $myUnterricht[$i]->getID()]);
 
             }
           }
@@ -102,7 +102,7 @@ class menu {
 
 
     if($_REQUEST['page'] == 'administrationmodule' && $this->isActive($_REQUEST['module'])) {
-        $modulAdminHTML .= "<li><div class=\"callout callout-danger\"><a href=\"index.php?page=index\"><i class=\"fa fa-arrow-left\"></i><span> Administration verlassen</span></div></li>";
+        $modulAdminHTML .= "<li class='btn btn-danger'><a href=\"index.php?page=index\"><i class=\"fa fa-arrow-left\"></i><span> Administration verlassen</span></li>";
     }
     else {
         $modulAdminHTML .= "<li><div class=\"callout callout-danger\"><a href=\"index.php\"><i class=\"fa fa-arrow-left\"></i><span> Administration verlassen</span></div></li>";
@@ -115,7 +115,7 @@ class menu {
 
 
 
-    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationactivatepages', 'Module de-/aktivieren', 'fa fa-check');
+    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationactivatepages', 'Modulstatus', 'fas fa-toggle-on');
 
 
     $displayActions = [];
@@ -262,7 +262,7 @@ class menu {
     
        
 
-    $html .= $this->getMenuItem("aufeinenblick", "Auf einen Blick", "fa fa-calendar-check-o");
+    $html .= $this->getMenuItem("aufeinenblick", " Auf einen Blick", "fa fa-calendar-check");
 
 
     if(DB::isLoggedIn() && $this->isActive("vplan") && (DB::getSession()->isTeacher() || DB::getSettings()->getValue("vplan-schueleractive") != 0)) {
@@ -307,7 +307,7 @@ class menu {
             
             if(DB::getSession()->isTeacher() ) {
                 
-                $html .= $this->getMenuItem("klassenkalender", "Meine Klassen", "fa fa-users", ['grade' => 'allMyGrades']);
+                $html .= $this->getMenuItem("klassenkalender", "Meine Klassen", "fa fas fa-users", ['grade' => 'allMyGrades']);
                 $html .= $this->getMenuItem("klassenkalender", "Alle Klassen", "fa fa-users", ['grade' => 'all_grades']);
                 $html .= $this->getMenuItem("klassenkalender", "Von mir eingetragen", "fa fa-users", ['grade' => 'allMyTermine']);
                 
@@ -320,7 +320,7 @@ class menu {
                 }
                 
                 if($htmlMyGrades != "") {
-                    $html .= $this->startDropDown(['klassenkalender'], "Meine Klassen", "fa fa-group");
+                    $html .= $this->startDropDown(['klassenkalender'], "Meine Klassen", "fa fa-users");
                     
                     $html .= $htmlMyGrades;
                     
@@ -381,7 +381,7 @@ class menu {
     
     
     if($html != "") {
-        $this->html .= $this->getTrenner('<i class="fa fa-clock-o"></i> Aktuelles</a>');
+        $this->html .= $this->getTrenner('<i class="fa fa-clock"></i> Aktuelles</a>');
         $this->html .= $html;
     }
     
@@ -442,18 +442,18 @@ class menu {
             
             
             if($this->isActive("office365users") && (DB::getSession()->isTeacher() || DB::getSession()->isPupil())) {
-                $html .= $this->getMenuItem("office365users", "Office 365 Account", "fa fa-file-word-o");
+                $html .= $this->getMenuItem("office365users", "Office 365 Account", "fa fa-file-word");
             }
             
             
             if($this->isActive("office365info") && (DB::getSession()->isTeacher() || DB::getSession()->isPupil())) {
-                $html .= $this->getMenuItem("office365info", "Office 365 Login", "fa fa-file-word-o");
+                $html .= $this->getMenuItem("office365info", "Office 365 Login", "fa fa-file-word");
             }
             
             
             
             if($this->isActive("homeuseprogram") && DB::getSession()->isTeacher()) {
-                $html .= $this->getMenuItem("homeuseprogram", "Home Use Program (Office)", "fa fa-file-word-o");
+                $html .= $this->getMenuItem("homeuseprogram", "Home Use Program (Office)", "fa fa-file-word");
             }
 
            
@@ -496,6 +496,7 @@ class menu {
         
         if($this->isActive("schuelerinfo") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen")))  $html .= $this->getMenuItem("schuelerinfo", "Schülerinformationen", "fa fa-info");
         if($this->isActive("klassenlisten") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen")))  $html .= $this->getMenuItem("klassenlisten", "Klassenlisten", "fa fa-list");
+        if($this->isActive("ganztags") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen")))  $html .= $this->getMenuItem("ganztags", "Ganztags", "fa fa-list");
         if(DB::getSession()->isAdmin() || DB::getSession()->isMember('Webportal_Elternmail')) $html .= $this->getMenuItem("AngemeldeteEltern", "Angemeldete Eltern", "fa fa-list");
         
         $html .= $this->endDropDown();
@@ -504,15 +505,19 @@ class menu {
 
     if($this->isActive("respizienz") && respizienz::userHasAccess(DB::getSession()->getUser())) {
 
-        $html .= $this->startDropDown(['respizienz'], "Digitale Respizienz", 'fa fa-briefcase');
+        $html .= $this->startDropDown(['respizienz'], DB::getSettings()->getValue("resp-name"), 'fa fa-briefcase');
 
 
         $html .= $this->getMenuItem("respizienz", "Fachlehrer", "fa fa-briefcase", ['mode' => '']);
 
-        if(DB::getSession()->isTeacher() && DB::getSession()->getTeacherObject()->isFachschaftsleitung())
+        if(DB::getSession()->isTeacher() && DB::getSession()->getTeacherObject()->isFachschaftsleitung()
+            && DB::getSettings()->getBoolean("resp-activate-fb")
+        )
             $html .= $this->getMenuItem("respizienz", "Fachschaftsleitung", "fa fa-briefcase", ['mode' => 'fachbetreuer']);
 
-        if(DB::getSession()->isTeacher() && DB::getSession()->getTeacherObject()->isSchulleitung())
+        if(DB::getSession()->isTeacher() && DB::getSession()->getTeacherObject()->isSchulleitung()
+                    && DB::getSettings()->getBoolean("resp-activate-sl")
+        )
             $html .= $this->getMenuItem("respizienz", "Schulleitung", "fa fa-briefcase", ['mode' => 'schulleitung']);
 
 
@@ -540,7 +545,7 @@ class menu {
         
         if(DB::getSession()->isTeacher()) $zuBestaetigen = DB::getDB()->query_first("SELECT COUNT(laufzettelID) AS zubestaetigen FROM laufzettel WHERE laufzettelDatum >= CURDATE() AND laufzettelID IN (SELECT laufzettelID FROM laufzettel_stunden WHERE laufzettelLehrer LIKE '" . DB::getSession()->getTeacherObject()->getKuerzel() . "' AND laufzettelZustimmung=0)");
         
-        $html .= $this->startDropDown(['laufzettel'], 'Laufzettel', 'fa fa-file-text-o',[],$zuBestaetigen['zubestaetigen']);
+        $html .= $this->startDropDown(['laufzettel'], 'Laufzettel', 'fa fa-user-check',[],$zuBestaetigen['zubestaetigen']);
         
         
         $html .= $this->getMenuItem('laufzettel', 'Zu bestätigen', 'fa fa-check', ['mode' => 'myLaufzettel'], $zuBestaetigen['zubestaetigen']);
@@ -557,7 +562,7 @@ class menu {
         
         /*
          $html .= '<li' . (($_REQUEST['page'] == "laufzettel" && $_GET['mode'] == "addLaufzettel")?(" class=\"active\""):("")) . '><a href="index.php?page=laufzettel&mode=addLaufzettel"><i class="fa fa-plus"></i> Laufzettel erstellen</a></li>';
-         $html .= '<li' . (($_REQUEST['page'] == "laufzettel" && $_GET['mode'] == "myOwnLaufzettel")?(" class=\"active\""):("")) . '><a href="index.php?page=laufzettel&mode=myOwnLaufzettel"><i class="fa fa-file-text-o"></i> Meine Laufzettel</a></li>';
+         $html .= '<li' . (($_REQUEST['page'] == "laufzettel" && $_GET['mode'] == "myOwnLaufzettel")?(" class=\"active\""):("")) . '><a href="index.php?page=laufzettel&mode=myOwnLaufzettel"><i class="fa fa-file-text"></i> Meine Laufzettel</a></li>';
          
          $html .= '</ul>
          </li>';*/
@@ -580,7 +585,7 @@ class menu {
         
         $meineKlassen = array ();
         
-        if (in_array ( "Webportal_Projektverwaltung_Admin", DB::getSession ()->getGroupNames () )) {
+        if (DB::getSession()->getUser()->isMember("Webportal_Projektverwaltung_Admin") || DB::getSession()->isAdmin()) {
             $meineKlassen = grade::getAllGradesAtLevel ( 9 );
         } else {
             $grs = DB::getDB ()->query( "SELECT * FROM projekt_lehrer2grade WHERE lehrerUserID='" . DB::getSession ()->getData("userID") . "'" );
@@ -597,8 +602,8 @@ class menu {
                 
             }
         }
-        
-        if(in_array("Webportal_Projektverwaltung_Admin", DB::getSession()->getGroupNames())){
+
+        if (DB::getSession()->getUser()->isMember("Webportal_Projektverwaltung_Admin") || DB::getSession()->isAdmin()) {
             $projektVerwaltungShow .= '<li' . (($_REQUEST['page'] == "projektverwaltung" && $_GET['action'] == "admin")?(" class=\"active\""):("")) . '><a href="index.php?page=projektverwaltung&action=admin"><i class="fa fa-briefcase"></i> Projektverwaltung Admin</a></li>';
         }
         
@@ -623,10 +628,10 @@ class menu {
 
     
     
-    if(DB::isLoggedIn() && $this->isActive("AllInkMail") && DB::getSession()->isTeacher()) {
-        $html .= '<li' . (($_REQUEST['page'] == "AllInkMail")?(" class=\"active\""):("")) . '><a href="index.php?page=AllInkMail"><i class="fa fa-envelope"></i> Mail Account</a></li>';
-        
-    }
+   // if(DB::isLoggedIn() && $this->isActive("AllInkMail") && DB::getSession()->isTeacher()) {
+   //     $html .= '<li' . (($_REQUEST['page'] == "AllInkMail")?(" class=\"active\""):("")) . '><a href="index.php?page=AllInkMail"><i class="fa fa-envelope"></i> Mail Account</a></li>';
+   //
+   // }
     
     
     if($html != "") {
@@ -699,7 +704,7 @@ class menu {
                                     
                                     
                                     $tagebuchHTML .= $this->getMenuItem('klassentagebuchauswertung', 'Schulleitung', 'fa fa-check', ['mode' => 'schulleitung'], $fehlend[0]);
-                                    $tagebuchHTML .= $this->getMenuItem('klassentagebuchauswertung', 'PDF Export', 'fa fa-file-pdf-o', ['mode' => 'pdfexport']);
+                                    $tagebuchHTML .= $this->getMenuItem('klassentagebuchauswertung', 'PDF Export', 'fa fa-file-pdf', ['mode' => 'pdfexport']);
                                 }
                             }
                             
@@ -779,7 +784,7 @@ class menu {
     
     if($ausweisHTML != "") {
         
-        $html .= $this->startDropDown(['Ausweis'], "Ausweis", "fa fa-address-card-o");
+        $html .= $this->startDropDown(['Ausweis'], "Ausweis", "fa fa-address-card");
         
         $html .= $ausweisHTML;
         
@@ -797,7 +802,7 @@ class menu {
       $absenzen .= $this->startDropDown($pages, "Absenzen Sekretariat", "fa fa-bed");
       $absenzen .= $this->getMenuItem("absenzensekretariat", "Hauptansicht", "fa fa-bed",['mode' => '']);
       $absenzen .= $this->getMenuItem("absenzenberichte", "Berichte", "fa fa-print");
-      $absenzen .= $this->getMenuItem("absenzenstatistik", "Statistik", "fa fa-pie-chart");
+      $absenzen .= $this->getMenuItem("absenzenstatistik", "Statistik", "fa fas fa-chart-pie");
       $absenzen .= $this->getMenuItem("absenzensekretariat", "Sammelbeurlaubung", "fa fa-bed",['mode' => 'sammelbeurlaubung']);
       $absenzen .= $this->getMenuItem("absenzensekretariat", "Periodische Beurlaubung", "fa fa-bed",['mode' => 'periodischeBeurlaubung']);
       $absenzen .= $this->getMenuItem("absenzensekretariat", "fpA Zeiten", "fa fa-wrench",['mode' => 'klassenanwesenheit']);
@@ -821,7 +826,7 @@ class menu {
     }
 
     if($this->isActive("beurlaubungantrag") && beurlaubungantrag::userHasAccess(DB::getSession()->getUser())) {
-        $absenzen .= $this->getMenuItem("beurlaubungantrag", "Beurlaubungsantrag", "fa fa-sun-o");
+        $absenzen .= $this->getMenuItem("beurlaubungantrag", "Beurlaubungsantrag", "fa fa-sun");
     }
     
 
@@ -883,7 +888,7 @@ class menu {
     
     
     if($html != "") {
-        $this->html .= $this->getTrenner('<i class="fa fa-pencil-square"></i> Verwaltung</i>');
+        $this->html .= $this->getTrenner('<i class="fa fas fa-pencil-alt-square"></i> Verwaltung</i>');
         $this->html .= $html;
     }
     

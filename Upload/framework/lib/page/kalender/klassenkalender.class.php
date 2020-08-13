@@ -64,7 +64,8 @@ class klassenkalender extends AbstractPage {
 
     if($currentStundenplanID < 0) {
       eval("echo(\"" . DB::getTPL()->get("klassenkalender/nocurrentstundenplan") . "\");");
-      exit(0);
+      PAGE::kill(true);
+      //exit(0);
     }
 
     if($this->isTeacher) {
@@ -270,6 +271,8 @@ class klassenkalender extends AbstractPage {
           if($lnw != null) {
               if($this->isAdmin || strtolower($lnw->getLehrer()) == strtolower($lehrer)) {
                   $lnw->setDatumStart($_POST['newDate']);
+                  $lnw->setDatumEnde($_POST['newDate']);        // LNWs haben nur eine Dauer von maximal einen Tag
+
                   $success = true;
               }
           }
@@ -596,7 +599,8 @@ class klassenkalender extends AbstractPage {
           </div>';
 
         eval("echo(\"" . DB::getTPL()->get("klassenkalender/klasseMitEintragen") . "\");");
-        exit(0);
+        PAGE::kill(true);
+        //exit(0);
       }
 
     }
@@ -659,7 +663,8 @@ class klassenkalender extends AbstractPage {
       else {
         eval("echo(\"" . DB::getTPL()->get("klassenkalender/klasseNurAnzeigen") . "\");");
       }
-      exit(0);
+      PAGE::kill(true);
+      //exit(0);
     }
   }
 
@@ -733,14 +738,12 @@ class klassenkalender extends AbstractPage {
     else if($class == "allMyTermine") {
         $lnwData = Leistungsnachweis::getBayTeacher($lehrer,$onlyFromToday,$untilDate);
         $termine = Klassentermin::getBayTeacher($lehrer,$onlyFromTodayDate,$untilDate);
-      $showGrade = true;
+        $showGrade = true;
     }
     elseif(substr($class,0,3) == "all") {
       $showGrade = true;
 
       $class = substr($class,3);
-
-      //$classes = $currentStundenplan->getAllMyPossibleGrades($class);
 
       $klassen = klasse::getAllAtLevel($class);
 
@@ -837,29 +840,35 @@ class klassenkalender extends AbstractPage {
           $eintragZeitpunkt = "n/a";
       }
 
-      $icon = "fa fa-pencil";
+      $icon = "fa fas fa-pencil-alt";
 
-      $startzeit = "10:59:00";
-      $endzeit = "11:59:00";
+      $startzeit = "00:00:00";
+      $endzeit = "00:00:00";
+
+      $isAllDay = true;
 
       $stunden = $lnwData[$i]->getStunden();
+
       if(sizeof($stunden) > 0 && $stunden[0] != "") {
-        $startzeit = stundenplan::getStartTimeStunde(DateFunctions::getWeekDayFromNaturalDate(DateFunctions::getNaturalDateFromMySQLDate($lnwData[$i]->getDatumStart())), $stunden[0]);
+          $startzeit = stundenplan::getStartTimeStunde(DateFunctions::getWeekDayFromNaturalDate(DateFunctions::getNaturalDateFromMySQLDate($lnwData[$i]->getDatumStart())), $stunden[0]);
         $startzeit .= ":00";
 
         $endzeit = stundenplan::getEndTimeStunde(DateFunctions::getWeekDayFromNaturalDate(DateFunctions::getNaturalDateFromMySQLDate($lnwData[$i]->getDatumStart())), $stunden[sizeof($stunden)-1]);
         $endzeit .= ":00";
+
+          $isAllDay = false;
       }
 
       if($show && !$showForPDF) {
           $terminDataJSON[] = [
               'title' => ((($showGrade) ? ($lnwData[$i]->getKlasse() . ": ") : ("")) . $lnwData[$i]->getArtKurztext() . " - " . $lnwData[$i]->getFach() . " - " . $lnwData[$i]->getLehrer()  . (($lnwData[$i]->isAlwaysShow()) ? (" (Angekündigt)") : (""))),
               'start' => $lnwData[$i]->getDatumStart() . "T$startzeit",
+              'end' =>$lnwData[$i]->getDatumStart() . "T$endzeit",
               'eintragZeitpunkt' => $eintragZeitpunkt,
               'betrifft' => $lnwData[$i]->getBetrifft(),
               'stunden' => implode(", ", $lnwData[$i]->getStunden()),
               'icon' => $icon,
-              'allDay' => true,
+              'allDay' => $isAllDay,
               'klassen' => '',
               'ort' => '',
               'color' => $lnwData[$i]->getEintragFarbe(),
@@ -1007,7 +1016,7 @@ class klassenkalender extends AbstractPage {
               'eintragZeitpunkt' => '',
               'betrifft' => '',
               'stunden' => '',
-              'icon' => 'fa fa-sun-o',
+              'icon' => 'fa fa-sun',
               'allDay' => true,
               'klassen' => '&nbsp;',
               'ort' => 'Bayern',
@@ -1019,14 +1028,14 @@ class klassenkalender extends AbstractPage {
               'rendering' => 'background'
           ];
 
-          $newTermin2 = [
+          /**$newTermin2 = [
               'title' => $f['ferienName'],
               'start' => $f['ferienStart'] . "T23:59:00",
               'end' => $f['ferienEnde'] . "T23:59:00",
               'eintragZeitpunkt' => '',
               'betrifft' => '',
               'stunden' => '',
-              'icon' => 'fa fa-sun-o',
+              'icon' => 'fa fa-sun',
               'allDay' => true,
               'klassen' => '&nbsp;',
               'ort' => 'Bayern',
@@ -1035,10 +1044,10 @@ class klassenkalender extends AbstractPage {
               'eventID' => -1,
               'eventType' => 'ferien',
               'lnwtype' => 'ferien'
-          ];
+          ];**/
 
           $terminDataJSON[] = $newTermin;
-          $terminDataJSON[] = $newTermin2;
+          // $terminDataJSON[] = $newTermin2;
 
       }
     }

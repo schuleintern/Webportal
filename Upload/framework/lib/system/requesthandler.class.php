@@ -39,9 +39,9 @@ class requesthandler {
     'json' => [
         'jsonApi'
     ],
-    'allinklmail' => [
+    /*'allinklmail' => [
         'AllInkMail'
-    ],
+    ],*/
     'absenzen' => [
       'absenzenberichte',
       'absenzenlehrer',
@@ -76,7 +76,10 @@ class requesthandler {
       'administrationcron',
       'administrationgroups',
         'AdminMailSettings',
-        'AdminUpdate'
+        'AdminUpdate',
+        'AdminBackup',
+        'AdminDatabase',
+        'AdministrationEltern'
     ],
     'aufeinenblick' => [
       'aufeinenblick',
@@ -129,6 +132,10 @@ class requesthandler {
     'klassenlisten' => [
       'klassenlisten',
     ],
+    'ganztags' => [
+      'ganztags',
+      'ganztagsEdit'
+    ],
     'krankmeldung' => [
       'krankmeldung',
     ],
@@ -169,7 +176,8 @@ class requesthandler {
       'GetMathCaptcha',
       'index',
       'info',
-        'Update'
+      'Update',
+      'Backup'
     ],
     'userprofile' => [
       'changeuseridinsession',
@@ -233,9 +241,6 @@ class requesthandler {
       }
     }
 
-    
-    
-
     if($allowed) {
       try {
         $page = new $action;
@@ -246,11 +251,12 @@ class requesthandler {
         echo "<b>" . $e->getMessage() . "</b> in Line " . $e->getLine()  . " in " . $e->getFile() . "<br />";
         echo "<pre>" . $e->getTraceAsString() . "</pre>";
       }
-    }
-    else {
+    } else {
       new errorPage();
       die();
     }
+    PAGE::kill(true);
+    
   }
 
     /**

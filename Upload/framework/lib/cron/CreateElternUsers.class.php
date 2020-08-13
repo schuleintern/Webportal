@@ -90,7 +90,7 @@ class CreateElternUsers extends AbstractCron {
 		    	include_once("../framework/lib/page/abstractPage.class.php");
 		    	include_once("../framework/lib/page/loginlogout/login.class.php");
 		    	
-	    		$users = DB::getDB()->query("SELECT * FROM users WHERE userNetwork='SCHULEINTERN_ELTERN' AND userID NOT IN (SELECT elternUserID FROM eltern_email WHERE elternUserID>0)");
+	    		$users = DB::getDB()->query("SELECT * FROM users WHERE userNetwork='SCHULEINTERN_ELTERN' AND userID NOT IN (SELECT elternUserID FROM eltern_email JOIN eltern_adressen ON eltern_email.elternAdresseID=eltern_adressen.adresseID WHERE adresseWessen != 'S' AND elternUserID>0)");
 	
 	    		$deleteUserIDs = array();
 	    		while($user = DB::getDB()->fetch_array($users)) {
@@ -103,14 +103,15 @@ class CreateElternUsers extends AbstractCron {
 	    		for($i = 0; $i < sizeof($deleteUserIDs); $i++) {
 	    			$this->listDeleted .= $deleteUserIDs[$i] . " gelöscht.\r\n";
 	    			
-	    			DB::getDB()->query("DELETE FROM users WHERE userID='" . $deleteUserIDs[$i] . "'");
-	    			DB::getDB()->query("DELETE FROM users_groups WHERE userID='" . $deleteUserIDs[$i] . "'");
-	    		}
-	    		
-	    		
+	    			$user = user::getUserByID($deleteUserIDs[$i]);
+	    			if($user != null) $user->deleteUser();
+
+                }
+
 	    		// Benutzer anlegen
-	    		$newEltern = DB::getDB()->query("SELECT DISTINCT elternEMail FROM eltern_email WHERE elternUserID=0");
-	
+	    		// Keine Elternbenutzer für Schüler anlegen
+                $newEltern = DB::getDB()->query("SELECT DISTINCT elternEMail FROM eltern_email JOIN eltern_adressen ON eltern_email.elternAdresseID=eltern_adressen.adresseID WHERE elternUserID=0 AND adresseWessen!='S'");
+
 	
 	    		$create = array();
 	

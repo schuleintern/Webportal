@@ -24,10 +24,8 @@ class ToDo {
     public function __construct($data) {
         $this->data = $data;
     }
-    
-    
-    
-    
+
+
     /**
      * 
      */

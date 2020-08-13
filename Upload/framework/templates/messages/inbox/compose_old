@@ -15,7 +15,7 @@
               <if($isReply)><then>
               <input type="hidden" name="replyMessage" value="{$replyMessage->getID()}">
               <hr noshade>
-              	<p>Antwort auf "{$replyMessage->getSubject()}" <button type="button" class="btn btn-sm btn-info" data-target="#replyMessage" data-toggle="modal"><i class="fa fa-commenting-o"></i> Nachricht anzeigen</button></p>
+              	<p>Antwort auf "{$replyMessage->getSubject()}" <button type="button" class="btn btn-sm btn-info" data-target="#replyMessage" data-toggle="modal"><i class="fa fa-commenting"></i> Nachricht anzeigen</button></p>
               </then></if>
               <div class="form-group">
                 <if($isReply)><then>
@@ -65,9 +65,9 @@
             </div>
             <div class="box-footer">
                 <if(!$hasRecipients)><then>
-                	<button type="submit" class="btn btn-primary" disabled="disabled"><i class="fa fa-envelope-o"></i> Nachricht senden (Bitte vorher mindestens einen Empfänger auswählen!)</button>
+                	<button type="submit" class="btn btn-primary" disabled="disabled"><i class="fa fa-envelope"></i> Nachricht senden (Bitte vorher mindestens einen Empfänger auswählen!)</button>
                 </then><else>
-                	<button type="submit" class="btn btn-primary" name="action" value="send"><i class="fa fa-envelope-o"></i> Nachricht senden</button>
+                	<button type="submit" class="btn btn-primary" name="action" value="send"><i class="fa fa-envelope"></i> Nachricht senden</button>
                 </else></if>
             </div>
           </div>
@@ -287,7 +287,7 @@
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		    <div class="modal-header">	    
-		    	<h4 class="modal-title"><i class="fa fa-commenting-o"></i> Ursprüngliche Nachricht</h4>
+		    	<h4 class="modal-title"><i class="fa fa-commenting"></i> Ursprüngliche Nachricht</h4>
 		      </div>
 		      <div class="modal-body">
 				Absender: {$replyMessage->getSender()->getDisplayName()}<br />

@@ -6,26 +6,36 @@
 				<td>{$meine[$i]->getLehrer()}</td>
 				<if($meine[$i]->isAnalog())><then>
 					<td style="text-align: center"><b>Analoge Archivierung</b></td>
-					<td> </td>
-					<td> </td>
+
+				<if(DB::getSettings()->getValue('resp-mode') == 'RESP')><then>
+				<td> </td>
+				<td> </td>
+
+				</then></if>
+
 					<td>
 									<if(!$isFachbetreuer && !$isSchulleitung)><then>
 					
 					
-					<form><button class="btn btn-sm" type="button" onclick="confirmAction('Leistungsnachweis digital archivieren?','index.php?page=respizienz&action=setDigital&respizienzID={$meine[$i]->getID()}{$mode}');"><i class="fa fa-file-o"></i> Digital archivieren</button></form>
+					<form><button class="btn btn-sm btn-default" type="button" onclick="confirmAction('Leistungsnachweis digital archivieren?','index.php?page=respizienz&action=setDigital&respizienzID={$meine[$i]->getID()}{$mode}');"><i class="fa fa-file-archive"></i> Digital archivieren</button></form>
 										
 					</then></if>
 					</td>
 					
 				</then><else>
 				<td>$downloadFile</td>
+
+				<if(DB::getSettings()->getValue('resp-mode') == 'RESP')><then>
 				<td>$downloadFileFSL</td>
 				<td>$downloadFileSL</td>
+			</then></if>
+
+
 				
 				<td>
 				<if(!$isFachbetreuer && !$isSchulleitung)><then>
 				
-					<form><button class="btn btn-sm" type="button" onclick="confirmAction('Leistungsnachweis analog archivieren?','index.php?page=respizienz&action=setAnalog&respizienzID={$meine[$i]->getID()}{$mode}');"><i class="fa fa-file-o"></i> Analog archivieren</button></form>
+					<form><button class="btn btn-sm btn-default" type="button" onclick="confirmAction('Leistungsnachweis analog archivieren?','index.php?page=respizienz&action=setAnalog&respizienzID={$meine[$i]->getID()}{$mode}');"><i class="fas fa-archive"></i> Analog archivieren</button></form>
 					
 					</then></if>
 				</else></if>

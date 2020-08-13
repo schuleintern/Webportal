@@ -9,13 +9,13 @@
 </then></if>
 
 <if($_REQUEST['page'] == 'MessageCompose')><then>
-	<form action="index.php?page=MessageCompose" method="post" enctype="multipart/form-data">
+	<form action="index.php?page=MessageCompose" method="post" enctype="multipart/form-data" id="composeForm">
 </then></if>
 
 <div class="row">
         <div class="col-md-3">
           <if($_REQUEST['page'] != 'MessageCompose')><then>
-          	<a href="index.php?page=MessageCompose" class="btn btn-primary btn-block margin-bottom"><i class="fa fa-paper-plane-o"></i> Nachricht verfassen</a>
+          	<a href="index.php?page=MessageCompose" class="btn btn-primary btn-block margin-bottom"><i class="fa fa-paper-plane"></i> Nachricht verfassen</a>
           </then></if>
 
           <div class="box box-solid">
@@ -45,7 +45,7 @@
                 </then><else>
                 <li>
                 </else></if>
-                <a href="index.php?page=MessageInbox&folder=GESENDETE"><i class="fa fa-envelope-o"></i> Gesendete</a>
+                <a href="index.php?page=MessageInbox&folder=GESENDETE"><i class="fa fa-envelope"></i> Gesendete</a>
                 
                 
                 </li>
@@ -54,7 +54,7 @@
                 </then><else>
                 <li>
                 </else></if>
-                <a href="index.php?page=MessageInbox&folder=PAPIERKORB"><i class="fa fa-trash-o"></i> Papierkorb
+                <a href="index.php?page=MessageInbox&folder=PAPIERKORB"><i class="fa fa-trash"></i> Papierkorb
                 
                                   <span class="label label-primary pull-right">{$papierkorbOrdner->getUnreadMessageNumber()}</span>
                 </a>

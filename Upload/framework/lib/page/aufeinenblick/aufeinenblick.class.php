@@ -22,7 +22,10 @@ class aufeinenblick extends AbstractPage {
 
     if(!DB::getSession()->isTeacher() && !DB::getSession()->isPupil() && !DB::getSession()->isEltern()) {
       eval("DB::getTPL()->out(\"" . DB::getTPL()->get("index") . "\");");
-      exit(0);
+      
+      PAGE::kill(true);
+
+      //exit(0);
     }
 
     $this->loadMySettings();
@@ -131,7 +134,8 @@ class aufeinenblick extends AbstractPage {
 
       eval("echo(\"" . DB::getTPL()->get("aufeinenblick/settings/index") . "\");");
 
-      exit(0);
+      PAGE::kill(true);
+      //exit(0);
     }
 
     Stundenplan::getCurrentStunde();
@@ -143,6 +147,7 @@ class aufeinenblick extends AbstractPage {
 
     // if($stundenplan == null) {
     // eval("echo(\"" . DB::getTPL()->get("aufeinenblick/nocurrentstundenplan") . "\");");
+    // PAGE::kill(true);
     // exit(0);
     // }
 
@@ -742,7 +747,7 @@ class aufeinenblick extends AbstractPage {
   }
 
   public static function getAdminMenuGroupIcon() {
-    return 'fa fa-file-o';
+    return 'fa fa-file';
   }
 }
 

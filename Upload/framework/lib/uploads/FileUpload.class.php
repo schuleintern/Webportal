@@ -143,23 +143,23 @@ class FileUpload {
 	public function getFileTypeIcon() {
 		switch(strtolower($this->getExtension())) {
 			case 'pdf':
-				return 'fa fa-file-pdf-o';
+				return 'fa fa-file-pdf';
 				
 			case 'doc':
 			case 'docx':
-			    return 'fa fa-file-word-o';
+			    return 'fa fa-file-word';
 			    
 			case 'xls':
 			case 'xlsx':
-			    return 'fa fa-file-excel-o';
+			    return 'fa fa-file-excel';
 			    
 			case 'ppt':
 			case 'pptx':
-			    return 'fa fa-file-powerpoint-o';
+			    return 'fa fa-file-powerpoint';
 			    
 			
 			default:
-				return 'fa fa-file-o';
+				return 'fa fa-file';
 		}
 	}
 	
@@ -167,6 +167,8 @@ class FileUpload {
 		if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
 			return 'n/a';
 		}
+
+
 		
 		return str_replace(".",",",round(filesize("../data/uploads/" . $this->getID() . ".dat") / 1024 / 1024,2)) . " MB";
 	}
@@ -177,10 +179,21 @@ class FileUpload {
 			new errorPage("Upload existiert nicht!");
 			exit(0);
 		}
+
+
+		$fileextension = $this->getExtension();
+		$fileextension = strtolower($fileextension);
+
+		// Hat Dateiname schon eine Erweiterung?
+        $filename = $this->getFileName();
+
+        if(substr($filename,-(strlen(($fileextension)))) != $fileextension) {
+            $filename =  $filename . "." . $fileextension;
+        }
 				
 		header('Content-Description: Dateidownload');
 		header('Content-Type: ' . $this->getMimeType());
-		header('Content-Disposition: attachment; filename="'. $this->getFileName() . '"');
+		header('Content-Disposition: attachment; filename="'. $filename . '"');
 		header('Expires: 0');
 		header('Cache-Control: must-revalidate');
 		header('Pragma: public');
@@ -294,6 +307,59 @@ class FileUpload {
 
 		return self::uploadFileImpl($fieldName, self::$mimesPicture, $fileName);	
 	}
+
+
+    /**
+     * @param $filepath
+     * @param $filename
+     * @return array
+     */
+    public static function uploadPictureFromFile($filepath, $filename) {
+        $ext = strtolower(array_pop(explode('.',$filepath)));
+
+        if (function_exists('finfo_open')) {
+            $finfo = finfo_open(FILEINFO_MIME);
+            $mimetype = finfo_file($finfo, $filepath);
+            finfo_close($finfo);
+            $mimetype = str_replace("; charset=binary", "", $mimetype);
+            $mimetype = str_replace("; charset=utf-8", "", $mimetype);
+
+            if(!in_array($mimetype, self::$mimesPicture)) {
+                $mime = null;
+            }
+            else $mime = $mimetype;
+        }
+        else new errorPage("MIME Type kann nicht bestimmt werden!");
+
+        DB::getDB()->query("INSERT INTO uploads
+				(
+					uploadFileName,
+					uploadFileExtension,
+					uploadFileMimeType,
+					uploadTime,
+					uploaderUserID
+				) values(
+					'" . DB::getDB()->escapeString($filename) . "',
+					'" . $ext . "',
+					'" . $mime . "',
+					UNIX_TIMESTAMP(),
+					" . DB::getSession()->getUser()->getUserID() . "				
+				)
+			");
+
+        $newID = DB::getDB()->insert_id();
+
+        copy($filepath, "../data/uploads/" . $newID . ".dat");
+
+        $data = DB::getDB()->query_first("SELECT * FROM uploads WHERE uploadID='" . $newID. "'");
+
+        return [
+            'result' => true,
+            'uploadobject' => new FileUpload($data),
+            'mimeerror' => false,
+            'text' => "Upload OK"
+        ];
+    }
 	
 	public static function uploadPDF($fieldName, $fileName) {
 		$mimePDF = [
@@ -329,6 +395,23 @@ class FileUpload {
 		
 		return self::uploadFileImpl($fieldName, $mimes, $fileName);	
 	}
+
+	public static function uploadOfficeFilesPicturesTextAndZip($fieldName, $fileName) {
+        $mimes = self::$mimeTypesMSOffice;
+
+        $mimes[] = 'application/pdf';
+        $mimes[] = 'text/csv';
+	    $mimes[] = 'text/plain';
+        $mimes[] = 'application/zip';
+
+        $mimes = array_merge($mimes, self::$mimesPicture);
+
+        for($i = 0; $i < sizeof(self::$mimesPicture); $i++) {
+            $mimes[] = self::$mimesPicture[$i];
+        }
+
+        return self::uploadFileImpl($fieldName, $mimes, $fileName);
+    }
 	
 	public static function uploadOfficeDocument($fieldName, $fileName) {
 		return self::uploadFileImpl($fieldName, self::$mimeTypesMSOffice, $fileName);
@@ -446,8 +529,10 @@ class FileUpload {
 			finfo_close($finfo);
 			$mimetype = str_replace("; charset=binary", "", $mimetype);
 			$mimetype = str_replace("; charset=utf-8", "", $mimetype);
+            $mimetype = str_replace("; charset=us-ascii", "", $mimetype);
 						
 			if(!in_array($mimetype, $mimes)) {
+			    $mimeerror = $mimetype;
 				$mime = null;
 			}
 			else $mime = $mimetype;
@@ -490,7 +575,7 @@ class FileUpload {
 					'result' => false,
 					'uploadobject' => null,
 					'mimeerror' => true,
-					'text' => "wrong mime type"
+					'text' => "wrong mime type: $mimeerror"
 			];
 		}
 	}

@@ -115,10 +115,11 @@ class NoteArbeit {
 	 * @param String $lehrerKuerzel
 	 * @return NoteArbeit[]
 	 */
-	public static function getByUnterrichtID($unterrichtID) {
+	public static function getByUnterrichtID($unterrichtID, $unterrichtObjekt = null) {
 		$alle = [];
-		
-		$unterricht = SchuelerUnterricht::getByID($unterrichtID);
+
+		if($unterrichtObjekt != null) $unterricht = $unterrichtObjekt;
+		else $unterricht = SchuelerUnterricht::getByID($unterrichtID);
 		
 		if($unterricht != null) {
 		    

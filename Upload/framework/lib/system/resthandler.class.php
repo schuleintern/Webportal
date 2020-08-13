@@ -23,45 +23,21 @@ class resthandler {
      'SetSettingsValue',
      'GetAllSettings',
      'GetUserCount',
+      'Test'
   ];
   
   
 
   public function __construct() {
-      
+
+      error_reporting(E_ERROR);
+
       include_once("../framework/lib/rest/AbstractRest.class.php");
 
       $authHeaderFound = false;
 
       $headers = getallheaders();
 
-      foreach($headers as $headername => $headervalue) {
-          if(strtolower($headername) == 'authorization') {
-              $authHeaderFound = true;
-          }
-      }
-
-      if (!isset($_SERVER['PHP_AUTH_USER']) && !$authHeaderFound) {
-          $result = [
-              'error' => 1,
-              'errorCode' => '401',
-              'errorText' => 'Auth Failed!',
-          ];
-          
-          $this->answer($result, 401);
-          exit();
-      }
-
-     // print_r($headers);
-      
-      if(!isset($headers['schuleinternapirequest']) || $headers['schuleinternapirequest'] != true) {
-          $result = [
-              'error' => 1,
-              'errorText' => 'schuleinternapirequest header not set. '
-          ];
-          $this->answer($result, 400);
-      }
-      
       $method = $_SERVER['REQUEST_METHOD'];
       
       $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
@@ -87,7 +63,8 @@ class resthandler {
            * @var AbstractRest $action
            */
           $action = new $classname();
-          
+
+
           
           if($method != $action->getAllowedMethod()) {
               $result = [
@@ -96,44 +73,83 @@ class resthandler {
               ];
               $this->answer($result, 405);
           }
-                
-                // Check Auth
-            if ($action->needsSystemAuth()) {
 
-                $apiKey = null;
 
-                foreach($headers as $headername => $headervalue) {
-                    if(strtolower($headername) == 'authorization') {
-                        $authHeaderFound = true;
+          if($action->needsUserAuth()) {
+              if (isset ( $_COOKIE ['schuleinternsession'] )) {
 
-                        $apiKey = substr($headervalue, 7);
+                  DB::initSession ( $_COOKIE ['schuleinternsession'] );
 
-                    }
-                }
+                  if (! DB::isLoggedIn ()) {
+                      if (isset ( $_COOKIE ['schuleinternsession'] ))
+                          setcookie ( "schuleinternsession", null );
 
-                if ($apiKey != null && $apiKey != DB::getGlobalSettings()->apiKey) {
+                      $this->answer([], 401);
 
-                    $result = [
-                        'error' => 1,
-                        'errorText' => 'Auth Failedd',
-                        'SERVER' => $apiKey
-                    ];
-                    
-                    $this->answer($result, 401);
-                    exit();
-                }
-            }
-            else {
-                if (!$action->checkAuth($_SERVER['PHP_AUTH_USER'],$_SERVER['PHP_AUTH_PW'])) {
-                    $result = [
-                        'error' => 1,
-                        'errorText' => 'Auth Failed'
-                    ];
-                    
-                    $this->answer($result, 401);
-                    exit();
-                }
-            }
+                      exit ();
+                  } else {
+                      DB::getSession ()->update ();
+
+                      $action->user = DB::getSession()->getUser();
+                  }
+              }
+              else {
+                  $this->answer([], 401);
+              }
+          }
+          else {
+
+              foreach($headers as $headername => $headervalue) {
+                  if(strtolower($headername) == 'authorization') {
+                      $authHeaderFound = true;
+                  }
+              }
+
+              if(!isset($headers['schuleinternapirequest']) || $headers['schuleinternapirequest'] != true) {
+                  $result = [
+                      'error' => 1,
+                      'errorText' => 'schuleinternapirequest header not set. '
+                  ];
+                  $this->answer($result, 400);
+              }
+
+              // Check Auth
+              if ($action->needsSystemAuth()) {
+
+                  $apiKey = null;
+
+                  foreach ($headers as $headername => $headervalue) {
+                      if (strtolower($headername) == 'authorization') {
+                          $authHeaderFound = true;
+
+                          $apiKey = substr($headervalue, 7);
+
+                      }
+                  }
+
+                  if ($apiKey != null && $apiKey != DB::getGlobalSettings()->apiKey) {
+
+                      $result = [
+                          'error' => 1,
+                          'errorText' => 'Auth Failedd',
+                          'SERVER' => $apiKey
+                      ];
+
+                      $this->answer($result, 401);
+                      exit();
+                  }
+              } else {
+                  if (!$action->checkAuth($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {
+                      $result = [
+                          'error' => 1,
+                          'errorText' => 'Auth Failed'
+                      ];
+
+                      $this->answer($result, 401);
+                      exit();
+                  }
+              }
+          }
 
           // Execute wird nur aufgerufen, wenn die Authentifizierung erfolgreich war.
           $result = $action->execute($input, $request);

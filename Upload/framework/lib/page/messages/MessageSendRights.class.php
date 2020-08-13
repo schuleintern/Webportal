@@ -195,11 +195,11 @@ class MessageSendRights extends AbstractPage {
 	}
 	
 	public static function getAdminMenuIcon() {
-		return 'fa fa-comments-o';
+		return 'fa fa-comments';
 	}
 	
 	public static function getAdminMenuGroupIcon() {
-		return 'fa fa-comments-o';
+		return 'fa fa-comments';
 	}
 	
 	public static function getAdminMenuGroup() {

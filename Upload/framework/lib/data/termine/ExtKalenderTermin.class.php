@@ -1,12 +1,28 @@
 <?php
 
 class ExtKalenderTermin extends AbstractTermin {
+
+    /**
+     * @var ExternerKalenderKategorie
+     */
+    private $kategorie = null;
+
   public function __construct($data) {
     parent::__construct($data);
+
+    if($data['eintragKategorieName'] != "") {
+        $this->kategorie = ExternerKalenderKategorie::getByID($data['kalenderID'], $data['eintragKategorieName']);
+    }
   }
 
+    /**
+     * @return AbstractKalenderKategorie
+     */
+  public function getKategorie() {
+     return $this->kategorie;
+  }
 
-  public static function getAll($kalenderID, $startDate, $endDate) {
+    public static function getAll($kalenderID, $startDate, $endDate) {
     $all = [];
 
     $where = " AND ((eintragDatumStart >= '$startDate' AND eintragDatumEnde <= '$endDate') OR

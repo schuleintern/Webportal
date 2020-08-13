@@ -76,6 +76,64 @@ class Notenbogen {
             $this->unterrichtsNoten[] = new UnterrichtsNoten($this->unterricht[$i], $this->schueler);
         }
 
+        // TEMP ISGY
+        // TODO: Wieder weg machen
+
+        $unterrichteArbeitenSchueler = DB::getDB()->query("SELECT DISTINCT arbeitUnterrichtName FROM noten_arbeiten JOIN noten_noten ON noten_noten.noteArbeitID=noten_arbeiten.arbeitID WHERE noten_noten.noteSchuelerASVID='" . $schueler->getAsvID() . "'");
+
+        $alleUnterrichtSchuelerMitNoten = [];
+        while($unterrichtElement = DB::getDB()->fetch_array($unterrichteInSchueler)) {
+            $alleUnterrichtSchuelerMitNoten[] = $unterrichtElement['arbeitUnterrichtName'];
+        }
+
+        $fehlendeUnterrichte = [];
+        for($i = 0; $i < sizeof($alleUnterrichtSchuelerMitNoten); $i++) {
+            $found = false;
+
+            for($u = 0; $u < sizeof($this->unterricht); $u++) {
+                if($this->unterricht[$u]->getBezeichnung() == $alleUnterrichtSchuelerMitNoten[$i]) $found = true;
+            }
+
+            if(!$found) {
+                $fehlendeUnterrichte[] = $alleUnterrichtSchuelerMitNoten[$i];
+            }
+
+        }
+
+        $unterrichtID = 99999999;
+
+        for($j = 0; $j < sizeof($fehlendeUnterrichte); $j++) {
+            $data = DB::getDB()->query_first("SELECT * FROM noten_arbeiten JOIN noten_noten ON noten_noten.noteArbeitID=noten_arbeiten.arbeitID WHERE noten_noten.noteSchuelerASVID='" . $schueler->getAsvID() . "' AND noten_arbeiten.arbeitUnterrichtName='" . $fehlendeUnterrichte[$j] . "'");
+
+            $fachID = DB::getDB()->query_first("SELECT fachID FROM faecher WHERE fachKurzform='" . $data['arbeitFachKurzform'] . "'");
+            $fachID = $fachID['fachID'];
+
+            $lehrerID = DB::getDB()->query_first("SELECT lehrerID FROM lehrer WHERE lehrerKuerzel='" . $data['arbeitLehrerKuerzel'] . "'");
+            $lehrerID = $lehrerID['lehrerID'];
+
+            $fakeUnterricht = new SchuelerUnterricht([
+                'unterrichtFachID' => $fachID,
+                'unterrichtLehrerID' => $lehrerID,
+
+                'unterrichtID' => $unterrichtID,
+                'unterrichtBezeichnung' => $fehlendeUnterrichte[$j],
+                'unterrichtArt' => 'Pflichtunterricht',
+                'unterrichtIsWissenschaftlich' => 1
+
+            ], true);
+
+            $unterrichtID++;
+
+            $this->unterricht[] = $fakeUnterricht;
+            $this->unterrichtsNoten[] = new UnterrichtsNoten($fakeUnterricht, $this->schueler);
+        }
+
+
+        // Ende Temp Änderung ISGY
+
+        // alte Unterrichte dazu laden
+
+
         // Sortiere nach Datenbank.
 
 
@@ -169,8 +227,8 @@ class Notenbogen {
             
             $table .= " (" . $this->unterrichtsNoten[$i]->getUnterricht()->getFach()->getKurzform() . ")";
 
-            $name = $this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getGeschlecht() == 'w' ? "Frau" : "Herr";
-            $name .= " " . $this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getName();
+            $name = ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer() != null ? ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getGeschlecht() == 'w' ? "Frau" : "Herr") : "n/a");
+            $name .= " " . ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer() != null ? ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getName()) : ("n/a"));
 
             $table .= "<br /><small>" . $name. "</small>";
 
@@ -285,8 +343,8 @@ class Notenbogen {
 
             $table .= $this->unterrichtsNoten[$i]->getUnterricht()->getFach()->getKurzform();
 
-            $name = $this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getGeschlecht() == 'w' ? "Frau" : "Herr";
-            $name .= " " . $this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getName();
+            $name = ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer() != null ? ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getGeschlecht() == 'w' ? "Frau" : "Herr") : ("n/a"));
+            $name .= ($this->unterrichtsNoten[$i]->getUnterricht()->getLehrer() != null ? (" " . $this->unterrichtsNoten[$i]->getUnterricht()->getLehrer()->getName()) : (""));
 
             $table .= "<br /><small>" . $name. "</small>";
 
@@ -448,16 +506,16 @@ class Notenbogen {
 
 
 
-        $tableHeader = "<tr><th style=\"width:12%\">&nbsp;</th>";
+        $tableHeader = "<tr><th style=\"width:12%\"><small>&nbsp;</small></th>";
 
         $width = 30;
         if(schulinfo::isGymnasium()) $width -= 8;
 
-        if($hasAnySchulaufgaben) $tableHeader  .= "<th style=\"width:$width%\">Große <br />Leistungsnachweise</th>";
+        if($hasAnySchulaufgaben) $tableHeader  .= "<th style=\"width:$width%\"><small>Große <br />Leistungsnachweise</small></th>";
 
 
         if(schulinfo::isGymnasium()) {
-            if($hasAnySchulaufgaben) $tableHeader  .= "<th style=\"width:8%\">&Oslash;<br />Große</th>";
+            if($hasAnySchulaufgaben) $tableHeader  .= "<th style=\"width:8%\">&Oslash;<br /><small>Große</small></th>";
         }
 
 
@@ -471,40 +529,37 @@ class Notenbogen {
         if(schulinfo::isGymnasium()) $width -= 8;
 
 
-        if($colspan > 1) $tableHeader .= "<th colspan=\"$colspan\" style=\"width:$width%\">Kleine <br />Leistungsnachweise</th>";
+        if($colspan > 1) $tableHeader .= "<th colspan=\"$colspan\" style=\"width:$width%\"><small>Kleine <br />Leistungsnachweise</small></th>";
 
         if(schulinfo::isGymnasium()) {
-            if($colspan) $tableHeader  .= "<th style=\"width:8%\">&Oslash;<br />Kleine</th>";
+            if($colspan) $tableHeader  .= "<th style=\"width:8%\">&Oslash;<br /><small>Kleine</small></th>";
         }
 
-        $tableHeader .= "<th style=\"width:8%\">&Oslash;<br />Gesamt</th>";
+        $tableHeader .= "<th style=\"width:8%\">&Oslash;<br /><small>Gesamt</small></th>";
 
         // TODO: ZB
 
         $tableHeader .= "</tr>";
 
-        $tableHeader .= "<tr><th>&nbsp;</th>";
+        $tableHeader .= "<tr><th><small>&nbsp;</small></th>";
 
-        if($hasAnySchulaufgaben) $tableHeader .= "<th>Schulaufgaben</th>";
+        if($hasAnySchulaufgaben) $tableHeader .= "<th><small>Schulaufgaben</small></th>";
 
         if(schulinfo::isGymnasium()) {
-            if($hasAnySchulaufgaben) $tableHeader  .= "<th>&nbsp;</th>";
+            if($hasAnySchulaufgaben) $tableHeader  .= "<th><small>&nbsp;</small></th>";
         }
 
 
-        if($hasAnyKurzarbeiten) $tableHeader .= "<th>Kurzarbeiten</th>";
+        if($hasAnyKurzarbeiten) $tableHeader .= "<th><small>Kurzarbeiten</small></th>";
 
-        if($hasAnyExen) $tableHeader .= "<th>Stegreifaufgaben</th>";
-        if($hasAnyMuendlich) $tableHeader .= "<th>mündliche Noten</th>";
+        if($hasAnyExen) $tableHeader .= "<th><small>Stegreifaufgaben</small></th>";
+        if($hasAnyMuendlich) $tableHeader .= "<th><small>mündliche Noten</small></th>";
 
         if(schulinfo::isGymnasium()) {
-            if($colspan > 0) $tableHeader  .= "<th>&nbsp;</th>";
+            if($colspan > 0) $tableHeader  .= "<th><small>&nbsp;</small></th>";
         }
 
-        $tableHeader .= "<th>&nbsp;</th></tr>";
-
-//          echo("<table border=10 cellspacing=10>" . $tableHeader . $table . "</table>");
-//          die();
+        $tableHeader .= "<th><small>&nbsp;</small></th></tr>";
 
         return $tableHeader . $table;
     }

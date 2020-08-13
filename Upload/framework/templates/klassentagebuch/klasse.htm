@@ -61,7 +61,7 @@
   </div>
   <div class="box-body">
   	<if(ferien::isFerien($this->currentDateSQL))><then>
-  		<div class="callout callout-info"><i class="fa fa-sun-o"></i> <expression>ferien::isFerien($this->currentDateSQL)</expression></div>
+  		<div class="callout callout-info"><i class="fa fa-sun"></i> <expression>ferien::isFerien($this->currentDateSQL)</expression></div>
   	</then></if>
     <div class="row">
       <div class="col-md-6">
@@ -140,7 +140,7 @@
 
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title" data-widget="collapse"><i class="fa fa-clock-o"></i> Verspätungen</h3>
+            <h3 class="box-title" data-widget="collapse"><i class="fa fa-clock"></i> Verspätungen</h3>
                         <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               </div>
@@ -150,7 +150,7 @@
 
 			<if(DB::isDebug() || ($this->currentDateSQL == DateFunctions::getTodayAsSQLDate() && !DateFunctions::isSQLDateWeekEnd($this->currentDateSQL) && !Ferien::isFerien($this->currentDateSQL)))><then>
 
-			<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#addVerspaetung"><i class="fa fa-clock-o"></i> Verspätung eintragen</button>
+			<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#addVerspaetung"><i class="fa fa-clock"></i> Verspätung eintragen</button>
 
 
             </then><else>
@@ -233,7 +233,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-pencil"></i> Eintrag hinzufügen</h4>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fas fa-pencil-alt"></i> Eintrag hinzufügen</h4>
       </div>
       <div class="modal-body">
           <input type="hidden" name="stunde" id="stunde">
@@ -318,7 +318,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-pencil"></i> Stunden bearbeiten</h4>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fas fa-pencil-alt"></i> Stunden bearbeiten</h4>
       </div>
       <div class="modal-body">
           <input type="hidden" name="absenzID" id="absenzID" value="">
@@ -471,7 +471,7 @@ function inArray(needle, haystack) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-clock-o"></i> Verspätung eintragen</h4>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-clock"></i> Verspätung eintragen</h4>
       </div>
       <div class="modal-body">
 
@@ -501,7 +501,7 @@ function inArray(needle, haystack) {
                   	 	<label>Kommentar:</label>
                   	 	<input type="text" name="verspaetungKommentar" class="form-control" placeholder="Kommentar">
 					</div>
-					<button type="submit" class="form-control"><i class="fa fa-clock-o"></i> Verspätung eintragen</button>
+					<button type="submit" class="form-control"><i class="fa fa-clock"></i> Verspätung eintragen</button>
 
                   </div></div></div></div>
 
@@ -529,7 +529,7 @@ function inArray(needle, haystack) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-clock-o"></i> Absenz eintragen</h4>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-clock"></i> Absenz eintragen</h4>
       </div>
       <div class="modal-body">
       	Der auswgewählte Schüler / die ausgewählte Schülerin wird aus fehlend markiert und als "offener Fall" geführt. Das Sekretariat wird den Fall auflösen.
@@ -538,7 +538,7 @@ function inArray(needle, haystack) {
 	                      $schuelerSelect
 	                    </select></p>
 						
-			                <p><button type="submit" class="form-control"><i class="fa fa-clock-o"></i> Absenz eintragen</button></p>
+			                <p><button type="submit" class="form-control"><i class="fa fa-clock"></i> Absenz eintragen</button></p>
 
                   </div></div></div></div>
 
@@ -575,7 +575,7 @@ function inArray(needle, haystack) {
 		    },
 		    defaultView: 'listDay',
 		    defaultDate: '{$this->currentDateSQL}',
-			title: '$klasse',
+			title: '{$klasse->getKlassenName()}',
 			selectable: false,     
 			editable: false,
 			eventLimit: false,

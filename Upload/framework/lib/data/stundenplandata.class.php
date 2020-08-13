@@ -437,6 +437,9 @@ class stundenplandata {
 				"G",
 				"HE",
 				"IT",
+				"IT_1",
+				"IT_T",
+				"IT_2",
 				"K",
 				"Ku",
 				"M",
@@ -447,7 +450,8 @@ class stundenplandata {
 				"Sm",
 				"Sw",
 				"Tv",
-				"We",
+				"We_1",
+				"We_2",
 				"WR"
 		);
 		

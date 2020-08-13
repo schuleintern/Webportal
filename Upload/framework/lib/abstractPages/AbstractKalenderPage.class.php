@@ -432,7 +432,8 @@ abstract class AbstractKalenderPage extends AbstractPage {
 				
 				
 				eval("echo(\"" . DB::getTPL()->get("abstractKalender/mitEintragen") . "\");");
-				exit(0);
+				PAGE::kill(true);
+      	//exit(0);
 			}
 	
 		
@@ -584,7 +585,7 @@ abstract class AbstractKalenderPage extends AbstractPage {
 		    ];
 		    
 		    // Suche Kategorie
-		    
+		    /** @var AbstractKalenderKategorie $kategorie */
 		    $kategorie = $termine[$i]->getKategorie();
 		    
 		    $kategorieName = '';
@@ -685,7 +686,7 @@ abstract class AbstractKalenderPage extends AbstractPage {
 		        'eintragZeitpunkt' => '',
 		        'betrifft' => '',
 		        'stunden' => '',
-		        'icon' => 'fa fa-sun-o',
+		        'icon' => 'fa fa-sun',
 		        'allDay' => true,
 		        'klassen' => '&nbsp;',
 		        'ort' => 'Bayern',

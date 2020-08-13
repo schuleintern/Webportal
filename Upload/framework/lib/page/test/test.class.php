@@ -14,6 +14,8 @@ class test extends AbstractPage {
   public function execute() {
       // Put Tests here.
       // Only access for Admins
+
+
   }
 
   public static function hasSettings() {

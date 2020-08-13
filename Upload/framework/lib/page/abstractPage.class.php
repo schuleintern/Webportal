@@ -17,7 +17,7 @@ abstract class AbstractPage {
 
 	public $header = "";
 
-	public $footer = "";
+	// public $footer = ""; // moved to PAGE.class.php
 
 	/**
 	 * @deprecated Eigener Requesthandler
@@ -43,7 +43,10 @@ abstract class AbstractPage {
 	private static $activePages = array();
 	
 	public function __construct($pageline, $ignoreSession = false, $isAdmin = false, $isNotenverwaltung = false) {
-		$this->sitename = addslashes ( trim ( $_REQUEST ['page'] ) );
+
+        header("X-Frame-Options: deny");
+
+	    $this->sitename = addslashes ( trim ( $_REQUEST ['page'] ) );
 				
 		if ($this->sitename != "" && in_array($this->sitename, requesthandler::getAllowedActions()) && !self::isActive ( $this->sitename )) {
 			// TODO: Sinnvolle Fehlermeldung
@@ -203,7 +206,8 @@ abstract class AbstractPage {
 			    
 			    $countMessage = Message::getUnreadMessageNumber(DB::getSession()->getUser(), "POSTEINGANG", 0);
 			    
-			    $infoMessages = "<a href=\"index.php?page=MessageInbox&folder=POSTEINGANG\" class=\"btn btn-danger btn-xs\"><i class=\"fa fa-envelope fa-spin\"></i> $countMessage ungelesene Nachricht" . (($countMessage > 1) ? "en" : "") . "</a>";
+			    if(DB::getSettings()->getBoolean('messages-banner-new-messages')) $infoMessages = "<a href=\"index.php?page=MessageInbox&folder=POSTEINGANG\" class=\"btn btn-danger btn-xs\"><i class=\"fa fa-envelope fa-spin\"></i> $countMessage ungelesene Nachricht" . (($countMessage > 1) ? "en" : "") . "</a>";
+			    else $infoMessages = "";
 			}
 			
 			// Fremdsession
@@ -243,8 +247,14 @@ abstract class AbstractPage {
 			else $isAdmin = false;
 			
 			
+			
+
 			eval ( "\$this->header =  \"" . DB::getTPL ()->get ( 'header/header' ) . "\";" );
-			eval ( "\$this->footer =  \"" . DB::getTPL ()->get ( 'footer' ) . "\";" );
+			
+			/*
+				 moved to PAGE.class.php
+			// eval ( "\$this->footer =  \"" . DB::getTPL ()->get ( 'footer' ) . "\";" );
+			*/
 		}
 	}
 
@@ -259,6 +269,9 @@ abstract class AbstractPage {
 
 			if(DB::isLoggedIn()) {
 				$image = DB::getDB()->query_first("SELECT uploadID FROM image_uploads WHERE uploadUserName LIKE '" . DB::getSession()->getData("userName") . "'");
+
+
+
 				if($image['uploadID'] > 0) $this->userImage = "index.php?page=userprofileuserimage&getImage=profile";
 				else $this->userImage = "cssjs/images/userimages/default.png";
 			}
@@ -313,7 +326,8 @@ abstract class AbstractPage {
 			$valueusername = "";
 
 			eval("echo(\"".DB::getTPL()->get("login/index")."\");");
-			exit(0);
+			PAGE::kill(true);
+      //exit(0);
 		}
 	}
 

@@ -8,13 +8,44 @@
     <title><expression>DB::getGlobalSettings()->siteNamePlain</expression> - Anmeldung</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="cssjs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="cssjs/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	  <link href="cssjs/font/fontawesome/css/all.css" rel="stylesheet" type="text/css" />
+	  <link href="cssjs/font/fontawesome/js/v4-shims.js" rel="stylesheet" type="text/css" />
     <link href="cssjs/font/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
 
+	  <if(DB::getSettings()->getInteger("login-background-image") > 0)><then>
+
+	  <style>
+		  body, html {
+			  height: 100%;
+		  }
+
+		  .schuleinternloginimage {
+			  background-image: url("<expression>DB::getSettings()->getUpload('login-background-image')->getURLToFile()</expression>");
+
+			  height: 100%;
+
+			  background-position: center;
+			  background-repeat: no-repeat;
+			  background-size: cover;
+		  }
+
+	  </style>
+
+  </then></if>
+
   </head>
-  <body class="login-page">
+
+
+  	<if(DB::getSettings()->getInteger("login-background-image") > 0)>
+  		<then>
+			<body class="login-page schuleinternloginimage">
+		</then>
+  		<else>
+			<body class="login-page">
+		</else>
+	</if>
   
   
   	<if(DB::getGlobalSettings()->schulnummer == "9400")><then>
@@ -107,7 +138,7 @@
   	  	
   	<div class="login-box" id="noJSWarning">
       <div class="login-logo">
-        <a href="index.php"><img src="imagesSchool/Icon.png" width="150" border="0"></a>
+        <a href="index.php"><img src="index.php?page=SkinSettings&action=getLogo" width="150" border="0"></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       <b>Sie haben in Ihrem Browser kein JavaScript aktiviert.</b><br />
@@ -115,7 +146,7 @@
             	<hr noshade="noshade">
       
       	<div style="text-align:center">	
-      		<a href="index.php?page=impressum"><i class="fa fa-info"></i> Impressum</a> | <a href="index.php?page=impressum#Datenschutz"><i class="fa fa-info"></i> Datenschutz</a>
+      		<a href="index.php?page=impressum" class="btn btn-primary"><i class="fa fa-info"></i> Impressum</a> | <a href="index.php?page=impressum#Datenschutz" class="btn btn-primary"><i class="fa fa-info"></i> Datenschutz</a>
       </div>
       
      </div>
@@ -125,7 +156,7 @@
   	
     <div class="login-box" id="loginboxmain" style="display:none">
       <div class="login-logo">
-        <a href="index.php"><img src="imagesSchool/Icon.png" width="150" border="0"></a>
+        <a href="index.php"><img src="index.php?page=SkinSettings&action=getLogo" width="150" border="0"></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       	$message
@@ -138,7 +169,7 @@
         <p><expression>DB::getSettings()->getValue('login-loginmessage')</expression></p>
            
         <form id="loginform">
-          <input type="hidden" name="redirectPage" value="$redirectPage" />
+          <input type="hidden" name="redirectPage" value="$redirectPage" id="redirectPage"/>
           <div class="form-group has-feedback">
             <input type="text" class="form-control" name="username" placeholder="Benutzername oder E-Mail (für Eltern)" value="$valueusername" required="required" autofocus="autofocus" id="usernamefield" />
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -161,7 +192,7 @@
 	            <div class="col-xs-12">    
 	              <div class="checkbox icheck">
 	                <label>
-	                  <input type="checkbox" name="keeplogin" value="1"> Anmeldung speichern<br/><small>Nicht auf gemeinsam genutzten Geräten aktivieren.</small>
+						<input type="checkbox" name="keeplogin" value="1" id="keeplogin"></small> Anmeldung speichern
 	                </label>
 	              </div>                      
 	            </div>
@@ -189,20 +220,20 @@
         </then></if>
                 
         <hr noshade>
-        	<button type="submit" class="btn btn-primary btn-block " data-toggle="modal" data-target="#elternforgotPW"><i class="fa fa-question"></i> Ich habe mein Passwort vergessen</button>  
+        	<button type="button" class="btn btn-primary btn-block " data-toggle="modal" data-target="#elternforgotPW"><i class="fa fa-question"></i> Ich habe mein Passwort vergessen</button>
 
       	
       	<hr noshade>
 
       
         <div class="row">
-      		<div class="col-xs-12" style="text-align: center">Schule und Betreiber des Angebotes:<br /><expression>DB::getGlobalSettings()->schoolName</expression></div>
+			<div class="col-xs-12" style="text-align: center"><strong>Schule und Betreiber des Angebotes:</strong><br /><expression>DB::getGlobalSettings()->schoolName</expression></div>
       	</div>
       
       	<hr noshade="noshade">
       
       	<div style="text-align:center">	
-      		<a href="index.php?page=impressum"><i class="fa fa-info"></i> Impressum</a> | <a href="index.php?page=impressum#Datenschutz"><i class="fa fa-info"></i> Datenschutz</a>
+      		<a href="index.php?page=impressum" class="btn btn-default"><i class="fa fa-info"></i> Impressum</a> <a href="index.php?page=impressum#Datenschutz" class="btn btn-default"><i class="fa fa-info"></i> Datenschutz</a>
 
       	</div>
 
@@ -325,7 +356,7 @@
 	$('#registerCode').on('input', function() {
 		var value = $(this).val();
 	    if ( value.length == 16) {
-	    	$("#KindName").html("<i class=\"fa fa-refresh fa-spin\"></i> Der Code wird überprüft...");
+	    	$("#KindName").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Der Code wird überprüft...");
 	    	
     		$.ajax({
     			type: "POST",
@@ -404,7 +435,7 @@
 	    	
 			$("#registerButtonSubmit").prop("disabled", true);
 
-	    	$("#registerButtonSubmit").html('<i class="fa fa-refresh fa-spin"></i> Bitte warten ...');	
+	    	$("#registerButtonSubmit").html('<i class="fas fa-sync-alt fa-spin"></i> Bitte warten ...');
 	    	
     		$.ajax({
     			type: "POST",
@@ -456,16 +487,11 @@
 					<div class="modal-body">
 					
 					
-						<div class="callout callout-success" style="display:none" id="forgotPWSuccess2"><i class="fa fa-check"></i> Das Passwort wurde erfolgreich geändert. Sie können sich jetzt mit dem neuen Passwort anmelden.</div>
-					
-					
-					
-						<div id="forgotPWStep2HTMLContent">
-					
+						<div class="callout callout-success" style="display:none" id="forgotPWSuccess2"></div>
 						<div class="callout callout-danger" style="display:none" id="forgotPWError2"></div>
 					
 					
-					
+						<div id="forgotPWStep2HTMLContent">
 					
 						Geben Sie bitte hier Ihr neues Passwort zweimal ein:
 				 						
@@ -510,12 +536,10 @@
 			
 			if($("#forgotPWStep2Password1").val() == '') {
 				errorMessages.push('Bitte geben Sie ein Passwort an.');
-			}
-			else {
+			} else {
 				if($("#forgotPWStep2Password1").val().length < 6) {
 					errorMessages.push('Das Passwort muss mindestens 6 Zeichen beinhalten.');
-				}
-				else {
+				} else {
 					if($("#forgotPWStep2Password1").val() != $("#forgotPWStep2Password2").val()) {
 						errorMessages.push('Die Passwortbestätigung stimmt nicht überein.');
 					}
@@ -525,25 +549,25 @@
 			if(errorMessages.length > 0) {
 				$("#forgotPWError2").html(errorMessages.join("<br />"));
 				$("#forgotPWError2").fadeIn();
-			}
-			else {
-			
-	    		$.ajax({
-	    			type: "POST",
-	    			url: 'index.php?page=forgotPassword&action=step3',
-	    			data: $("#pwforgotform2").serialize(),
-	    			success: function(data, textStatus, jqXHR) {
-	    				if(data.success) {
-	    					$("#forgotPWStep2HTMLContent").hide();
-	    					$("#forgotPWSuccess2").fadeIn();
-	    				}
-	    				else {
-	    					$("#forgotPWError2").html("Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es noch einmal.");
-	    					$("#forgotPWError2").fadeIn();
-	    				}
-	    			},
-	    			dataType: 'json'
-	    		});
+			} else {
+
+				$("#forgotPWSuccess2").hide();
+				$("#forgotPWError2").hide();
+
+				$.ajax({
+					type: "POST",
+					url: 'index.php?page=forgotPassword&action=step3',
+					data: $("#pwforgotform2").serialize(),
+					success: function(data, textStatus, jqXHR) {
+						if(data.success) {
+							$("#forgotPWStep2HTMLContent").hide();
+							$("#forgotPWSuccess2").text(data.msg).fadeIn();
+						} else {
+							$("#forgotPWError2").text(data.msg).fadeIn();
+						}
+					},
+					dataType: 'json'
+				});
     		
 			}
 		
@@ -565,8 +589,7 @@
 	
 	</then></if>
 	
-	<div class="modal fade" id="elternforgotPW" tabindex="-1"
-			role="dialog">
+	<div class="modal fade" id="elternforgotPW" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -580,23 +603,20 @@
 						<div id="forgotPWFormHTML">
 					
 					    <p>Falls Sie Ihr Passwort vergessen haben, geben Sie bitte hier Ihre E-Mailadresse ein. Sie erhalten danach einen Link zur Bestätigung an Ihre E-Mailadresse gesandt.</p>
-				        <p>Klicken Sie diesen Link bitte an. Danach können Sie ein neues Passwort vergeben.</p>
+				      <p>Klicken Sie diesen Link bitte an. Danach können Sie ein neues Passwort vergeben.</p>
 
-				 		
-				 		<div class="callout callout-success" style="display:none" id="forgotPWSuccess"><i class="fa fa-check"></i> Falls die E-Mailadresse gütltig ist, ist Ihnen soeben ein Bestätigungslink zugesendet worden.</div>
-				
-				        <form id="pwforgotform">
-	
-				         <div class="form-group">
-				        	<label>
-				        		E-Mailadresse
-				        	</label>
-				        	<input type="text" class="form-control" name="email" placeholder="Ihre E-Mailadresse" value="" id="forgotPWMail"/>
-				        </div>
-				        
-					    <button type="button" class="btn btn-primary btn-block btn-flat" id="forgotPWButton" onclick="forgotPW()"><i class="fa fa-key"></i> Bestätigungslink zusenden</button>
-					
-						</form>
+				 			<div class="callout callout-success" style="display:none" id="forgotPWSuccess"></div>
+							<div class="callout callout-danger" style="display:none" id="forgotPWError"></div>
+				      <form id="pwforgotform">
+
+								<div class="form-group">
+									<label>E-Mailadresse</label>
+									<input type="text" class="form-control" name="email" placeholder="Ihre E-Mailadresse" value="" id="forgotPWMail"/>
+								</div>
+									
+								<button type="button" class="btn btn-primary btn-block btn-flat" id="forgotPWButton" onclick="forgotPW()"><i class="fa fa-key"></i> Bestätigungslink zusenden</button>
+						
+							</form>
 						
 						</div>
 					
@@ -610,16 +630,25 @@
 		<script>
 		
 		function forgotPW() {
-	    		$.ajax({
-	    			type: "POST",
-	    			url: 'index.php?page=forgotPassword&action=step1',
-	    			data: $("#pwforgotform").serialize(),
-	    			success: function(data, textStatus, jqXHR) {
-	    				$("#pwforgotform").hide();
-	    				$("#forgotPWSuccess").fadeIn();
-	    			},
-	    			dataType: 'json'
-	    		});
+			$("#forgotPWError").hide();
+			$("#forgotPWSuccess").hide();
+
+			$.ajax({
+				type: "POST",
+				url: 'index.php?page=forgotPassword&action=step1',
+				data: $("#pwforgotform").serialize(),
+				success: function(data, textStatus, jqXHR) {
+
+					if (data.success == false) {
+						$("#forgotPWError").text(data.msg).fadeIn();
+					} else {
+						$("#pwforgotform").hide();
+						$("#forgotPWSuccess").text(data.msg).fadeIn();
+					}
+					
+				},
+				dataType: 'json'
+			});
 			
 			
 		}
@@ -652,14 +681,19 @@
     	function login() {
 
     		$("#loginbutton").prop("disabled",true);
-    		$("#loginbutton").html("<i class=\"fa fa-refresh fa-spin\"></i> Bitte warten ...");
-    		// fa fa-refresh fa-spin
+    		$("#loginbutton").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Bitte warten ...");
+    		// fa fas fa-sync-alt fa-spin
     		
     		
     		$.ajax({
     			type: "POST",
     			url: 'index.php?page=login&authorize=1',
-    			data: $( "#loginform" ).serialize(),
+    			data: {
+					"redirectPage": $("#redirectPage").val(),
+					"username": $("#usernamefield").val(),
+					"password": $("#passwordfield").val(),
+					"keepLogin": $("#keeplogin").iCheck('update')[0].checked
+				},
     			success: function(data, textStatus, jqXHR) {
     				if(data.success) {
     					window.location.href='index.php';
@@ -669,7 +703,8 @@
     					$("#mathCaptchaContent").html(data.captchaHTML);
     					$("#mathCaptcha").fadeIn();
     					
-    					
+    					$("#passwordfield").val("");
+
     					$("#loginbutton").prop("disabled",false);
     					
     					$("#loginbutton").html('<i class="fa fa-lock"></i> Anmelden / Login');
@@ -678,8 +713,11 @@
     					$("#loginerror").fadeIn(400);
     					
     					$("#loginbutton").prop("disabled",false);
-    					
-    					$("#loginbutton").html('<i class="fa fa-lock"></i> Anmelden / Login');
+
+						$("#passwordfield").val("");
+
+
+						$("#loginbutton").html('<i class="fa fa-lock"></i> Anmelden / Login');
     					
     					
     				}
