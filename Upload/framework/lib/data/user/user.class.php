@@ -27,7 +27,7 @@ class user {
   public function __construct($data) {
     $this->data = $data;
 
-    $groups = PAGE::getFactory()->getGroupsByUserID( $this->data['userID'] );
+    $this->groups = PAGE::getFactory()->getGroupsByUserID( $this->data['userID'] );
     // $groups = DB::getDB()->query("SELECT * FROM users_groups WHERE userID='" . $this->data['userID'] . "'");
     // while($gr = DB::getDB()->fetch_array($groups)) {
     //   $this->groups[] = usergroup::getGroupByName($gr['groupName']);
