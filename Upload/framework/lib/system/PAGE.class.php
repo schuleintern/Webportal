@@ -9,6 +9,15 @@
 class PAGE {
 
 
+  public function setFactory($factory) {
+    $GLOBALS['factory'] = $factory;
+  }
+
+  public function getFactory() {
+    return $GLOBALS['factory'];
+  }
+
+
   /**
    * Beeendet die Seite und gibt vorher den Footer aus
    * 
@@ -32,7 +41,7 @@ class PAGE {
 	}
 
 
-
+  
 
 }
 
