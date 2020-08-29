@@ -113,14 +113,18 @@ class schueler {
 	}
 
 	public function getNamensbestandteilVorgestellt() {
-	    return $this->data['schuelerNameVorgestellt'];
-    }
+		return $this->data['schuelerNameVorgestellt'];
+	}
 
-    public function getNamensbestandteilNachgestellt() {
-        return $this->data['schuelerNameNachgestellt'];
-    }
+	public function getNamensbestandteilNachgestellt() {
+		return $this->data['schuelerNameNachgestellt'];
+	}
+
+	public function getGruppe() {
+		return ($this->data['gruppe']);
+	}
 	
-	public function getGanztags() {
+	public function getGanztags($action = false) {
 		$tage = [];
 		if ($this->data['tag_mo']) { $tage[] = 'Mo'; }
 		if ($this->data['tag_di']) { $tage[] = 'Di'; }
@@ -135,14 +139,24 @@ class schueler {
 			$gruppen_query = DB::getDB()->query("SELECT `name` AS `gruppe_name` FROM ganztags_gruppen WHERE id = ".$this->data['gruppe']." ");
 			while($row = mysqli_fetch_array($gruppen_query)) { $gruppe = $row; }
 		}
-		
-		if ($this->data['tag_mo']) { $this->data['tag_mo'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_mo'] = ''; }
-		if ($this->data['tag_di']) { $this->data['tag_di'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_di'] = ''; }
-		if ($this->data['tag_mi']) { $this->data['tag_mi'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_mi'] = ''; }
-		if ($this->data['tag_do']) { $this->data['tag_do'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_do'] = ''; }
-		if ($this->data['tag_fr']) { $this->data['tag_fr'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_fr'] = ''; }
-		if ($this->data['tag_sa']) { $this->data['tag_sa'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_sa'] = ''; }
-		if ($this->data['tag_so']) { $this->data['tag_so'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_so'] = ''; }
+
+		if ($action == 'print') {
+			if ($this->data['tag_mo']) { $this->data['tag_mo'] = 'x'; } else { $this->data['tag_mo'] = ''; }
+			if ($this->data['tag_di']) { $this->data['tag_di'] = 'x'; } else { $this->data['tag_di'] = ''; }
+			if ($this->data['tag_mi']) { $this->data['tag_mi'] = 'x'; } else { $this->data['tag_mi'] = ''; }
+			if ($this->data['tag_do']) { $this->data['tag_do'] = 'x'; } else { $this->data['tag_do'] = ''; }
+			if ($this->data['tag_fr']) { $this->data['tag_fr'] = 'x'; } else { $this->data['tag_fr'] = ''; }
+			if ($this->data['tag_sa']) { $this->data['tag_sa'] = 'x'; } else { $this->data['tag_sa'] = ''; }
+			if ($this->data['tag_so']) { $this->data['tag_so'] = 'x'; } else { $this->data['tag_so'] = ''; }
+		} else {
+			if ($this->data['tag_mo']) { $this->data['tag_mo'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_mo'] = ''; }
+			if ($this->data['tag_di']) { $this->data['tag_di'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_di'] = ''; }
+			if ($this->data['tag_mi']) { $this->data['tag_mi'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_mi'] = ''; }
+			if ($this->data['tag_do']) { $this->data['tag_do'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_do'] = ''; }
+			if ($this->data['tag_fr']) { $this->data['tag_fr'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_fr'] = ''; }
+			if ($this->data['tag_sa']) { $this->data['tag_sa'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_sa'] = ''; }
+			if ($this->data['tag_so']) { $this->data['tag_so'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_so'] = ''; }
+		}
 
 		return [
 			'info' => $this->data['info'],
