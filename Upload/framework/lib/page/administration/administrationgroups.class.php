@@ -22,9 +22,14 @@ class administrationgroups extends AbstractPage {
 		    $gruppenID = substr($_REQUEST['action'],3);
 		    
 		    $group = usergroup::getGroupByName($gruppenID);
-		    
-		    if($group != null) {
-		        $group->addUser($_REQUEST['userID']);
+				
+				$userlist = $_REQUEST['userID'];
+				$userlist = explode(',',$_REQUEST['userID']);
+
+				if($group != null) {
+					for($i = 0; $i < count($userlist); $i++) {
+						$group->addUser($userlist[$i]);
+					}
 		    }		
 		}
 		
@@ -95,7 +100,7 @@ class administrationgroups extends AbstractPage {
 		
 		for($i = 0; $i < sizeof($gruppen); $i++) {
 		    
-		    $membersBox = administrationmodule::getUserListWithAddFunction($selfURL, md5($gruppen[$i]->getName()), 'add' . $gruppen[$i]->getName(), 'del' . $gruppen[$i]->getName(), $gruppen[$i]->getName(), "Mitglieder der Gruppe", $gruppen[$i]->getName());
+		    $membersBox = administrationmodule::getUserListWithAddFunction($selfURL, md5($gruppen[$i]->getName()), 'add' . $gruppen[$i]->getName(), 'del' . $gruppen[$i]->getName(), $gruppen[$i]->getName(), "Mitglieder der Gruppe", $gruppen[$i]->getName(), true);
 		    
 		    $membersBox2 = administrationmodule::getUserListWithAddFunction($selfURL, md5($gruppen[$i]->getName() . "2"), 'add' . $gruppen[$i]->getName() . "_sender", 'del' . $gruppen[$i]->getName(), $gruppen[$i]->getName() . " (Sendeberechtigte)", "Diese Benutzer dürfen diese Gruppe unabhängig von den allgemeinen Sendebrechtigungen kontaktieren.", $gruppen[$i]->getName() . "_sender");
 		    
@@ -123,7 +128,6 @@ class administrationgroups extends AbstractPage {
 	    $html = "";
 	    
 	    eval("\$html = \"" . DB::getTPL()->get("administration/groups/index") . "\";");
-	    
 	    return $html;
 	}
 
