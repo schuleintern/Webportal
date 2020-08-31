@@ -361,7 +361,8 @@ class schuelerinfo extends AbstractPage {
     switch($_REQUEST['action']) {
       default:
         eval("DB::getTPL()->out(\"" . DB::getTPL()->get("schuelerinfo/editletter") . "\");");
-        exit(0);
+        PAGE::kill(true);
+			  //exit(0);
       break;
 
       case 'saveLetter':
@@ -1015,7 +1016,8 @@ class schuelerinfo extends AbstractPage {
       switch($_REQUEST['doPrint']) {
       	default:
       		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("schuelerinfo/grade") . "\");");
-      		exit(0);
+      		PAGE::kill();
+					//exit(0);
       	break;
 
       	case 'simpleList':

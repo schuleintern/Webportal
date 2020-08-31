@@ -41,7 +41,8 @@ class elternmail extends AbstractPage {
 		}
 		
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("elternmail/eltern/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+			//exit(0);
 	}
 	
 	public static function hasUnconfirmedMails() {

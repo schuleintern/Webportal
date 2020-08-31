@@ -28,8 +28,6 @@ class Update extends AbstractPage
         $toVersion = $updateInfo['updateToVersion'];
 
         // Updates durchführen
-        $this->performUpdate($fromVersion, $toVersion);
-
         if ($this->performUpdate($fromVersion, $toVersion)) {
             DB::getSettings()->setValue("current-release-id", $updateInfo['updateToReleaseID']);
             DB::getSettings()->setValue('currentVersion', DB::getVersion());
@@ -78,9 +76,54 @@ class Update extends AbstractPage
         if ($from == "1.1.1" && $to == "1.1.2") {
             $this->from111to112();
         }
+
+        if ($from == "1.1.1" && $to == "1.2.0") {
+            $this->from111to120();
+        }
+
+        if ($from == "1.2.0" && $to == "1.2.1") {
+            $this->from120to121();
+        }
+
         return true;
     }
 
+    private function from120to121() {
+
+    }
+    
+    private function from111to120() {
+
+        DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponse` tinyint(1) NOT NULL DEFAULT '0';", true);
+        DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponseText` longtext NOT NULL;", true);
+        
+        DB::getDB()->query("CREATE TABLE IF NOT EXISTS `ganztags_gruppen` ("
+            ."`id` int(11) unsigned NOT NULL AUTO_INCREMENT,"
+            ."`sortOrder` int(11) DEFAULT NULL,"
+            ."`name` varchar(255) DEFAULT NULL,"
+            ."PRIMARY KEY (`id`)"
+            .") ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;", true);
+        DB::getDB()->query("CREATE TABLE IF NOT EXISTS `ganztags_schueler` ("
+            ."`asvid` varchar(200) NOT NULL DEFAULT '',"
+            ."`info` varchar(255) DEFAULT NULL,"
+            ."`gruppe` int(11) DEFAULT NULL,"
+            ."`tag_mo` tinyint(1) DEFAULT NULL,"
+            ."`tag_di` tinyint(1) DEFAULT NULL,"
+            ."`tag_mi` tinyint(1) DEFAULT NULL,"
+            ."`tag_do` tinyint(1) DEFAULT NULL,"
+            ."`tag_fr` tinyint(1) DEFAULT NULL,"
+            ."`tag_sa` tinyint(1) DEFAULT NULL,"
+            ."`tag_so` tinyint(1) DEFAULT NULL,"
+            ."PRIMARY KEY (`asvid`)"
+            .") ENGINE=InnoDB DEFAULT CHARSET=utf8;", true);
+        DB::getDB()->query("ALTER TABLE `schueler` ADD `schuelerGanztagBetreuung` int(11) NOT NULL DEFAULT '0';", true);
+
+        $this->updateCssJSFolder(111);
+
+        rename("./images", "../images_old_$oldVersion" . rand(1000,9999));
+        rename("../data/update/Upload/www/images", "./images");
+        
+    }
 
     private function from111to112() {
         $this->updateCssJSFolder(111);

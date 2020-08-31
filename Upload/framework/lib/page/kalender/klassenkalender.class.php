@@ -64,7 +64,8 @@ class klassenkalender extends AbstractPage {
 
     if($currentStundenplanID < 0) {
       eval("echo(\"" . DB::getTPL()->get("klassenkalender/nocurrentstundenplan") . "\");");
-      exit(0);
+      PAGE::kill(true);
+      //exit(0);
     }
 
     if($this->isTeacher) {
@@ -598,7 +599,8 @@ class klassenkalender extends AbstractPage {
           </div>';
 
         eval("echo(\"" . DB::getTPL()->get("klassenkalender/klasseMitEintragen") . "\");");
-        exit(0);
+        PAGE::kill(true);
+        //exit(0);
       }
 
     }
@@ -661,7 +663,8 @@ class klassenkalender extends AbstractPage {
       else {
         eval("echo(\"" . DB::getTPL()->get("klassenkalender/klasseNurAnzeigen") . "\");");
       }
-      exit(0);
+      PAGE::kill(true);
+      //exit(0);
     }
   }
 

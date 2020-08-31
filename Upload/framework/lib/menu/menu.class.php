@@ -496,6 +496,7 @@ class menu {
         
         if($this->isActive("schuelerinfo") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen")))  $html .= $this->getMenuItem("schuelerinfo", "Schülerinformationen", "fa fa-info");
         if($this->isActive("klassenlisten") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen")))  $html .= $this->getMenuItem("klassenlisten", "Klassenlisten", "fa fa-list");
+        if($this->isActive("ganztags") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen")))  $html .= $this->getMenuItem("ganztags", "Ganztags", "fa fa-list");
         if(DB::getSession()->isAdmin() || DB::getSession()->isMember('Webportal_Elternmail')) $html .= $this->getMenuItem("AngemeldeteEltern", "Angemeldete Eltern", "fa fa-list");
         
         $html .= $this->endDropDown();
@@ -572,17 +573,9 @@ class menu {
     
     
     if(DB::isLoggedIn() && $this->isActive("ausleihe") && ausleihe::hasCurrentUserAccess() != NULL) {
-        $pages = array("ausleihe");
-        
-        $html .= $this->startDropDown($pages, "Reservierungen", "fa fa-check-square");
-        
-        $objekte = DB::getDB()->query("SELECT * FROM ausleihe_objekte WHERE isActive=1 ORDER BY sortOrder ASC");
-        
-        while($o = DB::getDB()->fetch_array($objekte))
-            $html .= $this->getMenuItem("ausleihe", $o['objektName'], "fa fa-check-square", ['objektID' => $o['objektID']]);
-            
-            $html .= $this->endDropDown();
-            
+
+      $html .= $this->getMenuItem("ausleihe", "Reservierungen", "fa fa-check-square");
+
     }
     
     if(DB::isLoggedIn() && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin()) && $this->isActive("projektverwaltung")) {

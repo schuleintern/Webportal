@@ -12,7 +12,8 @@ class impressum extends AbstractPage {
 		$impressumText = DB::getSettings()->getValue("impressum-text");
 		
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("impressum/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+			//exit(0);
 	}
 
 	public static function getSettingsDescription() {

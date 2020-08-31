@@ -284,7 +284,8 @@ class administrationmodule extends AbstractPage {
 		
 		
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("administration/module/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+		//exit(0);
 		
 	}
 	
@@ -327,7 +328,7 @@ class administrationmodule extends AbstractPage {
 	 * @param unknown $userGroup Benutzergruppe
 	 * @return string
 	 */
-	public static function getUserListWithAddFunction($selfURL, $name, $actionAdd, $actionDelete, $title, $beschreibung, $userGroup) {
+	public static function getUserListWithAddFunction($selfURL, $name, $actionAdd, $actionDelete, $title, $beschreibung, $userGroup, $multiSelect = false) {
 		$html = "";
 		
 		$userGroup = usergroup::getGroupByName($userGroup);
@@ -341,8 +342,12 @@ class administrationmodule extends AbstractPage {
 		
 		if($userList == '') $userList = "<tr><td><i>Keine Benutzer</i></td></tr>";
 		
-		
-		eval("\$html .= \"" . DB::getTPL()->get("administration/module/personslist") . "\";");
+		if ($multiSelect) {
+			eval("\$html .= \"" . DB::getTPL()->get("administration/module/personslistmulti") . "\";");
+		} else {
+			eval("\$html .= \"" . DB::getTPL()->get("administration/module/personslist") . "\";");
+
+		}
 		
 		return $html;
 	}

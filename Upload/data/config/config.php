@@ -22,14 +22,14 @@ class GlobalSettings {
         'port' => 3306,
         'user' => 'root',
         'password' => '',
-        'database' => 'schuleintern.dev'
+        'database' => 'schuleintern_dev'
     );
 
     /**
      * URL zur index.php für diese Installation (SSL!)
      * @var string
      */
-    public $urlToIndexPHP = "http://schuleintern.local/index.php";
+    public $urlToIndexPHP = "http://schuleintern:8888/index.php";
 
     /**
      * Schlüssel zum Ausführen des Cron Jobs.
@@ -123,6 +123,6 @@ class GlobalSettings {
      * Domain des Update Servers
      * @var string
      */
-        public $updateServer = "http://update.schule-intern.de";
+        public $updateServer = "http://schuleintern-update.chrisland.de";
 
 }

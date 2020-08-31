@@ -1,0 +1,53 @@
+<div class="row">
+	<div class="col-md-8">
+	
+
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title"><i class="fa fas fa-pencil-alt"></i> Gruppe bearbeiten</h3><br />
+        Name = Angezeigter Name<br />
+        Sotierung = Reihenfolge im Menü
+      </div>
+      <div class="box-body">
+        <form action="{$selfURL}&save=1" method="Post">
+          <table class="table table-striped">
+            <tr>
+              <th>Name</th>
+              <th>Sortierung</th>
+              <th>Löschen</th>
+            </tr>
+            $objektHTML
+          </table>
+          <button type="submit" class="form-control"><i class="fa fa-save"></i> Änderungen speichern</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title"><i class="fa fa-plus"></i> Gruppe anlegen</h3><br />
+        Name = Angezeigter Name<br />
+        Sotierung = Reihenfolge im Menü
+      </div>
+      <div class="box-body">
+        <form action="{$selfURL}&add=1" method="Post">
+          <table class="table table-striped">
+            <tr>
+              <td width="20%">Name</td>
+              <td><input type="text" name="ganztagsName" class="form-control"></td>
+            </tr>
+            <tr>
+              <td width="20%">Sortierung</td>
+              <td><input type="number" name="ganztagsSortOrder" class="form-control"></td>
+            </tr>
+          </table>
+          <button type="submit" class="form-control"><i class="fa fa-plus"></i> Gruppe anlegen</button>
+        </form>
+      </div>
+    </div>
+
+	</div>
+
+
+</div>
+

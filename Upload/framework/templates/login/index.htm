@@ -487,16 +487,11 @@
 					<div class="modal-body">
 					
 					
-						<div class="callout callout-success" style="display:none" id="forgotPWSuccess2"><i class="fa fa-check"></i> Das Passwort wurde erfolgreich geändert. Sie können sich jetzt mit dem neuen Passwort anmelden.</div>
-					
-					
-					
-						<div id="forgotPWStep2HTMLContent">
-					
+						<div class="callout callout-success" style="display:none" id="forgotPWSuccess2"></div>
 						<div class="callout callout-danger" style="display:none" id="forgotPWError2"></div>
 					
 					
-					
+						<div id="forgotPWStep2HTMLContent">
 					
 						Geben Sie bitte hier Ihr neues Passwort zweimal ein:
 				 						
@@ -541,12 +536,10 @@
 			
 			if($("#forgotPWStep2Password1").val() == '') {
 				errorMessages.push('Bitte geben Sie ein Passwort an.');
-			}
-			else {
+			} else {
 				if($("#forgotPWStep2Password1").val().length < 6) {
 					errorMessages.push('Das Passwort muss mindestens 6 Zeichen beinhalten.');
-				}
-				else {
+				} else {
 					if($("#forgotPWStep2Password1").val() != $("#forgotPWStep2Password2").val()) {
 						errorMessages.push('Die Passwortbestätigung stimmt nicht überein.');
 					}
@@ -556,25 +549,25 @@
 			if(errorMessages.length > 0) {
 				$("#forgotPWError2").html(errorMessages.join("<br />"));
 				$("#forgotPWError2").fadeIn();
-			}
-			else {
-			
-	    		$.ajax({
-	    			type: "POST",
-	    			url: 'index.php?page=forgotPassword&action=step3',
-	    			data: $("#pwforgotform2").serialize(),
-	    			success: function(data, textStatus, jqXHR) {
-	    				if(data.success) {
-	    					$("#forgotPWStep2HTMLContent").hide();
-	    					$("#forgotPWSuccess2").fadeIn();
-	    				}
-	    				else {
-	    					$("#forgotPWError2").html("Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es noch einmal.");
-	    					$("#forgotPWError2").fadeIn();
-	    				}
-	    			},
-	    			dataType: 'json'
-	    		});
+			} else {
+
+				$("#forgotPWSuccess2").hide();
+				$("#forgotPWError2").hide();
+
+				$.ajax({
+					type: "POST",
+					url: 'index.php?page=forgotPassword&action=step3',
+					data: $("#pwforgotform2").serialize(),
+					success: function(data, textStatus, jqXHR) {
+						if(data.success) {
+							$("#forgotPWStep2HTMLContent").hide();
+							$("#forgotPWSuccess2").text(data.msg).fadeIn();
+						} else {
+							$("#forgotPWError2").text(data.msg).fadeIn();
+						}
+					},
+					dataType: 'json'
+				});
     		
 			}
 		
@@ -596,8 +589,7 @@
 	
 	</then></if>
 	
-	<div class="modal fade" id="elternforgotPW" tabindex="-1"
-			role="dialog">
+	<div class="modal fade" id="elternforgotPW" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -611,23 +603,20 @@
 						<div id="forgotPWFormHTML">
 					
 					    <p>Falls Sie Ihr Passwort vergessen haben, geben Sie bitte hier Ihre E-Mailadresse ein. Sie erhalten danach einen Link zur Bestätigung an Ihre E-Mailadresse gesandt.</p>
-				        <p>Klicken Sie diesen Link bitte an. Danach können Sie ein neues Passwort vergeben.</p>
+				      <p>Klicken Sie diesen Link bitte an. Danach können Sie ein neues Passwort vergeben.</p>
 
-				 		
-				 		<div class="callout callout-success" style="display:none" id="forgotPWSuccess"><i class="fa fa-check"></i> Falls die E-Mailadresse gütltig ist, ist Ihnen soeben ein Bestätigungslink zugesendet worden.</div>
-				
-				        <form id="pwforgotform">
-	
-				         <div class="form-group">
-				        	<label>
-				        		E-Mailadresse
-				        	</label>
-				        	<input type="text" class="form-control" name="email" placeholder="Ihre E-Mailadresse" value="" id="forgotPWMail"/>
-				        </div>
-				        
-					    <button type="button" class="btn btn-primary btn-block btn-flat" id="forgotPWButton" onclick="forgotPW()"><i class="fa fa-key"></i> Bestätigungslink zusenden</button>
-					
-						</form>
+				 			<div class="callout callout-success" style="display:none" id="forgotPWSuccess"></div>
+							<div class="callout callout-danger" style="display:none" id="forgotPWError"></div>
+				      <form id="pwforgotform">
+
+								<div class="form-group">
+									<label>E-Mailadresse</label>
+									<input type="text" class="form-control" name="email" placeholder="Ihre E-Mailadresse" value="" id="forgotPWMail"/>
+								</div>
+									
+								<button type="button" class="btn btn-primary btn-block btn-flat" id="forgotPWButton" onclick="forgotPW()"><i class="fa fa-key"></i> Bestätigungslink zusenden</button>
+						
+							</form>
 						
 						</div>
 					
@@ -641,16 +630,25 @@
 		<script>
 		
 		function forgotPW() {
-	    		$.ajax({
-	    			type: "POST",
-	    			url: 'index.php?page=forgotPassword&action=step1',
-	    			data: $("#pwforgotform").serialize(),
-	    			success: function(data, textStatus, jqXHR) {
-	    				$("#pwforgotform").hide();
-	    				$("#forgotPWSuccess").fadeIn();
-	    			},
-	    			dataType: 'json'
-	    		});
+			$("#forgotPWError").hide();
+			$("#forgotPWSuccess").hide();
+
+			$.ajax({
+				type: "POST",
+				url: 'index.php?page=forgotPassword&action=step1',
+				data: $("#pwforgotform").serialize(),
+				success: function(data, textStatus, jqXHR) {
+
+					if (data.success == false) {
+						$("#forgotPWError").text(data.msg).fadeIn();
+					} else {
+						$("#pwforgotform").hide();
+						$("#forgotPWSuccess").text(data.msg).fadeIn();
+					}
+					
+				},
+				dataType: 'json'
+			});
 			
 			
 		}

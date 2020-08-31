@@ -93,34 +93,30 @@ class MessageCompose extends AbstractPage {
 		     break;
 		     
 		    case 'getPupilJSON':
-		        $pupilRecipients = MessageSendRights::getAllowedPupils();
-		        
-	        
+
 		        $responseData = [
 		            'results' => []
 		        ];
 		        
-		        
 		        if($_REQUEST['term'] != "") {
 		            $search = strtolower($_REQUEST['term']);
-		        }
-		        else {
+		        } else {
 		            $search = null;
 		        }
 		        
-		        
-		        
-		        
-		        for($i = 0; $i < sizeof($pupilRecipients); $i++) {
-		            if($search != null && strpos(strtolower($pupilRecipients[$i]->getDisplayName()), $search) > 0) {
-    		            $responseData['results'][] = [
-    		                'id' => $pupilRecipients[$i]->getSaveString(),
-    		                'text' => $pupilRecipients[$i]->getDisplayName()
-    		                
-    		            ];
-		            }
-		        }
-		        
+		        if($search != null) {
+							$pupilRecipients = MessageSendRights::getAllowedPupils();
+
+							for($i = 0; $i < sizeof($pupilRecipients); $i++) {
+								if(strpos(strtolower($pupilRecipients[$i]->getDisplayName()), $search) !== false) {
+									$responseData['results'][] = [
+										'id' => $pupilRecipients[$i]->getSaveString(),
+										'text' => $pupilRecipients[$i]->getDisplayName()
+									];
+								}
+							}
+						}
+
 		        header("Content-type: text/json");
 		        echo json_encode($responseData);
 		        exit(0);
@@ -1041,8 +1037,8 @@ class MessageCompose extends AbstractPage {
 		
 		eval("\$FRAMECONTENT = \"" . DB::getTPL()->get("messages/inbox/compose") . "\";");
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("messages/inbox/frame") . "\");");
-		exit(0);
-		
+		//exit(0);
+		PAGE::kill(true);
 	}
 	
 	public static function getSettingsDescription() {

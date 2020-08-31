@@ -27,14 +27,15 @@ class user {
   public function __construct($data) {
     $this->data = $data;
 
-    $groups = DB::getDB()->query("SELECT * FROM users_groups WHERE userID='" . $this->data['userID'] . "'");
-
-    while($gr = DB::getDB()->fetch_array($groups)) {
-      $this->groups[] = usergroup::getGroupByName($gr['groupName']);
-    }
+    $this->groups = PAGE::getFactory()->getGroupsByUserID( $this->data['userID'] );
+    // $groups = DB::getDB()->query("SELECT * FROM users_groups WHERE userID='" . $this->data['userID'] . "'");
+    // while($gr = DB::getDB()->fetch_array($groups)) {
+    //   $this->groups[] = usergroup::getGroupByName($gr['groupName']);
+    // }
 
     // Is Teacher
-    $lehrer = DB::getDB()->query_first("SELECT * FROM lehrer WHERE lehrerUserID='" . $this->data['userID'] . "'");
+    $lehrer = PAGE::getFactory()->getLehrerByID( $this->data['userID'] );
+    // $lehrer = DB::getDB()->query_first("SELECT * FROM lehrer WHERE lehrerUserID='" . $this->data['userID'] . "'");
     if($lehrer['lehrerID'] != "") {
       $this->isTeacher = true;
       $this->teacherObject = new lehrer($lehrer);
@@ -42,7 +43,8 @@ class user {
 
     if(!$this->isTeacher) {
       // Is Schüler
-      $schueler = DB::getDB()->query_first("SELECT * FROM schueler WHERE schuelerUserID='" . $this->data['userID'] . "'");
+      $schueler = PAGE::getFactory()->getSchuelerByID( $this->data['userID'] );
+      //$schueler = DB::getDB()->query_first("SELECT * FROM schueler WHERE schuelerUserID='" . $this->data['userID'] . "'");
       if($schueler['schuelerUserID'] != "") {
         $this->isPupil = true;
         $this->pupilObject = new schueler($schueler);
@@ -51,7 +53,8 @@ class user {
 
 
     // Is Eltern
-    $eltern = DB::getDB()->query_first("SELECT * FROM eltern_email WHERE elternUserID='" . $this->data['userID'] . "'");
+    $eltern = PAGE::getFactory()->getElternEmailByUserID( $this->data['userID'] );
+    //$eltern = DB::getDB()->query_first("SELECT * FROM eltern_email WHERE elternUserID='" . $this->data['userID'] . "'");
     if($eltern['elternSchuelerAsvID'] != "") {
       $this->isEltern = true;
       $this->elternObject = new eltern($this->data['userID']);
@@ -328,6 +331,42 @@ class user {
       
   }
 
+  public function getAutoresponseText() {
+    return nl2br($this->data['userAutoresponseText']);
+  }
+  
+  public function getRawAutoresponseText() {
+    return ($this->data['userAutoresponseText']);
+  }
+
+  public function setAutoresponseText($sig) {
+    $sig = htmlspecialchars($sig);
+    DB::getDB()->query("UPDATE users SET userAutoresponseText='" . DB::getDB()->escapeString($sig) . "' WHERE userID='" . $this->getUserID() . "'");
+    
+  }
+
+  public function getAutoresponse() {
+    return $this->data['userAutoresponse'];
+  }
+
+  public function getAutoresponseChecked() {
+    if ( $this->data['userAutoresponse']) {
+      return ' checked="checked"';
+    } else {
+      return '';
+    }
+  }
+  
+
+  public function setAutoresponse($value) {
+    //echo $value; exit;
+    $value = intval($value);
+    DB::getDB()->query("UPDATE users SET userAutoresponse='" . DB::getDB()->escapeString($value) . "' WHERE userID='" . $this->getUserID() . "'");
+    
+  }
+
+
+
   public function addCurrentDeviceToTrustedDevices() {
       $cookieKey = base64_encode(random_bytes(500));
       $cookieKey = substr($cookieKey, 0,100);
@@ -374,8 +413,10 @@ class user {
    * @return user
    */
   public static function getUserByID($userID) {
-      if($userID == 0) return new user(['userID' => 0, 'userName' => 'System', 'userFirstName' => 'System', 'userLastName' => 'Nachricht']);
-    $data = DB::getDB()->query_first("SELECT * FROM users WHERE userID='" . $userID . "'");
+    if($userID == 0) return new user(['userID' => 0, 'userName' => 'System', 'userFirstName' => 'System', 'userLastName' => 'Nachricht']);
+    
+    $data = PAGE::getFactory()->getUserByID( $userID );
+    //$data = DB::getDB()->query_first("SELECT * FROM users WHERE userID='" . $userID . "'");
     if($data['userID'] > 0) {
       return new user($data);
     }
@@ -417,7 +458,8 @@ class user {
    */
   public static function getByASVID($asvID) {
 
-      $data = DB::getDB()->query_first("SELECT * FROM users WHERE userAsvID='" . $asvID . "'");
+      $data = PAGE::getFactory()->getUserByASV( $asvID );
+      //$data = DB::getDB()->query_first("SELECT * FROM users WHERE userAsvID='" . $asvID . "'");
       if($data['userID'] > 0) {
           return new user($data);
       }

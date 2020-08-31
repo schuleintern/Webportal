@@ -11,6 +11,7 @@ class errorPage extends AbstractPage {
 
 		eval("DB::getTPL()->out(\"".DB::getTPL()->get('error', true)."\");");
 		
+		PAGE::kill(true);
 		exit(0);
 	}
 	

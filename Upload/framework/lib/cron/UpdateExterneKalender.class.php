@@ -35,8 +35,7 @@ class UpdateExterneKalender extends AbstractCron {
     			
     			
     			$calData = [];
-    					
-    			
+					
     			// read back icalendar data that was just parsed
     			if(isset($icalobj->tree->child))
     			{
@@ -114,15 +113,57 @@ class UpdateExterneKalender extends AbstractCron {
     									
     								case 'DESCRIPTION':
     									$event['beschreibung'] = htmlspecialchars($value->getValues());
-    									break;
+											break;
+										
+										case 'RRULE':
+											$val = str_replace(';', '&', $value->getValues() );
+											parse_str($val, $output);
+											$event['RRULE'] = $output;
+											break;
     									
     							}
-    						}
+								}
     						
     						$calData[] = $event;
     					}
     				}
-    			}
+					}
+					
+					$_debug = [];
+					
+					foreach($calData as $node) {
+						if ($node['RRULE']) {
+
+							if ($node['RRULE']['FREQ'] == 'YEARLY') {
+
+								$interval = (int)$node['RRULE']['INTERVAL'];
+								unset( $node['RRULE'] );
+
+								for ($i = 1; $i <= $interval; $i++) {
+
+									$clone = $node;
+									$clone['dateStart'] = (int)substr($clone['dateStart'], 0,4) +$i .'-'.substr($clone['dateStart'], 5,2).'-'.substr($clone['dateStart'], 8,2);
+									$clone['dateEnde'] = (int)substr($clone['dateEnde'], 0,4) +$i .'-'.substr($clone['dateEnde'], 5,2).'-'.substr($clone['dateEnde'], 8,2);
+		
+									$calData[] = $clone;
+									$_debug[] = $clone;
+
+								}
+							}
+						}
+					}
+
+					// if ($_debug) {
+					// 	echo "<pre>";
+					// 	print_r($_debug);
+					// 	echo "</pre>";
+			
+
+					// 	// echo "<pre>";
+					// 	// print_r($calData);
+					// 	// echo "</pre>";
+					// 	exit;
+					// }
     			
     			
     			if(sizeof($calData) > 0) {

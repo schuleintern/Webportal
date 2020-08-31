@@ -20,7 +20,8 @@ class database extends AbstractPage {
 		
 		if(!$this->sqlSchule->connect()) {
 			eval("DB::getTPL()->out(\"" . DB::getTPL()->get("database/noconnection") . "\");");
-			exit(0);
+			PAGE::kill(true);
+			//exit(0);
 		}
 	}
 

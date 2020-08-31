@@ -58,8 +58,17 @@ class PrintNormalPageA4WithoutHeader extends TCPDF {
     }
 
     // Page footer
+    // public function Footer() {
+    // }
+    // Page footer
     public function Footer() {
-    }
+      // Position at 15 mm from bottom
+      $this->SetY(-15);
+      // Set font
+      $this->SetFont('helvetica', 'I', 8);
+      // Page number
+      $this->Cell(0, 10, 'Seite '.$this->getAliasNumPage(). ' von ' .$this->getAliasNbPages() . (($this->showStand) ? (" | Stand: " . DB::getAsvStand()) : "") . (($this->showPrinted) ? (" | Gedruckt: " . DateFunctions::getTodayAsNaturalDate()) : "") . " | " . DB::getGlobalSettings()->siteNamePlain, 0, false, 'C', 0, '', 0, false, 'T', 'M');
+  }
 
     public function showStand() {
       $this->showStand = true;

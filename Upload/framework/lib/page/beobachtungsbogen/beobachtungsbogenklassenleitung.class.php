@@ -43,7 +43,8 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 		
 		if(sizeof($currentBoegen) == 0) {
 			eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/keinbogen") . "\");");
-			exit(0);
+			PAGE::kill(true);
+      //exit(0);
 		}
 		
 		$bogenOK = false;
@@ -73,7 +74,8 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 				if($bogenHTML == "") $bogenHTML = "<tr><td colspan=\"5\" style=\"text-align: center\"><strong><i class=\"fa fa-ban\"></i> Keiner vorhanden</strong></td></tr>";
 				
 				eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/multibogen") . "\");");
-				exit(0);
+				PAGE::kill(true);
+      	//exit(0);
 			}
 		}
 		
@@ -400,7 +402,8 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 
 		
 		eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/viewresults/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+    //exit(0);
 	}
 	
 	private function viewResultsPrint() {
@@ -497,7 +500,8 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 		}
 		
 		eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/viewbeobachtungen/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+    //exit(0);
 	}
 	
 	private function viewBeobachtungenPrint() {
@@ -774,7 +778,8 @@ class beobachtungsbogenklassenleitung extends AbstractPage {
 		if($klassenHTML == "") $klassenHTML = "<tr><td colspan=\"4\"><center><strong>Sie sind bei keiner Klasse als Klassenleitung eingetragen</strong></center></td></tr>";
 		
 		eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/klassenleitung/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+    //exit(0);
 	}
 	
 	public static function hasSettings() {
