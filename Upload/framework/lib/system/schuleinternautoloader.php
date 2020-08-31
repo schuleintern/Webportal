@@ -167,7 +167,9 @@ $classes = [
 		'Encoding',
 		'resthandler',
 		'PAGE',
-		'FILE'
+		'FILE',
+		'FACTORY'
+
 	],
 	'tpl' => [
 		'TemplateParser',
