@@ -97,7 +97,8 @@ class CreateElternUsers extends AbstractCron {
 	
 	    			$deleteUserIDs[] = $user['userID'];
 	    		}
-	    		
+
+
 	    		// Debugger::debugObject($deleteUserIDs,1);
 	
 	    		for($i = 0; $i < sizeof($deleteUserIDs); $i++) {
@@ -118,6 +119,8 @@ class CreateElternUsers extends AbstractCron {
 	    		while($e = DB::getDB()->fetch_array($newEltern)) {
 	    			$create[] = $e['elternEMail'];
 	    		}
+
+	    		// $this->listCreated = implode(", ", $create);return;
 	
 	    		$originalSubject = DB::getSettings()->getValue("elternmail-subjectnewuser");
 	    		$originalText = DB::getSettings()->getValue("elternmail-textnewuser");

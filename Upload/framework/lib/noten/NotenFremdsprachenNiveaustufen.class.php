@@ -43,7 +43,7 @@ class NotenFremdsprachenNiveaustufen {
      */
     private function checkFach($fach, $noten) {
         for($i = 0; $i < sizeof($noten); $i++) {
-            if($noten[$i]->getFach()->getKurzform() == $fach && $noten[$i]->getWert() <= 4) return true;
+            if($noten[$i]->getFach()->getKurzform() == $fach && $noten[$i]->getWert() <= 4 && $noten[$i]->getWert() > 0) return true;
         }
 
         return false;

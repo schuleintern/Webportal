@@ -320,7 +320,9 @@ pause\r\n";
 
       $text1 = " ";
       $text2 = " ";
-      $bestanden = (($schueler->getGeschlecht() == 'w') ? "sie nicht erhalten" : "er nicht erhalten");
+      $bestanden = "";
+
+
 
 
       if($bemerkung != null) {
@@ -330,8 +332,29 @@ pause\r\n";
           if($text1 == "") $text1 = " ";
           if($text2 == "") $text2 = " ";
 
-          if($bemerkung->klassenzielErreicht()) {
-              $bestanden = (($schueler->getGeschlecht() == 'w') ? "sie erhalten" : "er erhalten");
+          if($bemerkung->vorrueckenAufProbe()) {
+              if($schueler->getGeschlecht() == "w") {
+                  $bestanden = "Die Schülerin erhält die vorläufige Erlaubnis zum Besuch der Jahrgangsstufe " . ($schueler->getKlassenObjekt()->getKlassenstufe()+1) . ".";
+              }
+              else {
+                  $bestanden = "Der Schüler erhält die vorläufige Erlaubnis zum Besuch der Jahrgangsstufe " . ($schueler->getKlassenObjekt()->getKlassenstufe()+1) . ".";
+              }
+          }
+          else if($bemerkung->klassenzielErreicht()) {
+              if($schueler->getGeschlecht() == "w") {
+                  $bestanden = "Die Erlaubnis zum Vorrücken in die nächsthöhere Jahrgangsstufe hat sie erhalten.";
+              }
+              else {
+                  $bestanden = "Die Erlaubnis zum Vorrücken in die nächsthöhere Jahrgangsstufe hat er erhalten.";
+              }
+          }
+          else {
+              if($schueler->getGeschlecht() == "w") {
+                  $bestanden = "Die Erlaubnis zum Vorrücken in die nächsthöhere Jahrgangsstufe hat sie nicht erhalten.";
+              }
+              else {
+                  $bestanden = "Die Erlaubnis zum Vorrücken in die nächsthöhere Jahrgangsstufe hat er nicht erhalten.";
+              }
           }
       }
 
@@ -396,7 +419,22 @@ pause\r\n";
       $templateProcessor->setValue("{VOR}", $bestanden);
 
       $templateProcessor->setValue("{DATUM}", DateFunctions::getNaturalDateFromMySQLDate($zeugnisKlasse->getDatumAsSQLDate()));
-      $templateProcessor->setValue("{USL}", $zeugnisKlasse->getSchulleitung()->getZeugnisUnterschrift());
+
+      if(sizeof(schulinfo::getSchulleitungLehrerObjects()) > 0) {
+          $ersteSL = schulinfo::getSchulleitungLehrerObjects()[0];
+          if($ersteSL->getAsvID() != $zeugnisKlasse->getSchulleitung()->getAsvID()) {
+              $unterschrift = "i. V. " . $zeugnisKlasse->getSchulleitung()->getZeugnisUnterschrift();
+          }
+          else {
+              $unterschrift = $zeugnisKlasse->getSchulleitung()->getZeugnisUnterschrift();
+          }
+
+          $templateProcessor->setValue("{USL}", $unterschrift);
+      }
+      else {
+          $templateProcessor->setValue("{USL}", $zeugnisKlasse->getSchulleitung()->getZeugnisUnterschrift());
+      }
+
       $templateProcessor->setValue("{UKL}", $zeugnisKlasse->getKlassenleitung()->getZeugnisUnterschrift());
 
       $zeugnisNoten = NoteZeugnisNote::getZeugnisNotenForSchueler($zeugnis, $schueler);
@@ -417,6 +455,8 @@ pause\r\n";
       $ffs = "";
       $ra = "--";
 
+      /** @var NoteZeugnisNote $lateinNote */
+      $lateinNote = null;
 
       for($z = 0; $z < sizeof($zeugnisNoten); $z++) {
           $fach = $zeugnisNoten[$z]->getFach()->getKurzform();
@@ -508,6 +548,7 @@ pause\r\n";
               case 'L':
                   $noten["{N4}"] = $zeugnisNoten[$z]->getWertText();
                   $lfs = $this->getFremdspracheNummer("Latein", $schueler);
+                  $lateinNote = $zeugnisNoten[$z];
                   break;
 
               case 'F':
@@ -532,6 +573,22 @@ pause\r\n";
           $templateProcessor->setValue($k, $v);
       }
 
+      $latinum = "";
+
+      if(schulinfo::isGymnasium()) {
+          if($lateinNote != null && $lateinNote->getWert() <= 4 && $lateinNote->getWert() > 0) {
+              if($schueler->getKlassenObjekt()->getKlassenstufe() == 8) {
+                  $latinum = "Dieses Zeugnis bestätigt Lateinkenntnisse.";
+              }
+              if($schueler->getKlassenObjekt()->getKlassenstufe() == 9) {
+                  $latinum = "Dieses Zeugnis schließt gesicherte Kenntnisse in Latein ein.";
+              }
+              if($schueler->getKlassenObjekt()->getKlassenstufe() == 10) {
+                  $latinum = "Dieses Zeugnis schließt das Latinum gemäß der Vereinbarung der Kultusministerkonferenz vom 22. September 2005 ein.";
+              }
+          }
+      }
+
 
 
       $templateProcessor->setValue("{LFS}", $lfs);
@@ -539,6 +596,8 @@ pause\r\n";
       $templateProcessor->setValue("{EFS}", $efs);
       $templateProcessor->setValue("{FFS}", $ffs);
       $templateProcessor->setValue("{RA}", $ra);
+      $templateProcessor->setValue("{LATINUM}", $latinum);
+
       $templateProcessor->setValue("{SPFS}", $spfs);
 
       $fileUpload = FileUpload::generateUploadID($zeugnis->getArt() . " - " . $schueler->getCompleteSchuelerName() . ".docx", "docx", true, false);
