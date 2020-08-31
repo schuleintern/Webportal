@@ -8,6 +8,9 @@
  * TODO: Neues Passwort nach Klick auf Link vergeben!
  * @author Christian
  *
+ * Done: Fehlermeldungen im Frontend ausgeben
+ * Done: E-Mail oder Benutzername
+ * @author: Christian Marienfeld  
  */
 class forgotPassword extends AbstractPage {
 	public function __construct() {
@@ -17,24 +20,40 @@ class forgotPassword extends AbstractPage {
 	public function execute() {
 		
 		if(isset($_GET['action'])) {
+
 			// Mail suchen
 			if($_GET['action'] == 'step1') {
-				
+		
+				$postUser = DB::getDB()->escapeString(trim($_POST['email']));
+				if(!$postUser) {
+					echo(json_encode(['success' => false, 'msg' => 'Bitte geben sie einen Benutzer oder E-Mail Adresse sein.']));
+					exit(0);
+				}
 
-				$esis = DB::getDB()->query_first("SELECT * FROM users WHERE userName LIKE '" . DB::getDB()->escapeString(trim($_POST['email'])) . "' AND userNetwork='SCHULEINTERN_ELTERN'");
+				$esis = DB::getDB()->query_first("SELECT * FROM users WHERE userName LIKE '" . $postUser . "' ");
 				
+				if(!$esis['userID']) {
+					$esis = DB::getDB()->query_first("SELECT * FROM users WHERE userEMail LIKE '" . $postUser . "' ");
+				}
+
+				if(!$esis['userID']) {
+					echo(json_encode(['success' => false, 'msg' => 'Es wurde kein passender Benutzer gefunden.']));
+					exit(0);
+				}
+
 				if($esis['userCanChangePassword'] == 0) {
-				    echo(json_encode(['success' => false]));
+				    echo(json_encode(['success' => false, 'msg' => 'Sie haben kein Recht das Passwort zu verändern.']));
 				    exit(0);
 				}
 				
-				if($esis['userID'] > 0) {
+				if(isset($esis['userID']) && $esis['userID'] > 0) {
 					// Erzeuge Passwort vergessen Link
-					$found = true;
-					$this->createMail($esis['userID'], strtolower(trim($_POST['email'])));
+					$this->createMail($esis['userID'], $esis['userEMail'] );
+					echo(json_encode(['success' => true, 'msg' => 'Es wurde eine E-Mail an die betreffende Adresse verschickt.']));
+					exit(0);
 				}
 				
-				echo(json_encode(['success' => true]));
+				echo(json_encode(['success' => false, 'msg' => 'Leider ist ein Fehler aufgetreten.']));
 				exit(0);
 				
 			}
@@ -49,32 +68,29 @@ class forgotPassword extends AbstractPage {
 			}
 			
 			if($_GET['action'] == 'step3') {
-			    
-			    $answer = [
-			        'success' => false
-			    ];
-			    
+			    	
+				if(strlen($_REQUEST['password1']) <= 5) {
+					echo(json_encode(['success' => false, 'msg' => 'Das Passwort muss mindestens 6 Zeichen beinhalten.']));
+				  exit(0);
+				}
+
 				if(isset($_REQUEST['code'])) {
-				    $reset = DB::getDB()->query_first("SELECT * FROM resetpassword WHERE resetCode='" . DB::getDB()->escapeString($_REQUEST['code']) . "'");
+				  $reset = DB::getDB()->query_first("SELECT * FROM resetpassword WHERE resetCode='" . DB::getDB()->escapeString($_REQUEST['code']) . "'");
+					
 					if($reset['resetID'] > 0) {
-					    
-					       if(strlen($_REQUEST['password1']) > 5) {
-					    
-    							$user = DB::getDB()->query_first("SELECT * FROM users WHERE userID='" . $reset['resetUserID'] . "'");
-    							
-    							DB::getDB()->query("UPDATE users SET userCachedPasswordHash='" . login::hash($_REQUEST['password1']) . "' WHERE userID='" . $reset['resetUserID'] . "'");
-    														
-    							DB::getDB()->query("DELETE FROM resetpassword WHERE resetCode='" . DB::getDB()->escapeString($_GET['code']) . "'");
-    							
-    							nextcloud::updatePasswordForCurrentUser($_REQUEST['password1']);
-    								
-    							$answer['success'] = true;
-							
-					       }
+					
+							$user = DB::getDB()->query_first("SELECT * FROM users WHERE userID='" . $reset['resetUserID'] . "'");
+							DB::getDB()->query("UPDATE users SET userCachedPasswordHash='" . login::hash($_REQUEST['password1']) . "' WHERE userID='" . $reset['resetUserID'] . "'");
+							DB::getDB()->query("DELETE FROM resetpassword WHERE resetCode='" . DB::getDB()->escapeString($_GET['code']) . "'");
+							nextcloud::updatePasswordForCurrentUser($_REQUEST['password1']);
+					
+							echo(json_encode(['success' => true, 'msg' => 'Das Passwort wurde erfolgreich geändert.']));
+							exit(0);
+
 					}
 				}
 				
-				echo (json_encode($answer));
+				echo(json_encode(['success' => false, 'msg' => 'Leider ist ein Fehler aufgetreten.']));
 				exit(0);
 
 			}

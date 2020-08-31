@@ -15,7 +15,8 @@ class updatevplan extends AbstractPage {
     }
     
     public function execute() {
-        
+
+        if(!is_dir("./vplan")) @mkdir("./vplan");
         
         $vplandir = opendir("./vplan");
         
