@@ -42,7 +42,8 @@ class beobachtungsbogen extends AbstractPage {
 		
 		if(sizeof($currentBoegen) == 0) {
 			eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/eintragen/keinbogen") . "\");");
-			exit(0);
+			PAGE::kill(true);
+      //exit(0);
 		}
 		
 		$bogenOK = false;
@@ -88,7 +89,8 @@ class beobachtungsbogen extends AbstractPage {
 				if($bogenHTML == "") $bogenHTML = "<tr><td colspan=\"5\" style=\"text-align: center\"><strong><i class=\"fa fa-ban\"></i> Keiner vorhanden</strong></td></tr>";
 				
 				eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/eintragen/multibogen") . "\");");
-				exit(0);
+				PAGE::kill(true);
+      	//exit(0);
 			}
 		}
 		
@@ -346,7 +348,8 @@ class beobachtungsbogen extends AbstractPage {
 		}
 		
 		eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/eintragen/allinone/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+    //exit(0);
 	}
 	
 	// $bewertung = "X", wenn "keine Auswahl"
@@ -460,7 +463,8 @@ class beobachtungsbogen extends AbstractPage {
 		}
 		
 		eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/eintragen/perfrage/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+    //exit(0);
 	
 	}
 	
@@ -655,7 +659,8 @@ class beobachtungsbogen extends AbstractPage {
 		}
 		
 		eval("echo(\"" . DB::getTPL()->get("beobachtungsbogen/eintragen/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+    //exit(0);
 	}
 	
 	public static function hasSettings() {

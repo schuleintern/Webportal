@@ -189,12 +189,22 @@ class administrationasvimport extends AbstractPage {
 		foreach($simpleXML->schulen[0]->schule->faecher->fach as $fach) {
 			self::$faecher[] = array(
 					"id" => strval($fach->xml_id),
-			        'asdid' => strval($fach->asd_fach),
+			    'asdid' => strval($fach->asd_fach),
 					"kurzform" => strval($fach->kurzform),
 					"langform" => strval($fach->langform),
-			        'istselbsterstellt' => strval($fach->ist_selbst_erstellt)
+			    'istselbsterstellt' => strval($fach->ist_selbst_erstellt)
 			);
 		}
+
+		// Ganztags
+
+		self::$faecher[] = array(
+			"id" => 1,
+			'asdid' => 0,
+			"kurzform" => "OGS",
+			"langform" => "Ganztags Betreuung",
+			'istselbsterstellt' => 1
+		);
 
 
 		// Ordnungszahlen retten
@@ -267,6 +277,22 @@ class administrationasvimport extends AbstractPage {
 					'pseudokoppel' => $isPseudoKoppel
 			);
 		}
+
+		// Ganztags
+		self::$unterricht[] = array(
+			"lehrer" => 0,
+			"fachid" => 1,
+			"bezeichnung" => "Ganztags",
+			"unterrichtsart" => '',
+			"stunden" => 12,
+			"wissenschaftlich" => 0,
+			"startdatum" => 0,
+			"enddatum" => 0,
+			'klassenunterricht' => 0,
+			'koppeltext' => '',
+			'pseudokoppel' => 0
+	);
+
 
 		$doneActions .= "Unterricht eingelesen\r\n";
 
@@ -549,7 +575,8 @@ class administrationasvimport extends AbstractPage {
 							"adressen" => $adressen,
 							"unterricht" => $unterrichtListe,
 							"ausbildungsrichtung" => $ausbildungsrichtung,
-							'sprachen' => $sprachen
+							'sprachen' => $sprachen,
+							"ganztag_betreuung" => (strval($schueler->ganztag_betreuung)),
 							);
 
 
@@ -766,9 +793,9 @@ class administrationasvimport extends AbstractPage {
 							schulerEintrittJahrgangsstufe,
 							schuelerEintrittDatum, 
 							schuelerNameVorgestellt,
-							schuelerNameNachgestellt  
-							
-							
+							schuelerNameNachgestellt,
+              schuelerGanztagBetreuung
+
 						) values (
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['asvid']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['name']) . "',
@@ -785,8 +812,10 @@ class administrationasvimport extends AbstractPage {
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufe']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufeeintritt']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "',
+							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namevorgestellt']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namenachgestellt']) . "'
+
 						) ON DUPLICATE KEY UPDATE
 							schuelerAsvID='" . self::$klassen[$i]['schueler'][$s]['asvid'] . "',
 							schuelerName='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['name']) . "',
@@ -803,6 +832,7 @@ class administrationasvimport extends AbstractPage {
 							schuelerJahrgangsstufe = '" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufe']) . "',
 							schulerEintrittJahrgangsstufe='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufeeintritt']) . "',
 							schuelerEintrittDatum='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "',
+							schuelerGanztagBetreuung='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung']) . "',
 							schuelerNameVorgestellt='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namevorgestellt']) . "',
 							schuelerNameNachgestellt='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namenachgestellt']) . "'
 						");
@@ -827,6 +857,11 @@ class administrationasvimport extends AbstractPage {
 				}
 
 				if($values != "") DB::getDB()->query("INSERT INTO unterricht_besuch (unterrichtID, schuelerAsvID) values " . $values);
+
+				// Ganztags
+
+				if(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung'] != "") DB::getDB()->query("INSERT INTO unterricht_besuch (unterrichtID, schuelerAsvID) values ('1','" . self::$klassen[$i]['schueler'][$s]['asvid'] . "')");
+
 			}
 		}
 

@@ -432,7 +432,8 @@ abstract class AbstractKalenderPage extends AbstractPage {
 				
 				
 				eval("echo(\"" . DB::getTPL()->get("abstractKalender/mitEintragen") . "\");");
-				exit(0);
+				PAGE::kill(true);
+      	//exit(0);
 			}
 	
 		

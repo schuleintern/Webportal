@@ -328,6 +328,42 @@ class user {
       
   }
 
+  public function getAutoresponseText() {
+    return nl2br($this->data['userAutoresponseText']);
+  }
+  
+  public function getRawAutoresponseText() {
+    return ($this->data['userAutoresponseText']);
+  }
+
+  public function setAutoresponseText($sig) {
+    $sig = htmlspecialchars($sig);
+    DB::getDB()->query("UPDATE users SET userAutoresponseText='" . DB::getDB()->escapeString($sig) . "' WHERE userID='" . $this->getUserID() . "'");
+    
+  }
+
+  public function getAutoresponse() {
+    return $this->data['userAutoresponse'];
+  }
+
+  public function getAutoresponseChecked() {
+    if ( $this->data['userAutoresponse']) {
+      return ' checked="checked"';
+    } else {
+      return '';
+    }
+  }
+  
+
+  public function setAutoresponse($value) {
+    //echo $value; exit;
+    $value = intval($value);
+    DB::getDB()->query("UPDATE users SET userAutoresponse='" . DB::getDB()->escapeString($value) . "' WHERE userID='" . $this->getUserID() . "'");
+    
+  }
+
+
+
   public function addCurrentDeviceToTrustedDevices() {
       $cookieKey = base64_encode(random_bytes(500));
       $cookieKey = substr($cookieKey, 0,100);

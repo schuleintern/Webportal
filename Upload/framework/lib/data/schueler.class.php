@@ -120,6 +120,46 @@ class schueler {
         return $this->data['schuelerNameNachgestellt'];
     }
 	
+	public function getGanztags() {
+		$tage = [];
+		if ($this->data['tag_mo']) { $tage[] = 'Mo'; }
+		if ($this->data['tag_di']) { $tage[] = 'Di'; }
+		if ($this->data['tag_mi']) { $tage[] = 'Mi'; }
+		if ($this->data['tag_do']) { $tage[] = 'Do'; }
+		if ($this->data['tag_fr']) { $tage[] = 'Fr'; }
+		if ($this->data['tag_sa']) { $tage[] = 'Sa'; }
+		if ($this->data['tag_so']) { $tage[] = 'So'; }
+
+		$gruppe = [];
+		if ( $this->data['gruppe'] ) {
+			$gruppen_query = DB::getDB()->query("SELECT `name` AS `gruppe_name` FROM ganztags_gruppen WHERE id = ".$this->data['gruppe']." ");
+			while($row = mysqli_fetch_array($gruppen_query)) { $gruppe = $row; }
+		}
+		
+		if ($this->data['tag_mo']) { $this->data['tag_mo'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_mo'] = ''; }
+		if ($this->data['tag_di']) { $this->data['tag_di'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_di'] = ''; }
+		if ($this->data['tag_mi']) { $this->data['tag_mi'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_mi'] = ''; }
+		if ($this->data['tag_do']) { $this->data['tag_do'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_do'] = ''; }
+		if ($this->data['tag_fr']) { $this->data['tag_fr'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_fr'] = ''; }
+		if ($this->data['tag_sa']) { $this->data['tag_sa'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_sa'] = ''; }
+		if ($this->data['tag_so']) { $this->data['tag_so'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_so'] = ''; }
+
+		return [
+			'info' => $this->data['info'],
+			'gruppe_id' => $this->data['gruppe'],
+			'gruppe_name' => $gruppe['gruppe_name'],
+			'tage_anz' => count($tage),
+			'tage' => implode(', ', $tage),
+			'tag_mo' => $this->data['tag_mo'],
+			'tag_di' => $this->data['tag_di'],
+			'tag_mi' => $this->data['tag_mi'],
+			'tag_do' => $this->data['tag_do'],
+			'tag_fr' => $this->data['tag_fr'],
+			'tag_sa' => $this->data['tag_sa'],
+			'tag_so' => $this->data['tag_so']
+		];
+	}
+
 	public function getNachteilsausgleich() {
 	    return SchuelerNachteilsausgleich::getNachteilsausgleichForSchueler($this);
 	}
@@ -362,6 +402,22 @@ class schueler {
 		}
 		
 		return [];
+	}
+
+	/**
+	 * @return schueler[] alle Ganztags Schüler
+	 */
+	public function getGanztagsSchueler($orderBy='schueler.schuelerName, schueler.schuelerRufname') {
+		if(sizeof(self::$all) == 0) {
+			$alle = DB::getDB()->query("SELECT schueler.* , ganztags.*  FROM schueler
+			LEFT JOIN ganztags_schueler AS `ganztags` ON schueler.schuelerAsvID LIKE ganztags.asvid 
+			WHERE schueler.schuelerGanztagBetreuung != 0 ORDER BY $orderBy");
+			while($s = DB::getDB()->fetch_array($alle)) {
+				self::$all[] = new schueler($s);
+			}
+		}
+
+		return self::$all;
 	}
 }
 

@@ -496,6 +496,7 @@ class menu {
         
         if($this->isActive("schuelerinfo") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen")))  $html .= $this->getMenuItem("schuelerinfo", "Schülerinformationen", "fa fa-info");
         if($this->isActive("klassenlisten") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen")))  $html .= $this->getMenuItem("klassenlisten", "Klassenlisten", "fa fa-list");
+        if($this->isActive("ganztags") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen")))  $html .= $this->getMenuItem("ganztags", "Ganztags", "fa fa-list");
         if(DB::getSession()->isAdmin() || DB::getSession()->isMember('Webportal_Elternmail')) $html .= $this->getMenuItem("AngemeldeteEltern", "Angemeldete Eltern", "fa fa-list");
         
         $html .= $this->endDropDown();

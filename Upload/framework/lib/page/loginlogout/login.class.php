@@ -115,7 +115,8 @@ class login extends AbstractPage {
 		else {
 		    eval("echo(\"".DB::getTPL()->get("login/index")."\");");
 		    
-		    exit();
+		    PAGE::kill(true);
+      	//exit(0);
 		}
 		
 		if($success != false) {
@@ -171,7 +172,8 @@ class login extends AbstractPage {
 			    
 			    eval("echo(\"".DB::getTPL()->get("login/index")."\");");
 			    
-			    exit();
+			    PAGE::kill(true);
+      		//exit(0);
 			}
 
 		}
