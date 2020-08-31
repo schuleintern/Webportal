@@ -169,6 +169,7 @@ $classes = [
 		'PAGE',
 		'FILE',
 		'FACTORY'
+
 	],
 	'tpl' => [
 		'TemplateParser',

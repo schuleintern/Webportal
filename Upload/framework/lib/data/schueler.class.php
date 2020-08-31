@@ -125,6 +125,7 @@ class schueler {
 	}
 	
 	public function getGanztags($action = false) {
+
 		$tage = [];
 		if ($this->data['tag_mo']) { $tage[] = 'Mo'; }
 		if ($this->data['tag_di']) { $tage[] = 'Di'; }
@@ -135,6 +136,7 @@ class schueler {
 		if ($this->data['tag_so']) { $tage[] = 'So'; }
 
 		$gruppe = [];
+
 		// if ( $this->data['gruppe'] ) {
 		// 	$gruppen_query = DB::getDB()->query("SELECT `name` AS `gruppe_name` FROM ganztags_gruppen WHERE id = ".$this->data['gruppe']." ");
 		// 	while($row = mysqli_fetch_array($gruppen_query)) { $gruppe = $row; }
@@ -158,10 +160,10 @@ class schueler {
 			if ($this->data['tag_so']) { $this->data['tag_so'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_so'] = ''; }
 		}
 
+
 		return [
 			'info' => $this->data['info'],
 			'gruppe_id' => $this->data['gruppe'],
-			'gruppe_name' => $this->data['gruppenname'],
 			'tage_anz' => count($tage),
 			'tage' => implode(', ', $tage),
 			'tag_mo' => $this->data['tag_mo'],
@@ -426,6 +428,7 @@ class schueler {
 			$alle = DB::getDB()->query("SELECT schueler.* , ganztags.* , gruppen.name as gruppenname   FROM schueler
 			LEFT JOIN ganztags_schueler AS `ganztags` ON schueler.schuelerAsvID LIKE ganztags.asvid 
 			LEFT JOIN ganztags_gruppen AS `gruppen` ON ganztags.gruppe LIKE gruppen.id 
+
 			WHERE schueler.schuelerGanztagBetreuung != 0 ORDER BY $orderBy");
 			while($s = DB::getDB()->fetch_array($alle)) {
 				self::$all[] = new schueler($s);

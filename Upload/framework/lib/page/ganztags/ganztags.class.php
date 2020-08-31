@@ -175,7 +175,9 @@ class ganztags extends AbstractPage {
 				$gender = '<i class="fa fa-mars" aria-hidden="true" style="color:blue"></i>';
 			}
 			$html .= '<tr>';
+
 			$html .= '<td>'.$item->getRufname().'</td>';
+
 			//$html .= '<td>'.$item->getRufname().'</td>';
 			$html .= '<td>'.$item->getName().'</td>';
 			$html .= '<td>'.$gender.'</td>';
@@ -193,10 +195,6 @@ class ganztags extends AbstractPage {
 			$html .= '</tr>';
 		}
 		
-
-
-
-
 		eval("echo(\"" . DB::getTPL()->get("ganztags/index"). "\");");
 		
 	}
