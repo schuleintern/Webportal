@@ -414,7 +414,7 @@
 			        	<if($canContactAnyPupil)><then><li><a href="#schueler" data-toggle="tab"><i class="fa fa-child"></i> Schüler</a></li></then></if>
 			        	<if($canContactAnyParents)><then><li><a href="#eltern" data-toggle="tab"><i class="fa fa-users"></i> Eltern</a></li></then></if>
 			        	<if($canContactAnyVerwaltung)><then><li><a href="#verwaltung" data-toggle="tab"><i class="fa fa-users"></i> Verwaltung / Personalrat / Hausmeister</a></li></then></if>
-			        	<!-- <if($canContactAnyGroups)><then><li><a href="#groups" data-toggle="tab"><i class="fa fa-female"></i> Sonstige</a></li></then></if> -->
+			        	<if($canContactAnyGroups)><then><li><a href="#groups" data-toggle="tab"><i class="fa fa-female"></i> Sonstige</a></li></then></if>
 			        </ul>
 			        <div class="tab-content">
 				        <if($canContactAnyTeacher)><then>
@@ -684,21 +684,20 @@
 				        </then></if>
 				        
 
-				        
+								<if($canContactAnyGroups)><then>
+									<div class="tab-pane" id="groups">
+										<table class="table table-striped">
+											$htmlGroups
+										</table>
+									</div>
+									</then></if>
+	
 				        <!-- <div class="tab-pane" id="andere">
 				        	Andere
 				        </div> -->
 						</div>
 						
-						<hr>
-						<h4>Sonstige</h4>
-						<if($canContactAnyGroups)><then>
-							<div class="tab-pane" id="groups">
-								<table class="table table-striped">
-									$htmlGroups
-								</table>
-							</div>
-						</then></if>
+					
 
 				</div>
 		      </div>

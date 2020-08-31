@@ -198,7 +198,8 @@ class absenzensekretariat extends AbstractPage {
   	}
   	
   	eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/sekretariat/klassenanwesenheit") . "\");");
-  	exit(0);
+  	PAGE::kill(true);
+			//exit(0);
   }
   
   private function ajaxCompleteUserName() {
@@ -370,7 +371,8 @@ class absenzensekretariat extends AbstractPage {
   			}
   			
   			eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/sekretariat/sammelbeurlaubungOK") . "\");");
-  			exit(0);
+  			PAGE::kill(true);
+			  //exit(0);
   			break;
   	}
   	
@@ -390,7 +392,8 @@ class absenzensekretariat extends AbstractPage {
   	
   	$currentDate = date("d.m.Y");
   	eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/sekretariat/periodischebeurlaubung") . "\");");
-  	exit(0);
+  	PAGE::kill(true);
+			//exit(0);
   	
   	
   }
@@ -461,7 +464,8 @@ class absenzensekretariat extends AbstractPage {
         }
 
         eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/sekretariat/sammelbeurlaubungOK") . "\");");
-        exit(0);
+        PAGE::kill(true);
+		  	//exit(0);
       break;
     }
 
@@ -481,7 +485,8 @@ class absenzensekretariat extends AbstractPage {
 
     $currentDate = date("d.m.Y");
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/sekretariat/sammelbeurlaubung") . "\");");
-    exit(0);
+    PAGE::kill(true);
+		//exit(0);
 
 
   }
@@ -509,7 +514,8 @@ class absenzensekretariat extends AbstractPage {
     $currentDateAsSQLDate = DateFunctions::getTodayAsSQLDate();
 
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/sekretariat/meldungstat") . "\");");
-    exit(0);
+    PAGE::kill(true);
+			//exit(0);
   }
 
   private function editAbsenzen() {
@@ -624,7 +630,8 @@ class absenzensekretariat extends AbstractPage {
     }
 
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/sekretariat/absenzen_schueler/index") . "\");");
-    exit(0);
+    PAGE::kill(true);
+			//exit(0);
 
 
   }
@@ -723,11 +730,14 @@ class absenzensekretariat extends AbstractPage {
 
         $printHeader = true;
         eval("DB::getTPL()->out(\"" . DB::getTPL()->get("printDialogs/print_browser_and_close") . "\");");
-        exit(0);
+        PAGE::kill(true);
+		  	//exit(0);
       }
       else {
         $errorMessage = "Die angegebene Absenz ist nicht gültig! (Keine Beurlaubung)";
         eval("DB::getTPL()->out(\"" . DB::getTPL()->get("printDialogs/close_with_error") . "\");");
+        PAGE::kill(true);
+			  //exit(0);
       }
     }
     else {
@@ -865,7 +875,8 @@ class absenzensekretariat extends AbstractPage {
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/sekretariat/beurlaubungOK") . "\");");
     
     // header("Location: index.php?page=absenzensekretariat&currentDate={$zeitraum[0]}&activeKlasse={$_GET['activeKlasse']}");
-    exit(0);
+    PAGE::kill(true);
+			//exit(0);
   }
 
   private function processKrankmeldungen() {

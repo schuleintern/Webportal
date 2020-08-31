@@ -21,6 +21,11 @@ class Debugger {
 
 	public static function getDbQueries() {
 
+		
+		// echo "<pre>";
+		// print_r(self::$queries);
+		// echo "</pre>";
+
 		$html = '<div class="queries">';
 		if (count(self::$queries) > 0) {
 			$html .= '<div class="devIcon">'.count(self::$queries).'</div>';
@@ -32,6 +37,9 @@ class Debugger {
 			$html .= self::$queries[$i]['query'];
 			if (self::$queries[$i]['error']) {
 				$html .= '<div class="error">'.self::$queries[$i]['query'].'</div>';
+			}
+			if (self::$queries[$i]['info']['file']) {
+				$html .= '<div class="item-header">'.self::$queries[$i]['info']['file'].' (Line: '.self::$queries[$i]['info']['line'].')</div>';
 			}
 			$html .= '</div>';
 		}
@@ -69,6 +77,7 @@ class Debugger {
 
 	public static function debugQuery($query) {
 		if ($query['query']) {
+			$query['info'] = debug_backtrace()[1];
 			array_push( self::$queries, $query );
 		}
 	}

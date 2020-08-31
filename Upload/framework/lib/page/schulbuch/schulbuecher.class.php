@@ -341,7 +341,8 @@ class schulbuecher extends AbstractPage {
       }
       
       eval("DB::getTPL()->out(\"" . DB::getTPL()->get("schulbuecher/management/ausleihen") . "\");");
-      exit();
+      PAGE::kill(true);
+			//exit(0);
       
   }
   
@@ -460,7 +461,8 @@ class schulbuecher extends AbstractPage {
     }
 
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get("schulbuecher/management/index") . "\");");
-    exit(0);
+    PAGE::kill(true);
+			//exit(0);
   }
 
   private function deleteBook() {

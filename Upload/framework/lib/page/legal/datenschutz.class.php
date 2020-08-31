@@ -54,7 +54,8 @@ class datenschutz extends AbstractPage {
 		$dsbeauftragter .= "Kontakt: " . DB::getSettings()->getValue("dsbKontakt");
 		
 		eval("DB::getTPL()->out(\"" . DB::getTPL()->get("datenschutz/index") . "\");");
-		exit(0);
+		PAGE::kill(true);
+			//exit(0);
 	}
 	
 	/**

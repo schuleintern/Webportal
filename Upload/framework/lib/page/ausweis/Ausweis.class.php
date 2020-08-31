@@ -483,7 +483,8 @@ class Ausweis extends AbstractPage {
 	                    
 	                    eval("DB::getTPL()->out(\"" . DB::getTPL()->get("ausweise/editfoto/index") . "\");");
 	                    
-	                    exit(0);
+	                    PAGE::kill(true);
+											//exit(0);
 	                    
 	                    
 	                }
@@ -655,7 +656,8 @@ class Ausweis extends AbstractPage {
 	                    
 	                    eval("DB::getTPL()->out(\"" . DB::getTPL()->get("ausweise/editfoto/index") . "\");");
 	                    
-	                    exit(0);
+	                    PAGE::kill(true);
+											//exit(0);
 	                    
 	                    
 	                }
@@ -842,7 +844,8 @@ class Ausweis extends AbstractPage {
 	                    
 	                    eval("DB::getTPL()->out(\"" . DB::getTPL()->get("ausweise/editfoto/index") . "\");");
 	                    
-	                    exit(0);
+	                    PAGE::kill(true);
+											//exit(0);
 	                    
 	                    
 	                }
