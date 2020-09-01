@@ -238,7 +238,7 @@ class administrationusermatch extends AbstractPage {
 	}
 	
 	public static function getAdminMenuIcon() {
-		return 'fa fa-people-arrows';
+		return 'fa fa-arrows-alt-h';
 	}
 
 }

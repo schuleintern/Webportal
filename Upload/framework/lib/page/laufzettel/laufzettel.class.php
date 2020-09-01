@@ -1007,7 +1007,7 @@ class laufzettel extends AbstractPage {
 	}
 	
 	public static function getAdminMenuIcon() {
-		return 'fa fa-file-text';
+		return 'fa fa-file';
 	}
 	
 	public static function getAdminGroup() {
