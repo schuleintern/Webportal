@@ -234,11 +234,11 @@ class administrationusermatch extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroupIcon() {
-		return 'fa fa-users';
+		return 'fas fa-people';
 	}
 	
 	public static function getAdminMenuIcon() {
-		return 'fa fa-arrows-h';
+		return 'fa fa-people-arrows';
 	}
 
 }

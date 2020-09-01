@@ -182,11 +182,11 @@ class administrationgroups extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroupIcon() {
-		return 'fa fa-users';
+		return 'fa fa-user-group';
 	}
 	
 	public static function getAdminMenuIcon() {
-		return 'fa fa-group';
+		return 'fa fa-users';
 	}
 
 }
