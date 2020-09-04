@@ -100,15 +100,16 @@ class Debugger {
 
 		$info = debug_backtrace()[1];
 
-		// echo '<pre>';
-		// print_r( $o );
-		// echo '</pre>';
+		 echo '<pre>';
+		 print_r( $o );
+		 echo '</pre>';
 
-		// echo '<pre>';
-		// print_r( $info );
-		// echo '</pre>';
+		 echo '<pre>';
+		 print_r( $info );
+		 echo '</pre>';
 
 		array_push(self::$dump, [$o, ['file' => $info['file'], 'line' => $info['line']]] );
+
 
 		if($stop) exit(0);
 

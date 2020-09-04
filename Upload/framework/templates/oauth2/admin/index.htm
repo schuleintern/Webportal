@@ -1,0 +1,79 @@
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title"><i class="fa fa-key"></i> Single Sign mit Office 365</h3>
+    </div>
+    <div class="box-body">
+            <p>An dieser Stelle wird das Single Sign On mittlels Office 365 eingerichtet.
+            <div class="callout callout-info">Bitte beachten Sie die Dokmentation: [TODO LINK ZUR DOKUMENTATION]</div>
+
+            <code>Redirect URL: $redirectURL</code>
+
+            <if(!$isConfigured)><then>
+                <div class="callout callout-danger">Die Office 365 Daten sind noch nicht konfiguriert! Bitte erst unter den Einstellungen konfigurieren!</div>
+            </then>
+            </if>
+        </p>
+    </div>
+</div>
+
+
+<if($isConfigured)><then>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"><i class="fa fa-female"></i> Lehrkräfte</h3>
+                </div>
+                <div class="box-body">
+
+                    <if($userModeLehrer == "ASV")><then>
+
+                        <if($singleSignOnStatusLehrer)><then>
+                            <i class="fa fa-check"></i> Aktiv<br />
+                            <a href="{$selfURL}&action=deactivateLehrerSingleSignOn" class="btn btn-primary"><i class="fa fa-power-off"></i> Deaktivieren</a>
+                        </then>
+                    <else>
+                        <i class="fa fa-ban"></i> Nicht aktiv<br />
+                        <a href="{$selfURL}&action=activateLehrerSingleSignOn" class="btn btn-primary"><i class="fa fa-power-off"></i> Aktivieren</a>
+
+                    </else></if>
+
+                    </then>
+                    <else>
+                        Single Sign on kann nur konfiguriert werden, wenn für Lehrkräfte der UserMode auf ASV steht. (config.php)
+                    </else>
+                    </if>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"><i class="fa fa-child"></i> Schüler</h3>
+                </div>
+                <div class="box-body">
+                    <if($userModeSchueler == "ASV")><then>
+
+                    <if($singleSignOnStatusSchueler)><then>
+                    <i class="fa fa-check"></i> Aktiv<br />
+                    <a href="{$selfURL}&action=deactivateSchuelerSingleSignOn" class="btn btn-primary"><i class="fa fa-power-off"></i> Deaktivieren</a>
+                </then>
+                    <else>
+                        <i class="fa fa-ban"></i> Nicht aktiv<br />
+                        <a href="{$selfURL}&action=activateSchuelerSingleSignOn" class="btn btn-primary"><i class="fa fa-power-off"></i> Aktivieren</a>
+
+                    </else></if>
+
+                </then>
+                    <else>
+                        Single Sign on kann nur konfiguriert werden, wenn für Schüler der UserMode auf ASV steht. (config.php)
+                    </else>
+                    </if>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</then></if>

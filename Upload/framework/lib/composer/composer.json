@@ -5,7 +5,8 @@
         "wazaari/kasapi-php": "dev-master",
         "monolog/monolog": "^2.0",
         "phpmailer/phpmailer": "^6.1",
-        "mpdf/mpdf": "^8.0"
+        "mpdf/mpdf": "^8.0",
+        "thenetworg/oauth2-azure": "^1.4"
         
     }
     

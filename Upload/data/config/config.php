@@ -72,14 +72,14 @@ class GlobalSettings {
      * ASV:		Benutzer kommen aus der ASV (werden automatisch erstellt.)
      * @var string
      */
-    public $schuelerUserMode = "SYNC";
+    public $schuelerUserMode = "ASV";
     /**
      * Modus der Lehrerbenutzer:
      * SYNC:	Synchronisierung
      * ASV:		Benutzer kommen aus der ASV (werden automatisch erstellt.)
      * @var string
      */
-    public $lehrerUserMode = "SYNC";
+    public $lehrerUserMode = "ASV";
     /**
      * Modus der Eltern:
      * ASV_MAIL:		E-Mailadressen kommen aus der ASV
