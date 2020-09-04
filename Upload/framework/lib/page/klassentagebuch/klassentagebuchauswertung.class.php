@@ -326,7 +326,7 @@ class klassentagebuchauswertung extends AbstractPage {
           $daten = DB::getDB()->query("SELECT * FROM klassentagebuch_pdf ORDER BY pdfKlasse");
 
           $zip = new ZipArchive();
-          $filename = "temp/pdf_Export_temp_" . md5(rand()) . ".zip";
+          $filename = "../data/temp/pdf_Export_temp_" . md5(rand()) . ".zip";
 
           if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
               die("cannot open --> $filename\n");
