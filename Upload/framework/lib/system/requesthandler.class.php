@@ -24,6 +24,9 @@ class requesthandler {
     'ausweis' => [
         'Ausweis'
     ],
+      'oauth2' => [
+          'oAuth2Auth'
+      ],
     'ffbumfrage' => [
         'ffbumfrage'
     ],

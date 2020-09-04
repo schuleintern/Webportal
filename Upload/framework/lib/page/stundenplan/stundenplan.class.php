@@ -1049,6 +1049,7 @@ class stundenplan extends AbstractPage {
 
         parent::__construct(array("Stundenplan","Stundenplan " . $showTitle));
         eval("echo(\"" . DB::getTPL()->get("stundenplan/index") . "\");");
+        PAGE::kill(true);
       }
       else {
         

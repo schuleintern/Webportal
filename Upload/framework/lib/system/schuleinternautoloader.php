@@ -30,7 +30,8 @@ $classes = [
 		'MathCaptcha',
 	],
     'office365' => [
-        'Office365Api'
+        'Office365Api',
+        'Office365Login'
     ],
     'data/stundenplan' => [
       'Aufsicht'  

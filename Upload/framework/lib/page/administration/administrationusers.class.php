@@ -184,6 +184,21 @@ class administrationusers extends AbstractPage {
 				
 				return self::showIndex($selfURL);
 			break;
+
+            case 'updateEmployeeID':
+                if(DB::getGlobalSettings()->schulnummer == "9400") {
+                    new errorPage("In der Demo Version ist keine E-Mail Änderung möglich!");
+                }
+
+                $user = DB::getDB()->query_first("SELECT * FROM users WHERE userID='" . intval($_GET['userID']) . "'");
+                if($user['userID'] > 0) {
+                    if($user['userNetwork'] == 'SCHULEINTERN') {
+                        DB::getDB()->query("UPDATE users SET userAsvID='" . DB::getDB()->escapeString($_POST['employeeID']) . "' WHERE userID='" . intval($_GET['userID']) . "'");
+                    }
+                    else new errorPage("Access Violation");
+                }
+
+                return self::showIndex($selfURL);
 			
 			case 'addUser':
 				
@@ -333,6 +348,20 @@ class administrationusers extends AbstractPage {
 			for($i = 0; $i < sizeof(self::$allGroups); $i++) {
 				$selectGroupsHTML .= "<option value=\"" . self::$allGroups[$i]['groupName'] . "\">" . self::$groupBeschreibungen[self::$allGroups[$i]['groupName']] . "</option>";
 			}
+
+            $isSSO = false;
+			if($network == 'SCHULEINTERN_SCHUELER' && oAuth2Auth::ssoSchuelerActive()) {
+                $isSSO = true;
+            }
+            else if($network == 'SCHULEINTERN_LEHRER' && oAuth2Auth::ssoTeacherActive()) {
+                $isSSO = true;
+            }
+
+            $canChangeEmployeeID = false;
+
+            if($network == 'SCHULEINTERN') $canChangeEmployeeID = true;
+
+
 			
 			eval("\$userHTML .= \"" . DB::getTPL()->get("administration/users/user_bit") . "\";");
 		}

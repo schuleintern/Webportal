@@ -51,6 +51,12 @@ class administrationasvimport extends AbstractPage {
 
 			    return self::$html;
 			break;
+
+            case 'syncasvstep2teacher':
+                if(DB::checkDemoAccess()) self::syncasv2teacher();
+
+                return self::$html;
+                break;
 		}
 
 	}
@@ -166,6 +172,39 @@ class administrationasvimport extends AbstractPage {
 		}
 
 	}
+
+    private static function syncasv2teacher() {
+
+        $uploadfileZip = "../data/temp/asvsync/export.zip";
+
+        $uploadfile = "../data/temp/asvsync/export.xml";
+
+
+        if(file_exists($uploadfile)) {
+
+            $simpleXML = simplexml_load_file($uploadfile, null, LIBXML_NOCDATA);
+
+            self::syncLehrer($simpleXML);
+
+            $$doneActions = "Lehrer importiert.";
+
+            $matcher = new MatchUserFunctions();
+
+            if(DB::getGlobalSettings()->lehrerUserMode == "SYNC") $doneActions .= $matcher->matchLehrer();
+
+            eval("self::\$html = \"" . DB::getTPL()->get("administration/usersync/asvimportok") . "\";");
+
+            DB::getSettings()->setValue("last-asv-import", DateFunctions::getTodayAsNaturalDate());
+
+            @unlink($uploadfile); // Datenschutz! Löschen!
+            @unlink($uploadfileZip);
+        }
+        else {
+            new errorPage("Die hochgeladene Datei ist ungültig! (Die Datei konnte nicht entpackt werden!");
+            die();
+        }
+
+    }
 
 	private static $klassen = array();
 	private static $faecher = array();
@@ -443,6 +482,10 @@ class administrationasvimport extends AbstractPage {
 			if(strval($bg->schulart_kurzform) == strtoupper(DB::getSettings()->getValue("schulinfo-schultyp"))) $unterrichtsfaecher[strval($bg->schluessel)*1] = strval($bg->anzeigeform);
 		}
 
+
+
+
+
 		$anzahlSchueler = 0;
 		
 	
@@ -500,8 +543,31 @@ class administrationasvimport extends AbstractPage {
 							);
 						}
 
+
+                        $wessenText = "";
+                        switch(strval($schueleranschrift->anschrift_wessen)) {
+                            case '1':
+                            default:
+                                $wessenText = 'eb';
+                                break;
+
+                            case '2':
+                                $wessenText = 'web';
+                                break;
+
+                            case '3':
+                                $wessenText = 's';
+                                break;
+
+                            case '4':
+                                $wessenText = 'w';
+                                break;
+                        }
+
+
 						$adressen[] = array(
 								"wessen" => (strval($schueleranschrift->anschrift_wessen)),
+								"wessenText" => $wessenText,
 								"anschriftstyp" => (strval($schueleranschrift->anschriftstyp)),
 								"auskunftsberechtigt" => (strval($schueleranschrift->auskunftsberechtigt)),
 								"hauptansprechpartner" => (strval($schueleranschrift->hauptansprechpartner)),
@@ -596,131 +662,12 @@ class administrationasvimport extends AbstractPage {
 			);
 		}
 
-		// Lehrer laden
 
 		$doneActions .= "Klassen mit Schülern eingelesen.\r\n";
 
-		foreach($simpleXML->schulen[0]->schule->lehrkraefte->lehrkraft as $lehrer) {
 
-			$datenID = intval($lehrer->lehrkraftdaten_nicht_schulbezogen_id);
+		self::syncLehrer($simpleXML);
 
-			$name = "";
-			$vornamen = "";
-			$rufname = "";
-			$geschlecht = "";
-			$zeugnisname = "";
-			$amtsbezeichnungID = 0;
-			$asvID = "";
-
-			foreach($simpleXML->lehrkraftdaten_nicht_schulbezogen_liste->lehrkraftdaten_nicht_schulbezogen as $daten) {
-				if(intval($daten->xml_id) == $datenID) {
-					$name = strval($daten->familienname);
-					$vornamen = strval($daten->vornamen);
-					$rufname = strval($daten->rufname);
-					$geschlecht = ((strval($daten->geschlecht) == "2") ? "w" : "m");
-					$zeugnisname = strval($daten->zeugnisname_1);
-					$amtsbezeichnungID = intval($daten->amtsbezeichnung);
-					$asvID = strval($daten->lokales_differenzierungsmerkmal);
-					$nameNachgestellt = $daten->namensbestandteil_nachgestellt;
-					$nameVorgestellt = $daten->namensbestandteil_vorangestellt;
-					break;
-				}
-			}
-			
-
-			if(strval($lehrer->namenskuerzel) != "") 
-    			self::$lehrer[] = array(
-    				"xmlid" => intval($lehrer->xml_id),
-    				"datenid" => intval($lehrer->lehrkraftdaten_nicht_schulbezogen_id),
-    				"kuerzel" => (strval($lehrer->namenskuerzel)),
-    				"name" => ($name),
-    				"namevorgestellt" => $nameVorgestellt,
-    				"namenachgestellt" => $nameNachgestellt,
-    				"vornamen" => ($vornamen),
-    				"rufname" => ($rufname),
-    				"geschlecht" => $geschlecht,
-    				"zeugnisname" => ($zeugnisname),
-    				"amtsbezeichnung" => $amtsbezeichnungID,
-    				"asvid" => $asvID
-    			);
-		}
-
-		$doneActions .= "Lehrer eingelesen\r\n";
-
-		// Sync Lehrer
-
-		// Welche Lehrer löschen?
-		$lehrer = DB::getDB()->query("SELECT * FROM lehrer");
-		while($l = DB::getDB()->fetch_array($lehrer)) {
-			$found = false;
-			for($i = 0; $i < sizeof(self::$lehrer); $i++) {
-				if(self::$lehrer[$i]['asvid'] == $l['lehrerAsvID']) {
-					$found = true;
-					break;
-				}
-			}
-			if(!$found) {
-				$ll = DB::getDB()->query_first("SELECT * FROM lehrer WHERE lehrerAsvID='" . $l['lehrerAsvID'] . "'");
-
-				DB::getDB()->query("DELETE FROM lehrer WHERE lehrerAsvID='" . $ll['lehrerAsvID'] . "'");
-
-				if(DB::getGlobalSettings()->lehrerUserMode == "ASV" && $ll['lehrerUserID'] > 0) {
-					DB::getDB()->query("DELETE FROM users WHERE userID='" . $ll['lehrerUserID'] . "'");
-					DB::getDB()->query("DELETE FROM users_groups WHERE userID='" . $ll['lehrerUserID'] . "'");
-				}
-			}
-		}
-		// Lehrer anlegen
-
-		$lehrer = self::$lehrer;
-
-		for($i = 0; $i < sizeof($lehrer); $i++) {
-			DB::getDB()->query("
-				INSERT INTO lehrer
-					(
-						lehrerID,
-						lehrerAsvID,
-						lehrerKuerzel,
-						lehrerName,
-						lehrerVornamen,
-						lehrerRufname,
-						lehrerGeschlecht,
-						lehrerZeugnisunterschrift,
-						lehrerAmtsbezeichnung,
-						lehrerNameVorgestellt,
-						lehrerNameNachgestellt
-					) values(
-						'" . DB::getDB()->escapeString($lehrer[$i]['xmlid']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['asvid']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['kuerzel']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['name']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['vornamen']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['rufname']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['geschlecht']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['zeugnisname']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['amtsbezeichnung']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['namevorgestellt']) . "',
-						'" . DB::getDB()->escapeString($lehrer[$i]['namenachgestellt']) . "'
-					) ON DUPLICATE KEY UPDATE
-						lehrerID='" . DB::getDB()->escapeString($lehrer[$i]['xmlid']) . "',
-						lehrerKuerzel='" . DB::getDB()->escapeString($lehrer[$i]['kuerzel']) . "',
-						lehrerName='" . DB::getDB()->escapeString($lehrer[$i]['name']) . "',
-						lehrerVornamen='" . DB::getDB()->escapeString($lehrer[$i]['vornamen']) . "',
-						lehrerRufname='" . DB::getDB()->escapeString($lehrer[$i]['rufname']) . "',
-						lehrerGeschlecht='" . DB::getDB()->escapeString($lehrer[$i]['geschlecht']) . "',
-						lehrerZeugnisunterschrift='" . DB::getDB()->escapeString($lehrer[$i]['zeugnisname']) . "',
-						lehrerAmtsbezeichnung='" . DB::getDB()->escapeString($lehrer[$i]['amtsbezeichnung']) . "',
-						lehrerUserID=lehrerUserID,
-						lehrerNameVorgestellt='" . DB::getDB()->escapeString($lehrer[$i]['namevorgestellt']) . "',
-						lehrerNameNachgestellt='" . DB::getDB()->escapeString($lehrer[$i]['namenachgestellt']) . "'
-			");
-		}
-
-
-		// /Lehrer
-
-
-		$doneActions .= "Lehrer synchronisiert.\r\n";
 
 		// Klassenleitung
 
@@ -893,7 +840,7 @@ class administrationasvimport extends AbstractPage {
         					for($k = 0; $k < sizeof(self::$klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt']); $k++) {
     
         					    
-        					    if((self::$klassen[$i]['schueler'][$s]['adressen'][$a]['wessen'] == 'eb' || self::$klassen[$i]['schueler'][$s]['adressen'][$a]['wessen'] == 'web')  && filter_var(trim(self::$klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['wert']), FILTER_VALIDATE_EMAIL)) {
+        					    if((self::$klassen[$i]['schueler'][$s]['adressen'][$a]['wessenText'] == 'eb' || self::$klassen[$i]['schueler'][$s]['adressen'][$a]['wessenText'] == 'web')  && filter_var(trim(self::$klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['wert']), FILTER_VALIDATE_EMAIL)) {
         					        if(strtolower(trim(self::$klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['wert'])) == strtolower($elternMail['elternEMail'])) {
         								if(self::$klassen[$i]['schueler'][$s]['asvid'] == $elternMail['elternSchuelerAsvID']) {
         									$found = true;
@@ -1079,6 +1026,133 @@ class administrationasvimport extends AbstractPage {
 		eval("self::\$html = \"" . DB::getTPL()->get("administration/usersync/asvimportok") . "\";");
 
 	}
+
+	private static function syncLehrer($simpleXML) {
+        // Lehrer laden
+
+
+        foreach($simpleXML->schulen[0]->schule->lehrkraefte->lehrkraft as $lehrer) {
+
+            $datenID = intval($lehrer->lehrkraftdaten_nicht_schulbezogen_id);
+
+            $name = "";
+            $vornamen = "";
+            $rufname = "";
+            $geschlecht = "";
+            $zeugnisname = "";
+            $amtsbezeichnungID = 0;
+            $asvID = "";
+
+            foreach($simpleXML->lehrkraftdaten_nicht_schulbezogen_liste->lehrkraftdaten_nicht_schulbezogen as $daten) {
+                if(intval($daten->xml_id) == $datenID) {
+                    $name = strval($daten->familienname);
+                    $vornamen = strval($daten->vornamen);
+                    $rufname = strval($daten->rufname);
+                    $geschlecht = ((strval($daten->geschlecht) == "2") ? "w" : "m");
+                    $zeugnisname = strval($daten->zeugnisname_1);
+                    $amtsbezeichnungID = intval($daten->amtsbezeichnung);
+                    $asvID = strval($daten->lokales_differenzierungsmerkmal);
+                    $nameNachgestellt = $daten->namensbestandteil_nachgestellt;
+                    $nameVorgestellt = $daten->namensbestandteil_vorangestellt;
+                    break;
+                }
+            }
+
+
+            if(strval($lehrer->namenskuerzel) != "")
+                self::$lehrer[] = array(
+                    "xmlid" => intval($lehrer->xml_id),
+                    "datenid" => intval($lehrer->lehrkraftdaten_nicht_schulbezogen_id),
+                    "kuerzel" => (strval($lehrer->namenskuerzel)),
+                    "name" => ($name),
+                    "namevorgestellt" => $nameVorgestellt,
+                    "namenachgestellt" => $nameNachgestellt,
+                    "vornamen" => ($vornamen),
+                    "rufname" => ($rufname),
+                    "geschlecht" => $geschlecht,
+                    "zeugnisname" => ($zeugnisname),
+                    "amtsbezeichnung" => $amtsbezeichnungID,
+                    "asvid" => $asvID
+                );
+        }
+
+        $doneActions .= "Lehrer eingelesen\r\n";
+
+        // Sync Lehrer
+
+        // Welche Lehrer löschen?
+        $lehrer = DB::getDB()->query("SELECT * FROM lehrer");
+        while($l = DB::getDB()->fetch_array($lehrer)) {
+            $found = false;
+            for($i = 0; $i < sizeof(self::$lehrer); $i++) {
+                if(self::$lehrer[$i]['asvid'] == $l['lehrerAsvID']) {
+                    $found = true;
+                    break;
+                }
+            }
+            if(!$found) {
+                $ll = DB::getDB()->query_first("SELECT * FROM lehrer WHERE lehrerAsvID='" . $l['lehrerAsvID'] . "'");
+
+                DB::getDB()->query("DELETE FROM lehrer WHERE lehrerAsvID='" . $ll['lehrerAsvID'] . "'");
+
+                if(DB::getGlobalSettings()->lehrerUserMode == "ASV" && $ll['lehrerUserID'] > 0) {
+                    DB::getDB()->query("DELETE FROM users WHERE userID='" . $ll['lehrerUserID'] . "'");
+                    DB::getDB()->query("DELETE FROM users_groups WHERE userID='" . $ll['lehrerUserID'] . "'");
+                }
+            }
+        }
+        // Lehrer anlegen
+
+        $lehrer = self::$lehrer;
+
+        for($i = 0; $i < sizeof($lehrer); $i++) {
+            DB::getDB()->query("
+				INSERT INTO lehrer
+					(
+						lehrerID,
+						lehrerAsvID,
+						lehrerKuerzel,
+						lehrerName,
+						lehrerVornamen,
+						lehrerRufname,
+						lehrerGeschlecht,
+						lehrerZeugnisunterschrift,
+						lehrerAmtsbezeichnung,
+						lehrerNameVorgestellt,
+						lehrerNameNachgestellt
+					) values(
+						'" . DB::getDB()->escapeString($lehrer[$i]['xmlid']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['asvid']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['kuerzel']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['name']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['vornamen']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['rufname']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['geschlecht']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['zeugnisname']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['amtsbezeichnung']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['namevorgestellt']) . "',
+						'" . DB::getDB()->escapeString($lehrer[$i]['namenachgestellt']) . "'
+					) ON DUPLICATE KEY UPDATE
+						lehrerID='" . DB::getDB()->escapeString($lehrer[$i]['xmlid']) . "',
+						lehrerKuerzel='" . DB::getDB()->escapeString($lehrer[$i]['kuerzel']) . "',
+						lehrerName='" . DB::getDB()->escapeString($lehrer[$i]['name']) . "',
+						lehrerVornamen='" . DB::getDB()->escapeString($lehrer[$i]['vornamen']) . "',
+						lehrerRufname='" . DB::getDB()->escapeString($lehrer[$i]['rufname']) . "',
+						lehrerGeschlecht='" . DB::getDB()->escapeString($lehrer[$i]['geschlecht']) . "',
+						lehrerZeugnisunterschrift='" . DB::getDB()->escapeString($lehrer[$i]['zeugnisname']) . "',
+						lehrerAmtsbezeichnung='" . DB::getDB()->escapeString($lehrer[$i]['amtsbezeichnung']) . "',
+						lehrerUserID=lehrerUserID,
+						lehrerNameVorgestellt='" . DB::getDB()->escapeString($lehrer[$i]['namevorgestellt']) . "',
+						lehrerNameNachgestellt='" . DB::getDB()->escapeString($lehrer[$i]['namenachgestellt']) . "'
+			");
+        }
+
+
+        // /Lehrer
+
+
+        $doneActions .= "Lehrer synchronisiert.\r\n";
+    }
 
 	public static function getAdminGroup() {
 		return self::ADMINGROUP_ASV_SYNC;

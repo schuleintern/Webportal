@@ -22,6 +22,12 @@
 		<p><button type="button" class="btn btn-primary btn-block" onclick="importGrades()" id="buttonimport"><i class="fa fa-upload"></i> Import mit den ausgewählten Klassen starten</button></p>
 		</form>
 
+		<hr>
+		<form action="{$selfURL}&action=syncasvstep2teacher&asvFile=$asvFileHash" method="post">
+			<p><button type="submit" class="btn btn-primary btn-block"><i class="fa fa-upload"></i> NUR Lehrkräfte importieren</button></p>
+		</form>
+
+
 	</div>
 </div>
 

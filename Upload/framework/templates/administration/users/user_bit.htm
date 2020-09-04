@@ -14,9 +14,14 @@
 	<td>{$user['userFirstName']}</td>
 	<td>{$user['userLastName']}</td>
 	<td>
-		<if(!in_array($user['userNetwork'],DB::getInternalNetworks()))><then>{$user['userNetwork']} (Synchronisiert)</then></if>
-		<if($user['userNetwork'] == 'SCHULEINTERN_ELTERN')><then>Elternbenutzer</then></if>
-	
+		{$user['userAsvID']}
+		<if($canChangeEmployeeID)><then>
+		<form action="index.php?page=administrationmodule&module=administrationusers&action=updateEmployeeID&userID={$user['userID']}" method="post"><a>
+			<input type="text" name="employeeID" value="{$user['userAsvID']}" class="form-control"/>
+			<button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Mitarbeiter ID aktualisieren</button>
+		</form>
+
+		</then></if>
 	</td>
 	<td>{$user['userFailedLoginCount']}</td>
 	<td>
@@ -54,6 +59,9 @@
 
 	</td>
 	<td>
+		<if($isSSO)><then>
+		Single Sign On
+	</then><else>
 		<if($user['userRemoteUserID'] == "" && $user['userID'] != 1)><then>
 			<form action="index.php?page=administrationmodule&module=administrationusers&action=resetPassword&userID={$user['userID']}" method="post"><a>
 			<input type="text" class="form-control" name="password" pattern=".{6,}"   required title="Mindestens 6 Zeichen">
@@ -72,5 +80,6 @@
 			
 		</else>
 		</if>
+	</else></if>
 	</td>
 </tr>
