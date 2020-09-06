@@ -162,6 +162,7 @@ class Update extends AbstractPage
         DB::getDB()->query("UPDATE kalender_lnw SET eintragDatumEnde=eintragDatumStart");       // Bugfix Kalender Termine nach verschieben mit falschem Enddatum
 
         $this->updateTextFileInWWWDir("update.php");        // Update update.php
+        $this->updateTextFileInWWWDir("startup.php");        // Update update.php
 
         return true;
     }
