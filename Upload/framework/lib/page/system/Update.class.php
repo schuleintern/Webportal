@@ -81,6 +81,10 @@ class Update extends AbstractPage
             $this->from111to120();
         }
 
+        if($from == "1.1.2" && $to = "1.2.0") {
+            $this->from111to120();
+        }
+
         if ($from == "1.2.0" && $to == "1.2.1") {
             $this->from120to121();
         }
@@ -89,47 +93,86 @@ class Update extends AbstractPage
     }
 
     private function from120to121() {
-
+        // ToDo
     }
     
     private function from111to120() {
 
-        DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponse` tinyint(1) NOT NULL DEFAULT '0';", true);
-        DB::getDB()->query("ALTER TABLE `users` ADD `userAutoresponseText` longtext NOT NULL;", true);
-        
-        DB::getDB()->query("CREATE TABLE IF NOT EXISTS `ganztags_gruppen` ("
-            ."`id` int(11) unsigned NOT NULL AUTO_INCREMENT,"
-            ."`sortOrder` int(11) DEFAULT NULL,"
-            ."`name` varchar(255) DEFAULT NULL,"
-            ."PRIMARY KEY (`id`)"
-            .") ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;", true);
-        DB::getDB()->query("CREATE TABLE IF NOT EXISTS `ganztags_schueler` ("
-            ."`asvid` varchar(200) NOT NULL DEFAULT '',"
-            ."`info` varchar(255) DEFAULT NULL,"
-            ."`gruppe` int(11) DEFAULT NULL,"
-            ."`tag_mo` tinyint(1) DEFAULT NULL,"
-            ."`tag_di` tinyint(1) DEFAULT NULL,"
-            ."`tag_mi` tinyint(1) DEFAULT NULL,"
-            ."`tag_do` tinyint(1) DEFAULT NULL,"
-            ."`tag_fr` tinyint(1) DEFAULT NULL,"
-            ."`tag_sa` tinyint(1) DEFAULT NULL,"
-            ."`tag_so` tinyint(1) DEFAULT NULL,"
-            ."PRIMARY KEY (`asvid`)"
-            .") ENGINE=InnoDB DEFAULT CHARSET=utf8;", true);
-        DB::getDB()->query("ALTER TABLE `schueler` ADD `schuelerGanztagBetreuung` int(11) NOT NULL DEFAULT '0';", true);
+        DB::getDB()->query("ALTER TABLE `database_user2database` MODIFY COLUMN `rights` int(11) NOT NULL AFTER `databaseID`;", true);
+
+        DB::getDB()->query("ALTER TABLE `database_users` MODIFY COLUMN `userUserID` int(11) NOT NULL AFTER `userPassword`;", true);
+
+        DB::getDB()->query("CREATE TABLE `ganztags_gruppen`  (
+          `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+          `sortOrder` int(11) NULL DEFAULT NULL,
+          `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+          PRIMARY KEY (`id`) USING BTREE
+        ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;", true);
+
+        DB::getDB()->query("CREATE TABLE `ganztags_schueler`  (
+          `asvid` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+          `info` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+          `gruppe` int(11) NULL DEFAULT NULL,
+          `tag_mo` tinyint(1) NULL DEFAULT NULL,
+          `tag_di` tinyint(1) NULL DEFAULT NULL,
+          `tag_mi` tinyint(1) NULL DEFAULT NULL,
+          `tag_do` tinyint(1) NULL DEFAULT NULL,
+          `tag_fr` tinyint(1) NULL DEFAULT NULL,
+          `tag_sa` tinyint(1) NULL DEFAULT NULL,
+          `tag_so` tinyint(1) NULL DEFAULT NULL,
+          PRIMARY KEY (`asvid`) USING BTREE
+        ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;", true);
+
+        DB::getDB()->query("ALTER TABLE `klassentagebuch_pdf` ADD PRIMARY KEY (`pdfKlasse`, `pdfJahr`, `pdfMonat`) USING BTREE;", true);
+
+        DB::getDB()->query("ALTER TABLE `lehrer` ADD COLUMN `lehrerNameVorgestellt` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `lehrerName`;", true);
+
+        DB::getDB()->query("ALTER TABLE `lehrer` ADD COLUMN `lehrerNameNachgestellt` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `lehrerNameVorgestellt`;", true);
+
+        DB::getDB()->query("ALTER TABLE `mail_change_requests` CHARACTER SET = latin1, COLLATE = latin1_swedish_ci;", true);
+
+        DB::getDB()->query("ALTER TABLE `mail_change_requests` MODIFY COLUMN `changeRequestSecret` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `changeRequestTime`;", true);
+
+        DB::getDB()->query("ALTER TABLE `mail_change_requests` MODIFY COLUMN `changeRequestNewMail` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `changeRequestSecret`;", true);
+
+        DB::getDB()->query("ALTER TABLE `messages_messages` ADD INDEX `messagesKey`(`messageUserID`, `messageSender`, `messageFolder`, `messageFolderID`, `messageIsRead`, `messageIsDeleted`) USING BTREE;", true);
+
+        DB::getDB()->query("ALTER TABLE `nextcloud_users` CHARACTER SET = latin1, COLLATE = latin1_swedish_ci;", true);
+
+        DB::getDB()->query("ALTER TABLE `nextcloud_users` MODIFY COLUMN `nextcloudUsername` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `userID`;", true);
+
+        DB::getDB()->query("ALTER TABLE `nextcloud_users` MODIFY COLUMN `userQuota` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `userPasswordSet`;", true);
+
+        DB::getDB()->query("ALTER TABLE `nextcloud_users` MODIFY COLUMN `userGroups` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `userQuota`;", true);
+
+        DB::getDB()->query("ALTER TABLE `schueler` ADD COLUMN `schuelerNameVorgestellt` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `schuelerName`;", true);
+
+        DB::getDB()->query("ALTER TABLE `schueler` ADD COLUMN `schuelerNameNachgestellt` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `schuelerNameVorgestellt`;", true);
+
+        DB::getDB()->query("ALTER TABLE `schueler` ADD COLUMN `schuelerGanztagBetreuung` int(11) NOT NULL DEFAULT 0 AFTER `schuelerFoto`;", true);
+
+        DB::getDB()->query("ALTER TABLE `sprechtag_slots` MODIFY COLUMN `slotIsOnlineBuchbar` int(11) NOT NULL DEFAULT 1 AFTER `slotIsPause`;", true);
+
+        DB::getDB()->query("ALTER TABLE `stundenplan_stunden` MODIFY COLUMN `stundeLehrer` varchar(20) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL AFTER `stundeKlasse`;", true);
 
         $this->updateCssJSFolder(111);
+        $this->updateComponentsFolder(111);
+        $this->updateImagesFolder(111);
 
-        rename("./images", "../images_old_$oldVersion" . rand(1000,9999));
-        rename("../data/update/Upload/www/images", "./images");
-        
+        DB::getDB()->query("UPDATE kalender_lnw SET eintragDatumEnde=eintragDatumStart");       // Bugfix Kalender Termine nach verschieben mit falschem Enddatum
+
+        $this->updateTextFileInWWWDir("update.php");        // Update update.php
+
+        return true;
     }
 
+    /**
+     *  Version 112 nicht veröffentlicht
+     */
     private function from111to112() {
         $this->updateCssJSFolder(111);
         $this->updateTextFileInWWWDir("update.php");
 
-        DB::getDB()->query("UPDATE kalender_lnw SET eintragDatumEnde=eintragDatumStart");       // Bugfix Kalender Termine nach verschieben mit falschem Enddatum
     }
 
     private function from110to111() {
@@ -264,8 +307,29 @@ class Update extends AbstractPage
         rename("../data/update/Upload/www/cssjs", "./cssjs");
     }
 
+    private function updateImagesFolder($oldVersion) {
+        rename("./images", "../images_$oldVersion" . rand(1000,9999));
+        rename("../data/update/Upload/www/images", "./images");
+    }
+
+    private function updateComponentsFolder($oldVersion) {
+        if(!rename("./components", "../components_old_$oldVersion" . rand(1000,9999))) {
+            // TODO: Log Error
+        }
+        if(!rename("../data/update/Upload/www/components", "./components")) {
+            // TODO: Log Error
+        }
+    }
+
     private function updateTextFileInWWWDir($fileName) {
-        file_put_contents($fileName, file_get_contents("../data/update/Upload/www/" . $fileName));
+        $newContents = file("../data/update/Upload/www/" . $fileName);
+
+        if($newContents === false) return;  // Update Fail TODO: Log
+
+        $newContents = implode("", $newContents);
+
+        $result = file_put_contents($fileName, $newContents);     // Schreiben
+        if($result === false) return;   // Fail TODO: Log
     }
 
     private static function deleteAll($dir)
