@@ -232,6 +232,7 @@ class requesthandler {
 
   public function __construct($action) {
 
+      PAGE::setFactory( new FACTORY() );
 
     $allowed = false;
     
