@@ -1,25 +1,18 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 30. Aug 2019 um 20:11
--- Server-Version: 10.3.16-MariaDB
--- PHP-Version: 7.3.7
+-- Erstellungszeit: 06. Sep 2020 um 14:38
+-- Server-Version: 10.4.13-MariaDB
+-- PHP-Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Datenbank: `schuleintern.dev`
+-- Datenbank: `schuleintern_dev`
 --
 
 -- --------------------------------------------------------
@@ -325,7 +318,7 @@ CREATE TABLE `ausleihe_objekte` (
 CREATE TABLE `ausweise` (
   `ausweisID` int(11) NOT NULL,
   `ausweisErsteller` int(11) NOT NULL,
-  `ausweisArt` enum('SCHUELER','LEHRER','MITARBEITER','GAST') DEFAULT NULL,
+  `ausweisArt` enum('SCHUELER','LEHRER','MITARBEITER','GAST') CHARACTER SET latin1 DEFAULT NULL,
   `ausweisStatus` enum('BEANTRAGT','GENEHMIGT','ERSTELLT','ABGEHOLT','NICHTGENEHMIGT') NOT NULL,
   `ausweisName` mediumtext NOT NULL,
   `ausweisGeburtsdatum` date NOT NULL,
@@ -516,7 +509,7 @@ CREATE TABLE `database_database` (
 CREATE TABLE `database_user2database` (
   `userID` int(11) NOT NULL,
   `databaseID` int(11) NOT NULL,
-  `rights` int(1) NOT NULL
+  `rights` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -528,7 +521,7 @@ CREATE TABLE `database_user2database` (
 CREATE TABLE `database_users` (
   `userID` int(11) NOT NULL,
   `userPassword` varchar(255) NOT NULL,
-  `userUserID` int(30) NOT NULL
+  `userUserID` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -725,6 +718,20 @@ CREATE TABLE `externe_kalender` (
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `externe_kalender_kategorien`
+--
+
+CREATE TABLE `externe_kalender_kategorien` (
+  `kalenderID` int(11) NOT NULL,
+  `kategorieName` varchar(255) NOT NULL,
+  `kategorieText` text NOT NULL,
+  `kategorieFarbe` varchar(7) NOT NULL DEFAULT '#000000',
+  `kategorieIcon` varchar(200) NOT NULL DEFAULT 'fa fa-calendar'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `faecher`
 --
 
@@ -762,6 +769,37 @@ CREATE TABLE `fremdlogin` (
   `adminUserID` int(11) NOT NULL,
   `loginMessage` longtext NOT NULL,
   `loginTime` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `ganztags_gruppen`
+--
+
+CREATE TABLE `ganztags_gruppen` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `sortOrder` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `ganztags_schueler`
+--
+
+CREATE TABLE `ganztags_schueler` (
+  `asvid` varchar(200) NOT NULL DEFAULT '',
+  `info` varchar(255) DEFAULT NULL,
+  `gruppe` int(11) DEFAULT NULL,
+  `tag_mo` tinyint(1) DEFAULT NULL,
+  `tag_di` tinyint(1) DEFAULT NULL,
+  `tag_mi` tinyint(1) DEFAULT NULL,
+  `tag_do` tinyint(1) DEFAULT NULL,
+  `tag_fr` tinyint(1) DEFAULT NULL,
+  `tag_sa` tinyint(1) DEFAULT NULL,
+  `tag_so` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -844,7 +882,10 @@ CREATE TABLE `kalender_extern` (
   `eintragUhrzeitEnde` text NOT NULL,
   `eintragEintragZeitpunkt` int(11) NOT NULL,
   `eintragOrt` text NOT NULL,
-  `eintragKommentar` text NOT NULL
+  `eintragKommentar` text NOT NULL,
+  `eintragExternalID` text DEFAULT NULL,
+  `eintragExternalChangeKey` text DEFAULT NULL,
+  `eintragKategorieName` varchar(200) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1065,6 +1106,8 @@ CREATE TABLE `lehrer` (
   `lehrerAsvID` varchar(100) NOT NULL,
   `lehrerKuerzel` varchar(100) NOT NULL,
   `lehrerName` mediumtext NOT NULL,
+  `lehrerNameVorgestellt` text DEFAULT NULL,
+  `lehrerNameNachgestellt` text DEFAULT NULL,
   `lehrerVornamen` mediumtext NOT NULL,
   `lehrerRufname` mediumtext NOT NULL,
   `lehrerGeschlecht` enum('w','m') NOT NULL,
@@ -1076,6 +1119,31 @@ CREATE TABLE `lehrer` (
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `lerntutoren`
+--
+
+CREATE TABLE `lerntutoren` (
+  `lerntutorID` int(11) NOT NULL,
+  `lerntutorSchuelerAsvID` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `lerntutoren_slots`
+--
+
+CREATE TABLE `lerntutoren_slots` (
+  `slotID` int(11) NOT NULL,
+  `slotLerntutorID` int(11) NOT NULL,
+  `slotFach` varchar(255) NOT NULL,
+  `slotJahrgangsstufe` varchar(255) NOT NULL,
+  `slotSchuelerBelegt` varchar(255) DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `mail_change_requests`
 --
 
@@ -1083,9 +1151,9 @@ CREATE TABLE `mail_change_requests` (
   `changeRequestID` int(11) NOT NULL,
   `changeRequestUserID` int(11) NOT NULL,
   `changeRequestTime` int(11) NOT NULL,
-  `changeRequestSecret` mediumtext NOT NULL,
+  `changeRequestSecret` text NOT NULL,
   `changeRequestNewMail` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1100,12 +1168,12 @@ CREATE TABLE `mail_send` (
   `mailText` mediumtext NOT NULL,
   `mailSent` int(11) NOT NULL DEFAULT 0,
   `mailCrawler` int(11) NOT NULL DEFAULT 1,
-  `replyTo` varchar(255) DEFAULT NULL,
-  `mailCC` varchar(255) DEFAULT NULL,
+  `replyTo` varchar(255) DEFAULT '',
+  `mailCC` varchar(255) DEFAULT '',
   `mailLesebestaetigung` tinyint(1) NOT NULL DEFAULT 0,
   `mailIsHTML` tinyint(1) NOT NULL DEFAULT 0,
   `mailAttachments` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1144,7 +1212,7 @@ CREATE TABLE `messages_attachment` (
   `attachmentID` int(11) NOT NULL,
   `attachmentFileUploadID` int(11) NOT NULL,
   `attachmentAccessCode` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1156,7 +1224,7 @@ CREATE TABLE `messages_folders` (
   `folderID` int(11) NOT NULL,
   `folderName` text NOT NULL,
   `folderUserID` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1173,6 +1241,7 @@ CREATE TABLE `messages_messages` (
   `messageFolder` enum('POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV') NOT NULL DEFAULT 'POSTEINGANG',
   `messageFolderID` int(11) NOT NULL DEFAULT 0,
   `messageRecipients` longtext NOT NULL,
+  `messageRecipientsPreview` longtext NOT NULL,
   `messageCCRecipients` longtext NOT NULL,
   `messageBCCRecipients` longtext NOT NULL,
   `messageIsRead` tinyint(1) NOT NULL DEFAULT 0,
@@ -1189,8 +1258,9 @@ CREATE TABLE `messages_messages` (
   `messageConfirmSecret` varchar(20) NOT NULL,
   `messageIsSentViaEMail` tinyint(1) NOT NULL DEFAULT 0,
   `messageQuestionIDs` text NOT NULL,
-  `messageIsDeleted` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `messageIsDeleted` tinyint(1) NOT NULL DEFAULT 0,
+  `messageIsForwardFrom` int(11) NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1204,7 +1274,7 @@ CREATE TABLE `messages_questions` (
   `questionType` enum('BOOLEAN','TEXT','NUMBER','FILE') NOT NULL DEFAULT 'TEXT',
   `questionUserID` int(11) NOT NULL,
   `questionSecret` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1217,7 +1287,7 @@ CREATE TABLE `messages_questions_answers` (
   `answerQuestionID` int(11) NOT NULL,
   `answerMessageID` int(11) NOT NULL,
   `answerData` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1241,11 +1311,11 @@ CREATE TABLE `modul_admin_notes` (
 
 CREATE TABLE `nextcloud_users` (
   `userID` int(11) NOT NULL COMMENT 'Same UserID as in SI',
-  `nextcloudUsername` mediumtext NOT NULL,
+  `nextcloudUsername` text NOT NULL,
   `userPasswordSet` int(11) NOT NULL DEFAULT 0,
   `userQuota` varchar(200) NOT NULL,
-  `userGroups` mediumtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `userGroups` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1260,7 +1330,7 @@ CREATE TABLE `noten_arbeiten` (
   `arbeitLehrerKuerzel` varchar(10) NOT NULL,
   `arbeitIsMuendlich` tinyint(1) NOT NULL,
   `arbeitGewicht` decimal(4,2) NOT NULL DEFAULT 1.00,
-  `arbeitFachKurzform` varchar(200) NOT NULL COMMENT 'Kurzform, nicht ASD ID, da eigene Unterrichte erstellt sein könnten.',
+  `arbeitFachKurzform` varchar(200) NOT NULL COMMENT 'Kurzform, nicht ASD ID, da eigene Unterrichte erstellt sein kÃ¶nnten.',
   `arbeitDatum` date DEFAULT NULL,
   `arbeitUnterrichtName` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1288,7 +1358,7 @@ CREATE TABLE `noten_bemerkung_textvorlagen` (
 CREATE TABLE `noten_bemerkung_textvorlagen_gruppen` (
   `gruppeID` int(11) NOT NULL,
   `gruppeName` mediumtext NOT NULL,
-  `koppelMVNote` enum('M','V') DEFAULT NULL
+  `koppelMVNote` enum('M','V') CHARACTER SET latin1 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1301,7 +1371,7 @@ CREATE TABLE `noten_fach_einstellungen` (
   `fachKurzform` varchar(100) NOT NULL,
   `fachIsVorrueckungsfach` tinyint(1) NOT NULL,
   `fachOrder` int(11) NOT NULL,
-  `fachNoteZusammenMit` mediumtext NOT NULL COMMENT 'Fachkurzformen der Fächer, die mit diesem Fach zusammen verrechnet werden. Aktuelles Fach wird als Hauptfach angezeigt. Getrennt durch Komma.'
+  `fachNoteZusammenMit` mediumtext NOT NULL COMMENT 'Fachkurzformen der FÃ¤cher, die mit diesem Fach zusammen verrechnet werden. Aktuelles Fach wird als Hauptfach angezeigt. Getrennt durch Komma.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1678,6 +1748,8 @@ CREATE TABLE `schaukasten_website` (
 CREATE TABLE `schueler` (
   `schuelerAsvID` varchar(200) NOT NULL,
   `schuelerName` text NOT NULL,
+  `schuelerNameVorgestellt` text DEFAULT NULL,
+  `schuelerNameNachgestellt` text DEFAULT NULL,
   `schuelerVornamen` text NOT NULL,
   `schuelerRufname` text NOT NULL,
   `schuelerGeschlecht` enum('m','w') NOT NULL,
@@ -1692,7 +1764,8 @@ CREATE TABLE `schueler` (
   `schuelerGeburtsland` varchar(255) NOT NULL,
   `schulerEintrittJahrgangsstufe` varchar(10) NOT NULL,
   `schuelerEintrittDatum` date NOT NULL,
-  `schuelerFoto` int(11) NOT NULL DEFAULT 0
+  `schuelerFoto` int(11) NOT NULL DEFAULT 0,
+  `schuelerGanztagBetreuung` int(11) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1759,7 +1832,7 @@ CREATE TABLE `schueler_nachteilsausgleich` (
   `notenschutz` tinyint(1) NOT NULL,
   `kommentar` mediumtext NOT NULL,
   `gueltigBis` date DEFAULT NULL,
-  `gewichtung` enum('11','12','21') DEFAULT NULL
+  `gewichtung` enum('11','12','21') CHARACTER SET latin1 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1928,7 +2001,7 @@ CREATE TABLE `sprechtag_slots` (
   `slotStart` int(11) NOT NULL,
   `slotEnde` int(11) NOT NULL,
   `slotIsPause` tinyint(1) NOT NULL DEFAULT 0,
-  `slotIsOnlineBuchbar` int(1) NOT NULL DEFAULT 1
+  `slotIsOnlineBuchbar` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1971,7 +2044,7 @@ CREATE TABLE `stundenplan_stunden` (
   `stundeID` int(11) NOT NULL,
   `stundenplanID` int(11) NOT NULL,
   `stundeKlasse` varchar(20) NOT NULL,
-  `stundeLehrer` varchar(20) NOT NULL,
+  `stundeLehrer` varchar(20) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL,
   `stundeFach` varchar(20) NOT NULL,
   `stundeRaum` varchar(20) NOT NULL,
   `stundeTag` int(11) NOT NULL,
@@ -2042,7 +2115,7 @@ CREATE TABLE `unterricht` (
   `unterrichtStart` date NOT NULL,
   `unterrichtEnde` date NOT NULL,
   `unterrichtIsKlassenunterricht` tinyint(1) NOT NULL,
-  `unterrichtKoppelText` varchar(255) DEFAULT NULL,
+  `unterrichtKoppelText` varchar(255) DEFAULT '',
   `unterrichtKoppelIsPseudo` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -2096,11 +2169,13 @@ CREATE TABLE `users` (
   `userReceiveEMail` tinyint(1) NOT NULL DEFAULT 1,
   `userLastLoginTime` int(11) NOT NULL DEFAULT 0,
   `userCanChangePassword` tinyint(1) NOT NULL DEFAULT 1,
-  `userTOTPSecret` varchar(255) DEFAULT NULL,
+  `userTOTPSecret` varchar(255) DEFAULT '',
   `user2FAactive` tinyint(1) NOT NULL DEFAULT 0,
   `userSignature` longtext NOT NULL,
-  `userMailCreated` varchar(255) DEFAULT NULL,
-  `userMailInitialPassword` varchar(255) NOT NULL
+  `userMailCreated` varchar(255) DEFAULT '',
+  `userMailInitialPassword` varchar(255) NOT NULL,
+  `userAutoresponse` tinyint(1) NOT NULL DEFAULT 0,
+  `userAutoresponseText` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Enthält alle Benutzer, die SchuleIntern benutzen können';
 
 -- --------------------------------------------------------
@@ -2227,265 +2302,265 @@ CREATE TABLE `wlan_ticket` (
 -- Indizes für die Tabelle `absenzen_absenzen`
 --
 ALTER TABLE `absenzen_absenzen`
-  ADD PRIMARY KEY (`absenzID`);
+  ADD PRIMARY KEY (`absenzID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_absenzen_stunden`
 --
 ALTER TABLE `absenzen_absenzen_stunden`
-  ADD PRIMARY KEY (`absenzID`,`absenzStunde`);
+  ADD PRIMARY KEY (`absenzID`,`absenzStunde`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_attestpflicht`
 --
 ALTER TABLE `absenzen_attestpflicht`
-  ADD PRIMARY KEY (`attestpflichtID`);
+  ADD PRIMARY KEY (`attestpflichtID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_befreiungen`
 --
 ALTER TABLE `absenzen_befreiungen`
-  ADD PRIMARY KEY (`befreiungID`);
+  ADD PRIMARY KEY (`befreiungID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_beurlaubungen`
 --
 ALTER TABLE `absenzen_beurlaubungen`
-  ADD PRIMARY KEY (`beurlaubungID`);
+  ADD PRIMARY KEY (`beurlaubungID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_beurlaubung_antrag`
 --
 ALTER TABLE `absenzen_beurlaubung_antrag`
-  ADD PRIMARY KEY (`antragID`);
+  ADD PRIMARY KEY (`antragID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_comments`
 --
 ALTER TABLE `absenzen_comments`
-  ADD PRIMARY KEY (`schuelerAsvID`);
+  ADD PRIMARY KEY (`schuelerAsvID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_krankmeldungen`
 --
 ALTER TABLE `absenzen_krankmeldungen`
-  ADD PRIMARY KEY (`krankmeldungID`);
+  ADD PRIMARY KEY (`krankmeldungID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_meldung`
 --
 ALTER TABLE `absenzen_meldung`
-  ADD PRIMARY KEY (`meldungDatum`,`meldungKlasse`);
+  ADD PRIMARY KEY (`meldungDatum`,`meldungKlasse`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_merker`
 --
 ALTER TABLE `absenzen_merker`
-  ADD PRIMARY KEY (`merkerID`);
+  ADD PRIMARY KEY (`merkerID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_sanizimmer`
 --
 ALTER TABLE `absenzen_sanizimmer`
-  ADD PRIMARY KEY (`sanizimmerID`);
+  ADD PRIMARY KEY (`sanizimmerID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `absenzen_verspaetungen`
 --
 ALTER TABLE `absenzen_verspaetungen`
-  ADD PRIMARY KEY (`verspaetungID`);
+  ADD PRIMARY KEY (`verspaetungID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `amtsbezeichnungen`
 --
 ALTER TABLE `amtsbezeichnungen`
-  ADD PRIMARY KEY (`amtsbezeichnungID`);
+  ADD PRIMARY KEY (`amtsbezeichnungID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `andere_kalender`
 --
 ALTER TABLE `andere_kalender`
-  ADD PRIMARY KEY (`kalenderID`);
+  ADD PRIMARY KEY (`kalenderID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `andere_kalender_kategorie`
 --
 ALTER TABLE `andere_kalender_kategorie`
-  ADD PRIMARY KEY (`kategorieID`);
+  ADD PRIMARY KEY (`kategorieID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `anschrifttyp`
 --
 ALTER TABLE `anschrifttyp`
-  ADD PRIMARY KEY (`anschriftTypID`);
+  ADD PRIMARY KEY (`anschriftTypID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `aufeinenblick_settings`
 --
 ALTER TABLE `aufeinenblick_settings`
-  ADD PRIMARY KEY (`aufeinenblickSettingsID`);
+  ADD PRIMARY KEY (`aufeinenblickSettingsID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `ausleihe_ausleihe`
 --
 ALTER TABLE `ausleihe_ausleihe`
-  ADD PRIMARY KEY (`ausleiheID`);
+  ADD PRIMARY KEY (`ausleiheID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `ausleihe_objekte`
 --
 ALTER TABLE `ausleihe_objekte`
-  ADD PRIMARY KEY (`objektID`);
+  ADD PRIMARY KEY (`objektID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `ausweise`
 --
 ALTER TABLE `ausweise`
-  ADD PRIMARY KEY (`ausweisID`);
+  ADD PRIMARY KEY (`ausweisID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `bad_mail`
 --
 ALTER TABLE `bad_mail`
-  ADD PRIMARY KEY (`badMailID`);
+  ADD PRIMARY KEY (`badMailID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `beobachtungsbogen_boegen`
 --
 ALTER TABLE `beobachtungsbogen_boegen`
-  ADD PRIMARY KEY (`beobachtungsbogenID`);
+  ADD PRIMARY KEY (`beobachtungsbogenID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `beobachtungsbogen_eintragungsfrist`
 --
 ALTER TABLE `beobachtungsbogen_eintragungsfrist`
-  ADD PRIMARY KEY (`beobachtungsbogenID`,`userID`);
+  ADD PRIMARY KEY (`beobachtungsbogenID`,`userID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `beobachtungsbogen_fragen`
 --
 ALTER TABLE `beobachtungsbogen_fragen`
-  ADD PRIMARY KEY (`frageID`);
+  ADD PRIMARY KEY (`frageID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `beobachtungsbogen_fragen_daten`
 --
 ALTER TABLE `beobachtungsbogen_fragen_daten`
-  ADD PRIMARY KEY (`frageID`,`schuelerID`,`lehrerKuerzel`,`fachName`);
+  ADD PRIMARY KEY (`frageID`,`schuelerID`,`lehrerKuerzel`,`fachName`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `beobachtungsbogen_klassenleitung`
 --
 ALTER TABLE `beobachtungsbogen_klassenleitung`
-  ADD PRIMARY KEY (`beobachtungsbogenID`,`klassenName`,`klassenleitungTyp`);
+  ADD PRIMARY KEY (`beobachtungsbogenID`,`klassenName`,`klassenleitungTyp`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `beobachtungsbogen_klasse_fach_lehrer`
 --
 ALTER TABLE `beobachtungsbogen_klasse_fach_lehrer`
-  ADD PRIMARY KEY (`beobachtungsbogenID`,`klasseName`,`fachName`,`lehrerKuerzel`);
+  ADD PRIMARY KEY (`beobachtungsbogenID`,`klasseName`,`fachName`,`lehrerKuerzel`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `beobachtungsbogen_schueler_namen`
 --
 ALTER TABLE `beobachtungsbogen_schueler_namen`
-  ADD PRIMARY KEY (`beobachtungsbogenID`,`schuelerID`);
+  ADD PRIMARY KEY (`beobachtungsbogenID`,`schuelerID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `beurlaubungsantraege`
 --
 ALTER TABLE `beurlaubungsantraege`
-  ADD PRIMARY KEY (`baID`);
+  ADD PRIMARY KEY (`baID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `beurlaubung_antrag`
 --
 ALTER TABLE `beurlaubung_antrag`
-  ADD PRIMARY KEY (`antragID`);
+  ADD PRIMARY KEY (`antragID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `cron_execution`
 --
 ALTER TABLE `cron_execution`
-  ADD PRIMARY KEY (`cronRunID`);
+  ADD PRIMARY KEY (`cronRunID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `database_database`
 --
 ALTER TABLE `database_database`
-  ADD PRIMARY KEY (`databaseID`);
+  ADD PRIMARY KEY (`databaseID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `database_user2database`
 --
 ALTER TABLE `database_user2database`
-  ADD PRIMARY KEY (`userID`,`databaseID`);
+  ADD PRIMARY KEY (`userID`,`databaseID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `database_users`
 --
 ALTER TABLE `database_users`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `datenschutz_erklaerung`
 --
 ALTER TABLE `datenschutz_erklaerung`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `dokumente_dateien`
 --
 ALTER TABLE `dokumente_dateien`
-  ADD PRIMARY KEY (`dateiID`);
+  ADD PRIMARY KEY (`dateiID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `dokumente_gruppen`
 --
 ALTER TABLE `dokumente_gruppen`
-  ADD PRIMARY KEY (`gruppenID`);
+  ADD PRIMARY KEY (`gruppenID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `dokumente_kategorien`
 --
 ALTER TABLE `dokumente_kategorien`
-  ADD PRIMARY KEY (`kategorieID`);
+  ADD PRIMARY KEY (`kategorieID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `elternbriefe`
 --
 ALTER TABLE `elternbriefe`
-  ADD PRIMARY KEY (`briefID`);
+  ADD PRIMARY KEY (`briefID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `eltern_adressen`
 --
 ALTER TABLE `eltern_adressen`
-  ADD PRIMARY KEY (`adresseID`);
+  ADD PRIMARY KEY (`adresseID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `eltern_codes`
 --
 ALTER TABLE `eltern_codes`
-  ADD PRIMARY KEY (`codeID`);
+  ADD PRIMARY KEY (`codeID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `eltern_email`
 --
 ALTER TABLE `eltern_email`
-  ADD PRIMARY KEY (`elternEMail`,`elternSchuelerAsvID`);
+  ADD PRIMARY KEY (`elternEMail`,`elternSchuelerAsvID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `eltern_register`
 --
 ALTER TABLE `eltern_register`
-  ADD PRIMARY KEY (`registerID`);
+  ADD PRIMARY KEY (`registerID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `eltern_telefon`
 --
 ALTER TABLE `eltern_telefon`
-  ADD PRIMARY KEY (`telefonNummer`,`schuelerAsvID`,`adresseID`),
+  ADD PRIMARY KEY (`telefonNummer`,`schuelerAsvID`,`adresseID`) USING BTREE,
   ADD KEY `telefonNummer` (`telefonNummer`,`schuelerAsvID`,`telefonTyp`) USING BTREE,
   ADD KEY `telefonNummer_2` (`telefonNummer`,`schuelerAsvID`) USING BTREE;
 
@@ -2493,567 +2568,604 @@ ALTER TABLE `eltern_telefon`
 -- Indizes für die Tabelle `eltern_to_schueler`
 --
 ALTER TABLE `eltern_to_schueler`
-  ADD PRIMARY KEY (`elternUserID`,`schuelerUserID`);
+  ADD PRIMARY KEY (`elternUserID`,`schuelerUserID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `email_addresses`
 --
 ALTER TABLE `email_addresses`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `externe_kalender`
 --
 ALTER TABLE `externe_kalender`
-  ADD PRIMARY KEY (`kalenderID`);
+  ADD PRIMARY KEY (`kalenderID`) USING BTREE;
+
+--
+-- Indizes für die Tabelle `externe_kalender_kategorien`
+--
+ALTER TABLE `externe_kalender_kategorien`
+  ADD PRIMARY KEY (`kalenderID`,`kategorieName`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `faecher`
 --
 ALTER TABLE `faecher`
-  ADD PRIMARY KEY (`fachID`);
+  ADD PRIMARY KEY (`fachID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `ffbumfrage`
 --
 ALTER TABLE `ffbumfrage`
-  ADD PRIMARY KEY (`codeID`);
+  ADD PRIMARY KEY (`codeID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `fremdlogin`
 --
 ALTER TABLE `fremdlogin`
-  ADD PRIMARY KEY (`fremdloginID`);
+  ADD PRIMARY KEY (`fremdloginID`) USING BTREE;
+
+--
+-- Indizes für die Tabelle `ganztags_gruppen`
+--
+ALTER TABLE `ganztags_gruppen`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `ganztags_schueler`
+--
+ALTER TABLE `ganztags_schueler`
+  ADD PRIMARY KEY (`asvid`);
 
 --
 -- Indizes für die Tabelle `icsfeeds`
 --
 ALTER TABLE `icsfeeds`
-  ADD PRIMARY KEY (`feedID`);
+  ADD PRIMARY KEY (`feedID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `image_uploads`
 --
 ALTER TABLE `image_uploads`
-  ADD PRIMARY KEY (`uploadID`);
+  ADD PRIMARY KEY (`uploadID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `initialpasswords`
 --
 ALTER TABLE `initialpasswords`
-  ADD PRIMARY KEY (`initialPasswordID`);
+  ADD PRIMARY KEY (`initialPasswordID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `kalender_andere`
 --
 ALTER TABLE `kalender_andere`
-  ADD PRIMARY KEY (`eintragID`);
+  ADD PRIMARY KEY (`eintragID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `kalender_extern`
 --
 ALTER TABLE `kalender_extern`
-  ADD PRIMARY KEY (`eintragID`);
+  ADD PRIMARY KEY (`eintragID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `kalender_ferien`
 --
 ALTER TABLE `kalender_ferien`
-  ADD PRIMARY KEY (`ferienID`);
+  ADD PRIMARY KEY (`ferienID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `kalender_klassentermin`
 --
 ALTER TABLE `kalender_klassentermin`
-  ADD PRIMARY KEY (`eintragID`);
+  ADD PRIMARY KEY (`eintragID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `kalender_lnw`
 --
 ALTER TABLE `kalender_lnw`
-  ADD PRIMARY KEY (`eintragID`);
+  ADD PRIMARY KEY (`eintragID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `klassenkalender`
 --
 ALTER TABLE `klassenkalender`
-  ADD PRIMARY KEY (`eintragID`);
+  ADD PRIMARY KEY (`eintragID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `klassenleitung`
 --
 ALTER TABLE `klassenleitung`
-  ADD PRIMARY KEY (`klasseName`,`lehrerID`);
+  ADD PRIMARY KEY (`klasseName`,`lehrerID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `klassentagebuch_fehl`
 --
 ALTER TABLE `klassentagebuch_fehl`
-  ADD PRIMARY KEY (`fehlID`);
+  ADD PRIMARY KEY (`fehlID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `klassentagebuch_klassen`
 --
 ALTER TABLE `klassentagebuch_klassen`
-  ADD PRIMARY KEY (`entryID`);
+  ADD PRIMARY KEY (`entryID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `klassentagebuch_lehrer`
 --
 ALTER TABLE `klassentagebuch_lehrer`
-  ADD PRIMARY KEY (`entryID`);
+  ADD PRIMARY KEY (`entryID`) USING BTREE;
+
+--
+-- Indizes für die Tabelle `klassentagebuch_pdf`
+--
+ALTER TABLE `klassentagebuch_pdf`
+  ADD PRIMARY KEY (`pdfKlasse`,`pdfJahr`,`pdfMonat`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `kondolenzbuch`
 --
 ALTER TABLE `kondolenzbuch`
-  ADD PRIMARY KEY (`eintragID`);
+  ADD PRIMARY KEY (`eintragID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `laufzettel`
 --
 ALTER TABLE `laufzettel`
-  ADD PRIMARY KEY (`laufzettelID`);
+  ADD PRIMARY KEY (`laufzettelID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `laufzettel_stunden`
 --
 ALTER TABLE `laufzettel_stunden`
-  ADD PRIMARY KEY (`laufzettelStundeID`);
+  ADD PRIMARY KEY (`laufzettelStundeID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `lehrer`
 --
 ALTER TABLE `lehrer`
-  ADD PRIMARY KEY (`lehrerAsvID`);
+  ADD PRIMARY KEY (`lehrerAsvID`) USING BTREE;
+
+--
+-- Indizes für die Tabelle `lerntutoren`
+--
+ALTER TABLE `lerntutoren`
+  ADD PRIMARY KEY (`lerntutorID`) USING BTREE;
+
+--
+-- Indizes für die Tabelle `lerntutoren_slots`
+--
+ALTER TABLE `lerntutoren_slots`
+  ADD PRIMARY KEY (`slotID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `mail_send`
 --
 ALTER TABLE `mail_send`
-  ADD PRIMARY KEY (`mailID`);
+  ADD PRIMARY KEY (`mailID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `math_captcha`
 --
 ALTER TABLE `math_captcha`
-  ADD PRIMARY KEY (`captchaID`);
+  ADD PRIMARY KEY (`captchaID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `mebis_accounts`
 --
 ALTER TABLE `mebis_accounts`
-  ADD PRIMARY KEY (`mebisAccountID`);
+  ADD PRIMARY KEY (`mebisAccountID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `messages_attachment`
 --
 ALTER TABLE `messages_attachment`
-  ADD PRIMARY KEY (`attachmentID`);
+  ADD PRIMARY KEY (`attachmentID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `messages_folders`
 --
 ALTER TABLE `messages_folders`
-  ADD PRIMARY KEY (`folderID`);
+  ADD PRIMARY KEY (`folderID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `messages_messages`
 --
 ALTER TABLE `messages_messages`
-  ADD PRIMARY KEY (`messageID`);
+  ADD PRIMARY KEY (`messageID`) USING BTREE,
+  ADD KEY `messagesKey` (`messageUserID`,`messageSender`,`messageFolder`,`messageFolderID`,`messageIsRead`,`messageIsDeleted`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `messages_questions`
 --
 ALTER TABLE `messages_questions`
-  ADD PRIMARY KEY (`questionID`);
+  ADD PRIMARY KEY (`questionID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `messages_questions_answers`
 --
 ALTER TABLE `messages_questions_answers`
-  ADD PRIMARY KEY (`answerID`);
+  ADD PRIMARY KEY (`answerID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `modul_admin_notes`
 --
 ALTER TABLE `modul_admin_notes`
-  ADD PRIMARY KEY (`noteID`);
+  ADD PRIMARY KEY (`noteID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `nextcloud_users`
 --
 ALTER TABLE `nextcloud_users`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_arbeiten`
 --
 ALTER TABLE `noten_arbeiten`
-  ADD PRIMARY KEY (`arbeitID`);
+  ADD PRIMARY KEY (`arbeitID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_bemerkung_textvorlagen`
 --
 ALTER TABLE `noten_bemerkung_textvorlagen`
-  ADD PRIMARY KEY (`bemerkungID`);
+  ADD PRIMARY KEY (`bemerkungID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_bemerkung_textvorlagen_gruppen`
 --
 ALTER TABLE `noten_bemerkung_textvorlagen_gruppen`
-  ADD PRIMARY KEY (`gruppeID`);
+  ADD PRIMARY KEY (`gruppeID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_fach_einstellungen`
 --
 ALTER TABLE `noten_fach_einstellungen`
-  ADD PRIMARY KEY (`fachKurzform`);
+  ADD PRIMARY KEY (`fachKurzform`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_gewichtung`
 --
 ALTER TABLE `noten_gewichtung`
-  ADD PRIMARY KEY (`fachKuerzel`,`fachJahrgangsstufe`);
+  ADD PRIMARY KEY (`fachKuerzel`,`fachJahrgangsstufe`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_mv`
 --
 ALTER TABLE `noten_mv`
-  ADD PRIMARY KEY (`mvFachKurzform`,`mvUnterrichtName`,`schuelerAsvID`,`zeugnisID`);
+  ADD PRIMARY KEY (`mvFachKurzform`,`mvUnterrichtName`,`schuelerAsvID`,`zeugnisID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_noten`
 --
 ALTER TABLE `noten_noten`
-  ADD PRIMARY KEY (`noteSchuelerAsvID`,`noteArbeitID`);
+  ADD PRIMARY KEY (`noteSchuelerAsvID`,`noteArbeitID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_verrechnung`
 --
 ALTER TABLE `noten_verrechnung`
-  ADD PRIMARY KEY (`verrechnungID`);
+  ADD PRIMARY KEY (`verrechnungID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_wahlfach_faecher`
 --
 ALTER TABLE `noten_wahlfach_faecher`
-  ADD PRIMARY KEY (`wahlfachID`);
+  ADD PRIMARY KEY (`wahlfachID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_wahlfach_noten`
 --
 ALTER TABLE `noten_wahlfach_noten`
-  ADD PRIMARY KEY (`wahlfachID`,`schuelerAsvID`);
+  ADD PRIMARY KEY (`wahlfachID`,`schuelerAsvID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_zeugnisse`
 --
 ALTER TABLE `noten_zeugnisse`
-  ADD PRIMARY KEY (`zeugnisID`);
+  ADD PRIMARY KEY (`zeugnisID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_zeugnisse_klassen`
 --
 ALTER TABLE `noten_zeugnisse_klassen`
-  ADD PRIMARY KEY (`zeugnisID`,`zeugnisKlasse`);
+  ADD PRIMARY KEY (`zeugnisID`,`zeugnisKlasse`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_zeugnisse_noten`
 --
 ALTER TABLE `noten_zeugnisse_noten`
-  ADD PRIMARY KEY (`noteSchuelerAsvID`,`noteZeugnisID`,`noteFachKurzform`);
+  ADD PRIMARY KEY (`noteSchuelerAsvID`,`noteZeugnisID`,`noteFachKurzform`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_zeugnis_bemerkung`
 --
 ALTER TABLE `noten_zeugnis_bemerkung`
-  ADD PRIMARY KEY (`bemerkungSchuelerAsvID`,`bemerkungZeugnisID`);
+  ADD PRIMARY KEY (`bemerkungSchuelerAsvID`,`bemerkungZeugnisID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `noten_zeugnis_exemplar`
 --
 ALTER TABLE `noten_zeugnis_exemplar`
-  ADD PRIMARY KEY (`zeugnisID`,`schuelerAsvID`);
+  ADD PRIMARY KEY (`zeugnisID`,`schuelerAsvID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `office365_accounts`
 --
 ALTER TABLE `office365_accounts`
-  ADD PRIMARY KEY (`accountAsvID`,`accountIsTeacher`,`accountIsPupil`);
+  ADD PRIMARY KEY (`accountAsvID`,`accountIsTeacher`,`accountIsPupil`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `projekt_lehrer2grade`
 --
 ALTER TABLE `projekt_lehrer2grade`
-  ADD PRIMARY KEY (`lehrerUserID`,`gradeName`);
+  ADD PRIMARY KEY (`lehrerUserID`,`gradeName`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `projekt_projekte`
 --
 ALTER TABLE `projekt_projekte`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `pupil_grade`
 --
 ALTER TABLE `pupil_grade`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `remote_usersync`
 --
 ALTER TABLE `remote_usersync`
-  ADD PRIMARY KEY (`syncID`);
+  ADD PRIMARY KEY (`syncID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `resetpassword`
 --
 ALTER TABLE `resetpassword`
-  ADD PRIMARY KEY (`resetID`);
+  ADD PRIMARY KEY (`resetID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `respizienz`
 --
 ALTER TABLE `respizienz`
-  ADD PRIMARY KEY (`respizienzID`);
+  ADD PRIMARY KEY (`respizienzID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `rsu_persons`
 --
 ALTER TABLE `rsu_persons`
-  ADD PRIMARY KEY (`personID`);
+  ADD PRIMARY KEY (`personID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `rsu_sections`
 --
 ALTER TABLE `rsu_sections`
-  ADD PRIMARY KEY (`sectionID`);
+  ADD PRIMARY KEY (`sectionID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schaukasten_bildschirme`
 --
 ALTER TABLE `schaukasten_bildschirme`
-  ADD PRIMARY KEY (`schaukastenID`);
+  ADD PRIMARY KEY (`schaukastenID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schaukasten_inhalt`
 --
 ALTER TABLE `schaukasten_inhalt`
-  ADD PRIMARY KEY (`schaukastenID`,`schaukastenPosition`);
+  ADD PRIMARY KEY (`schaukastenID`,`schaukastenPosition`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schaukasten_powerpoint`
 --
 ALTER TABLE `schaukasten_powerpoint`
-  ADD PRIMARY KEY (`powerpointID`);
+  ADD PRIMARY KEY (`powerpointID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schaukasten_website`
 --
 ALTER TABLE `schaukasten_website`
-  ADD PRIMARY KEY (`websiteID`),
+  ADD PRIMARY KEY (`websiteID`) USING BTREE,
   ADD UNIQUE KEY `websiteName` (`websiteID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schueler`
 --
 ALTER TABLE `schueler`
-  ADD PRIMARY KEY (`schuelerAsvID`);
+  ADD PRIMARY KEY (`schuelerAsvID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schuelerinfo_dokumente`
 --
 ALTER TABLE `schuelerinfo_dokumente`
-  ADD PRIMARY KEY (`dokumentID`);
+  ADD PRIMARY KEY (`dokumentID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schueler_briefe`
 --
 ALTER TABLE `schueler_briefe`
-  ADD PRIMARY KEY (`briefID`);
+  ADD PRIMARY KEY (`briefID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schueler_fremdsprache`
 --
 ALTER TABLE `schueler_fremdsprache`
-  ADD PRIMARY KEY (`schuelerAsvID`,`spracheSortierung`);
+  ADD PRIMARY KEY (`schuelerAsvID`,`spracheSortierung`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schueler_nachteilsausgleich`
 --
 ALTER TABLE `schueler_nachteilsausgleich`
-  ADD PRIMARY KEY (`schuelerAsvID`);
+  ADD PRIMARY KEY (`schuelerAsvID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schulbuch_ausleihe`
 --
 ALTER TABLE `schulbuch_ausleihe`
-  ADD PRIMARY KEY (`ausleiheID`);
+  ADD PRIMARY KEY (`ausleiheID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schulbuch_buecher`
 --
 ALTER TABLE `schulbuch_buecher`
-  ADD PRIMARY KEY (`buchID`);
+  ADD PRIMARY KEY (`buchID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schulbuch_exemplare`
 --
 ALTER TABLE `schulbuch_exemplare`
-  ADD PRIMARY KEY (`exemplarID`,`exemplarBarcode`);
+  ADD PRIMARY KEY (`exemplarID`,`exemplarBarcode`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `schulen`
 --
 ALTER TABLE `schulen`
-  ADD PRIMARY KEY (`schuleID`);
+  ADD PRIMARY KEY (`schuleID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `sessions`
 --
 ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`sessionID`);
+  ADD PRIMARY KEY (`sessionID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `settings`
 --
 ALTER TABLE `settings`
-  ADD PRIMARY KEY (`settingName`);
+  ADD PRIMARY KEY (`settingName`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `site_activation`
 --
 ALTER TABLE `site_activation`
-  ADD PRIMARY KEY (`siteName`);
+  ADD PRIMARY KEY (`siteName`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `sprechtag`
 --
 ALTER TABLE `sprechtag`
-  ADD PRIMARY KEY (`sprechtagID`);
+  ADD PRIMARY KEY (`sprechtagID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `sprechtag_buchungen`
 --
 ALTER TABLE `sprechtag_buchungen`
-  ADD PRIMARY KEY (`buchungID`);
+  ADD PRIMARY KEY (`buchungID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `sprechtag_raeume`
 --
 ALTER TABLE `sprechtag_raeume`
-  ADD PRIMARY KEY (`sprechtagID`,`lehrerKuerzel`);
+  ADD PRIMARY KEY (`sprechtagID`,`lehrerKuerzel`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `sprechtag_slots`
 --
 ALTER TABLE `sprechtag_slots`
-  ADD PRIMARY KEY (`slotID`);
+  ADD PRIMARY KEY (`slotID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `stundenplan_aufsichten`
 --
 ALTER TABLE `stundenplan_aufsichten`
-  ADD PRIMARY KEY (`aufsichtID`);
+  ADD PRIMARY KEY (`aufsichtID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `stundenplan_plaene`
 --
 ALTER TABLE `stundenplan_plaene`
-  ADD PRIMARY KEY (`stundenplanID`);
+  ADD PRIMARY KEY (`stundenplanID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `stundenplan_stunden`
 --
 ALTER TABLE `stundenplan_stunden`
-  ADD PRIMARY KEY (`stundeID`);
+  ADD PRIMARY KEY (`stundeID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `templates`
 --
 ALTER TABLE `templates`
-  ADD PRIMARY KEY (`templateName`);
+  ADD PRIMARY KEY (`templateName`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `trenndaten`
 --
 ALTER TABLE `trenndaten`
-  ADD PRIMARY KEY (`trennWort`);
+  ADD PRIMARY KEY (`trennWort`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `two_factor_trusted_devices`
 --
 ALTER TABLE `two_factor_trusted_devices`
-  ADD PRIMARY KEY (`deviceID`),
+  ADD PRIMARY KEY (`deviceID`) USING BTREE,
   ADD KEY `two_factor_trusted_devices_ibfk_1` (`deviceUserID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `unknown_mails`
 --
 ALTER TABLE `unknown_mails`
-  ADD PRIMARY KEY (`mailID`);
+  ADD PRIMARY KEY (`mailID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `unterricht`
 --
 ALTER TABLE `unterricht`
-  ADD PRIMARY KEY (`unterrichtID`);
+  ADD PRIMARY KEY (`unterrichtID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `uploads`
 --
 ALTER TABLE `uploads`
-  ADD PRIMARY KEY (`uploadID`);
+  ADD PRIMARY KEY (`uploadID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `users_groups`
 --
 ALTER TABLE `users_groups`
-  ADD PRIMARY KEY (`userID`,`groupName`);
+  ADD PRIMARY KEY (`userID`,`groupName`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `users_groups_own`
 --
 ALTER TABLE `users_groups_own`
-  ADD PRIMARY KEY (`groupName`);
+  ADD PRIMARY KEY (`groupName`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `user_images`
 --
 ALTER TABLE `user_images`
-  ADD PRIMARY KEY (`userImageID`);
+  ADD PRIMARY KEY (`userImageID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `user_settings`
 --
 ALTER TABLE `user_settings`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `vplan`
 --
 ALTER TABLE `vplan`
-  ADD PRIMARY KEY (`vplanName`);
+  ADD PRIMARY KEY (`vplanName`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `wlan_schueler`
 --
 ALTER TABLE `wlan_schueler`
-  ADD PRIMARY KEY (`schuelerID`);
+  ADD PRIMARY KEY (`schuelerID`) USING BTREE;
 
 --
 -- Indizes für die Tabelle `wlan_ticket`
 --
 ALTER TABLE `wlan_ticket`
-  ADD PRIMARY KEY (`ticketID`);
+  ADD PRIMARY KEY (`ticketID`) USING BTREE;
 
 --
 -- AUTO_INCREMENT für exportierte Tabellen
@@ -3258,6 +3370,12 @@ ALTER TABLE `fremdlogin`
   MODIFY `fremdloginID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT für Tabelle `ganztags_gruppen`
+--
+ALTER TABLE `ganztags_gruppen`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT für Tabelle `icsfeeds`
 --
 ALTER TABLE `icsfeeds`
@@ -3346,6 +3464,18 @@ ALTER TABLE `laufzettel`
 --
 ALTER TABLE `laufzettel_stunden`
   MODIFY `laufzettelStundeID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `lerntutoren`
+--
+ALTER TABLE `lerntutoren`
+  MODIFY `lerntutorID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `lerntutoren_slots`
+--
+ALTER TABLE `lerntutoren_slots`
+  MODIFY `slotID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `mail_send`
@@ -3597,7 +3727,3 @@ ALTER TABLE `wlan_ticket`
 ALTER TABLE `two_factor_trusted_devices`
   ADD CONSTRAINT `two_factor_trusted_devices_ibfk_1` FOREIGN KEY (`deviceUserID`) REFERENCES `users` (`userID`) ON DELETE CASCADE;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
