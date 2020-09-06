@@ -155,6 +155,10 @@ class Update extends AbstractPage
 
         DB::getDB()->query("ALTER TABLE `stundenplan_stunden` MODIFY COLUMN `stundeLehrer` varchar(20) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL AFTER `stundeKlasse`;", true);
 
+        DB::getDB()->query("ALTER TABLE users` ADD COLUMN `userAutoresponse` tinyint(1) NOT NULL DEFAULT 0 AFTER `userMailInitialPassword`", true);
+
+        DB::getDB()->query("ALTER TABLE users` ADD COLUMN `userAutoresponseText` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `userAutoresponse`", true);
+
         $this->updateCssJSFolder(111);
         $this->updateComponentsFolder(111);
         $this->updateImagesFolder(111);
