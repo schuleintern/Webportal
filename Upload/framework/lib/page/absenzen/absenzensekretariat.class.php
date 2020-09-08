@@ -43,7 +43,8 @@ class absenzensekretariat extends AbstractPage {
       break;
       
       case 'autocompletenameajax':
-      	$this->ajaxCompleteUserName();
+        $this->ajaxCompleteUserName();
+        exit;
       break;
 
       case 'addAbsenzViaDialog':
