@@ -41,6 +41,8 @@ class cronhandler {
 			exit(0);
 		}
 		
+		PAGE::setFactory( new FACTORY() );
+		
 		//Check Access Key
 		
 		if(isset($_REQUEST['cronName']) && $_REQUEST['cronName'] != "") {
