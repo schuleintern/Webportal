@@ -72,7 +72,7 @@ class FACTORY {
   public function getUserGroupsOwnByName($name = false) {
 
     if ($name) {
-      foreach($this->DATA_users as $item) {
+      foreach($this->DATA_users_groups_own as $item) {
         if ($item['groupName'] == $name) {
           return $item;
         }
