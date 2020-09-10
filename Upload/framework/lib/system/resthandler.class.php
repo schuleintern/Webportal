@@ -18,14 +18,14 @@ if (!function_exists('getallheaders'))
 } 
 
 class resthandler {
-  private static $actions = [
-     'GetSettingsValue',
-     'SetSettingsValue',
-     'GetAllSettings',
-     'GetUserCount',
-      'Test'
-  ];
-  
+    private static $actions = [
+        'GetSettingsValue',
+        'SetSettingsValue',
+        'GetAllSettings',
+        'GetUserCount',
+        'GetKalender'
+    ];
+
   
 
   public function __construct() {
