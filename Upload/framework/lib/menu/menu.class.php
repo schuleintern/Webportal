@@ -289,6 +289,8 @@ class menu {
         }
         
         
+        $html .= $this->getMenuItem('apiKalender', 'API', 'fa fa-calendar',['kalenderID' => 111 ]);
+
         
         // Andere Kalender
         

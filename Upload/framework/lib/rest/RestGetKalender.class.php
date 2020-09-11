@@ -5,8 +5,41 @@ class RestGetKalender extends AbstractRest {
 
 	public function execute($input, $request) {
 
-		// do something...
+		$userID = intval($request[1]);
 
+		if (!$userID) {
+			return [
+				'error' => true,
+				'msg' => 'Fehlende User ID'
+			];
+		}
+
+		$kalender = [];
+		$result = DB::getDB()->query("SELECT * FROM kalender_api ");
+		while($row = DB::getDB()->fetch_array($result)) {
+			
+			$item = [
+				'kalenderID' => $row['kalenderID'],
+				'kalenderName' => $row['kalenderName']
+			];
+
+			$kalender[] = $item;
+		}
+
+		if(count($kalender) > 0) {
+
+			return [
+				'list' => $kalender
+			];
+
+		} else {
+			return [
+				'error' => true,
+				'msg' => 'Es konnte kein Kalender geladen werden!'
+			];
+		}
+
+		exit;
 	}
 
 	public function getAllowedMethod() {

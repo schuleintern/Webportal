@@ -23,9 +23,10 @@ class resthandler {
         'SetSettingsValue',
         'GetAllSettings',
         'GetUserCount',
-        'GetKalender'
+        'GetKalender',
+        'GetKalenderEintrag'
     ];
-
+  
   
 
   public function __construct() {
@@ -58,12 +59,17 @@ class resthandler {
           
           $classname = 'Rest' . $request[0];
           
+
+
           /**
            * 
            * @var AbstractRest $action
            */
           $action = new $classname();
 
+          if ( $classname == 'RestPostMsgMessageRead') {
+            echo $method.$classname; exit;
+        }
 
           
           if($method != $action->getAllowedMethod()) {
@@ -74,6 +80,8 @@ class resthandler {
               $this->answer($result, 405);
           }
 
+
+          
 
           if($action->needsUserAuth()) {
               if (isset ( $_COOKIE ['schuleinternsession'] )) {
@@ -92,12 +100,12 @@ class resthandler {
 
                       $action->user = DB::getSession()->getUser();
                   }
-              }
-              else {
+              } else {
                   $this->answer([], 401);
               }
-          }
-          else {
+          } else {
+
+            
 
               foreach($headers as $headername => $headervalue) {
                   if(strtolower($headername) == 'authorization') {
@@ -105,16 +113,18 @@ class resthandler {
                   }
               }
 
-              if(!isset($headers['schuleinternapirequest']) || $headers['schuleinternapirequest'] != true) {
-                  $result = [
-                      'error' => 1,
-                      'errorText' => 'schuleinternapirequest header not set. '
-                  ];
-                  $this->answer($result, 400);
-              }
+            //   if(!isset($headers['schuleinternapirequest']) || $headers['schuleinternapirequest'] != true) {
+            //       $result = [
+            //           'error' => 1,
+            //           'errorText' => 'schuleinternapirequest header not set. '
+            //       ];
+            //       $this->answer($result, 400);
+            //   }
 
               // Check Auth
               if ($action->needsSystemAuth()) {
+
+                
 
                   $apiKey = null;
 
@@ -150,6 +160,8 @@ class resthandler {
                   }
               }
           }
+
+          
 
           // Execute wird nur aufgerufen, wenn die Authentifizierung erfolgreich war.
           $result = $action->execute($input, $request);

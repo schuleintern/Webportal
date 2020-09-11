@@ -130,7 +130,8 @@ class requesthandler {
       'extKalender',
       'andereKalender',
       'geticsfeed',
-      'terminuebersicht'
+      'terminuebersicht',
+      'apiKalender'
     ],
     'klassenlisten' => [
       'klassenlisten',
