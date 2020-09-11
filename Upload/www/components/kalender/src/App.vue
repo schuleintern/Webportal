@@ -1,13 +1,34 @@
 <template>
   <div id="app">
-    
+    {{form}}
+
+    <div class="form">
+      <form>
+        Day:
+        <input type="text" v-model="form.day" />
+        Start Clock:
+        <input type="text" v-model="form.start" />
+        <vue-timepicker v-model="form.start" format="HH:mm" :minute-interval="5"></vue-timepicker>
+        End Clock:
+        <input type="text" v-model="form.end"  />
+        <vue-timepicker v-model="form.end" format="HH:mm" :minute-interval="5"></vue-timepicker>
+        Title:
+        <input type="text" v-model="form.title" />
+        Place:
+        <input type="text" v-model="form.place" />
+        Title:
+        <textarea v-model="form.comment">
+        </textarea>
+
+      </form>
+    </div>
+
     <div v-if="loading == true" class="overlay">
       <i class="fa fa-refresh fa-spin">Loading...</i>
     </div>
 
     
     <div class="header flex-row">
-      {{eintraege}}
     </div>
 
     <div id="main-box" class="">
@@ -22,8 +43,13 @@
 <script>
 //console.log('globals',globals);
 
+
+
 import Calendar from './components/Calendar.vue'
 import CalendarList from './components/CalendarList.vue'
+
+import VueTimepicker from 'vue2-timepicker'
+
 
 const axios = require('axios').default;
 
@@ -33,7 +59,8 @@ export default {
   name: 'app',
   components: {
     Calendar,
-    CalendarList
+    CalendarList,
+    VueTimepicker
   },
   data: function () {
     return {
@@ -43,7 +70,12 @@ export default {
       calendarSelected: [],
 
       kalender: [],
-      eintraege: []
+      eintraege: [],
+
+      form: {
+        day: false,
+        start: ''
+      }
 
     }
   },
@@ -63,7 +95,7 @@ export default {
           that.kalender = response.data.list;
 
           that.calendarSelected = [that.kalender[0].kalenderID];
-          EventBus.$emit('calendar--eintrag', {});
+          EventBus.$emit('eintrag--load', {});
 
         }
       }
@@ -73,11 +105,11 @@ export default {
     EventBus.$on('list--selected', data => {
 
       that.calendarSelected = data.selected;
-      EventBus.$emit('calendar--eintrag', {});
+      EventBus.$emit('eintrag--load', {});
     });
 
 
-    EventBus.$on('calendar--eintrag', data => {
+    EventBus.$on('eintrag--load', data => {
 
       that.ajaxGet(
         'rest.php/GetKalenderEintrag/'+that.calendarSelected.join('-'),
@@ -96,8 +128,26 @@ export default {
 
     });
 
+    EventBus.$on('eintrag--add', data => {
+
+      if (!data.day) {
+        return false;
+      }
+
+      this.form.day = data.day;
+
+    });
+
   },
   methods: {
+
+    handlerChangeFormStart: function () {
+
+      if (this.form.end == '') {
+        this.form.end = this.form.start;
+      }
+    },
+
 
     ajaxGet: function (url, params, callback, error, allways) {
       this.loading = true;

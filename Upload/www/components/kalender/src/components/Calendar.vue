@@ -1,54 +1,59 @@
 <template>
     <div class="calendar">
-        <div class="calendar-header">
-            <button class="btn btn-app chevron-left" @click="subtractWeek">
-              <i class="fa fa-arrow-left"></i>Vor
-            </button>
-            <button @click="gotoToday"
-              class="btn btn-app">
-              <i class="fa fa-home"></i>Heute
-            </button>
-            <h3>{{firstDayWeek | moment("Do")}} - {{lastDayWeek | moment("Do MMMM YYYY")}}</h3>
-            <button class="btn btn-app chevron-right" @click="addWeek">Weiter
-              <i class="fa fa-arrow-right"></i>
-            </button>
-        </div>
 
-        <table class="">
-          <thead>
-            <tr>
-              <td v-bind:key="index" v-for="(item, index) in daysInWeek"
-                :class="{'btn-warning': item[1] == initialDate && month == initialMonth && year == initialYear}">
-                {{item[0] | moment("Do dd")}}
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td v-bind:key="i" v-for="(day, i) in daysInWeekFormat" >
+      <div class="calendar-header">
+          <button class="btn btn-app chevron-left" @click="prevMonth">
+            <i class="fa fa-arrow-left"></i>Vor
+          </button>
+          <button @click="gotoToday"
+            class="btn btn-app">
+            <i class="fa fa-home"></i>Heute
+          </button>
+          <h3>{{openMonth| moment("MMMM YYYY")}}</h3>
+          <button class="btn btn-app chevron-right" @click="nextMonth">Weiter
+            <i class="fa fa-arrow-right"></i>
+          </button>
+      </div>
 
-                <div v-bind:key="j" v-for="(eintrag, j) in getEintrag(day)" 
-                  class="eintrag">
+      <table class="">
+        <thead>
+          <tr>
+            <td v-bind:key="index" v-for="(item, index) in days">
+              {{item}}
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-bind:key="a" v-for="(week, a) in weekInMonthFormat">
+            <td v-bind:key="i" v-for="(day, i) in daysInWeekFormat(week)"
+            :class="{'btn-warning': day[1] == getToday}" >
 
-                  <span v-if="eintrag.startTime && eintrag.wholeDay == false">
-                    {{eintrag.startTime}}
-                  </span>
-                  <span v-if="eintrag.endTime && eintrag.wholeDay == false">
-                    - {{eintrag.endTime}}
-                  </span>
-                  <span v-if="eintrag.wholeDay == false"> Uhr</span>
-                  <div>{{eintrag.title}}</div>
-                  <div>
-                    <span v-if="eintrag.place">{{eintrag.place}}</span>
-                    <span v-if="eintrag.comment">!!!</span>
-                  </div>
+              {{day[1] | moment("Do")}}
 
+              <div v-bind:key="j" v-for="(eintrag, j) in getEintrag(day)" 
+                class="eintrag">
+
+                <span v-if="eintrag.startTime && eintrag.wholeDay == false">
+                  {{eintrag.startTime}}
+                </span>
+                <span v-if="eintrag.endTime && eintrag.wholeDay == false">
+                  - {{eintrag.endTime}}
+                </span>
+                <span v-if="eintrag.wholeDay == false"> Uhr</span>
+                <div>{{eintrag.title}}</div>
+                <div>
+                  <span v-if="eintrag.place">{{eintrag.place}}</span>
+                  <span v-if="eintrag.comment">!!!</span>
                 </div>
 
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              </div>
+
+              <div v-on:click="handlerClickAdd(day[1])">neu</div>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
 </template>
@@ -66,71 +71,28 @@ export default {
   data(){
     return{
       today: this.$moment(),
-      firstDayWeek: false, //this.$moment(),
-      days: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa','So'],
-
-      dayNumber: this.$moment().day()
+      openMonth: false,
+      openMonthDay: false,
+      days: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa','So']
     }
   },
   created: function () {
 
-    this.firstDayWeek = this.$moment().subtract(this.dayNumber -1, 'days');
-    this.changedDate();
-    //console.log(this.firstDayWeek.format('dddd, MMMM Do YYYY'));
-
-    var that = this;
-    EventBus.$on('calendar--reload', data => {
-      that.changedDate();
-    });
+    this.openMonth = this.$moment(this.today).date(1);
+    this.openMonthDay = this.$moment(this.today).date(1);
+    this.gotoToday();
 
   },
   computed: {
+
+    weekInMonthFormat: function () {
+      return 5;
+    },
+
     getToday: function () {
-        var t = this;
-        return t.today.format('YYYY-MM-DD');
-    },
-    year: function () {
-        var t = this;
-        return t.firstDayWeek.format('Y');
-    },
-    month: function () {
-        var t = this;
-        return t.firstDayWeek.format('MMMM');
-    },
-    daysInWeekFormat: function () {
-      var arr = [];
-      var foo = this.$moment(this.firstDayWeek);
-      for(let i = 0; i < 7; i++) {
-        //arr.push( foo.format('YYYY-MM-D') );
-        arr.push( [foo, this.$moment(foo).format('YYYY-MM-DD')] );
-        foo = this.$moment(foo).add(1, 'day')
-      }
-      return arr;
-    },
-    daysInWeek: function () {
-      var arr = [];
-      var foo = this.$moment(this.firstDayWeek);
-      for(let i = 0; i < 7; i++) {
-        arr.push( [foo, this.$moment(foo).format('D')] );
-        foo = this.$moment(foo).add(1, 'day')
-      }
-      return arr;
-    },
-    lastDayWeek: function()  {
-      return this.$moment(this.firstDayWeek).add(6, 'days')
-    },
-    initialDate: function () {
-        var t = this;
-        return t.today.format('D'); //.get('date');
-    },
-    initialMonth: function () {
-        var t = this;
-        return t.today.format('MMMM');
-    },
-    initialYear: function () {
-        var t = this;
-        return t.today.format('Y');
+        return this.today.format('YYYY-MM-DD'); //.get('date');
     }
+
   },
   methods: {
 
@@ -139,7 +101,7 @@ export default {
         return '';
       }
       var that = this;
-      console.log(day, this.eintraege)
+      //console.log(day, this.eintraege)
 
       var ret = [];
 
@@ -175,34 +137,42 @@ export default {
       return ret;
     },
 
-    addWeek: function () {
-        this.firstDayWeek = this.$moment(this.firstDayWeek).add(1, 'week');
-        this.changedDate();
-    },
-    subtractWeek: function () {
-        this.firstDayWeek = this.$moment(this.firstDayWeek).subtract(1, 'week');
-        this.changedDate();
-    },
-    gotoToday: function () {
-      this.firstDayWeek = this.$moment().subtract(this.dayNumber -1, 'days');
-      this.changedDate();
-    },
-    addDate: function (day,hour,$event) {
-      
-      EventBus.$emit('calendar--addDate', {
-        day: day,
-        hour: hour
+    handlerClickAdd: function (day) {
+
+      if (!day) {
+        return false;
+      }
+      EventBus.$emit('eintrag--add', {
+        day: day
       });
       $event.preventDefault();
       return false;
-    },
-    changedDate: function () {
-      EventBus.$emit('calendar--changedDate', {
-        von: this.firstDayWeek.unix(),
-        bis: this.lastDayWeek.unix()
-      });
-    }
 
+    },
+
+    daysInWeekFormat: function (week) {
+      var arr = [];
+
+      var foo = this.$moment(this.openMonth).date(( (week-1) * 7)+1);
+      var diffToMonday = foo.day() - 1;
+      foo = foo.subtract(diffToMonday, 'days');
+
+      for(let i = 0; i < 7; i++) {
+        arr.push( [foo, this.$moment(foo).format('YYYY-MM-DD')] );
+        foo = this.$moment(foo).add(1, 'day')
+      }
+      return arr;
+    },
+
+    nextMonth: function () {
+      this.openMonth = this.$moment(this.openMonth).add(1, 'months');
+    },
+    prevMonth: function () {
+      this.openMonth = this.$moment(this.openMonth).subtract(1, 'months');
+    },
+    gotoToday: function () {
+      this.openMonth = this.$moment(this.today).date(1);
+    }
 
   }
 }
