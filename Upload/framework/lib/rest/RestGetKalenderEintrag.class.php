@@ -14,6 +14,13 @@ class RestGetKalenderEintrag extends AbstractRest {
 				'msg' => 'Fehlende User ID'
 			];
 		}
+		// $user = new user(array('userID' => $userID));
+		// if (!$user) {
+		// 	return [
+		// 		'error' => true,
+		// 		'msg' => 'Fehlender User'
+		// 	];
+		// }
 		if (count($kalenderIDs) <= 0) {
 			return [
 				'error' => true,
@@ -32,6 +39,8 @@ class RestGetKalenderEintrag extends AbstractRest {
 		$result = DB::getDB()->query("SELECT * FROM kalender_api_eintrag WHERE ".$where);
 		while($row = DB::getDB()->fetch_array($result)) {
 			
+			$createdUser = new user(array('userID' => intval($row['eintragUser']) ));
+
 			$item = [
 				'eintragID' => $row['eintragID'],
 				'kalenderID' => $row['kalenderID'],
@@ -41,8 +50,10 @@ class RestGetKalenderEintrag extends AbstractRest {
 				'eintragDatumEnde' => $row['eintragDatumEnde'],
 				'eintragOrt' => $row['eintragOrt'],
 				'eintragKommentar' => $row['eintragKommentar'],
-				'eintragEintragZeitpunkt' => $row['eintragEintragZeitpunkt'],
-				'eintragUser' => $row['eintragUser'],
+				'eintragCreatedTime' => $row['eintragCreatedTime'],
+				'eintragModifiedTime' => $row['eintragModifiedTime'],
+				'eintragUserID' => $row['eintragUser'],
+				'eintragUserName' => $createdUser->getDisplayName()
 			];
 
 			$ret[] = $item;

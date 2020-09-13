@@ -1,39 +1,19 @@
 <template>
   <div id="app">
-    {{form}}
 
-    <div class="form">
-      <form>
-        Day:
-        <input type="text" v-model="form.day" />
-        Start Clock:
-        <input type="text" v-model="form.start" />
-        <vue-timepicker v-model="form.start" format="HH:mm" :minute-interval="5"></vue-timepicker>
-        End Clock:
-        <input type="text" v-model="form.end"  />
-        <vue-timepicker v-model="form.end" format="HH:mm" :minute-interval="5"></vue-timepicker>
-        Title:
-        <input type="text" v-model="form.title" />
-        Place:
-        <input type="text" v-model="form.place" />
-        Title:
-        <textarea v-model="form.comment">
-        </textarea>
+    <CalendarForm v-bind:formErrors="formErrors"
+      v-bind:kalender="kalender"
+      v-bind:calendarSelected="calendarSelected"></CalendarForm>
 
-      </form>
-    </div>
+    <CalendarEintrag v-bind:kalender="kalender"></CalendarEintrag>
 
     <div v-if="loading == true" class="overlay">
       <i class="fa fa-refresh fa-spin">Loading...</i>
     </div>
 
-    
-    <div class="header flex-row">
-    </div>
-
-    <div id="main-box" class="">
+    <div id="" class="">
       <CalendarList v-bind:kalender="kalender"></CalendarList>
-      <Calendar v-bind:eintraege="eintraege"></Calendar>
+      <Calendar v-bind:eintraege="eintraege" v-bind:kalender="kalender"></Calendar>
     </div>
 
 
@@ -43,13 +23,10 @@
 <script>
 //console.log('globals',globals);
 
-
-
 import Calendar from './components/Calendar.vue'
 import CalendarList from './components/CalendarList.vue'
-
-import VueTimepicker from 'vue2-timepicker'
-
+import CalendarForm from './components/CalendarForm.vue'
+import CalendarEintrag from './components/CalendarEintrag.vue'
 
 const axios = require('axios').default;
 
@@ -60,22 +37,19 @@ export default {
   components: {
     Calendar,
     CalendarList,
-    VueTimepicker
+    CalendarForm,
+    CalendarEintrag
   },
   data: function () {
     return {
 
       loading: true,
+      formErrors: [],
 
       calendarSelected: [],
 
       kalender: [],
-      eintraege: [],
-
-      form: {
-        day: false,
-        start: ''
-      }
+      eintraege: []
 
     }
   },
@@ -89,14 +63,14 @@ export default {
       {},
       function (response, that) {
         
-        console.log(response.data);
-
         if (response.data) {
-          that.kalender = response.data.list;
-
-          that.calendarSelected = [that.kalender[0].kalenderID];
+          
+          that.calendarSelected = [ parseInt(response.data.list[0].kalenderID) ];
+          EventBus.$emit('list--preselected', {
+            selected: that.calendarSelected
+          });
           EventBus.$emit('eintrag--load', {});
-
+          that.kalender = response.data.list;
         }
       }
     );
@@ -116,7 +90,7 @@ export default {
         {},
         function (response, that) {
           
-          console.log(response.data);
+          //console.log(response.data);
 
           if (response.data && response.data.list) {
             that.eintraege = response.data.list;
@@ -125,28 +99,72 @@ export default {
           }
         }
       );
-
     });
 
-    EventBus.$on('eintrag--add', data => {
 
-      if (!data.day) {
+    EventBus.$on('eintrag--delete', data => {
+
+      if (!data.id) {
         return false;
       }
+      that.ajaxPost(
+        'rest.php/DeleteKalenderEintrag',
+        { data: data.id },
+        {},
+        function (response, that) {
+          
+          console.log(response.data);
 
-      this.form.day = data.day;
+          if (response.data.done == true) {
+
+            EventBus.$emit('eintrag--load', {});
+
+          } else {
+            if (response.data.msg) {
+              that.formErrors = [response.data.msg];
+            }
+          }
+
+        }
+      );
+    });
+
+
+
+    EventBus.$on('eintrag--submit', data => {
+
+
+      if (data.form.start == ''
+        && data.form.title == ''
+        && data.form.calenderID == '' ) {
+          return false;
+      }
+
+      that.ajaxPost(
+        'rest.php/SetKalenderEintrag',
+        { data: data.form },
+        {},
+        function (response) {
+
+          if (response.data.done == true) {
+
+            EventBus.$emit('eintrag--form-reset', {});
+            EventBus.$emit('eintrag--load', {});
+
+          } else {
+            if (response.data.msg) {
+              that.formErrors = [response.data.msg];
+            }
+          }
+
+        }
+      );
 
     });
+
 
   },
   methods: {
-
-    handlerChangeFormStart: function () {
-
-      if (this.form.end == '') {
-        this.form.end = this.form.start;
-      }
-    },
 
 
     ajaxGet: function (url, params, callback, error, allways) {
@@ -176,26 +194,21 @@ export default {
       });  
       
     },
-    ajaxPost: function (url, params, callback, error, allways) {
-
+    ajaxPost: function (url, data, params, callback, error, allways) {
       var that = this;
-
-      var post = new URLSearchParams();
-      for (var prop in params) {
-        post.append(prop, params[prop]);
-      }
-
-      axios.post(url, post)
+      axios.post(url+'/'+globals.userID, data, {
+        params: params
+      })
       .then(function (response) {
         // console.log(response.data);
         if (callback && typeof callback === 'function') {
           callback(response, that);
         }
       })
-      .catch(function (error) {
+      .catch(function (resError) {
         //console.log(error);
-        if (error && typeof error === 'function') {
-          error(error);
+        if (resError && typeof error === 'function') {
+          error(resError);
         }
       })
       .finally(function () {

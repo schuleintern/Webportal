@@ -20,7 +20,8 @@ class RestGetKalender extends AbstractRest {
 			
 			$item = [
 				'kalenderID' => $row['kalenderID'],
-				'kalenderName' => $row['kalenderName']
+				'kalenderName' => $row['kalenderName'],
+				'kalenderColor' => $row['kalenderColor']
 			];
 
 			$kalender[] = $item;

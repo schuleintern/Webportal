@@ -2,16 +2,16 @@
     <div class="calendar">
 
       <div class="calendar-header">
-          <button class="btn btn-app chevron-left" @click="prevMonth">
+          <button class="btn chevron-left margin-r-xs" @click="prevMonth">
             <i class="fa fa-arrow-left"></i>Vor
           </button>
           <button @click="gotoToday"
-            class="btn btn-app">
+            class="btn">
             <i class="fa fa-home"></i>Heute
           </button>
           <h3>{{openMonth| moment("MMMM YYYY")}}</h3>
-          <button class="btn btn-app chevron-right" @click="nextMonth">Weiter
-            <i class="fa fa-arrow-right"></i>
+          <button class="btn chevron-right" @click="nextMonth">
+             Weiter<i class="fa fa-arrow-right"></i>
           </button>
       </div>
 
@@ -26,14 +26,17 @@
         <tbody>
           <tr v-bind:key="a" v-for="(week, a) in weekInMonthFormat">
             <td v-bind:key="i" v-for="(day, i) in daysInWeekFormat(week)"
-            :class="{'btn-warning': day[1] == getToday}" >
+              :class="{'btn-warning': day[1] == getToday}"
+              v-on:dblclick.self="handlerClickAdd(day[1])" >
 
               {{day[1] | moment("Do")}}
 
               <div v-bind:key="j" v-for="(eintrag, j) in getEintrag(day)" 
-                class="eintrag">
+                class="eintrag"
+                v-bind:style="styleEintrag(eintrag)"
+                v-on:click="handlerClickEintrag(eintrag)">
 
-                <span v-if="eintrag.startTime && eintrag.wholeDay == false">
+                <span v-if="eintrag.startTime != '00:00'">
                   {{eintrag.startTime}}
                 </span>
                 <span v-if="eintrag.endTime && eintrag.wholeDay == false">
@@ -48,7 +51,7 @@
 
               </div>
 
-              <div v-on:click="handlerClickAdd(day[1])">neu</div>
+              <br/>
 
             </td>
           </tr>
@@ -66,7 +69,8 @@
 export default {
   name: 'Calendar',
   props: {
-    eintraege: Array
+    eintraege: Array,
+    kalender: Array
   },
   data(){
     return{
@@ -96,6 +100,24 @@ export default {
   },
   methods: {
 
+    handlerClickEintrag: function (eintrag) {
+      if (!eintrag) {
+        return false;
+      }
+      EventBus.$emit('eintrag--show-open', {
+        eintrag: eintrag
+      });
+    },
+    styleEintrag: function (eintrag) {
+
+      var ret = false;
+      this.kalender.forEach(function (kalender) {
+        if ( parseInt(kalender.kalenderID) == parseInt(eintrag.calenderID) ) {
+          ret = { borderLeft: '5px solid '+kalender.kalenderColor };
+        }
+      });
+      return ret;
+    },
     getEintrag: function (day) {
       if (this.eintraege.length <= 0 ) {
         return '';
@@ -117,15 +139,24 @@ export default {
             wholeDay = true;
           }
           ret.push({
+            'id': eintrag.eintragID,
             'title': eintrag.eintragTitel,
+            'day': that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD HH:mm:ss', true).format('YYYY-MM-DD'),
             'start': eintrag.eintragDatumStart,
             'startTime': that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm'),
             'end': eintrag.eintragDatumEnde,
             'endTime': that.$moment(eintrag.eintragDatumEnde, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm'),
             'wholeDay': wholeDay,
             'place': eintrag.eintragOrt,
-            'comment': eintrag.eintragKommentar
+            'comment': eintrag.eintragKommentar,
+            'calenderID': eintrag.kalenderID,
+            'categoryID': eintrag.eintragKategorieID,
+            'createdTime': eintrag.eintragCreatedTime,
+            'modifiedTime': eintrag.eintragModifiedTime,
+            'createdUserID': eintrag.eintragUserID,
+            'createdUserName': eintrag.eintragUserName
           });
+          //console.log(ret);
         }
 
       });
@@ -142,10 +173,12 @@ export default {
       if (!day) {
         return false;
       }
-      EventBus.$emit('eintrag--add', {
-        day: day
+      EventBus.$emit('eintrag--form-open', {
+        form: {
+          day: day
+        }
       });
-      $event.preventDefault();
+      //$event.preventDefault();
       return false;
 
     },

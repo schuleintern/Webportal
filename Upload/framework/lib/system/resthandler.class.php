@@ -24,7 +24,9 @@ class resthandler {
         'GetAllSettings',
         'GetUserCount',
         'GetKalender',
-        'GetKalenderEintrag'
+        'GetKalenderEintrag',
+        'SetKalenderEintrag',
+        'DeleteKalenderEintrag'
     ];
   
   
@@ -54,7 +56,9 @@ class resthandler {
       }
       
       if(in_array($request[0],self::$actions)) {
-          
+        
+        PAGE::setFactory( new FACTORY() );
+
           include_once("../framework/lib/rest/Rest" . $request[0] . ".class.php");
           
           $classname = 'Rest' . $request[0];
