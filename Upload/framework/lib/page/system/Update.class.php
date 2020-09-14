@@ -93,7 +93,7 @@ class Update extends AbstractPage
     }
 
     private function from120to121() {
-        // ToDo
+        $this->updateCssJSFolder(111);
     }
     
     private function from111to120() {
