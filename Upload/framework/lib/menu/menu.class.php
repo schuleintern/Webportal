@@ -289,7 +289,7 @@ class menu {
         }
         
         
-        $html .= $this->getMenuItem('apiKalender', 'API', 'fa fa-calendar',['kalenderID' => 111 ]);
+        $html .= $this->getMenuItem('apiKalender', 'API', 'fa fa-calendar');
 
         
         // Andere Kalender

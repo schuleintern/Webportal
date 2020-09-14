@@ -70,7 +70,8 @@ export default {
   name: 'Calendar',
   props: {
     eintraege: Array,
-    kalender: Array
+    kalender: Array,
+    acl: Array
   },
   data(){
     return{
@@ -169,6 +170,10 @@ export default {
     },
 
     handlerClickAdd: function (day) {
+
+      // if (this.acl.rights.write != 1) {
+      //   return false;
+      // }
 
       if (!day) {
         return false;

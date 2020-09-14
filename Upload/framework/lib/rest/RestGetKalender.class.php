@@ -5,12 +5,12 @@ class RestGetKalender extends AbstractRest {
 
 	public function execute($input, $request) {
 
-		$userID = intval($request[1]);
+		$acl = $this->getAcl();
 
-		if (!$userID) {
+		if ($acl['rights']['read'] != 1) {
 			return [
 				'error' => true,
-				'msg' => 'Fehlende User ID'
+				'msg' => 'Keine Leserechte!'
 			];
 		}
 
@@ -23,6 +23,10 @@ class RestGetKalender extends AbstractRest {
 				'kalenderName' => $row['kalenderName'],
 				'kalenderColor' => $row['kalenderColor']
 			];
+
+			if (!$item['kalenderColor']) {
+				$item['kalenderColor'] = '#ff22cc';
+			}
 
 			$kalender[] = $item;
 		}
@@ -56,7 +60,15 @@ class RestGetKalender extends AbstractRest {
 	 * @return boolean
 	 */
 	public function needsSystemAuth() {
+		return false;
+	}
+
+	public function needsUserAuth() {
 		return true;
+	}
+
+	public function aclModuleName() {
+		return 'apiKalender';
 	}
 
 }	

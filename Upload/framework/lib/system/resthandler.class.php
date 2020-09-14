@@ -70,11 +70,6 @@ class resthandler {
            * @var AbstractRest $action
            */
           $action = new $classname();
-
-          if ( $classname == 'RestPostMsgMessageRead') {
-            echo $method.$classname; exit;
-        }
-
           
           if($method != $action->getAllowedMethod()) {
               $result = [
@@ -103,6 +98,7 @@ class resthandler {
                       DB::getSession ()->update ();
 
                       $action->user = DB::getSession()->getUser();
+                      $action->acl();
                   }
               } else {
                   $this->answer([], 401);

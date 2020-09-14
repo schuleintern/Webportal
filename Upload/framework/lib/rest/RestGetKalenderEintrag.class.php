@@ -5,22 +5,17 @@ class RestGetKalenderEintrag extends AbstractRest {
 
 	public function execute($input, $request) {
 
-		$kalenderIDs = explode('-', $request[1]);
-		$userID = intval($request[2]);
+		$acl = $this->getAcl();
 
-		if (!$userID) {
+		if ($acl['rights']['read'] != 1) {
 			return [
 				'error' => true,
-				'msg' => 'Fehlende User ID'
+				'msg' => 'Keine Leserechte!'
 			];
 		}
-		// $user = new user(array('userID' => $userID));
-		// if (!$user) {
-		// 	return [
-		// 		'error' => true,
-		// 		'msg' => 'Fehlender User'
-		// 	];
-		// }
+
+		$kalenderIDs = explode('-', $request[1]);
+
 		if (count($kalenderIDs) <= 0) {
 			return [
 				'error' => true,
@@ -66,9 +61,9 @@ class RestGetKalenderEintrag extends AbstractRest {
 			];
 
 		} else {
+			// List ist empty
 			return [
-				'error' => true,
-				'msg' => 'Es konnte kein Eintrag geladen werden!'
+				'list' => []
 			];
 		}
 
@@ -88,8 +83,17 @@ class RestGetKalenderEintrag extends AbstractRest {
 	 * @return boolean
 	 */
 	public function needsSystemAuth() {
+		return false;
+	}
+
+	public function needsUserAuth() {
 		return true;
 	}
+
+	public function aclModuleName() {
+		return 'apiKalender';
+	}
+	
 
 }	
 

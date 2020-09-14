@@ -6,12 +6,12 @@ class RestDeleteKalenderEintrag extends AbstractRest {
 	public function execute($input, $request) {
 
 
-		$userID = intval($request[1]);
+		$acl = $this->getAcl();
 
-		if (!$userID) {
+		if ($acl['rights']['delete'] != 1) {
 			return [
 				'error' => true,
-				'msg' => 'Fehlende User ID'
+				'msg' => 'Keine Löschrechte!'
 			];
 		}
 
@@ -74,7 +74,15 @@ class RestDeleteKalenderEintrag extends AbstractRest {
 	 * @return boolean
 	 */
 	public function needsSystemAuth() {
+		return false;
+	}
+
+	public function needsUserAuth() {
 		return true;
+	}
+
+	public function aclModuleName() {
+		return 'apiKalender';
 	}
 
 }	

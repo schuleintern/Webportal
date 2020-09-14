@@ -99,7 +99,7 @@ export default {
     },
     handlerClickDeleteSecond: function () {
 
-      console.log(this.form);
+      //console.log(this.form);
 
       if (!this.form.id) {
         return false;

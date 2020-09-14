@@ -7,7 +7,7 @@
         <b>Folgende Fehler sind aufgetreten:</b>
         <ul>
           <li v-for="error in formErrors">{{ error }}</li>
-        </ul>å
+        </ul>
       </div>
 
       <h3>{{form.day}}</h3>
@@ -71,7 +71,8 @@ export default {
   props: {
     formErrors: Array,
     kalender: Array,
-    calendarSelected: Array
+    calendarSelected: Array,
+    acl: Array
   },
   data(){
     return {

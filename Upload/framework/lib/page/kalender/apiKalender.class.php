@@ -16,11 +16,14 @@ class apiKalender extends AbstractPage {
 
     parent::__construct(["Kalender"]);
     $this->checkLogin();
+
+
   }
 
   public function execute() {
 
-    $userID = DB::getSession()->getUserID();
+    $acl = json_encode( $this->getAcl() );
+    //$userID = DB::getSession()->getUserID();
     
     eval("echo(\"" . DB::getTPL()->get("kalender/apiKalender"). "\");");
 
@@ -82,6 +85,9 @@ class apiKalender extends AbstractPage {
 
   public static function displayAdministration($selfURL) {
 
+    $html = '';
+		eval("\$html = \"" . DB::getTPL()->get("kalender/admin/apiKalender") . "\";");
+		return $html;
   }
 }
 

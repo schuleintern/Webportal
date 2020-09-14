@@ -6,12 +6,12 @@ class RestSetKalenderEintrag extends AbstractRest {
 	public function execute($input, $request) {
 
 
-		$userID = intval($request[1]);
+		$acl = $this->getAcl();
 
-		if (!$userID) {
+		if ($acl['rights']['write'] != 1) {
 			return [
 				'error' => true,
-				'msg' => 'Fehlende User ID'
+				'msg' => 'Keine Schreibrechte!'
 			];
 		}
 
@@ -122,7 +122,15 @@ class RestSetKalenderEintrag extends AbstractRest {
 	 * @return boolean
 	 */
 	public function needsSystemAuth() {
+		return false;
+	}
+
+	public function needsUserAuth() {
 		return true;
+	}
+
+	public function aclModuleName() {
+		return 'apiKalender';
 	}
 
 }	
