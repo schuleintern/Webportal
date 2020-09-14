@@ -28,27 +28,18 @@
             <tr v-bind:key="i" v-for="(hour, i) in shoolHours">
               <td class="hourLabel">{{hour}}</td>
               <td v-bind:key="j" v-for="(day, j) in daysInWeekFormat" >
-
                 <!-- Apply any bg-* class to to the info-box to color it -->
                 <div class="info-box bg-green"
                   v-bind:key="key" v-for="(date, key) in dates"
                   v-if="date.ausleiheStunde == hour && date.ausleiheDatum == day[1]">
-                  <!-- <span class="info-box-icon"><i class="fa fa-calendar"></i></span> -->
-                  <!-- <div class="info-box-content"> -->
+
                     <span class="info-box-text">{{date.ausleiheLehrer}} / {{date.ausleiheKlasse}}</span>
                     <span class="info-box-number">{{date.objektName}} <span v-if="date.sub.length > 0"> ({{date.part}}/{{date.sum}})</span> </span>
                     <span v-if="date.sub.length > 0">{{date.sub}}</span>
-                    <!-- The progress section is optional -->
-                    <!-- <div class="progress">
-                      <div class="progress-bar" style="width: 70%"></div>
-                    </div> -->
-                    <!-- <span class="progress-description">
-                      {{date.ausleiheKlasse}}
-                    </span> -->
-                  <!-- </div>/.info-box-content -->
+
                 </div><!-- /.info-box -->
-                <button v-if="day[1] >= getToday" @click="addDate(day,hour,$event)"
-                  class="eventAdd btn btn-outline fa fa-plus"></button>
+                <button v-if="isAfterToday(day[1], getToday)" @click="addDate(day,hour,$event)"
+                  class="eventAdd btn btn-outline"><i class="fa fa-plus"></i></button>
                   
               </td>
             </tr>
@@ -60,8 +51,6 @@
 
 
 <script>
-
- 
 
 export default {
   name: 'Calendar',
@@ -91,6 +80,7 @@ export default {
 
   },
   computed: {
+    
     getToday: function () {
         var t = this;
         return t.today.format('YYYY-MM-D');
@@ -140,6 +130,9 @@ export default {
   },
   methods: {
 
+    isAfterToday: function (date, today) {
+      return this.$moment(date).isSameOrAfter(today);
+    },
     addWeek: function () {
         this.firstDayWeek = this.$moment(this.firstDayWeek).add(1, 'week');
         this.changedDate();
