@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --eslint-disable --eslint-disable-next-line",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -13,7 +13,8 @@
     "moment": "^2.24.0",
     "vue": "^2.6.10",
     "vue-moment": "^4.0.0",
-    "vue2-timepicker": "^1.1.4"
+    "vue2-timepicker": "^1.1.4",
+    "vuedraggable": "^2.24.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",

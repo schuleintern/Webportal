@@ -16,7 +16,7 @@
     <CalendarEintrag v-bind:kalender="kalender"></CalendarEintrag>
 
     <div v-if="loading == true" class="overlay">
-      <i class="fa fa-refresh fa-spin">Loading...</i>
+      <i class="fa fas fa-sync-alt fa-spin"></i>
     </div>
 
     <div id="" class="">
@@ -40,7 +40,7 @@ import CalendarEintrag from './components/CalendarEintrag.vue'
 
 const axios = require('axios').default;
 
-axios.defaults.headers.common['schuleinternapirequest'] = '112233' // for all requests
+//axios.defaults.headers.common['schuleinternapirequest'] = '112233' // for all requests
 
 export default {
   name: 'app',
@@ -223,6 +223,7 @@ export default {
       
     },
     ajaxPost: function (url, data, params, callback, error, allways) {
+      this.loading = true;
       var that = this;
       axios.post(url, data, {
         params: params
@@ -244,6 +245,7 @@ export default {
         if (allways && typeof allways === 'function') {
           allways();
         }
+        that.loading = false;
       });  
       
     }

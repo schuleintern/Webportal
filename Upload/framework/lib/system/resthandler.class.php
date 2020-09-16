@@ -26,7 +26,9 @@ class resthandler {
         'GetKalender',
         'GetKalenderEintrag',
         'SetKalenderEintrag',
-        'DeleteKalenderEintrag'
+        'DeleteKalenderEintrag',
+        'GetAcl',
+        'SetAcl'
     ];
   
   
@@ -174,17 +176,14 @@ class resthandler {
               if($action->getStatusCode() == 200) {
                   // Interner Fehler, da kein Status gesetzt wurde
                   $this->answer($result, 500);
-              }
-              else {
+              } else {
                   $this->answer($result, $action->getStatusCode());
               }
               
-          }
-          else {
+          } else {
               $this->answer($result,$action->getStatusCode());
           }
-      }
-      else {
+      } else {
           $result = [
               'error' => 1,
               'errorText' => 'Unknown Action'

@@ -558,6 +558,11 @@ abstract class AbstractPage {
 	 * Access Control List
 	 * @return acl
 	 */
+
+	public function aclModuleName() {
+		return get_called_class();
+	}
+
 	public function acl() {
 		$moduleClass = get_called_class();
 		$this->acl = ACL::getAcl(DB::getSession()->getUser(), $moduleClass);
@@ -578,7 +583,7 @@ abstract class AbstractPage {
 	public function getAclWrite() {
 		return $this->acl['rights']['write'];
 	}
-	
+
 	public function getAclDelete() {
 		return $this->acl['rights']['delete'];
 	}
