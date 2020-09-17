@@ -15,14 +15,19 @@ class RestGetKalender extends AbstractRest {
 		}
 
 		$kalender = [];
-		$result = DB::getDB()->query("SELECT * FROM kalender_api ORDER BY kalenderSort");
+		// $result = DB::getDB()->query("SELECT a.*, acl.id FROM kalender_api as a 
+		// LEFT JOIN acl ON a.kalenderAcl = acl.id
+		// ORDER BY a.kalenderSort");
+		$result = DB::getDB()->query("SELECT a.* FROM kalender_api as a ORDER BY a.kalenderSort");
 		while($row = DB::getDB()->fetch_array($result)) {
 			
 			$item = [
 				'kalenderID' => $row['kalenderID'],
 				'kalenderName' => $row['kalenderName'],
 				'kalenderColor' => $row['kalenderColor'],
-				'kalenderSort' => $row['kalenderSort']
+				'kalenderSort' => $row['kalenderSort'],
+				'kalenderPreSelect' => $row['kalenderPreSelect'],
+				'kalenderAcl' => $this->getAclByID($row['kalenderAcl'], true)
 			];
 
 			if (!$item['kalenderColor']) {

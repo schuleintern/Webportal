@@ -26,10 +26,10 @@
         <tbody>
           <tr v-bind:key="a" v-for="(week, a) in weekInMonthFormat">
             <td v-bind:key="i" v-for="(day, i) in daysInWeekFormat(week)"
-              :class="{'btn-warning': day[1] == getToday}"
+              :class="{'bg-orange': day[1] == getToday}"
               v-on:dblclick.self="handlerClickAdd(day[1])" >
 
-              {{day[1] | moment("Do")}}
+              <div class="dayLabel">{{day[1] | moment("Do")}}</div>
 
               <div v-bind:key="j" v-for="(eintrag, j) in getEintrag(day)" 
                 class="eintrag"
@@ -50,8 +50,6 @@
                 </div>
 
               </div>
-
-              <br/>
 
             </td>
           </tr>
@@ -171,9 +169,9 @@ export default {
 
     handlerClickAdd: function (day) {
 
-      // if (this.acl.rights.write != 1) {
-      //   return false;
-      // }
+      if (this.acl.rights.write != 1) {
+        return false;
+      }
 
       if (!day) {
         return false;

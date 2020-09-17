@@ -564,8 +564,13 @@ abstract class AbstractPage {
 	}
 
 	public function acl() {
+		if (DB::getSession()) {
+			$userID = DB::getSession()->getUser();
+		}
 		$moduleClass = get_called_class();
-		$this->acl = ACL::getAcl(DB::getSession()->getUser(), $moduleClass);
+		if ($userID && $moduleClass) {
+			$this->acl = ACL::getAcl($userID, $moduleClass, false);
+		}
 	}
 
 	public function getAclAll() {

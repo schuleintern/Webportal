@@ -22,7 +22,7 @@
             <li v-bind:key="i" v-for="(item, i) in kalender" >
               <button v-on:click="handlerClickKalender(item.kalenderID)"
               v-bind:style="styleButton(item.kalenderID, item.kalenderColor)"
-              class="btn">{{item.kalenderName}}</button>
+              class="btn" v-show="checkAcl(item.kalenderAcl)">{{item.kalenderName}}</button>
             </li>
           </ul>
         </div>
@@ -156,6 +156,15 @@ export default {
   },
   methods: {
     
+    checkAcl: function (acl) {
+      //console.log(acl.rights.write);
+      if (acl && acl.rights) {
+        if ( parseInt(acl.rights.write) != 1 ) {
+          return false;
+        }
+      }
+      return true;
+    },
     styleButton: function (kalenderID, kalenderColor) {
 
       if(this.form.calenderID == kalenderID) {

@@ -9,7 +9,7 @@
 class ACL {
 
 
-  public function getAcl($user, $moduleClass) {
+  public function getAcl($user, $moduleClass = false, $id = false) {
 
     //return 'ACL';
     // $userID = DB::getSession()->getUser();
@@ -18,11 +18,17 @@ class ACL {
     $userID = $user->getUserID();
 		$acl = [];
 
-		if (!$userID || !$moduleClass) {
-			return false;
+		if ($userID && $moduleClass && $id == false) {
+			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$moduleClass."' ");
 		}
 
-		$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$moduleClass."' ");
+		if ($userID && $moduleClass == false && $id) {
+			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = '".$id."' ");
+		}
+
+		if (!$aclDB) {
+			return false;
+		}
 
 		$acl['groups'] = [
 			'schueler' => ['read' => $aclDB['schuelerRead'], 'write' => $aclDB['schuelerWrite'], 'delete' => $aclDB['schuelerDelete'] ],
@@ -78,7 +84,7 @@ class ACL {
 		$acl['owne'] = $acl['groups']['owne'];
 
 		// $acl['rights']['read'] = 1;
-		// $acl['rights']['write'] = 0;
+		// $acl['rights']['write'] = 1;
     // $acl['rights']['delete'] = 0;
     //print_r($acl);
     return $acl;

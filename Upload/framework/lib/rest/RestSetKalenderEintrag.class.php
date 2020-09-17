@@ -6,12 +6,10 @@ class RestSetKalenderEintrag extends AbstractRest {
 	public function execute($input, $request) {
 
 
-		$acl = $this->getAcl();
-
-		if ($acl['rights']['write'] != 1) {
+		if ( !$this->user || !$this->user->getUserID() ) {
 			return [
 				'error' => true,
-				'msg' => 'Keine Schreibrechte!'
+				'msg' => 'Fehlende User ID'
 			];
 		}
 
@@ -32,6 +30,26 @@ class RestSetKalenderEintrag extends AbstractRest {
 				'msg' => 'Fehlende Kalender ID'
 			];
 		}
+
+		$kalender_acl_db = DB::getDB()->query_first("SELECT a.kalenderAcl FROM kalender_api as a 
+		WHERE a.kalenderID = ".intval($row['calenderID']));
+
+		if ($kalender_acl_db['kalenderAcl']) {
+			$acl = $this->getAclByID($kalender_acl_db['kalenderAcl'], true);
+		} else {
+			$acl = $this->getAcl();
+		}
+
+		if ($acl['rights']['write'] != 1) {
+			return [
+				'error' => true,
+				'msg' => 'Keine Schreibrechte!'
+			];
+		}
+
+		
+
+		
 		if ( !$row['start'] || !$row['end'] ) {
 			return [
 				'error' => true,
@@ -92,7 +110,7 @@ class RestSetKalenderEintrag extends AbstractRest {
 				'".DB::getDB()->escapeString($row['end'])."',
 				'".DB::getDB()->encodeString($row['place'])."',
 				'".DB::getDB()->encodeString(nl2br($row['comment']))."',
-				".$userID.",
+				".$this->user->getUserID().",
 				'".$now."'
 			);");
 

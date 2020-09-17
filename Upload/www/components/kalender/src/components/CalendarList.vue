@@ -4,7 +4,8 @@
       <li v-bind:key="i" v-for="(item, i) in kalender" >
         <button v-on:click="handlerClickKalender(item.kalenderID)"
           v-bind:style="styleButton(item.kalenderID, item.kalenderColor)"
-          class="btn margin-r-xs">{{item.kalenderName}}</button>
+          class="btn margin-r-xs"
+          v-show="checkAcl(item.kalenderAcl)">{{item.kalenderName}}</button>
       </li>
     </ul>
   </div>
@@ -38,6 +39,16 @@ export default {
    
   },
   methods: {
+
+    checkAcl: function (acl) {
+      //console.log(acl.rights);
+      if (acl && acl.rights) {
+        if ( parseInt(acl.rights.read) != 1 ) {
+          return false;
+        }
+      }
+      return true;
+    },
     styleButton: function (kalenderID, kalenderColor) {
 
       if(this.selected.indexOf(parseInt(kalenderID)) > -1) {
@@ -47,14 +58,14 @@ export default {
       }
      
     },
-    activeKalender: function (kalenderID) {
+    // activeKalender: function (kalenderID) {
 
-      if(this.selected.indexOf(parseInt(kalenderID)) > -1) {
-        return true;
-      } 
-      return false;
+    //   if(this.selected.indexOf(parseInt(kalenderID)) > -1) {
+    //     return true;
+    //   } 
+    //   return false;
 
-    },
+    // },
     handlerClickKalender: function (kalenderID) {
 
       kalenderID = parseInt(kalenderID);

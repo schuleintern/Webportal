@@ -18,6 +18,10 @@
             <div class="handle"><input type="hidden" v-model="item.kalenderSort" /><i class=" fa fa-sort"></i></div>
             <div><input type="text" v-model="item.kalenderName" /></div>
             <div><input type="text" v-model="item.kalenderColor" placeholder="Farbe" /></div>
+            <div>
+              <input type="checkbox" v-model="item.kalenderPreSelect" true-value="1" false-value="0" />
+              <label>Ausgewählt</label>
+            </div>
             <div v-on:click="handlerKalenderRemove(item)"><i class=" fa fa-trash"></i></div>
           </li>
         </draggable>

@@ -7,13 +7,14 @@
         <li>{{ error }}</li>
       </ul>
     </div>
-    
+
     <CalendarForm v-bind:formErrors="formErrors"
       v-bind:kalender="kalender"
       v-bind:calendarSelected="calendarSelected"
       v-bind:acl="acl"></CalendarForm>
 
-    <CalendarEintrag v-bind:kalender="kalender"></CalendarEintrag>
+    <CalendarEintrag v-bind:kalender="kalender"
+      v-bind:acl="acl"></CalendarEintrag>
 
     <div v-if="loading == true" class="overlay">
       <i class="fa fas fa-sync-alt fa-spin"></i>
@@ -25,7 +26,6 @@
         v-bind:kalender="kalender"
         v-bind:acl="acl"></Calendar>
     </div>
-
 
   </div>
 </template>
@@ -83,12 +83,22 @@ export default {
         } else {
 
           if (response.data.list && that.acl.rights.read) {
-            that.calendarSelected = [ parseInt(response.data.list[0].kalenderID) ];
+            //that.calendarSelected = [ parseInt(response.data.list[0].kalenderID) ];
+            
+            that.kalender = response.data.list;
+            that.kalender.forEach(function (o,i) {
+              if (o.kalenderPreSelect == 1) {
+                that.calendarSelected.push( parseInt(o.kalenderID) );
+              }
+            });
+            
+          
             EventBus.$emit('list--preselected', {
               selected: that.calendarSelected
             });
+
             EventBus.$emit('eintrag--load', {});
-            that.kalender = response.data.list;
+
           } 
           
         }

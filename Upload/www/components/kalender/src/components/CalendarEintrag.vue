@@ -3,52 +3,60 @@
     <div class="form form-style-2 form-modal-content">
       <div class="form-modal-close"v-on:click="handlerCloseModal"><i class="fa fa-times"></i></div>
 
+      <div class="text-small">Datum und Uhrzeit:</div>
+      <div class="labelDay">{{form.day}}</div>
 
-      <h4>{{form.day}}</h4>
-
-      <div v-if="form.wholeDay == false">
-        <h3 v-if="form.startTime">{{form.startTime}}</h3>
-        <h3 v-if="form.endTime"> - {{form.endTime}}</h3>
+      <div v-if="form.wholeDay == false" class="labelTime">
+        <span v-if="form.startTime">{{form.startTime}}</span>
+        <span v-if="form.endTime"> - {{form.endTime}}</span>
       </div>
 
       <div v-if="form.wholeDay == true">
-        <h3 v-if="form.startTime != '00:00'">{{form.startTime}}</h3>
+        <div class="labelTime" v-if="form.startTime != '00:00'">{{form.startTime}}</div>
         Ganztägig
       </div>
 
-      <h3>{{form.title}}</h3>
-      
+      <br />
+      <div class="text-small">Titel:</div>
+      <div class="labelDay">{{form.title}}</div>
+      <br />
 
       <div class="flex-row">
         <div class="flex-1">
           <ul class="noListStyle">
-            <li>
-              <label>Place:</label>
+            <li v-if="form.place">
+              <label class="text-small">Ort:</label>
               {{form.place}}
             </li>
-            <li>
-              <label>Comment:</label>
-              {{form.comment}}
+            <li v-if="form.comment">
+              <label class="text-small">Notiz:</label>
+              <span v-html="form.comment">{{form.comment}}</span>
             </li>
-            <li>
-              <div class="btn" :style="{backgroundColor: formKalender.kalenderColor}">{{formKalender.kalenderName}}</div> 
+            <li class="margin-t-m">
+              <div class="btn noCursor" :style="{backgroundColor: formKalender.kalenderColor}">{{formKalender.kalenderName}}</div> 
             </li>
           </ul>
         </div>
       </div>
 
+      <br />
+
+      <button v-on:click="handlerClickEdit" v-show="acl.rights.write"
+      class="btn margin-r-s"><i class="fa fa-edit"></i>Bearbeiten</button>
+      <button v-on:click="handlerClickDelete"
+        v-show="!deleteBtn && acl.rights.delete"
+        class="btn"><i class="fa fa-trash"></i>Löschen</button>
+      <button v-on:click="handlerClickDeleteSecond"
+        v-show="deleteBtn"
+        class="btn btn-red">Wirklich Löschen</button>
+
       <hr>
 
-      <div>
-        <h6>Erstellt von:</h6>
-        {{form.createdUserName}} - {{form.createdTime}} - {{form.modifiedTime}}
+      <div class="text-small">
+        <b>Erstellt von:</b>
+        <div>{{form.createdUserName}}</div>
+        <div>{{form.createdTime}} - {{form.modifiedTime}}</div>
       </div>
-
-      <button v-on:click="handlerClickEdit">Bearbeiten</button>
-      <button v-on:click="handlerClickDelete"
-        v-show="!deleteBtn">Löschen</button>
-      <button v-on:click="handlerClickDeleteSecond"
-        v-show="deleteBtn">Wirklich Löschen</button>
 
     </div>
   </div>
@@ -64,7 +72,8 @@ export default {
     
   },
   props: {
-    kalender: Array
+    kalender: Array,
+    acl: Array
   },
   data(){
     return {

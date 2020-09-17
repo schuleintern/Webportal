@@ -110,18 +110,20 @@ class apiKalender extends AbstractPage {
               DB::getDB()->query("UPDATE kalender_api SET
                 kalenderName = '".DB::getDB()->escapeString($item->kalenderName)."',
                 kalenderColor = '".DB::getDB()->escapeString($item->kalenderColor)."',
-                kalenderSort = '".DB::getDB()->escapeString($item->kalenderSort)."'
+                kalenderSort = '".DB::getDB()->escapeString($item->kalenderSort)."',
+                kalenderPreSelect = '".DB::getDB()->escapeString($item->kalenderPreSelect)."'
                 WHERE kalenderID = " . intval($item->kalenderID) . ";");
                 
             } else if ($item->delete == 1 && $item->kalenderName == 'DELETE') {
               DB::getDB()->query("DELETE FROM kalender_api WHERE kalenderID = ". intval($item->kalenderID));
             }
           } else {
-            DB::getDB()->query("INSERT INTO kalender_api (kalenderID, kalenderName, kalenderColor, kalenderSort ) values(
+            DB::getDB()->query("INSERT INTO kalender_api (kalenderID, kalenderName, kalenderColor, kalenderSort, kalenderPreSelect ) values(
             '" . DB::getDB()->escapeString($item->kalenderID) . "',
             '" . DB::getDB()->escapeString($item->kalenderName) . "',
             '" . DB::getDB()->escapeString($item->kalenderColor) . "',
-            '" . DB::getDB()->escapeString($item->kalenderSort) . "'
+            '" . DB::getDB()->escapeString($item->kalenderSort) . "',
+            '" . DB::getDB()->escapeString($item->kalenderPreSelect) . "'
             )");
           }
         }
