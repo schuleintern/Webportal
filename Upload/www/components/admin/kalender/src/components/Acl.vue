@@ -65,7 +65,7 @@
           </ul>
         </li>
         <li>
-          <h5>Sonstiges</h5>
+          <h5>Sonstige</h5>
           <ul>
             <li>
               <input type="checkbox" v-model="acl.noneRead" true-value="1" false-value="0" />

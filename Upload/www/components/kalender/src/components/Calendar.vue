@@ -18,15 +18,20 @@
       <table class="">
         <thead>
           <tr>
-            <td v-bind:key="index" v-for="(item, index) in days">
+            <td ></td>
+            <td v-bind:key="index" v-for="(item, index) in days" class="day">
               {{item}}
             </td>
           </tr>
         </thead>
         <tbody>
           <tr v-bind:key="a" v-for="(week, a) in weekInMonthFormat">
+            <td class="labelKW"><span class="text-small">KW</span><br>{{kwInMonth(week)}}
+            </td>
+
             <td v-bind:key="i" v-for="(day, i) in daysInWeekFormat(week)"
               :class="{'bg-orange': day[1] == getToday}"
+              class="day"
               v-on:dblclick.self="handlerClickAdd(day[1])" >
 
               <div class="dayLabel">{{day[1] | moment("Do")}}</div>
@@ -186,6 +191,11 @@ export default {
 
     },
 
+    kwInMonth: function (week) {
+
+      return this.$moment(this.openMonth).date(( (week-1) * 7)+1).isoWeek();
+
+    },
     daysInWeekFormat: function (week) {
       var arr = [];
 

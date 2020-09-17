@@ -73,9 +73,14 @@
     border-bottom: 0.01rem solid  #738b96 !important;
   }
 
+  .calendar table td.labelKW {
+    font-size: 120%;
+    color: rgb(192, 192, 192);
+    font-weight: bold;
+  }
 
   .calendar table td {
-    width: calc(100%/7);
+    
     padding: 0.6rem;
     vertical-align: bottom;
    
@@ -83,6 +88,9 @@
   .calendar table tbody td {
     height: 10rem;
     vertical-align: top;
+  }
+  .calendar table tbody td.day {
+    width: calc(100%/7);
   }
 
   .calendar table tr:nth-child(even) {
