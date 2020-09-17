@@ -249,6 +249,8 @@ button.btn-blau {
 .line-oddEven:nth-child(odd)  {
   background-color: #f9f9f9;
 }
+
+
 .text-bold {
   font-weight: bold;
 }
@@ -260,6 +262,9 @@ button.btn-blau {
 }
 .text-red {
   color: #dd4b39;
+}
+.text-gey {
+  color: #738b96;
 }
 
 .text-small {

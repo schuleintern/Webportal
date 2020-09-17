@@ -41,17 +41,22 @@
                 v-bind:style="styleEintrag(eintrag)"
                 v-on:click="handlerClickEintrag(eintrag)">
 
-                <span v-if="eintrag.startTime != '00:00'">
-                  {{eintrag.startTime}}
-                </span>
-                <span v-if="eintrag.endTime && eintrag.wholeDay == false">
-                  - {{eintrag.endTime}}
-                </span>
-                <span v-if="eintrag.wholeDay == false"> Uhr</span>
-                <div>{{eintrag.title}}</div>
-                <div>
-                  <span v-if="eintrag.place">{{eintrag.place}}</span>
-                  <span v-if="eintrag.comment">!!!</span>
+                <div class="date">
+                  <strong>
+                    <span v-if="eintrag.startTime != '00:00'">
+                      {{eintrag.startTime}}
+                    </span>
+                    <span v-if="eintrag.endTime && eintrag.wholeDay == false">
+                      - {{eintrag.endTime}}
+                    </span>
+                  </strong>
+                </div>
+                
+
+                <div class="title">{{eintrag.title}}</div>
+                <div class="margin-t-s flex-row text-gey" v-if="eintrag.place || eintrag.comment">
+                  <span v-if="eintrag.place" class="flex-1"><i class="fas fa-map-marker-alt margin-r-xs"></i> {{eintrag.place}}</span>
+                  <span v-if="eintrag.comment" class="margin-l-s"><i class="fas fa-comment"></i></span>
                 </div>
 
               </div>

@@ -77,11 +77,17 @@
   margin-right: 0.6rem;
 }
 
+.margin-l-xs {
+  margin-left: 0.3rem;
+}
 .margin-l-s {
   margin-left: 0.6rem;
 }
 
 
+.margin-t-s {
+  margin-top: 0.6rem;
+}
 .margin-t-m {
   margin-top: 1.3rem;
 }

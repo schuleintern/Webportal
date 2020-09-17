@@ -3,7 +3,7 @@
     <div class="form form-style-2 form-modal-content">
       <div class="form-modal-close"v-on:click="handlerCloseModal"><i class="fa fa-times"></i></div>
 
-      <div class="text-small">Datum und Uhrzeit:</div>
+      <div class="text-small text-gey">Datum und Uhrzeit:</div>
       <div class="labelDay">{{form.day}}</div>
 
       <div v-if="form.wholeDay == false" class="labelTime">
@@ -17,7 +17,7 @@
       </div>
 
       <br />
-      <div class="text-small">Titel:</div>
+      <div class="text-small text-gey">Titel:</div>
       <div class="labelDay">{{form.title}}</div>
       <br />
 
@@ -25,11 +25,11 @@
         <div class="flex-1">
           <ul class="noListStyle">
             <li v-if="form.place">
-              <label class="text-small">Ort:</label>
+              <label class="text-small text-gey"><i class="fas fa-map-marker-alt margin-r-xs"></i>Ort:</label>
               {{form.place}}
             </li>
             <li v-if="form.comment" class="margin-t-m">
-              <label class="text-small">Notiz:</label>
+              <label class="text-small text-gey"><i class="fas fa-comment margin-r-xs"></i>Notiz:</label>
               <br>
               <span v-html="form.comment">{{form.comment}}</span>
             </li>
@@ -54,7 +54,7 @@
       <div v-show="acl.rights.write">
         <hr>
 
-        <div class="text-small">
+        <div class="text-small text-gey">
           <b>Erstellt von:</b>
           <div>{{form.createdUserName}}</div>
           <div>{{form.createdTime}} - {{form.modifiedTime}}</div>
