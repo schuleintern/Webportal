@@ -10,16 +10,22 @@
         </ul>
       </div>
 
-      <h3>{{form.day}}</h3>
+      <div class="text-small">Datum:</div>
+      <div class="labelDay">{{form.day}}</div>
+
       <input type="hidden" v-model="form.id"  />
       <input type="hidden" v-model="form.day"  />
-      <input type="text" v-model="form.title" placeholder="Titel"  />
 
-      <div class="flex-row">
+      <br />
+      <div class="text-small">Titel:</div>
+
+      <input type="text" v-model="form.title" placeholder="Titel" class="width-100p" />
+
+      <div class="flex-row margin-t-l">
         <div class="flex-1">
-          <h4>Kalender:</h4>
+          <h4>Kalender wählen:</h4>
           <ul class="noListStyle">
-            <li v-bind:key="i" v-for="(item, i) in kalender" >
+            <li v-bind:key="i" v-for="(item, i) in kalender" class="margin-b-s" >
               <button v-on:click="handlerClickKalender(item.kalenderID)"
               v-bind:style="styleButton(item.kalenderID, item.kalenderColor)"
               class="btn" v-show="checkAcl(item.kalenderAcl)">{{item.kalenderName}}</button>
@@ -28,29 +34,32 @@
         </div>
         <div class="flex-1">
           <ul class="noListStyle">
-            <li>
-              <label>Start Clock:</label>
+            <li class="margin-b-m">
+              <label>Uhrzeit Start:</label>
               <!-- <input type="hidden" v-model="form.start" /> -->
               <vue-timepicker v-model="form.start" format="HH:mm" :minute-interval="5"></vue-timepicker>
             </li>
-            <li>
-              <label>End Clock:</label>
+            <li class="margin-b-m">
+              <label>Uhrzeit Ende:</label>
               <!-- <input type="hidden" v-model="form.end"  /> -->
               <vue-timepicker v-model="form.end" format="HH:mm" :minute-interval="5"></vue-timepicker>
             </li>
             <li>
-              Place:
+              <label class="text-small">Ort:</label>
               <input type="text" v-model="form.place" />
             </li>
             <li>
-              Comment:
+              <label class="text-small">Notiz:</label>
               <textarea v-model="form.comment"></textarea>
             </li>
           </ul>
         </div>
       </div>
 
-      <button v-on:click="handlerClickAddEintrag">Hinzufügen</button>
+      <hr>
+
+      <button v-on:click="handlerClickAddEintrag"
+      class="btn width-100p"><i class="fa fa-save"></i>Speichern</button>
 
 
       
@@ -128,7 +137,7 @@ export default {
         this.form.place = data.form.place;
       }
       if ( data.form.comment ) {
-        this.form.comment = data.form.comment;
+        this.form.comment = that.strippedContent(data.form.comment);
       }
 
       this.modalActive = true;
@@ -156,6 +165,10 @@ export default {
   },
   methods: {
     
+    strippedContent: function (str) {
+      let regex = /(<([^>]+)>)/ig;
+      return str.replace(regex, "");
+    },
     checkAcl: function (acl) {
       //console.log(acl.rights.write);
       if (acl && acl.rights) {

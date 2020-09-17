@@ -84,8 +84,8 @@ class ACL {
 		$acl['owne'] = $acl['groups']['owne'];
 
 		// $acl['rights']['read'] = 1;
-		// $acl['rights']['write'] = 1;
-    // $acl['rights']['delete'] = 0;
+		//  $acl['rights']['write'] = 0;
+    //  $acl['rights']['delete'] = 0;
     //print_r($acl);
     return $acl;
 

@@ -42,6 +42,9 @@
 }
 
 
+.width-100p {
+  width: 100%;
+}
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -81,6 +84,9 @@
 
 .margin-t-m {
   margin-top: 1.3rem;
+}
+.margin-t-l {
+  margin-top: 2.3rem;
 }
 
 .margin-b-s {

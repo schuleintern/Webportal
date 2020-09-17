@@ -28,11 +28,12 @@
               <label class="text-small">Ort:</label>
               {{form.place}}
             </li>
-            <li v-if="form.comment">
+            <li v-if="form.comment" class="margin-t-m">
               <label class="text-small">Notiz:</label>
+              <br>
               <span v-html="form.comment">{{form.comment}}</span>
             </li>
-            <li class="margin-t-m">
+            <li class="margin-t-l">
               <div class="btn noCursor" :style="{backgroundColor: formKalender.kalenderColor}">{{formKalender.kalenderName}}</div> 
             </li>
           </ul>
@@ -48,14 +49,16 @@
         class="btn"><i class="fa fa-trash"></i>Löschen</button>
       <button v-on:click="handlerClickDeleteSecond"
         v-show="deleteBtn"
-        class="btn btn-red">Wirklich Löschen</button>
+        class="btn btn-red">Endgültig Entfernen!</button>
 
-      <hr>
+      <div v-show="acl.rights.write">
+        <hr>
 
-      <div class="text-small">
-        <b>Erstellt von:</b>
-        <div>{{form.createdUserName}}</div>
-        <div>{{form.createdTime}} - {{form.modifiedTime}}</div>
+        <div class="text-small">
+          <b>Erstellt von:</b>
+          <div>{{form.createdUserName}}</div>
+          <div>{{form.createdTime}} - {{form.modifiedTime}}</div>
+        </div>
       </div>
 
     </div>
