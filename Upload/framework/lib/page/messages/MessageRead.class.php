@@ -341,6 +341,11 @@ class MessageRead extends AbstractPage {
     
     
     if($_REQUEST['action'] == 'print') {
+
+        if($message->isForward()) {
+            $forwardMessage = $message->getForwardMessage();
+        }
+
         $html = "";
         
         $attachmentHTML = "";
