@@ -8,38 +8,56 @@
       </ul>
     </div>
 
-    <h3>Kalender bearbeiten</h3>
+{{kalender}}
+    <div class="flex-row">
+      <div class="flex-2">
 
-    <div class="calendar-list">
-      <ul>
-        <draggable v-model="kalender" group="people" @start="drag=true" @end="endSort" handle=".handle">
-          <li v-bind:key="item.kalenderID" v-for="(item, i) in kalender"
-            class="flex-row" v-show="!item.delete">
-            <div class="handle"><input type="hidden" v-model="item.kalenderSort" /><i class=" fa fa-sort"></i></div>
-            <div><input type="text" v-model="item.kalenderName" /></div>
-            <div><input type="text" v-model="item.kalenderColor" placeholder="Farbe" /></div>
-            <div>
-              <input type="checkbox" v-model="item.kalenderPreSelect" true-value="1" false-value="0" />
-              <label>Ausgewählt</label>
-            </div>
-            <div v-on:click="handlerKalenderRemove(item)"><i class=" fa fa-trash"></i></div>
-          </li>
-        </draggable>
-      </ul>
-      <button v-on:click="handlerKalenderAdd">Neuer Kalender hinzufügen</button>
-    
-      <form ref="form" action="" method="post">
-        <input type="hidden" name="data" v-model="kalenderJsonString">
-        <input type="hidden" name="action" value="edit">
-        <button v-on:click="handlerKalenderSubmit">Speichern</button>
-      </form>
+        <div class="calendar-list">
+          <h3>Kalender bearbeiten</h3>
+          <ul>
+            <draggable v-model="kalender" group="people" @start="drag=true" @end="endSort" handle=".handle">
+              <li v-bind:key="item.kalenderID" v-for="(item, i) in kalender"
+                class="flex-row" v-show="!item.delete">
+                <div class="handle"><input type="hidden" v-model="item.kalenderSort" /><i class=" fa fa-sort"></i></div>
+                <div><input type="text" v-model="item.kalenderName" /></div>
+                <div><input type="text" v-model="item.kalenderColor" placeholder="Farbe" /></div>
+                <div>
+                  <input type="checkbox" v-model="item.kalenderPreSelect" true-value="1" false-value="0" />
+                  <label>Ausgewählt</label>
+                </div>
+                <div v-on:click="handlerKalenderRemove(item)"><i class=" fa fa-trash"></i></div>
+                <div v-on:click="handlerOpenAcl(item)">
+                  ACL
+                  <div>
+                    <Acl v-bind:moduleID="item.kalenderAclID"
+                      v-bind:childID="item.kalenderID"
+                      v-bind:moduleName="moduleName"></Acl>
+                  </div>
+
+                </div>
+              </li>
+            </draggable>
+          </ul>
+          <button v-on:click="handlerKalenderAdd">Neuer Kalender hinzufügen</button>
+        
+          <form ref="form" action="" method="post">
+            <input type="hidden" name="data" v-model="kalenderJsonString">
+            <input type="hidden" name="action" value="edit">
+            <button v-on:click="handlerKalenderSubmit">Speichern</button>
+          </form>
+        </div>
+        
+      </div>
+      <div class="flex-1">
+
+        <Acl v-bind:moduleID="false"
+          v-bind:childID="false"
+          v-bind:moduleName="moduleName"></Acl>
+
+      </div>
     </div>
 
 
-
-
-    <Acl module="apiKalender"></Acl>
-   
 
   </div>
 </template>
@@ -67,16 +85,23 @@ export default {
       error: false,
 
       kalender: [],
-      kalenderJsonString: ''
+      kalenderJsonString: '',
+
+      moduleName: 'apiKalender',
+      moduleAclID: false,
+      moduleAclChildID: false
     }
   },
   created: function () {
 
     //this.acl = globals.acl;
 
+    //this.moduleAclID = this.moduleName;
+
     //console.log(globals);
     var that = this;
 
+    that.error = false;
     that.ajaxGet(
       'rest.php/GetKalender',
       {},
@@ -86,16 +111,43 @@ export default {
         } else {
           if (response.data.list) {
             that.kalender = response.data.list;
+            
           } 
         }
       }
     );
 
+    EventBus.$on('acl--changed', data => {
+      console.log('acl--changed', data.acl.id, data.moduleName, data.childID );
+      if (data.childID) {
+        that.kalender.forEach(item => {
+          if (item.kalenderID == data.childID) {
+            data.acl.moduleClass = '';
+            data.acl.moduleClassParent = data.moduleName;
+            item.kalenderAcl = data.acl;
+          }
+        });
+      }
+    });
 
   },
   methods: {
 
+    handlerOpenAcl: function (item) {
 
+      if (item && item.kalenderID) {
+        this.moduleAclChildID = item.kalenderID;
+      } else {
+        this.moduleAclChildID = false;
+      }
+
+      if (item && item.kalenderAclID) {
+        this.moduleAclID = item.kalenderAclID;
+      } else {
+        this.moduleAclID = 0;
+      }
+
+    },
     endSort: function () {
 
       var i = 1;

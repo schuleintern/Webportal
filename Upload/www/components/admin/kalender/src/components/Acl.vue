@@ -8,6 +8,8 @@
       </ul>
     </div>
 
+{{moduleID}} -
+{{moduleName}}
     <h3>Access Control List</h3>
 
     <div class="acl">
@@ -115,7 +117,9 @@ const axios = require('axios').default;
 export default {
   name: 'app',
   props: {
-    module: String
+    moduleID: Number,
+    moduleName: String,
+    childID: Number
   },
   components: {
     
@@ -124,6 +128,8 @@ export default {
     return {
       loading: true,
       error: false,
+
+      module: false,
 
       acl: {
         id: 0,
@@ -145,31 +151,89 @@ export default {
       }
     }
   },
+  watch: {
+    // moduleID: function () {
+    //   //if (this.moduleID) {
+    //     this.loadAcl();
+    //   //}
+    // }
+
+
+    acl: {
+      handler(val){
+        // do stuff
+        //console.log('changed child', this.moduleID, this.moduleName, this.acl.id);
+       
+        var that = this;
+        EventBus.$emit('acl--changed', {
+          acl: that.acl,
+          moduleName: that.moduleName,
+          childID: that.childID
+        });
+
+     },
+     deep: true
+    }
+  },
   created: function () {
 
-    var that = this;
-
-    that.ajaxGet(
-      'rest.php/GetAcl/'+this.module,
-      {},
-      function (response, that) {
-        if (response.data.error == true && response.data.msg) {
-          that.error = response.data.msg;
-        } else {
-          if (response.data.acl) {
-            that.acl = response.data.acl;
-          } 
-        }
-      }
-    );
-
+    this.loadAcl();
 
   },
   methods: {
 
+    loadAcl: function () {
+
+      if (this.moduleName && !this.moduleID) {
+        this.module = this.moduleName;
+      } else {
+        this.module = this.moduleID;
+      }
+
+      // console.log( this.moduleID );
+      // console.log( this.moduleName );
+      // console.log( 'load', this.module );
+
+      if ( this.moduleID == null) {
+        
+        const keys = Object.keys(this.acl)
+        for (const key of keys) {
+          //console.log(key)
+          this.acl[key] = 0;
+        }
+
+      } else {
+
+        var that = this;
+        that.error = false;
+        that.ajaxGet(
+          'rest.php/GetAcl/'+this.module,
+          {},
+          function (response, that) {
+            if (response.data.error == true && response.data.msg) {
+              that.error = response.data.msg;
+            } else {
+              if (response.data.acl) {
+                that.acl = response.data.acl;
+              } 
+            }
+          }
+        );
+        
+      }
+      
+
+      
+      
+
+      
+      
+    },
     handlerSubmit: function () {
 
       var that = this;
+
+      that.error = false;
       that.ajaxPost(
         'rest.php/SetAcl/'+this.module,
         { acl: this.acl },

@@ -27,7 +27,8 @@ class RestGetKalender extends AbstractRest {
 				'kalenderColor' => $row['kalenderColor'],
 				'kalenderSort' => $row['kalenderSort'],
 				'kalenderPreSelect' => $row['kalenderPreSelect'],
-				'kalenderAcl' => $this->getAclByID($row['kalenderAcl'], true)
+				'kalenderAcl' => $this->getAclByID($row['kalenderAcl']),
+				'kalenderAclID' => $row['kalenderAcl'],
 			];
 
 			if (!$item['kalenderColor']) {

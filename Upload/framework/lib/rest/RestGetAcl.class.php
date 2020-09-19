@@ -12,7 +12,11 @@ class RestGetAcl extends AbstractRest {
 				'msg' => 'Fehlendes Modul!'
 			];
 		}
-		$result = DB::getDB()->query_first("SELECT * FROM acl WHERE moduleClass = '".$module."'");
+		if ( intval($module) > 1 ) {
+			$result = DB::getDB()->query_first("SELECT * FROM acl WHERE id = ".intval($module));
+		} else {
+			$result = DB::getDB()->query_first("SELECT * FROM acl WHERE moduleClass = '".$module."'");
+		}
 		
 		if( $result['id'] ) {
 
