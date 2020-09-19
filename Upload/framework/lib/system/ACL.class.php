@@ -94,15 +94,22 @@ class ACL {
 
 	public function setAcl( $row, $module = false ) {
 
-		print_r($row);
+
+		if ( !isset($row['id']) ) {
+			return false;
+		}
 
 		if ( $row['id'] ) {
 
-			$dbRow = DB::getDB()->query_first("SELECT id FROM acl WHERE id = " . intval($row['id']) . " AND moduleClass = '".$module."'");
+			if ($module) {
+				$dbRow = DB::getDB()->query_first("SELECT id FROM acl WHERE id = " . intval($row['id']) . " AND moduleClass = '".$module."'");
+			} else {
+				$dbRow = DB::getDB()->query_first("SELECT id FROM acl WHERE id = " . intval($row['id']));
+			}
 
 			if ( $dbRow['id'] ) {
 				
-				echo $row['schuelerWrite'];
+				//echo $row['schuelerWrite'];
 
 				DB::getDB()->query("UPDATE acl SET
 					schuelerRead = ".intval($row['schuelerRead']).",
@@ -121,7 +128,13 @@ class ACL {
 					owneWrite = ".intval($row['owneWrite']).",
 					owneDelete = ".intval($row['owneDelete'])."
 					WHERE id = " . intval($row['id']) . ";");
-		
+				
+				return [
+					'error' => false,
+					'done' => true,
+					'aclID' => intval($row['id'])
+				];
+
 			} else {
 				return [
 					'error' => true,
@@ -131,6 +144,10 @@ class ACL {
 
 								
 		} else {
+
+			if (!$module) {
+				$module = '';
+			}
 
 			DB::getDB()->query("INSERT INTO acl (
 				moduleClass,
@@ -168,7 +185,11 @@ class ACL {
 				'".DB::getDB()->encodeString($row['owneDelete'])."'
 			);");
 
-			return true;
+			return [
+				'error' => false,
+				'done' => true,
+				'aclID' => DB::getDB()->insert_id()
+			];
 
 		}
 

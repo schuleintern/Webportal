@@ -22,9 +22,9 @@ class RestSetAcl extends AbstractRest {
 			];
 		}
 
-		$return = ACL::setAcl($row);
+		$return = ACL::setAcl($row, $module);
 
-		if ( $return ) {
+		if ( $return && $return['error'] != true ) {
 			return [
 				'error' => false,
 				'done' => true

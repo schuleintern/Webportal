@@ -98,10 +98,9 @@ class apiKalender extends AbstractPage {
 
       $data = json_decode($_POST['data']);
       
-      echo "<pre>";
-      print_r($data);
-      echo "</pre>";
-      exit;
+      // echo "<pre>";
+      // print_r($data);
+      // echo "</pre>";
 
       if (!$data) {
         return false;
@@ -109,6 +108,20 @@ class apiKalender extends AbstractPage {
 
       foreach($data as $item) {
         if ( $item->kalenderName ) {
+
+          echo "<pre>";
+          print_r($item);
+          echo "</pre>";
+
+          $return = ACL::setAcl( (array)$item->kalenderAcl );
+          if (!$return || !$return['aclID']) {
+            $return['aclID'] = 0;
+          }
+
+          echo "<pre>";
+          print_r($return);
+          echo "</pre>";
+
           if ( $item->kalenderID != 0 ) {
             $dbRow = DB::getDB()->query_first("SELECT kalenderID FROM kalender_api WHERE kalenderID = " . intval($item->kalenderID) . "");
             if ($dbRow['kalenderID'] && $item->kalenderName != 'DELETE') {
@@ -116,23 +129,29 @@ class apiKalender extends AbstractPage {
                 kalenderName = '".DB::getDB()->escapeString($item->kalenderName)."',
                 kalenderColor = '".DB::getDB()->escapeString($item->kalenderColor)."',
                 kalenderSort = '".DB::getDB()->escapeString($item->kalenderSort)."',
-                kalenderPreSelect = '".DB::getDB()->escapeString($item->kalenderPreSelect)."'
+                kalenderPreSelect = '".DB::getDB()->escapeString($item->kalenderPreSelect)."',
+                kalenderAcl = ".$return['aclID']."
                 WHERE kalenderID = " . intval($item->kalenderID) . ";");
                 
             } else if ($item->delete == 1 && $item->kalenderName == 'DELETE') {
               DB::getDB()->query("DELETE FROM kalender_api WHERE kalenderID = ". intval($item->kalenderID));
             }
           } else {
-            DB::getDB()->query("INSERT INTO kalender_api (kalenderID, kalenderName, kalenderColor, kalenderSort, kalenderPreSelect ) values(
+            DB::getDB()->query("INSERT INTO kalender_api (kalenderID, kalenderName, kalenderColor, kalenderSort, kalenderPreSelect, kalenderAcl ) values(
             '" . DB::getDB()->escapeString($item->kalenderID) . "',
             '" . DB::getDB()->escapeString($item->kalenderName) . "',
             '" . DB::getDB()->escapeString($item->kalenderColor) . "',
             '" . DB::getDB()->escapeString($item->kalenderSort) . "',
-            '" . DB::getDB()->escapeString($item->kalenderPreSelect) . "'
+            '" . DB::getDB()->escapeString($item->kalenderPreSelect) . "',
+            ".$return['aclID']."
             )");
           }
+
+          
+          
         }
       }
+
 
 			header("Location: $selfURL");
 			exit();
