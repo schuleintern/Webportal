@@ -61,8 +61,27 @@
 <br /><br />
 
             
-                {$message->getText()}
-                
+								{$message->getText()}
+								
+								<if($forwardMessage)>
+									<then>
+										<br><hr><br>
+
+							
+										<b>Nachricht von:</b><br />
+											
+										<if($forwardMessage->getSender() != null)><then>
+											Absender: {$forwardMessage->getSender()->getDisplayName()}<br />
+										</then><else>
+											Absender: <i>Unbekannt</i><br />
+										</else></if>
+										Betreff: {$forwardMessage->getSubject()}<br /><br />
+										{$forwardMessage->getText()}
+								
+
+									</then>
+								</if>
+
                 <br /><br />
                 
                 <if($message->isReply())><then>
