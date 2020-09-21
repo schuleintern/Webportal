@@ -156,6 +156,9 @@ class requesthandler {
     'mebis' => [
       'mebis',
     ],
+    'mensa' => [
+      'mensa'
+    ],
     'office365' => [
       'office365',
       'office365users',

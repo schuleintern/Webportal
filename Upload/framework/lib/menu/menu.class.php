@@ -427,6 +427,9 @@ class menu {
     }
     
     
+    if( $this->isActive("mensa") )  $html .= $this->getMenuItem("mensa", "Mensa", "fa fas fa-utensils");
+
+
     if(!DB::getSession()->isEltern() &&
         
         ($this->isActive("office365") || $this->isActive("homeuseprogram") || $this->isActive("downloads") || $this->isActive("office365info")
