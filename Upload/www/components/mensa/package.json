@@ -5,13 +5,15 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "watch": "vue-cli-service build --watch",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
-    "vue-dayjs": "^1.0.2"
+    "vue-dayjs": "^1.0.2",
+    "vue-dayjs-plugin": "^1.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",

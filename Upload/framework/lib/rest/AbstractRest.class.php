@@ -1,16 +1,18 @@
 <?php
 
 abstract class AbstractRest {
-    protected $statusCode = 200;
+	protected $statusCode = 200;
 
-    /**
-     * @var user
-     */
-    public $user = null;
+	/**
+	 * @var user
+	 */
+	public $user = null;
 
-	public function __construct() {
-		
-	}
+	/**
+	 * @var acl
+	 */
+	public $acl = null;
+
 	
 	public abstract function execute($input, $request);
 	
@@ -47,8 +49,56 @@ abstract class AbstractRest {
      * @return bool
      */
 	public function needsUserAuth() {
-	    return false;
-    }
+		return false;
+	}
+
+	public function aclModuleName() {
+		return get_called_class();
+	}
+
+	
+	/**
+	 * Access Control List
+	 * @return acl
+	 */
+	public function acl() {
+		$moduleClass = $this->aclModuleName();
+		$this->acl = ACL::getAcl($this->user, $moduleClass);
+	}
+
+	public function getAclByID($id, $showRight = false) {
+		if ($id) {
+			$acl = ACL::getAcl($this->user, false, $id);
+			if ($showRight) {
+				return [ 'rights' => $acl['rights'], 'owne' => $acl['owne'] ];
+			} else {
+				return $acl;
+			}
+		}
+		return false;
+	}
+
+	public function getAclAll() {
+		return $this->acl;
+	}
+
+	public function getAcl() {
+		return [ 'rights' => $this->acl['rights'], 'owne' => $this->acl['owne'] ];
+	}
+
+	public function getAclRead() {
+		return $this->acl['rights']['read'];
+	}
+
+	public function getAclWrite() {
+		return $this->acl['rights']['write'];
+	}
+	
+	public function getAclDelete() {
+		return $this->acl['rights']['delete'];
+	}
+	
+
 
 }	
 

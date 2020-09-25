@@ -137,10 +137,10 @@ class schueler {
 
 		$gruppe = [];
 
-		// if ( $this->data['gruppe'] ) {
-		// 	$gruppen_query = DB::getDB()->query("SELECT `name` AS `gruppe_name` FROM ganztags_gruppen WHERE id = ".$this->data['gruppe']." ");
-		// 	while($row = mysqli_fetch_array($gruppen_query)) { $gruppe = $row; }
-		// }
+		if ( $this->data['gruppe'] && $action = false ) {
+			$gruppen_query = DB::getDB()->query("SELECT `name` AS `gruppe_name` FROM ganztags_gruppen WHERE id = ".$this->data['gruppe']." ");
+			while($row = mysqli_fetch_array($gruppen_query)) { $gruppe = $row; }
+		}
 
 		if ($action == 'print') {
 			if ($this->data['tag_mo']) { $this->data['tag_mo'] = 'x'; } else { $this->data['tag_mo'] = ''; }
@@ -172,7 +172,8 @@ class schueler {
 			'tag_do' => $this->data['tag_do'],
 			'tag_fr' => $this->data['tag_fr'],
 			'tag_sa' => $this->data['tag_sa'],
-			'tag_so' => $this->data['tag_so']
+			'tag_so' => $this->data['tag_so'],
+			'gruppe_name' => $gruppe['name']
 		];
 	}
 

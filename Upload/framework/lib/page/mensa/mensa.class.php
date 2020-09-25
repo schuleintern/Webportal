@@ -19,10 +19,74 @@ class mensa extends AbstractPage {
 
 	public function execute() {
 		
-		
+
+		if ( $_REQUEST['action'] == 'getWeek') {
+			
+			if ( !$_GET['bis'] ) {
+				die('missing data');
+			}
+			if ( !$_GET['von'] ) {
+				die('missing data');
+			}
+	
+			$von = date('Y-m-d', $_GET['von']);
+			$bis = date('Y-m-d', $_GET['bis']);
+			
+			
+			$booked = [];
+			$booked_db = DB::getDB()->query("SELECT a.*
+				FROM mensa_order as a
+				WHERE a.userID = ".intval( DB::getUserID() )."" );
+			while($order = DB::getDB()->fetch_array($booked_db)) {
+				$booked[] = $order['speiseplanID'];
+			}
+
+			// echo "SELECT a.*
+			// FROM mensa_order as a
+			// WHERE a.userID = ".intval( DB::getUserID() )."";
+
+			// print_r($booked);
+			// exit;
+
+			$result = DB::getDB()->query("SELECT a.*
+				FROM mensa_speiseplan as a
+				WHERE a.date >= '".$von."' AND a.date <= '".$bis."'" );
+
+			$return = [];
+
+			while($row = DB::getDB()->fetch_array($result)) {
+				
+				if ($row['desc']) {
+					$row['desc'] = nl2br($row['desc']);
+				}
+				$row['booked'] = 0;
+				if ( in_array($row['id'], $booked) ) {
+					$row['booked'] = 1;
+				}
+				$return[] = $row;
+			}
+	
+			if(count($return) > 0) {
+	
+				echo json_encode( $return );
+	
+			} else {
+				echo json_encode([
+					'error' => true,
+					'msg' => 'Es konnte kein Essen geladen werden!'
+				]);
+			}
+
+			exit;
+		}
+
+
 		eval("echo(\"" . DB::getTPL()->get("mensa/index"). "\");");
 		
 	}
+
+	
+	
 	
 	
 	public static function hasSettings() {

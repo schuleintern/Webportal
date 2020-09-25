@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     
+    <div v-show="error">
+      {{error}}
+    </div>
+
     <div v-if="loading == true" class="overlay">
       <i class="fa fa-refresh fa-spin"></i>
     </div>
@@ -9,6 +13,9 @@
       <Calendar  v-bind:dates="dates"></Calendar>
     </div>
 
+    <Form></Form>
+    <Item></Item>
+
   </div>
 </template>
 
@@ -16,6 +23,8 @@
 //console.log('globals',globals);
 
 import Calendar from './components/Calendar.vue'
+import Form from './components/Form.vue'
+import Item from './components/Item.vue'
 
 
 const axios = require('axios').default;
@@ -26,55 +35,195 @@ const axios = require('axios').default;
 export default {
   name: 'app',
   components: {
-    Calendar
+    Calendar,
+    Form,
+    Item
   },
   data: function () {
     return {
 
       loading: false,
-
+      error: false,
       dates: []
 
     }
   },
   created: function () {
 
-    
-    //console.log( this.$dayjs().format('YYYY-MM-DD HH:mm:ss') );
 
-    //console.log(globals);
     var that = this;
 
+    EventBus.$on('calendar--changedDate', data => {
 
-    // EventBus.$on('calendar--changedDate', data => {
+      this.showFirstDayWeek = data.von;
+      this.showLastDayWeek = data.bis;
 
-    //   this.showFirstDayWeek = data.von;
-    //   this.showLastDayWeek = data.bis;
+      that.ajaxGet(
+        'index.php?page=mensa&action=getWeek',
+        {
+          von: this.showFirstDayWeek,
+          bis: this.showLastDayWeek
+        },
+        function (response, that) {
+          if (response.data && response.data.error != true) {
+            that.dates = response.data;
+          } else {
+            that.dates = [];
+          }
+          
+        }
+      );
+    }, function () {
+      console.log('error');
+    });
 
-    //   this.loading = true;
-    //   that.ajaxGet(
-    //     'index.php?page=ausleihe&action=getWeek',
-    //     {
-    //       von: this.showFirstDayWeek,
-    //       bis: this.showLastDayWeek,
-    //       filter: this.selectedFilter || false
-    //     },
-    //     function (response, that) {
-    //       that.dates = response.data;
-    //       that.loading = false;
-    //       EventBus.$emit('form--close', {});
-    //     }
-    //   );
+    EventBus.$on('form--submit', data => {
+      
+      // console.log(data);
 
-    // }, function () {
-    //   console.log('error');
-    //   that.loading = false;
-    // });
+      if (!data.form.date || !data.form.title) {
+        return false;
+      }
+
+
+      that.ajaxPost(
+        'rest.php/SetMensaMeal',
+        { data: data.form },
+        { },
+        function (response, that) {
+          
+          that.error = false;
+
+          if (response.data.error == true && response.data.msg) {
+            that.error = response.data.msg;
+          } else if (response.data.done == true) {
+            EventBus.$emit('calender--reload', {});
+            EventBus.$emit('form--close', {});
+          } 
+        }
+      );
+
+    });
+
+
+
+    EventBus.$on('item--delete', data => {
+      
+      if (!data.item || !data.item.id) {
+        return false;
+      }
+
+      console.log(data.item);
+
+      that.ajaxPost(
+        'rest.php/SetMensaMeal/delete',
+        { data: data.item },
+        { },
+        function (response, that) {
+          
+          that.error = false;
+
+          if (response.data.error == true && response.data.msg) {
+            that.error = response.data.msg;
+          } else if (response.data.done == true) {
+            EventBus.$emit('calender--reload', {});
+            //EventBus.$emit('form--close', {});
+          } 
+        }
+      );
+
+
+    });
+
+
+    EventBus.$on('item--order', data => {
+      
+      if (!data.item || !data.item.id) {
+        return false;
+      }
+
+      //console.log(data.item);
+
+      that.ajaxPost(
+        'rest.php/SetMensaOrder',
+        { data: data.item },
+        { },
+        function (response, that) {
+          
+          that.error = false;
+
+          if (response.data.error == true && response.data.msg) {
+            that.error = response.data.msg;
+          } else if (response.data.done == true) {
+
+            data.item.booked = response.data.booked;
+            //EventBus.$emit('calender--reload', {});
+            //EventBus.$emit('form--close', {});
+          } 
+        }
+      );
+
+
+    });
 
 
   },
   methods: {
 
+    ajaxGet: function (url, params, callback, error, allways) {
+      this.loading = true;
+      var that = this;
+      axios.get(url, {
+        params: params
+      })
+      .then(function (response) {
+        // console.log(response.data);
+        if (callback && typeof callback === 'function') {
+          callback(response, that);
+        }
+      })
+      .catch(function (resError) {
+        //console.log(error);
+        if (resError && typeof error === 'function') {
+          error(resError);
+        }
+      })
+      .finally(function () {
+        // always executed
+        if (allways && typeof allways === 'function') {
+          allways();
+        }
+        that.loading = false;
+      });  
+      
+    },
+    ajaxPost: function (url, data, params, callback, error, allways) {
+      this.loading = true;
+      var that = this;
+      axios.post(url, data, {
+        params: params
+      })
+      .then(function (response) {
+        // console.log(response.data);
+        if (callback && typeof callback === 'function') {
+          callback(response, that);
+        }
+      })
+      .catch(function (resError) {
+        //console.log(error);
+        if (resError && typeof error === 'function') {
+          error(resError);
+        }
+      })
+      .finally(function () {
+        // always executed
+        if (allways && typeof allways === 'function') {
+          allways();
+        }
+        that.loading = false;
+      });  
+      
+    }
 
   }
 }
