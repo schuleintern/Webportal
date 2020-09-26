@@ -710,6 +710,14 @@ class updatevplan extends AbstractPage {
 <tr class="list"><th class="list" align="center">Vertreter</th><th class="list" align="center">Stunde</th><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">Art</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="center">Vertr. von</th><th class="list" align="center">(Le.) nach</th></tr>
 ';
                 
+                usort($dataHeute, function($a, $b) {
+                    return [$a[14], $a[2]] <=> [$b[14], $b[2]];
+                });
+
+                usort($dataMorgen, function($a, $b) {
+                    return [$a[14], $a[2]] <=> [$b[14], $b[2]];
+                });
+
                 for($i = 0; $i < sizeof($dataHeute); $i++) {
                     $htmlSchuelerHeute .= self::getPupilLineForUntisData($dataHeute[$i], DB::getSettings()->getBoolean("vplan-censor-schuelerheute"));
                     $htmlLehrerHeute .= self::getTeacherLineForUntisData($dataHeute[$i], DB::getSettings()->getBoolean("vplan-censor-lehrerheute"));
