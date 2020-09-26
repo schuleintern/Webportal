@@ -105,6 +105,9 @@
 .btn:hover {
   background-color: rgb(192, 192, 192);
 }
+.btn.noCursor {
+  cursor: default;
+}
 
 .btn i {
   margin-right: 0.8rem;
@@ -170,6 +173,7 @@ button.btn-blau {
 }
 
 
+
 .bg-red {
   background-color: #dd4b39; 
 }
@@ -223,6 +227,10 @@ button.btn-blau {
 }
 .text-grey {
   color: #738b96;
+}
+
+.text-small {
+  font-size: 80%;
 }
 
 .text-big-2 {

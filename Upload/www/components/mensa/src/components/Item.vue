@@ -30,6 +30,50 @@
         <br/>
 
         <div>
+
+          <hr>
+
+          <h4>Gebuchte Essen</h4>
+
+          <div class="flex-row">
+            <div class="f-1 margin-r-l">
+              <div class="margin-b-m">
+                <label>Summe:</label> {{item.booked_all.summe}}
+              </div>
+            </div>
+            <div class="f-1">
+              <div>
+                <label>Schüler:</label>
+                {{item.booked_all.schueler}}
+              </div>
+              <div>
+                <label>Eltern:</label>
+                {{item.booked_all.eltern}}
+              </div>
+              <div>
+                <label>Lehrer:</label>
+                {{item.booked_all.lehrer}}
+              </div>
+              <div>
+                <label>Mitarbeiter:</label>
+                {{item.booked_all.none}}
+              </div>
+            </div>
+          </div>
+          
+
+          
+
+          <br/>
+
+          <h4>Benutzerliste</h4>
+          <ul>
+            <li v-bind:key="j" v-for="(user, j) in item.booked_all.list">
+              {{user[1]}} ({{user[2]}})
+            </li>
+          </ul>
+
+
           <hr>
           <button @click="openForm(item)" class="btn margin-r-s"><i class="fa fa-edit"></i> Bearbeiten</button>
           

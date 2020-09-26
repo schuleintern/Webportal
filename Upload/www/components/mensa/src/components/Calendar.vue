@@ -28,7 +28,7 @@
               <td v-bind:key="j" v-for="(day, j) in daysInWeek" >
                 
                 <div v-bind:key="j" v-for="(item, j) in getEintrag(day)" 
-                  class="eintrag">
+                  class="eintrag" v-on:click="openEintrag(item)">
                   <div class="title margin-b-s">{{item.title}}</div>
                   <div class="text-green margin-b-s">
                     <div v-if="item.vegetarisch == 1"><i class="fas fa-seedling"></i> Vegetarisch</div>
@@ -38,9 +38,11 @@
                     <div v-if="item.bio == 1"><i class="fas fa-leaf"></i> Bio</div>
                     <div v-if="item.regional == 1"><i class="fas fa-tractor"></i> Regional</div>
                   </div>
-                  <button class="btn margin-r-s" @click="openEintrag(item)"><i class="fas fa-info-circle"></i></button>
-                  <button class="btn" @click="orderEintrag(item)"><i class="fas fa-shopping-cart"></i> Buchen</button>
-                  {{item.booked}}
+                  <button class="btn" :class="{ 'btn-orange': item.booked  }"
+                    v-on:click.stop="orderEintrag(item)">
+                    <span v-if="item.booked"><i class="fas fa-shopping-cart"></i> Gebucht</span>
+                    <span v-if="!item.booked"><i class="fas fa-shopping-cart"></i> Buchen</span>
+                  </button>
                 </div>
               </td>
             <tr>
@@ -51,10 +53,6 @@
           </tbody>
         </table>
     </div>
-
-    
-
-    
 
   </div>
 </template>
@@ -69,13 +67,10 @@ export default {
   },
   data(){
     return{
-      
-      
 
       today: this.$date(),
       thisWeek: false
 
-      
     }
   },
   created: function () {
@@ -110,7 +105,6 @@ export default {
   methods: {
 
     
-
     subtractWeek: function () {
       this.thisWeek = this.thisWeek.subtract(1, 'week');
       this.changedDate();
@@ -131,11 +125,9 @@ export default {
     },
 
     openForm: function (day) {
-
       EventBus.$emit('form--open', {
         item: {date: day}
       });
-      
     },
 
     getEintrag: function (day) {
@@ -154,25 +146,19 @@ export default {
     },
 
     openEintrag: function (item) {
-
       EventBus.$emit('item--open', {
         item: item
       });
-
     },
 
     orderEintrag: function (item) {
-
       if (!item.id) {
         return false;
       }
-
       EventBus.$emit('item--order', {
         item: item
       });
-
     }
-
   }
 }
 </script>

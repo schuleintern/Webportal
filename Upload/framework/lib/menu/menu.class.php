@@ -427,7 +427,10 @@ class menu {
     }
     
     
-    if( $this->isActive("mensa") )  $html .= $this->getMenuItem("mensa", "Mensa", "fa fas fa-utensils");
+    if( $this->isActive("mensaSpeiseplan") )  {
+      
+      $html .= $this->getMenuItem("mensaSpeiseplan", "Speiseplan", "fa fas fa-utensils");
+    }
 
 
     if(!DB::getSession()->isEltern() &&

@@ -59,7 +59,7 @@ export default {
       this.showLastDayWeek = data.bis;
 
       that.ajaxGet(
-        'index.php?page=mensa&action=getWeek',
+        'index.php?page=mensaSpeiseplan&action=getWeek',
         {
           von: this.showFirstDayWeek,
           bis: this.showLastDayWeek

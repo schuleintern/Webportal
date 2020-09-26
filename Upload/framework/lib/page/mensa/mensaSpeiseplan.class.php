@@ -1,7 +1,7 @@
 <?php
 
 
-class mensa extends AbstractPage {
+class mensaSpeiseplan extends AbstractPage {
 	
 	private $isAdmin = false;
 	private $isTeacher = false;
@@ -10,7 +10,7 @@ class mensa extends AbstractPage {
 
 	public function __construct() {
 		
-		parent::__construct(array("Mensa"));
+		parent::__construct(array("Mensa Speiseplan"));
 				
 		$this->checkLogin();
 		
@@ -33,24 +33,20 @@ class mensa extends AbstractPage {
 			$bis = date('Y-m-d', $_GET['bis']);
 			
 			
-			$booked = [];
+			$booked_own = [];
 			$booked_db = DB::getDB()->query("SELECT a.*
-				FROM mensa_order as a
-				WHERE a.userID = ".intval( DB::getUserID() )."" );
+					FROM mensa_order as a
+					WHERE a.userID = ".intval( DB::getUserID() )."" );
 			while($order = DB::getDB()->fetch_array($booked_db)) {
-				$booked[] = $order['speiseplanID'];
+				$booked_own[] = $order['speiseplanID'];
 			}
 
-			// echo "SELECT a.*
-			// FROM mensa_order as a
-			// WHERE a.userID = ".intval( DB::getUserID() )."";
-
-			// print_r($booked);
-			// exit;
-
+			
 			$result = DB::getDB()->query("SELECT a.*
 				FROM mensa_speiseplan as a
 				WHERE a.date >= '".$von."' AND a.date <= '".$bis."'" );
+
+			
 
 			$return = [];
 
@@ -60,9 +56,54 @@ class mensa extends AbstractPage {
 					$row['desc'] = nl2br($row['desc']);
 				}
 				$row['booked'] = 0;
-				if ( in_array($row['id'], $booked) ) {
+				if ( in_array($row['id'], $booked_own) ) {
 					$row['booked'] = 1;
 				}
+
+				if ( DB::getSession()->isAdmin() || DB::getSession()->isMember(mensaSpeiseplan::getAdminGroup()) ) {
+
+					$row['booked_all'] = [
+						'list' => [],
+						'schueler' => 0,
+						'lehrer' => 0,
+						'eltern' => 0,
+						'none' => 0,
+						'summe' => 0
+					];
+
+					$booked_all = DB::getDB()->query("SELECT a.userID
+						FROM mensa_order as a
+						WHERE a.speiseplanID = '".$row['id']."' " );
+					while($row_order = DB::getDB()->fetch_array($booked_all)) {
+						
+						
+
+						$userData = PAGE::getFactory()->getUserByID( $row_order['userID'] );
+						$booked_user = new user( $userData );
+
+						$user_Typ = '';
+
+						if ( $booked_user->isPupil() ) {
+							$row['booked_all']['schueler']++;
+						}
+						if ( $booked_user->isTeacher() ) {
+							$row['booked_all']['lehrer']++;
+						}
+						if ( $booked_user->isEltern() ) {
+							$row['booked_all']['eltern']++;
+						}
+						if ( $booked_user->isNone() ) {
+							$row['booked_all']['none']++;
+						}
+
+						$row['booked_all']['list'][] = [ $row_order['userID'], $booked_user->getDisplayName(), $booked_user->getUserTyp() ];
+
+					}
+
+					$row['booked_all']['summe'] = count($row['booked_all']['list']);
+
+				}
+
 				$return[] = $row;
 			}
 	
@@ -79,6 +120,9 @@ class mensa extends AbstractPage {
 
 			exit;
 		}
+
+
+		
 
 
 		eval("echo(\"" . DB::getTPL()->get("mensa/index"). "\");");
@@ -99,7 +143,7 @@ class mensa extends AbstractPage {
 	
 	
 	public static function getSiteDisplayName() {
-		return 'Mensa';
+		return 'Mensa Speiseplan';
 	}
 	
 	/**
@@ -116,8 +160,8 @@ class mensa extends AbstractPage {
 	}
 	
 	public static function getAdminGroup() {
-		return false;
-		//return 'Webportal_Klassenlisten_Admin';
+		//return false;
+		return 'Webportal_Mensa_Speiseplan';
 	}
 	
 	public static function getAdminMenuGroup() {
