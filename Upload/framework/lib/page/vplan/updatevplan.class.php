@@ -683,31 +683,31 @@ class updatevplan extends AbstractPage {
                 }
                 
                 $htmlSchuelerHeute = '<table class="mon_list" >
-<tr class="list"><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Stunde</th><th class="list" align="center">Vertreter</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">Art</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="center">Vertr. von</th><th class="list" align="center">(Le.) nach</th></tr>
+<tr class="list"><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Stunde</th><th class="list" align="center">Vertreter</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="">Info</th></tr>
 ';
                 $htmlLehrerHeute = '<table class="mon_list">
-<tr class="list"><th class="list" align="center">Vertreter</th><th class="list" align="center">Stunde</th><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">Art</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="center">Vertr. von</th><th class="list" align="center">(Le.) nach</th></tr>
+<tr class="list"><th class="list" align="center">Vertreter</th><th class="list" align="center">Stunde</th><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="">Info</th></tr>
 ';
                 
                 $htmlSchuelerHeuteUnCensored = '<table class="mon_list" >
-<tr class="list"><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Stunde</th><th class="list" align="center">Vertreter</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">Art</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="center">Vertr. von</th><th class="list" align="center">(Le.) nach</th></tr>
+<tr class="list"><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Stunde</th><th class="list" align="center">Vertreter</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="">Info</th></tr>
 ';
                 $htmlLehrerHeuteUnCensored = '<table class="mon_list">
-<tr class="list"><th class="list" align="center">Vertreter</th><th class="list" align="center">Stunde</th><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">Art</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="center">Vertr. von</th><th class="list" align="center">(Le.) nach</th></tr>
+<tr class="list"><th class="list" align="center">Vertreter</th><th class="list" align="center">Stunde</th><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="">Info</th></tr>
 ';
                 
                 $htmlSchuelerMorgen = '<table class="mon_list" >
-<tr class="list"><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Stunde</th><th class="list" align="center">Vertreter</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">Art</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="center">Vertr. von</th><th class="list" align="center">(Le.) nach</th></tr>
+<tr class="list"><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Stunde</th><th class="list" align="center">Vertreter</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="">Info</th></tr>
 ';
                 $htmlLehrerMorgen = '<table class="mon_list">
-<tr class="list"><th class="list" align="center">Vertreter</th><th class="list" align="center">Stunde</th><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">Art</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="center">Vertr. von</th><th class="list" align="center">(Le.) nach</th></tr>
+<tr class="list"><th class="list" align="center">Vertreter</th><th class="list" align="center">Stunde</th><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="">Info</th></tr>
 ';
                 
                 $htmlSchuelerMorgenUnCensored = '<table class="mon_list" >
-<tr class="list"><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Stunde</th><th class="list" align="center">Vertreter</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">Art</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="center">Vertr. von</th><th class="list" align="center">(Le.) nach</th></tr>
+<tr class="list"><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Stunde</th><th class="list" align="center">Vertreter</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="">Info</th></tr>
 ';
                 $htmlLehrerMorgenUnCensored = '<table class="mon_list">
-<tr class="list"><th class="list" align="center">Vertreter</th><th class="list" align="center">Stunde</th><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">Art</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="center">Vertr. von</th><th class="list" align="center">(Le.) nach</th></tr>
+<tr class="list"><th class="list" align="center">Vertreter</th><th class="list" align="center">Stunde</th><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="">Info</th></tr>
 ';
                 
                 usort($dataHeute, function($a, $b) {
@@ -815,12 +815,13 @@ class updatevplan extends AbstractPage {
         $line .= "<td class=\"list\" align=\"center\">" . $data[9] . "</td>";
         $line .= "<td class=\"list\" align=\"center\">" . $data[12] . "</td>";
         
-        $line .= "<td class=\"list\" align=\"center\">" . self::getUntisArt($data[17]) . "</td>";
+        //$line .= "<td class=\"list\" align=\"center\">" . self::getUntisArt($data[17]) . "</td>";
         
         $line .= "<td class=\"list\" align=\"center\"><s>" . $data[7] . "</s></td>";
         $line .= "<td class=\"list\" align=\"center\"><s>" . $data[5] . "</s></td>";
-        $line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
-        $line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
+        $line .= "<td class=\"list\" align=\"\">" . $data[16] . "</td>";
+        //$line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
+        //$line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
         
         $line .= "</tr>\r\n";
         
@@ -840,12 +841,13 @@ class updatevplan extends AbstractPage {
         $line .= "<td class=\"list\" align=\"center\">" . $data[9] . "</td>";
         $line .= "<td class=\"list\" align=\"center\">" . $data[12] . "</td>";
         
-        $line .= "<td class=\"list\" align=\"center\">" . self::getUntisArt($data[17]) . "</td>";
+        //$line .= "<td class=\"list\" align=\"center\">" . self::getUntisArt($data[17]) . "</td>";
         
         $line .= "<td class=\"list\" align=\"center\"><s>" . $data[7] . "</s></td>";
         $line .= "<td class=\"list\" align=\"center\"><s>" . $data[5] . "</s></td>";
-        $line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
-        $line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
+        $line .= "<td class=\"list\" align=\"\">" . $data[16] . "</td>";
+        //$line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
+        //$line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
         
         $line .= "</tr>\r\n";
         
