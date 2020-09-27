@@ -28,17 +28,17 @@
             <tr v-bind:key="i" v-for="(hour, i) in shoolHours">
               <td class="hourLabel">{{hour}}</td>
               <td v-bind:key="j" v-for="(day, j) in daysInWeekFormat" >
-                <!-- Apply any bg-* class to to the info-box to color it -->
+                
                 <div class="info-box bg-green"
                   v-bind:key="key" v-for="(date, key) in dates"
-                  v-if="date.ausleiheStunde == hour && date.ausleiheDatum == day[1]">
+                  v-show="showEintrag(date.ausleiheStunde, hour, date.ausleiheDatum, day[1])" >
 
                     <span class="info-box-text">{{date.ausleiheLehrer}} / {{date.ausleiheKlasse}}</span>
                     <span class="info-box-number">{{date.objektName}} <span v-if="date.sub.length > 0"> ({{date.part}}/{{date.sum}})</span> </span>
                     <span v-if="date.sub.length > 0">{{date.sub}}</span>
 
-                </div><!-- /.info-box -->
-                <button v-if="isAfterToday(day[1], getToday)" @click="addDate(day,hour,$event)"
+                </div>
+                <button v-if="isAfterToday(day[1], getToday)" v-on:click="addDate(day,hour,$event)"
                   class="eventAdd btn btn-outline"><i class="fa fa-plus"></i></button>
                   
               </td>
@@ -130,8 +130,16 @@ export default {
   },
   methods: {
 
+    showEintrag(ausleiheStunde, hour, ausleiheDatum, day) {
+      if (ausleiheStunde == hour
+        && this.$moment(ausleiheDatum).format('YYYY-MM-D') == this.$moment(day).format('YYYY-MM-D') ) {
+        return true;
+      }
+      return false;
+    },
+
     isAfterToday: function (date, today) {
-      return this.$moment(date).isSameOrAfter(today);
+      return this.$moment(date).isSameOrAfter( this.$moment(today) );
     },
     addWeek: function () {
         this.firstDayWeek = this.$moment(this.firstDayWeek).add(1, 'week');
@@ -160,6 +168,8 @@ export default {
         bis: this.lastDayWeek.unix()
       });
     }
+
+    
 
 
   }
