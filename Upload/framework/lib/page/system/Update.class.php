@@ -89,8 +89,65 @@ class Update extends AbstractPage
             $this->from120to121();
         }
 
+        if ($from == "1.2.1" && $to == "1.2.2") {
+            $this->from121to122();
+        }
+
         return true;
     }
+
+    private function from121to122() {
+        
+        $this->updateComponentsFolder(121);
+        $this->updateCssJSFolder(121);
+
+        DB::getDB()->query("CREATE TABLE `acl` (
+            `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+            `moduleClass` varchar(50) DEFAULT NULL,
+            `moduleClassParent` varchar(50) DEFAULT NULL,
+            `schuelerRead` tinyint(1) DEFAULT '0',
+            `schuelerWrite` tinyint(1) DEFAULT '0',
+            `schuelerDelete` tinyint(1) DEFAULT '0',
+            `elternRead` tinyint(1) DEFAULT '0',
+            `elternWrite` tinyint(1) DEFAULT '0',
+            `elternDelete` tinyint(1) DEFAULT '0',
+            `lehrerRead` tinyint(1) DEFAULT '0',
+            `lehrerWrite` tinyint(1) DEFAULT '0',
+            `lehrerDelete` tinyint(1) DEFAULT '0',
+            `noneRead` tinyint(1) DEFAULT '0',
+            `noneWrite` tinyint(1) DEFAULT '0',
+            `noneDelete` tinyint(1) DEFAULT '0',
+            `owneRead` tinyint(1) DEFAULT '0',
+            `owneWrite` tinyint(1) DEFAULT '0',
+            `owneDelete` tinyint(1) DEFAULT '0',
+            PRIMARY KEY (`id`)
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+        DB::getDB()->query("CREATE TABLE `mensa_order` (
+            `userID` int(11) DEFAULT NULL,
+            `speiseplanID` int(11) DEFAULT NULL,
+            `time` datetime DEFAULT NULL
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+        DB::getDB()->query("CREATE TABLE `mensa_speiseplan` (
+            `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+            `date` date DEFAULT NULL,
+            `title` varchar(255) DEFAULT NULL,
+            `preis_schueler` float DEFAULT NULL,
+            `preis_default` float DEFAULT NULL,
+            `desc` text,
+            `vegetarisch` tinyint(1) DEFAULT NULL,
+            `vegan` tinyint(1) DEFAULT NULL,
+            `laktosefrei` tinyint(1) DEFAULT NULL,
+            `glutenfrei` tinyint(1) DEFAULT NULL,
+            `bio` tinyint(1) DEFAULT NULL,
+            `regional` tinyint(1) DEFAULT NULL,
+            PRIMARY KEY (`id`)
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+ 
+    }
+
 
     private function from120to121() {
         $this->updateComponentsFolder(120);
