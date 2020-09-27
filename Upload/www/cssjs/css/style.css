@@ -44,7 +44,9 @@
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
   padding: 2rem;
   min-width: 30vw;
-  max-width: 45vw;
+  max-width: 75vw;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .form-modal-error {
@@ -175,7 +177,7 @@ button.btn-blau {
 
 
 .bg-red {
-  background-color: #dd4b39; 
+  background-color: #c63e2d; 
 }
 
 
@@ -224,6 +226,9 @@ button.btn-blau {
 }
 .text-green {
   color: #018d4e;
+}
+.text-orange {
+  color: #f39c12;
 }
 .text-grey {
   color: #738b96;

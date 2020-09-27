@@ -34,12 +34,17 @@ class RestSetMensaOrder extends AbstractRest {
 
 		} else {
 
+			$now = new DateTime();
+			$now = $now->format('Y-m-d H:i:s');
+
 			DB::getDB()->query("INSERT INTO mensa_order (
 				`userID`,
-				`speiseplanID`
+				`speiseplanID`,
+				`time`
 				) values (
 				'".DB::getDB()->escapeString($userID)."',
-				'".DB::getDB()->escapeString($data['id'])."'
+				'".DB::getDB()->escapeString($data['id'])."',
+				'".$now."'
 			);");
 
 			return [

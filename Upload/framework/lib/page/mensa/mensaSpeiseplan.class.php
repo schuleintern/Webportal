@@ -71,10 +71,10 @@ class mensaSpeiseplan extends AbstractPage {
 						'summe' => 0
 					];
 
-					$booked_all = DB::getDB()->query("SELECT a.userID
+					$bookedDB = DB::getDB()->query("SELECT a.userID, a.time
 						FROM mensa_order as a
 						WHERE a.speiseplanID = '".$row['id']."' " );
-					while($row_order = DB::getDB()->fetch_array($booked_all)) {
+					while($row_order = DB::getDB()->fetch_array($bookedDB)) {
 						
 						
 
@@ -96,7 +96,7 @@ class mensaSpeiseplan extends AbstractPage {
 							$row['booked_all']['none']++;
 						}
 
-						$row['booked_all']['list'][] = [ $row_order['userID'], $booked_user->getDisplayName(), $booked_user->getUserTyp() ];
+						$row['booked_all']['list'][] = [ $row_order['userID'], $booked_user->getDisplayName(), $booked_user->getUserTyp(), $row_order['time'] ];
 
 					}
 
@@ -122,23 +122,43 @@ class mensaSpeiseplan extends AbstractPage {
 		}
 
 
-		
+		//$acl = json_encode( $this->getAcl() );
 
+		// echo "<pre>";
+		// print_r($acl);
+		// echo "</pre>";
+
+		$prevDays = DB::getSettings()->getValue("mensa-speiseplan-days");
+		
+		if (!intval($prevDays)) {
+			$prevDays = 0;
+		}
 
 		eval("echo(\"" . DB::getTPL()->get("mensa/index"). "\");");
 		
 	}
 
 	
-	
+
 	
 	
 	public static function hasSettings() {
-		return false;
+		return true;
 	}
 	
 	public static function getSettingsDescription() {
-		return array();
+		//return array();
+
+		$settings = array(
+			array(
+					'name' => "mensa-speiseplan-days",
+					'typ' => "NUMMER",
+					'titel' => "Wie viele Tage vorher muss gebucht werden?",
+					'text' => "Default: 1"
+			)
+		);
+		return $settings;
+
 	}
 	
 	
@@ -169,11 +189,11 @@ class mensaSpeiseplan extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroupIcon() {
-		return 'fas fa-utensils';
+		return 'fa fas fa-utensils';
 	}
 	
 	public static function getAdminMenuIcon() {
-		return 'fas fa-utensils';
+		return 'fa fas fa-utensils';
 	}
 	
 

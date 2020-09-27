@@ -18,7 +18,8 @@
         <table class="table_1">
           <thead>
             <tr>
-              <td v-bind:key="j" v-for="(day, j) in daysInWeek" >
+              <td v-bind:key="j" v-for="(day, j) in daysInWeek"
+               :class="{ 'bg-orange': isToday(day) == true}">
                 {{ $date(day).format('DD. dd') }}
               </td>
             </tr>
@@ -31,18 +32,22 @@
                   class="eintrag" v-on:click="openEintrag(item)">
                   <div class="title margin-b-s">{{item.title}}</div>
                   <div class="text-green margin-b-s">
-                    <div v-if="item.vegetarisch == 1"><i class="fas fa-seedling"></i> Vegetarisch</div>
-                    <div v-if="item.vegan == 1"><i class="fas fa-leaf"></i> Vegan</div>
-                    <div v-if="item.laktosefrei == 1"><i class="fas fa-wine-bottle"></i> Laktosefrei</div>
-                    <div v-if="item.glutenfrei == 1"><i class="fab fa-pagelines"></i> Glutenfrei</div>
-                    <div v-if="item.bio == 1"><i class="fas fa-leaf"></i> Bio</div>
-                    <div v-if="item.regional == 1"><i class="fas fa-tractor"></i> Regional</div>
+                    <div v-if="item.vegetarisch == 1"><i class="fas fa-seedling width-2rem"></i> Vegetarisch</div>
+                    <div v-if="item.vegan == 1"><i class="fas fa-leaf width-2rem"></i> Vegan</div>
+                    <div v-if="item.laktosefrei == 1"><i class="fas fa-wine-bottle width-2rem"></i> Laktosefrei</div>
+                    <div v-if="item.glutenfrei == 1"><i class="fab fa-pagelines width-2rem"></i> Glutenfrei</div>
+                    <div v-if="item.bio == 1"><i class="fas fa-leaf width-2rem"></i> Bio</div>
+                    <div v-if="item.regional == 1"><i class="fas fa-tractor width-2rem"></i> Regional</div>
                   </div>
-                  <button class="btn" :class="{ 'btn-orange': item.booked  }"
-                    v-on:click.stop="orderEintrag(item)">
-                    <span v-if="item.booked"><i class="fas fa-shopping-cart"></i> Gebucht</span>
-                    <span v-if="!item.booked"><i class="fas fa-shopping-cart"></i> Buchen</span>
+                  <button class="btn btn-gruen " :class="{ 'btn-orange': item.booked  }"
+                    v-on:click.stop="orderEintrag(item)"
+                    v-if="showBuchenBtn(day)">
+                    <span v-if="item.booked"><i class="fas fa-toggle-on"></i> Bestellt</span>
+                    <span v-if="!item.booked"><i class="fas fa-toggle-off"></i> Bestellen</span>
                   </button>
+                  <div v-else >
+                    <button v-if="item.booked" class="btn btn-orange"><i class="fas fa-toggle-on"></i> Bestellt</button>
+                  </div>
                 </div>
               </td>
             <tr>
@@ -58,6 +63,7 @@
 </template>
 
 
+
 <script>
 
 export default {
@@ -69,7 +75,9 @@ export default {
     return{
 
       today: this.$date(),
-      thisWeek: false
+      thisWeek: false,
+
+      prevDays: globals.prevDays
 
     }
   },
@@ -77,6 +85,8 @@ export default {
 
     this.thisWeek = this.today;
     this.changedDate();
+
+    this.prevDays = parseInt( this.prevDays );
 
     var that = this;
     EventBus.$on('calender--reload', data => {
@@ -104,7 +114,19 @@ export default {
   },
   methods: {
 
-    
+    showBuchenBtn: function (day) {
+      var prev = this.today.add( this.prevDays , 'day');
+      if ( prev.isBefore(day) ) {
+        return true;
+      }
+      return false;
+    },
+    isToday: function (day) {
+      if ( this.today.isSame( day, 'day' ) ) {
+        return true;
+      }
+      return false;
+    },
     subtractWeek: function () {
       this.thisWeek = this.thisWeek.subtract(1, 'week');
       this.changedDate();
