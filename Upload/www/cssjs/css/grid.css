@@ -8,6 +8,12 @@
   flex-direction: row;
 }
 
+.flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .flex-1 {
   flex: 1;
 }
@@ -41,7 +47,10 @@
   flex: 10;
 }
 
-
+.flex-b-50 {
+  flex: 1;
+  flex-basis: 50%;
+}
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -63,8 +72,28 @@
   width: 20rem;
 }
 
+.width-2rem {
+  width: 2rem;
+}
+
+.width-40vw {
+  width: 40vw;
+}
+
+.width-70vw {
+  width: 70vw;
+}
+
+.width-100p {
+  width: 100%;
+}
+
 .padding-m {
   padding: 1.3rem;
+}
+
+.padding-b-l {
+  padding-bottom: 2.3rem;
 }
 
 .margin-r-xs {
@@ -72,6 +101,12 @@
 }
 .margin-r-s {
   margin-right: 0.6rem;
+}
+.margin-r-m {
+  margin-right: 1.3rem;
+}
+.margin-r-l {
+  margin-right: 2.3rem;
 }
 
 .margin-l-s {

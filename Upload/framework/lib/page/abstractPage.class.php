@@ -42,11 +42,13 @@ abstract class AbstractPage {
 
 	private static $activePages = array();
 	
+	private $acl = false;
+
 	public function __construct($pageline, $ignoreSession = false, $isAdmin = false, $isNotenverwaltung = false) {
 
-        header("X-Frame-Options: deny");
+		header("X-Frame-Options: deny");
 
-	    $this->sitename = addslashes ( trim ( $_REQUEST ['page'] ) );
+		$this->sitename = addslashes ( trim ( $_REQUEST ['page'] ) );
 				
 		if ($this->sitename != "" && in_array($this->sitename, requesthandler::getAllowedActions()) && !self::isActive ( $this->sitename )) {
 			// TODO: Sinnvolle Fehlermeldung
@@ -247,7 +249,7 @@ abstract class AbstractPage {
 			else $isAdmin = false;
 			
 			
-			
+			$this->acl();
 
 			eval ( "\$this->header =  \"" . DB::getTPL ()->get ( 'header/header' ) . "\";" );
 			
@@ -549,6 +551,46 @@ abstract class AbstractPage {
 	 */
 	public static function doSchuljahreswechsel($sqlDateFirstSchoolDay) {
 		
+	}
+
+
+	/**
+	 * Access Control List
+	 * @return acl
+	 */
+
+	public function aclModuleName() {
+		return get_called_class();
+	}
+
+	public function acl() {
+		if (DB::getSession()) {
+			$userID = DB::getSession()->getUser();
+		}
+		$moduleClass = get_called_class();
+		if ($userID && $moduleClass) {
+			$this->acl = ACL::getAcl($userID, $moduleClass, false);
+		}
+	}
+
+	public function getAclAll() {
+		return $this->acl;
+	}
+
+	public function getAcl() {
+		return [ 'rights' => $this->acl['rights'], 'owne' => $this->acl['owne'] ];
+	}
+
+	public function getAclRead() {
+		return $this->acl['rights']['read'];
+	}
+
+	public function getAclWrite() {
+		return $this->acl['rights']['write'];
+	}
+
+	public function getAclDelete() {
+		return $this->acl['rights']['delete'];
 	}
 
 }
