@@ -153,6 +153,10 @@ class RestSetMensaMeal extends AbstractRest {
 	public function needsUserAuth() {
 		return true;
 	}
+
+	public function aclModuleName() {
+		return 'mensaSpeiseplan';
+	}
 	
 }	
 
