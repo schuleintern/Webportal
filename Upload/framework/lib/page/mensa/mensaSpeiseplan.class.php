@@ -122,11 +122,11 @@ class mensaSpeiseplan extends AbstractPage {
 		}
 
 
-		//$acl = json_encode( $this->getAcl() );
+		$acl = json_encode( $this->getAcl() );
 
-		// echo "<pre>";
-		// print_r($acl);
-		// echo "</pre>";
+		echo "<pre>";
+		print_r($acl);
+		echo "</pre>";
 
 		$prevDays = DB::getSettings()->getValue("mensa-speiseplan-days");
 		
@@ -199,6 +199,9 @@ class mensaSpeiseplan extends AbstractPage {
 
 	public static function displayAdministration($selfURL) {
 		 
+		$html = '';
+		eval("\$html = \"" . DB::getTPL()->get("mensa/admin/index") . "\";");
+		return $html;
 	}
 }
 

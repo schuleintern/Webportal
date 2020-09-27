@@ -24,7 +24,9 @@ class resthandler {
         'GetAllSettings',
         'GetUserCount',
         'SetMensaMeal',
-        'SetMensaOrder'
+        'SetMensaOrder',
+        'GetAcl',
+        'SetAcl'
     ];
   
   
