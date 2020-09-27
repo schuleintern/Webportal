@@ -6,6 +6,16 @@ class RestSetMensaOrder extends AbstractRest {
 	
 	public function execute($input, $request) {
 
+		$acl = $this->getAcl();
+
+		if ($acl['rights']['read'] != 1) {
+			return [
+				'error' => true,
+				'msg' => 'Keine Leserechte!'
+			];
+		}
+
+		
 		$data = $input['data'];
 
 		$data['id'] = intval($data['id']);

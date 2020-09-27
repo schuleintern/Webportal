@@ -124,10 +124,6 @@ class mensaSpeiseplan extends AbstractPage {
 
 		$acl = json_encode( $this->getAcl() );
 
-		echo "<pre>";
-		print_r($acl);
-		echo "</pre>";
-
 		$prevDays = DB::getSettings()->getValue("mensa-speiseplan-days");
 		
 		if (!intval($prevDays)) {

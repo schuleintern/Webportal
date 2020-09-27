@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    
-    <div v-show="error">
-      {{error}}
+
+    <div v-show="error" class="form-modal-error">
+      <b>Folgende Fehler sind aufgetreten:</b>
+      <div>{{error}}</div>
     </div>
 
     <div v-if="loading == true" class="overlay">
@@ -10,11 +11,11 @@
     </div>
 
     <div id="main-box" class="">
-      <Calendar  v-bind:dates="dates"></Calendar>
+      <Calendar v-bind:dates="dates" v-bind:acl="acl"></Calendar>
     </div>
 
-    <Form></Form>
-    <Item></Item>
+    <Form v-if="acl.rights.write"></Form>
+    <Item v-if="acl.rights.read" v-bind:acl="acl"></Item>
 
   </div>
 </template>
@@ -44,7 +45,8 @@ export default {
 
       loading: false,
       error: false,
-      dates: []
+      dates: [],
+      acl: globals.acl
 
     }
   },

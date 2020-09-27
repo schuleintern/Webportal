@@ -29,7 +29,8 @@
               <td v-bind:key="j" v-for="(day, j) in daysInWeek" >
                 
                 <div v-bind:key="j" v-for="(item, j) in getEintrag(day)" 
-                  class="eintrag" v-on:click="openEintrag(item)">
+                  class="eintrag" v-on:click="openEintrag(item)"
+                  v-if="acl.rights.read">
                   <div class="title margin-b-s">{{item.title}}</div>
                   <div class="text-green margin-b-s">
                     <div v-if="item.vegetarisch == 1"><i class="fas fa-seedling width-2rem"></i> Vegetarisch</div>
@@ -50,7 +51,7 @@
                   </div>
                 </div>
               </td>
-            <tr>
+            <tr v-if="acl.rights.write">
               <td v-bind:key="j" v-for="(day, j) in daysInWeek">
                 <button @click="openForm(day)" class="btn width-100p"><i class="fas fa-plus-circle"></i> Hinzufügen</button>
               </td>
@@ -69,7 +70,8 @@
 export default {
   name: 'Calendar',
   props: {
-    dates: Array
+    dates: Array,
+    acl: Object
   },
   data(){
     return{

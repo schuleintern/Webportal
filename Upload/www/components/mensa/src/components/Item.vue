@@ -27,8 +27,8 @@
 
       <div class="" v-html="item.desc">{{ item.desc }}</div>
 
-
-      <div class="margin-t-l padding-b-l">
+      <div class="margin-t-l padding-b-l"
+        v-if="acl.rights.write == 1">
 
         <hr>
         
@@ -77,12 +77,14 @@
         <hr>
         <button @click="openForm(item)" class="btn margin-r-s"><i class="fa fa-edit"></i> Bearbeiten</button>
         
-        <button v-on:click="handlerClickDelete"
-          v-show="!deleteBtn"
-          class="btn"><i class="fa fa-trash"></i>Löschen</button>
-        <button v-on:click="handlerClickDeleteSecond(item)"
-          v-show="deleteBtn"
-          class="btn btn-red">Endgültig Entfernen!</button>
+        <span v-if="acl.rights.delete">
+          <button v-on:click="handlerClickDelete"
+            v-show="!deleteBtn"
+            class="btn"><i class="fa fa-trash"></i>Löschen</button>
+          <button v-on:click="handlerClickDeleteSecond(item)"
+            v-show="deleteBtn"
+            class="btn btn-red">Endgültig Entfernen!</button>
+        </span>
       </div>
       
     </div>
@@ -96,7 +98,8 @@
 export default {
   name: 'Item',
   props: {
-    dates: Array
+    dates: Array,
+    acl: Object
   },
   data(){
     return {

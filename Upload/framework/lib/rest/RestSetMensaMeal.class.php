@@ -5,6 +5,17 @@ class RestSetMensaMeal extends AbstractRest {
 	
 	public function execute($input, $request) {
 
+
+		$acl = $this->getAcl();
+
+		if ($acl['rights']['write'] != 1) {
+			return [
+				'error' => true,
+				'msg' => 'Keine Schreibrechte!'
+			];
+		}
+
+
 		$data = $input['data'];
 
 		$data['id'] = intval($data['id']);
