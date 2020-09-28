@@ -43,9 +43,13 @@ class ACL {
 		$acl['user']['lehrer'] = $user->isTeacher();
 		$acl['user']['eltern'] = $user->isEltern();
 		$acl['user']['sekretariat'] = $user->isSekretariat();
-		
+
 		if (!$acl['user']['schueler'] && !$acl['user']['lehrer'] && !$acl['user']['eltern']) {
 			$acl['user']['none'] = 1;
+		}
+
+		if ( DB::getSession()->isMember($moduleClass::getAdminGroup()) ) {
+			$acl['user']['admin'] = true;
 		}
 		
 		$acl['rights'] = [
