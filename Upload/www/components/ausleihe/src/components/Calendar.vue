@@ -14,7 +14,7 @@
             </button>
         </div>
 
-        <table>
+        <table class="table_1">
           <thead>
             <tr>
               <td class="hourLabel"></td>
@@ -24,22 +24,23 @@
               </td>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="oddEven">
             <tr v-bind:key="i" v-for="(hour, i) in shoolHours">
               <td class="hourLabel">{{hour}}</td>
-              <td v-bind:key="j" v-for="(day, j) in daysInWeekFormat" >
+              <td v-bind:key="j" v-for="(day, j) in daysInWeekFormat"
+                class="">
                 
-                <div class="info-box bg-green"
+                <div class="box_1"
                   v-bind:key="key" v-for="(date, key) in dates"
-                  v-show="showEintrag(date.ausleiheStunde, hour, date.ausleiheDatum, day[1])" >
+                  v-if="showEintrag(date.ausleiheStunde, hour, date.ausleiheDatum, day[1]) == true" >
 
-                    <span class="info-box-text">{{date.ausleiheLehrer}} / {{date.ausleiheKlasse}}</span>
-                    <span class="info-box-number">{{date.objektName}} <span v-if="date.sub.length > 0"> ({{date.part}}/{{date.sum}})</span> </span>
-                    <span v-if="date.sub.length > 0">{{date.sub}}</span>
+                    <div class="">{{date.ausleiheLehrer}} / {{date.ausleiheKlasse}}</div>
+                    <div class="text-bold">{{date.objektName}} <span v-if="date.sub.length > 0"> ({{date.part}}/{{date.sum}})</span> </div>
+                    <div v-if="date.sub.length > 0">{{date.sub}}</div>
 
                 </div>
                 <button v-if="isAfterToday(day[1], getToday)" v-on:click="addDate(day,hour,$event)"
-                  class="eventAdd btn btn-outline"><i class="fa fa-plus"></i></button>
+                  class="eventAdd btn btn-opacity noText width-100p"><i class="fa fa-plus"></i></button>
                   
               </td>
             </tr>
