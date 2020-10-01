@@ -91,7 +91,7 @@
   line-height: 1.42857143;
   text-align: center;
 
-  white-space: nowrap;
+  
   vertical-align: middle;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
@@ -103,6 +103,10 @@
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .btn:hover {
   background-color: rgb(192, 192, 192);
