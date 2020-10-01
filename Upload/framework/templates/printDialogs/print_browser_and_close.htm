@@ -35,8 +35,10 @@
 		
 		<script>
 	    window.print();
-	    setTimeout(function () { window.close(); }, 100);
-
+	    //setTimeout(function () { window.close(); }, 100);
+			window.addEventListener("afterprint", function(event) { 
+				window.close();
+			});
 		</script>
 	
 	</body>
