@@ -32,8 +32,8 @@ class schaukasten extends AbstractPage {
 		    }
 		    
 			eval("DB::getTPL()->out(\"" . DB::getTPL()->get("schaukasten/displayvplan") . "\");");
-			PAGE::kill(true);
-			//exit(0);
+			//PAGE::kill(true);
+			exit(0);
 		}
 		else {
 			die("Kein Zugriff!");

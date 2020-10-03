@@ -8,8 +8,7 @@ class user {
   private $isTeacher = false;
   private $isPupil = false;
   private $isEltern = false;
-
-  private $isNone = true;
+  private $isNone = false;
 
   private $teacherObject = null;
   private $pupilObject = null;
@@ -64,6 +63,10 @@ class user {
     if($eltern['elternSchuelerAsvID'] != "") {
       $this->isEltern = true;
       $this->elternObject = new eltern($this->data['userID']);
+    }
+
+    if (!$this->isTeacher && !$this->isPupil && !$this->isEltern) {
+      $this->isNone = true;
     }
   }
 
@@ -130,6 +133,28 @@ class user {
 
   public function isEltern() {
     return $this->isEltern;
+  }
+
+  public function isNone() {
+    return $this->isNone;
+  }
+
+  public function getUserTyp() {
+
+    if ( $this->isPupil ) {
+      return 'Schüler';
+    }
+    if ( $this->isTeacher ) {
+      return 'Lehrer';
+    }
+    if ( $this->isEltern ) {
+      return 'Eltern';
+    }
+    if ( $this->isNone ) {
+      return 'Mitarbeiter';
+    }
+
+    return '';
   }
   
   public function getAllInklMail() {

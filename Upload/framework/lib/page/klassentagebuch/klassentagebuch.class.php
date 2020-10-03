@@ -1114,6 +1114,8 @@ class klassentagebuch extends AbstractPage {
       $tableContent .= "</td></tr>";
     }
 
+      $klasse = klasse::getByStundenplanName($grade);
+
     if($canEdit) {		// Genauere Informationen für Lehrer anzeigen
 
     	// Klassenliste und Select für Krankmeldung
@@ -1121,7 +1123,7 @@ class klassentagebuch extends AbstractPage {
 	    $klassenliste = "";
 
 
-	    $klasse = klasse::getByStundenplanName($grade);
+
 	    $schueler = $klasse->getSchueler(false);
 
 	    $schuelerSelect = "";

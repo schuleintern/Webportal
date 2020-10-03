@@ -27,6 +27,8 @@ class resthandler {
         'GetKalenderEintrag',
         'SetKalenderEintrag',
         'DeleteKalenderEintrag',
+        'SetMensaMeal',
+        'SetMensaOrder',
         'GetAcl',
         'SetAcl'
     ];
@@ -75,7 +77,7 @@ class resthandler {
           
           if($method != $action->getAllowedMethod()) {
               $result = [
-                  'error' => 1,
+                  'error' => 2,
                   'errorText' => 'method not allowed'
               ];
               $this->answer($result, 405);
@@ -98,7 +100,7 @@ class resthandler {
                       exit ();
                   } else {
                       DB::getSession ()->update ();
-
+                      
                       $action->user = DB::getSession()->getUser();
                       $action->acl();
                   }
@@ -163,14 +165,18 @@ class resthandler {
               }
           }
 
+<<<<<<< HEAD
           
+=======
+>>>>>>> master
 
           // Execute wird nur aufgerufen, wenn die Authentifizierung erfolgreich war.
           $result = $action->execute($input, $request);
       
           if(!is_array($result) && !is_object($result)) {
               $result = [
-                  'error' => 1
+                  'error' => 1,
+                  'errorText' => 'Missing Return'
               ];
               
               if($action->getStatusCode() == 200) {
@@ -185,7 +191,7 @@ class resthandler {
           }
       } else {
           $result = [
-              'error' => 1,
+              'error' => 3,
               'errorText' => 'Unknown Action'
           ];
           $this->answer($result, 404);

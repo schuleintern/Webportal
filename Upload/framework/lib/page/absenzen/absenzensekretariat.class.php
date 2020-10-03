@@ -43,7 +43,8 @@ class absenzensekretariat extends AbstractPage {
       break;
       
       case 'autocompletenameajax':
-      	$this->ajaxCompleteUserName();
+        $this->ajaxCompleteUserName();
+        exit;
       break;
 
       case 'addAbsenzViaDialog':
@@ -730,14 +731,14 @@ class absenzensekretariat extends AbstractPage {
 
         $printHeader = true;
         eval("DB::getTPL()->out(\"" . DB::getTPL()->get("printDialogs/print_browser_and_close") . "\");");
-        PAGE::kill(true);
-		  	//exit(0);
+        //PAGE::kill(true);
+		  	exit(0);
       }
       else {
         $errorMessage = "Die angegebene Absenz ist nicht gültig! (Keine Beurlaubung)";
         eval("DB::getTPL()->out(\"" . DB::getTPL()->get("printDialogs/close_with_error") . "\");");
-        PAGE::kill(true);
-			  //exit(0);
+        //PAGE::kill(true);
+			  exit(0);
       }
     }
     else {
