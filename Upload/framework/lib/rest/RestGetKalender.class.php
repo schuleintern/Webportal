@@ -5,9 +5,11 @@ class RestGetKalender extends AbstractRest {
 
 	public function execute($input, $request) {
 
-		$acl = $this->getAcl();
+		$acl = $this->getAclAll();
 
-		if ($acl['rights']['read'] != 1) {
+
+
+		if ($acl['user']['admin'] == 0 && $acl['rights']['read'] != 1) {
 			return [
 				'error' => true,
 				'msg' => 'Keine Leserechte!'
@@ -21,18 +23,26 @@ class RestGetKalender extends AbstractRest {
 		$result = DB::getDB()->query("SELECT a.* FROM kalender_api as a ORDER BY a.kalenderSort");
 		while($row = DB::getDB()->fetch_array($result)) {
 			
+// 					echo "<pre>";
+// print_r($row);
+// echo "</pre>";
+
 			$item = [
-				'kalenderID' => $row['kalenderID'],
+				'kalenderID' => intval($row['kalenderID']),
 				'kalenderName' => $row['kalenderName'],
 				'kalenderColor' => $row['kalenderColor'],
-				'kalenderSort' => $row['kalenderSort'],
-				'kalenderPreSelect' => $row['kalenderPreSelect'],
+				'kalenderSort' => intval($row['kalenderSort']),
+				'kalenderPreSelect' => intval($row['kalenderPreSelect']),
 				'kalenderAcl' => $this->getAclByID($row['kalenderAcl']),
-				'kalenderAclID' => $row['kalenderAcl'],
+				//'kalenderAclID' => intval($row['kalenderAcl'])
 			];
 
 			if (!$item['kalenderColor']) {
 				$item['kalenderColor'] = '#ff22cc';
+			}
+
+			if (!$item['kalenderAcl']) {
+				$item['kalenderAcl'] = $this->getAclAll();
 			}
 
 			$kalender[] = $item;

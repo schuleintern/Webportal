@@ -1,20 +1,13 @@
 <template>
   <div class="form-modal" v-on:click.self="handlerCloseModal" v-show="modalActive">
     <div class="form form-style-2 form-modal-content">
-      <div class="form-modal-close"v-on:click="handlerCloseModal"><i class="fa fa-times"></i></div>
-
-      <div v-if="formErrors.length" class="form-modal-error">
-        <b>Folgende Fehler sind aufgetreten:</b>
-        <ul>
-          <li v-for="error in formErrors">{{ error }}</li>
-        </ul>
-      </div>
+      <div class="form-modal-close" v-on:click="handlerCloseModal"><i class="fa fa-times"></i></div>
 
       <div class="text-small">Datum:</div>
-      <div class="labelDay">{{form.day}}</div>
+      <div class="labelDay">{{form.startDay}}</div>
 
       <input type="hidden" v-model="form.id"  />
-      <input type="hidden" v-model="form.day"  />
+      <input type="hidden" v-model="form.startDay"  />
 
       <br />
       <div class="text-small">Titel:</div>
@@ -35,14 +28,24 @@
         <div class="flex-1">
           <ul class="noListStyle">
             <li class="margin-b-m">
+              <label>Bis:</label>
+
+              <date-picker
+                v-model="form.endDay"
+                type="date"
+                format="YYYY-MM-DD" 
+                :default-value="new Date(form.startDay)"></date-picker>
+              
+            </li>
+            <li class="margin-b-m">
               <label>Uhrzeit Start:</label>
               <!-- <input type="hidden" v-model="form.start" /> -->
-              <vue-timepicker v-model="form.start" format="HH:mm" :minute-interval="5"></vue-timepicker>
+              <vue-timepicker v-model="form.startTime" format="HH:mm" :minute-interval="5"></vue-timepicker>
             </li>
             <li class="margin-b-m">
               <label>Uhrzeit Ende:</label>
               <!-- <input type="hidden" v-model="form.end"  /> -->
-              <vue-timepicker v-model="form.end" format="HH:mm" :minute-interval="5"></vue-timepicker>
+              <vue-timepicker v-model="form.endTime" format="HH:mm" :minute-interval="5"></vue-timepicker>
             </li>
             <li>
               <label class="text-small">Ort:</label>
@@ -70,27 +73,33 @@
 
 <script>
 
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
+import 'vue2-datepicker/locale/de';
+
 import VueTimepicker from 'vue2-timepicker'
 
 export default {
   name: 'CalendarForm',
   components: {
-    VueTimepicker
+    VueTimepicker,
+    DatePicker
   },
   props: {
-    formErrors: Array,
+
     kalender: Array,
     calendarSelected: Array,
-    acl: Array
+    acl: Object
   },
   data(){
     return {
       modalActive: false,
       form: {
         calenderID: 0,
-        day: '',
-        start: '00:00',
-        end: '00:00',
+        startDay: '',
+        startTime: '00:00:00',
+        endDay: '',
+        endTime: '00:00:00',
         title: '',
         place: '',
         comment: ''
@@ -111,7 +120,7 @@ export default {
     EventBus.$on('eintrag--form-open', data => {
 
 
-      if (!data.form.day) {
+      if (!data.form.startDay) {
         return false;
       }
 
@@ -121,14 +130,17 @@ export default {
       if ( data.form.calenderID ) {
         this.form.calenderID = data.form.calenderID;
       }
-      if ( data.form.day ) {
-        this.form.day = data.form.day;
+      if ( data.form.startDay ) {
+        this.form.startDay = data.form.startDay;
       }
-      if ( data.form.start ) {
-        this.form.start = that.$moment(data.form.start, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm');
+      if ( data.form.startTime ) {
+        this.form.startTime = data.form.startTime;
       }
-      if ( data.form.end ) {
-        this.form.end = that.$moment(data.form.end, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm');
+      if ( data.form.endDay ) {
+        this.form.endDay = new Date(data.form.endDay);
+      }
+      if ( data.form.endTime ) {
+        this.form.endTime = data.form.endTime;
       }
       if ( data.form.title ) {
         this.form.title = data.form.title;
@@ -149,9 +161,10 @@ export default {
       this.form = {
         id: 0,
         calenderID: this.form.calenderID,
-        day: '',
-        start: '00:00',
-        end: '00:00',
+        startDay: '',
+        startTime: '00:00:00',
+        endDay: '',
+        endTime: '00:00:00',
         title: '',
         place: '',
         comment: ''
@@ -161,7 +174,9 @@ export default {
 
   },
   computed: {
-   
+   formInputEndDay: function () {
+     return new Date(this.form.startDay);
+   }
   },
   methods: {
     
@@ -199,34 +214,22 @@ export default {
 
     handlerClickAddEintrag: function () {
 
-      if (this.form.day != ''
+      if (this.form.startDay != ''
         && this.form.title != ''
         && this.form.calenderID != '' ) {
 
         var values = {
           id: this.form.id,
           calenderID: this.form.calenderID,
-          start: '00:00',
-          end: '00:00',
+          startTime: this.form.startTime,
+          endTime: this.form.endTime,
           title: this.form.title,
           place: this.form.place,
-          comment: this.form.comment
+          comment: this.form.comment,
+          startDay: this.form.startDay,
+          endDay: this.$moment(this.form.endDay).format('YYYY-MM-DD')
         };
 
-        if (this.form.start == '' || this.form.start == '00:00') {
-          values.start = '00:00';
-        } else {
-          values.start = this.form.start;
-        }
-
-        if (this.form.end == '' || this.form.end == '00:00') {
-          values.end = values.start;
-        } else {
-          values.end = this.form.end;
-        }
-
-        values.start = this.form.day+' '+values.start;
-        values.end = this.form.day+' '+values.end;
 
         EventBus.$emit('eintrag--submit', {
           form: values
@@ -238,7 +241,7 @@ export default {
 
       this.formErrors = [];
 
-      if ( this.form.day == '') {
+      if ( this.form.startDay == '') {
         this.formErrors.push('Day required.');
       }
       if (this.form.title == '') {

@@ -46,7 +46,7 @@
                     <span v-if="eintrag.startTime != '00:00'">
                       {{eintrag.startTime}}
                     </span>
-                    <span v-if="eintrag.endTime && eintrag.wholeDay == false">
+                    <span v-if="eintrag.endTime != '00:00' && eintrag.wholeDay == false">
                       - {{eintrag.endTime}}
                     </span>
                   </strong>
@@ -79,7 +79,7 @@ export default {
   props: {
     eintraege: Array,
     kalender: Array,
-    acl: Array
+    acl: Object
   },
   data(){
     return{
@@ -138,23 +138,41 @@ export default {
 
       this.eintraege.forEach(function (eintrag) {
 
-        if( that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD HH:mm:ss', true)
-          .isSameOrAfter(day[1]+' 00:00:00') 
-          && that.$moment(eintrag.eintragDatumEnde, 'YYYY-MM-DD HH:mm:ss', true)
-          .isBefore(day[1]+' 23:59:59')) {
+        // if( that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD HH:mm:ss', true)
+        //   .isSameOrAfter(day[1]+' 00:00:00') 
+        //   && that.$moment(eintrag.eintragDatumEnde, 'YYYY-MM-DD HH:mm:ss', true)
+        //   .isBefore(day[1]+' 23:59:59')) {
+        
+        // if( that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true)
+        //   .isSame(day[1], 'day') 
+        //   ) {
+        var date_start = new Date(eintrag.eintragDatumStart);
+        var date_end = new Date(eintrag.eintragDatumEnde);
+
+        var date_day = new Date(day[1]);
+
+        if ( !date_end.getTime() ) {
+          date_end = new Date(eintrag.eintragDatumStart);
+        }
+
+        //console.log(date1, date0, date2);
+        if(
+          date_start <= date_day && date_day <= date_end
+        ) {
           
           var wholeDay = false;
-          if (eintrag.eintragDatumStart == eintrag.eintragDatumEnde) {
+          if (eintrag.eintragTimeStart == eintrag.eintragTimeEnde) {
             wholeDay = true;
           }
+          //console.log( eintrag.eintragTimeStart );
           ret.push({
             'id': eintrag.eintragID,
             'title': eintrag.eintragTitel,
-            'day': that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD HH:mm:ss', true).format('YYYY-MM-DD'),
-            'start': eintrag.eintragDatumStart,
-            'startTime': that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm'),
-            'end': eintrag.eintragDatumEnde,
-            'endTime': that.$moment(eintrag.eintragDatumEnde, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm'),
+            'startDay': eintrag.eintragDatumStart, //that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD'),
+            //'start': eintrag.eintragDatumStart,
+            'startTime': that.$moment(eintrag.eintragTimeStart, 'HH:mm:ss', true).format('HH:mm'),
+            'endDay': eintrag.eintragDatumEnde,
+            'endTime': that.$moment(eintrag.eintragTimeEnde, 'HH:mm:ss', true).format('HH:mm'), 
             'wholeDay': wholeDay,
             'place': eintrag.eintragOrt,
             'comment': eintrag.eintragKommentar,
@@ -188,7 +206,7 @@ export default {
       }
       EventBus.$emit('eintrag--form-open', {
         form: {
-          day: day
+          startDay: day
         }
       });
       //$event.preventDefault();

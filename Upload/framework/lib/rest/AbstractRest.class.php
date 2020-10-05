@@ -67,13 +67,16 @@ abstract class AbstractRest {
 	}
 
 	public function getAclByID($id, $showRight = false) {
-		if ($id) {
+
+		if ( intval($id) > 0) {
 			$acl = ACL::getAcl($this->user, false, $id);
 			if ($showRight) {
 				return [ 'rights' => $acl['rights'], 'owne' => $acl['owne'] ];
 			} else {
 				return $acl;
 			}
+		} else {
+			return $acl = ACL::getBlank();
 		}
 		return false;
 	}
@@ -83,7 +86,11 @@ abstract class AbstractRest {
 	}
 
 	public function getAcl() {
-		return [ 'rights' => $this->acl['rights'], 'owne' => $this->acl['owne'] ];
+		return [
+			'rights' => $this->acl['rights'],
+			'owne' => $this->acl['owne'],
+			'user' => $this->acl['user']
+		];
 	}
 
 	public function getAclRead() {

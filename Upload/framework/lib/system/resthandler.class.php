@@ -165,10 +165,7 @@ class resthandler {
               }
           }
 
-<<<<<<< HEAD
           
-=======
->>>>>>> master
 
           // Execute wird nur aufgerufen, wenn die Authentifizierung erfolgreich war.
           $result = $action->execute($input, $request);

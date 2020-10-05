@@ -64,7 +64,7 @@
 }
 
 
-
+/* 
 .form-modal {
   width: 100vw;
   height: 100vh;
@@ -110,7 +110,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 
 .form-style-2 input[type="text"],
@@ -164,6 +164,12 @@
 .form-modal-error {
   color: #dd4b39;
   border-bottom: 1px solid #dd4b39;
+  margin-bottom: 2rem;
+}
+
+.form-modal-success {
+  color: #018d4e;
+  border-bottom: 1px solid #018d4e;
   margin-bottom: 2rem;
 }
 

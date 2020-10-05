@@ -13,10 +13,11 @@ class RestGetKalenderEintrag extends AbstractRest {
 				'msg' => 'Keine Leserechte!'
 			];
 		}
+		if ( $request[1] ) {
+			$kalenderIDs = explode('-', $request[1]);
+		}
 
-		$kalenderIDs = explode('-', $request[1]);
-
-		if (count($kalenderIDs) <= 0) {
+		if ( count($kalenderIDs) <= 0) {
 			return [
 				'error' => true,
 				'msg' => 'Fehlende Kalender IDs'
@@ -31,10 +32,14 @@ class RestGetKalenderEintrag extends AbstractRest {
 				$where .= 'kalenderID = '. intval($value);
 			}
 		}
-		$result = DB::getDB()->query("SELECT * FROM kalender_api_eintrag WHERE ".$where);
+		if ($where) {
+			$where = ' WHERE '.$where;
+		}
+
+		$result = DB::getDB()->query("SELECT * FROM kalender_api_eintrag ".$where);
 		while($row = DB::getDB()->fetch_array($result)) {
 			
-			$createdUser = new user(array('userID' => intval($row['eintragUser']) ));
+			$createdUser = new user(array('userID' => intval($row['eintragUserID']) ));
 
 			$item = [
 				'eintragID' => $row['eintragID'],
@@ -42,12 +47,14 @@ class RestGetKalenderEintrag extends AbstractRest {
 				'eintragKategorieID' => $row['eintragKategorieID'],
 				'eintragTitel' => DB::getDB()->decodeString($row['eintragTitel']),
 				'eintragDatumStart' => $row['eintragDatumStart'],
+				'eintragTimeStart' => $row['eintragTimeStart'],
 				'eintragDatumEnde' => $row['eintragDatumEnde'],
+				'eintragTimeEnde' => $row['eintragTimeEnde'],
 				'eintragOrt' => DB::getDB()->decodeString($row['eintragOrt']),
 				'eintragKommentar' => DB::getDB()->decodeString($row['eintragKommentar']),
 				'eintragCreatedTime' => $row['eintragCreatedTime'],
 				'eintragModifiedTime' => $row['eintragModifiedTime'],
-				'eintragUserID' => $row['eintragUser'],
+				'eintragUserID' => $row['eintragUserID'],
 				'eintragUserName' => $createdUser->getDisplayName()
 			];
 

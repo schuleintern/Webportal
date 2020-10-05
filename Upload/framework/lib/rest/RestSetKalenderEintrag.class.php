@@ -50,7 +50,7 @@ class RestSetKalenderEintrag extends AbstractRest {
 		
 
 		
-		if ( !$row['start'] || !$row['end'] ) {
+		if ( !$row['startTime'] || !$row['endTime'] ) {
 			return [
 				'error' => true,
 				'msg' => 'Fehlende Kalender Zeiten'
@@ -77,8 +77,9 @@ class RestSetKalenderEintrag extends AbstractRest {
 				DB::getDB()->query("UPDATE kalender_api_eintrag SET
 					kalenderID = ".intval($row['calenderID']).",
 					eintragTitel = '".DB::getDB()->encodeString($row['title'])."',
-					eintragDatumStart = '".DB::getDB()->escapeString($row['start'])."',
-					eintragDatumEnde = '".DB::getDB()->escapeString($row['end'])."',
+					eintragTimeStart = '".DB::getDB()->escapeString($row['startTime'])."',
+					eintragTimeEnde = '".DB::getDB()->escapeString($row['endTime'])."',
+					eintragDatumEnde = '".DB::getDB()->escapeString($row['endDay'])."',
 					eintragOrt = '".DB::getDB()->encodeString($row['place'])."',
 					eintragKommentar = '".DB::getDB()->encodeString(nl2br($row['comment']))."',
 					eintragModifiedTime = '".$now."'
@@ -99,15 +100,19 @@ class RestSetKalenderEintrag extends AbstractRest {
 				eintragTitel,
 				eintragDatumStart,
 				eintragDatumEnde,
+				eintragTimeStart,
+				eintragTimeEnde,
 				eintragOrt,
 				eintragKommentar,
-				eintragUser,
+				eintragUserID,
 				eintragCreatedTime
 				) values (
 				".intval($row['calenderID']).",
 				'".DB::getDB()->encodeString($row['title'])."',
-				'".DB::getDB()->escapeString($row['start'])."',
-				'".DB::getDB()->escapeString($row['end'])."',
+				'".DB::getDB()->escapeString($row['startDay'])."',
+				'".DB::getDB()->escapeString($row['endDay'])."',
+				'".DB::getDB()->escapeString($row['startTime'])."',
+				'".DB::getDB()->escapeString($row['endTime'])."',
 				'".DB::getDB()->encodeString($row['place'])."',
 				'".DB::getDB()->encodeString(nl2br($row['comment']))."',
 				".$this->user->getUserID().",

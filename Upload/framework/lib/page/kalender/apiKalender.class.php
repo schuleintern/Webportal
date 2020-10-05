@@ -109,18 +109,26 @@ class apiKalender extends AbstractPage {
       foreach($data as $item) {
         if ( $item->kalenderName ) {
 
-          echo "<pre>";
-          print_r($item);
-          echo "</pre>";
+          // echo "<pre>";
+          // print_r($item);
+          // echo "</pre>";
+
+          // if ( !isset($item->kalenderAcl->id) ) {
+          //   $item->kalenderAcl->id = 0;
+          // }
+          
+          $item->kalenderAcl->aclModuleClassParent = self::aclModuleName();
+
 
           $return = ACL::setAcl( (array)$item->kalenderAcl );
-          if (!$return || !$return['aclID']) {
-            $return['aclID'] = 0;
+          if (is_array($return) && $return['error']) {
+            return $return;
           }
 
-          echo "<pre>";
-          print_r($return);
-          echo "</pre>";
+//           echo "<pre>";
+//           print_r($return);
+//           echo "</pre>";
+// exit;
 
           if ( $item->kalenderID != 0 ) {
             $dbRow = DB::getDB()->query_first("SELECT kalenderID FROM kalender_api WHERE kalenderID = " . intval($item->kalenderID) . "");

@@ -13,13 +13,21 @@ class RestGetAcl extends AbstractRest {
 			];
 		}
 		if ( intval($module) > 1 ) {
-			$result = DB::getDB()->query_first("SELECT * FROM acl WHERE id = ".intval($module));
+			//$result = DB::getDB()->query_first("SELECT * FROM acl WHERE id = ".intval($module));
+			$result = ACL::getAcl($this->user, false, intval($module) );
 		} else {
-			$result = DB::getDB()->query_first("SELECT * FROM acl WHERE moduleClass = '".$module."'");
+			//$result = DB::getDB()->query_first("SELECT * FROM acl WHERE moduleClass = '".$module."'");
+			$result = ACL::getAcl($this->user, $module, false );
 		}
 		
-		if( $result['id'] ) {
+		// echo "<pre>";
+		// print_r($result);
+		// echo "</pre>";
 
+
+		if( isset($result['aclID']) && intval($result['aclID']) > 0 ) {
+
+			
 			return [
 				'acl' => $result
 			];
@@ -27,7 +35,8 @@ class RestGetAcl extends AbstractRest {
 		} else {
 			return [
 				'error' => true,
-				'msg' => 'Es konnte keine ACL gefunden werden!'
+				'msg' => 'Es konnte keine ACL gefunden werden!',
+				'aclBlank' => ACL::getBlank()
 			];
 		}
 

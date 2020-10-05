@@ -1,14 +1,17 @@
 <template>
   <div class="form-modal" v-on:click.self="handlerCloseModal" v-show="modalActive">
     <div class="form form-style-2 form-modal-content">
-      <div class="form-modal-close"v-on:click="handlerCloseModal"><i class="fa fa-times"></i></div>
+      <div class="form-modal-close" v-on:click="handlerCloseModal"><i class="fa fa-times"></i></div>
 
       <div class="text-small text-gey">Datum und Uhrzeit:</div>
-      <div class="labelDay">{{form.day}}</div>
+      <div class="labelDay">
+        {{form.startDay}}
+        <span v-if="form.endDay != '0000-00-00'">bis {{form.endDay}}</span>
+      </div>
 
       <div v-if="form.wholeDay == false" class="labelTime">
-        <span v-if="form.startTime">{{form.startTime}}</span>
-        <span v-if="form.endTime"> - {{form.endTime}}</span>
+        <span v-if="form.startTime != '00:00'">{{form.startTime}}</span>
+        <span v-if="form.endTime != '00:00'"> - {{form.endTime}}</span>
       </div>
 
       <div v-if="form.wholeDay == true">
@@ -76,7 +79,7 @@ export default {
   },
   props: {
     kalender: Array,
-    acl: Array
+    acl: Object
   },
   data(){
     return {
@@ -127,7 +130,7 @@ export default {
 
     handlerClickEdit: function () {
 
-      if (!this.form.day) {
+      if (!this.form.startDay) {
         return false;
       }
       EventBus.$emit('eintrag--form-open', {

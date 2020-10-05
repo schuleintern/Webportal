@@ -8,26 +8,28 @@
       </ul>
     </div>
 
-{{moduleID}} -
-{{moduleName}}
+    <div v-if="success" class="form-modal-success"> 
+      {{ success }}
+    </div>
+
     <h3>Access Control List</h3>
 
     <div class="acl">
 
-      <ul>
+      <ul class="" v-if="acl.aclID >= 0">
         <li>
           <h5>Schüler</h5>
           <ul>
             <li>
-              <input type="checkbox" v-model="acl.schuelerRead" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.schueler.read" true-value="1" false-value="0" />
               <label>Lesen</label>
             </li>
             <li>
-              <input type="checkbox" v-model="acl.schuelerWrite" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.schueler.write" true-value="1" false-value="0" />
               <label>Schreiben</label>
             </li>
             <li>
-              <input type="checkbox" v-model="acl.schuelerDelete" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.schueler.delete" true-value="1" false-value="0" />
               <label>Löschen</label>
             </li>
           </ul>
@@ -36,15 +38,15 @@
           <h5>Eltern</h5>
           <ul>
             <li>
-              <input type="checkbox" v-model="acl.elternRead" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.eltern.read" true-value="1" false-value="0" />
               <label>Lesen</label>
             </li>
             <li>
-              <input type="checkbox" v-model="acl.elternWrite" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.eltern.write" true-value="1" false-value="0" />
               <label>Schreiben</label>
             </li>
             <li>
-              <input type="checkbox" v-model="acl.elternDelete" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.eltern.delete" true-value="1" false-value="0" />
               <label>Löschen</label>
             </li>
           </ul>
@@ -53,15 +55,15 @@
           <h5>Lehrer</h5>
           <ul>
             <li>
-              <input type="checkbox" v-model="acl.lehrerRead" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.lehrer.read" true-value="1" false-value="0" />
               <label>Lesen</label>
             </li>
             <li>
-              <input type="checkbox" v-model="acl.lehrerWrite" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.lehrer.write" true-value="1" false-value="0" />
               <label>Schreiben</label>
             </li>
             <li>
-              <input type="checkbox" v-model="acl.lehrerDelete" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.lehrer.delete" true-value="1" false-value="0" />
               <label>Löschen</label>
             </li>
           </ul>
@@ -70,15 +72,15 @@
           <h5>Sonstige</h5>
           <ul>
             <li>
-              <input type="checkbox" v-model="acl.noneRead" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.none.read" true-value="1" false-value="0" />
               <label>Lesen</label>
             </li>
             <li>
-              <input type="checkbox" v-model="acl.noneWrite" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.none.write" true-value="1" false-value="0" />
               <label>Schreiben</label>
             </li>
             <li>
-              <input type="checkbox" v-model="acl.noneDelete" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.none.delete" true-value="1" false-value="0" />
               <label>Löschen</label>
             </li>
           </ul>
@@ -87,15 +89,15 @@
           <h5>Eigentümer</h5>
           <ul>
             <li>
-              <input type="checkbox" v-model="acl.owneRead" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.owne.read" true-value="1" false-value="0" />
               <label>Lesen</label>
             </li>
             <li>
-              <input type="checkbox" v-model="acl.owneWrite" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.owne.write" true-value="1" false-value="0" />
               <label>Schreiben</label>
             </li>
             <li>
-              <input type="checkbox" v-model="acl.owneDelete" true-value="1" false-value="0" />
+              <input type="checkbox" v-model="acl.groups.owne.delete" true-value="1" false-value="0" />
               <label>Löschen</label>
             </li>
           </ul>
@@ -117,9 +119,7 @@ const axios = require('axios').default;
 export default {
   name: 'app',
   props: {
-    moduleID: Number,
-    moduleName: String,
-    childID: Number
+    moduleName: String
   },
   components: {
     
@@ -128,27 +128,11 @@ export default {
     return {
       loading: true,
       error: false,
+      success: false,
 
-      module: false,
+      //module: false,
 
-      acl: {
-        id: 0,
-        schuelerRead: 0,
-        schuelerWrite: 0,
-        schuelerDelete: 0,
-        elternRead: 0,
-        elternWrite: 0,
-        elternDelete: 0,
-        lehrerRead: 0,
-        lehrerWrite: 0,
-        lehrerDelete: 0,
-        noneRead: 0,
-        noneWrite: 0,
-        noneDelete: 0,
-        owneRead: 0,
-        owneWrite: 0,
-        owneDelete: 0
-      }
+      acl: {}
     }
   },
   watch: {
@@ -159,21 +143,21 @@ export default {
     // }
 
 
-    acl: {
-      handler(val){
-        // do stuff
-        //console.log('changed child', this.moduleID, this.moduleName, this.acl.id);
+    // acl: {
+    //   handler(val){
+    //     // do stuff
+    //     //console.log('changed child', this.moduleID, this.moduleName, this.acl.id);
        
-        var that = this;
-        EventBus.$emit('acl--changed', {
-          acl: that.acl,
-          moduleName: that.moduleName,
-          childID: that.childID
-        });
+    //     var that = this;
+    //     EventBus.$emit('acl--changed', {
+    //       acl: that.acl,
+    //       moduleName: that.moduleName,
+    //       childID: that.childID
+    //     });
 
-     },
-     deep: true
-    }
+    //  },
+    //  deep: true
+    // }
   },
   created: function () {
 
@@ -184,34 +168,36 @@ export default {
 
     loadAcl: function () {
 
-      if (this.moduleName && !this.moduleID) {
-        this.module = this.moduleName;
-      } else {
-        this.module = this.moduleID;
-      }
+      // if (this.moduleName && !this.moduleID) {
+      //   this.module = this.moduleName;
+      // } else {
+      //   this.module = this.moduleID;
+      // }
 
       // console.log( this.moduleID );
       // console.log( this.moduleName );
       // console.log( 'load', this.module );
 
-      if ( this.moduleID == null) {
+      // if ( this.moduleID == null) {
         
-        const keys = Object.keys(this.acl)
-        for (const key of keys) {
-          //console.log(key)
-          this.acl[key] = 0;
-        }
+      //   const keys = Object.keys(this.acl)
+      //   for (const key of keys) {
+      //     //console.log(key)
+      //     this.acl[key] = 0;
+      //   }
 
-      } else {
+      // } else {
 
         var that = this;
         that.error = false;
         that.ajaxGet(
-          'rest.php/GetAcl/'+this.module,
+          'rest.php/GetAcl/'+this.moduleName,
           {},
           function (response, that) {
             if (response.data.error == true && response.data.msg) {
               that.error = response.data.msg;
+              //console.log(response.data.aclBlank);
+              that.acl = response.data.aclBlank;
             } else {
               if (response.data.acl) {
                 that.acl = response.data.acl;
@@ -220,7 +206,7 @@ export default {
           }
         );
         
-      }
+      //}
       
 
       
@@ -235,7 +221,7 @@ export default {
 
       that.error = false;
       that.ajaxPost(
-        'rest.php/SetAcl/'+this.module,
+        'rest.php/SetAcl/'+this.moduleName,
         { acl: this.acl },
         {},
         function (response, that) {
@@ -244,10 +230,11 @@ export default {
 
           if (response.data.error == true && response.data.msg) {
             that.error = response.data.msg;
-          } else if (response.data.done == true) {
+          } else if (response.data.success == true) {
 
             that.error = false;
-
+            that.success = response.data.msg;
+            that.acl.aclID = response.data.aclID;
           }
 
         }

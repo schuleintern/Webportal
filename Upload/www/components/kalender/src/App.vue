@@ -8,7 +8,8 @@
       </ul>
     </div>
 
-    <CalendarForm v-bind:formErrors="formErrors"
+    <CalendarForm 
+      
       v-bind:kalender="kalender"
       v-bind:calendarSelected="calendarSelected"
       v-bind:acl="acl"></CalendarForm>
@@ -54,7 +55,6 @@ export default {
     return {
 
       loading: true,
-      formErrors: [],
       error: false,
 
       calendarSelected: [],
@@ -130,6 +130,7 @@ export default {
             } else {
               that.eintraege = [];
             }
+            that.error = '';
           }
         }
       );
