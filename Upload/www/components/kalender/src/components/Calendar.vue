@@ -38,7 +38,8 @@
 
               <div v-bind:key="j" v-for="(eintrag, j) in getEintrag(day)" 
                 class="eintrag"
-                v-bind:style="styleEintrag(eintrag)"
+                :class="{ 'eintrag-multiple': styleMultipe(eintrag) }"
+                v-bind:style="styleEintrag(eintrag, day[1])"
                 v-on:click="handlerClickEintrag(eintrag)">
 
                 <div class="date">
@@ -117,15 +118,38 @@ export default {
         eintrag: eintrag
       });
     },
-    styleEintrag: function (eintrag) {
+    styleEintrag: function (eintrag, day) {
 
-      var ret = false;
+      var ret = {};
+      var that = this;
       this.kalender.forEach(function (kalender) {
         if ( parseInt(kalender.kalenderID) == parseInt(eintrag.calenderID) ) {
-          ret = { borderLeft: '5px solid '+kalender.kalenderColor };
+          
+          if ( that.styleMultipe(eintrag) == true ) {
+            
+            if ( eintrag.startDay == day ) {
+              ret = { borderLeft: '5px solid '+kalender.kalenderColor };
+            } else if ( eintrag.endDay == day ) {
+              ret = { borderRight: '5px solid '+kalender.kalenderColor };
+            }
+            ret.borderBottom = '2px solid '+kalender.kalenderColor;
+            
+            
+          } else {
+            ret = { borderLeft: '5px solid '+kalender.kalenderColor };
+          }
         }
       });
+      
       return ret;
+    },
+    styleMultipe: function(eintrag) {
+      if ( eintrag.endDay == '0000-00-00') {
+        return false;
+      } else if ( eintrag.endDay == eintrag.startDay ) {
+        return false;
+      }
+      return true;
     },
     getEintrag: function (day) {
       if (this.eintraege.length <= 0 ) {

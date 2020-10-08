@@ -60,7 +60,7 @@ class RestGetKalenderEintrag extends AbstractRest {
 
 			$ret[] = $item;
 		}
-
+		
 		if(count($ret) > 0) {
 
 			return [

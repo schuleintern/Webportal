@@ -14,14 +14,15 @@ class cronhandler {
 			'ElternMailReceiver',
 			'CreateDemoVplan',
 			'UpdateExterneKalender',
-	        'CreateOffice365Users',
-	        'TagebuchFehlSucher',
-            'FerienDownloader',
-            'CronGarbageCollector',
-            'CronNextCloud',
-            'CronVerspaetungAuswertung',
-            'CreateTagebuchPDFs',
-            'DeleteOldElternUser'
+			'CreateOffice365Users',
+			'TagebuchFehlSucher',
+			'FerienDownloader',
+			'CronGarbageCollector',
+			'CronNextCloud',
+			'CronVerspaetungAuswertung',
+			'CreateTagebuchPDFs',
+			'DeleteOldElternUser',
+			'AllInOneKalenderFerien'
 	];
 	
 	

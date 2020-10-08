@@ -28,10 +28,14 @@
                     <input type="checkbox" v-model="item.kalenderPreSelect" true-value="1" false-value="0" />
                     <label>Ausgewählt</label>
                   </div>
+                  <div>
+                    <input type="checkbox" v-model="item.kalenderFerien" true-value="1" false-value="0" />
+                    <label>Ferien</label>
+                    <span class="text-small">Vorsicht: Manuell erstellte Kalendereinträge werden durch das System gelöscht.</span>
+                  </div>
                   <div v-on:click="handlerKalenderRemove(item)"><i class=" fa fa-trash"></i></div>
                 </div>
-
-                <div>
+                <div v-if="item.kalenderFerien == 0">
                   ACL
                   <AclModule v-bind:acl="item.kalenderAcl"></AclModule>
                 </div>

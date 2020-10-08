@@ -35,6 +35,7 @@ class RestGetKalender extends AbstractRest {
 				'kalenderPreSelect' => intval($row['kalenderPreSelect']),
 				'kalenderAcl' => $this->getAclByID($row['kalenderAcl']),
 				//'kalenderAclID' => intval($row['kalenderAcl'])
+				'kalenderFerien' => intval($row['kalenderFerien']),
 			];
 
 			if (!$item['kalenderColor']) {
