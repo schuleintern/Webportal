@@ -128,9 +128,15 @@ export default {
           if ( that.styleMultipe(eintrag) == true ) {
             
             if ( eintrag.startDay == day ) {
-              ret = { borderLeft: '5px solid '+kalender.kalenderColor };
+              ret = {
+                borderLeft: '5px solid '+kalender.kalenderColor,
+                marginLeft: '0.6rem'
+              };
             } else if ( eintrag.endDay == day ) {
-              ret = { borderRight: '5px solid '+kalender.kalenderColor };
+              ret = {
+                borderRight: '5px solid '+kalender.kalenderColor,
+                marginRight: '0.6rem'
+              };
             }
             ret.borderBottom = '2px solid '+kalender.kalenderColor;
             
