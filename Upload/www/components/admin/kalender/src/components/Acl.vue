@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="padding-l-l">
 
     <div v-if="error" class="form-modal-error"> 
       <b>Folgende Fehler sind aufgetreten:</b>
@@ -104,7 +104,7 @@
         </li>
       </ul>
 
-      <button v-on:click="handlerSubmit">Speichern</button>
+      <button v-on:click="handlerSubmit" class="btn btn-blau width-100p">ACL Speichern</button>
 
     </div>
 

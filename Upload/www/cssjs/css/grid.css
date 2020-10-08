@@ -81,6 +81,10 @@
   width: 2rem;
 }
 
+.width-7rem {
+  width: 7rem;
+}
+
 .width-40vw {
   width: 40vw;
 }
@@ -97,8 +101,20 @@
   padding: 1.3rem;
 }
 
+
+.padding-l-l {
+  padding-left: 2.3rem;
+}
+
+.padding-b-m {
+  padding-bottom: 1.3rem;
+}
 .padding-b-l {
   padding-bottom: 2.3rem;
+}
+
+.padding-t-m {
+  padding-top: 1.3rem;
 }
 
 .margin-r-xs {
@@ -119,6 +135,9 @@
 }
 .margin-l-s {
   margin-left: 0.6rem;
+}
+.margin-l-m {
+  margin-left: 1.3rem;
 }
 
 

@@ -15,41 +15,58 @@
         
         <div class="calendar-list">
           <h3>Kalender bearbeiten</h3>
-          <ul>
-            <draggable v-model="kalender" group="people" @start="drag=true" @end="endSort" handle=".handle">
+          <ul class="noListStyle">
+            <draggable class="" v-model="kalender" group="people" @start="drag=true" @end="endSort" handle=".handle">
               <li v-bind:key="item.kalenderID" v-for="(item, i) in kalender"
-                class="flex border-b" v-show="!item.delete">
+                class="flex-row border-radius padding-m  margin-b-m" v-show="!item.delete">
 
-                <div class="flex-row">
-                  <div class="handle"><input type="hidden" v-model="item.kalenderSort" /><i class=" fa fa-sort"></i></div>
-                  <div><input type="text" v-model="item.kalenderName" /></div>
-                  <div><input type="text" v-model="item.kalenderColor" placeholder="Farbe" /></div>
-                  <div>
-                    <input type="checkbox" v-model="item.kalenderPreSelect" true-value="1" false-value="0" />
-                    <label>Ausgewählt</label>
+                  <div class="flex">
+                    <div class="handle width-2rem flex-1"><input type="hidden" v-model="item.kalenderSort" /><i class=" fa fa-sort"></i></div>
                   </div>
-                  <div>
-                    <input type="checkbox" v-model="item.kalenderFerien" true-value="1" false-value="0" />
-                    <label>Ferien</label>
-                    <span class="text-small">Vorsicht: Manuell erstellte Kalendereinträge werden durch das System gelöscht.</span>
-                  </div>
-                  <div v-on:click="handlerKalenderRemove(item)"><i class=" fa fa-trash"></i></div>
-                </div>
-                <div>
-                  ACL
-                  <AclModule v-bind:acl="item.kalenderAcl"></AclModule>
-                </div>
 
+                  <div class="flex-1 flex">
+                    <div class="flex">
+                      <div class="margin-b-s">
+                        <label class="width-7rem">Titel</label>
+                        <input type="text" v-model="item.kalenderName" /></div>
+                      <div class="margin-b-s">
+                        <label class="width-7rem">Farbe</label>
+                        <input type="text" v-model="item.kalenderColor" placeholder="#cccccc" /></div>
+                      <div>
+                        <input type="checkbox" v-model="item.kalenderPreSelect" true-value="1" false-value="0" />
+                        <label class="margin-l-m">Vorausgewählt</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" v-model="item.kalenderFerien" true-value="1" false-value="0" />
+                        <label class="margin-l-m">Ferien</label>
+                        <span v-if="item.kalenderFerien" class="text-red text-small margin-l-m">Vorsicht: Manuell erstellte Kalendereinträge werden durch das System gelöscht.</span>
+                      </div>
+                    </div>
+
+                    <div class="padding-t-m">
+                      <AclModule v-bind:acl="item.kalenderAcl"></AclModule>
+                      <span v-if="!item.kalenderAcl" class="text-bold text-red">Zugriffsrechte können erst nach dem Speichern gesetzt werden!</span>
+                    </div>
+                    <div class="padding-t-m">
+                      <button class="btn" v-on:click="handlerKalenderRemove(item)"><i class=" fa fa-trash"></i> Kalender löschen</button>
+                    </div>
+                  </div>
+                  
               </li>
             </draggable>
           </ul>
-          <button v-on:click="handlerKalenderAdd">Neuer Kalender hinzufügen</button>
+          <div class="flex-row margin-t-l">
+            <button v-on:click="handlerKalenderAdd"
+            class="btn btn-grau flex-1 margin-r-m"><i class=" fa fa-plus"></i>Neuer Kalender hinzufügen</button>
         
-          <form ref="form" action="" method="post">
-            <input type="hidden" name="data" v-model="kalenderJsonString">
-            <input type="hidden" name="action" value="edit">
-            <button v-on:click="handlerKalenderSubmit">Speichern</button>
-          </form>
+            <form ref="form" action="" method="post" class="flex-2">
+              <input type="hidden" name="data" v-model="kalenderJsonString">
+              <input type="hidden" name="action" value="edit">
+              <button v-on:click="handlerKalenderSubmit"
+                class="btn btn-blau width-100p">Speichern</button>
+            </form>
+          </div>
+
         </div>
         
       </div>
