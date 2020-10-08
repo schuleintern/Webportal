@@ -7,8 +7,6 @@ class RestGetKalender extends AbstractRest {
 
 		$acl = $this->getAclAll();
 
-
-
 		if ($acl['user']['admin'] == 0 && $acl['rights']['read'] != 1) {
 			return [
 				'error' => true,
@@ -17,16 +15,9 @@ class RestGetKalender extends AbstractRest {
 		}
 
 		$kalender = [];
-		// $result = DB::getDB()->query("SELECT a.*, acl.id FROM kalender_api as a 
-		// LEFT JOIN acl ON a.kalenderAcl = acl.id
-		// ORDER BY a.kalenderSort");
-		$result = DB::getDB()->query("SELECT a.* FROM kalender_api as a ORDER BY a.kalenderSort");
+		$result = DB::getDB()->query("SELECT a.* FROM kalender_allInOne as a ORDER BY a.kalenderSort");
 		while($row = DB::getDB()->fetch_array($result)) {
 			
-// 					echo "<pre>";
-// print_r($row);
-// echo "</pre>";
-
 			$item = [
 				'kalenderID' => intval($row['kalenderID']),
 				'kalenderName' => $row['kalenderName'],
@@ -34,7 +25,6 @@ class RestGetKalender extends AbstractRest {
 				'kalenderSort' => intval($row['kalenderSort']),
 				'kalenderPreSelect' => intval($row['kalenderPreSelect']),
 				'kalenderAcl' => $this->getAclByID($row['kalenderAcl']),
-				//'kalenderAclID' => intval($row['kalenderAcl'])
 				'kalenderFerien' => intval($row['kalenderFerien']),
 			];
 
@@ -86,7 +76,7 @@ class RestGetKalender extends AbstractRest {
 	}
 
 	public function aclModuleName() {
-		return 'apiKalender';
+		return 'kalenderAllInOne';
 	}
 
 }	

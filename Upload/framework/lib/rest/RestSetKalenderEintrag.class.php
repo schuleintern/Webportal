@@ -31,7 +31,7 @@ class RestSetKalenderEintrag extends AbstractRest {
 			];
 		}
 
-		$kalender_acl_db = DB::getDB()->query_first("SELECT a.kalenderAcl FROM kalender_api as a 
+		$kalender_acl_db = DB::getDB()->query_first("SELECT a.kalenderAcl FROM kalender_allInOne as a 
 		WHERE a.kalenderID = ".intval($row['calenderID']));
 
 		if ($kalender_acl_db['kalenderAcl']) {
@@ -69,12 +69,12 @@ class RestSetKalenderEintrag extends AbstractRest {
 
 		if ( $row['id'] ) {
 
-			$dbRow = DB::getDB()->query_first("SELECT eintragID FROM kalender_api_eintrag WHERE eintragID = " . intval($row['id']) . "");
+			$dbRow = DB::getDB()->query_first("SELECT eintragID FROM kalender_allInOne_eintrag WHERE eintragID = " . intval($row['id']) . "");
 
 			if ( $dbRow['eintragID'] ) {
 
 
-				DB::getDB()->query("UPDATE kalender_api_eintrag SET
+				DB::getDB()->query("UPDATE kalender_allInOne_eintrag SET
 					kalenderID = ".intval($row['calenderID']).",
 					eintragTitel = '".DB::getDB()->encodeString($row['title'])."',
 					eintragTimeStart = '".DB::getDB()->escapeString($row['startTime'])."',
@@ -95,7 +95,7 @@ class RestSetKalenderEintrag extends AbstractRest {
 								
 		} else {
 
-			DB::getDB()->query("INSERT INTO kalender_api_eintrag (
+			DB::getDB()->query("INSERT INTO kalender_allInOne_eintrag (
 				kalenderID,
 				eintragTitel,
 				eintragDatumStart,
@@ -153,7 +153,7 @@ class RestSetKalenderEintrag extends AbstractRest {
 	}
 
 	public function aclModuleName() {
-		return 'apiKalender';
+		return 'kalenderAllInOne';
 	}
 
 }	

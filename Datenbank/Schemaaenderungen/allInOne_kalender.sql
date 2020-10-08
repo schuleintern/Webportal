@@ -1,16 +1,16 @@
 
-
-CREATE TABLE `kalender_api` (
+CREATE TABLE `kalender_allInOne` (
   `kalenderID` int(11) NOT NULL AUTO_INCREMENT,
   `kalenderName` varchar(255) NOT NULL,
   `kalenderColor` varchar(7) DEFAULT NULL,
   `kalenderSort` tinyint(1) DEFAULT NULL,
   `kalenderPreSelect` tinyint(1) DEFAULT NULL,
   `kalenderAcl` int(11) DEFAULT NULL,
+  `kalenderFerien` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`kalenderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-CREATE TABLE `kalender_api_eintrag` (
+CREATE TABLE `kalender_allInOne_eintrag` (
   `eintragID` int(11) NOT NULL AUTO_INCREMENT,
   `kalenderID` int(11) NOT NULL,
   `eintragKategorieID` int(11) NOT NULL DEFAULT '0',
@@ -27,7 +27,7 @@ CREATE TABLE `kalender_api_eintrag` (
   PRIMARY KEY (`eintragID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-CREATE TABLE `kalender_api_kategorie` (
+CREATE TABLE `kalender_allInOne_kategorie` (
   `kategorieID` int(11) NOT NULL AUTO_INCREMENT,
   `kategorieKalenderID` int(11) NOT NULL,
   `kategorieName` varchar(255) NOT NULL,
@@ -35,4 +35,3 @@ CREATE TABLE `kalender_api_kategorie` (
   `kategorieIcon` varchar(255) NOT NULL,
   PRIMARY KEY (`kategorieID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-

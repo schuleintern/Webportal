@@ -35,7 +35,7 @@
                   </div>
                   <div v-on:click="handlerKalenderRemove(item)"><i class=" fa fa-trash"></i></div>
                 </div>
-                <div v-if="item.kalenderFerien == 0">
+                <div>
                   ACL
                   <AclModule v-bind:acl="item.kalenderAcl"></AclModule>
                 </div>
@@ -93,7 +93,7 @@ export default {
       kalender: [],
       kalenderJsonString: '',
 
-      moduleName: 'apiKalender',
+      moduleName: 'KalenderAllInOne',
       moduleAclID: false,
       moduleAclChildID: false
     }

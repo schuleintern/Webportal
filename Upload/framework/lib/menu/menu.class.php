@@ -288,9 +288,9 @@ class menu {
             $html .= $this->getMenuItem('extKalender', $externeKalender[$i]['kalenderName'], 'fa fa-calendar',['kalenderID' => $externeKalender[$i]['kalenderID']]);
         }
         
-        
-        $html .= $this->getMenuItem('apiKalender', 'API', 'fa fa-calendar');
-
+        if($this->isActive("kalenderAllInOne")) {
+          $html .= $this->getMenuItem('kalenderAllInOne', 'Kalender', 'fa fa-calendar');
+        }
         
         // Andere Kalender
         

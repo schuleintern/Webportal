@@ -131,7 +131,7 @@ class requesthandler {
       'andereKalender',
       'geticsfeed',
       'terminuebersicht',
-      'apiKalender'
+      'kalenderAllInOne'
     ],
     'klassenlisten' => [
       'klassenlisten',

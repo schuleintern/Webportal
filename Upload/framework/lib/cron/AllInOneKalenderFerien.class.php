@@ -15,13 +15,13 @@ class AllInOneKalenderFerien extends AbstractCron {
 	
 	public function execute() {
 		
-		$ferien_kalender = DB::getDB()->query_first("SELECT kalenderID FROM kalender_api WHERE kalenderFerien = 1");
+		$ferien_kalender = DB::getDB()->query_first("SELECT kalenderID FROM kalender_allInOne WHERE kalenderFerien = 1");
 
 		if ( !intval($ferien_kalender['kalenderID']) ) {
 			return false;
 		}
 		
-	  DB::getDB()->query("DELETE FROM kalender_api_eintrag WHERE kalenderID = ".intval($ferien_kalender['kalenderID']) );
+	  DB::getDB()->query("DELETE FROM kalender_allInOne_eintrag WHERE kalenderID = ".intval($ferien_kalender['kalenderID']) );
 		
 
 		$feriendata = file(DB::getGlobalSettings()->ferienURL);
@@ -35,7 +35,7 @@ class AllInOneKalenderFerien extends AbstractCron {
 					
 				$ferien = explode(";", str_replace("\r\n", "", $feriendata[$i]));
 
-				DB::getDB()->query("INSERT INTO kalender_api_eintrag (
+				DB::getDB()->query("INSERT INTO kalender_allInOne_eintrag (
 					kalenderID,
 					eintragTitel,
 					eintragDatumStart,

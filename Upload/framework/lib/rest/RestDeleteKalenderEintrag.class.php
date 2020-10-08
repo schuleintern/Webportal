@@ -36,11 +36,11 @@ class RestDeleteKalenderEintrag extends AbstractRest {
 
 		if ( $ID ) {
 
-			$dbRow = DB::getDB()->query_first("SELECT eintragID FROM kalender_api_eintrag WHERE eintragID = " . $ID . "");
+			$dbRow = DB::getDB()->query_first("SELECT eintragID FROM kalender_allInOne_eintrag WHERE eintragID = " . $ID . "");
 
 			if ( $dbRow['eintragID'] == $ID ) {
 
-				DB::getDB()->query("DELETE FROM kalender_api_eintrag WHERE eintragID= " . $ID . "");
+				DB::getDB()->query("DELETE FROM kalender_allInOne_eintrag WHERE eintragID= " . $ID . "");
 
 
 			} else {
@@ -82,7 +82,7 @@ class RestDeleteKalenderEintrag extends AbstractRest {
 	}
 
 	public function aclModuleName() {
-		return 'apiKalender';
+		return 'kalenderAllInOne';
 	}
 
 }	
