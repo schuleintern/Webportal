@@ -138,9 +138,13 @@ export default {
       }
       return false;
     },
-
     isAfterToday: function (date, today) {
-      return this.$moment(date).isSameOrAfter( this.$moment(today) );
+      var date_js = new Date(date.replace(/-/g, "/"));
+      var today_js = new Date(today.replace(/-/g, "/"));
+      if ( date_js >= today_js) {
+        return true;
+      }
+      return false;
     },
     addWeek: function () {
         this.firstDayWeek = this.$moment(this.firstDayWeek).add(1, 'week');
@@ -169,8 +173,6 @@ export default {
         bis: this.lastDayWeek.unix()
       });
     }
-
-    
 
 
   }
