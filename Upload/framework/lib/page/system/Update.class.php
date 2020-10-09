@@ -101,7 +101,7 @@ class Update extends AbstractPage
         $this->updateComponentsFolder(121);
         $this->updateCssJSFolder(121);
 
-        DB::getDB()->query("CREATE TABLE `acl` (
+        DB::getDB()->query("CREATE TABLE IF NOT EXISTS `acl` (
             `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
             `moduleClass` varchar(50) DEFAULT NULL,
             `moduleClassParent` varchar(50) DEFAULT NULL,
@@ -123,13 +123,13 @@ class Update extends AbstractPage
             PRIMARY KEY (`id`)
           ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
-        DB::getDB()->query("CREATE TABLE `mensa_order` (
+        DB::getDB()->query("CREATE TABLE IF NOT EXISTS `mensa_order` (
             `userID` int(11) DEFAULT NULL,
             `speiseplanID` int(11) DEFAULT NULL,
             `time` datetime DEFAULT NULL
           ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
-        DB::getDB()->query("CREATE TABLE `mensa_speiseplan` (
+        DB::getDB()->query("CREATE TABLE IF NOT EXISTS `mensa_speiseplan` (
             `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
             `date` date DEFAULT NULL,
             `title` varchar(255) DEFAULT NULL,

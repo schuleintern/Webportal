@@ -137,7 +137,7 @@ class schueler {
 
 		$gruppe = [];
 
-		if ( $this->data['gruppe'] && $action = false ) {
+		if ( $this->data['gruppe'] && $action == false ) {
 			$gruppen_query = DB::getDB()->query("SELECT `name` AS `gruppe_name` FROM ganztags_gruppen WHERE id = ".$this->data['gruppe']." ");
 			while($row = mysqli_fetch_array($gruppen_query)) { $gruppe = $row; }
 		}

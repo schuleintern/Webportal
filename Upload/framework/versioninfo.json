@@ -1,7 +1,7 @@
 {
-    "Name": "Version 1.2.1 (14. September 2020)",
-    "ChangeLog": "Kleinere Bug Fixes. ",
+    "Name": "Version 1.2.2 (09. Oktober 2020)",
+    "ChangeLog": "Bug Fixes. Neues Module: Mensa/Speiseplan",
     "MajorVersion": 1,
     "MinorVersion": 2,
-    "PatchVersion": 1
+    "PatchVersion": 2
 }
