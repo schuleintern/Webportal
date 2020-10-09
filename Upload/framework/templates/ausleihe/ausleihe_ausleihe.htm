@@ -13,6 +13,7 @@
 		</script>
 		<script src=components/ausleihe/dist/js/chunk-vendors.js></script>
 		<script src=components/ausleihe/dist/js/app.js></script>
+		<!-- <script src=components/ausleihe/dist/app.js></script> -->
 
 	</div>
 </div>
@@ -20,6 +21,10 @@
 {$this->footer}
 
 <style>
+
+	#app {
+		min-width: 100rem;
+	}
 
 	.header {
 		display: flex;
@@ -87,7 +92,6 @@
 
 	.calendar table td {
 		padding: 0.6rem;
-		text-align: right;
 		vertical-align: bottom;
 	}
 
@@ -100,10 +104,6 @@
 		font-size: 120%;
 		width: 3rem;
 		vertical-align: middle;
-	}
-	.calendar table .info-box {
-		text-align: left;
-		padding: 1rem;
 	}
 
 	.calendar .btn-outline {

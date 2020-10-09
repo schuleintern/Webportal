@@ -18,13 +18,16 @@ if (!function_exists('getallheaders'))
 } 
 
 class resthandler {
-  private static $actions = [
-     'GetSettingsValue',
-     'SetSettingsValue',
-     'GetAllSettings',
-     'GetUserCount',
-      'Test'
-  ];
+    private static $actions = [
+        'GetSettingsValue',
+        'SetSettingsValue',
+        'GetAllSettings',
+        'GetUserCount',
+        'SetMensaMeal',
+        'SetMensaOrder',
+        'GetAcl',
+        'SetAcl'
+    ];
   
   
 
@@ -53,27 +56,31 @@ class resthandler {
       }
       
       if(in_array($request[0],self::$actions)) {
-          
+        
+        PAGE::setFactory( new FACTORY() );
+
           include_once("../framework/lib/rest/Rest" . $request[0] . ".class.php");
           
           $classname = 'Rest' . $request[0];
           
+
+
           /**
            * 
            * @var AbstractRest $action
            */
           $action = new $classname();
-
-
           
           if($method != $action->getAllowedMethod()) {
               $result = [
-                  'error' => 1,
+                  'error' => 2,
                   'errorText' => 'method not allowed'
               ];
               $this->answer($result, 405);
           }
 
+
+          
 
           if($action->needsUserAuth()) {
               if (isset ( $_COOKIE ['schuleinternsession'] )) {
@@ -89,15 +96,16 @@ class resthandler {
                       exit ();
                   } else {
                       DB::getSession ()->update ();
-
+                      
                       $action->user = DB::getSession()->getUser();
+                      $action->acl();
                   }
-              }
-              else {
+              } else {
                   $this->answer([], 401);
               }
-          }
-          else {
+          } else {
+
+            
 
               foreach($headers as $headername => $headervalue) {
                   if(strtolower($headername) == 'authorization') {
@@ -105,16 +113,18 @@ class resthandler {
                   }
               }
 
-              if(!isset($headers['schuleinternapirequest']) || $headers['schuleinternapirequest'] != true) {
-                  $result = [
-                      'error' => 1,
-                      'errorText' => 'schuleinternapirequest header not set. '
-                  ];
-                  $this->answer($result, 400);
-              }
+            //   if(!isset($headers['schuleinternapirequest']) || $headers['schuleinternapirequest'] != true) {
+            //       $result = [
+            //           'error' => 1,
+            //           'errorText' => 'schuleinternapirequest header not set. '
+            //       ];
+            //       $this->answer($result, 400);
+            //   }
 
               // Check Auth
               if ($action->needsSystemAuth()) {
+
+                
 
                   $apiKey = null;
 
@@ -151,30 +161,29 @@ class resthandler {
               }
           }
 
+
           // Execute wird nur aufgerufen, wenn die Authentifizierung erfolgreich war.
           $result = $action->execute($input, $request);
       
           if(!is_array($result) && !is_object($result)) {
               $result = [
-                  'error' => 1
+                  'error' => 1,
+                  'errorText' => 'Missing Return'
               ];
               
               if($action->getStatusCode() == 200) {
                   // Interner Fehler, da kein Status gesetzt wurde
                   $this->answer($result, 500);
-              }
-              else {
+              } else {
                   $this->answer($result, $action->getStatusCode());
               }
               
-          }
-          else {
+          } else {
               $this->answer($result,$action->getStatusCode());
           }
-      }
-      else {
+      } else {
           $result = [
-              'error' => 1,
+              'error' => 3,
               'errorText' => 'Unknown Action'
           ];
           $this->answer($result, 404);

@@ -427,6 +427,12 @@ class menu {
     }
     
     
+    if( $this->isActive("mensaSpeiseplan") )  {
+      
+      $html .= $this->getMenuItem("mensaSpeiseplan", "Speiseplan", "fa fas fa-utensils");
+    }
+
+
     if(!DB::getSession()->isEltern() &&
         
         ($this->isActive("office365") || $this->isActive("homeuseprogram") || $this->isActive("downloads") || $this->isActive("office365info")

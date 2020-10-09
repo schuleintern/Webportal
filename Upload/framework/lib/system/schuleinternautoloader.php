@@ -169,7 +169,8 @@ $classes = [
 		'resthandler',
 		'PAGE',
 		'FILE',
-		'FACTORY'
+		'FACTORY',
+		'ACL'
 
 	],
 	'tpl' => [
