@@ -709,40 +709,57 @@ class updatevplan extends AbstractPage {
                 $htmlLehrerMorgenUnCensored = '<table class="mon_list">
 <tr class="list"><th class="list" align="center">Vertreter</th><th class="list" align="center">Stunde</th><th class="list" align="center">Klasse(n)</th><th class="list" align="center">Fach</th><th class="list" align="center">Raum</th><th class="list" align="center">(Fach)</th><th class="list" align="center">(Lehrer)</th><th class="list" align="">Info</th></tr>
 ';
-                
+                // Sort Schueler
                 usort($dataHeute, function($a, $b) {
                     return [$a[14], $a[2]] <=> [$b[14], $b[2]];
                 });
-
                 usort($dataMorgen, function($a, $b) {
                     return [$a[14], $a[2]] <=> [$b[14], $b[2]];
                 });
 
                 for($i = 0; $i < sizeof($dataHeute); $i++) {
                     $htmlSchuelerHeute .= self::getPupilLineForUntisData($dataHeute[$i], DB::getSettings()->getBoolean("vplan-censor-schuelerheute"));
-                    $htmlLehrerHeute .= self::getTeacherLineForUntisData($dataHeute[$i], DB::getSettings()->getBoolean("vplan-censor-lehrerheute"));
                     $htmlSchuelerHeuteUnCensored .= self::getPupilLineForUntisData($dataHeute[$i], false);
+                }
+
+                $htmlSchuelerHeute .= "</table>";
+                $htmlSchuelerHeuteUnCensored .= "</table>";
+                
+                for($i = 0; $i < sizeof($dataMorgen); $i++) {
+                    $htmlSchuelerMorgen .= self::getPupilLineForUntisData($dataMorgen[$i], DB::getSettings()->getBoolean("vplan-censor-schuelermorgen"));
+                    $htmlSchuelerMorgenUnCensored .= self::getPupilLineForUntisData($dataMorgen[$i], false);
+                }
+
+                $htmlSchuelerMorgen .= "</table>";
+                $htmlSchuelerMorgenUnCensored .= "</table>";
+
+                // Sort Lehrer
+
+                usort($dataHeute, function($a, $b) {
+                    return [$a[6], $a[2]] <=> [$b[6], $b[2]];
+                });
+                usort($dataMorgen, function($a, $b) {
+                    return [$a[6], $a[2], $a[14]] <=> [$b[6], $b[2], $b[14]];
+                });
+
+                for($i = 0; $i < sizeof($dataHeute); $i++) {
+                    $htmlLehrerHeute .= self::getTeacherLineForUntisData($dataHeute[$i], DB::getSettings()->getBoolean("vplan-censor-lehrerheute"));
                     $htmlLehrerHeuteUnCensored .= self::getTeacherLineForUntisData($dataHeute[$i], false);
                 }
                 
-                $htmlSchuelerHeute .= "</table>";
                 $htmlLehrerHeute.= "</table>";
-                $htmlSchuelerHeuteUnCensored .= "</table>";
                 $htmlLehrerHeuteUnCensored .= "</table>";
                 
                 
                 for($i = 0; $i < sizeof($dataMorgen); $i++) {
-                    $htmlSchuelerMorgen .= self::getPupilLineForUntisData($dataMorgen[$i], DB::getSettings()->getBoolean("vplan-censor-schuelermorgen"));
                     $htmlLehrerMorgen .= self::getTeacherLineForUntisData($dataMorgen[$i], DB::getSettings()->getBoolean("vplan-censor-lehrermorgen"));
-                    $htmlSchuelerMorgenUnCensored .= self::getPupilLineForUntisData($dataMorgen[$i], false);
                     $htmlLehrerMorgenUnCensored .= self::getTeacherLineForUntisData($dataMorgen[$i], false);
                 }
-                
-                $htmlSchuelerMorgen .= "</table>";
+                                
                 $htmlLehrerMorgen.= "</table>";
-                $htmlSchuelerMorgenUnCensored .= "</table>";
                 $htmlLehrerMorgenUnCensored .= "</table>";
                 
+
                 DB::getDB()->query("UPDATE vplan SET
                 vplanContent='" . DB::getDB()->escapeString($htmlSchuelerHeute) . "',
                 vplanContentUncensored = '" . DB::getDB()->escapeString($htmlSchuelerHeuteUnCensored) . "',
