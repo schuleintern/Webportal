@@ -14,7 +14,7 @@
             </button>
         </div>
 
-        <table>
+        <table class="table_1">
           <thead>
             <tr>
               <td class="hourLabel"></td>
@@ -24,22 +24,23 @@
               </td>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="oddEven">
             <tr v-bind:key="i" v-for="(hour, i) in shoolHours">
               <td class="hourLabel">{{hour}}</td>
-              <td v-bind:key="j" v-for="(day, j) in daysInWeekFormat" >
-                <!-- Apply any bg-* class to to the info-box to color it -->
-                <div class="info-box bg-green"
+              <td v-bind:key="j" v-for="(day, j) in daysInWeekFormat"
+                class="">
+                
+                <div class="box_1"
                   v-bind:key="key" v-for="(date, key) in dates"
-                  v-if="date.ausleiheStunde == hour && date.ausleiheDatum == day[1]">
+                  v-if="showEintrag(date.ausleiheStunde, hour, date.ausleiheDatum, day[1]) == true" >
 
-                    <span class="info-box-text">{{date.ausleiheLehrer}} / {{date.ausleiheKlasse}}</span>
-                    <span class="info-box-number">{{date.objektName}} <span v-if="date.sub.length > 0"> ({{date.part}}/{{date.sum}})</span> </span>
-                    <span v-if="date.sub.length > 0">{{date.sub}}</span>
+                    <div class="">{{date.ausleiheLehrer}} / {{date.ausleiheKlasse}}</div>
+                    <div class="text-bold">{{date.objektName}} <span v-if="date.sub.length > 0"> ({{date.part}}/{{date.sum}})</span> </div>
+                    <div v-if="date.sub.length > 0">{{date.sub}}</div>
 
-                </div><!-- /.info-box -->
-                <button v-if="isAfterToday(day[1], getToday)" @click="addDate(day,hour,$event)"
-                  class="eventAdd btn btn-outline"><i class="fa fa-plus"></i></button>
+                </div>
+                <button v-if="isAfterToday(day[1], getToday)" v-on:click="addDate(day,hour,$event)"
+                  class="eventAdd btn btn-opacity noText width-100p"><i class="fa fa-plus"></i></button>
                   
               </td>
             </tr>
@@ -130,8 +131,20 @@ export default {
   },
   methods: {
 
+    showEintrag(ausleiheStunde, hour, ausleiheDatum, day) {
+      if (ausleiheStunde == hour
+        && this.$moment(ausleiheDatum).format('YYYY-MM-D') == this.$moment(day).format('YYYY-MM-D') ) {
+        return true;
+      }
+      return false;
+    },
     isAfterToday: function (date, today) {
-      return this.$moment(date).isSameOrAfter(today);
+      var date_js = new Date(date.replace(/-/g, "/"));
+      var today_js = new Date(today.replace(/-/g, "/"));
+      if ( date_js >= today_js) {
+        return true;
+      }
+      return false;
     },
     addWeek: function () {
         this.firstDayWeek = this.$moment(this.firstDayWeek).add(1, 'week');

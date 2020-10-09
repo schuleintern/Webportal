@@ -14,6 +14,7 @@
 			<table id="dataTable" border="0" style="width:100%; border:0;" class="display">
 				<thead>
 					<tr>
+						<th></th>
 						<th>Vorname</th>
 						<th>Name</th>
 						<th></th>
@@ -46,7 +47,7 @@
 <script>
   $(function () {
 		//console.log('go...');
-    $('#dataTable').DataTable({
+    var t = $('#dataTable').DataTable({
 
       "paging": true,
       "lengthChange": false,
@@ -79,7 +80,13 @@
     			"sSortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
     		}
       }
-    });
+		});
+		t.on( 'order.dt search.dt', function () {
+        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+		} ).draw();
+		
   });
 </script>
 

@@ -91,7 +91,7 @@
   line-height: 1.42857143;
   text-align: center;
 
-  white-space: nowrap;
+  
   vertical-align: middle;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
@@ -103,6 +103,10 @@
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .btn:hover {
   background-color: rgb(192, 192, 192);
@@ -114,7 +118,17 @@
 .btn i {
   margin-right: 0.8rem;
 }
+.btn.noText i {
+  margin-right: 0rem;
+}
 
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  opacity: 0.70;
+  border: 1px solid #f39c12;
+}
 
 .btn-blau,
 button.btn-blau {
@@ -139,7 +153,6 @@ button.btn-blau {
   background-color: #738b96;
   color: #fff;
 }
-
 
 .btn-gruen {
   background-color: #00a65a;
@@ -172,6 +185,24 @@ button.btn-blau {
 .btn-red:hover {
   background-color: #c63e2d;
   color: #fff;
+}
+
+.btn-grey-line {
+  background-color: rgba(0,0,0,0);
+  border-color: #8aa4af;
+  color: #8aa4af;
+}
+.btn-grey-line:hover {
+  background-color: rgba(0,0,0,0);
+  border-color: #8aa4af;
+  color: #424242;
+}
+
+.btn-opacity {
+  opacity: 0.3;
+}
+.btn-opacity:hover {
+  opacity: 1;
 }
 
 
@@ -265,4 +296,14 @@ button.btn-blau {
   padding: 0.6rem;
   text-align: left;
   vertical-align: top;
+}
+
+
+
+
+.box_1 {
+	border: 1px solid #8aa4af;
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+	border-radius: 5px;
 }
