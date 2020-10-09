@@ -125,6 +125,16 @@ class mensaSpeiseplan extends AbstractPage {
 		$acl = json_encode( $this->getAcl() );
 
 		$prevDays = DB::getSettings()->getValue("mensa-speiseplan-days");
+
+		$showDays = json_encode(array(
+			'Mo' => DB::getSettings()->getValue("mensa-speiseplan-day-mo"),
+			'Di' => DB::getSettings()->getValue("mensa-speiseplan-day-di"),
+			'Mi' => DB::getSettings()->getValue("mensa-speiseplan-day-mi"),
+			'Do' => DB::getSettings()->getValue("mensa-speiseplan-day-do"),
+			'Fr' => DB::getSettings()->getValue("mensa-speiseplan-day-fr"),
+			'Sa' => DB::getSettings()->getValue("mensa-speiseplan-day-sa"),
+			'So' => DB::getSettings()->getValue("mensa-speiseplan-day-so")
+		));
 		
 		if (!intval($prevDays)) {
 			$prevDays = 0;
@@ -151,6 +161,48 @@ class mensaSpeiseplan extends AbstractPage {
 					'typ' => "NUMMER",
 					'titel' => "Wie viele Tage vorher muss gebucht werden?",
 					'text' => "Default: 1"
+			),
+			array(
+				'name' => "mensa-speiseplan-day-mo",
+				'typ' => "BOOLEAN",
+				'titel' => "Montag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "mensa-speiseplan-day-di",
+				'typ' => "BOOLEAN",
+				'titel' => "Dienstag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "mensa-speiseplan-day-mi",
+				'typ' => "BOOLEAN",
+				'titel' => "Mittwoch anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "mensa-speiseplan-day-do",
+				'typ' => "BOOLEAN",
+				'titel' => "Donnerstag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "mensa-speiseplan-day-fr",
+				'typ' => "BOOLEAN",
+				'titel' => "Freitag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "mensa-speiseplan-day-sa",
+				'typ' => "BOOLEAN",
+				'titel' => "Samstag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "mensa-speiseplan-day-so",
+				'typ' => "BOOLEAN",
+				'titel' => "Sonntag anzeigen?",
+				'text' => ""
 			)
 		);
 		return $settings;

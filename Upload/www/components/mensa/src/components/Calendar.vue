@@ -30,7 +30,7 @@
                 
                 <div v-bind:key="j" v-for="(item, j) in getEintrag(day)" 
                   class="eintrag" v-on:click="openEintrag(item)"
-                  v-if="acl.rights.read">
+                  v-if="acl.rights.read == 1">
                   <div class="title margin-b-s">{{item.title}}</div>
                   <div class="text-green margin-b-s">
                     <div v-if="item.vegetarisch == 1"><i class="fas fa-seedling width-2rem"></i> Vegetarisch</div>
@@ -51,7 +51,7 @@
                   </div>
                 </div>
               </td>
-            <tr v-if="acl.rights.write">
+            <tr v-if="acl.rights.write == 1">
               <td v-bind:key="j" v-for="(day, j) in daysInWeek">
                 <button @click="openForm(day)" class="btn width-100p"><i class="fas fa-plus-circle"></i> Hinzufügen</button>
               </td>
@@ -107,7 +107,9 @@ export default {
       var arr = [];
       var foo = this.firstDayOfWeek;
       for(let i = 0; i < 7; i++) {
-        arr.push( [ foo ] );
+        if ( globals.showDays[ foo.format('dd') ] == 1 ) {
+          arr.push( [ foo ] );
+        }
         foo = foo.add(1,'day');
       }
       return arr;

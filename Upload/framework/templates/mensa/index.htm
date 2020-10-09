@@ -7,7 +7,8 @@
 		<script>
 			var globals = {
 				prevDays: $prevDays,
-				acl: $acl
+				acl: $acl,
+				showDays: $showDays
 			}
 			//console.log(globals.objects);
 		</script>
@@ -22,6 +23,9 @@
 
 <style>
 
+#app {
+	min-width: 60rem;
+}
 
 .calendar .calendar-header {
 		display: flex;
@@ -64,6 +68,17 @@
 }
 .form label {
 	width: 13rem;
+}
+
+@media only screen 
+  and (max-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+	
+	.form-modal-content {
+		min-width: 90vw;
+	}
+
 }
 
 </style>
