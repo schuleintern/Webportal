@@ -19,10 +19,9 @@
         <div v-if="item.bio == 1" class="flex-b-50"><i class="fas fa-leaf width-2rem"></i> Bio</div>
         <div v-if="item.regional == 1" class="flex-b-50"><i class="fas fa-tractor width-2rem"></i> Regional</div>
       </div>
-
       <div class="margin-b-m">
-        <div class="" v-show="item.preis_default"><label>Bedienstete:</label> {{ replaceFloat(item.preis_default) }} €</div>
-        <div class="" v-show="item.preis_schueler"><label>Schüler:</label> {{ replaceFloat(item.preis_schueler) }} €</div>
+        <div class="" v-if="item.preis_default != 0"><label>Bedienstete:</label> {{ replaceFloat(item.preis_default) }} €</div>
+        <div class="" v-if="item.preis_schueler != 0"><label>Schüler:</label> {{ replaceFloat(item.preis_schueler) }} €</div>
       </div>
 
       <div class="" v-html="item.desc">{{ item.desc }}</div>

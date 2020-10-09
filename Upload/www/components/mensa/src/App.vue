@@ -7,7 +7,7 @@
     </div>
 
     <div v-if="loading == true" class="overlay">
-      <i class="fa fa-refresh fa-spin"></i>
+      <i class="fa fas fa-sync-alt fa-spin"></i>
     </div>
 
     <div id="main-box" class="">

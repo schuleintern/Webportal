@@ -107,7 +107,9 @@ export default {
       var arr = [];
       var foo = this.firstDayOfWeek;
       for(let i = 0; i < 7; i++) {
-        arr.push( [ foo ] );
+        if ( globals.showDays[ foo.format('dd') ] == 1 ) {
+          arr.push( [ foo ] );
+        }
         foo = foo.add(1,'day');
       }
       return arr;
