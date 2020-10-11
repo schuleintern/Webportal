@@ -248,8 +248,9 @@ abstract class AbstractPage {
 			}
 			else $isAdmin = false;
 			
-			
-			$this->acl();
+            // TODO: IF kann mit Version 1.2.3 entfernt werden.
+			if($_REQUEST['page'] != "Update")
+			    $this->acl();
 
 			eval ( "\$this->header =  \"" . DB::getTPL ()->get ( 'header/header' ) . "\";" );
 			
