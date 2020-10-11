@@ -1,6 +1,6 @@
 {
-    "Name": "Version 1.2.2 (09. Oktober 2020)",
-    "ChangeLog": "Bug Fixes. Neues Module: Mensa/Speiseplan",
+    "Name": "Version 1.2.2 (11. Oktober 2020)",
+    "ChangeLog": "B- Neues Modul: Mensa/Speiseplan\n- Bugfix: Absenzen drucken in Chrome\n- Restyle: Ausleihe\n- Bugfix: Ausleihe in Safari\n- Vertretungsplan Sortierung bei Import (UNITS)\n- Access Control List\n- Bugfix und Neu: Ganztags (Print, Zeilennummer...)\n- Bugfix: Schaukasten ohne Footer\n- Bugfix: Print weitergeleitete Nachrichten\n",
     "MajorVersion": 1,
     "MinorVersion": 2,
     "PatchVersion": 2

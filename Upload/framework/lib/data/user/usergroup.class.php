@@ -15,8 +15,8 @@ class usergroup {
   private function __construct($name) {
     $this->name = $name;
     self::$allGroups[] = $this;
-    $ownGroupData = PAGE::getFactory()->getUserGroupsOwnByName( DB::getDB()->escapeString($name) );
-    //$ownGroupData = DB::getDB()->query_first("SELECT * FROM users_groups_own WHERE groupName='" . DB::getDB()->escapeString($name) . "'");
+    // $ownGroupData = PAGE::getFactory()->getUserGroupsOwnByName( DB::getDB()->escapeString($name) );
+    $ownGroupData = DB::getDB()->query_first("SELECT * FROM users_groups_own WHERE groupName='" . DB::getDB()->escapeString($name) . "'");
     
     if($ownGroupData['groupName'] != "") {
         $this->isOwnGroup = true;

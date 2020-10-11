@@ -47,13 +47,12 @@ class administrationgroups extends AbstractPage {
 		
 		
 		if($_REQUEST['action'] == 'editGroup') {
-		    // Benutzer hinzufügen
-		    
+		    // Gruppe bearbeiten
     
 		    $group = usergroup::getGroupByChecksum($_REQUEST['groupName']);
 		    
 		    if($group == null) {
-		        die("Nicht da!!");
+		        die("Gruppe nicht vorhanden!");
 		        header("Location: $selfURL");
 		        exit();
 		    }
@@ -61,12 +60,12 @@ class administrationgroups extends AbstractPage {
 		    
 		    $checksumName = md5($group->getName());
 		    
-		    $group->setIsMessageRecipient($_REQUEST[$checksumName . "-messagerecipient"]);
-		    $group->setCanContactByTeacher($_REQUEST[$checksumName . "-contact-teacher"]);
-		    $group->setCanContactByPupil($_REQUEST[$checksumName . "-contact-pupils"]);
-		    $group->setCanContactByParents($_REQUEST[$checksumName . "-contact-parents"]);
+		    $group->setIsMessageRecipient($_REQUEST[$checksumName . "-messagerecipient"] > 0 ? 1 : 0);
+		    $group->setCanContactByTeacher($_REQUEST[$checksumName . "-contact-teacher"] > 0 ? 1 : 0);
+		    $group->setCanContactByPupil($_REQUEST[$checksumName . "-contact-pupils"] > 0 ? 1 : 0);
+		    $group->setCanContactByParents($_REQUEST[$checksumName . "-contact-parents"] > 0 ? 1 : 0);
 		    
-		    $group->setHasNextCloudShare($_REQUEST[$checksumName . "-contact-nextcloud"]);
+		    // $group->setHasNextCloudShare($_REQUEST[$checksumName . "-contact-nextcloud"] > 0 ? 1 : 0);
 		    
 		    // Debugger::debugObject($group,1);
 		    
