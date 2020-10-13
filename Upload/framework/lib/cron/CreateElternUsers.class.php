@@ -216,6 +216,9 @@ class CreateElternUsers extends AbstractCron {
 	    		}
 	    	}
 	    }
+
+
+
 	}
 	
 	public function getName() {
@@ -223,7 +226,7 @@ class CreateElternUsers extends AbstractCron {
 	}
 	
 	public function getDescription() {
-		return "Legt die Elternbenutzer anhand des aktuellen ASV Imports an. (Nur aktiv, wenn die E-Mailadressen aus der ASV für die Elternbenutzer verwendet werden.";
+		return "Legt die Elternbenutzer anhand des aktuellen ASV Imports an. Löscht nicht mehr benötigte Eltern Benutzer.";
 	}
 	
 	/**

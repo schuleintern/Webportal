@@ -284,8 +284,9 @@
                         <p>$messageText</p>
                         
                         <hr>
-                        
-                        <p><expression>DB::getSettings()->getValue("schulinfo-name")</expression>
+                        <p>Impressum:<br />
+                          <expression>DB::getSettings()->getValue("impressum-text")</expression></p>
+                        <hr>
                     	Sie können den Empfang dieser E-Mailbenachrichtigungen hier beenden: <a href="$unsubscribeLink">Benachrichtigungen beenden</a>.</p>
                       </td>
                     </tr>
