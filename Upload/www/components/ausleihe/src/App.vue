@@ -23,7 +23,10 @@
 
     <div id="main-box" class="">
       <Calendar  v-bind:dates="dates"></Calendar>
-      <Form v-bind:errorMsg="errorMsg" v-bind:disableObjects="disableObjects"></Form>
+      <Form
+        v-bind:errorMsg="errorMsg"
+        v-bind:disableObjects="disableObjects"
+        v-bind:dates="dates"></Form>
     </div>
 
     <div v-show="myDates.length > 0" class="nextEventsWrap box box-success">
