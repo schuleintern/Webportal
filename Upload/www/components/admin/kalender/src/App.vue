@@ -110,7 +110,7 @@ export default {
       kalender: [],
       kalenderJsonString: '',
 
-      moduleName: 'KalenderAllInOne',
+      moduleName: 'kalenderAllInOne',
       moduleAclID: false,
       moduleAclChildID: false
     }

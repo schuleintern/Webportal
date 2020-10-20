@@ -41,7 +41,7 @@ class ACL {
 		if ($moduleClass && $id == false) {
 			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$moduleClass."' ");
 		} else if ($moduleClass == false && $id) {
-			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = '".$id."' ");
+			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = ".intval($id)." ");
 		}
 
 		if (!$aclDB || !$aclDB['id'] ) {
@@ -64,9 +64,12 @@ class ACL {
 			$acl['user']['none'] = 1;
 		}
 
-		if ( DB::getSession()->isMember($moduleClass::getAdminGroup()) ) {
-			$acl['user']['admin'] = true;
+		if (!$id) {
+			if ( DB::getSession()->isMember($moduleClass::getAdminGroup()) ) {
+				$acl['user']['admin'] = true;
+			}
 		}
+		
 		
 		
 
