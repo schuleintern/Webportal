@@ -545,9 +545,9 @@ class Message {
 			$addSQL = " AND messageFolderID='" . $folderID . "' ";
 		}
 		
-		$messagesSQL = DB::getDB()->query_first("SELECT count(messageID) FROM messages_messages WHERE messageIsDeleted=0 AND messageUserID='" . $user->getUserID() . "' AND messageFolder='" . $folder . "' $addSQL");
+		$messagesSQL = DB::getDB()->query_first("SELECT count(messageID) AS count FROM messages_messages WHERE messageIsDeleted=0 AND messageUserID='" . $user->getUserID() . "' AND messageFolder='" . $folder . "' $addSQL");
 		
-		return $messagesSQL[0];
+		return $messagesSQL['count'];
 	}
 	
 	/**
@@ -562,9 +562,9 @@ class Message {
 			$addSQL = " AND messageFolderID='" . $folderID . "' ";
 		}
 		
-		$messagesSQL = DB::getDB()->query_first("SELECT count(messageID)  FROM messages_messages WHERE messageUserID='" . $user->getUserID() . "' AND messageIsRead=0 AND messageFolder='" . $folder . "' $addSQL");
+		$messagesSQL = DB::getDB()->query_first("SELECT count(messageID) as count FROM messages_messages WHERE messageUserID='" . $user->getUserID() . "' AND messageIsRead=0 AND messageFolder='" . $folder . "' $addSQL");
 		
-		return $messagesSQL[0];
+		return $messagesSQL['count'];
 	}
 	
 	/**

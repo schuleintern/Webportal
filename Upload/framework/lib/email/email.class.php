@@ -193,6 +193,8 @@ class email {
 
 			  $mail->Body = $m['mailText'];
 
+			  $mail->addCustomHeader("List-Unsubscribe","<" . DB::getGlobalSettings()->urlToIndexPHP . "?index.php?page=userprofile" . ">");
+
 			  $attachments = explode(",",$m['mailAttachments']);
 
 			  for($i = 0; $i < sizeof($attachments); $i++) {

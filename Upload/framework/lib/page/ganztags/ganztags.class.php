@@ -46,11 +46,13 @@ class ganztags extends AbstractPage {
 
 			$schueler = schueler::getGanztagsSchueler();
 
+			$num = 0;
 			foreach($schueler as $item) {
-				
+				$num++;
 				$html .= '<tr>';
+				$html .= '<td width="4%">'.$num.'</td>';
 				$html .= '<td width="15%">'.$item->getRufname().'</td>';
-				$html .= '<td width="18%">'.$item->getName().'</td>';
+				$html .= '<td width="16%">'.$item->getName().'</td>';
 				$html .= '<td width="3%">'.$item->getGeschlecht().'</td>';
 				$html .= '<td>'.$item->getKlassenObjekt()->getKlassenName().'</td>';
 				$html .= '<td width="12%">'.$item->getGanztags('print')['gruppe_name'].'</td>';
@@ -73,8 +75,9 @@ class ganztags extends AbstractPage {
 			$html = '<table cellspacing="0" cellpadding="2" border="0.001px" style="border-color:white; border-collapse: collapse;" >
 			<thead >
 				<tr>
+					<th width="4%"></th>
 					<th width="15%" style="font-weight: bold;">Vorname</th>
-					<th width="18%" style="font-weight: bold;">Name</th>
+					<th width="16%" style="font-weight: bold;">Name</th>
 					<th width="3%"></th>
 					<th style="font-weight: bold;">Klasse</th>
 					<th width="12%" style="font-weight: bold;">Gruppe</th>
@@ -111,13 +114,14 @@ class ganztags extends AbstractPage {
 			while($group = DB::getDB()->fetch_array($query)) {
 				
 				$num = 0;
-
+				
 				$html = '<h1>Gruppe: '.$group['name'].'</h1>';
 				$html .= '<table cellspacing="0" cellpadding="2" border="0.001px" style="border-color:white; border-collapse: collapse;" >
 					<thead >
 						<tr>
+							<th width="4%"></th>
 							<th width="15%" style="font-weight: bold;">Vorname</th>
-							<th width="18%" style="font-weight: bold;">Name</th>
+							<th width="16%" style="font-weight: bold;">Name</th>
 							<th width="3%"></th>
 							<th style="font-weight: bold;">Klasse</th>
 							<th width="5%" align="center" style="font-weight: bold;">Mo</th>
@@ -132,14 +136,16 @@ class ganztags extends AbstractPage {
 					</thead>
 					<tbody>';
 					
+				$num = 0;
 				foreach($schueler as $item) {
 					if ($item->getGruppe() == $group['id']) {
 
 						$num++;
 
 						$html .= '<tr>';
+						$html .= '<td width="4%">'.$num.'</td>';
 						$html .= '<td width="15%">'.$item->getRufname().'</td>';
-						$html .= '<td width="18%">'.$item->getName().'</td>';
+						$html .= '<td width="16%">'.$item->getName().'</td>';
 						$html .= '<td width="3%">'.$item->getGeschlecht().'</td>';
 						$html .= '<td>'.$item->getKlassenObjekt()->getKlassenName().'</td>';
 						$html .= '<td width="5%" align="center">'.$item->getGanztags('print')['tag_mo'].'</td>';
@@ -177,10 +183,8 @@ class ganztags extends AbstractPage {
 				$gender = '<i class="fa fa-mars" aria-hidden="true" style="color:blue"></i>';
 			}
 			$html .= '<tr>';
-
+			$html .= '<td></td>';
 			$html .= '<td>'.$item->getRufname().'</td>';
-
-			//$html .= '<td>'.$item->getRufname().'</td>';
 			$html .= '<td>'.$item->getName().'</td>';
 			$html .= '<td>'.$gender.'</td>';
 			$html .= '<td>'.$item->getKlassenObjekt()->getKlassenName().'</td>';

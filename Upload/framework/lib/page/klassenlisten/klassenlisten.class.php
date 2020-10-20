@@ -163,7 +163,7 @@ class klassenlisten extends AbstractPage {
 					//echo $print;
 					//die();
 															
-					$pdfPage = new PrintNormalPageA4WithHeader("Klassenliste $klasse");
+					$pdfPage = new PrintNormalPageA4WithHeader("Klassenliste ".$klasse->getKlassenName() );
 					$pdfPage->setHTMLContent($print);
 					$pdfPage->showStand();
 					$pdfPage->send();
