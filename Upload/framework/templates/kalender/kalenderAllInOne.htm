@@ -72,6 +72,7 @@
     background-color: #8aa4af;
     color: #fff;
     font-weight: bold;
+
   }
 
   .calendar table thead td {
@@ -81,15 +82,20 @@
   }
 
   .calendar table td.labelKW {
-    font-size: 120%;
+    font-size: 90%;
+    line-height: 90%;
     color: rgb(192, 192, 192);
     font-weight: bold;
+    max-width: 3rem !important;
+    padding-top: 0.3rem;
   }
 
   .calendar table td {
     
     
     vertical-align: bottom;
+    display: table-cell;
+    max-width: 0;
    
   }
   .calendar table tbody td {
@@ -124,7 +130,29 @@
     padding-bottom: 0.3rem;
     border-radius: 3px;
     margin: 0.6rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 20ms all;
   }
+
+
+  .calendar .eintrag .title {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .calendar .eintrag.open .title {
+    overflow: hidden;
+    white-space: normal;
+  }
+
+  .calendar .eintrag .info {
+    display: none;
+  }
+  .calendar .eintrag.open .info {
+    display: block;
+  }
+
 
   .calendar .eintrag-multiple {
     border-left: 0;

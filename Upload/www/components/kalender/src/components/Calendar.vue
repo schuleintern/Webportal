@@ -18,7 +18,7 @@
       <table class="">
         <thead>
           <tr>
-            <td ></td>
+            <td class="labelKW"></td>
             <td v-bind:key="index" v-for="(item, index) in days" class="day">
               {{item}}
             </td>
@@ -34,13 +34,17 @@
               class="day"
               v-on:dblclick.self="handlerClickAdd(day[1])" >
 
-              <div class="dayLabel">{{day[1] | moment("Do")}}</div>
+              <div class="dayLabel"
+                v-on:dblclick.self="handlerClickAdd(day[1])"
+                >{{day[1] | moment("Do")}}</div>
 
               <div v-bind:key="j" v-for="(eintrag, j) in getEintrag(day)" 
                 class="eintrag"
                 :class="{ 'eintrag-multiple': styleMultipe(eintrag) }"
                 v-bind:style="styleEintrag(eintrag, day[1])"
-                v-on:click="handlerClickEintrag(eintrag)">
+                v-on:click="handlerClickEintrag(eintrag)"
+                v-on:mouseover="handlerMouseoverEintrag($event)"
+                v-on:mouseleave="handlerMouseleaveEintrag($event)">
 
                 <div class="date">
                   <strong>
@@ -53,11 +57,10 @@
                   </strong>
                 </div>
                 
-
                 <div class="title">{{eintrag.title}}</div>
-                <div class="margin-t-s flex-row text-gey" v-if="eintrag.place || eintrag.comment">
-                  <span v-if="eintrag.place" class="flex-1"><i class="fas fa-map-marker-alt margin-r-xs"></i> {{eintrag.place}}</span>
-                  <span v-if="eintrag.comment" class="margin-l-s"><i class="fas fa-comment"></i></span>
+                <div class="info margin-t-s flex-row text-gey text-small" v-if="eintrag.place || eintrag.comment">
+                  <div v-if="eintrag.place" class="flex-1"><i class="fas fa-map-marker-alt margin-r-xs"></i> {{eintrag.place}}</div>
+                  <div v-if="eintrag.comment" class="margin-t-s"><i class="fas fa-comment"></i> {{eintrag.comment}}</div>
                 </div>
 
               </div>
@@ -110,6 +113,12 @@ export default {
   },
   methods: {
 
+    handlerMouseoverEintrag: function (e) {
+      e.target.classList.add('open');
+    },
+    handlerMouseleaveEintrag: function (e) {
+      e.target.classList.remove('open');
+    },
     handlerClickEintrag: function (eintrag) {
       if (!eintrag) {
         return false;

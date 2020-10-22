@@ -28,7 +28,7 @@
         <div class="flex-1">
           <ul class="noListStyle">
             <li class="margin-b-m">
-              <label>Bis:</label>
+              <label class="block">Bis:</label>
 
               <date-picker
                 v-model="form.endDay"
@@ -38,21 +38,21 @@
               
             </li>
             <li class="margin-b-m">
-              <label>Uhrzeit Start:</label>
+              <label class="block">Uhrzeit Start:</label>
               <!-- <input type="hidden" v-model="form.start" /> -->
               <vue-timepicker v-model="form.startTime" format="HH:mm" :minute-interval="5"></vue-timepicker>
             </li>
             <li class="margin-b-m">
-              <label>Uhrzeit Ende:</label>
+              <label class="block">Uhrzeit Ende:</label>
               <!-- <input type="hidden" v-model="form.end"  /> -->
               <vue-timepicker v-model="form.endTime" format="HH:mm" :minute-interval="5"></vue-timepicker>
             </li>
             <li>
-              <label class="text-small">Ort:</label>
+              <label class="text-small block">Ort:</label>
               <input type="text" v-model="form.place" />
             </li>
             <li>
-              <label class="text-small">Notiz:</label>
+              <label class="text-small block">Notiz:</label>
               <textarea v-model="form.comment"></textarea>
             </li>
           </ul>
