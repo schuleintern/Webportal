@@ -114,6 +114,8 @@ class AdminDatabase extends AbstractPage {
 		// print_r($tables);
 		// echo '</pre>';
 
+		$sql_structure = json_encode( nl2br( DB::getDbStructure() ) );
+
 		$tables_json = json_encode($tables);
 
 		eval("\$html = \"" . DB::getTPL()->get("administration/database/list") . "\";");

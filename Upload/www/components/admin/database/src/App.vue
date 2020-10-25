@@ -44,6 +44,14 @@
       </div>
     </div>
 
+    <div class="box padding-m">
+      <h3>SQL Struktur</h3>
+      <div class="padding-m" v-html="sql_structure">
+        {{sql_structure}}
+      </div>
+    </div>
+
+
 
   </div>
 </template>
@@ -61,7 +69,8 @@ export default {
     return {
       selfURL: globals.selfURL,
       tables_details: globals.tables_details,
-      db_details: globals.db_details
+      db_details: globals.db_details,
+      sql_structure: globals.sql_structure
     }
   },
   created: function () {
