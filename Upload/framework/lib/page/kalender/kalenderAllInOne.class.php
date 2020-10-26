@@ -28,103 +28,72 @@ class kalenderAllInOne extends AbstractPage {
 
     if ( $_REQUEST['action'] == 'icsfeed') {
 
-
+      
       $kalenderID = '1';
 
+      $calendar = new Eluceo\iCal\Component\Calendar('schule-intern');
+      $calendar->setPublishedTTL('PT15M');
+      
+      $tz  = 'Europe/Amsterdam';
+	    $dtz = new \DateTimeZone($tz);
+      date_default_timezone_set($tz);
+      
+	    /* 
+        // 2. Create timezone rule object for Daylight Saving Time
+        $vTimezoneRuleDst = new Eluceo\iCal\Component\TimezoneRule(new Eluceo\iCal\Component\TimezoneRule::TYPE_DAYLIGHT);
+        $vTimezoneRuleDst->setTzName('CEST');
+        $vTimezoneRuleDst->setDtStart(new \DateTime('1981-03-29 02:00:00', $dtz));
+        $vTimezoneRuleDst->setTzOffsetFrom('+0100');
+        $vTimezoneRuleDst->setTzOffsetTo('+0200');
+        $dstRecurrenceRule = new RecurrenceRule();
+        $dstRecurrenceRule->setFreq(RecurrenceRule::FREQ_YEARLY);
+        $dstRecurrenceRule->setByMonth(3);
+        $dstRecurrenceRule->setByDay('-1SU');
+        $vTimezoneRuleDst->setRecurrenceRule($dstRecurrenceRule);
+
+        // 3. Create timezone rule object for Standard Time
+        $vTimezoneRuleStd = new Eluceo\iCal\Component\TimezoneRule(new Eluceo\iCal\Component\TimezoneRule::TYPE_STANDARD);
+        $vTimezoneRuleStd->setTzName('CET');
+        $vTimezoneRuleStd->setDtStart(new \DateTime('1996-10-27 03:00:00', $dtz));
+        $vTimezoneRuleStd->setTzOffsetFrom('+0200');
+        $vTimezoneRuleStd->setTzOffsetTo('+0100');
+        $stdRecurrenceRule = new RecurrenceRule();
+        $stdRecurrenceRule->setFreq(RecurrenceRule::FREQ_YEARLY);
+        $stdRecurrenceRule->setByMonth(10);
+        $stdRecurrenceRule->setByDay('-1SU');
+        $vTimezoneRuleStd->setRecurrenceRule($stdRecurrenceRule);
+
+
+        // 4. Create timezone definition and add rules
+        $vTimezone = new Eluceo\iCal\Component\Timezone($tz);
+        $vTimezone->addComponent($vTimezoneRuleDst);
+        $vTimezone->addComponent($vTimezoneRuleStd);
+        $vCalendar->setTimezone($vTimezone);
+      */
+      
       $ret = [];
       $result = DB::getDB()->query("SELECT * FROM kalender_allInOne_eintrag WHERE kalenderID = ".intval($kalenderID));
       while($row = DB::getDB()->fetch_array($result)) {
-        
-        $createdUser = new user(array('userID' => intval($row['eintragUserID']) ));
 
-        $ret[] = [
-          'id' => $row['kalenderID'].'-'.$row['eintragID'],
-          'title' => DB::getDB()->decodeString($row['eintragTitel']),
-          'from_date' => strtotime($row['eintragDatumStart'].' '.$row['eintragTimeStart']),
-          'end_date' => strtotime($row['eintragDatumEnde'].' '.$row['eintragTimeEnde']),
-          'location' => DB::getDB()->decodeString($row['eintragOrt']),
-          'text' => DB::getDB()->decodeString($row['eintragKommentar']),
-          'creation_date' => strtotime($row['eintragCreatedTime'])
-        ];
+        $event = (new Eluceo\iCal\Component\Event())
+        ->setUseTimezone(true)
+        ->setUseUtc(false)
+        ->setSummary(DB::getDB()->decodeString($row['eintragTitel']))
+        ->setNoTime(false)
+        ->setDtStart(new \DateTime($row['eintragDatumStart'].' '.$row['eintragTimeStart'], $dtz))
+        ->setDtEnd(new \DateTime($row['eintragDatumEnde'].' '.$row['eintragTimeEnde'], $dtz))
+        ->setLocation( DB::getDB()->decodeString($row['eintragOrt']) )
+        ->setDescription( DB::getDB()->decodeString($row['eintragKommentar']) );
+
+        $calendar->addComponent($event);
+      
 
       }
       
-      // echo "<pre>";
-      // print_r($ret);
-      // echo "</pre>";
-
-
-      //$feed = new ICSFeed2( $ret );
-
-      // echo "<pre>";
-      // print_r($feed);
-      // echo "</pre>";
-
-      //$feed->getFile('filename.ics');
-
-      // header('Content-Type: text/calendar; charset=utf-8');
-      // header('Content-Disposition: attachment; filename="cal.ics"');
-
-      // $str = $feed->getString();
-      // echo $str;
-
-      
-      // $feed = ICSFeed::getAndererKalenderFeed($this->kalenderID, DB::getUserID());
-
-      // echo json_encode([
-      //     'feedURL' => $feed->getURL(),
-      // ]);
-
-
-
-      // $event = (new Eluceo\iCal\Component\Event())
-      // ->setDtStart( gmstrftime("%Y%m%dT%H%M00Z", $ret[0]['from_date'] ) )
-      // ->setDtEnd( gmstrftime("%Y%m%dT%H%M00Z", $ret[0]['from_date'] ) )
-      // //->setNoTime( $ret[0][''] )
-      // ->setSummary( $ret[0]['title'] )
-      // ->setLocation( $ret[0]['location'] )
-      // ->setDescription( $ret[0]['text'] );
-
-
-      use Eluceo\iCal\Domain\Entity\Calendar;
-      use Eluceo\iCal\Domain\Entity\Event;
-      use Eluceo\iCal\Domain\ValueObject\Alarm;
-      use Eluceo\iCal\Domain\ValueObject\Attachment;
-      use Eluceo\iCal\Domain\ValueObject\DateTime;
-      use Eluceo\iCal\Domain\ValueObject\TimeSpan;
-      use Eluceo\iCal\Domain\ValueObject\Uri;
-      use Eluceo\iCal\Presentation\Factory\CalendarFactory;
-
-      require_once __DIR__ . '/../vendor/autoload.php';
-
-      // 1. Create Event domain entity
-      $event = (new Eluceo\iCal\Domain\Entity\Event())
-          ->setSummary('Christmas Eve')
-          ->setDescription('Lorem Ipsum Dolor...')
-          ->setOccurrence(
-              new Eluceo\iCal\Domain\ValueObject\SingleDay(
-                  new Eluceo\iCal\Domain\ValueObject\Date(
-                      \DateTimeImmutable::createFromFormat('Y-m-d', '2030-12-24')
-                  )
-              )
-          );
-
-      // 2. Create Calendar domain entity
-      $calendar = new Eluceo\iCal\Domain\Entity\Calendar([$event]);
-
-      // 3. Transform domain entity into an iCalendar component
-      $componentFactory = new Eluceo\iCal\Presentation\Factory\CalendarFactory();
-      $calendarComponent = $componentFactory->createCalendar($calendar);
-
-      // 4. Set headers
+ 
       header('Content-Type: text/calendar; charset=utf-8');
       header('Content-Disposition: attachment; filename="cal.ics"');
-
-      // 5. Output
-      echo $calendarComponent;
-
-
-
+      echo $calendar->render();
       exit;
     }
 
