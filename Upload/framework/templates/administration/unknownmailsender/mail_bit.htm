@@ -1,5 +1,13 @@
 <tr>
 	<td>$anzahl</td>
-	<td>{$mail['badMail']}<if($mail['badMailDone'] > 0)><then><br /><small><font color="green">Bereits bearbeitet</font></small></then></if></td>
-	<td>{$mail['schuelerName']}, {$mail['schuelerRufname']} (Klasse {$mail['schuelerKlasse']})</td>
+	<td>{$mail['badMail']}<if($mail['badMailDone'] > 0)><then><br /><div class="label label-success">Bereits bearbeitet</div></small></then></if></td>
+	<td><if($mail['schuelerName'] != "")><then>{$mail['schuelerName']}, {$mail['schuelerRufname']} (Klasse {$mail['schuelerKlasse']})</then><else><i>Schüler nicht mehr an der Schule</i></else></if></td>
+
+	<if($_REQUEST['action'] != 'pdf')><then>
+
+		<td><a href="$selfURL&checkBadMailID={$mail['badMailID']}" class="btn btn-primary"><i class="fa fa-check"></i> Als erledigt markieren</a></td>
+
+
+	</then></if>
+
 </tr>
