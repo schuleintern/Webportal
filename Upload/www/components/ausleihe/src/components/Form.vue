@@ -30,7 +30,7 @@
     <div class="flexbox">
       <h3>Objekte</h3>
       <div class="objects">
-        <button v-bind:key="index" v-for="(item, index) in objects"
+        <button v-bind:key="index" v-for="(item, index) in objectsSelectable"
         @click="setObjectHandler(item, $event)"
         v-bind:class="isDisable(item)"
         class="btn btn-info">
@@ -48,7 +48,8 @@ export default {
   name: 'Form',
   props: {
     errorMsg: String,
-    disableObjects: Array
+    disableObjects: Array,
+    dates: Array
   },
   data: function () {
     return {
@@ -66,6 +67,24 @@ export default {
   },
 
   computed: {  
+    objectsSelectable: function () {
+      
+      var booked = [];
+      this.dates.forEach((o,i) => {
+        if (o.ausleiheDatum == this.form.datum[1] && o.ausleiheStunde == this.form.stunde) {
+          booked.push(o.ausleiheObjektID);
+        }
+      });
+
+      var ret = [];
+      this.objects.forEach((o,i) => {
+        if ( booked.indexOf(o.objektID) ) {
+          ret.push(o);
+        }
+      });
+      return ret;
+
+    }
   },
 
   created: function () {
@@ -93,7 +112,7 @@ export default {
       }
       that.selectedObject = false;
 
-      EventBus.$emit('form--check', this.form);
+      //EventBus.$emit('form--check', this.form);
 
     });
 

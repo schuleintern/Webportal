@@ -134,7 +134,8 @@ $classes = [
 	],
 	'db' => [
 		'mysql',
-		'mysqldevdatabases'
+		'mysqldevdatabases',
+		'dbStruct',
 	],
 	'email' => [
 		'cert',
