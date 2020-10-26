@@ -98,6 +98,17 @@ class kalenderAllInOne extends AbstractPage {
     }
 
 
+
+    $this->setSubmenu([
+      [
+        "label" => "ICS Feed",
+        "href" => "?page=kalenderAllInOne&action=icsfeed",
+        "labelClass" => "btn btn-blau margin-r-xs"
+      ]
+    ]);
+
+    $submenuHTML = $this->getSubmenu();
+
     eval("echo(\"" . DB::getTPL()->get("kalender/kalenderAllInOne"). "\");");
 
   }
