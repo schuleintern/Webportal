@@ -119,26 +119,26 @@ export default {
 
     });
 
-    EventBus.$on('form--check', data => {
+    // EventBus.$on('form--check', data => {
 
-      //console.log('submit',data);
+    //   //console.log('submit',data);
 
-      that.disableObjects = [];
-      that.ajaxPost(
-        'index.php?page=ausleihe&action=checkEvent',
-        data,
-        function (response, that) {
+    //   that.disableObjects = [];
+    //   that.ajaxPost(
+    //     'index.php?page=ausleihe&action=checkEvent',
+    //     data,
+    //     function (response, that) {
           
-          if (response.data.check == true) {
-            //console.log(response.data.objects);
-            that.disableObjects = response.data.objects;
-          } else {
-            that.errorMsg = response.data.errorMsg;
-          }
-        }
-      );
+    //       if (response.data.check == true) {
+    //         //console.log(response.data.objects);
+    //         that.disableObjects = response.data.objects;
+    //       } else {
+    //         that.errorMsg = response.data.errorMsg;
+    //       }
+    //     }
+    //   );
 
-    });
+    // });
 
     EventBus.$on('form--submit', data => {
 
