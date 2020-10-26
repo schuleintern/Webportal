@@ -32,7 +32,6 @@
       <div class="objects">
         <button v-bind:key="index" v-for="(item, index) in objectsSelectable"
         @click="setObjectHandler(item, $event)"
-        v-bind:class="isDisable(item)"
         class="btn btn-info">
           {{item.objektName}}
         </button>
@@ -75,10 +74,9 @@ export default {
           booked.push(o.ausleiheObjektID);
         }
       });
-
       var ret = [];
       this.objects.forEach((o,i) => {
-        if ( booked.indexOf(o.objektID) ) {
+        if ( booked.indexOf(o.objektID) == -1 ) {
           ret.push(o);
         }
       });
@@ -112,7 +110,7 @@ export default {
       }
       that.selectedObject = false;
 
-      //EventBus.$emit('form--check', this.form);
+      // EventBus.$emit('form--check', this.form);
 
     });
 
@@ -137,28 +135,6 @@ export default {
   },
   methods: {
 
-    isDisable: function (item) {
-
-      if (this.disableObjects) {
-        var found = false;
-        this.disableObjects.forEach( function (value, index, array) {
-          if ( parseInt(item.objektID) == parseInt(value.ausleiheObjektID)) {
-            if (value.sub > 0 && item.sub> 0) {
-              if ( value.sub == item.sub ) {
-                found = true;
-              }
-            }  else {
-              found = true;
-            }
-          }
-        });
-        if (found) {
-          return 'disable';
-        }
-      }
-      return false;
-      
-    },
     setObjectHandler: function (object, event) {
 
       if ( event.target.classList.contains('disable')) {
