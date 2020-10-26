@@ -9,8 +9,8 @@
               <i class="fa fa-home"></i>Heute
             </button>
             <h3>{{firstDayWeek | moment("Do")}} - {{lastDayWeek | moment("Do MMMM YYYY")}}</h3>
-            <button class="btn btn-app chevron-right" @click="addWeek">Weiter
-              <i class="fa fa-arrow-right"></i>
+            <button class="btn btn-app chevron-right" @click="addWeek">
+              <i class="fa fa-arrow-right"></i>Weiter
             </button>
         </div>
 

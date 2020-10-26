@@ -1,7 +1,7 @@
 <template>
   <div class="nextEvents">
     <h2>Ihre reservierten Objekte</h2>
-    <table>
+    <table class="">
       <thead>
         <tr class="header">
           <td class="table-width-date">Datum</td>

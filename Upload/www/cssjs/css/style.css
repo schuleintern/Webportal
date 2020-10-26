@@ -149,7 +149,8 @@ button.btn-blau {
   color: #fff;
 }
 
-.btn-grau:hover {
+.btn-grau:hover,
+.btn-grau.active {
   background-color: #738b96;
   color: #fff;
 }
