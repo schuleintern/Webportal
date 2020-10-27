@@ -210,6 +210,9 @@ abstract class AbstractPage {
 			    if(DB::getSettings()->getBoolean('messages-banner-new-messages')) $infoMessages = "<a href=\"index.php?page=MessageInbox&folder=POSTEINGANG\" class=\"btn btn-danger btn-xs\"><i class=\"fa fa-envelope fa-spin\"></i> $countMessage ungelesene Nachricht" . (($countMessage > 1) ? "en" : "") . "</a>";
 			    else $infoMessages = "";
 			}
+			else {
+                $countMessage = 0;
+            }
 			
 			// Fremdsession
 			
