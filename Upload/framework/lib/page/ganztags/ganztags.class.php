@@ -33,6 +33,32 @@ class ganztags extends AbstractPage {
 
 	public function execute() {
 		
+		include_once("../framework/lib/data/absenzen/Absenz.class.php");
+
+		$absenzen = Absenz::getAbsenzenForDate(
+			DateFunctions::getMySQLDateFromNaturalDate( DateFunctions::getTodayAsNaturalDate() ), 
+			null);
+
+			echo "<pre>";
+			print_r($absenzen);
+			echo "</pre>";
+
+// 		$absenzen = DB::getDB()->query("SELECT * FROM absenzen_absenzen 
+// 			LEFT JOIN schueler ON absenzSchuelerAsvID=schuelerAsvID 
+// 			WHERE absenzBeurlaubungID='" . $this->data['beurlaubungID'] . "'
+// 			ORDER BY absenzDatum");
+	
+// 		$returnArray = array();
+// 		while($a = DB::getDB()->fetch_array($absenzen)) {
+// 			$returnArray[] = new Absenz($a);
+// 			//$returnArray[] = $a;
+// 		}
+
+// 		echo "<pre>";
+// print_r($returnArray);
+// echo "</pre>";
+
+
 		if(!$this->isTeacher) {
 			DB::showError("Diese Seite ist leider für Sie nicht sichtbar.");
 			die();
@@ -169,6 +195,78 @@ class ganztags extends AbstractPage {
 
 			$pdf->send();
 			exit(0);
+
+		} else if ( $_REQUEST['action'] == 'printDaylist') {
+
+
+			$pdf = new PrintNormalPageA4WithoutHeader('Ganztags - Tagesansicht');
+			$pdf->setPrintedDateInFooter();
+
+			$schueler = schueler::getGanztagsSchueler('ganztags.gruppe DESC, schueler.schuelerName, schueler.schuelerRufname');
+
+			$gruppen = [];
+			$query = DB::getDB()->query("SELECT *  FROM ganztags_gruppen ORDER BY 'sortOrder, name' ");
+			while($group = DB::getDB()->fetch_array($query)) {
+				
+				$num = 0;
+				
+				$html = '<h1>Gruppe: '.$group['name'].'</h1>';
+				$html .= '<table cellspacing="0" cellpadding="2" border="0.001px" style="border-color:white; border-collapse: collapse;" >
+					<thead >
+						<tr>
+							<th width="4%"></th>
+							<th width="15%" style="font-weight: bold;">Vorname</th>
+							<th width="16%" style="font-weight: bold;">Name</th>
+							<th width="3%"></th>
+							<th style="font-weight: bold;">Klasse</th>
+							<th width="5%" align="center" style="font-weight: bold;">Mo</th>
+							<th width="5%" align="center" style="font-weight: bold;">Di</th>
+							<th width="5%" align="center" style="font-weight: bold;">Mi</th>
+							<th width="5%" align="center" style="font-weight: bold;">Do</th>
+							<th width="5%" align="center" style="font-weight: bold;">Fr</th>
+							<th width="5%" align="center" style="font-weight: bold;">Sa</th>
+							<th width="5%" align="center" style="font-weight: bold;">So</th>
+							<th width="25%" style="font-weight: bold;">Info</th>
+						</tr>
+					</thead>
+					<tbody>';
+					
+				$num = 0;
+				foreach($schueler as $item) {
+					if ($item->getGruppe() == $group['id']) {
+
+						$num++;
+
+						$html .= '<tr>';
+						$html .= '<td width="4%">'.$num.'</td>';
+						$html .= '<td width="15%">'.$item->getRufname().'</td>';
+						$html .= '<td width="16%">'.$item->getName().'</td>';
+						$html .= '<td width="3%">'.$item->getGeschlecht().'</td>';
+						$html .= '<td>'.$item->getKlassenObjekt()->getKlassenName().'</td>';
+						$html .= '<td width="5%" align="center">'.$item->getGanztags('print')['tag_mo'].'</td>';
+						$html .= '<td width="5%" align="center">'.$item->getGanztags('print')['tag_di'].'</td>';
+						$html .= '<td width="5%" align="center">'.$item->getGanztags('print')['tag_mi'].'</td>';
+						$html .= '<td width="5%" align="center">'.$item->getGanztags('print')['tag_do'].'</td>';
+						$html .= '<td width="5%" align="center">'.$item->getGanztags('print')['tag_fr'].'</td>';
+						$html .= '<td width="5%" align="center">'.$item->getGanztags('print')['tag_sa'].'</td>';
+						$html .= '<td width="5%" align="center">'.$item->getGanztags('print')['tag_so'].'</td>';
+						$html .= '<td width="25%">'.$item->getGanztags('print')['info'].'</td>';
+						$html .= '</tr>';
+						
+					}
+				}
+
+				$html .= '</tbody></table>';
+			
+				if ($num > 0) {
+					$pdf->setHTMLContent($html);
+				}
+				
+			}
+
+			$pdf->send();
+			exit(0);
+
 		}
 		
 		$schueler = schueler::getGanztagsSchueler();
