@@ -124,5 +124,6 @@ class GlobalSettings {
      * @var string
      */
     public $updateServer = "https://update.schule-intern.de";
+    // public $updateServer = "http://schuleintern-update.chrisland.de";
 
 }
