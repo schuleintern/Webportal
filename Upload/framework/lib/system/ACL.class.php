@@ -15,28 +15,13 @@ class ACL {
     // $userID = DB::getSession()->getUser();
 		// $moduleClass = get_called_class();
 
-    $userID = $user->getUserID();
-		$acl = [];
+		$userID = $user->getUserID();
 
-		if ($userID && $moduleClass && $id == false) {
-			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$moduleClass."' ");
-		}
-
-		if ($userID && $moduleClass == false && $id) {
-			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = '".$id."' ");
-		}
-
-		if (!$aclDB) {
+		if (!$userID) {
 			return false;
 		}
 
-		$acl['groups'] = [
-			'schueler' => ['read' => $aclDB['schuelerRead'], 'write' => $aclDB['schuelerWrite'], 'delete' => $aclDB['schuelerDelete'] ],
-			'eltern' => [ 'read' => $aclDB['elternRead'], 'write' => $aclDB['elternWrite'], 'delete' => $aclDB['elternDelete'] ],
-			'lehrer' => [ 'read' => $aclDB['lehrerRead'], 'write' => $aclDB['lehrerWrite'], 'delete' => $aclDB['lehrerDelete'] ],
-			'none' => [ 'read' => $aclDB['noneRead'], 'write' => $aclDB['noneWrite'], 'delete' => $aclDB['noneDelete'] ],
-			'owne' => [ 'read' => $aclDB['owneRead'], 'write' => $aclDB['owneWrite'], 'delete' => $aclDB['owneDelete'] ]
-		];;
+		$acl = [];
 
 		$acl['user']['admin'] = $user->isAdmin();
 		$acl['user']['schueler'] = $user->isPupil();
@@ -44,19 +29,49 @@ class ACL {
 		$acl['user']['eltern'] = $user->isEltern();
 		$acl['user']['sekretariat'] = $user->isSekretariat();
 
-		if (!$acl['user']['schueler'] && !$acl['user']['lehrer'] && !$acl['user']['eltern']) {
-			$acl['user']['none'] = 1;
-		}
-
-		if ( DB::getSession()->isMember($moduleClass::getAdminGroup()) ) {
-			$acl['user']['admin'] = true;
-		}
-		
 		$acl['rights'] = [
 			'read' => 0,
 			'write' => 0,
 			'delete' => 0
 		];
+
+		$acl = array_merge( $acl, self::getBlank() );
+
+
+		if ($moduleClass && $id == false) {
+			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$moduleClass."' ");
+		} else if ($moduleClass == false && $id) {
+			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = ".intval($id)." ");
+		}
+
+		if (!$aclDB || !$aclDB['id'] ) {
+			return $acl;
+		}
+
+		$acl['aclID'] = $aclDB['id'];
+		$acl['aclModuleClass'] = $aclDB['moduleClass'];
+
+		$acl['groups'] = [
+			'schueler' => ['read' => $aclDB['schuelerRead'], 'write' => $aclDB['schuelerWrite'], 'delete' => $aclDB['schuelerDelete'] ],
+			'eltern' => [ 'read' => $aclDB['elternRead'], 'write' => $aclDB['elternWrite'], 'delete' => $aclDB['elternDelete'] ],
+			'lehrer' => [ 'read' => $aclDB['lehrerRead'], 'write' => $aclDB['lehrerWrite'], 'delete' => $aclDB['lehrerDelete'] ],
+			'none' => [ 'read' => $aclDB['noneRead'], 'write' => $aclDB['noneWrite'], 'delete' => $aclDB['noneDelete'] ],
+			'owne' => [ 'read' => $aclDB['owneRead'], 'write' => $aclDB['owneWrite'], 'delete' => $aclDB['owneDelete'] ]
+		];
+
+		
+		if (!$acl['user']['schueler'] && !$acl['user']['lehrer'] && !$acl['user']['eltern']) {
+			$acl['user']['none'] = 1;
+		}
+
+		if (!$id) {
+			if ( DB::getSession()->isMember($moduleClass::getAdminGroup()) ) {
+				$acl['user']['admin'] = true;
+			}
+		}
+		
+		
+		
 
 		if ( $acl['user']['schueler'] == 1 ) {
 			$acl['rights']['read'] = $acl['groups']['schueler']['read'];
@@ -88,55 +103,80 @@ class ACL {
 		$acl['owne'] = $acl['groups']['owne'];
 
 		// $acl['rights']['read'] = 1;
-		// $acl['rights']['write'] = 0;
-    // $acl['rights']['delete'] = 0;
+		//  $acl['rights']['write'] = 0;
+    //  $acl['rights']['delete'] = 0;
     //print_r($acl);
     return $acl;
 
   }
 
 
-	public function setAcl( $row, $module = false ) {
+	public function setAcl( $row, $module = '' ) {
 
+		// return false;
 
-		if ( !isset($row['id']) ) {
-			return false;
+		// if ( !isset($row['id']) ) {
+		// 	return false;
+		// }
+		
+		// echo "<pre>";
+    //       print_r($row);
+		// 			echo "</pre>";
+					
+		$row = json_decode(json_encode($row), true);
+
+		// echo "<pre>ACL:";
+		// print_r($row['groups']['schueler']['delete']);
+		// echo "</pre>";
+
+		// exit;
+		
+		if ( $row['aclModuleClass'] != $module ) {
+			$row['aclModuleClass'] = $module;
 		}
+		
+		// echo "<pre>ACL:";
+		// print_r($row);
+		// echo "</pre>";
 
-		if ( $row['id'] ) {
+		if ( $row['aclID'] ) {
 
-			if ($module) {
-				$dbRow = DB::getDB()->query_first("SELECT id FROM acl WHERE id = " . intval($row['id']) . " AND moduleClass = '".$module."'");
-			} else {
-				$dbRow = DB::getDB()->query_first("SELECT id FROM acl WHERE id = " . intval($row['id']));
-			}
+			// if ($module) {
+			// 	$dbRow = DB::getDB()->query_first("SELECT id FROM acl WHERE id = " . intval($row['aclID']) . " AND moduleClass = '".$module."'");
+			// } else {
+			// 	$dbRow = DB::getDB()->query_first("SELECT id FROM acl WHERE id = " . intval($row['aclID']));
+			// }
+
+			$dbRow = DB::getDB()->query_first("SELECT id FROM acl WHERE id = " . intval($row['aclID']));
+
 
 			if ( $dbRow['id'] ) {
 				
 				//echo $row['schuelerWrite'];
 
 				DB::getDB()->query("UPDATE acl SET
-					schuelerRead = ".intval($row['schuelerRead']).",
-					schuelerWrite = ".intval($row['schuelerWrite']).",
-					schuelerDelete = ".intval($row['schuelerDelete']).",
-					elternRead = ".intval($row['elternRead']).",
-					elternWrite = ".intval($row['elternWrite']).",
-					elternDelete = ".intval($row['elternDelete']).",
-					lehrerRead = ".intval($row['lehrerRead']).",
-					lehrerWrite = ".intval($row['lehrerWrite']).",
-					lehrerDelete = ".intval($row['lehrerDelete']).",
-					noneRead = ".intval($row['noneRead']).",
-					noneWrite = ".intval($row['noneWrite']).",
-					noneDelete = ".intval($row['noneDelete']).",
-					owneRead = ".intval($row['owneRead']).",
-					owneWrite = ".intval($row['owneWrite']).",
-					owneDelete = ".intval($row['owneDelete'])."
-					WHERE id = " . intval($row['id']) . ";");
+					schuelerRead = ".intval($row['groups']['schueler']['read']).",
+					schuelerWrite = ".intval($row['groups']['schueler']['write']).",
+					schuelerDelete = ".intval($row['groups']['schueler']['delete']).",
+					elternRead = ".intval($row['groups']['eltern']['read']).",
+					elternWrite = ".intval($row['groups']['eltern']['write']).",
+					elternDelete = ".intval($row['groups']['eltern']['delete']).",
+					lehrerRead = ".intval($row['groups']['lehrer']['read']).",
+					lehrerWrite = ".intval($row['groups']['lehrer']['write']).",
+					lehrerDelete = ".intval($row['groups']['lehrer']['delete']).",
+					noneRead = ".intval($row['groups']['none']['read']).",
+					noneWrite = ".intval($row['groups']['none']['write']).",
+					noneDelete = ".intval($row['groups']['none']['delete']).",
+					owneRead = ".intval($row['groups']['owne']['read']).",
+					owneWrite = ".intval($row['groups']['owne']['write']).",
+					owneDelete = ".intval($row['groups']['owne']['delete'])."
+					WHERE id = " . intval($row['aclID']) . ";");
 				
 				return [
 					'error' => false,
-					'done' => true,
-					'aclID' => intval($row['id'])
+					'success' => true,
+					'msg' => 'Erfolgreich Gespeichert',
+					'aclID' => intval($dbRow['id'])
 				];
 
 			} else {
@@ -147,14 +187,29 @@ class ACL {
 			}
 
 								
-		} else {
+		} else if ( $row['aclModuleClass'] || $row['aclModuleClassParent'] ) {
 
-			if (!$module) {
-				$module = '';
+			// if (!$module) {
+			// 	$module = '';
+			// }
+
+			if ( $row['aclModuleClass'] ) {
+
+				$dbRow = DB::getDB()->query_first("SELECT id FROM acl WHERE  moduleClass = '".$row['aclModuleClass']."'");
+			
+				if ( $dbRow['id'] ) {
+					return [
+						'error' => true,
+						'msg' => 'ACL Eintrag für das Modul bereits vorhanden!'
+					];
+				}
+				
 			}
+			
 
 			DB::getDB()->query("INSERT INTO acl (
 				moduleClass,
+				moduleClassParent,
 				schuelerRead,
 				schuelerWrite,
 				schuelerDelete,
@@ -171,31 +226,57 @@ class ACL {
         owneWrite,
 				owneDelete
 				) values (
-				'".DB::getDB()->encodeString($module)."',
-				'".DB::getDB()->encodeString($row['schuelerRead'])."',
-				'".DB::getDB()->escapeString($row['schuelerWrite'])."',
-				'".DB::getDB()->escapeString($row['schuelerDelete'])."',
-				'".DB::getDB()->encodeString($row['elternRead'])."',
-				'".DB::getDB()->encodeString($row['elternWrite'])."',
-				'".DB::getDB()->encodeString($row['elternDelete'])."',
-				'".DB::getDB()->encodeString($row['lehrerRead'])."',
-				'".DB::getDB()->encodeString($row['lehrerWrite'])."',
-				'".DB::getDB()->encodeString($row['lehrerDelete'])."',
-				'".DB::getDB()->encodeString($row['noneRead'])."',
-				'".DB::getDB()->encodeString($row['noneWrite'])."',
-				'".DB::getDB()->encodeString($row['noneDelete'])."',
-				'".DB::getDB()->encodeString($row['owneRead'])."',
-				'".DB::getDB()->encodeString($row['owneWrite'])."',
-				'".DB::getDB()->encodeString($row['owneDelete'])."'
+				'".DB::getDB()->encodeString($row['aclModuleClass'])."',
+				'".DB::getDB()->encodeString($row['aclModuleClassParent'])."',
+				'".intval($row['groups']['schueler']['read'])."',
+				'".intval($row['groups']['schueler']['write'])."',
+				'".intval($row['groups']['schueler']['delete'])."',
+				'".intval($row['groups']['eltern']['read'])."',
+				'".intval($row['groups']['eltern']['write'])."',
+				'".intval($row['groups']['eltern']['delete'])."',
+				'".intval($row['groups']['lehrer']['read'])."',
+				'".intval($row['groups']['lehrer']['write'])."',
+				'".intval($row['groups']['lehrer']['delete'])."',
+				'".intval($row['groups']['none']['read'])."',
+				'".intval($row['groups']['none']['write'])."',
+				'".intval($row['groups']['none']['delete'])."',
+				'".intval($row['groups']['owne']['read'])."',
+				'".intval($row['groups']['owne']['write'])."',
+				'".intval($row['groups']['owne']['delete'])."'
 			);");
 
 			return [
 				'error' => false,
-				'done' => true,
+				'success' => true,
+				'msg' => 'Erfolgreich Gespeichert',
 				'aclID' => DB::getDB()->insert_id()
 			];
 
 		}
+
+	}
+
+	public function getBlank() {
+
+		$blank = [
+			'aclID' => 0,
+			'aclModuleClass' => '',
+			'aclModuleClassParent' => '',
+			'groups' => [
+				'schueler' => ['read' => 0, 'write' => 0, 'delete' => 0 ],
+				'eltern' => [ 'read' => 0, 'write' => 0, 'delete' => 0 ],
+				'lehrer' => [ 'read' => 0, 'write' => 0, 'delete' => 0 ],
+				'none' => [ 'read' => 0, 'write' => 0, 'delete' => 0 ],
+				'owne' => [ 'read' => 0, 'write' => 0, 'delete' => 0 ]
+			],
+			'rights' => [
+				'read' => 0,
+				'write' => 0,
+				'delete' => 0
+			]
+		];
+
+		return $blank;
 
 	}
 
