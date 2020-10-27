@@ -12,7 +12,6 @@ abstract class AbstractPage {
      * Titel der Seite.
      * @var unknown
      */
-    
 	private $title;
 
 	public $header = "";
@@ -67,7 +66,7 @@ abstract class AbstractPage {
 				if (! DB::isLoggedIn ()) {
 					if (isset ( $_COOKIE ['schuleinternsession'] ))
 						setcookie ( "schuleinternsession", null );
-					
+
 					$message = "<div class=\"callout callout-danger\"><p><strong>Sie waren leider zu lange inaktiv. Sie k&ouml;nnen dauerhaft angemeldet bleiben, wenn Sie den Haken bei \"Anmeldung speichern\" setzen. </strong></p></div>";
 					
 					eval ( "echo(\"" . DB::getTPL ()->get ( "login/index" ) . "\");" );
