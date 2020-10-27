@@ -10,7 +10,7 @@ class ganztags extends AbstractPage {
 
 	public function __construct() {
 		
-		parent::__construct(array("Lehrertools", "Ganztags"));
+		parent::__construct(array("Lehrertools", "Ganztags - Schülerliste"));
 				
 		$this->checkLogin();
 		
@@ -199,17 +199,76 @@ class ganztags extends AbstractPage {
 			$html .= '</tr>';
 		}
 		
+		$acl = json_encode( $this->getAcl() );
+
+		//$prevDays = DB::getSettings()->getValue("mensa-speiseplan-days");
+
+		$showDays = json_encode(array(
+			'Mo' => DB::getSettings()->getValue("ganztags-day-mo"),
+			'Di' => DB::getSettings()->getValue("ganztags-day-di"),
+			'Mi' => DB::getSettings()->getValue("ganztags-day-mi"),
+			'Do' => DB::getSettings()->getValue("ganztags-day-do"),
+			'Fr' => DB::getSettings()->getValue("ganztags-day-fr"),
+			'Sa' => DB::getSettings()->getValue("ganztags-day-sa"),
+			'So' => DB::getSettings()->getValue("ganztags-day-so")
+		));
+		
+
 		eval("echo(\"" . DB::getTPL()->get("ganztags/index"). "\");");
 		
 	}
 	
 	
 	public static function hasSettings() {
-		return false;
+		return true;
 	}
 	
 	public static function getSettingsDescription() {
-		return array();
+		$settings = array(
+			array(
+				'name' => "ganztags-day-mo",
+				'typ' => "BOOLEAN",
+				'titel' => "Montag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-di",
+				'typ' => "BOOLEAN",
+				'titel' => "Dienstag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-mi",
+				'typ' => "BOOLEAN",
+				'titel' => "Mittwoch anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-do",
+				'typ' => "BOOLEAN",
+				'titel' => "Donnerstag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-fr",
+				'typ' => "BOOLEAN",
+				'titel' => "Freitag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-sa",
+				'typ' => "BOOLEAN",
+				'titel' => "Samstag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-so",
+				'typ' => "BOOLEAN",
+				'titel' => "Sonntag anzeigen?",
+				'text' => ""
+			)
+		);
+		return $settings;
 	}
 	
 	

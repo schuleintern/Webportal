@@ -1,0 +1,92 @@
+{$this->header}
+
+<div class="flex-row" style="justify-content: flex-end;">
+	<a href="index.php?page=ganztags" class="btn btn-blau margin-r-xs">Schüler Liste</a>
+
+</div>
+
+
+<div class="box">
+
+	<div class="box-body">
+
+		<div id=app></div>
+		<script>
+			var globals = {
+				acl: $acl,
+				showDays: $showDays
+			}
+			//console.log(globals.objects);
+		</script>
+		<!-- <script src=components/ganztags/dist/js/chunk-vendors.js></script>
+		<script src=components/ganztags/dist/js/app.js></script> -->
+		<script src=components/ganztags/dist/app.js></script>
+
+	</div>
+</div>
+
+{$this->footer}
+
+
+<style>
+
+	#app {
+		min-width: 60rem;
+	}
+	
+	.calendar .calendar-header {
+			display: flex;
+			margin-bottom: 3rem;
+			margin-top: 1rem;
+		}
+	
+	.calendar .calendar-header button{
+		flex: 1;
+		font-size: 100%;
+	}
+	.calendar .calendar-header h3 {
+		flex: 8;
+		margin: 0;
+		padding: 0;
+		justify-content: center;
+		align-self: center;
+		text-align: center;
+	}
+	.calendar .calendar-header button i {
+		margin-left: 0.6rem;
+		margin-right: 0.6rem;
+	}
+	.calendar .eintrag {
+		border: 1px solid #8aa4af;
+		padding: 1rem;
+		margin-bottom: 1.5rem;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	.calendar .eintrag .title {
+		font-weight: bold;
+	}
+	.calendar .eintrag .details {
+		color: #738b96;
+	}
+	
+	.form li {
+		margin-bottom: 0.6rem;
+	}
+	.form label {
+		width: 13rem;
+	}
+	
+	@media only screen 
+		and (max-width: 736px)
+		and (-webkit-min-device-pixel-ratio: 2)
+		and (orientation: portrait) {
+		
+		.form-modal-content {
+			min-width: 90vw;
+		}
+	
+	}
+	
+	</style>
+		
