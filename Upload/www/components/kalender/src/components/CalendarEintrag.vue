@@ -45,16 +45,16 @@
 
       <br />
 
-      <button v-on:click="handlerClickEdit" v-show="acl.rights.write"
+      <button v-on:click="handlerClickEdit" v-show="acl.rights.write == 1"
       class="btn margin-r-s"><i class="fa fa-edit"></i>Bearbeiten</button>
       <button v-on:click="handlerClickDelete"
-        v-show="!deleteBtn && acl.rights.delete"
+        v-show="!deleteBtn && acl.rights.delete == 1"
         class="btn"><i class="fa fa-trash"></i>Löschen</button>
       <button v-on:click="handlerClickDeleteSecond"
-        v-show="deleteBtn"
+        v-show="deleteBtn  && acl.rights.delete == 1"
         class="btn btn-red">Endgültig Entfernen!</button>
 
-      <div v-show="acl.rights.write">
+      <div v-show="acl.rights.write == 1">
         <hr>
 
         <div class="text-small text-gey">
