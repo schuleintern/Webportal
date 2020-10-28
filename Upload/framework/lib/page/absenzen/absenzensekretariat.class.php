@@ -1247,7 +1247,7 @@ class absenzensekretariat extends AbstractPage {
           '" . implode(",",$stunden) . "',
           '1',
           '" . $idBefreiung . "',
-          '" . date("d.m.Y H:i") . " Uhr: (" . DB::getSession()->getData("userName") . "): Befreiung ausgestellt. " . DB::getDB()->escapeString($_POST['bemerkung']) . "'
+          '" . date("d.m.Y H:i") . " Uhr: (" . DB::getSession()->getData("userName") . "): Befreiung ausgestellt. (Lehrkraft: " . DB::getDB()->escapeString($_POST['currentLehrer']) . ") " . DB::getDB()->escapeString($_POST['bemerkung']) . "'
         )");
 
     $newID = DB::getDB()->insert_id();
