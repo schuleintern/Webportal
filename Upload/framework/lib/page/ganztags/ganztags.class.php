@@ -10,7 +10,7 @@ class ganztags extends AbstractPage {
 
 	public function __construct() {
 		
-		parent::__construct(array("Lehrertools", "Ganztags"));
+		parent::__construct(array("Lehrertools", "Ganztags - Schülerliste"));
 				
 		$this->checkLogin();
 		
@@ -35,6 +35,8 @@ class ganztags extends AbstractPage {
 
 	public function execute() {
 		
+
+
 		if(!$this->isTeacher) {
 			DB::showError("Diese Seite ist leider für Sie nicht sichtbar.");
 			die();
@@ -110,7 +112,7 @@ class ganztags extends AbstractPage {
 			$schueler = schueler::getGanztagsSchueler('ganztags.gruppe DESC, schueler.schuelerName, schueler.schuelerRufname');
 
 			$gruppen = [];
-			$query = DB::getDB()->query("SELECT *  FROM ganztags_gruppen ORDER BY 'sortOrder, name' ");
+			$query = DB::getDB()->query("SELECT *  FROM ganztags_gruppen ORDER BY sortOrder, name ");
 			while($group = DB::getDB()->fetch_array($query)) {
 				
 				$num = 0;
@@ -171,7 +173,8 @@ class ganztags extends AbstractPage {
 
 			$pdf->send();
 			exit(0);
-		}
+
+		} 
 		
 		$schueler = schueler::getGanztagsSchueler();
 
@@ -189,29 +192,88 @@ class ganztags extends AbstractPage {
 			$html .= '<td>'.$gender.'</td>';
 			$html .= '<td>'.$item->getKlassenObjekt()->getKlassenName().'</td>';
 			$html .= '<td>'.$item->getGanztags()['gruppe_name'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags()['tag_mo'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags()['tag_di'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags()['tag_mi'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags()['tag_do'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags()['tag_fr'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags()['tag_sa'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags()['tag_so'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_mo'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_di'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_mi'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_do'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_fr'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_sa'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_so'].'</td>';
 			$html .= '<td width="20%">'.$item->getGanztags()['info'].'</td>';
 			$html .= '<td> <a href="index.php?page=ganztagsEdit&id='.$item->getID().'"><i class="fa fa-edit"></i> </a> </td>';
 			$html .= '</tr>';
 		}
 		
+		$acl = json_encode( $this->getAcl() );
+
+		//$prevDays = DB::getSettings()->getValue("mensa-speiseplan-days");
+
+		$showDays = json_encode(array(
+			'Mo' => DB::getSettings()->getValue("ganztags-day-mo"),
+			'Di' => DB::getSettings()->getValue("ganztags-day-di"),
+			'Mi' => DB::getSettings()->getValue("ganztags-day-mi"),
+			'Do' => DB::getSettings()->getValue("ganztags-day-do"),
+			'Fr' => DB::getSettings()->getValue("ganztags-day-fr"),
+			'Sa' => DB::getSettings()->getValue("ganztags-day-sa"),
+			'So' => DB::getSettings()->getValue("ganztags-day-so")
+		));
+		
+
 		eval("echo(\"" . DB::getTPL()->get("ganztags/index"). "\");");
 		
 	}
 	
 	
 	public static function hasSettings() {
-		return false;
+		return true;
 	}
 	
 	public static function getSettingsDescription() {
-		return array();
+		$settings = array(
+			array(
+				'name' => "ganztags-day-mo",
+				'typ' => "BOOLEAN",
+				'titel' => "Montag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-di",
+				'typ' => "BOOLEAN",
+				'titel' => "Dienstag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-mi",
+				'typ' => "BOOLEAN",
+				'titel' => "Mittwoch anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-do",
+				'typ' => "BOOLEAN",
+				'titel' => "Donnerstag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-fr",
+				'typ' => "BOOLEAN",
+				'titel' => "Freitag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-sa",
+				'typ' => "BOOLEAN",
+				'titel' => "Samstag anzeigen?",
+				'text' => ""
+			),
+			array(
+				'name' => "ganztags-day-so",
+				'typ' => "BOOLEAN",
+				'titel' => "Sonntag anzeigen?",
+				'text' => ""
+			)
+		);
+		return $settings;
 	}
 	
 	
@@ -253,10 +315,21 @@ class ganztags extends AbstractPage {
 	public static function displayAdministration($selfURL) {
 		 
 		if($_REQUEST['add'] > 0) {
-			DB::getDB()->query("INSERT INTO ganztags_gruppen (`name`, `sortOrder`)
+			if (!$_POST['ganztagsName']) {
+				return false;
+			}
+			$order = DB::getDB()->escapeString($_POST['ganztagsSortOrder']);
+			if (!$order) { $order = 1; }
+			$raum = DB::getDB()->escapeString($_POST['ganztagsRaum']);
+			if (!$raum) { $raum = ''; }
+			$farbe = DB::getDB()->escapeString($_POST['ganztagsFarbe']);
+			if (!$farbe) { $farbe = ''; }
+			DB::getDB()->query("INSERT INTO ganztags_gruppen (`name`,`raum`,`farbe`, `sortOrder`)
 					values (
 						'" . DB::getDB()->escapeString($_POST['ganztagsName']) . "',
-						" . DB::getDB()->escapeString($_POST['ganztagsSortOrder']) . "
+						'" . $raum . "',
+						'" . $farbe . "',
+						" . $order . "
 					) ");
 		}
 
@@ -271,6 +344,8 @@ class ganztags extends AbstractPage {
 			while($o = DB::getDB()->fetch_array($objekte)) {
 				DB::getDB()->query("UPDATE ganztags_gruppen SET 
 						name='" . DB::getDB()->escapeString($_POST["name_".$o['id']]) . "',
+						raum='" . DB::getDB()->escapeString($_POST["raum_".$o['id']]) . "',
+						farbe='" . DB::getDB()->escapeString($_POST["farbe_".$o['id']]) . "',
 						sortOrder='" . DB::getDB()->escapeString($_POST["sortOrder_".$o['id']]) . "'
 						WHERE id='" . $o['id'] . "'");
 			}
@@ -291,6 +366,8 @@ class ganztags extends AbstractPage {
 		for($i = 0; $i < sizeof($objektData); $i++) {
 			$objektHTML .= "<tr>";
 				$objektHTML .= "<td><input type=\"text\" name=\"name_" . $objektData[$i]['id'] . "\" class=\"form-control\" value=\"" . $objektData[$i]['name'] . "\"></td>";
+				$objektHTML .= "<td><input type=\"text\" name=\"raum_" . $objektData[$i]['id'] . "\" class=\"form-control\" value=\"" . $objektData[$i]['raum'] . "\"></td>";
+				$objektHTML .= "<td><input type=\"text\" name=\"farbe_" . $objektData[$i]['id'] . "\" class=\"form-control\" value=\"" . $objektData[$i]['farbe'] . "\"></td>";
 				$objektHTML .= "<td><input type=\"number\" name=\"sortOrder_" . $objektData[$i]['id'] . "\" class=\"form-control\" value=\"" . @htmlspecialchars($objektData[$i]['sortOrder']) . "\"></td>";
 				$objektHTML .= "<td><a href=\"#\" onclick=\"javascript:if(confirm('Soll das Objekt wirklisch gelöscht werden?')) window.location.href='$selfURL&delete=" . $objektData[$i]['id'] . "';\"><i class=\"fa fa-trash\"></i> Löschen</a></td>";
 				

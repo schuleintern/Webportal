@@ -142,6 +142,7 @@ class schueler {
 			while($row = mysqli_fetch_array($gruppen_query)) { $gruppe = $row; }
 		}
 
+
 		if ($action == 'print') {
 			if ($this->data['tag_mo']) { $this->data['tag_mo'] = 'x'; } else { $this->data['tag_mo'] = ''; }
 			if ($this->data['tag_di']) { $this->data['tag_di'] = 'x'; } else { $this->data['tag_di'] = ''; }
@@ -150,7 +151,7 @@ class schueler {
 			if ($this->data['tag_fr']) { $this->data['tag_fr'] = 'x'; } else { $this->data['tag_fr'] = ''; }
 			if ($this->data['tag_sa']) { $this->data['tag_sa'] = 'x'; } else { $this->data['tag_sa'] = ''; }
 			if ($this->data['tag_so']) { $this->data['tag_so'] = 'x'; } else { $this->data['tag_so'] = ''; }
-		} else {
+		} else if ($action == 'html') {
 			if ($this->data['tag_mo']) { $this->data['tag_mo'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_mo'] = ''; }
 			if ($this->data['tag_di']) { $this->data['tag_di'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_di'] = ''; }
 			if ($this->data['tag_mi']) { $this->data['tag_mi'] = '<i class="fa fa-check-circle" style="color:green"></i>'; } else { $this->data['tag_mi'] = ''; }
@@ -173,7 +174,7 @@ class schueler {
 			'tag_fr' => $this->data['tag_fr'],
 			'tag_sa' => $this->data['tag_sa'],
 			'tag_so' => $this->data['tag_so'],
-			'gruppe_name' => $gruppe['name']
+			'gruppe_name' => $gruppe['gruppe_name']
 		];
 	}
 

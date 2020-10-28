@@ -225,19 +225,21 @@ button.btn-blau {
 .border-b {
   border-bottom: 1px solid #738b96;
 }
-
-
 .border-radius {
-  border: 1px solid #738b96;
   border-radius: 4px;
 }
+
+
+
+
 
 
 .bg-white {
   background-color: #ffffff;
 }
-
-
+.bg-grau {
+  background-color: #8aa4af;
+}
 
 .noListStyle {
   list-style: none;
@@ -262,8 +264,15 @@ button.btn-blau {
 .text-orange {
   color: #f39c12;
 }
+
+.text-black {
+  color: #000000;
+}
 .text-grey {
   color: #738b96;
+}
+.text-white {
+  color: #ffffff;
 }
 
 .text-small {
@@ -275,6 +284,14 @@ button.btn-blau {
 }
 .text-big-m {
   font-size: 160%;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-line-through {
+  text-decoration:line-through;
 }
 
 .table_1 {
@@ -298,6 +315,9 @@ button.btn-blau {
   text-align: left;
   vertical-align: top;
 }
+.table_1.noPadding tbody td {
+  padding: 0;
+}
 
 
 
@@ -307,4 +327,8 @@ button.btn-blau {
 	padding: 1rem;
 	margin-bottom: 1.5rem;
 	border-radius: 5px;
+}
+
+.box_odd:nth-child(2n) {
+  background-color: rgb(236, 240, 245);
 }

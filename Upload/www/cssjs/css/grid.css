@@ -113,6 +113,13 @@
   width: 100%;
 }
 
+.padding-xs {
+  padding: 0.3rem;
+}
+.padding-s {
+  padding: 0.6rem;
+}
+
 .padding-m {
   padding: 1.3rem;
 }
@@ -122,6 +129,12 @@
   padding-left: 2.3rem;
 }
 
+.padding-b-xs {
+  padding-bottom: 0.3rem;
+}
+.padding-b-s {
+  padding-bottom: 0.6rem;
+}
 .padding-b-m {
   padding-bottom: 1.3rem;
 }
@@ -129,9 +142,25 @@
   padding-bottom: 2.3rem;
 }
 
+.padding-t-xs {
+  padding-top: 0.3rem;
+}
+.padding-t-s {
+  padding-top: 0.6rem;
+}
 .padding-t-m {
   padding-top: 1.3rem;
 }
+
+.padding-l-s {
+  padding-left: 0.6rem;
+}
+
+.padding-r-s {
+  padding-right: 0.6rem;
+}
+
+
 
 .margin-r-xs {
   margin-right: 0.3rem;

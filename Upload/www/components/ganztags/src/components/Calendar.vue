@@ -1,0 +1,234 @@
+<template>
+  <div>
+    <div class="calendar">
+        <div class="calendar-header">
+            <button class="btn btn-app chevron-left" @click="subtractWeek">
+              <i class="fa fa-arrow-left"></i>Vor
+            </button>
+            <button @click="gotoToday"
+              class="btn btn-app">
+              <i class="fa fa-home"></i>Heute
+            </button>
+            <h3>{{ $date(firstDayOfWeek).format("DD.") }} - {{ $date(lastDayOfWeek).format("DD. MMMM YYYY") }}</h3>
+            <button class="btn btn-app chevron-right" @click="addWeek">
+              <i class="fa fa-arrow-right"></i>Weiter
+            </button>
+        </div>
+
+        <table class="table_1 noPadding">
+          <thead>
+            <tr>
+              <td v-bind:key="j" v-for="(day, j) in daysInWeek"
+               :class="{ 'bg-orange': isToday(day) == true}">
+                {{ $date(day).format('DD. dd') }}
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td v-bind:key="i" v-for="(day, i) in daysInWeek" >
+                
+                <div v-bind:key="j" v-for="(item, j) in getEintrag(day)"
+                  class="padding-t-m" >
+                  
+                  <div v-bind:key="k" v-for="(gruppe, k) in item.gruppen"
+                    class="gruppe">
+                    
+                    <div class="padding-s bg-grau text-white"
+                      v-bind:style="{ backgroundColor: gruppe.gruppe.farbe }"
+                      @click="handlerActiveGrupe(day, k)">
+                      <div class="text-big-2">{{gruppe.gruppe.name}}</div>
+                      <div class="padding-t-s padding-b-s">
+                        <span v-show="gruppe.schueler.length" class="bg-white text-grey border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
+                          v-bind:style="{ color: gruppe.gruppe.farbe }">
+                          <i class="fa fa-child margin-r-m"></i>{{gruppe.schueler.length}}</span>
+                        <span v-show="gruppe.gruppe.absenz_anz" class="bg-white text-red border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold">
+                          <i class="fa fa-bed margin-r-m"></i>{{gruppe.gruppe.absenz_anz}}</span>
+                        <span class="flex-1" v-show="gruppe.gruppe.raum"><i class="fas fa-map-marker-alt"></i> {{gruppe.gruppe.raum}}</span>
+                      </div>
+                    </div>
+                    <div class="padding-s" v-show="getActiveGruppe(day, k)">
+                      <div v-bind:key="l" v-for="(schueler, l) in gruppe.schueler"
+                      class="box_odd padding-s">
+                        <span :class="{ 'text-line-through' : schueler.absenz}">{{schueler.rufname}} {{schueler.name}}</span>
+                        <div class="text-small">
+                          <i v-if="schueler.geschlecht == 'm'" class="fa fa-mars" aria-hidden="true" style="color:blue"></i>
+                          <i v-if="schueler.geschlecht == 'w'" class="fa fa-venus" aria-hidden="true" style="color:red"></i>
+                          
+                          <span class="margin-l-s">{{schueler.klasse}}</span>
+                        </div>
+                        <div v-show="schueler.absenz" class="text-right ">
+                          <span class="text-red"><i class="fa fa-bed"></i> Absenz</span>
+                          <div class="text-small text-grey"><i class="fa fa-clock"></i> {{schueler.absenz_info.stunden}}</div>
+                          <div class="text-small text-grey" v-html="schueler.absenz_info.bemerkung">{{schueler.absenz_info.bemerkung}}</div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    
+                  </div>
+
+                 
+                  
+                  
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+  </div>
+</template>
+
+
+
+<script>
+
+export default {
+  name: 'Calendar',
+  props: {
+    list: Array,
+    acl: Object
+  },
+  data(){
+    return{
+
+      today: this.$date(),
+      thisWeek: false,
+
+      //prevDays: globals.prevDays
+
+      activeGruppe: []
+    }
+  },
+  created: function () {
+
+    this.thisWeek = this.today;
+    this.changedDate();
+
+    //this.prevDays = parseInt( this.prevDays );
+
+    var that = this;
+    EventBus.$on('calender--reload', data => {
+      that.changedDate();
+    });
+  },
+  computed: {
+
+    firstDayOfWeek: function () {
+      return this.thisWeek.startOf('week');
+    },
+    lastDayOfWeek: function () {
+      return this.thisWeek.endOf('week');
+    },
+    daysInWeek: function () {
+      var arr = [];
+      var foo = this.firstDayOfWeek;
+      for(let i = 0; i < 7; i++) {
+        if ( globals.showDays[ foo.format('dd') ] == 1 ) {
+          arr.push( [ foo ] );
+        }
+        foo = foo.add(1,'day');
+      }
+      return arr;
+    },
+    daysInWeekFull: function () {
+      var arr = [];
+      var foo = this.firstDayOfWeek;
+      for(let i = 0; i < 7; i++) {
+        if ( globals.showDays[ foo.format('dd') ] == 1 ) {
+          arr.push( [ foo.format('YYYY-MM-DD'), foo.format('dd') ] );
+        }
+        foo = foo.add(1,'day');
+      }
+      return arr;
+    }
+
+  },
+  methods: {
+
+    getActiveGruppe: function (day, num) {
+      if ( this.activeGruppe.indexOf(day+'-'+num) >= 0  ) {
+        return true;
+      }
+      return false;
+    },
+    handlerActiveGrupe: function(day, num) {
+      var index = this.activeGruppe.indexOf(day+'-'+num)
+      if ( index >= 0  ) {
+        this.activeGruppe.splice(index, 1);
+      } else {
+        this.activeGruppe.push( day+'-'+num );
+      }
+    },
+    showBuchenBtn: function (day) {
+      // var prev = this.today.add( this.prevDays , 'day');
+      // if ( prev.isBefore(day) ) {
+      //   return true;
+      // }
+      return false;
+    },
+    isToday: function (day) {
+      if ( this.today.isSame( day, 'day' ) ) {
+        return true;
+      }
+      return false;
+    },
+    subtractWeek: function () {
+      this.thisWeek = this.thisWeek.subtract(1, 'week');
+      this.changedDate();
+    },
+    addWeek: function () {
+      this.thisWeek = this.thisWeek.add(1, 'week');
+      this.changedDate();
+    },
+    gotoToday: function () {
+      this.thisWeek = this.today;
+      this.changedDate();
+    },
+    changedDate: function () {
+      EventBus.$emit('calendar--changedDate', {
+        von: this.firstDayOfWeek.unix(),
+        bis: this.lastDayOfWeek.unix(),
+        days: this.daysInWeekFull
+      });
+    },
+
+    openForm: function (day) {
+      EventBus.$emit('form--open', {
+        item: {date: day}
+      });
+    },
+
+    getEintrag: function (day) {
+      if (this.list.length <= 0 ) {
+        return '';
+      }
+      var day = this.$date(day).format('YYYY-MM-DD');
+      var ret = [];
+      this.list.forEach(function (item) {
+        if (day == item[0] ) {
+          ret.push(item);
+        }
+      });
+      return ret;
+    },
+
+    openEintrag: function (item) {
+      EventBus.$emit('item--open', {
+        item: item
+      });
+    },
+
+    orderEintrag: function (item) {
+      if (!item.id) {
+        return false;
+      }
+      EventBus.$emit('item--order', {
+        item: item
+      });
+    }
+  }
+}
+</script>
