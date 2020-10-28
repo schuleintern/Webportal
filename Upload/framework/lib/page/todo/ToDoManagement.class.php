@@ -19,9 +19,11 @@ class ToDoManagement extends AbstractPage {
 	private $myTodos = [];
 
 	public function __construct() {
-		parent::__construct ( array (
-			"Aufgaben"
-		) );
+		parent::__construct (
+		    [
+			    "Aufgaben"
+		    ]
+        );
 
 		$this->checkLogin();
 
