@@ -21,10 +21,10 @@ class SchuelerFremdsprache {
 
     /**
      * Jahrfangsstufe aber der die Sprache unterrichtet wird für diesen Schüler
-     * @return string
+     * @return string|null
      */
     public function getSpracheAbJahrgangsstufe() {
-        return $this->data['spracheAbJahrgangsstufe'] != "" ? $this->data['spracheAbJahrgangsstufe'] : "n/a";
+        return $this->data['spracheAbJahrgangsstufe'] != "" ? $this->data['spracheAbJahrgangsstufe'] : null;
     }
 
     /**

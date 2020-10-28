@@ -577,7 +577,7 @@ class schuelerinfo extends AbstractPage {
     $fremdsprachen = [];
 
     for($i = 0; $i < sizeof($sprachen); $i++) {
-      $fremdsprachen[] = $sprachen[$i]->getSpracheFach() . " (ab " . $sprachen[$i]->getSpracheAbJahrgangsstufe() . ")";
+      $fremdsprachen[] = $sprachen[$i]->getSpracheFach() . (($sprachen[$i]->getSpracheAbJahrgangsstufe() !== null) ? " (ab " . $sprachen[$i]->getSpracheAbJahrgangsstufe() . ")" : "");
     }
 
     $fremdsprachen = implode(", ", $fremdsprachen);
