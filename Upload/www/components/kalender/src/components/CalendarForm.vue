@@ -121,6 +121,17 @@ export default {
       if (this.calendarSelected[0]) {
         this.form.calenderID = this.calendarSelected[0];
       }
+    },
+    'form.startDay': function (newValue,oldValue) {
+
+      if (this.form.endDay) {
+        var date_start = new Date(newValue);
+        var date_end = new Date(this.form.endDay);
+        if (date_end < date_start) {
+          this.form.endDay = newValue;
+        }
+      }
+      //console.log('change----',newValue, this.form.endDay);
     }
   },
   created: function () {
