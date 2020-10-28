@@ -131,6 +131,18 @@ class AbsenzBeurlaubungAntrag {
         
         return $allD;
     }
+
+    public static function getAllInPastForSchulleitungOrKlassenleitung() {
+        $sql = DB::getDB()->query("SELECT * FROM absenzen_beurlaubung_antrag WHERE antragDatumStart < CURDATE() ORDER BY antragDatumStart DESC");
+
+        $allD = [];
+
+        while($b = DB::getDB()->fetch_array($sql)) {
+            $allD[] = new AbsenzBeurlaubungAntrag($b);
+        }
+
+        return $allD;
+    }
     
     public static function getAllForKlassenleitung() {
         $sql = DB::getDB()->query("SELECT * FROM absenzen_beurlaubung_antrag WHERE antragDatumStart >= CURDATE() ORDER BY antragTime DESC");

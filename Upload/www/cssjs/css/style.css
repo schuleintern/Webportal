@@ -1,116 +1,4 @@
 
-.form-style input[type="text"],
-.form-style input[type="search"] {
-  border: 0;
-  border-radius: 0;
-  webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 0.01px;
-  text-overflow: '';
-  margin: 0;
-  background-color: rgb(201, 210, 219);
-  color: #000;
-  font-size: inherit;
-  padding: .5em;
-  padding-right: 2.5em; 
-  border: 1px solid #738b96;
-  border-radius: 3px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.form-style select {
-  border: 0;
-  border-radius: 0;
-  webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 0.01px;
-  text-overflow: '';
-  margin: 0;
-  color: #fff;
-  font-size: inherit;
-  padding: .5em;
-  padding-right: 2.5em; 
-  border: 1px solid #738b96;
-  border-radius: 3px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background: transparent;
-  background: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>"), #8aa4af;
-  background-repeat: no-repeat;
-  background-position-x: 100%;
-  background-position-y: 5px;
-}
-
-
-.form-style-2 input[type="text"],
-.form-style-2 textarea {
-  border: 0;
-  border-radius: 0;
-  webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 0.01px;
-  text-overflow: '';
-  margin: 0;
-  background-color: #ffffff;
-  color: #000;
-  font-size: inherit;
-  padding: .5em;
-  padding-right: 2.5em; 
-  border: 1px solid #d2d2d2;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-
-/* 
-.form-modal {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 9999999999;
-}
-
-.form-modal-content {
-
-  background-color: #ffffff;
-  position: absolute;
-  float: left;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
-  padding: 2rem;
-  min-width: 30vw;
-}
-
-.form-modal-error {
-  color: #dd4b39;
-  border-bottom: 1px solid #dd4b39;
-  margin-bottom: 2rem;
-}
-
-.form-modal-close {
-  position: absolute;
-  right: 0rem;
-  top: 0rem;
-  width: 3rem;
-  height: 3rem;
-  cursor: pointer;
-  font-size: 130%;
-  
-}
-.form-modal-close i {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
 
 .form-style-2 input[type="text"],
@@ -164,12 +52,6 @@
 .form-modal-error {
   color: #dd4b39;
   border-bottom: 1px solid #dd4b39;
-  margin-bottom: 2rem;
-}
-
-.form-modal-success {
-  color: #018d4e;
-  border-bottom: 1px solid #018d4e;
   margin-bottom: 2rem;
 }
 
@@ -254,17 +136,21 @@ button.btn-blau {
   border-color: #367fa9;
   color: #fff;
 }
+
 .btn-blau:hover {
   background-color: #367fa9;
   color: #fff;
 }
+
 
 .btn-grau {
   background-color: #8aa4af;
   border-color: #8aa4af;
   color: #fff;
 }
-.btn-grau:hover {
+
+.btn-grau:hover,
+.btn-grau.active {
   background-color: #738b96;
   color: #fff;
 }
@@ -274,6 +160,7 @@ button.btn-blau {
   border-color: #00a65a;
   color: #fff;
 }
+
 .btn-gruen:hover {
   background-color: #018d4e;
   color: #fff;
@@ -284,18 +171,9 @@ button.btn-blau {
   border-color: #f39c12;
   color: #fff;
 }
-.btn-orange:hover {
-  background-color: #dd9016;
-  color: #fff;
-}
 
-.btn-red {
-  background-color: #dd4b39; 
-  border-color: #dd4b39;
-  color: #fff;
-}
-.btn-red:hover {
-  background-color: #c63e2d;
+.btn-orange:hover {
+  background-color: #f39c12;
   color: #fff;
 }
 
@@ -333,9 +211,7 @@ button.btn-blau {
 .bg-red {
   background-color: #c63e2d; 
 }
-.bg-orange {
-  background-color: #f39c12;
-}
+
 
 .border {
   border: 1px solid #738b96;
@@ -368,22 +244,11 @@ button.btn-blau {
   padding: 0;
   margin: 0;
 }
-/* .noListStyle li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-} */
-
 .line-oddEven:nth-child(odd)  {
   background-color: #f9f9f9;
 }
-
-
 .text-bold {
   font-weight: bold;
-}
-.text-align-left {
-  text-align: left;
 }
 .text-lineHeight-m {
   line-height: 200%;
@@ -391,7 +256,6 @@ button.btn-blau {
 .text-red {
   color: #dd4b39;
 }
-
 .text-green {
   color: #018d4e;
 }

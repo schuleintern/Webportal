@@ -230,7 +230,7 @@
 
 		    	
 			    $('#uploadFileProgress').fadeIn();
-			    
+
 			    $.ajax({
 			        type: "POST",
 			        url: "index.php?page=MessageCompose&action=uploadAttachment",
@@ -251,7 +251,7 @@
 
 						}
 			        	else {
-							fireErrorMessage("Upload fehlgeschlagen", "Leider kann diese Dateu nicht angehängt werden!");
+							fireErrorMessage("Upload fehlgeschlagen", "Leider kann diese Datei nicht angehängt werden!");
 						}
 					    $('#uploadFileProgress').fadeOut();
 					    $('#uploadFileFormGroup').fadeIn();
@@ -270,7 +270,9 @@
 			    });
 		    
 		    }
-		    
+
+			$('#uploadFileFormGroup').fadeIn();
+			$('#buttonUploadFile').fadeIn();
 		    
 		    $('#addAttachment').modal('hide');
 		    $('#attachmentFile').val("");

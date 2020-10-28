@@ -185,6 +185,28 @@ class DB {
 	public static function hasNotenverwaltung() {
 		return DB::getGlobalSettings()->hasNotenverwaltung;
 	}
+
+
+	public static function getDbStructure() { 
+		$queryTables = self::$db->query('SHOW TABLES');
+		while($row = $queryTables->fetch_row()) {
+			$target_tables[] = $row[0];
+		}
+		$content = "/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;\r\n/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;\r\n/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\r\n/*!40101 SET NAMES utf8 */;\r\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\r\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\r\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\r\n\r\n";
+		foreach($target_tables as $table){
+			if (empty($table)){
+				continue;
+			} 
+			$res = self::$db->query(" SHOW CREATE TABLE `".$table."` ");
+			$TableMLine = $res->fetch_row(); 
+			$TableMLine[1] = str_ireplace('CREATE TABLE `','CREATE TABLE IF NOT EXISTS `',$TableMLine[1]);
+			$content .= $TableMLine[1]."; \r\n \r\n";
+		}
+		$content .= "\r\n\r\n/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;\r\n/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;\r\n/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;\r\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\r\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\r\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\r\n";
+		return $content;
+	}
+
+
 }
 
 

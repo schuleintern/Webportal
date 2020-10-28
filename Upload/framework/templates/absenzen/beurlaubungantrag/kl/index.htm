@@ -30,4 +30,34 @@
 	</div>
 </div>
 
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-bed"></i> Vergangene Beurlaubungsanträge</h3>
+	</div>
+	<div class="box-body no-padding">
+		<table class="table table-striped">
+			<tr>
+				<th>Schüler</th>
+				<th>Datum</th>
+				<th>Stunden</th>
+				<th>Begründung</th>
+				<th>Genehmigung Klassenleitung</th>
+				<th>Genehmigung Schulleitung</th>
+				<th>Status</th>
+			</tr>
+			<if($htmlErledigt == "")><then>
+			<tr>
+				<td colspan="7" style="text-align:center"><i class="fa fa-ban"></i> Bisher kein Beurlaubungsantrag</td>
+			</tr>
+		</then>
+			<else>
+				$htmlErledigt
+			</else>
+			</if>
+
+		</table>
+
+	</div>
+</div>
+
 {$this->footer}

@@ -38,7 +38,8 @@ class administrationbadmails extends AbstractPage {
 		else $where = "";
 		
 		$mails = DB::getDB()->query("SELECT 
-				DISTINCT badMail, 
+				DISTINCT badMail,
+                badMailID,
 				schuelerName, 
 				schuelerRufname, 
 				schuelerKlasse,
@@ -62,6 +63,11 @@ class administrationbadmails extends AbstractPage {
 		$anzahl = 0;
 		while($mail = DB::getDB()->fetch_array($mails)) {
 			$anzahl++;
+
+			if($_REQUEST['checkBadMailID'] == $mail['badMailID']) {
+			    DB::getDB()->query("UPDATE bad_mail SET badMailDone=UNIX_TIMESTAMP() WHERE badMail LIKE '" . $mail['badMail'] . "'");
+			    $mail['badMailDone'] = 1;
+            }
 			eval("\$mailHTML .= \"" . DB::getTPL()->get("administration/unknownmailsender/mail_bit") . "\";");
 				
 		}
@@ -71,10 +77,9 @@ class administrationbadmails extends AbstractPage {
 			
 			$printContent = ($printContent);
 
-			$mpdf=new mPDF('utf-8', 'A4-P');
-			$mpdf->WriteHTML($printContent);
-			$mpdf->setFooter('Seite {PAGENO} / {nbpg}','E');
-			$mpdf->Output("Ungültige E-Mailadressen.pdf","D");
+			$print = new PrintNormalPageA4WithHeader("Falsche E-Mailadresssen");
+			$print->setHTMLContent($printContent);
+			$print->send();
 			exit(0);
 		}
 		else {	

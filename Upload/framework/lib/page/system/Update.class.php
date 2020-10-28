@@ -27,6 +27,14 @@ class Update extends AbstractPage
         $fromVersion = $updateInfo['updateFromVersion'];
         $toVersion = $updateInfo['updateToVersion'];
 
+        
+        // Compare Database with File and execute query
+        $dbFile = "../data/update/Upload/database.sql";
+        if (file_exists($dbFile)) {
+            $newStructure = file_get_contents("../data/update/Upload/database.sql");
+            $this->updateDatabase($newStructure);
+        }
+
         // Updates durchführen
         if ($this->performUpdate($fromVersion, $toVersion)) {
             DB::getSettings()->setValue("current-release-id", $updateInfo['updateToReleaseID']);
@@ -409,6 +417,29 @@ class Update extends AbstractPage
 
             return @rmdir($dir);
         }
+    }
+
+    private function updateDatabase ($newStructure) {
+
+        if ($newStructure == '') {
+            return false;
+        }
+        $source = DB::getDbStructure();
+        
+        if ($source == '') {
+            return false;
+        }
+
+        $dbStruct = new dbStruct();
+
+        $sqlUpdates = $dbStruct->getUpdates( $source, $newStructure);
+
+        if ( !empty($sqlUpdates) ) {
+            foreach($sqlUpdates as $sql) {
+                DB::getDB()->query($sql);
+            }
+        }
+        
     }
 
     public static function getSettingsDescription()
