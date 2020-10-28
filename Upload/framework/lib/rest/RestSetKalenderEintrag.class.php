@@ -79,6 +79,7 @@ class RestSetKalenderEintrag extends AbstractRest {
 					eintragTitel = '".DB::getDB()->encodeString($row['title'])."',
 					eintragTimeStart = '".DB::getDB()->escapeString($row['startTime'])."',
 					eintragTimeEnde = '".DB::getDB()->escapeString($row['endTime'])."',
+					eintragDatumStart = '".DB::getDB()->escapeString($row['startDay'])."',
 					eintragDatumEnde = '".DB::getDB()->escapeString($row['endDay'])."',
 					eintragOrt = '".DB::getDB()->encodeString($row['place'])."',
 					eintragKommentar = '".DB::getDB()->encodeString(nl2br($row['comment']))."',

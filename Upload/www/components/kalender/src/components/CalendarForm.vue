@@ -4,8 +4,17 @@
       <div class="form-modal-close" v-on:click="handlerCloseModal"><i class="fa fa-times"></i></div>
 
       <div class="text-small">Datum:</div>
-      <div class="labelDay">{{form.startDay}}</div>
+      <!-- <div class="labelDay">{{form.startDay}}</div> -->
 
+      <date-picker
+        v-model="form.startDay"
+        type="date"
+        format="YYYY-MM-DD" 
+        value-type="format"
+        :default-value="new Date(form.startDay)"></date-picker>
+
+      <br/>
+      
       <input type="hidden" v-model="form.id"  />
       <input type="hidden" v-model="form.startDay"  />
 
