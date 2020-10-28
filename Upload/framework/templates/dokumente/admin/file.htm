@@ -5,11 +5,11 @@
 	<td>{$dateien[$f]->getDownloads()}</td>
 	<td>
 		<form>
-			<button type="button" class="btn" onclick="window.location.href='$selfURL&action=getFile&fileID={$dateien[$f]->getID()}'"><i class="fa fa-download"></i></button>
+			<button type="button" class="btn btn-default btn-block" onclick="window.location.href='$selfURL&action=getFile&fileID={$dateien[$f]->getID()}'"><i class="fa fa-download"></i></button>
 		
-			<button type="button" class="btn btn-danger" onclick="confirmAction('Datei wirklich löschen?','$selfURL&action=deleteFile&fileID={$dateien[$f]->getID()}')"><i class="fa fa-trash"></i></button>
+			<button type="button" class="btn btn-danger btn-block" onclick="confirmAction('Datei wirklich löschen?','$selfURL&action=deleteFile&fileID={$dateien[$f]->getID()}')"><i class="fa fa-trash"></i></button>
 		
-			<button type="button" class="btn btn-info" data-toggle="modal" data-target="#moveFile{$dateien[$f]->getID()}"><i class="fa fas fa-sync-alt"></i></button>
+			<button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#moveFile{$dateien[$f]->getID()}"><i class="fa fas fa-arrows-alt-v"></i></button>
 		
 		</form>
 	
@@ -18,7 +18,7 @@
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	    <div class="modal-header">	    
-	    	<h4 class="modal-title">"{$dateien[$f]->getName()}" in anderen Bereich verschieben</h4>
+	    	<h4 class="modal-title"><i class="fa fas fa-arrows-alt-v"></i> "{$dateien[$f]->getName()}" in anderen Bereich verschieben</h4>
 	    	
 	      </div>
 	      <div class="modal-body">

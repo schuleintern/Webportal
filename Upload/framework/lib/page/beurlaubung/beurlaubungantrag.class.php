@@ -15,9 +15,6 @@ class beurlaubungantrag extends AbstractPage {
 	
 	
 	public function __construct() {
-		
-		$this->needLicense = false;
-		
 		parent::__construct ( array (
 			"Beurlaubungsantrag" 
 		) );
@@ -40,7 +37,7 @@ class beurlaubungantrag extends AbstractPage {
 			$this->schueler = schueler::getAll('length(schuelerKlasse) ASC, schuelerKlasse ASC, schuelerName ASC, schuelerRufname ASC');
 			$accessOK = true;
 		}
-		
+
 		if(DB::getSession()->isPupil()) {
 			if(DB::getSettings()->getBoolean("beurlaubung-volljaehrige-schueler")) {
 				$alter = DB::getSession()->getPupilObject()->getAlter();
@@ -57,9 +54,7 @@ class beurlaubungantrag extends AbstractPage {
 				$this->schueler = [DB::getSession()->getPupilObject()];
 			}
 		}
-		
-		
-		
+
 		if(!$accessOK) {
 			new errorPage();
 		}
@@ -327,153 +322,269 @@ Begründung: ' . $antrag->getBegruendung() . "<br /><br /><i>Dies ist eine autom
 	
 	private function schulleitung() {
 	    if(DB::getSession()->isTeacher()) {
-	        $meine = AbsenzBeurlaubungAntrag::getAllForSchulleitungOrKlassenleitung();
-	        
-	        $htmlMeine = "";
-	        
-	        for($i = 0; $i < sizeof($meine); $i++) {
-	            
-	            $schueler = schueler::getByAsvID($meine[$i]->getSchuelerAsvID());
-	            
-	            if($schueler != null) {
-	                
-	                $klasse = $schueler->getKlassenObjekt();
-	                
-	                // if($klasse == null || !$klasse->isKlassenLeitung(DB::getSession()->getTeacherObject())) continue;
-	                
-	                
-	                $schuelerName = $schueler->getCompleteSchuelerName() . " (Klasse " . $schueler->getKlasse() . ")";
-	                
-	                $datum = DateFunctions::getNaturalDateFromMySQLDate($meine[$i]->getStartDatumAsSQLDate());
-	                
-	                $begruendung = nl2br($meine[$i]->getBegruendung());
-	                
-	                $KLOK = false;
-	                $SLOK = false;
-	                $failed = false;
-	                
-	                if(DB::getSettings()->getBoolean("beurlaubung-klassenleitung-freigabe")) {
-	                    if($meine[$i]->isKLDecisionMade()) {
-	                        if($meine[$i]->isKLGenehmigt()) {
-	                            $kl = "<label class=\"label label-success\">Genehmigt</label>";
-	                            
-	                            $KLOK = true;
-	                        }
-	                        else {
-	                            $failed = true;
-	                            $kl = "<label class=\"label label-danger\">Nicht genehmigt</label>";
-	                            
-	                        }
-	                        
-	                        $kl .= "<br >" . nl2br($meine[$i]->getKLKommentar());
-	                    }
-	                    else {
-	                        $kl = "<label class=\"label label-warning\">Genehmigung offen</label>";
-	                        
-	                        
-	                    }
-	                    
-	                }
-	                else {
-	                    $kl = "<label class=\"label label-success\">Nicht nötig</label>";
-	                    $KLOK = true;
-	                }
-	                
-	                if(DB::getSettings()->getBoolean("beurlaubung-schulleitung-freigabe")) {
-	                    if($meine[$i]->isSLDecisionMade()) {
-	                        if($meine[$i]->isSLGenehmigt()) {
-	                            $sl = "<label class=\"label label-success\">Genehmigt</label>";
-	                            $sl .= "<form><button type=\"button\" class=\"btn btn-xs\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLNichtGenehmigen&antragID=" . $meine[$i]->getID() . "'\">Nicht Genehmigen</button></form>";
-	                            
-	                            $SLOK = true;
-	                        }
-	                        else {
-	                            $failed = true;
-	                            $sl = "<label class=\"label label-danger\">Nicht genehmigt</label>";
-	                            $sl .= "<form><button type=\"button\" class=\"btn btn-xs\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLGenehmigen&antragID=" . $meine[$i]->getID() . "'\">Genehmigen</button></form>";
-	                            
-	                        }
-	                        
-	                        $sl .= "<br >" . nl2br($meine[$i]->getSLKommentar());
-	                    }
-	                    else {
-	                        
-	                        
+            $meine = AbsenzBeurlaubungAntrag::getAllForSchulleitungOrKlassenleitung();
 
-	                        $groupIDs = DB::getSettings()->getSelectedItems("beurlaubung-genehmigung-benachrichtigung-gruppen");
-	                        
-	                        $groups = [];
-	                        
-	                        for($g = 0; $g < sizeof($groupIDs); $g++) {
-	                            $gr = usergroup::getGroupByChecksum($groupIDs[$g]);
-	                            
-	                            if($gr != null) {
-	                                $groups[] = $gr;
-	                            }
-	                        }
-	                        
-	                        
-	                        
-	                        
-	                        $sl = "<label class=\"label label-warning\">Genehmigung offen</label>";
-	                        
-	                        
-	                        for($g = 0; $g < sizeof($groups); $g++) {
-	                            $sl .= "<form><button type=\"button\" class=\"btn btn-sm btn-success\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLGenehmigen&antragID=" . ($meine[$i]->getID()) . "&informGroup=" . md5($groups[$g]->getName()) . "'\"><i class=\"fa fa-check\"></i> Genehmigen und \"" . $groups[$g]->getName() . "\" benachrichtigen</button></form>";
-	                            
-	                        }
-	                        
-	                        if(sizeof($groups) > 0) {
-	                            $sl .= "<form><button type=\"button\" class=\"btn btn-sm btn-success\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLGenehmigen&antragID=" . ($meine[$i]->getID()) . "&informGroup=all'\"><i class=\"fa fa-check\"></i> Genehmigen und alle obigen Gruppen benachrichtigen</button></form>";
-	                            $sl .= "<form><button type=\"button\" class=\"btn btn-sm btn-success\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLGenehmigen&antragID=" . $meine[$i]->getID() . "'\"><i class=\"fa fa-check\"></i> Genehmigen (Ohne Benachrichtigung)</button></form>";
-	                            
-	                        }
-	                        else {
-	                            $sl .= "<form><button type=\"button\" class=\"btn btn-xs btn-success\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLGenehmigen&antragID=" . $meine[$i]->getID() . "'\"><i class=\"fa fa-check\"></i> Genehmigen</button></form>";
-	                            
-	                        }
-	                        
-	                        
-	                        
-	                        
-	                        $sl .= "<form><button type=\"button\" class=\"btn btn-xs btn-danger\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLNichtGenehmigen&antragID=" . $meine[$i]->getID() . "'\"><i class=\"fa fa-ban\"></i> Nicht Genehmigen</button></form>";
-	                        
-	                    }
-	                    
-	                }
-	                else {
-	                    $sl = "<label class=\"label label-success\">Nicht nötig</label>";
-	                    $SLOK = true;
-	                }
-	                
-	                if($meine[$i]->getEndDatumAsSQLDate() != $meine[$i]->getStartDatumAsSQLDate()) {
-	                    $datum .= " bis " . DateFunctions::getNaturalDateFromMySQLDate($meine[$i]->getEndDatumAsSQLDate());
-	                }
-	                
-	                $status = "";
-	                
-	                $termine = Leistungsnachweis::getByClass([$schueler->getKlasse()], $meine[$i]->getStartDatumAsSQLDate(), $meine[$i]->getEndDatumAsSQLDate() );
-	                
-	                $termineHTML = '';
-	                for($t = 0; $t < sizeof($termine); $t++) {
-	                    if($termine[$t]->showForNotTeacher()){
-	                        $hasTermin = true;
-	                        $termineHTML .= "<li>" . DateFunctions::getNaturalDateFromMySQLDate($termine[$t]->getDatumStart()) . ": " . $termine[$t]->getArtLangtext() . " in " . $termine[$t]->getFach() . " bei " . $termine[$t]->getLehrer() . "</li>";
-	                    }
-	                }
-	                
-	                if($KLOK && $SLOK && $meine[$i]->isVerarbeitet()) $status = "Abgeschlossen.";
-	                else if($KLOK && $SLOK && !$meine[$i]->isVerarbeitet()) $status = "Genehmigt. Noch nicht verarbeitet.";
-	                else if($failed) $status = "Abgeschlossen. Nicht genehmigt.";
-	                else $status = "Genehmigungen ausstehend.";
-	                
-	                $stunden = implode(", ", $meine[$i]->getStunden());
-	                
-	                eval("\$meineHTML .= \"" . DB::getTPL()->get("absenzen/beurlaubungantrag/kl/bit") . "\";");
-	            }
-	            
-	            
-	        }
+            $htmlMeine = "";
+
+            for($i = 0; $i < sizeof($meine); $i++) {
+
+                $schueler = schueler::getByAsvID($meine[$i]->getSchuelerAsvID());
+
+                if($schueler != null) {
+
+                    $klasse = $schueler->getKlassenObjekt();
+
+                    $schuelerName = $schueler->getCompleteSchuelerName() . " (Klasse " . $schueler->getKlasse() . ")";
+
+                    $datum = DateFunctions::getNaturalDateFromMySQLDate($meine[$i]->getStartDatumAsSQLDate());
+
+                    $begruendung = nl2br($meine[$i]->getBegruendung());
+
+                    $KLOK = false;
+                    $SLOK = false;
+                    $failed = false;
+
+                    if(DB::getSettings()->getBoolean("beurlaubung-klassenleitung-freigabe")) {
+                        if($meine[$i]->isKLDecisionMade()) {
+                            if($meine[$i]->isKLGenehmigt()) {
+                                $kl = "<label class=\"label label-success\">Genehmigt</label>";
+
+                                $KLOK = true;
+                            }
+                            else {
+                                $failed = true;
+                                $kl = "<label class=\"label label-danger\">Nicht genehmigt</label>";
+
+                            }
+
+                            $kl .= "<br >" . nl2br($meine[$i]->getKLKommentar());
+                        }
+                        else {
+                            $kl = "<label class=\"label label-warning\">Genehmigung offen</label>";
+
+
+                        }
+
+                    }
+                    else {
+                        $kl = "<label class=\"label label-success\">Nicht nötig</label>";
+                        $KLOK = true;
+                    }
+
+                    if(DB::getSettings()->getBoolean("beurlaubung-schulleitung-freigabe")) {
+                        if($meine[$i]->isSLDecisionMade()) {
+                            if($meine[$i]->isSLGenehmigt()) {
+                                $sl = "<label class=\"label label-success\">Genehmigt</label>";
+                                $sl .= "<form><button type=\"button\" class=\"btn btn-xs\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLNichtGenehmigen&antragID=" . $meine[$i]->getID() . "'\">Nicht Genehmigen</button></form>";
+
+                                $SLOK = true;
+                            }
+                            else {
+                                $failed = true;
+                                $sl = "<label class=\"label label-danger\">Nicht genehmigt</label>";
+                                $sl .= "<form><button type=\"button\" class=\"btn btn-xs\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLGenehmigen&antragID=" . $meine[$i]->getID() . "'\">Genehmigen</button></form>";
+
+                            }
+
+                            $sl .= "<br >" . nl2br($meine[$i]->getSLKommentar());
+                        }
+                        else {
+
+
+
+                            $groupIDs = DB::getSettings()->getSelectedItems("beurlaubung-genehmigung-benachrichtigung-gruppen");
+
+                            $groups = [];
+
+                            for($g = 0; $g < sizeof($groupIDs); $g++) {
+                                $gr = usergroup::getGroupByChecksum($groupIDs[$g]);
+
+                                if($gr != null) {
+                                    $groups[] = $gr;
+                                }
+                            }
+
+
+
+
+                            $sl = "<label class=\"label label-warning\">Genehmigung offen</label>";
+
+
+                            for($g = 0; $g < sizeof($groups); $g++) {
+                                $sl .= "<form><button type=\"button\" class=\"btn btn-sm btn-success\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLGenehmigen&antragID=" . ($meine[$i]->getID()) . "&informGroup=" . md5($groups[$g]->getName()) . "'\"><i class=\"fa fa-check\"></i> Genehmigen und \"" . $groups[$g]->getName() . "\" benachrichtigen</button></form>";
+
+                            }
+
+                            if(sizeof($groups) > 0) {
+                                $sl .= "<form><button type=\"button\" class=\"btn btn-sm btn-success\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLGenehmigen&antragID=" . ($meine[$i]->getID()) . "&informGroup=all'\"><i class=\"fa fa-check\"></i> Genehmigen und alle obigen Gruppen benachrichtigen</button></form>";
+                                $sl .= "<form><button type=\"button\" class=\"btn btn-sm btn-success\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLGenehmigen&antragID=" . $meine[$i]->getID() . "'\"><i class=\"fa fa-check\"></i> Genehmigen (Ohne Benachrichtigung)</button></form>";
+
+                            }
+                            else {
+                                $sl .= "<form><button type=\"button\" class=\"btn btn-xs btn-success\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLGenehmigen&antragID=" . $meine[$i]->getID() . "'\"><i class=\"fa fa-check\"></i> Genehmigen</button></form>";
+
+                            }
+
+
+
+
+                            $sl .= "<form><button type=\"button\" class=\"btn btn-xs btn-danger\" onclick=\"window.location.href='index.php?page=beurlaubungantrag&mode=SLNichtGenehmigen&antragID=" . $meine[$i]->getID() . "'\"><i class=\"fa fa-ban\"></i> Nicht Genehmigen</button></form>";
+
+                        }
+
+                    }
+                    else {
+                        $sl = "<label class=\"label label-success\">Nicht nötig</label>";
+                        $SLOK = true;
+                    }
+
+                    if($meine[$i]->getEndDatumAsSQLDate() != $meine[$i]->getStartDatumAsSQLDate()) {
+                        $datum .= " bis " . DateFunctions::getNaturalDateFromMySQLDate($meine[$i]->getEndDatumAsSQLDate());
+                    }
+
+                    $status = "";
+
+                    $termine = Leistungsnachweis::getByClass([$schueler->getKlasse()], $meine[$i]->getStartDatumAsSQLDate(), $meine[$i]->getEndDatumAsSQLDate() );
+
+                    $termineHTML = '';
+                    for($t = 0; $t < sizeof($termine); $t++) {
+                        if($termine[$t]->showForNotTeacher()){
+                            $hasTermin = true;
+                            $termineHTML .= "<li>" . DateFunctions::getNaturalDateFromMySQLDate($termine[$t]->getDatumStart()) . ": " . $termine[$t]->getArtLangtext() . " in " . $termine[$t]->getFach() . " bei " . $termine[$t]->getLehrer() . "</li>";
+                        }
+                    }
+
+                    if($KLOK && $SLOK && $meine[$i]->isVerarbeitet()) $status = "Abgeschlossen.";
+                    else if($KLOK && $SLOK && !$meine[$i]->isVerarbeitet()) $status = "Genehmigt. Noch nicht verarbeitet.";
+                    else if($failed) $status = "Abgeschlossen. Nicht genehmigt.";
+                    else $status = "Genehmigungen ausstehend.";
+
+                    $stunden = implode(", ", $meine[$i]->getStunden());
+
+                    eval("\$meineHTML .= \"" . DB::getTPL()->get("absenzen/beurlaubungantrag/kl/bit") . "\";");
+                }
+
+
+            }
+
+            $meineAlt = AbsenzBeurlaubungAntrag::getAllInPastForSchulleitungOrKlassenleitung();
+
+            $htmlErledigt = "";
+
+            for($i = 0; $i < sizeof($meineAlt); $i++) {
+
+                $schueler = schueler::getByAsvID($meineAlt[$i]->getSchuelerAsvID());
+
+                if($schueler != null) {
+
+                    $klasse = $schueler->getKlassenObjekt();
+
+                    $schuelerName = $schueler->getCompleteSchuelerName() . " (Klasse " . $schueler->getKlasse() . ")";
+
+                    $datum = DateFunctions::getNaturalDateFromMySQLDate($meineAlt[$i]->getStartDatumAsSQLDate());
+
+                    $begruendung = nl2br($meineAlt[$i]->getBegruendung());
+
+                    $KLOK = false;
+                    $SLOK = false;
+                    $failed = false;
+
+                    if(DB::getSettings()->getBoolean("beurlaubung-klassenleitung-freigabe")) {
+                        if($meineAlt[$i]->isKLDecisionMade()) {
+                            if($meineAlt[$i]->isKLGenehmigt()) {
+                                $kl = "<label class=\"label label-success\">Genehmigt</label>";
+
+                                $KLOK = true;
+                            }
+                            else {
+                                $failed = true;
+                                $kl = "<label class=\"label label-danger\">Nicht genehmigt</label>";
+
+                            }
+
+                            $kl .= "<br >" . nl2br($meineAlt[$i]->getKLKommentar());
+                        }
+                        else {
+                            $kl = "<label class=\"label label-warning\">Genehmigung offen</label>";
+
+
+                        }
+
+                    }
+                    else {
+                        $kl = "<label class=\"label label-success\">Nicht nötig</label>";
+                        $KLOK = true;
+                    }
+
+                    if(DB::getSettings()->getBoolean("beurlaubung-schulleitung-freigabe")) {
+                        if($meineAlt[$i]->isSLDecisionMade()) {
+                            if($meineAlt[$i]->isSLGenehmigt()) {
+                                $sl = "<label class=\"label label-success\">Genehmigt</label>";
+
+                                $SLOK = true;
+                            }
+                            else {
+                                $failed = true;
+                                $sl = "<label class=\"label label-danger\">Nicht genehmigt</label>";
+
+                            }
+
+                            $sl .= "<br >" . nl2br($meineAlt[$i]->getSLKommentar());
+                        }
+                        else {
+                            $groupIDs = DB::getSettings()->getSelectedItems("beurlaubung-genehmigung-benachrichtigung-gruppen");
+
+                            $groups = [];
+
+                            for($g = 0; $g < sizeof($groupIDs); $g++) {
+                                $gr = usergroup::getGroupByChecksum($groupIDs[$g]);
+
+                                if($gr != null) {
+                                    $groups[] = $gr;
+                                }
+                            }
+
+
+
+
+                            $sl = "<label class=\"label label-warning\">Genehmigung offen</label>";
+
+                        }
+
+                    }
+                    else {
+                        $sl = "<label class=\"label label-success\">Nicht nötig</label>";
+                        $SLOK = true;
+                    }
+
+                    if($meineAlt[$i]->getEndDatumAsSQLDate() != $meineAlt[$i]->getStartDatumAsSQLDate()) {
+                        $datum .= " bis " . DateFunctions::getNaturalDateFromMySQLDate($meineAlt[$i]->getEndDatumAsSQLDate());
+                    }
+
+                    $status = "";
+
+                    $termine = Leistungsnachweis::getByClass([$schueler->getKlasse()], $meineAlt[$i]->getStartDatumAsSQLDate(), $meineAlt[$i]->getEndDatumAsSQLDate() );
+
+                    $termineHTML = '';
+                    for($t = 0; $t < sizeof($termine); $t++) {
+                        if($termine[$t]->showForNotTeacher()){
+                            $hasTermin = true;
+                            $termineHTML .= "<li>" . DateFunctions::getNaturalDateFromMySQLDate($termine[$t]->getDatumStart()) . ": " . $termine[$t]->getArtLangtext() . " in " . $termine[$t]->getFach() . " bei " . $termine[$t]->getLehrer() . "</li>";
+                        }
+                    }
+
+                    if($KLOK && $SLOK && $meineAlt[$i]->isVerarbeitet()) $status = "Abgeschlossen.";
+                    else if($KLOK && $SLOK && !$meineAlt[$i]->isVerarbeitet()) $status = "Genehmigt. Noch nicht verarbeitet.";
+                    else if($failed) $status = "Abgeschlossen. Nicht genehmigt.";
+                    else $status = "Genehmigungen ausstehend.";
+
+                    $stunden = implode(", ", $meineAlt[$i]->getStunden());
+
+                    eval("\$htmlErledigt .= \"" . DB::getTPL()->get("absenzen/beurlaubungantrag/kl/bit") . "\";");
+                }
+
+
+            }
 	        
 	        $currentDate = DateFunctions::getTodayAsNaturalDate();
 	        
@@ -741,6 +852,9 @@ Begründung: ' . $antrag->getBegruendung() . "<br /><br /><i>Dies ist eine autom
     	           exit();
 	            }
 	        }
+	        else {
+	            new errorPage("Keine Möglichkeit.");
+            }
 	    }
 	}
 	

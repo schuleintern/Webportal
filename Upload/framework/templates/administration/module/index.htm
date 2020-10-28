@@ -16,12 +16,12 @@
               <div class="box-tools pull-right">
 				<if(!$module::siteisAlwaysActive())><then>
 				<if($this->isActive($module))><then>
-					<div class="label label-success"><i class="fa fa-check"></i> Das Modul ist derzeit aktiviert.
-					</div>
+					<button class="btn btn-success" disabled type="button"><i class="fa fa-check"></i> Das Modul ist derzeit aktiviert.
+					</button>
 				</then>
 				<else>
-					<div class="label label-danger"><i class="fa fa-ban"></i> Das Modul ist derzeit nicht aktiviert.			
-					</div>
+					<button class="btn btn-danger" disabled type="button"><i class="fa fa-ban"></i> Das Modul ist derzeit nicht aktiviert.
+					</button>
 				</else></if>
 				</then>
 				</if>
