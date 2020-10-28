@@ -7,9 +7,15 @@
  */
 class ToDoManagement extends AbstractPage {
 
-	private $isSchulleitung = false;
+    /**
+     * Kann anderen eine Aufgabe zuweisen?
+     * @var bool
+     */
+	private $canAssignTodo = false;
 
-
+    /**
+     * @var ToDo[]
+     */
 	private $myTodos = [];
 
 	public function __construct() {
@@ -19,8 +25,7 @@ class ToDoManagement extends AbstractPage {
 
 		$this->checkLogin();
 
-		// Todos sind immer verfügbar
-
+		// Todos sind auch für Eltern und andere Benutzer immer verfügbar
 	}
 
 	public function execute() {
