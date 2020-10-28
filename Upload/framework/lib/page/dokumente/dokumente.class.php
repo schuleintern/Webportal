@@ -347,7 +347,7 @@ class dokumente extends AbstractPage {
 		
 		for($i = 0; $i < sizeof($gruppen); $i++) {
 			
-			$submitButtonsOtherSections .= "<button type=\"submit\" name=\"gruppenID\" class=\"form-control\" value=\"" . $gruppen[$i]->getID() . "\"><i class=\"fa fa-arrow-right\"></i> Nach \"" . $gruppen[$i]->getName() . "\" verschieben</button>";
+			$submitButtonsOtherSections .= "<p><button type=\"submit\" name=\"gruppenID\" class=\"btn btn-default btn-block\" value=\"" . $gruppen[$i]->getID() . "\"><i class=\"fa fa-arrow-right\"></i> Nach \"" . $gruppen[$i]->getName() . "\" verschieben</button></p>";
 			
 		}
 		

@@ -35,7 +35,10 @@ class login extends AbstractPage {
 		$errorMessage = "";
 		
 		$isAjaxRequest = true;
-		
+
+		$isDebug = DB::getGlobalSettings()->debugMode === true;
+
+
 		if($_REQUEST['authorize'] > 0) {
 			
 			if($_POST['username'] == "" || $_POST['password'] == "") {
@@ -60,18 +63,19 @@ class login extends AbstractPage {
     					$user = $userLine;
     				}
     			}
-    					
-    			
-    			
     			
     			if($user == null) {
     			    $success = false;
-    			    $errorMessage  = "Unbekannter Benutzer oder falsches Passwort!";
+    			    $errorMessage  = "Unbekannter Benutzer oder falsches Passwort!  ";
     			}
     			else if($user['userID'] == 0 || $user['userID'] == "") {
     			    $success = false;		// Benutzername unbekannt
     			    $errorMessage = "Unbekannter Benutzer oder falsches Passwort!";
     			}
+    			elseif($isDebug && $_REQUEST['debugLogin'] > 0) {
+    			    // Debug login immer erfolgreich
+    			    $success = true;
+                }
     			elseif($user['userCachedPasswordHash']  != "" && $user['userCachedPasswordHashTime'] >= $user['userLastPasswordChangeRemote']) {
     				
     				if($user['userFailedLoginCount'] > 2) {
@@ -116,7 +120,6 @@ class login extends AbstractPage {
 		    eval("echo(\"".DB::getTPL()->get("login/index")."\");");
 		    
 		    PAGE::kill(false);
-      	//exit(0);
 		}
 		
 		if($success != false) {
@@ -173,7 +176,6 @@ class login extends AbstractPage {
 			    eval("echo(\"".DB::getTPL()->get("login/index")."\");");
 			    
 			    PAGE::kill(true);
-      		//exit(0);
 			}
 
 		}

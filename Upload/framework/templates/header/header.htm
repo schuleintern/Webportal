@@ -129,14 +129,21 @@
               </li>
             </ul>
           </li> -->
-				
+
 				<li class="dropdown messages-menu">
                 </li>
 
                  <li class="dropdown messages-menu">
-                     <a href="index.php?page=MessageInbox" class="btn btn-orange">
+                     <a href="index.php?page=MessageInbox" class="btn">
                          <i class="fa fa-envelope"></i>
-                         <span class="label bg-red">$countMessage</span>
+                         <if($countMessage > 0)>
+                            <then>
+                                <span class="label bg-red">$countMessage</span>
+                            </then>
+                            <else>
+                                <span class="label bg-green">$countMessage</span>
+                            </else>
+                         </if>
                      </a>
                  </li>
 

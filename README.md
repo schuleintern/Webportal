@@ -3,7 +3,7 @@ SchuleIntern ist ein Verwaltungsportal für bayerische Schulen.
 Weitere Infos und Austausch über das Forum unter www.schule-intern.de
 
 ## Installation
-Installationsanleitung in der Dokumentation: http://doku.schule-intern.de/display/ADMINHANDBUCH/Installation
+Installationsanleitung in der Dokumentation: https://schuleintern.atlassian.net/wiki/spaces/ADMINHANDBUCH/pages/229442/Installation
 
 ## Support / Hilfe
 https://www.schule-intern.de

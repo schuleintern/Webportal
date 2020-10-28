@@ -225,7 +225,22 @@
 	            </div><!-- /.col -->
 	            
           </div>
-        </form>
+
+			<if(DB::getGlobalSettings()->debugMode === true)><then>
+
+
+			<div class="row">
+
+
+				<div class="col-xs-12">
+					<button type="button" onclick="javascript:debugLogin()" class="btn btn-danger btn-block btn-flat" id="loginbuttondebug"><i class="fa fa-lock"></i> Login ohne Passwort<br /><small>Debugmodus</small></button>
+				</div><!-- /.col -->
+
+			</div>
+
+			</then></if>
+
+		</form>
 
 
 		  <if(oAuth2Auth::ssoTeacherActive() || oAuth2Auth::ssoSchuelerActive())><then>
@@ -246,7 +261,7 @@
 					  <div class="col-xs-12">
 						  <div class="checkbox icheck">
 							  <label>
-								  <input type="checkbox" name="keeplogin" value="1" id="keeplogin"></small> Angemeldet bleiben
+								  <input type="checkbox" name="keeplogin" value="1" id="keeploginoauth2"></small> Angemeldet bleiben
 							  </label>
 						  </div>
 					  </div>
@@ -788,6 +803,63 @@
     		
     		
     	}
+
+
+
+		function debugLogin() {
+
+			$("#loginbuttondebug").prop("disabled",true);
+			$("#loginbuttondebug").html("<i class=\"fa fas fa-sync-alt fa-spin\"></i> Bitte warten ...");
+
+			$.ajax({
+				type: "POST",
+				url: 'index.php?page=login&authorize=1&debugLogin=1',
+				data: {
+					"redirectPage": $("#redirectPage").val(),
+					"username": $("#usernamefield").val(),
+					"password": "none",
+					"keepLogin": $("#keeplogin").iCheck('update')[0].checked
+				},
+				success: function(data, textStatus, jqXHR) {
+					if(data.success) {
+						window.location.href='index.php';
+					}
+					else if(data.captchaHTML != ""){
+
+						$("#mathCaptchaContent").html(data.captchaHTML);
+						$("#mathCaptcha").fadeIn();
+
+						$("#passwordfield").val("");
+
+						$("#loginbuttondebug").prop("disabled",false);
+
+						$("#loginbuttondebug").html('<i class="fa fa-lock"></i> Login ohne Passwort');
+					}
+					else {
+						$("#loginerror").fadeIn(400);
+
+						$("#loginbuttondebug").prop("disabled",false);
+
+						$("#passwordfield").val("");
+
+
+						$("#loginbuttondebug").html('<i class="fa fa-lock"></i> Login ohne Passwort');
+
+
+					}
+				},
+				fail: function(xhr, textStatus, errorThrown) {
+					$("#loginerror").fadeIn(400);
+
+					$("#loginbuttondebug").prop("disabled",false);
+
+					$("#loginbuttondebug").html('<i class="fa fa-lock"></i> Login ohne Passwort');
+				},
+				dataType: 'json'
+			});
+
+
+		}
     	
     	
     	var input = document.getElementById("passwordfield");
