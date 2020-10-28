@@ -14,8 +14,8 @@
               <i class="fa fa-arrow-right"></i>Weiter
             </button>
         </div>
-
-        <table class="table_1">
+{{activeGruppe}}
+        <table class="table_1 noPadding">
           <thead>
             <tr>
               <td v-bind:key="j" v-for="(day, j) in daysInWeek"
@@ -26,34 +26,47 @@
           </thead>
           <tbody>
             <tr>
-              <td v-bind:key="j" v-for="(day, j) in daysInWeek" >
+              <td v-bind:key="i" v-for="(day, i) in daysInWeek" >
                 
-                <div v-bind:key="j" v-for="(item, j) in getEintrag(day)" 
-                  class="eintrag" v-on:click="openEintrag(item)"
-                  v-if="acl.rights.read == 1">
-                  <div class="title margin-b-s">{{item.title}}</div>
-                  <div class="text-green margin-b-s">
-                    <div v-if="item.vegetarisch == 1"><i class="fas fa-seedling width-2rem"></i> Vegetarisch</div>
-                    <div v-if="item.vegan == 1"><i class="fas fa-leaf width-2rem"></i> Vegan</div>
-                    <div v-if="item.laktosefrei == 1"><i class="fas fa-wine-bottle width-2rem"></i> Laktosefrei</div>
-                    <div v-if="item.glutenfrei == 1"><i class="fab fa-pagelines width-2rem"></i> Glutenfrei</div>
-                    <div v-if="item.bio == 1"><i class="fas fa-leaf width-2rem"></i> Bio</div>
-                    <div v-if="item.regional == 1"><i class="fas fa-tractor width-2rem"></i> Regional</div>
+                <div v-bind:key="j" v-for="(item, j) in getEintrag(day)"
+                  class="padding-t-m" >
+                  
+                  <div v-bind:key="k" v-for="(gruppe, k) in item.gruppen"
+                    class="gruppe">
+                    
+                    <div class="padding-s bg-grau text-white"
+                      v-bind:style="{ backgroundColor: gruppe.gruppe.farbe }"
+                      @click="handlerActiveGrupe(day, k)">
+                      <div class="text-big-2">{{gruppe.gruppe.name}}</div>
+                      <div class="padding-t-s padding-b-s">
+                        <span v-show="gruppe.schueler.length" class="bg-white text-grey border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold" v-bind:style="{ color: gruppe.gruppe.farbe }">{{gruppe.schueler.length}}</span>
+                        <span class="flex-1" v-show="gruppe.gruppe.raum"><i class="fas fa-map-marker-alt"></i> {{gruppe.gruppe.raum}}</span>
+                      </div>
+                    </div>
+                    <div class="padding-s" v-show="getActiveGruppe(day, k)">
+                      <div v-bind:key="l" v-for="(schueler, l) in gruppe.schueler"
+                      class="box_odd padding-s">
+                        {{schueler.rufname}} {{schueler.name}}
+                        <div class="text-small">
+                          <i v-if="schueler.geschlecht == 'm'" class="fa fa-mars" aria-hidden="true" style="color:blue"></i>
+                          <i v-if="schueler.geschlecht == 'w'" class="fa fa-venus" aria-hidden="true" style="color:red"></i>
+                          
+                          <span class="margin-l-s">{{schueler.klasse}}</span>
+                        </div>
+                        <div v-show="schueler.absenz">KRANK!!! {{schueler.absenz}}</div>
+                      </div>
+                      
+                    </div>
+                    
+                    
+                    
+
                   </div>
-                  <button class="btn btn-gruen " :class="{ 'btn-orange': item.booked  }"
-                    v-on:click.stop="orderEintrag(item)"
-                    v-if="showBuchenBtn(day)">
-                    <span v-if="item.booked"><i class="fas fa-toggle-on"></i> Bestellt</span>
-                    <span v-if="!item.booked"><i class="fas fa-toggle-off"></i> Bestellen</span>
-                  </button>
-                  <div v-else >
-                    <button v-if="item.booked" class="btn btn-orange"><i class="fas fa-toggle-on"></i> Bestellt</button>
-                  </div>
+
+                 
+                  
+                  
                 </div>
-              </td>
-            <tr v-if="acl.rights.write == 1">
-              <td v-bind:key="j" v-for="(day, j) in daysInWeek">
-                <button @click="openForm(day)" class="btn width-100p"><i class="fas fa-plus-circle"></i> Hinzufügen</button>
               </td>
             </tr>
           </tbody>
@@ -70,7 +83,7 @@
 export default {
   name: 'Calendar',
   props: {
-    dates: Array,
+    list: Array,
     acl: Object
   },
   data(){
@@ -81,6 +94,7 @@ export default {
 
       //prevDays: globals.prevDays
 
+      activeGruppe: []
     }
   },
   created: function () {
@@ -113,11 +127,34 @@ export default {
         foo = foo.add(1,'day');
       }
       return arr;
+    },
+    daysInWeekFull: function () {
+      var arr = [];
+      var foo = this.firstDayOfWeek;
+      for(let i = 0; i < 7; i++) {
+        if ( globals.showDays[ foo.format('dd') ] == 1 ) {
+          arr.push( [ foo.format('YYYY-MM-DD'), foo.format('dd') ] );
+        }
+        foo = foo.add(1,'day');
+      }
+      return arr;
     }
 
   },
   methods: {
 
+    getActiveGruppe: function (day, num) {
+      if ( this.activeGruppe[day+'#'+num] ) {
+        return true;
+      }
+      return false;
+    },
+    handlerActiveGrupe: function(day, num) {
+      console.log(day, num);
+      //gruppe.active = true;
+      
+      this.activeGruppe.push( day+'#'+num );
+    },
     showBuchenBtn: function (day) {
       // var prev = this.today.add( this.prevDays , 'day');
       // if ( prev.isBefore(day) ) {
@@ -146,7 +183,8 @@ export default {
     changedDate: function () {
       EventBus.$emit('calendar--changedDate', {
         von: this.firstDayOfWeek.unix(),
-        bis: this.lastDayOfWeek.unix()
+        bis: this.lastDayOfWeek.unix(),
+        days: this.daysInWeekFull
       });
     },
 
@@ -157,14 +195,14 @@ export default {
     },
 
     getEintrag: function (day) {
-
-      if (this.dates.length <= 0 ) {
+      if (this.list.length <= 0 ) {
         return '';
       }
       var day = this.$date(day).format('YYYY-MM-DD');
       var ret = [];
-      this.dates.forEach(function (item) {
-        if (day == item.date) {
+      this.list.forEach(function (item) {
+        if (day == item[0] ) {
+          console.log(item);
           ret.push(item);
         }
       });
