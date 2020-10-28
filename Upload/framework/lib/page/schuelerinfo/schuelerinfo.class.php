@@ -572,6 +572,16 @@ class schuelerinfo extends AbstractPage {
 
     $currentDate = $_GET['currentDate'];
 
+    $sprachen = $schueler->getFremdsprachen();
+
+    $fremdsprachen = [];
+
+    for($i = 0; $i < sizeof($sprachen); $i++) {
+      $fremdsprachen[] = $sprachen[$i]->getSpracheFach() . " (ab " . $sprachen[$i]->getSpracheAbJahrgangsstufe() . ")";
+    }
+
+    $fremdsprachen = implode(", ", $fremdsprachen);
+
     $adressenHTML = "";
 
 

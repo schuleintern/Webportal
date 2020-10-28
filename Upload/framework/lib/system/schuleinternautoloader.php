@@ -75,7 +75,6 @@ $classes = [
 		'klasse',
 		'lehrer',
 		'MatchUsersFunctions',
-		'pupil',
 		'schueler',
 		'SchuelerAdresse',
 		'SchuelerTelefonnummer',
@@ -132,6 +131,9 @@ $classes = [
 	'data/vplan' => [
 		'TIMEUpdate'
 	],
+    'data/schueler' => [
+        'SchuelerFremdsprache'
+    ],
 	'db' => [
 		'mysql',
 		'mysqldevdatabases',
