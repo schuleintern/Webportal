@@ -14,7 +14,7 @@
               <i class="fa fa-arrow-right"></i>Weiter
             </button>
         </div>
-{{activeGruppe}}
+
         <table class="table_1 noPadding">
           <thead>
             <tr>
@@ -39,28 +39,33 @@
                       @click="handlerActiveGrupe(day, k)">
                       <div class="text-big-2">{{gruppe.gruppe.name}}</div>
                       <div class="padding-t-s padding-b-s">
-                        <span v-show="gruppe.schueler.length" class="bg-white text-grey border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold" v-bind:style="{ color: gruppe.gruppe.farbe }">{{gruppe.schueler.length}}</span>
+                        <span v-show="gruppe.schueler.length" class="bg-white text-grey border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
+                          v-bind:style="{ color: gruppe.gruppe.farbe }">
+                          <i class="fa fa-child margin-r-m"></i>{{gruppe.schueler.length}}</span>
+                        <span v-show="gruppe.gruppe.absenz_anz" class="bg-white text-red border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold">
+                          <i class="fa fa-bed margin-r-m"></i>{{gruppe.gruppe.absenz_anz}}</span>
                         <span class="flex-1" v-show="gruppe.gruppe.raum"><i class="fas fa-map-marker-alt"></i> {{gruppe.gruppe.raum}}</span>
                       </div>
                     </div>
                     <div class="padding-s" v-show="getActiveGruppe(day, k)">
                       <div v-bind:key="l" v-for="(schueler, l) in gruppe.schueler"
                       class="box_odd padding-s">
-                        {{schueler.rufname}} {{schueler.name}}
+                        <span :class="{ 'text-line-through' : schueler.absenz}">{{schueler.rufname}} {{schueler.name}}</span>
                         <div class="text-small">
                           <i v-if="schueler.geschlecht == 'm'" class="fa fa-mars" aria-hidden="true" style="color:blue"></i>
                           <i v-if="schueler.geschlecht == 'w'" class="fa fa-venus" aria-hidden="true" style="color:red"></i>
                           
                           <span class="margin-l-s">{{schueler.klasse}}</span>
                         </div>
-                        <div v-show="schueler.absenz">KRANK!!! {{schueler.absenz}}</div>
+                        <div v-show="schueler.absenz" class="text-right ">
+                          <span class="text-red"><i class="fa fa-bed"></i> Absenz</span>
+                          <div class="text-small text-grey"><i class="fa fa-clock"></i> {{schueler.absenz_info.stunden}}</div>
+                          <div class="text-small text-grey" v-html="schueler.absenz_info.bemerkung">{{schueler.absenz_info.bemerkung}}</div>
+                        </div>
                       </div>
                       
                     </div>
                     
-                    
-                    
-
                   </div>
 
                  
@@ -144,16 +149,18 @@ export default {
   methods: {
 
     getActiveGruppe: function (day, num) {
-      if ( this.activeGruppe[day+'#'+num] ) {
+      if ( this.activeGruppe.indexOf(day+'-'+num) >= 0  ) {
         return true;
       }
       return false;
     },
     handlerActiveGrupe: function(day, num) {
-      console.log(day, num);
-      //gruppe.active = true;
-      
-      this.activeGruppe.push( day+'#'+num );
+      var index = this.activeGruppe.indexOf(day+'-'+num)
+      if ( index >= 0  ) {
+        this.activeGruppe.splice(index, 1);
+      } else {
+        this.activeGruppe.push( day+'-'+num );
+      }
     },
     showBuchenBtn: function (day) {
       // var prev = this.today.add( this.prevDays , 'day');
@@ -202,7 +209,6 @@ export default {
       var ret = [];
       this.list.forEach(function (item) {
         if (day == item[0] ) {
-          console.log(item);
           ret.push(item);
         }
       });

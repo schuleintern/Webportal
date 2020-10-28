@@ -290,6 +290,10 @@ button.btn-blau {
   text-align: right;
 }
 
+.text-line-through {
+  text-decoration:line-through;
+}
+
 .table_1 {
   width: 100%;
   table-layout: fixed;
