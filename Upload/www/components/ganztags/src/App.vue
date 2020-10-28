@@ -11,7 +11,7 @@
     </div>
 
     <div id="main-box" class="">
-      <Calendar v-bind:dates="dates" v-bind:acl="acl"></Calendar>
+      <Calendar v-bind:list="list" v-bind:acl="acl"></Calendar>
     </div>
 
 
@@ -43,7 +43,7 @@ export default {
 
       loading: false,
       error: false,
-      dates: [],
+      list: [],
       acl: globals.acl
 
     }
@@ -55,20 +55,18 @@ export default {
 
     EventBus.$on('calendar--changedDate', data => {
 
-      this.showFirstDayWeek = data.von;
-      this.showLastDayWeek = data.bis;
-
       that.ajaxGet(
-        'index.php?page=mensaSpeiseplan&action=getWeek',
+        'index.php?page=ganztagsCalendar&action=getWeek',
         {
-          von: this.showFirstDayWeek,
-          bis: this.showLastDayWeek
+          von: data.von,
+          bis: data.bis,
+          days: data.days
         },
         function (response, that) {
           if (response.data && response.data.error != true) {
-            that.dates = response.data;
+            that.list = response.data;
           } else {
-            that.dates = [];
+            that.list = [];
           }
           
         }

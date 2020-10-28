@@ -35,33 +35,170 @@ class ganztagsCalendar extends AbstractPage {
     return true;
   }
 	public function execute() {
+		
 		if(AbstractPage::isActive('ganztags')) {
 
 		
 
-		// if(!$this->isTeacher) {
-		// 	DB::showError("Diese Seite ist leider für Sie nicht sichtbar.");
-		// 	die();
-		// }
 
+			
+			// 		$absenzen = DB::getDB()->query("SELECT * FROM absenzen_absenzen 
+			// 			LEFT JOIN schueler ON absenzSchuelerAsvID=schuelerAsvID 
+			// 			WHERE absenzBeurlaubungID='" . $this->data['beurlaubungID'] . "'
+			// 			ORDER BY absenzDatum");
+				
+			// 		$returnArray = array();
+			// 		while($a = DB::getDB()->fetch_array($absenzen)) {
+			// 			$returnArray[] = new Absenz($a);
+			// 			//$returnArray[] = $a;
+			// 		}
+			
+			// 		echo "<pre>";
+			// print_r($returnArray);
+			// echo "</pre>";
+
+			
+			
+			// if(!$this->isTeacher) {
+			// 	DB::showError("Diese Seite ist leider für Sie nicht sichtbar.");
+			// 	die();
+			// }
+
+			$showDays = array(
+				'Mo' => DB::getSettings()->getValue("ganztags-day-mo"),
+				'Di' => DB::getSettings()->getValue("ganztags-day-di"),
+				'Mi' => DB::getSettings()->getValue("ganztags-day-mi"),
+				'Do' => DB::getSettings()->getValue("ganztags-day-do"),
+				'Fr' => DB::getSettings()->getValue("ganztags-day-fr"),
+				'Sa' => DB::getSettings()->getValue("ganztags-day-sa"),
+				'So' => DB::getSettings()->getValue("ganztags-day-so")
+			);
+
+
+
+			if ( $_REQUEST['action'] == 'getWeek') {
+
+				
+				if ( !$_GET['bis'] ) {
+					die('missing data');
+				}
+				if ( !$_GET['von'] ) {
+					die('missing data');
+				}
+				if ( !$_GET['days'] ) {
+					die('missing data');
+				}
 		
-		$acl = json_encode( $this->getAcl() );
+				$von = date('Y-m-d', $_GET['von']);
+				$bis = date('Y-m-d', $_GET['bis']);
 
-		//$prevDays = DB::getSettings()->getValue("mensa-speiseplan-days");
+				// echo $von;
+				// echo $bis;
 
-		$showDays = json_encode(array(
-			'Mo' => DB::getSettings()->getValue("ganztags-day-mo"),
-			'Di' => DB::getSettings()->getValue("ganztags-day-di"),
-			'Mi' => DB::getSettings()->getValue("ganztags-day-mi"),
-			'Do' => DB::getSettings()->getValue("ganztags-day-do"),
-			'Fr' => DB::getSettings()->getValue("ganztags-day-fr"),
-			'Sa' => DB::getSettings()->getValue("ganztags-day-sa"),
-			'So' => DB::getSettings()->getValue("ganztags-day-so")
-		));
-		
+				$days = $_GET['days'];
 
-		eval("echo(\"" . DB::getTPL()->get("ganztags/calendar"). "\");");
-	}
+				// print_r($days);
+				
+				include_once("../framework/lib/data/absenzen/Absenz.class.php");
+
+
+
+
+				$schueler = schueler::getGanztagsSchueler('schueler.schuelerRufname, schueler.schuelerName');
+				$query = DB::getDB()->query("SELECT *  FROM ganztags_gruppen ORDER BY sortOrder, name ");
+				$gruppen = [];
+				while($group = DB::getDB()->fetch_array($query)) {
+					$gruppen[] = $group;
+				}
+
+
+				foreach($days as $key => $day) {
+
+					if (empty($day)) {
+						continue;
+					}
+					$day = json_decode($day);
+
+					if (!$day[0] || !$day[1]) {
+						continue;
+					}
+
+					$absenzen = Absenz::getAbsenzenForDate($day[0], null);
+			
+					// echo "<pre>";
+					// print_r($absenzen);
+					// echo "</pre>";
+
+					//$day['absenzen'] = $absenzen;
+
+
+					$day_db = 'tag_'.strtolower($day[1]);
+					$list_gruppen = [];
+					foreach($gruppen as $gruppe) {
+						$arr = [];
+						foreach($schueler as $item) {
+							
+							if ($item->getGruppe() == $gruppe['id']) {
+								if ( $item->getGanztags()[$day_db] ) {
+
+									$arr_schueler = [
+										'rufname' => $item->getRufname(),
+										'name' => $item->getName(),
+										'geschlecht' => $item->getGeschlecht(),
+										'klasse' => $item->getKlassenObjekt()->getKlassenName()
+									];
+									$found_absenz = false;
+									foreach($absenzen as $absenz) {
+										if  ( $item->getAsvID() == $absenz->getSchueler()->getAsvID() ) {
+											$found_absenz = true;
+										}
+									}
+
+									if ($found_absenz) {
+										$arr_schueler['absenz'] = true;
+									}
+
+									$arr[] = $arr_schueler;
+									
+								}
+								
+							}
+						}
+	
+						$list_gruppen[] = [
+							'gruppe' => $gruppe,
+							'schueler' => $arr
+						];
+					}
+					$day['gruppen'] = $list_gruppen;
+
+					$days[$key] = $day;
+
+				}
+				
+				// echo "<pre>";
+				// print_r($days);
+				// echo "</pre>";
+
+				echo json_encode( $days );
+				
+				
+				exit;
+
+			}
+
+
+			
+			$acl = json_encode( $this->getAcl() );
+
+			$showDays = json_encode($showDays);
+			//$prevDays = DB::getSettings()->getValue("mensa-speiseplan-days");
+
+			
+			
+
+			eval("echo(\"" . DB::getTPL()->get("ganztags/calendar"). "\");");
+		}
 	}
 	
 	
