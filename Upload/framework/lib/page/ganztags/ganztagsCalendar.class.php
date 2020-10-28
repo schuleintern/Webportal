@@ -136,6 +136,7 @@ class ganztagsCalendar extends AbstractPage {
 					$list_gruppen = [];
 					foreach($gruppen as $gruppe) {
 						$arr = [];
+						$found_absenz_anz = 0;
 						foreach($schueler as $item) {
 							
 							if ($item->getGruppe() == $gruppe['id']) {
@@ -145,17 +146,25 @@ class ganztagsCalendar extends AbstractPage {
 										'rufname' => $item->getRufname(),
 										'name' => $item->getName(),
 										'geschlecht' => $item->getGeschlecht(),
-										'klasse' => $item->getKlassenObjekt()->getKlassenName()
+										'klasse' => $item->getKlassenObjekt()->getKlassenName(),
+										'absenz' => false,
+										'absenz_info' => false
 									];
 									$found_absenz = false;
+									
 									foreach($absenzen as $absenz) {
 										if  ( $item->getAsvID() == $absenz->getSchueler()->getAsvID() ) {
-											$found_absenz = true;
+											$found_absenz = [
+												"stunden" => $absenz->getStundenAsString(),
+												"bemerkung" => nl2br($absenz->getBemerkung())
+											];
+											$found_absenz_anz++;
 										}
 									}
 
 									if ($found_absenz) {
 										$arr_schueler['absenz'] = true;
+										$arr_schueler['absenz_info'] = $found_absenz;
 									}
 
 									$arr[] = $arr_schueler;
@@ -164,7 +173,8 @@ class ganztagsCalendar extends AbstractPage {
 								
 							}
 						}
-	
+						$gruppe['absenz_anz'] = $found_absenz_anz;
+
 						$list_gruppen[] = [
 							'gruppe' => $gruppe,
 							'schueler' => $arr
