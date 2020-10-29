@@ -334,11 +334,11 @@ class menu {
                     $faecher = fach::getMyFachschaftsleitungFaecher(DB::getSession()->getTeacherObject());
                     
                     for($i = 0; $i < sizeof($faecher); $i++) {
-                        $htmlFachschaftsleitung .= $this->getMenuItem("klassenkalender", $faecher[$i]->getLangform(), "fa fa-briefcase", ['grade' => 'fachbetreuer', 'fachASDID' => urlencode($faecher[$i]->getASDID())]);
+                        $htmlFachschaftsleitung .= $this->getMenuItem("klassenkalender", $faecher[$i]->getLangform(), "fas fa-briefcase", ['grade' => 'fachbetreuer', 'fachASDID' => urlencode($faecher[$i]->getASDID())]);
                     }
                     
                     if($htmlFachschaftsleitung != "") {
-                        $html .= $this->startDropDown(['klassenkalender'], "Fachbetreuung", "fa fa-group", ['fachASDID' => ['ISPRESENT']]);
+                        $html .= $this->startDropDown(['klassenkalender'], "Fachbetreuung", "fas fa-briefcase", ['fachASDID' => ['ISPRESENT']]);
                         
                         $html .= $htmlFachschaftsleitung;
                         
