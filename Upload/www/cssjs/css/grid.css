@@ -10,6 +10,7 @@
 .flex-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .flex-row-wrap {
@@ -64,6 +65,10 @@
 .flex-b-50 {
   flex: 1;
   flex-basis: 50%;
+}
+.flex-b-100 {
+  flex: 1;
+  flex-basis: 100%;
 }
 
 .noselect {
@@ -125,6 +130,9 @@
 }
 
 
+.padding-l-m {
+  padding-left: 1.3rem;
+}
 .padding-l-l {
   padding-left: 2.3rem;
 }
@@ -206,6 +214,9 @@
   margin-bottom: 2.3rem;
 }
 
+.margin-t-m {
+  margin-top: 1.3rem;
+}
 .margin-t-l {
   margin-top: 2.3rem;
 }

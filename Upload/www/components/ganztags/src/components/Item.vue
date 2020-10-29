@@ -7,84 +7,39 @@
       
       <br />
 
-      <div class="text-big-s text-grey margin-b-s">{{ $date(item.date).format("dddd DD.MM.YYYY") }}</div>
-
-      <div class="text-big-m margin-b-l">{{ item.title }}</div>
-
-      <div class="margin-b-l text-green flex-row-wrap">
-        <div v-if="item.vegetarisch == 1" class="flex-b-50"><i class="fas fa-seedling width-2rem"></i> Vegetarisch</div>
-        <div v-if="item.vegan == 1" class="flex-b-50"><i class="fas fa-leaf width-2rem"></i> Vegan</div>
-        <div v-if="item.laktosefrei == 1" class="flex-b-50"><i class="fas fa-wine-bottle width-2rem "></i> Laktosefrei</div>
-        <div v-if="item.glutenfrei == 1" class="flex-b-50"><i class="fab fa-pagelines width-2rem"></i> Glutenfrei</div>
-        <div v-if="item.bio == 1" class="flex-b-50"><i class="fas fa-leaf width-2rem"></i> Bio</div>
-        <div v-if="item.regional == 1" class="flex-b-50"><i class="fas fa-tractor width-2rem"></i> Regional</div>
+      
+      <div class="text-big-2">{{item.gruppe.name}}</div>
+      <div class="padding-t-s padding-b-s">
+        <span v-show="item.schueler.length" class="text-white bg-grau border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
+          v-bind:style="{ backgroundColor: item.gruppe.farbe }">
+          <i class="fa fa-child margin-r-m"></i>{{item.schueler.length}}</span>
+        <span v-show="item.gruppe.absenz_anz" class="bg-red text-white border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold">
+          <i class="fa fa-bed margin-r-m"></i>{{item.gruppe.absenz_anz}}</span>
+        <span class="flex-1" v-show="item.gruppe.raum"><i class="fas fa-map-marker-alt"></i> {{item.gruppe.raum}}</span>
       </div>
-      <div class="margin-b-m">
-        <div class="" v-if="item.preis_default != 0"><label>Bedienstete:</label> {{ replaceFloat(item.preis_default) }} €</div>
-        <div class="" v-if="item.preis_schueler != 0"><label>Schüler:</label> {{ replaceFloat(item.preis_schueler) }} €</div>
-      </div>
-
-      <div class="" v-html="item.desc">{{ item.desc }}</div>
-
-      <div class="margin-t-l padding-b-l"
-        v-if="acl.rights.write == 1">
-
-        <hr>
-        
-        <div v-if="item.booked_all">
-          <h3 class="text-orange">Gebuchte Essen</h3>
-
-          <div class="flex-row">
-            <div class="flex-1 margin-r-l">
-              <div class="margin-b-m">
-                <label>Summe:</label> {{item.booked_all.summe}}
-              </div>
-            </div>
-            <div class="flex-1">
-              <div>
-                <label>Schüler:</label>
-                {{item.booked_all.schueler}}
-              </div>
-              <div>
-                <label>Eltern:</label>
-                {{item.booked_all.eltern}}
-              </div>
-              <div>
-                <label>Lehrer:</label>
-                {{item.booked_all.lehrer}}
-              </div>
-              <div>
-                <label>Mitarbeiter:</label>
-                {{item.booked_all.none}}
-              </div>
+      
+      <div class="margin-t-m">
+        <div v-bind:key="l" v-for="(schueler, l) in item.schueler" class="box_odd padding-t-s padding-b-s flex-row">
+          <span class="flex-3 padding-l-s" :class="{ 'text-line-through' : schueler.absenz}">
+            {{schueler.rufname}} {{schueler.name}}
+          </span>
+          <span class="flex-1 text-right padding-r-s">
+            <i v-if="schueler.geschlecht == 'm'" class="fa fa-mars" aria-hidden="true" style="color:blue"></i>
+            <i v-if="schueler.geschlecht == 'w'" class="fa fa-venus" aria-hidden="true" style="color:red"></i>
+            
+            <span class="margin-l-s">{{schueler.klasse}}</span>
+          </span>
+          <div class="flex-b-100 padding-s text-right text-small">{{schueler.info}}</div>
+          <div v-show="schueler.absenz" class="flex-b-100 padding-s flex-row">
+            <span class="text-red flex-1 padding-l-m"><i class="fa fa-bed"></i> Absenz</span>
+            <div class="flex-2 text-right">
+              <div class="text-small text-grey margin-b-s"><i class="fa fa-clock"></i> {{schueler.absenz_info.stunden}}</div>
+              <div class="text-small text-grey" v-html="schueler.absenz_info.notiz">{{schueler.absenz_info.notiz}}</div>
             </div>
           </div>
-
-          <br/>
-
-          <h4>Benutzerliste</h4>
-          <ul class="noListStyle">
-            <li v-bind:key="j" v-for="(user, j) in item.booked_all.list"
-              class="flex-row">
-              <div class="flex-2">{{user[1]}}</div>
-              <div class="flex-1 text-small">{{user[2]}}</div>
-              <div class="flex-1 text-small">{{user[3]}}</div>
-            </li>
-          </ul>
         </div>
-
-        <hr>
-        <button @click="openForm(item)" class="btn margin-r-s"><i class="fa fa-edit"></i> Bearbeiten</button>
-        
-        <span v-if="acl.rights.delete">
-          <button v-on:click="handlerClickDelete"
-            v-show="!deleteBtn"
-            class="btn"><i class="fa fa-trash"></i>Löschen</button>
-          <button v-on:click="handlerClickDeleteSecond(item)"
-            v-show="deleteBtn"
-            class="btn btn-red">Endgültig Entfernen!</button>
-        </span>
       </div>
+
       
     </div>
   </div>
@@ -106,7 +61,10 @@ export default {
       deleteBtn: false,
       error: false,
 
-      item: {}
+      item: {
+        gruppe: {},
+        schueler: {}
+      }
 
     }
   },
