@@ -107,10 +107,6 @@ class requesthandler {
     'datenbanken' => [
       'database',
     ],
-    'downloads' => [
-      'downloads',
-      'downloadsteacher'
-    ],
     'dokumente' => [
       'dokumente',
     ],

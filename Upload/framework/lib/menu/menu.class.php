@@ -435,7 +435,7 @@ class menu {
 
     if(!DB::getSession()->isEltern() &&
         
-        ($this->isActive("office365") || $this->isActive("homeuseprogram") || $this->isActive("downloads") || $this->isActive("office365info")
+        ($this->isActive("office365") || $this->isActive("homeuseprogram") || $this->isActive("office365info")
             
             
             
@@ -444,7 +444,7 @@ class menu {
         
         ) {
             
-            $html .= $this->startDropDown(['office365','homeuseprogram','dreamspark','downloads','downloadsteacher'], "Software / Lizenzen", "fa fa-download");
+            $html .= $this->startDropDown(['office365','homeuseprogram'], "Software / Lizenzen", "fa fa-download");
             
             
             if($this->isActive("office365users") && (DB::getSession()->isTeacher() || DB::getSession()->isPupil())) {
@@ -462,14 +462,6 @@ class menu {
                 $html .= $this->getMenuItem("homeuseprogram", "Home Use Program (Office)", "fa fa-file-word");
             }
 
-           
-            if($this->isActive("downloads")) {
-                $html .= $this->getMenuItem("downloads", "Unterrichtsdownloads", "fa fa-child");
-            }
-            if($this->isActive("downloads") && DB::getSession()->isTeacher()) {
-                $html .= $this->getMenuItem("downloadsteacher", "Lehrerdownloads", "fa fa-male");
-            }
-            
             
             $html .= $this->endDropDown();
         }
