@@ -405,7 +405,7 @@
 		});
 		
 		
-		$("#buttonics").html('<i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small>');
+		$("#buttonics").html('<i class="fa fa-calendar-check"></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small>');
 		$("#buttonics").prop("disabled",false);
 	}
 
@@ -442,7 +442,7 @@
     			<div class="row">
 
 			<div class="col-md-12" style="text-align:right">
-				<button type="button" class="btn btn-primary" onclick="openICSFeed()" id="buttonics"><i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small></button>
+				<button type="button" class="btn btn-primary" onclick="openICSFeed()" id="buttonics"><i class="fa fa-calendar-check"></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small></button>
 			
 				<button type="button" class="btn btn-success" onclick="window.location.href='index.php?page=<expression>$_REQUEST['page']</expression>&mode=print&kalenderID={$_REQUEST['kalenderID']}'"><i class="fa fa-print"></i> Druckversion<br /><small>PDF Datei</small></button></form>			
 						

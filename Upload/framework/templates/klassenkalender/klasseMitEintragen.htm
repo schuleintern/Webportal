@@ -238,7 +238,7 @@
 		});
 		
 		
-		$("#buttonics").html('<i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small>');
+		$("#buttonics").html('<i class="fa fa-calendar-check"></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small>');
 		$("#buttonics").prop("disabled",false);
 	}
 
@@ -256,10 +256,10 @@
 	<div class="box-body">
 		<div class="row">
 			<div class="col-md-3">
-				<form><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#selectGrade"><i class="fa fas fa-sync-alt"></i> Klasse wechseln</button></form>
+				<form><button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#selectGrade"><i class="fa fas fa-sync-alt"></i> Klasse wechseln</button></form>
 			</div>
 			<div class="col-md-3">
-				<form><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterEvents"><i class="fa fa-filter"></i> Termine filtern</button></form>
+				<form><button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#filterEvents"><i class="fa fa-filter"></i> Termine filtern</button></form>
 				
 			</div>
 			<div class="col-md-6" style="text-align:right">
@@ -267,7 +267,7 @@
 			<if($_REQUEST['grade'] != 'fachbetreuer')><then>
 			
 				<form>
-				<button type="button" class="btn btn-primary" onclick="openICSFeed()" id="buttonics"><i class="fa fa-calendar-plus-o "></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small></button>
+				<button type="button" class="btn btn-primary" onclick="openICSFeed()" id="buttonics"><i class="fa fa-calendar-check"></i> ICS Feed<br><small>Für Mobilgeräte / andere Programme</small></button>
 				
 				<button type="button" class="btn btn-danger" onclick="window.location.href='index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&mode=print{$addFachID}'"><i class="fa fa-print"></i> Druckversion<br><small>Mit Stegreifaufgaben</small></button>
 				<button type="button" class="btn btn-success" onclick="window.location.href='index.php?page=klassenkalender&grade=<expression>urlencode($_REQUEST['grade'])</expression>&mode=print&noEx=1{$addFachID}'"><i class="fa fa-print"></i> Druckversion <br><small>Ohne Stegreifaufgaben</small></button>
