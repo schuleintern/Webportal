@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="" />
+    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Software Downloads entfernt.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/templates/krankmeldung/new.htm" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/templates/krankmeldung/new.htm" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +30,9 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,8 +56,131 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603716447462</updated>
-      <workItem from="1603716448792" duration="577000" />
+      <workItem from="1603716448792" duration="3446000" />
+      <workItem from="1603814680418" duration="1468000" />
+      <workItem from="1603818488648" duration="16215000" />
+      <workItem from="1603998365408" duration="1874000" />
     </task>
+    <task id="LOCAL-00001" summary="Composer Update">
+      <created>1603717309378</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603717309378</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Debug Login">
+      <created>1603723677464</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603723677464</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update README.md: Neuer Link Admin Doku">
+      <created>1603730966464</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603730966464</updated>
+    </task>
+    <task id="LOCAL-00004" summary="https://github.com/schuleintern/Webportal/issues/186">
+      <created>1603864994589</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603864994589</updated>
+    </task>
+    <task id="LOCAL-00005" summary="https://github.com/schuleintern/Webportal/issues/137">
+      <created>1603865258447</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603865258447</updated>
+    </task>
+    <task id="LOCAL-00006" summary="https://github.com/schuleintern/Webportal/issues/127">
+      <created>1603866343477</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603866343477</updated>
+    </task>
+    <task id="LOCAL-00007" summary="https://github.com/schuleintern/Webportal/issues/121">
+      <created>1603866600823</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603866600823</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Kleine Anpassung todo Management">
+      <created>1603867232955</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603867232955</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Kleine Anpassung todo Management">
+      <created>1603867338221</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603867338221</updated>
+    </task>
+    <task id="LOCAL-00010" summary="https://github.com/schuleintern/Webportal/issues/85">
+      <created>1603879814303</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1603879814303</updated>
+    </task>
+    <task id="LOCAL-00011" summary="https://github.com/schuleintern/Webportal/issues/48">
+      <created>1603883140221</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1603883140221</updated>
+    </task>
+    <task id="LOCAL-00012" summary="https://github.com/schuleintern/Webportal/issues/48">
+      <created>1603914503638</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1603914503638</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Anpassungen Absenzenansicht Sekretariat">
+      <created>1603980550677</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1603980550677</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Kleinere Anpassungen Klassenkalender">
+      <created>1603999020437</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1603999020437</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fehlendes Icon im Mneü">
+      <created>1603999187539</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1603999187539</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Optische Verbesserung Dokumente">
+      <created>1603999373706</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1603999373706</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Software Downloads entfernt.">
+      <created>1603999538062</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1603999538062</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -67,5 +196,39 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Composer Update" />
+    <MESSAGE value="Debug Login" />
+    <MESSAGE value="Update README.md: Neuer Link Admin Doku" />
+    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/186" />
+    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/137" />
+    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/127" />
+    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/121" />
+    <MESSAGE value="Kleine Anpassung todo Management" />
+    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/85" />
+    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/48" />
+    <MESSAGE value="Anpassungen Absenzenansicht Sekretariat" />
+    <MESSAGE value="Kleinere Anpassungen Klassenkalender" />
+    <MESSAGE value="Fehlendes Icon im Mneü" />
+    <MESSAGE value="Optische Verbesserung Dokumente" />
+    <MESSAGE value="Software Downloads entfernt." />
+    <option name="LAST_COMMIT_MESSAGE" value="Software Downloads entfernt." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="604" y="325" key="NewPhpFileDialog" timestamp="1603880155698">
+      <screen x="0" y="0" width="1536" height="802" />
+    </state>
+    <state x="604" y="325" key="NewPhpFileDialog/0.0.1536.802@0.0.1536.802" timestamp="1603880155698" />
+    <state x="451" y="170" key="Vcs.Push.Dialog.v2" timestamp="1603980552564">
+      <screen x="0" y="0" width="1920" height="1016" />
+    </state>
+    <state x="361" y="134" key="Vcs.Push.Dialog.v2/0.0.1536.802@0.0.1536.802" timestamp="1603914505522" />
+    <state x="451" y="170" key="Vcs.Push.Dialog.v2/0.0.1920.1016/1920.0.1920.1050@0.0.1920.1016" timestamp="1603980552564" />
+    <state x="777" y="421" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603979842650">
+      <screen x="0" y="0" width="1920" height="1016" />
+    </state>
+    <state x="777" y="421" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1016/1920.0.1920.1050@0.0.1920.1016" timestamp="1603979842650" />
   </component>
 </project>
