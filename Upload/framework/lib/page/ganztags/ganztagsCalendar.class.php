@@ -56,14 +56,7 @@ class ganztagsCalendar extends AbstractPage {
 				setlocale(LC_TIME, 'de_DE', 'de_DE.UTF-8');
 				$days = [ [ date('Y-m-d'), strftime("%a") ] ];
 
-				$days = [ [ '2020-10-29', 'Do' ] ];
-
 				$return = $this->getWeekSchuelerList($days);
-
-				// echo "<pre>";
-				// print_r($return);
-				// echo "</pre>";
-				// exit;
 
 				$pdf = new PrintNormalPageA4WithHeader('Ganztags');
 				$pdf->setPrintedDateInFooter();
@@ -137,7 +130,13 @@ class ganztagsCalendar extends AbstractPage {
 						$html .= '<td width="">';
 							
 							if ( $schueler['absenz'] ) {
-								$html .= '<i>Stunden:</i> '.$schueler['absenz_info']['stunden'].'<br><i>Notiz:</i> '.$schueler['absenz_info']['notiz'].'<br><hr>';
+								$html .= '<span style="font-size:85%"><i>Stunden:</i> '.$schueler['absenz_info']['stunden'].'</span>';
+								if ($schueler['absenz_info']['notiz']) {
+									$html .= '<br><i>Notiz:</i> '.$schueler['absenz_info']['notiz'];
+								}
+								if ( $schueler['info'] ) {
+									$html .='<hr><br>';
+								}
 							}
 							$html .= $schueler['info'];
 						$html .= '</td>';
