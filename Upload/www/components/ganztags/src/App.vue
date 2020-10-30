@@ -14,6 +14,7 @@
       <Calendar v-bind:list="list" v-bind:acl="acl"></Calendar>
     </div>
 
+    <Item v-bind:acl="acl"></Item>
 
   </div>
 </template>
@@ -23,7 +24,7 @@
 
 import Calendar from './components/Calendar.vue'
 // import Form from './components/Form.vue'
-// import Item from './components/Item.vue'
+import Item from './components/Item.vue'
 
 
 const axios = require('axios').default;
@@ -36,7 +37,7 @@ export default {
   components: {
     Calendar,
     // Form,
-    // Item
+    Item
   },
   data: function () {
     return {
@@ -58,9 +59,7 @@ export default {
       that.ajaxGet(
         'index.php?page=ganztagsCalendar&action=getWeek',
         {
-          von: data.von,
-          bis: data.bis,
-          days: data.days
+          days: JSON.stringify(data.days)
         },
         function (response, that) {
           if (response.data && response.data.error != true) {
@@ -75,94 +74,6 @@ export default {
       console.log('error');
     });
 
-    EventBus.$on('form--submit', data => {
-      
-      // console.log(data);
-
-      if (!data.form.date || !data.form.title) {
-        return false;
-      }
-
-
-      that.ajaxPost(
-        'rest.php/SetMensaMeal',
-        { data: data.form },
-        { },
-        function (response, that) {
-          
-          that.error = false;
-
-          if (response.data.error == true && response.data.msg) {
-            that.error = response.data.msg;
-          } else if (response.data.done == true) {
-            EventBus.$emit('calender--reload', {});
-            EventBus.$emit('form--close', {});
-          } 
-        }
-      );
-
-    });
-
-
-
-    EventBus.$on('item--delete', data => {
-      
-      if (!data.item || !data.item.id) {
-        return false;
-      }
-
-      console.log(data.item);
-
-      that.ajaxPost(
-        'rest.php/SetMensaMeal/delete',
-        { data: data.item },
-        { },
-        function (response, that) {
-          
-          that.error = false;
-
-          if (response.data.error == true && response.data.msg) {
-            that.error = response.data.msg;
-          } else if (response.data.done == true) {
-            EventBus.$emit('calender--reload', {});
-            //EventBus.$emit('form--close', {});
-          } 
-        }
-      );
-
-
-    });
-
-
-    EventBus.$on('item--order', data => {
-      
-      if (!data.item || !data.item.id) {
-        return false;
-      }
-
-      //console.log(data.item);
-
-      that.ajaxPost(
-        'rest.php/SetMensaOrder',
-        { data: data.item },
-        { },
-        function (response, that) {
-          
-          that.error = false;
-
-          if (response.data.error == true && response.data.msg) {
-            that.error = response.data.msg;
-          } else if (response.data.done == true) {
-
-            data.item.booked = response.data.booked;
-            //EventBus.$emit('calender--reload', {});
-            //EventBus.$emit('form--close', {});
-          } 
-        }
-      );
-
-
-    });
 
 
   },

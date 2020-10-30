@@ -59,8 +59,11 @@ class Absenz {
   }
 
   public function getKommentar() {
-      
     return $this->data['absenzBemerkung'];
+  }
+
+  public function getGanztagsNotiz() {
+    return $this->data['absenzGanztagsNotiz'];
   }
 
   public function getBemerkung() {
@@ -92,6 +95,11 @@ class Absenz {
 
   public function addKommentar($kommentar) {
     DB::getDB()->query("UPDATE absenzen_absenzen SET absenzBemerkung=CONCAT(absenzBemerkung, '\r\n--------------------\r\n" . DB::getDB()->escapeString($kommentar) . "') WHERE absenzID='" . $this->getID() . "'");
+  }
+
+  
+  public function addGanztagsNotiz($notiz) {
+    DB::getDB()->query("UPDATE absenzen_absenzen SET absenzGanztagsNotiz='".$notiz."' WHERE absenzID='" . $this->getID() . "'");
   }
 
   public function getKanal() {
