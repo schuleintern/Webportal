@@ -10,6 +10,7 @@
 .flex-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .flex-row-wrap {
@@ -56,9 +57,18 @@
   flex: 10;
 }
 
+
+.width-100p {
+  width: 100%;
+}
+
 .flex-b-50 {
   flex: 1;
   flex-basis: 50%;
+}
+.flex-b-100 {
+  flex: 1;
+  flex-basis: 100%;
 }
 
 .noselect {
@@ -92,6 +102,10 @@
   width: 30rem;
 }
 
+.width-7rem {
+  width: 7rem;
+}
+
 .width-40vw {
   width: 40vw;
 }
@@ -113,6 +127,14 @@
 
 .padding-m {
   padding: 1.3rem;
+}
+
+
+.padding-l-m {
+  padding-left: 1.3rem;
+}
+.padding-l-l {
+  padding-left: 2.3rem;
 }
 
 .padding-b-xs {
@@ -161,10 +183,26 @@
   margin-right: 2.3rem;
 }
 
+.margin-l-xs {
+  margin-left: 0.3rem;
+}
 .margin-l-s {
   margin-left: 0.6rem;
 }
+.margin-l-m {
+  margin-left: 1.3rem;
+}
 
+
+.margin-t-s {
+  margin-top: 0.6rem;
+}
+.margin-t-m {
+  margin-top: 1.3rem;
+}
+.margin-t-l {
+  margin-top: 2.3rem;
+}
 
 .margin-b-s {
   margin-bottom: 0.6rem;
@@ -176,6 +214,9 @@
   margin-bottom: 2.3rem;
 }
 
+.margin-t-m {
+  margin-top: 1.3rem;
+}
 .margin-t-l {
   margin-top: 2.3rem;
 }

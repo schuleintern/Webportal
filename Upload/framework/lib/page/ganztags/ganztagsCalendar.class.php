@@ -38,32 +38,6 @@ class ganztagsCalendar extends AbstractPage {
 		
 		if(AbstractPage::isActive('ganztags')) {
 
-		
-
-
-			
-			// 		$absenzen = DB::getDB()->query("SELECT * FROM absenzen_absenzen 
-			// 			LEFT JOIN schueler ON absenzSchuelerAsvID=schuelerAsvID 
-			// 			WHERE absenzBeurlaubungID='" . $this->data['beurlaubungID'] . "'
-			// 			ORDER BY absenzDatum");
-				
-			// 		$returnArray = array();
-			// 		while($a = DB::getDB()->fetch_array($absenzen)) {
-			// 			$returnArray[] = new Absenz($a);
-			// 			//$returnArray[] = $a;
-			// 		}
-			
-			// 		echo "<pre>";
-			// print_r($returnArray);
-			// echo "</pre>";
-
-			
-			
-			// if(!$this->isTeacher) {
-			// 	DB::showError("Diese Seite ist leider für Sie nicht sichtbar.");
-			// 	die();
-			// }
-
 			$showDays = array(
 				'Mo' => DB::getSettings()->getValue("ganztags-day-mo"),
 				'Di' => DB::getSettings()->getValue("ganztags-day-di"),
@@ -76,142 +50,196 @@ class ganztagsCalendar extends AbstractPage {
 
 
 
+			if ( $_REQUEST['action'] == 'printToday') {
+
+
+				setlocale(LC_TIME, 'de_DE', 'de_DE.UTF-8');
+				$days = [ [ date('Y-m-d'), strftime("%a") ] ];
+
+				$return = $this->getWeekSchuelerList($days);
+
+				$pdf = new PrintNormalPageA4WithHeader('Ganztags');
+				$pdf->setPrintedDateInFooter();
+
+				$pdf->showImageErrors = true;
+				
+				foreach($return[0]['gruppen'] as $gruppe) {
+					$html = '';
+					$html .= '<style>
+					table {
+						width: 100%;
+					}
+					td { padding: 0.3rem; }
+					</style>';
+					$html .= '<h3 style="text-align: right">'.$return[0][0].'</h3>';
+					$html .= '<h1>'.$gruppe['gruppe']['name'].'</h1>';
+					$html .= '<h4 style="color:#ccc">'.$gruppe['gruppe']['raum'].'</h4>';
+					$html .= '<table cellspacing="0" cellpadding="5" border="0" style="border-color:white; border-collapse: collapse;" >
+						<thead >
+							<tr>
+								<th width="5%"></th>
+								<th width="15%" style="font-weight: bold;">Vorname</th>
+								<th width="18%" style="font-weight: bold;">Name</th>
+								<th width="5%" style="font-weight: bold;"></th>
+								<th width="8%" style="font-weight: bold;"></th>
+								<th width="6%" style="font-weight: bold;"><img src="./images/check-circle.svg" height="12px" width="12px"/></th>
+								<th width="6%" style="font-weight: bold;"><img src="./images/times-circle.svg" height="12px" width="12px"/></th>
+								<th width="" style="font-weight: bold;">Info</th>
+							</tr>
+						</thead>
+						<tbody>';
+					
+					$num = 1;
+					foreach($gruppe['schueler'] as $schueler) {
+						$style = '';
+						$boder = 'border-right: 0.01px solid #ccc;';
+						if ($num%2) {
+							$style = 'background-color: rgb(236, 240, 245); margin: 30px;';
+							$boder = 'border-right: 0.01px solid white';
+						}
+						$html .= '<tr style="'.$style.'">';
+						$html .= '<td width="5%" style="color:#ccc">'.$num.'</td>';
+
+						if ( $schueler['absenz'] ) {
+							$html .= '<td width="15%" style="text-decoration:line-through">'.$schueler['rufname'].'</td>';
+						} else {
+							$html .= '<td width="15%">'.$schueler['rufname'].'</td>';
+						}
+						if ( $schueler['absenz'] ) {
+							$html .= '<td width="18%" style="text-decoration:line-through">'.$schueler['name'].'</td>';
+						} else {
+							$html .= '<td width="18%">'.$schueler['name'].'</td>';
+						}
+
+						$html .= '<td width="5%">';
+						if ($schueler['geschlecht'] == 'm') {
+							$html .= '<img src="./images/mars.svg" height="10px" width="10px"/>';
+						} else if ($schueler['geschlecht'] == 'w') {
+							$html .= '<img src="./images/venus.svg" height="10px" width="10px"/>';
+						}
+						$html .= '</td>';
+
+						$html .= '<td width="8%" style="'.$boder.'">'.$schueler['klasse'].'</td>';
+						$html .= '<td width="6%" style="'.$boder.'">';
+						if ( $schueler['absenz'] ) {
+							$html .= '<img src="./images/bed.svg" width="14px" height="17px"/>';
+						}
+						$html .= '</td>';
+						$html .= '<td width="6%" style="'.$boder.'"></td>';
+
+						$html .= '<td width="">';
+							
+							if ( $schueler['absenz'] ) {
+								$html .= '<span style="font-size:85%"><i>Stunden:</i> '.$schueler['absenz_info']['stunden'].'</span>';
+								if ($schueler['absenz_info']['notiz']) {
+									$html .= '<br><i>Notiz:</i> '.$schueler['absenz_info']['notiz'];
+								}
+								if ( $schueler['info'] ) {
+									$html .='<hr><br>';
+								}
+							}
+							$html .= $schueler['info'];
+						$html .= '</td>';
+
+						$html .= '</tr>';
+						$num++;
+					}
+					$html .= '</tbody></table>';
+
+					$html .= '<br><br><br><br><br><br><br><br><hr><br>Aktivitäten<br><br><br><br><hr><br>Sonstiges';
+					$pdf->setHTMLContent($html);
+				}
+
+				$pdf->send();
+
+				exit;
+			}
+
 			if ( $_REQUEST['action'] == 'getWeek') {
 
-				
-				if ( !$_GET['bis'] ) {
-					die('missing data');
-				}
-				if ( !$_GET['von'] ) {
-					die('missing data');
-				}
 				if ( !$_GET['days'] ) {
 					die('missing data');
 				}
-		
-				$von = date('Y-m-d', $_GET['von']);
-				$bis = date('Y-m-d', $_GET['bis']);
-
-				// echo $von;
-				// echo $bis;
-
-				$days = $_GET['days'];
-
-				// print_r($days);
-				
-				include_once("../framework/lib/data/absenzen/Absenz.class.php");
-
-
-
-
-				$schueler = schueler::getGanztagsSchueler('schueler.schuelerRufname, schueler.schuelerName');
-				$query = DB::getDB()->query("SELECT *  FROM ganztags_gruppen ORDER BY sortOrder, name ");
-				$gruppen = [];
-				while($group = DB::getDB()->fetch_array($query)) {
-					$gruppen[] = $group;
-				}
-
-
-				foreach($days as $key => $day) {
-
-					if (empty($day)) {
-						continue;
-					}
-					$day = json_decode($day);
-
-					if (!$day[0] || !$day[1]) {
-						continue;
-					}
-
-					$absenzen = Absenz::getAbsenzenForDate($day[0], null);
-			
-					// echo "<pre>";
-					// print_r($absenzen);
-					// echo "</pre>";
-
-					//$day['absenzen'] = $absenzen;
-
-
-					$day_db = 'tag_'.strtolower($day[1]);
-					$list_gruppen = [];
-					foreach($gruppen as $gruppe) {
-						$arr = [];
-						$found_absenz_anz = 0;
-						foreach($schueler as $item) {
-							
-							if ($item->getGruppe() == $gruppe['id']) {
-								if ( $item->getGanztags()[$day_db] ) {
-
-									$arr_schueler = [
-										'rufname' => $item->getRufname(),
-										'name' => $item->getName(),
-										'geschlecht' => $item->getGeschlecht(),
-										'klasse' => $item->getKlassenObjekt()->getKlassenName(),
-										'absenz' => false,
-										'absenz_info' => false
-									];
-									$found_absenz = false;
-									
-									foreach($absenzen as $absenz) {
-										if  ( $item->getAsvID() == $absenz->getSchueler()->getAsvID() ) {
-											$found_absenz = [
-												"stunden" => $absenz->getStundenAsString(),
-												"bemerkung" => nl2br($absenz->getBemerkung())
-											];
-											$found_absenz_anz++;
-										}
-									}
-
-									if ($found_absenz) {
-										$arr_schueler['absenz'] = true;
-										$arr_schueler['absenz_info'] = $found_absenz;
-									}
-
-									$arr[] = $arr_schueler;
-									
-								}
-								
-							}
-						}
-						$gruppe['absenz_anz'] = $found_absenz_anz;
-
-						$list_gruppen[] = [
-							'gruppe' => $gruppe,
-							'schueler' => $arr
-						];
-					}
-					$day['gruppen'] = $list_gruppen;
-
-					$days[$key] = $day;
-
-				}
-				
-				// echo "<pre>";
-				// print_r($days);
-				// echo "</pre>";
-
-				echo json_encode( $days );
-				
-				
+				$days = json_decode($_GET['days']);
+				$return = $this->getWeekSchuelerList($days);
+				echo json_encode( $return );
 				exit;
-
 			}
 
-
-			
 			$acl = json_encode( $this->getAcl() );
-
 			$showDays = json_encode($showDays);
-			//$prevDays = DB::getSettings()->getValue("mensa-speiseplan-days");
-
-			
-			
 
 			eval("echo(\"" . DB::getTPL()->get("ganztags/calendar"). "\");");
 		}
 	}
 	
-	
+	private function getWeekSchuelerList($days) {
+
+		if (!$days || !is_array($days)) {
+			return false;
+		}
+
+		include_once("../framework/lib/data/absenzen/Absenz.class.php");
+		$schueler = schueler::getGanztagsSchueler('schueler.schuelerRufname, schueler.schuelerName');
+		$query = DB::getDB()->query("SELECT *  FROM ganztags_gruppen ORDER BY sortOrder, name ");
+		$gruppen = [];
+		while($group = DB::getDB()->fetch_array($query)) {
+			$gruppen[] = $group;
+		}
+
+		foreach($days as $key => $day) {
+			if (empty($day)) {
+				continue;
+			}
+			$absenzen = Absenz::getAbsenzenForDate($day[0], null);
+			$day_db = 'tag_'.strtolower($day[1]);
+			$list_gruppen = [];
+			foreach($gruppen as $gruppe) {
+				$arr = [];
+				$found_absenz_anz = 0;
+				foreach($schueler as $item) {
+					if ($item->getGruppe() == $gruppe['id']) {
+						$ganztags = $item->getGanztags();
+						if ( $ganztags[$day_db] ) {
+							$arr_schueler = [
+								'rufname' => $item->getRufname(),
+								'name' => $item->getName(),
+								'geschlecht' => $item->getGeschlecht(),
+								'klasse' => $item->getKlassenObjekt()->getKlassenName(),
+								'absenz' => false,
+								'absenz_info' => false,
+								'info' => $ganztags['info']
+							];
+							$found_absenz = false;
+							foreach($absenzen as $absenz) {
+								if  ( $item->getAsvID() == $absenz->getSchueler()->getAsvID() ) {
+									$found_absenz = [
+										"stunden" => $absenz->getStundenAsString(),
+										"notiz" => nl2br($absenz->getGanztagsNotiz())
+									];
+									$found_absenz_anz++;
+								}
+							}
+							if ($found_absenz) {
+								$arr_schueler['absenz'] = true;
+								$arr_schueler['absenz_info'] = $found_absenz;
+							}
+							$arr[] = $arr_schueler;
+						}
+					}
+				}
+				$gruppe['absenz_anz'] = $found_absenz_anz;
+				$list_gruppen[] = [
+					'gruppe' => $gruppe,
+					'schueler' => $arr
+				];
+			}
+			$day['gruppen'] = $list_gruppen;
+			$days[$key] = $day;
+		}
+		return $days;
+	}
+
 	public static function hasSettings() {
 		return true;
 	}
