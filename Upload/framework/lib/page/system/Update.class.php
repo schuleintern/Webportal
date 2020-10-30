@@ -101,7 +101,23 @@ class Update extends AbstractPage
             $this->from121to122();
         }
 
+        if ($from == "1.2.2" && $to == "1.2.3") {
+            $this->from122to123();
+        }
+
         return true;
+    }
+
+    private function from122to123() {
+
+        // sql changes:
+        // absenzen_absenzen => `absenzGanztagsNotiz` tinytext NOT NULL,
+        // ganztags_gruppen => `raum` varchar(30) DEFAULT NULL,
+        // ganztags_gruppen => `farbe` varchar(8) DEFAULT NULL,
+
+        $this->updateComponentsFolder(122);
+        $this->updateCssJSFolder(122);
+        $this->updateImagesFolder(122);
     }
 
     private function from121to122() {
