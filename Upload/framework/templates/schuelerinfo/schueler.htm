@@ -43,7 +43,7 @@
                     $austrittInfo
                 <table class="table">
                   <tr>
-                    <td rowspan="10" style="width:10%">
+                    <td rowspan="11" style="width:10%">
                       <if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren'))>
                       <then>
                             <img src="index.php?page=schuelerinfo&mode=getFoto&schuelerAsvID={$schueler->getAsvID()}" width="180"/><br />
@@ -115,6 +115,12 @@
                     <td>Ausbildungsrichtung:</td>
                     <td>{$schueler->getAusbildungsrichtung()}</td>
                   </tr>
+
+                  <tr>
+                    <td>Fremdsprachen:</td>
+                    <td>$fremdsprachen</td>
+                  </tr>
+
                 </table>
                   </div>
                   <div class="tab-pane" id="adressen">

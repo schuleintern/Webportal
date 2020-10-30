@@ -2,7 +2,7 @@
             <div class="box-header with-border">
               <h3 class="box-title">{$folder->getName()}</h3>
 				<if($folder->isOwnFolder())><then>
-					<button type="button" onclick="confirmAction('Soll der Ordner wirklich gelöscht werden? Alle enthaltenen Nachrichten werden in den Papierkorb verschoben.','index.php?page=MessageInbox&action=deleteFolder&folderID={$folder->getID()}&folder=ANDERER');" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Order löschen</button> 
+					<button type="button" onclick="confirmAction('Soll der Ordner wirklich gelöscht werden? Alle enthaltenen Nachrichten werden in den Papierkorb verschoben.','index.php?page=MessageInbox&action=deleteFolder&folderID={$folder->getID()}&folder=ANDERER');" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Ordner löschen</button>
 				</then></if>
               <!-- <div class="box-tools pull-right">              
                 <div class="has-feedback">

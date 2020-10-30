@@ -19,6 +19,8 @@ class extKalender extends AbstractKalenderPage {
 		
 		if($kalender['kalenderID'] > 0) {
 			$this->kalender = $kalender;
+
+			$this->kalenderID = $kalender['kalenderID'];
 			
 			$this->title = $this->kalender['kalenderName'];
 			

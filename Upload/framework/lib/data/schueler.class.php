@@ -123,6 +123,13 @@ class schueler {
 	public function getGruppe() {
 		return ($this->data['gruppe']);
 	}
+
+    /**
+     * @return SchuelerFremdsprache[]
+     */
+	public function getFremdsprachen() {
+	    return SchuelerFremdsprache::getForSchueler($this);
+    }
 	
 	public function getGanztags($action = false) {
 

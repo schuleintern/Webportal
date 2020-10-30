@@ -31,6 +31,13 @@ class FileUpload {
 			'application/pdf',
 			'application/zip'
 	);
+
+	private static $mimeTypesAudio = [
+	    'audio/mpeg',
+        'audio/mp4',
+        'audio/vnd.wav',
+        'audio/basic'
+    ];
 	
 	private static $mimesPicture = [
 			'image/png',
@@ -409,6 +416,11 @@ class FileUpload {
         for($i = 0; $i < sizeof(self::$mimesPicture); $i++) {
             $mimes[] = self::$mimesPicture[$i];
         }
+
+        for($i = 0; $i < sizeof(self::$mimeTypesAudio); $i++) {
+            $mimes[] = self::$mimeTypesAudio[$i];
+        }
+
 
         return self::uploadFileImpl($fieldName, $mimes, $fileName);
     }

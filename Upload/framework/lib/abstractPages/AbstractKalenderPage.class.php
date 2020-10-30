@@ -19,7 +19,7 @@ abstract class AbstractKalenderPage extends AbstractPage {
 	public function __construct() {
 	
 		parent::__construct(array("Kalender", $this->title));
-	
+
 		$this->checkKalenderAccess();
 	
 	}
