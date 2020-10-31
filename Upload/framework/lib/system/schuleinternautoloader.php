@@ -56,7 +56,6 @@ $classes = [
 	    'CronNextCloud',
 	    'CronVerspaetungAuswertung',
 	    'CreateTagebuchPDFs',
-	    // 'CronAllInklMail',
         'DeleteOldElternUser',
         'MailSendDeleter'
 	],
