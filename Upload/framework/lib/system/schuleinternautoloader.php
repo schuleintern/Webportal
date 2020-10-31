@@ -136,7 +136,6 @@ $classes = [
     ],
 	'db' => [
 		'mysql',
-		'mysqldevdatabases',
 		'dbStruct',
 	],
 	'email' => [
