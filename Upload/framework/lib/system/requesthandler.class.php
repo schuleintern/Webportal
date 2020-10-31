@@ -104,9 +104,6 @@ class requesthandler {
       'beobachtungsbogenadmin',
       'beobachtungsbogenklassenleitung',
     ],
-    'datenbanken' => [
-      'database',
-    ],
     'dokumente' => [
       'dokumente',
     ],

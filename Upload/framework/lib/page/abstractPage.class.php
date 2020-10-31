@@ -14,6 +14,9 @@ abstract class AbstractPage {
      */
 	private $title;
 
+    /**
+     * @var string
+     */
 	public $header = "";
 
 	// public $footer = ""; // moved to PAGE.class.php
@@ -37,11 +40,15 @@ abstract class AbstractPage {
 	
 	protected $helpTopic = "";
 
-	private static $activeLicensePages = array();
-
 	private static $activePages = array();
 	
 	private $acl = false;
+
+    /**
+     * Ist das Modul im Beta Status?
+     * @var bool
+     */
+	protected $isBeta = false;
 
 	public function __construct($pageline, $ignoreSession = false, $isAdmin = false, $isNotenverwaltung = false) {
 

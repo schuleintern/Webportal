@@ -446,7 +446,7 @@ class menu {
             
             $html .= $this->startDropDown(['office365','homeuseprogram'], "Software / Lizenzen", "fa fa-download");
             
-            
+
             if($this->isActive("office365users") && (DB::getSession()->isTeacher() || DB::getSession()->isPupil())) {
                 $html .= $this->getMenuItem("office365users", "Office 365 Account", "fa fa-file-word");
             }
@@ -935,10 +935,6 @@ class menu {
 
     if((($this->isActive("mebis") || $this->isActive("database"))&& (DB::getSession()->isTeacher() || DB::getSession()->isPupil()))) {
       $html .= $this->startDropDown(['mebis','database'], "Unterrichtstools", "fa fa-cubes");
-
-      if($this->isActive("database")) {
-        $html .= $this->getMenuItem("database", "MySQL Datenbanken", "fa fa-database");
-      }
 
       if($this->isActive("mebis") && (DB::getSession()->isTeacher() || (DB::getSession()->isPupil() && DB::getSettings()->getBoolean('mebis-schueler')))) {
         $html .= $this->getMenuItem("mebis", "Mebis Account", "fa fa-compass");
