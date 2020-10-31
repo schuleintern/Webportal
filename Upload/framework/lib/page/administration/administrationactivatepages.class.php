@@ -62,8 +62,11 @@ class administrationactivatepages extends AbstractPage {
 				
 				
 				$displayName = "<b>" . $pageName::getSiteDisplayName() . "</b>";
-				if($displayName == "") $displayName = "<font color=\"red\">" . $allPages[$i] . "</font>";
-				
+
+
+                if($displayName == "") $displayName = "<font color=\"red\">" . $allPages[$i] . "</font>";
+
+                if($pageName::isBeta()) $displayName .= ' <span class="label bg-red pull-right"><i class="fa fa-info"></i> Modul im Beta Test</span>';
 
 				if(AbstractPage::isActive($allPages[$i])) {
                     $pageStatus .= "<tr><td>" . $displayName . $hinweis . "</td><td>";

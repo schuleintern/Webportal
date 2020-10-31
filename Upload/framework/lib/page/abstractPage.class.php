@@ -48,7 +48,7 @@ abstract class AbstractPage {
      * Ist das Modul im Beta Status?
      * @var bool
      */
-	protected $isBeta = false;
+	protected static $isBeta = false;
 
 	public function __construct($pageline, $ignoreSession = false, $isAdmin = false, $isNotenverwaltung = false) {
 
@@ -602,5 +602,13 @@ abstract class AbstractPage {
 	public function getAclDelete() {
 		return $this->acl['rights']['delete'];
 	}
+
+    /**
+     * Ist das Modul im Beta Test?
+     * @return bool
+     */
+	public static function isBeta() {
+	    return false;
+    }
 
 }
