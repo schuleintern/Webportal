@@ -1,0 +1,161 @@
+{$this->header}
+
+<form action="index.php?page=absenzensekretariat&mode=sammelbeurlaubung" method="post">
+
+
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-user"></i> Schüler</h3>
+			</div>
+			<div class="box-body">
+			<select name="schueler[]" class="form-control select2" multiple="multiple" data-placeholder="Alle betroffenen Schüler auswählen" style="width: 90%;">
+				$schuelerOptions
+			</select><br />
+			Um mehrere Schüler aus dem Auswahlfeld auszuwählen, die STRG Taste gedrückt halten und die Namen anklicken.
+		</div></div>
+
+		<br />
+		
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-plane"></i> Beurlaubung für diese Schüler</h3>
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+			      			<tr>
+			      				<td>Zeitraum</td>
+			      				<td><input type="text" name="bu_zeit" class="form-control" value="$currentDate bis $currentDate"></td>
+			      			</tr>
+			      			<tr>
+			      				<td>Stunden</td>
+			      				<td>
+			      					$stunden
+			      				</td>
+			      			<tr>
+			      				<td>Bemerkung</td>
+			      				<td><input type="text" name="kommentar" value="" class="form-control"></td>
+			      			</tr>
+			      			<tr>
+			      				<td>Intern abwesend?</td>
+			      				<td>
+			      						<div class="onoffswitch">
+										    <input type="checkbox" name="internAbwesend" value="1" class="onoffswitch-checkbox" id="internAbwesend">
+										    <label class="onoffswitch-label" for="internAbwesend">
+										        <span class="onoffswitch-inner"></span>
+										        <span class="onoffswitch-switch"></span>
+										    </label>
+										</div>
+									</td>
+			      							      			</tr>
+	      			
+			      			
+			   	</table>
+			</div>
+		</div>
+		
+		<button type="submit" class="form-control" name="action" value="save"><i class="fa fa-save"></i> Beurlaubungen speichern</button>
+	
+	</form>
+	
+	
+	<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+<script>
+
+function selectVormittag(id, max) {
+	for (i = 1; i <= 6; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+	
+	for (i = 7; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+}
+
+function selectNachmittag(id, max) {
+	for (i = 1; i <= 6; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+	
+	for (i = 7; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+}
+
+function bisJetzt(id, max) {
+	for (i = 1; i <= {$currentStunde}; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+	
+	for (i = <expression>($currentStunde+1)</expression>; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+}
+
+function abJetzt(id, max) {
+	for (i = 1; i <= {$currentStunde}; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+	
+	for (i = <expression>($currentStunde+1)</expression>; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+}
+
+function selectNothing(id, max) {
+	for (i = 1; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = false;
+	}
+}
+
+function selectAll(id, max) {
+	for (i = 1; i <= max; i++) { 
+		document.getElementById("stunde_" + i + "_" + id).checked = true;
+	}
+}
+	$(function() {
+
+	    $('input[name="bu_zeit"]').daterangepicker({
+	    	format: 'DD.MM.YYYY',
+	    	"separator": " bis ",
+	        "locale": {            
+	            "applyLabel": "OK",
+	            "cancelLabel": "Abbrechen",
+	            "fromLabel": "Von",
+	            "toLabel": "Bis",
+	            "customRangeLabel": "Benutzerdefiniert",
+	            "daysOfWeek": [
+	                "So",
+	                "Mo",
+	                "Di",
+	                "Mi",
+	                "Do",
+	                "Fr",
+	                "Sa"
+	            ],
+	            "monthNames": [
+	                "Januar",
+	                "Februar",
+	                "März",
+	                "April",
+	                "Mai",
+	                "Juni",
+	                "Juli",
+	                "August",
+	                "September",
+	                "Oktober",
+	                "November",
+	                "Dezember"
+	            ],
+	            "firstDay": 1
+	        }
+	    });
+	});
+	
+	$(function () {
+	  $(".select2").select2();
+	});
+
+
+	</script>
+
+{$this->footer}

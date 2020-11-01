@@ -1,0 +1,34 @@
+<h2>Antrag auf Beurlaubung</h2>
+
+<table border="1" width="100%" cellpadding="4">
+	<tr>
+		<td style="width:20%">Schüler/in</td>
+		<td>{$antrag->getSchueler()->getCompleteSchuelerName()}</td>
+	</tr>
+	<tr>
+		<td>Datum:</td>
+		<td><expression>DateFunctions::getNaturalDateFromMySQLDate($antrag->getStartDatumAsSQLDate())</expression> bis <expression>DateFunctions::getNaturalDateFromMySQLDate($antrag->getEndDatumAsSQLDate())</expression></td>
+	</tr>
+	<tr>
+		<td>Stunden</td>
+		<td><expression>implode(", ", $antrag->getStunden())</expression></td>
+	</tr>
+	<tr>
+		<td>Begründung</td>
+		<td>{$antrag->getBegruendung()}</td>
+	</tr>
+</table>
+
+<br />
+<br />
+Bitte den Antrag unterschreiben und im Sekretariat abgeben.<br /><br /><br /><br />
+
+______________________________________<br />
+Datum, Unterschrift
+<br /><br /><br />
+
+
+Beurlaubung genehmigt.<br /><br /><br /><br />
+
+______________________________________<br />
+Datum, Unterschrift

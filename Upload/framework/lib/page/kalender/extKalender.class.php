@@ -12,7 +12,9 @@ class extKalender extends AbstractKalenderPage {
 	protected $tableName = "kalender_lehrer";
 	
 	private $kalender = [];
-	
+
+	protected $helpPage = "https://schuleintern.atlassian.net/wiki/spaces/HANDBUCH/pages/262348/Anleitung+Kalender";
+
 	public function __construct() {
 		
 		$kalender = DB::getDB()->query_first("SELECT * FROM externe_kalender WHERE kalenderID='" .intval($_REQUEST['kalenderID']) . "'");

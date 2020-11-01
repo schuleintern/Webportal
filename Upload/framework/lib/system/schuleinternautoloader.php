@@ -93,6 +93,10 @@ $classes = [
         'AbsenzVerspaetung',
         'AbsenzEntschuldigungGenerator',
         'AbsenzEntschuldigung',
+        'AbsenzSchuelerInfo',
+        'Absenz',
+        'AbsenzBefreiung',
+        'AbsenzBeurlaubung',
         'AbsenzSchuelerInfo'
     ],    
     'data/respizienz' => [

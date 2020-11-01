@@ -49,11 +49,6 @@ Datei: $file
 Zeile: $line
 Kontext: " . print_R($context, true);
 	    
-	    $fehlerID = reportError($text);
-	    
-	    if(substr($fehlerID,0,6) == 'ERROR_') $failed = true;
-	    else $failed = false;
-	    
 	    ?>
 	    
 	    
@@ -111,56 +106,4 @@ Kontext: " . print_R($context, true);
 
 function isFatalError($code) {
 	return $code == E_ERROR || $code == E_PARSE || $code == E_COMPILE_ERROR || $code == E_CORE_ERROR;
-}
-
-function reportError($text) {
-    #
-    # Configuration: Enter the url and key. That is it.
-    #  url => URL to api/task/cron e.g #  http://yourdomain.com/support/api/tickets.json
-    #  key => API's Key (see admin panel on how to generate a key)
-    #
-    
-    $config = array(
-    'url'=>'https://support.schule-intern.de/api/tickets.json',
-    'key'=>'8DCBB5245D4D8B92317E89337E0A02D7'
-						    );
-    
-    # Fill in the data for the new ticket, this will likely come from $_POST.
-    
-    $data = array(
-    'name'      =>      'SchuleIntern System',
-    'email'     =>      'systemerror@schule-intern.de',
-    'subject'   =>      'System Fehler in Installation ' . DB::getGlobalSettings()->siteNamePlain,
-    'message'   =>      $text,
-    'ip'        =>      '93.229.83.178',
-    'attachments' => array(),
-    );
-    
-    
-    #pre-checks
-    function_exists('curl_version') or die('CURL support required');
-    function_exists('json_encode') or die('JSON support required');
-    
-    #set timeout
-    set_time_limit(3);
-    
-    #curl post
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $config['url']);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-    curl_setopt($ch, CURLOPT_USERAGENT, 'osTicket API Client v1.7');
-    curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array( 'Expect:', 'X-API-Key: '.$config['key']));
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    $result=curl_exec($ch);
-    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-    
-    if ($code != 201)
-        return 'ERROR_'.$result;
-        
-        return (int) $result;
-        
 }

@@ -150,7 +150,7 @@
 
 				<if($this->helpPage != "")><then>
 	          	<li>
-	            	<a href="#helpmodal" data-toggle="modal"><i class="fa fa-question-circle"></i></a>
+	            	<a href="$this->helpPage" target="_blank"><i class="fa fa-question-circle"></i></a>
 	          	</li>
 	          	</then></if>
 
@@ -297,20 +297,6 @@
 
         <div class="content body">
         	<!-- <div style="overflow-y: auto;"> -->
-			<if($this->helpPage != "")><then>
-				<div class="modal fade" id="helpmodal" tabindex="-1" role="dialog">
-				  <div class="modal-dialog" role="document" style="width:95%; height: 95%;">
-				    <div class="modal-content" style="height: auto; min-height: 95%; border-radius: 0;">
-				    <div class="modal-header">	    
-				    	<h4 class="modal-title" id="eventTitle"><i class="fa fa-question-circle"></i> Hilfe zur aktuellen Seite</h4>
-				      </div>
-				      <div class="modal-body" style="height: auto; min-height: 95%; border-radius: 0;">
-				      	<iframe src="{$this->helpPage}"  width="100%" style="height: 100vh"></iframe>
-				      	</div>
-				      </div>
-				     </div>
-				    </div>
-			</then></if>
 			$infoWartungsmodus
         	$infoLaufzettel
             
