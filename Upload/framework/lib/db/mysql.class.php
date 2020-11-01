@@ -133,7 +133,8 @@ class mysql {
     return mysqli_real_escape_string($this->mysqli, $string);
   }
 
-  /** Kodiert String mit Sonderzeichen in DB konform
+  /**
+   * Kodiert String mit Sonderzeichen in DB konform
    * siehe: decodeString()
    * @author: Christian Marienfeld
    * 

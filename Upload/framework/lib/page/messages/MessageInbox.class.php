@@ -275,6 +275,13 @@ class MessageInbox extends AbstractPage {
                 'text' => ""
             ],
             [
+                'name' => "messages-max-recipients-for-autoresponder",
+                'typ' => 'NUMMER',
+                'titel' => "Maximale Empfänger für Autoresponder",
+                'text' => "Bis zu dieser Zahl an Empfängern werden Autoresponder verschickt. Darüber dann nicht mehr."
+            ],
+
+            [
                 'name' => "messages-banner-new-messages",
                 'typ' => 'BOOLEAN',
                 'titel' => "Banner bei neuen Nachrichten auf jeder Seite anzeigen?",

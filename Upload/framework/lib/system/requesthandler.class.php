@@ -50,7 +50,8 @@ class requesthandler {
       'absenzenlehrer',
       'absenzensekretariat',
       'absenzenstatistik',
-      'absenzenschueler'
+      'absenzenschueler',
+        'AbsenzenMain'
     ],
   	'messages' => [
   		'MessageInbox',
@@ -103,13 +104,6 @@ class requesthandler {
       'beobachtungsbogen',
       'beobachtungsbogenadmin',
       'beobachtungsbogenklassenleitung',
-    ],
-    'datenbanken' => [
-      'database',
-    ],
-    'downloads' => [
-      'downloads',
-      'downloadsteacher'
     ],
     'dokumente' => [
       'dokumente',
@@ -254,8 +248,8 @@ class requesthandler {
         $page->execute();
       }
       catch(Throwable $e) {
-          // TODO: FEHLER abfangen
-        echo "<b>" . $e->getMessage() . "</b> in Line " . $e->getLine()  . " in " . $e->getFile() . "<br />";
+
+        echo "<b>!!!" . $e->getMessage() . "</b> in Line " . $e->getLine()  . " in " . $e->getFile() . "<br />";
         echo "<pre>" . $e->getTraceAsString() . "</pre>";
       }
     } else {

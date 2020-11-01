@@ -1,0 +1,88 @@
+<h1>Schülerbericht von {$schueler->getCompleteSchuelerName()} (Klasse {$schueler->getKlasse()})</h1>
+
+<h2>Zusammenfassung</h2>
+		<table border="1" width="100%" cellpadding="3">
+			<tr>
+				<td style="width: 40%">Anzahl der Fehltage:</td>
+				<td style="width: 60%"><if(DB::getSettings()->getBoolean('absenzen-has-fpa'))><then>
+					$total Tage außerhalb der fpA
+					<br />$fpatotal Tage in der fpA
+					<br />Summe: <expression>($total+$fpatotal)</expression>
+				</then>
+				<else>
+				
+				$total Tage
+				</else>				
+				</if>
+				<br />Davon $entschuldigt schriftlich entschuldigt.</td>
+			</tr>
+			<tr>
+				<td>Beurlaubte Tage:</td>
+				<td>$beurlaubt Tage</td>
+			</tr>
+			<tr>
+				<td>Verspätungen</td>
+				<td>$verspaetungenTotal (Summe: $verspaetungenMinutenTotal Minuten)</td>
+			</tr>
+			<tr>
+				<td>Krankenzimmeraufenthalte</td>
+				<td>$sanizimmerTotal (Summe: $sanizimmerMinutenTotal Minuten)</td>
+			</tr>
+		</table>
+		<br />
+		<h2>Verteilung der Absenzen auf die Wochentage</h2>
+		<table border="1" width="100%" cellpadding="3">
+			<tr>
+				<th>Montag</th>
+				<th>Dienstag</th>
+				<th>Mittwoch</th>
+				<th>Donnerstag</th>
+				<th>Freitag</th>
+			</tr>
+			<tr>
+				<td>{$absenzenStat[0]} Tage</td>
+				<td>{$absenzenStat[1]} Tage</td>
+				<td>{$absenzenStat[2]} Tage</td>
+				<td>{$absenzenStat[3]} Tage</td>
+				<td>{$absenzenStat[4]} Tage</td>
+			</tr>
+		</table>
+	<br />
+		<h2>Absenzen</h2>
+		<table border="1" width="100%" cellpadding="3">
+			<tr>
+				<th colspan="3" style="width: 60%">&nbsp;</th>
+				<th colspan="$maxStunden" style="width: 40%">Stunden</th>
+			</tr>
+			<tr>
+				<th style="width: 15%">Datum</th>
+				<th style="width: 45%">Kommentar</th>
+				$stundenHeader
+			</tr>
+			$absenzenHTML
+		</table>
+			
+		<br />
+		<h2>Krankenzimmeraufenthalte</h2>
+		<table border="1" width="100%" cellpadding="3">
+			<tr>
+				<th width="20%">Datum</th>
+				<th width="20%">Von</th>
+				<th width="20%">Bis</th>
+				<th width="20%">Ergebnis</th>
+				<th width="20%">Grund</th>
+			</tr>
+			<if($krankenzimmerHTML == "")><then><tr><td colspan="5"><i>Keine</i></td></tr></then><else>
+			$krankenzimmerHTML</else></if>
+		</table>
+<br />
+		<h2>Verspätungen</h2>
+		<table border="1" width="100%" cellpadding="3">
+			<tr>
+				<th width="25%">Datum</th>
+				<th width="25%">Minuten</th>
+				<th width="50%">Kommentar</th>
+			</tr>
+			<if($verspaetungHTML == "")><then><tr><td colspan="3"><i>Keine</i></td></tr></then><else>
+			$verspaetungHTML</else></if>
+		</table>

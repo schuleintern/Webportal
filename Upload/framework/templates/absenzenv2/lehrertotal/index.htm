@@ -1,0 +1,171 @@
+{$this->header}
+
+<if($currentDate != DateFunctions::getTodayAsNaturalDate())><then>
+	<div class="alert alert-error alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+     <i class="fa fa-warning"></i> Es ist nicht der heutige Tag ausgewählt!
+     </div>
+</then></if>
+
+<form action="index.php?page=absenzenlehrer&mode=showTotal&activeKlasse={$_GET['activeKlasse']}&currentDate={$currentDate}&changeDate=1" method="post">
+<div class="row">
+	<div class="col-md-12">
+		<div class="box">
+			<div class="box-body">
+				<table class="table">
+					<tr>
+						<td width="20%">
+							<button type="submit" name="dayBack" value="1" class="form-control"><i class="fa fa-arrow-left"></i> Tag zurück</button>
+						</td>
+						<td>
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+								<input type="text" class="form-control" id="dayDate" value="$dayName, {$currentDate}" name="dayDate" onchange="submit()">
+							</div>		
+						</td>
+						<if($currentDate != DateFunctions::getTodayAsNaturalDate())><then>
+							<td width="20%"><button class="form-control" name="toToday" value="1" type="submit" ><i class="fa fa-arrow-up"></i> Zu heute springen</button></td>
+						</then>
+						</if>
+						<td width="20%">
+							<button class="form-control" name="dayForward" value="1" type="submit">Tag weiter <i class="fa fa-arrow-right"></i></button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+
+<div class="row">
+	<!-- Klassen -->
+	<div class="col-md-3">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-users"></i> Klassen (<a href="index.php?page=absenzensekretariat">Alle Klassen anzeigen</a>)</h3>
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+					$klassenListeHTML
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<if($_GET['activeKlasse'] != "")>
+		<then>
+			<!-- Schüler -->
+			<div class="col-md-3">
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title"><i class="fa fa-user"></i> Schüler $viewKlasse</h3>
+					</div>
+					<div class="box-body">
+						<table class="table table-striped">
+							$schuelerListeHTML
+						</table>
+					</div>
+				</div>
+			</div>
+		</then>
+	</if>
+	
+	
+	<!-- Krankmeldungen -->
+		<if($_GET['activeKlasse'] != "")>
+		<then>
+			<div class="col-md-6">
+		</then>
+		<else>
+			<div class="col-md-9">
+				<div class="callout callout-info">Keine Klasse ausgewählt. Es werden alle Absenzen der Schule angezeigt.</div>
+		</else>
+		</if>
+		<if($sanizimmerHTML != "")>
+			<then>
+				<div class="box box-danger">
+					<div class="box-header">
+						<h3 class="box-title"><i class="fa fa-bed"></i> Sanizimmer</h3>
+					</div>
+					<div class="box-body">
+						<table class="table table-striped">
+							<tr>
+								<th>Schueler</th>
+								<th>Seit</th>
+								<th>Bearbeiter</th>
+							</tr>
+							$sanizimmerHTML
+						</table>
+					</div>
+				</div>
+			</then>
+		</if>
+	
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-bed"></i> Absenzen $viewKlasse</h3>
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+					<tr>
+						<th>Klasse</th>
+						<th>Name</th>
+						$tabellenStunden
+						<th>Absent bis</th>
+					</tr>
+					
+					<if($krankmeldungenHTML == "")><then><tr><td colspan="4"><i>Keine Absenzen vorhanden</i></then>
+					<else>$krankmeldungenHTML</else></if>
+				</table>
+			</div>
+		</div>
+		
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-clock"></i> Verspätungen $viewKlasse</h3>
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+					<tr>
+						<th>Klasse</th>
+						<th>Name</th>
+						<th>Minuten</th>
+						<th>&nbsp;</th>
+					</tr>
+					<if($verspaetungHTML == "")><then><tr><td colspan="3"><i>Keine Verspätungen vorhanden</i></then>
+					<else>$verspaetungHTML</else></if>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<div class="box">
+	<div class="box-body">
+		<small class="label label-success"><i class="fa fas fa-pencil-alt"></i><i class="fa fa-check"></i></small>: Schriftlich entschuldigt <br />
+		<small class="label label-warning"><i class="fa fas fa-pencil-alt"></i><i class="fa fa-ban"></i></small>: Nicht schriftlich entschuldigt
+	</div>
+</div>
+
+<script>
+	$(function() {
+		$("#dayDate").datepicker({
+			format: 'DD, dd.mm.yyyy',
+	        language: "de",
+	        autoclose: true,
+	        showButtonPanel: true
+	    });
+	});
+	
+</script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+{$this->footer}

@@ -334,11 +334,11 @@ class menu {
                     $faecher = fach::getMyFachschaftsleitungFaecher(DB::getSession()->getTeacherObject());
                     
                     for($i = 0; $i < sizeof($faecher); $i++) {
-                        $htmlFachschaftsleitung .= $this->getMenuItem("klassenkalender", $faecher[$i]->getLangform(), "fa fa-briefcase", ['grade' => 'fachbetreuer', 'fachASDID' => urlencode($faecher[$i]->getASDID())]);
+                        $htmlFachschaftsleitung .= $this->getMenuItem("klassenkalender", $faecher[$i]->getLangform(), "fas fa-briefcase", ['grade' => 'fachbetreuer', 'fachASDID' => urlencode($faecher[$i]->getASDID())]);
                     }
                     
                     if($htmlFachschaftsleitung != "") {
-                        $html .= $this->startDropDown(['klassenkalender'], "Fachbetreuung", "fa fa-group", ['fachASDID' => ['ISPRESENT']]);
+                        $html .= $this->startDropDown(['klassenkalender'], "Fachbetreuung", "fas fa-briefcase", ['fachASDID' => ['ISPRESENT']]);
                         
                         $html .= $htmlFachschaftsleitung;
                         
@@ -435,7 +435,7 @@ class menu {
 
     if(!DB::getSession()->isEltern() &&
         
-        ($this->isActive("office365") || $this->isActive("homeuseprogram") || $this->isActive("downloads") || $this->isActive("office365info")
+        ($this->isActive("office365") || $this->isActive("homeuseprogram") || $this->isActive("office365info")
             
             
             
@@ -444,9 +444,9 @@ class menu {
         
         ) {
             
-            $html .= $this->startDropDown(['office365','homeuseprogram','dreamspark','downloads','downloadsteacher'], "Software / Lizenzen", "fa fa-download");
+            $html .= $this->startDropDown(['office365','homeuseprogram'], "Software / Lizenzen", "fa fa-download");
             
-            
+
             if($this->isActive("office365users") && (DB::getSession()->isTeacher() || DB::getSession()->isPupil())) {
                 $html .= $this->getMenuItem("office365users", "Office 365 Account", "fa fa-file-word");
             }
@@ -462,14 +462,6 @@ class menu {
                 $html .= $this->getMenuItem("homeuseprogram", "Home Use Program (Office)", "fa fa-file-word");
             }
 
-           
-            if($this->isActive("downloads")) {
-                $html .= $this->getMenuItem("downloads", "Unterrichtsdownloads", "fa fa-child");
-            }
-            if($this->isActive("downloads") && DB::getSession()->isTeacher()) {
-                $html .= $this->getMenuItem("downloadsteacher", "Lehrerdownloads", "fa fa-male");
-            }
-            
             
             $html .= $this->endDropDown();
         }
@@ -943,10 +935,6 @@ class menu {
 
     if((($this->isActive("mebis") || $this->isActive("database"))&& (DB::getSession()->isTeacher() || DB::getSession()->isPupil()))) {
       $html .= $this->startDropDown(['mebis','database'], "Unterrichtstools", "fa fa-cubes");
-
-      if($this->isActive("database")) {
-        $html .= $this->getMenuItem("database", "MySQL Datenbanken", "fa fa-database");
-      }
 
       if($this->isActive("mebis") && (DB::getSession()->isTeacher() || (DB::getSession()->isPupil() && DB::getSettings()->getBoolean('mebis-schueler')))) {
         $html .= $this->getMenuItem("mebis", "Mebis Account", "fa fa-compass");

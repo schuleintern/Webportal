@@ -1,0 +1,82 @@
+{$this->header}
+
+
+		<form action="index.php?page=absenzenlehrer&mode=showSchuelerVerspaetungen&schuelerAsvID={$schueler->getASVID()}&action=doBearbeitung" method="post">
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title">{$schueler->getCompleteSchuelerName()} (Klasse {$schueler->getKlasse()})</h3>
+		<br />
+		<a href="index.php?page=absenzenlehrer&mode=showGrade&grade={$schueler->getKlasse()}" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> Zurück zur Klasse</a>
+	</div>
+	
+	<div class="box-body">
+		<table class="table table-striped table-hover">
+			<tr>
+				<td><input type="checkbox" id="allVSelect" class="icheck"></td>
+				<th>Datum</th>
+				<th>Stunde</th>
+				<th>Minuten</th>
+				<th>Kommentar</th>
+				<th>Bearbeitet</th>
+			</tr>
+			$vHTML
+		</table>
+	</div>
+
+</div>
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title">Markierte Verspätungen bearbeiten</h3>
+	</div>
+	
+	<div class="box-body">
+			<div class="form-group">
+				<label>Kommentar zur Bearbeitung</label>
+				<input type="text" name="kommentar" class="form-control" placeholder="Kommentar zur Bearbeitung (inkl. Namenskürzel)">
+			</div>
+			
+			<div class="form-group">
+				<label>Bearbeitung entfernen</label>
+				<input type="checkbox" name="deleteBearbeitung" class="icheck" value="1">
+			</div>
+			<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-check"></i> Verspätungen bearbeiten</button>
+		</form>
+	</div>
+
+</div>
+
+<script>
+
+window.onload = function () {
+	$('.icheck').iCheck({
+	    checkboxClass: 'icheckbox_square-blue',
+	    radioClass: 'iradio_square-blue',
+	    increaseArea: '20%' // optional
+	  });
+	
+	$('.checkAllVerspaetungen').iCheck({
+	    checkboxClass: 'icheckbox_square-blue',
+	    radioClass: 'iradio_square-blue',
+	    increaseArea: '20%' // optional
+	  });
+	
+}
+
+
+$("#allVSelect").on('ifChanged', function(event){
+    if(this.checked) {
+    	$('.checkAllVerspaetungen').iCheck("check");
+    }
+    else {
+    	$('.checkAllVerspaetungen').iCheck("uncheck");
+    }
+});
+
+
+</script>
+
+
+{$this->footer}

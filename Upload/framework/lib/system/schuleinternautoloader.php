@@ -56,8 +56,8 @@ $classes = [
 	    'CronNextCloud',
 	    'CronVerspaetungAuswertung',
 	    'CreateTagebuchPDFs',
-	    // 'CronAllInklMail',
-        'DeleteOldElternUser'
+        'DeleteOldElternUser',
+        'MailSendDeleter'
 	],
 	'data/schulbuch' => [
 		'BuchAusleihe',
@@ -75,7 +75,6 @@ $classes = [
 		'klasse',
 		'lehrer',
 		'MatchUsersFunctions',
-		'pupil',
 		'schueler',
 		'SchuelerAdresse',
 		'SchuelerTelefonnummer',
@@ -94,6 +93,10 @@ $classes = [
         'AbsenzVerspaetung',
         'AbsenzEntschuldigungGenerator',
         'AbsenzEntschuldigung',
+        'AbsenzSchuelerInfo',
+        'Absenz',
+        'AbsenzBefreiung',
+        'AbsenzBeurlaubung',
         'AbsenzSchuelerInfo'
     ],    
     'data/respizienz' => [
@@ -132,9 +135,11 @@ $classes = [
 	'data/vplan' => [
 		'TIMEUpdate'
 	],
+    'data/schueler' => [
+        'SchuelerFremdsprache'
+    ],
 	'db' => [
 		'mysql',
-		'mysqldevdatabases',
 		'dbStruct',
 	],
 	'email' => [
