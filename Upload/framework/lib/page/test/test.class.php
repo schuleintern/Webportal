@@ -15,8 +15,11 @@ class test extends AbstractPage {
       // Put Tests here.
       // Only access for Admins
 
-    print_r(Office365Login::getEmployeeID());
+    $result = Office365Api::createMeeting("lk73@rs-unterpfaffenhofen.de", "2020-11-02T12:00:00", "2020-11-02T12:00:00", "Test vom Spi über die API :-)");
 
+    header("Content-type: text/plain");
+    print_r($result);
+    exit();
   }
 
   public static function hasSettings() {

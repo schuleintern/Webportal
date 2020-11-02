@@ -1,0 +1,32 @@
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-file-word"></i> Office 365 Anbindung</h3>
+	</div>
+	<div class="box-body">
+
+		<div class="callout callout-info"><i class="fa fa-info-circle"></i> <a href="https://schuleintern.atlassian.net/wiki/spaces/ADMINHANDBUCH/pages/3145864/Videokonferenzen+mit+Teams" target="_blank">Dokumentation im Handbuch dazu</a> </div>
+
+		Diese Integration ermöglich den Lehrkräften Meetings mit externen Teilnehmern über Teams abzuhalten.
+
+		<br />
+
+		Die Voraussetzungen sind:
+
+		<ul>
+			<li>Login der Lehrkräfte über Office 365 in SchuleIntern</li>
+			<li>Aktivierung der Office 365 Integration</li>
+		</ul>
+		
+		<if($isOffice365Active)><then>
+		<div class="callout callout-success"><i class="fa fa-plug"></i> <b>Das Portal ist erfolgreich mit Office 365 verbunden.</b></div>
+
+				Setzen Sie bei den Einstellungen dieses Moduls den Haken, damit Lehrkräfte Teams Meetings abhalten können.
+
+		</then>
+		<else>
+			<hr>
+			Bisher ist keine Verbindung mit Ihrem Office 365 Tenant herstellt worden. Daher kann dieses Modul leider nicht genutzt werden.
+		</else></if>
+	</div>
+</div>

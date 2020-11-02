@@ -88,6 +88,30 @@
               
               </then></if>
 
+
+				  <if($canAddMeeting)><then>
+				  <tr>
+					  <td style="width:10%"><b>Videokonferenz URL anhängen?</b></td>
+					  <td><input type="checkbox" name="addMeetingURL" value="1" class="onoffswitch-checkbox" id="addMeetingURL">
+
+						  <div class="input-group">
+							  <label>Datum</label>
+							  <input type="text" name="meetingDate" id="meetingDate" value="<expression>date('d.m.Y')</expression>" class="form-control">
+						  </div>
+
+						  <div class="input-group">
+							  <label>Uhrzeit</label>
+							  <select name="meetingTimeHour" class="btn">{$meetingTimeSelectHour}</select>:<select name="meetingTimeMinutes" class="btn">{$meetingTimeSelectMinute}</select> Uhr
+						  </div>
+
+						  <hr>
+						  Es wird eine Videokonferenz <u>bei Ihnen in Teams</u> zum unten angegebenen Datum und Uhrzeit erstellt. Die Videokonferenz wird in Ihrem Teams Kalender angezeigt. Die Empfänger der Nachricht erhalten einen Link zur Teilnahme. (Auch ohne Teams Account)
+						  Der Termin wird mit 1 Stunde angelegt.
+					  </td>
+				  </tr>
+
+			  </then></if>
+
               
                             <tr>
 		              	<td style="width:10%"><b>Antworten nicht erlauben?</b></td>
@@ -126,7 +150,22 @@
 			    statusbar: false
 			});
 			</script>
-			
+
+
+			<if($canAddMeeting)><then>
+				<script>
+					$(document).ready(function(){
+						$("#meetingDate").datepicker({
+							format: 'dd.mm.yyyy',
+							language: "de",
+							autoclose: true,
+							showButtonPanel: true
+
+						});
+					});				</script>
+
+			</then></if>
+
 			
 	<div class="modal fade" id="addAttachment" tabindex="-1" role="dialog">
 		  <div class="modal-dialog" role="document">

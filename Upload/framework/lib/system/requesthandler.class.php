@@ -36,9 +36,9 @@ class requesthandler {
   	'skin' => [
   		'SkinSettings'
   	],
-    'nextcloud' => [
+    /**  'nextcloud' => [
         'nextcloud'
-    ],
+    ], **/
     'json' => [
         'jsonApi'
     ],
@@ -156,7 +156,8 @@ class requesthandler {
     'office365' => [
       'office365',
       'office365users',
-      'office365info'
+      'office365info',
+        'Office365Meetings'
     ],
     'oldpages' => [
       'homeuseprogram',
