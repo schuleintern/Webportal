@@ -34,7 +34,16 @@
 				
 				</td>
 			</tr>
-			
+
+			<if(Office365Meetings::isActiveForTeacher())><then>
+			<tr>
+				<td>Ist Online Sprechtag:</td>
+				<td>
+					<input type="checkbox" name="isOnline" value="1" class="modulebooleansetting" id="isOnline"<expression>(self::$currentSprechtag['sprechtagIsOnline'] > 0 ? " checked" : "")</expression>><br />
+					Bei einem Online Sprechtag werden für die angegebenen Slots Teams Meetings im Kalender des jeweiligen Lehrers erstellt. (Soehe Office 365 Teams Meetings)<br />
+				</td>
+			</tr>
+			</then></if>
 			<tr>
 				<td>Begin des ersten Slots:<br /><i>Format: HH:mm</i></td>
 				<td>
@@ -92,21 +101,6 @@
 					<small>Nur Eltern von Kindern dieser Klassen können den Sprechtag buchen. Wenn Sie allte Klassen entfernen, wird der Sprechtag automatisch für alle Klassen markiert.</small>
 				</td>
 			</tr>
-			<!-- 
-			<tr>
-				<td>Wie viel Prozent der Slots sind online buchbar?</td>
-				<td>
-	              <div class="input-group">
-	                <span class="input-group-addon"><i class="fa fa-percent"></i></span>
-	              <input type="number" name="sprechtagPercentSlotsOnlineBuchbar" autocomplete="off" class="form-control" value="<expression>self::$currentSprechtag['sprechtagPercentPerTeacherOnlineBookable']</expression>">
-	              </div>					
-	              
-					<small>Die Zahl bezieht sich auf die Zahl der Slots bei jedem Lehrer. (z.B. bei der Eingabe von 80% sind bei 10 <u>buchbaren</u> Slots bei einer Lehrerin nur 8 online buchbar. Der Rest bleibt frei für manuelle Buchung.)
-					</small>
-					<br /><small><b>Hinweis:</b> Sie können bei der Bearbeitung der Slots manche Slots allgemein von der Online Buchung ausnehmen.</small>
-				</td>
-			</tr>
-			-->
 			
 			<tr>
 				<td>Ist aktiv:</td>
@@ -136,8 +130,7 @@
 			<p><a href="$selfURL&mode=printZettel&sprechtagID=$sprechtagID&showMail=1" class="btn btn-primary btn-block"><i class="fa fa-file-pdf"></i> Aushangzettel drucken (mit E-Mailadressen)</a></p>
 			
 			<p><a href="$selfURL&mode=exportCSV&sprechtagID=$sprechtagID" class="btn btn-primary btn-block"><i class="fa fa-table"></i> CSV Export</a></p>
-			
-			
+
 			<p><a href="$selfURL&mode=printZettel&sprechtagID=$sprechtagID&noNames=1" class="btn btn-primary btn-block"><i class="fa fa-file-pdf"></i> Aushangzettel ohne Namen drucken</a></p>
 			
 			<p><a href="#"  class="btn btn-danger btn-block" onclick="javascrpipt:confirmAction('Soll der Elternsprechtag wirklich gelöscht werden?','$selfURL&mode=deleteSprechtag&sprechtagID=$sprechtagID');"><i class="fa fa-trash"></i> Sprechtag löschen<br /><small> (mit Sicherheitsabfrage)</small></a></p>
@@ -151,8 +144,13 @@
 				<i class="fa fa-info-circle"></i> <u>Löschen Sie einen Sprechtag nach Ende nicht.</u> Sie können ihn später recyceln, in dem Sie alle Buchungen löschen und das Datum ändern. Abgelaufene Sprechtage werden den Eltern und den Lehrern nicht angezeigt.
 			
 			</div>
+				<if(Office365Meetings::isActiveForTeacher())><then>
+				<div class="callout callout-info">
+					<i class="fa fa-info-circle"></i> Bei einem Online Sprechtag werden die Teams Meetings nach dem Ende der Buchungsfrist automatisch erstellt. Sie sollten daher diese Frist nachträglich nicht mehr ändern.
+				</div>
 
-		
+			</then></if>
+
 			</div>
 		</div>
 
@@ -169,10 +167,15 @@
 				});
 				
 				$("#selectKlasse").select2();
+
+				$('#isOnline').iCheck({
+					checkboxClass: 'icheckbox_square-blue',
+					radioClass: 'iradio_square-blue',
+					increaseArea: '20%' // optional
+				});
 			});
 			
 			</script>
-		
 		
 		</then>
 		<else>
