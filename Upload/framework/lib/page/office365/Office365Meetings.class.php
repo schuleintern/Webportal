@@ -19,6 +19,12 @@ class Office365Meetings extends AbstractPage {
 	public static function displayAdministration($selfURL) {
 	    $isOffice365Active = DB::getSettings()->getBoolean('office365-active');
 
+
+        if($isOffice365Active && oAuth2Auth::ssoTeacherActive()) {
+            $canActivateMeetings = true;
+        }
+        else $canActivateMeetings = false;
+
 	    // Handbuch: https://schuleintern.atlassian.net/wiki/spaces/ADMINHANDBUCH/pages/3145864/Videokonferenzen+mit+Teams
 
         $html = "";
@@ -64,6 +70,8 @@ class Office365Meetings extends AbstractPage {
             }
         }
 
+	    return [];
+
 	}
 	
 	
@@ -84,6 +92,13 @@ class Office365Meetings extends AbstractPage {
 	    return DB::getSettings()->getBoolean('office365-active') && oAuth2Auth::ssoTeacherActive() && DB::getSettings()->getBoolean("office365-meeting-teacher");
     }
 
+    /**
+     * Immer aktiv.
+     * @return bool
+     */
+    public static function siteIsAlwaysActive() {
+        return true;
+    }
 }
 
 
