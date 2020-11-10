@@ -65,6 +65,7 @@
 									<tr>
 										<th style="width:20%">Einstellung</th>
 										<th>Wert</th>
+										<th>Historie</th>
 									</tr>
 									
 									$settingsHTML
@@ -167,6 +168,23 @@
 		  </div>
 		</div>
 
+<div class="modal fade" id="settingsHistory" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title"><i class="fa fa-sticky-note"></i> Historie der Einstellungen</h4>
+			</div>
+			<div class="modal-body">
+				<div id="settingsHistoryHTML"></div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 				<if(DB::getSession()->isAdmin())><then>
 
 	<div class="modal fade" id="addpersontoadmingroup" tabindex="-1" role="dialog">
@@ -198,26 +216,40 @@
 
 <script>
 $(function() {
-	 
-    $("#selectUser").autocomplete({
-        source: "index.php?page=administrationmodule&action=ajaxCompleUserName&module={$_REQUEST['module']}",
-        minLength: 2,
-        select: function(event, ui) {
-            var id = ui.item.id;
-            var display = ui.item.label;
-            $("#userIDAddUserAdmin").val(id);
-            $("#selectUser").hide();
-            $("#selectedUserName").html('<b>Ausgewählter Benutzer:</b> ' + display);
-            $("#resetSelectedUserName").show();
-            
-        },
-        
-        open: function(event, ui) {
-            $(".ui-autocomplete").css("z-index", 999999);
-        }
-    });
- 
+
+	$("#selectUser").autocomplete({
+		source: "index.php?page=administrationmodule&action=ajaxCompleUserName&module={$_REQUEST['module']}",
+		minLength: 2,
+		select: function (event, ui) {
+			var id = ui.item.id;
+			var display = ui.item.label;
+			$("#userIDAddUserAdmin").val(id);
+			$("#selectUser").hide();
+			$("#selectedUserName").html('<b>Ausgewählter Benutzer:</b> ' + display);
+			$("#resetSelectedUserName").show();
+
+		},
+
+		open: function (event, ui) {
+			$(".ui-autocomplete").css("z-index", 999999);
+		}
+	});
 });
+
+
+    function showSettingsHistory(settingName) {
+    	// AJAX
+		$.ajax({
+			url:"index.php?page=administrationmodule&action=ajaxGetSettingsHistory&module={$_REQUEST['module']}&settingName="+settingName,
+			success:function(data) {
+				console.log(data);
+				$("#settingsHistoryHTML").html(data.settingHistoryHTML);
+				$("#settingsHistory").modal("show");
+			}
+		});
+	}
+ 
+
 
 </script>
 

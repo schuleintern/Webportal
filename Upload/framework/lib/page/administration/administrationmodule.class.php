@@ -49,6 +49,11 @@ class administrationmodule extends AbstractPage {
 			$this->ajaxCompleteUserName();
 			exit(0);
 		}
+
+        if($_REQUEST['action'] == 'ajaxGetSettingsHistory') {
+            $this->ajaxGetSettingsHistory();
+            exit(0);
+        }
 		
 		if($_REQUEST['action'] == 'addAdmin' && DB::getSession()->isAdmin()) {
 			$newUserID = intval($_REQUEST['userID']);
@@ -191,8 +196,8 @@ class administrationmodule extends AbstractPage {
 							}
 						break;
 					}
-			
-					DB::getDB()->query("INSERT INTO settings (settingName, settingValue) values('" . $settings[$s]['name'] . "','" . DB::getDB()->escapeString(($saveValue)) . "') ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($saveValue) . "'");
+
+					DB::getSettings()->setValue($settings[$s]['name'], $saveValue);
 				}
 				else {
 					switch($settings[$s]['typ']) {
@@ -287,6 +292,99 @@ class administrationmodule extends AbstractPage {
 		PAGE::kill(true);
 		//exit(0);
 		
+	}
+
+	private function ajaxGetSettingsHistory() {
+        header("Content-type: application/json");
+
+        $module = $this->page;
+
+        $settingName = $_REQUEST['settingName'];
+
+        $result = [
+            'settingName' => $settingName,
+            'settingHistoryHTML' => "<table class='table table-striped table-hover table-bordered'><tr><th>Zeitpunkt</th><th>Alter Wert</th><th>Neuer Wert</th><th>Benutzer</th></tr>"
+        ];
+
+        $hasSettings = $module::hasSettings();
+
+        /**
+         *                 'changeTime' => $d['settingHistoryChangeTime'],
+        'oldValue' => $d['settingHistoryOldValue'],
+        'newValue' => $d['settingHistoryNewValue'],
+        'userID' => $d['settingHistoryUserID']
+         */
+
+
+        if($hasSettings) {
+            $settings = $module::getSettingsDescription();
+
+            for($i = 0; $i < sizeof($settings); $i++) {
+                if($settings[$i]['name'] == $_REQUEST['settingName']) {
+                    $historySettings = DB::getSettings()->getHistory($settings[$i]['name']);
+
+
+
+                    for($h = 0; $h < sizeof($historySettings); $h++) {
+
+
+                        $username = "n/a";
+
+                        if($historySettings[$h]['userID'] == 0) $username = "<i>Systemänderung</i>";
+
+                        $user = user::getUserByID($historySettings[$h]['userID']);
+                        if($user != null) $username = $user->getDisplayNameWithFunction();
+                        else $username = "n/a";
+
+                        $result['settingHistoryHTML'] .= "<tr>";
+                        $result['settingHistoryHTML'] .= "<td>" . functions::makeDateFromTimestamp($historySettings[$h]['changeTime']) . "</td>";
+
+                        if($settings[$i]['typ'] == 'BILD') {
+
+                            $uploadAlt = FileUpload::getByID($historySettings[$h]['oldValue']);
+                            $uploadNeu = FileUpload::getByID($historySettings[$h]['newValue']);
+
+                            if($uploadAlt != null) {
+                                $result['settingHistoryHTML'] .= "<td><a href='" . $uploadAlt->getURLToFile() . "' target='_blank'>Download / Anzeigen</a></td>";
+                            }
+                            else {
+                                $result['settingHistoryHTML'] .= "<td>Nicht mehr verfügbar</td>";
+                            }
+
+                            if($uploadNeu != null) {
+                                $result['settingHistoryHTML'] .= "<td><a href='" . $uploadNeu->getURLToFile() . "' target='_blank'>Download / Anzeigen</a></td>";
+                            }
+                            else {
+                                $result['settingHistoryHTML'] .= "<td>Nicht mehr verfügbar</td>";
+                            }
+                        }
+                        else if($settings[$i]['typ'] == 'BOOLEAN') {
+                            $result['settingHistoryHTML'] .= "<td>" . ($historySettings[$h]['oldValue'] > 0 ? "Ja" : "Nein") . "</td>";
+                            $result['settingHistoryHTML'] .= "<td>" . ($historySettings[$h]['newValue'] > 0 ? "Ja" : "Nein") . "</td>";
+
+                        }
+                        else {
+                            $result['settingHistoryHTML'] .= "<td>" . $historySettings[$h]['oldValue'] . "</td>";
+                            $result['settingHistoryHTML'] .= "<td>" . $historySettings[$h]['newValue'] . "</td>";
+                        }
+
+
+                        $result['settingHistoryHTML'] .= "<td>" . $username . "</td>";
+
+                        $result['settingHistoryHTML'] .= "</tr>";
+
+                    }
+
+                }
+            }
+
+
+        }
+
+        $result['settingHistoryHTML'] .= "</table>";
+
+        echo json_encode($result);
+        exit(0);
 	}
 	
 	private function ajaxCompleteUserName() {
