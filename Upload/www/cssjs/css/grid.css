@@ -3,6 +3,10 @@
   display: block;
 }
 
+.blockInline {
+  display: inline-block;
+}
+
 .flex {
   display: flex;
   flex-direction: column;
@@ -58,9 +62,7 @@
 }
 
 
-.width-100p {
-  width: 100%;
-}
+
 
 .flex-b-50 {
   flex: 1;
@@ -82,10 +84,6 @@
 }
 
 
-
-.height_35 {
-  max-height: 35vh !important;
-}
 
 .width-form {
   width: 20rem;
@@ -117,6 +115,21 @@
 .width-100p {
   width: 100%;
 }
+
+
+
+.height-2rem {
+  height: 2rem;
+}
+
+.height_35 {
+  max-height: 35vh !important;
+}
+
+
+
+
+
 
 .padding-xs {
   padding: 0.3rem;

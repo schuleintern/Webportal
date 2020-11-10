@@ -32,32 +32,30 @@
                   class="padding-t-m" >
                   
                   <div v-bind:key="k" v-for="(gruppe, k) in item.gruppen"
-                    class="gruppe">
+                    class="gruppe padding-s box_1 margin-l-m margin-r-m"
                     
-                    <div class="padding-s bg-grau text-white"
-                      v-bind:style="{ backgroundColor: gruppe.gruppe.farbe }"
-                      v-on:click="openEintrag(gruppe)">
-                      <div class="text-big-2">{{gruppe.gruppe.name}}</div>
-                      <div class="padding-t-s padding-b-s">
-                        <span v-if="gruppe.schueler.length > 0 && gruppe.gruppe.absenz_anz == 0" class="bg-white text-grey border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
-                          v-bind:style="{ color: gruppe.gruppe.farbe }">
-                          <i class="fa fa-child margin-r-m"></i>{{gruppe.schueler.length}}
-                        </span>
-                        <span v-show="gruppe.gruppe.absenz_anz" class="bg-white text-grey border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
-                          v-bind:style="{ color: gruppe.gruppe.farbe }">
-                          <i class="fa fa-child margin-r-m"></i>{{gruppe.schueler.length-gruppe.gruppe.absenz_anz}} <span class="text-small">({{gruppe.schueler.length}})</span>  
-                        </span>
-                        <span v-show="gruppe.gruppe.absenz_anz" class="bg-white text-red border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold">
-                          <i class="fa fa-bed margin-r-m"></i>{{gruppe.gruppe.absenz_anz}}
-                        </span>
-                        <div class="flex-1 margin-t-m" v-show="gruppe.gruppe.raum"><i class="fas fa-map-marker-alt"></i> {{gruppe.gruppe.raum}}</div>
-                      </div>
+                    v-on:click="openEintrag(gruppe)">
+
+                    <div class="text-big-2">
+                      <span v-if="gruppe.gruppe.farbe" style="width:2rem; height:2rem; display:inline-block;" v-bind:style="{ backgroundColor: gruppe.gruppe.farbe }" class="border-radius"  ></span>
+                      {{gruppe.gruppe.name}}</div>
+                    <div class="padding-t-s padding-b-s">
+                      <span v-if="gruppe.schueler.length > 0 && gruppe.gruppe.absenz_anz == 0" class=" text-grau bg-white border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
+                        v-bind:style="{ color: gruppe.gruppe.farbe }">
+                        <i class="fa fa-child margin-r-m"></i>{{gruppe.schueler.length}}
+                      </span>
+                      <span v-show="gruppe.gruppe.absenz_anz" class="bg-white  text-grau border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
+                        v-bind:style="{ color: gruppe.gruppe.farbe }">
+                        <i class="fa fa-child margin-r-m"></i>{{gruppe.schueler.length-gruppe.gruppe.absenz_anz}} <span class="text-small">({{gruppe.schueler.length}})</span>  
+                      </span>
+                      <span v-show="gruppe.gruppe.absenz_anz" class="bg-white  text-red border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold">
+                        <i class="fa fa-bed margin-r-m"></i>{{gruppe.gruppe.absenz_anz}}
+                      </span>
+                      <div class="flex-1 margin-t-m text-grey" v-show="gruppe.gruppe.raum"><i class="fas fa-map-marker-alt"></i> {{gruppe.gruppe.raum}}</div>
                     </div>
 
                   </div>
-                 
-                  
-                  
+
                 </div>
               </td>
             </tr>
