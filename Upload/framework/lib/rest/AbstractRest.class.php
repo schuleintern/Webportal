@@ -63,13 +63,19 @@ abstract class AbstractRest {
 	 */
 	public function acl() {
 		$moduleClass = $this->aclModuleName();
-		$this->acl = ACL::getAcl($this->user, $moduleClass);
+		if ($moduleClass) {
+			$this->acl = ACL::getAcl($this->user, $moduleClass);
+		}
 	}
 
-	public function getAclByID($id, $showRight = false) {
+	public function getAclByID($selector = false, $showRight = false) {
 
-		if ( intval($id) > 0) {
-			$acl = ACL::getAcl($this->user, false, $id);
+		if ( !$selector && $this->aclModuleName() ) {
+			$selector = $this->aclModuleName();
+		}
+
+		if ( $selector ) {
+			$acl = ACL::getAcl($this->user, $selector );
 			if ($showRight) {
 				return [ 'rights' => $acl['rights'], 'owne' => $acl['owne'] ];
 			} else {

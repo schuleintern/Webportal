@@ -56,6 +56,7 @@ class RestSetAcl extends AbstractRest {
 	}
 
 
+
 }	
 
 ?>
