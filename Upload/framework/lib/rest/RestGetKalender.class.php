@@ -24,7 +24,7 @@ class RestGetKalender extends AbstractRest {
 				'kalenderColor' => $row['kalenderColor'],
 				'kalenderSort' => intval($row['kalenderSort']),
 				'kalenderPreSelect' => intval($row['kalenderPreSelect']),
-				'kalenderAcl' => $this->getAclByID($row['kalenderAcl']),
+				'kalenderAcl' => $this->getAclByID($row['kalenderAcl'], true),
 				'kalenderFerien' => intval($row['kalenderFerien']),
 			];
 
@@ -79,6 +79,10 @@ class RestGetKalender extends AbstractRest {
 		return 'kalenderAllInOne';
 	}
 
+	public static function getAdminGroup() {
+    return 'Webportal_Kalender_allInOne_Admin';
+	}
+	
 }	
 
 ?>
