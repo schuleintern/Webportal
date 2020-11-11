@@ -9,7 +9,7 @@
 class ACL {
 
 
-  public function getAcl($user, $moduleClass = false, $id = false) {
+  public function getAcl($user, $selector = false) {
 
     //return 'ACL';
     // $userID = DB::getSession()->getUser();
@@ -37,11 +37,17 @@ class ACL {
 
 		$acl = array_merge( $acl, self::getBlank() );
 
+		if ( intval($selector) > 1 ) {
+			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = ".intval($selector)." ");
+		} else {
 
-		if ($moduleClass && $id == false) {
-			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$moduleClass."' ");
-		} else if ($moduleClass == false && $id) {
-			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = ".intval($id)." ");
+
+			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$selector."' ");
+			if ($aclDB && $aclDB['id'] ) {
+				if ( DB::getSession()->isMember($selector::getAdminGroup()) ) {
+					$acl['user']['admin'] = true;
+				}
+			}
 		}
 
 		if (!$aclDB || !$aclDB['id'] ) {
@@ -63,14 +69,6 @@ class ACL {
 		if (!$acl['user']['schueler'] && !$acl['user']['lehrer'] && !$acl['user']['eltern']) {
 			$acl['user']['none'] = 1;
 		}
-
-		if (!$id) {
-			if ( DB::getSession()->isMember($moduleClass::getAdminGroup()) ) {
-				$acl['user']['admin'] = true;
-			}
-		}
-		
-		
 		
 
 		if ( $acl['user']['schueler'] == 1 ) {
@@ -254,6 +252,7 @@ class ACL {
 
 		}
 
+		return [];
 	}
 
 	public function getBlank() {

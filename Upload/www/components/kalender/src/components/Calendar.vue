@@ -174,7 +174,7 @@ export default {
       //console.log(day, this.eintraege)
 
       var ret = [];
-
+      //console.log(this.acl);
       this.eintraege.forEach(function (eintrag) {
 
         // if( that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD HH:mm:ss', true)
@@ -185,44 +185,51 @@ export default {
         // if( that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true)
         //   .isSame(day[1], 'day') 
         //   ) {
-        var date_start = new Date(eintrag.eintragDatumStart);
-        var date_end = new Date(eintrag.eintragDatumEnde);
 
-        var date_day = new Date(day[1]);
+        //console.log(eintrag);
+        if ( that.acl && that.acl.rights
+          && parseInt(that.acl.read) != 1 ) {
 
-        if ( !date_end.getTime() ) {
-          date_end = new Date(eintrag.eintragDatumStart);
-        }
 
-        //console.log(date1, date0, date2);
-        if(
-          date_start <= date_day && date_day <= date_end
-        ) {
-          
-          var wholeDay = false;
-          if (eintrag.eintragTimeStart == eintrag.eintragTimeEnde) {
-            wholeDay = true;
+          var date_start = new Date(eintrag.eintragDatumStart);
+          var date_end = new Date(eintrag.eintragDatumEnde);
+
+          var date_day = new Date(day[1]);
+
+          if ( !date_end.getTime() ) {
+            date_end = new Date(eintrag.eintragDatumStart);
           }
-          //console.log( eintrag.eintragTimeStart );
-          ret.push({
-            'id': eintrag.eintragID,
-            'title': eintrag.eintragTitel,
-            'startDay': eintrag.eintragDatumStart, //that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD'),
-            //'start': eintrag.eintragDatumStart,
-            'startTime': that.$moment(eintrag.eintragTimeStart, 'HH:mm:ss', true).format('HH:mm'),
-            'endDay': eintrag.eintragDatumEnde,
-            'endTime': that.$moment(eintrag.eintragTimeEnde, 'HH:mm:ss', true).format('HH:mm'), 
-            'wholeDay': wholeDay,
-            'place': eintrag.eintragOrt,
-            'comment': eintrag.eintragKommentar,
-            'calenderID': eintrag.kalenderID,
-            'categoryID': eintrag.eintragKategorieID,
-            'createdTime': eintrag.eintragCreatedTime,
-            'modifiedTime': eintrag.eintragModifiedTime,
-            'createdUserID': eintrag.eintragUserID,
-            'createdUserName': eintrag.eintragUserName
-          });
-          //console.log(ret);
+
+          //console.log(date1, date0, date2);
+          if(
+            date_start <= date_day && date_day <= date_end
+          ) {
+            
+            var wholeDay = false;
+            if (eintrag.eintragTimeStart == eintrag.eintragTimeEnde) {
+              wholeDay = true;
+            }
+            //console.log( eintrag.eintragTimeStart );
+            ret.push({
+              'id': eintrag.eintragID,
+              'title': eintrag.eintragTitel,
+              'startDay': eintrag.eintragDatumStart, //that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD'),
+              //'start': eintrag.eintragDatumStart,
+              'startTime': that.$moment(eintrag.eintragTimeStart, 'HH:mm:ss', true).format('HH:mm'),
+              'endDay': eintrag.eintragDatumEnde,
+              'endTime': that.$moment(eintrag.eintragTimeEnde, 'HH:mm:ss', true).format('HH:mm'), 
+              'wholeDay': wholeDay,
+              'place': eintrag.eintragOrt,
+              'comment': eintrag.eintragKommentar,
+              'calenderID': eintrag.kalenderID,
+              'categoryID': eintrag.eintragKategorieID,
+              'createdTime': eintrag.eintragCreatedTime,
+              'modifiedTime': eintrag.eintragModifiedTime,
+              'createdUserID': eintrag.eintragUserID,
+              'createdUserName': eintrag.eintragUserName
+            });
+            //console.log(ret);
+          }
         }
 
       });

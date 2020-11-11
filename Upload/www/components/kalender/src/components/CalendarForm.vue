@@ -1,11 +1,12 @@
 <template>
+
   <div class="form-modal" v-on:click.self="handlerCloseModal" v-show="modalActive">
     <div class="form form-style-2 form-modal-content">
       <div class="form-modal-close" v-on:click="handlerCloseModal"><i class="fa fa-times"></i></div>
 
       <div class="text-small">Datum:</div>
       <!-- <div class="labelDay">{{form.startDay}}</div> -->
-
+{{form.calenderID}}
       <date-picker
         v-model="form.startDay"
         type="date"
@@ -117,11 +118,11 @@ export default {
     }
   },
   watch:{
-    calendarSelected: function () {
-      if (this.calendarSelected[0]) {
-        this.form.calenderID = this.calendarSelected[0];
-      }
-    },
+    // calendarSelected: function () {
+    //   if (this.calendarSelected[0]) {
+    //     this.form.calenderID = this.calendarSelected[0];
+    //   }
+    // },
     'form.startDay': function (newValue,oldValue) {
 
       if (this.form.endDay) {
@@ -268,7 +269,7 @@ export default {
       if (this.form.title == '') {
         this.formErrors.push('Title required.');
       }
-      if (this.form.calenderID == '') {
+      if (!this.form.calenderID || this.form.calenderID == '') {
         this.formErrors.push('Kalender required.');
       }
       

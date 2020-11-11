@@ -607,7 +607,7 @@ abstract class AbstractPage {
 		}
 		$moduleClass = get_called_class();
 		if ($userID && $moduleClass) {
-			$this->acl = ACL::getAcl($userID, $moduleClass, false);
+			$this->acl = ACL::getAcl($userID, $moduleClass);
 		}
 	}
 
