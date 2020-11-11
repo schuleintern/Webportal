@@ -38,7 +38,8 @@ class DeleteOldElternUser extends AbstractCron {
 	                        if($schueler->isAusgetreten()) $delete = true;
 
 	                        if($delete) {
-	                            $aktionen[] =  "Kind " . $kinder[$k] . " aus Benutzer " . $alleELtern[$i]->getUserName() . " löschen.";
+	                            $elternObjekt->removeSchueler($schueler);
+	                            $aktionen[] =  "Kind " . $kinder[$k] . " aus Benutzer " . $alleELtern[$i]->getUserName() . " gelöscht.";
                             }
                         }
 
@@ -47,7 +48,7 @@ class DeleteOldElternUser extends AbstractCron {
                 }
             }
 
-	        $this->cronResult['resultText'] = "Aktionen, die durchgeführt werden: \n" . implode("\n", $aktionen);
+	        $this->cronResult['resultText'] = "Aktionen, die durchgeführt wurden: \n" . implode("\n", $aktionen);
 
 	    }
 	}
