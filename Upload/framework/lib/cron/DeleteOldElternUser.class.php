@@ -34,8 +34,11 @@ class DeleteOldElternUser extends AbstractCron {
 	                        if($schueler == null) {
 	                            $delete = true;
                             }
-
-	                        if($schueler->isAusgetreten()) $delete = true;
+	                        else {
+	                            if($schueler->isAusgetreten()) {
+	                                $delete = true;
+                                }
+                            }
 
 	                        if($delete) {
 	                            $elternObjekt->removeSchueler($schueler);
