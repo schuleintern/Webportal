@@ -176,7 +176,8 @@ $classes = [
 		'PAGE',
 		'FILE',
 		'FACTORY',
-		'ACL'
+		'ACL',
+        'Cache'
 
 	],
 	'tpl' => [

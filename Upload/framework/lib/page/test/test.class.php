@@ -15,11 +15,10 @@ class test extends AbstractPage {
       // Put Tests here.
       // Only access for Admins
 
-    $result = Office365Api::createMeeting("lk73@rs-unterpfaffenhofen.de", "2020-11-02T12:00:00", "2020-11-02T12:00:00", "Test vom Spi über die API :-)");
 
-    header("Content-type: text/plain");
-    print_r($result);
-    exit();
+    $alleLehrer = DB::getCache()->getAsObject('alleLehrer');
+
+    Debugger::debugObject($alleLehrer);
   }
 
   public static function hasSettings() {

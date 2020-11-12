@@ -5,6 +5,7 @@
 class DB {
 	private static $db;
 	private static $tpl;
+	private static $cache;
 	
 	/**
 	 * 
@@ -52,6 +53,7 @@ class DB {
 		self::$db->connect();
 		self::$settings = new settings();
 		self::$settings->init();
+		self::$cache = new Cache();
 
 		
 	}
@@ -69,6 +71,13 @@ class DB {
 	public static function getTPL() {
 		return self::$tpl;
 	}
+
+    /**
+     * @return Cache
+     */
+	public static function getCache() {
+	    return self::$cache;
+    }
 	
 	/**
 	 * 
