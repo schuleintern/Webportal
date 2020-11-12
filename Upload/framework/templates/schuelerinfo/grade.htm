@@ -18,8 +18,8 @@
 				</else></if>
 				
 				</else></if>
-				</h3><br />
-				<a href="index.php?page=schuelerinfo"><i class="fa fa-step-backward"></i> Zurück zur Klassenübersicht</a><br />
+				</h3>
+				<a href="index.php?page=schuelerinfo" class="btn btn-primary pull-right"><i class="fa fa-step-backward"></i> Zurück zur Klassenübersicht</a><br />
 				
 				Für weitere Informationen (Adressen, Dokumente, etc..) auf den Schülernamen klicken.
 			</div>
@@ -34,7 +34,7 @@
 						<if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren'))><then>
 							<th style="width:70px"><i class="fa fa-picture"></i></th>
 						</then></if>
-						<th style="width:30%">Schülername</th>
+						<th style="width:50%">Schülername</th>
 						<th>Aktionen</th>
 					</tr>
 					$schuelerListe
