@@ -9,7 +9,7 @@
 class ACL {
 
 
-  public function getAcl($user, $selector = false) {
+  public function getAcl($user, $selector = false, $adminGroup = false) {
 
     //return 'ACL';
     // $userID = DB::getSession()->getUser();
@@ -39,6 +39,11 @@ class ACL {
 
 		if ( intval($selector) > 1 ) {
 			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = ".intval($selector)." ");
+			
+			if ( $adminGroup && DB::getSession()->isMember($adminGroup) ) {
+				$acl['user']['admin'] = true;
+			}
+
 		} else {
 
 
@@ -49,6 +54,8 @@ class ACL {
 				}
 			}
 		}
+
+		
 
 		if (!$aclDB || !$aclDB['id'] ) {
 			return $acl;

@@ -157,6 +157,10 @@ class RestSetKalenderEintrag extends AbstractRest {
 		return 'kalenderAllInOne';
 	}
 
+	public static function getAdminGroup() {
+    return 'Webportal_Kalender_allInOne_Admin';
+	}
+	
 }	
 
 ?>

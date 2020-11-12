@@ -56,6 +56,10 @@ abstract class AbstractRest {
 		return get_called_class();
 	}
 
+	public static function getAdminGroup() {
+    return false;
+	}
+
 	
 	/**
 	 * Access Control List
@@ -68,14 +72,10 @@ abstract class AbstractRest {
 		}
 	}
 
-	public function getAclByID($selector = false, $showRight = false) {
+	public function getAclByID($id = false, $showRight = false) {
 
-		if ( !$selector && $this->aclModuleName() ) {
-			$selector = $this->aclModuleName();
-		}
-
-		if ( $selector ) {
-			$acl = ACL::getAcl($this->user, $selector );
+		if ( $id ) {
+			$acl = ACL::getAcl($this->user, $id, $this->getAdminGroup() );
 			if ($showRight) {
 				return [ 'rights' => $acl['rights'], 'owne' => $acl['owne'] ];
 			} else {
