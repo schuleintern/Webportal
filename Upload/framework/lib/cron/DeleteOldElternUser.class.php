@@ -41,7 +41,7 @@ class DeleteOldElternUser extends AbstractCron {
                             }
 
 	                        if($delete) {
-	                            $elternObjekt->removeSchueler($kinder[$k]);
+	                            $elternObjekt->removeSchuelerByASVID($kinder[$k]);
 	                            $aktionen[] =  "Kind " . $kinder[$k] . " aus Benutzer " . $alleELtern[$i]->getUserName() . " gelöscht.";
                             }
                         }
