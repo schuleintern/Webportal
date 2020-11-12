@@ -244,7 +244,7 @@ class Absenz {
   }
 
   public function setJetztGekommen() {
-    $stunde = stundenplan::getCurrentStunde(date("H"),date("i"));
+    $stunde = stundenplan::getCurrentStunde();
 
     $stunden = array();
     for($i = 1; $i <= $stunde; $i++) {
