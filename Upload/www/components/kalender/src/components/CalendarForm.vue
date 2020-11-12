@@ -6,7 +6,6 @@
 
       <div class="text-small">Datum:</div>
       <!-- <div class="labelDay">{{form.startDay}}</div> -->
-{{form.calenderID}}
       <date-picker
         v-model="form.startDay"
         type="date"
