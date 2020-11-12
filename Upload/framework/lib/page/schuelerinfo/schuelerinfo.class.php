@@ -170,6 +170,16 @@ class schuelerinfo extends AbstractPage {
   	$klasse = klasse::getByName($_REQUEST['klasse']);
 
   	if($klasse != null) {
+
+  	      if(DB::getCache()->isItemSet('schuelerinfo-fotoseite-' . $klasse->getKlassenName())) {
+  	        $upload = FileUpload::getByID(DB::getCache()->getAsText('schuelerinfo-fotoseite-' . $klasse->getKlassenName()));
+  	        if($upload != null) {
+  	          $upload->sendFile();
+  	          exit();
+            }
+          }
+
+
   		 $schueler = $klasse->getSchueler(true);
 
   		 // cssjs/images/userimages/default.png
@@ -207,7 +217,19 @@ class schuelerinfo extends AbstractPage {
   		 $print = new PrintNormalPageA4WithHeader('Fotoübersicht Klasse ' . $klasse->getKlassenName());
   		 $print->setHTMLContent($html);
   		 $print->setPrintedDateInFooter();
-  		 $print->send();
+
+
+        if(DB::getCache()->isCacheEnabled()) {
+            $upload = FileUpload::uploadFromTCPdf('Fotoseite ' . $klasse->getKlassenName(), $print);
+            $uploadID = $upload['uploadobject']->getID();
+            DB::getCache()->storeText('schuelerinfo-fotoseite-' . $klasse->getKlassenName(), $uploadID);
+        }
+
+
+        $print->send();
+
+
+
   		 exit(0);
 
   	}
@@ -230,6 +252,11 @@ class schuelerinfo extends AbstractPage {
   		$upload = $schueler->getFoto();
   		if($upload != null) {
   			$schueler->removeFoto();
+
+          // Eventuell Cache für PDF Seite leeren
+          if(DB::getCache()->isCacheEnabled()) DB::getCache()->forgetItem('schuelerinfo-fotoseite-' . $schueler->getKlasse());
+
+
   		}
   		header("Location: index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler->getAsvID());
 
@@ -252,7 +279,7 @@ class schuelerinfo extends AbstractPage {
   		$upload = $schueler->getFoto();
   		
   		if($upload != null) {
-  			$upload->sendImageWidthMaxWidth("180");
+  			$upload->sendImageWidthMaxWidth("250");
   			exit(0);
   		}
   		else {
@@ -289,8 +316,12 @@ class schuelerinfo extends AbstractPage {
 
   			$schueler->setFoto($uploadObject);
 
-  			header("Location: index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler->getAsvID());
-  			exit(0);
+  			// Eventuell Cache leeren
+
+          if(DB::getCache()->isCacheEnabled()) DB::getCache()->forgetItem('schuelerinfo-fotoseite-' . $schueler->getKlasse());
+
+          header("Location: index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler->getAsvID());
+          exit(0);
 
   		}
   		else {

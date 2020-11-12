@@ -39,6 +39,14 @@ class Cache {
     }
 
     /**
+     * Ist Caching aktiviert?
+     * @return bool
+     */
+    public function isCacheEnabled() {
+        return !$this->cacheDisabled;
+    }
+
+    /**
      * Lädt den Inhalt als Objekt. (Muss als Objekt abgelegt worden sein.)
      * @param $cacheKey
      * @return object|null

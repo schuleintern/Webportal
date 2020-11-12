@@ -16,9 +16,14 @@ class test extends AbstractPage {
       // Only access for Admins
 
 
-    $alleLehrer = DB::getCache()->getAsObject('alleLehrer');
+    //$ich = lehrer::getByKuerzel("spi");
 
-    Debugger::debugObject($alleLehrer);
+    //DB::getCache()->storeObject('lehrer-spi',$ich);
+
+
+    $cachedLehrer = DB::getCache()->getAsObject('lehrer-spi');
+
+    Debugger::debugObject($cachedLehrer);
   }
 
   public static function hasSettings() {
