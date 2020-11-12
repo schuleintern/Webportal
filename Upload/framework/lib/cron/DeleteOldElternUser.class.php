@@ -57,7 +57,7 @@ class DeleteOldElternUser extends AbstractCron {
 	}
 	
 	public function getName() {
-		return "Eltern Benutzer löschen, die nicht mehr eixtsieren";
+		return "Eltern Benutzer löschen, die nicht mehr existieren";
 	}
 	
 	public function getDescription() {
