@@ -131,6 +131,12 @@ class schueler {
 	    return SchuelerFremdsprache::getForSchueler($this);
     }
 	
+	public function isGanztags() {
+		if ($this->data['schuelerGanztagBetreuung']) {
+			return true;
+		}
+		return false;
+	}
 	public function getGanztags($action = false) {
 
 		$tage = [];
