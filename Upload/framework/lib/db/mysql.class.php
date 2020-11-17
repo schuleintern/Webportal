@@ -83,7 +83,7 @@ class mysql {
 			$this->query_id = $query_id;
 		}
 
-		$this->record = mysqli_fetch_array($this->query_id, MYSQLI_ASSOC);
+		$this->record = mysqli_fetch_array($this->query_id);
 
 		return $this->record;
 	}
