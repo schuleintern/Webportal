@@ -3,7 +3,8 @@
   display: block;
 }
 
-.inlineBlock {
+.inlineBlock,
+.blockInline {
   display: inline-block;
 }
 
@@ -85,10 +86,6 @@
 
 
 
-.height_35 {
-  max-height: 35vh !important;
-}
-
 .width-form {
   width: 20rem;
 }
@@ -127,6 +124,21 @@
 .width-100p {
   width: 100%;
 }
+
+
+
+.height-2rem {
+  height: 2rem;
+}
+
+.height_35 {
+  max-height: 35vh !important;
+}
+
+
+
+
+
 
 .padding-xs {
   padding: 0.3rem;

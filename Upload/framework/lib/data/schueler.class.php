@@ -124,6 +124,12 @@ class schueler {
 		return ($this->data['gruppe']);
 	}
 	
+	public function isGanztags() {
+		if ($this->data['schuelerGanztagBetreuung']) {
+			return true;
+		}
+		return false;
+	}
 	public function getGanztags($action = false) {
 
 		$tage = [];

@@ -1,11 +1,20 @@
 {$this->header}
-<div class="flex-row" style="justify-content: flex-end;">
-	<a href="index.php?page=ganztagsCalendar" class="btn btn-blau margin-r-xs">Tagesansicht</a>
 
-	<a href="index.php?page=ganztags&action=printAll" class="btn btn-blau margin-r-xs">Alle Drucken</a>
-	<a href="index.php?page=ganztags&action=printGroups" class="btn btn-blau">Gruppen Drucken</a>
 
+<div class="flex-row">
+	<div class="flex-3 page-submenue" >		
+		<a href="index.php?page=ganztags" class="margin-r-xs active">Schülerliste</a>
+		<a href="index.php?page=ganztagsCalendar" class="margin-r-xs ">Tagesansicht</a>
+	</div>
+	<div class="flex-1 page-dropdownMenue ">
+		<button class="dropbtn btn">Dropdown</button>
+		<div class="page-dropdownMenue-content ">
+			<a href="index.php?page=ganztags&action=printAll" class="btn btn-blau margin-r-xs">Alle Drucken</a>
+			<a href="index.php?page=ganztags&action=printGroups" class="btn btn-blau">Gruppen Drucken</a>
+		</div>
+	</div>
 </div>
+
 
 <form action="index.php?page=ganztags" method="post">
 
