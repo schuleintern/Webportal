@@ -116,7 +116,9 @@ class RestGetKalenderEintrag extends AbstractRest {
 	public function aclModuleName() {
 		return 'kalenderAllInOne';
 	}
-	
+	public static function getAdminGroup() {
+    return 'Webportal_Kalender_allInOne_Admin';
+	}
 
 }	
 
