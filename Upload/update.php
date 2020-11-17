@@ -68,7 +68,7 @@ file_put_contents("data/wartungsmodus/index.htm","
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
     
-    <script src=\"cssjs/plugins/jQuery/jQuery-2.1.4.min.js\"></script>
+    <script src=\"cssjs/plugins/jQuery/jQuery.min.js\"></script>
     <script src=\"cssjs/bootstrap/js/bootstrap.min.js\" type=\"text/javascript\"></script>
     <script src=\"cssjs/plugins/iCheck/icheck.min.js\" type=\"text/javascript\"></script>
     <script>
