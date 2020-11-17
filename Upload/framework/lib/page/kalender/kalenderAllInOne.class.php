@@ -115,6 +115,78 @@ class kalenderAllInOne extends AbstractPage {
 
   
 
+  public static function getEintragFromDate($datum) {
+    
+    if (!$datum) {
+      return [];
+    }
+
+    $kalenders = [];
+    $result = DB::getDB()->query("SELECT a.kalenderID, a.kalenderAcl, a.kalenderName, a.kalenderColor FROM kalender_allInOne as a ORDER BY a.kalenderSort");
+    while($row = DB::getDB()->fetch_array($result)) {
+      
+      $acl = self::getAclByID($row['kalenderAcl'], true, self::getAdminGroup() );
+      if ($acl && $acl['rights']['read'] == 1 ) {
+        $kalenders[] = [
+          'kalenderID' => $row['kalenderID'],
+          'kalenderName' => $row['kalenderName'],
+          'kalenderColor' => $row['kalenderColor'],
+        ];
+      }
+    }
+
+    $where = ' WHERE (( eintragDatumStart <= "'.$datum.'" AND  eintragDatumEnde >= "'.$datum.'" ) OR eintragDatumStart = "'.$datum.'" )';
+    $where_cal = '';
+    foreach ($kalenders as &$kalender) {
+      if ($where_cal != '') { $where_cal .= ' OR '; }
+			$where_cal .= 'kalenderID = '. intval($kalender['kalenderID']);
+    }
+    if ($where_cal) {
+			$where .= ' AND ( '.$where_cal.' ) ';
+    }
+    
+
+    $ret = [];
+    $result = DB::getDB()->query("SELECT * FROM kalender_allInOne_eintrag ".$where);
+		while($row = DB::getDB()->fetch_array($result)) {
+			
+			$createdUser = new user(array('userID' => intval($row['eintragUserID']) ));
+
+			$item = [
+				'eintragID' => $row['eintragID'],
+				'kalenderID' => $row['kalenderID'],
+				'eintragKategorieID' => $row['eintragKategorieID'],
+				'eintragTitel' => DB::getDB()->decodeString($row['eintragTitel']),
+				'eintragDatumStart' => $row['eintragDatumStart'],
+				'eintragTimeStart' => $row['eintragTimeStart'],
+				'eintragDatumEnde' => $row['eintragDatumEnde'],
+				'eintragTimeEnde' => $row['eintragTimeEnde'],
+				'eintragOrt' => DB::getDB()->decodeString($row['eintragOrt']),
+				'eintragKommentar' => DB::getDB()->decodeString($row['eintragKommentar']),
+				'eintragCreatedTime' => $row['eintragCreatedTime'],
+				'eintragModifiedTime' => $row['eintragModifiedTime'],
+				'eintragUserID' => $row['eintragUserID'],
+				'eintragUserName' => $createdUser->getDisplayName()
+      ];
+      
+      foreach ($kalenders as &$kalender) {
+        if ($kalender['kalenderID'] == $item['kalenderID'] ) {
+          $item['kalender'] = $kalender;
+        }
+      }
+
+			$ret[] = $item;
+    }
+    
+
+    // echo "<pre>";
+    // print_r($ret);
+    // echo "</pre>";
+
+
+    return $ret;
+  }
+
 
 
   public static function hasSettings() {

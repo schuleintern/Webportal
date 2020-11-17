@@ -686,6 +686,27 @@ class aufeinenblick extends AbstractPage {
           $eventSources[] = 'index.php?page=extKalender&kalenderID=' . $externeKalender[$i]['kalenderID']. '&action=getJSONData';
       }
 
+      // Kalender All In One
+      
+      $kalenderAllInOne = kalenderAllInOne::getEintragFromDate($datum);
+      
+      $kalenderHTML = '<ul class="noListStyle">';
+      foreach($kalenderAllInOne as $calEvent) {
+        $kalenderHTML .= '<li class="padding-l-m padding-t-s padding-b-s border-b-hell">';
+        if ($calEvent['eintragTimeStart'] != '00:00:00') {
+          if ($calEvent['eintragDatumEnde'] != '00:00:00') {
+            $kalenderHTML .= '<span class="inlineBlock width-20p text-bold">'.mb_substr($calEvent['eintragTimeStart'],0,-3).' - '.mb_substr($calEvent['eintragTimeEnde'],0,-3).'</span>';
+          } else {
+            $kalenderHTML .= '<span class="inlineBlock width-20p text-bold">'.mb_substr($calEvent['eintragTimeStart'],0,-3).'</span>';
+          }
+        } else {
+          $kalenderHTML .= '<span class="inlineBlock width-20p"></span>';
+        }
+        $kalenderHTML .= '<span class="text-small inlineBlock width-25p" style="color:'.$calEvent['kalender']['kalenderColor'].'">'.$calEvent['kalender']['kalenderName'].'</span>';
+        $kalenderHTML .= '<span class="" >'.$calEvent['eintragTitel'].'</span>';
+        $kalenderHTML .= '</li>';
+      }
+      $kalenderHTML .= '<ul>';
     
       $calFeeds = "";
       
