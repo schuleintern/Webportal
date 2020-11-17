@@ -631,4 +631,22 @@ abstract class AbstractPage {
 		return $this->acl['rights']['delete'];
 	}
 
+	public function getAclByID($id = false, $showRight = false, $adminGroup = false) {
+
+		if (!$adminGroup) {
+			$adminGroup = self::getAdminGroup();
+		}
+		if ( $id ) {
+			$acl = ACL::getAcl(DB::getSession()->getUser(), $id, $adminGroup );
+			if ($showRight) {
+				return [ 'rights' => $acl['rights'], 'owne' => $acl['owne'] ];
+			} else {
+				return $acl;
+			}
+		} else {
+			return $acl = ACL::getBlank();
+		}
+		return false;
+	}
+
 }

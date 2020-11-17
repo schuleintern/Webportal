@@ -225,6 +225,12 @@ button.btn-blau {
 .border-b {
   border-bottom: 1px solid #738b96;
 }
+
+.border-b-hell {
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+
 .border-radius {
   border-radius: 4px;
 }
