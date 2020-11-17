@@ -22,59 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Deleter für alte Mails aus &quot;mail_send&quot;">
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/admin/index.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/berichte/index.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/berichte/print/day_detailed.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/berichte/print/day_detailed_bit.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/berichte/print/fehlende_entschuldigungen.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/berichte/print/fehlende_entschuldigungen_schueler.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/berichte/print/gradestat.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/berichte/print/gradestat_grade.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/berichte/print/schueler.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/beurlaubungantrag/eltern/bit.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/beurlaubungantrag/eltern/index.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/beurlaubungantrag/eltern/print.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/beurlaubungantrag/eltern/result.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/beurlaubungantrag/kl/bit.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/beurlaubungantrag/kl/index.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/beurlaubungantrag/kl/print.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/beurlaubungantrag/kl/result.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/lehrer/index.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/lehrer/keine_klasse.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/lehrer/multi_klasse.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/lehrer/schueler.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/lehrer/schueler_verspaetungen.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/lehrertotal/index.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/schueler/schueler.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/absenzen_schueler/index.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/bearbeiten_dialog.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/beurlaubungOK.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/index.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/index_bit_online_beurlaubung.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/index_bit_online_krankmeldung.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/klassenanwesenheit.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/meldungstat.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/offen_dialog.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/periodischebeurlaubung.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/print/befreiung.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/print/beurlaubung.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/sammelbeurlaubung.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/sammelbeurlaubungOK.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/sanizimmer_dialog.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/schuelerDialog.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/sekretariat/searchresult.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/framework/templates/absenzenv2/statistik/index.htm" afterDir="false" />
+    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Pace Ladebalken hinzugefügt.">
+      <change afterPath="$PROJECT_DIR$/Upload/www/cssjs/plugins/chartjs/Chart.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Upload/www/cssjs/plugins/chartjs/Chart.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/absenzen/AbsenzenMain.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/absenzen/AbsenzenMain.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/kalender/extKalender.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/kalender/extKalender.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/system/errorhandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/system/errorhandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/system/requesthandler.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/system/requesthandler.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/system/schuleinternautoloader.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/system/schuleinternautoloader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/templates/administration/module/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/templates/administration/module/index.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/templates/aufeinenblick/settings/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/templates/aufeinenblick/settings/index.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Upload/framework/templates/header/header.htm" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/templates/header/header.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/templates/office365/admin/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/templates/office365/admin/index.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/www/cssjs/plugins/chartjs/Chart.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,28 +50,38 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jPrDGldOhBqWHNsndrCUJt8KPU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Upload/framework/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Upload/www/cssjs/plugins/chartjs" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\www\cssjs\plugins\chartjs" />
+      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\www\cssjs\plugins\select2" />
+      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\templates\office365\meetings\admin" />
+      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\lib\page\office365" />
+      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\templates\absenzenv2" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\templates" />
-      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\lib\page\absenzen" />
-      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\lib\cron" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="" />
@@ -130,6 +94,17 @@
       <workItem from="1603818488648" duration="16215000" />
       <workItem from="1603998365408" duration="2985000" />
       <workItem from="1604068918359" duration="18892000" />
+      <workItem from="1604425268075" duration="134000" />
+      <workItem from="1604425594860" duration="3832000" />
+      <workItem from="1604472048902" duration="106000" />
+      <workItem from="1604601729506" duration="3807000" />
+      <workItem from="1604988200658" duration="1286000" />
+      <workItem from="1604989535863" duration="2077000" />
+      <workItem from="1604993066297" duration="7846000" />
+      <workItem from="1605507425236" duration="184000" />
+      <workItem from="1605509483500" duration="4932000" />
+      <workItem from="1605523865345" duration="11991000" />
+      <workItem from="1605594643163" duration="4697000" />
     </task>
     <task id="LOCAL-00001" summary="Composer Update">
       <created>1603717309378</created>
@@ -313,7 +288,91 @@
       <option name="project" value="LOCAL" />
       <updated>1604155300420</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Office 365 Meeting über Teams API eingebunden; Meetings über Nachrichten vereinbaren.">
+      <created>1604306365128</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1604306365128</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Kosmetik">
+      <created>1604431066947</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1604431066947</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Anpassung Elternsprechtag Virtuell">
+      <created>1604471847286</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1604471847286</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Historie für Einstellungen">
+      <created>1604990518328</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1604990518328</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Historie für Einstellungen">
+      <created>1604990655185</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1604990655185</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Bugfix mebis Kennungen">
+      <created>1605026901074</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1605026901074</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Alte Elternbenutzer tatsächlich löschen.">
+      <created>1605123733490</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1605123733490</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Backend: Cache eingeführt">
+      <created>1605160780610</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1605160780610</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Update SELECT2">
+      <created>1605595690671</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1605595690671</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Update jQuery">
+      <created>1605595770903</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1605595770903</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Update Moment.js">
+      <created>1605595783037</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1605595783037</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Pace Ladebalken hinzugefügt.">
+      <created>1605596437098</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1605596437098</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,13 +391,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Composer Update" />
-    <MESSAGE value="Debug Login" />
-    <MESSAGE value="Update README.md: Neuer Link Admin Doku" />
-    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/186" />
-    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/137" />
-    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/127" />
-    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/121" />
     <MESSAGE value="Kleine Anpassung todo Management" />
     <MESSAGE value="https://github.com/schuleintern/Webportal/issues/85" />
     <MESSAGE value="https://github.com/schuleintern/Webportal/issues/48" />
@@ -353,26 +405,59 @@
     <MESSAGE value="MySQL Datenbank für Unterricht entfernt, da seit Monaten nicht funktional." />
     <MESSAGE value="Beta Modus für einzelne Module eingeführt." />
     <MESSAGE value="Deleter für alte Mails aus &quot;mail_send&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleter für alte Mails aus &quot;mail_send&quot;" />
+    <MESSAGE value="Office 365 Meeting über Teams API eingebunden; Meetings über Nachrichten vereinbaren." />
+    <MESSAGE value="Kosmetik" />
+    <MESSAGE value="Anpassung Elternsprechtag Virtuell" />
+    <MESSAGE value="Historie für Einstellungen" />
+    <MESSAGE value="Bugfix mebis Kennungen" />
+    <MESSAGE value="Alte Elternbenutzer tatsächlich löschen." />
+    <MESSAGE value="Backend: Cache eingeführt" />
+    <MESSAGE value="Update SELECT2" />
+    <MESSAGE value="Update jQuery" />
+    <MESSAGE value="Update Moment.js" />
+    <MESSAGE value="Pace Ladebalken hinzugefügt." />
+    <option name="LAST_COMMIT_MESSAGE" value="Pace Ladebalken hinzugefügt." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="604" y="325" key="NewPhpFileDialog" timestamp="1604134288550">
-      <screen x="0" y="0" width="1536" height="802" />
+    <state x="1040" y="491" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605560599383">
+      <screen x="0" y="0" width="2560" height="1377" />
+    </state>
+    <state x="1040" y="491" key="#com.intellij.fileTypes.FileTypeChooser/3840.0.2560.1377/-1920.0.1920.1050/0.0.2560.1377@0.0.2560.1377" timestamp="1605560599383" />
+    <state x="1086" y="371" key="#com.intellij.ide.util.MemberChooser" timestamp="1605124360513">
+      <screen x="0" y="0" width="2560" height="1377" />
+    </state>
+    <state x="1086" y="371" key="#com.intellij.ide.util.MemberChooser/3840.0.2560.1377/0.0.2560.1377/-1920.0.1920.1050@0.0.2560.1377" timestamp="1605124360513" />
+    <state x="961" y="425" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1604425364318">
+      <screen x="0" y="0" width="2560" height="1377" />
+    </state>
+    <state x="961" y="425" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/3840.0.2560.1377/-1920.0.1920.1050/0.0.2560.1377@0.0.2560.1377" timestamp="1604425364318" />
+    <state x="1007" y="558" key="NewPhpFileDialog" timestamp="1605556782156">
+      <screen x="0" y="0" width="2560" height="1377" />
     </state>
     <state x="604" y="325" key="NewPhpFileDialog/0.0.1536.802@0.0.1536.802" timestamp="1604134288550" />
-    <state x="575" y="103" key="RollbackChangesDialog" timestamp="1604139192057">
-      <screen x="0" y="0" width="1536" height="802" />
+    <state x="1007" y="558" key="NewPhpFileDialog/3840.0.2560.1377/-1920.0.1920.1050/0.0.2560.1377@0.0.2560.1377" timestamp="1605556782156" />
+    <state x="1007" y="558" key="NewPhpFileDialog/3840.0.2560.1377/0.0.2560.1377/-1920.0.1920.1050@0.0.2560.1377" timestamp="1605124433318" />
+    <state x="958" y="177" key="RollbackChangesDialog" timestamp="1605593335723">
+      <screen x="0" y="0" width="2560" height="1377" />
     </state>
     <state x="575" y="103" key="RollbackChangesDialog/0.0.1536.802@0.0.1536.802" timestamp="1604139192057" />
-    <state x="361" y="134" key="Vcs.Push.Dialog.v2" timestamp="1604155467681">
-      <screen x="0" y="0" width="1536" height="802" />
+    <state x="958" y="177" key="RollbackChangesDialog/3840.0.2560.1377/-1920.0.1920.1050/0.0.2560.1377@0.0.2560.1377" timestamp="1605593335723" />
+    <state x="452" y="169" key="Vcs.Push.Dialog.v2" timestamp="1605168228417">
+      <screen x="0" y="0" width="1920" height="1012" />
     </state>
-    <state x="361" y="134" key="Vcs.Push.Dialog.v2/0.0.1536.802@0.0.1536.802" timestamp="1604155467681" />
+    <state x="361" y="134" key="Vcs.Push.Dialog.v2/0.0.1536.802@0.0.1536.802" timestamp="1604472113614" />
+    <state x="452" y="169" key="Vcs.Push.Dialog.v2/0.0.1920.1012@0.0.1920.1012" timestamp="1605168228417" />
     <state x="451" y="170" key="Vcs.Push.Dialog.v2/0.0.1920.1016/1920.0.1920.1050@0.0.1920.1016" timestamp="1604053663166" />
+    <state x="602" y="230" key="Vcs.Push.Dialog.v2/3840.0.2560.1377/0.0.2560.1377/-1920.0.1920.1050@0.0.2560.1377" timestamp="1605160783001" />
     <state x="777" y="421" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603979842650">
       <screen x="0" y="0" width="1920" height="1016" />
     </state>
     <state x="777" y="421" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1016/1920.0.1920.1050@0.0.1920.1016" timestamp="1603979842650" />
+    <state x="999" y="477" key="git4idea.merge.GitPullDialog" timestamp="1604425320699">
+      <screen x="0" y="0" width="2560" height="1377" />
+    </state>
+    <state x="999" y="477" key="git4idea.merge.GitPullDialog/3840.0.2560.1377/-1920.0.1920.1050/0.0.2560.1377@0.0.2560.1377" timestamp="1604425320699" />
+    <state x="999" y="477" key="git4idea.merge.GitPullDialog/3840.0.2560.1377/0.0.2560.1377/-1920.0.1920.1050@0.0.2560.1377" timestamp="1604260764082" />
     <state x="431" y="123" width="672" height="678" key="search.everywhere.popup" timestamp="1604156222928">
       <screen x="0" y="0" width="1536" height="802" />
     </state>
