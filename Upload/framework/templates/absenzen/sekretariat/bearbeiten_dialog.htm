@@ -59,12 +59,18 @@
 			      				<td>Bemerkungen</td>
 			      				<td><pre>{$absenz->getKommentar()}</pre><input type="text" name="bemerkung" value="" class="form-control" placeholder="Kommentar hinzufügen"></td>
 									</tr>
-									<tr>
-			      				<td>Notiz für Ganztags</td>
-										<td>
-											<input type="text" name="ganztagsNotiz" class="form-control" placeholder="Notiz hinzufügen" value="{$absenz->getGanztagsNotiz()}">
-										</td>
-			      			</tr>
+
+									<if($schueler->isGanztags())>
+										<then>
+											<tr>
+												<td>Notiz für Ganztags</td>
+												<td>
+													<input type="text" name="ganztagsNotiz" class="form-control" placeholder="Notiz hinzufügen" value="{$absenz->getGanztagsNotiz()}">
+												</td>
+											</tr>
+										</then>
+									</if>
+
 			      			<tr>
 			      				<td>Ist entschuldigt</td>
 			      				<td><select name="isEntschuldigt" class="form-control">
