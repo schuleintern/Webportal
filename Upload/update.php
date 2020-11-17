@@ -580,7 +580,7 @@ $office365Active = $mysqli->query("SELECT * FROM settings WHERE settingName='off
 
 if($office365Active->num_rows > 0) {
     $mysqli->query("INSERT INTO settings (settingName, settingValue) values
-        ('office365-app-id','6b3c138b-d210-413c-ac43-0ad7d352c484'),
+            ('office365-app-id','6b3c138b-d210-413c-ac43-0ad7d352c484'),
         ('office365-app-secret','ZbPqxoONQbPydYpPSfo9bNa')
     ");
 }

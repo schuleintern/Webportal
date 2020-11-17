@@ -1,0 +1,128 @@
+<div class="modal fade"id="modaledit{$absenz->getID()}" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="width:70%" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><expression>$schueler->getCompleteSchuelerName()</expression> (Klasse <expression>$schueler->getKlasse()</expression>)
+        
+        <if($schueler->isAusgetreten())><then><span class="label label-info">Ausgetreten: <expression>datefunctions::getNaturalDateFromMySQLDate($schueler->getAustrittDatumAsMySQLDate())</expression></span></then></if>
+      	<if(AbsenzSchuelerInfo::hasAttestpflicht($schueler, DateFunctions::getMySQLDateFromNaturalDate($currentDate)))><then><span class="label label-danger">Attestpflicht</span></then></if>
+      	
+      	</h4>
+      	
+      	Geburtstag: <expression>$schueler->getGeburtstagAsNaturalDate()</expression> (Alter: <expression>$schueler->getAlter()</expression> Jahre) | Wohnort: <expression>$schueler->getWohnort()</expression>
+      </div>
+      <div class="modal-body">
+              <div class="tabbable">
+	        <ul class="nav nav-tabs">
+	        	<li class="active"><a href="#tab1offen<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fas fa-pencil-alt"></i> Absenz bearbeiten</a></li>
+	        	<li><a href="#tab3offen<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-mobile"></i> Kontakte</a></li>
+	        	<li><a href="index.php?page=absenzensekretariat&mode=editAbsenzen&schuelerAsvID=<expression>$schueler->getAsvID()</expression>&activeKlasse={$_GET['activeKlasse']}&currentDate={$currentDate}"><i class="fa fas fa-pencil-alt"></i> Alle Absenzen bearbeiten / ansehen</a></li>
+	        	<li><a href="index.php?page=absenzenberichte&mode=schuelerbericht&schuelerAsvID={$schueler->getAsvID()}"><i class="fa fa-file-pdf"></i> Schülerbericht</a></li>
+	        	<li><a href="#tab4offen<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-sticky-note"></i> Kommentar / Notizen</a></li>
+	        
+	        </ul>
+	        <div class="tab-content">
+		        <div class="tab-pane active" id="tab1offen<expression>$schueler->getAsvID()</expression>"><br />
+		        	<if($absenz->isBefreiung())><then><div class="alert alert-info">Diese Absenz beruht auf einer Befreiung</div></then></if>
+		        	<if($absenz->isBeurlaubung())><then><div class="alert alert-info">Diese Absenz beruht auf einer Beurlaubung</div></then></if>
+					<form action="index.php?page=absenzensekretariat&mode=editAbsenz&absenzID={$absenz->getID()}&schuelerAsvID=<expression>$schueler->getAsvID()</expression>&activeKlasse={$_GET['activeKlasse']}&returnToMainView={$returnMainView}" method="post">
+			      		<input type="hidden" name="currentDate" value="{$currentDate}"><!-- Natural Date! -->
+			      		<table class="table table-striped">
+			      			<tr>
+			      				<td>Absent am</td>
+			      				<td><input type="text" name="krankAm" id="krankAm<expression>$schueler->getAsvID()</expression>" value="<expression>DateFunctions::getNaturalDateFromMySQLDate($absenz->getDateAsSQLDate())</expression>" class="form-control"></td>
+			      			</tr>
+			      			
+			      			<tr>
+			      				<td>Absent bis</td>
+			      				<td><input type="text" name="krankBis" id="krankBisEdit<expression>$schueler->getAsvID()</expression>" value="<expression>DateFunctions::getNaturalDateFromMySQLDate($absenz->getEnddatumAsSQLDate())</expression>" class="form-control"></td>
+			      			</tr>
+			      			<tr>
+			      				<td>Kanal</td>
+			      				<td>
+			      					<select name="absenzKanal" class="form-control">
+			      						<option value="TELEFON"<if($absenz->getKanal() == 'TELEFON')><then> selected="selected"</then></if>>via Telefon</option>
+			      						<option value="FAX"<if($absenz->getKanal() == 'FAX')><then> selected="selected"</then></if>>via Fax</option>
+			      						<option value="WEBPORTAL"<if($absenz->getKanal() == 'WEBPORTAL')><then> selected="selected"</then></if>>Online gemeldet</option>
+			      						<option value="LEHRER"<if($absenz->getKanal() == 'LEHRER')><then> selected="selected"</then></if>>via Lehrermeldung</option>
+			      						<option value="PERSOENLICH"<if($absenz->getKanal() == 'PERSOENLICH')><then> selected="selected"</then></if>>Persönlich / Bote</option>
+			      					</select>
+			      				</td>
+			      			</tr>
+			      			<tr>
+			      				<td>Stunden</td>
+			      				<td>
+			      					$stundenAuswahl
+			               		</td>
+			      			<tr>
+			      				<td>Bemerkungen</td>
+			      				<td><pre>{$absenz->getKommentar()}</pre><input type="text" name="bemerkung" value="" class="form-control" placeholder="Kommentar hinzufügen"></td>
+			      			</tr>
+			      			<tr>
+			      				<td>Ist entschuldigt</td>
+			      				<td><select name="isEntschuldigt" class="form-control">
+			      					<option value="1"<if($absenz->isEntschuldigt())><then>selected="selected"</then></if>>Ja</option>
+			      					<option value="0"<if(!$absenz->isEntschuldigt())><then>selected="selected"</then></if>>Nein</option>
+			      				</select><small>Wird hier auf "Nein" gewechselt, wird der Fall zu einem offenen Fall!</small></td>
+			      			</tr>
+			      			<tr>
+			      				<td colspan="2">
+			      					<if($absenz->kommtSpaeter())>
+			      						<then>
+			      							<button type="submit" name="jetztgekommen" value="1" class="form-control"><i class="fa fa-clock"></i> Jetzt gekommen</button>
+			      						</then>
+			      					</if>
+			      					<button type="submit" name="save" value="1" class="form-control"><i class="fa fa-save"></i> Absenz bearbeiten / speichern</button>
+			      				
+			      					<button type="submit" name="delete" value="1" class="form-control"><i class="fa fa-ban"></i> Absenz löschen</button>
+			      				</td>
+			      			</tr>
+			      			
+			      			
+			      		</table>
+			      	</form>
+			     </div>
+			     <div class="tab-pane" id="tab3offen<expression>$schueler->getAsvID()</expression>">
+		        	<table class="table table-striped">
+		        		{$adressenHTML}
+		        	</table>
+		        </div>
+		        
+		         <div class="tab-pane" id="tab4offen<expression>$schueler->getAsvID()</expression>">
+					<if(AbsenzSchuelerInfo::getComment($schueler) != "")><then><pre><expression>AbsenzSchuelerInfo::getComment($schueler)</expression></pre></then><else><pre>Kein Kommentar hinterlegt!</pre></else></if>
+		       
+		        </div>
+			</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+      	<if($returnMainView == 0)><then>
+      		<a href="index.php?page=absenzensekretariat&mode=editAbsenzen&schuelerAsvID={$absenz->getSchueler()->getAsvID()}">Zurück zur Absenzübersicht</a>
+      	</then>
+      	<else>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+       	</else>
+       	</if>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	$(function() {
+		$("#krankBisEdit<expression>$schueler->getAsvID()</expression>").datepicker({
+			format: 'dd.mm.yyyy',
+	        language: "de",
+	        autoclose: true
+		});
+	});
+	
+	$(function() {
+		$("#krankAm<expression>$schueler->getAsvID()</expression>").datepicker({
+			format: 'dd.mm.yyyy',
+	        language: "de",
+	        autoclose: true
+		});
+	});
+</script>

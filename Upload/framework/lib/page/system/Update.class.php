@@ -11,6 +11,9 @@ class Update extends AbstractPage
         parent::__construct(array(
             "Update"
         ));
+
+        // Cache deaktivieren, damit das Update überhaupt laufen kann.
+        DB::getCache()->disableCache();
     }
 
     public function execute()

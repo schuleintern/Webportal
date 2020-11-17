@@ -1,0 +1,83 @@
+<div class="modal fade"id="modaloffen{$absenz->getID()}" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="width:70%" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><expression>$schueler->getCompleteSchuelerName()</expression> (Klasse <expression>$schueler->getKlasse()</expression>)
+        
+        <if($schueler->isAusgetreten())><then><span class="label label-info">Ausgetreten: <expression>datefunctions::getNaturalDateFromMySQLDate($schueler->getAustrittDatumAsMySQLDate())</expression></span></then></if>
+      	<if(AbsenzSchuelerInfo::hasAttestpflicht($schueler, DateFunctions::getMySQLDateFromNaturalDate($currentDate)))><then><span class="label label-danger">Attestpflicht</span></then></if>
+      	
+      	</h4>
+      	
+      	Geburtstag: <expression>$schueler->getGeburtstagAsNaturalDate()</expression> (Alter: <expression>$schueler->getAlter()</expression> Jahre) | Wohnort: <expression>$schueler->getWohnort()</expression>
+      </div>
+      <div class="modal-body">
+              <div class="tabbable">
+	        <ul class="nav nav-tabs">
+	        	<li class="active"><a href="#tab1offen<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-question-circle"></i> Offenen Fall klären</a></li>
+	        	<li><a href="#tab3offen<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-mobile"></i> Kontakte</a></li>
+	        	<li><a href="#tab4offen<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-mobile"></i> Kommentar / Notizen</a></li>
+	        
+	        </ul>
+	        <div class="tab-content">
+		        <div class="tab-pane active" id="tab1offen<expression>$schueler->getAsvID()</expression>">
+					<form action="index.php?page=absenzensekretariat&mode=ungeklaert&absenzID=<expression>$absenz->getID()</expression>&activeKlasse={$_GET['activeKlasse']}" method="post">
+			        <input type="hidden" name="currentDate" value="{$currentDate}"><!-- Natural Date! -->
+			        
+			        			        <table class="table table-striped">
+			        	<tr>
+			        		<td><pre><expression>$absenz->getKommentar()</expression></pre></td>
+			        	</tr>
+			        	
+			        	<if(Absenz::wasAbsentOneDayBeforeDate($schueler,$absenz->getDateAsSQLDate()) != null)><then>
+			        		<tr>
+			        			<td><b>Der Schüler war am Vortrag bereits krank</b><button type="submit" value="1" name="isStillAbsent" class="form-control">Immer noch krank</button></td>
+			        		</tr>
+			        	</then>
+			        	<else>
+			        		<tr>
+			        			<td><b>Der Schüler war am Vortag <u>nicht</u> krank!</b></td>
+			        		</tr>
+			        	</else>
+			        	</if>
+			        	<tr>
+			        		<td><p><textarea name="kommentar" class="form-control" rows="2" placeholder="Kommentar zur Kontaktaufnahme"></textarea></p>
+			        			<p><button type="submit" name="erreicht" value="1" class="btn btn-success btn-block"><i class="fa fa-check"></i> Erreicht</button></p>
+			        			<p><button type="submit" name="erreicht" value="0" class="btn btn-danger btn-block"><i class="fa fa-ban"></i> Nicht Erreicht</button></p>
+			        			<p><button type="submit" name="jetztGekommen" value="1" class="btn btn-success btn-block"><i class="fa fa-clock"></i> Jetzt gekommen</button></p>
+			        			<p><button type="submit" name="delete" value="1" class="btn btn-info btn-block"><i class="fa fa-trash"></i> Eintrag löschen</button></p>
+			        			
+			        		</td>
+			        	</tr>
+			        </table>
+			        </form>
+			     </div>
+			     <div class="tab-pane" id="tab3offen<expression>$schueler->getAsvID()</expression>">
+		        	<table class="table table-striped">
+		        		{$adressenHTML}
+		        	</table>
+		        </div>
+		        
+		         <div class="tab-pane" id="tab4offen<expression>$schueler->getAsvID()</expression>">
+					<if(AbsenzSchuelerInfo::getComment($schueler) != "")><then><pre><expression>AbsenzSchuelerInfo::getComment($schueler)</expression></pre></then><else>Kein Kommentar hinterlegt!</else></if>
+		        </div>
+			</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	$(function() {
+		$("#krankBis<expression>$schueler->getAsvID()</expression>").datepicker({
+			format: 'dd.mm.yyyy',
+	        language: "de",
+	        autoclose: true
+		});
+	});
+</script>

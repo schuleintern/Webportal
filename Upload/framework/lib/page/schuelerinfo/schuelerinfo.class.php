@@ -170,6 +170,16 @@ class schuelerinfo extends AbstractPage {
   	$klasse = klasse::getByName($_REQUEST['klasse']);
 
   	if($klasse != null) {
+
+  	      if(DB::getCache()->isItemSet('schuelerinfo-fotoseite-' . $klasse->getKlassenName())) {
+  	        $upload = FileUpload::getByID(DB::getCache()->getAsText('schuelerinfo-fotoseite-' . $klasse->getKlassenName()));
+  	        if($upload != null) {
+  	          $upload->sendFile();
+  	          exit();
+            }
+          }
+
+
   		 $schueler = $klasse->getSchueler(true);
 
   		 // cssjs/images/userimages/default.png
@@ -207,7 +217,19 @@ class schuelerinfo extends AbstractPage {
   		 $print = new PrintNormalPageA4WithHeader('Fotoübersicht Klasse ' . $klasse->getKlassenName());
   		 $print->setHTMLContent($html);
   		 $print->setPrintedDateInFooter();
-  		 $print->send();
+
+
+        if(DB::getCache()->isCacheEnabled()) {
+            $upload = FileUpload::uploadFromTCPdf('Fotoseite ' . $klasse->getKlassenName(), $print);
+            $uploadID = $upload['uploadobject']->getID();
+            DB::getCache()->storeText('schuelerinfo-fotoseite-' . $klasse->getKlassenName(), $uploadID);
+        }
+
+
+        $print->send();
+
+
+
   		 exit(0);
 
   	}
@@ -230,6 +252,11 @@ class schuelerinfo extends AbstractPage {
   		$upload = $schueler->getFoto();
   		if($upload != null) {
   			$schueler->removeFoto();
+
+          // Eventuell Cache für PDF Seite leeren
+          if(DB::getCache()->isCacheEnabled()) DB::getCache()->forgetItem('schuelerinfo-fotoseite-' . $schueler->getKlasse());
+
+
   		}
   		header("Location: index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler->getAsvID());
 
@@ -252,7 +279,7 @@ class schuelerinfo extends AbstractPage {
   		$upload = $schueler->getFoto();
   		
   		if($upload != null) {
-  			$upload->sendImageWidthMaxWidth("180");
+  			$upload->sendImageWidthMaxWidth("250");
   			exit(0);
   		}
   		else {
@@ -289,8 +316,12 @@ class schuelerinfo extends AbstractPage {
 
   			$schueler->setFoto($uploadObject);
 
-  			header("Location: index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler->getAsvID());
-  			exit(0);
+  			// Eventuell Cache leeren
+
+          if(DB::getCache()->isCacheEnabled()) DB::getCache()->forgetItem('schuelerinfo-fotoseite-' . $schueler->getKlasse());
+
+          header("Location: index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler->getAsvID());
+          exit(0);
 
   		}
   		else {
@@ -589,7 +620,7 @@ class schuelerinfo extends AbstractPage {
 
       if($a > 0) $adressenHTML .= "<hr noshade>";
 
-      $adressenHTML .=  $adressen[$a]->getAdresseAsText() . "<br /><br /><a href=\"http://maps.google.de/maps?q=" . $adressen[$a]->getGoogleMapsQuery() . "\" target=\"_blank\"><i class=\"fa fa-map\"></i> Auf Google Maps anzeigen</a><br /><br />\r\n";
+      $adressenHTML .=  $adressen[$a]->getAdresseAsText() . "<p><a href=\"http://maps.google.de/maps?q=" . $adressen[$a]->getGoogleMapsQuery() . "\" target=\"_blank\" class='btn btn-default'><i class=\"fa fa-map\"></i> Auf Google Maps anzeigen</a></p>\r\n";
 
       for($b = 0; $b < sizeof($telefonNummern); $b++) {
         if($telefonNummern[$b]->getAdresseID() == $adressen[$a]->getID()) {
@@ -954,7 +985,7 @@ class schuelerinfo extends AbstractPage {
 
       			////////
 
-      			$schuelerListe .= "<td><a href=\"index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler[$i]->getAsvID() . "\"><b>" . $schueler[$i]->getCompleteSchuelerName() . "</b></a> " . (($currentUnterricht != null) ? "(Klasse " . $schueler[$i]->getKlasse() . ")" : "") . "<br />";
+      			$schuelerListe .= "<td><p><a href=\"index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler[$i]->getAsvID() . "\"><b>" . $schueler[$i]->getCompleteSchuelerName() . "</b></a> " . (($currentUnterricht != null) ? "(Klasse " . $schueler[$i]->getKlasse() . ")" : "") . "<br />";
 
       			if($schueler[$i]->isAusgetreten()) $schuelerListe .= "<label class=\"label label-danger\">Ausgetreten zum " . DateFunctions::getNaturalDateFromMySQLDate($schueler[$i]->getAustrittDatumAsMySQLDate()) . "</label> ";
 
@@ -971,13 +1002,17 @@ class schuelerinfo extends AbstractPage {
       			    $schuelerListe .= "<br /><b>Nachteilsausgleich:</b> " . $na->getInfoString() . "";
       			}
 
+
+      			$schuelerListe .= "</p><p><a href=\"index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler[$i]->getAsvID() . "\" class='btn btn-default btn-block'><i class=\"fa fa-info-circle\"></i> Informationen zum Schüler anzeigen</a></p>";
+
+
       			$schuelerListe .= "</td><td>";
 
 
-      			$schuelerListe .= "<a href=\"index.php?page=MessageCompose&recipient=P:" . $schueler[$i]->getAsvID() . "\"><i class=\"fa fa-paper-plane\"></i><i class=\"fa fa-child\"></i> Elektronische Nachricht an Schüler senden</a><br />";
+      			$schuelerListe .= "<p><a class='btn btn-default btn-block' href=\"index.php?page=MessageCompose&recipient=P:" . $schueler[$i]->getAsvID() . "\"><i class=\"fa fa-paper-plane\"></i><i class=\"fa fa-child\"></i> Elektronische Nachricht an Schüler senden</a></p>";
       			if(sizeof($schueler[$i]->getParentsUsers()) > 0)
-      				$schuelerListe .= "<a href=\"index.php?page=MessageCompose&recipient=E:" . $schueler[$i]->getAsvID() . "\"><i class=\"fa fa-paper-plane\"></i><i class=\"fa fa-user-circle-o\"></i> Elektronische Nachricht an Eltern senden</a><br />";
-      				else $schuelerListe .= "<i>Eltern nicht elektronisch erreichbar</i><br />";
+      				$schuelerListe .= "<p><a class='btn btn-default btn-block' href=\"index.php?page=MessageCompose&recipient=E:" . $schueler[$i]->getAsvID() . "\"><i class=\"fa fa-paper-plane\"></i><i class=\"fa fa-user-circle-o\"></i> Elektronische Nachricht an Eltern senden</a></p>";
+      				else $schuelerListe .= "<p><i>Eltern nicht elektronisch erreichbar</i></p>";
 
 
       			$schuelerListe .= "</tr>";
@@ -1114,17 +1149,17 @@ class schuelerinfo extends AbstractPage {
 
       $gradeHTML .= "<td>
 
-      <a hreF=\"index.php?page=klassenlisten&grade=" . $grades[$i]->getKlassenName() . "&createPDF=1&gebdatum=1\"><i class=\"fa fa-file-pdf-o\"></i> Klassenliste als PDF Datei</a><br />
-      <a hreF=\"index.php?page=klassenlisten&grade=" . $grades[$i]->getKlassenName() . "&createXLSXdaten=1\"><i class=\"fa fa-file-excel-o\"></i> Schülerdaten der Klasse als Excel Datei exportieren</a><br />
-      <a href=\"index.php?page=klassenlisten&preSelectGrade=" . $grades[$i]->getKlassenName() . "\"><i class=\"fa fa-list\"></i> Benutzerdefinierte Klassenlisten</a><br />";
+      <div class='btn-group' role='group'><a hreF=\"index.php?page=klassenlisten&grade=" . $grades[$i]->getKlassenName() . "&createPDF=1&gebdatum=1\" class='btn btn-xs btn-default'><i class=\"fa fa-file-pdf\"></i> Klassenliste als PDF Datei</a>
+      <a hreF=\"index.php?page=klassenlisten&grade=" . $grades[$i]->getKlassenName() . "&createXLSXdaten=1\" class='btn btn-xs btn-default '><i class=\"fa fa-file-excel\"></i> Schülerdaten der Klasse als Excel Datei exportieren</a></div>
+      <div class='btn-group' role='group'><a href=\"index.php?page=klassenlisten&preSelectGrade=" . $grades[$i]->getKlassenName() . "\" class='btn btn-xs btn-default'><i class=\"fa fa-list\"></i> Benutzerdefinierte Klassenlisten</a>";
 
       if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren')) {
-      	$gradeHTML .= "<a href=\"index.php?page=schuelerinfo&mode=getFotoUebersicht&klasse=" . $grades[$i]->getKlassenName() . "\"><i class=\"fa fa-file-pdf-o\"></i> Fotoübersicht</a><br />";
+      	$gradeHTML .= "<a href=\"index.php?page=schuelerinfo&mode=getFotoUebersicht&klasse=" . $grades[$i]->getKlassenName() . "\" class='btn btn-xs btn-default'><i class=\"fa fa-file-pdf\"></i> Fotoübersicht</a>";
       }
 
 
 
-      $gradeHTML .= "</td>";
+      $gradeHTML .= "</div></td>";
     }
 
     // Wahlunterricht

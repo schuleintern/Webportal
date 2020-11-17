@@ -331,7 +331,6 @@ class elternsprechtag extends AbstractPage {
             new errorPage("Sie können diesen Slot nicht für dieses Kind buchen, da es nicht in folgenden Klassen ist: " . implode(", ", $sprechtagKlassen));
         }
 
-		
 		$slot = DB::getDB()->query_first("SELECT * FROM sprechtag_buchungen WHERE slotID='" . intval($_GET['slotID']) . "' AND lehrerKuerzel='" . DB::getDB()->escapeString($_POST['lehrerKuerzel']) . "'");
 		
 		if($slot['buchungID'] > 0 && $this->sprechtagIsBuchbar && $slot['isBuchbar'] == 1) {
@@ -877,14 +876,22 @@ class elternsprechtag extends AbstractPage {
 	    }
 	    
 	    $perCentBookable = intval($_POST['sprechtagPercentSlotsOnlineBuchbar']);
-	    
+
+
+	    if(Office365Meetings::isActiveForTeacher()) {
+            $isOnline = intval($_POST['isOnline']) > 0;
+        }
+	    else $isOnline = false;
+
+
 	    DB::getDB()->query("UPDATE sprechtag SET
             sprechtagName='" . DB::getDB()->escapeString($newName) . "',
             sprechtagDate='" . DB::getDB()->escapeString($date) . "',
             sprechtagBuchbarBis='" . DB::getDB()->escapeString($bookAbleUntil) . "',
 	        sprechtagBeginTime='" . DB::getDB()->escapeString($beginFirstSlotTimestamp) . "',
             sprechtagBuchbarAb='" . DB::getDB()->escapeString($bookAbleFromTimestamp) . "',
-            sprechtagKlassen='" . DB::getDB()->escapeString($saveKlassen) . "'
+            sprechtagKlassen='" . DB::getDB()->escapeString($saveKlassen) . "',
+            sprechtagIsOnline='$isOnline'
 
         WHERE sprechtagID='" . self::$currentSprechtagID . "'");
 	    

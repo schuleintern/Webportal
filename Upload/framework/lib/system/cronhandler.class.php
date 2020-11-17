@@ -21,7 +21,8 @@ class cronhandler {
             'CronNextCloud',
             'CronVerspaetungAuswertung',
             'CreateTagebuchPDFs',
-            'DeleteOldElternUser'
+            'DeleteOldElternUser',
+            'MailSendDeleter'
 	];
 	
 	
