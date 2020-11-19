@@ -219,6 +219,39 @@ class DateFunctions {
 	    return date("Y-m-d",$time);
 	}
 
+    /**
+     * @param $mysqlTimestamp
+     * @return DateTime|false
+     */
+	public static function getDateTimeObjectFromMySQLTimestamp($mysqlTimestamp) {
+        return DateTime::createFromFormat( "Y-m-d H:i:s", $mysqlTimestamp);
+    }
+
+    /**
+     * @param DateTime $dateTime
+     * @return mixed
+     */
+    public static function getTimeFromDateTimeObject($dateTime) {
+	    return $dateTime->format("H:i");
+    }
+
+
+    /**
+     * @param DateTime $dateTime
+     * @return mixed
+     */
+    public static function getDateFromDateTimeObject($dateTime) {
+        return $dateTime->format("d.m.Y");
+    }
+
+    /**
+     * @param DateTime $dateTime
+     * @return mixed
+     */
+    public static function getDateAndTimeFromDateTimeObject($dateTime) {
+        return $dateTime->format("d.m.Y H:i");
+    }
+
 	/**
 	 * Bestimmt den Wochentag anhand eines SQL Datums
 	 * @param String $date
@@ -304,6 +337,25 @@ class DateFunctions {
 	    
 	    return round(($timeFirstDate - $timeSecondDate) / 86400);      // Aufrunden
 	}
+
+	public static function getMySQLTimeStamp($day = -1, $month = -1, $year = -1, $hour = -1, $minute = -1) {
+	    if($day == -1) $day = date("d");
+	    else if($day < 10) $day = "0" . ($day*1);
+
+        if($month == -1) $month = date("m");
+        else if($month < 10) $month = "0" . ($month*1);
+
+        if($year == -1) $year = date("Y");
+        else if($year < 10) $year = "0" . ($year*1);
+
+        if($hour == -1) $hour = date("H");
+        else if($hour < 10) $hour = "0" . ($hour*1);
+
+        if($minute == -1) $minute = date("i");
+        else if($minute < 10) $minute = "0" . ($minute*1);
+
+        return $year . "-" . $month . "-" . $day . " " . $hour . ":" . $minute . ":00";
+    }
 
 }
 
