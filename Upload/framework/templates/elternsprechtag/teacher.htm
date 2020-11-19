@@ -2,8 +2,10 @@
 
 <div class="box">
 	<div class="box-header">
-		<h3 class="box-title"><i class="fa fa-sign-language"></i> Lehrer $kuerzel gebuchte Sprechzeiten</h3><br />
-		<a href="index.php?page=elternsprechtag&action=teacherPrint&sprechtagID={$this->currentSprechtagID}" class="btn"><i class="fa fa-file-pdf"></i> Als PDF zum Ausdrucken speichern</a>
+		<h3 class="box-title"><i class="fa fa-sign-language"></i> {$this->currentSprechtag['sprechtagName']}<br>Lehrer $kuerzel gebuchte Sprechzeiten</h3><br />
+		<a href="index.php?page=elternsprechtag" class="btn btn-default pull-right"><i class="fa fa-arrow-left"></i> Zurück</a>
+
+		<a href="index.php?page=elternsprechtag&action=teacherPrint&sprechtagID={$this->currentSprechtagID}" class="btn btn-default"><i class="fa fa-file-pdf"></i> Als PDF zum Ausdrucken speichern</a>
 		
 	</div>
 	<div class="box-body">
