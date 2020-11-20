@@ -16,7 +16,8 @@ class test extends AbstractPage {
       // Only access for Admins
 
 
-    echo(stundenplan::getCurrentStunde());
+    $cron = new CronStatMaker();
+    $cron->execute();
   }
 
   public static function hasSettings() {
@@ -45,7 +46,7 @@ class test extends AbstractPage {
 
 
   public static function getSiteDisplayName() {
-    return 'Captcha auslesen';
+    return 'Tests';
   }
 
   /**

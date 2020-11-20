@@ -336,6 +336,14 @@ CREATE TABLE IF NOT EXISTS `beurlaubungsantraege` (
                                                       PRIMARY KEY (`baID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `cache` (
+                                       `cacheKey` varchar(255) NOT NULL,
+                                       `cacheTTL` int(11) NOT NULL,
+                                       `cacheType` enum('object','text','base64') NOT NULL DEFAULT 'text',
+                                       `cacheData` longtext NOT NULL,
+                                       PRIMARY KEY (`cacheKey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 CREATE TABLE IF NOT EXISTS `cron_execution` (
                                                 `cronRunID` int(11) NOT NULL AUTO_INCREMENT,
                                                 `cronName` varchar(255) NOT NULL,
@@ -799,6 +807,14 @@ CREATE TABLE IF NOT EXISTS `lerntutoren_slots` (
                                                    `slotSchuelerBelegt` varchar(255) DEFAULT '',
                                                    PRIMARY KEY (`slotID`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `loginstat` (
+                                           `statTimestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+                                           `statLoggedInTeachers` int(11) DEFAULT NULL,
+                                           `statLoggedInStudents` int(11) DEFAULT NULL,
+                                           `statLoggedInParents` int(11) DEFAULT NULL,
+                                           PRIMARY KEY (`statTimestamp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `mail_change_requests` (
                                                       `changeRequestID` int(11) NOT NULL,
@@ -1365,7 +1381,7 @@ CREATE TABLE IF NOT EXISTS `settings_history` (
                                                   `settingHistoryNewValue` mediumtext NOT NULL,
                                                   `settingHistoryUserID` int(11) DEFAULT NULL,
                                                   PRIMARY KEY (`settingHistoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `site_activation` (
                                                  `siteName` varchar(200) NOT NULL,

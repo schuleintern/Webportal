@@ -22,7 +22,8 @@ class cronhandler {
             'CronVerspaetungAuswertung',
             'CreateTagebuchPDFs',
             'DeleteOldElternUser',
-            'MailSendDeleter'
+            'MailSendDeleter',
+            'CronStatMaker'
 	];
 	
 	

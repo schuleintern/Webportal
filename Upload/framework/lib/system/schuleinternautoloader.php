@@ -57,7 +57,8 @@ $classes = [
 	    'CronVerspaetungAuswertung',
 	    'CreateTagebuchPDFs',
         'DeleteOldElternUser',
-        'MailSendDeleter'
+        'MailSendDeleter',
+        'CronStatMaker'
 	],
 	'data/schulbuch' => [
 		'BuchAusleihe',
@@ -198,6 +199,9 @@ $classes = [
 		'TagebuchKlasseEntry',
 	    'TagebuchPDFCreator'
 	],
+    'data/stat' => [
+        'UserLoginStat'
+    ],
 	'print' => [
 		'PrintNormalPageA4WithHeader',
 		'PrintLetterWithWindowA4',
@@ -343,8 +347,6 @@ function schuleinternautoloader($class) {
 	foreach($classes as $c => $d) {
 		for($i = 0; $i < sizeof($d); $i++) {
 			if(strtolower($d[$i]) == strtolower($class)) {
-			    // echo($class . "<br>");
-			    
 				include_once('../framework/lib/' . $c . '/' . $d[$i] . ".class.php");
 				return;
 			}
