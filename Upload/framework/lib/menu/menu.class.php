@@ -933,8 +933,8 @@ class menu {
           $html .= $this->getMenuItem("Lerntutoren", "Lerntutoren", "fa fa-graduation-cap");
       }
 
-    if((($this->isActive("mebis") || $this->isActive("database"))&& (DB::getSession()->isTeacher() || DB::getSession()->isPupil()))) {
-      $html .= $this->startDropDown(['mebis','database'], "Unterrichtstools", "fa fa-cubes");
+    if((($this->isActive("mebis"))&& (DB::getSession()->isTeacher() || DB::getSession()->isPupil()))) {
+      $html .= $this->startDropDown(['mebis'], "Unterrichtstools", "fa fa-cubes");
 
       if($this->isActive("mebis") && (DB::getSession()->isTeacher() || (DB::getSession()->isPupil() && DB::getSettings()->getBoolean('mebis-schueler')))) {
         $html .= $this->getMenuItem("mebis", "Mebis Account", "fa fa-compass");
