@@ -35,7 +35,7 @@
         <form action="index.php?page=klassentagebuch&mode=showGrade&action=switchDate&grade={$_REQUEST['grade']}&currentDate={$this->currentDateNatural}" method="post">
         <div class="row">
           <div class="col-md-2">
-            <button type="submit" name="prevDay" value="1" class="btn btn-default"><i class="fa fa-arrow-left"></i></button>
+            <button type="submit" name="prevDay" value="1" class="btn btn-default btn-block"><i class="fa fa-arrow-left"></i></button>
           </div>
           <div class="col-md-8">
             <div class="input-group">
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="col-md-2">
-            <button type="submit" name="nextDay" value="1" class="btn btn-default"><i class="fa fa-arrow-right"></i></button>
+            <button type="submit" name="nextDay" value="1" class="btn btn-default btn-block"><i class="fa fa-arrow-right"></i></button>
           </div>
 
         </div>
@@ -53,7 +53,7 @@
       </div>
       <if($this->isTeacher && $this->lehrerTagebuch)><then>
         <div class="col-md-4">
-            <div class="pull-right"><a href="index.php?page=klassentagebuch&mode=lehrerTagebuch&currentDate={$this->currentDateNatural}" class="btn btn-primary"><i class="fa fa-book"></i> Zum Lehrertagebuch wechseln</a></div>
+            <div class="pull-right"><a href="index.php?page=klassentagebuch&mode=lehrerTagebuch&currentDate={$this->currentDateNatural}" class="btn btn-default btn-block"><i class="fa fa-book"></i> Zum Lehrertagebuch wechseln</a></div>
         </div>
       </then></if>
     </div>

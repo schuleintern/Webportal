@@ -239,6 +239,10 @@ class klassentagebuch extends AbstractPage {
       	$this->addTeacherEntry();
       break;
 
+      case 'exportTeacherBook':
+        $this->exportTeacherBook();
+      break;
+
       case 'editAbsenzStunden':
         $this->editAbsenzStunden();
       break;
@@ -248,6 +252,14 @@ class klassentagebuch extends AbstractPage {
         $this->showCurrentDateAndCurrentGrade();
       break;
     }
+  }
+
+  private function exportTacherBook() {
+      $teacher = DB::getSession()->isTeacher() ? DB::getSession()->getTeacherObject() : null;
+
+      if($teacher == null) new errorPage("Kein Lehrer.");
+
+      // Alle Einträge des Lehrers in chronologischer Reihenfolge exportieren
   }
 
   private function editAbsenzStunden() {
