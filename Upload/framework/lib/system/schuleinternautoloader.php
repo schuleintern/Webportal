@@ -58,7 +58,8 @@ $classes = [
 	    'CreateTagebuchPDFs',
         'DeleteOldElternUser',
         'MailSendDeleter',
-        'CronStatMaker'
+        'CronStatMaker',
+        'SprechtagVikoCreator'
 	],
 	'data/schulbuch' => [
 		'BuchAusleihe',
