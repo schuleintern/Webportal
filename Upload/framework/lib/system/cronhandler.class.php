@@ -23,7 +23,8 @@ class cronhandler {
             'CreateTagebuchPDFs',
             'DeleteOldElternUser',
             'MailSendDeleter',
-            'CronStatMaker'
+            'CronStatMaker',
+        'SprechtagVikoCreator'
 	];
 	
 	
