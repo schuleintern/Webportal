@@ -484,7 +484,7 @@ class MessageCompose extends AbstractPage {
 
 
                         if($meetingURL != null) {
-                            $_POST['messageText'] .= "<br><br><b>Link zur Videokonferenz:</b><br><a href='$meetingURL' target='_blank'>" . $meetingURL . "</a><br>Hinweis: Nutzen Sie Chrome oder Edge. Sie können auch die Teams App auf Ihrem Smartphone oder Tablet verwenden.";
+                            $_POST['messageText'] .= "<br><br><b>Link zur Videokonferenz am " . DateFunctions::getNaturalDateFromMySQLDate($meetingDate) . " um " . $stundeStart . ":" . $minuteStart . " Uhr</b><br><a href='$meetingURL' target='_blank'>" . $meetingURL . "</a><br>Hinweis: Nutzen Sie Chrome oder Edge. Sie können auch die Teams App auf Ihrem Smartphone oder Tablet verwenden.";
                         }
                     }
                 }
