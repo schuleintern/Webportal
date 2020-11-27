@@ -330,7 +330,8 @@ class MessageSender{
 	        'messagePriority',
 	        'messageAllowAnswer',
 	        'messageHasQuestions',
-	        'messageQuestionIDs'
+	        'messageQuestionIDs',
+            'messageMyRecipientSaveString'
 	    ];
 	    
 	    for($i = 0; $i < sizeof($recipients); $i++) {
@@ -361,7 +362,8 @@ class MessageSender{
 					'" . $this->priority . "',
 					'" . ($this->allowAnswer ? 1 : 0). "',
                     '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
-                    '" . $messageQuestionIDs . "'
+                    '" . $messageQuestionIDs . "',
+                    '" . $recipients[$i]->getSaveString() . "'
 					)
 				";
 	            $this->sentMessages++;

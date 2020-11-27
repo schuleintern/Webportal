@@ -178,7 +178,12 @@ class MessageRead extends AbstractPage {
 
     $allRecipients = [];
     for($i = 0; $i < sizeof($recipients); $i++) {
-      $allRecipients[] = $recipients[$i]->getDisplayName();
+        if($recipients[$i]->getSaveString() == $this->message->getMyRecipient()->getSaveString()) {
+            $allRecipients[] = "<strong>" . $recipients[$i]->getDisplayName()  ."</strong>";
+        }
+        else {
+            $allRecipients[] = $recipients[$i]->getDisplayName();
+        }
     }
     
     $ccRecipients = $this->message->getCCRecipients();

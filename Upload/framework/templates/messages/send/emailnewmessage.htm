@@ -236,6 +236,8 @@
                       	<p><b>Neue Nachricht bei <expression>DB::getGlobalSettings()->siteNamePlain</expression></b>
                         <p><b>Betreff:</b> $subject</p>
                         <p><b>Absender:</b> $sender</p>
+                        <if($myRecipient != "")><then><p><b>Betrifft Sie als:</b> $myRecipient</p></then></if>
+                        <p></p>
                         <if($attachmentsHTML != "")><then>
                         <hr>
                         <p><b>Anhänge:</b></p>
@@ -284,6 +286,13 @@
                         <p>$messageText</p>
                         
                         <hr>
+
+                        <if($replyOrForwardText != "")><then>
+                        <p><b>Ursprüngliche Nachricht:</b><br />
+                          $replyOrForwardText</p>
+                        <hr>
+                        </then></if>
+
                         <p>Impressum:<br />
                           <expression>DB::getSettings()->getValue("impressum-text")</expression></p>
                         <hr>
