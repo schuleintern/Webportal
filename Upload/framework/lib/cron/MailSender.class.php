@@ -19,7 +19,7 @@ class MailSender extends AbstractCron
 
     public function execute()
     {
-        if (!DB::isDebug() && DB::getGlobalSettings()->schulnummer != "9400") {
+        if (DB::getGlobalSettings()->schulnummer != "9400") {
             $this->result = email::sendBatchMails();
         } else {
             $this->result = "Debug Modus. Keine Mails versendet.";
