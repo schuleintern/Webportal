@@ -27,9 +27,6 @@ class requesthandler {
       'oauth2' => [
           'oAuth2Auth'
       ],
-    'ffbumfrage' => [
-        'ffbumfrage'
-    ],
   	'files' => [
   		'FileDownload'
   	],
