@@ -373,11 +373,7 @@ class menu {
         
         $html .= $this->endDropDown();
     }
-    
-    
-    if($this->isActive('ffbumfrage') && (DB::getSession()->isPupil() || DB::getSession()->isEltern())){
-        $html .= $this->getMenuItem('ffbumfrage', 'Umfrage', "fa fa-question-circle");
-    }
+
     
     
     if($html != "") {
