@@ -14,12 +14,6 @@ $classes = [
 		'ajax',
 		'showHideElements',
 	],
-	'api' => [
-		'AbstractApi',
-		'GetSchoolData',
-		'SingleSignOn',
-	],
-    
     'ausweise' => [
         'AbstractAusweis',
         'Schulausweis',
