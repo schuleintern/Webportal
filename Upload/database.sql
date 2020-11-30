@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `absenzen_absenzen` (
 `absenzisEntschuldigt` tinyint(1) NOT NULL,
 `absenzIsSchriftlichEntschuldigt` tinyint(1) NOT NULL,
 `absenzKommtSpaeter` tinyint(1) NOT NULL DEFAULT 0,
+`absenzGanztagsNotiz` tinytext NOT NULL,
 PRIMARY KEY (`absenzID`) USING BTREE,
 KEY `absenzSchuelerAsvID` (`absenzSchuelerAsvID`),
 KEY `absenzDatum` (`absenzDatum`)
