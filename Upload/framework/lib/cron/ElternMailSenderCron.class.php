@@ -33,13 +33,14 @@ class ElternMailSenderCron extends AbstractCron {
 			        // Mail senden
 			        
 			        $betreff = DB::getGlobalSettings()->siteNamePlain . " - Neue Nachricht - " . $mails[$i]->getSubject();
+
+			        // MailID jetzt immer mit senden, damit man auf die Nachricht mittels Mailprogramm antworten kann.
+			        $betreff .= " - [" . $mails[$i]->getID() . "]";
 			        
 			        if($mails[$i]->needConfirmation() && !$mails[$i]->hasQuestions()) {
-			            $betreff .= " - [" . $mails[$i]->getID() . "] {" . $mails[$i]->getConfirmationSecret() . "}";
+			            $betreff .= " {" . $mails[$i]->getConfirmationSecret() . "}";
 			        }
-			        
-			        
-			        
+
 			        $subject = $mails[$i]->getSubject();
 			        
 			        if($mails[$i]->getSender() != null) $sender = $mails[$i]->getSender()->getDisplayName();
@@ -75,7 +76,23 @@ class ElternMailSenderCron extends AbstractCron {
 			        }
 			        
 			        $questionHTML .= "</ul>";
-			        
+
+			        $replyOrForwardText = "";
+
+			        if($mails[$i]->getReplyMessage() !== null) {
+			            // Antwort Nachricht
+                        $replyOrForwardText = $mails[$i]->getReplyMessage()->getText();
+                    }
+
+			        if($mails[$i]->getForwardMessage() !== null) {
+			            $replyOrForwardText = $mails[$i]->getForwardMessage()->getText();
+                    }
+
+			        $myRecipient = "";
+
+			        if($mails[$i]->getMyRecipient() !== null) {
+			            $myRecipient = $mails[$i]->getMyRecipient()->getDisplayName();
+                    }
 			        
 			        $mailHTML = "";
 			        eval("\$mailHTML = \"" . DB::getTPL()->get("messages/send/emailnewmessage") . "\";");

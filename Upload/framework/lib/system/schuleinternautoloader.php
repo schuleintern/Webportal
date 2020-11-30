@@ -14,12 +14,6 @@ $classes = [
 		'ajax',
 		'showHideElements',
 	],
-	'api' => [
-		'AbstractApi',
-		'GetSchoolData',
-		'SingleSignOn',
-	],
-    
     'ausweise' => [
         'AbstractAusweis',
         'Schulausweis',
@@ -58,7 +52,8 @@ $classes = [
 	    'CreateTagebuchPDFs',
         'DeleteOldElternUser',
         'MailSendDeleter',
-        'CronStatMaker'
+        'CronStatMaker',
+        'SprechtagVikoCreator'
 	],
 	'data/schulbuch' => [
 		'BuchAusleihe',

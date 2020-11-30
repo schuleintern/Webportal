@@ -35,12 +35,10 @@ class MessageConfirm extends AbstractPage {
 		        if(!DB::isLoggedIn() && $userID > 0) {
                     session::loginAndCreateSession($userID, false);
 
+
                     header("Location: " . $redirectURL);
                     exit(0);
 		        }
-		        else if(DB::isLoggedIn()) {
-		            new errorPage("Eingeloggt, aber ohne userID");
-                }
 		        else {
 		          header("Location: " . $redirectURL);
 		          exit(0);

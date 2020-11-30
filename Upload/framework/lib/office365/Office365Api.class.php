@@ -382,7 +382,7 @@ class Office365Api {
      * @return string|null
      *
      */
-    public static function createMeeting($upn, $dateTimeStart, $dateTimeEnd, $subject, $body) {
+    public static function createMeeting($upn, $dateTimeStart, $dateTimeEnd, $subject, $body="") {
 
         if(!Office365Meetings::isActiveForTeacher()) return null;
 

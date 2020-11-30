@@ -396,32 +396,31 @@
     },
     {
         "name": "league/oauth2-client",
-        "version": "2.5.0",
-        "version_normalized": "2.5.0.0",
+        "version": "2.6.0",
+        "version_normalized": "2.6.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/oauth2-client.git",
-            "reference": "d9f2a1e000dc14eb3c02e15d15759385ec7ff0fb"
+            "reference": "badb01e62383430706433191b82506b6df24ad98"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/d9f2a1e000dc14eb3c02e15d15759385ec7ff0fb",
-            "reference": "d9f2a1e000dc14eb3c02e15d15759385ec7ff0fb",
+            "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/badb01e62383430706433191b82506b6df24ad98",
+            "reference": "badb01e62383430706433191b82506b6df24ad98",
             "shasum": ""
         },
         "require": {
             "guzzlehttp/guzzle": "^6.0 || ^7.0",
-            "paragonie/random_compat": "^1|^2|^9.99",
-            "php": "^5.6|^7.0"
+            "paragonie/random_compat": "^1 || ^2 || ^9.99",
+            "php": "^5.6 || ^7.0 || ^8.0"
         },
         "require-dev": {
-            "eloquent/liberator": "^2.0",
-            "eloquent/phony-phpunit": "^1.0|^3.0",
-            "jakub-onderka/php-parallel-lint": "^0.9.2",
-            "phpunit/phpunit": "^5.7|^6.0",
-            "squizlabs/php_codesniffer": "^2.3|^3.0"
+            "mockery/mockery": "^1.3",
+            "php-parallel-lint/php-parallel-lint": "^1.2",
+            "phpunit/phpunit": "^5.7 || ^6.0 || ^9.3",
+            "squizlabs/php_codesniffer": "^2.3 || ^3.0"
         },
-        "time": "2020-07-18T17:54:32+00:00",
+        "time": "2020-10-28T02:03:40+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -635,17 +634,17 @@
     },
     {
         "name": "myclabs/deep-copy",
-        "version": "1.10.1",
-        "version_normalized": "1.10.1.0",
+        "version": "1.10.2",
+        "version_normalized": "1.10.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/myclabs/DeepCopy.git",
-            "reference": "969b211f9a51aa1f6c01d1d2aef56d3bd91598e5"
+            "reference": "776f831124e9c62e1a2c601ecc52e776d8bb7220"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
-            "reference": "969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
+            "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/776f831124e9c62e1a2c601ecc52e776d8bb7220",
+            "reference": "776f831124e9c62e1a2c601ecc52e776d8bb7220",
             "shasum": ""
         },
         "require": {
@@ -659,7 +658,7 @@
             "doctrine/common": "^2.6",
             "phpunit/phpunit": "^7.1"
         },
-        "time": "2020-06-29T13:22:24+00:00",
+        "time": "2020-11-13T09:40:50+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -802,17 +801,17 @@
     },
     {
         "name": "phpmailer/phpmailer",
-        "version": "v6.1.8",
-        "version_normalized": "6.1.8.0",
+        "version": "v6.2.0",
+        "version_normalized": "6.2.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/PHPMailer/PHPMailer.git",
-            "reference": "917ab212fa00dc6eacbb26e8bc387ebe40993bc1"
+            "reference": "e38888a75c070304ca5514197d4847a59a5c853f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/917ab212fa00dc6eacbb26e8bc387ebe40993bc1",
-            "reference": "917ab212fa00dc6eacbb26e8bc387ebe40993bc1",
+            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/e38888a75c070304ca5514197d4847a59a5c853f",
+            "reference": "e38888a75c070304ca5514197d4847a59a5c853f",
             "shasum": ""
         },
         "require": {
@@ -822,9 +821,12 @@
             "php": ">=5.5.0"
         },
         "require-dev": {
+            "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
             "doctrine/annotations": "^1.2",
-            "friendsofphp/php-cs-fixer": "^2.2",
-            "phpunit/phpunit": "^4.8 || ^5.7"
+            "phpcompatibility/php-compatibility": "^9.3.5",
+            "roave/security-advisories": "dev-latest",
+            "squizlabs/php_codesniffer": "^3.5.6",
+            "yoast/phpunit-polyfills": "^0.2.0"
         },
         "suggest": {
             "ext-mbstring": "Needed to send email in multibyte encoding charset",
@@ -834,7 +836,7 @@
             "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
             "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
         },
-        "time": "2020-10-09T14:55:58+00:00",
+        "time": "2020-11-25T15:24:57+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -866,7 +868,7 @@
         "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
         "funding": [
             {
-                "url": "https://github.com/synchro",
+                "url": "https://github.com/Synchro",
                 "type": "github"
             }
         ]
