@@ -226,18 +226,28 @@ button.btn-blau {
   border-bottom: 1px solid #738b96;
 }
 
+.border-b-hell {
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
 
 .border-radius {
-  border: 1px solid #738b96;
   border-radius: 4px;
 }
+
+
+
+
 
 
 .bg-white {
   background-color: #ffffff;
 }
-
-
+.bg-grau {
+  background-color: #8aa4af;
+}
+.bg-grau-hell {
+  background-color: rgb(244, 244, 244);
+}
 
 .noListStyle {
   list-style: none;
@@ -262,8 +272,15 @@ button.btn-blau {
 .text-orange {
   color: #f39c12;
 }
+
+.text-black {
+  color: #000000;
+}
 .text-grey {
   color: #738b96;
+}
+.text-white {
+  color: #ffffff;
 }
 
 .text-small {
@@ -275,6 +292,14 @@ button.btn-blau {
 }
 .text-big-m {
   font-size: 160%;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-line-through {
+  text-decoration:line-through;
 }
 
 .table_1 {
@@ -298,13 +323,86 @@ button.btn-blau {
   text-align: left;
   vertical-align: top;
 }
+.table_1.noPadding tbody td {
+  padding: 0;
+}
 
 
 
 
 .box_1 {
-	border: 1px solid #8aa4af;
+  border: 1px solid #8aa4af;
+  background-color: rgb(244, 244, 244);
 	padding: 1rem;
-	margin-bottom: 1.5rem;
+	margin-bottom: 1.3rem;
 	border-radius: 5px;
+}
+
+.box_odd:nth-child(2n) {
+  background-color: rgb(236, 240, 245);
+}
+
+
+
+
+.page-dropdownMenue {
+  position: relative;
+  display: inline-block;
+  max-width: 4rem;
+}
+
+.page-dropdownMenue .page-dropdownMenue-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  z-index: 1;
+  left: -20rem;
+  width: 25rem;
+}
+
+.page-dropdownMenue .dropbtn {
+  width: 5rem;
+}
+
+
+
+.page-dropdownMenue .page-dropdownMenue-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.page-dropdownMenue .page-dropdownMenue-content a i {
+  margin-right: 1.3rem;
+}
+
+.page-dropdownMenue-content a:hover {background-color: #ddd;}
+
+.page-dropdownMenue:hover .page-dropdownMenue-content {display: block;}
+
+.page-dropdownMenue:hover .dropbtn {}
+
+.page-submenue a {
+  padding-top: 0.6rem;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
+  height: 100%;
+  display: inline-block;
+
+  border-top-left-radius: 4px;
+  color: #666;
+  background-color: #f1f1f1;
+}
+.page-submenue a:hover {
+  background-color: #dfe2e7;
+} 
+
+.page-submenue a.active {
+  border-top-right-radius: 4px;
+  color: #666;
+  background-color: #d2d6de;
+
+}
+.page-submenue a:hover {
+  color: #000;
 }
