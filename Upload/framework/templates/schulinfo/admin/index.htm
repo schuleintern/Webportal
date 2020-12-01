@@ -48,6 +48,10 @@
 						<option value="fos"
 							<if(DB::getSettings()->getValue('schulinfo-schultyp') == 'fos')><then>selected="selected"</then></if>
 						>Fachoberschule</option>
+
+						<option value="gs"
+						<if(DB::getSettings()->getValue('schulinfo-schultyp') == 'gs')><then>selected="selected"</then></if>
+						>Grundschule</option>
 					</select>
 				</td>
 			</tr>
