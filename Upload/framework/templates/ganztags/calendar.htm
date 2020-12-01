@@ -1,0 +1,72 @@
+{$this->header}
+
+<div class="flex-row">
+	<div class="flex-3 page-submenue" >		
+		<a href="index.php?page=ganztags" class="margin-r-xs">Schülerliste</a>
+		<a href="index.php?page=ganztagsCalendar" class="margin-r-xs active">Tagesansicht</a>
+	</div>
+	<div class="flex-1 page-dropdownMenue ">
+		<button class="dropbtn btn"><i class="fas fa-ellipsis-v"></i></button>
+		<div class="page-dropdownMenue-content ">
+			<a href="index.php?page=ganztagsCalendar&action=printToday" class=""><i class="fas fa-print"></i>Tagesliste Drucken</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="box">
+
+	<div class="box-body">
+
+		<div id=app></div>
+		<script>
+			var globals = {
+				acl: $acl,
+				showDays: $showDays
+			}
+			//console.log(globals.objects);
+		</script>
+		<script src=components/ganztags/dist/js/chunk-vendors.js></script>
+		<script src=components/ganztags/dist/js/app.js></script>
+		<!-- <script src=components/ganztags/dist/app.js></script> -->
+
+	</div>
+</div>
+
+{$this->footer}
+
+
+<style>
+
+	#app {
+		min-width: 60rem;
+	}
+	
+
+	.calendar .calendar-header {
+		display: flex;
+		margin-bottom: 3rem;
+		margin-top: 1rem;
+	}
+
+.calendar .calendar-header button{
+	flex: 1;
+	font-size: 100%;
+}
+.calendar .calendar-header h3 {
+	flex: 8;
+	margin: 0;
+	padding: 0;
+	justify-content: center;
+	align-self: center;
+	text-align: center;
+}
+.calendar .calendar-header button i {
+	margin-left: 0.6rem;
+	margin-right: 0.6rem;
+}
+
+
+	
+	</style>
+		

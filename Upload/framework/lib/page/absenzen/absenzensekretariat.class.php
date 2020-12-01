@@ -1361,6 +1361,7 @@ class absenzensekretariat extends AbstractPage {
     }
 
     if(trim($_POST['bemerkung']) != "") $absenz->addKommentar($_POST['bemerkung']);
+    if(trim($_POST['ganztagsNotiz']) != "") $absenz->addGanztagsNotiz($_POST['ganztagsNotiz']);
 
     if(!($_POST['jetztgekommen'] > 0)) $absenz->setStunden($stunden);
 

@@ -315,42 +315,45 @@ class ausleihe extends AbstractPage {
 		}
 	}
 
-	private function checkEvent() {
+	// private function checkEvent() {
 
-		if (!$_POST['datum']
-			|| !$_POST['stunde']) {
-			echo json_encode( array('error'=>true,'errorMsg'=>'Missing Data!') , true);
-			exit;
-		}
+	// 	$date = explode(',',$_POST['datum'])[1];
 
-		$objects = array();
-		$data = DB::getDB()->query("SELECT a.ausleiheID, a.ausleiheObjektID, a.ausleiheObjektIndex, b.objektAnzahl, b.sumItems
-			FROM ausleihe_ausleihe as a
-			LEFT JOIN ausleihe_objekte as b
-			ON a.ausleiheObjektID = b.objektID
-			WHERE ausleiheDatum = '".$_POST['datum']."'
-			AND ausleiheStunde = ".(int)$_POST['stunde']."
-		");
+	// 	if (!$_POST['datum']
+	// 		|| !$_POST['stunde']
+	// 		|| !$date) {
+	// 		echo json_encode( array('error'=>true,'errorMsg'=>'Missing Data!') , true);
+	// 		exit;
+	// 	}
 
-		$return = array('check' => false, 'objects' =>array());
-		while($a = DB::getDB()->fetch_array($data)) {
-			if ($a['ausleiheID']) {
-				$return['check'] = true;
-				$arr = array(
-					'ausleiheID' => $a['ausleiheID'],
-					'ausleiheObjektID' => $a['ausleiheObjektID'],
-					'sub' => 0
-				);
-				if ( (int)$a['objektAnzahl'] && (int)$a['sumItems']) {
-					$arr['sub'] = $a['ausleiheObjektIndex'] +1;
-				}
-				array_push($return['objects'], $arr );
-			}
-		}	
+	// 	$objects = array();
+	// 	$data = DB::getDB()->query("SELECT a.ausleiheID, a.ausleiheObjektID, a.ausleiheObjektIndex, b.objektAnzahl, b.sumItems
+	// 		FROM ausleihe_ausleihe as a
+	// 		LEFT JOIN ausleihe_objekte as b
+	// 		ON a.ausleiheObjektID = b.objektID
+	// 		WHERE ausleiheDatum = '".$date."'
+	// 		AND ausleiheStunde = ".(int)$_POST['stunde']."
+	// 	");
 
-		return $return;
+	// 	$return = array('check' => false, 'objects' =>array());
+	// 	while($a = DB::getDB()->fetch_array($data)) {
+	// 		if ($a['ausleiheID']) {
+	// 			$return['check'] = true;
+	// 			$arr = array(
+	// 				'ausleiheID' => $a['ausleiheID'],
+	// 				'ausleiheObjektID' => $a['ausleiheObjektID'],
+	// 				'sub' => 0
+	// 			);
+	// 			if ( (int)$a['objektAnzahl'] && (int)$a['sumItems']) {
+	// 				$arr['sub'] = $a['ausleiheObjektIndex'] +1;
+	// 			}
+	// 			array_push($return['objects'], $arr );
+	// 		}
+	// 	}	
+
+	// 	return $return;
 		
-	}
+	// }
 	
 	private function myDates() {
 
