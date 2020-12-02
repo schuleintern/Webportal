@@ -161,7 +161,7 @@ class elternsprechtag extends AbstractPage {
 		
 		
 		
-		if(DB::getSession()->isEltern()) {
+		if(DB::getSession()->isEltern() && !DB::getSession()->isTeacher() ) {
 		    $grades = DB::getSession()->getElternObject()->getKlassenAsArray();
 		    
 		    $klasseOK = false;
