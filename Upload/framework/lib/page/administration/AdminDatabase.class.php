@@ -38,14 +38,14 @@ class AdminDatabase extends AbstractPage {
 	public static function getAdminMenuIcon() {
 		return 'fa fa-table';
 	}
-	
-	public static function getAdminMenuGroupIcon() {
-		return 'fa fa-cogs';
-	}
-	
-	public static function getAdminMenuGroup() {
-		return 'System';
-	}
+
+    public static function getAdminMenuGroupIcon() {
+        return 'fa fa-database';
+    }
+
+    public static function getAdminMenuGroup() {
+        return 'Datenbank';
+    }
 
 	public static function siteIsAlwaysActive() {
 		return true;
