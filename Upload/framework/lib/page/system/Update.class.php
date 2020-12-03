@@ -34,7 +34,7 @@ class Update extends AbstractPage
         // Compare Database with File and execute query
         $dbFile = "../data/update/Upload/database.sql";
         if (file_exists($dbFile)) {
-            $newStructure = file_get_contents("../data/update/Upload/database.sql");
+            $newStructure = file_get_contents("../framework/database.sql");
             $this->updateDatabase($newStructure);
         }
 
