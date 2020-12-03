@@ -80,7 +80,8 @@ class requesthandler {
         'AdminUpdate',
         'AdminBackup',
         'AdminDatabase',
-        'AdministrationEltern'
+        'AdministrationEltern',
+        'AdminDatabaseUpdate'
     ],
     'aufeinenblick' => [
       'aufeinenblick',
