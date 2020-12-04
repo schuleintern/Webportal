@@ -178,7 +178,7 @@ class MessageRead extends AbstractPage {
 
     $allRecipients = [];
     for($i = 0; $i < sizeof($recipients); $i++) {
-        if($recipients[$i]->getSaveString() == $this->message->getMyRecipient()->getSaveString()) {
+        if($recipients[$i] != null && $this->message->getMyRecipient() != null && $recipients[$i]->getSaveString() == $this->message->getMyRecipient()->getSaveString()) {
             $allRecipients[] = "<strong>" . $recipients[$i]->getDisplayName()  ."</strong>";
         }
         else {
