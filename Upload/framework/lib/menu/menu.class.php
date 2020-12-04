@@ -282,10 +282,12 @@ class menu {
         }
         // Externe Kalender
         
-        $externeKalender = extKalender::getKalenderWithAccess();
-        
-        for($i = 0; $i < sizeof($externeKalender); $i++) {
-            $html .= $this->getMenuItem('extKalender', $externeKalender[$i]['kalenderName'], 'fa fa-calendar',['kalenderID' => $externeKalender[$i]['kalenderID']]);
+        if ( $this->isActive('extKalender') ) {
+          $externeKalender = extKalender::getKalenderWithAccess();
+          
+          for($i = 0; $i < sizeof($externeKalender); $i++) {
+              $html .= $this->getMenuItem('extKalender', $externeKalender[$i]['kalenderName'], 'fa fa-calendar',['kalenderID' => $externeKalender[$i]['kalenderID']]);
+          }
         }
         
         
