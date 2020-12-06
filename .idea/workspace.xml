@@ -22,13 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Pace Ladebalken hinzugefügt.">
-      <change afterPath="$PROJECT_DIR$/Upload/www/cssjs/plugins/chartjs/Chart.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Upload/www/cssjs/plugins/chartjs/Chart.min.js" afterDir="false" />
+    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Neue Datenbank">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/templates/aufeinenblick/settings/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/templates/aufeinenblick/settings/index.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/templates/header/header.htm" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/templates/header/header.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/www/cssjs/plugins/chartjs/Chart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/print/PrintNormalPageA4WithHeader.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/print/PrintNormalPageA4WithHeader.class.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Absenzen2PunktNull" />
+        <entry key="$PROJECT_DIR$" value="ModuleBased" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,21 +54,22 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Upload/www/cssjs/plugins/chartjs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Upload/www/cssjs/font/fontawesome" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\www\cssjs\font\fontawesome" />
+      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\lib\data\absenzen" />
+      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\lib\cron" />
       <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\www\cssjs\plugins\chartjs" />
       <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\www\cssjs\plugins\select2" />
-      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\templates\office365\meetings\admin" />
-      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\lib\page\office365" />
-      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\templates\absenzenv2" />
@@ -105,69 +102,9 @@
       <workItem from="1605509483500" duration="4932000" />
       <workItem from="1605523865345" duration="11991000" />
       <workItem from="1605594643163" duration="4697000" />
-    </task>
-    <task id="LOCAL-00001" summary="Composer Update">
-      <created>1603717309378</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1603717309378</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Debug Login">
-      <created>1603723677464</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1603723677464</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Update README.md: Neuer Link Admin Doku">
-      <created>1603730966464</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1603730966464</updated>
-    </task>
-    <task id="LOCAL-00004" summary="https://github.com/schuleintern/Webportal/issues/186">
-      <created>1603864994589</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1603864994589</updated>
-    </task>
-    <task id="LOCAL-00005" summary="https://github.com/schuleintern/Webportal/issues/137">
-      <created>1603865258447</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1603865258447</updated>
-    </task>
-    <task id="LOCAL-00006" summary="https://github.com/schuleintern/Webportal/issues/127">
-      <created>1603866343477</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1603866343477</updated>
-    </task>
-    <task id="LOCAL-00007" summary="https://github.com/schuleintern/Webportal/issues/121">
-      <created>1603866600823</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1603866600823</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Kleine Anpassung todo Management">
-      <created>1603867232955</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1603867232955</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Kleine Anpassung todo Management">
-      <created>1603867338221</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1603867338221</updated>
+      <workItem from="1606287937460" duration="5525000" />
+      <workItem from="1606417391782" duration="10651000" />
+      <workItem from="1607023606046" duration="40085000" />
     </task>
     <task id="LOCAL-00010" summary="https://github.com/schuleintern/Webportal/issues/85">
       <created>1603879814303</created>
@@ -372,7 +309,147 @@
       <option name="project" value="LOCAL" />
       <updated>1605596437098</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Reset tests">
+      <created>1606416986554</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1606416986554</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Update Videokonferenz Link Anzeige">
+      <created>1606417157004</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1606417157004</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Parameter optional">
+      <created>1606417222078</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1606417222078</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Darstellung Klassenauswahl Modal verbessert.">
+      <created>1606417240081</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1606417240081</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Hinweis auf Elternsprechtag Online hinzugefügt.">
+      <created>1606417260067</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1606417260067</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Automatisches Erzeugen der Videokonferenzlinks.">
+      <created>1606417282131</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1606417282131</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Automatisches Erzeugen der Videokonferenzlinks.">
+      <created>1606417288446</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1606417288446</updated>
+    </task>
+    <task id="LOCAL-00046" summary="W-Lan Ticket wieder aktualisiert.">
+      <created>1606824755225</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1606824755226</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Grundschule als Schulart">
+      <created>1606849852565</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1606849852565</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Bugfix, Nullpointer">
+      <created>1607060900223</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1607060900223</updated>
+    </task>
+    <task id="LOCAL-00049" summary="SQL Diff Package">
+      <created>1607061020028</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1607061020028</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Update iCheck to 1.0.3">
+      <created>1607200625544</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1607200625545</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Update FontAwesome">
+      <created>1607246112527</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1607246112527</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Nachrichten können vertraulich sein.">
+      <created>1607246226465</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1607246226465</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Quarantäne Verwaltung">
+      <created>1607261575278</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1607261575278</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Performance Verbesserung Elternobjekt">
+      <created>1607262030750</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1607262030750</updated>
+    </task>
+    <task id="LOCAL-00055" summary="AJAX Suche nach Schülern in Schülerinformationssystem">
+      <created>1607262559851</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1607262559851</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Bugfix">
+      <created>1607262575898</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1607262575898</updated>
+    </task>
+    <task id="LOCAL-00057" summary="hinweis auf info@spitschka.com entfernt.">
+      <created>1607264996659</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1607264996660</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Neue Datenbank">
+      <created>1607265004510</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1607265004510</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,76 +468,33 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Kleine Anpassung todo Management" />
-    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/85" />
-    <MESSAGE value="https://github.com/schuleintern/Webportal/issues/48" />
-    <MESSAGE value="Anpassungen Absenzenansicht Sekretariat" />
-    <MESSAGE value="Kleinere Anpassungen Klassenkalender" />
-    <MESSAGE value="Fehlendes Icon im Mneü" />
-    <MESSAGE value="Optische Verbesserung Dokumente" />
-    <MESSAGE value="Software Downloads entfernt." />
-    <MESSAGE value="Kosmetik Krankmeldung" />
-    <MESSAGE value="Autoresponder für CC und BCC&#10;Autoresponder nur bis gewisser Anzahl einstellbar." />
-    <MESSAGE value="Darstellung Klassentagebuch" />
-    <MESSAGE value="MySQL Datenbank für Unterricht entfernt, da seit Monaten nicht funktional." />
-    <MESSAGE value="Beta Modus für einzelne Module eingeführt." />
-    <MESSAGE value="Deleter für alte Mails aus &quot;mail_send&quot;" />
-    <MESSAGE value="Office 365 Meeting über Teams API eingebunden; Meetings über Nachrichten vereinbaren." />
-    <MESSAGE value="Kosmetik" />
-    <MESSAGE value="Anpassung Elternsprechtag Virtuell" />
-    <MESSAGE value="Historie für Einstellungen" />
-    <MESSAGE value="Bugfix mebis Kennungen" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Alte Elternbenutzer tatsächlich löschen." />
     <MESSAGE value="Backend: Cache eingeführt" />
     <MESSAGE value="Update SELECT2" />
     <MESSAGE value="Update jQuery" />
     <MESSAGE value="Update Moment.js" />
     <MESSAGE value="Pace Ladebalken hinzugefügt." />
-    <option name="LAST_COMMIT_MESSAGE" value="Pace Ladebalken hinzugefügt." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1040" y="491" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605560599383">
-      <screen x="0" y="0" width="2560" height="1377" />
-    </state>
-    <state x="1040" y="491" key="#com.intellij.fileTypes.FileTypeChooser/3840.0.2560.1377/-1920.0.1920.1050/0.0.2560.1377@0.0.2560.1377" timestamp="1605560599383" />
-    <state x="1086" y="371" key="#com.intellij.ide.util.MemberChooser" timestamp="1605124360513">
-      <screen x="0" y="0" width="2560" height="1377" />
-    </state>
-    <state x="1086" y="371" key="#com.intellij.ide.util.MemberChooser/3840.0.2560.1377/0.0.2560.1377/-1920.0.1920.1050@0.0.2560.1377" timestamp="1605124360513" />
-    <state x="961" y="425" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1604425364318">
-      <screen x="0" y="0" width="2560" height="1377" />
-    </state>
-    <state x="961" y="425" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/3840.0.2560.1377/-1920.0.1920.1050/0.0.2560.1377@0.0.2560.1377" timestamp="1604425364318" />
-    <state x="1007" y="558" key="NewPhpFileDialog" timestamp="1605556782156">
-      <screen x="0" y="0" width="2560" height="1377" />
-    </state>
-    <state x="604" y="325" key="NewPhpFileDialog/0.0.1536.802@0.0.1536.802" timestamp="1604134288550" />
-    <state x="1007" y="558" key="NewPhpFileDialog/3840.0.2560.1377/-1920.0.1920.1050/0.0.2560.1377@0.0.2560.1377" timestamp="1605556782156" />
-    <state x="1007" y="558" key="NewPhpFileDialog/3840.0.2560.1377/0.0.2560.1377/-1920.0.1920.1050@0.0.2560.1377" timestamp="1605124433318" />
-    <state x="958" y="177" key="RollbackChangesDialog" timestamp="1605593335723">
-      <screen x="0" y="0" width="2560" height="1377" />
-    </state>
-    <state x="575" y="103" key="RollbackChangesDialog/0.0.1536.802@0.0.1536.802" timestamp="1604139192057" />
-    <state x="958" y="177" key="RollbackChangesDialog/3840.0.2560.1377/-1920.0.1920.1050/0.0.2560.1377@0.0.2560.1377" timestamp="1605593335723" />
-    <state x="452" y="169" key="Vcs.Push.Dialog.v2" timestamp="1605168228417">
-      <screen x="0" y="0" width="1920" height="1012" />
-    </state>
-    <state x="361" y="134" key="Vcs.Push.Dialog.v2/0.0.1536.802@0.0.1536.802" timestamp="1604472113614" />
-    <state x="452" y="169" key="Vcs.Push.Dialog.v2/0.0.1920.1012@0.0.1920.1012" timestamp="1605168228417" />
-    <state x="451" y="170" key="Vcs.Push.Dialog.v2/0.0.1920.1016/1920.0.1920.1050@0.0.1920.1016" timestamp="1604053663166" />
-    <state x="602" y="230" key="Vcs.Push.Dialog.v2/3840.0.2560.1377/0.0.2560.1377/-1920.0.1920.1050@0.0.2560.1377" timestamp="1605160783001" />
-    <state x="777" y="421" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603979842650">
-      <screen x="0" y="0" width="1920" height="1016" />
-    </state>
-    <state x="777" y="421" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1016/1920.0.1920.1050@0.0.1920.1016" timestamp="1603979842650" />
-    <state x="999" y="477" key="git4idea.merge.GitPullDialog" timestamp="1604425320699">
-      <screen x="0" y="0" width="2560" height="1377" />
-    </state>
-    <state x="999" y="477" key="git4idea.merge.GitPullDialog/3840.0.2560.1377/-1920.0.1920.1050/0.0.2560.1377@0.0.2560.1377" timestamp="1604425320699" />
-    <state x="999" y="477" key="git4idea.merge.GitPullDialog/3840.0.2560.1377/0.0.2560.1377/-1920.0.1920.1050@0.0.2560.1377" timestamp="1604260764082" />
-    <state x="431" y="123" width="672" height="678" key="search.everywhere.popup" timestamp="1604156222928">
-      <screen x="0" y="0" width="1536" height="802" />
-    </state>
-    <state x="431" y="123" width="672" height="678" key="search.everywhere.popup/0.0.1536.802@0.0.1536.802" timestamp="1604156222928" />
+    <MESSAGE value="Reset tests" />
+    <MESSAGE value="Update Videokonferenz Link Anzeige" />
+    <MESSAGE value="Parameter optional" />
+    <MESSAGE value="Darstellung Klassenauswahl Modal verbessert." />
+    <MESSAGE value="Hinweis auf Elternsprechtag Online hinzugefügt." />
+    <MESSAGE value="Automatisches Erzeugen der Videokonferenzlinks." />
+    <MESSAGE value="W-Lan Ticket wieder aktualisiert." />
+    <MESSAGE value="Grundschule als Schulart" />
+    <MESSAGE value="Bugfix, Nullpointer" />
+    <MESSAGE value="SQL Diff Package" />
+    <MESSAGE value="Update iCheck to 1.0.3" />
+    <MESSAGE value="Update FontAwesome" />
+    <MESSAGE value="Nachrichten können vertraulich sein." />
+    <MESSAGE value="Quarantäne Verwaltung" />
+    <MESSAGE value="Performance Verbesserung Elternobjekt" />
+    <MESSAGE value="AJAX Suche nach Schülern in Schülerinformationssystem" />
+    <MESSAGE value="Bugfix" />
+    <MESSAGE value="hinweis auf info@spitschka.com entfernt." />
+    <MESSAGE value="Neue Datenbank" />
+    <option name="LAST_COMMIT_MESSAGE" value="Neue Datenbank" />
   </component>
 </project>
