@@ -69,6 +69,12 @@ class MessageSender{
 	private $priority = 'NORMAL';
 	
 	private $allowAnswer = true;
+
+    /**
+     * Vertrauliche Nachricht? (Wird nur ohne Text per E-Mail verschickt und entsprechend angezeigt.)
+     * @var bool
+     */
+	private $messageIsConfidential = false;
 	
 	/**
 	 * 
@@ -92,6 +98,13 @@ class MessageSender{
 	public function dontAllowAnswer() {
 		$this->allowAnswer = false;
 	}
+
+    /**
+     * Setzt die Nachricht auf Vertarulich.
+     */
+	public function setConfidential() {
+	    $this->messageIsConfidential = true;
+    }
 	
 	/**
 	 * 
@@ -195,7 +208,8 @@ class MessageSender{
 			'messagePriority',
 			'messageAllowAnswer',
 		    'messageHasQuestions',
-		    'messageQuestionIDs'
+		    'messageQuestionIDs',
+            'messageIsConfidential'
 		];
 		
 		$saveStrings = [];
@@ -241,8 +255,9 @@ class MessageSender{
 					'" . implode(",",$this->attachments) . "',
 					'" . $this->priority . "',
 					'" . ($this->allowAnswer ? 1 : 0) . "',
-          '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
-          '" . $messageQuestionIDs . "'
+                    '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
+                    '" . $messageQuestionIDs . "',
+                    '" . $this->messageIsConfidential . "'
 					)
 				";
 		DB::getDB()->query("INSERT INTO messages_messages (" . implode(",", $fields) . ") VALUES " . implode(",",$insert));
@@ -331,7 +346,8 @@ class MessageSender{
 	        'messageAllowAnswer',
 	        'messageHasQuestions',
 	        'messageQuestionIDs',
-            'messageMyRecipientSaveString'
+            'messageMyRecipientSaveString',
+            'messageIsConfidential'
 	    ];
 	    
 	    for($i = 0; $i < sizeof($recipients); $i++) {
@@ -363,7 +379,8 @@ class MessageSender{
 					'" . ($this->allowAnswer ? 1 : 0). "',
                     '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
                     '" . $messageQuestionIDs . "',
-                    '" . $recipients[$i]->getSaveString() . "'
+                    '" . $recipients[$i]->getSaveString() . "',
+                    '" . $this->messageIsConfidential . "'
 					)
 				";
 	            $this->sentMessages++;

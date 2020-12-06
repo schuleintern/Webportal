@@ -488,7 +488,14 @@ class MessageCompose extends AbstractPage {
                         }
                     }
                 }
-				
+
+                // Vertraulichkeit
+
+                if($_REQUEST['isConfidential'] > 0) {
+                    $messageSender->setConfidential();;
+                }
+
+
 				$messageSender->setSender(DB::getSession()->getUser());
 				
 				$messageSender->setSubject($_POST['messageSubject']);

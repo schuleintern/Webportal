@@ -8,6 +8,8 @@
                     	</then><else>
                     		<i class="fa fa-envelope"></i>
                     	</else></if>
+
+						<if($message->isConfidential())><then><i class="fa fa-user-lock"></i></then></if>
                     </td>
                     <td class="mailbox-star">
 						<if($message->isHighPriority())><then>
