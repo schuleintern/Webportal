@@ -8,6 +8,11 @@ class eltern {
 	private $schueler = array();
 
     /**
+     * @var bool
+     */
+	private $schuelerInited = false;
+
+    /**
      * @var int
      */
 	private $userID = 0;
@@ -19,14 +24,22 @@ class eltern {
 	
 	public function __construct($userID) {
 	    $this->userID= $userID;
-		$schuelers = DB::getDB()->query("SELECT * FROM eltern_email JOIN schueler ON eltern_email.elternSchuelerAsvID=schueler.schuelerAsvID WHERE elternUserID='" . $userID . "'");
-		while($s = DB::getDB()->fetch_array($schuelers)) {
-		    $this->email = $s['elternEMail'];
-			$this->schueler[] = new schueler($s);
-		}
 	}
+
+	private function initSchueler() {
+	    if($this->schuelerInited) return;
+
+        $schuelers = DB::getDB()->query("SELECT * FROM eltern_email JOIN schueler ON eltern_email.elternSchuelerAsvID=schueler.schuelerAsvID WHERE elternUserID='" . $this->userID . "'");
+        while($s = DB::getDB()->fetch_array($schuelers)) {
+            $this->email = $s['elternEMail'];
+            $this->schueler[] = new schueler($s);
+        }
+
+        $this->schuelerInited = true;
+    }
 	
 	public function getKlassenAsArray() {
+	    $this->initSchueler();
 		$klassen = array();
 		
 		for($i = 0; $i < sizeof($this->schueler); $i++) {
@@ -41,8 +54,12 @@ class eltern {
 	 * @return klasse[]
 	 */
 	public function getKlassenObjectsAsArray() {
-	    $klassen = array();
-	    
+
+        $this->initSchueler();
+
+        $klassen = array();
+
+
 	    for($i = 0; $i < sizeof($this->schueler); $i++) {
 	        $klassen[] = $this->schueler[$i]->getKlassenObjekt();
 	    }
@@ -55,6 +72,7 @@ class eltern {
 	 * @return schueler[]
 	 */
 	public function getMySchueler() {
+        $this->initSchueler();
 		return $this->schueler;
 	}
 	
@@ -63,6 +81,7 @@ class eltern {
 	 * @return String[]
 	 */
 	public function getMySchuelerAsvIDs() {
+        $this->initSchueler();
 	    $ids = [];
 	    for($i = 0; $i < sizeof($this->schueler); $i++) $ids[] = $this->schueler[$i]->getAsvID();
 	    return $ids;
@@ -73,7 +92,7 @@ class eltern {
      * @return  string[]
      */
 	public function getRawKinderASVIDs() {
-
+        $this->initSchueler();
 	    $asvIDs = [];
 
         $schuelers = DB::getDB()->query("SELECT elternSchuelerAsvID FROM eltern_email WHERE elternUserID='" . $this->userID . "'");
@@ -97,6 +116,8 @@ class eltern {
      */
     public function removeSchueler($schueler) {
 
+        $this->initSchueler();
+
         if(sizeof($this->schueler) == 1) {
             // Letzter Schüler wird entfernt
             // --> Benutzer löschen (Löscht auch Zuordnungen der Eltern)
@@ -117,6 +138,9 @@ class eltern {
      * @param string $asvID
      */
     public function removeSchuelerByASVID($asvID) {
+
+        $this->initSchueler();
+
         $rawASVIds = $this->getRawKinderASVIDs();
 
         if(sizeof($rawASVIds) == 1) {
