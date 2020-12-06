@@ -102,6 +102,22 @@ class schuelerinfo extends AbstractPage {
       	$this->getFoto();
       break;
 
+      case 'addQuaranatene':
+        $this->addQuarantaene();
+      break;
+
+      case 'deleteQuarantaene':
+        $this->deleteQuarantaene();
+      break;
+
+      case 'getCompleteQuarantaeneList':
+        $this->getCompleteQuarantaeneList();
+      break;
+
+      case 'getQuarantaeneListForKlasse':
+        $this->getQuarantaeneListeForKlasse();
+      break;
+
       case 'getPDFList':
       	$this->getPDFList();
       break;
@@ -114,6 +130,201 @@ class schuelerinfo extends AbstractPage {
         $this->getFotoZip();
       break;
     }
+  }
+
+  private function getQuarantaeneListeForKlasse() {
+    $klasse = klasse::getByName($_REQUEST['klasse']);
+
+      if($klasse != null) {
+        $schueler = $klasse->getSchueler(false);
+
+        $liste = "<h1>Liste Schülerinnen und Schüler der Klasse " . $klasse->getKlassenName() . " in Quartantäne</h1>";
+
+        $liste .= "<table width=\"100%\" border=\"1\" cellpadding=\"3\" cellspacing=\"0\">
+            <tr>
+                <td><b>Klasse</b></td>
+                <td><b>Schüler</b></td>
+                <td><b>Art</b></td>
+                <td><b>Beginn</b></td>
+                <td><b>Ende</b></td>
+            </tr>";
+
+
+        for($i = 0; $i < sizeof($schueler); $i++) {
+          $q = SchuelerQuarantaene::getCurrentForSchueler($schueler[$i]);
+          if($q != null) {
+            $liste .= "<tr>";
+            $liste .= "<td>" . $q->getSchueler()->getKlasse() . "</td>";
+            $liste .= "<td>" . $q->getSchueler()->getCompleteSchuelerName() . "</td>";
+            $liste .= "<td>" . $q->getArtDisplayName() . "</td>";
+            $liste .= "<td>" . $q->getStartAsNaturalDate() . "</td>";
+            $liste .= "<td>" . $q->getEndAsNaturalDate() . "</td>";
+            $liste .= "</tr>";
+          }
+
+        }
+        $liste .= "</table>";
+
+        $print = new PrintNormalPageA4WithHeader("Schüler in Quarantäne");
+        $print->setHTMLContent($liste);
+        $print->send();
+      }
+  }
+
+  private function getCompleteQuarantaeneList() {
+    if(SchuelerQuarantaene::isActive()) {
+
+      $alle = SchuelerQuarantaene::getAll();
+
+      $liste = "<h1>Liste alle Schülerinnen und Schüler in Quartantäne</h1>";
+
+      $liste .= "<table width=\"100%\" border=\"1\" cellpadding=\"3\" cellspacing=\"0\">
+            <tr>
+                <td><b>Klasse</b></td>
+                <td><b>Schüler</b></td>
+                <td><b>Art</b></td>
+                <td><b>Beginn</b></td>
+                <td><b>Ende</b></td>
+            </tr>";
+
+      for($i = 0; $i < sizeof($alle); $i++) {
+        if($alle[$i]->isToday()) {
+          $liste .= "<tr>";
+          $liste .= "    <td>" . $alle[$i]->getSchueler()->getKlasse() . "</td>";
+          $liste .= "    <td>" . $alle[$i]->getSchueler()->getCompleteSchuelerName() . "</td>";
+          $liste .= "    <td>" . $alle[$i]->getArtDisplayName() . "</td>";
+          $liste .= "    <td>" . $alle[$i]->getStartAsNaturalDate() . "</td>";
+          $liste .= "    <td>" . $alle[$i]->getEndAsNaturalDate() . "</td>";
+          $liste .= "</tr>";
+        }
+      }
+
+      $liste .= "</table>";
+
+      $print = new PrintNormalPageA4WithHeader("Schüler in Quarantäne");
+      $print->setHTMLContent($liste);
+      $print->send();
+
+
+    } else new errorPage("Quarantänefunktionen nicht aktiv!");
+  }
+
+  private function addQuarantaene() {
+    $schueler = schueler::getByAsvID($_REQUEST['schuelerAsvID']);
+
+    if($schueler == null) {
+      new errorPage('Schüler nicht vorhanden');
+    }
+
+    if(!$this->checkGradeAccess($schueler->getKlassenObjekt())) {
+      new errorPage();
+    }
+
+    if(!SchuelerQuarantaene::isActive()) new errorPage("Quarantäne Funktionen nicht aktiv.");
+
+    $startDate = DateFunctions::getMySQLDateFromNaturalDate($_REQUEST['startDate']);
+    $endDate = DateFunctions::getMySQLDateFromNaturalDate($_REQUEST['endDate']);
+
+    $type = $_REQUEST['quarantaeneArt'] == 'I' ? 'I' : 'K1';
+
+    /**
+     * @var FileUpload|null
+     */
+    $attachment = null;
+
+    $attachmentUpload = FileUpload::uploadOfficeDocumentsAndPDF("quarantaeneAnhang", "Anhang Quarantäne zu " . $schueler->getCompleteSchuelerName());
+
+    if($attachmentUpload['result']) $attachment = $attachmentUpload['uploadobject'];
+
+    $informTeacher = $_REQUEST['informTeacher'] > 0;
+    $addOtherK1 = $_REQUEST['addk1forother'] > 0;
+
+    SchuelerQuarantaene::addForSchueler($schueler, $startDate, $endDate, $type, $_REQUEST['comment'], $attachment);
+
+    $infoTable = "<table border='1'><tr><td>" . $schueler->getCompleteSchuelerName() . "</td>";
+
+    if($type == 'I') $infoTable .= "<td>Isolation</td>";
+    else $infoTable .= "<td>Quarantäne</td>";
+    $infoTable .= "</tr>";
+
+
+    if($addOtherK1) {
+      $klasse = $schueler->getKlassenObjekt();
+      if($klasse != null) {
+        $schuelerDerKlasse = $klasse->getSchueler(false);
+
+        for($i = 0; $i < sizeof($schuelerDerKlasse); $i++) {
+          if($schuelerDerKlasse[$i]->getAsvID() != $schueler->getAsvID()) {
+            SchuelerQuarantaene::addForSchueler($schuelerDerKlasse[$i], $startDate, $endDate, 'K1', "Kontaktperson von " . $schueler->getCompleteSchuelerName(), null);
+            $infoTable .= "<tr><td>" . $schuelerDerKlasse[$i]->getCompleteSchuelerName() . "</td>";
+            $infoTable .= "<td>Quarantäne</td>";
+            $infoTable .= "</tr>";
+          }
+        }
+      }
+
+
+    }
+
+    $infoTable .= "</table>";
+
+    if($informTeacher) {
+      $messageSender = new MessageSender();
+      $messageRecipientHandler = new RecipientHandler("");
+      $messageRecipientHandler->addRecipient(new KlassenteamRecipient($schueler->getKlasse()));
+      $messageSender->setRecipients($messageRecipientHandler);
+      $messageSender->setSender(user::getSystemUser());
+      $messageSender->dontAllowAnswer();
+      $messageSender->setConfidential();  // Vertraulich
+
+      if($type == 'I') $messageSender->setSubject("Neuer Isolationsfall in Klasse " . $schueler->getKlasse());
+      else $messageSender->setSubject("Neuer Quarantänefall in Klasse " . $schueler->getKlasse());
+
+      $text = "In der Klasse " . $schueler->getKlasse() . "gibts folgende neue Quaratänefalle:<br>";
+      $text .= $infoTable;
+
+      $messageSender->setText($text);
+
+      $messageSender->send();
+    }
+
+    header("Location: index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler->getAsvID() . "&openQuarantaene=1");
+
+  }
+
+  private function deleteQuarantaene() {
+    $schueler = schueler::getByAsvID($_REQUEST['schuelerAsvID']);
+
+    if($schueler == null) {
+      new errorPage('Schüler nicht vorhanden');
+    }
+
+    if(!$this->checkGradeAccess($schueler->getKlassenObjekt())) {
+      new errorPage();
+    }
+
+    if(!SchuelerQuarantaene::isActive()) new errorPage("Quarantäne Funktionen nicht aktiv.");
+
+    $alle = SchuelerQuarantaene::getAllForSchueler($schueler);
+
+    for($i = 0; $i < sizeof($alle); $i++) {
+      if($alle[$i]->getID() == $_REQUEST['quarantaeneID']) {
+        $alle[$i]->delete();
+      }
+    }
+
+    if($_REQUEST['deleteInClass'] > 0) {
+      $alleSchueler = $schueler->getKlassenObjekt()->getSchueler(false);
+      for($i = 0; $i < sizeof($alleSchueler); $i++) {
+        $car = SchuelerQuarantaene::getAllForSchueler($alleSchueler[$i]);
+        for($c = 0; $c < sizeof($car); $c++) {
+          if($car[$c]->isToday()) $car[$c]->delete();
+        }
+      }
+    }
+
+    header("Location: index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler->getAsvID() . "&openQuarantaene=1");
+    exit(0);
   }
 
 
@@ -898,6 +1109,60 @@ class schuelerinfo extends AbstractPage {
     }
 
 
+    // Quarantaene
+
+    $quarantaeneAktiv = SchuelerQuarantaene::isActive();
+
+    $quarantaene = SchuelerQuarantaene::getCurrentForSchueler($schueler);
+
+    $alleQuarantaene = SchuelerQuarantaene::getAllForSchueler($schueler);
+
+    $quarantaeneHTML = "";
+
+    for($i = 0; $i < sizeof($alleQuarantaene); $i++) {
+      $quarantaeneHTML .= "<tr>";
+
+      $quarantaeneHTML .= "<td>" . $alleQuarantaene[$i]->getArtDisplayName() . "</td>";
+      $quarantaeneHTML .= "<td>" . $alleQuarantaene[$i]->getStartAsNaturalDate() . "</td>";
+      $quarantaeneHTML .= "<td>" . $alleQuarantaene[$i]->getEndAsNaturalDate() . "</td>";
+      $quarantaeneHTML .= "<td>" . $alleQuarantaene[$i]->getKommentar() . "</td>";
+
+      $fileUpload = $alleQuarantaene[$i]->getAttachment();
+
+      $quarantaeneHTML .= "<td>";
+
+      if($fileUpload != null) {
+        $quarantaeneHTML .= "<a href=\"" . $fileUpload->getURLToFile() . "\" class=\"btn btn-block btn-default\"><i class=\"fa fa-download\"></i> Anlage</a>";
+      }
+      else $quarantaeneHTML .= "-- &nbsp;";
+
+
+
+      $quarantaeneHTML .= "</td>";
+
+      $quarantaeneHTML .= "<td>";
+
+      $bearbeiter = $alleQuarantaene[$i]->getCreateUser();
+      if($bearbeiter != null) {
+        $quarantaeneHTML .= $bearbeiter->getDisplayNameWithFunction();
+      }
+      $quarantaeneHTML .= "</td>";
+
+
+
+      $quarantaeneHTML .= "<td>";
+
+      $quarantaeneHTML .= "<p><button class='btn btn-default btn-block' onclick=\"confirmAction('Möchten Sie den Eintrag löschen?','index.php?page=schuelerinfo&mode=deleteQuarantaene&schuelerAsvID=".$schueler->getAsvID() . "&quarantaeneID=" . $alleQuarantaene[$i]->getID() . "')\"><i class='fa fa-trash'></i> Löschen</button></p>";
+      $quarantaeneHTML .= "<p><button class='btn btn-default btn-block' onclick=\"confirmAction('Möchten Sie den Eintrag und alle aktiven (aktuell gültigen) Quarantäne aus dieser Klasse löschen?','index.php?page=schuelerinfo&mode=deleteQuarantaene&schuelerAsvID=".$schueler->getAsvID() . "&quarantaeneID=" . $alleQuarantaene[$i]->getID() . "&deleteInClass=1')\"><i class='fa fa-trash'></i> Diesen Eintrag und alle Quarantäne aus der Klasse löschen</button></p>";
+
+      $quarantaeneHTML .= "</td>";
+
+
+      $quarantaeneHTML .= "</tr>";
+
+    }
+
+
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get("schuelerinfo/schueler") . "\");");
   }
 
@@ -985,9 +1250,14 @@ class schuelerinfo extends AbstractPage {
 
       			////////
 
-      			$schuelerListe .= "<td><p><a href=\"index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler[$i]->getAsvID() . "\"><b>" . $schueler[$i]->getCompleteSchuelerName() . "</b></a> " . (($currentUnterricht != null) ? "(Klasse " . $schueler[$i]->getKlasse() . ")" : "") . "<br />";
+      			$schuelerListe .= "<td><p><a href=\"index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler[$i]->getAsvID() . "\"><b>" . $schueler[$i]->getCompleteSchuelerName() . "</b></a>";
 
-      			if($schueler[$i]->isAusgetreten()) $schuelerListe .= "<label class=\"label label-danger\">Ausgetreten zum " . DateFunctions::getNaturalDateFromMySQLDate($schueler[$i]->getAustrittDatumAsMySQLDate()) . "</label> ";
+                if($schueler[$i]->isAusgetreten()) $schuelerListe .= " <label class=\"label label-danger\">Ausgetreten zum " . DateFunctions::getNaturalDateFromMySQLDate($schueler[$i]->getAustrittDatumAsMySQLDate()) . "</label> ";
+
+
+
+      			$schuelerListe .= " " . (($currentUnterricht != null) ? "(Klasse " . $schueler[$i]->getKlasse() . ")" : "") . "<br />";
+
 
       			$schuelerListe .= (($schueler[$i]->getGeschlecht() == 'm') ? ("<i class=\"fa fa-mars\"></i>") : "<i class=\"fa fa-venus\"></i>");
 
@@ -1006,7 +1276,11 @@ class schuelerinfo extends AbstractPage {
       			$schuelerListe .= "</p><p><a href=\"index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler[$i]->getAsvID() . "\" class='btn btn-default btn-block'><i class=\"fa fa-info-circle\"></i> Informationen zum Schüler anzeigen</a></p>";
 
 
-      			$schuelerListe .= "</td><td>";
+              if(SchuelerQuarantaene::getCurrentForSchueler($schueler[$i]) != null) $schuelerListe .= "<p>" . SchuelerQuarantaene::getCurrentForSchueler($schueler[$i])->getStatusAsDisabledButton() . "</p>";
+
+
+
+              $schuelerListe .= "</td><td>";
 
 
       			$schuelerListe .= "<p><a class='btn btn-default btn-block' href=\"index.php?page=MessageCompose&recipient=P:" . $schueler[$i]->getAsvID() . "\"><i class=\"fa fa-paper-plane\"></i><i class=\"fa fa-child\"></i> Elektronische Nachricht an Schüler senden</a></p>";
@@ -1145,7 +1419,15 @@ class schuelerinfo extends AbstractPage {
         $kNamen[] =  $kls[$k]->getDisplayNameMitAmtsbezeichnung();
       }
 
-      $gradeHTML .= "<br /><small>Klassenleitung: " . implode(" | ", $kNamen) . "<br />Ausbildungsrichtung: " . implode(", ",$grades[$i]->getAusbildungsrichtungen()) . "</small></td>";
+      $gradeHTML .= "<br /><small>Klassenleitung: " . implode(" | ", $kNamen) . "<br />Ausbildungsrichtung: " . implode(", ",$grades[$i]->getAusbildungsrichtungen()) . "</small>";
+
+      if(SchuelerQuarantaene::isActive()) {
+        if(SchuelerQuarantaene::hasOneInClass($grades[$i])) {
+          $gradeHTML .= "<p><div class='label label-danger'><i class='fa fa-head-side-mask'></i> Schüler aus dieser Klasse in Quarantäne bzw. Isolation</div></p>";
+        }
+      }
+
+      $gradeHTML .= "</td>";
 
       $gradeHTML .= "<td>
 
@@ -1226,32 +1508,39 @@ class schuelerinfo extends AbstractPage {
    *     .
    *  )
    */
-  public static function getSettingsDescription() {
+  public static function getSettingsDescription()
+  {
     return [
-      [
-        'name' => 'schuelerinfo-nur-eigene-klassen',
-        'typ' => 'BOOLEAN',
-        'titel' => 'Für Lehrer nur eigene Klassen anzeigen?',
-        'text' => 'Ist diese Option aktiv, so sehen Lehrer nur ihre eigenen Klassen. (Aus dem aktuellen Stundenplan ermittelt.) Für Schulleitung ist immer Vollzugriff erlaubt.'
-      ],
-      [
-    	'name' => 'schuelerinfo-fotos-aktivieren',
-    	'typ' => 'BOOLEAN',
-    	'titel' => 'Fotos für die Schüler aktivieren?',
-    	'text' => 'Soll es möglich sein für jeden Schüler ein Foto zu hinterlegen? (Beachten Sie bitte, dass Sie dazu eventuell die Einwilligung der SchülerInnen benötigen.'
-      ],
-      [
-        'name' => 'schuelerinfo-upload-hinweis',
-        'typ' => 'TEXT',
-        'titel' => 'Hinweis, welche Dokumente nicht abgelegt werden dürfen',
-        'text' => 'Hier können Sie einen Hinweis angeben, welche Dokumente nicht in der Schülerakte abgelegt werden dürfen.'
-      ],
-    [
-    	'name' => 'schuelerinfo-disable-unterricht',
-    	'typ' => 'BOOLEAN',
-    	'titel' => 'Unterrichte nicht anzeigen',
-    	'text' => 'Wenn diese Funktion aktiv ist, dann werden nur ganze Klassen angezeigt, keine Teilgruppen mehr.'
-    	]
+        [
+            'name' => 'schuelerinfo-nur-eigene-klassen',
+            'typ' => 'BOOLEAN',
+            'titel' => 'Für Lehrer nur eigene Klassen anzeigen?',
+            'text' => 'Ist diese Option aktiv, so sehen Lehrer nur ihre eigenen Klassen. (Aus dem aktuellen Stundenplan ermittelt.) Für Schulleitung ist immer Vollzugriff erlaubt.'
+        ],
+        [
+            'name' => 'schuelerinfo-fotos-aktivieren',
+            'typ' => 'BOOLEAN',
+            'titel' => 'Fotos für die Schüler aktivieren?',
+            'text' => 'Soll es möglich sein für jeden Schüler ein Foto zu hinterlegen? (Beachten Sie bitte, dass Sie dazu eventuell die Einwilligung der SchülerInnen benötigen.'
+        ],
+        [
+            'name' => 'schuelerinfo-upload-hinweis',
+            'typ' => 'TEXT',
+            'titel' => 'Hinweis, welche Dokumente nicht abgelegt werden dürfen',
+            'text' => 'Hier können Sie einen Hinweis angeben, welche Dokumente nicht in der Schülerakte abgelegt werden dürfen.'
+        ],
+        [
+            'name' => 'schuelerinfo-disable-unterricht',
+            'typ' => 'BOOLEAN',
+            'titel' => 'Unterrichte nicht anzeigen',
+            'text' => 'Wenn diese Funktion aktiv ist, dann werden nur ganze Klassen angezeigt, keine Teilgruppen mehr.'
+        ],
+        [
+            'name' => 'schuelerinfo-quarantaene',
+            'typ' => 'BOOLEAN',
+            'titel' => 'Quarantäne Informationen aktivieren',
+            'text' => 'Für diese Funktion werden Quarantänefunktionen aktiviert. (Schüler oder Klassen in Quarantäne. Info für Lehrkräfte dazu.)'
+        ]
     ];
   }
 

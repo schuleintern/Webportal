@@ -39,11 +39,25 @@
 				</form>
 			</div>
 		</div>
+
+
+
+		<if(SchuelerQuarantaene::isActive())><then>
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-file-pdf"></i> Listen</h3><br />
+			</div>
+			<div class="box-body">
+				<p><a href="index.php?page=schuelerinfo&mode=getCompleteQuarantaeneList" class="btn btn-danger btn-block"><i class="fa fa-head-side-mask"></i> Gesamtliste der Quarantänefälle an der Schule</a></p>
+			</div>
+		</div>
+
+		</then></if>
 		
 		<if(!DB::getSettings()->getBoolean('schuelerinfo-disable-unterricht'))><then>
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title"><i class="fa fa-group"></i> Wahl- / Zusatzunterricht</h3><br />
+				<h3 class="box-title"><i class="fa fa-rocket"></i> Wahl- / Zusatzunterricht</h3><br />
 			
 				Für weitere Informationen (Schülerliste), bitte auf das Fach klicken.
 			</div>

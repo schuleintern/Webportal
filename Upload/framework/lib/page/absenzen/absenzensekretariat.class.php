@@ -1638,7 +1638,7 @@ class absenzensekretariat extends AbstractPage {
 
 
 
-      $klassenListeHTML .= "<tr><td>" . (($klassen[$i]->getKlassenName() == $_GET['activeKlasse']) ? ("<u>") : ("")) . "<a href=\"index.php?page=absenzensekretariat&activeKlasse=" . $klassen[$i]->getKlassenName() . "&currentDate=" . $currentDate . "\" class='btn btn-block btn-xs" . ($activeMerker[$klassen[$i]->getKlassenName()] === true ? " btn-warning" : " btn-primary") . "'><b>" . $klassen[$i]->getKlassenName() . "</b> - <small>$kl</small></a>" . (($klassen[$i]->getKlassenName() == $_GET['activeKlasse']) ? ("</u>") : (""));
+      $klassenListeHTML .= "<tr><td><a href=\"index.php?page=absenzensekretariat&activeKlasse=" . $klassen[$i]->getKlassenName() . "&currentDate=" . $currentDate . "\" class='btn btn-block btn-xs" . ($activeMerker[$klassen[$i]->getKlassenName()] === true ? " btn-warning" : " btn-primary") . (($klassen[$i]->getKlassenName() == $_GET['activeKlasse']) ? (" disabled") : ("")) . "'><b>" . $klassen[$i]->getKlassenName() . "</b> - <small>$kl</small></a>" . (($klassen[$i]->getKlassenName() == $_GET['activeKlasse']) ? ("</u>") : (""));
 
       /** if($this->merkerActive) {
         $merkerKlasse = array();
@@ -1658,6 +1658,14 @@ class absenzensekretariat extends AbstractPage {
       } **/
 
       $klassenListeHTML .= "</td>";
+
+
+      if(SchuelerQuarantaene::isActive()) {
+        $klassenListeHTML .= "<td>";
+        if(SchuelerQuarantaene::hasOneInClass($klassen[$i])) $klassenListeHTML .= "<button class=\"btn btn-danger disabled btn-block\" data-toggle=\"tooltip\" title='Personen in Quarantäne / Isolation'><i class='fa fa-head-side-mask'></i><i class='fa fa-child'></i></button>";
+        $klassenListeHTML .= "</td>";
+      }
+
 
       if(DB::getSettings()->getValue("absenzen-meldungaktivieren") > 0) {
         $klassenListeHTML .= '<td style="text-align: right"><div class="btn-group" role="group" >';
@@ -1730,11 +1738,9 @@ class absenzensekretariat extends AbstractPage {
             $schuelerListeHTML .= "</td>";
         }
         
-        $schuelerListeHTML .= "<td><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal" . $activeKlasse->getSchueler()[$i]->getAsvID() . "\">";
+        $schuelerListeHTML .= "<td><button type=\"button\" class=\"btn btn-default btn-block text-left\" data-toggle=\"modal\" data-target=\"#modal" . $activeKlasse->getSchueler()[$i]->getAsvID() . "\">";
 
         if($activeKlasse->getSchueler()[$i]->isAusgetreten()) $schuelerListeHTML .= "<small>";
-
-
 
         $schuelerListeHTML .= $activeKlasse->getSchueler()[$i]->getCompleteSchuelerName();
 
@@ -1744,12 +1750,13 @@ class absenzensekretariat extends AbstractPage {
           $schuelerListeHTML .= " <span class=\"label label-danger\">Attestpflicht</span>";
         }
 
-        $schuelerListeHTML .= "</a>";
+        $schuelerListeHTML .= "</button>";
+
+
 
         if(AbsenzSchuelerInfo::getComment($activeKlasse->getSchueler()[$i]) != "") {
-          $schuelerListeHTML .= " <a href=\"#\" data-toggle=\"tooltip\" title=\"" . @htmlspecialchars((AbsenzSchuelerInfo::getComment($activeKlasse->getSchueler()[$i]))) . "\"><i class=\"far fa-sticky-note\"></i></a> ";
+          $schuelerListeHTML .= "<a href=\"#\" data-toggle=\"tooltip\" class=\"btn btn-default\" title=\"" . @htmlspecialchars((AbsenzSchuelerInfo::getComment($activeKlasse->getSchueler()[$i]))) . "\"><i class=\"far fa-sticky-note\"></i></a> ";
         }
-
 
         $merkerSchueler = array();
         for($m = 0; $m < sizeof($merkerData); $m++) {
@@ -1761,6 +1768,13 @@ class absenzensekretariat extends AbstractPage {
         if(sizeof($merkerSchueler) > 0) {
           $schuelerListeHTML .= "<br /><small>" . implode("",$merkerSchueler) . "</small>";
         }
+
+        $quarantaene = SchuelerQuarantaene::getCurrentForSchueler($activeKlasse->getSchueler()[$i]);
+
+        if($quarantaene != null) {
+          $schuelerListeHTML .= " " . $quarantaene->getStatusLabel();
+        }
+
 
         $schuelerListeHTML .= "</td></tr>";
 
