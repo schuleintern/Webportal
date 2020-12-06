@@ -4,13 +4,22 @@
   <div class="col-md-12">
     <div class="box">
       <div class="box-header">
-        <h3 class="box-title"><i class="fa fa-child"></i> {$schueler->getCompleteSchuelerName()} (Klasse {$schueler->getKlasse()})</h3>
+        <h3 class="box-title"><i class="fa fa-child"></i> {$schueler->getCompleteSchuelerName()} (Klasse {$schueler->getKlasse()})
+
+          <if($quarantaene != null)><then>
+            {$quarantaene->getStatusLabel()}
+          </then></if>
+
+        </h3>
+
         <a href="index.php?page=schuelerinfo&mode=klasse&klasse={$schueler->getKlasse()}" class="btn btn-primary pull-right"><i class="fa fa-step-backward"></i> Zurück zur Klasse</a>
+
+
       </div>
       <div class="box-body">
         <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                  <if($_REQUEST['uploadOK'] == '' && $_REQUEST['uploadFail'] == '' && $_REQUEST['nsOK'] == '' && $_REQUEST['openLetter'] == '')><then>
+                  <if($_REQUEST['uploadOK'] == '' && $_REQUEST['uploadFail'] == '' && $_REQUEST['nsOK'] == '' && $_REQUEST['openLetter'] == '' && $_REQUEST['openQuarantaene'] == '')><then>
                   <li class="active">
                   </then><else>
                   <li>
@@ -32,16 +41,27 @@
                   <li><a href="#fehlzeiten" data-toggle="tab"><i class="fa fa-user-md"></i> Fehlzeiten</a></li>
                   <li><a href="#unterricht" data-toggle="tab"><i class="fa fa-graduation-cap"></i> Unterrichtsbesuch</a></li>
                   <if($schulbuecherActive)><then><li><a href="#schulbuecher" data-toggle="tab"><i class="fa fa-book"></i> Ausgeliehene Schulbücher</a></li></then></if>
+
+                  <if($quarantaeneAktiv)><then>
+
+                  <if($_REQUEST['openQuarantaene'] != '')><then>
+                    <li class="active">
+                </then><else><li></else></if>
+
+
+                  <a href="#quarantaene" data-toggle="tab"><i class="fa fa-viruses"></i> Quarantaene / Isolation</a></li></then></if>
+
+
                   <if($_REQUEST['openLetter'] != '')><then><li class="active"></then><else><li></else></if><a href="#aktionen" data-toggle="tab"><i class="fa fa-play"></i> Vorgänge / Briefe</a></li>
                 </ul>
                 <div class="tab-content">
-                  <if($_REQUEST['uploadOK'] == '' && $_REQUEST['uploadFail'] == '' && $_REQUEST['nsOK'] == '' && $_REQUEST['openLetter'] == '')><then>
+                  <if($_REQUEST['uploadOK'] == '' && $_REQUEST['uploadFail'] == '' && $_REQUEST['nsOK'] == '' && $_REQUEST['openLetter'] == '' && $_REQUEST['openQuarantaene'] == '')><then>
                   <div class="tab-pane active" id="allginfos">
                   </then><else>
                   <div class="tab-pane" id="allginfos">
                   </else></if>
                     $austrittInfo
-                <table class="table">
+                <table class="table table-striped table-condensed">
                   <tr>
                     <td rowspan="11" style="width:10%">
                       <if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren'))>
@@ -320,6 +340,138 @@
                </table>
             </div>
 			</then></if>
+
+
+
+      <if($quarantaeneAktiv)><then>
+
+
+      <if($_REQUEST['openQuarantaene'] != '')><then>
+
+      <div class="tab-pane active" id="quarantaene">
+
+      </then><else>
+
+      <div class="tab-pane" id="quarantaene">
+
+      </else></if>
+
+      <p><button type="button" data-target="#addQuarantaene" data-toggle="modal" class="btn btn-default"><i class="fa fa-plus-circle"></i> Quarantäne hinzufügen</button></p>
+
+      <table class="table table-striped">
+          <tr>
+            <th>Art</th>
+            <th>Beginn</th>
+            <th>Ende</th>
+            <th>Kommentar</th>
+            <th>Anlage</th>
+            <th>Bearbeiter</th>
+            <th>Aktionen</th>
+          </tr>
+
+          {$quarantaeneHTML}
+        </table>
+
+
+      <div class="modal fade" id="addQuarantaene" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document" style="width:70%" >
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><i class="fa fas fa-pencil-alt"></i> Quarantäne bzw. Isolation eintragen</h4>
+            </div>
+            <div class="modal-body">
+
+              <form action="index.php?page=schuelerinfo&mode=addQuaranatene&schuelerAsvID={$schueler->getAsvID()}" method="post" enctype="multipart/form-data">
+
+                <table class="table table-striped">
+                  <tr>
+                    <td style="width: 10%"><strong>Start Datum</strong></td>
+                    <td><input type="text" class="form-control" name="startDate" id="quarantaeneBeginDate" value="<expression>DateFunctions::getTodayAsNaturalDate()</expression>"></td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>End Datum</strong></td>
+                    <td><input type="text" class="form-control" name="endDate" id="quarantaeneEndDate" value="<expression>DateFunctions::getTodayAsNaturalDate()</expression>"></td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Typ</strong></td>
+                    <td>
+                      <select name="quarantaeneArt" class="form-control">
+                        <option value="I">Isolation (positives Testergebnis)</option>
+                        <option value="K1">Kontaktperson</option>
+                      </select>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Kommentar</strong></td>
+                    <td>
+                      <textarea name="comment" rows="10" class="form-control"></textarea>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Dateianhang</strong></td>
+                    <td>
+                      <input type="file" name="quarantaeneAnhang" class="form-control">
+                    </td>
+                  </tr>
+
+
+                  <tr>
+                    <td><strong>Optionen</strong></td>
+                    <td>
+                      <p><input type="checkbox" id="informteacher" checked="checked" name="informTeacher" value="1"> Klasselehrkräfte informieren</p>
+                      <p><input type="checkbox" id="addk1forother" checked="checked" name="addk1forother" value="1"> Bei Isolation: "Kontaktperson-Quarantäne" für die Mitschüler Klasse anlegen (mit gleichem Enddatum)</p>
+                    </td>
+                  </tr>
+
+                </table>
+
+                <p><button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Speichern</button> </p>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+      $(function() {
+        $("#quarantaeneBeginDate").datepicker({
+          format: 'dd.mm.yyyy',
+          language: "de",
+          autoclose: true,
+        });
+
+        $("#quarantaeneEndDate").datepicker({
+          format: 'dd.mm.yyyy',
+          language: "de",
+          autoclose: true,
+        });
+
+        $("#informteacher").iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%'
+        });
+
+        $("#addk1forother").iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%'
+        });
+      });
+
+      </script>
+
+
+      </div>
+
+    </then></if>
+
 
             <div class="tab-pane" id="unterricht">
                <table class="table table-striped">

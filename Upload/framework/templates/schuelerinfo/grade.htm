@@ -65,7 +65,12 @@
 								drucken:</p>
 				<p><a class="btn btn-default btn-block" href="index.php?page=schuelerinfo&mode=klasse&klasse={$klasse->getKlassenname()}&unterrichtID=<expression>intval($_REQUEST['unterrichtID'])</expression>&doPrint=simpleList"><i class="fa fa-file-pdf"></i> Namensliste</a></p>
 				<p><a class="btn btn-default btn-block" href="index.php?page=schuelerinfo&mode=klasse&klasse={$klasse->getKlassenname()}&unterrichtID=<expression>intval($_REQUEST['unterrichtID'])</expression>&doPrint=listWithNA"><i class="fa fa-file-pdf"></i> Namensliste mit Nachteilsausgleich</a></p>
-				
+
+				<if(SchuelerQuarantaene::isActive())><then>
+					<p><a class="btn btn-danger btn-block" href="index.php?page=schuelerinfo&mode=getQuarantaeneListForKlasse&klasse={$klasse->getKlassenname()}"><i class="fa fa-head-side-mask"></i> Liste der Quarantänefälle</a></p>
+				</then></if>
+
+
 				
 				<if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren'))>
                       <then>

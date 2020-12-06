@@ -10,7 +10,12 @@
       	<if(AbsenzSchuelerInfo::hasAttestpflicht($schueler, DateFunctions::getMySQLDateFromNaturalDate($currentDate)))><then><span class="label label-danger">Attestpflicht</span></then></if>
       	
       	</h4>
-      	
+
+		  <if($this->isActive("schuelerinfo"))><then>
+		  <a class="btn btn-primary pull-right" type="button" href="index.php?page=schuelerinfo&mode=schueler&schuelerAsvID={$schueler->getAsvID()}"><i class="fa fa-file-archive"></i> Zum digialen Schülerakt</a>
+	  </then></if>
+
+
       	Geburtstag: <expression>$schueler->getGeburtstagAsNaturalDate()</expression> (Alter: <expression>$schueler->getAlter()</expression> Jahre) | Wohnort: <expression>$schueler->getWohnort()</expression>
       
       	$nachteilsausgleichHTML

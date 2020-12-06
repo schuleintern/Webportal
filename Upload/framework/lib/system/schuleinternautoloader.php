@@ -132,7 +132,8 @@ $classes = [
 		'TIMEUpdate'
 	],
     'data/schueler' => [
-        'SchuelerFremdsprache'
+        'SchuelerFremdsprache',
+        'SchuelerQuarantaene'
     ],
 	'db' => [
 		'mysql',
