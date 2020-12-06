@@ -22,9 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Neue Datenbank">
+    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Kopf wurde nicht gedruckt.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/print/PrintNormalPageA4WithHeader.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/print/PrintNormalPageA4WithHeader.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/data/klassentagebuch/TagebuchPDFCreator.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/data/klassentagebuch/TagebuchPDFCreator.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/test/test.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/test/test.class.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,14 +105,7 @@
       <workItem from="1605594643163" duration="4697000" />
       <workItem from="1606287937460" duration="5525000" />
       <workItem from="1606417391782" duration="10651000" />
-      <workItem from="1607023606046" duration="40085000" />
-    </task>
-    <task id="LOCAL-00010" summary="https://github.com/schuleintern/Webportal/issues/85">
-      <created>1603879814303</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1603879814303</updated>
+      <workItem from="1607023606046" duration="41514000" />
     </task>
     <task id="LOCAL-00011" summary="https://github.com/schuleintern/Webportal/issues/48">
       <created>1603883140221</created>
@@ -449,7 +443,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607265004510</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Kopf wurde nicht gedruckt.">
+      <created>1607265113624</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1607265113625</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +471,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Alte Elternbenutzer tatsächlich löschen." />
     <MESSAGE value="Backend: Cache eingeführt" />
     <MESSAGE value="Update SELECT2" />
     <MESSAGE value="Update jQuery" />
@@ -495,6 +495,7 @@
     <MESSAGE value="Bugfix" />
     <MESSAGE value="hinweis auf info@spitschka.com entfernt." />
     <MESSAGE value="Neue Datenbank" />
-    <option name="LAST_COMMIT_MESSAGE" value="Neue Datenbank" />
+    <MESSAGE value="Kopf wurde nicht gedruckt." />
+    <option name="LAST_COMMIT_MESSAGE" value="Kopf wurde nicht gedruckt." />
   </component>
 </project>
