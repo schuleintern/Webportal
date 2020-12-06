@@ -187,6 +187,12 @@ class Message {
 	 */
 	private $questionAnswers = [];
 
+    /**
+     * Nachricht vertrazlich?
+     * @var bool
+     */
+	private $isConfidential = false;
+
 
     /**
      * An welchen Empfänger ging diese spezielle Nachricht?
@@ -267,6 +273,8 @@ class Message {
 		    		    
 		    $this->questionAnswers = MessageAnswer::getByMessageID($this->getID());
 		}
+
+		$this->isConfidential = $data['messageIsConfidential'] > 0;
 	}
 	
 	/**
@@ -316,6 +324,14 @@ class Message {
 	public function getFolderID() {
 		return $this->folderID;
 	}
+
+    /**
+     * Ist die Nachricht vertraulich?
+     * @return mixed
+     */
+	public function isConfidential() {
+	    return $this->isConfidential;
+    }
 	
 	/**
 	 * 

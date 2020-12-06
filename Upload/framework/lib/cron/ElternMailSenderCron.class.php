@@ -32,14 +32,13 @@ class ElternMailSenderCron extends AbstractCron {
 			    if($user != null && $user->getEMail() != '' && $user->receiveEMail()) {
 			        // Mail senden
 			        
-			        $betreff = DB::getGlobalSettings()->siteNamePlain . " - Neue Nachricht - " . $mails[$i]->getSubject();
+			        $betreff = DB::getGlobalSettings()->siteNamePlain . " - Neue Nachricht";
 
-			        // MailID jetzt immer mit senden, damit man auf die Nachricht mittels Mailprogramm antworten kann.
+			        if(!$mails[$i]->isConfidential()) $betreff .= "- " . $mails[$i]->getSubject();
+
+			        // MailID und MailSecret jetzt immer mit senden, damit man auf die Nachricht mittels Mailprogramm antworten kann.
 			        $betreff .= " - [" . $mails[$i]->getID() . "]";
-			        
-			        if($mails[$i]->needConfirmation() && !$mails[$i]->hasQuestions()) {
-			            $betreff .= " {" . $mails[$i]->getConfirmationSecret() . "}";
-			        }
+			        $betreff .= " {" . $mails[$i]->getConfirmationSecret() . "}";
 
 			        $subject = $mails[$i]->getSubject();
 			        
@@ -93,6 +92,9 @@ class ElternMailSenderCron extends AbstractCron {
 			        if($mails[$i]->getMyRecipient() !== null) {
 			            $myRecipient = $mails[$i]->getMyRecipient()->getDisplayName();
                     }
+
+			        if($mails[$i]->isConfidential()) $isConfidential = true;
+			        else $isConfidential = false;
 			        
 			        $mailHTML = "";
 			        eval("\$mailHTML = \"" . DB::getTPL()->get("messages/send/emailnewmessage") . "\";");

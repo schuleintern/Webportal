@@ -147,6 +147,14 @@
               <!-- /.mailbox-controls -->
 
               <div class="mailbox-read-message">
+
+				  <if($message->isConfidential())><then>
+
+				  <div class="callout callout-warning"><i class="fa fa-user-lock"></i> Der Inhalt dieser Nachricht ist vertraulich.</div>
+
+			  		</then></if>
+
+
                 {$message->getText()}
 								
 								
@@ -188,28 +196,44 @@
             </div>
             <!-- /.box-footer -->
             <div class="box-footer">
-              <div class="pull-right">
+
+				<button type="submit" class="btn btn-danger" name="action" value="deleteMessage"><i class="fa fa-trash"></i> Löschen</button>
+				<a href="index.php?page=MessageRead&messageID={$message->getID()}&action=print" class="btn btn-default"><i class="fa fa-file-pdf"></i> Drucken (PDF)</a>
+
+
+
+				<div class="pull-right">
 
 								
 
               	<if($message->allowAnswer())><then>
-             	
+
                 	<button type="submit" class="btn btn-default" name="action" value="reply"><i class="fa fa-reply"></i> Antworten</button>
-                	
-                	<if(MessageSendRights::canReplyAll())><then>
-                	           	<button type="submit" class="btn btn-default" name="action" value="replyAll"><i class="fa fa-reply"></i> Allen Antworten</button>
+
+				  <if(!$message->isConfidential())><then>
+				  			<button type="submit" class="btn btn-default" name="action" value="forward"><i class="fa fa-forward"></i> Weiterleiten</button>
+
+			  		</then>
+				  	<else>
+						<button type="submit" class="btn btn-default" name="action" value="forward" disabled="disabled"><i class="fa fa-forward"></i> Weiterleiten<br /><small>Vertrauliche Nachrichten können nicht weitergeleitet werden.</small></button><br />
+
+					</else>
+
+				  </if>
+
+
+
+				  <if(MessageSendRights::canReplyAll())><then>
+                	           	<button type="submit" class="btn btn-default" name="action" value="replyAll"><i class="fa fa-reply"></i> Allen antworten</button>
                 	</then></if>
                 </then>
                 <else>
-                	<button type="button" class="btn btn-default" disabled="disabled"><i class="fa fa-reply"></i> Antworten</button><br />
-              		<small>Der Absender erlaubt nicht, dass Sie auf diese Nachricht antworten. (v.a. bei Rundmails)</small>
+                	<button type="button" class="btn btn-default" disabled="disabled"><i class="fa fa-reply"></i> Antworten<br /><small>Der Absender erlaubt nicht, dass Sie auf diese Nachricht antworten.</small></button><br />
+
 								</else></if>
-								
-								<button type="submit" class="btn btn-default" name="action" value="forward"><i class="fa fa-forward"></i> Weiterleiten</button>
-								
+
+
               </div>
-              		<button type="submit" class="btn btn-default" name="action" value="deleteMessage"><i class="fa fa-trash"></i> Löschen</button>
-              		<a href="index.php?page=MessageRead&messageID={$message->getID()}&action=print" class="btn btn-default"><i class="fa fa-file-pdf"></i> Drucken (PDF)</a>
             </div>
             <!-- /.box-footer -->
           </div>
