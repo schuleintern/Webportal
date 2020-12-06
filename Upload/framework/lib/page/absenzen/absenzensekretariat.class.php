@@ -231,6 +231,7 @@ class absenzensekretariat extends AbstractPage {
       
       
       echo("]\r\n");
+      exit(0);
   }
 
   private function deleteMerker() {
