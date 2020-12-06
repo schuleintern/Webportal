@@ -127,7 +127,7 @@ Consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore e
 			exit();
 		}
 		
-		return "<a href=\"" . $selfURL . "&action=testPrint\"><i class=\"fa fa-file-pdf-o\"></i> Testdruck mit den Einstellungen auf der zweiten Seite.</a><br />Wenn Sie den Briefkopf ändern möchten, schreiben Sie bitte eine E-Mail an info@spitschka.com";
+		return "<a href=\"" . $selfURL . "&action=testPrint\"><i class=\"fa fa-file-pdf-o\"></i> Testdruck mit den Einstellungen auf der zweiten Seite.</a>";
 	}
 	
 	public static function siteIsAlwaysActive() {
