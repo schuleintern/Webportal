@@ -129,7 +129,46 @@ class schuelerinfo extends AbstractPage {
       case 'getFotoZip':
         $this->getFotoZip();
       break;
+
+      case 'searchSchueler':
+        $this->searchSchueler();
+      break;
     }
+  }
+
+  private function searchSchueler() {
+    $term = DB::getDB()->escapeString($_REQUEST['term']);
+    header("Content-type: text/plain");
+
+
+    echo("[\r\n");
+
+
+    if(strlen($term) >= 2) {
+
+      $klassen = [];
+
+      for($i = 0; $i < sizeof($this->allowedGradesForDetails); $i++) $klassen[] = $this->allowedGradesForDetails[$i]->getKlassenName();
+
+      $users = DB::getDB()->query("SELECT schuelerAsvID, schuelerName, schuelerRufname, schuelerVornamen, schuelerKlasse FROM schueler WHERE 
+                schueler.schuelerKlasse IN ('" . implode("','", $klassen) . "') AND (schuelerName LIKE '%" . $term . "%' OR schuelerRufname LIKE '%" . $term . "%' OR schuelerVornamen LIKE '%" . $term . "%')");
+
+      $first = true;
+
+      while($user = DB::getDB()->fetch_array($users)) {
+        if(!$first) echo(",");
+        if($first) {
+          $first = false;
+        }
+        echo("{\"id\": \"" . $user['schuelerAsvID'] . "\",\r\n");
+        echo("\"value\": \"" . $user['schuelerAsvID'] . "\",\r\n");
+        echo("\"label\": \"" . addslashes($user['schuelerKlasse'] . ": " . $user['schuelerName'] . ", " . $user['schuelerRufname']) . "\"}\r\n");
+      }
+    }
+
+
+    echo("]\r\n");
+    exit(0);
   }
 
   private function getQuarantaeneListeForKlasse() {
@@ -1393,17 +1432,6 @@ class schuelerinfo extends AbstractPage {
   private function klassenuebersicht() {
 
     // Schüler suchen
-
-    $schuelerSelect = '';
-
-    for($i = 0; $i < sizeof($this->allowedGradesForDetails); $i++) {
-      $schueler = $this->allowedGradesForDetails[$i]->getSchueler();
-
-      for($s = 0; $s < sizeof($schueler); $s++) {
-        $schuelerSelect .= "<option value=\"" . $schueler[$s]->getAsvID() . "\">" . $schueler[$s]->getCompleteSchuelerName() . " (Klasse " . $schueler[$s]->getKlasse() . ")</option>";
-      }
-    }
-
     $grades = $this->allowedGradesForDetails;
 
     $gradeHTML = '';

@@ -26,17 +26,41 @@
 				<h3 class="box-title"><i class="fa fa-search"></i> Schüler suchen</h3><br />
 			</div>
 			<div class="box-body">
-				<form action="index.php?page=schuelerinfo&mode=schueler" method="post">
-				
-					<div class="input-group input-group-sm">
-						<select name="schuelerAsvID" id="schuelerSelect" class="form-control"  autofocus="autofocus" placeholder="Schüler suchen ...">
-		                    $schuelerSelect
-		                </select>    
-		                    <span class="input-group-btn">
-		                      <button type="submit" class="btn btn-info btn-flat">OK</button>
-		                    </span>
-		              </div>
+
+
+				<form action="index.php?page=schuelerinfo&mode=schueler" method="post" id="searchuserform">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn"><i class="fa fa-search"></i></button>
+						</div>
+						<input type="hidden" name="schuelerAsvID" value="" id="schuelerAsvID">
+						<input type="text" name="pupilName" value="" id="schuelerAutocomplete"  class="form-control" placeholder="Nach Schüler suchen ...">
+					</div>
 				</form>
+
+				<script>
+					$(function() {
+
+						$("#schuelerAutocomplete").autocomplete({
+							source: "index.php?page=schuelerinfo&mode=searchSchueler",
+							minLength: 2,
+							select: function(event, ui) {
+								var id = ui.item.id;
+								var display = ui.item.label;
+								$("#schuelerAsvID").val(id);
+								$("#searchuserform").submit();
+								return false;
+
+							},
+
+							open: function(event, ui) {
+								$(".ui-autocomplete").css("z-index", 999999);
+							}
+						});
+
+					});
+
+				</script>
 			</div>
 		</div>
 
