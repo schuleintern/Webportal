@@ -22,9 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Kopf wurde nicht gedruckt.">
+    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="htmlpruifier composer Modul">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/data/klassentagebuch/TagebuchPDFCreator.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/data/klassentagebuch/TagebuchPDFCreator.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/messages/MessageCompose.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/messages/MessageCompose.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/test/test.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/test/test.class.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,18 +59,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Upload/www/cssjs/font/fontawesome" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Upload/www/cssjs/plugins/tinymce/langs" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\www\cssjs\plugins\tinymce\langs" />
+      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\www\cssjs\plugins\tinymce" />
       <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\www\cssjs\font\fontawesome" />
       <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\lib\data\absenzen" />
       <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\lib\cron" />
-      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\www\cssjs\plugins\chartjs" />
-      <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\www\cssjs\plugins\select2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Workspaces\SchuleIntern\Webportal\Upload\framework\templates\absenzenv2" />
@@ -105,42 +105,7 @@
       <workItem from="1605594643163" duration="4697000" />
       <workItem from="1606287937460" duration="5525000" />
       <workItem from="1606417391782" duration="10651000" />
-      <workItem from="1607023606046" duration="41514000" />
-    </task>
-    <task id="LOCAL-00011" summary="https://github.com/schuleintern/Webportal/issues/48">
-      <created>1603883140221</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1603883140221</updated>
-    </task>
-    <task id="LOCAL-00012" summary="https://github.com/schuleintern/Webportal/issues/48">
-      <created>1603914503638</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1603914503638</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Anpassungen Absenzenansicht Sekretariat">
-      <created>1603980550677</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1603980550677</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Kleinere Anpassungen Klassenkalender">
-      <created>1603999020437</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1603999020437</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Fehlendes Icon im Mneü">
-      <created>1603999187539</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1603999187539</updated>
+      <workItem from="1607023606046" duration="46249000" />
     </task>
     <task id="LOCAL-00016" summary="Optische Verbesserung Dokumente">
       <created>1603999373706</created>
@@ -450,7 +415,42 @@
       <option name="project" value="LOCAL" />
       <updated>1607265113625</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Bugfix Falscher Wochentag bei TagebuchPDFs">
+      <created>1607283498266</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1607283498271</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Update to tinyMCE 5">
+      <created>1607289862663</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1607289862665</updated>
+    </task>
+    <task id="LOCAL-00062" summary="htmlpurifier composer Modul hinzugefügt">
+      <created>1607332908869</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1607332908871</updated>
+    </task>
+    <task id="LOCAL-00063" summary="tinymce Udpate und Erweiterung">
+      <created>1607332926745</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1607332926745</updated>
+    </task>
+    <task id="LOCAL-00064" summary="htmlpruifier composer Modul">
+      <created>1607332990863</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1607332990863</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -471,11 +471,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Backend: Cache eingeführt" />
-    <MESSAGE value="Update SELECT2" />
-    <MESSAGE value="Update jQuery" />
-    <MESSAGE value="Update Moment.js" />
-    <MESSAGE value="Pace Ladebalken hinzugefügt." />
     <MESSAGE value="Reset tests" />
     <MESSAGE value="Update Videokonferenz Link Anzeige" />
     <MESSAGE value="Parameter optional" />
@@ -496,6 +491,11 @@
     <MESSAGE value="hinweis auf info@spitschka.com entfernt." />
     <MESSAGE value="Neue Datenbank" />
     <MESSAGE value="Kopf wurde nicht gedruckt." />
-    <option name="LAST_COMMIT_MESSAGE" value="Kopf wurde nicht gedruckt." />
+    <MESSAGE value="Bugfix Falscher Wochentag bei TagebuchPDFs" />
+    <MESSAGE value="Update to tinyMCE 5" />
+    <MESSAGE value="htmlpurifier composer Modul hinzugefügt" />
+    <MESSAGE value="tinymce Udpate und Erweiterung" />
+    <MESSAGE value="htmlpruifier composer Modul" />
+    <option name="LAST_COMMIT_MESSAGE" value="htmlpruifier composer Modul" />
   </component>
 </project>
