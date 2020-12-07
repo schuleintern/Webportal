@@ -499,7 +499,14 @@ class MessageCompose extends AbstractPage {
 				$messageSender->setSender(DB::getSession()->getUser());
 				
 				$messageSender->setSubject($_POST['messageSubject']);
-				$messageSender->setText($_POST['messageText']);
+
+                $config = HTMLPurifier_Config::createDefault();
+                $config->set('URI.AllowedSchemes', ['data' => true,'src'=>true,'http' => true, 'https' => true]);      // Bilder as Base64 erlauben
+                $purifier = new HTMLPurifier($config);
+
+                $text = $purifier->purify($_REQUEST['messageText']);
+
+				$messageSender->setText($text);
 				$messageSender->setPriority($_POST['priority']);
 				
 				$messageSender->setRecipients($recipientHandler);				
