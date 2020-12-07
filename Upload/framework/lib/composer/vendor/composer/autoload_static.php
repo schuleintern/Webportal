@@ -15,6 +15,7 @@ class ComposerStaticInitbcedc20e3fca730de592729cd3dc932b
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'a4ecaeafb8cfb009ad0e052c90355e98' => __DIR__ . '/..' . '/beberlei/assert/lib/Assert/functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -177,6 +178,16 @@ class ComposerStaticInitbcedc20e3fca730de592729cd3dc932b
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'H' => 
+        array (
+            'HTMLPurifier' => 
+            array (
+                0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
@@ -189,6 +200,7 @@ class ComposerStaticInitbcedc20e3fca730de592729cd3dc932b
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitbcedc20e3fca730de592729cd3dc932b::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitbcedc20e3fca730de592729cd3dc932b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitbcedc20e3fca730de592729cd3dc932b::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitbcedc20e3fca730de592729cd3dc932b::$classMap;
 
         }, null, ClassLoader::class);
