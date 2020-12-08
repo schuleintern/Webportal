@@ -319,7 +319,7 @@ class schuelerinfo extends AbstractPage {
       if($type == 'I') $messageSender->setSubject("Neuer Isolationsfall in Klasse " . $schueler->getKlasse());
       else $messageSender->setSubject("Neuer Quarantänefall in Klasse " . $schueler->getKlasse());
 
-      $text = "In der Klasse " . $schueler->getKlasse() . "gibts folgende neue Quaratänefalle:<br>";
+      $text = "<p>In der Klasse " . $schueler->getKlasse() . "gibt es folgende neue Quaratänefalle:</p>";
       $text .= $infoTable;
 
       $messageSender->setText($text);
