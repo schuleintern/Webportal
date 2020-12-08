@@ -55,6 +55,10 @@ class ComposerStaticInitbcedc20e3fca730de592729cd3dc932b
         array (
             'League\\OAuth2\\Client\\' => 21,
         ),
+        'I' => 
+        array (
+            'Ifsnop\\' => 7,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -143,6 +147,10 @@ class ComposerStaticInitbcedc20e3fca730de592729cd3dc932b
         'League\\OAuth2\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/oauth2-client/src',
+        ),
+        'Ifsnop\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ifsnop/mysqldump-php/src/Ifsnop',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
