@@ -196,7 +196,24 @@ class DB {
 	}
 
 
-	public static function getDbStructure() { 
+    /**
+     * @return false|string
+     * @throws Exception
+     */
+	public static function getDbStructure() {
+	    $settings = [];
+        $settings['no-data'] = true;
+        $settings['add-drop-table'] = false;
+
+        $connect = "mysql:host=" . DB::getGlobalSettings()->dbSettigns['host'] . ":" . DB::getGlobalSettings()->dbSettigns['port'] . ";dbname=" . DB::getGlobalSettings()->dbSettigns['database'];
+
+        $dump = new \Ifsnop\Mysqldump\Mysqldump($connect, DB::getGlobalSettings()->dbSettigns['user'], DB::getGlobalSettings()->dbSettigns['password'], $settings);
+        $dump->start("../data/temp/dbstruct.sql");
+
+        return file_get_contents("../data/temp/dbstruct.sql");
+    }
+
+    public static function getDdStructureOld() {
 		$queryTables = self::$db->query('SHOW TABLES');
 		while($row = $queryTables->fetch_row()) {
 			$target_tables[] = $row[0];

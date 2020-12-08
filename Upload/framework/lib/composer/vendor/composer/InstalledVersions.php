@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'fe14dad35d168eb55621b52dc7ec51d786a4a78c',
+    'reference' => 'b1d36bf7d5ddef0fe8fb0356b8728cb5ac307d12',
     'name' => '__root__',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'fe14dad35d168eb55621b52dc7ec51d786a4a78c',
+      'reference' => 'b1d36bf7d5ddef0fe8fb0356b8728cb5ac307d12',
     ),
     'beberlei/assert' => 
     array (
@@ -114,6 +114,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
+    ),
+    'ifsnop/mysqldump-php' => 
+    array (
+      'pretty_version' => 'v2.9',
+      'version' => '2.9.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fc9c119fe5d70af9a685cad6a8ac612fd7589e25',
     ),
     'league/oauth2-client' => 
     array (
