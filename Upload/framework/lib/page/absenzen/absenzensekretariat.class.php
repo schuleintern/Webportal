@@ -1688,6 +1688,9 @@ class absenzensekretariat extends AbstractPage {
     }
 
 
+    $quarantaeneList = "";
+
+    $anzahlQuarantaene = 0;
 
     if($activeKlasse != null) {
       $lnw = [];
@@ -1716,12 +1719,15 @@ class absenzensekretariat extends AbstractPage {
       $viewKlasse = "(Klasse " . $activeKlasse->getKlassenName() . ")";
       
       $nummer = 0;
+
+      $anzahlAktiveSchuler = 0;
       
       for($i = 0; $i < sizeof($activeKlasse->getSchueler()); $i++) {
 
       	if(!$activeKlasse->getSchueler()[$i]->isAusgetreten()) {
       		$nummer++;
       		$nummerShow = $nummer;
+      		$anzahlAktiveSchuler++;
       	}
       	else $nummerShow = '-';
 
@@ -1774,7 +1780,13 @@ class absenzensekretariat extends AbstractPage {
 
         if($quarantaene != null) {
           $schuelerListeHTML .= " " . $quarantaene->getStatusLabel();
+
+          $quarantaeneList .= "<tr><td>" . $activeKlasse->getSchueler()[$i]->getCompleteSchuelerName() . "</td><td>" . $quarantaene->getStartAsNaturalDate() . "</td><td>" . $quarantaene->getEndAsNaturalDate() . "</td></tr>";
+
+          $anzahlQuarantaene++;
         }
+
+
 
 
         $schuelerListeHTML .= "</td></tr>";
@@ -1949,7 +1961,12 @@ class absenzensekretariat extends AbstractPage {
     if($currentStunde == 0) $currentStunde = DB::getSettings()->getValue("stundenplan-anzahlstunden");
 
 
-    
+    $ganzeKlasseQuarantaene = false;
+
+    if(SchuelerQuarantaene::isActive()) {
+      if($anzahlAktiveSchuler == $anzahlQuarantaene) $ganzeKlasseQuarantaene = true;
+    }
+
 
 
     eval("echo(\"" . DB::getTPL()->get("absenzen/sekretariat/index") . "\");");
