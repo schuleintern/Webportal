@@ -287,7 +287,7 @@ class schuelerinfo extends AbstractPage {
     $infoTable .= "</tr>";
 
 
-    if($addOtherK1) {
+    if($addOtherK1 && $type == 'I') {
       $klasse = $schueler->getKlassenObjekt();
       if($klasse != null) {
         $schuelerDerKlasse = $klasse->getSchueler(false);
