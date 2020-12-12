@@ -168,7 +168,7 @@ class MessageRead extends AbstractPage {
         exit(0);
     }
     else if($_POST['action'] == 'deleteMessage') {
-    	MessageFolder::getFolder(DB::getSession()->getUser, $message->getFolder(), $folderID)->deleteMessages([$message->getID()]);
+    	MessageFolder::getFolder(DB::getSession()->getUser(), $message->getFolder(), $folderID)->deleteMessages([$message->getID()]);
     	header("Location: index.php?page=MessageInbox&folder=" . $message->getFolder());
     	exit(0);
     }
