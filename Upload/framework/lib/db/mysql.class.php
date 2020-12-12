@@ -104,7 +104,7 @@ class mysql {
 		$returnarray = $this->fetch_array($this->query_id);
 		$this->free_result($this->query_id);
 
-		Debugger::debugQuery($debug);
+		// Debugger::debugQuery($debug);
 		return $returnarray;
 	}
 
