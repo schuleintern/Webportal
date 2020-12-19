@@ -220,8 +220,8 @@ class TwoFactor extends AbstractPage {
 	    
 	    
 	    eval("DB::getTPL()->out(\"" . DB::getTPL()->get("userprofile/2fa/initsession/index") . "\");");
-	    PAGE::kill(true);
-			//exit(0);
+	    // PAGE::kill(true);
+        exit(0);
 	    
 	    
 	    
