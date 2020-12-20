@@ -1,17 +1,17 @@
 [
     {
         "name": "ifsnop/mysqldump-php",
-        "version": "v2.7",
-        "version_normalized": "2.7.0.0",
+        "version": "v2.9",
+        "version_normalized": "2.9.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/ifsnop/mysqldump-php.git",
-            "reference": "30f07f4f0b0fdfcd74e6e57de933248d47f2dd61"
+            "reference": "fc9c119fe5d70af9a685cad6a8ac612fd7589e25"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/ifsnop/mysqldump-php/zipball/30f07f4f0b0fdfcd74e6e57de933248d47f2dd61",
-            "reference": "30f07f4f0b0fdfcd74e6e57de933248d47f2dd61",
+            "url": "https://api.github.com/repos/ifsnop/mysqldump-php/zipball/fc9c119fe5d70af9a685cad6a8ac612fd7589e25",
+            "reference": "fc9c119fe5d70af9a685cad6a8ac612fd7589e25",
             "shasum": ""
         },
         "require": {
@@ -21,7 +21,7 @@
             "phpunit/phpunit": "4.8.36",
             "squizlabs/php_codesniffer": "1.*"
         },
-        "time": "2019-02-18T23:38:33+00:00",
+        "time": "2020-04-03T14:40:40+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -36,8 +36,8 @@
         "authors": [
             {
                 "name": "Diego Torres",
-                "role": "Developer",
-                "homepage": "https://github.com/ifsnop"
+                "homepage": "https://github.com/ifsnop",
+                "role": "Developer"
             }
         ],
         "description": "PHP version of mysqldump cli that comes with MySQL",
@@ -58,27 +58,34 @@
     },
     {
         "name": "nelexa/zip",
-        "version": "3.1.12",
-        "version_normalized": "3.1.12.0",
+        "version": "3.3.3",
+        "version_normalized": "3.3.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Ne-Lexa/php-zip.git",
-            "reference": "ca068fa78ff37db9bce0064aed0297079587f43b"
+            "reference": "501b52f6fc393a599b44ff348a42740e1eaac7c6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Ne-Lexa/php-zip/zipball/ca068fa78ff37db9bce0064aed0297079587f43b",
-            "reference": "ca068fa78ff37db9bce0064aed0297079587f43b",
+            "url": "https://api.github.com/repos/Ne-Lexa/php-zip/zipball/501b52f6fc393a599b44ff348a42740e1eaac7c6",
+            "reference": "501b52f6fc393a599b44ff348a42740e1eaac7c6",
             "shasum": ""
         },
         "require": {
             "ext-zlib": "*",
-            "php": "^5.5 || ^7.0",
-            "psr/http-message": "^1.0"
+            "paragonie/random_compat": "*",
+            "php": "^5.5.9 || ^7.0",
+            "psr/http-message": "^1.0",
+            "symfony/finder": "^3.0|^4.0|^5.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "~4.8|~5.7",
-            "zendframework/zend-diactoros": "^1.4"
+            "ext-bz2": "*",
+            "ext-fileinfo": "*",
+            "ext-openssl": "*",
+            "ext-xml": "*",
+            "guzzlehttp/psr7": "^1.6",
+            "phpunit/phpunit": "^4.8|^5.7",
+            "symfony/var-dumper": "^3.0|^4.0|^5.0"
         },
         "suggest": {
             "ext-bz2": "Needed to support BZIP2 compression",
@@ -86,12 +93,12 @@
             "ext-mcrypt": "Needed to support encrypt zip entries or use ext-openssl",
             "ext-openssl": "Needed to support encrypt zip entries or use ext-mcrypt"
         },
-        "time": "2019-07-25T20:08:42+00:00",
+        "time": "2020-07-11T21:01:42+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "PhpZip\\": "src/PhpZip"
+                "PhpZip\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -101,8 +108,8 @@
         "authors": [
             {
                 "name": "Ne-Lexa",
-                "role": "Developer",
-                "email": "alexey@nelexa.ru"
+                "email": "alexey@nelexa.ru",
+                "role": "Developer"
             }
         ],
         "description": "PhpZip is a php-library for extended work with ZIP-archives. Open, create, update, delete, extract and get info tool. Supports appending to existing ZIP files, WinZip AES encryption, Traditional PKWARE Encryption, ZipAlign tool, BZIP2 compression, external file attributes and ZIP64 extensions. Alternative ZipArchive. It does not require php-zip extension.",
@@ -115,6 +122,53 @@
             "zip",
             "zipalign",
             "ziparchive"
+        ]
+    },
+    {
+        "name": "paragonie/random_compat",
+        "version": "v9.99.100",
+        "version_normalized": "9.99.100.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paragonie/random_compat.git",
+            "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/996434e5492cb4c3edcb9168db6fbb1359ef965a",
+            "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">= 7"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*|5.*",
+            "vimeo/psalm": "^1"
+        },
+        "suggest": {
+            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+        },
+        "time": "2020-10-15T08:29:30+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Paragon Initiative Enterprises",
+                "email": "security@paragonie.com",
+                "homepage": "https://paragonie.com"
+            }
+        ],
+        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+        "keywords": [
+            "csprng",
+            "polyfill",
+            "pseudorandom",
+            "random"
         ]
     },
     {
@@ -167,6 +221,66 @@
             "psr-7",
             "request",
             "response"
+        ]
+    },
+    {
+        "name": "symfony/finder",
+        "version": "v5.2.1",
+        "version_normalized": "5.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/finder.git",
+            "reference": "0b9231a5922fd7287ba5b411893c0ecd2733e5ba"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/finder/zipball/0b9231a5922fd7287ba5b411893c0ecd2733e5ba",
+            "reference": "0b9231a5922fd7287ba5b411893c0ecd2733e5ba",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.2.5"
+        },
+        "time": "2020-12-08T17:02:38+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Finder\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Finder Component",
+        "homepage": "https://symfony.com",
+        "funding": [
+            {
+                "url": "https://symfony.com/sponsor",
+                "type": "custom"
+            },
+            {
+                "url": "https://github.com/fabpot",
+                "type": "github"
+            },
+            {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+            }
         ]
     }
 ]
