@@ -1,0 +1,13 @@
+{
+  "name": "Example Module",
+  "version": "1",
+  "neededVersion": "1.2.2",
+
+  "classname": "exampleModuleList",
+  "folder": "exampleModule",
+  
+  "settings": {
+    "test1": true,
+    "test2": false
+  }
+}

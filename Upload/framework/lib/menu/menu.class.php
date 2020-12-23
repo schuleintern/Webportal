@@ -225,6 +225,15 @@ class menu {
     }
     
     
+    
+
+    //$modules = array();
+		$result = DB::getDB()->query('SELECT `id`,`name`,`folder` FROM `modules` WHERE `active` = 1 ');
+		while($row = DB::getDB()->fetch_array($result)) {
+      //$modules[] = $row;
+      $this->html .= $this->getMenuItem($row['folder'], $row['name'],'fa fa-cogs');
+    }
+    
     $this->aktuelles();
     $this->informationen();
     $this->lehrerAnwendungen();

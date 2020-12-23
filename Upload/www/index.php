@@ -26,23 +26,28 @@ if($wartungsmodus != "") {
     exit(0);
 }
 
+// Store and Secure $_REQUEST Variables
+$_request = [];
+if ($_REQUEST) {
+    foreach($_REQUEST as $key => $val) {
+        $_request[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = stripslashes(strip_tags(htmlspecialchars($val, ENT_IGNORE, 'utf-8')));
+    }
+}
+
 include_once '../data/config/config.php';
 include_once '../data/config/userlib.class.php';
 
-
 include('./startup.php');
 
-
 include("../framework/lib/system/errorhandler.php");
-
 set_error_handler('schuleinternerrorhandler',E_ALL);
 
-if($_SERVER['SERVER_PORT'] != 443 && $_REQUEST['page'] != "updatevplan" && $_REQUEST['page'] != "digitalSignage" && !DB::isDebug()) {
-    if(isset($_REQUEST['ssl']) && $_REQUEST['ssl'] == 1) {
+if($_SERVER['SERVER_PORT'] != 443 && $_request['page'] != "updatevplan" && $_request['page'] != "digitalSignage" && !DB::isDebug()) {
+    if(isset($_request['ssl']) && $_request['ssl'] == 1) {
         new errorPage('Der Zugriff auf das Portal ist nur über SSL möglich. <br /><br ><br ><br><br><pre>Im Debug Modus ist auch ein Zugriff ohne SSL möglich.</pre>');
         exit();
     }
   header("Location: " . DB::getGlobalSettings()->urlToIndexPHP . "?ssl=1");
 }
 
-new requesthandler((isset($_REQUEST['page']) && $_REQUEST['page'] != "") ? $_REQUEST['page'] : 'index');
+new requesthandler((isset($_request['page']) && $_request['page'] != "") ? $_request['page'] : 'index', $_request);

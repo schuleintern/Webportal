@@ -81,7 +81,8 @@ class requesthandler {
         'AdminBackup',
         'AdminDatabase',
         'AdministrationEltern',
-        'AdminDatabaseUpdate'
+        'AdminDatabaseUpdate',
+        'AdminModules'
     ],
     'aufeinenblick' => [
       'aufeinenblick',
@@ -227,28 +228,48 @@ class requesthandler {
 
   private static $allAdminGroups = [];
 
-  public function __construct($action) {
+  public function __construct($action, $_request) {
 
-      PAGE::setFactory( new FACTORY() );
+    PAGE::setFactory( new FACTORY() );
 
     $allowed = false;
     
-    require_once ('../framework/lib/page/abstractPage.class.php');
+    // First load Page
+    $allowed = self::loadPage($action);
 
-    foreach(self::$actions as $f => $pages) {
-      for($p = 0; $p < sizeof($pages); $p++) {
-        include_once('../framework/lib/page/' . $f . '/' . $pages[$p] . '.class.php');
-        if($pages[$p] == $action) $allowed = true;
+    // Load Module
+    if (!$allowed) {
+      $view = 'default';
+      if ($_request['view']) {
+        $view = $_request['view'];
+      }
+      $modul = self::loadModule($action, $view);
+      if ($modul['allowed'] == true && $modul['classname']) {
+        $allowed = true;
+        $action = $modul['classname'];
       }
     }
-
+    
     if($allowed) {
       try {
-        $page = new $action;
-        $page->execute();
+        $page = new $action($_request);
+        if ($_request['task']) {
+
+          $taskMethod = 'task'.ucfirst($_request['task']);
+          if ( method_exists($page, 'task'.ucfirst($_request['task']) )) {
+            $page->$taskMethod();
+            exit;
+          } else {
+            new errorPage('Task was not found!');
+            exit;
+          }
+
+          
+        } else {
+          $page->execute();
+        }
       }
       catch(Throwable $e) {
-
         echo "<b>!!!" . $e->getMessage() . "</b> in Line " . $e->getLine()  . " in " . $e->getFile() . "<br />";
         echo "<pre>" . $e->getTraceAsString() . "</pre>";
       }
@@ -260,34 +281,31 @@ class requesthandler {
     
   }
 
-    /**
-     * Erlaute Aktion am RequestHandler
-     * @return array
-     */
+  /**
+   * Erlaute Aktion am RequestHandler
+   * 
+   * @return array
+   */
   public static function getAllowedActions() {
     $ps = [];
+    // Active Pages
     foreach(self::$actions as $f => $pages) {
       for($p = 0; $p < sizeof($pages); $p++) {
         $ps[] = $pages[$p];
       }
     }
-    
+    // Active Modules
+    // $result = DB::getDB()->query('SELECT `id`,`folder` FROM `modules` WHERE `active` = 1 ');
+		// while($row = DB::getDB()->fetch_array($result)) {
+    //   $ps[] = $row['folder'];
+    // }
+
     return $ps;
   }
-  
-  public static function getAllAdminGroups() {
-  	if(sizeof(self::$allAdminGroups) == 0) {
-  		$allPages = self::getAllowedActions();
-  		for($i = 0; $i < sizeof($allPages); $i++) {
-  			if($allPages[$i]::getAdminGroup() != "") self::$allAdminGroups[] = $allPages[$i]::getAdminGroup();
-  		}
-  	}
-  	
-  	return self::$allAdminGroups;
-  }
-  
+
   
   /**
+   * Load Page
    * 
    * @param unknown $action
    * @return boolean
@@ -295,23 +313,47 @@ class requesthandler {
   public static function loadPage($action) {
       
       $allowed = false;
-      
-      require_once ('../framework/lib/page/abstractPage.class.php');
-      
-      
+
       foreach(self::$actions as $f => $pages) {
-          for($p = 0; $p < sizeof($pages); $p++) {
-              
-              if($pages[$p] == $action) {
-                  include_once('../framework/lib/page/' . $f . '/' . $pages[$p] . '.class.php');
-                  $allowed = true;
-              }
+        for($p = 0; $p < sizeof($pages); $p++) {
+            
+          if($pages[$p] == $action) {
+            require_once ('../framework/lib/page/abstractPage.class.php');
+            include_once('../framework/lib/page/' . $f . '/' . $pages[$p] . '.class.php');
+            $allowed = true;
           }
+        }
       }
-      
       return $allowed;
-      
   }
+
+  /**
+   * Load Module
+   * 
+   * @param unknown $action
+   * @return boolean
+   */
+  public static function loadModule($action, $view = 'default') {
+      
+    $allowed = false;
+
+    $module = DB::getDB()->query_first("SELECT `id`,`folder` FROM modules WHERE `folder` = '".$action."'" );
+    if ($module) {
+      if (file_exists('../modules/'.$module['folder'].'/'.$view.'.php')) {
+        require_once ('../framework/lib/page/abstractPage.class.php');
+        include_once('../modules/'.$module['folder'].'/'.$view.'.php');
+        $allowed = true;
+        $classname = $module['folder'].ucfirst($view);
+      }
+    }
+    
+    return [
+      'allowed' => true,
+      'classname' => $classname,
+      'folder' => $module['folder'],
+      'view' => $view
+    ];
+}
 
  
 
