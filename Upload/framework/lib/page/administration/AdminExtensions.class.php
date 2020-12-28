@@ -18,7 +18,7 @@ class AdminExtensions extends AbstractPage {
 	public static function siteIsAlwaysActive() {
 		return true;
 	}
-	
+
 	public static function hasSettings() {
 		return false;
 	}
@@ -252,14 +252,16 @@ class AdminExtensions extends AbstractPage {
 							`folder`,
 							`version`,
 							`settings`,
-							`uniqid`
+							`uniqid`,
+							`menuCat`
 							) VALUES (
 								'".$modulJSON->name."',
 								1,
 								'".$foldername."',
 								".$modulJSON->version.",
 								'".$modulJSON->settings."',
-								'".$modulJSON->uniqid."'
+								'".$modulJSON->uniqid."',
+								'".$modulJSON->menuCat."'
 						);");
 						
 						$retun = ['error' => false];
@@ -267,7 +269,8 @@ class AdminExtensions extends AbstractPage {
 							
 						
 					} else {
-						$retun = ['error' => true, 'msg' => 'Misson Extension JSON'];
+						FILE::removeFolder($pathExtensions.$foldername);
+						$retun = ['error' => true, 'msg' => 'Missing Extension JSON'];
 						echo json_encode($retun); exit;
 					}
 
