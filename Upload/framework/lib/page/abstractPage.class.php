@@ -297,12 +297,12 @@ abstract class AbstractPage {
 		if (!$arg['tmpl']) {
 			$arg['tmpl'] = 'default';
 		}
-		if ( file_exists('../modules/'.$this->request['page'].'/tmpl/'.$arg['tmpl'].'.tmpl.php') ) {
+		if ( file_exists('../extensions/'.$this->request['page'].'/tmpl/'.$arg['tmpl'].'.tmpl.php') ) {
 			echo $this->header;
 			if ($arg['submenu'] || $arg['dropdown']) {
 				echo $this->makeSubmenu($arg['submenu'], $arg['dropdown']);
 			}
-			include_once('../modules/'.$this->request['page'].'/tmpl/'.$arg['tmpl'].'.tmpl.php');
+			include_once('../extensions/'.$this->request['page'].'/tmpl/'.$arg['tmpl'].'.tmpl.php');
 			if ($arg['data']) {
 				echo $this->getScriptData($data);
 			}
@@ -341,7 +341,7 @@ abstract class AbstractPage {
 		}
 		$html = '';
 		foreach( $scripts as $script ) {
-			$script = '../modules/'.$this->request['page'].'/tmpl/script/'.$view.'/'.$script;
+			$script = '../extensions/'.$this->request['page'].'/tmpl/script/'.$view.'/'.$script;
 			if (file_exists($script)) {
 				$file = file_get_contents($script);
 				if ($file) {
@@ -454,8 +454,8 @@ abstract class AbstractPage {
 			while($p = DB::getDB()->fetch_array($pages)) {
 				self::$activePages[] = $p['siteName'];
 			}
-			// Active Modules
-			$result = DB::getDB()->query('SELECT `id`,`name` FROM `modules` WHERE `active` = 1 ');
+			// Active Extensions
+			$result = DB::getDB()->query('SELECT `id`,`name` FROM `extensions` WHERE `active` = 1 ');
 			while($row = DB::getDB()->fetch_array($result)) {
 				self::$activePages[] = $row['name'];
 			}

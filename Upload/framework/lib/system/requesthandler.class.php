@@ -76,13 +76,13 @@ class requesthandler {
       'administrationmodule',
       'administrationcron',
       'administrationgroups',
-        'AdminMailSettings',
-        'AdminUpdate',
-        'AdminBackup',
-        'AdminDatabase',
-        'AdministrationEltern',
-        'AdminDatabaseUpdate',
-        'AdminModules'
+      'AdminMailSettings',
+      'AdminUpdate',
+      'AdminBackup',
+      'AdminDatabase',
+      'AdministrationEltern',
+      'AdminDatabaseUpdate',
+      'AdminExtensions'
     ],
     'aufeinenblick' => [
       'aufeinenblick',
@@ -233,39 +233,44 @@ class requesthandler {
     PAGE::setFactory( new FACTORY() );
 
     $allowed = false;
+    $type = false;
     
     // First load Page
     $allowed = self::loadPage($action);
-
-    // Load Module
+    if ($allowed) {
+      $type = 'page';
+    }
+    
+    // Load extensions
     if (!$allowed) {
       $view = 'default';
       if ($_request['view']) {
         $view = $_request['view'];
       }
-      $modul = self::loadModule($action, $view);
-      if ($modul['allowed'] == true && $modul['classname']) {
+      $extension = self::loadExtensions($action, $view);
+      if ($extension['allowed'] == true && $extension['classname']) {
         $allowed = true;
-        $action = $modul['classname'];
+        $type = 'extension';
+        $action = $extension['classname'];
       }
     }
-    
+  
     if($allowed) {
       try {
         $page = new $action($_request);
-        if ($_request['task']) {
-
+        
+        if ($type == 'extension' && $_request['task']) {
+          
           $taskMethod = 'task'.ucfirst($_request['task']);
           if ( method_exists($page, 'task'.ucfirst($_request['task']) )) {
             $page->$taskMethod();
             exit;
           } else {
-            new errorPage('Task was not found!');
+            new errorPage('Task was not found! <br> ( task: '.$taskMethod.' )');
             exit;
           }
-
-          
         } else {
+          
           $page->execute();
         }
       }
@@ -274,7 +279,7 @@ class requesthandler {
         echo "<pre>" . $e->getTraceAsString() . "</pre>";
       }
     } else {
-      new errorPage();
+      new errorPage('There is no Page');
       die();
     }
     PAGE::kill(true);
@@ -295,7 +300,7 @@ class requesthandler {
       }
     }
     // Active Modules
-    // $result = DB::getDB()->query('SELECT `id`,`folder` FROM `modules` WHERE `active` = 1 ');
+    // $result = DB::getDB()->query('SELECT `id`,`folder` FROM `extensions` WHERE `active` = 1 ');
 		// while($row = DB::getDB()->fetch_array($result)) {
     //   $ps[] = $row['folder'];
     // }
@@ -328,31 +333,36 @@ class requesthandler {
   }
 
   /**
-   * Load Module
+   * Load Extensions
    * 
    * @param unknown $action
    * @return boolean
    */
-  public static function loadModule($action, $view = 'default') {
+  public static function loadExtensions($action, $view = 'default') {
       
     $allowed = false;
 
-    $module = DB::getDB()->query_first("SELECT `id`,`folder` FROM modules WHERE `folder` = '".$action."'" );
-    if ($module) {
-      if (file_exists('../modules/'.$module['folder'].'/'.$view.'.php')) {
+    $module = DB::getDB()->query_first("SELECT `id`,`folder` FROM extensions WHERE `folder` = '".$action."'" );
+    if ($module && $module['folder'] && $view) {
+      if (file_exists('../extensions/'.$module['folder'].'/'.$view.'.php')) {
         require_once ('../framework/lib/page/abstractPage.class.php');
-        include_once('../modules/'.$module['folder'].'/'.$view.'.php');
+        include_once('../extensions/'.$module['folder'].'/'.$view.'.php');
         $allowed = true;
-        $classname = $module['folder'].ucfirst($view);
       }
     }
+
+    if ($allowed) {
+      return [
+        'allowed' => true,
+        'classname' => $module['folder'].ucfirst($view),
+        'folder' => $module['folder'],
+        'view' => $view
+      ];
+    }
+
+    return false;
     
-    return [
-      'allowed' => true,
-      'classname' => $classname,
-      'folder' => $module['folder'],
-      'view' => $view
-    ];
+    
 }
 
  

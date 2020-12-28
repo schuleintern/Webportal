@@ -55,10 +55,10 @@ class resthandler {
         } 
 
         if ( $allowed == false && $request[1] ) {
-            $module = DB::getDB()->query_first("SELECT `id`,`name`,`folder` FROM modules WHERE `folder` = '".$request[0]."'" );
+            $module = DB::getDB()->query_first("SELECT `id`,`name`,`folder` FROM extensions WHERE `folder` = '".$request[0]."'" );
             if ($module) {
-              if (file_exists('../modules/'.$module['folder'].'/rest/'.$request[1].'.php')) {
-                include_once('../modules/'.$module['folder'].'/rest/'.$request[1].'.php');
+              if (file_exists('../extensions/'.$module['folder'].'/rest/'.$request[1].'.php')) {
+                include_once('../extensions/'.$module['folder'].'/rest/'.$request[1].'.php');
                 $allowed = true;
                 $classname = $request[1];
               }

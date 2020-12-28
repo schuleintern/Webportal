@@ -115,7 +115,9 @@ class menu {
 
 
 
-    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationactivatepages', 'Modulstatus', 'fas fa-toggle-on');
+    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationactivatepages', 'Modulstatus', 'fa fas fa-toggle-on');
+
+    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationmodule&module=AdminExtensions', 'Erweiterungen', 'fa fas fa-plug');
 
 
     $displayActions = [];
@@ -227,10 +229,8 @@ class menu {
     
     
 
-    //$modules = array();
-		$result = DB::getDB()->query('SELECT `id`,`name`,`folder` FROM `modules` WHERE `active` = 1 ');
+		$result = DB::getDB()->query('SELECT `id`,`name`,`folder` FROM `extensions` WHERE `active` = 1 ');
 		while($row = DB::getDB()->fetch_array($result)) {
-      //$modules[] = $row;
       $this->html .= $this->getMenuItem($row['folder'], $row['name'],'fa fa-cogs');
     }
     

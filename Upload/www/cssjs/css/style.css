@@ -312,7 +312,7 @@ button.btn-blau {
   color: #fff;
   font-weight: bold;
 }
-.table_1 thead td {
+.table_1.thead-center thead td {
   text-align: center;
 }
 .table_1 tbody.oddEven tr:nth-child(2n) {
