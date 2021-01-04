@@ -55,6 +55,12 @@
   margin-bottom: 2rem;
 }
 
+.form-modal-succeed {
+  color: #018d4e;
+  border-bottom: 1px solid #018d4e;
+  margin-bottom: 2rem;
+}
+
 .form-modal-close {
   position: absolute;
   right: 0rem;

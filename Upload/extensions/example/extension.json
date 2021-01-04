@@ -1,0 +1,13 @@
+{
+  "name": "Example Extension",
+  "uniqid": "example.example1",
+  "version": "1",
+  "menuCat": "aktuelles",
+
+  "neededVersion": "1.2.2",
+
+  "settings": {}
+
+
+
+}

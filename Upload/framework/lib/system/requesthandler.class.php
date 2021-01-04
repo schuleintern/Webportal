@@ -263,7 +263,14 @@ class requesthandler {
           
           $taskMethod = 'task'.ucfirst($_request['task']);
           if ( method_exists($page, 'task'.ucfirst($_request['task']) )) {
-            $page->$taskMethod();
+            $postData = [];
+            $_post = json_decode(file_get_contents("php://input"), TRUE);
+            if ($_post) {
+              foreach($_post as $key => $val) {
+                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = stripslashes(strip_tags(htmlspecialchars($val, ENT_IGNORE, 'utf-8')));
+              }
+            }
+            $page->$taskMethod($postData);
             exit;
           } else {
             new errorPage('Task was not found! <br> ( task: '.$taskMethod.' )');

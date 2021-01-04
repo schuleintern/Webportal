@@ -45,6 +45,7 @@ abstract class AbstractPage {
 	private $acl = false;
 
 	private $request = false;
+	private $extension = false;
 
     /**
      * Ist das Modul im Beta Status?
@@ -66,11 +67,13 @@ abstract class AbstractPage {
 															$isAdmin = false,
 															$isNotenverwaltung = false,
 															$isType = false,
-															$request = [] ) {
+															$request = [],
+															$extension = [] ) {
 
 		header("X-Frame-Options: deny");
 		
 		$this->request = $request;
+		$this->extension = $extension;
 
 		$this->sitename = addslashes ( trim ( $_REQUEST ['page'] ) );
 				
@@ -294,20 +297,31 @@ abstract class AbstractPage {
 	 */
 	public function render($arg) {
 
-		if (!$arg['tmpl']) {
+		if (!$arg['tmpl'] && !$arg['tmplHTML']) {
 			$arg['tmpl'] = 'default';
 		}
-		if ( file_exists('../extensions/'.$this->request['page'].'/tmpl/'.$arg['tmpl'].'.tmpl.php') ) {
+		if ($this->request['admin']) {
+			$path = PATH_EXTENSION.'tmpl/';
+		} else {
+			$path = PATH_EXTENSIONS.$this->request['page'].'/tmpl/';
+		}
+
+		if ( $arg['tmplHTML'] || file_exists($path.$arg['tmpl'].'.tmpl.php')  ) {
 			echo $this->header;
 			if ($arg['submenu'] || $arg['dropdown']) {
 				echo $this->makeSubmenu($arg['submenu'], $arg['dropdown']);
 			}
-			include_once('../extensions/'.$this->request['page'].'/tmpl/'.$arg['tmpl'].'.tmpl.php');
-			if ($arg['data']) {
-				echo $this->getScriptData($data);
+			if ($arg['tmplHTML']) {
+				echo $arg['tmplHTML'];
+			} else {
+				include_once($path.$arg['tmpl'].'.tmpl.php');
 			}
-			if ($arg['script']) {
-				echo $this->getScript($arg['tmpl'], $arg['script']);
+			
+			if ($arg['data']) {
+				echo $this->getScriptData($arg['data']);
+			}
+			if ($arg['scripts']) {
+				echo $this->getScript($arg['tmpl'], $arg['scripts'], $path);
 			}
 		} else {
 			new errorPage('Missing Template File');
@@ -315,7 +329,7 @@ abstract class AbstractPage {
 		}
 	}
 
-	
+
 	/**
 	 * Load PHP Variables to JavaScript
 	 * 
@@ -335,13 +349,16 @@ abstract class AbstractPage {
 	 * @param page String
 	 * @param scripts Array
 	 */
-	private function getScript($view, $scripts){
-		if ( !$scripts || count($scripts) <= 0) {
+	private function getScript($view, $scripts, $path ){
+
+		if (!$path) {
+			return false;
+		}
+		if ( !$scripts || count($scripts) <= 0 ) {
 			return false;
 		}
 		$html = '';
 		foreach( $scripts as $script ) {
-			$script = '../extensions/'.$this->request['page'].'/tmpl/script/'.$view.'/'.$script;
 			if (file_exists($script)) {
 				$file = file_get_contents($script);
 				if ($file) {
@@ -485,6 +502,19 @@ abstract class AbstractPage {
 
 	public static function getSettingsDescription() {
 		return [];
+	}
+
+	public  function getSettings() {
+		$settings = $this->getSettingsDescription();
+		if ( count($settings) > 0  ) {
+			foreach($settings as $key => $item) {
+				$result = DB::getDB()->query_first('SELECT `settingValue` FROM `settings` WHERE `settingsExtension` = "'.$this->extension['folder'].'"  AND `settingName` = "'.$item['name'].'" ');
+				if ( isset($result['settingValue']) ) {
+					$settings[$key]['value'] = $result['settingValue'];
+				}
+			}
+		}
+		return $settings;
 	}
 
 	/**
@@ -662,17 +692,24 @@ abstract class AbstractPage {
 		if (DB::getSession()) {
 			$userID = DB::getSession()->getUser();
 		}
-		$moduleClass = get_called_class();
+		$moduleClass = $this->aclModuleName();
 		if ($userID && $moduleClass) {
-			$this->acl = ACL::getAcl($userID, $moduleClass, false);
+			
+			$this->acl = ACL::getAcl($userID, $moduleClass, false, $this->getAdminGroup() );
 		}
 	}
 
 	public function getAclAll() {
+		if (!$this->acl) {
+			$this->acl();
+		}
 		return $this->acl;
 	}
 
 	public function getAcl() {
+		if (!$this->acl) {
+			$this->acl();
+		}
 		return [ 'rights' => $this->acl['rights'], 'owne' => $this->acl['owne'] ];
 	}
 
