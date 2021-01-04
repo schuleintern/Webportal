@@ -56,8 +56,8 @@ define("URL_SELF", URL_ROOT.$_SERVER[REQUEST_URI]);
 
 define("PATH_WWW", '.'.DS);
 define("PATH_ROOT", PATH_WWW.'..'.DS);
-define("PATH_EXTENSIONS", PATH_ROOT.'extensions');
-define("PATH_LIB", PATH_ROOT.'framework'.DS.'lib');
+define("PATH_EXTENSIONS", PATH_ROOT.'extensions'.DS);
+define("PATH_LIB", PATH_ROOT.'framework'.DS.'lib'.DS);
 define("PATH_COMPONENTS", PATH_WWW.'components'.DS);
 
 // echo URL_ROOT.'<br>'.URL_SELF.'<br>';
