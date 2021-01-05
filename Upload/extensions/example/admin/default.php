@@ -5,15 +5,6 @@ class adminExampleDefault extends AbstractPage {
 	public static function getSiteDisplayName() {
 		return 'Example Module - Admin Einstellungen';
 	}
-	
-	public static function getAdminGroup() {
-		return 'Admin_Extension_Example';
-	}
-
-	public function aclModuleName() {
-		return 'extension_example';
-	}
-
 
 	public function __construct($request = [], $extension = []) {
 		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);

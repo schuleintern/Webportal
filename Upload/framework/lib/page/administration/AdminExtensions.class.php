@@ -101,8 +101,8 @@ class AdminExtensions extends AbstractPage {
 						}
 
 						// Schule-intern is needed Version ???
-						if ( $modulJSON->neededVersion ) {
-							if ( version_compare($modulJSON->neededVersion, DB::getVersion(), '>') ) {
+						if ( $modulJSON->requiredVersion ) {
+							if ( version_compare($modulJSON->requiredVersion, DB::getVersion(), '>') ) {
 								FILE::removeFolder($pathExtensions.$foldername);
 								$retun = ['error' => true, 'msg' => 'System has wrong Version'];
 								echo json_encode($retun); exit;
@@ -219,8 +219,8 @@ class AdminExtensions extends AbstractPage {
 						}
 
 						// Schule-intern is needed Version ???
-						if ( $modulJSON->neededVersion ) {
-							if ( version_compare($modulJSON->neededVersion, DB::getVersion(), '>') ) {
+						if ( $modulJSON->requiredVersion ) {
+							if ( version_compare($modulJSON->requiredVersion, DB::getVersion(), '>') ) {
 								FILE::removeFolder($pathExtensions.$foldername);
 								$retun = ['error' => true, 'msg' => 'System has wrong Version'];
 								echo json_encode($retun); exit;

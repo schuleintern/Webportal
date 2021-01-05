@@ -29,7 +29,8 @@ abstract class AbstractPage {
 	private $extension = false;
 	private $isAnyAdmin = false;
 	
-	
+	static $adminGroup = NULL;
+	static $aclGroup = NULL;
 
 
 	/**
@@ -61,6 +62,24 @@ abstract class AbstractPage {
 			die ( "Die angegebene Seite ist leider nicht aktiviert" );
 		}
 		
+		// Load Extension JSON and set Defaults
+		if ($this->extension) {
+			$this->extension['json'] = $this->getExtensionJSON();
+			if ( isset($this->extension['json']) ) {
+				
+				// Admin Group
+				if ( $this->extension['json']->adminGroup ) {
+					self::setAdminGroup($this->extension['json']->adminGroup);
+				}
+
+				// ACL Group
+				if ( $this->extension['json']->aclGroup ) {
+					self::setAclGroup($this->extension['json']->aclGroup);
+				}
+			} 
+		}
+		
+
 		// Seite ohne Session aufrufen?
 		// TODO: @Spitschka es gibt kein else ???
 		if (!$ignoreSession) {
@@ -134,7 +153,8 @@ abstract class AbstractPage {
 				header("Location: index.php?page=datenschutz&confirmPopUp=1");
 				exit(0);
 			}
-			
+
+
 			// Check Adminrights
 
 			if( DB::isLoggedIn()
@@ -143,7 +163,7 @@ abstract class AbstractPage {
 			} else {
 				$this->isAnyAdmin = false;
 			}
-			
+
 			if ($this->request['admin'] && $this->isAnyAdmin == false ) {
 					new errorPage('Kein Zugriff');
 			}
@@ -299,9 +319,9 @@ abstract class AbstractPage {
 
 			// check if global menu
 			if ( !isset($arg['submenu']) ) {
-				$extJSON = $this->getExtensionJSON();
-				if ( isset($extJSON->submenu) ) {
-					$arg['submenu'] = (array)$extJSON->submenu;
+				//$extJSON = $this->getExtensionJSON();
+				if ( isset($this->extension['json']) && isset($this->extension['json']->submenu) ) {
+					$arg['submenu'] = (array)$this->extension['json']->submenu;
 				}
 			}
 			// render submenu and dropdown
@@ -623,9 +643,42 @@ abstract class AbstractPage {
 	 * @return String Gruppenname als String
 	 */
 	public static function getAdminGroup() {
-		return NULL;
+		return self::$adminGroup;
+	}
+
+	/**
+	 * Setzt die Admin Gruppe als String
+	 * @param String Gruppenname als String
+	 */
+	public static function setAdminGroup($str) {
+		if ($str) {
+			self::$adminGroup = $str;
+		}
+	}
+
+
+	/**
+	 * Gibt den Gruppennamen für die ACL Rechte zurück
+	 * @return String Gruppenname als String
+	 */
+	public static function getAclGroup() {
+		if (self::$aclGroup) {
+			return self::$aclGroup;
+		}
+		return get_called_class();
+	}
+
+	/**
+	 * Setzt die ACL Gruppe als String
+	 * @param String Gruppenname als String
+	 */
+	public static function setAclGroup($str) {
+		if ($str) {
+			self::$aclGroup = $str;
+		}
 	}
 	
+
 	/**
 	 * Zeigt die Administration an. (Nur Bereich innerhalb des Main Body)
 	 * @param $selfURL URL zu sich selbst zurück (weitere Parameter können vom Script per & angehängt werden.)
@@ -701,6 +754,10 @@ abstract class AbstractPage {
 	 * @return acl
 	 */
 
+
+	/**
+	* @deprecated:  use getAclGroup
+	*/
 	public function aclModuleName() {
 		return get_called_class();
 	}
@@ -709,7 +766,7 @@ abstract class AbstractPage {
 		if (DB::getSession()) {
 			$userID = DB::getSession()->getUser();
 		}
-		$moduleClass = $this->aclModuleName();
+		$moduleClass = $this->getAclGroup();
 		if ($userID && $moduleClass) {
 			
 			$this->acl = ACL::getAcl($userID, $moduleClass, false, $this->getAdminGroup() );

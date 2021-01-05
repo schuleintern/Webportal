@@ -6,14 +6,6 @@ class adminExampleCustom extends AbstractPage {
 		return 'Example Module - Admin Custom Page';
 	}
 
-	public static function getAdminGroup() {
-		return 'Admin_Extension_Example';
-	}
-
-	public function aclModuleName() {
-		return 'extension_example';
-	}
-	
 	public function __construct($request = [], $extension = []) {
 		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);
 		$this->checkLogin();

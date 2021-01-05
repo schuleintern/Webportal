@@ -2,9 +2,15 @@
   "name": "Example Extension",
   "uniqid": "example.example1",
   "version": "1",
+
+  "requiredVersion": "1.2.2",
+
   "menuCat": "aktuelles",
 
-  "neededVersion": "1.2.2",
+  "adminGroup": "Admin_Ext_Example",
+  "aclGroup": "ext_example",
+
+  
 
   "submenu": [
     {
