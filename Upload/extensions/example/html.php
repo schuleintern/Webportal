@@ -1,9 +1,9 @@
 <?php
 
-class adminExampleCustom extends AbstractPage {
+class exampleHtml extends AbstractPage {
 	
 	public static function getSiteDisplayName() {
-		return 'Example Module - Admin Custom Page';
+		return 'Example Module - HTML';
 	}
 
 	public static function getAdminGroup() {
@@ -14,36 +14,21 @@ class adminExampleCustom extends AbstractPage {
 		return 'extension_example';
 	}
 	
-	public function __construct($request = [], $extension = []) {
+	public function __construct($request = []) {
 		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);
 		$this->checkLogin();
 	}
-
 
 	public function execute() {
 
 		//$this->getRequest();
 		//$this->getAcl();
-		
 
+		
 		$this->render([
-			"tmpl" => "custom",
-			"scripts" => [
-				'dist/js/app.js'
-			],
-			"data" => [
-				"testData" => "Test Data"
-			],
-			"submenu" => [
-				[
-					"url" => "index.php?page=example",
-					"title" => "Default",
-					"icon" => "fa fa-cogs"
-				]
-			]
+			"tmplHTML" => "<div>Hier wird HTML angezeigt !!!</div>"
 		]);
 
 	}
-
 
 }

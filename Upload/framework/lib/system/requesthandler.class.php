@@ -226,6 +226,9 @@ class requesthandler {
 
   ];
 
+
+
+
   public function __construct($action, $_request) {
 
     PAGE::setFactory( new FACTORY() );
@@ -270,7 +273,7 @@ class requesthandler {
             $_post = json_decode(file_get_contents("php://input"), TRUE);
             if ($_post) {
               foreach($_post as $key => $val) {
-                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = strip_tags(htmlspecialchars($val, ENT_IGNORE, 'utf-8'));
+                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
               }
             }
             $page->$taskMethod($postData);
@@ -288,7 +291,7 @@ class requesthandler {
         echo "<pre>" . $e->getTraceAsString() . "</pre>";
       }
     } else {
-      new errorPage('There is no Page');
+      new errorPage('Die Seite existiert nicht!');
       die();
     }
     PAGE::kill(true);
@@ -381,6 +384,22 @@ class requesthandler {
     return false;
   }
 
+
+  public static function __htmlspecialchars($data) {
+      if (is_array($data)) {
+          foreach ( $data as $key => $value ) {
+              $data[htmlspecialchars($key)] = self::__htmlspecialchars($value);
+          }
+      } else if (is_object($data)) {
+          $values = get_class_vars(get_class($data));
+          foreach ( $values as $key => $value ) {
+              $data->{htmlspecialchars($key)} = self::__htmlspecialchars($value);
+          }
+      } else {
+          $data = stripslashes(strip_tags(htmlspecialchars($data)));
+      }
+      return $data;
+  }
  
 
 }

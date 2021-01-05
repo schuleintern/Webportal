@@ -3,7 +3,15 @@
 class adminExampleDefault extends AbstractPage {
 	
 	public static function getSiteDisplayName() {
-		return 'Admin - Settings';
+		return 'Example Module - Admin Einstellungen';
+	}
+	
+	public static function getAdminGroup() {
+		return 'Admin_Extension_Example';
+	}
+
+	public function aclModuleName() {
+		return 'extension_example';
 	}
 
 
@@ -12,15 +20,12 @@ class adminExampleDefault extends AbstractPage {
 		$this->checkLogin();
 	}
 
-
 	public function execute() {
 
 		//$this->getRequest();
 		//$this->getAcl();
 		
-
 		$this->render([
-			//"tmpl" => "default",
 			"tmplHTML" => '<div class="box"><div class="box-body"><div id=app></div></div></div>',
 			"scripts" => [
 				PATH_COMPONENTS.'system/adminSettings/dist/main.js'
@@ -28,37 +33,6 @@ class adminExampleDefault extends AbstractPage {
 			"data" => [
 				"selfURL" => URL_SELF,
 				"settings" => $this->getSettings()
-			],
-			"submenu" => [
-				[
-					"url" => "index.php?page=example",
-					"title" => "Default",
-					"icon" => "fa fa-cogs"
-				],
-				[
-					"url" => "index.php?page=example&view=list",
-					"title" => "List",
-					"icon" => "fa fa-book"
-				],
-
-				[
-					"admin" => true,
-					"url" => "index.php?page=example&view=default&admin=true",
-					"title" => "Einstellungen",
-					"icon" => "fa fa-sliders-h"
-				],
-				[
-					"admin" => true,
-					"url" => "index.php?page=example&view=acl&admin=true",
-					"title" => "Benutzerrechte",
-					"icon" => "fa fa-user-shield"
-				],
-				[
-					"admin" => true,
-					"url" => "index.php?page=example&view=custom&admin=true",
-					"title" => "Admin Custom",
-					"icon" => "fa fa-cog"
-				]
 			]
 
 		]);
@@ -67,7 +41,6 @@ class adminExampleDefault extends AbstractPage {
 
 
 	public static function getSettingsDescription() {
-		//return array();
 
 		$settings = array(
 			array(

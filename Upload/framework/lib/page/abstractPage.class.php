@@ -27,8 +27,9 @@ abstract class AbstractPage {
 	private $acl = false;
 	private $request = false;
 	private $extension = false;
+	private $isAnyAdmin = false;
 	
-
+	
 
 
 	/**
@@ -113,7 +114,7 @@ abstract class AbstractPage {
 				&& $_REQUEST['page'] != "login"
 				&& $_REQUEST['page'] != "logout"
 				&& $_REQUEST['page'] != "impressum" ) {
-				if (! DB::isLoggedIn() || ! DB::getSession()->isAdmin()) {
+				if ( !DB::isLoggedIn() || !DB::getSession()->isAdmin()) {
 					eval( "echo(\"" . DB::getTPL ()->get ( "wartungsmodus/index" ) . "\");" );
 					exit();
 				} else {
@@ -136,10 +137,15 @@ abstract class AbstractPage {
 			
 			// Check Adminrights
 
-			if ($this->request['admin']) {
-				if (!DB::getSession()->isAdmin()) {
+			if( DB::isLoggedIn()
+				&& ( DB::getSession()->isAdmin() || DB::getSession()->isMember($this->getAdminGroup())) ) {
+				$this->isAnyAdmin = true;
+			} else {
+				$this->isAnyAdmin = false;
+			}
+			
+			if ($this->request['admin'] && $this->isAnyAdmin == false ) {
 					new errorPage('Kein Zugriff');
-				}
 			}
 
 			// Login Status
@@ -281,6 +287,7 @@ abstract class AbstractPage {
 	 */
 	public function render($arg) {
 
+		// set default view/tmpl
 		if (!$arg['tmpl'] && !$arg['tmplHTML']) {
 			$arg['tmpl'] = 'default';
 		}
@@ -290,12 +297,14 @@ abstract class AbstractPage {
 		if ( $arg['tmplHTML'] || file_exists($path.$arg['tmpl'].'.tmpl.php')  ) {
 			echo $this->header;
 
+			// check if global menu
 			if ( !isset($arg['submenu']) ) {
 				$extJSON = $this->getExtensionJSON();
 				if ( isset($extJSON->submenu) ) {
 					$arg['submenu'] = (array)$extJSON->submenu;
 				}
 			}
+			// render submenu and dropdown
 			if ($arg['submenu'] || $arg['dropdown']) {
 				echo $this->makeSubmenu($arg['submenu'], $arg['dropdown']);
 			}
@@ -303,15 +312,24 @@ abstract class AbstractPage {
 			if ($arg['tmplHTML']) {
 				echo $arg['tmplHTML'];
 			} else {
-				include_once($path.$arg['tmpl'].'.tmpl.php');
+
+				// Check for tmpl Overrights
+				if ( $this->request['page']
+				&& file_exists(PATH_TMPL_OVERRIGHTS.'extensions'.DS.$this->request['page'].DS.$arg['tmpl'].'.tmpl.php') ) {
+					include_once(PATH_TMPL_OVERRIGHTS.'extensions'.DS.$this->request['page'].DS.$arg['tmpl'].'.tmpl.php');
+				} else {
+					include_once($path.$arg['tmpl'].'.tmpl.php');
+				}
 			}
 			
+			// render Data for JavaScript
 			if ($arg['data']) {
 				echo $this->getScriptData($arg['data']);
 			}
 
+			// import JavaScript Files
 			if ($arg['scripts']) {
-				echo $this->getScript($arg['tmpl'], $arg['scripts'], $path);
+				echo $this->getScript($arg['tmpl'], $arg['scripts']);
 			}
 
 		} else {
@@ -359,11 +377,8 @@ abstract class AbstractPage {
 	 * @param page String
 	 * @param scripts Array
 	 */
-	private function getScript($view, $scripts, $path ){
+	private function getScript($view, $scripts ){
 
-		if (!$path) {
-			return false;
-		}
 		if ( !$scripts || count($scripts) <= 0 ) {
 			return false;
 		}
@@ -753,6 +768,9 @@ abstract class AbstractPage {
 			foreach($submenu as $item) {
 				$item = (array)$item;
 				$active = '';
+				if ( $item['admin'] == 'true' && $this->isAnyAdmin == false ) {
+					continue;
+				}
 				if ($item['url'] && $item['title']) {
 					if ('/'.$item['url'] == $_SERVER['REQUEST_URI']) {
 						$active = 'active';
@@ -763,6 +781,8 @@ abstract class AbstractPage {
 					}
 					$html .= $item['title'].'</a>';
 				}
+			
+				
 			}
 		}
 		$html .= '</div>';
@@ -803,7 +823,7 @@ abstract class AbstractPage {
 	 * 
 	 * @param String
 	 */
-	public function redirectWithoutParam($str) {
+	public function reloadWithoutParam($str) {
 
 		if ($str) {
 			$parsed = parse_url($_SERVER['REQUEST_URI']);

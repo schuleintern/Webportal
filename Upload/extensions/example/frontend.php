@@ -1,49 +1,40 @@
 <?php
 
-class adminExampleCustom extends AbstractPage {
+class exampleFrontend extends AbstractPage {
 	
 	public static function getSiteDisplayName() {
-		return 'Example Module - Admin Custom Page';
+		return 'Example Module - Frontend';
 	}
 
 	public static function getAdminGroup() {
 		return 'Admin_Extension_Example';
 	}
-
+	
 	public function aclModuleName() {
 		return 'extension_example';
 	}
 	
-	public function __construct($request = [], $extension = []) {
+	public function __construct($request = []) {
 		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);
 		$this->checkLogin();
 	}
-
 
 	public function execute() {
 
 		//$this->getRequest();
 		//$this->getAcl();
-		
 
+		
 		$this->render([
-			"tmpl" => "custom",
+			"tmpl" => "frontend",
 			"scripts" => [
-				'dist/js/app.js'
+				PATH_EXTENSION.'tmpl/scripts/default/app.js'
 			],
 			"data" => [
-				"testData" => "Test Data"
-			],
-			"submenu" => [
-				[
-					"url" => "index.php?page=example",
-					"title" => "Default",
-					"icon" => "fa fa-cogs"
-				]
+				"testData" => "<b>Dieser Text wird mit Hilfe von JavaScript gesetzt</b>"
 			]
 		]);
 
 	}
-
 
 }

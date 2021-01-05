@@ -3,9 +3,16 @@
 class exampleDefault extends AbstractPage {
 	
 	public static function getSiteDisplayName() {
-		return 'Example Module';
+		return 'Example Module - Default';
 	}
 
+	public static function getAdminGroup() {
+		return 'Admin_Extension_Example';
+	}
+
+	public function aclModuleName() {
+		return 'extension_example';
+	}
 
 	public function __construct($request = []) {
 		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);
@@ -18,46 +25,8 @@ class exampleDefault extends AbstractPage {
 		//$this->getRequest();
 		//$this->getAcl();
 		
-
 		$this->render([
 			"tmpl" => "default",
-			"scripts" => [
-				'dist/js/app.js'
-			],
-			"data" => [
-				"testData" => "Test Data"
-			],
-			"submenu" => [
-				[
-					"url" => "index.php?page=example",
-					"title" => "Default",
-					"icon" => "fa fa-cogs"
-				],
-				[
-					"url" => "index.php?page=example&view=list",
-					"title" => "List",
-					"icon" => "fa fa-book"
-				],
-
-				[
-					"admin" => true,
-					"url" => "index.php?page=example&view=default&admin=true",
-					"title" => "Einstellungen",
-					"icon" => "fa fa-sliders-h"
-				],
-				[
-					"admin" => true,
-					"url" => "index.php?page=example&view=acl&admin=true",
-					"title" => "Benutzerrechte",
-					"icon" => "fa fa-user-shield"
-				],
-				[
-					"admin" => true,
-					"url" => "index.php?page=example&view=custom&admin=true",
-					"title" => "Admin Custom",
-					"icon" => "fa fa-cog"
-				]
-			],
 
 			"dropdown" => [
 				[
@@ -77,9 +46,7 @@ class exampleDefault extends AbstractPage {
 
 		// Mach hier etwas cooles!!!
 
-		//echo 'HIER!'; exit;
-
-		$this->redirectWithoutParam('task');
+		$this->reloadWithoutParam('task');
 	}
 
 }

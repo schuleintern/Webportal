@@ -13,11 +13,42 @@
       "icon": "fa fa-cogs"
     },
     {
-      "admin": true,
-      "url": "index.php?page=example&view=list",
-      "title": "List",
+      "url": "index.php?page=example&view=frontend",
+      "title": "Frontend",
       "icon": "fa fa-book"
+    },
+    {
+      "url": "index.php?page=example&view=html",
+      "title": "HTML",
+      "icon": "fa fa-book"
+    },
+    {
+      "url": "index.php?page=example&view=overright",
+      "title": "Overright",
+      "icon": "fa fa-book"
+    },
+
+    {
+      "admin": true,
+      "url": "index.php?page=example&view=default&admin=true",
+      "title": "Einstellungen",
+      "icon": "fa fa-sliders-h"
+    },
+    {
+      "admin": true,
+      "url": "index.php?page=example&view=acl&admin=true",
+      "title": "Benutzerrechte",
+      "icon": "fa fa-user-shield"
+    },
+    {
+      "admin": true,
+      "url": "index.php?page=example&view=custom&admin=true",
+      "title": "Admin Custom",
+      "icon": "fa fa-cog"
     }
+    
+
+    
   ]
 
 

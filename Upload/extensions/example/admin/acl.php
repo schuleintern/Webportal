@@ -3,21 +3,20 @@
 class adminExampleAcl extends AbstractPage {
 	
 	public static function getSiteDisplayName() {
-		return 'Admin - ACL';
+		return 'Example Module - Admin Benutzerrechte';
 	}
 
+	public static function getAdminGroup() {
+		return 'Admin_Extension_Example';
+	}
+
+	public function aclModuleName() {
+		return 'extension_example';
+	}
 
 	public function __construct($request = [], $extension = []) {
 		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);
 		$this->checkLogin();
-	}
-
-	public function aclModuleName() {
-		return 'example';
-	}
-	
-	public static function getAdminGroup() {
-		return 'Admin_GAGA';
 	}
 
 	public function execute() {
@@ -25,6 +24,9 @@ class adminExampleAcl extends AbstractPage {
 		//$this->getRequest();
 		//$this->getAcl();
 		
+		if (!DB::getSession()->isAdmin()) {
+			new errorPage('Kein Zugriff');
+		}
 
 		$this->render([
 			"tmplHTML" => '<div class="box"><div class="box-body"><div id=app></div></div></div>',
@@ -36,37 +38,6 @@ class adminExampleAcl extends AbstractPage {
 				"acl" => $this->getAclAll(),
 				"globalAdminGroup" => $this->getAdminGroupUsers('Webportal_Administrator'),
 				"extensionAdminGroup" => $this->getAdminGroupUsers(self::getAdminGroup())
-			],
-			"submenu" => [
-				[
-					"url" => "index.php?page=example",
-					"title" => "Default",
-					"icon" => "fa fa-cogs"
-				],
-				[
-					"url" => "index.php?page=example&view=list",
-					"title" => "List",
-					"icon" => "fa fa-book"
-				],
-
-				[
-					"admin" => true,
-					"url" => "index.php?page=example&view=default&admin=true",
-					"title" => "Einstellungen",
-					"icon" => "fa fa-sliders-h"
-				],
-				[
-					"admin" => true,
-					"url" => "index.php?page=example&view=acl&admin=true",
-					"title" => "Benutzerrechte",
-					"icon" => "fa fa-user-shield"
-				],
-				[
-					"admin" => true,
-					"url" => "index.php?page=example&view=custom&admin=true",
-					"title" => "Admin Custom",
-					"icon" => "fa fa-cog"
-				]
 			]
 		]);
 
