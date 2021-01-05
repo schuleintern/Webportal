@@ -9,7 +9,7 @@ class exampleList extends AbstractPage {
 
 	public function __construct($request = []) {
 		
-		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, 'module', $request);
+		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);
 		$this->checkLogin();
 	}
 
@@ -41,19 +41,19 @@ class exampleList extends AbstractPage {
 					"admin" => true,
 					"url" => "index.php?page=example&view=default&admin=true",
 					"title" => "Einstellungen",
-					"icon" => "fa fa-book"
+					"icon" => "fa fa-sliders-h"
 				],
 				[
 					"admin" => true,
 					"url" => "index.php?page=example&view=acl&admin=true",
 					"title" => "Benutzerrechte",
-					"icon" => "fa fa-book"
+					"icon" => "fa fa-user-shield"
 				],
 				[
 					"admin" => true,
 					"url" => "index.php?page=example&view=custom&admin=true",
 					"title" => "Admin Custom",
-					"icon" => "fa fa-book"
+					"icon" => "fa fa-cog"
 				]
 			],
 

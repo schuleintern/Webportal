@@ -8,7 +8,7 @@ class adminExampleDefault extends AbstractPage {
 
 
 	public function __construct($request = [], $extension = []) {
-		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, 'module', $request, $extension);
+		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);
 		$this->checkLogin();
 	}
 
@@ -45,43 +45,23 @@ class adminExampleDefault extends AbstractPage {
 					"admin" => true,
 					"url" => "index.php?page=example&view=default&admin=true",
 					"title" => "Einstellungen",
-					"icon" => "fa fa-book"
+					"icon" => "fa fa-sliders-h"
 				],
 				[
 					"admin" => true,
 					"url" => "index.php?page=example&view=acl&admin=true",
 					"title" => "Benutzerrechte",
-					"icon" => "fa fa-book"
+					"icon" => "fa fa-user-shield"
 				],
 				[
 					"admin" => true,
 					"url" => "index.php?page=example&view=custom&admin=true",
 					"title" => "Admin Custom",
-					"icon" => "fa fa-book"
+					"icon" => "fa fa-cog"
 				]
 			]
+
 		]);
-
-	}
-
-
-	public function taskSave() {
-
-		$request = $this->getRequest();
-		$_post = json_decode(file_get_contents("php://input"), TRUE);
-
-		if ($request['page'] && $_post['settings']) {
-			foreach($_post['settings'] as $item) {
-				DB::getDB()->query("INSERT INTO settings (settingName, settingValue, settingsExtension)
-				values ('" .DB::getDB()->escapeString($item['name']) . "',
-				'" . DB::getDB()->escapeString(($item['value'])) . "'
-				,'" . DB::getDB()->escapeString(($request['page'])) . "')
-				ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($item['value']) . "'");
-			}
-			echo json_encode(['done' => 'true']);
-		} else {
-			echo json_encode(['error' => 'Fehler beim Speichern!']);
-		}
 
 	}
 
@@ -128,19 +108,46 @@ class adminExampleDefault extends AbstractPage {
 			),
 			array(
 				'name' => "example-speiseplan-day-sa",
-				'typ' => "BOOLEAN",
+				'typ' => "SELECT",
 				'title' => "Samstag anzeigen?",
-				'desc' => ""
+				'desc' => "",
+				'options' => [
+					[
+						'title' => 'Auswahl 1',
+						'value' => 1
+					],
+					[
+						'title' => 'Auswahl 2',
+						'value' => 2
+					]
+				]
 			),
 			array(
 				'name' => "example-speiseplan-day-so",
-				'typ' => "BOOLEAN",
+				'typ' => "STRING",
 				'title' => "Sonntag anzeigen?",
 				'desc' => ""
 			)
 		);
 		return $settings;
 
+	}
+
+	public function taskSave($postData) {
+
+		$request = $this->getRequest();
+		if ($request['page'] && $postData['settings']) {
+			foreach($postData['settings'] as $item) {
+				DB::getDB()->query("INSERT INTO settings (settingName, settingValue, settingsExtension)
+				values ('" .DB::getDB()->escapeString($item['name']) . "',
+				'" . DB::getDB()->escapeString(($item['value'])) . "'
+				,'" . DB::getDB()->escapeString(($request['page'])) . "')
+				ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($item['value']) . "'");
+			}
+			echo json_encode(['done' => 'true']);
+		} else {
+			echo json_encode(['error' => 'Fehler beim Speichern!']);
+		}
 	}
 
 }

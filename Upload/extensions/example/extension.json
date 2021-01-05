@@ -6,7 +6,19 @@
 
   "neededVersion": "1.2.2",
 
-  "settings": {}
+  "submenu": [
+    {
+      "url": "index.php?page=example",
+      "title": "Default",
+      "icon": "fa fa-cogs"
+    },
+    {
+      "admin": true,
+      "url": "index.php?page=example&view=list",
+      "title": "List",
+      "icon": "fa fa-book"
+    }
+  ]
 
 
 

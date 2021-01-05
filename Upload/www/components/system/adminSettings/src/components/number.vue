@@ -1,11 +1,14 @@
 <template>
-  <div>
+  <div class="flex-row">
 
-    {{item.title}}
-    <div class="text-small text-grey">{{item.desc}}</div>
+    <div class="flex-1">
+      <div>{{item.title}}</div>
+      <div class="text-small text-grey">{{item.desc}}</div>
+    </div>
 
-    <input type="number" v-model="value" v-on:change="handlerToggle()" />
-    
+    <div class="flex-2">
+      <input type="number" v-model="value" v-on:change="handlerToggle()" />
+    </div>
 
   </div>
 </template>

@@ -1,29 +1,31 @@
 <template>
-  <div class="">
+  <div class="padding-t-m">
 
 
-    <h3><i class="fa fas fa-user-cog"></i>Moduladministratoren</h3>
+    <h3><i class="fa fas fa-user-cog margin-r-m"></i>Moduladministratoren</h3>
+    <div class="padding-l-l">
+      <ul v-if="users.length" class="noListStyle">
+        <li v-bind:key="index" v-for="(item, index) in users"
+          class="line-oddEven padding-t-s padding-b-s padding-l-l" >
+          {{item.name}}
+          <span class="text-small text-grey">({{item.userType}})</span>
+        </li>
+      </ul>
+      <div v-else class="padding-l-l text-grey"><i class="fas fa-ban margin-r-m"></i>Bisher keine</div> 
 
-    <ul v-if="users.length">
-      <li v-bind:key="index" v-for="(item, index) in users">
-        {{item.name}} [{{item.userType}}]
-      </li>
-    </ul>
-    <div v-else ><i class="fas fa-ban"></i>Bisher keine</div> 
+      <button
+        v-show="!modalActive"
+        v-on:click="handlerOpenModal"
+        class="btn margin-t-m" >
+        <i class="fa fa-user-plus margin-r-m"></i>Admins bearbeiten</button>
+        
+    </div>
 
-
-
-    <button
-      v-show="!modalActive"
-      v-on:click="handlerOpenModal" >
-      <i class="fa fa-user-plus"></i>Admins bearbeiten</button>
 
     <div class="form-modal" v-on:click.self="handlerCloseModal" v-show="modalActive" >
-      <div class="form form-style-2 form-modal-content width-40vw">
+      <div class="form form-style-2 form-modal-content width-55vw">
         
         <div class="form-modal-close" v-on:click="handlerCloseModal"><i class="fa fa-times"></i></div>
-        
-        <br />
 
         <div v-if="loading == true" class="overlay">
           <i class="fa fas fa-sync-alt fa-spin"></i>
@@ -34,26 +36,41 @@
           <div>{{error}}</div>
         </div>
 
-        <h2>Moduladministratoren</h2>
-        <ul>
-          <li v-bind:key="index" v-for="(item, index) in users">
-            {{item.name}} [{{item.userType}}]
-            <button v-on:click="handlerUserRemove(item)"><i class="fa fa-trash"></i></button>
-          </li>
-        </ul>
+        <h3><i class="fa fas fa-user-cog margin-r-m"></i>Moduladministratoren</h3>
+        <div class="flex-row">
+          <div class="flex-1 margin-r-l padding-t-l">
 
-        <h3>Benutzer Hinzufügen</h3>
-          
-        <input type="text" v-on:keyup="completeUser" v-model="inputUsername" placeholder="Benutzer..." />
-        
-        <ul>
-          <li v-bind:key="index" v-for="(item, index) in userList">
-            <button v-on:click="handlerUserAdd(item)">
-              {{item.userFirstName}} {{item.userLastName}} [{{item.userName}}]
-            </button>
-          </li>
-        </ul>
+            <ul class="noListStyle ">
+              <li v-bind:key="index" v-for="(item, index) in users"
+                class="line-oddEven padding-t-s padding-b-s padding-l-l">
+                {{item.name}}
+                <span class="text-small text-grey">({{item.userType}})</span>
+                <button v-on:click="handlerUserRemove(item)" class="btn text-red margin-l-m"><i class="fa fa-trash"></i></button>
+              </li>
+            </ul>
+            
+          </div>
+          <div class="flex-1 margin-l-l">
 
+            <h4><i class="fas fa-user-plus margin-r-m"></i>Benutzer Hinzufügen</h4>
+            <input type="text"
+              v-on:keyup="completeUser"
+              v-model="inputUsername"
+              class="width-100p"
+              placeholder="Benutzer suchen..." />
+            <br/>
+            <ul class="noListStyle height_35 scrollable-y"
+              v-show="userList.length" >
+              <li v-bind:key="index" v-for="(item, index) in userList"
+                class="line-oddEven padding-t-s padding-b-s padding-l-l clickable"
+                v-on:click="handlerUserAdd(item)">
+                  {{item.userFirstName}} {{item.userLastName}}
+                  <span class="text-small text-grey">{{item.userName}}</span>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
 
 
       </div>

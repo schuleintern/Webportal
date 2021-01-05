@@ -2,6 +2,7 @@
 
 
 .form-style-2 input[type="text"],
+.form-style-2 input[type="number"],
 .form-style-2 textarea {
   border: 0;
   border-radius: 0;
@@ -331,6 +332,25 @@ button.btn-blau {
 }
 .table_1.noPadding tbody td {
   padding: 0;
+}
+
+
+.table_2 {
+  width: 100%;
+  table-layout: fixed;
+}
+.table_2 thead {
+  font-size: 110%;
+  color: #8aa4af;
+  font-weight: bold;
+}
+.table_2 tbody.oddEven tr:nth-child(2n) {
+  background-color: rgb(236, 240, 245);
+}
+.table_2 td {
+  padding: 0.6rem;
+  text-align: left;
+  vertical-align: top;
 }
 
 

@@ -15,99 +15,83 @@
     </div>
 
 
-    <h3>Access Control List</h3>
+    <h3><i class="fa fa-user-shield margin-r-m"></i>Benutzerrechte</h3>
 
-    <div class="acl">
-
-      <ul>
-        <li>
-          <h5>Schüler</h5>
-          <ul>
-            <li>
+    <div class="margin-r-xxl">
+      <table class="table_1">
+        <thead>
+          <tr>
+            <td></td>
+            <td>Lesen</td>
+            <td>Schreiben</td>
+            <td>Löschen</td>
+          </tr>
+        </thead>
+        <tbody class="oddEven">
+          <tr class="">
+            <td>Schüler</td>
+            <td>
               <input type="checkbox" v-model="acl.groups.schueler.read" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Lesen</label>
-            </li>
-            <li>
+            </td>
+            <td>
               <input type="checkbox" v-model="acl.groups.schueler.write" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Schreiben</label>
-            </li>
-            <li>
+            </td>
+            <td>
               <input type="checkbox" v-model="acl.groups.schueler.delete" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Löschen</label>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h5>Eltern</h5>
-          <ul>
-            <li>
+            </td>
+          </tr>
+          <tr class="">
+            <td>Eltern</td>
+            <td>
               <input type="checkbox" v-model="acl.groups.eltern.read" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Lesen</label>
-            </li>
-            <li>
+            </td>
+            <td>
               <input type="checkbox" v-model="acl.groups.eltern.write" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Schreiben</label>
-            </li>
-            <li>
+            </td>
+            <td>
               <input type="checkbox" v-model="acl.groups.eltern.delete" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Löschen</label>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h5>Lehrer</h5>
-          <ul>
-            <li>
+            </td>
+          </tr>
+          <tr class="">
+            <td>Lehrer</td>
+            <td>
               <input type="checkbox" v-model="acl.groups.lehrer.read" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Lesen</label>
-            </li>
-            <li>
+            </td>
+            <td>
               <input type="checkbox" v-model="acl.groups.lehrer.write" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Schreiben</label>
-            </li>
-            <li>
+            </td>
+            <td>
               <input type="checkbox" v-model="acl.groups.lehrer.delete" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Löschen</label>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h5>Sonstige</h5>
-          <ul>
-            <li>
+            </td>
+          </tr>
+          <tr class="">
+            <td>Sonstige</td>
+            <td>
               <input type="checkbox" v-model="acl.groups.none.read" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Lesen</label>
-            </li>
-            <li>
+            </td>
+            <td>
               <input type="checkbox" v-model="acl.groups.none.write" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Schreiben</label>
-            </li>
-            <li>
+            </td>
+            <td>
               <input type="checkbox" v-model="acl.groups.none.delete" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Löschen</label>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h5>Eigentümer</h5>
-          <ul>
-            <li>
+            </td>
+          </tr>
+          <tr class="">
+            <td>Eigentümer</td>
+            <td>
               <input type="checkbox" v-model="acl.groups.owne.read" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Lesen</label>
-            </li>
-            <li>
+            </td>
+            <td>
               <input type="checkbox" v-model="acl.groups.owne.write" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Schreiben</label>
-            </li>
-            <li>
+            </td>
+            <td>
               <input type="checkbox" v-model="acl.groups.owne.delete" true-value="1" false-value="0" v-on:change="handlerSubmit" />
-              <label>Löschen</label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+    
 
     
   </div>

@@ -226,8 +226,6 @@ class requesthandler {
 
   ];
 
-  private static $allAdminGroups = [];
-
   public function __construct($action, $_request) {
 
     PAGE::setFactory( new FACTORY() );
@@ -235,30 +233,35 @@ class requesthandler {
     $allowed = false;
     $type = false;
     
-    // First load Page
+    // First: Load Page
     $allowed = self::loadPage($action);
     if ($allowed) {
       $type = 'page';
     }
     
-    // Load extensions
+    // Second: Load extensions
     if (!$allowed) {
       $view = 'default';
       if ($_request['view']) {
         $view = $_request['view'];
       }
-      $extension = self::loadExtensions($action, $view);
+      $extension = self::loadExtensions($action, $view, $_request['admin']);
       if ($extension['allowed'] == true && $extension['classname']) {
         $allowed = true;
         $type = 'extension';
         $action = $extension['classname'];
+        if ($_request['admin']) {
+          define("PATH_EXTENSION", PATH_EXTENSIONS.$extension['folder'].DS."admin".DS);
+        } else {
+          define("PATH_EXTENSION", PATH_EXTENSIONS.$extension['folder'].DS);
+        }
       }
     }
-  
+
     if($allowed) {
       try {
-        $page = new $action($_request);
-        
+        $page = new $action($_request, $extension);
+
         if ($type == 'extension' && $_request['task']) {
           
           $taskMethod = 'task'.ucfirst($_request['task']);
@@ -267,7 +270,7 @@ class requesthandler {
             $_post = json_decode(file_get_contents("php://input"), TRUE);
             if ($_post) {
               foreach($_post as $key => $val) {
-                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = stripslashes(strip_tags(htmlspecialchars($val, ENT_IGNORE, 'utf-8')));
+                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = strip_tags(htmlspecialchars($val, ENT_IGNORE, 'utf-8'));
               }
             }
             $page->$taskMethod($postData);
@@ -277,7 +280,6 @@ class requesthandler {
             exit;
           }
         } else {
-          
           $page->execute();
         }
       }
@@ -330,8 +332,8 @@ class requesthandler {
         for($p = 0; $p < sizeof($pages); $p++) {
             
           if($pages[$p] == $action) {
-            require_once ('../framework/lib/page/abstractPage.class.php');
-            include_once('../framework/lib/page/' . $f . '/' . $pages[$p] . '.class.php');
+            require_once (PATH_PAGE.'abstractPage.class.php');
+            include_once(PATH_PAGE . $f . '/' . $pages[$p] . '.class.php');
             $allowed = true;
           }
         }
@@ -345,32 +347,39 @@ class requesthandler {
    * @param unknown $action
    * @return boolean
    */
-  public static function loadExtensions($action, $view = 'default') {
+  public static function loadExtensions($action, $view = 'default', $admin = false) {
       
     $allowed = false;
 
-    $module = DB::getDB()->query_first("SELECT `id`,`folder` FROM extensions WHERE `folder` = '".$action."'" );
-    if ($module && $module['folder'] && $view) {
-      if (file_exists('../extensions/'.$module['folder'].'/'.$view.'.php')) {
-        require_once ('../framework/lib/page/abstractPage.class.php');
-        include_once('../extensions/'.$module['folder'].'/'.$view.'.php');
+    $extension = DB::getDB()->query_first("SELECT `id`,`folder` FROM extensions WHERE `folder` = '".$action."'" );
+    if ($extension && $extension['folder'] && $view) {
+      if ($admin) {
+        $path = PATH_EXTENSIONS.$extension['folder'].DS.'admin'.DS.$view.'.php';
+      } else {
+        $path = PATH_EXTENSIONS.$extension['folder'].'/'.$view.'.php';
+      }
+      if (file_exists($path)) {
+        require_once (PATH_PAGE.'abstractPage.class.php');
+        include_once($path);
         $allowed = true;
       }
     }
 
     if ($allowed) {
+      if ($admin) {
+        $classname = 'admin'.ucfirst($extension['folder']).ucfirst($view);
+      } else {
+        $classname = $extension['folder'].ucfirst($view);
+      }
       return [
         'allowed' => true,
-        'classname' => $module['folder'].ucfirst($view),
-        'folder' => $module['folder'],
+        'classname' => $classname,
+        'folder' => $extension['folder'],
         'view' => $view
       ];
     }
-
     return false;
-    
-    
-}
+  }
 
  
 

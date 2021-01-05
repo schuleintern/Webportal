@@ -14,8 +14,12 @@
       <i class="fa fas fa-sync-alt fa-spin"></i>
     </div>
 
-    <ul>
-      <li v-bind:key="index" v-for="(item, index) in settings">
+    <h3 class="margin-b-l"><i class="fa fa-sliders-h"></i> Einstellungen</h3>
+
+    <ul class="noListStyle padding-t-l form-style-2">
+
+      <li v-bind:key="index" v-for="(item, index) in settings"
+        class="padding-t-m  padding-b-m line-oddEven">
 
         <Boolean
           v-if="item.typ == 'BOOLEAN'"
@@ -27,6 +31,15 @@
           v-bind:item="item"
           v-on:change="triggerToggleValue"></Number>
 
+        <String
+          v-if="item.typ == 'STRING'"
+          v-bind:item="item"
+          v-on:change="triggerToggleValue"></String>
+        
+        <Select
+          v-if="item.typ == 'SELECT'"
+          v-bind:item="item"
+          v-on:change="triggerToggleValue"></Select>
 
       </li>
     </ul>
@@ -40,11 +53,15 @@ const axios = require('axios').default;
 
 import Boolean from './components/boolean.vue'
 import Number from './components/number.vue'
+import String from './components/string.vue'
+import Select from './components/select.vue'
 
 export default {
   components: {
     Boolean,
-    Number
+    Number,
+    String,
+    Select
   },
   data() {
     return {
