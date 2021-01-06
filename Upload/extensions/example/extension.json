@@ -7,8 +7,8 @@
 
   "menuCat": "aktuelles",
 
-  "adminGroup": "Admin_Ext_Example",
-  "aclGroup": "ext_example",
+  "adminGroupName": "Admin_Ext_Example",
+  "aclGroupName": "ext_example",
 
   
 

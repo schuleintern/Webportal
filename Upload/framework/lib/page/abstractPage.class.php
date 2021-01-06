@@ -29,8 +29,8 @@ abstract class AbstractPage {
 	private $extension = false;
 	private $isAnyAdmin = false;
 	
-	static $adminGroup = NULL;
-	static $aclGroup = NULL;
+	static $adminGroupName = NULL;
+	static $aclGroupName = NULL;
 
 
 	/**
@@ -68,13 +68,13 @@ abstract class AbstractPage {
 			if ( isset($this->extension['json']) ) {
 				
 				// Admin Group
-				if ( $this->extension['json']->adminGroup ) {
-					self::setAdminGroup($this->extension['json']->adminGroup);
+				if ( $this->extension['json']->adminGroupName ) {
+					self::setAdminGroup($this->extension['json']->adminGroupName);
 				}
 
 				// ACL Group
-				if ( $this->extension['json']->aclGroup ) {
-					self::setAclGroup($this->extension['json']->aclGroup);
+				if ( $this->extension['json']->aclGroupName ) {
+					self::setAclGroup($this->extension['json']->aclGroupName);
 				}
 			} 
 		}
@@ -643,7 +643,8 @@ abstract class AbstractPage {
 	 * @return String Gruppenname als String
 	 */
 	public static function getAdminGroup() {
-		return self::$adminGroup;
+		return NULL;
+		return self::$adminGroupName;
 	}
 
 	/**
@@ -652,7 +653,7 @@ abstract class AbstractPage {
 	 */
 	public static function setAdminGroup($str) {
 		if ($str) {
-			self::$adminGroup = $str;
+			self::$adminGroupName = $str;
 		}
 	}
 
@@ -662,8 +663,8 @@ abstract class AbstractPage {
 	 * @return String Gruppenname als String
 	 */
 	public static function getAclGroup() {
-		if (self::$aclGroup) {
-			return self::$aclGroup;
+		if (self::$aclGroupName) {
+			return self::$aclGroupName;
 		}
 		return get_called_class();
 	}
@@ -674,7 +675,7 @@ abstract class AbstractPage {
 	 */
 	public static function setAclGroup($str) {
 		if ($str) {
-			self::$aclGroup = $str;
+			self::$aclGroupName = $str;
 		}
 	}
 	
