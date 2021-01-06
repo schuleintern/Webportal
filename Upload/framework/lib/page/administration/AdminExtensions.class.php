@@ -46,7 +46,7 @@ class AdminExtensions extends AbstractPage {
 		if ($_REQUEST['task'] == 'update') {
 			if ($_REQUEST['uniqid']) {
 
-				$extension = DB::getDB()->query_first("SELECT `id`,`version`,`settings` FROM extensions WHERE `uniqid` = '".$_REQUEST['uniqid']."'" );
+				$extension = DB::getDB()->query_first("SELECT `id`,`version` FROM extensions WHERE `uniqid` = '".$_REQUEST['uniqid']."'" );
 				if (!$extension['version']) {
 					$retun = ['error' => true, 'msg' => 'Missing Extension'];
 					echo json_encode($retun); exit;
@@ -109,18 +109,6 @@ class AdminExtensions extends AbstractPage {
 							}
 						}
 
-						// Settings
-						if ( !$modulJSON->settings ) {
-							$modulJSON->settings = array();
-						}
-						$settingsDB = (array)json_decode($extension['settings']);
-						$settingsJSON = (array)$modulJSON->settings;
-						foreach($settingsJSON as $key => $config) {
-							if ( $settingsDB[$key] ) {
-								$settingsJSON[$key] = $settingsDB[$key];
-							}
-						}
-						$modulJSON->settings = json_encode($settingsJSON, JSON_HEX_QUOT );
 
 						// Install Extension DB
 						if ( file_exists($pathExtensions.$foldername.'/install/database.sql') ) {
@@ -138,8 +126,7 @@ class AdminExtensions extends AbstractPage {
 						DB::getDB()->query("UPDATE `extensions` SET 
 							`name` = '".$modulJSON->name."',
 							`folder` = '".$foldername."',
-							`version` = '".$modulJSON->version."',
-							`settings` = '".$modulJSON->settings."'
+							`version` = '".$modulJSON->version."'
 							WHERE `uniqid` =  '".$_REQUEST['uniqid']."'");
 
 
@@ -227,12 +214,6 @@ class AdminExtensions extends AbstractPage {
 							}
 						}
 
-						// Settings
-						if ( !$modulJSON->settings ) {
-							$modulJSON->settings = array();
-						}
-						$modulJSON->settings = json_encode($modulJSON->settings, JSON_HEX_QUOT );
-
 						// Install Extension DB
 						if ( file_exists($pathExtensions.$foldername.'/install/database.sql') ) {
 							$sql = file_get_contents($pathExtensions.$foldername.'/install/database.sql');
@@ -251,7 +232,6 @@ class AdminExtensions extends AbstractPage {
 							`active`,
 							`folder`,
 							`version`,
-							`settings`,
 							`uniqid`,
 							`menuCat`
 							) VALUES (
@@ -259,7 +239,6 @@ class AdminExtensions extends AbstractPage {
 								1,
 								'".$foldername."',
 								".$modulJSON->version.",
-								'".$modulJSON->settings."',
 								'".$modulJSON->uniqid."',
 								'".$modulJSON->menuCat."'
 						);");
