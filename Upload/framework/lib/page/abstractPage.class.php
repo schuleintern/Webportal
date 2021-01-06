@@ -643,7 +643,6 @@ abstract class AbstractPage {
 	 * @return String Gruppenname als String
 	 */
 	public static function getAdminGroup() {
-		return NULL;
 		return self::$adminGroupName;
 	}
 

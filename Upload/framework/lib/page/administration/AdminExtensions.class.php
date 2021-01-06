@@ -37,7 +37,7 @@ class AdminExtensions extends AbstractPage {
 
 		$html = '';
 
-		$pathExtensions    = '../extensions/';
+		$pathExtensions    = PATH_EXTENSIONS; //'../extensions/';
 		$extensionsServer = DB::getGlobalSettings()->extensionsServer;
 
 		/**
@@ -199,9 +199,15 @@ class AdminExtensions extends AbstractPage {
 
 						$modulJSON = json_decode( file_get_contents($pathExtensions.$foldername.'/extension.json') );
 
+						if ( !$modulJSON ) {
+							FILE::removeFolder($pathExtensions.$foldername);
+							$retun = ['error' => true, 'msg' => 'Missing extension.json Data'.$pathExtensions.$foldername.'/extension.json'];
+							echo json_encode($retun); exit;
+						}
+
 						if ( !$modulJSON->name || !$modulJSON->version || !$modulJSON->uniqid  ) {
 							FILE::removeFolder($pathExtensions.$foldername);
-							$retun = ['error' => true, 'msg' => 'Missing Data'];
+							$retun = ['error' => true, 'msg' => 'Missing JSON Data'];
 							echo json_encode($retun); exit;
 						}
 
