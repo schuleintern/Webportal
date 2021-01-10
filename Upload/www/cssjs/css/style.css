@@ -80,7 +80,9 @@
   align-items: center;
 }
 
-
+.required {
+  color: #dd4b39;
+}
 
 .btn {
   border-radius: 3px;
@@ -319,6 +321,11 @@ button.btn-blau {
   color: #fff;
   font-weight: bold;
 }
+.table_1.thead-padding thead th,
+.table_1.thead-padding thead td {
+  padding: 0.6rem;
+}
+.table_1.thead-center thead th,
 .table_1.thead-center thead td {
   text-align: center;
 }
