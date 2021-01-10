@@ -32,8 +32,8 @@ class beurlaubungantrag extends AbstractPage {
 		    $this->isSchulleitung = DB::getSession()->getTeacherObject()->isSchulleitung();
 		    $accessOK = true;
 		}
-		
-		if(DB::getSession()->isAdmin()) {
+
+		if(DB::getSession()->isAdmin() || DB::getSession()->isMember(self::getAdminGroup()) ) {
 			$this->schueler = schueler::getAll('length(schuelerKlasse) ASC, schuelerKlasse ASC, schuelerName ASC, schuelerRufname ASC');
 			$accessOK = true;
 		}
@@ -62,7 +62,7 @@ class beurlaubungantrag extends AbstractPage {
 	
 	public function execute() {		
         switch($_REQUEST['mode']) {
-            case 'schulleitung':
+						case 'schulleitung':
                 $this->schulleitung();
             break;
             
@@ -321,7 +321,7 @@ Begründung: ' . $antrag->getBegruendung() . "<br /><br /><i>Dies ist eine autom
 	}
 	
 	private function schulleitung() {
-	    if(DB::getSession()->isTeacher()) {
+		if(DB::getSession()->isTeacher() || DB::getSession()->isMember(self::getAdminGroup()) ) {
             $meine = AbsenzBeurlaubungAntrag::getAllForSchulleitungOrKlassenleitung();
 
             $htmlMeine = "";
@@ -598,8 +598,7 @@ Begründung: ' . $antrag->getBegruendung() . "<br /><br /><i>Dies ist eine autom
 	        
 	        eval("DB::getTPL()->out(\"" . DB::getTPL()->get("absenzen/beurlaubungantrag/kl/index") . "\");");
 	        
-	    }
-	    else {
+	    } else {
 	        header("Location: index.php?page=beurlaubungantrag&mode=schulleitung");
 	        exit();
 	    }
@@ -1048,6 +1047,11 @@ Begründung: ' . $antrag->getBegruendung() . "<br /><br /><i>Dies ist eine autom
 	    
 	    
 	    return $html;
+	}
+
+
+	public static function getAdminGroup() {
+		return 'Webportal_Beurlaubungantrag_Admin';
 	}
 
 }
