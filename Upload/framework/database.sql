@@ -3697,4 +3697,3 @@ ALTER TABLE `wlan_ticket`
 ALTER TABLE `two_factor_trusted_devices`
     ADD CONSTRAINT `two_factor_trusted_devices_ibfk_1` FOREIGN KEY (`deviceUserID`) REFERENCES `users` (`userID`) ON DELETE CASCADE;
 COMMIT;
-fi
