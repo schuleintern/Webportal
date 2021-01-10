@@ -1964,7 +1964,7 @@ class absenzensekretariat extends AbstractPage {
     $ganzeKlasseQuarantaene = false;
 
     if(SchuelerQuarantaene::isActive()) {
-      if($anzahlAktiveSchuler == $anzahlQuarantaene) $ganzeKlasseQuarantaene = true;
+      if($anzahlAktiveSchuler == $anzahlQuarantaene && $anzahlQuarantaene > 0) $ganzeKlasseQuarantaene = true;
     }
 
 

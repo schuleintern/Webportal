@@ -117,19 +117,39 @@
           </div>
           <div class="box-body">
             <table class="table table-striped table-hover">
+                <tr>
+                    <th colspan="4" class="btn-success"><i class="fa fa-check-circle"></i> Krankmeldungen<br /><small>Krankmeldungen durch Eltern oder Beurlaubungen</small></th>
+                </tr>
               <tr>
                 <th>Name</th>
-                $krankmeldungenTH
-                <th>Absent bis</th>
+                <th>Stunden</th>
+                <th>Hinweise</th>
+                <th>Aktionen</th>
               </tr>
 
               $krankmeldungenHTML
 
             </table>
-            <hr noshade>
+
+
+              <table class="table table-striped table-hover">
+                  <tr>
+                      <th colspan="4" class="btn-danger"><i class="fa fa-exclamation-triangle"></i> Ungeklärte Absenzen<br /><small>Fehlende Schüler ohne Enstschuldigung</small></th>
+                  </tr>
+                  <tr>
+                      <th>Name</th>
+                      <th>Stunden</th>
+                      <th>Hinweise</th>
+                      <th>Aktionen</th>
+                  </tr>
+
+                  $krankmeldungenHTMLOffen
+
+              </table>
+
             <if(DB::isDebug() || ($this->currentDateSQL == DateFunctions::getTodayAsSQLDate() && !DateFunctions::isSQLDateWeekEnd($this->currentDateSQL) && !Ferien::isFerien($this->currentDateSQL)))><then>
 
-							<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#addAbsenz"><i class="fa fa-book"></i> Absenz eintragen</button>
+							<button type="button" class="btn btn-sm btn-block btn-primary" data-toggle="modal" data-target="#addAbsenz"><i class="fa fa-book"></i> Absenz eintragen</button>
 
             </then><else>
               Schüler können nur für den aktuellen Tag und nicht an einem Wochenende durch den Lehrer als fehlend gemeldet werden.
@@ -150,7 +170,7 @@
 
 			<if(DB::isDebug() || ($this->currentDateSQL == DateFunctions::getTodayAsSQLDate() && !DateFunctions::isSQLDateWeekEnd($this->currentDateSQL) && !Ferien::isFerien($this->currentDateSQL)))><then>
 
-			<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#addVerspaetung"><i class="fa fa-clock"></i> Verspätung eintragen</button>
+			<button type="button" class="btn btn-sm btn-block btn-primary" data-toggle="modal" data-target="#addVerspaetung"><i class="fa fa-clock"></i> Verspätung eintragen</button>
 
 
             </then><else>
@@ -499,7 +519,7 @@ function inArray(needle, haystack) {
                   	 	<label>Kommentar:</label>
                   	 	<input type="text" name="verspaetungKommentar" class="form-control" placeholder="Kommentar">
 					</div>
-					<button type="submit" class="form-control"><i class="fa fa-clock"></i> Verspätung eintragen</button>
+					<button type="submit" class="btn btn-primary"><i class="fa fa-clock"></i> Verspätung eintragen</button>
 
                   </div></div></div></div>
 
@@ -535,8 +555,13 @@ function inArray(needle, haystack) {
                   	 <p><select name="schuelerAsvID[]" class="form-control" id="schuelerSelectAbsenz" style="width:100%" required="required" multiple="multiple"><option></option>
 	                      $schuelerSelect
 	                    </select></p>
+
+
+          <p><select name="abStunde" class="select2" id="schuelerAbsenzStunden" style="width:100%" required="required">
+              $stundenSelectNewAbsenz
+          </select></p>
 						
-			                <p><button type="submit" class="form-control"><i class="fa fa-clock"></i> Absenz eintragen</button></p>
+			                <p><button type="submit" class="btn btn-primary btn-block"><i class="fa fa-clock"></i> Absenz eintragen</button></p>
 
                   </div></div></div></div>
 
@@ -548,6 +573,9 @@ function inArray(needle, haystack) {
         	 $("#schuelerSelectAbsenz").select2({
         		 'placeholder': 'Schüler auswählen ...'
         	 });
+             $("#schuelerAbsenzStunden").select2({
+                 'placeholder': 'Stunden auswählen ...'
+             });
          	}
          );
 
