@@ -21,7 +21,7 @@ class GlobalSettings {
         'host' => 'localhost',
         'port' => 3306,
         'user' => 'root',
-        'password' => '',
+        'password' => 'root',
         'database' => 'schuleintern_dev'
     );
 
