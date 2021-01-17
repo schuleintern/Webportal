@@ -205,6 +205,10 @@ class schueler {
 	public function setFoto($fileUpload) {
 		DB::getDB()->query("UPDATE schueler SET schuelerFoto='" . $fileUpload->getID() . "' WHERE schuelerAsvID='" . $this->getAsvID() . "'");
 	}
+
+	public function setUserID($userID) {
+        DB::getDB()->query("UPDATE schueler SET schuelerUserID='" . $userID . "' WHERE schuelerAsvID='" . $this->getAsvID() . "'");
+    }
 	
 	public function removeFoto() {
 		DB::getDB()->query("UPDATE schueler SET schuelerFoto='0' WHERE schuelerAsvID='" . $this->getAsvID() . "'");

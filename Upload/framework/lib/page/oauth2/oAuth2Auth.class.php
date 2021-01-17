@@ -27,6 +27,12 @@ class oAuth2Auth extends AbstractPage {
         $asvID = $loginData['asvID'];
         $username = $loginData['username'];
 
+        // Update UserASV ID
+        $user = user::getByUsername($username);
+        if($user != null) {
+            DB::getDB()->query("UPDATE users SET userAsvID='" . DB::getDB()->escapeString($asvID) . "' WHERE userName='" . DB::getDB()->escapeString($username) . "'");
+        }
+
         if($asvID == "" || $username == "") {
             new errorPage("Leider ist kein Login mit Office 365 möglich! (Keine Daten übermittelt.)");
         }
@@ -37,13 +43,31 @@ class oAuth2Auth extends AbstractPage {
 
             if($lehrer != null) {
                 $user = $lehrer->getUser();
-                if($user != null) {
+
+                if($user != null && $user->getUserID() > 0) {
                     $userID = $user->getUserID();
                     $this->doLogin($userID, $username);
                 }
+
                 else {
-                    new errorPage("Für Ihren Lehrer ist leider noch kein Lehrerbenutzer verfügbar!");
+
+                    $user2SQL = DB::getDB()->query_first("SELECT * FROM users WHERE userAsvID='" . DB::getDB()->escapeString($asvID) . "'");
+
+                    if($user2SQL['userID'] > 0) {
+                        $user = user::getUserByID($user2SQL['userID']);
+
+                        $lehrer->setUserID($user->getUserID());
+
+                        $userID = $user->getUserID();
+                        $this->doLogin($userID, $username);
+                    }
+                    else {
+                        new errorPage("Für Ihren Lehrer ist leider noch kein Lehrerbenutzer verfügbar!");
+                    }
+
                 }
+
+
             }
         }
 
@@ -58,8 +82,22 @@ class oAuth2Auth extends AbstractPage {
                     $this->doLogin($userID, $username);
                 }
                 else {
-                    new errorPage("Für Ihren Schülerdatensatz ist leider noch kein Lehrerbenutzer verfügbar!");
+
+                    $user2SQL = DB::getDB()->query_first("SELECT * FROM users WHERE userAsvID='" . DB::getDB()->escapeString($asvID) . "'");
+
+                    if($user2SQL['userID'] > 0) {
+                        $user = user::getUserByID($user2SQL['userID']);
+
+                        $schueler->setUserID($user->getUserID());
+
+                        $userID = $user->getUserID();
+                        $this->doLogin($userID, $username);
+                    }
+                    else {
+                        new errorPage("Für Ihren Schülerdatensatz ist leider noch kein Lehrerbenutzer verfügbar!");
+                    }
                 }
+
             }
         }
 
@@ -76,6 +114,7 @@ class oAuth2Auth extends AbstractPage {
         $session = session::loginAndCreateSession($user->getUserID(), $_SESSION['keepLogin'] > 0);
 
         header("Location: index.php");
+        exit(0);
 
        // Debugger::debugObject($_REQUEST,1);
     }
