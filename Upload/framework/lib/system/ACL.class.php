@@ -9,7 +9,7 @@
 class ACL {
 
 
-  public function getAcl($user, $moduleClass = false, $id = false) {
+  public function getAcl($user, $selector = false, $adminGroup = false) {
 
     //return 'ACL';
     // $userID = DB::getSession()->getUser();
@@ -37,12 +37,25 @@ class ACL {
 
 		$acl = array_merge( $acl, self::getBlank() );
 
+		if ( intval($selector) > 1 ) {
+			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = ".intval($selector)." ");
+			
+			if ( $adminGroup && DB::getSession()->isMember($adminGroup) ) {
+				$acl['user']['admin'] = true;
+			}
 
-		if ($moduleClass && $id == false) {
-			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$moduleClass."' ");
-		} else if ($moduleClass == false && $id) {
-			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = ".intval($id)." ");
+		} else {
+
+
+			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$selector."' ");
+			if ($aclDB && $aclDB['id'] ) {
+				if ( DB::getSession()->isMember($selector::getAdminGroup()) ) {
+					$acl['user']['admin'] = true;
+				}
+			}
 		}
+
+		
 
 		if (!$aclDB || !$aclDB['id'] ) {
 			return $acl;
@@ -52,25 +65,17 @@ class ACL {
 		$acl['aclModuleClass'] = $aclDB['moduleClass'];
 
 		$acl['groups'] = [
-			'schueler' => ['read' => $aclDB['schuelerRead'], 'write' => $aclDB['schuelerWrite'], 'delete' => $aclDB['schuelerDelete'] ],
-			'eltern' => [ 'read' => $aclDB['elternRead'], 'write' => $aclDB['elternWrite'], 'delete' => $aclDB['elternDelete'] ],
-			'lehrer' => [ 'read' => $aclDB['lehrerRead'], 'write' => $aclDB['lehrerWrite'], 'delete' => $aclDB['lehrerDelete'] ],
-			'none' => [ 'read' => $aclDB['noneRead'], 'write' => $aclDB['noneWrite'], 'delete' => $aclDB['noneDelete'] ],
-			'owne' => [ 'read' => $aclDB['owneRead'], 'write' => $aclDB['owneWrite'], 'delete' => $aclDB['owneDelete'] ]
+			'schueler' => ['read' => intval($aclDB['schuelerRead']), 'write' => intval($aclDB['schuelerWrite']), 'delete' => intval($aclDB['schuelerDelete']) ],
+			'eltern' => [ 'read' => intval($aclDB['elternRead']), 'write' => intval($aclDB['elternWrite']), 'delete' => intval($aclDB['elternDelete']) ],
+			'lehrer' => [ 'read' => intval($aclDB['lehrerRead']), 'write' => intval($aclDB['lehrerWrite']), 'delete' => intval($aclDB['lehrerDelete']) ],
+			'none' => [ 'read' => intval($aclDB['noneRead']), 'write' => intval($aclDB['noneWrite']), 'delete' => intval($aclDB['noneDelete']) ],
+			'owne' => [ 'read' => intval($aclDB['owneRead']), 'write' => intval($aclDB['owneWrite']), 'delete' => intval($aclDB['owneDelete']) ]
 		];
 
 		
 		if (!$acl['user']['schueler'] && !$acl['user']['lehrer'] && !$acl['user']['eltern']) {
 			$acl['user']['none'] = 1;
 		}
-
-		if (!$id) {
-			if ( DB::getSession()->isMember($moduleClass::getAdminGroup()) ) {
-				$acl['user']['admin'] = true;
-			}
-		}
-		
-		
 		
 
 		if ( $acl['user']['schueler'] == 1 ) {
@@ -254,6 +259,7 @@ class ACL {
 
 		}
 
+		return [];
 	}
 
 	public function getBlank() {

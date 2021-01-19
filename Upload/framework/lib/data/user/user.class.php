@@ -24,6 +24,12 @@ class user {
   private $groups = [];
 
   public function __construct($data) {
+    
+
+    if ( count($data) == 1 && $data['userID'] ) {
+      $data = PAGE::getFactory()->getUserByID( $data['userID'] );
+    }
+
     $this->data = $data;
 
     $this->groups = PAGE::getFactory()->getGroupsByUserID( $this->data['userID'] );

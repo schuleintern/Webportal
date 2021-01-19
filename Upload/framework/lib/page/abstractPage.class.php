@@ -43,6 +43,7 @@ abstract class AbstractPage {
 	private static $activePages = array();
 	
 	private $acl = false;
+	private $submenu = false;
 
     /**
      * Ist das Modul im Beta Status?
@@ -564,6 +565,40 @@ abstract class AbstractPage {
 	}
 
 
+
+	/**
+	 * Gibt das Submenu zurück
+	 * @return Array
+	 */
+	public  function getSubmenu() {
+		$submenuHTML = '';
+		if ($this->submenu) {
+			foreach($this->submenu as $item) {
+				if ($item['href'] && $item['label']) {
+					$submenuHTML .= '<a href="'.$item['href'].'" alt="" title="" class="'.$item['labelClass'].'">'.$item['label'].'</a>';
+				}
+			}
+		}
+		return $submenuHTML;
+		
+	}
+
+	/**
+	 * Speichert das Submenu
+	 * @return Array
+	 */
+	public  function setSubmenu($submenu) {
+		if($submenu) {
+			$this->submenu = $submenu;
+		}
+	}
+
+
+	
+
+
+
+
 	/**
 	 * Access Control List
 	 * @return acl
@@ -579,7 +614,7 @@ abstract class AbstractPage {
 		}
 		$moduleClass = get_called_class();
 		if ($userID && $moduleClass) {
-			$this->acl = ACL::getAcl($userID, $moduleClass, false);
+			$this->acl = ACL::getAcl($userID, $moduleClass);
 		}
 	}
 
@@ -603,6 +638,7 @@ abstract class AbstractPage {
 		return $this->acl['rights']['delete'];
 	}
 
+
     /**
      * Ist das Modul im Beta Test?
      * @return bool
@@ -610,5 +646,24 @@ abstract class AbstractPage {
 	public static function isBeta() {
 	    return false;
     }
+
+	public function getAclByID($id = false, $showRight = false, $adminGroup = false) {
+
+		if (!$adminGroup) {
+			$adminGroup = self::getAdminGroup();
+		}
+		if ( $id ) {
+			$acl = ACL::getAcl(DB::getSession()->getUser(), $id, $adminGroup );
+			if ($showRight) {
+				return [ 'rights' => $acl['rights'], 'owne' => $acl['owne'] ];
+			} else {
+				return $acl;
+			}
+		} else {
+			return $acl = ACL::getBlank();
+		}
+		return false;
+	}
+
 
 }

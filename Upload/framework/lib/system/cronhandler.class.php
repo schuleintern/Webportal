@@ -24,7 +24,9 @@ class cronhandler {
             'DeleteOldElternUser',
             'MailSendDeleter',
             'CronStatMaker',
-        'SprechtagVikoCreator'
+        'SprechtagVikoCreator',
+    'AllInOneKalenderFerien'
+
 	];
 	
 	

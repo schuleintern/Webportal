@@ -3,6 +3,7 @@
   display: block;
 }
 
+.inlineBlock,
 .blockInline {
   display: inline-block;
 }
@@ -110,6 +111,14 @@
 
 .width-70vw {
   width: 70vw;
+}
+
+
+.width-20p {
+  width: 20%;
+}
+.width-25p {
+  width: 25%;
 }
 
 .width-100p {

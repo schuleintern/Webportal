@@ -23,6 +23,10 @@ class resthandler {
         'SetSettingsValue',
         'GetAllSettings',
         'GetUserCount',
+        'GetKalender',
+        'GetKalenderEintrag',
+        'SetKalenderEintrag',
+        'DeleteKalenderEintrag',
         'SetMensaMeal',
         'SetMensaOrder',
         'GetAcl',
@@ -161,6 +165,7 @@ class resthandler {
               }
           }
 
+          
 
           // Execute wird nur aufgerufen, wenn die Authentifizierung erfolgreich war.
           $result = $action->execute($input, $request);
