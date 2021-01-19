@@ -29,8 +29,8 @@
       "icon": "fa fa-book"
     },
     {
-      "url": "index.php?page=example&view=overright",
-      "title": "Overright",
+      "url": "index.php?page=example&view=overwrite",
+      "title": "Overwrite",
       "icon": "fa fa-book"
     },
 

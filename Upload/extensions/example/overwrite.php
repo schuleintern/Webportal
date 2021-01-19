@@ -1,9 +1,9 @@
 <?php
 
-class exampleOverright extends AbstractPage {
+class exampleOverwrite extends AbstractPage {
 	
 	public static function getSiteDisplayName() {
-		return 'Example Module - Overright';
+		return 'Example Module - overwrite';
 	}
 
 	public function __construct($request = [], $extension = []) {
@@ -18,7 +18,7 @@ class exampleOverright extends AbstractPage {
 
 		
 		$this->render([
-			"tmpl" => "overright"
+			"tmpl" => "overwrite"
 		]);
 
 	}
