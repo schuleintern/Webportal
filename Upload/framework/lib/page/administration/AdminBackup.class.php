@@ -40,11 +40,11 @@ class AdminBackup extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroupIcon() {
-		return 'fa fa-cogs';
+		return 'fa fa-database';
 	}
 	
 	public static function getAdminMenuGroup() {
-		return 'System';
+		return 'Datenbank';
 	}
 
 	public static function siteIsAlwaysActive() {

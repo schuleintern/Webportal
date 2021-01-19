@@ -526,7 +526,16 @@ class klassenkalender extends AbstractPage {
         <div class="modal-header">
           <h4 class="modal-title"><i class="fa fa-group"></i> Klasse auswählen</h4>
           </div>
-          <div class="modal-body"><h4>Alle Klassen / Meine Klassen</h4><a href="' . $basicLink . '&grade=all_grades">Alle Klassen</a><br /><a href="' . $basicLink . '&grade=allMyGrades">Meine Klassen</a><br /><a href="' . $basicLink . '&grade=allMyTermine">Von mir eingetragene Termine</a><br /><div class="row"><div class="col-md-6">';
+          <div class="modal-body"><h4>Alle Klassen / Meine Klassen</h4>
+          
+          
+          <div class="row">
+            <div class="col-sm-3"><a href="' . $basicLink . '&grade=all_grades" class="btn btn-primary btn-block">Alle Klassen</a></div>
+            <div class="col-sm-3"><a href="' . $basicLink . '&grade=allMyGrades" class="btn btn-success btn-block">Meine Klassen</a></div>
+            <div class="col-sm-6"><a href="' . $basicLink . '&grade=allMyTermine" class="btn btn-info btn-block"><i class="fa fa-pen"></i> Von mir eingetragen</a></div>
+          </div>
+          
+          <div class="row"><div class="col-md-6">';
 
         $completeGradeData = [];
 
@@ -561,7 +570,7 @@ class klassenkalender extends AbstractPage {
 
         $currentNummer = 0;
 
-        $half = round($numStufenWithGrades / 2);
+        $half = floor($numStufenWithGrades / 2);
 
         foreach ($completeGradeData as $jgs => $klassen) {
             if(sizeof($klassen) > 0) {
@@ -569,24 +578,42 @@ class klassenkalender extends AbstractPage {
 
                 $currentNummer++;
 
+                $inRow = 0;
+
                 for($g = 0; $g < sizeof($klassen); $g++) {
-                    $selectMenuModals .= "<a href=\"" . $basicLink . "&grade=" . urlencode($klassen[$g]) . "\">";
+                    $inRow++;
+
+                    if($inRow == 1) {
+                        $selectMenuModals .= "<div class='row'>";
+                    }
+
+                    $selectMenuModals .= "<div class='col-md-6'><a href=\"" . $basicLink . "&grade=" . urlencode($klassen[$g]) . "\" class='btn btn-default btn-block'>";
                     $selectMenuModals .= "Klasse " . $klassen[$g];
 
+                    $selectMenuModals .= "</a></div>";
 
-                    $selectMenuModals .= "</a><br />";
+
+                    if($inRow == 2) {
+                        $selectMenuModals .= "</div>";
+                        $inRow = 0;
+                    }
+
+
                 }
 
+                if($inRow == 1) $selectMenuModals .= "</div>";
 
-                $selectMenuModals .= "<a href=\"" . $basicLink . "&grade=all" .$jgs . "\">";
+
+
+                $selectMenuModals .= "<div class='row'><div class='col-md-12'><a href=\"" . $basicLink . "&grade=all" .$jgs . "\" class='btn btn-default btn-block'>";
                 $selectMenuModals .= "<i>Alle Klassen der Jahrgangsstufe</i>";
 
 
-                $selectMenuModals .= "</a><br />";
+                $selectMenuModals .= "</a></div></div>";
 
 
-                if($currentNummer == $half+1) {
-                    $selectMenuModals .= "</div><div class=\"col-md6\">";
+                if($currentNummer == $half) {
+                    $selectMenuModals .= "</div><div class=\"col-md-6\">";
                 }
 
             }

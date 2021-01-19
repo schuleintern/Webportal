@@ -1,0 +1,13 @@
+<tr>
+	<td>{$km['schuelerName']}, {$km['schuelerRufname']} (Klasse: {$km['schuelerKlasse']})</td>
+	<td><expression>DateFunctions::getNaturalDateFromMySQLDate($km['krankmeldungDate'])</expression></td>
+	<td><expression>DateFunctions::getNaturalDateFromMySQLDate($km['krankmeldungUntilDate'])</expression></td>
+	<td>
+		<if($km['krankmeldungDurch'] == "m")><then>Mutter</then></if>
+		<if($km['krankmeldungDurch'] == "v")><then>Vater</then></if>
+		<if($km['krankmeldungDurch'] == "s")><then>Sonstige</then></if>
+	</td>
+	<td><code><expression>@htmlspecialchars($km['krankmeldungKommentar'])</expression></code></td>
+	<td><expression>functions::makeDateFromTimestamp($km['krankmeldungTime'])</expression></td>
+	<td><select name="action_{$km['krankmeldungID']}" class="form-control"><option value="save">Absenz erstellen</option><option value="delete">Löschen</option></select>
+</tr>

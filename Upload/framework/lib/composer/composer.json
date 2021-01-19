@@ -5,7 +5,10 @@
         "monolog/monolog": "^2.0",
         "phpmailer/phpmailer": "^6.1",
         "mpdf/mpdf": "^8.0",
-        "thenetworg/oauth2-azure": "^1.4"
+        "thenetworg/oauth2-azure": "^1.4",
+        "camcima/php-mysql-diff": "^1.2",
+        "ezyang/htmlpurifier": "^4.13",
+        "ifsnop/mysqldump-php": "^2.9"
         
     }
     

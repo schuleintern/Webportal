@@ -1,20 +1,51 @@
+
 <!DOCTYPE html>
 <html>
-  
-  <head>
-     <meta charset="UTF-8">
-  
-    <title><expression>DB::getGlobalSettings()->siteNamePlain</expression> - Anmeldung</title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <link href="cssjs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="cssjs/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="cssjs/font/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <link href="cssjs/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-    <link href="cssjs/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
 
-  </head>
+<head>
+  <meta charset="UTF-8">
+
+  <title><expression>DB::getGlobalSettings()->siteNamePlain</expression> - Anmeldung</title>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <link href="cssjs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="cssjs/font/fontawesome/css/all.css" rel="stylesheet" type="text/css" />
+  <link href="cssjs/font/fontawesome/js/v4-shims.js" rel="stylesheet" type="text/css" />
+  <link href="cssjs/font/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+  <link href="cssjs/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+  <link href="cssjs/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
+
+  <if(DB::getSettings()->getInteger("login-background-image") > 0)><then>
+
+  <style>
+    body, html {
+      height: 100%;
+    }
+
+    .schuleinternloginimage {
+      background-image: url("<expression>DB::getSettings()->getUpload('login-background-image')->getURLToFile()</expression>");
+
+      height: 100%;
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+  </style>
+
+</then></if>
+
+</head>
+
+
+<if(DB::getSettings()->getInteger("login-background-image") > 0)>
+<then>
+  <body class="login-page schuleinternloginimage">
+</then>
+<else>
   <body class="login-page">
-  
+</else>
+</if>
 
 
 
@@ -25,7 +56,15 @@
         <a href="index.php"><img src="index.php?page=SkinSettings&action=getLogo" width="150" border="0"></a>
   </div>
   <!-- User name -->
-  <div class="lockscreen-name" style="text-align: center"><strong>$displayName</strong> ($userName)</div>
+    <div class="lockscreen-name" style="text-align: center"><strong>$displayName</strong> ($userName)</div>
+
+  <br/><br/>
+
+  <div class="callout callout-info">
+    <strong><i class="fa fa-key"></i> Die angeforderte Seite erfordert die Zweifaktorauthentifizierung. Bitte geben Sie Ihren aktuellen TOTP Code hier ein.</strong>
+  </div>
+
+  <br/><br/>
 
 $error
 
@@ -35,7 +74,7 @@ $error
   <div class="lockscreen-item">
     <!-- lockscreen image -->
     <div class="lockscreen-image" style="text-align: center">
-     <i class="fa fa-mobile" style="font-size: 5em; width:1em"></i>
+     <i class="fa fa-mobile" style="font-size: 4em; width:1em"></i>
     </div>
     <!-- /.lockscreen-image -->
 
@@ -55,26 +94,25 @@ $error
       
 
       	<label><input type="checkbox" class="icheck" name="addtotrusteddevices" value="1"> Nicht mehr nachfragen</label><br>
-      	<small>Auf diesem Gerät für diesen Benutzer nicht mehr nachfragen. Nicht aktivieren auf gemeinsam genutzten Geräten!</small>
+      <small>Auf diesem Gerät für diesen Benutzer nicht mehr nachfragen. <strong>Nicht aktivieren auf gemeinsam genutzten Geräten!</strong></small>
       </then></if>
     </form>
     <!-- /.lockscreen credentials -->
 
   </div>
   <!-- /.lockscreen-item -->
-  <div class="help-block text-center">
-    <strong>Die angeforderte Seite erfordert die Zweifaktorauthentifizierung. Bitte geben Sie den Code aus der App hier ein.</strong>
-  </div>
+
 
 </div>
 <!-- /.center -->
 
 
-    <script src="cssjs/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <script src="cssjs/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="cssjs/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+<script src="cssjs/plugins/jQuery/jquery.min.js"></script>
+<script src="cssjs/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="cssjs/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
-    <script src="cssjs/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+
+<script src="cssjs/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
 
 <script>
 $(function () {

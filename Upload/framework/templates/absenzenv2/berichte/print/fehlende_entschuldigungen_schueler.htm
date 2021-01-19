@@ -1,0 +1,24 @@
+
+
+<p>&nbsp;</p>
+<small>Hier abtrennen</small>
+<hr>
+<p>&nbsp;</p>
+
+
+<table border="1" width="100%" cellpadding="3" nobr="true">
+	<tr>
+		<th colspan="3" align="center"><b>{$schueler[$i]->getCompleteSchuelerName()}</b></th>
+	</tr>
+	<tr>
+		<th><b>Datum</b></th>
+		<th><b>Stunden</b></th>
+		<th><b>Hinweise</b></th>
+	</tr>
+	$absenzenHTML
+	<tr>
+		<td colspan="3" align="center"><small>Stand: <expression>DateFunctions::getTodayAsNaturalDate()</expression></small><br>
+		Hinweis: Im Portal ("Meine Absenzen") können Sie eine vorausgefüllte Entschuldigung downloaden und ausdrucken
+		</td>
+	</tr>
+</table>

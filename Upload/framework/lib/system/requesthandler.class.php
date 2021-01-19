@@ -27,18 +27,15 @@ class requesthandler {
       'oauth2' => [
           'oAuth2Auth'
       ],
-    'ffbumfrage' => [
-        'ffbumfrage'
-    ],
   	'files' => [
   		'FileDownload'
   	],
   	'skin' => [
   		'SkinSettings'
   	],
-    'nextcloud' => [
+    /**  'nextcloud' => [
         'nextcloud'
-    ],
+    ], **/
     'json' => [
         'jsonApi'
     ],
@@ -50,7 +47,8 @@ class requesthandler {
       'absenzenlehrer',
       'absenzensekretariat',
       'absenzenstatistik',
-      'absenzenschueler'
+      'absenzenschueler',
+        'AbsenzenMain'
     ],
   	'messages' => [
   		'MessageInbox',
@@ -82,7 +80,8 @@ class requesthandler {
         'AdminUpdate',
         'AdminBackup',
         'AdminDatabase',
-        'AdministrationEltern'
+        'AdministrationEltern',
+        'AdminDatabaseUpdate'
     ],
     'aufeinenblick' => [
       'aufeinenblick',
@@ -103,13 +102,6 @@ class requesthandler {
       'beobachtungsbogen',
       'beobachtungsbogenadmin',
       'beobachtungsbogenklassenleitung',
-    ],
-    'datenbanken' => [
-      'database',
-    ],
-    'downloads' => [
-      'downloads',
-      'downloadsteacher'
     ],
     'dokumente' => [
       'dokumente',
@@ -164,7 +156,8 @@ class requesthandler {
     'office365' => [
       'office365',
       'office365users',
-      'office365info'
+      'office365info',
+        'Office365Meetings'
     ],
     'oldpages' => [
       'homeuseprogram',
@@ -256,8 +249,8 @@ class requesthandler {
         $page->execute();
       }
       catch(Throwable $e) {
-          // TODO: FEHLER abfangen
-        echo "<b>" . $e->getMessage() . "</b> in Line " . $e->getLine()  . " in " . $e->getFile() . "<br />";
+
+        echo "<b>!!!" . $e->getMessage() . "</b> in Line " . $e->getLine()  . " in " . $e->getFile() . "<br />";
         echo "<pre>" . $e->getTraceAsString() . "</pre>";
       }
     } else {

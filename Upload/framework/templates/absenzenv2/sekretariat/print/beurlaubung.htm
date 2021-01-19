@@ -1,0 +1,52 @@
+
+<center>
+
+<h3>Antrag auf Beurlaubung / Genehmigung</h3>
+
+<table border="1" width="100%" cellspacing="0" cellpadding="10">
+	<tr>
+		<td width="20%">Name:</td>
+		<td>{$absenz->getSchueler()->getCompleteSchuelerName()}</td>
+	</tr>
+	
+	<tr>
+		<td>Klasse:</td>
+		<td>{$absenz->getSchueler()->getKlasse()}</td>
+	</tr>
+	<tr>
+		<td>Klassenleitung</td>
+		<td>{$absenz->getSchueler()->getKlassenleitungAsText()}</td>
+	</tr>
+</table>
+
+<br />
+
+<table border="1" width="100%" cellspacing="0" cellpadding="10">
+	<tr>
+		<th width="20%">Datum</th>
+		<th width="20%">Bis</th>
+		<th width="20%">Stunden</th>
+		<th width="10%">Intern Abwesend?</th>
+		<th>Begründung</th>
+	</tr>
+	$absenzenHTML
+</table>
+
+<br /><br /><br />
+
+<b>Genehmigt / Unterschriften:</b><br /><br /><br />
+
+<table border="0">
+	<tr>
+		<td><br /><br /><br />_____________________________________________<br />Schulleitung <expression>DB::getSettings()->getValue("absenzen-unterschriftBefreiung")</expression></td>
+	</tr>
+	
+	<tr>
+		<td><br /><br /><br />_____________________________________________<br />Sorgeberechtigte</td>
+	</tr>
+</table>
+
+<br />
+Bitte unterschrieben an die Klassenleitung zurückleiten!
+</center>
+

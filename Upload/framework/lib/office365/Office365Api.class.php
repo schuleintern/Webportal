@@ -360,7 +360,6 @@ class Office365Api {
      */
     public static function prepapreOffice365() {
 
-        
         if(DB::getSettings()->getValue('office365-schueler-groupid') == "") {
             $newGroup = self::createGroup('SchuleIntern_Schueler', 'In dieser Gruppe befinden sich alle Schüler, die von SchuleIntern automatisch erstellt wurden.');
             if($newGroup['statusCode'] == 201) DB::getSettings()->setValue('office365-schueler-groupid', $newGroup['data']->id);
@@ -371,5 +370,46 @@ class Office365Api {
             if($newGroup['statusCode'] == 201) DB::getSettings()->setValue('office365-lehrer-groupid', $newGroup['data']->id);
         }
         
+    }
+
+
+    /**
+     * Erstellt ein Meeting beim Nutzer im Kalender und liefert die Join URL für Externe zurück.
+     * @param $upn
+     * @param $dateTimeStart
+     * @param $dateTimeEnd
+     * @param $subject
+     * @return string|null
+     *
+     */
+    public static function createMeeting($upn, $dateTimeStart, $dateTimeEnd, $subject, $body="") {
+
+        if(!Office365Meetings::isActiveForTeacher()) return null;
+
+        $plans = [];
+
+        $result = self::getCurlContext('POST', 'v1.0/users/' . $upn . '/calendar/events', [
+            'subject' => $subject,
+            'body' => [
+                'contentType' => 'HTML',
+                'content' => $body
+            ],
+            'start' => [
+                'dateTime' => $dateTimeStart,                       // "2017-04-15T12:00:00"
+                'timeZone' => 'Europe/Berlin'
+            ],
+            'end' => [
+                'dateTime' => $dateTimeEnd,
+                'timeZone' => 'Europe/Berlin'
+            ],
+            'allowNewTimeProposals' => false,
+            'isOnlineMeeting' => true,
+            'onlineMeetingProvider' => 'teamsForBusiness'
+        ], 'application/json');
+
+        if($result['statusCode'] == 201) {
+            return $result['data']->onlineMeeting->joinUrl;
+        }
+        else return null;
     }
 }

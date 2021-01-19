@@ -82,21 +82,24 @@ class SchuelerAdresse {
 	
 	public function getAdresseAsText() {
 		return 
-			($this->isHauptansprechpartner() ? ("<u>Hauptansprechpartner</u><br />") : (""))
-			
+			"<p>" . ($this->isHauptansprechpartner() ? ("<p><u><strong>Hauptansprechpartner</strong></u></p>") : (""))
+
 			. (($this->isErziehungsberechtigter()) ? ("Adresse Erziehungsberechtigter") : ("")) . 
 			 (($this->isWeitererErziehungsberechtigter()) ? ("Adresse weiterer Erziehungsberechtigter") : ("")) .
 			 (($this->isSchueler()) ? ("Adresse Schüler") : ("")) .
-			 (($this->isWeiterer()) ? ("Adresse Weitere Person") : ("")) . "<br />" . 
+			 (($this->isWeiterer()) ? ("Adresse Weitere Person") : ("")) .
+
+
+            (($this->isAuskunftsberechtigt()) ? (" <div class='label label-success'><i class='fa fa-check-circle'></i> Auskunftsberechtigt</div>") : (" <div class='label label-danger'><i class='fa fa-ban'></i> Nicht Auskunftsberechtigt</div>")) .
+
+
+            "</p>" .
 			
-			$this->getVorname() . " " . $this->getFamilienname() . "<br />" . 
+			"<p>" . $this->getVorname() . " " . $this->getFamilienname() . "<br />" .
 			$this->getStrasse() . " " . $this->getNummer() . "<br />" . 
 			$this->getPLZ() . " " . $this->getOrt()
 		
-			. "<br />" . 
-			
-			(($this->isAuskunftsberechtigt()) ? ("<font color=\"green\">Auskunftsberechtigt</font>") : ("<font color=\"red\">Nicht Auskunftsberechtigt</font>"))
-		;
+			. "</p>";
 		
 	}
 	

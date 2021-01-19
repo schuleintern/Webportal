@@ -34,11 +34,15 @@ class DeleteOldElternUser extends AbstractCron {
 	                        if($schueler == null) {
 	                            $delete = true;
                             }
-
-	                        if($schueler->isAusgetreten()) $delete = true;
+	                        else {
+	                            if($schueler->isAusgetreten()) {
+	                                $delete = true;
+                                }
+                            }
 
 	                        if($delete) {
-	                            $aktionen[] =  "Kind " . $kinder[$k] . " aus Benutzer " . $alleELtern[$i]->getUserName() . " löschen.";
+	                            $elternObjekt->removeSchuelerByASVID($kinder[$k]);
+	                            $aktionen[] =  "Kind " . $kinder[$k] . " aus Benutzer " . $alleELtern[$i]->getUserName() . " gelöscht.";
                             }
                         }
 
@@ -47,13 +51,13 @@ class DeleteOldElternUser extends AbstractCron {
                 }
             }
 
-	        $this->cronResult['resultText'] = "Aktionen, die durchgeführt werden: \n" . implode("\n", $aktionen);
+	        $this->cronResult['resultText'] = "Aktionen, die durchgeführt wurden: \n" . implode("\n", $aktionen);
 
 	    }
 	}
 	
 	public function getName() {
-		return "Eltern Benutzer löschen, die nicht mehr eixtsieren";
+		return "Eltern Benutzer löschen, die nicht mehr existieren";
 	}
 	
 	public function getDescription() {

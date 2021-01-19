@@ -50,8 +50,7 @@ class UpdateExterneKalender extends AbstractCron {
     							switch($key) {
     								case 'DTSTART':
     									// 20161221T140000Z
-    									
-    								    
+
     								    
     									$val = $value->getValues();
     									
@@ -122,7 +121,7 @@ class UpdateExterneKalender extends AbstractCron {
 											break;
     									
     							}
-								}
+    						}
     						
     						$calData[] = $event;
     					}
@@ -139,11 +138,11 @@ class UpdateExterneKalender extends AbstractCron {
 								$interval = (int)$node['RRULE']['INTERVAL'];
 								unset( $node['RRULE'] );
 
-								for ($i = 1; $i <= $interval; $i++) {
+								for ($z = 1; $z <= $interval; $z++) {
 
 									$clone = $node;
-									$clone['dateStart'] = (int)substr($clone['dateStart'], 0,4) +$i .'-'.substr($clone['dateStart'], 5,2).'-'.substr($clone['dateStart'], 8,2);
-									$clone['dateEnde'] = (int)substr($clone['dateEnde'], 0,4) +$i .'-'.substr($clone['dateEnde'], 5,2).'-'.substr($clone['dateEnde'], 8,2);
+									$clone['dateStart'] = (int)substr($clone['dateStart'], 0,4) +$z .'-'.substr($clone['dateStart'], 5,2).'-'.substr($clone['dateStart'], 8,2);
+									$clone['dateEnde'] = (int)substr($clone['dateEnde'], 0,4) +$z .'-'.substr($clone['dateEnde'], 5,2).'-'.substr($clone['dateEnde'], 8,2);
 		
 									$calData[] = $clone;
 									$_debug[] = $clone;

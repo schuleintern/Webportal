@@ -186,7 +186,19 @@ class Message {
 	 * @var MessageAnswer[]
 	 */
 	private $questionAnswers = [];
-	
+
+    /**
+     * Nachricht vertrazlich?
+     * @var bool
+     */
+	private $isConfidential = false;
+
+
+    /**
+     * An welchen Empfänger ging diese spezielle Nachricht?
+     * @var MessageRecipient $myRecipient
+     */
+	private $myRecipient = null;
 	
 	
 	public function __construct($data) {
@@ -204,6 +216,10 @@ class Message {
 
 		$this->ccrecipientRawData = $data['messageCCRecipients'];
 		$this->bccrecipientRawData = $data['messageBCCRecipients'];
+
+		if($data['messageMyRecipientSaveString'] != null) {
+            $this->myRecipient = RecipientHandler::getRecipientFromSaveString($data['messageMyRecipientSaveString']);
+        }
 		
 		// $rh = new RecipientHandler($data['messageRecipients']);
 		// $this->recipients = $rh->getAllRecipients();
@@ -257,6 +273,8 @@ class Message {
 		    		    
 		    $this->questionAnswers = MessageAnswer::getByMessageID($this->getID());
 		}
+
+		$this->isConfidential = $data['messageIsConfidential'] > 0;
 	}
 	
 	/**
@@ -306,6 +324,14 @@ class Message {
 	public function getFolderID() {
 		return $this->folderID;
 	}
+
+    /**
+     * Ist die Nachricht vertraulich?
+     * @return mixed
+     */
+	public function isConfidential() {
+	    return $this->isConfidential;
+    }
 	
 	/**
 	 * 
@@ -582,6 +608,14 @@ class Message {
 		if($this->user != null) return $this->user;
 		else return user::getUserByID($this->userID);
 	}
+
+    /**
+     * Welcher der Empfänger ist meiner?
+     * @return MessageRecipient|null
+     */
+	public function getMyRecipient() {
+	    return $this->myRecipient;
+    }
 	
 	public static function userHasUnreadMessages() {
 		$messagesSQL = DB::getDB()->query("SELECT * FROM messages_messages WHERE messageUserID='" . DB::getSession()->getUser()->getUserID() . "' AND messageIsRead=0 AND messageFolder='POSTEINGANG'");

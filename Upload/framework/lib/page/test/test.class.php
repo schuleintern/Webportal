@@ -15,7 +15,18 @@ class test extends AbstractPage {
       // Put Tests here.
       // Only access for Admins
 
-    print_r(Office365Login::getEmployeeID());
+
+    $parser = new \Camcima\MySqlDiff\Parser();
+    $toDatabase = $parser->parseDatabase(DB::getDbStructure());
+
+    $fromDatabase = $parser->parseDatabase(file_get_contents("../framework/database.sql"));
+
+    $diff = new \Camcima\MySqlDiff\Differ();
+    $result = $diff->diffDatabases($fromDatabase, $toDatabase);
+
+    $migration = $diff->generateMigrationScript($result);
+
+    print_r($migration);
 
   }
 
@@ -45,7 +56,7 @@ class test extends AbstractPage {
 
 
   public static function getSiteDisplayName() {
-    return 'Captcha auslesen';
+    return 'Tests';
   }
 
   /**

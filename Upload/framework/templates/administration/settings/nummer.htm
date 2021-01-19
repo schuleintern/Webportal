@@ -1,4 +1,6 @@
 <tr>
 	<td><b>{$settings[$s]['titel']}</b><br /><small>{$settings[$s]['text']}</small></td>
 	<td><input type="number" name="{$settings[$s]['name']}" class="form-control" value="{$value}" /></td>
+	<td><button class="btn btn-default" type="button" onclick="showSettingsHistory('{$settings[$s]['name']}')"><i class="fa fa-history"></i></button> </td>
+
 </tr>

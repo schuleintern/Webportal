@@ -17,7 +17,7 @@ class geticsfeed extends AbstractPage {
           echo("no access");
           exit(0);
       }
-      
+
       $timeNow = time();
       
       $timeStart = $timeNow - (100 * 24 * 60 * 60); // 100 Tage vorher
@@ -26,7 +26,7 @@ class geticsfeed extends AbstractPage {
       $this->startDate = date("Y-m-d",$timeStart);
       $this->endDate = date("Y-m-d",$timeEnd);
       
-            
+
       if($feed->isKlassenkalender()) {
           $this->sendKlassenkalender($feed);
           exit(0);
@@ -35,6 +35,10 @@ class geticsfeed extends AbstractPage {
       if($feed->isAndererKalender()) {
           $this->sendAndererKalender($feed);
           exit();
+      }
+
+      if($feed->isExternerKalender()) {
+          $this->sendExternerKalender($feed);
       }
       
   }
@@ -100,6 +104,67 @@ class geticsfeed extends AbstractPage {
       ICSFeed::sendICSFeed($vCalendar);
   
   }
+
+    /**
+     *
+     * @param ICSFeed $feed
+     */
+    private function sendExternerKalender($feed) {
+        $vCalendar = new \Eluceo\iCal\Component\Calendar(DB::getGlobalSettings()->siteNamePlain);
+        $vCalendar->setPublishedTTL('P1H');
+
+        // $vCalendar->setName($name);
+
+        $data = json_decode($feed->getFeedData());
+
+        // 100 Tage vorher abfragen
+
+        $time = DateFunctions::getUnixTimeFromMySQLDate(DateFunctions::getTodayAsSQLDate());
+        $time1 = $time - (100 * 24 * 3600);
+
+        $time2 = $time + (365 * 24 * 3600);
+
+        $kalenderTermine = ExtKalenderTermin::getAll($data, DateFunctions::getMySQLDateFromUnixTimeStamp($time1), DateFunctions::getMySQLDateFromUnixTimeStamp($time2));
+
+
+        for($i = 0; $i < sizeof($kalenderTermine); $i++) {
+
+            $timeStart = new DateTime($kalenderTermine[$i]->getDatumStart());
+            $timeEnd = new DateTime($kalenderTermine[$i]->getDatumEnde());
+
+            if($kalenderTermine[$i]->getDatumEnde() != $kalenderTermine[$i]->getDatumStart()) {
+                $timeEnd = new DateTime(DateFunctions::addOneDayToMySqlDate($kalenderTermine[$i]->getDatumEnde()));
+            }
+
+            if(!$kalenderTermine[$i]->isWholeDay()) {
+                $uhrZeitStart = $kalenderTermine[$i]->getUhrzeitStart();
+                $uhrZeitEnde = $kalenderTermine[$i]->getUhrzeitEnde();
+
+                list($stundeStart, $minuteStart) = explode(":",$uhrZeitStart);
+                list($stundeEnde, $minuteEnde) = explode(":",$uhrZeitEnde);
+
+
+                $timeStart->setTime($stundeStart, $minuteStart, 0);
+
+                $timeEnd->setTime($stundeEnde, $minuteEnde, 0);
+
+            }
+
+            $vCalendar->addComponent(
+                ICSFeed::getICSFeedObject(
+                    "",
+                    $kalenderTermine[$i]->getTitleRaw(),
+                    $timeStart,
+                    $timeEnd,
+                    $kalenderTermine[$i]->getOrt(),
+                    $kalenderTermine[$i]->getKommentar() . " (Eingetragen von " . $kalenderTermine[$i]->getCreatorName() . ")",
+                    $kalenderTermine[$i]->isWholeDay())
+            );
+        }
+
+        ICSFeed::sendICSFeed($vCalendar);
+
+    }
   
   /**
    * 

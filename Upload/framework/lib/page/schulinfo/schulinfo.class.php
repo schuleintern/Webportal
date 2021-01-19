@@ -113,7 +113,7 @@ class schulinfo extends AbstractPage {
 		$lehrerHTML = "";
 		for($i = 0; $i < sizeof($alleLehrer); $i++) {
 
-			$lehrerHTML .= "<tr><td>" . $alleLehrer[$i]->getDisplayNameMitAmtsbezeichnung() . "</td>";
+			$lehrerHTML .= "<tr><td>" . $alleLehrer[$i]->getKuerzel() . "</td><td>" . $alleLehrer[$i]->getDisplayNameMitAmtsbezeichnung() . "</td>";
 
 			if(DB::getSession()->isAdmin() || self::isSchulleitung(DB::getSession()->getUser())) {
 				$lehrerHTML .= "<td>";
@@ -621,6 +621,14 @@ class schulinfo extends AbstractPage {
 	    return DB::getSettings()->getValue('schulinfo-schultyp') == 'gy';
 	}
 
+
+	public static function isRealschule() {
+        return DB::getSettings()->getValue('schulinfo-schultyp') == 'rs';
+    }
+
+    public static function isGrundschule() {
+        return DB::getSettings()->getValue('schulinfo-schultyp') == 'rs';
+    }
 
 
 }

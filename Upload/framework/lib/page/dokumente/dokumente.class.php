@@ -53,7 +53,7 @@ class dokumente extends AbstractPage {
 				
 				$fileHTML .= "<td>" . $files[$f]->getDownloads() . " Downloads<br />" . $files[$f]->getSizeInMB() . " MB</td>";
 				
-				$fileHTML .= "<td><form><button type=\"button\" class=\"btn btn-success\" onclick=\"window.location.href='index.php?page=dokumente&action=downloadFile&fileID=" . $files[$f]->getID() . "'\"><i class=\"fa fa-download\"></i></form></td>";
+				$fileHTML .= "<td><a class=\"btn btn-success btn-block\" href=\"index.php?page=dokumente&action=downloadFile&fileID=" . $files[$f]->getID() . "\"><i class=\"fa fa-download\"></i> Herunterladen</a></td>";
 			
 				$fileHTML .= "</tr>";
 			}

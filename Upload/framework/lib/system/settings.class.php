@@ -30,9 +30,46 @@ class settings {
     }
 	
 	public function setValue($setting, $value) {
-		$this->settingsValues[$setting] = $value;
 		DB::getDB()->query("INSERT INTO settings (settingName, settingValue) values('$setting','" . DB::getDB()->escapeString($value) . "') ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($value) . "'");
-	}
+
+		// Hirstory bei Änderung des Wertes
+        if(self::getValue($setting) != $value) {
+            DB::getDB()->query("INSERT INTO settings_history
+                (
+                 settingHistoryName,
+                 settingHistoryChangeTime,
+                 settingHistoryOldValue,
+                 settingHistoryNewValue,
+                 settingHistoryUserID
+                 ) values (
+                    '" . $setting . "',
+                    UNIX_TIMESTAMP(),
+                    '" . DB::getDB()->escapeString(self::getValue($setting)) . "',
+                    '" . DB::getDB()->escapeString($value) . "',
+                    " . ((DB::isLoggedIn()) ? ("'" . DB::getSession()->getUser()->getUserID() . "'") : "null") . "                           
+                 )");
+        }
+
+
+        $this->settingsValues[$setting] = $value;
+    }
+
+    public function getHistory($setting) {
+        $data = DB::getDB()->query("SELECT * FROM settings_history WHERE settingHistoryName='$setting' ORDER BY settingHistoryChangeTime DESC LIMIT 50");
+
+        $result = [];
+
+        while($d = DB::getDB()->fetch_array($data)) {
+            $result[] = [
+                'changeTime' => $d['settingHistoryChangeTime'],
+                'oldValue' => $d['settingHistoryOldValue'],
+                'newValue' => $d['settingHistoryNewValue'],
+                'userID' => $d['settingHistoryUserID']
+            ];
+        }
+
+        return $result;
+    }
 	
 	public function getBoolean($setting) {
 		if($this->settingsValues[$setting] == "") return false;

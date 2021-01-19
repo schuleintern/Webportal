@@ -176,7 +176,7 @@ class stundenplan extends AbstractPage {
       if((($this->isTeacher && isset($_REQUEST['teacher'])) || $showAll) && $_REQUEST['teacher'] != "") {
 
         $i = 0;
-        $selectLehrerplan = "<table class=\"table table-bordered\"><tr><td>";
+        $selectLehrerplan = "<table class=\"table table-bordered table-striped\"><tr><td>";
         $teacher = DB::getDB()->query("SELECT DISTINCT stundeLehrer FROM stundenplan WHERE stundeLehrer != '' ORDER BY stundeLehrer");
         while($t = DB::getDB()->fetch_array($teacher)) {
           $i++;
@@ -208,7 +208,7 @@ class stundenplan extends AbstractPage {
         }
 
         if(DB::getSession()->isTeacher()) {
-            $gradeSelect = "<table class=\"table table-bordered\">";
+            $gradeSelect = "<table class=\"table table-bordered table-striped\">";
 
             $allGrades = grade::getAllGradesStundenplan();
 
@@ -277,7 +277,7 @@ class stundenplan extends AbstractPage {
 
         }
         else {
-          $selectKlassenplan = "<table class=\"table table-bordered\"><tr>";
+          $selectKlassenplan = "<table class=\"table table-bordered table-striped\"><tr>";
           $klasse = DB::getDB()->query("SELECT DISTINCT stundeKlasse FROM stundenplan WHERE stundeKlasse != '' $where ORDER BY stundeKlasse");
           while($t = DB::getDB()->fetch_array($klasse)) {
             $selectKlassenplan .= "<td>" . ((isset($_REQUEST['grade']) && $_REQUEST['grade'] == $t['stundeKlasse']) ? ("<b>" . $t['stundeKlasse'] . "</b>") : ("<a href=\"index.php?page=stundenplan&grade=" . $t['stundeKlasse'] . "\">" . $t['stundeKlasse'] . "</a>")) . "</td>";
@@ -499,7 +499,7 @@ class stundenplan extends AbstractPage {
 
       $gueltigKeit = "";
 
-      $planNavigation = "<table class=\"table table-bordered\"><tr>";
+      $planNavigation = "<table class=\"table table-bordered table-striped\"><tr>";
 
       $allCurrentPlans = stundenplandata::getAllCurrentPlans();
 
@@ -551,7 +551,7 @@ class stundenplan extends AbstractPage {
 
 
         if($this->isPrint) $html = "<table border=\"1\" width=\"100%\" cellpadding=\"2\" nobr=\"true\">";
-        else $html = "<table class=\"table table-bordered\">";
+        else $html = "<table class=\"table table-bordered table-striped table-hover\">";
 
         if($this->isPrint) $html .= "<tr><th style=\"width:10%\"><b>Stunde</b></th><th style=\"width:18%\" colspan=\"{$maxcells[0]}\"><b>Montag</b></th><th style=\"width:18%\" colspan=\"{$maxcells[1]}\"><b>Dienstag</b></th><th style=\"width:18%\" colspan=\"{$maxcells[2]}\"><b>Mittwoch</b></th><th style=\"width:18%\" colspan=\"{$maxcells[3]}\"><b>Donnerstag</b></th><th style=\"width:18%\" colspan=\"{$maxcells[4]}\"><b>Freitag</b></th></tr>";
         else $html .= "<tr><th style=\"width:10%\">Stunde</th><th style=\"width:18%; \" colspan=\"{$maxcells[0]}\">Montag</th><th style=\"width:18%; \" colspan=\"{$maxcells[1]}\">Dienstag</th><th style=\"width:18; %\" colspan=\"{$maxcells[2]}\">Mittwoch</th><th style=\"width:18%; \" colspan=\"{$maxcells[3]}\">Donnerstag</th><th style=\"width:18%; \" colspan=\"{$maxcells[4]}\">Freitag</th></tr>";

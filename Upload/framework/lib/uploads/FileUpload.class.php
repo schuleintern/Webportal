@@ -31,6 +31,13 @@ class FileUpload {
 			'application/pdf',
 			'application/zip'
 	);
+
+	private static $mimeTypesAudio = [
+	    'audio/mpeg',
+        'audio/mp4',
+        'audio/vnd.wav',
+        'audio/basic'
+    ];
 	
 	private static $mimesPicture = [
 			'image/png',
@@ -257,6 +264,14 @@ class FileUpload {
 		if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
 			new errorPage("Upload existiert nicht!");
 		}
+
+		$cacheKey = 'upload-' . $this->getID() . '-' . $maxWidth;
+
+		if(DB::getCache()->isItemSet($cacheKey)) {
+            header ( "Content-type: image/jpeg" );
+            echo DB::getCache()->getFromBase64($cacheKey);
+            exit(0);
+        }
 		
 		$oldSize = getImageSize ( "../data/uploads/" . $this->getID() . ".dat" );
 		
@@ -276,7 +291,12 @@ class FileUpload {
 		ImageCopyResized ( $neuesBild, $altesBild, 0, 0, 0, 0, $newWidth, $newHeight, $oldSize [0], $oldSize [1] );
 		
 		header ( "Content-type: image/jpeg" );
-		
+
+        ImageJPEG($neuesBild, "../data/temp/" . $cacheKey);
+
+        DB::getCache()->storeAsBase64($cacheKey, file_get_contents("../data/temp/" . $cacheKey));
+        unlink("../data/temp/" . $cacheKey);
+
 		ImageJPEG ( $neuesBild );
 		
 		exit ( 0 ); // Script zur Sicherheit beenden
@@ -409,6 +429,11 @@ class FileUpload {
         for($i = 0; $i < sizeof(self::$mimesPicture); $i++) {
             $mimes[] = self::$mimesPicture[$i];
         }
+
+        for($i = 0; $i < sizeof(self::$mimeTypesAudio); $i++) {
+            $mimes[] = self::$mimeTypesAudio[$i];
+        }
+
 
         return self::uploadFileImpl($fieldName, $mimes, $fileName);
     }

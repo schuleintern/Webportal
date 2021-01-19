@@ -1,0 +1,30 @@
+{$this->header}
+
+
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-check"></i> Klassenleiteransicht Klasse {$klasse->getKlassenName()}</h3><br />
+			</div>
+			
+			<div class="box-body">
+				<p><a href="index.php?page=absenzenberichte&mode=fehlendeSchriftlicheEntschuldigungen&grade={$klasse->getKlassenName()}" class="btn btn-default btn-block"><i class="fa fa-print"></i> Liste der fehlenden Entschuldigungen ausdrucken</a>
+			</p>
+				<table class="table table-striped table-hover table-bordered">
+					<tr>
+						<th style="width: 30%">Name und Aktionen</th>
+						<th>Informationen</th>
+						<th>Warnungen</th>
+					</tr>
+					$schuelerHTML
+				</table>
+			</div>
+		
+		</div>
+	
+	</div>
+
+
+
+
+
+{$this->footer}

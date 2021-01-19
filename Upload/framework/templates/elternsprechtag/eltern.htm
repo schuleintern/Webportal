@@ -15,8 +15,16 @@
 			
 		</then>
 		<else>
-			<div class="callout callout-info">Die Buchungsfrist ist leider abgelaufen. Die verbleibenden Zeitfenster können direkt am Elternsprechtag noch belegt werden. (Ausgehängte Listen)</div>
+			<div class="callout callout-info"><i class="fa fa-clock"></i> Es können keine Buchungen mehr vorgenommen werden</div>
 		</else></if>
+
+		<if($this->currentSprechtag['sprechtagIsOnline'] > 0)><then>
+
+
+		<div class="callout callout-info"><i class="fa fa-info"></i> <a href="https://schuleintern.atlassian.net/wiki/spaces/HANDBUCH/pages/11042817/Teams+Konferenzen+beitreten">Infos zur Teilnahme an den Videokonferenzen</a></div>
+
+		</then></if>
+
 		<a href="index.php?page=elternsprechtag&action=elternPrint&sprechtagID={$this->currentSprechtagID}" class="btn btn-default"><i class="fa fa-file-pdf"></i> Als PDF zum Ausdrucken speichern</a><br /><br />
 		
 		<button class="btn btn-primary" data-toggle="modal" data-target="#whwz"><i class="fa fa-calendar"></i> Wann ist welche Lehrerin / welcher Lehrer frei?</button><br /><br />

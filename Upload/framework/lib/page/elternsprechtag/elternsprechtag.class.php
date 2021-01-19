@@ -161,7 +161,7 @@ class elternsprechtag extends AbstractPage {
 		
 		
 		
-		if(DB::getSession()->isEltern()) {
+		if(DB::getSession()->isEltern() && !DB::getSession()->isTeacher() ) {
 		    $grades = DB::getSession()->getElternObject()->getKlassenAsArray();
 		    
 		    $klasseOK = false;
@@ -266,9 +266,9 @@ class elternsprechtag extends AbstractPage {
 	            
 	            else if($d['isBuchbar'] == 1) {
 	                if($d['schuelerAsvID'] != "") {
-	                    $table .= "<td>Belegt</td>";
+	                    $table .= "<td><div class='callout callout-danger'><i class='fa fa-ban'></i> Belegt</div></td>";
 	                }
-	                else $table .= "<td><b>Frei</b></td>";
+	                else $table .= "<td><div class='callout callout-success'><i class='fa fa-check-circle'></i> Frei</div></td>";
 	            }
 	            else {
 	                $table .= "<td><i>Nicht buchbar / abwesend</i></td>";
@@ -331,7 +331,6 @@ class elternsprechtag extends AbstractPage {
             new errorPage("Sie können diesen Slot nicht für dieses Kind buchen, da es nicht in folgenden Klassen ist: " . implode(", ", $sprechtagKlassen));
         }
 
-		
 		$slot = DB::getDB()->query_first("SELECT * FROM sprechtag_buchungen WHERE slotID='" . intval($_GET['slotID']) . "' AND lehrerKuerzel='" . DB::getDB()->escapeString($_POST['lehrerKuerzel']) . "'");
 		
 		if($slot['buchungID'] > 0 && $this->sprechtagIsBuchbar && $slot['isBuchbar'] == 1) {
@@ -616,8 +615,23 @@ class elternsprechtag extends AbstractPage {
 				for($k = 0; $k < sizeof($myBuchungenData); $k++) {
 					if($myBuchungenData[$k]['slotID'] == $slotData[$i]['slotID']) {
 						$table .= "<td><b>Gebucht bei " . $myBuchungenData[$k]['lehrerName'] . ", " . $myBuchungenData[$k]['lehrerRufname'] . " (" . $myBuchungenData[$k]['lehrerKuerzel'] . ")</b><br />Raum {$rooms[$myBuchungenData[$k]['lehrerKuerzel']]}<br />Schüler: " . $myBuchungenData[$k]['schuelerName'] . ", " . $myBuchungenData[$k]['schuelerRufname'];
-						if($this->sprechtagIsBuchbar) $table.= "<br /><a class=\"btn btn-danger\" href=\"index.php?page=elternsprechtag&sprechtagID=" . $this->currentSprechtagID . "&action=deletebuchung&buchungID=" . $myBuchungenData[$k]['buchungID'] . "\"><i class=\"fa fa-trash\"></i> Buchung löschen</a></td>";
-	
+
+						if($this->sprechtagIsBuchbar) $table.= "<p><a class=\"btn btn-danger btn-xs\" href=\"index.php?page=elternsprechtag&sprechtagID=" . $this->currentSprechtagID . "&action=deletebuchung&buchungID=" . $myBuchungenData[$k]['buchungID'] . "\"><i class=\"fa fa-trash\"></i> Löschen</a></p>";
+
+
+
+                        if($this->currentSprechtag['sprechtagIsOnline'] > 0) {
+                            if($myBuchungenData[$k]['meetingURL'] == "") {
+                                $table .= "<p><a href='#' disabled='disabled' class='btn btn-default'><i class='fa fa-camera'></i> Noch kein Meeting verfügbar</a></p>";
+                            }
+                            else {
+                                $table .= "<p><a href='" . $myBuchungenData[$k]['meetingURL'] . "' class='btn btn-warning'><i class='fa fa-camera'></i> Zum Meeting (Teams)</a></p>";
+                            }
+                        }
+
+                        $table .= "</td>";
+
+
 						$found = true;
 						break;
 					}
@@ -627,7 +641,7 @@ class elternsprechtag extends AbstractPage {
 					$avai = DB::getDB()->query("SELECT * FROM sprechtag_buchungen LEFT JOIN lehrer ON lehrer.lehrerKuerzel LIKE sprechtag_buchungen.lehrerKuerzel WHERE slotID='" . $slotData[$i]['slotID'] . "' AND isBuchbar=1 AND schuelerAsvID='' ORDER BY lehrerName ASC, lehrerRufname ASC");
 					
 					$table .= "<td><form action=\"index.php?page=elternsprechtag&action=savebuchung&sprechtagID=" . $this->currentSprechtagID . "&slotID=" . $slotData[$i]['slotID'] . "\" method=\"post\">";
-					$table .= "<table border=\"0\"><tr><td>Kind:</td><td><select name=\"schuelerAsvID\" class=\"form-control\">" . $optionsSchueler . "</select>";
+					$table .= "<table class='table table-striped'><tr><td>Kind:</td><td><select name=\"schuelerAsvID\" class=\"form-control\">" . $optionsSchueler . "</select>";
 					
 					$table .= "</td></tr><tr><td>Lehrer:</td><td><select name=\"lehrerKuerzel\" class=\"form-control\">";
 						
@@ -644,7 +658,7 @@ class elternsprechtag extends AbstractPage {
 						$table .= "<option value=\"" . $a['lehrerKuerzel'] . "\"" . ((is_array($lehrerKind[$a['lehrerKuerzel']])) ? (" style=\"background-color: lightgreen\"") : ("")) . ">" . $a['lehrerName'] . ", " . $a['lehrerRufname'] . " (" . $a['lehrerKuerzel'] . ") (Raum " . $rooms[$a['lehrerKuerzel']] . ") " . ((is_array($lehrerKind[$a['lehrerKuerzel']])) ? ("<b>" . implode(", ", $lehrerKind[$a['lehrerKuerzel']]) . "</b>") : ("")) . "</option>";
 					}
 					
-					$table .= "</select></td></tr><tr><td colspan=\"2\"><button type=\"submit\" class=\"btn btn-primary\"><i class=\"fa fa-save\"></i> Zeitfenster buchen</button></td></tr></table></form></td></tr>";
+					$table .= "</select></td></tr><tr><td colspan=\"2\"><button type=\"submit\" class=\"btn btn-primary btn-block\"><i class=\"fa fa-save\"></i> Zeitfenster buchen</button></td></tr></table></form></td></tr>";
 				}
 				
 				if(!$this->sprechtagIsBuchbar && !$found) {
@@ -700,7 +714,18 @@ class elternsprechtag extends AbstractPage {
 			
 			else if($d['isBuchbar'] == 1) {
 				if($d['schuelerAsvID'] != "") {
-					$table .= "<td>" . $d['schuelerName'] . ", " . $d['schuelerRufname'] . " (Klasse " . $d['schuelerKlasse'] .")</td>";
+					$table .= "<td>" . $d['schuelerName'] . ", " . $d['schuelerRufname'] . " (Klasse " . $d['schuelerKlasse'] .")";
+
+					if($this->currentSprechtag['sprechtagIsOnline'] > 0) {
+					    if($d['meetingURL'] == "") {
+					        $table .= "<br/><a href='#' disabled='disabled' class='btn btn-default'><i class='fa fa-camera'></i> Noch kein Meeting verfügbar</a>";
+                        }
+					    else {
+					        $table .= "<br /><a href='" . $d['meetingURL'] . "' class='btn btn-default'><i class='fa fa-camera'></i> Zum Meeting (Teams)</a>";
+                        }
+                    }
+
+					$table .= "</td>";
 				}
 				else $table .= "<td><b>Frei</b></td>";
 			}
@@ -877,14 +902,22 @@ class elternsprechtag extends AbstractPage {
 	    }
 	    
 	    $perCentBookable = intval($_POST['sprechtagPercentSlotsOnlineBuchbar']);
-	    
+
+
+	    if(Office365Meetings::isActiveForTeacher()) {
+            $isOnline = intval($_POST['isOnline']) > 0;
+        }
+	    else $isOnline = false;
+
+
 	    DB::getDB()->query("UPDATE sprechtag SET
             sprechtagName='" . DB::getDB()->escapeString($newName) . "',
             sprechtagDate='" . DB::getDB()->escapeString($date) . "',
             sprechtagBuchbarBis='" . DB::getDB()->escapeString($bookAbleUntil) . "',
 	        sprechtagBeginTime='" . DB::getDB()->escapeString($beginFirstSlotTimestamp) . "',
             sprechtagBuchbarAb='" . DB::getDB()->escapeString($bookAbleFromTimestamp) . "',
-            sprechtagKlassen='" . DB::getDB()->escapeString($saveKlassen) . "'
+            sprechtagKlassen='" . DB::getDB()->escapeString($saveKlassen) . "',
+            sprechtagIsOnline='$isOnline'
 
         WHERE sprechtagID='" . self::$currentSprechtagID . "'");
 	    

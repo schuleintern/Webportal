@@ -24,15 +24,94 @@ class administration extends AbstractPage {
 	}
 
 	public function execute() {
-		$users = DB::getDB()->query("SELECT * FROM sessions JOIN users ON sessions.sessionUserID=users.userID WHERE sessionLastActivity > (UNIX_TIMESTAMP()-600)");
+		$users = DB::getDB()->query("SELECT userID,sessionLastActivity FROM sessions JOIN users ON sessions.sessionUserID=users.userID WHERE sessionLastActivity > (UNIX_TIMESTAMP()-600)");
 		
 		$userList = "";
 		$count = 0;
 		while($u = DB::getDB()->fetch_array($users)) {
 			$count++;
-			$userList .= "<li>" . $u['userName'] . " (" . $u['userLastName'] . ", " . $u['userFirstName'] . ")";
+
+			$user = user::getUserByID($u['userID']);
+            $userList .= "<tr><td><strong>";
+
+            $userList .= $user->getDisplayName();
+			
+			
+			$userList .= "</strong><br />" . functions::makeDateFromTimestamp($u['sessionLastActivity']) . "</td>";
+
+
+			if($user->isTeacher()) {
+			    $userList .= "<td style='width: 20%'><button class='btn btn-app disabled'><i class='fa fa-female'></i></button></td>";
+            }
+
+            elseif($user->isPupil()) {
+                $userList .= "<td style='width: 20%'><button class='btn btn-app disabled'><i class='fa fa-child'></i></button></td>";
+            }
+
+            elseif($user->isEltern()) {
+                $userList .= "<td style='width: 20%'><button class='btn btn-app disabled'><i class='fa fa-user-friends'></i></button></td>";
+            }
+
+			else {
+                $userList .= "<td style='width: 20%'><button class='btn btn-app disabled'><i class='fa fa-question-circle'></i></button></td>";
+
+            }
+
+
 		}
-		
+
+		// Statistik
+
+        $labels = [];
+
+		$eltern = [];
+		$schueler = [];
+		$lehrer = [];
+
+		$stat = [];
+
+        switch($_REQUEST['statType']) {
+            case 'today':
+            default:
+                $title = "Eingeloggte Benutzer heute";
+                $stat = UserLoginStat::getTodayStat();
+                break;
+
+            case 'month':
+                $title = "Eingeloggte Benutzer diesen Monat";
+
+                $stat = UserLoginStat::getCurrentMonth();
+                break;
+
+            case 'year':
+                $title = "Eingeloggte Benutzer im Jahr " . date("Y");
+
+                $stat = UserLoginStat::getYear(date("Y"));
+                break;
+
+            case 'lastyear':
+                $title = "Eingeloggte Benutzer im Jahr " . (date("Y")-1);
+
+                $stat = UserLoginStat::getYear(date("Y")-1);
+                break;
+
+        }
+
+        if(sizeof($stat) > 0) {
+            $labels = $stat['labels'];
+            $lehrer = $stat['teacherdata'];
+            $schueler = $stat['studentdata'];
+            $eltern = $stat['parentsdata'];
+        }
+
+
+        $labelsJSONEncoded = json_encode($labels);
+        $schuelerJSONEncoded = json_encode($schueler);
+        $elternJSONEncoded = json_encode($eltern);
+        $lehrerJSONEncoded = json_encode($lehrer);
+
+
+
 		eval("echo(\"" . DB::getTPL()->get("administration/index") . "\");");
 	}
 	

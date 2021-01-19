@@ -450,9 +450,8 @@ class Notenbogen {
                     if($this->unterrichtsNoten[$i]->getSchnittGross() > 0) {
                         $table .= "<td align=\"left\"><font face=\"Courier\">" . number_format($this->unterrichtsNoten[$i]->getSchnittGross(),2,",",".") . "<br /><small>" . $this->unterrichtsNoten[$i]->getGewichtGross();
                         $table .= "</small></font></td>";
-
                     }
-                    else {
+                    else if($hasAnySchulaufgaben) {
                         $table .= "<td align=\"left\">&nbsp;";
                         $table .= "</td>";
 

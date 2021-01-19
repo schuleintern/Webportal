@@ -26,24 +26,62 @@
 				<h3 class="box-title"><i class="fa fa-search"></i> Schüler suchen</h3><br />
 			</div>
 			<div class="box-body">
-				<form action="index.php?page=schuelerinfo&mode=schueler" method="post">
-				
-					<div class="input-group input-group-sm">
-						<select name="schuelerAsvID" id="schuelerSelect" class="form-control"  autofocus="autofocus" placeholder="Schüler suchen ...">
-		                    $schuelerSelect
-		                </select>    
-		                    <span class="input-group-btn">
-		                      <button type="submit" class="btn btn-info btn-flat">OK</button>
-		                    </span>
-		              </div>
+
+
+				<form action="index.php?page=schuelerinfo&mode=schueler" method="post" id="searchuserform">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn"><i class="fa fa-search"></i></button>
+						</div>
+						<input type="hidden" name="schuelerAsvID" value="" id="schuelerAsvID">
+						<input type="text" name="pupilName" value="" id="schuelerAutocomplete"  class="form-control" placeholder="Nach Schüler suchen ...">
+					</div>
 				</form>
+
+				<script>
+					$(function() {
+
+						$("#schuelerAutocomplete").autocomplete({
+							source: "index.php?page=schuelerinfo&mode=searchSchueler",
+							minLength: 2,
+							select: function(event, ui) {
+								var id = ui.item.id;
+								var display = ui.item.label;
+								$("#schuelerAsvID").val(id);
+								$("#searchuserform").submit();
+								return false;
+
+							},
+
+							open: function(event, ui) {
+								$(".ui-autocomplete").css("z-index", 999999);
+							}
+						});
+
+					});
+
+				</script>
 			</div>
 		</div>
+
+
+
+		<if(SchuelerQuarantaene::isActive())><then>
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-file-pdf"></i> Listen</h3><br />
+			</div>
+			<div class="box-body">
+				<p><a href="index.php?page=schuelerinfo&mode=getCompleteQuarantaeneList" class="btn btn-danger btn-block"><i class="fa fa-head-side-mask"></i> Gesamtliste der Quarantänefälle an der Schule</a></p>
+			</div>
+		</div>
+
+		</then></if>
 		
 		<if(!DB::getSettings()->getBoolean('schuelerinfo-disable-unterricht'))><then>
 		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title"><i class="fa fa-group"></i> Wahl- / Zusatzunterricht</h3><br />
+				<h3 class="box-title"><i class="fa fa-rocket"></i> Wahl- / Zusatzunterricht</h3><br />
 			
 				Für weitere Informationen (Schülerliste), bitte auf das Fach klicken.
 			</div>

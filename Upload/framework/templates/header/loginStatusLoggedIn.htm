@@ -17,15 +17,36 @@
                   $displayName
                   <small>{$mainGroup}
                 
-                <if(DB::getSession()->is2FactorActive() && !DB::getSession()->getUser()->isCurrentDeviceTrusted())><then><br /><i class="fa fa-lock"></i> Zweiten Faktor eingegeben - <a href="index.php?page=TwoFactor&action=endSession" class="btn btn-xs"><i class="fa fa-ban"></i> Beenden</a></then></if>
+                <if(DB::getSession()->is2FactorActive() && !DB::getSession()->getUser()->isCurrentDeviceTrusted())><then><br /><i class="fa fa-lock"></i> Zweiten Faktor eingegeben</then></if>
                 
-                <if(DB::getSession()->is2FactorActive() && DB::getSession()->getUser()->isCurrentDeviceTrusted())><then><br /><i class="fa fa-lock"></i> Verauenswürdiges Gerät - <a href="index.php?page=TwoFactor&action=removeTrustedDevice" class="btn btn-xs"><i class="fa fa-ban"></i> Entfernen</a></then></if>
+                <if(DB::getSession()->is2FactorActive() && DB::getSession()->getUser()->isCurrentDeviceTrusted())><then><br /><i class="fa fa-lock"></i> Verauenswürdiges Gerät</then></if>
                 
                 </small>
                 </p>
               </li>
               <li class="user-body">
                 <div class="row">
+
+                  <if(DB::getSession()->is2FactorActive() && !DB::getSession()->getUser()->isCurrentDeviceTrusted())><then>
+
+                  <div class="col-xs-12"></i><a href="index.php?page=TwoFactor&action=endSession" class="btn btn-app btn-block"><i class="fa fa-ban"></i> 2FA Beenden</a></div>
+
+                  </then></if>
+
+
+                  <if(DB::getSession()->is2FactorActive() && DB::getSession()->getUser()->isCurrentDeviceTrusted())><then>
+
+
+                  <div class="col-xs-12">
+
+                    <a href="index.php?page=TwoFactor&action=removeTrustedDevice" class="btn btn-app btn-block"><i class="fa fa-trash"></i> <small>Gerät nicht mehr vertrauenswürdig (2FA)</small></a>
+
+                  </div>
+
+
+                  </then></if>
+
+
                   <div class="col-xs-6">
                     <a href="index.php?page=userprofilesettings" class="btn btn-app btn-block"><i class="fa fa-cogs"></i>Seiteneinstellungen</a>
                   </div>

@@ -168,7 +168,7 @@ class MessageRead extends AbstractPage {
         exit(0);
     }
     else if($_POST['action'] == 'deleteMessage') {
-    	MessageFolder::getFolder(DB::getSession()->getUser, $message->getFolder(), $folderID)->deleteMessages([$message->getID()]);
+    	MessageFolder::getFolder(DB::getSession()->getUser(), $message->getFolder(), $folderID)->deleteMessages([$message->getID()]);
     	header("Location: index.php?page=MessageInbox&folder=" . $message->getFolder());
     	exit(0);
     }
@@ -178,7 +178,12 @@ class MessageRead extends AbstractPage {
 
     $allRecipients = [];
     for($i = 0; $i < sizeof($recipients); $i++) {
-      $allRecipients[] = $recipients[$i]->getDisplayName();
+        if($recipients[$i] != null && $this->message->getMyRecipient() != null && $recipients[$i]->getSaveString() == $this->message->getMyRecipient()->getSaveString()) {
+            $allRecipients[] = "<strong>" . $recipients[$i]->getDisplayName()  ."</strong>";
+        }
+        else {
+            $allRecipients[] = $recipients[$i]->getDisplayName();
+        }
     }
     
     $ccRecipients = $this->message->getCCRecipients();

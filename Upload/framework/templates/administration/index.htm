@@ -3,54 +3,113 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
-		<div class="box box-solid box-danger">
-		
-		<div class="box-header">
-		
-			<h3 class="box-title"><i class="fa fa-newspaper"></i> Software SchuleIntern</h3><br />
+	<div class="col-md-5">
 
-		</div>
-		
-		<div class="box-body">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title"><i class="fa fa-chart-line"></i> Anmeldestatistik - $title</h3>
+            </div>
+            <div class="box-body">
+                <p>
+                    <a href="index.php?page=administration&statType=today" class="btn btn-default"><i class="fa fa-chart-line"></i> Heute</a>
+                    <a href="index.php?page=administration&statType=month" class="btn btn-default"><i class="fa fa-chart-line"></i> Dieser Monat</a>
+                    <a href="index.php?page=administration&statType=year" class="btn btn-default"><i class="fa fa-chart-line"></i> Dieses Jahr</a>
+                    <a href="index.php?page=administration&statType=lastyear" class="btn btn-default"><i class="fa fa-chart-line"></i> Vorheriges Jahr</a>
 
-			<p>SchuleIntern ist freie Software unter der GPLv2.</p>
+                </p>
+                <canvas id="myChart" width="400" height="400"></canvas>
 
-			<p>
-				<a href="https://www.schule-intern.de/" class="btn btn-app" target="_blank"><i class="fa fa-home"></i> Projektseite</a>
-				<a href="https://www.schule-intern.de/forum/" class="btn btn-app" target="_blank"><i class="fa fa-hands-helping"></i> Supportforum</a>
-				<a href="https://www.github.com/schuleintern" class="btn btn-app" target="_blank"><i class="fab fa-github"></i> Github</a>
+            </div>
+        </div>
 
-
-			</p>
-		
-		</div>
-		
-		</div>
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: $labelsJSONEncoded,
+                    datasets: [{
+                        label: 'Angemeldete Eltern',
+                        data: $elternJSONEncoded,
+                        borderWidth: 3,
+                        "borderColor":"rgb(250, 192, 192)"
+                    },
+                        {
+                            label: 'Angemeldete Lehrer',
+                            data: $lehrerJSONEncoded,
+                            borderWidth: 3,
+                            "borderColor":"rgb(75, 192, 192)"
+                        },
+                        {
+                            label: 'Angemeldete Schüler',
+                            data: $schuelerJSONEncoded,
+                            borderWidth: 3,
+                            "borderColor":"rgb(75, 0, 192)"
+                        }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
 
 	</div>
+
+    <div class="col-md-3">
+        <div class="box">
+
+            <div class="box-header">
+
+                <h3 class="box-title"><i class="fa fa-user"></i> Benutzer mit Aktivität in den letzten 5 Minuten</h3>
+
+            </div>
+
+            <div class="box-body">
+                <p><i class="fa fa-female"></i> Lehrkraft | <i class="fa fa-child"></i> Schüler | <i class="fa fa-user-friends"></i> Eltern | <i class="fa fa-question-circle"></i> Sonstige</p>
+                <p><strong>Derzeit $count angemeldete Benutzer</strong></p>
+
+                <table class="table table-hover table-striped">
+                    $userList
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
 	
 		<div class="col-md-4">
-			<div class="box">
-		
-		<div class="box-header">
-		
-			<h3 class="box-title"><i class="fa fa-user"></i> Benutzer mit Aktivität in den letzten 10 Minuten</h3>
-		
-		</div>
-		
-		<div class="box-body">
-		<b>	$count angemeldete Benutzer</b>
-		
-		<ul>
-		
-		$userList
-		
-		</ul>
-		
-		</div>
-		
-		</div>
+
+
+            <div class="box box-solid box-danger">
+
+                <div class="box-header">
+
+                    <h3 class="box-title"><i class="fa fa-newspaper"></i> Software SchuleIntern</h3><br />
+
+                </div>
+
+                <div class="box-body">
+
+                    <p>SchuleIntern ist freie Software unter der GPLv2.</p>
+
+                    <p>
+                        <a href="https://www.schule-intern.de/" class="btn btn-app" target="_blank"><i class="fa fa-home"></i> Projektseite</a>
+                        <a href="https://www.schule-intern.de/forum/" class="btn btn-app" target="_blank"><i class="fa fa-hands-helping"></i> Supportforum</a>
+                        <a href="https://www.github.com/schuleintern" class="btn btn-app" target="_blank"><i class="fab fa-github"></i> Github</a>
+
+
+                    </p>
+
+                </div>
+
+            </div>
 
 
 			<div class="box box-solid box-danger">

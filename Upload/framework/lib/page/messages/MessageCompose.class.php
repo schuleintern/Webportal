@@ -437,12 +437,76 @@ class MessageCompose extends AbstractPage {
 				$recipientHandler = new RecipientHandler($_REQUEST['recipients']);
 				$recipientHandlerCC = new RecipientHandler($_REQUEST['ccrecipients']);
 				$recipientHandlerBCC = new RecipientHandler($_REQUEST['bccrecipients']);
-								
-				
+
+
+
+				// Videokonferenz
+                if(DB::getSession()->isTeacher() && Office365Meetings::isActiveForTeacher() && $_POST['addMeetingURL'] > 0) {
+                    if(DateFunctions::isNaturalDate($_POST['meetingDate'])) {
+                        $meetingDate = DateFunctions::getMySQLDateFromNaturalDate($_POST['meetingDate']);
+                        $stundeStart = intval($_REQUEST['meetingTimeHour']);
+                        $minuteStart = intval($_REQUEST['meetingTimeMinutes']);
+
+
+                        $meetingDateEnde = $meetingDate;
+
+                        $stundeEnde = $stundeStart + 1;
+                        if($stundeEnde == 24) {
+                            $meetingDateEnde = DateFunctions::addOneDayToMySqlDate($meetingDateEnde);
+                            $stundeEnde = 0;
+                        }
+
+                        if($stundeStart < 10) $stundeStart = "0" . $stundeStart;
+                        if($stundeEnde < 10) $stundeEnde = "0" . $stundeEnde;
+                        if($minuteStart < 10) $minuteStart = "0" . $minuteStart;
+
+                        $minuteEnde = $minuteStart;
+
+
+                        $dateTimeStart = $meetingDate . "T" . $stundeStart . ":" . $minuteStart . ":00";
+                        $dateTimeENde = $meetingDateEnde . "T" . $stundeEnde . ":" . $minuteEnde . ":00";
+
+                        if(sizeof($recipientHandler->getAllRecipients()) > 0) {
+                            $meetingSubject = "Videokonferenz mit " . $recipientHandler->getAllRecipients()[0]->getDisplayName();
+                        }
+                        else {
+                            $meetingSubject = "Videokonferenz";
+                        }
+
+                        $meetingText = "Teilnehmer:<br><br>";
+
+                        $allRecipients = $recipientHandler->getAllRecipients();
+                        for($i = 0; $i < sizeof($allRecipients); $i++) {
+                            $meetingText .= $allRecipients[$i]->getDisplayName() . "<br>";
+                        }
+
+                        $meetingURL = Office365Api::createMeeting(DB::getSession()->getUser()->getUserName(),$dateTimeStart, $dateTimeENde, $meetingSubject, $meetingText);
+
+
+                        if($meetingURL != null) {
+                            $_POST['messageText'] .= "<br><br><b>Link zur Videokonferenz am " . DateFunctions::getNaturalDateFromMySQLDate($meetingDate) . " um " . $stundeStart . ":" . $minuteStart . " Uhr</b><br><a href='$meetingURL' target='_blank'>" . $meetingURL . "</a><br>Hinweis: Nutzen Sie Chrome oder Edge. Sie können auch die Teams App auf Ihrem Smartphone oder Tablet verwenden.";
+                        }
+                    }
+                }
+
+                // Vertraulichkeit
+
+                if($_REQUEST['isConfidential'] > 0) {
+                    $messageSender->setConfidential();;
+                }
+
+
 				$messageSender->setSender(DB::getSession()->getUser());
 				
 				$messageSender->setSubject($_POST['messageSubject']);
-				$messageSender->setText($_POST['messageText']);
+
+                $config = HTMLPurifier_Config::createDefault();
+                $config->set('URI.AllowedSchemes', ['data' => true,'src'=>true,'http' => true, 'https' => true]);      // Bilder as Base64 erlauben
+                $purifier = new HTMLPurifier($config);
+
+                $text = $purifier->purify($_REQUEST['messageText']);
+
+				$messageSender->setText($text);
 				$messageSender->setPriority($_POST['priority']);
 				
 				$messageSender->setRecipients($recipientHandler);				
@@ -452,6 +516,14 @@ class MessageCompose extends AbstractPage {
 				// Debugger::debugObject($messageSender,1);
 								
 				$attachments = explode(";",$_REQUEST['attachments']);
+
+				if(DB::getSession()->isTeacher()) {
+				    if(Office365Meetings::isActiveForTeacher()) {
+				        if($_POST['addMeetingURL'] > 0) {
+				            // $meetingJoinURL = Office365Api::createMeeting(DB::getSession()->getUser()->getUserName());
+                        }
+                    }
+                }
 				
 				
 				
@@ -1026,7 +1098,21 @@ class MessageCompose extends AbstractPage {
             }
 
         }
-		
+
+
+        // Meeting
+
+        $meetingTimeSelectMinute = "";
+        $meetingTimeSelectHour = "";
+
+        if(DB::getSession()->isTeacher() && Office365Meetings::isActiveForTeacher()) {
+            $canAddMeeting = true;
+
+            for($i = 0; $i <= 23; $i++) $meetingTimeSelectHour .= "<option value=\"" . $i . "\"" . (($i == 15) ? "selected" : "") . ">" . $i . "</option>";
+            for($i = 0; $i <= 60; $i++) $meetingTimeSelectMinute .= "<option value=\"" . $i . "\"" . (($i == 0) ? "selected" : "") . ">" . $i . "</option>";
+
+        } else $canAddMeeting = false;
+
 		
 		$signature = "";
 		

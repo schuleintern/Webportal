@@ -10,7 +10,12 @@
       	<if(AbsenzSchuelerInfo::hasAttestpflicht($schueler, DateFunctions::getMySQLDateFromNaturalDate($currentDate)))><then><span class="label label-danger">Attestpflicht</span></then></if>
       	
       	</h4>
-      	
+
+		  <if($this->isActive("schuelerinfo"))><then>
+		  <a class="btn btn-primary pull-right" type="button" href="index.php?page=schuelerinfo&mode=schueler&schuelerAsvID={$schueler->getAsvID()}"><i class="fa fa-file-archive"></i> Zum digialen Schülerakt</a>
+	  </then></if>
+
+
       	Geburtstag: <expression>$schueler->getGeburtstagAsNaturalDate()</expression> (Alter: <expression>$schueler->getAlter()</expression> Jahre) | Wohnort: <expression>$schueler->getWohnort()</expression>
       
       	$nachteilsausgleichHTML
@@ -36,7 +41,7 @@
 	        <if(!DB::getSettings()->getBoolean('absenzen-generelleattestpflicht'))><then><li><a href="#tab7<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-exclamation"></i> Attestpflicht</a></li></then></if>
 	        <li><a href="#tab10<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-bell"></i> Merker</a></li>
 	        <li><a href="#tab3<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-mobile"></i> Kontakte</a></li>
-	        <li><a href="#tab4<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-file-text"></i> Kommentar / Notizen</a></li>
+	        <li><a href="#tab4<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fas fa-file"></i> Kommentar / Notizen</a></li>
 	        
 	        </ul>
 	        <div class="tab-content">
@@ -178,7 +183,7 @@
 		        			<td><input type="text" name="sanizimmerGrund" placeholder="Grund des Sanizimmerbesuchs (optional)" class="form-control"></td>
 		        		<tr>
 		        			<td>
-		        				<button type="submit" value="1" name="sanizimmer" class="form-control"><i class="fa fa-bed"></i> Ins Sanizimmer</button>
+		        				<button type="submit" value="1" name="sanizimmer" class="btn btn-primary btn-block"><i class="fa fa-bed"></i> Ins Sanizimmer</button>
 		        			</td>
 		        		</tr>
 		        	</table>
@@ -216,7 +221,7 @@
 		        			<td><textarea name="verspaetungKommentar" rows="5" class="form-control" placeholder="z.B. S-Bahn Verspätung"></textarea></td>
 		        		</tr>
 		        	</table>
-		        	<button type="submit" class="form-control"><i class="fa fa-clock"></i> Verspätung eintragen</button>
+		        	<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-clock"></i> Verspätung eintragen</button>
 		        	
 		        	</form>
 		        </div>
@@ -250,7 +255,7 @@
 							<td><input type="text" class="form-control" name="endDate" value="$endeJuli" id="addAbsenzEnde<expression>$schueler->getAsvID()</expression>"></td>
 						</tr>
 						<tr>
-							<td colspan="2"><button type="submit" name="save" value="1" class="form-control"><i class="fa fa-exclamation"></i> Attestpflicht speichern</button></td>
+							<td colspan="2"><button type="submit" name="save" value="1" class="btn btn-primary btn-block"><i class="fa fa-exclamation"></i> Attestpflicht speichern</button></td>
 						</tr>
 					</table>
 					
@@ -280,7 +285,7 @@
 			      			</tr>
 			      			<tr>
 			      				<td colspan="2">
-			      					<button type="submit" name="entschuldigt" value="1" class="form-control"><i class="fa fa-check-square"></i> Beurlaubung anlegen</button>
+			      					<button type="submit" name="entschuldigt" value="1" class="btn btn-primary btn-block"><i class="fa fa-check-square"></i> Beurlaubung anlegen</button>
 			      					</td>
 			      			</tr>
 			      			
@@ -297,7 +302,7 @@
 			      				<td><input type="text" name="merkerText" class="form-control" placeholder="z.B. Soll ins Sekretariat kommen">Gültig ab $currentDate bis der Merker gelöscht wird.</td>
 			      			</tr>
 			      			<tr>
-			      				<td colspan="2"><button type="submit" class="form-control"><i class="fa fa-save"></i> Merker speichern</button>
+			      				<td colspan="2"><button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Merker speichern</button>
 			      		</table>
 			      	</form>
 		        </div>

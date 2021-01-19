@@ -33,7 +33,7 @@
 <if($currentDate != DateFunctions::getTodayAsNaturalDate())><then>
 	<div class="alert alert-error alert-dismissible">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <font size="+4"><i class="fa fa-warning"></i> Es ist nicht der heutige Tag ausgewählt!</font>
+      <font size="+2"><i class="fa fa-exclamation-triangle"></i> Es ist nicht der heutige Tag ausgewählt!</font>
      </div>
 </then></if>
 
@@ -60,10 +60,10 @@
 	<div class="col-md-12">
 		<div class="box">
 			<div class="box-body">
-				<table class="table">
+				<table class="table table-condensed">
 					<tr>
 						<td width="20%">
-							<button type="submit" name="dayBack" value="1" class="form-control"><i class="fa fa-arrow-left"></i> Tag zurück</button>
+							<button type="submit" name="dayBack" value="1" class="btn btn-default btn-block"><i class="fa fa-arrow-left"></i> Tag zurück</button>
 						</td>
 						<td>
 							<div class="input-group">
@@ -72,16 +72,16 @@
 							</div>		
 						</td>
 						<if($currentDate != DateFunctions::getTodayAsNaturalDate())><then>
-							<td width="20%"><button class="form-control" name="toToday" value="1" type="submit" ><i class="fa fa-arrow-up"></i> Zu heute springen</button></td>
+							<td width="20%"><button class="btn btn-default btn-block" name="toToday" value="1" type="submit" ><i class="fa fa-arrow-up"></i> Zu heute springen</button></td>
 						</then>
 						</if>
 						<td width="20%">
-							<button class="form-control" name="dayForward" value="1" type="submit">Tag weiter <i class="fa fa-arrow-right"></i></button>
+							<button class="btn btn-default btn-block" name="dayForward" value="1" type="submit">Tag weiter <i class="fa fa-arrow-right"></i></button>
 						</td>
 						<td width="13%" style="text-align: right">
 							<if($currentDate == DateFunctions::getTodayAsNaturalDate())><then>
-							<button class="btn btn-danger" type="button" onclick="window.location.href='index.php?page=absenzenberichte&mode=dayStatus&date=$currentDateSQL'"><i class="fa fa-fire-extinguisher"></i> Notfall Liste</button>
-							<button class="btn" type="button" onclick="window.location.href='index.php?page=absenzenberichte&mode=dayStatusOnlyAbsent&date=$currentDateSQL'"><i class="fa fa-print"></i> Absenzenliste</button>
+							<a class="btn btn-danger btn-block" href="index.php?page=absenzenberichte&mode=dayStatus&date=$currentDateSQL'"><i class="fa fa-fire-extinguisher"></i> Notfall Liste</a>
+							<a class="btn btn-block btn-default" href="index.php?page=absenzenberichte&mode=dayStatusOnlyAbsent&date=$currentDateSQL'"><i class="fa fa-print"></i> Absenzenliste</a>
 							
 							</then></if>
 						</td>
@@ -94,7 +94,7 @@
 </form>
 
 <if(Ferien::isFerien($currentDateSQL))><then>
-	<div class="callout callout-success"><i class="fa fa-sun"></i> Gewähltes Datum sind Ferien</div>
+	<div class="callout callout-success"><i class="fa fa-sun"></i> Gewähltes Datum sind Ferien.</div>
 </then></if>
 
 <if($activeKlasse != null && !$activeKlasse->isAnwesend($currentDate))><then>
@@ -148,7 +148,7 @@
 				<h3 class="box-title"><i class="fa fa-users"></i> Klassen (<a href="index.php?page=absenzensekretariat&currentDate=$currentDate">Alle Klassen anzeigen</a>)</h3>
 			</div>
 			<div class="box-body">
-				<table class="table table-striped">
+				<table class="table table-striped table-hover table-condensed">
 					$klassenListeHTML
 				</table>
 			</div>
@@ -164,7 +164,7 @@
 						<h3 class="box-title"><i class="fa fa-user"></i> Schüler $viewKlasse</h3><br /><small>Für Krankmeldung und Weiteres auf den Schülernamen klicken</small>
 					</div>
 					<div class="box-body">
-						<table class="table table-striped">
+						<table class="table table-striped table-condensed">
 							$schuelerListeHTML
 						</table>
 					</div>
@@ -181,7 +181,7 @@
 		</then>
 		<else>
 			<div class="col-md-9">
-				<div class="callout callout-info">Keine Klasse ausgewählt. Es werden alle Absenzen der Schule angezeigt.</div>
+				<div class="callout callout-info"><i class="fa fa-ban"></i> Keine Klasse ausgewählt. Es werden alle Absenzen der Schule angezeigt.</div>
 		</else>
 		</if>
 		<if($sanizimmerHTML != "")>
@@ -203,6 +203,50 @@
 				</div>
 			</then>
 		</if>
+
+		<if($ganzeKlasseQuarantaene)><then>
+			<div class="callout callout-warning"><i class="fa fa-head-side-mask"></i> Komplette Klasse in Quarantäne</div>
+		</then>
+
+		<else>
+
+			<if($quarantaeneList != "")>
+			<then>
+				<div class="box box-warning">
+					<div class="box-header">
+						<h3 class="box-title"><i class="fa fa-head-side-mask"></i> Quarantänen</h3>
+					</div>
+					<div class="box-body">
+						<table class="table table-striped">
+							<tr>
+								<th>Schueler</th>
+								<th>Von</th>
+								<th>Bis</th>
+							</tr>
+							$quarantaeneList
+						</table>
+					</div>
+				</div>
+			</then>
+			</if>
+
+		</else>
+
+
+		</if>
+
+	<if($merkerHTML != "")>
+	<then>
+		<div class="box box-danger">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-check-square"></i> Merker</h3>
+			</div>
+			<div class="box-body">
+				$merkerHTML
+			</div>
+		</div>
+	</then>
+	</if>
 	
 		<div class="box">
 			<div class="box-header">

@@ -1,0 +1,77 @@
+<div class="modal fade"id="modalsanizimmer<expression>$schueler->getAsvID()</expression>" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="width:70%" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><expression>$schueler->getCompleteSchuelerName()</expression> (Klasse <expression>$schueler->getKlasse()</expression>)
+        
+        <if($schueler->isAusgetreten())><then><span class="label label-info">Ausgetreten: <expression>datefunctions::getNaturalDateFromMySQLDate($schueler->getAustrittDatumAsMySQLDate())</expression></span></then></if>
+      	<if(AbsenzSchuelerInfo::hasAttestpflicht($schueler, DateFunctions::getMySQLDateFromNaturalDate($currentDate)))><then><span class="label label-danger">Attestpflicht</span></then></if>
+      	
+      	</h4>
+      	
+      	Geburtstag: <expression>$schueler->getGeburtstagAsNaturalDate()</expression> (Alter: <expression>$schueler->getAlter()</expression> Jahre) | Wohnort: <expression>$schueler->getWohnort()</expression>
+      </div>
+      <div class="modal-body">
+              <div class="tabbable">
+	        <ul class="nav nav-tabs">
+	        	<li class="active"><a href="#tab1sanizimmer<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-bed"></i> Sanizimmer Aktionen</a></li>
+	        	<li><a href="#tab2sanizimmer<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-mobile"></i> Kontakte</a></li>
+	        	<li><a href="#tab3sanizimmer<expression>$schueler->getAsvID()</expression>" data-toggle="tab"><i class="fa fa-mobile"></i> Kommentar / Notizen</a></li>
+	        
+	        </ul>
+	        <div class="tab-content">
+		        <div class="tab-pane active" id="tab1sanizimmer<expression>$schueler->getAsvID()</expression>">
+					<form action="index.php?page=absenzensekretariat&mode=sanizimmer&sanizimmerID={$dataSanizimmer['sanizimmerID']}&activeKlasse={$_GET['activeKlasse']}&currentDate={$currentDate}" method="post">
+			        <input type="hidden" name="currentDate" value="{$currentDate}"><!-- Natural Date! -->
+			        <table class="table table-striped">
+			        	<tr>
+			        		<td><input type="text" class="form-control" placeholder="Anmerkungen" name="bemerkung" value="{$dataSanizimmer['sanizimmerGrund']}"></td>
+			        	</tr>
+			        	<tr>
+			        		<td><button type="submit" name="zurueck" value="1" class="form-control"><i class="fa fa-arrow-left"></i> Zurück in den Unterricht</button>
+			        		</td>
+			        	</tr>
+			        	<tr>
+			        		<td><button type="submit" name="befreiung" value="1" class="form-control"><i class="fa fa-bed"></i> Befreiung ausstellen</button>
+			        		</td>
+			        	</tr>
+			        	<tr>
+			        		<td><button type="submit" name="rettungsdienst" value="1" class="form-control"><i class="fa fa-ambulance"></i> Abholung Rettungsdienst</button>
+			        		</td>
+			        	</tr>
+			        	<tr>
+			        		<td><button type="submit" name="delete" value="1" class="form-control"><i class="fa fa-ban"></i> Eintrag löschen</button>
+			        		</td>
+			        	</tr>
+			        </table>
+			        </form>
+			     </div>
+			     <div class="tab-pane" id="tab2sanizimmer<expression>$schueler->getAsvID()</expression>">
+		        	<table class="table table-striped">
+		        		{$adressenHTML}
+		        	</table>
+		        </div>
+		        
+		         <div class="tab-pane" id="tab3sanizimmer<expression>$schueler->getAsvID()</expression>">
+					<if(AbsenzSchuelerInfo::getComment($schueler) != "")><then><pre>AbsenzSchuelerInfo::getComment($schueler)</pre></then><else>Kein Kommentar hinterlegt!</else></if>
+		        </div>
+			</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	$(function() {
+		$("#krankBis<expression>$schueler->getAsvID()</expression>").datepicker({
+			format: 'dd.mm.yyyy',
+	        language: "de",
+	        autoclose: true
+		});
+	});
+</script>

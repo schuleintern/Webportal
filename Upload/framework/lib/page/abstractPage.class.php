@@ -14,6 +14,9 @@ abstract class AbstractPage {
      */
 	private $title;
 
+    /**
+     * @var string
+     */
 	public $header = "";
 
 	// public $footer = ""; // moved to PAGE.class.php
@@ -37,12 +40,16 @@ abstract class AbstractPage {
 	
 	protected $helpTopic = "";
 
-	private static $activeLicensePages = array();
-
 	private static $activePages = array();
 	
 	private $acl = false;
 	private $submenu = false;
+
+    /**
+     * Ist das Modul im Beta Status?
+     * @var bool
+     */
+	protected static $isBeta = false;
 
 	public function __construct($pageline, $ignoreSession = false, $isAdmin = false, $isNotenverwaltung = false) {
 
@@ -631,6 +638,15 @@ abstract class AbstractPage {
 		return $this->acl['rights']['delete'];
 	}
 
+
+    /**
+     * Ist das Modul im Beta Test?
+     * @return bool
+     */
+	public static function isBeta() {
+	    return false;
+    }
+
 	public function getAclByID($id = false, $showRight = false, $adminGroup = false) {
 
 		if (!$adminGroup) {
@@ -648,5 +664,6 @@ abstract class AbstractPage {
 		}
 		return false;
 	}
+
 
 }

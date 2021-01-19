@@ -113,7 +113,7 @@ class TagebuchPDFCreator {
 	                $klasseHTML = "";
 	                
 	                
-	                $klasseHTML .= "<div style=\"page-break-after: always;\"><h3>Klassentagebuch der Klasse " . $klassen[$i] . " vom " . DateFunctions::getWeekDayNameFromNaturalDate($currentDate) . ", " . DateFunctions::getNaturalDateFromMySQLDate($currentDate) . "</h3>";
+	                $klasseHTML .= "<div style=\"page-break-after: always;\"><h3>Klassentagebuch der Klasse " . $klassen[$i] . " vom " . DateFunctions::getWeekDayNameFromNaturalDate(DateFunctions::getNaturalDateFromMySQLDate($currentDate)) . ", " . DateFunctions::getNaturalDateFromMySQLDate($currentDate) . "</h3>";
 	                
 	                $klasseHTML .= "<table border=\"1\" width=\"100%\" cellpadding=\"2\" cellspacing=\"0\"><tr><th width=\"10%\">Stunde</th><th width=\"30%\">Stundenplan</th><th width=\"60%\">Einträge</th></tr>";
 	                

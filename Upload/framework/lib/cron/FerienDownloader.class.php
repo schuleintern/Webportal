@@ -15,7 +15,7 @@ class FerienDownloader extends AbstractCron {
 	
 	public function execute() {
    
-	    DB::getDB()->query("DELETE FROM kalender_ferien");
+	    DB::getDB()->query("TRUNCATE kalender_ferien");
 	    
 	    $feriendata = file(DB::getGlobalSettings()->ferienURL);
 
