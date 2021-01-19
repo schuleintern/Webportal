@@ -16,6 +16,7 @@ class Office365Login {
             'redirectUri'       => DB::getGlobalSettings()->urlToIndexPHP . "?page=oAuth2Auth"
         ]);
 
+
         if (!isset($_GET['code'])) {
             $authUrl = $provider->getAuthorizationUrl();
             $_SESSION['oauth2state'] = $provider->getState();

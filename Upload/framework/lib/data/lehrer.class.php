@@ -133,7 +133,7 @@ class lehrer {
 	}
 	
 	public function setUserID($userID = 0) {
-	    DB::getDB()->query("UPDATE lehrer SET lehrerUserID=0 WHERE lehrerAsvID='" . $this->getAsvID() . "'");
+	    DB::getDB()->query("UPDATE lehrer SET lehrerUserID=$userID WHERE lehrerAsvID='" . $this->getAsvID() . "'");
 	}
 	
 	/**

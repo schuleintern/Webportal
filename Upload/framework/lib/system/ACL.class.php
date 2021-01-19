@@ -9,7 +9,9 @@
 class ACL {
 
 
+
   public function getAcl($user, $moduleClass = false, $id = false, $adminGroup = false) {
+
 
 		$userID = $user->getUserID();
 
@@ -30,7 +32,7 @@ class ACL {
 			'delete' => 0
 		];
 
-		$acl = array_merge( $acl, self::getBlank() );
+    $acl = array_merge( $acl, self::getBlank() );
 
 		if ($moduleClass && $id == false) {
 			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$moduleClass."' ");
@@ -60,11 +62,11 @@ class ACL {
 		}
 
 		$acl['groups'] = [
-			'schueler' => ['read' => $aclDB['schuelerRead'], 'write' => $aclDB['schuelerWrite'], 'delete' => $aclDB['schuelerDelete'] ],
-			'eltern' => [ 'read' => $aclDB['elternRead'], 'write' => $aclDB['elternWrite'], 'delete' => $aclDB['elternDelete'] ],
-			'lehrer' => [ 'read' => $aclDB['lehrerRead'], 'write' => $aclDB['lehrerWrite'], 'delete' => $aclDB['lehrerDelete'] ],
-			'none' => [ 'read' => $aclDB['noneRead'], 'write' => $aclDB['noneWrite'], 'delete' => $aclDB['noneDelete'] ],
-			'owne' => [ 'read' => $aclDB['owneRead'], 'write' => $aclDB['owneWrite'], 'delete' => $aclDB['owneDelete'] ]
+			'schueler' => ['read' => intval($aclDB['schuelerRead']), 'write' => intval($aclDB['schuelerWrite']), 'delete' => intval($aclDB['schuelerDelete']) ],
+			'eltern' => [ 'read' => intval($aclDB['elternRead']), 'write' => intval($aclDB['elternWrite']), 'delete' => intval($aclDB['elternDelete']) ],
+			'lehrer' => [ 'read' => intval($aclDB['lehrerRead']), 'write' => intval($aclDB['lehrerWrite']), 'delete' => intval($aclDB['lehrerDelete']) ],
+			'none' => [ 'read' => intval($aclDB['noneRead']), 'write' => intval($aclDB['noneWrite']), 'delete' => intval($aclDB['noneDelete']) ],
+			'owne' => [ 'read' => intval($aclDB['owneRead']), 'write' => intval($aclDB['owneWrite']), 'delete' => intval($aclDB['owneDelete']) ]
 		];
 
 		if ( $acl['user']['schueler'] == 1 ) {
@@ -222,6 +224,8 @@ class ACL {
 				'msg' => 'Missing ACL ID or ModulClass'
 			];
 		}
+
+		return [];
 	}
 
 	public function getBlank() {

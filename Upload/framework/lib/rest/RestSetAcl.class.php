@@ -5,7 +5,7 @@ class RestSetAcl extends AbstractRest {
 
 	public function execute($input, $request) {
 	
-	
+		
 		if ( $input['acl'] ) {
 			$row = $input['acl'];
 		} else {
@@ -24,18 +24,15 @@ class RestSetAcl extends AbstractRest {
 
 		$return = ACL::setAcl($row, $module);
 
-		if ( $return && $return['error'] != true ) {
-			return [
-				'error' => false,
-				'done' => true
-			];
-		} else {
+		if (is_array($return)) {
 			return $return;
 		}
 
-		
+		return [
+			'error' => true,
+			'msg' => 'Error!'
+		];
 
-		exit;
 	}
 
 	public function getAllowedMethod() {
@@ -57,6 +54,7 @@ class RestSetAcl extends AbstractRest {
 	public function needsUserAuth() {
 		return true;
 	}
+
 
 
 }	

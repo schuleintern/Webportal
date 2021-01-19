@@ -12,26 +12,28 @@ class RestGetAcl extends AbstractRest {
 				'msg' => 'Fehlendes Modul!'
 			];
 		}
-		if ( intval($module) > 1 ) {
-			$result = DB::getDB()->query_first("SELECT * FROM acl WHERE id = ".intval($module));
-		} else {
-			$result = DB::getDB()->query_first("SELECT * FROM acl WHERE moduleClass = '".$module."'");
-		}
+		$result = ACL::getAcl($this->user, $module );
 		
-		if( $result['id'] ) {
+		
+		// echo "<pre>";
+		// print_r($result);
+		// echo "</pre>";
 
+
+		if( isset($result['aclID']) && intval($result['aclID']) > 0 ) {
 			return [
 				'acl' => $result
 			];
-
 		} else {
 			return [
 				'error' => true,
-				'msg' => 'Es konnte keine ACL gefunden werden!'
+				'msg' => 'Es konnte keine ACL gefunden werden!',
+				'aclBlank' => ACL::getBlank()
 			];
 		}
 
-		exit;
+		return [];
+		//exit;
 	}
 
 	public function getAllowedMethod() {
@@ -52,6 +54,10 @@ class RestGetAcl extends AbstractRest {
 
 	public function needsUserAuth() {
 		return true;
+	}
+
+	public function aclModuleName() {
+		return 'kalenderAllInOne';
 	}
 
 

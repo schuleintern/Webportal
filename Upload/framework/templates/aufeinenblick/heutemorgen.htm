@@ -39,7 +39,8 @@
 				  
 
 				  <label><input type="checkbox" id="showUnangekuendigt" class="ichecklnwtype"> Unangekündigte Leistungsnachweise anzeigen</label>
-				  				  <div id="cal$datum"></div>
+					<div id="cal$datum"></div>
+					$kalenderHTML
 				  
 				  
 				  <script>
@@ -57,6 +58,7 @@
 						selectable: false,     
 						editable: false,
 						eventLimit: false,
+						contentHeight: 'auto',
 						eventRender: function(event, element) {
 							if(event.eventType == 'lnw') {
 								if(event.lnwtype == 'STEGREIFAUFGABE' && !$("#showUnangekuendigt").prop('checked')) return false;

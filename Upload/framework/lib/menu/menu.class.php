@@ -315,7 +315,9 @@ class menu {
           }
         }
         
-        
+        if($this->isActive("kalenderAllInOne")) {
+          $html .= $this->getMenuItem('kalenderAllInOne', 'Kalender', 'fa fa-calendar');
+        }
         
         // Andere Kalender
         

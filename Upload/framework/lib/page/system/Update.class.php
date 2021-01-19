@@ -32,11 +32,11 @@ class Update extends AbstractPage
 
         
         // Compare Database with File and execute query
-        $dbFile = "../data/update/Upload/database.sql";
+        /** $dbFile = "../data/update/Upload/database.sql";
         if (file_exists($dbFile)) {
             $newStructure = file_get_contents("../framework/database.sql");
             $this->updateDatabase($newStructure);
-        }
+        } **/       // Temporär entfernt für Update auf 1.3.0, Spi
 
         // Updates durchführen
         if ($this->performUpdate($fromVersion, $toVersion)) {
@@ -104,19 +104,204 @@ class Update extends AbstractPage
             $this->from121to122();
         }
 
-        if ($from == "1.2.2" && $to == "1.2.3") {
-            $this->from122to123();
+        if ($from == "1.2.2" && $to == "1.3.0") {
+            $this->from122to130();
         }
 
         return true;
     }
 
-    private function from122to123() {
+    private function from122to130() {
 
         // sql changes:
         // absenzen_absenzen => `absenzGanztagsNotiz` tinytext NOT NULL,
         // ganztags_gruppen => `raum` varchar(30) DEFAULT NULL,
         // ganztags_gruppen => `farbe` varchar(8) DEFAULT NULL,
+
+
+        $sql = "ALTER TABLE `ganztags_gruppen` ADD `raum` VARCHAR(30) NULL DEFAULT NULL AFTER `name`, ADD `farbe` VARCHAR(8) NULL DEFAULT NULL AFTER `raum`;
+ALTER TABLE `absenzen_absenzen` ADD COLUMN `absenzGanztagsNotiz` tinytext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `absenzKommtSpaeter`;
+ALTER TABLE `absenzen_absenzen` ADD INDEX `absenzDatum`(`absenzDatum`) USING BTREE;
+ALTER TABLE `absenzen_absenzen` ADD INDEX `absenzSchuelerAsvID`(`absenzSchuelerAsvID`) USING BTREE;
+ALTER TABLE `absenzen_attestpflicht` ADD INDEX `attestpflichtStart`(`attestpflichtStart`, `attestpflichtEnde`) USING BTREE;
+ALTER TABLE `absenzen_attestpflicht` ADD INDEX `schuelerAsvID`(`schuelerAsvID`) USING BTREE;
+ALTER TABLE `absenzen_krankmeldungen` ADD INDEX `krankmeldungAbsenzID`(`krankmeldungAbsenzID`) USING BTREE;
+ALTER TABLE `absenzen_krankmeldungen` ADD INDEX `krankmeldungDate`(`krankmeldungDate`) USING BTREE;
+ALTER TABLE `absenzen_krankmeldungen` ADD INDEX `krankmeldungElternID`(`krankmeldungElternID`) USING BTREE;
+ALTER TABLE `absenzen_krankmeldungen` ADD INDEX `krankmeldungSchuelerASVID`(`krankmeldungSchuelerASVID`) USING BTREE;
+ALTER TABLE `absenzen_sanizimmer` ADD INDEX `sanizimmerSchuelerAsvID`(`sanizimmerSchuelerAsvID`) USING BTREE;
+ALTER TABLE `acl` MODIFY COLUMN `id` int(10) UNSIGNED NOT NULL FIRST;
+ALTER TABLE `acl` MODIFY COLUMN `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `acl` ADD INDEX `moduleClass`(`moduleClass`) USING BTREE;
+ALTER TABLE `acl` ADD INDEX `moduleClassParent`(`moduleClassParent`) USING BTREE;
+ALTER TABLE `aufeinenblick_settings` ADD INDEX `aufeinenblickUserID`(`aufeinenblickUserID`) USING BTREE;
+ALTER TABLE `ausleihe_ausleihe` ADD INDEX `ausleiheObjektID`(`ausleiheObjektID`) USING BTREE;
+ALTER TABLE `ausweise` ADD INDEX `ausweisArt`(`ausweisArt`) USING BTREE;
+ALTER TABLE `ausweise` ADD INDEX `ausweisBezahlt`(`ausweisBezahlt`) USING BTREE;
+ALTER TABLE `ausweise` ADD INDEX `ausweisErsteller`(`ausweisErsteller`) USING BTREE;
+ALTER TABLE `ausweise` ADD INDEX `ausweisStatus`(`ausweisStatus`) USING BTREE;
+ALTER TABLE `bad_mail` ADD INDEX `badMailDone`(`badMailDone`) USING BTREE;
+ALTER TABLE `beurlaubung_antrag` ADD INDEX `antragAbsenzID`(`antragAbsenzID`) USING BTREE;
+ALTER TABLE `beurlaubung_antrag` ADD INDEX `antragSchuelerAsvID`(`antragSchuelerAsvID`) USING BTREE;
+ALTER TABLE `beurlaubung_antrag` ADD INDEX `antragUserID`(`antragUserID`) USING BTREE;
+CREATE TABLE `cache`  (
+  `cacheKey` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `cacheTTL` int(11) NOT NULL,
+  `cacheType` enum('object','text','base64') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'text',
+  `cacheData` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`cacheKey`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+ALTER TABLE `cron_execution` ADD INDEX `cronName`(`cronName`) USING BTREE;
+ALTER TABLE `dokumente_dateien` ADD INDEX `gruppenID`(`gruppenID`) USING BTREE;
+ALTER TABLE `eltern_adressen` ADD INDEX `adresseSchuelerAsvID`(`adresseSchuelerAsvID`) USING BTREE;
+ALTER TABLE `eltern_codes` ADD INDEX `codeSchuelerAsvID`(`codeSchuelerAsvID`) USING BTREE;
+ALTER TABLE `eltern_email` ADD INDEX `elternUserID`(`elternUserID`) USING BTREE;
+ALTER TABLE `fremdlogin` ADD INDEX `userID`(`userID`) USING BTREE;
+ALTER TABLE `ganztags_gruppen` MODIFY COLUMN `id` int(10) UNSIGNED NOT NULL FIRST;
+ALTER TABLE `ganztags_gruppen` MODIFY COLUMN `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ganztags_schueler` ADD INDEX `gruppe`(`gruppe`) USING BTREE;
+ALTER TABLE `icsfeeds` ADD INDEX `feedKey2`(`feedKey2`) USING BTREE;
+ALTER TABLE `icsfeeds` ADD INDEX `feedKey`(`feedKey`) USING BTREE;
+ALTER TABLE `icsfeeds` ADD INDEX `feedType`(`feedType`) USING BTREE;
+ALTER TABLE `icsfeeds` ADD INDEX `feedUserID`(`feedUserID`) USING BTREE;
+ALTER TABLE `image_uploads` ADD INDEX `uploadUserName`(`uploadUserName`) USING BTREE;
+ALTER TABLE `initialpasswords` ADD INDEX `initialPasswordUserID`(`initialPasswordUserID`) USING BTREE;
+ALTER TABLE `initialpasswords` ADD INDEX `passwordPrinted`(`passwordPrinted`) USING BTREE;
+ALTER TABLE `kalender_andere` ADD INDEX `eintragDatumStart`(`eintragDatumStart`, `eintragDatumEnde`) USING BTREE;
+ALTER TABLE `kalender_andere` ADD INDEX `kalenderID`(`kalenderID`) USING BTREE;
+ALTER TABLE `kalender_extern` ADD INDEX `eintragDatumStart`(`eintragDatumStart`, `eintragDatumEnde`) USING BTREE;
+ALTER TABLE `kalender_extern` ADD INDEX `kalenderID`(`kalenderID`) USING BTREE;
+ALTER TABLE `kalender_ferien` ADD INDEX `ferienStart`(`ferienStart`, `ferienEnde`) USING BTREE;
+ALTER TABLE `kalender_klassentermin` ADD INDEX `eintragDatumStart`(`eintragDatumStart`, `eintragDatumEnde`) USING BTREE;
+ALTER TABLE `kalender_lnw` ADD INDEX `eintragArt`(`eintragArt`) USING BTREE;
+ALTER TABLE `kalender_lnw` ADD INDEX `eintragDatumStart`(`eintragDatumStart`, `eintragDatumEnde`) USING BTREE;
+ALTER TABLE `kalender_lnw` ADD INDEX `eintragKlasse`(`eintragKlasse`) USING BTREE;
+ALTER TABLE `kalender_lnw` ADD INDEX `eintragLehrer`(`eintragLehrer`) USING BTREE;
+ALTER TABLE `klassentagebuch_fehl` ADD INDEX `fehlDatum`(`fehlDatum`) USING BTREE;
+ALTER TABLE `klassentagebuch_fehl` ADD INDEX `fehlKlasse`(`fehlKlasse`) USING BTREE;
+ALTER TABLE `klassentagebuch_fehl` ADD INDEX `fehlLehrer`(`fehlLehrer`) USING BTREE;
+ALTER TABLE `klassentagebuch_klassen` ADD INDEX `entryGrade`(`entryGrade`) USING BTREE;
+ALTER TABLE `klassentagebuch_klassen` ADD INDEX `entryTeacher`(`entryTeacher`) USING BTREE;
+CREATE TABLE `kms`  (
+  `kmsID` int(11) NOT NULL AUTO_INCREMENT,
+  `kmsAktenzeichen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `kmsTitel` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `kmsSchularten` int(11) NULL DEFAULT NULL,
+  `kmsUploadID` int(11) NOT NULL,
+  PRIMARY KEY (`kmsID`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+ALTER TABLE `laufzettel` ADD INDEX `laufzettelDatum`(`laufzettelDatum`) USING BTREE;
+ALTER TABLE `laufzettel` ADD INDEX `laufzettelErsteller`(`laufzettelErsteller`) USING BTREE;
+ALTER TABLE `laufzettel_stunden` ADD INDEX `laufzettelID`(`laufzettelID`) USING BTREE;
+ALTER TABLE `laufzettel_stunden` ADD INDEX `laufzettelLehrer`(`laufzettelLehrer`) USING BTREE;
+ALTER TABLE `lehrer` ADD INDEX `lehrerID`(`lehrerID`) USING BTREE;
+ALTER TABLE `lehrer` ADD INDEX `lehrerKuerzel`(`lehrerKuerzel`) USING BTREE;
+ALTER TABLE `lehrer` ADD INDEX `lehrerUserID`(`lehrerUserID`) USING BTREE;
+ALTER TABLE `lerntutoren` ADD INDEX `lerntutorSchuelerAsvID`(`lerntutorSchuelerAsvID`) USING BTREE;
+CREATE TABLE `loginstat`  (
+  `statTimestamp` timestamp NOT NULL DEFAULT current_timestamp,
+  `statLoggedInTeachers` int(11) NULL DEFAULT NULL,
+  `statLoggedInStudents` int(11) NULL DEFAULT NULL,
+  `statLoggedInParents` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`statTimestamp`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+ALTER TABLE `mail_send` ADD INDEX `mailSent`(`mailSent`, `mailCrawler`) USING BTREE;
+ALTER TABLE `mebis_accounts` ADD INDEX `mebisAccountNachname`(`mebisAccountNachname`) USING BTREE;
+ALTER TABLE `mebis_accounts` ADD INDEX `mebisAccountVorname`(`mebisAccountVorname`) USING BTREE;
+ALTER TABLE `mensa_speiseplan` MODIFY COLUMN `id` int(10) UNSIGNED NOT NULL FIRST;
+ALTER TABLE `mensa_speiseplan` MODIFY COLUMN `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `messages_folders` ADD INDEX `folderUserID`(`folderUserID`) USING BTREE;
+ALTER TABLE `messages_messages` DROP INDEX `messageUserID`;
+ALTER TABLE `messages_messages` ADD COLUMN `messageMyRecipientSaveString` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'In welchem Empfänger ist der Empfänger dieser Nachricht enthalten. (Wen betrifft es.)' AFTER `messageIsForwardFrom`;
+ALTER TABLE `messages_messages` ADD COLUMN `messageIsConfidential` tinyint(1) NOT NULL DEFAULT 0 AFTER `messageMyRecipientSaveString`;
+ALTER TABLE `messages_messages` ADD INDEX `messageIsSentViaEMail`(`messageIsSentViaEMail`) USING BTREE;
+ALTER TABLE `messages_messages` ADD INDEX `messageTime`(`messageTime`) USING BTREE;
+ALTER TABLE `messages_questions` ADD INDEX `questionUserID`(`questionUserID`) USING BTREE;
+ALTER TABLE `messages_questions_answers` ADD INDEX `answerMessageID`(`answerMessageID`) USING BTREE;
+ALTER TABLE `messages_questions_answers` ADD INDEX `answerQuestionID`(`answerQuestionID`) USING BTREE;
+ALTER TABLE `modul_admin_notes` ADD INDEX `noteModuleName`(`noteModuleName`) USING BTREE;
+ALTER TABLE `resetpassword` ADD INDEX `resetUserID`(`resetUserID`) USING BTREE;
+ALTER TABLE `schueler` ADD INDEX `schuelerEintrittDatum`(`schuelerEintrittDatum`) USING BTREE;
+ALTER TABLE `schueler` ADD INDEX `schuelerKlasse`(`schuelerKlasse`) USING BTREE;
+ALTER TABLE `schueler` ADD INDEX `schuelerUserID`(`schuelerUserID`) USING BTREE;
+CREATE TABLE `schueler_quarantaene`  (
+  `quarantaeneID` int(11) NOT NULL AUTO_INCREMENT,
+  `quarantaeneSchuelerAsvID` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `quarantaeneStart` date NULL DEFAULT NULL,
+  `quarantaeneEnde` date NULL DEFAULT NULL,
+  `quarantaeneArt` enum('I','K1','S') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'S',
+  `quarantaeneKommentar` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `quarantaeneCreatedByUserID` int(11) NOT NULL,
+  `quarantaeneFileUpload` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`quarantaeneID`) USING BTREE,
+  INDEX `quarantaeneSchuelerAsvID`(`quarantaeneSchuelerAsvID`) USING BTREE,
+  INDEX `quarantaeneStart`(`quarantaeneStart`, `quarantaeneEnde`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+ALTER TABLE `schuelerinfo_dokumente` ADD INDEX `dokumentSchuelerAsvID`(`dokumentSchuelerAsvID`) USING BTREE;
+ALTER TABLE `schulbuch_ausleihe` ADD INDEX `ausleiheExemplarID`(`ausleiheExemplarID`) USING BTREE;
+ALTER TABLE `schulbuch_ausleihe` ADD INDEX `ausleiherLehrerAsvID`(`ausleiherLehrerAsvID`) USING BTREE;
+ALTER TABLE `schulbuch_ausleihe` ADD INDEX `ausleiherSchuelerAsvID`(`ausleiherSchuelerAsvID`) USING BTREE;
+ALTER TABLE `schulbuch_ausleihe` ADD INDEX `ausleiherUserID`(`ausleiherUserID`) USING BTREE;
+ALTER TABLE `schulbuch_ausleihe` ADD INDEX `ausleiheStartDatum`(`ausleiheStartDatum`, `ausleiheEndDatum`) USING BTREE;
+ALTER TABLE `schulbuch_ausleihe` ADD INDEX `rueckgeberUserID`(`rueckgeberUserID`) USING BTREE;
+ALTER TABLE `schulbuch_exemplare` ADD INDEX `exemplarBuchID`(`exemplarBuchID`) USING BTREE;
+ALTER TABLE `schulen` ADD INDEX `schuleNummer`(`schuleNummer`) USING BTREE;
+ALTER TABLE `sessions` ADD INDEX `sessionLastActivity`(`sessionLastActivity`) USING BTREE;
+ALTER TABLE `sessions` ADD INDEX `sessionType`(`sessionType`) USING BTREE;
+ALTER TABLE `sessions` ADD INDEX `sessionUserID`(`sessionUserID`) USING BTREE;
+CREATE TABLE `settings_history`  (
+  `settingHistoryID` int(11) NOT NULL AUTO_INCREMENT,
+  `settingHistoryName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `settingHistoryChangeTime` int(11) NOT NULL,
+  `settingHistoryOldValue` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `settingHistoryNewValue` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `settingHistoryUserID` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`settingHistoryID`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+ALTER TABLE `site_activation` ADD INDEX `siteIsActive`(`siteIsActive`) USING BTREE;
+ALTER TABLE `sprechtag` ADD COLUMN `sprechtagInfotext` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `sprechtagBeginTime`;
+ALTER TABLE `sprechtag` ADD COLUMN `sprechtagIsOnline` tinyint(1) NOT NULL AFTER `sprechtagInfotext`;
+ALTER TABLE `sprechtag` ADD INDEX `sprechtagDate`(`sprechtagDate`) USING BTREE;
+ALTER TABLE `sprechtag` ADD INDEX `sprechtagIsActive`(`sprechtagIsActive`) USING BTREE;
+ALTER TABLE `sprechtag_buchungen` ADD COLUMN `meetingURL` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `elternUserID`;
+ALTER TABLE `sprechtag_buchungen` ADD INDEX `lehrerKuerzel`(`lehrerKuerzel`) USING BTREE;
+ALTER TABLE `sprechtag_buchungen` ADD INDEX `schuelerAsvID`(`schuelerAsvID`) USING BTREE;
+ALTER TABLE `sprechtag_buchungen` ADD INDEX `sprechtagID`(`sprechtagID`) USING BTREE;
+ALTER TABLE `sprechtag_slots` ADD INDEX `sprechtagID`(`sprechtagID`) USING BTREE;
+ALTER TABLE `stundenplan_aufsichten` ADD INDEX `stundenplanID`(`stundenplanID`) USING BTREE;
+ALTER TABLE `stundenplan_plaene` ADD INDEX `stundenplanAb`(`stundenplanAb`, `stundenplanBis`) USING BTREE;
+ALTER TABLE `stundenplan_stunden` ADD INDEX `stundenplanID`(`stundenplanID`) USING BTREE;
+ALTER TABLE `unterricht` ADD INDEX `unterrichtFachID`(`unterrichtFachID`) USING BTREE;
+ALTER TABLE `unterricht` ADD INDEX `unterrichtLehrerID`(`unterrichtLehrerID`) USING BTREE;
+ALTER TABLE `unterricht_besuch` ADD INDEX `unterrichtID`(`unterrichtID`, `schuelerAsvID`) USING BTREE;
+ALTER TABLE `uploads` ADD INDEX `fileAccessCode`(`fileAccessCode`) USING BTREE;
+ALTER TABLE `users` ADD INDEX `userName`(`userName`(1024)) USING BTREE;
+ALTER TABLE `users_groups` ADD INDEX `groupName`(`groupName`) USING BTREE;
+ALTER TABLE `users_groups` ADD INDEX `userID`(`userID`) USING BTREE;
+ALTER TABLE `users_groups_own` ADD INDEX `groupIsMessageRecipient`(`groupIsMessageRecipient`) USING BTREE;
+DROP TABLE `absenzen_absenzen_stunden`;
+DROP TABLE `beurlaubungsantraege`;
+DROP TABLE `database_database`;
+DROP TABLE `database_user2database`;
+DROP TABLE `database_users`;
+DROP TABLE `elternbriefe`;
+DROP TABLE `ffbumfrage`;
+DROP TABLE `klassenkalender`;
+DROP TABLE `klassentagebuch_lehrer`;
+DROP TABLE `pupil_grade`;
+DROP TABLE `rsu_persons`;
+DROP TABLE `rsu_print`;
+DROP TABLE `rsu_sections`;
+DROP TABLE `user_images`;
+DROP TABLE `wlan_schueler`;";
+
+        $sql = explode(";", $sql);
+
+        // Datenbank Update
+        for($i = 0; $i < sizeof($sql); $i++) {
+            DB::getDB()->query($sql[$i],true);        // Datenbank Update
+        }
+
 
         $this->updateComponentsFolder(122);
         $this->updateCssJSFolder(122);

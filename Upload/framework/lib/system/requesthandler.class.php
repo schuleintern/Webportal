@@ -123,7 +123,8 @@ class requesthandler {
       'extKalender',
       'andereKalender',
       'geticsfeed',
-      'terminuebersicht'
+      'terminuebersicht',
+      'kalenderAllInOne'
     ],
     'klassenlisten' => [
       'klassenlisten',
