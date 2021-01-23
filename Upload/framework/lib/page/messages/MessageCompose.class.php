@@ -439,6 +439,7 @@ class MessageCompose extends AbstractPage {
 				$recipientHandlerBCC = new RecipientHandler($_REQUEST['bccrecipients']);
 
 
+				$addMeetingHTML = "";
 
 				// Videokonferenz
                 if(DB::getSession()->isTeacher() && Office365Meetings::isActiveForTeacher() && $_POST['addMeetingURL'] > 0) {
@@ -482,9 +483,8 @@ class MessageCompose extends AbstractPage {
 
                         $meetingURL = Office365Api::createMeeting(DB::getSession()->getUser()->getUserName(),$dateTimeStart, $dateTimeENde, $meetingSubject, $meetingText);
 
-
                         if($meetingURL != null) {
-                            $_POST['messageText'] .= "<br><br><b>Link zur Videokonferenz am " . DateFunctions::getNaturalDateFromMySQLDate($meetingDate) . " um " . $stundeStart . ":" . $minuteStart . " Uhr</b><br><a href='$meetingURL' target='_blank'>" . $meetingURL . "</a><br>Hinweis: Nutzen Sie Chrome oder Edge. Sie können auch die Teams App auf Ihrem Smartphone oder Tablet verwenden.";
+                            $addMeetingHTML = "<br><br><b>Link zur Videokonferenz am " . DateFunctions::getNaturalDateFromMySQLDate($meetingDate) . " um " . $stundeStart . ":" . $minuteStart . " Uhr</b><br><a href='$meetingURL' target='_blank'>" . $meetingURL . "</a><br>Hinweis: Nutzen Sie Chrome oder Edge. Sie können auch die Teams App auf Ihrem Smartphone oder Tablet verwenden.";
                         }
                     }
                 }
@@ -506,6 +506,8 @@ class MessageCompose extends AbstractPage {
 
                 $text = $purifier->purify($_REQUEST['messageText']);
 
+                $text .= $addMeetingHTML;
+
 				$messageSender->setText($text);
 				$messageSender->setPriority($_POST['priority']);
 				
@@ -517,15 +519,6 @@ class MessageCompose extends AbstractPage {
 								
 				$attachments = explode(";",$_REQUEST['attachments']);
 
-				if(DB::getSession()->isTeacher()) {
-				    if(Office365Meetings::isActiveForTeacher()) {
-				        if($_POST['addMeetingURL'] > 0) {
-				            // $meetingJoinURL = Office365Api::createMeeting(DB::getSession()->getUser()->getUserName());
-                        }
-                    }
-                }
-				
-				
 				
 				for($i = 0; $i < sizeof($attachments); $i++) {
 					list($id, $secret) = explode("#",$attachments[$i]);
