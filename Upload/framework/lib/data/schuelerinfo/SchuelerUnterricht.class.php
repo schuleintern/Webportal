@@ -111,7 +111,7 @@ class SchuelerUnterricht {
 	}
 	
 	public function isPflichtunterricht() {
-	    return $this->data['unterrichtArt'] == 'Pflichtunterricht';
+	    return $this->data['unterrichtArt'] == 'Pflichtunterricht'|| $this->data['unterrichtArt'] == 'Wahlpflichtunterricht';
 	}
 	
 	public function isWahlunterricht() {
