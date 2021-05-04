@@ -285,8 +285,14 @@ class WLanTickets extends AbstractPage {
 	        
 	        if($all[$i]->isAssigned()) {
 	            $user = $all[$i]->getAssignedUser();
+
+	            if($user != null) {
+                    $ticketHTML .= "<td>" . $user->getDisplayNameWithFunction() . "</td>";
+                }
+	            else {
+                    $ticketHTML .= "<td>n/a</td>";
+                }
 	            
-	            $ticketHTML .= "<td>" . $user->getDisplayNameWithFunction() . "</td>";
 	        }
 	        else {
 	            $ticketHTML .= "<td>frei</td>";
