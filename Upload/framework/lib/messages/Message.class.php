@@ -629,7 +629,7 @@ class Message {
 	 */
 	public static function getUnsentMailsViaEMail() {
 		$time = time() - ( 24 * 60 * 60);
-		$mails = DB::getDB()->query("SELECT * FROM messages_messages JOIN users ON users.userID=messages_messages.messageUserID WHERE messageIsRead=0 AND messageIsSentViaEMail=0 AND messageTime > ".$time);
+		$mails = DB::getDB()->query("SELECT * FROM messages_messages JOIN users ON users.userID=messages_messages.messageUserID WHERE messageIsRead=0 AND messageIsSentViaEMail=0 AND messageTime > ".$time . " LIMIT 50");
 		
 		$mms = [];
 		
