@@ -188,11 +188,14 @@ class TwoFactor extends AbstractPage {
 	    
 	    
 	    if($_REQUEST['checkCode'] > 0) {
-	    
+
 	        // Prevent Brute Force
 	        sleep(2);
 	        	        
-	        if(DB::getSession()->getUser()->check2FACode($_REQUEST['totpCode'])) {
+	        if(DB::getSession()->getUser()->check2FACode($_REQUEST['totpCode'])
+                ||
+                (DB::isDebug() && $_REQUEST['totpCode'] == "123-456")            // Im Debug Modus ist TOTP auch 123456
+            ) {
 	            DB::getSession()->set2FactorActive();
 	            	            
 	            
