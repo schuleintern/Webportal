@@ -59,7 +59,8 @@ class NotenRespizienz extends AbstractPage {
 
       if($arbeit == null) new errorPage();
 
-      if($arbeit->getFach()->getKurzform() == $this->unterricht->getFach()->getKurzform() && $arbeit->getLehrerKuerzel() == DB::getSession()->getTeacherObject()->getKuerzel()) {
+                                                                                                    // Am 12.05.2021 entfernt wegen Respbogen bei von anderer Lehrkraft erstellter Arbeit
+      if($arbeit->getFach()->getKurzform() == $this->unterricht->getFach()->getKurzform()) { //  && $arbeit->getLehrerKuerzel() == DB::getSession()->getTeacherObject()->getKuerzel()) {
 
           $schuljahr = DB::getSettings()->getValue("general-schuljahr");
           $lehrer = DB::getSession()->getTeacherObject()->getDisplayNameMitAmtsbezeichnung();
@@ -116,7 +117,7 @@ class NotenRespizienz extends AbstractPage {
               $notenTabelle .= "</td></tr>";
 
           }
-          
+
           $percentMitgeschrieben = 0;
           
           if($alle > 0) {
@@ -153,7 +154,8 @@ class NotenRespizienz extends AbstractPage {
 
 
       eval("\$html = \"" . DB::getTPL()->get("notenverwaltung/respizienz/lehrer/arbeit") . "\";");
-      
+
+
       $print = new PrintNormalPageA4WithHeader("Abgabeliste");
       $print->setHTMLContent($html);
       $print->send();

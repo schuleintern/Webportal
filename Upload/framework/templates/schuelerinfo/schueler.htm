@@ -19,7 +19,7 @@
       <div class="box-body">
         <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                  <if($_REQUEST['uploadOK'] == '' && $_REQUEST['uploadFail'] == '' && $_REQUEST['nsOK'] == '' && $_REQUEST['openLetter'] == '' && $_REQUEST['openQuarantaene'] == '')><then>
+                  <if($_REQUEST['uploadOK'] == '' && $_REQUEST['uploadFail'] == '' && $_REQUEST['nsOK'] == '' && $_REQUEST['openLetter'] == '' && $_REQUEST['openQuarantaene'] == '' && $_REQUEST['openNotenbild'] == '')><then>
                   <li class="active">
                   </then><else>
                   <li>
@@ -36,7 +36,10 @@
                   <li>
                   </else></if><a href="#nachteilsausgleich" data-toggle="tab"><i class="fa fa-handshake"></i> Nachteilsausgleich</a></li>
                   <if($withNoten)><then>
-                  	<li><a href="#noten" data-toggle="tab"><i class="fa fa-check"></i> Aktuelles Notenbild</a></li>
+                    <if($_REQUEST['openNotenbild'] != '')><then>
+                      <li class="active">
+                      </then><else><li></else></if>
+                  	<a href="#noten" data-toggle="tab"><i class="fa fa-check"></i> Aktuelles Notenbild</a></li>
                   </then></if>
                   <li><a href="#fehlzeiten" data-toggle="tab"><i class="fa fa-user-md"></i> Fehlzeiten</a></li>
                   <li><a href="#unterricht" data-toggle="tab"><i class="fa fa-graduation-cap"></i> Unterrichtsbesuch</a></li>
@@ -55,7 +58,7 @@
                   <if($_REQUEST['openLetter'] != '')><then><li class="active"></then><else><li></else></if><a href="#aktionen" data-toggle="tab"><i class="fa fa-play"></i> Vorgänge / Briefe</a></li>
                 </ul>
                 <div class="tab-content">
-                  <if($_REQUEST['uploadOK'] == '' && $_REQUEST['uploadFail'] == '' && $_REQUEST['nsOK'] == '' && $_REQUEST['openLetter'] == '' && $_REQUEST['openQuarantaene'] == '')><then>
+                  <if($_REQUEST['uploadOK'] == '' && $_REQUEST['uploadFail'] == '' && $_REQUEST['nsOK'] == '' && $_REQUEST['openLetter'] == '' && $_REQUEST['openQuarantaene'] == '' && $_REQUEST['openNotenbild'] == '')><then>
                   <div class="tab-pane active" id="allginfos">
                   </then><else>
                   <div class="tab-pane" id="allginfos">
@@ -484,7 +487,17 @@
             </div>
             
             <if($withNoten)><then>
-            <div class="tab-pane" id="noten">
+                  <if($_REQUEST['openNotenbild'] != '')><then>
+
+                  <div class="tab-pane active" id="noten">
+
+            </then><else>
+
+                  <div class="tab-pane" id="noten">
+
+            </else></if>
+
+
             	<table class="table table-bordered">
             		$notentabelle
             	</table>            
