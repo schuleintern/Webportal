@@ -1,0 +1,49 @@
+{$this->header}
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-book"></i> Aktuell ausgeliehene Bücher</h3>
+	</div>
+	<div class="box-body">
+		<table class="table table-striped">
+			<tr>
+				<th>Buch</th>
+				<th>Weitere Informationen</th>
+				<th>Ausleiher</th>
+				<th>Ausleihdatum</th>
+			</tr>
+			<if($htmlActive != "")><then>
+			$htmlActive
+			</then><else>
+				<tr>
+					<td colspan="4">Keine Aktuellen Ausleihen</td>
+				</tr>
+			</else></if>
+		</table>
+	</div>
+</div>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-book"></i> Zurückgegebene Bücher</h3>
+	</div>
+	<div class="box-body">
+		<table class="table table-striped">
+			<tr>
+				<th>Buch</th>
+				<th>Weitere Informationen</th>
+				<th>Ausleiher</th>
+				<th>Ausleihdatum</th>
+			</tr>
+			<if($htmlDone != "")><then>
+			$htmlDone
+			</then><else>
+				<tr>
+					<td colspan="4">Keine vergangenen Ausleihen</td>
+				</tr>
+			</else></if>
+		</table>
+	</div>
+</div>
+
+{$this->footer}

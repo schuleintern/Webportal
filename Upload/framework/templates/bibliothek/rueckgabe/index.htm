@@ -1,0 +1,263 @@
+{$this->header}
+
+<div class="callout callout-danger" id="scanError" style="display:none"></div>
+
+<if($zustandChanged)><then>
+
+<div class="callout callout-info"><i class="fa fa-information-circle"></i> Der Zustand des zuletzt zurückgegeben Buches hat sich geändert!</div>
+
+
+</then></if>
+
+<if($schueler == null)><then>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-arrow-down"></i> Rückgabe</h3><br />
+		<div style="text-align: right">
+		<a href="cssjs/schulbuecher/barcodes_zustand.pdf"><i class="fa fa-file-pdf"></i> Barcodes zum Erfassen des Zustands</a></div>
+	</div>
+	<div class="box-body">
+		<form onsubmit="checkBarcode(); return false;")>
+		
+		        <div class="input-group input-group-sm">
+				<input type="text" name="schuelerAsvID" id="barcode" class="form-control"  autofocus="autofocus" placeholder="Barcode des Schülers oder eines ausgeliehen Buches scannen">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-info btn-flat">OK</button>
+                    </span>
+              </div>
+		</form>
+	</div>
+</div>
+
+</then>
+<else>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-arrow-down"></i> Rückgabe - Schüler: {$schueler->getCompleteSchuelerName()} (Klasse {$schueler->getKlasse()})</h3>
+	</div>
+	<div class="box-body">
+		<form onsubmit="checkBarcode(); return false;")>
+		
+		        <div class="input-group input-group-sm">
+				<input type="text" name="schuelerAsvID" id="barcode" class="form-control"  autofocus="autofocus" placeholder="Barcode des Schülers oder eines ausgeliehen Buches scannen">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-info btn-flat">OK</button>
+                    </span>
+              </div>
+		</form>
+	</div>
+</div>
+
+</else>
+</if>
+
+<script>
+
+function checkBarcode() {
+	
+	$("#scanError").fadeOut();
+	
+	$.ajax({
+		type: "POST",
+		url: 'index.php?page=schulbuecher&mode=rueckgabeCheckScan',
+		data: {
+			"barcode": $("#barcode").val()
+		},
+		success: function(data, textStatus, jqXHR) {
+			if(!data.isSchueler && !data.isBook) {
+				$("#scanError").html("Barcode unbekannt.");
+				$("#scanError").fadeIn();
+				$("#barcode").val("");
+				$("#barcode").focus();
+			}
+			
+			if(data.isSchueler) {
+				window.location.href="index.php?page=schulbuecher&mode=rueckgabe&schuelerAsvIDPreSet=" + data.schuelerAsvID;
+			}
+			
+			if(data.isBook) {
+				if(data.isAusgeliehen) {
+					$("#barcodeScaned").val($("#barcode").val());
+					$("#scanedBookName").html(data.bookName + " (Ausliehen von " + data.isLentTo + ")");
+					$("#scanedBookZustand").html(data.bookZustand);
+					
+					$("#zustandScan").focus();
+					
+					$("#returnBookScan").modal("show");
+				}
+				else {
+					$("#scanError").html("Das Buch ist nicht ausliehen. (" + data.bookName + ")");
+					$("#scanError").fadeIn();
+					
+					$("#barcode").val("");
+					$("#barcode").focus();
+				}
+			}
+		},
+		dataType: 'json'
+	});
+	
+	return false;
+}
+
+</script>
+
+
+<if($scaned)><then>
+	<if($success)><then>
+		<div class="callout callout-success">$message</div>
+	</then>
+	<else>
+		<div class="callout callout-danger"><if($message != "")><then>$message</then><else>Der Barcode ist leider unbekannt.</else></if></div>
+	</else>
+	</if>
+</then></if>
+
+
+	<div class="modal fade" id="returnBookScan" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title" id="eventTitle"><i class="fa fa-arrow-down"></i> Buch Rückgabe</h4>
+	      </div>
+	      <div class="modal-body">
+		<form action="index.php?page=schulbuecher&mode=rueckgabe&action=selectPupil" method="post">
+			<input type="hidden" name="schuelerAsvID" id="barcodeScaned" value="">
+			
+			<p><b>Gescanntes Buch:</b></p>
+			<p><div id="scanedBookName"></div></p>
+			
+			<p><b>Aktueller Zustand:</b></p>
+			<p><div id="scanedBookZustand"></div></p>
+			
+			<div class="form-group">
+				<label>Zustand scannen</label>
+				<input type="text" name="zustand" id="zustandScan" class="form-control">
+			</div>
+			
+			<button type="submit" class="form-control"><i class="fa fa-arrow-down"></i> Rückgabe buchen</button>
+		</form>
+		  </div>
+		 </div>
+	   </div>
+	</div>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#returnBookScan").on('shown.bs.modal', function(){
+        $(this).find('#zustandScan').focus();
+    });
+});
+</script>
+
+<if($schueler != null)><then>
+
+
+
+<if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren') && DB::getSettings()->getBoolean('schulbuecher-ausleihe-fotos'))><then>
+<div class="row">
+	<div class="col-md-10">
+	
+</then></if>
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-book"></i> Momentan ausgeliehene Bücher ($summe Exemplare)</h3>
+	</div>
+	<div class="box-body">
+		<table class="table table-striped">
+			<tr>
+				<th>Buch</th>
+				<th>Barcode</th>
+				<th>Aktionen</th>
+			</tr>
+			$buecherHTML
+		</table>
+	</div>
+</div>
+
+<if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren') && DB::getSettings()->getBoolean('schulbuecher-ausleihe-fotos'))><then>
+		
+	</div>
+	
+	<div class="col-md-2">
+	
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-picture"></i> Foto</h3>
+			</div>
+			<div class="box-body">
+
+			<img src="index.php?page=schulbuecher&mode=getSchuelerFoto&schuelerAsvID={$schueler->getAsvID()}" style="width:100%">
+			</div>
+		</div>
+	
+	
+	
+	</div>
+	
+
+</div>
+
+</then></if>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="modal fade" id="returnBook" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title" id="eventTitle"><i class="fa fa-arrow-down"></i> Buch Rückgabe manuell buchen</h4>
+	      </div>
+	      <div class="modal-body">
+		<form action="index.php?page=schulbuecher&mode=rueckgabe&schuelerAsvIDPreSet={$schueler->getAsvID()}" method="post">
+			<input type="hidden" name="rueckgabeAusleihe" id="rueckgabeAusleiheID" value="">
+			<div class="form-group">
+				<label>Zustand</label>
+				<select name="zustand" id="rueckgabeZustand" class="form-control">
+					<option value="-1">n/a</option>
+					<option value="1">Sehr gut</option>
+					<option value="2">OK</option>
+					<option value="3">Schlecht</option>
+				</select>
+				
+			</div>
+			
+			<div class="form-group">
+				<label>Kommentar</label>
+				<textarea name="kommentar" placeholder="z.B. Exemplar verloren"class="form-control"></textarea>
+			</div>
+			<button type="submit" class="form-control"><i class="fa fa-arrow-down"></i> Rückgabe buchen</button>
+		</form>
+		  </div>
+		 </div>
+	   </div>
+	</div>
+	
+	<script>
+		function rueckgabe(ausleiheID, zustand) {
+			$("#rueckgabeAusleiheID").val(ausleiheID);
+			$("#rueckgabeZustand").val(zustand);
+			
+			$("#returnBook").modal("show");
+		}
+		
+	
+	</script>
+
+</then>
+</if>
+
+
+{$this->footer}

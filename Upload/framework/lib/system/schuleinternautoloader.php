@@ -60,6 +60,11 @@ $classes = [
 		'Exemplar',
 		'Schulbuch'
 	],
+    'data/bibliothek' => [
+        'BibliothekBuchAusleihe',
+        'BibliothekExemplar',
+        'BibliothekBuch'
+    ],
 	'ical' => ['iCalFile', 'MyIcalSettings'],
 	'sms' => ['sms'],
 	'data' => [

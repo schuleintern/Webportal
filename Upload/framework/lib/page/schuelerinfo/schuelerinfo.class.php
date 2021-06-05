@@ -1142,6 +1142,9 @@ class schuelerinfo extends AbstractPage {
         $withNoten = true;
         
         $notenbogen = new Notenbogen($schueler);
+        $notenbogen->showDeletButtonForNoten();
+        $notenbogen->setWithEditLinkToNotenEingabe();
+
         
         $notentabelle = $notenbogen->getNotentabelle();
         
