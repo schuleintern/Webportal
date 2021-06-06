@@ -19,15 +19,14 @@ class ElternMailReceiver extends AbstractCron {
 	}
 	
 	public function execute() {
-		
+
 		if(DB::getGlobalSettings()->schulnummer != "9400") {
-		
-			$mb = imap_open("{" . DB::getGlobalSettings()->smtpSettings['host'] . ":143/imap}INBOX",DB::getGlobalSettings()->smtpSettings['username'], DB::getGlobalSettings()->smtpSettings['password'] );
-			
+
+		    $mb = imap_open("{" . DB::getSettings()->getValue('mail-server') . ":143/imap}INBOX",DB::getSettings()->getValue('mail-server-username'), DB::getSettings()->getValue('mail-server-password') );
+
 			$messageCount = imap_num_msg($mb);
 			
 			if($messageCount > 200) $messageCount = 200;
-			
 			for( $MID = 1; $MID <= $messageCount; $MID++ ) {
 				$EmailHeaders = imap_headerinfo( $mb, $MID );
 							
@@ -46,7 +45,7 @@ class ElternMailReceiver extends AbstractCron {
 							if($mail['messageID'] > 0) {
 								if($mail['messageNeedConfirmation'] > 0) {
 									if($mail['messageID'] == $mailID && $mail['messageConfirmSecret'] == $code) {
-										DB::getDB()->query("UPDATE messages_messages SET messageIsConfirmed=UNIX_TIMESTAMP() WHERE messageID='" . DB::getDB()->escapeString($mailID) . "'");
+										DB::getDB()->query("UPDATE messages_messages SET messageIsConfirmed=1, messageConfirmTime=UNIX_TIMESTAMP() WHERE messageID='" . DB::getDB()->escapeString($mailID) . "'");
 										imap_delete($mb,$EmailHeaders->Msgno);
 									}
 									else imap_delete($mb,$EmailHeaders->Msgno);
@@ -88,7 +87,7 @@ class ElternMailReceiver extends AbstractCron {
 					if (substr ( $data [$i], 0, 15 ) == "Final-Recipient") {
 						$data2 = explode ( ";", str_replace ( "\r", "", $data [$i] ) );
 						$mail = strtolower ( trim ( $data2 [1] ) );
-						DB::getDB ()->query ( "INSERT INTO bad_mail (badMail) values('" . DB::getDB ()->escapeString ( $mail ) . "')" );
+						DB::getDB ()->query ( "INSERT INTO bad_mail (badMail, badMailDone) values('" . DB::getDB ()->escapeString ( $mail ) . "', UNIX_TIMESTAMP() )" );
 						$isBad = true;
 						break;
 					}
