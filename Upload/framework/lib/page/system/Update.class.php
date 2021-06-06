@@ -32,6 +32,7 @@ class Update extends AbstractPage
 
         
         // Compare Database with File and execute query
+        // Deaktiviert, weil Buggy
         /** $dbFile = "../data/update/Upload/database.sql";
         if (file_exists($dbFile)) {
             $newStructure = file_get_contents("../framework/database.sql");
@@ -48,7 +49,7 @@ class Update extends AbstractPage
         }
 
 
-        // Admin informieren
+        // Admins informieren
 
         // Release Info abholen
 
@@ -78,6 +79,8 @@ class Update extends AbstractPage
             $messageSender->setText("Es wurde eine neue Version der Portalsoftware SchuleIntern installiert. <br><br><pre>Änderungen:\r\n" . $versionInfo['changeLog'] . "</pre>" . "<br><br><br><br><i>Dies ist eine automatisch erzeugte Nachricht.</i>");
             $messageSender->send();
         }
+
+        // /Admins informieren
 
 
 
@@ -142,7 +145,19 @@ class Update extends AbstractPage
             $this->from122to130();
         }
 
+        if ($from == "1.3.0" && $to == "1.3.1") {
+            $this->from130to131();
+        }
         return true;
+    }
+
+    private  function from130to131() {
+
+        // Keine DB Änderungen
+
+        $this->updateComponentsFolder(130);
+        $this->updateCssJSFolder(130);
+        $this->updateImagesFolder(130);
     }
 
     private function from122to130() {
