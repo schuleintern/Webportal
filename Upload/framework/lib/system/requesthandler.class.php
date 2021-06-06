@@ -24,9 +24,9 @@ class requesthandler {
     'ausweis' => [
         'Ausweis'
     ],
-      'bibliothek' => [
+      /**  'bibliothek' => [
           'Bibliothek'
-      ],
+      ],**/
       'oauth2' => [
           'oAuth2Auth'
       ],
