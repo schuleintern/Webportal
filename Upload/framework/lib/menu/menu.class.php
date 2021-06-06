@@ -879,7 +879,7 @@ class menu {
         
     }
 
-      if(DB::isLoggedIn() && $this->isActive('Bibliothek') && (DB::getSession()->isAdmin() || DB::getSession()->isMember("Webportal_Bibliothek_Admin") || DB::getSession()->isTeacher() || DB::getSession()->isEltern() || DB::getSession()->isPupil())) {
+      /**if(DB::isLoggedIn() && $this->isActive('Bibliothek') && (DB::getSession()->isAdmin() || DB::getSession()->isMember("Webportal_Bibliothek_Admin") || DB::getSession()->isTeacher() || DB::getSession()->isEltern() || DB::getSession()->isPupil())) {
           $pages = array('schulbuecher');
 
 
@@ -903,7 +903,8 @@ class menu {
           if(schulbuecher::userCanBestand(DB::getSession()->getUser())) {
               $buecherHTML .= $this->getMenuItem('Bibliothek', 'Bestand', 'fa fa-arrows-alt', ['mode' => 'bestand']);
               $hasOther = true;
-          }
+          }      Debugger::debugObject($recipientHandler,1);
+
 
           if($hasOther) {
               $html .= $this->startDropDown($pages, "Bibliothek", 'fa fa-book');
@@ -917,7 +918,7 @@ class menu {
           }
 
 
-      }
+      } **/
     
     
 
