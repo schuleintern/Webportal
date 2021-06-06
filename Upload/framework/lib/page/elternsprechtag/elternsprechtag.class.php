@@ -696,7 +696,7 @@ class elternsprechtag extends AbstractPage {
 		
 		$table = "";
 		
-		$data = DB::getDB()->query("SELECT * FROM sprechtag_buchungen NATURAL JOIN sprechtag_slots NATURAL LEFT JOIN schueler WHERE sprechtagID='" . $this->currentSprechtagID . "' AND lehrerKuerzel LIKE '" . $kuerzel . "' ORDER BY slotStart ASC");
+		$data = DB::getDB()->query("SELECT * FROM sprechtag_buchungen NATURAL JOIN sprechtag_slots NATURAL LEFT JOIN schueler WHERE sprechtagID='" . $this->currentSprechtagID . "' AND lehrerKuerzel LIKE '" . $kuerzel . "' GROUP BY slotID ORDER BY slotStart ASC");
 		
 		while($d = DB::getDB()->fetch_array($data)) {
 			

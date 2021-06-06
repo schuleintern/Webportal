@@ -112,7 +112,7 @@ class ausleihe extends AbstractPage {
 		$objects = array();
 		$objectsEasy = array();
 		$data = DB::getDB()->query("SELECT * FROM ausleihe_objekte WHERE
-			isActive = 1 ORDER BY sortOrder ");
+			isActive = 1 && objektAnzahl > 0 ORDER BY sortOrder ");
 
 		while($a = DB::getDB()->fetch_array($data)) {
 
