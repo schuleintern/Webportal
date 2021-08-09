@@ -1284,8 +1284,6 @@ class klassenkalender extends AbstractPage {
   }
 
   public static function doSchuljahreswechsel($sqlDateFirstSchoolDay) {
-
-    DB::getDB()->query("DELETE FROM klassenkalender WHERE eintragDatumStart < '$sqlDateFirstSchoolDay'");
     DB::getDB()->query("DELETE FROM kalender_lnw WHERE eintragDatumStart < '$sqlDateFirstSchoolDay'");
     DB::getDB()->query("DELETE FROM kalender_klassentermin WHERE eintragDatumStart < '$sqlDateFirstSchoolDay'");
 
