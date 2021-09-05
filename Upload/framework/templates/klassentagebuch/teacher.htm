@@ -35,7 +35,19 @@
 				</form>
 			</div>
 			<div class="col-md-4">
-				<a href="index.php?page=klassentagebuch&mode=lehrerTagebuch" class="btn btn-default btn-block"><i class="fa fa-file-excel"></i> Export Lehrertagebuch</a>
+
+				<if($exportAvailible)><then>
+				<div class="btn-group">
+					<a href="index.php?page=klassentagebuch&mode=lehrerTagebuch&mode=exportLehrertagebuch" class="btn btn-default"><i class="fa fa-file-download"></i> Export Lehrertagebuch</a>
+					<a href="index.php?page=klassentagebuch&mode=lehrerTagebuch&mode=exportLehrertagebuch&reRequest=1" class="btn btn-default"><i class="fa fa-redo"></i> Neu erstellen</a>
+				</div>
+			</then></if>
+
+				<if($exportPending)><then>
+				<a href="#" class="btn btn-default btn-block disabled"><i class="fa fa-file-pdf"></i> Export beantragt <br /><small>(ca. 30 Minuten Wartezeit)</small></a>
+
+			</then></if>
+
 			</div>
 			<if($this->tagebuchActive)><then>
 			<div class="col-md-3">

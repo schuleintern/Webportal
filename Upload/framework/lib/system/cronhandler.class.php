@@ -24,7 +24,8 @@ class cronhandler {
             'DeleteOldElternUser',
             'MailSendDeleter',
             'CronStatMaker',
-        'SprechtagVikoCreator'
+            'SprechtagVikoCreator',
+            'LehrertagebuchExporter'
 	];
 	
 	

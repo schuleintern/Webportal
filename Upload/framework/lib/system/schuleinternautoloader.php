@@ -53,7 +53,8 @@ $classes = [
         'DeleteOldElternUser',
         'MailSendDeleter',
         'CronStatMaker',
-        'SprechtagVikoCreator'
+        'SprechtagVikoCreator',
+        'LehrertagebuchExporter'
 	],
 	'data/schulbuch' => [
 		'BuchAusleihe',
@@ -198,7 +199,8 @@ $classes = [
 	'data/klassentagebuch' => [
 		'TagebuchTeacherEntry',
 		'TagebuchKlasseEntry',
-	    'TagebuchPDFCreator'
+	    'TagebuchPDFCreator',
+        'TagebuchLehrerExport'
 	],
     'data/stat' => [
         'UserLoginStat'

@@ -239,6 +239,10 @@ class klassentagebuch extends AbstractPage {
       	$this->addTeacherEntry();
       break;
 
+      case 'exportLehrertagebuch':
+         $this->exportLehrertagebuch();
+      break;
+
       case 'exportTeacherBook':
         $this->exportTeacherBook();
       break;
@@ -515,6 +519,38 @@ class klassentagebuch extends AbstractPage {
     }
   }
 
+  private function exportLehrertagebuch() {
+      if($this->isTeacher) {
+          if(DB::getSettings()->getBoolean("lehrertagebuch-export-antrag-" . DB::getSession()->getUser()->getTeacherObject()->getAsvID()) > 0) {
+              new errorPage("Antrag noch nicht ausgeführt.");
+          }
+          else if(DB::getSettings()->getValue("lehrertagebuch-export-" . DB::getSession()->getUser()->getTeacherObject()->getAsvID()) != "") {
+              if($_REQUEST['reRequest'] > 0) {
+                  $upload = FileUpload::getByID(DB::getSettings()->getValue("lehrertagebuch-export-" . DB::getSession()->getUser()->getTeacherObject()->getAsvID()));
+                  if($upload != null) {
+                      $upload->delete();
+                  }
+                  DB::getSettings()->setValue("lehrertagebuch-export-" . DB::getSession()->getUser()->getTeacherObject()->getAsvID(),"");
+                  DB::getSettings()->setValue("lehrertagebuch-export-antrag-" . DB::getSession()->getUser()->getTeacherObject()->getAsvID(), 1);
+
+                  header("Location: index.php?page=klassentagebuch&mode=lehrerTagebuch");
+                  exit(0);
+              }
+              else {
+                  $upload = FileUpload::getByID(DB::getSettings()->getValue("lehrertagebuch-export-" . DB::getSession()->getUser()->getTeacherObject()->getAsvID()));
+                  if($upload != null) {
+                      $upload->sendFile();
+                  }
+                  else {
+                      DB::getSettings()->setValue("lehrertagebuch-export-" . DB::getSession()->getUser()->getTeacherObject()->getAsvID(),"");
+                      DB::getSettings()->setValue("lehrertagebuch-export-antrag-" . DB::getSession()->getUser()->getTeacherObject()->getAsvID(), 1);
+                      new errorPage("Interner Fehler. Export wird neu erzeugt.");
+                  }
+              }
+          }
+      }
+  }
+
   private function addTeacherEntry() {
   	if($this->isTeacher) {
   		$stundenAdd = [];
@@ -776,7 +812,13 @@ class klassentagebuch extends AbstractPage {
     $selectFach .= "</optgroup>";
 
 
-    eval("DB::getTPL()->out(\"" . DB::getTPL()->get("klassentagebuch/teacher") . "\");");
+    // Export
+
+      $exportAvailible = DB::getSettings()->getValue("lehrertagebuch-export-" . DB::getSession()->getUser()->getTeacherObject()->getAsvID())  > 0;
+
+      $exportPending = DB::getSettings()->getBoolean("lehrertagebuch-export-antrag-" . DB::getSession()->getUser()->getTeacherObject()->getAsvID());
+
+      eval("DB::getTPL()->out(\"" . DB::getTPL()->get("klassentagebuch/teacher") . "\");");
   }
 
   /**
@@ -1502,7 +1544,82 @@ class klassentagebuch extends AbstractPage {
           exit(0);
       }
 
-      $html .= 'Allgemeine Zugriffsregeln werden in den Einstellungen (s.o.) festgelegt. Folgende Benutzer können zusätzlich für alle Klassen freigeschaltet werden:';
+      if($_REQUEST['action'] == "alleAntrag") {
+          $alleLehrer = lehrer::getAll();
+
+          for($i = 0; $i < sizeof($alleLehrer); $i++) {
+              DB::getSettings()->setValue("lehrertagebuch-export-antrag-" . $alleLehrer[$i]->getAsvID(),1);
+              DB::getSettings()->setValue("lehrertagebuch-export-" . $alleLehrer[$i]->getAsvID(),0);
+          }
+
+          header("Location: $selfURL");
+          exit(0);
+      }
+
+      if($_REQUEST['action'] == "downloadZip") {
+          $alleLehrer = lehrer::getAll();
+
+          $zip = new ZipArchive();
+          $filename = "../data/temp/alle_lehrertagebuecher" . md5(rand()) . ".zip";
+
+          if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
+              die("cannot open --> $filename\n");
+          }
+
+
+          for($i = 0; $i < sizeof($alleLehrer); $i++) {
+              if(DB::getSettings()->getValue("lehrertagebuch-export-" . $alleLehrer[$i]->getAsvID()) > 0) {
+                  $upload = FileUpload::getByID(DB::getSettings()->getValue("lehrertagebuch-export-" . $alleLehrer[$i]->getAsvID()));
+                  if($upload != null) {
+                      $zip->addFile($upload->getFilePath(), $upload->getFileName());
+                  }
+              }
+          }
+
+
+          $zip->close();
+
+          // Send File
+
+          $file = $filename;
+
+          header('Content-Description: File Transfer');
+          header('Content-Type: application/zip');
+          header('Content-Disposition: attachment; filename='.basename("Alle Lehrertagebuecher.zip"));
+          header('Content-Transfer-Encoding: binary');
+          header('Expires: 0');
+          header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+          header('Pragma: public');
+          header('Content-Length: ' . filesize($file));
+          ob_clean();
+          flush();
+          readfile($file);
+
+          // unlink($file);
+          exit(0);
+      }
+
+      /** @var lehrer[] $alleLehrer */
+      $alleLehrer = lehrer::getAll();
+
+      $exportPDF = "";
+
+      for($i = 0; $i < sizeof($alleLehrer); $i++) {
+          $exportPDF .= "<tr><td>" . $alleLehrer[$i]->getDisplayNameMitAmtsbezeichnung() . "</td>";
+          $exportPDF .= "<td>";
+
+          $export = DB::getSettings()->getValue("lehrertagebuch-export-" . $alleLehrer[$i]->getAsvID());
+          $beantragt = DB::getSettings()->getValue("lehrertagebuch-export-antrag-" . $alleLehrer[$i]->getAsvID());
+
+          if($export > 0) $exportPDF .= "Erzeugt.";
+          else if($beantragt) $exportPDF .= "Beantragt";
+          else $exportPDF .= "--";
+
+          $exportPDF .= "</tr>";
+      }
+
+      eval("\$html = \"" . DB::getTPL()->get("klassentagebuch/admin/index") . "\";");
+
 
       $box = administrationmodule::getUserListWithAddFunction($selfURL, "tagebuchzugriff", "addKalenderAccess", "deleteKalenderAccess", "Benutzer mit Zugriff auf alle Klassen", "", "Webportal_Klassentagebuch_Lesen");
 
@@ -1517,6 +1634,8 @@ class klassentagebuch extends AbstractPage {
 
   public static function doSchuljahreswechsel($sqlDateFirstSchoolDay) {
       DB::getDB()->query("DELETE FROM klassentagebuch_pdf");
+      DB::getDB()->query("DELETE FROM settings WHERE settingName LIKE 'lehrertagebuch-export-antrag-%'");
+      DB::getDB()->query("DELETE FROM settings WHERE settingName LIKE 'lehrertagebuch-antrag-%'");
       DB::getDB()->query("DELETE FROM klassentagebuch_klassen WHERE entryDate < '$sqlDateFirstSchoolDay'");
   }
 
