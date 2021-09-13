@@ -1,7 +1,7 @@
 {
-    "Name": "Version 1.3.1 (06.06.2021)",
-    "ChangeLog": "- Quarantäne Optionen auch im Klassentagebuch sichtbar\n- Moduladmin für Beurlaubungsantrag korrigiert (Wird nun richtig erkannt.)\n- Bugfix in der oAuth2 OIDC Anbindung\n- Anpassungen an der MS365 Anbindung (Speicherung der ASV ID)\n- Bugfix: Teams - Meetings wurden nicht angehängt\n- Bugfix: \"Wahlpflichtunterricht\" ist auch Pflichtunterricht\n- Diverse kleinere Verbesserungen am Frontend (Aktualisierung der Bibliotheken)\n- Aktualisierung der \"Composer\" Bibliotheken\n- Notenverwaltung: Nachteilsausgleichstext auch im Zwischenbereicht\n- Bugfix: W-Lan Tickets: Null - Pointer behoben\n- Mensa: Bugfixes\n- Bugfix Ausleihesystem\n- Bugfix: Manchmal wurden E-Mails nicht korrekt versendet\n- Performanceverbesserungen im Nachrichtenmodul\n- Performanceverbesserungen im Nachrichtenversand per E-Mail\n- Infos der Änderungen an alle Admins nach dem Update",
+    "Name": "Version 1.3.2 (13.09.2021)",
+    "ChangeLog": "Bugfixes",
     "MajorVersion": 1,
     "MinorVersion": 3,
-    "PatchVersion": 1
+    "PatchVersion": 2
 }

@@ -1019,6 +1019,7 @@ class klassentagebuch extends AbstractPage {
       $myFach = "";
 
 
+      $alleLehrerDerStunde = [];
 
       for($s = 0; $s < sizeof($stundenplan[$i]); $s++) {
         if($s > 0) $tableContent .= "<br />";
@@ -1027,6 +1028,9 @@ class klassentagebuch extends AbstractPage {
         if($canEdit) $tableContent .= "<br /><button type=\"button\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#history$dialogID\"><i class=\"fa fa-clock\"></i></button>";
         $fach = $stundenplan[$i][$s]['subject'];
         $lehrer = $stundenplan[$i][$s]['teacher'];
+
+        $alleLehrerDerStunde[] = strtolower($lehrer);
+
         if($this->isTeacher && $lehrer == DB::getSession()->getTeacherObject()->getKuerzel()) $myFach = $fach;
 
 
@@ -1164,6 +1168,8 @@ class klassentagebuch extends AbstractPage {
      	// Aktuelle Stunde auswählen
      	$stunden = [$i+1];
 
+
+
      	// Nächsten Stunden ebenfalls gleiches Fach?
      	for($n = $i+1; $n < stundenplandata::getMaxStunden(); $n++) {
 
@@ -1172,7 +1178,7 @@ class klassentagebuch extends AbstractPage {
      	}
 
 
-     	$tableContent .= "<form><button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#addentry\" onclick=\"javascript:addentry('" . implode("#",$stunden) . "','" . $fach . "','" . (($lehrer != DB::getSession()->getTeacherObject()->getKuerzel()) ? 1 : 0) . "')\"><i class=\"fa fa-plus\"></i> Eintrag hinzufügen</button></form>";
+     	$tableContent .= "<form><button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#addentry\" onclick=\"javascript:addentry('" . implode("#",$stunden) . "','" . $fach . "','" . (!in_array(strtolower(DB::getSession()->getTeacherObject()->getKuerzel()),$alleLehrerDerStunde) ? 1 : 0) . "')\"><i class=\"fa fa-plus\"></i> Eintrag hinzufügen</button></form>";
      }
 
       $tableContent .= "</td></tr>";

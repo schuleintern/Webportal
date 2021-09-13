@@ -148,7 +148,20 @@ class Update extends AbstractPage
         if ($from == "1.3.0" && $to == "1.3.1") {
             $this->from130to131();
         }
+
+        if ($from == "1.3.1" && $to == "1.3.2") {
+            $this->from131to132();
+        }
         return true;
+    }
+
+    private  function from131to132() {
+
+        // Keine DB Änderungen
+
+        $this->updateComponentsFolder(131);
+        $this->updateCssJSFolder(131);
+        $this->updateImagesFolder(131);
     }
 
     private  function from130to131() {

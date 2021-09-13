@@ -122,15 +122,21 @@ class Note {
 	}
 	
 	public function getColor() {
-	    if($this->getWert() <= 2) return "#1e8c00";
-	    if($this->getWert() <= 4) return "#f49542";
-	    return "#820000";
+        return self::getNotenColor($this->getWert(), $this->getSchueler()->getKlassenObjekt()->getKlassenstufe());
 	}
 	
-	public static function getNotenColor($wert) {
-	    if($wert <= 2) return "#1e8c00";
-	    if($wert <= 4) return "#f49542";
-	    return "#820000";
+	public static function getNotenColor($wert, $jgst=1) {
+        if($jgst >= 11) {
+            if($wert >= 10) return "#1e8c00";
+            if($wert >= 4) return "#f49542";
+            return "#820000";
+        }
+        else {
+            if($wert <= 2) return "#1e8c00";
+            if($wert <= 4) return "#f49542";
+            return "#820000";
+        }
+
 	}
 	
 	public function getDisplayWert() {
