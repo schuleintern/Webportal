@@ -25,7 +25,7 @@ class requesthandler {
         'Ausweis'
     ],
       /**  'bibliothek' => [
-          'Bibliothek'
+      'Bibliothek'
       ],**/
       'oauth2' => [
           'oAuth2Auth'
@@ -125,7 +125,8 @@ class requesthandler {
       'extKalender',
       'andereKalender',
       'geticsfeed',
-      'terminuebersicht'
+      'terminuebersicht',
+      'kalenderAllInOne'
     ],
     'klassenlisten' => [
       'klassenlisten',
@@ -170,6 +171,9 @@ class requesthandler {
     'register' => [
       'elternregister',
     ],
+      'raumplan' => [
+          'raumplan',
+      ],
     'stundenplan' => [
         'stundenplan'
 

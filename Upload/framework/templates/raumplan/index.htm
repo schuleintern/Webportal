@@ -1,0 +1,107 @@
+{$this->header}
+
+<div class="box">
+    <div class="box-body">
+        <div id="app"></div>
+    </div>
+</div>
+
+<script>
+    var globals = {
+        settingsRooms: $settingsRooms,
+        prevDays: $prevDays,
+        acl: $acl,
+        showDays: $showDays,
+        room: '$getRoom'
+    }
+    //console.log(globals.objects);
+</script>
+<script src=components/raumplan/dist/js/chunk-vendors.js></script>
+<script src=components/raumplan/dist/js/app.js></script>
+<!--<script src=components/raumplan/dist/app.js></script>-->
+
+
+{$this->footer}
+
+<style>
+
+    #app {
+        min-width: 60rem;
+    }
+
+    .calendar .calendar-header {
+        display: flex;
+        margin-bottom: 3rem;
+        margin-top: 1rem;
+    }
+
+    .calendar .calendar-header button {
+        flex: 1;
+        font-size: 100%;
+    }
+
+    .calendar .calendar-header h3 {
+        flex: 8;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-self: center;
+        text-align: center;
+    }
+    .calendar .calendar-header h3 .room {
+        padding-right: 3rem;
+        color: #018d4e;
+        font-weight: bold;
+    }
+
+    .calendar .calendar-header button i {
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+    }
+
+    .calendar .eintrag {
+        border: 1px solid #8aa4af;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+        margin-bottom: 0.2rem;
+        border-radius: 5px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .calendar .eintrag div {
+        flex: 1;
+        flex-basis: 50%;
+    }
+
+    .calendar .eintrag.unique {
+        border: 2px solid #018d4e;
+        color: #fff !important;
+        font-weight: bold;
+        background-color: #018d4e;
+    }
+
+
+
+    .form li {
+        margin-bottom: 0.6rem;
+    }
+
+    .form label {
+        width: 13rem;
+    }
+
+    @media only screen
+    and (max-width: 736px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait) {
+
+        .form-modal-content {
+            min-width: 90vw;
+        }
+
+    }
+
+</style>

@@ -233,3 +233,9 @@
 .margin-t-l {
   margin-top: 2.3rem;
 }
+
+
+.overlay i.fa {
+  top: 50vh !important;
+  left: 45vw !important;
+}

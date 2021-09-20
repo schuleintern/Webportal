@@ -96,7 +96,38 @@ class mensaSpeiseplan extends AbstractPage {
 							$row['booked_all']['none']++;
 						}
 
-						$row['booked_all']['list'][] = [ $row_order['userID'], $booked_user->getDisplayName(), $booked_user->getUserTyp(), $row_order['time'] ];
+                        $klasse = '';
+                        $ganztags = '';
+                        if ( $booked_user->isPupil() ) {
+                            $klasse = $booked_user->getPupilObject()->getKlasse();
+                            $ganztags = $booked_user->getPupilObject()->isGanztags();
+                        }
+                        $elternSchueler = '';
+                        if ( $booked_user->isEltern() ) {
+                            $kinder = $booked_user->getElternObject()->getMySchueler();
+                            /*echo '<pre>';
+                            print_r($kinder[0]);
+                            echo '</pre>';*/
+
+                            foreach($kinder as $schueler) {
+                                if ($elternSchueler != '') {
+                                    $elternSchueler .= '<br>';
+                                }
+                                $elternSchueler .= ''.$schueler->getRufname().' '.$schueler->getName().' ('.$schueler->getKlasse().') ';
+                            }
+
+
+
+                        }
+						$row['booked_all']['list'][] = [
+                            $row_order['userID'],
+                            $booked_user->getDisplayName(),
+                            $booked_user->getUserTyp(),
+                            $row_order['time'],
+                            $klasse,
+                            $ganztags,
+                            $elternSchueler
+                        ];
 
 					}
 

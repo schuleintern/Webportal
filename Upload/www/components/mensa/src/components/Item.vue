@@ -1,7 +1,7 @@
 <template>
 
   <div class="form-modal" v-on:click.self="handlerCloseModal" v-show="modalActive" >
-    <div class="form form-style-2 form-modal-content width-40vw">
+    <div class="form form-style-2 form-modal-content width-70vw">
       
       <div class="form-modal-close" v-on:click="handlerCloseModal"><i class="fa fa-times"></i></div>
       
@@ -31,7 +31,7 @@
 
         <hr>
         
-        <div v-if="item.booked_all">
+        <span v-if="item.booked_all">
           <h3 class="text-orange">Gebuchte Essen</h3>
 
           <div class="flex-row">
@@ -68,6 +68,14 @@
               class="flex-row">
               <div class="flex-2">{{user[1]}}</div>
               <div class="flex-1 text-small">{{user[2]}}</div>
+              <div class="flex-1 text-small">
+                <span v-if="user[4]">{{user[4]}}</span> <span v-if="user[5]"> Ganztags</span>
+              </div>
+              <div class="flex-1 text-small">
+                <span v-html="user[6]">{{user[6]}}</span>
+              </div>
+
+
               <div class="flex-1 text-small">{{user[3]}}</div>
             </li>
           </ul>

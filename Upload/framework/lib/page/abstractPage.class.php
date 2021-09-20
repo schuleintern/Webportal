@@ -564,6 +564,34 @@ abstract class AbstractPage {
 	}
 
 
+    /**
+     * Gibt das Submenu zurück
+     * @return Array
+     */
+    public  function getSubmenu() {
+        $submenuHTML = '';
+        if ($this->submenu) {
+            foreach($this->submenu as $item) {
+                if ($item['href'] && $item['label']) {
+                    $submenuHTML .= '<a href="'.$item['href'].'" alt="" title="" class="'.$item['labelClass'].'">'.$item['label'].'</a>';
+                }
+            }
+        }
+        return $submenuHTML;
+
+    }
+
+    /**
+     * Speichert das Submenu
+     * @return Array
+     */
+    public  function setSubmenu($submenu) {
+        if($submenu) {
+            $this->submenu = $submenu;
+        }
+    }
+
+
 	/**
 	 * Access Control List
 	 * @return acl

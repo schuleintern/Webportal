@@ -1,38 +1,38 @@
 {$this->header}
 {$this->nachfristBox}
 <script>
-function jumpNextTabIndex(currentIndex)
-{
-	document.getElementById("input" + (currentIndex+1)).focus();
-	document.getElementById("input" + (currentIndex+1)).select();
-}
-function updateIcon(currentIndex)
-{
-	var input = document.getElementById("input" + (currentIndex)).value;
-	
-	if(input == '1') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-smile"></i><i class="fa fa-smile"></i>';
-	else if(input == '2') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-smile"></i>';
-	else if(input == '3') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-meh"></i>';
-	else if(input == '4') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-frown"></i>';
-	else if(input == '5') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-frown"></i><i class="fa fa-frown"></i>';
-	else if(input == 'x' || input == 'X' || input == ' ' || input == '') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-ban"></i>';
-	else document.getElementById("icon" + (currentIndex)).innerHTML = '<font color=\"red\"><i class="fa fa-exclamation-circle"></i></font>';
-}
-function selectField(currentIndex) {
-	document.getElementById("input" + (currentIndex)).select();
-}
+	function jumpNextTabIndex(currentIndex)
+	{
+		document.getElementById("input" + (currentIndex+1)).focus();
+		document.getElementById("input" + (currentIndex+1)).select();
+	}
+	function updateIcon(currentIndex)
+	{
+		var input = document.getElementById("input" + (currentIndex)).value;
 
-function checkInputTyp1(index) {
-	var val = document.getElementById("input" + (index)).value;
-	if(val < 1) alert('Es darf keine Null eingegeben werden!');
-	if(val > 5) alert('Es darf keine Zahl größer als 5 eingegeben werden!');
-}
+		if(input == '1') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-smile"></i><i class="fa fa-smile"></i>';
+		else if(input == '2') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-smile"></i>';
+		else if(input == '3') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-meh"></i>';
+		else if(input == '4') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-frown"></i>';
+		else if(input == '5') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-frown"></i><i class="fa fa-frown"></i>';
+		else if(input == 'x' || input == 'X' || input == ' ' || input == '') document.getElementById("icon" + (currentIndex)).innerHTML = '<i class="fa fa-ban"></i>';
+		else document.getElementById("icon" + (currentIndex)).innerHTML = '<font color=\"red\"><i class="fa fa-exclamation-circle"></i></font>';
+	}
+	function selectField(currentIndex) {
+		document.getElementById("input" + (currentIndex)).select();
+	}
 
-function checkInputTyp2(index) {
-	var val = document.getElementById("input" + (index)).value;
-	if(val < 1) alert('Es darf keine Null eingegeben werden!');
-	if(val > 3) alert('Es darf keine Zahl größer als 3 eingegeben werden! (Nur Optionen von 1 bis 3)');
-}
+	function checkInputTyp1(index) {
+		var val = document.getElementById("input" + (index)).value;
+		if(val < 1) alert('Es darf keine Null eingegeben werden!');
+		if(val > 5) alert('Es darf keine Zahl größer als 5 eingegeben werden!');
+	}
+
+	function checkInputTyp2(index) {
+		var val = document.getElementById("input" + (index)).value;
+		if(val < 1) alert('Es darf keine Null eingegeben werden!');
+		if(val > 3) alert('Es darf keine Zahl größer als 3 eingegeben werden! (Nur Optionen von 1 bis 3)');
+	}
 
 
 </script>
@@ -40,50 +40,50 @@ function checkInputTyp2(index) {
 
 
 <form action="index.php?page=beobachtungsbogen&bogenID={$this->bogenID}&mode=allInOne&save=1&grade={$this->klasse}&subject={$this->fach}" method="post">
-		<div class="box">
-            <div class="box-header">
-              <h3 class="box-title">{$this->klasse} alle Fragen und alle Schüler</h3>
-              <br /><strong>Hinweise:</strong>
-              <ul>
-              	<li>Geben Sie folgende Zahlen ein:<br />
-              	<table class="table table-border">
-              		<tr>
-              			<th style="width:5%"><i class="fa fa-smile" style="transform: scale(2.0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-smile" style="transform: scale(2.0)"></i></th>
-              			<th style="width:5%"><i class="fa fa-smile" style="transform: scale(2.0)"></i></th>
-              			<th style="width:5%"><i class="fa fa-meh" style="transform: scale(2.0)"></i></th>
-              			<th style="width:5%"><i class="fa fa-frown" style="transform: scale(2.0)"></i></th>
-              			<th style="width:5%"><i class="fa fa-frown" style="transform: scale(2.0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-frown" style="transform: scale(2.0)"></i></th>
-              		</tr>
-              		<tr>
-              			<td><font size="+2">1</font></td>
-              			<td><font size="+2">2</font></td>
-              			<td><font size="+2">3</font></td>
-              			<td><font size="+2">4</font></td>
-              			<td><font size="+2">5</font></td>
-              		</tr>
-              	</table>
-              	</li>
-              	<li>Der Cursor spring nach jeder Eingabe automatisch zum nächsten Schüler</li>
-              	<li>Nach dem letzten Schüler springt der Cursor zur nächsten Frage und zum ersten Schüler</li>
-              	<li>Wenn Sie eine Beobachtung nicht eingeben wollen, tragen Sie bitte ein X ein oder lassen das Feld leer.</li>
-              	<li>Drücken Sie <strong>nicht die Enter-/Eingabe Taste</strong>, um ein Feld zu überspringen, sondern geben Sie ein X ein.</li>
-              </ul>
-            </div>
-           <div class="box-body no-padding">
-           <table class="table table-striped">
-           		$bigMatrix   
-           </table>
-           
-           
-           	<table class="table table-border">
-           		<tr>
-           			<th><input type="submit" value="Speichern und Abschließen" class="form form-control"></th>
-           		</tr>
-           	</table>
-           	
-		   </div>
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{$this->klasse} alle Fragen und alle Schüler</h3>
+			<br /><strong>Hinweise:</strong>
+			<ul>
+				<li>Geben Sie folgende Zahlen ein:<br />
+					<table class="table table-border">
+						<tr>
+							<th style="width:5%"><i class="fa fa-smile" style="transform: scale(2.0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-smile" style="transform: scale(2.0)"></i></th>
+							<th style="width:5%"><i class="fa fa-smile" style="transform: scale(2.0)"></i></th>
+							<th style="width:5%"><i class="fa fa-meh" style="transform: scale(2.0)"></i></th>
+							<th style="width:5%"><i class="fa fa-frown" style="transform: scale(2.0)"></i></th>
+							<th style="width:5%"><i class="fa fa-frown" style="transform: scale(2.0)"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-frown" style="transform: scale(2.0)"></i></th>
+						</tr>
+						<tr>
+							<td><font size="+2">1</font></td>
+							<td><font size="+2">2</font></td>
+							<td><font size="+2">3</font></td>
+							<td><font size="+2">4</font></td>
+							<td><font size="+2">5</font></td>
+						</tr>
+					</table>
+				</li>
+				<li>Der Cursor spring nach jeder Eingabe automatisch zum nächsten Schüler</li>
+				<li>Nach dem letzten Schüler springt der Cursor zur nächsten Frage und zum ersten Schüler</li>
+				<li>Wenn Sie eine Beobachtung nicht eingeben wollen, tragen Sie bitte ein X ein oder lassen das Feld leer.</li>
+				<li>Drücken Sie <strong>nicht die Enter-/Eingabe Taste</strong>, um ein Feld zu überspringen, sondern geben Sie ein X ein.</li>
+			</ul>
 		</div>
-		
+		<div class="box-body no-padding">
+			<table class="table table-striped">
+				$bigMatrix
+			</table>
+
+
+			<table class="table table-border">
+				<tr>
+					<th><input type="submit" value="Speichern und Abschließen" class="form form-control"></th>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
 </form>
 
 <script>jumpNextTabIndex(0);</script>

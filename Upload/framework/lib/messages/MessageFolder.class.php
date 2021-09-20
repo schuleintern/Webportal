@@ -56,8 +56,8 @@ class MessageFolder {
 		return Message::getMessages($this->user, $this->folder, $this->folderID, $limit, $offset);
 	}
 	
-	public function getMessagesSearch($search) {
-	    return Message::getMessagesSearch($this->user, $this->folder, $this->folderID, $search);
+	public function getMessagesSearch($search, $limit, $offset) {
+	    return Message::getMessagesSearch($this->user, $this->folder, $this->folderID, $search, $limit, $offset);
 	    
 	}
 		
