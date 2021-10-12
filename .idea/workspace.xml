@@ -22,14 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Export für Lehrertagebuch hinzugefügt.">
+    <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Mini Bugfix: Nachrichten mit nicht mehr vorhandenen Empfängern lesbar machen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/data/schuelerinfo/SchuelerUnterricht.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/data/schuelerinfo/SchuelerUnterricht.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/noten/Note.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/noten/Note.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/klassentagebuch/klassentagebuch.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/klassentagebuch/klassentagebuch.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/system/Update.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/system/Update.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/system/DB.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/system/DB.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/versioninfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/versioninfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/data/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/data/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/messages/recipients/PupilsOfClassRecipient.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/messages/recipients/PupilsOfClassRecipient.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/test/test.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/test/test.class.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,13 +140,8 @@
       <workItem from="1629973411589" duration="324000" />
       <workItem from="1630853936588" duration="10162000" />
       <workItem from="1631301039592" duration="3725000" />
-    </task>
-    <task id="LOCAL-00039" summary="Reset tests">
-      <created>1606416986554</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1606416986554</updated>
+      <workItem from="1634062751818" duration="245000" />
+      <workItem from="1634063360403" duration="1134000" />
     </task>
     <task id="LOCAL-00040" summary="Update Videokonferenz Link Anzeige">
       <created>1606417157004</created>
@@ -487,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630872830052</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Mini Bugfix: Nachrichten mit nicht mehr vorhandenen Empfängern lesbar machen">
+      <created>1634063788637</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1634063788638</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +507,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="htmlpurifier composer Modul hinzugefügt" />
     <MESSAGE value="tinymce Udpate und Erweiterung" />
     <MESSAGE value="htmlpruifier composer Modul" />
     <MESSAGE value="HTMLPurifier beim Nachrichten senden." />
@@ -533,6 +531,7 @@
     <MESSAGE value="Release Version 1.3.1" />
     <MESSAGE value="Klassenkalender Schuljahreswechsel Bug" />
     <MESSAGE value="Export für Lehrertagebuch hinzugefügt." />
-    <option name="LAST_COMMIT_MESSAGE" value="Export für Lehrertagebuch hinzugefügt." />
+    <MESSAGE value="Mini Bugfix: Nachrichten mit nicht mehr vorhandenen Empfängern lesbar machen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mini Bugfix: Nachrichten mit nicht mehr vorhandenen Empfängern lesbar machen" />
   </component>
 </project>
