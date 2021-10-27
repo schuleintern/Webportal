@@ -40,6 +40,13 @@ class AdminExtensions extends AbstractPage {
 		$pathExtensions    = PATH_EXTENSIONS; //'../extensions/';
 		$extensionsServer = DB::getGlobalSettings()->extensionsServer;
 
+        $arrContextOptions=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        );
+
 		/**
 		 * UPDATE
 		 */
@@ -160,7 +167,8 @@ class AdminExtensions extends AbstractPage {
 		if ($_REQUEST['task'] == 'install') {
 			if ($_REQUEST['uniqid']) {
 
-				$extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid']);
+				//$extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid']);
+                $extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid'], false, stream_context_create($arrContextOptions));
 				if ($extStore) {
 					$extStore = json_decode($extStore);
 				}
@@ -172,7 +180,13 @@ class AdminExtensions extends AbstractPage {
 
 				$filename = uniqid(rand(), true) . '.zip';
 
-				file_put_contents("../tmp/".$filename, fopen($extStore->url, 'r'));
+				file_put_contents("../tmp/".$filename, file_get_contents($extStore->url, false, stream_context_create($arrContextOptions)));
+
+                if (!file_exists("../tmp/".$filename)) {
+                    unlink("../tmp/".$filename);
+                    $retun = ['error' => true, 'msg' => 'Missing Donwload Zip.'];
+                    echo json_encode($retun); exit;
+                }
 
 				$zip = new ZipArchive;
 				if ($zip->open("../tmp/".$filename) === TRUE) {
@@ -333,7 +347,11 @@ class AdminExtensions extends AbstractPage {
 			}
 		}
 
-		$extStore = file_get_contents($extensionsServer."extensions.json");
+
+        $extStore = file_get_contents($extensionsServer."extensions.json", false, stream_context_create($arrContextOptions));
+        if (!$extStore) {
+            $extStore = "false";
+        }
 
 		/**
 		 * GET INSTALLED EXTENSIONS
