@@ -62,6 +62,7 @@ define("URL_SELF", URL_ROOT.$_SERVER[REQUEST_URI]);
 define("PATH_WWW", '.'.DS);
 define("PATH_ROOT", PATH_WWW.'..'.DS);
 define("PATH_EXTENSIONS", PATH_ROOT.'extensions'.DS);
+define("PATH_TMP", PATH_ROOT.'tmp'.DS);
 define("PATH_LIB", PATH_ROOT.'framework'.DS.'lib'.DS);
 define("PATH_PAGE", PATH_ROOT.'framework'.DS.'lib'.DS.'page'.DS);
 define("PATH_COMPONENTS", PATH_WWW.'components'.DS);

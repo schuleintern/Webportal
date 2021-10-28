@@ -2,6 +2,7 @@
 
 
 .form-style-2 input[type="text"],
+.form-style-2 input[type="file"],
 .form-style-2 input[type="number"],
 .form-style-2 textarea {
   border: 0;

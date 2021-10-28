@@ -46,6 +46,13 @@
 
     <br/><br/>
 
+    <h2>Erweiterungen Installieren</h2>
+    <p v-show="uploadError" class="text-red padding-t-m padding-b-m">{{uploadError}}</p>
+    <div class="flex-row form-style-2">
+        <input type="file" accept=".zip" multiple="false" v-on:change="handlerChangeUploadFile" class="flex-1" />
+        <button class="btn btn-blau" v-on:click="handlerUploadInstall">Hochladen & Installieren</button>
+    </div>
+
     <h2>Alle Erweiterungen</h2>
     <table class="table_1">
       <thead>
@@ -81,7 +88,10 @@ export default {
     return {
       selfURL: globals.selfURL,
       error: false,
+      uploadError: false,
       loading: false,
+
+      uploadFile: false,
 
       extInstalled: [],
       extStore: globals.extStore
@@ -239,6 +249,54 @@ export default {
       .finally(function () {
         // always executed
       }); 
+
+    },
+    handlerChangeUploadFile: function ($event) {
+
+      this.uploadFile = false;
+      this.uploadFile = $event.target.files[0] || $event.dataTransfer.files[0];
+
+    },
+    handlerUploadInstall: function () {
+
+      //console.log(this.uploadFile);
+      if (!this.uploadFile) {
+        return false;
+      }
+
+      let formData = new FormData();
+      formData.append('file', this.uploadFile);
+
+      //console.log(formData);
+
+      var that = this;
+      axios.post( this.selfURL+'&task=uploadInstall',
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }
+      ).then(function(response){
+        //console.log('SUCCESS!!');
+
+        if ( response.data ) {
+          if (response.data.error == true) {
+            that.uploadError = response.data.msg;
+          } else {
+            that.uploadError = false;
+            that.loadExtensions();
+          }
+        } else {
+          that.uploadError = 'Fehler beim Installieren. 01';
+        }
+
+      })
+      .catch(function(){
+        //console.log('FAILURE!!');
+        that.uploadError = 'Fehler beim Installieren. 02';
+      });
+
 
     },
     handlerInstall: function (item, $event) {

@@ -47,6 +47,29 @@ class AdminExtensions extends AbstractPage {
             ),
         );
 
+        /**
+         * UPLOAD AND INSTALL
+         */
+        if ($_REQUEST['task'] == 'uploadInstall') {
+
+            $uploadfile = PATH_TMP . 'upload-extension.zip';
+            @unlink($uploadfile);
+
+            if ( !move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+                $retun = ['error' => true, 'msg' => 'Error: Upload'];
+                echo json_encode($retun); exit;
+            }
+
+            if ( !file_exists($uploadfile) ) {
+                $retun = ['error' => true, 'msg' => 'Error: Missing File'];
+                echo json_encode($retun); exit;
+            }
+
+            $retun = self::unpackAndInstallZip('upload-extension.zip');
+            echo json_encode($retun); exit;
+        }
+
+
 		/**
 		 * UPDATE
 		 */
@@ -76,10 +99,10 @@ class AdminExtensions extends AbstractPage {
 
 				$filename = uniqid(rand(), true) . '.zip';
 
-				file_put_contents("../tmp/".$filename, fopen($extStore->url, 'r'));
+				file_put_contents(PATH_TMP.$filename, fopen($extStore->url, 'r'));
 
 				$zip = new ZipArchive;
-				if ($zip->open("../tmp/".$filename) === TRUE) {
+				if ($zip->open(PATH_TMP.$filename) === TRUE) {
 
 					$foldername = substr($zip->getNameIndex(0), 0, -1);
 
@@ -88,13 +111,13 @@ class AdminExtensions extends AbstractPage {
 					}
 
 					if ( !$zip->extractTo($pathExtensions) ) {
-						unlink("../tmp/".$filename);
+						unlink(PATH_TMP.$filename);
 						$retun = ['error' => true, 'msg' => 'Error Unpack'];
 						echo json_encode($retun); exit;
 					}
 					$zip->close();
 
-					unlink("../tmp/".$filename);
+					unlink(PATH_TMP.$filename);
 
 					// Get Extension JSON
 					if ( file_exists($pathExtensions.$foldername.'/extension.json') ) {
@@ -139,8 +162,8 @@ class AdminExtensions extends AbstractPage {
 
 						$retun = ['error' => false];
 						echo json_encode($retun); exit;
-							
-						
+
+
 					} else {
 						$retun = ['error' => true, 'msg' => 'Misson Extension JSON'];
 						echo json_encode($retun); exit;
@@ -180,104 +203,16 @@ class AdminExtensions extends AbstractPage {
 
 				$filename = uniqid(rand(), true) . '.zip';
 
-				file_put_contents("../tmp/".$filename, file_get_contents($extStore->url, false, stream_context_create($arrContextOptions)));
+				file_put_contents(PATH_TMP.$filename, file_get_contents($extStore->url, false, stream_context_create($arrContextOptions)));
 
-                if (!file_exists("../tmp/".$filename)) {
-                    unlink("../tmp/".$filename);
+                if (!file_exists(PATH_TMP.$filename)) {
+                    unlink(PATH_TMP.$filename);
                     $retun = ['error' => true, 'msg' => 'Missing Donwload Zip.'];
                     echo json_encode($retun); exit;
                 }
 
-				$zip = new ZipArchive;
-				if ($zip->open("../tmp/".$filename) === TRUE) {
-
-					$foldername = substr($zip->getNameIndex(0), 0, -1);
-
-					if (file_exists($pathExtensions.$foldername)) {
-						unlink("../tmp/".$filename);
-						$retun = ['error' => true, 'msg' => 'Extension still exist.'];
-						echo json_encode($retun); exit;
-					}
-
-					if ( !$zip->extractTo($pathExtensions) ) {
-						unlink("../tmp/".$filename);
-						$retun = ['error' => true, 'msg' => 'Error Unpack'];
-						echo json_encode($retun); exit;
-					}
-					$zip->close();
-
-					unlink("../tmp/".$filename);
-
-					// Get Extension JSON
-					if ( file_exists($pathExtensions.$foldername.'/extension.json') ) {
-
-						$modulJSON = json_decode( file_get_contents($pathExtensions.$foldername.'/extension.json') );
-
-						if ( !$modulJSON ) {
-							FILE::removeFolder($pathExtensions.$foldername);
-							$retun = ['error' => true, 'msg' => 'Missing extension.json Data'.$pathExtensions.$foldername.'/extension.json'];
-							echo json_encode($retun); exit;
-						}
-
-						if ( !$modulJSON->name || !$modulJSON->version || !$modulJSON->uniqid  ) {
-							FILE::removeFolder($pathExtensions.$foldername);
-							$retun = ['error' => true, 'msg' => 'Missing JSON Data'];
-							echo json_encode($retun); exit;
-						}
-
-						// Schule-intern is needed Version ???
-						if ( $modulJSON->requiredVersion ) {
-							if ( version_compare($modulJSON->requiredVersion, DB::getVersion(), '>') ) {
-								FILE::removeFolder($pathExtensions.$foldername);
-								$retun = ['error' => true, 'msg' => 'System has wrong Version'];
-								echo json_encode($retun); exit;
-							}
-						}
-
-						// Install Extension DB
-						if ( file_exists($pathExtensions.$foldername.'/install/database.sql') ) {
-							$sql = file_get_contents($pathExtensions.$foldername.'/install/database.sql');
-							$sqlCommands = explode(';', $sql);
-							foreach($sqlCommands as $foo) {
-								$foo = trim($foo);
-								if ($foo) {
-									DB::getDB()->query($foo);
-								}
-							}
-						}
-
-						// Insert and Activate Extension
-						DB::getDB()->query("INSERT INTO `extensions` (
-							`name`,
-							`active`,
-							`folder`,
-							`version`,
-							`uniqid`,
-							`menuCat`
-							) VALUES (
-								'".$modulJSON->name."',
-								1,
-								'".$foldername."',
-								".$modulJSON->version.",
-								'".$modulJSON->uniqid."',
-								'".$modulJSON->menuCat."'
-						);");
-						
-						$retun = ['error' => false];
-						echo json_encode($retun); exit;
-							
-						
-					} else {
-						FILE::removeFolder($pathExtensions.$foldername);
-						$retun = ['error' => true, 'msg' => 'Missing Extension JSON'];
-						echo json_encode($retun); exit;
-					}
-
-
-				} else {
-					$retun = ['error' => true, 'msg' => 'Error Zip Open'];
-					echo json_encode($retun); exit;
-				}
+                $retun = self::unpackAndInstallZip($filename);
+                echo json_encode($retun); exit;
 
 			} else {
 				$retun = ['error' => true, 'msg' => 'Missing UniqID'];
@@ -393,6 +328,94 @@ class AdminExtensions extends AbstractPage {
 		return false;
 
 	}
+
+    static function unpackAndInstallZip($filename) {
+
+        $zip = new ZipArchive;
+        if ($zip->open(PATH_TMP.$filename) === TRUE) {
+
+            $foldername = substr($zip->getNameIndex(0), 0, -1);
+
+            if (file_exists(PATH_EXTENSIONS.$foldername)) {
+                unlink(PATH_TMP.$filename);
+                return ['error' => true, 'msg' => 'Extension still exist.'];
+            }
+
+            if ( !$zip->extractTo(PATH_EXTENSIONS) ) {
+                unlink(PATH_TMP.$filename);
+                return ['error' => true, 'msg' => 'Error Unpack'];
+            }
+            $zip->close();
+
+            unlink(PATH_TMP.$filename);
+
+            // Get Extension JSON
+            if ( file_exists(PATH_EXTENSIONS.$foldername.'/extension.json') ) {
+
+                $modulJSON = json_decode( file_get_contents(PATH_EXTENSIONS.$foldername.'/extension.json') );
+
+                if ( !$modulJSON ) {
+                    FILE::removeFolder(PATH_EXTENSIONS.$foldername);
+                    return ['error' => true, 'msg' => 'Missing extension.json Data'.PATH_EXTENSIONS.$foldername.'/extension.json'];
+                }
+
+                if ( !$modulJSON->name || !$modulJSON->version || !$modulJSON->uniqid  ) {
+                    FILE::removeFolder(PATH_EXTENSIONS.$foldername);
+                    return ['error' => true, 'msg' => 'Missing JSON Data'];
+                }
+
+                // Schule-intern is needed Version ???
+                if ( $modulJSON->requiredVersion ) {
+                    if ( version_compare($modulJSON->requiredVersion, DB::getVersion(), '>') ) {
+                        FILE::removeFolder(PATH_EXTENSIONS.$foldername);
+                        return ['error' => true, 'msg' => 'System has wrong Version'];
+                    }
+                }
+
+                // Install Extension DB
+                if ( file_exists(PATH_EXTENSIONS.$foldername.'/install/database.sql') ) {
+                    $sql = file_get_contents(PATH_EXTENSIONS.$foldername.'/install/database.sql');
+                    $sqlCommands = explode(';', $sql);
+                    foreach($sqlCommands as $foo) {
+                        $foo = trim($foo);
+                        if ($foo) {
+                            DB::getDB()->query($foo);
+                        }
+                    }
+                }
+
+                // Insert and Activate Extension
+                DB::getDB()->query("INSERT INTO `extensions` (
+							`name`,
+							`active`,
+							`folder`,
+							`version`,
+							`uniqid`,
+							`menuCat`
+							) VALUES (
+								'".$modulJSON->name."',
+								1,
+								'".$foldername."',
+								".$modulJSON->version.",
+								'".$modulJSON->uniqid."',
+								'".$modulJSON->menuCat."'
+						);");
+
+                return ['error' => false];
+
+
+            } else {
+                FILE::removeFolder(PATH_EXTENSIONS.$foldername);
+                return ['error' => true, 'msg' => 'Missing Extension JSON'];
+            }
+
+
+        } else {
+            return ['error' => true, 'msg' => 'Error Zip Open'];
+        }
+
+
+    }
 
 
 }
