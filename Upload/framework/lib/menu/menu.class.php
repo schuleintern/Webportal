@@ -274,7 +274,7 @@ class menu {
     if ($this->extensions && $cat) {
       foreach($this->extensions as $ext) {
         if ( $cat == $ext['menuCat']) {
-          $html .= $this->getMenuItem($ext['folder'], $ext['name'],'fa fa-cogs');
+          $html .= $this->getMenuItem('ext_'.$ext['folder'], $ext['name'],'fa fa-cogs');
         }
       }
     }

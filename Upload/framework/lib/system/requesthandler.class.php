@@ -286,6 +286,14 @@ class requesthandler {
             exit;
           }
         } else {
+            if ($type == 'extension') {
+                if (is_dir(PATH_EXTENSION.'model')) {
+                    $scanned_directory = array_diff(scandir(PATH_EXTENSION.'model'), array('..', '.'));
+                    foreach($scanned_directory as $file) {
+                        include_once(PATH_EXTENSION.'model'.DS.$file);
+                    }
+                }
+            }
           $page->execute();
         }
       }
