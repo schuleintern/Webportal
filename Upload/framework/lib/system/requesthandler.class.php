@@ -287,10 +287,10 @@ class requesthandler {
           }
         } else {
             if ($type == 'extension') {
-                if (is_dir(PATH_EXTENSION.'model')) {
-                    $scanned_directory = FILE::getFilesInFolder(PATH_EXTENSION.'model');
+                if (is_dir(PATH_EXTENSION.'models')) {
+                    $scanned_directory = FILE::getFilesInFolder(PATH_EXTENSION.'models');
                     foreach($scanned_directory as $file) {
-                        include_once(PATH_EXTENSION.'model'.DS.$file['filename']);
+                        include_once(PATH_EXTENSION.'models'.DS.$file['filename']);
                     }
                 }
             }
