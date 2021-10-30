@@ -82,8 +82,10 @@ class AdminExtensions extends AbstractPage {
 					echo json_encode($retun); exit;
 				}
 
-				$extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid']);
-				if ($extStore) {
+				//$extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid']);
+                $extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid'], false, stream_context_create($arrContextOptions));
+
+                if ($extStore) {
 					$extStore = json_decode($extStore);
 				}
 
@@ -99,12 +101,27 @@ class AdminExtensions extends AbstractPage {
 
 				$filename = uniqid(rand(), true) . '.zip';
 
-				file_put_contents(PATH_TMP.$filename, fopen($extStore->url, 'r'));
+				//file_put_contents(PATH_TMP.$filename, fopen($extStore->url, 'r'), false, stream_context_create($arrContextOptions));
+
+
+                file_put_contents(PATH_TMP.$filename, file_get_contents($extStore->url, false, stream_context_create($arrContextOptions)));
+
+                if (!file_exists(PATH_TMP.$filename)) {
+                    unlink(PATH_TMP.$filename);
+                    $retun = ['error' => true, 'msg' => 'Missing Donwload Zip.'];
+                    echo json_encode($retun); exit;
+                }
+
 
 				$zip = new ZipArchive;
 				if ($zip->open(PATH_TMP.$filename) === TRUE) {
 
 					$foldername = substr($zip->getNameIndex(0), 0, -1);
+
+                    if (!$foldername) {
+                        $retun = ['error' => true, 'msg' => 'Missing Foldername'];
+                        echo json_encode($retun); exit;
+                    }
 
 					if (file_exists($pathExtensions.$foldername)) {
 						FILE::removeFolder($pathExtensions.$foldername);
@@ -117,7 +134,9 @@ class AdminExtensions extends AbstractPage {
 					}
 					$zip->close();
 
-					unlink(PATH_TMP.$filename);
+                    if (file_exists(PATH_TMP.$filename)) {
+                        unlink(PATH_TMP . $filename);
+                    }
 
 					// Get Extension JSON
 					if ( file_exists($pathExtensions.$foldername.'/extension.json') ) {
