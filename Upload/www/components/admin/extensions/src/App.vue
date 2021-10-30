@@ -19,6 +19,7 @@
           <td>Aktiviert</td>
           <td>Ordner</td>
           <td>Menü</td>
+          <td>Abhängigkeit</td>
           <td></td>
           <td></td>
         </tr>
@@ -27,7 +28,7 @@
         <tr v-bind:key="index" v-for="(item, index) in  extInstalled"
           class="line-oddEven"
           :class="{ 'text-grey' : item.active == 0}">
-          <td>{{item.name}} <div class="text-small text-grey">( {{item.uniqid}} )</div></td>
+          <td>{{item.name}} <div class="text-small text-grey">{{item.uniqid}}</div></td>
           <td>{{item.version}}</td>
           <td>
             <button
@@ -41,6 +42,7 @@
           </td>
           <td><span class="text-small">{{item.folder}}</span></td>
           <td><span class="text-small">{{item.menuCat}}</span></td>
+          <td><span class="text-small">{{item.json.dependencies}}</span></td>
           <td><button v-show="item.update" class="btn btn-blau" v-on:click="handlerUpdate(item, $event)">Update</button></td>
           <td><button class="btn btn-blau" v-on:click="handlerRemove(item, $event)">Entfernen</button></td>
 

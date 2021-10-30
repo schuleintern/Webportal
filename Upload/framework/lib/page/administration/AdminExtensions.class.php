@@ -234,6 +234,7 @@ class AdminExtensions extends AbstractPage {
 					FILE::removeFolder($pathExtensions.$extension['folder']);
 					DB::getDB()->query("DELETE FROM `extensions` WHERE `uniqid` = '".$_REQUEST['uniqid']."'" );
 
+                    // TODO: DELETE ext_database_tabeles ?
 					$retun = ['error' => false];
 					echo json_encode($retun); exit;
 				} else {
@@ -254,7 +255,7 @@ class AdminExtensions extends AbstractPage {
 		if ($_REQUEST['task'] == 'toggleActive') {
 			if ($_REQUEST['uniqid']) {
 
-				$extension = DB::getDB()->query_first("SELECT `id`,`active` FROM extensions WHERE `uniqid` = '".$_REQUEST['uniqid']."'" );
+				$extension = DB::getDB()->query_first("SELECT `id`,`active`,`folder` FROM extensions WHERE `uniqid` = '".$_REQUEST['uniqid']."'" );
 				if ($extension['id']) {
 
 					if ($extension['active'] == 1) {
@@ -262,7 +263,16 @@ class AdminExtensions extends AbstractPage {
 					} else {
 						$active = 1;
 					}
-
+                    $extensionJSON = self::getExtensionJSON(PATH_EXTENSIONS.$extension['folder'].DS.'extension.json');
+                    if ($extensionJSON->dependencies) {
+                        foreach ($extensionJSON->dependencies as $dep) {
+                            $extension_dep = DB::getDB()->query_first("SELECT `id`,`active` FROM extensions WHERE `uniqid` = '".$dep."'" );
+                            if ($extension_dep['active'] != 1) {
+                                $retun = ['error' => true, 'msg' => 'Dependencies: Missing Extension - ('.$dep.')'];
+                                echo json_encode($retun); exit;
+                            }
+                        }
+                    }
 					DB::getDB()->query("UPDATE `extensions` SET 
 							`active` = '".$active."'
 							WHERE `uniqid` =  '".$_REQUEST['uniqid']."'");
@@ -302,6 +312,7 @@ class AdminExtensions extends AbstractPage {
 				if ( self::checkUpdate($extAvailable, $row) ) {
 					$row['update'] = true;
 				}
+                $row['json'] = self::getExtensionJSON(PATH_EXTENSIONS.$row['folder'].DS.'extension.json');
 				$extInstalled[] = $row;
 
 			}
@@ -394,7 +405,7 @@ class AdminExtensions extends AbstractPage {
 							`menuCat`
 							) VALUES (
 								'".$modulJSON->name."',
-								1,
+								0,
 								'".$foldername."',
 								".$modulJSON->version.",
 								'".$modulJSON->uniqid."',

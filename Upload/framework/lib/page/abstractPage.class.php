@@ -64,7 +64,7 @@ abstract class AbstractPage {
 		
 		// Load Extension JSON and set Defaults
 		if ($this->extension) {
-			$this->extension['json'] = $this->getExtensionJSON();
+			$this->extension['json'] = self::getExtensionJSON();
 			if ( isset($this->extension['json']) ) {
 				
 				// Admin Group
@@ -369,9 +369,14 @@ abstract class AbstractPage {
 	 * get Extension JSON
 	 * 
 	 */
-	public function getExtensionJSON() {
+	public static function getExtensionJSON($path = false) {
 
-		$path = PATH_EXTENSION.DS.'extension.json';
+        if (!$path) {
+            if (!PATH_EXTENSION || PATH_EXTENSION == 'PATH_EXTENSION') {
+                return false;
+            }
+            $path = PATH_EXTENSION.DS.'extension.json';
+        }
 		if ( file_exists($path) ) {
 			$file = file_get_contents($path);
 			$json = json_decode($file);
