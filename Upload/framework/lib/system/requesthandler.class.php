@@ -241,24 +241,27 @@ class requesthandler {
     if ($allowed) {
       $type = 'page';
     }
-    
+
     // Second: Load extensions
     if (!$allowed) {
       $view = 'default';
       if ($_request['view']) {
         $view = $_request['view'];
       }
-      $extension = self::loadExtensions($action, $view, $_request['admin']);
-      if ($extension['allowed'] == true && $extension['classname']) {
-        $allowed = true;
-        $type = 'extension';
-        $action = $extension['classname'];
-        if ($_request['admin']) {
-          define("PATH_EXTENSION", PATH_EXTENSIONS.$extension['folder'].DS."admin".DS);
-        } else {
-          define("PATH_EXTENSION", PATH_EXTENSIONS.$extension['folder'].DS);
-        }
+      if (substr($action, 0, 4) === 'ext_') {
+          $extension = self::loadExtensions($action, $view, $_request['admin']);
+          if ($extension['allowed'] == true && $extension['classname']) {
+              $allowed = true;
+              $type = 'extension';
+              $action = $extension['classname'];
+              if ($_request['admin']) {
+                  define("PATH_EXTENSION", PATH_EXTENSIONS.$extension['folder'].DS."admin".DS);
+              } else {
+                  define("PATH_EXTENSION", PATH_EXTENSIONS.$extension['folder'].DS);
+              }
+          }
       }
+
     }
 
     if($allowed) {
