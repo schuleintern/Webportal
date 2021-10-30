@@ -296,7 +296,7 @@ class AdminExtensions extends AbstractPage {
 			$extAvailable = json_decode($extStore);
 
 			$extInstalled = array();
-			$result = DB::getDB()->query('SELECT `name`,`active`,`uniqid`,`version` FROM `extensions` ');
+			$result = DB::getDB()->query('SELECT `name`,`active`,`uniqid`,`version`,`folder`,`menuCat` FROM `extensions` ');
 			while($row = DB::getDB()->fetch_array($result)) {
 
 				if ( self::checkUpdate($extAvailable, $row) ) {

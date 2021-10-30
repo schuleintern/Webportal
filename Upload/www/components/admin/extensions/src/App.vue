@@ -17,6 +17,8 @@
           <td>Name</td>
           <td>Version</td>
           <td>Aktiviert</td>
+          <td>Ordner</td>
+          <td>Menü</td>
           <td></td>
           <td></td>
         </tr>
@@ -37,6 +39,8 @@
               v-on:click="handlerToggleActive(item, $event)"
               class="btn"><i class="fas fa-toggle-off"></i></button>
           </td>
+          <td><span class="text-small">{{item.folder}}</span></td>
+          <td><span class="text-small">{{item.menuCat}}</span></td>
           <td><button v-show="item.update" class="btn btn-blau" v-on:click="handlerUpdate(item, $event)">Update</button></td>
           <td><button class="btn btn-blau" v-on:click="handlerRemove(item, $event)">Entfernen</button></td>
 
@@ -44,16 +48,22 @@
       </tbody>
     </table>
 
-    <br/><br/>
+    <br/><br/><hr /><br/>
 
-    <h2>Erweiterungen Installieren</h2>
+    <h2>Erweiterungen Hinzufügen</h2>
+
+    <h3>Upload Extension</h3>
+    <p class="text-small">(Zip-Archive)</p>
     <p v-show="uploadError" class="text-red padding-t-m padding-b-m">{{uploadError}}</p>
     <div class="flex-row form-style-2">
         <input type="file" accept=".zip" multiple="false" v-on:change="handlerChangeUploadFile" class="flex-1" />
         <button class="btn btn-blau" v-on:click="handlerUploadInstall">Hochladen & Installieren</button>
     </div>
 
-    <h2>Alle Erweiterungen</h2>
+    <br/>
+
+    <h3>Vom Server</h3>
+    <p class="text-small">(URL: {{extensionsServer}})</p>
     <table class="table_1">
       <thead>
         <tr>
@@ -94,7 +104,8 @@ export default {
       uploadFile: false,
 
       extInstalled: [],
-      extStore: globals.extStore
+      extStore: globals.extStore,
+      extensionsServer: globals.extensionsServer
     };
   },
   created: function () {

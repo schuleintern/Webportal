@@ -338,6 +338,12 @@ abstract class AbstractPage {
 				&& file_exists(PATH_TMPL_OVERRIGHTS.'extensions'.DS.$this->request['page'].DS.$arg['tmpl'].'.tmpl.php') ) {
 					include_once(PATH_TMPL_OVERRIGHTS.'extensions'.DS.$this->request['page'].DS.$arg['tmpl'].'.tmpl.php');
 				} else {
+                    if ($arg['var']) {
+                        foreach($arg['var'] as $var) {
+                            // TODO: better way?
+                            eval("\$".$var[0]." = '".$var[1]."'; ");
+                        }
+                    }
 					include_once($path.$arg['tmpl'].'.tmpl.php');
 				}
 			}
