@@ -23,26 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Composer Update">
-      <change afterPath="$PROJECT_DIR$/Datenbank/Schemaaenderungen/extensions.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/admin/acl.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/admin/custom.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/admin/default.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/admin/tmpl/custom.tmpl.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/default.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/extension.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/frontend.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/html.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/install/database.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/overwrite.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/rest/myTestAjax.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/tmpl/default.tmpl.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/tmpl/frontend.tmpl.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/tmpl/overwrite.tmpl.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/tmpl/scripts/default/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/extensions/example/tmpl/scripts/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/administration/AdminExtensions.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/administration/AdminExtensions.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/templates/administration/extensions/list.htm" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/templates/administration/extensions/list.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/abstractPage.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/abstractPage.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/system/requesthandler.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/system/requesthandler.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/www/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

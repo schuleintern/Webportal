@@ -354,7 +354,8 @@ class requesthandler {
       
     $allowed = false;
 
-    $extension = DB::getDB()->query_first("SELECT `id`,`folder` FROM extensions WHERE `folder` = '".$action."'" );
+    $realname = str_replace('ext_','',$action);
+    $extension = DB::getDB()->query_first("SELECT `id`,`folder` FROM extensions WHERE `folder` = '".$realname."'" );
     if ($extension && $extension['folder'] && $view) {
       if ($admin) {
         $path = PATH_EXTENSIONS.$extension['folder'].DS.'admin'.DS.$view.'.php';
@@ -370,9 +371,9 @@ class requesthandler {
 
     if ($allowed) {
       if ($admin) {
-        $classname = 'admin'.ucfirst($extension['folder']).ucfirst($view);
+        $classname = 'ext'.ucfirst($extension['folder']).'Admin'.ucfirst($view);
       } else {
-        $classname = $extension['folder'].ucfirst($view);
+        $classname = 'ext'.ucfirst($extension['folder']).ucfirst($view);
       }
       return [
         'allowed' => true,

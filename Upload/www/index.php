@@ -67,6 +67,9 @@ define("PATH_LIB", PATH_ROOT.'framework'.DS.'lib'.DS);
 define("PATH_PAGE", PATH_ROOT.'framework'.DS.'lib'.DS.'page'.DS);
 define("PATH_COMPONENTS", PATH_WWW.'components'.DS);
 define("PATH_TMPL_OVERRIGHTS", PATH_WWW.'tmpl'.DS);
+// PATH_EXTENSION (set by abstractPage.class.php)
+
+
 
 new requesthandler((isset($_request['page']) && $_request['page'] != "") ? $_request['page'] : 'index', $_request);
 

@@ -371,7 +371,7 @@ abstract class AbstractPage {
 	 */
 	public function getExtensionJSON() {
 
-		$path = PATH_EXTENSIONS.$this->request['page'].DS.'extension.json';
+		$path = PATH_EXTENSION.DS.'extension.json';
 		if ( file_exists($path) ) {
 			$file = file_get_contents($path);
 			$json = json_decode($file);
