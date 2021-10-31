@@ -287,12 +287,19 @@ class requesthandler {
           }
         } else {
             if ($type == 'extension') {
-                if (is_dir(PATH_EXTENSION.'models')) {
-                    $scanned_directory = FILE::getFilesInFolder(PATH_EXTENSION.'models');
-                    foreach($scanned_directory as $file) {
-                        include_once(PATH_EXTENSION.'models'.DS.$file['filename']);
+
+                self::loadFileFromFolder( PATH_EXTENSION.'models');
+
+                if ($extension['json'] && $extension['json']->dependencies) {
+                    foreach($extension['json']->dependencies as $dependencies) {
+                        $where[] = '`uniqid` = "'.$dependencies.'"';
+                    }
+                    $result = DB::getDB()->query('SELECT `folder` FROM `extensions` WHERE '.implode(' OR ', $where) );
+                    while($row = DB::getDB()->fetch_array($result)) {
+                        self::loadFileFromFolder(PATH_EXTENSIONS.$row['folder'].DS.'models');
                     }
                 }
+
             }
           $page->execute();
         }
@@ -371,7 +378,7 @@ class requesthandler {
       if ($admin) {
         $path = PATH_EXTENSIONS.$extension['folder'].DS.'admin'.DS.$view.'.php';
       } else {
-        $path = PATH_EXTENSIONS.$extension['folder'].'/'.$view.'.php';
+        $path = PATH_EXTENSIONS.$extension['folder'].DS.$view.'.php';
       }
       if (file_exists($path)) {
         require_once (PATH_PAGE.'abstractPage.class.php');
@@ -386,16 +393,30 @@ class requesthandler {
       } else {
         $classname = 'ext'.ucfirst($extension['folder']).ucfirst($view);
       }
+      $json = AbstractPage::getExtensionJSON(PATH_EXTENSIONS.$extension['folder'].DS.'extension.json');
       return [
         'allowed' => true,
         'classname' => $classname,
         'folder' => $extension['folder'],
-        'view' => $view
+        'view' => $view,
+        'json' => $json
       ];
     }
     return false;
   }
 
+
+
+  public static function loadFileFromFolder($path = false) {
+      if ( $path && is_dir($path)) {
+          $scanned_directory = FILE::getFilesInFolder($path);
+          foreach($scanned_directory as $file) {
+              if (file_exists($path.DS.$file['filename'])) {
+                  include_once($path.DS.$file['filename']);
+              }
+          }
+      }
+  }
 
   public static function __htmlspecialchars($data) {
       if (is_array($data)) {
