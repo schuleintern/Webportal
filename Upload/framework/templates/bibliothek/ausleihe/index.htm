@@ -1,0 +1,158 @@
+{$this->header}
+
+<if($schueler == null)><then>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-arrow-up"></i> Ausleihe</h3>
+		<a href="index.php?page=schulbuecher&mode=generateAusleihBarcodes"><i class="fa fa-file-pdf"></i> Schülerbarcodes ausdrucken</a>
+	</div>
+	<div class="box-body">
+		<form action="index.php?page=schulbuecher&mode=ausleihe&action=selectPupil" method="post">
+		
+		        <div class="input-group input-group-sm">
+				<input type="text" name="schuelerAsvID" class="form-control"  autofocus="autofocus" placeholder="Barcode des Schülers scannen">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-info btn-flat">OK</button>
+                    </span>
+              </div>
+		</form>
+	</div>
+</div>
+
+</then>
+<else>
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-arrow-up"></i> Ausleihe - Schüler: {$schueler->getCompleteSchuelerName()} (Klasse {$schueler->getKlasse()})</h3>
+		<a href="index.php?page=schulbuecher&mode=generateAusleihBarcodes"><i class="fa fa-file-pdf"></i> Schülerbarcodes ausdrucken</a>
+	</div>
+	<div class="box-body">
+		<form action="index.php?page=schulbuecher&mode=ausleihe&action=scanBarcode" method="post">
+				<input type="hidden" name="schuelerAsvID" value="{$schueler->getAsvID()}">
+		        <div class="input-group input-group-sm">
+				<input type="text" name="barcode" class="form-control"  autofocus="autofocus" placeholder="Barcode scannen.">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-info btn-flat">OK</button>
+                    </span>
+              </div>
+		</form>
+	</div>
+</div>
+
+</else>
+</if>
+
+<if($scaned)><then>
+	<if($success)><then>
+		<div class="callout callout-success">$message</div>
+	</then>
+	<else>
+		<div class="callout callout-danger"><if($message != "")><then>$message</then><else>Der Barcode ist leider unbekannt.</else></if></div>
+	</else>
+	</if>
+</then></if>
+
+<if($schueler != null)><then>
+
+<if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren') && DB::getSettings()->getBoolean('schulbuecher-ausleihe-fotos'))><then>
+<div class="row">
+	<div class="col-md-10">
+	
+</then></if>
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-book"></i> Momentan ausgeliehene Bücher ($summe Exemplare)</h3>
+			</div>
+			<div class="box-body">
+				<table class="table table-striped">
+					<tr>
+						<th>Buch</th>
+						<th>Zustand</th>
+						<th>Barcode</th>
+						<th>Aktionen</th>
+					</tr>
+					$buecherHTML
+				</table>
+			</div>
+		</div>
+
+<if(DB::getSettings()->getBoolean('schuelerinfo-fotos-aktivieren') && DB::getSettings()->getBoolean('schulbuecher-ausleihe-fotos'))><then>
+		
+	</div>
+	
+	<div class="col-md-2">
+	
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"><i class="fa fa-picture"></i> Foto</h3>
+			</div>
+			<div class="box-body">
+
+			<img src="index.php?page=schulbuecher&mode=getSchuelerFoto&schuelerAsvID={$schueler->getAsvID()}" style="width:100%">
+			</div>
+		</div>
+	
+	
+	
+	</div>
+	
+
+</div>
+
+</then></if>
+
+
+
+
+
+
+	<div class="modal fade" id="returnBook" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <div class="modal-header">	    
+	    	<h4 class="modal-title" id="eventTitle"><i class="fa fa-arrow-down"></i> Buch Rückgabe manuell buchen</h4>
+	      </div>
+	      <div class="modal-body">
+		<form action="index.php?page=schulbuecher&mode=ausleihe&schuelerAsvID={$schueler->getAsvID()}" method="post">
+			<input type="hidden" name="rueckgabeAusleihe" id="rueckgabeAusleiheID" value="">
+			<div class="form-group">
+				<label>Zustand</label>
+				<select name="zustand" id="rueckgabeZustand" class="form-control">
+					<option value="-1">n/a</option>
+					<option value="1">Sehr gut</option>
+					<option value="2">OK</option>
+					<option value="3">Schlecht</option>
+				</select>
+				
+			</div>
+			
+			<div class="form-group">
+				<label>Kommentar</label>
+				<textarea name="kommentar" placeholder="z.B. Exemplar verloren"class="form-control"></textarea>
+			</div>
+			<button type="submit" class="form-control"><i class="fa fa-arrow-down"></i> Rückgabe buchen</button>
+		</form>
+		  </div>
+		 </div>
+	   </div>
+	</div>
+	
+	<script>
+		function rueckgabe(ausleiheID, zustand) {
+			$("#rueckgabeAusleiheID").val(ausleiheID);
+			$("#rueckgabeZustand").val(zustand);
+			
+			$("#returnBook").modal("show");
+		}
+		
+	
+	</script>
+	
+
+</then>
+</if>
+
+
+{$this->footer}

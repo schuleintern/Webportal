@@ -265,6 +265,20 @@ class TagebuchKlasseEntry {
   	return $all;
   }
 
+    /**
+     * @param $teacher
+     * @return TagebuchKlasseEntry[]
+     */
+  public static function getAllForTeacher($teacher) {
+      $data = DB::getDB()->query("SELECT * FROM klassentagebuch_klassen WHERE entryTeacher LIKE '" . $teacher . "' ORDER BY entryDate ASC, entryGrade ASC, entryStunde ASC");
+
+      $all = [];
+
+      while($d = DB::getDB()->fetch_array($data)) $all[] = new TagebuchKlasseEntry($d);
+
+      return $all;
+  }
+
   public static function getAllForDateAndTeacher($date, $teacher) {
       $data = DB::getDB()->query("SELECT * FROM klassentagebuch_klassen WHERE entryDate='" . $date . "' AND entryTeacher LIKE '" . $teacher . "'");
 

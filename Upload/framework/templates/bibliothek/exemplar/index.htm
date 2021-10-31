@@ -1,0 +1,69 @@
+{$this->header}
+
+<div class="callout callout-info"><a href="index.php?page=schulbuecher&mode=bestand"><i class="fa fa-arrow-left"></i> Zurück zur Bestandsübersicht</a></div>
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-book"></i> Buch suchen</h3>
+	</div>
+	<div class="box-body">
+		<form action="index.php?page=schulbuecher&mode=viewExemplar" method="post">
+		
+		        <div class="input-group input-group-sm">
+				<input type="text" name="exemplarBarcode" id="exemplarBarcode" class="form-control"  autofocus="autofocus" placeholder="Barcode des Buches scannen oder eingeben" />
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-info btn-flat">OK</button>
+                    </span>
+              </div>
+		</form>
+	</div>
+</div>
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><i class="fa fa-book"></i> {$book->getName()}</h3><br />
+	</div>
+	<div class="box-body">
+	
+		<if($ausleihe != null)><then>
+			<div class="callout callout-info">Ausgeliehen an {$ausleihe->getAusleiher()} seit $ausleiheDatum</div>
+		</then>	
+		
+		<else>
+			<div class="callout callout-success"><i class="fa fa-ban"></i> Derzeit nicht ausgeliehen</div>
+		
+		</else>
+		</if>
+	
+		<table class="table table-striped">
+			<tr>
+				<td style="width:30%">Barcode</td>
+				<td>{$exemplar->getBarcode()}</td>
+			</tr>
+			<tr>
+				<td style="width:30%">Zustand</td>
+				<td>{$exemplar->getZustand()}</td>
+			</tr>
+			<tr>
+				<td>Anschaffungsjahr</td>
+				<td>{$exemplar->getAnschaffungsjahr()}</td>
+			</tr>
+		</table>
+		
+		
+		<table class="table table-striped">
+			<tr>
+				<th style="width: 40%">Ausleiher</th>
+				<th style="width: 30%">Start</th>
+				<th style="width: 30%">Ende</th>
+			</tr>
+			$ausleihenHTML
+		</table>
+	</div>
+</div>
+
+
+
+{$this->footer}

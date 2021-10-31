@@ -33,7 +33,9 @@ class NotenEingabe extends AbstractPage {
 
 
     if($this->unterricht->getLehrer()->getAsvID() != DB::getSession()->getTeacherObject()->getAsvID()) {
-      new errorPage();
+        if(!self::hasAllRightsInNotenverwaltung()) {
+            new errorPage();
+        }
     }
 
     switch($_REQUEST['action']) {
@@ -151,7 +153,7 @@ class NotenEingabe extends AbstractPage {
       if($datum != '') $datum = "'" . $datum . "'";
       else $datum = "null";
 
-      if($arbeit != null && $arbeit->getLehrerKuerzel() == DB::getSession()->getTeacherObject()->getKuerzel()) {
+      if($arbeit != null) { // $arbeit->getLehrerKuerzel() == DB::getSession()->getTeacherObject()->getKuerzel()) {
           DB::getDB()->query("INSERT INTO noten_noten (
                     noteSchuelerAsvID,
                     noteWert,
@@ -189,7 +191,7 @@ class NotenEingabe extends AbstractPage {
   private function deleteNote() {
       $arbeit = NoteArbeit::getbyID($_REQUEST['arbeitID']);
 
-      if($arbeit != null && $arbeit->getLehrerKuerzel() == DB::getSession()->getTeacherObject()->getKuerzel()) {
+      if($arbeit != null) { // && $arbeit->getLehrerKuerzel() == DB::getSession()->getTeacherObject()->getKuerzel()) {
           DB::getDB()->query("DELETE FROM noten_noten WHERE noteSchuelerAsvID='" . DB::getDB()->escapeString($_REQUEST['schuelerAsvID']) . "' AND noteArbeitID='" . $arbeit->getID() . "'");
       }
 
@@ -294,7 +296,7 @@ class NotenEingabe extends AbstractPage {
 
     if($arbeit == null) new errorPage();
 
-    if($arbeit->getFach()->getKurzform() == $this->unterricht->getFach()->getKurzform() && $arbeit->getLehrerKuerzel() == DB::getSession()->getTeacherObject()->getKuerzel()) {
+    if($arbeit->getFach()->getKurzform() == $this->unterricht->getFach()->getKurzform()) { //  && $arbeit->getLehrerKuerzel() == DB::getSession()->getTeacherObject()->getKuerzel()) {
 
         if($_REQUEST['randNumberSolution'] == $_REQUEST['randNumber']) $arbeit->delete();
     }
@@ -311,7 +313,7 @@ class NotenEingabe extends AbstractPage {
 
       if($arbeit == null) new errorPage();
 
-      if($arbeit->getFach()->getKurzform() == $this->unterricht->getFach()->getKurzform() && $arbeit->getLehrerKuerzel() == DB::getSession()->getTeacherObject()->getKuerzel()) {
+      if($arbeit->getFach()->getKurzform() == $this->unterricht->getFach()->getKurzform()) { //  && $arbeit->getLehrerKuerzel() == DB::getSession()->getTeacherObject()->getKuerzel()) {
 
           $arbeit->setIsMuendlich($_POST['arbeitIsMuendlich']);
           $arbeit->updateName($_POST['arbeitName']);
@@ -1006,6 +1008,25 @@ class NotenEingabe extends AbstractPage {
     $randNumber = random_int(100000,999999);
 
     eval("DB::getTPL()->out(\"" . DB::getTPL()->get('notenverwaltung/noteneingabe/unterricht') . "\");");
+  }
+
+    /**
+     * Hat der Nutzer Zugriff auf die erweiterten Features der Notenverwaltung?
+     * @param user $user
+     * @return bool
+     */
+  public static function hasAllRightsInNotenverwaltung($user = null) {
+      if($user == null) $user = DB::getSession()->getUser();
+
+      if($user == null) return false;
+
+      if($user->isAdmin()) return true;
+
+      if(schulinfo::isSchulleitung($user)) return true;
+
+      if($user->isMember(self::getAdminGroup())) return true;
+
+      return false;
   }
 
   public static function hasSettings() {

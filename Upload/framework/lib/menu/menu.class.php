@@ -916,6 +916,47 @@ class menu {
         
         
     }
+
+      /**if(DB::isLoggedIn() && $this->isActive('Bibliothek') && (DB::getSession()->isAdmin() || DB::getSession()->isMember("Webportal_Bibliothek_Admin") || DB::getSession()->isTeacher() || DB::getSession()->isEltern() || DB::getSession()->isPupil())) {
+          $pages = array('schulbuecher');
+
+
+          $buecherHTML= $this->getMenuItem('Bibliothek', 'Meine Bücher', 'fa fa-book', ['mode' => '']);
+
+          $hasOther = false;
+
+          if(schulbuecher::userCanRueckgabe(DB::getSession()->getUser()) || schulbuecher::userCanAusleihe(DB::getSession()->getUser())) {
+              $hasOther = true;
+              $buecherHTML .= $this->getMenuItem('Bibliothek', 'Info / Abfrage', 'fa fa-briefcase', ['mode' => 'management']);
+          }
+
+          if(schulbuecher::userCanAusleihe(DB::getSession()->getUser())) {
+              $hasOther = true;
+              $buecherHTML .= $this->getMenuItem('Bibliothek', 'Ausleihe', 'fa fa-arrow-up', ['mode' => 'ausleihe']);
+          }
+          if(schulbuecher::userCanRueckgabe(DB::getSession()->getUser())) {
+              $buecherHTML .= $this->getMenuItem('Bibliothek', 'Rückgabe', 'fa fa-arrow-down', ['mode' => 'rueckgabe']);
+              $hasOther = true;
+          }
+          if(schulbuecher::userCanBestand(DB::getSession()->getUser())) {
+              $buecherHTML .= $this->getMenuItem('Bibliothek', 'Bestand', 'fa fa-arrows-alt', ['mode' => 'bestand']);
+              $hasOther = true;
+          }      Debugger::debugObject($recipientHandler,1);
+
+
+          if($hasOther) {
+              $html .= $this->startDropDown($pages, "Bibliothek", 'fa fa-book');
+
+              $html .= $buecherHTML;
+
+              $html .= $this->endDropDown();
+          }
+          else {
+              $html .= $buecherHTML;
+          }
+
+
+      } **/
     
     
 

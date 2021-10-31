@@ -19,6 +19,7 @@ class krankmeldung extends AbstractPage {
 			"Krankmeldung" 
 		) );
 		
+
 		$this->checkLogin();
 		
 		$accessOK = false;

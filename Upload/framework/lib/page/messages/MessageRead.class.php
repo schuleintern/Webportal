@@ -181,9 +181,10 @@ class MessageRead extends AbstractPage {
         if($recipients[$i] != null && $this->message->getMyRecipient() != null && $recipients[$i]->getSaveString() == $this->message->getMyRecipient()->getSaveString()) {
             $allRecipients[] = "<strong>" . $recipients[$i]->getDisplayName()  ."</strong>";
         }
-        else {
+        else if($recipients[$i] != null) {
             $allRecipients[] = $recipients[$i]->getDisplayName();
         }
+        else $allRecipients[] = 'n/a';
     }
     
     $ccRecipients = $this->message->getCCRecipients();

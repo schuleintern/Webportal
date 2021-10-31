@@ -276,6 +276,7 @@ class Office365Api {
                 'forceChangePasswordNextSignIn' => false,
                 'password' => $password
             ],
+            'employeeID' => $asvID,
             'userPrincipalName' => $userName . '@' . $userDomain,
             'givenName' => $firstName,
             'surname' => $lastName,

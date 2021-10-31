@@ -53,13 +53,19 @@ $classes = [
         'DeleteOldElternUser',
         'MailSendDeleter',
         'CronStatMaker',
-        'SprechtagVikoCreator'
+        'SprechtagVikoCreator',
+        'LehrertagebuchExporter'
 	],
 	'data/schulbuch' => [
 		'BuchAusleihe',
 		'Exemplar',
 		'Schulbuch'
 	],
+    'data/bibliothek' => [
+        'BibliothekBuchAusleihe',
+        'BibliothekExemplar',
+        'BibliothekBuch'
+    ],
 	'ical' => ['iCalFile', 'MyIcalSettings'],
 	'sms' => ['sms'],
 	'data' => [
@@ -193,7 +199,8 @@ $classes = [
 	'data/klassentagebuch' => [
 		'TagebuchTeacherEntry',
 		'TagebuchKlasseEntry',
-	    'TagebuchPDFCreator'
+	    'TagebuchPDFCreator',
+        'TagebuchLehrerExport'
 	],
     'data/stat' => [
         'UserLoginStat'

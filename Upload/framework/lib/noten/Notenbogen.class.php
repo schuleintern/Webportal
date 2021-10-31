@@ -26,6 +26,20 @@ class Notenbogen {
      */
     private $unterrichtsNoten = [];
 
+    /**
+     * Link zur Noteneingabe anzeigen, wenn berechtigt
+     * @var bool
+     */
+    private $linkToNotenEingabe = false;
+
+
+    /**
+     * Löschen Button bei jeder Note anzeigen, wenn global berechtigt
+     * @var bool
+     */
+    private $showDeleteButtonForNoten = false;
+
+
 
     /**
      *
@@ -193,6 +207,20 @@ class Notenbogen {
         return $max;
     }
 
+    /**
+     * Soll beim Unterrichtsnamen in der Tabelle auch ein Link zu Noteneingabe angezeigt werden? (Wenn berechtigt)
+     */
+    public function setWithEditLinkToNotenEingabe() {
+        $this->linkToNotenEingabe = true;
+    }
+
+    /**
+     * Soll ein Löschen Button für allgemein Berechtigte Nutzer anzeigt werden bei jeder Note?
+     */
+    public function showDeletButtonForNoten() {
+        $this->showDeleteButtonForNoten = true;
+    }
+
     public function getNotentabelle() {
         $sa = $this->getMaxAnzahlSchulaufgaben();
         $saBreite = ($sa == 0) ? 1 : $sa;
@@ -232,6 +260,11 @@ class Notenbogen {
 
             $table .= "<br /><small>" . $name. "</small>";
 
+
+            if($this->linkToNotenEingabe && NotenEingabe::hasAllRightsInNotenverwaltung()) {
+                $table .= "<br /><a href='index.php?page=NotenEingabe&unterrichtID=" . $this->unterrichtsNoten[$i]->getUnterricht()->getID() . "' class='btn btn-primary btn-block'><i class='fas fa-pen'></i> Noteneingabe</a>";
+            }
+
             $table .= "</td>";
 
             for($j = 0; $j < 4; $j++) {
@@ -266,6 +299,27 @@ class Notenbogen {
                         $art = $arbeit->isMuendlich() ? 'm' : 's';
 
                         $table .= "<br /><small>$art: " . number_format($arbeit->getGewichtung(),2,",",".") . "</small>";
+
+                        if($note != null) $table .= "<br /><small>" . DateFunctions::getNaturalDateFromMySQLDate($note->getDatum()) . "</small>";
+
+
+                        // Delete?
+
+                        if($note != null && $this->showDeleteButtonForNoten && NotenEingabe::hasAllRightsInNotenverwaltung() && $_REQUEST['deleteNote'] && $arbeit->getID() == $_REQUEST['arbeitID']) {
+                            DB::getDB()->query("DELETE FROM noten_noten WHERE noteSchuelerAsvID='" . DB::getDB()->escapeString($_REQUEST['schuelerAsvID']) . "' AND noteArbeitID='" . $arbeit->getID() . "'");
+                            header("Location: index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $this->schueler->getAsvID() . "&openNotenbild=1");
+                            exit();
+                        }
+
+
+
+
+                        if($note != null && $this->showDeleteButtonForNoten && NotenEingabe::hasAllRightsInNotenverwaltung()) {
+                            $table .= "<br /><button class='btn btn-danger btn-block'
+
+                                onclick=\"confirmAction('Soll die Note wirklich gelöscht werden?','index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $this->schueler->getAsvID() . "&openNotenbild=1&deleteNote=1&arbeitID=" .$arbeit->getID() . "')\" ><i class='fa fa-trash'></i></button>";
+                        }
+
                         $table .= "</td>";
                     }
                     else {

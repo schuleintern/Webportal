@@ -25,7 +25,9 @@ class PupilsOfClassRecipient extends MessageRecipient {
 	}
 
 	public function getDisplayName() {
-		return 'Schüler Unterricht ' . $this->unterricht->getBezeichnung();
+        if($this->unterricht != null) return 'Schüler Unterricht ' . $this->unterricht->getBezeichnung();
+
+        return "Schüler Unterricht <i>Nicht mehr vorhanden</i>";
 	}
 	
 	public static function isSaveStringRecipientForThisRecipientGroup($saveString) {
