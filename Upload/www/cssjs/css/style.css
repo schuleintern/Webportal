@@ -2,6 +2,8 @@
 
 
 .form-style-2 input[type="text"],
+.form-style-2 input[type="file"],
+.form-style-2 input[type="number"],
 .form-style-2 textarea {
   border: 0;
   border-radius: 0;
@@ -55,6 +57,12 @@
   margin-bottom: 2rem;
 }
 
+.form-modal-succeed {
+  color: #018d4e;
+  border-bottom: 1px solid #018d4e;
+  margin-bottom: 2rem;
+}
+
 .form-modal-close {
   position: absolute;
   right: 0rem;
@@ -73,7 +81,9 @@
   align-items: center;
 }
 
-
+.required {
+  color: #dd4b39;
+}
 
 .btn {
   border-radius: 3px;
@@ -312,7 +322,12 @@ button.btn-blau {
   color: #fff;
   font-weight: bold;
 }
-.table_1 thead td {
+.table_1.thead-padding thead th,
+.table_1.thead-padding thead td {
+  padding: 0.6rem;
+}
+.table_1.thead-center thead th,
+.table_1.thead-center thead td {
   text-align: center;
 }
 .table_1 tbody.oddEven tr:nth-child(2n) {
@@ -325,6 +340,25 @@ button.btn-blau {
 }
 .table_1.noPadding tbody td {
   padding: 0;
+}
+
+
+.table_2 {
+  width: 100%;
+  table-layout: fixed;
+}
+.table_2 thead {
+  font-size: 110%;
+  color: #8aa4af;
+  font-weight: bold;
+}
+.table_2 tbody.oddEven tr:nth-child(2n) {
+  background-color: rgb(236, 240, 245);
+}
+.table_2 td {
+  padding: 0.6rem;
+  text-align: left;
+  vertical-align: top;
 }
 
 
@@ -380,7 +414,27 @@ button.btn-blau {
 
 .page-dropdownMenue:hover .page-dropdownMenue-content {display: block;}
 
-.page-dropdownMenue:hover .dropbtn {}
+.page-dropdownMenue .dropbtn {
+
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid transparent;
+  display: inline-block;
+
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .page-submenue a {
   padding-top: 0.6rem;

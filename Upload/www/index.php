@@ -1,4 +1,6 @@
 <?php
+//ini_set('display_errors', true);
+error_reporting(0);
 
 /**
  *
@@ -26,23 +28,48 @@ if($wartungsmodus != "") {
     exit(0);
 }
 
+// Store and Secure $_REQUEST Variables
+$_request = [];
+if ($_REQUEST) {
+    foreach($_REQUEST as $key => $val) {
+        $_request[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = stripslashes(strip_tags(htmlspecialchars($val, ENT_IGNORE, 'utf-8')));
+    }
+}
+
 include_once '../data/config/config.php';
 include_once '../data/config/userlib.class.php';
 
-
 include('./startup.php');
 
-
 include("../framework/lib/system/errorhandler.php");
-
 set_error_handler('schuleinternerrorhandler',E_ALL);
 
-if($_SERVER['SERVER_PORT'] != 443 && $_REQUEST['page'] != "updatevplan" && $_REQUEST['page'] != "digitalSignage" && !DB::isDebug()) {
-    if(isset($_REQUEST['ssl']) && $_REQUEST['ssl'] == 1) {
+if($_SERVER['SERVER_PORT'] != 443 && $_request['page'] != "updatevplan" && $_request['page'] != "digitalSignage" && !DB::isDebug()) {
+    if(isset($_request['ssl']) && $_request['ssl'] == 1) {
         new errorPage('Der Zugriff auf das Portal ist nur über SSL möglich. <br /><br ><br ><br><br><pre>Im Debug Modus ist auch ein Zugriff ohne SSL möglich.</pre>');
         exit();
     }
   header("Location: " . DB::getGlobalSettings()->urlToIndexPHP . "?ssl=1");
 }
 
-new requesthandler((isset($_REQUEST['page']) && $_REQUEST['page'] != "") ? $_REQUEST['page'] : 'index');
+/**
+ * Define Default Folders Path and URLs
+ */
+define("DS", '/');
+define("URL_ROOT", (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]"  );
+define("URL_SELF", URL_ROOT.$_SERVER[REQUEST_URI]);
+
+define("PATH_WWW", '.'.DS);
+define("PATH_ROOT", PATH_WWW.'..'.DS);
+define("PATH_EXTENSIONS", PATH_ROOT.'extensions'.DS);
+define("PATH_TMP", PATH_ROOT.'tmp'.DS);
+define("PATH_LIB", PATH_ROOT.'framework'.DS.'lib'.DS);
+define("PATH_PAGE", PATH_ROOT.'framework'.DS.'lib'.DS.'page'.DS);
+define("PATH_COMPONENTS", PATH_WWW.'components'.DS);
+define("PATH_TMPL_OVERRIGHTS", PATH_WWW.'tmpl'.DS);
+// PATH_EXTENSION (set by abstractPage.class.php)
+
+
+
+new requesthandler((isset($_request['page']) && $_request['page'] != "") ? $_request['page'] : 'index', $_request);
+

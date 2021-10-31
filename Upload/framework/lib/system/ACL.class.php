@@ -9,11 +9,7 @@
 class ACL {
 
 
-  public function getAcl($user, $moduleClass = false, $id = false) {
-
-    //return 'ACL';
-    // $userID = DB::getSession()->getUser();
-		// $moduleClass = get_called_class();
+  public function getAcl($user, $moduleClass = false, $id = false, $adminGroup = false) {
 
 		$userID = $user->getUserID();
 
@@ -22,7 +18,6 @@ class ACL {
 		}
 
 		$acl = [];
-
 		$acl['user']['admin'] = $user->isAdmin();
 		$acl['user']['schueler'] = $user->isPupil();
 		$acl['user']['lehrer'] = $user->isTeacher();
@@ -37,19 +32,32 @@ class ACL {
 
 		$acl = array_merge( $acl, self::getBlank() );
 
-
 		if ($moduleClass && $id == false) {
 			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE moduleClass = '".$moduleClass."' ");
 		} else if ($moduleClass == false && $id) {
 			$aclDB = DB::getDB ()->query_first ( "SELECT * FROM acl WHERE id = ".intval($id)." ");
 		}
+		
+		$acl['aclID'] = !isset($aclDB['id']) ? $id : $aclDB['id'];
+		$acl['aclModuleClass'] = !isset($aclDB['moduleClass']) ? $moduleClass : $aclDB['moduleClass'];
+
+		if (!$acl['user']['schueler'] && !$acl['user']['lehrer'] && !$acl['user']['eltern']) {
+			$acl['user']['none'] = 1;
+		}
+
+		if (!$id) {
+			if ($adminGroup == false) {
+				$adminGroup = $moduleClass::getAdminGroup();
+			}
+			$acl['aclAdminGroup'] = $adminGroup; 
+			if ( $adminGroup && DB::getSession()->isMember($adminGroup) ) {
+				$acl['user']['admin'] = true;
+			}
+		}
 
 		if (!$aclDB || !$aclDB['id'] ) {
 			return $acl;
 		}
-
-		$acl['aclID'] = $aclDB['id'];
-		$acl['aclModuleClass'] = $aclDB['moduleClass'];
 
 		$acl['groups'] = [
 			'schueler' => ['read' => $aclDB['schuelerRead'], 'write' => $aclDB['schuelerWrite'], 'delete' => $aclDB['schuelerDelete'] ],
@@ -58,20 +66,6 @@ class ACL {
 			'none' => [ 'read' => $aclDB['noneRead'], 'write' => $aclDB['noneWrite'], 'delete' => $aclDB['noneDelete'] ],
 			'owne' => [ 'read' => $aclDB['owneRead'], 'write' => $aclDB['owneWrite'], 'delete' => $aclDB['owneDelete'] ]
 		];
-
-		
-		if (!$acl['user']['schueler'] && !$acl['user']['lehrer'] && !$acl['user']['eltern']) {
-			$acl['user']['none'] = 1;
-		}
-
-		if (!$id) {
-			if ( DB::getSession()->isMember($moduleClass::getAdminGroup()) ) {
-				$acl['user']['admin'] = true;
-			}
-		}
-		
-		
-		
 
 		if ( $acl['user']['schueler'] == 1 ) {
 			$acl['rights']['read'] = $acl['groups']['schueler']['read'];
@@ -107,37 +101,16 @@ class ACL {
     //  $acl['rights']['delete'] = 0;
     //print_r($acl);
     return $acl;
-
-  }
-
+	}
+	
 
 	public function setAcl( $row, $module = '' ) {
 
-		// return false;
-
-		// if ( !isset($row['id']) ) {
-		// 	return false;
-		// }
-		
-		// echo "<pre>";
-    //       print_r($row);
-		// 			echo "</pre>";
-					
 		$row = json_decode(json_encode($row), true);
 
-		// echo "<pre>ACL:";
-		// print_r($row['groups']['schueler']['delete']);
-		// echo "</pre>";
-
-		// exit;
-		
-		if ( $row['aclModuleClass'] != $module ) {
+		if ( $module && $row['aclModuleClass'] != $module ) {
 			$row['aclModuleClass'] = $module;
 		}
-		
-		// echo "<pre>ACL:";
-		// print_r($row);
-		// echo "</pre>";
 
 		if ( $row['aclID'] ) {
 
@@ -189,24 +162,16 @@ class ACL {
 								
 		} else if ( $row['aclModuleClass'] || $row['aclModuleClassParent'] ) {
 
-			// if (!$module) {
-			// 	$module = '';
-			// }
-
 			if ( $row['aclModuleClass'] ) {
-
 				$dbRow = DB::getDB()->query_first("SELECT id FROM acl WHERE  moduleClass = '".$row['aclModuleClass']."'");
-			
 				if ( $dbRow['id'] ) {
 					return [
 						'error' => true,
 						'msg' => 'ACL Eintrag für das Modul bereits vorhanden!'
 					];
 				}
-				
 			}
 			
-
 			DB::getDB()->query("INSERT INTO acl (
 				moduleClass,
 				moduleClassParent,
@@ -251,9 +216,12 @@ class ACL {
 				'msg' => 'Erfolgreich Gespeichert',
 				'aclID' => DB::getDB()->insert_id()
 			];
-
+		} else {
+			return [
+				'error' => true,
+				'msg' => 'Missing ACL ID or ModulClass'
+			];
 		}
-
 	}
 
 	public function getBlank() {
@@ -262,6 +230,7 @@ class ACL {
 			'aclID' => 0,
 			'aclModuleClass' => '',
 			'aclModuleClassParent' => '',
+			'aclAdminGroup' => '',
 			'groups' => [
 				'schueler' => ['read' => 0, 'write' => 0, 'delete' => 0 ],
 				'eltern' => [ 'read' => 0, 'write' => 0, 'delete' => 0 ],
@@ -275,9 +244,7 @@ class ACL {
 				'delete' => 0
 			]
 		];
-
 		return $blank;
-
 	}
 
 }
