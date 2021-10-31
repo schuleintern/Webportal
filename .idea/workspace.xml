@@ -24,9 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dbfa2314-6c6d-4c61-8bc9-f3afb011cf6c" name="Default Changelist" comment="Mini Bugfix: Nachrichten mit nicht mehr vorhandenen Empfängern lesbar machen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/data/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/data/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/messages/recipients/PupilsOfClassRecipient.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/messages/recipients/PupilsOfClassRecipient.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/test/test.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/test/test.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/page/abstractPage.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/page/abstractPage.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/framework/lib/system/requesthandler.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/framework/lib/system/requesthandler.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upload/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Upload/www/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

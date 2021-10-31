@@ -22,7 +22,7 @@ class GlobalSettings {
         'port' => 3306,
         'user' => 'root',
         'password' => 'root',
-        'database' => 'isgyintern'
+        'database' => 'schuleintern_dev'
     );
 
     /**
@@ -126,4 +126,10 @@ class GlobalSettings {
     public $updateServer = "https://update.schule-intern.de";
     // public $updateServer = "http://schuleintern-update.chrisland.de";
 
+
+    /**
+     * Domain des Extension Servers
+     * @var string
+     */
+    public $extensionsServer = "https://store.zwiebel-intern.de/";
 }
