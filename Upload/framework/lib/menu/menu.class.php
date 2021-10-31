@@ -295,7 +295,7 @@ class menu {
     }
     
     
-    if($this->isActive("klassenkalender") || $this->isActive('extKalender') || $this->isActive('andereKalender')) {
+    if($this->isActive("klassenkalender") || $this->isActive('extKalender') || $this->isActive('andereKalender') || $this->isActive('kalenderAllInOne')) {
         $html .= $this->startDropDown(['klassenkalender','extKalender','andereKalender','terminuebersicht'], "Kalender", "fa fa-calendar");
         
         
@@ -314,8 +314,12 @@ class menu {
               $html .= $this->getMenuItem('extKalender', $externeKalender[$i]['kalenderName'], 'fa fa-calendar',['kalenderID' => $externeKalender[$i]['kalenderID']]);
           }
         }
-        
-        
+
+        // Kalender allInOne
+
+        if($this->isActive("kalenderAllInOne")) {
+            $html .= $this->getMenuItem('kalenderAllInOne', 'Kalender', 'fa fa-calendar');
+        }
         
         // Andere Kalender
         
@@ -608,6 +612,13 @@ class menu {
       $html .= $this->getMenuItem("ausleihe", "Reservierungen", "fa fa-check-square");
 
     }
+
+      if(DB::isLoggedIn() && $this->isActive("raumplan") && raumplan::hasCurrentUserAccess() != NULL) {
+
+          $html .= $this->getMenuItem("raumplan", "Raumplan", "fa fa-door-open");
+
+      }
+
     
     if(DB::isLoggedIn() && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin()) && $this->isActive("projektverwaltung")) {
         // Projektverwaltung
