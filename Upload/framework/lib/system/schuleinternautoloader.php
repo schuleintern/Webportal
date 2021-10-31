@@ -54,7 +54,7 @@ $classes = [
         'MailSendDeleter',
         'CronStatMaker',
         'SprechtagVikoCreator',
-        'LehrertagebuchExporter'
+        'LehrertagebuchExporter',
         'AllInOneKalenderFerien'
 	],
 	'data/schulbuch' => [
