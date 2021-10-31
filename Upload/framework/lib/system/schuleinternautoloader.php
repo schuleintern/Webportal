@@ -142,6 +142,10 @@ $classes = [
         'SchuelerFremdsprache',
         'SchuelerQuarantaene'
     ],
+    'data/menue' => [
+        'menue',
+        'menueItems'
+    ],
 	'db' => [
 		'mysql',
 		'dbStruct',

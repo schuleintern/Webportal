@@ -10,7 +10,12 @@ class menu {
   private $html = "";
   private $extensions = [];
 
+  public $menu = [];
+
   public function __construct($isAdmin = false, $isNotenverwaltung = false) {
+
+      $this->menu =  Menue::getFromAlias('main');
+
     if($isAdmin) $this->adminMenu();
     elseif($isNotenverwaltung) $this->notenMenu();
     else $this->normalMenu();
@@ -253,6 +258,7 @@ class menu {
     if(DB::isLoggedIn() && DB::getSession()->isAnyAdmin()) {
         $this->html .= $this->getTrenner('<i class="fa fa-cogs"></i> Administration');
         $html .= $this->getMenuItem("administration", "Administration", "fa fa-cogs");
+        $html .= $this->getDBMenuItems(7);
     }
     
     
@@ -268,6 +274,23 @@ class menu {
     
   }
 
+
+  private function getDBMenuItems($item_id) {
+
+      $html = '';
+      if ($item_id) {
+          $menu_items = $this->menu->getCatsDeep($item_id)[0]['items'];
+          foreach($menu_items as $item) {
+              $icon = $item['icon'];
+              if (!$icon) {
+                  $icon = 'fa fa-file';
+              }
+              $html .= $this->getMenuItem($item['page'], $item['title'], $icon, $item['params'], false);
+          }
+      }
+      return $html;
+
+  }
 
   private function getExtensionLink($cat) {
     $html = '';
@@ -413,8 +436,7 @@ class menu {
 
         $this->html .= $this->getExtensionLink('aktuelles');
 
-
-        
+        $this->html .= $this->getDBMenuItems(1);
 
     }
     
@@ -503,6 +525,8 @@ class menu {
         $html .= $this->getMenuItem("schulinfo", "Schulinformationen", "fa fa-info-circle");
         
         $html .= $this->getExtensionLink('info');
+
+      $this->html .= $this->getDBMenuItems(2);
 
         if($html != "") {
             
@@ -680,6 +704,8 @@ class menu {
         $this->html .= $this->getTrenner('<i class="fa fa-graduation-cap"></i> Lehreranwendungen');
         
         $html .= $this->getExtensionLink('teacher');
+
+        $html .= $this->getDBMenuItems(3);
 
         $this->html .= $html;
         
@@ -978,6 +1004,8 @@ class menu {
         
         $html .= $this->getExtensionLink('verwaltung');
 
+        $html .= $this->getDBMenuItems(4);
+
         $this->html .= $html;
     }
     
@@ -1013,6 +1041,7 @@ class menu {
    $this->html .= $this->getMenuItem('MessageInbox', "Nachrichten", "fa fa-envelope");
 
    $this->html .= $this->getExtensionLink('user');
+   $this->html .= $this->getDBMenuItems(5);
   }
   
   private function unterricht() {
@@ -1038,6 +1067,7 @@ class menu {
         
         $this->html .= $this->getTrenner('<i class="fa fa-graduation-cap"></i> Unterricht</i>');
         $html .= $this->getExtensionLink('lesson');
+        $html .= $this->getDBMenuItems(6);
         $this->html .= $html;
     }
 
