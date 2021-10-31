@@ -536,14 +536,17 @@ class Message {
 		return $messages;
 	}
 	
-	public function getMessagesSearch($user, $folder, $folderID, $search) {
+	public function getMessagesSearch($user, $folder, $folderID, $search, $limit, $offset) {
 	    if($folder == 'ANDERER') {
 	        $addSQL = " AND messageFolderID='" . $folderID . "' ";
 	    }
 	    
 	    $addSQL .= " AND (";
-	    
-	    
+
+        $addSQL .= " messageSubject LIKE '%".$search."%' ";
+        $addSQL .= " OR messageText LIKE '%".$search."%' ";
+        $addSQL .= " OR messageRecipients LIKE '%".$search."%' ";
+
 	    $addSQL .= ")";
 	    
 	    $safeSearch = DB::getDB()->escapeString($search);
@@ -551,7 +554,8 @@ class Message {
 	    $messagesSQL = DB::getDB()->query("SELECT * FROM messages_messages
             WHERE messageUserID='" . $user->getUserID() . "'
             AND messageFolder='" . $folder . "' $addSQL ORDER BY messageTime DESC LIMIT $limit OFFSET $offset");
-	    
+
+
 	    $messages = [];
 	    
 	    while($m = DB::getDB()->fetch_array($messagesSQL)) $messages[] = new Message($m);

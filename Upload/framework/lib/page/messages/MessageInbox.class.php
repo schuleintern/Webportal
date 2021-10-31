@@ -35,18 +35,21 @@ class MessageInbox extends AbstractPage {
 		}
 		
 		$isSearch = false;
-		
-		if($_POST['searchText'] != "") {
+
+
+		if($_REQUEST['searchText'] != "") {
 		    $isSearch = true;
-		    $searchString = $_REQUEST['searchText'];
+		    $searchString = trim($_REQUEST['searchText']);
 		    
 		    $messages = [];
-		    // $folder->getMessagesSearch($_REQUEST['searchText']);
+            $messages = $folder->getMessagesSearch($searchString, $perPage, $offset);
+
 		}
 		else {
 		    $messages = $folder->getMessages($perPage, $offset);
 		}
-		
+
+        $searchRedirectUrl = "index.php?page=MessageInbox&folder=".$_REQUEST['folder']."&searchText=";
 		
 		
 		$totalMessages = $folder->getMessageNumber();

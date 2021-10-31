@@ -66,17 +66,20 @@ abstract class AbstractRest {
 		$this->acl = ACL::getAcl($this->user, $moduleClass);
 	}
 
-	public function getAclByID($id, $showRight = false) {
-		if ($id) {
-			$acl = ACL::getAcl($this->user, false, $id);
-			if ($showRight) {
-				return [ 'rights' => $acl['rights'], 'owne' => $acl['owne'] ];
-			} else {
-				return $acl;
-			}
-		}
-		return false;
-	}
+    public function getAclByID($id = false, $showRight = false) {
+
+        if ( $id ) {
+            $acl = ACL::getAcl($this->user, $id, $this->getAdminGroup() );
+            if ($showRight) {
+                return [ 'rights' => $acl['rights'], 'owne' => $acl['owne'] ];
+            } else {
+                return $acl;
+            }
+        } else {
+            return $acl = ACL::getBlank();
+        }
+        return false;
+    }
 
 	public function getAclAll() {
 		return $this->acl;
