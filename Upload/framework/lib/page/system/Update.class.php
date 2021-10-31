@@ -152,7 +152,100 @@ class Update extends AbstractPage
         if ($from == "1.3.1" && $to == "1.3.2") {
             $this->from131to132();
         }
+
+        // WIP
+        if ($from == "1.3.2" && $to == "1.3.3") {
+            $this->from132to133();
+        }
         return true;
+    }
+
+    private  function from132to133() {
+
+        // TODO: edit config.php TEST !!!!
+        $config = '
+        /**
+         * Domain des Extension Servers
+         * @var string
+         */
+        public $extensionsServer = "https://store.zwiebel-intern.de/";';
+        file_put_contents(PATH_ROOT.'config'.DS.'config.php',$config,FILE_APPEND);
+
+
+        DB::getDB()->query("CREATE TABLE `extensions` (
+              `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+              `name` varchar(255) DEFAULT NULL,
+              `uniqid` varchar(255) DEFAULT NULL,
+              `version` int(11) DEFAULT NULL,
+              `active` tinyint(11) DEFAULT NULL,
+              `folder` varchar(255) DEFAULT NULL,
+              `menuCat` varchar(25) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+        DB::getDB()->query("CREATE TABLE `raumplan_stunden` (
+                `stundeID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                `stundenplanID` int(11) DEFAULT NULL,
+                `stundeKlasse` varchar(20) DEFAULT NULL,
+                `stundeLehrer` varchar(20) DEFAULT NULL,
+                `stundeFach` varchar(20) DEFAULT NULL,
+                `stundeRaum` varchar(20) DEFAULT NULL,
+                `stundeDatum` date DEFAULT NULL,
+                `stundeStunde` int(2) DEFAULT NULL,
+                PRIMARY KEY (`stundeID`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+        DB::getDB()->query("CREATE TABLE `kalender_allInOne` (
+            `kalenderID`        int(11) NOT NULL AUTO_INCREMENT,
+            `kalenderName`      varchar(255) NOT NULL,
+            `kalenderColor`     varchar(7) DEFAULT NULL,
+            `kalenderSort`      tinyint(1) DEFAULT NULL,
+            `kalenderPreSelect` tinyint(1) DEFAULT NULL,
+            `kalenderAcl`       int(11) DEFAULT NULL,
+            `kalenderFerien`    tinyint(1) DEFAULT '0',
+            `kalenderPublic`    tinyint(1) DEFAULT NULL,
+            PRIMARY KEY (`kalenderID`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;");
+
+        DB::getDB()->query("INSERT INTO `kalender_allInOne` (`kalenderID`, `kalenderName`, `kalenderColor`, `kalenderSort`, `kalenderPreSelect`,
+                                 `kalenderAcl`, `kalenderFerien`, `kalenderPublic`)
+        VALUES (1, 'Schulkalender', '#2E64FE', 1, 1, 4, 0, 1),
+               (2, 'Interner Kalender', '#FE2E64', 2, 1, 5, 0, 0),
+               (3, 'Ferien', '#00a65a', 3, 1, 6, 1, 1);");
+
+        DB::getDB()->query("CREATE TABLE `kalender_allInOne_eintrag`
+        (
+            `eintragID`           int(11) NOT NULL AUTO_INCREMENT,
+            `kalenderID`          int(11) NOT NULL,
+            `eintragKategorieID`  int(11) NOT NULL DEFAULT '0',
+            `eintragTitel`        varchar(255) NOT NULL,
+            `eintragDatumStart`   date         NOT NULL,
+            `eintragTimeStart`    time         NOT NULL,
+            `eintragDatumEnde`    date         NOT NULL,
+            `eintragTimeEnde`     time         NOT NULL,
+            `eintragOrt`          varchar(255) NOT NULL,
+            `eintragKommentar`    tinytext     NOT NULL,
+            `eintragUserID`       int(11) NOT NULL,
+            `eintragCreatedTime`  datetime     NOT NULL,
+            `eintragModifiedTime` datetime     NOT NULL,
+            PRIMARY KEY (`eintragID`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;");
+
+        DB::getDB()->query("CREATE TABLE `kalender_allInOne_kategorie` (
+           `kategorieID` int(11) NOT NULL AUTO_INCREMENT,
+           `kategorieKalenderID` int(11) NOT NULL,
+           `kategorieName` varchar(255) NOT NULL,
+           `kategorieFarbe` varchar(7) NOT NULL,
+           `kategorieIcon` varchar(255) NOT NULL,
+               PRIMARY KEY (`kategorieID`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;");
+
+
+
+        $this->updateComponentsFolder(131);
+        $this->updateCssJSFolder(131);
+        $this->updateImagesFolder(131);
+
     }
 
     private  function from131to132() {

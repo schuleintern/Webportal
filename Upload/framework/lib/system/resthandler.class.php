@@ -35,7 +35,7 @@ class resthandler {
 
         error_reporting(E_ERROR);
 
-        include_once("../framework/lib/rest/AbstractRest.class.php");
+        include_once(PATH_LIB."rest/AbstractRest.class.php");
 
         $authHeaderFound = false;
         $allowed = false;
@@ -54,16 +54,19 @@ class resthandler {
         }
 
         if(in_array($request[0],self::$actions)) {
-            include_once("../framework/lib/rest/Rest" . $request[0] . ".class.php");
-            $allowed = true;
-            $classname = 'Rest' . $request[0];
+            if (file_exists(PATH_LIB."rest".DS."Rest" . $request[0] . ".class.php")) {
+                include_once(PATH_LIB."rest".DS."Rest" . $request[0] . ".class.php");
+                $allowed = true;
+                $classname = 'Rest' . $request[0];
+            }
+
         } 
 
         if ( $allowed == false && $request[1] ) {
             $module = DB::getDB()->query_first("SELECT `id`,`name`,`folder` FROM extensions WHERE `folder` = '".$request[0]."'" );
             if ($module) {
-              if (file_exists('../extensions/'.$module['folder'].'/rest/'.$request[1].'.php')) {
-                include_once('../extensions/'.$module['folder'].'/rest/'.$request[1].'.php');
+              if (file_exists(PATH_EXTENSIONS.$module['folder'].'/rest/'.$request[1].'.php')) {
+                include_once(PATH_EXTENSIONS.$module['folder'].'/rest/'.$request[1].'.php');
                 $allowed = true;
                 $classname = $request[1];
               }
