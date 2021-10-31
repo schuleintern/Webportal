@@ -82,9 +82,10 @@ class userprofilepassword extends AbstractPage {
 				}
 				else {
 					DB::getDB()->query("UPDATE users SET userCachedPasswordHash='" . login::hash($newPassword) . "',userCachedPasswordHashTime=UNIX_TIMESTAMP() WHERE userID='" . DB::getSession()->getData("userID") . "'");
-						
-					
-					nextcloud::updatePasswordForCurrentUser($newPassword);
+
+
+
+                    if ( class_exists('nextcloud', false) ) { nextcloud::updatePasswordForCurrentUser($newPassword); }
 					
 					
 					header("Location: index.php?page=userprofilepassword&changed=1");

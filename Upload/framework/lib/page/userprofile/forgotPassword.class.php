@@ -83,7 +83,7 @@ class forgotPassword extends AbstractPage {
 							$user = DB::getDB()->query_first("SELECT * FROM users WHERE userID='" . $reset['resetUserID'] . "'");
 							DB::getDB()->query("UPDATE users SET userCachedPasswordHash='" . login::hash($_REQUEST['password1']) . "' WHERE userID='" . $reset['resetUserID'] . "'");
 							DB::getDB()->query("DELETE FROM resetpassword WHERE resetCode='" . DB::getDB()->escapeString($_GET['code']) . "'");
-							nextcloud::updatePasswordForCurrentUser($_REQUEST['password1']);
+                            if ( class_exists('nextcloud', false) ) { nextcloud::updatePasswordForCurrentUser($_REQUEST['password1']); }
 					
 							echo(json_encode(['success' => true, 'msg' => 'Das Passwort wurde erfolgreich geändert.']));
 							exit(0);

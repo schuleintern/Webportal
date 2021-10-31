@@ -1,4 +1,9 @@
 
+.scrollable-y {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .block {
   display: block;
 }
@@ -108,6 +113,10 @@
   width: 40vw;
 }
 
+.width-55vw {
+  width: 55vw;
+}
+
 .width-70vw {
   width: 70vw;
 }
@@ -143,6 +152,20 @@
 }
 
 
+.padding-r-s {
+  padding-right: 0.6rem;
+}
+.padding-r-m {
+  padding-right: 1.3rem;
+}
+.padding-r-l {
+  padding-right: 2.3rem;
+}
+
+
+.padding-l-s {
+  padding-left: 0.6rem;
+}
 .padding-l-m {
   padding-left: 1.3rem;
 }
@@ -172,14 +195,11 @@
 .padding-t-m {
   padding-top: 1.3rem;
 }
-
-.padding-l-s {
-  padding-left: 0.6rem;
+.padding-t-l {
+  padding-top: 2.3rem;
 }
 
-.padding-r-s {
-  padding-right: 0.6rem;
-}
+
 
 
 
@@ -195,6 +215,9 @@
 .margin-r-l {
   margin-right: 2.3rem;
 }
+.margin-r-xxl {
+  margin-right: 8rem;
+}
 
 .margin-l-xs {
   margin-left: 0.3rem;
@@ -204,6 +227,9 @@
 }
 .margin-l-m {
   margin-left: 1.3rem;
+}
+.margin-l-l {
+  margin-left: 2.3rem;
 }
 
 
@@ -227,6 +253,7 @@
   margin-bottom: 2.3rem;
 }
 
+
 .margin-t-m {
   margin-top: 1.3rem;
 }
@@ -239,3 +266,4 @@
   top: 50vh !important;
   left: 45vw !important;
 }
+
