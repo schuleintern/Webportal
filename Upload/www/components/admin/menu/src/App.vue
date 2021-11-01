@@ -1,0 +1,170 @@
+<template>
+  <div class="component-menu">
+
+    <div v-show="error" class="form-modal-error">
+      <b>Folgende Fehler sind aufgetreten:</b>
+      <div>{{error}}</div>
+    </div>
+
+    <div v-if="loading == true" class="overlay">
+      <i class="fa fas fa-sync-alt fa-spin"></i>
+    </div>
+
+    <Menu v-show="show == 'menu'" v-bind:list="list"></Menu>
+
+    <ItemsCats v-show="show == 'items'" v-bind:items="items"></ItemsCats>
+
+    <ItemForm v-show="show == 'form'" v-bind:item="itemOpen"></ItemForm>
+
+
+  </div>
+</template>
+
+<script>
+
+import Menu from './components/Menu.vue';
+import ItemsCats from './components/ItemsCats.vue';
+import ItemForm from './components/ItemForm.vue';
+
+const axios = require('axios').default;
+
+export default {
+  components: {
+    Menu,
+    ItemsCats,
+    ItemForm
+  },
+  data() {
+    return {
+      selfURL: globals.selfURL,
+      error: false,
+      loading: false,
+
+      show: '',
+      itemOpen: false,
+
+      list: false,
+      items: false
+
+    };
+  },
+  created: function () {
+    this.loadExtensions();
+
+    EventBus.$on('menu--open', data => {
+      if (!data.item.id) {
+        return false;
+      }
+      this.loadItems(data.item);
+    });
+
+    EventBus.$on('item-form--open', data => {
+      if (!data.item.id) {
+        return false;
+      }
+      this.itemOpen = data.item;
+      this.show = 'form';
+    });
+
+    EventBus.$on('item-form--submit', data => {
+      if (!data.item.id) {
+        return false;
+      }
+      console.log(data.item);
+
+      this.loading = true;
+      var that = this;
+      var formData = new FormData();
+      formData.append("id", data.item.id || false );
+      formData.append("title", data.item.title || '' );
+      formData.append("icon", data.item.icon || '' );
+      axios.post(this.selfURL+'&task=item-submit&id='+data.item.id, formData)
+      .then(function (response) {
+        console.log(response);
+
+        if ( response.data ) {
+          //that.items = response.data;
+          that.show = 'items';
+        } else {
+          that.error = 'Fehler beim Laden. 01';
+        }
+
+      })
+      .catch(function (error) {
+        that.error = 'Fehler beim Laden. 02';
+      }).finally(function () {
+        // always executed
+        that.loading = false;
+      });
+
+    });
+
+  },
+  methods: {
+
+
+    loadItems: function (item) {
+
+      if (!item.alias) {
+        return false;
+      }
+      this.loading = true;
+      var that = this;
+      axios.get( this.selfURL+'&task=api-items&id='+item.alias)
+          .then(function(response){
+
+            if ( response.data ) {
+              that.items = response.data;
+              that.show = 'items';
+            } else {
+              that.error = 'Fehler beim Laden. 01';
+            }
+
+          })
+          .catch(function(){
+            that.error = 'Fehler beim Laden. 02';
+          })
+          .finally(function () {
+            // always executed
+            that.loading = false;
+          });
+
+    },
+
+
+    loadExtensions: function () {
+
+      this.loading = true;
+
+      var that = this;
+      axios.get( this.selfURL+'&task=api-all')
+      .then(function(response){
+        
+        if ( response.data ) {
+          that.list = response.data;
+          that.show = 'menu';
+        } else {
+          that.error = 'Fehler beim Laden. 01';
+        }
+        
+      })
+      .catch(function(){
+        that.error = 'Fehler beim Laden. 02';
+      })
+      .finally(function () {
+        // always executed
+        that.loading = false;
+      }); 
+
+    }
+  }
+
+};
+</script>
+
+<style>
+
+.component-menu ul {
+  padding-left: 2rem;
+}
+</style>

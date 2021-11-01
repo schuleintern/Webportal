@@ -267,3 +267,6 @@
   left: 45vw !important;
 }
 
+.box .overlay > .fa {
+  position: fixed;
+}

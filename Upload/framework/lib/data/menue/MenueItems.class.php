@@ -13,6 +13,24 @@ class MenueItems {
 
     }
 
+    public static function setItem($data) {
+
+        if ( !(int)$data['id'] ) {
+            return false;
+        }
+        if ( !(string)$data['title'] ) {
+            return false;
+        }
+
+        DB::getDB()->query("UPDATE menu_item SET 
+                     title='" . DB::getDB()->escapeString($data['title']) . "',
+                     icon='" . DB::getDB()->escapeString($data['icon']) . "'
+                     WHERE id='" . (int)$data['id'] . "'");
+
+        return true;
+
+    }
+
 
     /**
      * @return Menu[]
@@ -64,5 +82,8 @@ class MenueItems {
         return $ret;
 
     }
+
+
+
 
 }

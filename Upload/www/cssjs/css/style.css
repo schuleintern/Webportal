@@ -316,7 +316,8 @@ button.btn-blau {
   width: 100%;
   table-layout: fixed;
 }
-.table_1 thead {
+.table_1 thead,
+.table_head {
   font-size: 120%;
   background-color: #8aa4af;
   color: #fff;

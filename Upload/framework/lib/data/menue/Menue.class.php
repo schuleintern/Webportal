@@ -36,6 +36,13 @@ class Menue {
     }
 
     /**
+     * @return boolean
+     */
+    public function setItem($data) {
+        return MenueItems::setItem($data);
+    }
+
+    /**
      * @return array
      */
     public function getCatsDeep($item_id = false) {
@@ -64,7 +71,11 @@ class Menue {
         if(sizeof(self::$all) == 0) {
             $dataSQL = DB::getDB()->query("SELECT id, title, alias FROM menu");
             while($data = DB::getDB()->fetch_array($dataSQL)) {
-                self::$all[] = $data;
+                self::$all[] = [
+                    "id" => $data['id'],
+                    "title" => $data['title'],
+                    "alias" => $data['alias']
+                ];
             }
         }
         return self::$all;

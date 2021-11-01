@@ -48,9 +48,65 @@ class AdminMenu extends AbstractPage {
 
 	public static function displayAdministration($selfURL) {
 
-		$html = 'HTML';
+
+        /**
+         * All
+         */
+        if ($_REQUEST['task'] == 'api-all') {
+
+            $menuAll =  Menue::getAll();
+
+            /*echo '<pre>';
+            print_r($menuAll);
+            echo '</pre>';*/
+
+            echo json_encode($menuAll); exit;
+            exit;
+        }
+
+        /**
+         * All Items
+         */
+        if ($_REQUEST['task'] == 'api-items') {
+
+            $menu =  Menue::getFromAlias('main');
+            $menuAll =  $menu->getItemsDeep();
+
+            /*echo '<pre>';
+            print_r($menuAll);
+            echo '</pre>';*/
+
+            echo json_encode($menuAll); exit;
+            exit;
+        }
+
+        /**
+         * Item Submit
+         */
+        if ($_REQUEST['task'] == 'item-submit') {
+
+            if (!$_POST['id']) {
+                echo json_encode(['error' => true, 'msg' => 'Missing UniqID']); exit;
+            }
+            if (!$_POST['title']) {
+                echo json_encode(['error' => true, 'msg' => 'Missing Title']); exit;
+            }
+
+            if ( Menue::setItem([
+                "id" => $_POST['id'],
+                "title" => $_POST['title'],
+                "icon" => $_POST['icon']
+            ]) ) {
+                echo json_encode(['error' => false]); exit;
+            }
+
+            echo json_encode(['error' => true, 'msg' => 'ERROR!']);
+            exit;
+        }
 
 
+
+        $html = '';
 		eval("\$html = \"" . DB::getTPL()->get("administration/menu/index") . "\";");
 
 		return $html;
