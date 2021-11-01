@@ -13,6 +13,17 @@ class MenueItems {
 
     }
 
+    public function removeItem($item_id = false) {
+        if ( !(int)$item_id ) {
+            return false;
+        }
+        if ( DB::getDB()->query(" DELETE FROM menu_item WHERE id=" . (int)$item_id ) ) {
+            return true;
+        }
+        return false;
+
+    }
+
     public static function setItemActive($data) {
 
         if ( !(string)$data['id'] ) {

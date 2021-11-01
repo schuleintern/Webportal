@@ -105,6 +105,23 @@ class AdminMenu extends AbstractPage {
             exit;
         }
 
+        /**
+         * Item Delete
+         */
+        if ($_REQUEST['task'] == 'item-delete') {
+
+            if (!$_POST['id']) {
+                echo json_encode(['error' => true, 'msg' => 'Missing UniqID']); exit;
+            }
+
+            if ( Menue::removeItem($_POST['id']) ) {
+                echo json_encode(['error' => false]); exit;
+            }
+
+            echo json_encode(['error' => true, 'msg' => 'ERROR!']);
+            exit;
+        }
+
 
         /**
          * Item Active

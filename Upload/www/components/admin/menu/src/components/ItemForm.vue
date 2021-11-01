@@ -1,7 +1,16 @@
 <template>
   <div class="form-style-2">
 
-    <button class="btn btn-grey-line" v-on:click="handlerBack"> Zurück</button>
+    <div class="flex-row">
+      <div class="flex-1">
+        <button class="btn btn-grey-line" v-on:click="handlerBack"> Zurück</button>
+      </div>
+      <div class="flex flex-end">
+        <button v-show="deleteItem == false" v-on:click="handlerDelete(item)" class="btn btn-grey-line"><i class="far fa-trash-alt"></i> Löschen</button>
+        <button v-show="deleteItem" v-on:click="handlerDeleteSure(item)" class="btn btn-red"><i class="far fa-trash-alt"></i>Löschen!</button>
+      </div>
+    </div>
+
     <br><br>
     <ul class="noListStyle">
       <li class="line-oddEven padding-t-m padding-b-m">
@@ -39,6 +48,7 @@ export default {
   },
   data() {
     return {
+      deleteItem: false
     };
   },
   created: function () {
@@ -59,6 +69,22 @@ export default {
       EventBus.$emit('show--set', {
         'show': 'items'
       });
+    },
+    handlerDelete: function (item) {
+      if (!item.id) {
+        return false;
+      }
+      this.deleteItem = item;
+
+    },
+    handlerDeleteSure: function () {
+      if (!this.item.id) {
+        return false;
+      }
+      EventBus.$emit('item-form--delete', {
+        item: this.item
+      });
+      this.deleteItem = false;
     }
 
   }

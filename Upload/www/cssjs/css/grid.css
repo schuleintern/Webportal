@@ -32,6 +32,11 @@
   justify-content: flex-end;
 }
 
+.flex-center-center {
+  justify-content: center;
+  align-self: center;
+}
+
 
 .flex-1 {
   flex: 1;

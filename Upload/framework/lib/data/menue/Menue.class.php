@@ -43,6 +43,13 @@ class Menue {
     }
 
     /**
+     * @return boolean
+     */
+    public function removeItem($item_id = false) {
+        return MenueItems::removeItem($item_id);
+    }
+
+    /**
      * @return array
      */
     public function getCatsDeep($item_id = false) {

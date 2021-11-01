@@ -101,6 +101,32 @@ export default {
       });
     });
 
+    EventBus.$on('item-form--delete', data => {
+      if (!data.item.id) {
+        return false;
+      }
+      this.loading = true;
+      var that = this;
+      var formData = new FormData();
+      formData.append("id", data.item.id || false );
+      axios.post(this.selfURL+'&task=item-delete&id='+data.item.id, formData)
+          .then(function (response) {
+            //console.log(response);
+            if ( response.data ) {
+              that.loadItems(that.openMenu);
+            } else {
+              that.error = 'Fehler beim Laden. 01';
+            }
+          })
+          .catch(function (error) {
+            that.error = 'Fehler beim Laden. 02';
+          }).finally(function () {
+        // always executed
+        that.loading = false;
+      });
+    });
+
+
 
     EventBus.$on('item-form--active', data => {
       if (!data.item.id) {
@@ -144,6 +170,7 @@ export default {
             if ( response.data ) {
               that.items = response.data;
               that.show = 'items';
+              that.openMenu = item;
             } else {
               that.error = 'Fehler beim Laden. 01';
             }

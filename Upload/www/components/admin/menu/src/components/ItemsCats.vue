@@ -14,7 +14,7 @@
     <ul>
       <span v-bind:key="index" v-for="(item, index) in items">
         <li class="line-oddEven flex-row" >
-          <div class="flex-1 title"><i :class="item.icon"></i> <b>{{item.title}}</b></div>
+          <div class="flex-1 title flex-center-center"><i :class="item.icon"></i> <b>{{item.title}}</b></div>
           <div class="flex-1"></div>
           <div class="flex-1 text-small">{{item.page}}</div>
           <div class="flex-1 text-small">{{item.params}}</div>
