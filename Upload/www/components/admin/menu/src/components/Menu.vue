@@ -3,9 +3,9 @@
     <table class="table_1">
       <thead>
         <tr>
-          <td>Name</td>
-          <td>Alias</td>
-          <td>ID</td>
+          <td class="width-30rem">Name</td>
+          <td class="">Alias</td>
+          <td class="width-4rem margin-r-m">ID</td>
         </tr>
       </thead>
       <tbody>

@@ -18,7 +18,6 @@
           <td>Version</td>
           <td>Aktiviert</td>
           <td>Ordner</td>
-          <td>Menü</td>
           <td>Abhängigkeit</td>
           <td></td>
           <td></td>
@@ -41,7 +40,6 @@
               class="btn"><i class="fas fa-toggle-off"></i></button>
           </td>
           <td><span class="text-small">{{item.folder}}</span></td>
-          <td><span class="text-small">{{item.menuCat}}</span></td>
           <td><span class="text-small">{{item.json.dependencies}}</span></td>
           <td><button v-show="item.update" class="btn btn-blau" v-on:click="handlerUpdate(item, $event)">Update</button></td>
           <td><button class="btn btn-blau" v-on:click="handlerRemove(item, $event)">Entfernen</button></td>

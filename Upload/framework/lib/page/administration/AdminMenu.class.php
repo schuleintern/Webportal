@@ -70,7 +70,7 @@ class AdminMenu extends AbstractPage {
         if ($_REQUEST['task'] == 'api-items') {
 
             $menu =  Menue::getFromAlias('main');
-            $menuAll =  $menu->getItemsDeep();
+            $menuAll =  $menu->getItemsDeep(false);
 
             /*echo '<pre>';
             print_r($menuAll);
@@ -95,9 +95,36 @@ class AdminMenu extends AbstractPage {
             if ( Menue::setItem([
                 "id" => $_POST['id'],
                 "title" => $_POST['title'],
-                "icon" => $_POST['icon']
+                "icon" => $_POST['icon'],
+                "params" => $_POST['params']
             ]) ) {
                 echo json_encode(['error' => false]); exit;
+            }
+
+            echo json_encode(['error' => true, 'msg' => 'ERROR!']);
+            exit;
+        }
+
+
+        /**
+         * Item Active
+         */
+        if ($_REQUEST['task'] == 'item-active') {
+
+            if (!$_POST['id']) {
+                echo json_encode(['error' => true, 'msg' => 'Missing UniqID']); exit;
+            }
+
+            if ($_POST['active'] == 1) {
+                $active = 0;
+            } else {
+                $active = 1;
+            }
+            if ( MenueItems::setItemActive([
+                "id" => $_POST['id'],
+                "active" => $active
+            ]) ) {
+                echo json_encode(['error' => false, 'active' => $active]); exit;
             }
 
             echo json_encode(['error' => true, 'msg' => 'ERROR!']);

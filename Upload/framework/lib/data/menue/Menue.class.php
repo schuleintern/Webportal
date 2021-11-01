@@ -55,10 +55,10 @@ class Menue {
     /**
      * @return array
      */
-    public function getItemsDeep() {
+    public function getItemsDeep($active = true) {
 
         if ( count($this->items) <= 0 ) {
-            $this->items = MenueItems::getFromParentDeep($this->data['id']);
+            $this->items = MenueItems::getFromParentDeep($this->data['id'], $active);
         }
         return $this->items;
     }

@@ -325,7 +325,7 @@ class AdminExtensions extends AbstractPage {
 			$extAvailable = json_decode($extStore);
 
 			$extInstalled = array();
-			$result = DB::getDB()->query('SELECT `name`,`active`,`uniqid`,`version`,`folder`,`menuCat` FROM `extensions` ');
+			$result = DB::getDB()->query('SELECT `name`,`active`,`uniqid`,`version`,`folder` FROM `extensions` ');
 			while($row = DB::getDB()->fetch_array($result)) {
 
 				if ( self::checkUpdate($extAvailable, $row) ) {
@@ -420,16 +420,25 @@ class AdminExtensions extends AbstractPage {
 							`active`,
 							`folder`,
 							`version`,
-							`uniqid`,
-							`menuCat`
+							`uniqid`
 							) VALUES (
 								'".$modulJSON->name."',
 								0,
 								'".$foldername."',
 								".$modulJSON->version.",
-								'".$modulJSON->uniqid."',
-								'".$modulJSON->menuCat."'
+								'".$modulJSON->uniqid."'
 						);");
+
+                // $modulJSON->menu->categorie
+                MenueItems::setItem([
+                    "title" => $modulJSON->name,
+                    "page" => 'ext_'.$foldername,
+                    "menu_id" => 0,
+                    "parent_id" => $modulJSON->menu->categorie || 0,
+                    "icon" => $modulJSON->menu->icon | '',
+                    "params" => $modulJSON->menu->params || '',
+                    "active" => 0
+                ]);
 
                 return ['error' => false];
 
