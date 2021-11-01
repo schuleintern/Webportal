@@ -1,8 +1,11 @@
 <template>
   <div class="item-cats">
+    <button class="btn btn-grey-line" v-on:click="handlerBack"> Zurück</button>
+    <br><br>
     <ul class="table_head">
       <li class="flex-row">
         <div class="flex-1 title"></div>
+        <div class="flex-1"></div>
         <div class="flex-1">Page</div>
         <div class="flex-1">Params</div>
         <div class="flex-1 id">ID</div>
@@ -12,6 +15,7 @@
       <span v-bind:key="index" v-for="(item, index) in items">
         <li class="line-oddEven flex-row" >
           <div class="flex-1 title"><i :class="item.icon"></i> <b>{{item.title}}</b></div>
+          <div class="flex-1"></div>
           <div class="flex-1 text-small">{{item.page}}</div>
           <div class="flex-1 text-small">{{item.params}}</div>
           <div class="flex-1 text-small text-grey id">{{item.id}}</div>
@@ -45,7 +49,11 @@ export default {
   },
   methods: {
 
-
+    handlerBack: function () {
+      EventBus.$emit('show--set', {
+        'show': 'menu'
+      });
+    }
   }
 
 };

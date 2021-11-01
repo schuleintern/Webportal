@@ -8,7 +8,6 @@
  */
 class menu {
   private $html = "";
-  private $extensions = [];
 
   public $menu = [];
 
@@ -233,13 +232,7 @@ class menu {
     }
     
     
-    
-    $this->extensions = [];
-		$result = DB::getDB()->query('SELECT `id`,`name`,`folder`,`menuCat` FROM `extensions` WHERE `active` = 1 ');
-		while($row = DB::getDB()->fetch_array($result)) {
-      $this->extensions[] = $row;
-      //$this->html .= $this->getMenuItem($row['folder'], $row['name'],'fa fa-cogs');
-    }
+
     
     $this->aktuelles();
     $this->informationen();
@@ -248,7 +241,7 @@ class menu {
     $this->userAccount();
     $this->unterricht();
     
-    $this->unsorted();
+
     
     
     
@@ -285,24 +278,14 @@ class menu {
               if (!$icon) {
                   $icon = 'fa fa-file';
               }
-              $html .= $this->getMenuItem($item['page'], $item['title'], $icon, $item['params'], false);
+              $html .= $this->getMenuItem($item['page'], $item['title'], $icon, (array)json_decode($item['params']), false);
           }
       }
       return $html;
 
   }
 
-  private function getExtensionLink($cat) {
-    $html = '';
-    if ($this->extensions && $cat) {
-      foreach($this->extensions as $ext) {
-        if ( $cat == $ext['menuCat']) {
-          $html .= $this->getMenuItem('ext_'.$ext['folder'], $ext['name'],'fa fa-cogs');
-        }
-      }
-    }
-    return $html;
-  }
+
 
   
   private function aktuelles() {
@@ -434,7 +417,6 @@ class menu {
         $this->html .= $this->getTrenner('<i class="fa fa-clock"></i> Aktuelles</a>');
         $this->html .= $html;
 
-        $this->html .= $this->getExtensionLink('aktuelles');
 
         $this->html .= $this->getDBMenuItems(1);
 
@@ -523,8 +505,7 @@ class menu {
         
         
         $html .= $this->getMenuItem("schulinfo", "Schulinformationen", "fa fa-info-circle");
-        
-        $html .= $this->getExtensionLink('info');
+
 
       $this->html .= $this->getDBMenuItems(2);
 
@@ -702,8 +683,7 @@ class menu {
     
     if($html != "") {
         $this->html .= $this->getTrenner('<i class="fa fa-graduation-cap"></i> Lehreranwendungen');
-        
-        $html .= $this->getExtensionLink('teacher');
+
 
         $html .= $this->getDBMenuItems(3);
 
@@ -1001,8 +981,7 @@ class menu {
     
     if($html != "") {
         $this->html .= $this->getTrenner('<i class="fa fas fa-pencil-alt-square"></i> Verwaltung</i>');
-        
-        $html .= $this->getExtensionLink('verwaltung');
+
 
         $html .= $this->getDBMenuItems(4);
 
@@ -1040,7 +1019,6 @@ class menu {
 
    $this->html .= $this->getMenuItem('MessageInbox', "Nachrichten", "fa fa-envelope");
 
-   $this->html .= $this->getExtensionLink('user');
    $this->html .= $this->getDBMenuItems(5);
   }
   
@@ -1066,20 +1044,13 @@ class menu {
     if($html != "") {
         
         $this->html .= $this->getTrenner('<i class="fa fa-graduation-cap"></i> Unterricht</i>');
-        $html .= $this->getExtensionLink('lesson');
         $html .= $this->getDBMenuItems(6);
         $this->html .= $html;
     }
 
 
   }
-  
-  private function unsorted() {
 
-    $html .= $this->getExtensionLink('unsorted');
-    $this->html .= $html;
-
-  }
 
   public function getHTML() {
     return $this->html;

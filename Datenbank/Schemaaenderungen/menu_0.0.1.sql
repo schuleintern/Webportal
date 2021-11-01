@@ -15,6 +15,7 @@ VALUES (1,'main','Main');
 
 CREATE TABLE `menu_item` (
      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+     `active` tinyint(1) DEFAULT '0',
      `menu_id` int(11) NOT NULL,
      `parent_id` int(11) NOT NULL,
      `page` varchar(100) DEFAULT '',
@@ -25,15 +26,16 @@ CREATE TABLE `menu_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-INSERT INTO `menu_item` (`id`, `menu_id`, `parent_id`, `page`, `title`, `icon`, `params`)
+INSERT INTO `menu_item` (`id`, `active`, `menu_id`, `parent_id`, `page`, `title`, `icon`, `params`)
 VALUES
-    (1,1,0,'','Aktuelles',NULL,NULL),
-    (2,1,0,'','Informationen',NULL,NULL),
-    (3,1,0,'','Lehreranwendungen',NULL,NULL),
-    (4,1,0,'','Verwaltung',NULL,NULL),
-    (5,1,0,'','Benutzeraccount / Nachrichten',NULL,NULL),
-    (6,1,0,'','Unterricht',NULL,NULL),
-    (7,1,0,'','Administration',NULL,NULL);
+    (1,1,1,0,'','Aktuelles','fa fa-clock',NULL),
+    (2,1,1,0,'','Informationen','fa fa-clock',NULL),
+    (3,1,1,0,'','Lehreranwendungen','fa fa-graduation-cap',NULL),
+    (4,1,1,0,'','Verwaltung','fa fas fa-pencil-alt-square',NULL),
+    (5,1,1,0,'','Benutzeraccount / Nachrichten','fa fa-user',NULL),
+    (6,1,1,0,'','Unterricht','fa fa-graduation-cap',NULL),
+    (7,1,1,0,'','Administration','fa fa-cogs',NULL);
+
 
 
 

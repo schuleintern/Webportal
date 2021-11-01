@@ -51,6 +51,13 @@ export default {
   created: function () {
     this.loadExtensions();
 
+    EventBus.$on('show--set', data => {
+      if (!data.show) {
+        return false;
+      }
+      this.show = data.show;
+    });
+
     EventBus.$on('menu--open', data => {
       if (!data.item.id) {
         return false;
@@ -70,25 +77,21 @@ export default {
       if (!data.item.id) {
         return false;
       }
-      console.log(data.item);
-
       this.loading = true;
       var that = this;
       var formData = new FormData();
       formData.append("id", data.item.id || false );
       formData.append("title", data.item.title || '' );
       formData.append("icon", data.item.icon || '' );
+      formData.append("params", data.item.params || '' );
       axios.post(this.selfURL+'&task=item-submit&id='+data.item.id, formData)
       .then(function (response) {
-        console.log(response);
-
+        //console.log(response);
         if ( response.data ) {
-          //that.items = response.data;
           that.show = 'items';
         } else {
           that.error = 'Fehler beim Laden. 01';
         }
-
       })
       .catch(function (error) {
         that.error = 'Fehler beim Laden. 02';
@@ -96,7 +99,32 @@ export default {
         // always executed
         that.loading = false;
       });
+    });
 
+
+    EventBus.$on('item-form--active', data => {
+      if (!data.item.id) {
+        return false;
+      }
+      this.loading = true;
+      var that = this;
+      var formData = new FormData();
+      formData.append("id", data.item.id || false );
+      formData.append("active", data.item.active );
+      axios.post(this.selfURL+'&task=item-active&id='+data.item.id, formData)
+          .then(function (response) {
+            if ( response.data ) {
+              data.item.active = response.data.active;
+            } else {
+              that.error = 'Fehler beim Laden. 01';
+            }
+          })
+          .catch(function (error) {
+            that.error = 'Fehler beim Laden. 02';
+          }).finally(function () {
+            // always executed
+            that.loading = false;
+          });
     });
 
   },
