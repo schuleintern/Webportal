@@ -381,7 +381,7 @@ class requesthandler {
     $allowed = false;
 
     $realname = str_replace('ext_','',$action);
-    $extension = DB::getDB()->query_first("SELECT `id`,`folder` FROM extensions WHERE `folder` = '".$realname."'" );
+    $extension = DB::getDB()->query_first("SELECT `id`,`folder` FROM extensions WHERE `folder` = '".$realname."' AND `active` = 1 " );
     if ($extension && $extension['folder'] && $view) {
       if ($admin) {
         $path = PATH_EXTENSIONS.$extension['folder'].DS.'admin'.DS.$view.'.php';

@@ -872,7 +872,7 @@ abstract class AbstractPage {
 	 * @return String (HTML)
 	 */
 	private function makeSubmenu($submenu, $dropdown) {
-		
+
 		$html = '<div class="flex-row">';
 
 		// Submenu
@@ -885,10 +885,19 @@ abstract class AbstractPage {
 					continue;
 				}
 				if ($item['url'] && $item['title']) {
-					if ('/'.$item['url'] == $_SERVER['REQUEST_URI']) {
+                    $link = 'index.php?page='.$item['url']->page;
+                    $params_str = [];
+                    if ($item['url']->params && count(get_object_vars($item['url']->params)) ) {
+                        foreach($item['url']->params as $params_key => $params_link) {
+                            $params_str[] = $params_key.'='.$params_link;
+                        }
+                        $params_str = join('&',$params_str);
+                        $link .= '&'.$params_str;
+                    }
+					if (DS.$link == URL_FILE) {
 						$active = 'active';
 					}
-					$html .= '<a href="'.$item['url'].'"  class="margin-r-xs '.$active.'">';
+					$html .= '<a href="'.$link.'"  class="margin-r-xs '.$active.'">';
 					if ($item['icon']) {
 						$html .= '<i class="margin-r-s '.$item['icon'].'"></i>';
 					}

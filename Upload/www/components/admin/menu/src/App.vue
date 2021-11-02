@@ -14,8 +14,7 @@
 
     <ItemsCats v-show="show == 'items'" v-bind:items="items"></ItemsCats>
 
-    <ItemForm v-show="show == 'form'" v-bind:item="itemOpen"></ItemForm>
-
+    <ItemForm v-show="show == 'form'" v-bind:item="itemOpen" v-bind:pages="pages"></ItemForm>
 
   </div>
 </template>
@@ -43,6 +42,7 @@ export default {
       show: '',
       itemOpen: false,
 
+      pages: globals.pages,
       list: false,
       items: false
 
@@ -66,15 +66,22 @@ export default {
     });
 
     EventBus.$on('item-form--open', data => {
-      if (!data.item.id) {
-        return false;
+
+      if (data.item && data.item.id) {
+        this.itemOpen = data.item;
+      } else {
+        this.itemOpen = {};
       }
-      this.itemOpen = data.item;
+      if (data.parent) {
+        this.itemOpen.parent_id = data.parent.id;
+        this.itemOpen.parent_title = data.parent.title;
+      }
       this.show = 'form';
+
     });
 
     EventBus.$on('item-form--submit', data => {
-      if (!data.item.id) {
+      if (!data.item.title) {
         return false;
       }
       this.loading = true;
@@ -84,11 +91,18 @@ export default {
       formData.append("title", data.item.title || '' );
       formData.append("icon", data.item.icon || '' );
       formData.append("params", data.item.params || '' );
+      formData.append("pageurl", data.item.page || '' );
+      formData.append("parent_id", data.item.parent_id || 0 );
       axios.post(this.selfURL+'&task=item-submit&id='+data.item.id, formData)
       .then(function (response) {
         //console.log(response);
         if ( response.data ) {
-          that.show = 'items';
+          if (response.data.error != true) {
+            that.loadItems(that.openMenu);
+            that.show = 'items';
+          } else {
+            that.error = response.data.msg;
+          }
         } else {
           that.error = 'Fehler beim Laden. 01';
         }

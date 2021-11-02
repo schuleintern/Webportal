@@ -101,7 +101,10 @@ $classes = [
         'AbsenzBefreiung',
         'AbsenzBeurlaubung',
         'AbsenzSchuelerInfo'
-    ],    
+    ],
+    'data/extensions' => [
+        'ExtensionsPages'
+    ],
     'data/respizienz' => [
         'LeistungsnachweisRespizienz'
     ],

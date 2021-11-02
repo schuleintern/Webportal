@@ -74,7 +74,9 @@ class MenueItems {
            if ( DB::getDB()->query("UPDATE menu_item SET 
                          title='" . DB::getDB()->escapeString((string)$data['title']) . "',
                          icon='" . DB::getDB()->escapeString($data['icon']) . "',
-                         params='" . DB::getDB()->escapeString($data['params']) . "'
+                         params='" . DB::getDB()->escapeString($data['params']) . "',
+                         parent_id='" . DB::getDB()->escapeString($data['parent_id']) . "',
+                         page='" . DB::getDB()->escapeString($data['page']) . "'
                          WHERE id='" . (int)$data['id'] . "'") ) {
                return true;
            }
@@ -140,7 +142,7 @@ class MenueItems {
         $dataChildSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE parent_id = ".$parent_id." ".$where);
         while($dataChild = DB::getDB()->fetch_array($dataChildSQL)) {
 
-            $dataChild['items'] = self::getNestedItems($dataChild['id']);
+            $dataChild['items'] = self::getNestedItems($dataChild['id'], $active );
             $ret[] = $dataChild;
         }
         return $ret;

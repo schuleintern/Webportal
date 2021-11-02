@@ -91,12 +91,16 @@ class AdminMenu extends AbstractPage {
             if (!$_POST['title']) {
                 echo json_encode(['error' => true, 'msg' => 'Missing Title']); exit;
             }
-
+            if ( (int)$_REQUEST['id'] !== (int)$_POST['id']) {
+                echo json_encode(['error' => true, 'msg' => 'Wrong ID']); exit;
+            }
             if ( Menue::setItem([
                 "id" => $_POST['id'],
                 "title" => $_POST['title'],
                 "icon" => $_POST['icon'],
-                "params" => $_POST['params']
+                "params" => $_POST['params'],
+                "page" => $_POST['pageurl'],
+                "parent_id" => $_POST['parent_id']
             ]) ) {
                 echo json_encode(['error' => false]); exit;
             }
@@ -151,6 +155,10 @@ class AdminMenu extends AbstractPage {
 
 
         $html = '';
+
+        include_once ('../framework/lib/data/extensions/ExtensionsPages.php');
+        $pages = json_encode(ExtensionsPages::getPages());
+        
 		eval("\$html = \"" . DB::getTPL()->get("administration/menu/index") . "\";");
 
 		return $html;

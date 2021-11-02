@@ -1,6 +1,6 @@
 <template>
-  <ul>
-    <span v-bind:key="index" v-for="(item, index) in items">
+  <ul >
+    <div v-bind:key="index" v-for="(item, index) in items" class="line-oddEven" >
       <li class=" flex-row" >
           <div class="flex-1 title flex-center-center"><a href="#" v-on:click="handlerOpenItem(item)"><i :class="item.icon"></i> {{item.title}}</a></div>
           <div class="flex-1 text-small">
@@ -15,9 +15,10 @@
           </div>
           <div class="flex-1 text-small flex-center-center">{{item.page}}</div>
           <div class="flex-1 text-small flex-center-center">{{item.params}}</div>
+          <div class="width-7rem"></div>
           <div class="flex-1 text-small text-grey id flex-center-center">{{item.id}}</div>
       </li>
-    </span>
+    </div>
   </ul>
 
 
@@ -30,7 +31,8 @@ export default {
     //Items
   },
   props: {
-    items: Array
+    items: Array,
+    parent: Array
   },
   data() {
     return {
@@ -42,7 +44,8 @@ export default {
 
     handlerOpenItem: function (item) {
       EventBus.$emit('item-form--open', {
-        item: item
+        item: item,
+        parent: this.parent
       });
     },
     handlerToggleActive: function (item) {
