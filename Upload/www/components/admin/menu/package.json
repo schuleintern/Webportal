@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "vue-axios": "^3.2.0"
+    "vue-axios": "^3.2.0",
+    "vuedraggable": "^2.24.3"
   }
 }

@@ -1,6 +1,7 @@
 <template>
 
     <ul class="">
+      <draggable v-model="items" handle=".sortHandle" group="sort" @start="drag=true" @end="drag=false" @change="handlerItemSort" >
       <div v-bind:key="index" v-for="(item, index) in items" class="line-oddEven">
         <li class=" flex-row" >
           <div class="flex-1 title flex-center-center"><a href="#" v-on:click="handlerOpenItem(item)"><i :class="item.icon"></i> {{item.title}}</a></div>
@@ -13,10 +14,11 @@
                 v-if="item.active == 0"
                 v-on:click="handlerToggleActive(item)"
                 class="btn"><i class="fas fa-toggle-off"></i></button>
+            <button class="sortHandle btn btn-grey"><i class="fas fa-sort"></i></button>
           </div>
           <div class="flex-1 text-small flex-center-center">{{item.page}}</div>
           <div class="flex-1 text-small flex-center-center">{{item.params}}</div>
-          <div class="width-7rem"><button class="btn btn-grey-line" v-on:click="handlerFormOpen(item)"><i class="fas fa-plus"></i></button></div>
+          <div class="width-7rem"><button class="btn btn-grey" v-on:click="handlerFormOpen(item)"><i class="fas fa-plus"></i></button></div>
           <div class="flex-1 text-small text-grey id flex-center-center">{{item.id}}</div>
         </li>
 
@@ -24,16 +26,20 @@
           <ItemsChild v-bind:items="item.items" v-bind:parent="item"></ItemsChild>
         </li>
       </div>
+      </draggable>
     </ul>
 
 </template>
 
 <script>
 
+import draggable from 'vuedraggable'
+
 import ItemsChild from './ItemsChild.vue';
 
 export default {
   components: {
+    draggable,
     ItemsChild
   },
   props: {
@@ -48,6 +54,21 @@ export default {
   },
   methods: {
 
+    handlerItemSort: function () {
+      var a = 1;
+      var post = [];
+      this.items.forEach(function (o,i) {
+        o.sort = a;
+        a++;
+        post.push({
+            "id": o.id,
+            "sort": o.sort
+        });
+      });
+      EventBus.$emit('item-form--sort', {
+        items: post
+      });
+    },
     handlerOpenItem: function (item) {
       EventBus.$emit('item-form--open', {
         item: item,

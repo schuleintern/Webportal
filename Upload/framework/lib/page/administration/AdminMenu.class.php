@@ -152,6 +152,23 @@ class AdminMenu extends AbstractPage {
             exit;
         }
 
+        /**
+         * Item Sort
+         */
+        if ($_REQUEST['task'] == 'item-sort') {
+
+            if (!$_POST['items']) {
+                echo json_encode(['error' => true, 'msg' => 'Missing Data']); exit;
+            }
+
+            if ( MenueItems::setItemsSort( json_decode($_POST['items']) ) ) {
+                echo json_encode(['error' => false]); exit;
+            }
+
+            echo json_encode(['error' => true, 'msg' => 'ERROR!']);
+            exit;
+        }
+
 
 
         $html = '';

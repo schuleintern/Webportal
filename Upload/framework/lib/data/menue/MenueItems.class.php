@@ -13,6 +13,19 @@ class MenueItems {
 
     }
 
+    public function setItemsSort($items = false) {
+
+        if ( !$items || !is_array($items) ) {
+            return false;
+        }
+        foreach ($items as $item) {
+            DB::getDB()->query("UPDATE menu_item SET 
+                         sort=" . DB::getDB()->escapeString((int)$item->sort) . "
+                         WHERE id=" . (int)$item->id );
+        }
+        return true;
+    }
+
     public function removeItem($item_id = false) {
         if ( !(int)$item_id ) {
             return false;
@@ -121,7 +134,7 @@ class MenueItems {
         }
         $ret = [];
 
-        $dataSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE menu_id = ".(int)$menu_id." ".$where);
+        $dataSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE menu_id = ".(int)$menu_id." ".$where." ORDER BY sort");
         while($data = DB::getDB()->fetch_array($dataSQL)) {
             $data['items'] = self::getNestedItems($data['id'], $active);
             $ret[] = $data;
@@ -139,7 +152,7 @@ class MenueItems {
             $where .= ' AND active = 1';
         }
         $ret = [];
-        $dataChildSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE parent_id = ".$parent_id." ".$where);
+        $dataChildSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE parent_id = ".$parent_id." ".$where." ORDER BY sort");
         while($dataChild = DB::getDB()->fetch_array($dataChildSQL)) {
 
             $dataChild['items'] = self::getNestedItems($dataChild['id'], $active );

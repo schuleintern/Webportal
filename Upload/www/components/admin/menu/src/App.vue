@@ -80,6 +80,36 @@ export default {
 
     });
 
+    EventBus.$on('item-form--sort', data => {
+      if (!data.items) {
+        return false;
+      }
+
+      this.loading = true;
+      var that = this;
+      var formData = new FormData();
+      formData.append("items", JSON.stringify(data.items) );
+      axios.post(this.selfURL+'&task=item-sort', formData)
+          .then(function (response) {
+            //console.log(response);
+            if ( response.data ) {
+              if (response.data.error != true) {
+              } else {
+                that.error = response.data.msg;
+              }
+            } else {
+              that.error = 'Fehler beim Laden. 01';
+            }
+          })
+          .catch(function (error) {
+            that.error = 'Fehler beim Laden. 02';
+          }).finally(function () {
+        // always executed
+        that.loading = false;
+      });
+    });
+
+
     EventBus.$on('item-form--submit', data => {
       if (!data.item.title) {
         return false;
