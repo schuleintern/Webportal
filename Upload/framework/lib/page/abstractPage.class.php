@@ -64,7 +64,8 @@ abstract class AbstractPage {
 		
 		// Load Extension JSON and set Defaults
 		if ($this->extension) {
-			$this->extension['json'] = self::getExtensionJSON();
+            $path = str_replace(DS.'admin','',PATH_EXTENSION);
+			$this->extension['json'] = self::getExtensionJSON($path.'extension.json');
 			if ( isset($this->extension['json']) ) {
 				
 				// Admin Group
@@ -76,7 +77,7 @@ abstract class AbstractPage {
 				if ( $this->extension['json']->aclGroupName ) {
 					self::setAclGroup($this->extension['json']->aclGroupName);
 				}
-			} 
+			}
 		}
 		
 
@@ -311,7 +312,6 @@ abstract class AbstractPage {
 		if (!$arg['tmpl'] && !$arg['tmplHTML']) {
 			$arg['tmpl'] = 'default';
 		}
-
 		$path = PATH_EXTENSION.'tmpl'.DS;
 
 		if ( $arg['tmplHTML'] || file_exists($path.$arg['tmpl'].'.tmpl.php')  ) {
@@ -319,9 +319,13 @@ abstract class AbstractPage {
 
 			// check if global menu
 			if ( !isset($arg['submenu']) ) {
-				//$extJSON = $this->getExtensionJSON();
-				if ( isset($this->extension['json']) && isset($this->extension['json']->submenu) ) {
-					$arg['submenu'] = (array)$this->extension['json']->submenu;
+                if ($this->extension['json']->submenu) {
+                    $sub = $this->extension['json']->submenu;
+                } else if ($this->extension['json']['submenu']) {
+                    $sub = $this->extension['json']['submenu'];
+                };
+				if ( isset($this->extension['json']) && isset($sub) ) {
+					$arg['submenu'] = (array)$sub;
 				}
 			}
 			// render submenu and dropdown
@@ -396,7 +400,7 @@ abstract class AbstractPage {
         }
 		if ( file_exists($path) ) {
 			$file = file_get_contents($path);
-			$json = json_decode($file);
+			$json = (array)json_decode($file);
 			if ($json) {
 				return $json;
 			}

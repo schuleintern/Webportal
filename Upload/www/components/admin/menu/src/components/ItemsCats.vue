@@ -19,7 +19,7 @@
           <div class="flex-1"></div>
           <div class="flex-1 text-small flex-center-center">{{item.page}}</div>
           <div class="flex-1 text-small flex-center-center">{{item.params}}</div>
-          <div class="width-7rem"><button class="btn btn-grey-line" v-on:click="handlerFormOpen(item)"><i class="fas fa-plus"></i></button></div>
+          <div class="width-7rem"><button class="btn btn-grey" v-on:click="handlerFormOpen(item)"><i class="fas fa-plus"></i></button></div>
           <div class="flex-1 text-small text-grey id flex-center-center">{{item.id}}</div>
         </li>
         <li v-if="item.items.length >= 1" class="flex-b-100">
