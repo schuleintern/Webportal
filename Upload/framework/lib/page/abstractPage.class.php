@@ -67,15 +67,15 @@ abstract class AbstractPage {
             $path = str_replace(DS.'admin','',PATH_EXTENSION);
 			$this->extension['json'] = self::getExtensionJSON($path.'extension.json');
 			if ( isset($this->extension['json']) ) {
-				
+
 				// Admin Group
-				if ( $this->extension['json']->adminGroupName ) {
-					self::setAdminGroup($this->extension['json']->adminGroupName);
+				if ( $this->extension['json']['adminGroupName'] ) {
+					self::setAdminGroup($this->extension['json']['adminGroupName']);
 				}
 
 				// ACL Group
-				if ( $this->extension['json']->aclGroupName ) {
-					self::setAclGroup($this->extension['json']->aclGroupName);
+				if ( $this->extension['json']['aclGroupName'] ) {
+					self::setAclGroup($this->extension['json']['aclGroupName']);
 				}
 			}
 		}
