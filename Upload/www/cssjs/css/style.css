@@ -23,6 +23,18 @@
   box-shadow: none;
 }
 
+.form-style-2 input.select {
+  color: #738b96;
+  cursor: pointer;
+  position: relative;
+  background-image: url("./images/arrow-down.png");
+  background-repeat: no-repeat;
+  background-size: auto 40%;
+  background-position: 95% center;
+}
+.form-style-2 input.select:hover{
+  color: #000;
+}
 
 
 .form-modal {

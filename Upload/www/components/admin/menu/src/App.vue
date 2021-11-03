@@ -14,7 +14,7 @@
 
     <ItemsCats v-show="show == 'items'" v-bind:items="items"></ItemsCats>
 
-    <ItemForm v-show="show == 'form'" v-bind:item="itemOpen" v-bind:pages="pages"></ItemForm>
+    <ItemForm v-show="show == 'form'" v-bind:item="itemOpen" v-bind:items="items" v-bind:pages="pages"></ItemForm>
 
   </div>
 </template>
