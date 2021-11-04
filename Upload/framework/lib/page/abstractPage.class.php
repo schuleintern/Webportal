@@ -64,19 +64,20 @@ abstract class AbstractPage {
 		
 		// Load Extension JSON and set Defaults
 		if ($this->extension) {
-			$this->extension['json'] = self::getExtensionJSON();
+            $path = str_replace(DS.'admin','',PATH_EXTENSION);
+			$this->extension['json'] = self::getExtensionJSON($path.'extension.json');
 			if ( isset($this->extension['json']) ) {
-				
+
 				// Admin Group
-				if ( $this->extension['json']->adminGroupName ) {
-					self::setAdminGroup($this->extension['json']->adminGroupName);
+				if ( $this->extension['json']['adminGroupName'] ) {
+					self::setAdminGroup($this->extension['json']['adminGroupName']);
 				}
 
 				// ACL Group
-				if ( $this->extension['json']->aclGroupName ) {
-					self::setAclGroup($this->extension['json']->aclGroupName);
+				if ( $this->extension['json']['aclGroupName'] ) {
+					self::setAclGroup($this->extension['json']['aclGroupName']);
 				}
-			} 
+			}
 		}
 		
 
@@ -311,7 +312,6 @@ abstract class AbstractPage {
 		if (!$arg['tmpl'] && !$arg['tmplHTML']) {
 			$arg['tmpl'] = 'default';
 		}
-
 		$path = PATH_EXTENSION.'tmpl'.DS;
 
 		if ( $arg['tmplHTML'] || file_exists($path.$arg['tmpl'].'.tmpl.php')  ) {
@@ -319,9 +319,13 @@ abstract class AbstractPage {
 
 			// check if global menu
 			if ( !isset($arg['submenu']) ) {
-				//$extJSON = $this->getExtensionJSON();
-				if ( isset($this->extension['json']) && isset($this->extension['json']->submenu) ) {
-					$arg['submenu'] = (array)$this->extension['json']->submenu;
+                if ($this->extension['json']->submenu) {
+                    $sub = $this->extension['json']->submenu;
+                } else if ($this->extension['json']['submenu']) {
+                    $sub = $this->extension['json']['submenu'];
+                };
+				if ( isset($this->extension['json']) && isset($sub) ) {
+					$arg['submenu'] = (array)$sub;
 				}
 			}
 			// render submenu and dropdown
@@ -396,7 +400,7 @@ abstract class AbstractPage {
         }
 		if ( file_exists($path) ) {
 			$file = file_get_contents($path);
-			$json = json_decode($file);
+			$json = (array)json_decode($file);
 			if ($json) {
 				return $json;
 			}
@@ -872,7 +876,7 @@ abstract class AbstractPage {
 	 * @return String (HTML)
 	 */
 	private function makeSubmenu($submenu, $dropdown) {
-		
+
 		$html = '<div class="flex-row">';
 
 		// Submenu
@@ -885,10 +889,19 @@ abstract class AbstractPage {
 					continue;
 				}
 				if ($item['url'] && $item['title']) {
-					if ('/'.$item['url'] == $_SERVER['REQUEST_URI']) {
+                    $link = 'index.php?page='.$item['url']->page;
+                    $params_str = [];
+                    if ($item['url']->params && count(get_object_vars($item['url']->params)) ) {
+                        foreach($item['url']->params as $params_key => $params_link) {
+                            $params_str[] = $params_key.'='.$params_link;
+                        }
+                        $params_str = join('&',$params_str);
+                        $link .= '&'.$params_str;
+                    }
+					if (DS.$link == URL_FILE) {
 						$active = 'active';
 					}
-					$html .= '<a href="'.$item['url'].'"  class="margin-r-xs '.$active.'">';
+					$html .= '<a href="'.$link.'"  class="margin-r-xs '.$active.'">';
 					if ($item['icon']) {
 						$html .= '<i class="margin-r-s '.$item['icon'].'"></i>';
 					}

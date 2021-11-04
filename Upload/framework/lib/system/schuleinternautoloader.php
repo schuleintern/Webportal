@@ -101,7 +101,10 @@ $classes = [
         'AbsenzBefreiung',
         'AbsenzBeurlaubung',
         'AbsenzSchuelerInfo'
-    ],    
+    ],
+    'data/extensions' => [
+        'ExtensionsPages'
+    ],
     'data/respizienz' => [
         'LeistungsnachweisRespizienz'
     ],
@@ -141,6 +144,10 @@ $classes = [
     'data/schueler' => [
         'SchuelerFremdsprache',
         'SchuelerQuarantaene'
+    ],
+    'data/menue' => [
+        'menue',
+        'menueItems'
     ],
 	'db' => [
 		'mysql',

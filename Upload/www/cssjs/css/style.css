@@ -23,6 +23,18 @@
   box-shadow: none;
 }
 
+.form-style-2 input.select {
+  color: #738b96;
+  cursor: pointer;
+  position: relative;
+  background-image: url("./images/arrow-down.png");
+  background-repeat: no-repeat;
+  background-size: auto 40%;
+  background-position: 95% center;
+}
+.form-style-2 input.select:hover{
+  color: #000;
+}
 
 
 .form-modal {
@@ -267,6 +279,10 @@ button.btn-blau {
 .line-oddEven:nth-child(odd)  {
   background-color: #f9f9f9;
 }
+.line-oddEven:nth-child(even)  {
+  background-color: #ffffff;
+}
+
 .text-bold {
   font-weight: bold;
 }
@@ -316,7 +332,8 @@ button.btn-blau {
   width: 100%;
   table-layout: fixed;
 }
-.table_1 thead {
+.table_1 thead,
+.table_head {
   font-size: 120%;
   background-color: #8aa4af;
   color: #fff;

@@ -5,6 +5,5 @@ CREATE TABLE `extensions` (
                               `version` int(11) DEFAULT NULL,
                               `active` tinyint(11) DEFAULT NULL,
                               `folder` varchar(255) DEFAULT NULL,
-                              `menuCat` varchar(25) DEFAULT NULL,
                               PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
