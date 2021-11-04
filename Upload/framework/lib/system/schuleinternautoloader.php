@@ -170,7 +170,10 @@ $classes = [
 	'menu' => [
 		'menu',
 	],
-	'remote' => [
+    'raumplan' => [
+        'raumplan',
+    ],
+    'remote' => [
 		'RemoteAccess',
 	],
 	'system' => [
