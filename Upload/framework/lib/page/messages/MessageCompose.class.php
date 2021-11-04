@@ -828,9 +828,21 @@ class MessageCompose extends AbstractPage {
 		
 		$selectOptionsKlassenleitungJSON = json_encode($selectOptionsKlassenleitungJSON);
 		$selectOptionsKlassenleitungJSON = str_replace("\"","'",$selectOptionsKlassenleitungJSON);
-		
-		
-		$selectOptionsSchueler = '';
+
+        if($canContactAnySingleTeacher) {
+            $selectOptionsSingleTeacher = '';
+            $singleTeachers = MessageSendRights::getAllowedTeachers();
+            if(sizeof($singleTeachers) > 0) {
+                for($i = 0; $i < sizeof($singleTeachers); $i++) {
+                    if ($singleTeachers[$i] ) {
+                        $selectOptionsSingleTeacher .= '<option value="'.$singleTeachers[$i]->getSaveString().'">'.$singleTeachers[$i]->getDisplayName().'</option>';
+                    }
+                }
+            }
+        }
+
+
+        $selectOptionsSchueler = '';
 		
 		
 		$canContactAnyPupil = false;
