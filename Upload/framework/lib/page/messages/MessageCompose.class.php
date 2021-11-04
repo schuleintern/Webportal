@@ -594,9 +594,13 @@ class MessageCompose extends AbstractPage {
 				}
 				
 				$messageSender->send();
-								
-				// header("Location: index.php?page=MessageInbox&folder=GESENDETE");
-                header("Location: index.php?page=MessageInbox&folder=POSTEINGANG");
+
+                $redirect = DB::getSettings()->getValue('message-send-redirect');
+                if ( $redirect ) {
+                    header("Location: index.php?page=MessageInbox&folder=".$redirect);
+                } else {
+                    header("Location: index.php?page=MessageInbox&folder=GESENDETE");
+                }
 
                 exit(0);
 			break;
@@ -1121,20 +1125,14 @@ class MessageCompose extends AbstractPage {
 		//exit(0);
 		PAGE::kill(true);
 	}
-	
-	public static function getSettingsDescription() {
-		$settings = [];
-		
-		
-		return $settings;
-	}
+
 	
 	public static function getSiteDisplayName() {
 		return "Nachrichten - Schreiben";
 	}
 	
 	public static function hasSettings() {
-		return false;
+		return true;
 	}
 	
 	/**
@@ -1145,18 +1143,40 @@ class MessageCompose extends AbstractPage {
 		return array();
 		
 	}
-	
+
+    public static function getAdminGroup() {
+        return "Webportal_Admin_Nachrichten_Inbox";
+    }
+
 	public static function siteIsAlwaysActive() {
 		return true;
 	}
 	
 	public static function hasAdmin() {
-		return false;
+		return true;
 	}
-	
-	public static function getAdminGroup() {
-		return "NONE";
-	}
+
+    public static function getSettingsDescription()
+    {
+        return array(
+            [
+                'name' => 'message-send-redirect',
+                'typ' => 'SELECT',
+                'titel' => 'Weiterleitung nach Versenden',
+                'text' => '',
+                'options' => [
+                    [
+                        'value' => 'GESENDETE',
+                        'name' => 'GESENDETE'
+                    ],
+                    [
+                        'value' => 'POSTEINGANG',
+                        'name' => 'POSTEINGANG'
+                    ],
+                ]
+            ]
+        );
+    }
 	
 	public static function displayAdministration($selfURL) {
 		
@@ -1169,10 +1189,10 @@ class MessageCompose extends AbstractPage {
 	public static function getAdminMenuGroupIcon() {
 		return 'fa fa-info-circle';
 	}
-	
-	public static function getAdminMenuGroup() {
-		return 'Schulinformationen';
-	}
+
+    public static function getAdminMenuGroup() {
+        return 'Nachrichten';
+    }
 }
 
 
