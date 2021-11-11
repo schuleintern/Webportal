@@ -50,20 +50,79 @@ class ganztagsCalendar extends AbstractPage {
 
 
 
+            if ( $_REQUEST['action'] == 'setEvent') {
+
+                $data = json_decode($_REQUEST['data']);
+
+                if ($data->id) {
+                    if (DB::getDB()->escapeString($data->title) == '' && DB::getDB()->escapeString($data->room) == '') {
+                        if ( DB::getDB()->query("DELETE FROM ganztags_events WHERE id=" . $data->id) ) {
+
+                            echo json_encode([
+                                'error' => false,
+                                'done' => true
+                            ]);
+                            exit;
+                        }
+                    } else {
+                        if ( DB::getDB()->query("UPDATE ganztags_events SET title='".DB::getDB()->escapeString($data->title)."', room='".DB::getDB()->escapeString($data->room)."' WHERE id= " . $data->id) ) {
+
+                            echo json_encode([
+                                'error' => false,
+                                'done' => true
+                            ]);
+                            exit;
+                        }
+                    }
+                } else {
+                    if ( DB::getDB()->query("INSERT INTO ganztags_events (`date`, `gruppenID`,`title`,`room`)
+                        values (
+                            '" . $data->day . "',
+                            " . (int)DB::getDB()->escapeString($data->gruppeID) . ",
+                            '" . DB::getDB()->escapeString($data->title) . "',
+                            '" . DB::getDB()->escapeString($data->room) . "'
+                        ) ") ) {
+
+                        echo json_encode([
+                            'error' => false,
+                            'done' => true
+                        ]);
+                        exit;
+                    }
+                }
+
+                echo json_encode([
+                    'error' => true,
+                    'msg' => 'Fehler beim Speichern!'
+                ]);
+                exit;
+            }
+
+
 			if ( $_REQUEST['action'] == 'printToday') {
 
 
 				setlocale(LC_TIME, 'de_DE', 'de_DE.UTF-8');
 				$days = [ [ date('Y-m-d'), strftime("%a") ] ];
 
+                //$days = [ [ '2021-09-27', 'Mo' ] ];
+
 				$return = $this->getWeekSchuelerList($days);
 
-				$pdf = new PrintNormalPageA4WithHeader('Ganztags');
+				$pdf = new PrintNormalPageA4WithoutHeader('Ganztags');
 				$pdf->setPrintedDateInFooter();
 
 				$pdf->showImageErrors = true;
 				
 				foreach($return[0]['gruppen'] as $gruppe) {
+
+                    $query_events = DB::getDB()->query("SELECT * FROM ganztags_events 
+                        WHERE  gruppenID = ".$gruppe['gruppe']['id']."  AND date = '".$return[0][0]."'");
+                    $events = [];
+                    while($a = DB::getDB()->fetch_array($query_events)) {
+                        $events[] = $a;
+                    }
+
 					$html = '';
 					$html .= '<style>
 					table {
@@ -134,11 +193,12 @@ class ganztagsCalendar extends AbstractPage {
 								if ($schueler['absenz_info']['notiz']) {
 									$html .= '<br><i>Notiz:</i> '.$schueler['absenz_info']['notiz'];
 								}
-								if ( $schueler['info'] ) {
+								if ( $schueler['info'] || $schueler['tag_info'] ) {
 									$html .='<hr><br>';
 								}
 							}
-							$html .= $schueler['info'];
+                            $html .= $schueler['tag_info'].'<div style="font-size: 90%; text-align:right">'.$schueler['info'].'</div>';
+
 						$html .= '</td>';
 
 						$html .= '</tr>';
@@ -146,7 +206,38 @@ class ganztagsCalendar extends AbstractPage {
 					}
 					$html .= '</tbody></table>';
 
-					$html .= '<br><br><br><br><br><br><br><br><hr><br>Aktivitäten<br><br><br><br><hr><br>Sonstiges';
+                    if (count($events) > 0) {
+
+                        $html .= '<br><br>';
+                        $html .= '<table cellspacing="0" cellpadding="5" border="0" style="border-color:white; border-collapse: collapse;" >
+						<thead >
+							<tr>
+								<th width="80%" style="font-weight: bold;">Info</th>
+								<th width="20%" style="font-weight: bold;"></th>
+							</tr>
+						</thead>
+						<tbody>';
+
+                        $i = 1;
+                        foreach($events as $event) {
+
+                            $style = '';
+                            if ($i%2) {
+                                $style = 'background-color: rgb(236, 240, 245); margin: 30px;';
+                            }
+
+                            $html .= '<tr style="'.$style.'">';
+                            $html .= '<td width="80%">'.$event['title'].'</td>';
+                            $html .= '<td width="20%">'.$event['room'].'</td>';
+                            $html .= '</tr>';
+
+                            $i++;
+                        }
+                        $html .= '</tbody></table>';
+                    }
+
+
+					$html .= '<br><br><br><br><br><hr><br>Aktivitäten<br><br><br><br><hr><br>Sonstiges';
 					$pdf->setHTMLContent($html);
 				}
 
@@ -187,6 +278,20 @@ class ganztagsCalendar extends AbstractPage {
 			$gruppen[] = $group;
 		}
 
+        $query_events = DB::getDB()->query("SELECT a.id, a.date, a.gruppenID, a.title, a.room FROM ganztags_events AS a 
+            WHERE  a.date = '".$days[0][0]."'
+            OR a.date = '".$days[1][0]."' 
+            OR a.date = '".$days[2][0]."' 
+            OR a.date = '".$days[3][0]."' 
+            OR a.date = '".$days[4][0]."' 
+            OR a.date = '".$days[5][0]."' 
+            OR a.date = '".$days[6][0]."' 
+            ");
+        $events = [];
+        while($a = DB::getDB()->fetch_array($query_events)) {
+            $events[] = $a;
+        }
+
 		foreach($days as $key => $day) {
 			if (empty($day)) {
 				continue;
@@ -196,6 +301,7 @@ class ganztagsCalendar extends AbstractPage {
 			$list_gruppen = [];
 			foreach($gruppen as $gruppe) {
 				$arr = [];
+                $gruppe_events = [];
 				$found_absenz_anz = 0;
 				foreach($schueler as $item) {
 					if ($item->getGruppe() == $gruppe['id']) {
@@ -208,7 +314,8 @@ class ganztagsCalendar extends AbstractPage {
 								'klasse' => $item->getKlassenObjekt()->getKlassenName(),
 								'absenz' => false,
 								'absenz_info' => false,
-								'info' => $ganztags['info']
+								'info' => $ganztags['info'],
+                                'tag_info' => $ganztags[$day_db.'_info']
 							];
 							$found_absenz = false;
 							foreach($absenzen as $absenz) {
@@ -228,10 +335,23 @@ class ganztagsCalendar extends AbstractPage {
 						}
 					}
 				}
+
+                // kalender gruppen loop?
+                foreach($events as $event) {
+                    if ($event['date'] == $day[0] && $event['gruppenID'] == $gruppe['id']) {
+                        $gruppe_events[] = [
+                            'title' => $event['title'],
+                            'room' => $event['room'],
+                            'id' => $event['id']
+                        ];
+                    }
+                }
+
 				$gruppe['absenz_anz'] = $found_absenz_anz;
 				$list_gruppen[] = [
 					'gruppe' => $gruppe,
-					'schueler' => $arr
+					'schueler' => $arr,
+                    'events' => $gruppe_events
 				];
 			}
 			$day['gruppen'] = $list_gruppen;

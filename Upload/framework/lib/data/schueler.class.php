@@ -150,7 +150,7 @@ class schueler {
 
 		$gruppe = [];
 
-		if ( $this->data['gruppe'] && $action == false ) {
+		if ( $this->data['gruppe'] /*&& $action == false */) {
 			$gruppen_query = DB::getDB()->query("SELECT `name` AS `gruppe_name` FROM ganztags_gruppen WHERE id = ".$this->data['gruppe']." ");
 			while($row = mysqli_fetch_array($gruppen_query)) { $gruppe = $row; }
 		}
@@ -181,13 +181,20 @@ class schueler {
 			'tage_anz' => count($tage),
 			'tage' => implode(', ', $tage),
 			'tag_mo' => $this->data['tag_mo'],
-			'tag_di' => $this->data['tag_di'],
-			'tag_mi' => $this->data['tag_mi'],
-			'tag_do' => $this->data['tag_do'],
-			'tag_fr' => $this->data['tag_fr'],
-			'tag_sa' => $this->data['tag_sa'],
-			'tag_so' => $this->data['tag_so'],
-			'gruppe_name' => $gruppe['gruppe_name']
+            'tag_mo_info' => $this->data['tag_mo_info'],
+            'tag_di' => $this->data['tag_di'],
+            'tag_di_info' => $this->data['tag_di_info'],
+            'tag_mi' => $this->data['tag_mi'],
+            'tag_mi_info' => $this->data['tag_mi_info'],
+            'tag_do' => $this->data['tag_do'],
+            'tag_do_info' => $this->data['tag_do_info'],
+            'tag_fr' => $this->data['tag_fr'],
+            'tag_fr_info' => $this->data['tag_fr_info'],
+            'tag_sa' => $this->data['tag_sa'],
+            'tag_sa_info' => $this->data['tag_sa_info'],
+            'tag_so' => $this->data['tag_so'],
+            'tag_so_info' => $this->data['tag_so_info'],
+            'gruppe_name' => $gruppe['gruppe_name']
 		];
 	}
 

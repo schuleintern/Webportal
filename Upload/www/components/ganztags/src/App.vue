@@ -15,6 +15,7 @@
     </div>
 
     <Item v-bind:acl="acl"></Item>
+    <Events v-bind:acl="acl"></Events>
 
   </div>
 </template>
@@ -25,6 +26,7 @@
 import Calendar from './components/Calendar.vue'
 // import Form from './components/Form.vue'
 import Item from './components/Item.vue'
+import Events from './components/Events.vue'
 
 
 const axios = require('axios').default;
@@ -36,7 +38,7 @@ export default {
   name: 'app',
   components: {
     Calendar,
-    // Form,
+    Events,
     Item
   },
   data: function () {
@@ -52,23 +54,54 @@ export default {
   created: function () {
 
 
+
     var that = this;
+
+    EventBus.$on('events--insert', data => {
+
+      that.ajaxPost(
+        'index.php?page=ganztagsCalendar&action=setEvent',
+          {
+          },
+          {
+            data: JSON.stringify(data.item)
+          },
+        function (response, that) {
+          if (response.data && response.data.error != true) {
+            //that.list = response.data;
+
+            EventBus.$emit('events--close', {});
+            EventBus.$emit('calender--reload', {});
+
+          } else {
+            //that.list = [];
+            that.error = response.data.msg;
+          }
+          console.log('done',response.data);
+        }, function () {
+          console.log('error');
+        }
+      );
+
+    }, function () {
+      console.log('error');
+    });
 
     EventBus.$on('calendar--changedDate', data => {
 
       that.ajaxGet(
-        'index.php?page=ganztagsCalendar&action=getWeek',
-        {
-          days: JSON.stringify(data.days)
-        },
-        function (response, that) {
-          if (response.data && response.data.error != true) {
-            that.list = response.data;
-          } else {
-            that.list = [];
+          'index.php?page=ganztagsCalendar&action=getWeek',
+          {
+            days: JSON.stringify(data.days)
+          },
+          function (response, that) {
+            if (response.data && response.data.error != true) {
+              that.list = response.data;
+            } else {
+              that.list = [];
+            }
+
           }
-          
-        }
       );
     }, function () {
       console.log('error');
