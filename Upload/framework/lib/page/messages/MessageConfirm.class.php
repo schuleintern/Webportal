@@ -21,9 +21,13 @@ class MessageConfirm extends AbstractPage {
 		        $userID = $mail->getUser()->getUserID();
 		        
 		        if(!$mail->hasQuestions()) {
-		            $mail->confirmMessage('MAIL');
-		            $mail->setRead();
-		            $append = "&confirmSuccess=1";
+                    if(DB::getSettings()->getBoolean('messages-hook-sent-mail-confirm')) {
+                        $mail->confirmMessage('MAIL');
+                    }
+                    if(DB::getSettings()->getBoolean('messages-hook-sent-mail-read')) {
+                        $mail->setRead();
+                    }
+                    $append = "&confirmSuccess=1";
 		        }
 		        else {
 		            $append = "&toggleQuestionConfirmation=1";

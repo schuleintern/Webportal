@@ -289,6 +289,18 @@ class MessageInbox extends AbstractPage {
                 'typ' => 'BOOLEAN',
                 'titel' => "Banner bei neuen Nachrichten auf jeder Seite anzeigen?",
                 'text' => ""
+            ],
+            [
+                'name' => "messages-hook-sent-mail-read",
+                'typ' => 'BOOLEAN',
+                'titel' => "Nachrichten beim Versenden per E-Mail als gelesen makieren?",
+                'text' => ""
+            ],
+            [
+                'name' => "messages-hook-sent-mail-confirm",
+                'typ' => 'BOOLEAN',
+                'titel' => "Nachrichten beim Versenden per E-Mail 'Lesebestätigung' makieren?",
+                'text' => ""
             ]
         ];
 
