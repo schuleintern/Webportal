@@ -1,0 +1,1 @@
+ALTER TABLE `kalender_allInOne_eintrag` CHANGE `eintragKommentar` `eintragKommentar` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
