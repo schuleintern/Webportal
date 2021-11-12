@@ -69,7 +69,7 @@ class ganztags extends AbstractPage {
 
 
 
-			$pdf = new PrintNormalPageA4WithHeader('Ganztags');
+			$pdf = new PrintNormalPageA4WithoutHeader('Ganztags');
 			$pdf->setPrintedDateInFooter();
 			
 			$html = '<table cellspacing="0" cellpadding="2" border="0.001px" style="border-color:white; border-collapse: collapse;" >
@@ -190,13 +190,13 @@ class ganztags extends AbstractPage {
 			$html .= '<td>'.$gender.'</td>';
 			$html .= '<td>'.$item->getKlassenObjekt()->getKlassenName().'</td>';
 			$html .= '<td>'.$item->getGanztags()['gruppe_name'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags('html')['tag_mo'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags('html')['tag_di'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags('html')['tag_mi'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags('html')['tag_do'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags('html')['tag_fr'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags('html')['tag_sa'].'</td>';
-			$html .= '<td align="center">'.$item->getGanztags('html')['tag_so'].'</td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_mo'].'<div class="text-small">'.$item->getGanztags('html')['tag_mo_info'].'</div></td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_di'].'<div class="text-small">'.$item->getGanztags('html')['tag_di_info'].'</div></td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_mi'].'<div class="text-small">'.$item->getGanztags('html')['tag_mi_info'].'</div></td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_do'].'<div class="text-small">'.$item->getGanztags('html')['tag_do_info'].'</div></td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_fr'].'<div class="text-small">'.$item->getGanztags('html')['tag_fr_info'].'</div></td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_sa'].'<div class="text-small">'.$item->getGanztags('html')['tag_sa_info'].'</div></td>';
+			$html .= '<td align="center">'.$item->getGanztags('html')['tag_so'].'<div class="text-small">'.$item->getGanztags('html')['tag_so_info'].'</div></td>';
 			$html .= '<td width="20%">'.$item->getGanztags()['info'].'</td>';
 			$html .= '<td> <a href="index.php?page=ganztagsEdit&id='.$item->getID().'"><i class="fa fa-edit"></i> </a> </td>';
 			$html .= '</tr>';

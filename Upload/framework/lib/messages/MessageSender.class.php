@@ -257,7 +257,7 @@ class MessageSender{
 					'" . ($this->allowAnswer ? 1 : 0) . "',
                     '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
                     '" . $messageQuestionIDs . "',
-                    '" . $this->messageIsConfidential . "'
+                    " . ($this->messageIsConfidential ? $this->messageIsConfidential : 0) . "
 					)
 				";
 		DB::getDB()->query("INSERT INTO messages_messages (" . implode(",", $fields) . ") VALUES " . implode(",",$insert));
@@ -380,7 +380,7 @@ class MessageSender{
                     '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
                     '" . $messageQuestionIDs . "',
                     '" . $recipients[$i]->getSaveString() . "',
-                    '" . $this->messageIsConfidential . "'
+                    " . ($this->messageIsConfidential ? $this->messageIsConfidential : 0) . "
 					)
 				";
 	            $this->sentMessages++;

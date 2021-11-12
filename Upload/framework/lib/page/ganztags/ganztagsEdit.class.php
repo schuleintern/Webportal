@@ -52,12 +52,20 @@ class ganztagsEdit extends AbstractPage {
 					tag_do = " . (int)$_POST['tag_do'] . ",
 					tag_fr = " . (int)$_POST['tag_fr'] . ",
 					tag_sa = " . (int)$_POST['tag_sa'] . ",
-					tag_so = " . (int)$_POST['tag_so'] . "
+					tag_so = " . (int)$_POST['tag_so'] . ",
+					tag_mo_info = '" . DB::getDB()->escapeString($_POST['tag_mo_info']) . "',
+					tag_di_info = '" . DB::getDB()->escapeString($_POST['tag_di_info']) . "',
+					tag_mi_info = '" . DB::getDB()->escapeString($_POST['tag_mi_info']) . "',
+					tag_do_info = '" . DB::getDB()->escapeString($_POST['tag_do_info']) . "',
+					tag_fr_info = '" . DB::getDB()->escapeString($_POST['tag_fr_info']) . "',
+					tag_sa_info = '" . DB::getDB()->escapeString($_POST['tag_sa_info']) . "',
+					tag_so_info = '" . DB::getDB()->escapeString($_POST['tag_so_info']) . "'
 					WHERE asvid='" . $_POST['asvid'] . "'");
 
 			} else {
 
-				DB::getDB()->query("INSERT INTO ganztags_schueler (`asvid`,`info`,`gruppe`,`tag_mo`,`tag_di`,`tag_mi`,`tag_do`,`tag_fr`,`tag_sa`,`tag_so`)
+				DB::getDB()->query("INSERT INTO ganztags_schueler (`asvid`,`info`,`gruppe`,`tag_mo`,`tag_di`,`tag_mi`,`tag_do`,`tag_fr`,`tag_sa`,`tag_so`
+                                ,`tag_mo_info`,`tag_di_info`,`tag_mi_info`,`tag_do_info`,`tag_fr_info`,`tag_sa_info`,`tag_so_info`)
 				values (
 					'" . DB::getDB()->escapeString($_POST['asvid']) . "',
 					'" . DB::getDB()->escapeString($_POST['info']) . "',
@@ -68,7 +76,14 @@ class ganztagsEdit extends AbstractPage {
 					'" . DB::getDB()->escapeString($_POST['tag_do']) . "',
 					'" . DB::getDB()->escapeString($_POST['tag_fr']) . "',
 					'" . DB::getDB()->escapeString($_POST['tag_sa']) . "',
-					'" . DB::getDB()->escapeString($_POST['tag_so']) . "'
+					'" . DB::getDB()->escapeString($_POST['tag_so']) . "',
+					'" . DB::getDB()->escapeString($_POST['tag_mo_info']) . "',
+					'" . DB::getDB()->escapeString($_POST['tag_di_info']) . "',
+					'" . DB::getDB()->escapeString($_POST['tag_mi_info']) . "',
+					'" . DB::getDB()->escapeString($_POST['tag_do_info']) . "',
+					'" . DB::getDB()->escapeString($_POST['tag_fr_info']) . "',
+					'" . DB::getDB()->escapeString($_POST['tag_sa_info']) . "',
+					'" . DB::getDB()->escapeString($_POST['tag_so_info']) . "'
 				) ");
 
 			}
@@ -89,7 +104,15 @@ class ganztagsEdit extends AbstractPage {
 		$ganztags = false;
 		while($row = mysqli_fetch_array($schueler_query)) { $ganztags = $row; }
 
-		$schueler_info = $ganztags['info'];
+		$schueler_info = str_replace('"',"'", $ganztags['info']);
+
+        $tag_mo_info = str_replace('"',"'", $ganztags['tag_mo_info']);
+        $tag_di_info = str_replace('"',"'", $ganztags['tag_di_info']);
+        $tag_mi_info = str_replace('"',"'", $ganztags['tag_mi_info']);
+        $tag_do_info = str_replace('"',"'", $ganztags['tag_do_info']);
+        $tag_fr_info = str_replace('"',"'", $ganztags['tag_fr_info']);
+        $tag_sa_info = str_replace('"',"'", $ganztags['tag_sa_info']);
+        $tag_so_info = str_replace('"',"'", $ganztags['tag_so_info']);
 		
 		$schueler = schueler::getByAsvID($asvid);
 

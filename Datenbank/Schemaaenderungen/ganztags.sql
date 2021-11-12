@@ -24,3 +24,29 @@ CREATE TABLE `ganztags_schueler` (
 
 ALTER TABLE `schueler`
 ADD `schuelerGanztagBetreuung` int(11) NOT NULL DEFAULT '0';
+
+
+ALTER TABLE `ganztags_schueler`
+    ADD `tag_mo_info` varchar(255) NOT NULL DEFAULT '';
+ALTER TABLE `ganztags_schueler`
+    ADD `tag_di_info` varchar(255) NOT NULL DEFAULT '';
+ALTER TABLE `ganztags_schueler`
+    ADD `tag_mi_info` varchar(255) NOT NULL DEFAULT '';
+ALTER TABLE `ganztags_schueler`
+    ADD `tag_do_info` varchar(255) NOT NULL DEFAULT '';
+ALTER TABLE `ganztags_schueler`
+    ADD `tag_fr_info` varchar(255) NOT NULL DEFAULT '';
+ALTER TABLE `ganztags_schueler`
+    ADD `tag_sa_info` varchar(255) NOT NULL DEFAULT '';
+ALTER TABLE `ganztags_schueler`
+    ADD `tag_so_info` varchar(255) NOT NULL DEFAULT '';
+
+
+CREATE TABLE `ganztags_events` (
+   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+   `date` date DEFAULT NULL,
+   `gruppenID` int(11) DEFAULT NULL,
+   `title` varchar(255) DEFAULT NULL,
+   `room` varchar(100) DEFAULT NULL,
+   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -19,8 +19,10 @@
           <thead>
             <tr>
               <td v-bind:key="j" v-for="(day, j) in daysInWeek"
-               :class="{ 'bg-orange': isToday(day) == true}">
+               :class="{ 'bg-orange': isToday(day) == true}"
+                v-on:click="handlerSelectDay(day)" >
                 {{ $date(day).format('DD. dd') }}
+
               </td>
             </tr>
           </thead>
@@ -32,26 +34,37 @@
                   class="padding-t-m" >
                   
                   <div v-bind:key="k" v-for="(gruppe, k) in item.gruppen"
-                    class="gruppe padding-s box_1 margin-l-m margin-r-m"
-                    
-                    v-on:click="openEintrag(gruppe)">
+                    class="margin-l-m margin-r-m">
 
-                    <div class="text-big-2">
-                      <span v-if="gruppe.gruppe.farbe" style="width:2rem; height:2rem; display:inline-block;" v-bind:style="{ backgroundColor: gruppe.gruppe.farbe }" class="border-radius"  ></span>
-                      {{gruppe.gruppe.name}}</div>
-                    <div class="padding-t-s padding-b-s">
-                      <span v-if="gruppe.schueler.length > 0 && gruppe.gruppe.absenz_anz == 0" class=" text-grau bg-white border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
-                        v-bind:style="{ color: gruppe.gruppe.farbe }">
-                        <i class="fa fa-child margin-r-m"></i>{{gruppe.schueler.length}}
-                      </span>
-                      <span v-show="gruppe.gruppe.absenz_anz" class="bg-white  text-grau border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
-                        v-bind:style="{ color: gruppe.gruppe.farbe }">
-                        <i class="fa fa-child margin-r-m"></i>{{gruppe.schueler.length-gruppe.gruppe.absenz_anz}} <span class="text-small">({{gruppe.schueler.length}})</span>  
-                      </span>
-                      <span v-show="gruppe.gruppe.absenz_anz" class="bg-white  text-red border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold">
-                        <i class="fa fa-bed margin-r-m"></i>{{gruppe.gruppe.absenz_anz}}
-                      </span>
-                      <div class="flex-1 margin-t-m text-grey" v-show="gruppe.gruppe.raum"><i class="fas fa-map-marker-alt"></i> {{gruppe.gruppe.raum}}</div>
+                    <div class="gruppe padding-s box_1 " >
+                      <div v-on:click="openEintrag(gruppe)" class="">
+                        <div class="text-big-2">
+                          <span v-if="gruppe.gruppe.farbe" style="width:2rem; height:2rem; display:inline-block;" v-bind:style="{ backgroundColor: gruppe.gruppe.farbe }" class="border-radius"  ></span>
+                          {{gruppe.gruppe.name}}</div>
+                        <div class="padding-t-s padding-b-s">
+                          <span v-if="gruppe.schueler.length > 0 && gruppe.gruppe.absenz_anz == 0" class=" text-grau bg-white border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
+                            v-bind:style="{ color: gruppe.gruppe.farbe }">
+                            <i class="fa fa-child margin-r-m"></i>{{gruppe.schueler.length}}
+                          </span>
+                          <span v-show="gruppe.gruppe.absenz_anz" class="bg-white  text-grau border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold"
+                            v-bind:style="{ color: gruppe.gruppe.farbe }">
+                            <i class="fa fa-child margin-r-m"></i>{{gruppe.schueler.length-gruppe.gruppe.absenz_anz}} <span class="text-small">({{gruppe.schueler.length}})</span>
+                          </span>
+                          <span v-show="gruppe.gruppe.absenz_anz" class="bg-white  text-red border-radius padding-t-xs padding-b-xs padding-l-s padding-r-s margin-r-m text-bold">
+                            <i class="fa fa-bed margin-r-m"></i>{{gruppe.gruppe.absenz_anz}}
+                          </span>
+                          <div class="flex-1 margin-t-m text-grey" v-show="gruppe.gruppe.raum"><i class="fas fa-map-marker-alt"></i> {{gruppe.gruppe.raum}}</div>
+                        </div>
+                      </div>
+
+                      <div v-on:click="openEvent(gruppe, day )" class="flex">
+                        <div v-bind:key="a" v-for="(event, a) in gruppe.events"
+                             class="padding-s line-oddEven" >
+                          <div class="">{{event.title}}</div>
+                          <div class="text-small text-right">{{event.room}}</div>
+                        </div>
+                        <button v-show="!gruppe.events[0]" class="btn text-grey"><i class="fa fa-calendar"></i> Events</button>
+                      </div>
                     </div>
 
                   </div>
@@ -132,9 +145,19 @@ export default {
   },
   methods: {
 
-    openEintrag: function (item) {
+    handlerSelectDay: function (day) {
+      console.log(day);
+    },
+    openEvent: function (gruppe, day) {
+      var that = this;
+      EventBus.$emit('events--open', {
+        item: gruppe,
+        day: that.$date(day).format('YYYY-MM-DD')
+      });
+    },
+    openEintrag: function (gruppe) {
       EventBus.$emit('item--open', {
-        item: item
+        item: gruppe
       });
     },
     showBuchenBtn: function (day) {

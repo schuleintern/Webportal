@@ -4,6 +4,7 @@
   overflow-x: hidden;
 }
 
+
 .block {
   display: block;
 }
@@ -36,6 +37,7 @@
   justify-content: center;
   align-self: center;
 }
+
 
 
 .flex-1 {
@@ -109,32 +111,33 @@
 .width-4rem {
   width: 4rem;
 }
-.width-30rem {
-  width: 30rem;
-}
-
 .width-7rem {
   width: 7rem;
 }
 .width-12rem {
   width: 12rem;
 }
-
-.width-20vw {
-  width: 20vw;
+.width-15rem {
+  width: 15rem;
 }
+.width-20rem {
+  width: 20rem;
+}
+.width-30rem {
+  width: 30rem;
+}
+
 
 .width-40vw {
   width: 40vw;
 }
-
 .width-55vw {
   width: 55vw;
 }
-
 .width-70vw {
   width: 70vw;
 }
+
 
 .width-100p {
   width: 100%;
@@ -144,6 +147,9 @@
 
 .height-2rem {
   height: 2rem;
+}
+.height-3rem {
+  height: 3rem;
 }
 
 .height_35 {
@@ -165,27 +171,20 @@
 .padding-m {
   padding: 1.3rem;
 }
-
-
-.padding-r-s {
-  padding-right: 0.6rem;
-}
-.padding-r-m {
-  padding-right: 1.3rem;
-}
-.padding-r-l {
-  padding-right: 2.3rem;
+.padding-l {
+  padding: 2.3rem;
 }
 
 
-.padding-l-s {
-  padding-left: 0.6rem;
+
+.padding-t-xs {
+  padding-top: 0.3rem;
 }
-.padding-l-m {
-  padding-left: 1.3rem;
+.padding-t-s {
+  padding-top: 0.6rem;
 }
-.padding-l-l {
-  padding-left: 2.3rem;
+.padding-t-m {
+  padding-top: 1.3rem;
 }
 
 .padding-b-xs {
@@ -201,20 +200,26 @@
   padding-bottom: 2.3rem;
 }
 
-.padding-t-xs {
-  padding-top: 0.3rem;
+
+.padding-l-s {
+  padding-left: 0.6rem;
 }
-.padding-t-s {
-  padding-top: 0.6rem;
+.padding-l-m {
+  padding-left: 1.3rem;
 }
-.padding-t-m {
-  padding-top: 1.3rem;
-}
-.padding-t-l {
-  padding-top: 2.3rem;
+.padding-l-l {
+  padding-left: 2.3rem;
 }
 
-
+.padding-r-s {
+  padding-right: 0.6rem;
+}
+.padding-r-m {
+  padding-right: 1.3rem;
+}
+.padding-r-l {
+  padding-right: 2.3rem;
+}
 
 
 
@@ -233,6 +238,7 @@
 .margin-r-xxl {
   margin-right: 8rem;
 }
+
 
 .margin-l-xs {
   margin-left: 0.3rem;
@@ -268,7 +274,6 @@
   margin-bottom: 2.3rem;
 }
 
-
 .margin-t-m {
   margin-top: 1.3rem;
 }
@@ -276,6 +281,9 @@
   margin-top: 2.3rem;
 }
 
+.margin-0 {
+  margin: 0 !important;
+}
 
 .overlay i.fa {
   top: 50vh !important;

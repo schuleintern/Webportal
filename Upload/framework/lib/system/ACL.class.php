@@ -45,15 +45,18 @@ class ACL {
 			$acl['user']['none'] = 1;
 		}
 
-		if (!$id) {
-			if ($adminGroup == false) {
-				$adminGroup = $moduleClass::getAdminGroup();
-			}
-			$acl['aclAdminGroup'] = $adminGroup; 
-			if ( $adminGroup && DB::getSession()->isMember($adminGroup) ) {
-				$acl['user']['admin'] = true;
-			}
-		}
+        //if (!$id) { // Deaktiviert da die Kalender ACL der Kalender nicht mehr für moduladmins angezeigt wurden
+        if ($adminGroup == false) {
+            $adminGroup = $moduleClass::getAdminGroup();
+        }
+
+        $acl['aclAdminGroup'] = $adminGroup;
+        if ( $adminGroup && DB::getSession()->isMember($adminGroup) ) {
+            $acl['user']['admin'] = true;
+        }
+		// }
+
+
 
 		if (!$aclDB || !$aclDB['id'] ) {
 			return $acl;

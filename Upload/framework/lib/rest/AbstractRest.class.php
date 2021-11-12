@@ -69,7 +69,7 @@ abstract class AbstractRest {
     public function getAclByID($id = false, $showRight = false) {
 
         if ( $id ) {
-            $acl = ACL::getAcl($this->user, $id, $this->getAdminGroup() );
+            $acl = ACL::getAcl($this->user, false, $id, $this->getAdminGroup() );
             if ($showRight) {
                 return [ 'rights' => $acl['rights'], 'owne' => $acl['owne'] ];
             } else {
