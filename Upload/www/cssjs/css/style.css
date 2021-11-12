@@ -247,6 +247,9 @@ button.btn-blau {
 .border-b {
   border-bottom: 1px solid #738b96;
 }
+.border-t {
+  border-top: 1px solid #738b96;
+}
 
 .border-b-hell {
   border-bottom: 1px solid rgb(221, 221, 221);
@@ -269,6 +272,9 @@ button.btn-blau {
 }
 .bg-grau-hell {
   background-color: rgb(244, 244, 244);
+}
+.bg-green {
+  background-color: #018d4e;
 }
 
 .noListStyle {
@@ -392,7 +398,6 @@ button.btn-blau {
 .box_odd:nth-child(2n) {
   background-color: rgb(236, 240, 245);
 }
-
 
 
 
