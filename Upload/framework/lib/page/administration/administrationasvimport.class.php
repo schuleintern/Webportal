@@ -267,7 +267,7 @@ class administrationasvimport extends AbstractPage {
 						'" . DB::getDB()->escapeString(self::$faecher[$i]['kurzform']) . "',
 						'" . DB::getDB()->escapeString(self::$faecher[$i]['langform']) . "',
                         '" . DB::getDB()->escapeString(self::$faecher[$i]['asdid']) . "',
-                        '" . DB::getDB()->escapeString(self::$faecher[$i]['istselbsterstellt']) . "'
+                        " . DB::getDB()->escapeString(self::$faecher[$i]['istselbsterstellt']) . "
 					)");
 		}
 
@@ -355,49 +355,51 @@ class administrationasvimport extends AbstractPage {
 
 		for($i = 0; $i < sizeof(self::$unterricht); $i++) {
 			if(sizeof(self::$unterricht[$i]) > 0) {
-				DB::getDB()->query("INSERT INTO unterricht
-					(
-						unterrichtID,
-						unterrichtLehrerID,
-						unterrichtFachID,
-						unterrichtBezeichnung,
-						unterrichtArt,
-						unterrichtStunden,
-						unterrichtIsWissenschaftlich,
-						unterrichtStart,
-						unterrichtEnde,
-						unterrichtIsKlassenunterricht,
-						unterrichtKoppelText,
-						unterrichtKoppelIsPseudo
-					)
-						values
-					(
-						'" . self::$unterricht[$i]['id'] . "',
-						'" . self::$unterricht[$i]['lehrer'] . "',
-						'" . self::$unterricht[$i]['fachid'] . "',
-						'" . self::$unterricht[$i]['bezeichnung'] . "',
-						'" . self::$unterricht[$i]['unterrichtsart'] . "',
-						'" . self::$unterricht[$i]['stunden'] . "',
-						'" . self::$unterricht[$i]['wissenschaftlich'] . "',
-						'" . self::$unterricht[$i]['startdatum'] . "',
-						'" . self::$unterricht[$i]['enddatum'] . "',
-						'" . self::$unterricht[$i]['klassenunterricht'] . "',
-						" . ((self::$unterricht[$i]['koppeltext'] != '') ? "'" . self::$unterricht[$i]['koppeltext']  . "'" : 'null') . ",
-						'" . self::$unterricht[$i]['pseudokoppel'] . "'
-					) ON DUPLICATE KEY UPDATE
-						unterrichtID='" . self::$unterricht[$i]['id'] . "',
-						unterrichtLehrerID='" . self::$unterricht[$i]['lehrer'] . "',
-						unterrichtFachID='" . self::$unterricht[$i]['fachid'] . "',
-						unterrichtBezeichnung='" . self::$unterricht[$i]['bezeichnung'] . "',
-						unterrichtArt='" . self::$unterricht[$i]['unterrichtsart'] . "',
-						unterrichtStunden='" . self::$unterricht[$i]['stunden'] . "',
-						unterrichtIsWissenschaftlich='" . self::$unterricht[$i]['wissenschaftlich'] . "',
-						unterrichtStart='" . self::$unterricht[$i]['startdatum'] . "',
-						unterrichtEnde='" . self::$unterricht[$i]['enddatum'] . "',
-						unterrichtIsKlassenunterricht='" . self::$unterricht[$i]['klassenunterricht'] . "',
-						unterrichtKoppelText = " . ((self::$unterricht[$i]['koppeltext'] != '') ? "'" . self::$unterricht[$i]['koppeltext']  . "'" : 'null') . ",
-						unterrichtKoppelIsPseudo='" . self::$unterricht[$i]['pseudokoppel'] . "'
-				");
+                if (self::$unterricht[$i]['id']) {
+                    DB::getDB()->query("INSERT INTO unterricht
+                        (
+                            unterrichtID,
+                            unterrichtLehrerID,
+                            unterrichtFachID,
+                            unterrichtBezeichnung,
+                            unterrichtArt,
+                            unterrichtStunden,
+                            unterrichtIsWissenschaftlich,
+                            unterrichtStart,
+                            unterrichtEnde,
+                            unterrichtIsKlassenunterricht,
+                            unterrichtKoppelText,
+                            unterrichtKoppelIsPseudo
+                        )
+                            values
+                        (
+                            " . (int)self::$unterricht[$i]['id'] . ",
+                            " . (int)self::$unterricht[$i]['lehrer'] . ",
+                            '" . self::$unterricht[$i]['fachid'] . "',
+                            '" . self::$unterricht[$i]['bezeichnung'] . "',
+                            '" . self::$unterricht[$i]['unterrichtsart'] . "',
+                            '" . self::$unterricht[$i]['stunden'] . "',
+                            " .  ((self::$unterricht[$i]['wissenschaftlich'] != '') ? self::$unterricht[$i]['wissenschaftlich'] : 0 )  . ",
+                            '" . self::$unterricht[$i]['startdatum'] . "',
+                            '" . self::$unterricht[$i]['enddatum'] . "',
+                            " . ((self::$unterricht[$i]['klassenunterricht'] != '' ) ? self::$unterricht[$i]['klassenunterricht'] : 0 ) . ",
+                            " . ((self::$unterricht[$i]['koppeltext'] != '') ? "'" . self::$unterricht[$i]['koppeltext']  . "'" : 'null') . ",
+                            '" . self::$unterricht[$i]['pseudokoppel'] . "'
+                        ) ON DUPLICATE KEY UPDATE
+                            unterrichtID=" . (int)self::$unterricht[$i]['id'] . ",
+                            unterrichtLehrerID=" . ((self::$unterricht[$i]['lehrer'] != '') ? self::$unterricht[$i]['lehrer'] : 0 ) . ",
+                            unterrichtFachID='" . self::$unterricht[$i]['fachid'] . "',
+                            unterrichtBezeichnung='" . self::$unterricht[$i]['bezeichnung'] . "',
+                            unterrichtArt='" . self::$unterricht[$i]['unterrichtsart'] . "',
+                            unterrichtStunden='" . self::$unterricht[$i]['stunden'] . "',
+                            unterrichtIsWissenschaftlich=" . ( (self::$unterricht[$i]['wissenschaftlich'] != '') ? self::$unterricht[$i]['wissenschaftlich'] : 0 ) . ",
+                            unterrichtStart='" . self::$unterricht[$i]['startdatum'] . "',
+                            unterrichtEnde='" . self::$unterricht[$i]['enddatum'] . "',
+                            unterrichtIsKlassenunterricht='" . ((self::$unterricht[$i]['klassenunterricht'] != '') ? self::$unterricht[$i]['klassenunterricht'] : 0 ) . "',
+                            unterrichtKoppelText = " . ((self::$unterricht[$i]['koppeltext'] != '') ? "'" . self::$unterricht[$i]['koppeltext']  . "'" : 'null') . ",
+                            unterrichtKoppelIsPseudo='" . self::$unterricht[$i]['pseudokoppel'] . "'
+                    ");
+                }
 			}
 		}
 		// Unterricht Ende
@@ -741,7 +743,7 @@ class administrationasvimport extends AbstractPage {
 							schuelerEintrittDatum, 
 							schuelerNameVorgestellt,
 							schuelerNameNachgestellt,
-              schuelerGanztagBetreuung
+                            schuelerGanztagBetreuung
 
 						) values (
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['asvid']) . "',
@@ -759,9 +761,9 @@ class administrationasvimport extends AbstractPage {
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufe']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufeeintritt']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "',
-							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung']) . "',
 							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namevorgestellt']) . "',
-							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namenachgestellt']) . "'
+							'" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namenachgestellt']) . "',
+							" . ((self::$klassen[$i]['schueler'][$s]['ganztag_betreuung'] != '' ) ? DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung']) : 0 ) . "
 
 						) ON DUPLICATE KEY UPDATE
 							schuelerAsvID='" . self::$klassen[$i]['schueler'][$s]['asvid'] . "',
@@ -779,9 +781,9 @@ class administrationasvimport extends AbstractPage {
 							schuelerJahrgangsstufe = '" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufe']) . "',
 							schulerEintrittJahrgangsstufe='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['jahrgangsstufeeintritt']) . "',
 							schuelerEintrittDatum='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['eintrittsdatum']) . "',
-							schuelerGanztagBetreuung='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung']) . "',
 							schuelerNameVorgestellt='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namevorgestellt']) . "',
-							schuelerNameNachgestellt='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namenachgestellt']) . "'
+							schuelerNameNachgestellt='" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['namenachgestellt']) . "',
+							schuelerGanztagBetreuung=" . ((self::$klassen[$i]['schueler'][$s]['ganztag_betreuung'] != '' ) ? DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['ganztag_betreuung']) : 0 ) . "
 						");
 
 				$values = "";
@@ -916,7 +918,7 @@ class administrationasvimport extends AbstractPage {
 								NULL,
 								'" . self::$klassen[$i]['schueler'][$s]['asvid'] . "',
 								'$wessen',
-								'" . ((self::$klassen[$i]['schueler'][$s]['adressen'][$a]['auskunftsberechtigt'] == "true") ? 1 : 0) . "',
+								'" . ((self::$klassen[$i]['schueler'][$s]['adressen'][$a]['auskunftsberechtigt'] == "false") ? 0 : 1) . "',
 								'" . ((self::$klassen[$i]['schueler'][$s]['adressen'][$a]['hauptansprechpartner'] == "true") ? 1 : 0) . "',
 								'" . addslashes(self::$klassen[$i]['schueler'][$s]['adressen'][$a]['strasse']) . "',
 								'" . addslashes(self::$klassen[$i]['schueler'][$s]['adressen'][$a]['nummer']) . "',
