@@ -3,11 +3,11 @@
 
     <div class="flex-row">
       <div class="flex-1">
-        <button class="btn btn-grey-line" v-on:click="handlerBack"> Zurück</button>
+        <button class="si-btn si-btn-light" v-on:click="handlerBack"> Zurück</button>
       </div>
       <div v-show="item.id" class="flex flex-end">
-        <button v-show="deleteItem == false" v-on:click="handlerDelete(item)" class="btn btn-grey-line"><i class="far fa-trash-alt"></i> Löschen</button>
-        <button v-show="deleteItem" v-on:click="handlerDeleteSure(item)" class="btn btn-red"><i class="far fa-trash-alt"></i>Löschen!</button>
+        <button v-show="deleteItem == false" v-on:click="handlerDelete(item)" class="si-btn si-btn-light"><i class="far fa-trash-alt"></i> Löschen</button>
+        <button v-show="deleteItem" v-on:click="handlerDeleteSure(item)" class="si-btn si-btn-red"><i class="far fa-trash-alt"></i>Löschen!</button>
       </div>
     </div>
 
@@ -27,13 +27,13 @@
           <h4>Menu</h4>
           <ul v-bind:key="index" v-for="(menu_item, index) in items" class="noListStyle" :value="item.id">
             <li class="margin-b-s">
-              <button class="btn btn-grau"
-                      :class="{'btn-orange': menu_item.id == item.parent_id }"
+              <button class="si-btn "
+                      :class="{'si-btn-active': menu_item.id == item.parent_id }"
                       v-on:click="handlerParentSelect(menu_item)"><i :class="menu_item.icon"></i> {{menu_item.title}}</button>
               <ul v-if="menu_item.items.length >= 1" class="noListStyle flex-row">
                 <li v-bind:key="i" v-for="(child, i) in menu_item.items" :value="child.id"  class="margin-b-s padding-l-l margin-t-s">
-                  <button class="btn btn-grau"
-                          :class="{'btn-orange': child.id == item.parent_id }"
+                  <button class="si-btn "
+                          :class="{'si-btn-active': child.id == item.parent_id }"
                           v-on:click="handlerParentSelect(child)" ><i :class="child.icon"></i> {{child.title}}</button>
                 </li>
               </ul>
@@ -48,11 +48,11 @@
       </li>
       <li class="line-oddEven"></li>
       <li v-show="pagesOpen" class="line-oddEven padding-t-m padding-b-m  padding-l-l">
-          <div v-bind:key="index" v-for="(item, index) in pages" class="">
-            <h4>{{item.name}}</h4>
+          <div v-bind:key="index" v-for="(sub, index) in pages" class="">
+            <h4>{{sub.name}}</h4>
             <div class="flex-row">
-              <span v-if="item.submenu" v-bind:key="index" v-for="(page, i) in item.submenu" class="margin-b-s" >
-                <button v-if="page.menu != false" class="btn btn-grau margin-r-m" :class="{'btn-grey-line': page.admin == true}" v-on:click="handlerPagesSelect(page)"><i :class="page.icon"></i>{{page.title}}</button>
+              <span v-if="sub.submenu" v-bind:key="index" v-for="(page, i) in sub.submenu" class="margin-b-s" >
+                <button v-if="page.menu != false" class="si-btn margin-r-m" :class="{'si-btn-red': page.admin == true, 'si-btn-active': page.url.page == item.page && JSON.stringify(page.url.params) == item.params}" v-on:click="handlerPagesSelect(page)"><i :class="page.icon"></i>{{page.title}}</button>
               </span>
             </div>
           </div>
@@ -63,7 +63,7 @@
       </li>
       <li>
         <br>
-        <button class="btn btn-blau" v-on:click="handlerSubmit"><i class="fas fa-mouse-pointer"></i> Speichern</button>
+        <button class="si-btn" v-on:click="handlerSubmit"><i class="fas fa-mouse-pointer"></i> Speichern</button>
       </li>
     </ul>
 

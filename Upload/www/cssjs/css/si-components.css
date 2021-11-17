@@ -237,11 +237,13 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
-.si-table thead {
+.si-table thead,
+.si-table .thead{
     rgba(0, 0, 0, 0.25) 0px 10px 70px 0px;
 
 }
-.si-table thead td {
+.si-table thead td,
+.si-table .thead .td{
     text-align: center;
     padding-top: 1.5rem;
     padding-bottom: 2.5rem;
@@ -252,28 +254,39 @@
     letter-spacing: 0.75pt;
     color: #018d4e;
 }
-.si-table .si-table thead td {
+.si-table .si-table thead td,
+.si-table .si-table .thead .td{
     color: #367fa9;
 }
-.si-table .si-table .si-table thead td {
+.si-table .si-table .si-table thead td,
+.si-table .si-table .si-table .thead .td{
     color: #f39c12;
 }
-.si-table tbody {
+.si-table tbody,
+.si-table .tbody{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
-.si-table tbody tr {
+.si-table tbody tr,
+.si-table .tbody .tr{
 
 }
-.si-table tbody tr:nth-child(odd) {
+.si-table tbody tr:nth-child(odd),
+.si-table .tbody .tr:nth-child(odd){
     background-color: #f9f9f9;
 }
-.si-table tbody tr td {
+.si-table tbody td,
+.si-table .tbody .td{
     align-content: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-left: 0.5rem;
     padding-bottom: 0.5rem;
     text-align: center;
+}
+
+.si-table.si-table-style-firstLeft tbody td:first-child,
+.si-table.si-table-style-firstLeft .tbody .td:first-child{
+    text-align: left;
 }
 
 
@@ -333,6 +346,14 @@
     background-color: #018d4e;
 }
 
+.si-btn-red {
+    background-color: #dd4b39;
+    border-color: #dd4b39;
+}
+.si-btn-red:hover {
+    background-color: #c63e2d;
+}
+
 .si-btn-light {
     background-color: #b7c7ce;
     border-color: #b7c7ce;
@@ -340,6 +361,17 @@
 .si-btn-light:hover {
     background-color: #8aa4af;
 }
+
+.si-btn-active {
+    background-color: #f39c12;
+    border-color: #f39c12;
+}
+.si-btn-active:hover {
+    background-color: #f39c12;
+}
+
+
+
 
 
 /**

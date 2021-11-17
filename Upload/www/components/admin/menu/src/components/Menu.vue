@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="table_1">
+    <table class="si-table">
       <thead>
         <tr>
           <td class="width-30rem">Name</td>
@@ -11,7 +11,7 @@
       <tbody>
         <tr v-bind:key="index" v-for="(item, index) in list"
           class="line-oddEven">
-          <td><a href="#" v-on:click="handlerMenuOpen(item)">{{item.title}}</a></td>
+          <td><button v-on:click="handlerMenuOpen(item)" class="si-btn">{{item.title}}</button></td>
           <td>{{item.alias}}</td>
           <td>{{item.id}}</td>
         </tr>

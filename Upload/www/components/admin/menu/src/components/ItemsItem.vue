@@ -2,24 +2,24 @@
 
     <ul class="">
       <draggable v-model="items" handle=".sortHandle" group="sort" @start="drag=true" @end="drag=false" @change="handlerItemSort" >
-      <div v-bind:key="index" v-for="(item, index) in items" class="line-oddEven">
+      <div v-bind:key="index" v-for="(item, index) in items" class="tr">
         <li class=" flex-row" >
-          <div class="flex-1 title flex-center-center"><a href="#" v-on:click="handlerOpenItem(item)"><i :class="item.icon"></i> {{item.title}}</a></div>
-          <div class="flex-1 text-small">
+          <div class="flex-1 title flex-center-center td"><a href="#" v-on:click="handlerOpenItem(item)"><i :class="item.icon"></i> {{item.title}}</a></div>
+          <div class="flex-1 text-small td">
             <button
                 v-if="item.active == 1"
                 v-on:click="handlerToggleActive(item)"
-                class="btn text-green"><i class="fas fa-toggle-on"></i></button>
+                class="si-btn si-btn-light text-green"><i class="fas fa-toggle-on"></i></button>
             <button
                 v-if="item.active == 0"
                 v-on:click="handlerToggleActive(item)"
-                class="btn"><i class="fas fa-toggle-off"></i></button>
-            <button class="sortHandle btn btn-grey"><i class="fas fa-sort"></i></button>
+                class="si-btn si-btn-light"><i class="fas fa-toggle-off"></i></button>
+            <button class="sortHandle si-btn si-btn-light"><i class="fas fa-sort"></i></button>
           </div>
-          <div class="flex-1 text-small flex-center-center">{{item.page}}</div>
-          <div class="flex-1 text-small flex-center-center">{{item.params}}</div>
-          <div class="width-7rem"><button class="btn btn-grey" v-on:click="handlerFormOpen(item)"><i class="fas fa-plus"></i></button></div>
-          <div class="flex-1 text-small text-grey id flex-center-center">{{item.id}}</div>
+          <div class="flex-1 text-small flex-center-center td">{{item.page}}</div>
+          <div class="flex-1 text-small flex-center-center td">{{item.params}}</div>
+          <div class="width-7rem td"><button class="si-btn si-btn-light" v-on:click="handlerFormOpen(item)"><i class="fas fa-plus"></i></button></div>
+          <div class="flex-1 text-small text-grey id flex-center-center td">{{item.id}}</div>
         </li>
 
         <li v-if="item.items.length >= 1" class="flex-b-100">
