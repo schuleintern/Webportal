@@ -622,6 +622,10 @@ class schulinfo extends AbstractPage {
 	}
 
 
+    public static function isMittelschule() {
+        return DB::getSettings()->getValue('schulinfo-schultyp') == 'ms';
+    }
+
 	public static function isRealschule() {
         return DB::getSettings()->getValue('schulinfo-schultyp') == 'rs';
     }
