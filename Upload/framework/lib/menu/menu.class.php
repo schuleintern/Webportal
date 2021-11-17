@@ -1041,10 +1041,11 @@ class menu {
      $html .= $this->endDropDown();
     }
 
+      $html .= $this->getDBMenuItems(6);
     if($html != "") {
         
         $this->html .= $this->getTrenner('<i class="fa fa-graduation-cap"></i> Unterricht</i>');
-        $html .= $this->getDBMenuItems(6);
+
         $this->html .= $html;
     }
 

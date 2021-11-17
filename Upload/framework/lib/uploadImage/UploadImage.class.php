@@ -27,7 +27,22 @@ class UploadImage {
 		}
 		
 	}
-	
+
+    public function getBase64() {
+
+        $path = "../data/imageUploads/" . $this->uploadID . ".jpg";
+
+        if(!file_exists($path)) {
+            $path = "/cssjs/images/userimages/default.png";
+        }
+
+        $image_file = fopen($path, 'r');
+        $image_data = fread($image_file, filesize($path));
+
+        return base64_encode($image_data);
+
+    }
+
 	public function sendImage($maxWidth=-1) {
 		$imageFile = "../data/imageUploads/" . $this->uploadID . ".jpg";
 		

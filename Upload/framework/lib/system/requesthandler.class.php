@@ -280,13 +280,7 @@ class requesthandler {
           
           $taskMethod = 'task'.ucfirst($_request['task']);
           if ( method_exists($page, 'task'.ucfirst($_request['task']) )) {
-            $postData = [];
-            $_post = json_decode(file_get_contents("php://input"), TRUE);
-            if ($_post) {
-              foreach($_post as $key => $val) {
-                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
-              }
-            }
+            $postData= self::getPostData();
             $page->$taskMethod($postData);
             exit;
           } else {
@@ -441,7 +435,24 @@ class requesthandler {
       }
       return $data;
   }
- 
+
+
+    public static function getPostData() {
+        $postData = [];
+        if ($_POST) {
+            foreach($_POST as $key => $val) {
+                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
+            }
+        }
+        $_post = json_decode(file_get_contents("php://input"), TRUE);
+        if ($_post) {
+            foreach($_post as $key => $val) {
+                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
+            }
+        }
+        return $postData;
+    }
+
 
 }
 

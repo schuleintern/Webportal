@@ -43,7 +43,7 @@ class resthandler {
         $headers = getallheaders();
         $method = $_SERVER['REQUEST_METHOD']; // GET or POST
         $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
-        $input = json_decode(file_get_contents('php://input'),true);
+
 
         if(sizeof($request) == 0) {
             $result = [
@@ -69,6 +69,7 @@ class resthandler {
                 include_once(PATH_EXTENSIONS.$module['folder'].'/rest/'.$request[1].'.php');
                 $allowed = true;
                 $classname = $request[1];
+                define("PATH_EXTENSION", PATH_EXTENSIONS.$module['folder'].DS);
               }
             }
         }
@@ -106,7 +107,12 @@ class resthandler {
                         }
                         $this->answer([], 401);
                     } else {
-                        DB::getSession ()->update ();
+                        if($action->needsAdminAuth()) {
+                            if ( !DB::getSession()->getUser()->isAdmin() ) {
+                                $this->answer([], 401);
+                            }
+                        }
+                        DB::getSession()->update ();
                         $action->user = DB::getSession()->getUser();
                         $action->acl();
                     }
@@ -149,6 +155,9 @@ class resthandler {
                 }
             }
 
+
+            $input = self::getPostData();
+
             // Execute wird nur aufgerufen, wenn die Authentifizierung erfolgreich war.
             $result = $action->execute($input, $request);
 
@@ -178,6 +187,38 @@ class resthandler {
         http_response_code($statusCode);
         print(json_encode($result));
         exit(0);
+    }
+
+    public static function __htmlspecialchars($data) {
+        if (is_array($data)) {
+            foreach ( $data as $key => $value ) {
+                $data[htmlspecialchars($key)] = self::__htmlspecialchars($value);
+            }
+        } else if (is_object($data)) {
+            $values = get_class_vars(get_class($data));
+            foreach ( $values as $key => $value ) {
+                $data->{htmlspecialchars($key)} = self::__htmlspecialchars($value);
+            }
+        } else {
+            $data = stripslashes(strip_tags(htmlspecialchars($data)));
+        }
+        return $data;
+    }
+
+    public static function getPostData() {
+        $postData = [];
+        if ($_POST) {
+            foreach($_POST as $key => $val) {
+                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
+            }
+        }
+        $_post = json_decode(file_get_contents("php://input"), TRUE);
+        if ($_post) {
+            foreach($_post as $key => $val) {
+                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
+            }
+        }
+        return $postData;
     }
 
 }

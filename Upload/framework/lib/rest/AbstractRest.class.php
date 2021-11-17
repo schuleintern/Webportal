@@ -3,6 +3,8 @@
 abstract class AbstractRest {
 	protected $statusCode = 200;
 
+    static $adminGroupName = NULL;
+    
 	/**
 	 * @var user
 	 */
@@ -52,18 +54,32 @@ abstract class AbstractRest {
 		return false;
 	}
 
+    public function needsAdminAuth() {
+        return false;
+    }
+
+
 	public function aclModuleName() {
 		return get_called_class();
 	}
 
-	
+
+    /**
+     * Liest die Gruppe aus, die Zugriff auf die Administration des Moduls hat.
+     * @return String Gruppenname als String
+     */
+    public static function getAdminGroup() {
+        return self::$adminGroupName;
+    }
+
+
 	/**
 	 * Access Control List
 	 * @return acl
 	 */
 	public function acl() {
 		$moduleClass = $this->aclModuleName();
-		$this->acl = ACL::getAcl($this->user, $moduleClass);
+		$this->acl = ACL::getAcl($this->user, $moduleClass, false);
 	}
 
     public function getAclByID($id = false, $showRight = false) {

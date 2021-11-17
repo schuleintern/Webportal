@@ -312,6 +312,7 @@ abstract class AbstractPage {
 		if (!$arg['tmpl'] && !$arg['tmplHTML']) {
 			$arg['tmpl'] = 'default';
 		}
+        // Available from tpl files
 		$path = PATH_EXTENSION.'tmpl'.DS;
 
 		if ( $arg['tmplHTML'] || file_exists($path.$arg['tmpl'].'.tmpl.php')  ) {
@@ -378,6 +379,10 @@ abstract class AbstractPage {
 			if ($arg['scripts']) {
 				echo $this->getScript($arg['tmpl'], $arg['scripts']);
 			}
+            // import CSS Files
+            if ($arg['style']) {
+                echo $this->getStyle($arg['tmpl'], $arg['style']);
+            }
 
 		} else {
 			new errorPage('Missing Template File');
@@ -423,6 +428,30 @@ abstract class AbstractPage {
 	}
 
 
+    /**
+     * Get Css Scripts Files
+     *
+     * @param page String
+     * @param scripts Array
+     */
+    private function getStyle($view, $styles ){
+
+        if ( !$styles || count($styles) <= 0 ) {
+            return false;
+        }
+        $html = '';
+        foreach( $styles as $style ) {
+            $style = trim($style);
+            if (file_exists($style)) {
+                $file = file_get_contents($style);
+                if ($file) {
+                    $html .= '<style>'.$file.'</style>';
+                }
+            }
+        }
+        return $html;
+    }
+
 	/**
 	 * Get JavaScript Scripts Files
 	 * 
@@ -436,6 +465,7 @@ abstract class AbstractPage {
 		}
 		$html = '';
 		foreach( $scripts as $script ) {
+            $script = trim($script);
 			if (file_exists($script)) {
 				$file = file_get_contents($script);
 				if ($file) {
@@ -577,7 +607,7 @@ abstract class AbstractPage {
 		$settings = $this->getSettingsDescription();
 		if ( count($settings) > 0  ) {
 			foreach($settings as $key => $item) {
-				$result = DB::getDB()->query_first('SELECT `settingValue` FROM `settings` WHERE `settingsExtension` = "'.$this->extension['folder'].'"  AND `settingName` = "'.$item['name'].'" ');
+				$result = DB::getDB()->query_first('SELECT `settingValue` FROM `settings` WHERE `settingsExtension` = "ext_'.$this->extension['folder'].'"  AND `settingName` = "'.$item['name'].'" ');
 				if ( isset($result['settingValue']) ) {
 					$settings[$key]['value'] = $result['settingValue'];
 				}

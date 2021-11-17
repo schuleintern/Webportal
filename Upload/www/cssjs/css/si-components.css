@@ -1,0 +1,448 @@
+
+
+/**
+    Hinweis
+ */
+.si-hinweis {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    background-color: #f9f9f9;
+    padding: 3rem;
+    padding-left: 7rem;
+    background-image: url('./images/icon-bubble.png');
+    background-repeat: no-repeat;
+    background-position: 2rem 3rem;
+    background-size: auto 3rem;
+    font-size: 11pt;
+    font-weight: 300;
+    line-height: 14pt;
+    letter-spacing: 0.25pt;
+}
+
+/**
+    ERROR
+ */
+.si-succeed {
+    position: fixed;
+    z-index: 9999999999999999999;
+    width: 30vw;
+    top: 0;
+    left: 45vw;
+    background-color: #018d4e;
+    color: #fff;
+    border-bottom-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    border: 1px solid #018d4e;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    letter-spacing: 0.75pt;
+}
+.si-succeed .msg {
+    font-size: 12pt;
+    font-weight: 300;
+    line-height: 100%;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+
+/**
+    ERROR
+ */
+.si-error {
+    position: fixed;
+    z-index: 9999999999999999999;
+    width: 30vw;
+    top: 0;
+    left: 45vw;
+    background-color: #dd4b39;
+    color: #fff;
+    border-bottom-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    border: 1px solid #dd4b39;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    letter-spacing: 0.75pt;
+}
+.si-error .head {
+    font-size: 140%;
+    margin-bottom: 1rem;
+}
+.si-error .msg {
+    font-size: 11pt;
+    font-weight: 300;
+    line-height: 100%;
+    padding-bottom: 1rem;
+}
+
+
+/**
+    FORM
+ */
+.si-form {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid #8aa4af;
+    border-radius: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    text-align: left;
+}
+.si-form ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.si-form ul li {
+    margin: 0;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.si-form ul li:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.si-form ul li:first-child {
+    padding-top: 3rem;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+}
+.si-form ul li:last-child {
+    padding-bottom: 3rem;
+    border-bottom-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+}
+.si-form ul li label {
+    margin-top: 0.3rem;
+    padding-left: 3rem;
+    padding-bottom: 0.5rem;
+    font-size: 11pt;
+    font-weight: 300;
+    line-height: 14pt;
+    letter-spacing: 0.75pt;
+}
+.si-form ul li label::first-letter {
+    font-weight: 400;
+}
+.si-form ul li label.small {
+    font-size: 90%;
+    margin: 0;
+}
+.si-form ul li select {
+    border-radius: 3rem;
+    padding: 1rem 2.6rem;
+    font-size: 11pt;
+    font-weight: 300;
+    letter-spacing: 0.75pt;
+
+    background-color: #fff;
+    border: 1px solid #3c8dbc;
+    color: #000;
+
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    background-image: url('./images/arrow-down.png');
+    background-repeat: no-repeat;
+    background-position: 96% center;
+    background-size: auto 40%;
+}
+.si-form ul li input {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    border-radius: 3rem;
+    padding: 1rem 2.6rem;
+    font-size: 11pt;
+    font-weight: 300;
+    letter-spacing: 0.75pt;
+
+    background-color: #fff;
+    border: 1px solid #3c8dbc;
+    color: #000;
+}
+
+
+
+/**
+    MODAL
+ */
+.si-modal {
+    position: fixed;
+    z-index: 99999999999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.25);
+}
+
+.si-modal .si-modal-box {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    background-color: #fff;
+    width: 50vw;
+    min-height: 20vh;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 25vw;
+    border-radius: 3rem;
+}
+.si-modal .si-modal-box .si-modal-btn-close {
+    background: #8aa4af;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    border-radius: 100%;
+    border: 0;
+    outline: 0;
+    width: 5rem;
+    position: absolute;
+    right: -2rem;
+    height: 5rem;
+    top: -2rem;
+}
+.si-modal .si-modal-box .si-modal-btn-close:after{
+    display: inline-block;
+    content: "\00d7"; /* This will render the 'X' */
+    font-weight: 800;
+    font-size: 170%;
+}
+.si-modal .si-modal-box .si-modal-content {
+    padding: 3rem;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.si-modal .si-modal-box .si-modal-content .box-title {
+    margin-bottom: 3rem;
+}
+
+/**
+    TABLE
+ */
+.si-table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.si-table thead {
+    rgba(0, 0, 0, 0.25) 0px 10px 70px 0px;
+
+}
+.si-table thead td {
+    text-align: center;
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+    padding-left: 0.5rem;
+    font-size: 11pt;
+    font-weight: 300;
+    line-height: 100%;
+    letter-spacing: 0.75pt;
+    color: #018d4e;
+}
+.si-table .si-table thead td {
+    color: #367fa9;
+}
+.si-table .si-table .si-table thead td {
+    color: #f39c12;
+}
+.si-table tbody {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.si-table tbody tr {
+
+}
+.si-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+.si-table tbody tr td {
+    align-content: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+
+
+
+/**
+    BUTTON
+ */
+.si-btn {
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    border-radius: 3rem;
+
+    display: block;
+    display: inline-block;
+
+    padding: 1rem 1.6rem;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+
+    font-size: 11pt;
+    font-weight: 300;
+    line-height: 100%;
+    letter-spacing: 0.75pt;
+    text-align: center;
+
+
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #3c8dbc;
+    border: 1px solid #3c8dbc;
+    color: #fff;
+}
+.si-btn:hover {
+    background-color: #367fa9;
+}
+.si-btn i {
+    margin-right: 0.6rem;
+}
+
+.si-btn-green {
+    background-color: #00a65a;
+    border-color: #00a65a;
+}
+.si-btn-green:hover {
+    background-color: #018d4e;
+}
+
+.si-btn-light {
+    background-color: #b7c7ce;
+    border-color: #b7c7ce;
+}
+.si-btn-light:hover {
+    background-color: #8aa4af;
+}
+
+
+/**
+    USER
+ */
+.si-user {
+    border: 1px solid #b7c7ce;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    background-color: #fff;
+    display: flex;
+    padding: 0.5rem;
+    border-radius: 3rem;
+    align-items: center;
+    max-width: 23rem;
+    min-width: 23rem;
+    text-align: left;
+    cursor: pointer;
+}
+.si-user .avatar {
+
+    margin-left: 0.3rem;
+    margin-right: 1rem;
+}
+.si-user .avatar img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+}
+.si-user .info {
+    flex: 1;
+    padding-right: 1.4rem;
+}
+.si-user .info .top {
+    font-size: 120%;
+}
+.si-user .info .bottom {
+    color: #738b96;
+    font-weight: 300;
+    line-height: 100%;
+    letter-spacing: 0.75pt;
+    display: flex;
+}
+.si-user .info .bottom .name {
+    flex: 3;
+}
+.si-user .info .bottom .klasse {
+    flex:1;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.si-user.isTeacher {
+    border-right: 1rem solid #738b96;
+}
+.si-user.isNone {
+    border-right: 1rem solid #424242;
+}
+.si-user.isEltern {
+    border-right: 1rem solid #367fa9;
+}
+
+
+.si-user.si-user-line {
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+    box-shadow: none;
+    text-align: inherit;
+    display: block;
+}
+
+.si-user--infoBox .avatar {
+    padding-bottom: 3rem;
+}
+.si-user--infoBox .avatar img {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 100%;
+}
+.si-user--infoBox .vorname{
+    font-size: 15pt;
+}
+.si-user--infoBox .nachname{
+    color: #738b96;
+    font-size: 13pt;
+    font-weight: 300;
+    line-height: 100%;
+    letter-spacing: 0.75pt;
+    margin-bottom: 3rem;
+    padding-top: 0.3rem;
+}
+.si-user--infoBox .type {
+    color: #738b96;
+    font-size: 10pt;
+    font-weight: 300;
+    line-height: 100%;
+    letter-spacing: 1.75pt;
+}
+.si-user--infoBox .type.isTeacher {
+}
+.si-user--infoBox  .klasse {
+    color: #738b96;
+}
+.si-user--infoBox .toolbar {
+    padding-top: 4rem;
+}

@@ -1,14 +1,8 @@
 <template>
   <div>
 
-    <div v-show="error" class="form-modal-error">
-      <b>Folgende Fehler sind aufgetreten:</b>
-      <div>{{error}}</div>
-    </div>
-
-    <div v-show="succeed" class="form-modal-succeed">
-      <b>{{succeed}}</b>
-    </div>
+    <Error v-bind:error="error"></Error>
+    <Succeed v-bind:succeed="succeed"></Succeed>
 
     <div v-if="loading == true" class="overlay">
       <i class="fa fas fa-sync-alt fa-spin"></i>
@@ -27,19 +21,25 @@
           v-on:change="triggerToggleValue"></Boolean>
         
         <Number
-          v-if="item.typ == 'NUMBER'"
+          v-else-if="item.typ == 'NUMBER'"
           v-bind:item="item"
           v-on:change="triggerToggleValue"></Number>
 
-        <String
-          v-if="item.typ == 'STRING'"
-          v-bind:item="item"
-          v-on:change="triggerToggleValue"></String>
-        
         <Select
-          v-if="item.typ == 'SELECT'"
+          v-else-if="item.typ == 'SELECT'"
           v-bind:item="item"
           v-on:change="triggerToggleValue"></Select>
+
+        <Html
+          v-else-if="item.typ == 'HTML'"
+          v-bind:item="item"
+          v-on:change="triggerToggleValue"></Html>
+
+        <!--   v-if="item.typ == 'STRING'"-->
+        <String
+            v-else
+            v-bind:item="item"
+            v-on:change="triggerToggleValue"></String>
 
       </li>
     </ul>
@@ -51,17 +51,26 @@
 
 const axios = require('axios').default;
 
+import Error from './mixins/Error.vue'
+import Succeed from './mixins/Succeed.vue'
+
+
 import Boolean from './components/boolean.vue'
 import Number from './components/number.vue'
 import String from './components/string.vue'
 import Select from './components/select.vue'
+import Html from './components/html.vue'
 
 export default {
   components: {
+    Error,
+    Succeed,
+
     Boolean,
     Number,
     String,
-    Select
+    Select,
+    Html
   },
   data() {
     return {

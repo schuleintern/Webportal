@@ -222,6 +222,9 @@ class AdminExtensions extends AbstractPage {
 
 				$filename = uniqid(rand(), true) . '.zip';
 
+                if ( !is_dir(PATH_TMP)) {
+                    mkdir(PATH_TMP);
+                }
 				file_put_contents(PATH_TMP.$filename, file_get_contents($extStore->url, false, stream_context_create($arrContextOptions)));
 
                 if (!file_exists(PATH_TMP.$filename)) {

@@ -146,8 +146,8 @@ $classes = [
         'SchuelerQuarantaene'
     ],
     'data/menue' => [
-        'menue',
-        'menueItems'
+        'Menue',
+        'MenueItems'
     ],
 	'db' => [
 		'mysql',
