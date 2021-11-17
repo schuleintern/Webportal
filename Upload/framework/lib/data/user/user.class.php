@@ -14,6 +14,7 @@ class user {
   private $pupilObject = null;
   private $elternObject = null;
 
+  private $avatar = null;
 
   private $data;
 
@@ -133,22 +134,53 @@ class user {
     return $this->isNone;
   }
 
-  public function getUserTyp() {
+  public function getUserTyp($system = false) {
 
     if ( $this->isPupil ) {
-      return 'Schüler';
+        if (!$system) {
+            return 'Schüler';
+        } else {
+            return 'isPupil';
+        }
     }
     if ( $this->isTeacher ) {
-      return 'Lehrer';
+        if (!$system) {
+            return 'Lehrer';
+        } else {
+            return 'isTeacher';
+        }
     }
     if ( $this->isEltern ) {
-      return 'Eltern';
+        if (!$system) {
+            return 'Eltern';
+        } else {
+            return 'isEltern';
+        }
     }
     if ( $this->isNone ) {
-      return 'Mitarbeiter';
+        if (!$system) {
+            return 'Mitarbeiter';
+        } else {
+            return 'isNone';
+        }
     }
 
     return '';
+  }
+
+  public function getCollection() {
+      $collection = [
+          "id" => $this->getUserID(),
+          "vorname" => $this->getFirstName(),
+          "nachname" => $this->getLastName(),
+          "name" => $this->getDisplayName(),
+          "type" => $this->getUserTyp(true),
+          "avatar" => $this->getAvatar(true)
+      ];
+      if ($this->isPupil()) {
+          $collection['klasse'] = $this->getPupilObject()->getKlasse();
+      }
+      return $collection;
   }
   
   public function getAllInklMail() {
@@ -229,6 +261,14 @@ class user {
     return in_array("Webportal_Administrator", $this->getGroupNames());
   }
 
+    /**
+     *
+     * @return string|unknown
+     */
+    public function getKlasse() {
+        return false;
+    }
+
   /**
    *
    * @return lehrer
@@ -256,6 +296,23 @@ class user {
   public function isMember($group) {
     return in_array($group, $this->getGroupNames());
   }
+
+
+    public function getAvatar() {
+      if (!$this->avatar) {
+          $image = DB::getDB()->query_first("SELECT uploadID FROM image_uploads WHERE uploadUserName LIKE '" . $this->getUserName() . "'");
+          if($image['uploadID'] > 0) {
+              //$this->avatar = "index.php?page=userprofileuserimage&getImage=profile";
+              $upload = new UploadImage($image['uploadID']);
+              $this->avatar = 'data:image/jpeg;base64,'.$upload->getBase64();
+          } else {
+              $this->avatar = "cssjs/images/userimages/default.png";
+          }
+
+      }
+      return $this->avatar;
+    }
+
 
   /**
    * Format: +49XXXXXXXXXXX
