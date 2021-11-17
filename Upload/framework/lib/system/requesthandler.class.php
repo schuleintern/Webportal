@@ -280,7 +280,7 @@ class requesthandler {
           
           $taskMethod = 'task'.ucfirst($_request['task']);
           if ( method_exists($page, 'task'.ucfirst($_request['task']) )) {
-              self::getPostData();
+            $postData= self::getPostData();
             $page->$taskMethod($postData);
             exit;
           } else {
