@@ -78,12 +78,16 @@ class mysql {
 		return $this->query_id;
 	}
 
-	public function fetch_array($query_id = null) {
+	public function fetch_array($query_id = null,  $clean = false) {
 		if ($query_id != null) {
 			$this->query_id = $query_id;
 		}
 
-		$this->record = mysqli_fetch_array($this->query_id);
+        if ($clean == true) {
+            $this->record = mysqli_fetch_array($this->query_id, MYSQLI_ASSOC);
+        } else {
+            $this->record = mysqli_fetch_array($this->query_id);
+        }
 
 		return $this->record;
 	}
