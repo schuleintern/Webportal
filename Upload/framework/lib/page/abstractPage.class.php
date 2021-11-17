@@ -914,7 +914,7 @@ abstract class AbstractPage {
 		if (is_array($submenu) && count($submenu) >= 1) {
 			foreach($submenu as $item) {
 				$item = (array)$item;
-				$active = '';
+				$class = '';
 				if ( $item['admin'] == 'true' && $this->isAnyAdmin == false ) {
 					continue;
 				}
@@ -929,9 +929,12 @@ abstract class AbstractPage {
                         $link .= '&'.$params_str;
                     }
 					if (DS.$link == URL_FILE) {
-						$active = 'active';
+                        $class = 'active';
 					}
-					$html .= '<a href="'.$link.'"  class="margin-r-xs '.$active.'">';
+                    if ($item['admin']) {
+                        $class = ' admin';
+                    }
+					$html .= '<a href="'.$link.'"  class="margin-r-xs '.$class.'">';
 					if ($item['icon']) {
 						$html .= '<i class="margin-r-s '.$item['icon'].'"></i>';
 					}
