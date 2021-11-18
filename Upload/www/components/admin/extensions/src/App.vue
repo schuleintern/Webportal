@@ -37,15 +37,15 @@
             <button
                 v-if="item.active == 1"
                 v-on:click="handlerToggleActive(item, $event)"
-                class="btn text-green"><i class="fas fa-toggle-on"></i></button>
+                class="si-btn si-btn-light text-green"><i class="fas fa-toggle-on"></i></button>
             <button
                 v-if="item.active == 0"
                 v-on:click="handlerToggleActive(item, $event)"
-                class="btn"><i class="fas fa-toggle-off"></i></button>
+                class="si-btn si-btn-light"><i class="fas fa-toggle-off"></i></button>
           </td>
           <td><span class="text-small">{{item.folder}}</span></td>
           <td><span class="text-small">{{item.json.dependencies}}</span></td>
-          <td><button v-show="item.update" class="btn btn-blau" v-on:click="handlerUpdate(item, $event)">Update</button></td>
+          <td><button v-show="item.update" class="si-btn" v-on:click="handlerUpdate(item, $event)">Update</button></td>
           <td><button class="si-btn" v-on:click="handlerRemove(item, $event)">Entfernen</button></td>
 
         </tr>
