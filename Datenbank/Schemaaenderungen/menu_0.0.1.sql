@@ -9,7 +9,7 @@ CREATE TABLE `menu` (
 
 
 INSERT INTO `menu` (`id`, `alias`, `title`)
-VALUES (1,'main','Main');
+VALUES (1,'main','Hauptmenü');
 
 
 
