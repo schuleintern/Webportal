@@ -95,6 +95,7 @@
     border-radius: 3rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     text-align: left;
+    color: #000;
 }
 .si-form ul {
     list-style: none;
@@ -239,11 +240,11 @@
 }
 .si-table thead,
 .si-table .thead{
-    rgba(0, 0, 0, 0.25) 0px 10px 70px 0px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 70px 0px;
 
 }
 .si-table thead td,
-.si-table .thead .td{
+.si-table .thead .td {
     text-align: center;
     padding-top: 1.5rem;
     padding-bottom: 2.5rem;
@@ -285,9 +286,19 @@
 }
 
 .si-table.si-table-style-firstLeft tbody td:first-child,
-.si-table.si-table-style-firstLeft .tbody .td:first-child{
+.si-table.si-table-style-firstLeft .tbody .td:first-child,
+.si-table.si-table-style-firstLeft thead td:first-child,
+.si-table.si-table-style-firstLeft .thead .td:first-child{
     text-align: left;
 }
+
+.si-table.si-table-style-allLeft tbody td,
+.si-table.si-table-style-allLeft .tbody .td,
+.si-table.si-table-style-allLeft thead td,
+.si-table.si-table-style-allLeft .thead .td{
+    text-align: left;
+}
+
 
 
 
@@ -477,4 +488,44 @@
 }
 .si-user--infoBox .toolbar {
     padding-top: 4rem;
+}
+
+/**
+    USER SELECT
+ */
+.si-userselect {
+
+}
+.si-userselect .si-userselect-modal {
+    position: fixed;
+    z-index: 99999999999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.85);
+    color: #fff;
+}
+
+.si-userselect .si-userselect-modal .si-userselect-modal-box {
+    /*
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    background-color: #fff;
+    */
+    width: 50vw;
+    min-height: 20vh;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 25vw;
+    border-radius: 3rem;
+}
+.si-userselect .si-userselect-modal .si-userselect-modal-box .si-userselect-modal-content {
+    padding: 3rem;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.si-userselect   li:nth-child(even) {
+    background-color: rgba(0,0,0,0.15) !important;
 }

@@ -456,7 +456,12 @@ button.btn-blau {
   background-color: rgba(0,0,0,0);
 }
 
-.page-submenue a {
+.page-submenue {
+  padding: 0;
+  margin: 0;
+}
+.page-submenue a,
+.page-submenue .item{
   padding-top: 0.6rem;
   padding-left: 1.3rem;
   padding-right: 1.3rem;
@@ -467,24 +472,27 @@ button.btn-blau {
   border-top-left-radius: 4px;
   color: #666;
   background-color: #f1f1f1;
+  cursor: pointer;
 }
-.page-submenue a:hover {
+.page-submenue a:hover,
+.page-submenue .item:hover{
   background-color: #dfe2e7;
+  color: #000;
 } 
 
-.page-submenue a.active {
+.page-submenue a.active,
+.page-submenue .item.active {
   border-top-right-radius: 4px;
   color: #666;
   background-color: #d2d6de;
 
 }
-.page-submenue a:hover {
-  color: #000;
-}
-.page-submenue a.admin  {
+.page-submenue a.admin,
+.page-submenue .item.admin  {
   opacity: 0.3;
   float: right;
 }
-.page-submenue a.admin:hover  {
+.page-submenue a.admin:hover,
+.page-submenue .item.admin:hover  {
   opacity: 1;
 }
