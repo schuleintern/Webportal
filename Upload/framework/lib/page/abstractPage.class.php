@@ -393,7 +393,7 @@ abstract class AbstractPage {
 
 	/**
 	 * get Extension JSON
-	 * 
+	 *
 	 */
 	public static function getExtensionJSON($path = false) {
 
@@ -913,7 +913,10 @@ abstract class AbstractPage {
 		$html .= '<div class="flex-3 page-submenue" style="height: 3.2rem;">';
 		if (is_array($submenu) && count($submenu) >= 1) {
 			foreach($submenu as $item) {
-				$item = (array)$item;
+                $item = (array)$item;
+                if ($item['hidden']) {
+                    continue;
+                }
 				$class = '';
 				if ( $item['admin'] == 'true' && $this->isAnyAdmin == false ) {
 					continue;
