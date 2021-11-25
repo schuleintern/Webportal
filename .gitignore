@@ -11,3 +11,5 @@ yarn-error.log*
 */.idea/tasks.xml.idea
 extensions/
 extensions/*
+www/tmp/*
+www/tmp/
