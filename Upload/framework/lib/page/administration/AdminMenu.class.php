@@ -69,7 +69,10 @@ class AdminMenu extends AbstractPage {
          */
         if ($_REQUEST['task'] == 'api-items') {
 
-            $menu =  Menue::getFromAlias('main');
+            if (!$_REQUEST['id']) {
+                return false;
+            }
+            $menu =  Menue::getFromAlias($_REQUEST['id']);
             $menuAll =  $menu->getItemsDeep(false);
 
             /*echo '<pre>';
@@ -100,7 +103,8 @@ class AdminMenu extends AbstractPage {
                 "icon" => $_POST['icon'],
                 "params" => $_POST['params'],
                 "page" => $_POST['pageurl'],
-                "parent_id" => $_POST['parent_id']
+                "parent_id" => $_POST['parent_id'],
+                "access" => $_POST['access']
             ]) ) {
                 echo json_encode(['error' => false]); exit;
             }

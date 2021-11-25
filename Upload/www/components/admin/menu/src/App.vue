@@ -122,6 +122,7 @@ export default {
       formData.append("params", data.item.params || '' );
       formData.append("pageurl", data.item.page || '' );
       formData.append("parent_id", data.item.parent_id || 0 );
+      formData.append("access", JSON.stringify(data.item.access) || '' );
       axios.post(this.selfURL+'&task=item-submit&id='+data.item.id, formData)
       .then(function (response) {
         //console.log(response);

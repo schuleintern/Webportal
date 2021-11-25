@@ -440,7 +440,8 @@ class AdminExtensions extends AbstractPage {
                     "parent_id" => $modulJSON->menu->categorie || 0,
                     "icon" => $modulJSON->menu->icon | '',
                     "params" => $modulJSON->menu->params || '',
-                    "active" => 0
+                    "active" => 0,
+                    "access" => '{"admin":1,"adminGroup":0,"teacher":1,"pupil":1,"parents":1,"other":1}'
                 ]);
 
                 return ['error' => false];
