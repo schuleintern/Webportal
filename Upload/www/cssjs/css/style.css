@@ -144,6 +144,10 @@
   margin-right: 0rem;
 }
 
+a {
+  cursor: pointer;
+}
+
 .clickable {
   cursor: pointer;
 }

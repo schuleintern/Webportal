@@ -4,9 +4,7 @@ class AdminExtensions extends AbstractPage {
 
 	private $info;
 	
-	private $adminGroup = 'Webportal_Administrator';
-	
-	
+
 	public function __construct() {
 		die();	
 	}
@@ -31,6 +29,9 @@ class AdminExtensions extends AbstractPage {
 		return 'Erweiterungen';
 	}
 
+    public static function getAdminGroup() {
+        return 'Webportal_Extensions_Admin';
+    }
 
 
 	public static function displayAdministration($selfURL) {

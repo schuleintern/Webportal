@@ -124,6 +124,8 @@ class menu {
 
     if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationmodule&module=AdminExtensions', 'Erweiterungen', 'fa fas fa-plug');
 
+    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationmodule&module=AdminWidgets', 'Widgets', 'fa fas fa-chart-pie');
+
 
     $displayActions = [];
 
