@@ -44,7 +44,7 @@ class mysql {
 		return $this->errno;
 	}
 
-	public function query($query_string, $silent = 0) {
+	public function query($query_string, $silent = 0, $clean = false) {
 
 		$debug = array();
 		$debug['query'] = $query_string;
@@ -99,13 +99,13 @@ class mysql {
 		return @mysqli_free_result($this->query_id);
 	}
 
-	public function query_first($query_string) {
+	public function query_first($query_string,  $clean = false) {
 
 		$debug = array();
 		$debug['query'] = $query_string;
 
 		$this->query($query_string);
-		$returnarray = $this->fetch_array($this->query_id);
+        $returnarray = $this->fetch_array($this->query_id, $clean);
 		$this->free_result($this->query_id);
 
 		// Debugger::debugQuery($debug);

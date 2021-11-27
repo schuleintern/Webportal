@@ -27,7 +27,8 @@ class resthandler {
         'GetKalenderEintrag',
         'SetKalenderEintrag',
         'DeleteKalenderEintrag',
-        'GetKalenderIcsFeed'
+        'GetKalenderIcsFeed',
+        'GetUser'
     ];
   
   

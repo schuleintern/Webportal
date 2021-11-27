@@ -304,7 +304,8 @@ class user {
           if($image['uploadID'] > 0) {
               //$this->avatar = "index.php?page=userprofileuserimage&getImage=profile";
               $upload = new UploadImage($image['uploadID']);
-              $this->avatar = 'data:image/jpeg;base64,'.$upload->getBase64();
+              $this->avatar = $upload->getThumb();
+              //$this->avatar = 'data:image/jpeg;base64,'.$upload->getBase64();
           } else {
               $this->avatar = "cssjs/images/userimages/default.png";
           }

@@ -95,6 +95,7 @@
     border-radius: 3rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     text-align: left;
+    color: #000;
 }
 .si-form ul {
     list-style: none;
@@ -237,11 +238,13 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
-.si-table thead {
-    rgba(0, 0, 0, 0.25) 0px 10px 70px 0px;
+.si-table thead,
+.si-table .thead{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 70px 0px;
 
 }
-.si-table thead td {
+.si-table thead td,
+.si-table .thead .td {
     text-align: center;
     padding-top: 1.5rem;
     padding-bottom: 2.5rem;
@@ -252,22 +255,28 @@
     letter-spacing: 0.75pt;
     color: #018d4e;
 }
-.si-table .si-table thead td {
+.si-table .si-table thead td,
+.si-table .si-table .thead .td{
     color: #367fa9;
 }
-.si-table .si-table .si-table thead td {
+.si-table .si-table .si-table thead td,
+.si-table .si-table .si-table .thead .td{
     color: #f39c12;
 }
-.si-table tbody {
+.si-table tbody,
+.si-table .tbody{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
-.si-table tbody tr {
+.si-table tbody tr,
+.si-table .tbody .tr{
 
 }
-.si-table tbody tr:nth-child(odd) {
+.si-table tbody tr:nth-child(odd),
+.si-table .tbody .tr:nth-child(odd){
     background-color: #f9f9f9;
 }
-.si-table tbody tr td {
+.si-table tbody td,
+.si-table .tbody .td{
     align-content: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -275,6 +284,21 @@
     padding-bottom: 0.5rem;
     text-align: center;
 }
+
+.si-table.si-table-style-firstLeft tbody td:first-child,
+.si-table.si-table-style-firstLeft .tbody .td:first-child,
+.si-table.si-table-style-firstLeft thead td:first-child,
+.si-table.si-table-style-firstLeft .thead .td:first-child{
+    text-align: left;
+}
+
+.si-table.si-table-style-allLeft tbody td,
+.si-table.si-table-style-allLeft .tbody .td,
+.si-table.si-table-style-allLeft thead td,
+.si-table.si-table-style-allLeft .thead .td{
+    text-align: left;
+}
+
 
 
 
@@ -324,6 +348,10 @@
 .si-btn i {
     margin-right: 0.6rem;
 }
+.si-btn-small {
+    padding: 0.5rem 1.5rem;
+    font-size: 10pt;
+}
 
 .si-btn-green {
     background-color: #00a65a;
@@ -333,6 +361,14 @@
     background-color: #018d4e;
 }
 
+.si-btn-red {
+    background-color: #dd4b39;
+    border-color: #dd4b39;
+}
+.si-btn-red:hover {
+    background-color: #c63e2d;
+}
+
 .si-btn-light {
     background-color: #b7c7ce;
     border-color: #b7c7ce;
@@ -340,6 +376,17 @@
 .si-btn-light:hover {
     background-color: #8aa4af;
 }
+
+.si-btn-active {
+    background-color: #f39c12;
+    border-color: #f39c12;
+}
+.si-btn-active:hover {
+    background-color: #f39c12;
+}
+
+
+
 
 
 /**
@@ -445,4 +492,44 @@
 }
 .si-user--infoBox .toolbar {
     padding-top: 4rem;
+}
+
+/**
+    USER SELECT
+ */
+.si-userselect {
+
+}
+.si-userselect .si-userselect-modal {
+    position: fixed;
+    z-index: 99999999999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.85);
+    color: #fff;
+}
+
+.si-userselect .si-userselect-modal .si-userselect-modal-box {
+    /*
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    background-color: #fff;
+    */
+    width: 50vw;
+    min-height: 20vh;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 25vw;
+    border-radius: 3rem;
+}
+.si-userselect .si-userselect-modal .si-userselect-modal-box .si-userselect-modal-content {
+    padding: 3rem;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.si-userselect   li:nth-child(even) {
+    background-color: rgba(0,0,0,0.15) !important;
 }

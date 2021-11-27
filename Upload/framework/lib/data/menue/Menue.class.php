@@ -77,7 +77,7 @@ class Menue {
     public static function getAll() {
         if(sizeof(self::$all) == 0) {
             $dataSQL = DB::getDB()->query("SELECT id, title, alias FROM menu");
-            while($data = DB::getDB()->fetch_array($dataSQL)) {
+            while($data = DB::getDB()->fetch_array($dataSQL, true)) {
                 self::$all[] = [
                     "id" => $data['id'],
                     "title" => $data['title'],

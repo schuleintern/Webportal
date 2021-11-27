@@ -249,7 +249,7 @@ class Update extends AbstractPage
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
         DB::getDB()->query("INSERT INTO `menu` (`id`, `alias`, `title`)
-            VALUES (1,'main','Main');  ");
+            VALUES (1,'main','Hauptmenü');  ");
 
         DB::getDB()->query("CREATE TABLE `menu_item` (
              `id` int(11) unsigned NOT NULL AUTO_INCREMENT,

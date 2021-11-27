@@ -9,6 +9,32 @@
 class FILE {
 
 
+
+    /**
+     * @author: Christian Marienfeld
+     *
+     * get Extension JSON
+     *
+     */
+    public static function getExtensionJSON($path = false) {
+
+        if (!$path) {
+            if (!PATH_EXTENSION || PATH_EXTENSION == 'PATH_EXTENSION') {
+                return false;
+            }
+            $path = PATH_EXTENSION.DS.'extension.json';
+        }
+        if ( file_exists($path) ) {
+            $file = file_get_contents($path);
+            $json = (array)json_decode($file);
+            if ($json) {
+                return $json;
+            }
+        }
+        return false;
+    }
+
+
   /**
    * 
    * 

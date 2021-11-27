@@ -65,6 +65,11 @@ class session {
 	public function isTeacher() {
 		return $this->userObject->isTeacher();
 	}
+
+    public function isNone() {
+        return $this->userObject->isNone();
+    }
+
 	
 	public function isAdmin() {
 	    

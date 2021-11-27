@@ -61,7 +61,7 @@ abstract class AbstractPage {
 			// TODO: Sinnvolle Fehlermeldung
 			die ( "Die angegebene Seite ist leider nicht aktiviert" );
 		}
-		
+
 		// Load Extension JSON and set Defaults
 		if ($this->extension) {
             $path = str_replace(DS.'admin','',PATH_EXTENSION);
@@ -110,8 +110,8 @@ abstract class AbstractPage {
 			if( DB::isLoggedIn()
 				&& TwoFactor::is2FAActive()
 				&& TwoFactor::enforcedForUser(DB::getSession()->getUser()) ) {
-        $needTwoFactor = true;
-      }
+                $needTwoFactor = true;
+              }
 			if($needTwoFactor || ($this->need2Factor() && TwoFactor::is2FAActive())) {
 				$pagesWithoutTwoFactor = [
 					'login',
@@ -282,7 +282,6 @@ abstract class AbstractPage {
 			
 
 			// Is Admin ?
-			
 			if( DB::isLoggedIn()
 				&& $this->hasAdmin()
 				&& ( DB::getSession()->isAdmin() || DB::getSession()->isMember($this->getAdminGroup())) ) {
@@ -291,8 +290,86 @@ abstract class AbstractPage {
 				$isAdmin = false;
 			}
 
-			// Render Header
 
+            // Widgets
+            $HTML_widgets = [];
+            if( DB::isLoggedIn() ) {
+                $result = DB::getDB()->query('SELECT * FROM `widgets` WHERE position = "header" ');
+                while($row = DB::getDB()->fetch_array($result, true)) {
+
+
+                    $access = false;
+                    $do = true;
+
+
+                    $ext = explode('.', (string)$row['uniqid']);
+                    if ($ext[0] && $ext[1] && is_dir(PATH_EXTENSIONS.$ext[0])) {
+                        $json = FILE::getExtensionJSON(PATH_EXTENSIONS.$ext[0].DS.'extension.json');
+
+                        // Check Access
+                        if ($row['access']) {
+                            $do = false;
+                            $access = json_decode($row['access']);
+
+                            if ($access) {
+                                $do = false;
+                                if ($access->other) {
+                                    if (DB::getSession()->isNone()) {
+                                        $do = true;
+                                    }
+                                }
+                                if ($access->parents) {
+                                    if (DB::getSession()->isEltern()) {
+                                        $do = true;
+                                    }
+                                }
+                                if ($access->pupil) {
+                                    if (DB::getSession()->isPupil()) {
+                                        $do = true;
+                                    }
+                                }
+                                if ($access->teacher) {
+                                    if (DB::getSession()->isTeacher()) {
+                                        $do = true;
+                                    }
+                                }
+                                if ($access->adminGroup) {
+                                    if ($json && $json['adminGroupName']) {
+                                        if ( in_array($json['adminGroupName'], DB::getSession()->getGroupNames()) ) {
+                                            $do = true;
+                                        }
+                                    }
+                                }
+                                if ($access->admin) {
+                                    if (DB::getSession()->isAdmin()) {
+                                        $do = true;
+                                    }
+                                }
+                            }
+
+                        }
+
+                        if ($do == true && $json['widgets']) {
+                            foreach($json['widgets'] as $widget) {
+                                if ($widget->class) {
+                                    $widgetPath = PATH_EXTENSIONS.$ext[0].DS.'widgets'.DS.$ext[1].DS.'widget.php';
+                                    if (file_exists($widgetPath)) {
+                                        include_once ($widgetPath);
+                                    }
+                                    $widgetClass = new $widget->class([
+                                        "path" => PATH_EXTENSIONS.$ext[0]
+                                    ]);
+                                    $HTML_widgets[] = '<li class="dropdown messages-menu">'.$widgetClass->render().'</li>';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            $HTML_widgets = implode('', $HTML_widgets);
+
+
+			// Render Header
 			eval ( "\$this->header =  \"" . DB::getTPL ()->get ( 'header/header' ) . "\";" );
 
 		}
@@ -393,7 +470,7 @@ abstract class AbstractPage {
 
 	/**
 	 * get Extension JSON
-	 * 
+	 *
 	 */
 	public static function getExtensionJSON($path = false) {
 
@@ -913,8 +990,11 @@ abstract class AbstractPage {
 		$html .= '<div class="flex-3 page-submenue" style="height: 3.2rem;">';
 		if (is_array($submenu) && count($submenu) >= 1) {
 			foreach($submenu as $item) {
-				$item = (array)$item;
-				$active = '';
+                $item = (array)$item;
+                if ($item['hidden']) {
+                    continue;
+                }
+				$class = '';
 				if ( $item['admin'] == 'true' && $this->isAnyAdmin == false ) {
 					continue;
 				}
@@ -929,9 +1009,12 @@ abstract class AbstractPage {
                         $link .= '&'.$params_str;
                     }
 					if (DS.$link == URL_FILE) {
-						$active = 'active';
+                        $class = 'active';
 					}
-					$html .= '<a href="'.$link.'"  class="margin-r-xs '.$active.'">';
+                    if ($item['admin']) {
+                        $class = ' admin';
+                    }
+					$html .= '<a href="'.$link.'"  class="margin-r-xs '.$class.'">';
 					if ($item['icon']) {
 						$html .= '<i class="margin-r-s '.$item['icon'].'"></i>';
 					}

@@ -144,6 +144,10 @@
   margin-right: 0rem;
 }
 
+a {
+  cursor: pointer;
+}
+
 .clickable {
   cursor: pointer;
 }
@@ -416,9 +420,6 @@ button.btn-blau {
   width: 25rem;
 }
 
-.page-dropdownMenue .dropbtn {
-  width: 5rem;
-}
 
 
 
@@ -437,7 +438,7 @@ button.btn-blau {
 .page-dropdownMenue:hover .page-dropdownMenue-content {display: block;}
 
 .page-dropdownMenue .dropbtn {
-
+  width: 5rem;
   -webkit-box-shadow: none;
   box-shadow: none;
   border: 1px solid transparent;
@@ -456,29 +457,46 @@ button.btn-blau {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  background-color: rgba(0,0,0,0);
 }
 
-.page-submenue a {
+.page-submenue {
+  padding: 0;
+  margin: 0;
+}
+.page-submenue a,
+.page-submenue .item{
   padding-top: 0.6rem;
   padding-left: 1.3rem;
   padding-right: 1.3rem;
+  padding-bottom: 0.3rem;
   height: 100%;
   display: inline-block;
 
   border-top-left-radius: 4px;
   color: #666;
   background-color: #f1f1f1;
+  cursor: pointer;
 }
-.page-submenue a:hover {
+.page-submenue a:hover,
+.page-submenue .item:hover{
   background-color: #dfe2e7;
+  color: #000;
 } 
 
-.page-submenue a.active {
+.page-submenue a.active,
+.page-submenue .item.active {
   border-top-right-radius: 4px;
   color: #666;
   background-color: #d2d6de;
 
 }
-.page-submenue a:hover {
-  color: #000;
+.page-submenue a.admin,
+.page-submenue .item.admin  {
+  opacity: 0.3;
+  float: right;
+}
+.page-submenue a.admin:hover,
+.page-submenue .item.admin:hover  {
+  opacity: 1;
 }

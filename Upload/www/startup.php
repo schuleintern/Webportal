@@ -11,6 +11,7 @@ define("URL_FILE", $_SERVER[REQUEST_URI]);
 
 
 define("PATH_WWW", '.'.DS);
+define("PATH_WWW_TMP", PATH_WWW.'tmp'.DS);
 define("PATH_ROOT", PATH_WWW.'..'.DS);
 define("PATH_EXTENSIONS", PATH_ROOT.'extensions'.DS);
 define("PATH_TMP", PATH_ROOT.'tmp'.DS);

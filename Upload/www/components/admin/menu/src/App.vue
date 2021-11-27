@@ -1,10 +1,7 @@
 <template>
   <div class="component-menu">
 
-    <div v-show="error" class="form-modal-error">
-      <b>Folgende Fehler sind aufgetreten:</b>
-      <div>{{error}}</div>
-    </div>
+    <Error v-bind:error="error"></Error>
 
     <div v-if="loading == true" class="overlay">
       <i class="fa fas fa-sync-alt fa-spin"></i>
@@ -20,6 +17,7 @@
 </template>
 
 <script>
+import Error from './mixins/Error.vue';
 
 import Menu from './components/Menu.vue';
 import ItemsCats from './components/ItemsCats.vue';
@@ -29,6 +27,7 @@ const axios = require('axios').default;
 
 export default {
   components: {
+    Error,
     Menu,
     ItemsCats,
     ItemForm
@@ -123,6 +122,7 @@ export default {
       formData.append("params", data.item.params || '' );
       formData.append("pageurl", data.item.page || '' );
       formData.append("parent_id", data.item.parent_id || 0 );
+      formData.append("access", JSON.stringify(data.item.access) || '' );
       axios.post(this.selfURL+'&task=item-submit&id='+data.item.id, formData)
       .then(function (response) {
         //console.log(response);

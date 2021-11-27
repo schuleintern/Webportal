@@ -1,18 +1,22 @@
 <template>
   <div>
 
-    <div v-show="error" class="form-modal-error">
-      <b>Folgende Fehler sind aufgetreten:</b>
-      <div>{{error}}</div>
-    </div>
+    <Error v-bind:error="error"></Error>
 
     <div v-if="loading == true" class="overlay">
       <i class="fa fas fa-sync-alt fa-spin"></i>
     </div>
 
-    <h2>Installierte Erweiterungen</h2>
-    <table class="table_1">
-      <thead>
+    <div class="">
+      <button v-on:click="handlerTab('list')" class="si-btn si-btn-light"><i class="fa fas fa-plug"></i> Installierte Erweiterungen</button>
+      <button v-on:click="handlerTab('install')" class="si-btn si-btn-light"><i class="fas fa-shopping-cart"></i> Hinzufügen</button>
+    </div>
+
+
+    <div v-if="tab == 'list'" class="padding-t-m">
+      <h3><i class="fa fas fa-plug"></i> Installierte Erweiterungen</h3>
+      <table class="si-table">
+        <thead>
         <tr>
           <td>Name</td>
           <td>Version</td>
@@ -22,50 +26,49 @@
           <td></td>
           <td></td>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         <tr v-bind:key="index" v-for="(item, index) in  extInstalled"
-          class="line-oddEven"
-          :class="{ 'text-grey' : item.active == 0}">
+            class="line-oddEven"
+            :class="{ 'text-grey' : item.active == 0}">
           <td>{{item.name}} <div class="text-small text-grey">{{item.uniqid}}</div></td>
           <td>{{item.version}}</td>
           <td>
             <button
-              v-if="item.active == 1"
-              v-on:click="handlerToggleActive(item, $event)"
-              class="btn text-green"><i class="fas fa-toggle-on"></i></button>
+                v-if="item.active == 1"
+                v-on:click="handlerToggleActive(item, $event)"
+                class="si-btn si-btn-light text-green"><i class="fas fa-toggle-on"></i></button>
             <button
-              v-if="item.active == 0"
-              v-on:click="handlerToggleActive(item, $event)"
-              class="btn"><i class="fas fa-toggle-off"></i></button>
+                v-if="item.active == 0"
+                v-on:click="handlerToggleActive(item, $event)"
+                class="si-btn si-btn-light"><i class="fas fa-toggle-off"></i></button>
           </td>
           <td><span class="text-small">{{item.folder}}</span></td>
           <td><span class="text-small">{{item.json.dependencies}}</span></td>
-          <td><button v-show="item.update" class="btn btn-blau" v-on:click="handlerUpdate(item, $event)">Update</button></td>
-          <td><button class="btn btn-blau" v-on:click="handlerRemove(item, $event)">Entfernen</button></td>
+          <td><button v-show="item.update" class="si-btn" v-on:click="handlerUpdate(item, $event)">Update</button></td>
+          <td><button class="si-btn" v-on:click="handlerRemove(item, $event)">Entfernen</button></td>
 
         </tr>
-      </tbody>
-    </table>
-
-    <br/><br/><hr /><br/>
-
-    <h2>Erweiterungen Hinzufügen</h2>
-
-    <h3>Upload Extension</h3>
-    <p class="text-small">(Zip-Archive)</p>
-    <p v-show="uploadError" class="text-red padding-t-m padding-b-m">{{uploadError}}</p>
-    <div class="flex-row form-style-2">
-        <input type="file" accept=".zip" multiple="false" v-on:change="handlerChangeUploadFile" class="flex-1" />
-        <button class="btn btn-blau" v-on:click="handlerUploadInstall">Hochladen & Installieren</button>
+        </tbody>
+      </table>
     </div>
 
-    <br/>
+    <div v-if="tab == 'install'" class="padding-t-l">
 
-    <h3>Vom Server</h3>
-    <p class="text-small">(URL: {{extensionsServer}})</p>
-    <table class="table_1">
-      <thead>
+      <h4><i class="fas fa-file-upload"></i> Erweiterung hochladen</h4>
+      <p class="text-small padding-l-l">(Zip-Archive)</p>
+      <p v-show="uploadError" class="text-red padding-t-m padding-b-m">{{uploadError}}</p>
+      <div class="flex-row form-style-2 width-40vw padding-l-l">
+        <input type="file" accept=".zip" multiple="false" v-on:change="handlerChangeUploadFile" class="flex-1 " />
+        <button class="si-btn margin-l-m" v-on:click="handlerUploadInstall">Hochladen & Installieren</button>
+      </div>
+
+      <br/>
+
+      <h4><i class="fas fa-shopping-cart"></i> Aus dem Store</h4>
+      <p class="text-small padding-l-l">(URL: {{extensionsServer}})</p>
+      <table class="si-table">
+        <thead>
         <tr>
           <td>Name</td>
           <td>Beschreibung</td>
@@ -73,18 +76,20 @@
           <td>Version</td>
           <td></td>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         <tr v-bind:key="index" v-for="(item, index) in extStore"
-          class="line-oddEven">
+            class="line-oddEven">
           <td>{{item.title}} <div class="text-small text-grey">( {{item.uniqid}} )</div></td>
           <td>{{item.desc}}</td>
           <td>{{item.lastRelease}}</td>
           <td>{{item.version}}</td>
-          <td><button class="btn btn-blau" v-on:click="handlerInstall(item, $event)">Installieren</button></td>
+          <td><button class="si-btn" v-on:click="handlerInstall(item, $event)">Installieren</button></td>
         </tr>
         </tbody>
       </table>
+    </div>
+
 
   </div>
 </template>
@@ -93,7 +98,12 @@
 
 const axios = require('axios').default;
 
+import Error from './mixins/Error.vue'
+
 export default {
+  components: {
+    Error
+  },
   data() {
     return {
       selfURL: globals.selfURL,
@@ -105,7 +115,9 @@ export default {
 
       extInstalled: [],
       extStore: globals.extStore,
-      extensionsServer: globals.extensionsServer
+      extensionsServer: globals.extensionsServer,
+
+      tab: 'list'
     };
   },
   created: function () {
@@ -113,6 +125,9 @@ export default {
   },
   methods: {
 
+    handlerTab: function (tab) {
+      this.tab = tab;
+    },
     loadExtensions: function () {
 
       this.loading = true;

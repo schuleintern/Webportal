@@ -28,6 +28,58 @@ class UploadImage {
 		
 	}
 
+    public function getThumb() {
+
+        $folder = PATH_WWW_TMP.'avatar';
+        if ( !is_dir($folder) ) {
+            mkdir($folder);
+        }
+
+        $filename = "../data/imageUploads/" . $this->uploadID . ".jpg";
+        $new = $folder.DS.$this->uploadID.'.jpg';
+
+        if ( !$this->copyAndResize($filename, $new) ) {
+            copy($filename, $new);
+        }
+        if (file_exists($new)) {
+            return $new;
+        }
+        return false;
+    }
+
+    private function copyAndResize($filename,$output, $size= [200,200]) {
+
+        // Set a maximum height and width
+        $width = $size[0];
+        $height = $size[1];
+
+        // Content type
+        header('Content-Type: image/jpeg');
+
+        // Get new dimensions
+        list($width_orig, $height_orig) = getimagesize($filename);
+
+        $ratio_orig = $width_orig/$height_orig;
+
+        if ($width/$height > $ratio_orig) {
+            $width = $height*$ratio_orig;
+        } else {
+            $height = $width/$ratio_orig;
+        }
+
+        // Resample
+        $image_p = imagecreatetruecolor($width, $height);
+        $image = imagecreatefromjpeg($filename);
+        imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
+
+        // Output
+        if ( imagejpeg($image_p, $output, 100) ) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function getBase64() {
 
         $path = "../data/imageUploads/" . $this->uploadID . ".jpg";

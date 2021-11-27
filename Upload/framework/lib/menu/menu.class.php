@@ -124,6 +124,8 @@ class menu {
 
     if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationmodule&module=AdminExtensions', 'Erweiterungen', 'fa fas fa-plug');
 
+    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationmodule&module=AdminWidgets', 'Widgets', 'fa fas fa-chart-pie');
+
 
     $displayActions = [];
 
@@ -274,16 +276,88 @@ class menu {
       if ($item_id) {
           $menu_items = $this->menu->getCatsDeep($item_id)[0]['items'];
           foreach($menu_items as $item) {
-              $icon = $item['icon'];
-              if (!$icon) {
-                  $icon = 'fa fa-file';
+
+/*
+              echo '<pre>';
+              print_r($item);
+              echo '</pre>';
+              */
+
+              if ($item['items']) {
+                  $arr = [$item['page']];
+                  $sub = '';
+                  foreach($item['items'] as $child) {
+                      $arr[] = $child['page'];
+                      $sub .= $this->getDBMenuItem($child);
+                  }
+                  $html .= $this->startDropDown($arr, $item['title'], $item['icon']);
+                  $html .= $this->getDBMenuItem($item);
+                  $html .= $sub;
+                  $html .= $this->endDropDown();
+              } else {
+                  $html .= $this->getDBMenuItem($item);
               }
-              $html .= $this->getMenuItem($item['page'], $item['title'], $icon, (array)json_decode($item['params']), false);
+
           }
       }
       return $html;
 
   }
+
+    private function getDBMenuItem($item) {
+        $html = '';
+        $icon = $item['icon'];
+        if (!$icon) {
+            $icon = 'fa fa-file';
+        }
+        if ($item['access']) {
+
+            $do = false;
+
+            if ($item['access']->other) {
+                if (DB::isLoggedIn() && DB::getSession()->isNone()) {
+                    $do = true;
+                }
+            }
+            if ($item['access']->parents) {
+                if (DB::isLoggedIn() && DB::getSession()->isEltern()) {
+                    $do = true;
+                }
+            }
+            if ($item['access']->pupil) {
+                if (DB::isLoggedIn() && DB::getSession()->isPupil()) {
+                    $do = true;
+                }
+            }
+            if ($item['access']->teacher) {
+                if (DB::isLoggedIn() && DB::getSession()->isTeacher()) {
+                    $do = true;
+                }
+            }
+            if ($item['access']->adminGroup && $item['page']) {
+                $path = str_replace('ext_','',PATH_EXTENSIONS.$item['page'].DS);
+                $json = FILE::getExtensionJSON($path.'extension.json');
+                if ($json && $json['adminGroupName']) {
+                    if ( in_array($json['adminGroupName'], DB::getSession()->getGroupNames()) ) {
+                        $do = true;
+                    }
+                }
+            }
+            if ($item['access']->admin) {
+                if (DB::isLoggedIn() && DB::getSession()->isAdmin()) {
+                    $do = true;
+                }
+            }
+
+            if ($do) {
+                $html .= $this->getMenuItem($item['page'], $item['title'], $icon, (array)json_decode($item['params']), false);
+            }
+
+        } else {
+            $html .= $this->getMenuItem($item['page'], $item['title'], $icon, (array)json_decode($item['params']), false);
+        }
+        return $html;
+    }
 
 
 

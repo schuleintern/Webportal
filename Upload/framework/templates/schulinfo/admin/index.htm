@@ -45,6 +45,9 @@
 						<option value="rs"
 							<if(DB::getSettings()->getValue('schulinfo-schultyp') == 'rs')><then>selected="selected"</then></if>
 						>Realschule</option>
+						<option value="rs"
+						<if(DB::getSettings()->getValue('schulinfo-schultyp') == 'ms')><then>selected="selected"</then></if>
+						>Mittelschule</option>
 						<option value="fos"
 							<if(DB::getSettings()->getValue('schulinfo-schultyp') == 'fos')><then>selected="selected"</then></if>
 						>Fachoberschule</option>

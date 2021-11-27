@@ -71,7 +71,8 @@ class MenueItems {
 							`parent_id`,
 							`params`,
 							`page`,
-                            `active`
+                            `active`,
+                             `access`
 							) VALUES (
 								'".DB::getDB()->escapeString((string)$data['title'])."',
 								'".DB::getDB()->escapeString((string)$data['icon'])."',
@@ -79,7 +80,8 @@ class MenueItems {
 								".DB::getDB()->escapeString((int)$data['parent_id']).",
 								'".DB::getDB()->escapeString((string)$data['params'])."',
 								'".DB::getDB()->escapeString((string)$data['page'])."',
-								".$active."
+								".$active.",
+								'".DB::getDB()->escapeString((string)$data['access'])."'
 						);") ) {
                 return true;
             }
@@ -89,7 +91,8 @@ class MenueItems {
                          icon='" . DB::getDB()->escapeString($data['icon']) . "',
                          params='" . DB::getDB()->escapeString($data['params']) . "',
                          parent_id='" . DB::getDB()->escapeString($data['parent_id']) . "',
-                         page='" . DB::getDB()->escapeString($data['page']) . "'
+                         page='" . DB::getDB()->escapeString($data['page']) . "',
+                         access='" . DB::getDB()->escapeString($data['access']) . "'
                          WHERE id='" . (int)$data['id'] . "'") ) {
                return true;
            }
@@ -135,8 +138,9 @@ class MenueItems {
         $ret = [];
 
         $dataSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE menu_id = ".(int)$menu_id." ".$where." ORDER BY sort");
-        while($data = DB::getDB()->fetch_array($dataSQL)) {
+        while($data = DB::getDB()->fetch_array($dataSQL, true)) {
             $data['items'] = self::getNestedItems($data['id'], $active);
+            $data['access'] = self::getAccess($data['access']);
             $ret[] = $data;
         }
         return $ret;
@@ -153,13 +157,30 @@ class MenueItems {
         }
         $ret = [];
         $dataChildSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE parent_id = ".$parent_id." ".$where." ORDER BY sort");
-        while($dataChild = DB::getDB()->fetch_array($dataChildSQL)) {
+        while($dataChild = DB::getDB()->fetch_array($dataChildSQL, true)) {
 
             $dataChild['items'] = self::getNestedItems($dataChild['id'], $active );
+            $dataChild['access'] = self::getAccess($dataChild['access']);
             $ret[] = $dataChild;
         }
         return $ret;
 
+    }
+
+    private function getAccess($access) {
+        if ($access) {
+            $access = json_decode($access);
+        } else {
+            $access = [
+                'admin' => 0,
+                'adminGroup' => 0,
+                'teacher' => 0,
+                'pupil' => 0,
+                'parents' => 0,
+                'other' => 0
+            ];
+        }
+        return $access;
     }
 
 
