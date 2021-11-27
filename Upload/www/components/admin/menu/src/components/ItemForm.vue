@@ -52,7 +52,11 @@
             <h4>{{sub.name}}</h4>
             <div class="flex-row">
               <span v-if="sub.submenu" v-bind:key="index" v-for="(page, i) in sub.submenu" class="margin-b-s" >
-                <button v-if="page.menu != false" class="si-btn margin-r-m" :class="{'si-btn-red': page.admin == true, 'si-btn-active': page.url.page == item.page && JSON.stringify(page.url.params) == item.params}" v-on:click="handlerPagesSelect(page)"><i :class="page.icon"></i>{{page.title}}</button>
+                <button
+                    v-if="page.menu != false"
+                    class="si-btn margin-r-m"
+                    :class="{'si-btn-red': page.admin == true, 'si-btn-active': page.url.page == item.page && JSON.stringify(page.url.params) == item.params}"
+                    v-on:click="handlerPagesSelect(page)"><i :class="page.icon"></i>{{page.title}}</button>
               </span>
             </div>
           </div>

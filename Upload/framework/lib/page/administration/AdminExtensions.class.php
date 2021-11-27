@@ -84,7 +84,7 @@ class AdminExtensions extends AbstractPage {
 				}
 
 				//$extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid']);
-                $extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid'], false, stream_context_create($arrContextOptions));
+                $extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid'].'?task=update', false, stream_context_create($arrContextOptions));
 
                 if ($extStore) {
 					$extStore = json_decode($extStore);
@@ -211,7 +211,7 @@ class AdminExtensions extends AbstractPage {
 			if ($_REQUEST['uniqid']) {
 
 				//$extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid']);
-                $extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid'], false, stream_context_create($arrContextOptions));
+                $extStore = file_get_contents($extensionsServer."extensions/".$_REQUEST['uniqid'].'?task=install', false, stream_context_create($arrContextOptions));
 				if ($extStore) {
 					$extStore = json_decode($extStore);
 				}
@@ -316,16 +316,15 @@ class AdminExtensions extends AbstractPage {
 		}
 
 
-        $extStore = file_get_contents($extensionsServer."extensions.json", false, stream_context_create($arrContextOptions));
-        if (!$extStore) {
-            $extStore = "false";
-        }
+
+
 
 		/**
 		 * GET INSTALLED EXTENSIONS
 		 */
 		if ($_REQUEST['task'] == 'api-extensions') {
 
+            $extStore = file_get_contents($extensionsServer."extensions.json?task=checkVersion", false, stream_context_create($arrContextOptions));
 			$extAvailable = json_decode($extStore);
 
 			$extInstalled = array();
@@ -343,6 +342,12 @@ class AdminExtensions extends AbstractPage {
 			echo json_encode($extInstalled);
 			exit;
 		}
+
+
+        $extStore = file_get_contents($extensionsServer."extensions.json?task=list", false, stream_context_create($arrContextOptions));
+        if (!$extStore) {
+            $extStore = "false";
+        }
 
 
 		eval("\$html = \"" . DB::getTPL()->get("administration/extensions/list") . "\";");
