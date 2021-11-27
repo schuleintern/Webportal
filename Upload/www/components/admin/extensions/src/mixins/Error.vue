@@ -1,9 +1,9 @@
 <template>
   <div>
 
-    <div v-show="error" className="si-error">
-      <div className="head">Error:</div>
-      <div className="msg">{{ error }}</div>
+    <div v-show="error" class="si-error">
+      <div class="head">Error:</div>
+      <div class="msg">{{ error }}</div>
     </div>
 
   </div>
