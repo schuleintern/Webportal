@@ -179,8 +179,8 @@ class Update extends AbstractPage
               `version` int(11) DEFAULT NULL,
               `active` tinyint(11) DEFAULT NULL,
               `folder` varchar(255) DEFAULT NULL,
-              `menuCat` varchar(25) DEFAULT NULL,
-              PRIMARY KEY (`id`)
+              PRIMARY KEY (`id`),
+            KEY `uniqid` (`uniqid`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
         DB::getDB()->query("CREATE TABLE `raumplan_stunden` (
@@ -261,19 +261,29 @@ class Update extends AbstractPage
              `title` varchar(100) NOT NULL DEFAULT '',
              `icon` varchar(100) DEFAULT NULL,
              `params` text,
+             `access` varchar(255) DEFAULT NULL,
              PRIMARY KEY (`id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
-        DB::getDB()->query("INSERT INTO `menu_item` (`id`, `active`, `menu_id`, `parent_id`, `sort`, `page`, `title`, `icon`, `params`)
+        DB::getDB()->query("INSERT INTO `menu_item` (`id`, `active`, `menu_id`, `parent_id`, `sort`, `page`, `title`, `icon`, `params`, `access`)
         VALUES
-            (1,1,1,0,0,'','Aktuelles','fa fa-clock',NULL),
-            (2,1,1,0,0,'','Informationen','fa fa-clock',NULL),
-            (3,1,1,0,0,'','Lehreranwendungen','fa fa-graduation-cap',NULL),
-            (4,1,1,0,0,'','Verwaltung','fa fas fa-pencil-alt-square',NULL),
-            (5,1,1,0,0,'','Benutzeraccount / Nachrichten','fa fa-user',NULL),
-            (6,1,1,0,0,'','Unterricht','fa fa-graduation-cap',NULL),
-            (7,1,1,0,0,'','Administration','fa fa-cogs',NULL);");
+            (1,1,1,0,0,'','Aktuelles','fa fa-clock',NULL,NULL),
+            (2,1,1,0,0,'','Informationen','fa fa-clock',NULL,NULL),
+            (3,1,1,0,0,'','Lehreranwendungen','fa fa-graduation-cap',NULL,NULL),
+            (4,1,1,0,0,'','Verwaltung','fa fas fa-pencil-alt-square',NULL,NULL),
+            (5,1,1,0,0,'','Benutzeraccount / Nachrichten','fa fa-user',NULL,NULL),
+            (6,1,1,0,0,'','Unterricht','fa fa-graduation-cap',NULL,NULL),
+            (7,1,1,0,0,'','Administration','fa fa-cogs',NULL,NULL);");
 
+
+        DB::getDB()->query("CREATE TABLE `widgets` (
+            `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+            `uniqid` varchar(100) DEFAULT NULL,
+            `position` varchar(100) DEFAULT NULL,
+            `access` varchar(255) DEFAULT NULL,
+            PRIMARY KEY (`id`),
+            KEY `uniqid` (`uniqid`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
         $this->updateComponentsFolder(131);
         $this->updateCssJSFolder(131);
