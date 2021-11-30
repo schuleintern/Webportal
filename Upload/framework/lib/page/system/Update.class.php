@@ -154,15 +154,13 @@ class Update extends AbstractPage
         }
 
         // WIP
-        if ($from == "1.3.2" && $to == "1.3.3") {
-            $this->from132to133();
+        if ($from == "1.3.2" && $to == "1.4.0") {
+            $this->from132to140();
         }
         return true;
     }
 
-    private  function from132to133() {
-
-        // TODO: edit config.php TEST !!!!
+    private  function from132to140() {
         $config = '
         /**
          * Domain des Extension Servers

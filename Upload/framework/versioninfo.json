@@ -1,7 +1,7 @@
 {
-    "Name": "Version 1.3.2 (13.09.2021)",
-    "ChangeLog": "Bugfixes",
+    "Name": "Version 1.4.0 (13.09.2021)",
+    "ChangeLog": "Umfangreiche Änderungen. Siehe https://www.schule-intern.de/forum/index.php?thread/252-version-1-4-0-erschienen/",
     "MajorVersion": 1,
-    "MinorVersion": 3,
-    "PatchVersion": 2
+    "MinorVersion": 4,
+    "PatchVersion": 0
 }
