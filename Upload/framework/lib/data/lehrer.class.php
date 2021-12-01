@@ -217,6 +217,15 @@ class lehrer {
 		
 		return null;
 	}
+
+    public static function getByUserID($id) {
+
+        $user = user::getUserByID($id);
+        if ($user->isTeacher()) {
+            return $user->getTeacherObject();
+        }
+        return null;
+    }
 	
 	public static function getByNameAndGeschlecht($name, $geschlecht) {
 		self::initCache();
