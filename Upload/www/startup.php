@@ -22,6 +22,8 @@ define("PATH_TMPL_OVERRIGHTS", PATH_WWW.'tmpl'.DS);
 // PATH_EXTENSION (set by abstractPage.class.php)
 
 
+date_default_timezone_set('Europe/Berlin');
+
 include("../framework/lib/system/autoloader.php");
 
 // Datenbank verbinden
