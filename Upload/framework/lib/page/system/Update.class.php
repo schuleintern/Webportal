@@ -285,9 +285,9 @@ class Update extends AbstractPage
             KEY `uniqid` (`uniqid`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
-        $this->updateComponentsFolder(131);
-        $this->updateCssJSFolder(131);
-        $this->updateImagesFolder(131);
+        $this->updateComponentsFolder(132);
+        $this->updateCssJSFolder(132);
+        $this->updateImagesFolder(132);
 
     }
 

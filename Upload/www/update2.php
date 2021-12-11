@@ -4,10 +4,6 @@
 
 /**
  *
- * Software is licensed unter GPLv2
- *
- * (c) Christian Spitschka, 2012-2019
- *
  * _______  _______                    _        _______ _________ _       _________ _______  _______  _
  * (  ____ \(  ____ \|\     /||\     /|( \      (  ____ \\__   __/( (    /|\__   __/(  ____ \(  ____ )( (    /|
  * | (    \/| (    \/| )   ( || )   ( || (      | (    \/   ) (   |  \  ( |   ) (   | (    \/| (    )||  \  ( |
@@ -18,16 +14,25 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.2.0
+ * Version 1.4.0
  *
  */
+
 
 include_once '../data/config/config.php';
 
 class Updates {
-    public static function to140() {
-        echo 'wuhu!!!!';
+
+    public static function to140($root) {
+
+        // HIER DER UPDATE STUFF
+
+        //$root->query('SELECT * FROM users');
+        //$root->update('www/index.php');
+
+        return true;
     }
+
 }
 
 class Update {
@@ -36,6 +41,7 @@ class Update {
     private $folder = '../Backup_BeforeUpdateFrom';
 
     private $lastVersion = '';
+    private $nextVersion = '';
     private $settings = false;
     private $mysqli = false;
 
@@ -43,6 +49,9 @@ class Update {
 
         if ($data['lastVersion']) {
             $this->lastVersion = $data['lastVersion'];
+        }
+        if ($data['nextVersion']) {
+            $this->nextVersion = $data['nextVersion'];
         }
         $this->folder .= '-'.$this->lastVersion.'-'.date('Y-m-d',time());
 
@@ -60,140 +69,157 @@ class Update {
 
     }
 
+    public function backupFile($folder) {
+        return true;
 
-    public function backupFolder($folder) {
+        $path = explode('/', $folder);
+        $file = array_pop($path);
+        if (count($path) >= 1) {
+            $deep = $this->folder;
+            foreach($path as $dir) {
+                $deep = $deep.'/'.$dir;
+                mkdir($deep);
+            }
+        }
         if ( rename('../'.$folder, $this->folder.'/'.$folder) ) {
             return true;
         }
         return false;
     }
 
-    public function copyFolder($folder) {
-        if ( rename($this->rootUpdate.$folder, '../'.$folder) ) {
-            return true;
+    public function copyFiles($folder) {
+        return true;
+
+        if ( file_exists($this->rootUpdate.$folder) ) {
+            if ( rename($this->rootUpdate.$folder, '../'.$folder) ) {
+                return true;
+            }
         }
         return false;
     }
 
-    public function updateDatabase() {
-
-        // TODO: woher kommen die Querys???
-        // FILE.sql oder function() ???
-        $method = 'to'.$this->lastVersion;
-
-        if (method_exists( Updates::$method )) {
-            echo  'go!!!!!!';
-            Updates::$method();
+    public function update($folder) {
+        if ($folder) {
+            if ( $this->backupFile($folder) ) {
+                if ( $this->copyFiles($folder) ) {
+                    return true;
+                }
+            }
         }
+        return false;
+    }
+
+    public function executeVersion() {
+        $method = 'to'.str_replace('.','',$this->nextVersion);
+        if ( method_exists( Updates, $method ) ) {
+            if ( Updates::$method($this) ) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
-    public function querys() {
-
-        $result = $mysqli->query("SELECT * FROM users");
-
-        $tables = array();
-        while($row = mysqli_fetch_array($result)) {
-            /* We return the size in Kilobytes */
-            $total_size = ($row[ "Data_length" ] +
-                    $row[ "Index_length" ]) / 1024;
-            $tables[$row['Name']] = sprintf("%.2f", $total_size);
+    public function query($query = false) {
+        if (!$query) {
+            return false;
         }
-
+        $result = $this->mysqli->query($query);
+        $return = array();
+        while($row = mysqli_fetch_array($result)) {
+            $return[] = $row;
+        }
+        return $return;
     }
 
 }
 
 
 
-$wartungsmodus = file_get_contents("../data/wartungsmodus/status.dat");
 
-/*
+
+
+$wartungsmodus = file_get_contents("../data/wartungsmodus/status.dat");
 if($wartungsmodus != "") {
     // Im Wartungsmodus.
     // Update könnte ausgeführt werden.
 
     $updateInfo = file_get_contents("../data/update.json");
-
     if($updateInfo === false) {
         echo("update fail. (not availible)");
         exit(0);
     }
-
     $updateInfo = json_decode($updateInfo, true);
 
     if($_REQUEST['key'] == $updateInfo['updateKey']) {
-*/
 
         $Update = new Update([
-            "lastVersion" => $updateInfo['updateFromVersion']
+            "lastVersion" => $updateInfo['updateFromVersion'],
+            "nextVersion" => '1.4.0' //$updateInfo['updateToVersion']
         ]);
-        ?>
 
-        <html>
-        <head>
-            <title>Schule-Intern Update</title>
-        </head>
-        <body>
-
-        Update wird durchgeführt...<br /><br />
-
-        Sichere alte Anwendungsdaten...<br />
-        <?php
-
-        if($Update->backupFolder("framework") {
-
-            echo("Alte Version gesichert.<br >");
-            echo("Spiele neue Programmversion ein...<br />");
-
-
-            if($Update->copyFolder("framework")) {
-
-                echo("Einspielen der Datenbankänderungen");
-                $Update->updateDatabase();
-
-
-                echo("Einspielen der neuen Programmversion erfolgreich.");
-                echo("<br />");
-                echo("Wartungsmodus wird deaktiviert.<br >");
-                file_put_contents("../data/wartungsmodus/status.dat","");
-                echo("Wartungsmodus deaktiviert.<br >");
-                echo("Installtion abschließen:<br />");
-
-                echo("<a href=\"index.php?page=Update&toVersion=" . urlencode($updateInfo['updateToVersion']) . "&key=" . $updateInfo['updateKey'] . "\">Update abschließen</a>");
-
-            }
-            else {
-                echo("<font color=\"red\">FEHLER: NEUE VERSION KONNTE NICHT KOPIERT WERDEN!</font><br />");
-            }
-
-        }
-        else {
-            echo("<font color=\"red\">FEHLER: ALTE VERSION KONNTE NICHT GELÖSCHT WERDEN!</font><br />");
-        }
-
-        ?>
-
-        </body>
-
-
-        </html>
-
-
-        <?php
-/*
-    }
-    else {
+    } else {
         echo("key fail.");
         exit(0);
     }
 
-}
-
-else {
+} else {
     header("Location: index.php?");
 }
-*/
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SchuleIntern - Update</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link href="cssjs/dist/css/AdminLTE.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="cssjs/css/grid.css">
+    <link rel="stylesheet" href="cssjs/css/style.css">
+    <link rel="stylesheet" href="cssjs/css/si-components.css">
+</head>
+<body class="login-page">
 
 
+<div class="login-box width-55vw">
 
+    <div class="login-logo">
+        <a href="index.php"><img src="index.php?page=SkinSettings&amp;action=getLogo" width="150" border="0"></a>
+    </div>
+
+    <div class="login-box-body si-form">
+
+        <ul>
+            <li><h1>SchuleIntern - Update</h1></li>
+            <li>Update wird durchgeführt...</li>
+            <?php if($Update->backupFile("framework")): ?>
+                <li class="text-green">Alte Version gesichert.</li>
+                <?php if($Update->copyFiles("framework")): ?>
+                    <li class="text-green">Neue Version erfolgreich kopiert.</li>
+                    <?php if($Update->executeVersion()): ?>
+                        <li class="text-green">Versionsupdate erfolgreich durchgeführt</li>
+                        <li class="text-green"><b>Einspielen der neuen Programmversion erfolgreich!</b></li>
+                        <?php file_put_contents("../data/wartungsmodus/status.dat","") ?>
+                        <li class="text-green">Wartungsmodus deaktiviert!</li>
+
+                        <li>
+                            <h2><a class="si-btn" href="index.php?page=Update&toVersion=<?= urlencode($updateInfo['updateToVersion']) ?>&key=<?= $updateInfo['updateKey'] ?>">
+                                Update abschließen</a></h2>
+                        </li>
+                    <?php else: ?>
+                        <li class="text-red">FEHLER: Neue Version konnte nicht eingespielt werden!</li>
+                    <?php endif ?>
+                <?php else: ?>
+                    <li class="text-red">FEHLER: Neue Version konnte nicht kopiert werden!</li>
+                <?php endif ?>
+            <?php else: ?>
+            <li class="text-red">FEHLER: Alter Version konnte nicht gesichert werden!</li>
+            <?php endif ?>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>
