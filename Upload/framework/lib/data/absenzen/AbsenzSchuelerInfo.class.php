@@ -81,7 +81,7 @@ class AbsenzSchuelerInfo {
 				
 			for($i = 0; $i < sizeof(self::$comments); $i++) {
 				if($schueler->getAsvID() == self::$comments[$i]['schuelerAsvID']) {
-					return ''; //self::$comments[$i]['commentText'];
+					return self::$comments[$i]['commentText'];
 				}
 			}
 				
