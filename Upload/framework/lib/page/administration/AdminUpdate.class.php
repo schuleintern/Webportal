@@ -143,6 +143,10 @@ class AdminUpdate extends AbstractPage {
 
         file_put_contents("../data/update.json", json_encode($wartungsinfo));
 
+        // NEU Version 1.3.3
+        // Update update.php
+        self::updateTextFileInWWWDir("update.php");
+
         $html = "";
 
         eval("\$html = \"" . DB::getTPL()->get("administration/update/updatedownloaded") . "\";");
@@ -151,6 +155,19 @@ class AdminUpdate extends AbstractPage {
         file_put_contents("../data/wartungsmodus/status.dat","heute");
 
         return $html;
+    }
+
+    private static function updateTextFileInWWWDir($fileName) {
+        $newContents = file("../data/update/Upload/www/" . $fileName);
+
+        if($newContents === false) return false;  // Update Fail TODO: Log
+
+        $newContents = implode("", $newContents);
+
+        $result = file_put_contents($fileName, $newContents);     // Schreiben
+        if($result === false) return false;   // Fail TODO: Log
+
+        return true;
     }
 
     private static function deleteAll($dir) {

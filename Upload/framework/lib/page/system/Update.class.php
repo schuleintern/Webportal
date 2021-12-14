@@ -152,6 +152,18 @@ class Update extends AbstractPage
         if ($from == "1.3.1" && $to == "1.3.2") {
             $this->from131to132();
         }
+
+        if ($from == "1.3.2" && $to == "1.3.3") {
+            $this->from132to133();
+        }
+        return true;
+    }
+
+    private function from132to133() {
+        // Keine DB Änderungen
+        // Keine CSS / Image Änderungen
+        // Neue update.php
+
         return true;
     }
 
@@ -661,12 +673,14 @@ DROP TABLE `wlan_schueler`;";
     private function updateTextFileInWWWDir($fileName) {
         $newContents = file("../data/update/Upload/www/" . $fileName);
 
-        if($newContents === false) return;  // Update Fail TODO: Log
+        if($newContents === false) return false;  // Update Fail TODO: Log
 
         $newContents = implode("", $newContents);
 
         $result = file_put_contents($fileName, $newContents);     // Schreiben
-        if($result === false) return;   // Fail TODO: Log
+        if($result === false) return false;   // Fail TODO: Log
+
+        return true;
     }
 
     private static function deleteAll($dir)
