@@ -1,6 +1,7 @@
 <?php
 
-class GlobalSettings {
+class GlobalSettings
+{
     /**
      * Ist die Anwendung im Debug modus?
      * @var bool
@@ -68,22 +69,22 @@ class GlobalSettings {
 
     /**
      * Modus der Schülerbenutzer:
-     * SYNC:	Synchronisierung
-     * ASV:		Benutzer kommen aus der ASV (werden automatisch erstellt.)
+     * SYNC:    Synchronisierung
+     * ASV:        Benutzer kommen aus der ASV (werden automatisch erstellt.)
      * @var string
      */
     public $schuelerUserMode = "ASV";
     /**
      * Modus der Lehrerbenutzer:
-     * SYNC:	Synchronisierung
-     * ASV:		Benutzer kommen aus der ASV (werden automatisch erstellt.)
+     * SYNC:    Synchronisierung
+     * ASV:        Benutzer kommen aus der ASV (werden automatisch erstellt.)
      * @var string
      */
     public $lehrerUserMode = "ASV";
     /**
      * Modus der Eltern:
-     * ASV_MAIL:		E-Mailadressen kommen aus der ASV
-     * ASV_CODE:		Eltern bekommen Elternbrief mit Code zur Selbstregistrierung^
+     * ASV_MAIL:        E-Mailadressen kommen aus der ASV
+     * ASV_CODE:        Eltern bekommen Elternbrief mit Code zur Selbstregistrierung^
      * KLASSENELTERN
      * @var string
      */
@@ -102,7 +103,7 @@ class GlobalSettings {
      */
     public $hasNotenverwaltung = true;
 
-        /**
+    /**
      * Daten der Azure App, die für den Zugriff auf die GraphAPI nötig ist.
      * @var array
      */
@@ -126,10 +127,4 @@ class GlobalSettings {
     public $updateServer = "https://update.schule-intern.de";
     // public $updateServer = "http://schuleintern-update.chrisland.de";
 
-
-    /**
-     * Domain des Extension Servers
-     * @var string
-     */
-    public $extensionsServer = "https://store.zwiebel-intern.de/";
 }

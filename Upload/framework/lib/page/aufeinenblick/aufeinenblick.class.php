@@ -31,11 +31,11 @@ class aufeinenblick extends AbstractPage {
           $text = DB::getSettings()->getValue('aufeinenblick-text');
           if ($upload || $headline || $text ) {
             $HTML .= '<div class="box"><div class="box-body">';
-            if($upload != null) {
-              $HTML .= "<br><img src='index.php?page=aufeinenblick&action=aufeinenblickImg' />";
-            }
             if($headline != null) {
               $HTML .= "<h2>".nl2br($headline)."</h2>";
+            }
+            if($upload != null) {
+              $HTML .= "<br><img src='index.php?page=aufeinenblick&action=aufeinenblickImg' />";
             }
             $text = DB::getSettings()->getValue('aufeinenblick-text');
             if($text != null) {
@@ -325,11 +325,11 @@ class aufeinenblick extends AbstractPage {
     $text = DB::getSettings()->getValue('aufeinenblick-text');
     if ($upload || $headline || $text ) {
       $HTML .= '<div class="box"><div class="box-body">';
-      if($upload != null) {
-        $HTML .= "<br><img src='index.php?page=aufeinenblick&action=aufeinenblickImg' />";
-      }
       if($headline != null) {
         $HTML .= "<h2>".nl2br($headline)."</h2>";
+      }
+      if($upload != null) {
+        $HTML .= "<br><img src='index.php?page=aufeinenblick&action=aufeinenblickImg' />";
       }
       $text = DB::getSettings()->getValue('aufeinenblick-text');
       if($text != null) {

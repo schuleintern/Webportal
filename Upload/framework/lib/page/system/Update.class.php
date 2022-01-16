@@ -153,141 +153,61 @@ class Update extends AbstractPage
             $this->from131to132();
         }
 
-        // WIP
-        if ($from == "1.3.2" && $to == "1.4.0") {
-            $this->from132to140();
+        if ($from == "1.3.2" && $to == "1.3.3") {
+            $this->from132to133();
         }
+
+        if ($from == "1.3.3" && $to == "1.3.4") {
+            $this->from133to134();
+        }
+
+        if ($from == "1.3.3" && $to == "1.4.0") {
+            $this->from134to140();
+        }
+
         return true;
     }
 
-    private  function from132to140() {
-        $config = '
-        /**
-         * Domain des Extension Servers
-         * @var string
-         */
-        public $extensionsServer = "https://store.zwiebel-intern.de/";';
-        file_put_contents(PATH_ROOT.'config'.DS.'config.php',$config,FILE_APPEND);
 
 
-        DB::getDB()->query("CREATE TABLE `extensions` (
-              `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-              `name` varchar(255) DEFAULT NULL,
-              `uniqid` varchar(255) DEFAULT NULL,
-              `version` int(11) DEFAULT NULL,
-              `active` tinyint(11) DEFAULT NULL,
-              `folder` varchar(255) DEFAULT NULL,
-              PRIMARY KEY (`id`),
-            KEY `uniqid` (`uniqid`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
-        DB::getDB()->query("CREATE TABLE `raumplan_stunden` (
-                `stundeID` int(11) unsigned NOT NULL AUTO_INCREMENT,
-                `stundenplanID` int(11) DEFAULT NULL,
-                `stundeKlasse` varchar(20) DEFAULT NULL,
-                `stundeLehrer` varchar(20) DEFAULT NULL,
-                `stundeFach` varchar(20) DEFAULT NULL,
-                `stundeRaum` varchar(20) DEFAULT NULL,
-                `stundeDatum` date DEFAULT NULL,
-                `stundeStunde` int(2) DEFAULT NULL,
-                PRIMARY KEY (`stundeID`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+    private  function from134to140() {
 
-        DB::getDB()->query("CREATE TABLE `kalender_allInOne` (
-            `kalenderID`        int(11) NOT NULL AUTO_INCREMENT,
-            `kalenderName`      varchar(255) NOT NULL,
-            `kalenderColor`     varchar(7) DEFAULT NULL,
-            `kalenderSort`      tinyint(1) DEFAULT NULL,
-            `kalenderPreSelect` tinyint(1) DEFAULT NULL,
-            `kalenderAcl`       int(11) DEFAULT NULL,
-            `kalenderFerien`    tinyint(1) DEFAULT '0',
-            `kalenderPublic`    tinyint(1) DEFAULT NULL,
-            PRIMARY KEY (`kalenderID`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;");
-
-        DB::getDB()->query("INSERT INTO `kalender_allInOne` (`kalenderID`, `kalenderName`, `kalenderColor`, `kalenderSort`, `kalenderPreSelect`,
-                                 `kalenderAcl`, `kalenderFerien`, `kalenderPublic`)
-        VALUES (1, 'Schulkalender', '#2E64FE', 1, 1, 4, 0, 1),
-               (2, 'Interner Kalender', '#FE2E64', 2, 1, 5, 0, 0),
-               (3, 'Ferien', '#00a65a', 3, 1, 6, 1, 1);");
-
-        DB::getDB()->query("CREATE TABLE `kalender_allInOne_eintrag`
-        (
-            `eintragID`           int(11) NOT NULL AUTO_INCREMENT,
-            `kalenderID`          int(11) NOT NULL,
-            `eintragKategorieID`  int(11) NOT NULL DEFAULT '0',
-            `eintragTitel`        varchar(255) NOT NULL,
-            `eintragDatumStart`   date         NOT NULL,
-            `eintragTimeStart`    time         NOT NULL,
-            `eintragDatumEnde`    date         NOT NULL,
-            `eintragTimeEnde`     time         NOT NULL,
-            `eintragOrt`          varchar(255) NOT NULL,
-            `eintragKommentar`    tinytext     NOT NULL,
-            `eintragUserID`       int(11) NOT NULL,
-            `eintragCreatedTime`  datetime     NOT NULL,
-            `eintragModifiedTime` datetime     NOT NULL,
-            PRIMARY KEY (`eintragID`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;");
-
-        DB::getDB()->query("CREATE TABLE `kalender_allInOne_kategorie` (
-           `kategorieID` int(11) NOT NULL AUTO_INCREMENT,
-           `kategorieKalenderID` int(11) NOT NULL,
-           `kategorieName` varchar(255) NOT NULL,
-           `kategorieFarbe` varchar(7) NOT NULL,
-           `kategorieIcon` varchar(255) NOT NULL,
-               PRIMARY KEY (`kategorieID`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;");
-
-
-        DB::getDB()->query("CREATE TABLE `menu` (
-            `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-            `alias` varchar(100) DEFAULT NULL,
-            `title` varchar(100) NOT NULL DEFAULT '',
-            PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-
-        DB::getDB()->query("INSERT INTO `menu` (`id`, `alias`, `title`)
-            VALUES (1,'main','Hauptmenü');  ");
-
-        DB::getDB()->query("CREATE TABLE `menu_item` (
-             `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-             `active` tinyint(1) DEFAULT '0',
-             `menu_id` int(11) NOT NULL,
-             `parent_id` int(11) NOT NULL,
-             `sort` int(3) DEFAULT '0',
-             `page` varchar(100) DEFAULT '',
-             `title` varchar(100) NOT NULL DEFAULT '',
-             `icon` varchar(100) DEFAULT NULL,
-             `params` text,
-             `access` varchar(255) DEFAULT NULL,
-             PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-
-        DB::getDB()->query("INSERT INTO `menu_item` (`id`, `active`, `menu_id`, `parent_id`, `sort`, `page`, `title`, `icon`, `params`, `access`)
-        VALUES
-            (1,1,1,0,0,'','Aktuelles','fa fa-clock',NULL,NULL),
-            (2,1,1,0,0,'','Informationen','fa fa-clock',NULL,NULL),
-            (3,1,1,0,0,'','Lehreranwendungen','fa fa-graduation-cap',NULL,NULL),
-            (4,1,1,0,0,'','Verwaltung','fa fas fa-pencil-alt-square',NULL,NULL),
-            (5,1,1,0,0,'','Benutzeraccount / Nachrichten','fa fa-user',NULL,NULL),
-            (6,1,1,0,0,'','Unterricht','fa fa-graduation-cap',NULL,NULL),
-            (7,1,1,0,0,'','Administration','fa fa-cogs',NULL,NULL);");
-
-
-        DB::getDB()->query("CREATE TABLE `widgets` (
-            `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-            `uniqid` varchar(100) DEFAULT NULL,
-            `position` varchar(100) DEFAULT NULL,
-            `access` varchar(255) DEFAULT NULL,
-            PRIMARY KEY (`id`),
-            KEY `uniqid` (`uniqid`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-
-        $this->updateComponentsFolder(132);
-        $this->updateCssJSFolder(132);
-        $this->updateImagesFolder(132);
+        // Neue update.php
+        $this->updateTextFileInWWWDir("update.php");
+        // Neue startup.php
+        $this->updateTextFileInWWWDir("startup.php");
 
     }
+
+
+    private function from133to134() {
+        // Keine DB Änderungen
+
+        // Add si-components.css
+        $this->updateCssJSFolder(133);
+
+        // Neue update.php
+        $this->updateTextFileInWWWDir("update.php");
+        // Neue startup.php
+        $this->updateTextFileInWWWDir("startup.php");
+
+
+
+        return true;
+    }
+
+    private function from132to133() {
+        // Keine DB Änderungen
+        // Keine CSS / Image Änderungen
+        // Neue update.php
+
+        // MISSING )=
+
+        return true;
+    }
+
+
 
     private  function from131to132() {
 
@@ -795,12 +715,13 @@ DROP TABLE `wlan_schueler`;";
     private function updateTextFileInWWWDir($fileName) {
         $newContents = file("../data/update/Upload/www/" . $fileName);
 
-        if($newContents === false) return;  // Update Fail TODO: Log
+        if($newContents === false) return false;  // Update Fail TODO: Log
 
         $newContents = implode("", $newContents);
 
         $result = file_put_contents($fileName, $newContents);     // Schreiben
-        if($result === false) return;   // Fail TODO: Log
+        if($result === false) return false;   // Fail TODO: Log
+        return true;
     }
 
     private static function deleteAll($dir)

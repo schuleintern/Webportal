@@ -236,9 +236,9 @@ class requesthandler {
   ];
 
 
+  private static $allAdminGroups = [];
 
-
-  public function __construct($action, $_request) {
+  public function __construct($action, $_request = []) {
 
     PAGE::setFactory( new FACTORY() );
 
@@ -341,6 +341,16 @@ class requesthandler {
     return $ps;
   }
 
+    public static function getAllAdminGroups() {
+        if(sizeof(self::$allAdminGroups) == 0) {
+            $allPages = self::getAllowedActions();
+            for($i = 0; $i < sizeof($allPages); $i++) {
+                if($allPages[$i]::getAdminGroup() != "") self::$allAdminGroups[] = $allPages[$i]::getAdminGroup();
+            }
+        }
+
+        return self::$allAdminGroups;
+    }
   
   /**
    * Load Page
