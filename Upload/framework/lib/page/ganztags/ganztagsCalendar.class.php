@@ -427,7 +427,7 @@ class ganztagsCalendar extends AbstractPage {
 	}
 	
 	public static function hasAdmin() {
-		return true;
+		return false;
 	}
 	
 	public static function getAdminGroup() {
