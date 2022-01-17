@@ -6,8 +6,8 @@
  */
 define("DS", '/');
 define("URL_ROOT", (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]"  );
-define("URL_SELF", URL_ROOT.$_SERVER[REQUEST_URI]);
-define("URL_FILE", $_SERVER[REQUEST_URI]);
+define("URL_SELF", URL_ROOT.$_SERVER['REQUEST_URI']);
+define("URL_FILE", $_SERVER['REQUEST_URI']);
 
 
 define("PATH_WWW", '.'.DS);
