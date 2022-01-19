@@ -127,4 +127,9 @@ class GlobalSettings
     public $updateServer = "https://update.schule-intern.de";
     // public $updateServer = "http://schuleintern-update.chrisland.de";
 
+    /**
+     * Domain des Extension Servers
+     * @var string
+     */
+    public $extensionsServer = "https://extensions.schule-intern.de//";
 }
