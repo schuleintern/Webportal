@@ -231,6 +231,11 @@ class oAuth2Auth extends AbstractPage {
                 'name' => 'office365-single-sign-on-app-secret',
                 'titel' => 'Anwendungsgeheimnis (Secret)',
                 'typ' => 'ZEILE'
+            ],
+            [
+                'name' => 'office365-single-sign-on-disable-state-check',
+                'titel' => 'oAuth2 State Check deaktivieren',
+                'typ' => 'BOOLEAN'
             ]
         ];
     }

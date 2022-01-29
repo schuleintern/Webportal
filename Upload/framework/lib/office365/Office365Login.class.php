@@ -23,7 +23,7 @@ class Office365Login {
             header('Location: '.$authUrl);
             exit;
 
-        } elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
+        } elseif (!DB::getSettings()->getValue('office365-single-sign-on-disable-state-check') && (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state']))) {
             unset($_SESSION['oauth2state']);
             exit('Invalid oauth state!');
         } else {
