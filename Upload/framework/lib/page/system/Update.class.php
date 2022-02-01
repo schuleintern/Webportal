@@ -165,10 +165,22 @@ class Update extends AbstractPage
             $this->from134to140();
         }
 
+        if ($from == "1.4.0" && $to == "1.4.1") {
+            $this->from140to141();
+        }
+
         return true;
     }
 
 
+    private  function from140to141() {
+
+        // Neue update.php
+        $this->updateTextFileInWWWDir("update.php");
+        // Neue startup.php
+        $this->updateTextFileInWWWDir("startup.php");
+
+    }
 
 
     private  function from134to140() {

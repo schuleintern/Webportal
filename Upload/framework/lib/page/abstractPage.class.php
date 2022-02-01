@@ -650,11 +650,14 @@ abstract class AbstractPage {
 			while($p = DB::getDB()->fetch_array($pages)) {
 				self::$activePages[] = $p['siteName'];
 			}
-			// Active Extensions
-			$result = DB::getDB()->query('SELECT `id`,`name` FROM `extensions` WHERE `active` = 1 ');
-			while($row = DB::getDB()->fetch_array($result)) {
-				self::$activePages[] = $row['name'];
-			}
+            if(sizeof(self::$activePages) == 0) {
+                // Active Extensions
+                $result = DB::getDB()->query('SELECT `id`,`name` FROM `extensions` WHERE `active` = 1 ');
+                while ($row = DB::getDB()->fetch_array($result)) {
+                    self::$activePages[] = $row['name'];
+                }
+            }
+
 		}
 		if(sizeof($name::onlyForSchool()) > 0) {
 			if(!in_array(DB::getGlobalSettings()->schulnummer, $name::onlyForSchool())) {
