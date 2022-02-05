@@ -238,6 +238,7 @@ $classes = [
 	],
 	'messages/recipients' => [
 		'AllTeacherRecipient',
+        'AllTeacherButSchulleitungRecipient',
 		'MessageRecipient',
 		'PupilsOfGrade',
 		'TeacherRecipient',

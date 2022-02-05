@@ -20,6 +20,8 @@ class MessageCompose extends AbstractPage {
 		        $recipient = RecipientHandler::getRecipientFromSaveString($_REQUEST['saveString']);
 		        
 		        $result = [
+                    'savestring' => $_REQUEST['saveString'],
+                    'recipient' => $recipient->getDisplayName(),
 		            'recipientList' => ''
 		        ];
 		        
