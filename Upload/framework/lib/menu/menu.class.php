@@ -86,7 +86,8 @@ class menu {
 
         $this->html .= $this->getMenuItem('NotenverwaltungZeugnisse', 'Zeugnisse', 'fa fa-certificate', []);
         $this->html .= $this->getMenuItem('NotenverwaltungZeugnisse', 'Notenbericht', 'fa fa-certificate', ['action' => 'zwischenbericht']);
-        
+
+        $this->html .= $this->getMenuItem('NotenverwaltungSchulleitung', 'Schulleitungsfunktionen', 'fa fa-tools', []);
 
         $this->html .= $this->endDropDown();
     }
