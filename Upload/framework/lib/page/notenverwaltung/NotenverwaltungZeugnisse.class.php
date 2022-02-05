@@ -50,10 +50,98 @@ class NotenverwaltungZeugnisse extends AbstractPage {
               $this->printZeugnis();
           break;
 
+          case 'exportToASV':
+                $this->exportToASV();
+          break;
+
           default:
               $this->index();
           break;
       }
+  }
+
+  private function exportToASV() {
+      $zeugnis = NoteZeugnis::getByID($_REQUEST['zeugnisID']);
+
+      if($zeugnis == null) {
+          new errorPage('Ungültige Zeugnis Angabe');
+      }
+
+      $zeugnisKlassen = $zeugnis->getZeugnisKlassen();
+
+
+      $xml = '<?xml version="1.0" encoding="UTF-8"?>
+<zeugnisnoten-import version="0.1">
+';
+
+      $xml .= "<schulen>
+<schule>
+<schulnummer>" . DB::getGlobalSettings()->schulnummer . "</schulnummer>
+<schuelerinnen>";
+
+
+
+      for($k = 0; $k < sizeof($zeugnisKlassen); $k++) {
+          $schueler = $zeugnisKlassen[$k]->getKlasse()->getSchueler(false);
+
+          for($s = 0; $s < sizeof($schueler); $s++) {
+              $xml .= "
+    <schuelerin>
+        <identifizierende_merkmale>
+            <!-- " . $schueler[$s]->getCompleteSchuelerName() . " (Klasse " . $schueler[$s]->getKlasse() . ")-->
+            <lokales_differenzierungsmerkmal>" . $schueler[$s]->getAsvID() . "</lokales_differenzierungsmerkmal>
+            <familienname></familienname>
+            <rufname></rufname>
+            <geschlecht></geschlecht>
+            <geburtsdatum></geburtsdatum>
+        </identifizierende_merkmale>
+        <zeugnisse>
+            <zeugnis>
+                <zeugnisart>" . $_REQUEST['zeugnis_typ'] . "</zeugnisart>
+                <gefaehrdung>01</gefaehrdung>
+                <ziel_der_jahrgangsstufe>50</ziel_der_jahrgangsstufe>
+                <noten>
+                ";
+
+              $zeugnisNoten = NoteZeugnisNote::getZeugnisNotenForSchueler($zeugnis, $schueler[$s]);#
+
+              for($n = 0; $n < sizeof($zeugnisNoten); $n++) {
+                  $xml .= "
+                    <note>
+                        <fach>
+                            <schluessel>" . $zeugnisNoten[$n]->getFach()->getASDID() . "</schluessel>
+                            <kurzform>" . $zeugnisNoten[$n]->getFach()->getKurzform() . "</kurzform>
+                        </fach>
+                        <notenwert>" . $zeugnisNoten[$n]->getWert() . "</notenwert>
+                        <datum>" . DateFunctions::getNaturalDateFromMySQLDate($zeugnisKlassen[$k]->getDatumAsSQLDate()) . "</datum>
+                    </note>
+                    ";
+
+              }
+
+
+              $xml .= "
+                </noten>
+            </zeugnis>
+        </zeugnisse>
+    </schuelerin>";
+          }
+
+
+      }
+
+
+
+
+      $xml .= "</schuelerinnen>
+</schule>
+</schulen>
+</zeugnisnoten-import>";
+
+      header("Content-type: text/plain");
+      echo($xml);
+      exit(0);
+
   }
 
   private function printZeugnis() {
@@ -423,7 +511,7 @@ pause\r\n";
       if(sizeof(schulinfo::getSchulleitungLehrerObjects()) > 0) {
           $ersteSL = schulinfo::getSchulleitungLehrerObjects()[0];
           if($ersteSL->getAsvID() != $zeugnisKlasse->getSchulleitung()->getAsvID()) {
-              $unterschrift = "i. V. " . $zeugnisKlasse->getSchulleitung()->getZeugnisUnterschrift();
+              $unterschrift = "i.A. " . $zeugnisKlasse->getSchulleitung()->getZeugnisUnterschrift();
           }
           else {
               $unterschrift = $zeugnisKlasse->getSchulleitung()->getZeugnisUnterschrift();
@@ -690,20 +778,47 @@ pause\r\n";
 
           $klassen = $zeugnisse[$i]->getZeugnisKlassen();
 
+          $klassenSelectOptions = [];
+
           for($k = 0; $k < sizeof($klassen); $k++) {
               $zeugnisListe .= "<b>" . $klassen[$k]->getKlasse()->getKlassenName() . "</b> - " . DateFunctions::getNaturalDateFromMySQLDate($klassen[$k]->getDatumAsSQLDate()) . " - Notenschluss: " . DateFunctions::getNaturalDateFromMySQLDate($klassen[$k]->getNotenschulussAsSQLDate()) . "<br />";
 
               $zeugnisListe .= "KL: " . ($klassen[$k]->getKlassenleitung() != null ? $klassen[$k]->getKlassenleitung()->getDisplayNameMitAmtsbezeichnung() : "n/a") . "<br />";
               $zeugnisListe .= "SL: " . ($klassen[$k]->getSchulleitung() != null ? $klassen[$k]->getSchulleitung()->getDisplayNameMitAmtsbezeichnung() : "n/a") . "<br />";
+
+              $klassenSelectOptions[] = "<option value=\"" . $klassen[$k]->getID() . "\">" . $klassen[$k]->getKlasse()->getKlassenName() . "</option>";
           }
 
 
           $zeugnisListe .= "</td>";
           $zeugnisListe .= "<td>";
 
-          $zeugnisListe .= "<button type=\"buton\" class=\"btn btn-primary\" onclick=\"window.location.href='index.php?page=NotenverwaltungZeugnisse&action=printZeugnis&zeugnisID=" . $zeugnisse[$i]->getID() . "'\"><i class=\"fa fa-print\"></i> Zeugnisse drucken</button><br />";
+          $zeugnisListe .= "<p><button type=\"buton\" class=\"btn btn-primary btn-block\" onclick=\"window.location.href='index.php?page=NotenverwaltungZeugnisse&action=printZeugnis&zeugnisID=" . $zeugnisse[$i]->getID() . "'\"><i class=\"fa fa-print\"></i> Zeugnisse drucken</button></p>";
+          $zeugnisListe .= '<p><button type="button" class="btn btn-danger btn-block" onclick="confirmAction(\'Zeugnis wirklich löschen? (WARNUNG: Lösche alle Bermerkungen, Zeugnisnoten etc.)\',\'index.php?page=NotenverwaltungZeugnisse&action=deleteZeugnis&zeugnisID=' . $zeugnisse[$i]->getID() . '\');"><i class="fa fa-trash"></i> Löschen</button></p>';
 
-          $zeugnisListe .= '<button type="button" class="btn btn-danger" onclick="confirmAction(\'Zeugnis wirklich löschen? (WARNUNG: Lösche alle Bermerkungen, Zeugnisnoten etc.)\',\'index.php?page=NotenverwaltungZeugnisse&action=deleteZeugnis&zeugnisID=' . $zeugnisse[$i]->getID() . '\');"><i class="fa fa-trash"></i> Löschen</button>';
+          $zeugnisListe .= "<hr>";
+
+          $zeugnisListe .= "<p><b>Zeugnisse für ASV exportieren</b></p>";
+
+          $zeugnisListe .= "<form action=\"index.php?page=NotenverwaltungZeugnisse&action=exportToASV&zeugnisID=" . $zeugnisse[$i]->getID() . "\" method=\"post\">";
+
+          $zeugnisListe .= "<p><select name='zeugnis_typ' class='form-control'>
+                    <option value='11'>AA1 Zeugnis</option>
+                    <option value='12'>AA2 Zeugnis</option>
+                    <option value='13'>AA3 Zeugnis</option>
+                    <option value='14'>AA4 Zeugnis</option>
+                    </select></p>
+                    
+          ";
+          
+          $zeugnisListe .= "<p><button type='submit' class='btn btn-default btn-block'><i class=\"fa fa-download\"></i> Export für ASV</button></p>";
+          $zeugnisListe .= "<small>Hinweis: Datei danach mit 7ZIP und einem Passwort zippen, damit es in ASV importiert werden kann.";
+
+
+          $zeugnisListe .= "</form>";
+
+
+          $zeugnisListe .= "<script>$('#" . $zeugnisse[$i]->getID() . "_zeugnis_klassen_select').select2()</script>";
 
           $zeugnisListe . "</td>";
 
@@ -729,7 +844,7 @@ pause\r\n";
       $SLOptions = $this->getTeacherSelectOptions($SL);
 
       for($i = 0; $i < sizeof($klassen); $i++) {
-          $klassenHTML .= "<tr><td><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_checked\" value=\"1\" checked></td>";
+          $klassenHTML .= "<tr><td><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_checked\" value=\"1\"></td>";
 
           $klassenHTML .= "<td>" . $klassen[$i]->getKlassenName() . "</td>";
 
@@ -745,13 +860,13 @@ pause\r\n";
 
 
           $klassenHTML .= "<td><select name=\"" . $klassen[$i]->getKlassenName() . "_kl\" class=\"form-control\">" . $this->getTeacherSelectOptions($KL) . "</select>
-                <label><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_kl_gez\" value=\"1\"> Mit gez. Unterschreiben</label>
+                <label><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_kl_gez\" value=\"1\"> i.A. drucken</label>
             </td>";
 
           // Schulleitung
 
           $klassenHTML .= "<td><select name=\"" . $klassen[$i]->getKlassenName() . "_sl\" class=\"form-control\">" . $SLOptions . "</select>
-                <label><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_sl_gez\" value=\"1\"> Mit gez. Unterschreiben</label>
+                <label><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_sl_gez\" value=\"1\"> i.A. drucken</label>
             </td>";
 
 
