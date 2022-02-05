@@ -1085,12 +1085,23 @@ class NotenEingabe extends AbstractPage {
       
       switch($_REQUEST['mode']) {
           case 'add':
+
+              if($_REQUEST['fach'] == 'alle_faecher_der_schule') {
+                  $faecher = fach::getAll();
+                  for($i = 0; $i < sizeof($faecher); $i++) {
+                      NoteGewichtung::addGewichtung($faecher[$i], $_POST['jgs'], $_POST['gewichtGross'], $_POST['gewichtKlein']);
+                  }
+              }
+              else {
+                  $fach = fach::getByKurzform($_REQUEST['fach']);
+
+
+                  if($fach != null)
+                      NoteGewichtung::addGewichtung($fach, $_POST['jgs'], $_POST['gewichtGross'], $_POST['gewichtKlein']);
+
+              }
               
-              $fach = fach::getByKurzform($_REQUEST['fach']);
-              
-              if($fach != null)              
-                  NoteGewichtung::addGewichtung($fach, $_POST['jgs'], $_POST['gewichtGross'], $_POST['gewichtKlein']);
-              
+
               header("Location: $selfURL");
               exit(0);
           break;
