@@ -2,6 +2,9 @@
 
 class NotenRespizienz extends AbstractPage {
 
+    /**
+     * @var SchuelerUnterricht
+     */
   private $unterricht;
 
   public function __construct() {
@@ -79,15 +82,29 @@ class NotenRespizienz extends AbstractPage {
 
           $alle = sizeof($schueler);
           $mitgeschrieben = 0;
-          
-          $notenStatistik = [
-              1 => 0,
-              2 => 0,
-              3 => 0,
-              4 => 0,
-              5 => 0,
-              6 => 0
-          ];
+
+          $jgs = 0;
+
+          if(sizeof($schueler) > 0) {
+              $jgs = $schueler[0]->getKlassenObjekt()->getKlassenstufe();
+          }
+
+          $notenSkala = [];
+
+          if($jgs < 11) {
+              for($i = 1; $i < 7; $i++) {
+                  $notenSkala[$i] = 0;
+              }
+          }
+          else {
+              for($i = 0; $i < 16; $i++) {
+                  $notenSkala[$i] = 0;
+              }
+          }
+
+          $notenStatistik = $notenSkala;
+
+
           
           
 
@@ -124,25 +141,14 @@ class NotenRespizienz extends AbstractPage {
               $percentMitgeschrieben = floor($mitgeschrieben / $alle * 100);
           }
 
-          $perCentNote = [
-              1 => 0,
-              2 => 0,
-              3 => 0,
-              4 => 0,
-              5 => 0,
-              6 => 0
-          ];
+          $perCentNote = $notenSkala;
           
           
           if($alle > 0) {
-              $perCentNote = [
-                  1 => floor($notenStatistik[1] / $mitgeschrieben * 100),
-                  2 => floor($notenStatistik[2] / $mitgeschrieben * 100),
-                  3 => floor($notenStatistik[3] / $mitgeschrieben * 100),
-                  4 => floor($notenStatistik[4] / $mitgeschrieben * 100),
-                  5 => floor($notenStatistik[5] / $mitgeschrieben * 100),
-                  6 => floor($notenStatistik[6] / $mitgeschrieben * 100)
-              ];
+
+              foreach ($notenSkala as $note => $wert) {
+                  $perCentNote[$note] = floor($notenStatistik[$note] / $mitgeschrieben * 100);
+              }
           }
           
           $schnitt = $arbeit->getSchnitt();
@@ -150,6 +156,34 @@ class NotenRespizienz extends AbstractPage {
 
 
 
+      }
+
+
+      $notenTabelleStatistik = "";
+
+      foreach ($notenSkala as $note => $wert) {
+
+          $notenText = "";
+
+          if(sizeof($notenSkala) > 6) {
+              if($note == 1) $notenText = "1 Punkt";
+              else $notenText = $note . " Punkte";
+          }
+          else {
+              $notenText = "Note " . $note;
+          }
+
+          $notenTabelleStatistik .= "<tr>
+					<td>$notenText</td>
+					<td>{$notenStatistik[$note]}</td>
+					<td>{$perCentNote[$note]} %</td>
+				</tr>";
+      }
+
+      $notenName = "Note";
+
+      if(sizeof($notenSkala) > 6) {
+          $notenName = "Punkte";
       }
 
 
