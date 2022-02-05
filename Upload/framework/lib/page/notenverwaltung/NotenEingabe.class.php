@@ -932,12 +932,17 @@ class NotenEingabe extends AbstractPage {
               $presetNote = $note->getWert();
               $presetKommentar = str_replace("'","\'",str_replace("\r\n","\\n",$note->getPaedBegruendung()));
 
-              $buttonInnerHTML .= "<font size=\"+2\" color=\"" . Note::getNotenColor($note->getWert()) . "\">";
+              $buttonInnerHTML .= "<font size=\"+2\" color=\"" . Note::getNotenColor($note->getWert(), $note->getSchueler()->getKlassenObjekt()->getKlassenstufe()) . "\">";
 
 
-              if($note->getWert() >= 5) {
+              if($note->getWert() >= 5 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() < 11) {
                   $buttonInnerHTML .= " <i class=\"fa fa-exclamation-triangle\"></i> ";
               }
+
+              if($note->getWert() < 5 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() >= 11) {
+                  $buttonInnerHTML .= " <i class=\"fa fa-exclamation-triangle\"></i> ";
+              }
+
               $buttonInnerHTML .= $note->getWert();
 
 
