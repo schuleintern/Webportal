@@ -41,7 +41,9 @@ class NotenverwaltungSchulleitung extends AbstractPage {
               $schuelerInKlasse = $klasse->getSchueler();
 
               for($s = 0; $s < sizeof($schuelerInKlasse); $s++) {
+                  DB::getDB()->query("DELETE FROM noten_arbeiten WHERE arbeitID IN (SELECT noteArbeitID FROM noten_noten WHERE noteSchuelerAsvID='" . $schuelerInKlasse[$s]->getAsvID() . "')");
                   DB::getDB()->query("DELETE FROM noten_noten WHERE noteSchuelerAsvID='" . $schuelerInKlasse[$s]->getAsvID() . "'");
+
               }
 
               $this->index("", "Noten der Klasse " . $klasse->getKlassenName() . " gelöscht.");
@@ -52,8 +54,8 @@ class NotenverwaltungSchulleitung extends AbstractPage {
   private function index($error = "", $success = "") {
 
 
-      $z1 = random_int(1,9);
-      $z2 = random_int(1,9);
+      $z1 = random_int(10,99);
+      $z2 = random_int(10,99);
 
       $rechnung = "$z1 + $z2 = ";
       $loesung = $z1 + $z2;
