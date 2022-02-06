@@ -138,7 +138,8 @@ class NotenverwaltungZeugnisse extends AbstractPage {
 </schulen>
 </zeugnisnoten-import>";
 
-      header("Content-type: text/plain");
+      header("Content-type: text/xml");
+      header("Content-Disposition: attachment; filename=\"export.xml\"");
       echo($xml);
       exit(0);
 
@@ -490,6 +491,14 @@ pause\r\n";
           }
 
           if($schueler->getAusbildungsrichtung() == "GY_SG_8") {
+              $ausbildungsrichtung = "Sprachlichen ";
+          }
+
+          if($schueler->getAusbildungsrichtung() == "GY_WWG_9") {
+              $ausbildungsrichtung = "Wirtschaftswissenschaftlichen ";
+          }
+
+          if($schueler->getAusbildungsrichtung() == "GY_NG_9") {
               $ausbildungsrichtung = "Sprachlichen ";
           }
 
