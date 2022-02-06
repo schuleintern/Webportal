@@ -85,10 +85,10 @@ class NotenCalculcator {
      */
     public function addNote($note) {
         if($note->getWert() == 0 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() < 11) {
-            return;       // TODO: Bei Oberstufe übergehen!
+            return;
         }
-        $this->noten[] = $note;
-        // if($note->nurWennBesser()) $this->isNotenNurWennBesser = true;           // Nur bei
+        if(!$note->nurWennBesser())$this->noten[] = $note;
+        // if(!$note->nurWennBesser()) $this->isNotenNurWennBesser = true;           // Nur bei
     }
 
     /**
