@@ -176,9 +176,9 @@ class Update extends AbstractPage
     private  function from140to141() {
 
         // Neue update.php
-        $this->updateTextFileInWWWDir("update.php");
+        //$this->updateTextFileInWWWDir("update.php");
         // Neue startup.php
-        $this->updateTextFileInWWWDir("startup.php");
+        //$this->updateTextFileInWWWDir("startup.php");
 
     }
 
