@@ -148,7 +148,7 @@ class administrationcreateusers extends AbstractPage {
   			
   			$briefAdresse = "";
   			if($adresse['adresseID'] > 0) {
-  				$briefAdresse = $adresse['adresseAnschrifttext'] . "\r\n" . $adresse['adresseStrasse'] . " " . $adresse['adresseNummer'] . "\r\n" . $adresse['adressePostleitzahl'] . " " . $adresse['adresseOrt'];
+  				$briefAdresse = $adresse['adresseVorname'].' '.$adresse['adresseFamilienname'] . "\r\n" . $adresse['adresseStrasse'] . " " . $adresse['adresseNummer'] . "\r\n" . $adresse['adressePostleitzahl'] . " " . $adresse['adresseOrt'];
   			}
   			$letter->setDatum(DateFunctions::getTodayAsNaturalDate());
   			
