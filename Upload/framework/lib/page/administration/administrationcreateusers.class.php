@@ -69,9 +69,9 @@ class administrationcreateusers extends AbstractPage {
 
       $networks = array();
 
-      if(DB::getGlobalSettings()->lehrerUserMode == "ASV") $networks[] = "SCHULEINTERN_LEHRER";
-      if(DB::getGlobalSettings()->schuelerUserMode == "ASV") $networks[] = "SCHULEINTERN_SCHUELER";
-      if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE") $networks[] = "ELTERN";
+      if(DB::getGlobalSettings()->lehrerUserMode == "ASV") $networks[] = "Lehrer";
+      if(DB::getGlobalSettings()->schuelerUserMode == "ASV") $networks[] = "Schüler";
+      if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE") $networks[] = "Eltern";
 
 
       $first = true;
@@ -212,11 +212,9 @@ class administrationcreateusers extends AbstractPage {
 
     if($network == "SCHULEINTERN_SCHUELER") {
       $users = DB::getDB()->query("SELECT * FROM users JOIN initialpasswords ON userID=initialPasswordUserID LEFT JOIN schueler ON userID=schuelerUserID WHERE userNetwork = '" . $network . "' " . (($notPrinted) ? (" AND passwordPrinted=0") : ("")) . " ORDER BY length(schuelerKlasse) ASC, schuelerKlasse ASC, schuelerName ASC, schuelerRufname ASC");
-    }
-    else if($network == "SCHULEINTERN_LEHRER") {
+    } else if($network == "SCHULEINTERN_LEHRER") {
       $users = DB::getDB()->query("SELECT * FROM users JOIN initialpasswords ON userID=initialPasswordUserID LEFT JOIN lehrer ON userID=lehrerUserID WHERE userNetwork = '" . $network . "' " . (($notPrinted) ? (" AND passwordPrinted=0") : ("")) . " ORDER BY lehrerKuerzel ASC, lehrerName ASC, lehrerRufname ASC");
-    }
-	else {
+    } else {
 		// Eltern
 		$users = DB::getDB()->query("SELECT * FROM eltern_codes JOIN schueler ON codeSchuelerAsvID=schuelerAsvID " . (($notPrinted) ? ( " WHERE codePrinted=0 ") : ("")) . " ORDER BY length(schuelerKlasse) ASC, schuelerKlasse ASC, schuelerName ASC, schuelerRufname ASC");
 	}
@@ -244,15 +242,14 @@ class administrationcreateusers extends AbstractPage {
       	 
       	$briefAdresse = "";
       	if($adresse['adresseID'] > 0) {
-      		$briefAdresse = $adresse['adresseAnschrifttext'] . "\r\n" . $adresse['adresseStrasse'] . " " . $adresse['adresseNummer'] . "\r\n" . $adresse['adressePostleitzahl'] . " " . $adresse['adresseOrt'];
+      		$briefAdresse = $adresse['adresseVorname'].' '.$adresse['adresseFamilienname'] . "\r\n" . $adresse['adresseStrasse'] . " " . $adresse['adresseNummer'] . "\r\n" . $adresse['adressePostleitzahl'] . " " . $adresse['adresseOrt'];
       	}
       	$letter->setDatum(DateFunctions::getTodayAsNaturalDate());
       	 
       	$letter->addLetter($briefAdresse, $text);
       	 
-      }
-      
-      else if($user['schuelerAsvID'] != "") {
+      } else if($user['schuelerAsvID'] != "") {
+
         $text = DB::getSettings()->getValue("createusers-letternewschueler");
 
         $text = str_replace("{SCHUELERNAME}", $user['schuelerName'] . ", " . $user['schuelerRufname'], $text);
@@ -270,8 +267,8 @@ class administrationcreateusers extends AbstractPage {
         
         $letter->addLetter($briefAdresse, $text);
 
-      }
-      else {
+      } else {
+
         $text = DB::getSettings()->getValue("createusers-letternewlehrer");
 
         $text = str_replace("{LEHRERNAME}", $user['lehrerName'] . ", " . $user['lehrerRufname'], $text);
