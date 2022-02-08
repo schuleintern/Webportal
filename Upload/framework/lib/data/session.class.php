@@ -235,12 +235,17 @@ class session {
 						)
 			");
 
+        $time = 0;
+        if ($keepLogin == 'true') {
+            $time = (int)(time() + (365 * 24 * 60 * 60));
+        }
+
         if(DB::isDebug()) {
             // Im Debug kein Secure Cookie
-            setcookie("schuleinternsession", $sessionID, (($keepLogin) ? (time() + 365 * 24 * 60 * 60) : (0)), "/", null, false, true);
+            setcookie("schuleinternsession", $sessionID, $time, "/", null, false, true);
         }
         else {
-            setcookie("schuleinternsession", $sessionID, (($keepLogin) ? (time() + 365 * 24 * 60 * 60) : (0)), "/", null, true, true);
+            setcookie("schuleinternsession", $sessionID, $time, "/", null, true, true);
         }
     }
 	
