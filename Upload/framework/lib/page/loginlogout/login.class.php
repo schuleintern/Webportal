@@ -296,7 +296,7 @@ class login extends AbstractPage {
 			$mailtext = "";
 			eval("\$mailtext = \"" . DB::getTPL()->get("login/emailesis") . "\";");
 			
-			$mail = new email($email, "Ihr Zugang zu RSUintern an der Realschule Unterpfaffenhofen", $mailtext);
+			$mail = new email($email, "Ihr Zugang zu Schule-Intern", $mailtext);
 			$mail->send();			
 		}
 		
