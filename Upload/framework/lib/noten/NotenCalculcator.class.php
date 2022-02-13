@@ -235,7 +235,7 @@ class NotenCalculcator {
         if($ignoreNotenschutz == false && $this->schueler->getNachteilsausgleich() != null && $this->schueler->getNachteilsausgleich()->hasNotenschutz()) {
             if($this->fach != null) {
                 $kf = $this->fach->getKurzform();
-                if($kf == 'E' || $kf == 'F' || $kf == 'L'){
+                if($kf == 'E' || $kf == 'F' || $kf == 'L' || $kf == 'Sp'){
                     $this->isNotenschutzRechnung = true;
                     return $this->getSchnittMitNotenschutz();
                 }
