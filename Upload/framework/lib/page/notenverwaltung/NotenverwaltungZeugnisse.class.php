@@ -88,7 +88,6 @@ class NotenverwaltungZeugnisse extends AbstractPage {
               $xml .= "
     <schuelerin>
         <identifizierende_merkmale>
-            <!-- " . $schueler[$s]->getCompleteSchuelerName() . " (Klasse " . $schueler[$s]->getKlasse() . ")-->
             <lokales_differenzierungsmerkmal>" . $schueler[$s]->getAsvID() . "</lokales_differenzierungsmerkmal>
             <familienname></familienname>
             <rufname></rufname>
