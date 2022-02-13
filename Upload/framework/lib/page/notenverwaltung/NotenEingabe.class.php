@@ -906,8 +906,18 @@ class NotenEingabe extends AbstractPage {
           $presetNote = 0;
 
 
+          $normalCalcNote = 0;
 
-          $normalCalcNote = round($gesamtSchnitt, 0, PHP_ROUND_HALF_DOWN);
+
+
+          if($schueler[$i]->getKlassenObjekt()->getKlassenstufe() >= 11) {
+              if($gesamtSchnitt < 1) $normalCalcNote = 0;
+              else $normalCalcNote = round($gesamtSchnitt, 0, PHP_ROUND_HALF_UP);
+          }
+          else {
+              $normalCalcNote = round($gesamtSchnitt, 0, PHP_ROUND_HALF_DOWN);
+          }
+
 
           if($note == null) {
               $displayNote = $normalCalcNote;
