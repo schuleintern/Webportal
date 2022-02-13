@@ -50,8 +50,12 @@ class NotenverwaltungZeugnisse extends AbstractPage {
               $this->printZeugnis();
           break;
 
-          case 'exportToASV':
-                $this->exportToASV();
+          case 'exportUnterMittelstufeToASV':
+                $this->exportNotOSToASV();
+          break;
+
+          case 'exportOberstufe':
+              $this->exportOberstufe();
           break;
 
           default:
@@ -60,7 +64,170 @@ class NotenverwaltungZeugnisse extends AbstractPage {
       }
   }
 
-  private function exportToASV() {
+  private function exportOberstufe() {
+      $zeugnis = NoteZeugnis::getByID($_REQUEST['zeugnisID']);
+
+      if($zeugnis == null) {
+          new errorPage('Ungültige Zeugnis Angabe');
+      }
+
+      $zeugnisKlassen = $zeugnis->getZeugnisKlassen();
+
+      $xml = new SimpleXMLElement("<import></import>");
+      $xml->addAttribute("Generierungsdatum", date("Y-m-d+H:i"));
+      $xml->addAttribute("Schemaversion", "1.0");
+      $xml->addAttribute("Schuljahr", DB::getSettings()->getValue('general-schuljahr'));
+
+      for($k = 0; $k < sizeof($zeugnisKlassen); $k++) {
+
+          $schueler = $zeugnisKlassen[$k]->getKlasse()->getSchueler(false);
+
+          for ($s = 0; $s < sizeof($schueler); $s++) {
+
+              $schuelerChild = $xml->addChild("Schueler_Notenimport");
+              $schuelerStammdaten = $schuelerChild->addChild("Stammdaten");
+              $schuelerStammdaten->addChild("Lokales_Differenzierungsmerkmal", $schueler[$s]->getAsvID());
+
+              $notenbogen = new Notenbogen($schueler[$s]);
+
+              $unterrichtsNoten = $notenbogen->getUnterrichtsNoten();
+
+              for($n = 0; $n < sizeof($unterrichtsNoten); $n++) {
+                  if($unterrichtsNoten[$n]->getUnterricht()->isPflichtunterricht()) {
+                      $belegungNotenImport = $schuelerChild->addChild("Belegung_NotenImport");
+                      $fachSubGroup = $belegungNotenImport->addChild("FachSubGroup");
+                      $Schluessel_NotenImport = $fachSubGroup->addChild("Schluessel_NotenImport");
+                      $Schluessel_NotenImport->addChild("Schluessel", "0500401200");
+
+                      $kursdaten = $belegungNotenImport->addChild("Kursdaten");
+
+                      $semesterNotenImport = $kursdaten->addChild("Semester_Notenimport");
+                      $semesterNotenImport->addChild("Nummer", $_REQUEST['aa']);
+
+                      // Sonderfälle prüfen
+                      $isSonderfall = false;
+                      /**
+                       *
+                       * Geschichte und einstündige Sozialkunde (Sk)
+                       * Kunst und Bildnerische Praxis (KuB)
+                       * Musik und Instrument (MuI)
+                       * Sport und Sporttheorie (S-T)
+                       */
+
+                      {
+                          // Geschichte und einstündige Sozialkunde (Sk)
+                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'G') {
+                              $skUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'Sk');
+                              if ($skUnterricht != null) {
+                                  if ($skUnterricht->getUnterricht()->getStunden() == 1) {
+                                      $isSonderfall = true;
+                                  }
+                              }
+                          }
+
+                          // Geschichte und einstündige Sozialkunde (Sk) - vice versa
+                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'Sk' && $unterrichtsNoten[$n]->getUnterricht()->getStunden() == 1) {
+                              $gUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'G');
+                              if ($gUnterricht != null) {
+                                  $isSonderfall = true;
+                              }
+                          }
+                      }
+
+                      {
+                          // Sport und Sporttheorie (S-T)
+                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'Smw') {
+                              $skUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'S-T');
+                              if ($skUnterricht != null) {
+                                  $isSonderfall = true;
+                              }
+                          }
+
+                          // Sport und Sporttheorie (S-T) - vice versa
+                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'S-T') {
+                              $gUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'Smw');
+                              if ($gUnterricht != null) {
+                                  $isSonderfall = true;
+                              }
+                          }
+                      }
+
+                      {
+                          // Musik und Instrument (MuI)
+                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'MuI') {
+                              $isSonderfall = true;
+                          }
+                      }
+
+                      {
+                          // Kunst und Bildnerische Praxis (KuB)
+                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'KuB') {
+                              $isSonderfall = true;
+                          }
+                      }
+
+                      if($isSonderfall) $semesterNotenImport->addAttribute("Sonderfall", "true");
+
+                      $leistung = $semesterNotenImport->addChild("Leistung");
+
+                      $gross = $unterrichtsNoten[$n]->getSchnittGrossOhneRunden();
+                      $klein = $unterrichtsNoten[$n]->getSchnittKleinOhneRunden();
+
+                      $hasNoten = false;
+
+                      if($gross >= 0 && $klein >= 0) {
+                          $schnittGesamt = ($gross+$klein)/2;
+                      }
+                      elseif($gross >= 0) {
+                          $schnittGesamt = $gross;
+                      }
+                      elseif($klein >= 0) {
+                          $schnittGesamt = $klein;
+                      }
+                      else {
+                          // Keine Noten
+                          $schnittGesamt = -1;
+                      }
+
+                      if($schnittGesamt >= 0) {
+                          $note = round($schnittGesamt, 0, PHP_ROUND_HALF_UP);
+                      }
+
+                      if($klein >= 0) $leistung->addChild("Schnitt_Kleine_Leistung", $klein);
+                      if($gross >= 0)$leistung->addChild("Schnitt_Grosse_Leistung", $gross);
+                      if($unterrichtsNoten[$n]->hasNoten()) $leistung->addChild("Schnitt_Gesamt", $schnittGesamt);
+                      if($unterrichtsNoten[$n]->hasNoten()) $leistung->addChild("Note", $note);
+
+
+                      $semesterNotenImport->addChild("Unterrichtselement", $unterrichtsNoten[$n]->getUnterricht()->getAsvIDForExport());
+
+                  }
+              }
+
+          }
+      }
+
+
+      header("Content-type: text/xml");
+      echo($xml->asXML());
+      exit(0);
+  }
+
+
+    /**
+     * @param UnterrichtsNoten[] $UnterrichtsNoten
+     * @param string$fachKurzform
+     * @return UnterrichtsNoten|null
+     */
+  private function getUnterichtsnotenForFach($UnterrichtsNoten, $fachKurzform) {
+      for($i = 0; $i < sizeof($UnterrichtsNoten); $i++) {
+          if($UnterrichtsNoten[$i]->getUnterricht()->getFach()->getKurzform() == $fachKurzform) return $UnterrichtsNoten[$i];
+      }
+
+      return null;
+  }
+
+  private function exportNotOSToASV() {
       $zeugnis = NoteZeugnis::getByID($_REQUEST['zeugnisID']);
 
       if($zeugnis == null) {
@@ -801,16 +968,19 @@ pause\r\n";
           $zeugnisListe .= "</td>";
           $zeugnisListe .= "<td>";
 
-          $zeugnisListe .= "<p><button type=\"buton\" class=\"btn btn-primary btn-block\" onclick=\"window.location.href='index.php?page=NotenverwaltungZeugnisse&action=printZeugnis&zeugnisID=" . $zeugnisse[$i]->getID() . "'\"><i class=\"fa fa-print\"></i> Zeugnisse drucken</button></p>";
-          $zeugnisListe .= '<p><button type="button" class="btn btn-danger btn-block" onclick="confirmAction(\'Zeugnis wirklich löschen? (WARNUNG: Lösche alle Bermerkungen, Zeugnisnoten etc.)\',\'index.php?page=NotenverwaltungZeugnisse&action=deleteZeugnis&zeugnisID=' . $zeugnisse[$i]->getID() . '\');"><i class="fa fa-trash"></i> Löschen</button></p>';
+          $zeugnisListe .= "<div class='btn-group'><button type=\"buton\" class=\"btn btn-primary\" onclick=\"window.location.href='index.php?page=NotenverwaltungZeugnisse&action=printZeugnis&zeugnisID=" . $zeugnisse[$i]->getID() . "'\"><i class=\"fa fa-print\"></i> Zeugnisse drucken</button>";
+          $zeugnisListe .= '<button type="button" class="btn btn-danger" onclick="confirmAction(\'Zeugnis wirklich löschen? (WARNUNG: Lösche alle Bermerkungen, Zeugnisnoten etc.)\',\'index.php?page=NotenverwaltungZeugnisse&action=deleteZeugnis&zeugnisID=' . $zeugnisse[$i]->getID() . '\');"><i class="fa fa-trash"></i></button></div>';
 
           $zeugnisListe .= "<hr>";
 
-          $zeugnisListe .= "<p><b>Zeugnisse für ASV exportieren</b></p>";
+          $zeugnisListe .= "<p><b>Zeugnisnoten Unter- und Mittelstufe für ASV exportieren</b></p>";
 
-          $zeugnisListe .= "<form action=\"index.php?page=NotenverwaltungZeugnisse&action=exportToASV&zeugnisID=" . $zeugnisse[$i]->getID() . "\" method=\"post\">";
+          $zeugnisListe .= "<form action=\"index.php?page=NotenverwaltungZeugnisse&action=exportUnterMittelstufeToASV&zeugnisID=" . $zeugnisse[$i]->getID() . "\" method=\"post\">";
 
-          $zeugnisListe .= "<p><select name='zeugnis_typ' class='form-control'>
+          $zeugnisListe .= "<p><select name='zeugnis_typ' required>
+                    <option disabled>Zeugnisart</option>
+                    <option value='01'>Zwischenzeugnis (Alle Schularten)</option>
+                    <option value='25'>Jahreszeugnis (Alle Schularten)</option>
                     <option value='11'>AA1 Zeugnis</option>
                     <option value='12'>AA2 Zeugnis</option>
                     <option value='13'>AA3 Zeugnis</option>
@@ -819,14 +989,20 @@ pause\r\n";
                     
           ";
           
-          $zeugnisListe .= "<p><button type='submit' class='btn btn-default btn-block'><i class=\"fa fa-download\"></i> Export für ASV</button></p>";
+          $zeugnisListe .= "<p><button type='submit' class='btn btn-default'><i class=\"fa fa-download\"></i> Export für ASV</button></p>";
           $zeugnisListe .= "<small>Hinweis: Datei danach mit 7ZIP und einem Passwort zippen, damit es in ASV importiert werden kann.";
+
+          $zeugnisListe .= "<hr>";
+
+          $zeugnisListe .= "<a href=\"index.php?page=NotenverwaltungZeugnisse&action=exportOberstufe&zeugnisID=" . $zeugnisse[$i]->getID() . "&aa=1\" class='btn btn-default'><i class=\"fa fa-download\"></i> Oberstufenexport für ASV AA1</a>";
+          $zeugnisListe .= "<a href=\"index.php?page=NotenverwaltungZeugnisse&action=exportOberstufe&zeugnisID=" . $zeugnisse[$i]->getID() . "&aa=2\" class='btn btn-default'><i class=\"fa fa-download\"></i> Oberstufenexport für ASV AA2</a>";
+          $zeugnisListe .= "<a href=\"index.php?page=NotenverwaltungZeugnisse&action=exportOberstufe&zeugnisID=" . $zeugnisse[$i]->getID() . "&aa=3\" class='btn btn-default'><i class=\"fa fa-download\"></i> Oberstufenexport für ASV AA3</a>";
+          $zeugnisListe .= "<a href=\"index.php?page=NotenverwaltungZeugnisse&action=exportOberstufe&zeugnisID=" . $zeugnisse[$i]->getID() . "&aa=4\" class='btn btn-default'><i class=\"fa fa-download\"></i> Oberstufenexport für ASV AA4</a>";
 
 
           $zeugnisListe .= "</form>";
 
 
-          $zeugnisListe .= "<script>$('#" . $zeugnisse[$i]->getID() . "_zeugnis_klassen_select').select2()</script>";
 
           $zeugnisListe . "</td>";
 
