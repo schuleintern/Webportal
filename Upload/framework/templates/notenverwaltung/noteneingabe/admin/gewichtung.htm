@@ -32,7 +32,10 @@
 		<form action="$selfURL&mode=add" method="post">
 		<div class="form-group">
 			<label>Fach</label>
-			<select name="fach" class="form-control">$selectFaecher</select>
+			<select name="fach" class="form-control">
+				<option value="alle_faecher_der_schule">Alle Fächer</option>
+				$selectFaecher
+			</select>
 		</div>	
 		
 		<div class="form-group">

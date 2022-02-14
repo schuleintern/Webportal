@@ -50,10 +50,291 @@ class NotenverwaltungZeugnisse extends AbstractPage {
               $this->printZeugnis();
           break;
 
+          case 'exportUnterMittelstufeToASV':
+                $this->exportNotOSToASV();
+          break;
+
+          case 'exportOberstufe':
+              $this->exportOberstufe();
+          break;
+
           default:
               $this->index();
           break;
       }
+  }
+
+  private function exportOberstufe() {
+      $zeugnis = NoteZeugnis::getByID($_REQUEST['zeugnisID']);
+
+      if($zeugnis == null) {
+          new errorPage('Ungültige Zeugnis Angabe');
+      }
+
+      $zeugnisKlassen = $zeugnis->getZeugnisKlassen();
+
+      $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Import></Import>');
+      $xml->addAttribute("Generierungsdatum", date("Y-m-d") . "+02:00");
+      $xml->addAttribute("Schemaversion", "1.0");
+      $xml->addAttribute("Schuljahr", DB::getSettings()->getValue('general-schuljahr'));
+
+      for($k = 0; $k < sizeof($zeugnisKlassen); $k++) {
+
+          $schueler = $zeugnisKlassen[$k]->getKlasse()->getSchueler(false);
+
+          for ($s = 0; $s < sizeof($schueler); $s++) {
+
+              $schuelerChild = $xml->addChild("Schueler_Notenimport");
+              $schuelerStammdaten = $schuelerChild->addChild("Stammdaten");
+              $schuelerStammdaten->addChild("Lokales_Differenzierungsmerkmal", $schueler[$s]->getAsvID());
+              $schuelerStammdaten->addChild("Name", $schueler[$s]->getName());
+              $schuelerStammdaten->addChild("Vorname", $schueler[$s]->getRufname());
+              $schuelerStammdaten->addChild("Geschlecht", ($schueler[$s]->getGeschlecht() == 'w' ? 'weiblich' : 'männlich'));
+              $schuelerStammdaten->addChild("Geburtsdatum", $schueler[$s]->getGeburtstagAsSQLDate() . "+02:00");
+
+              $schuelerStammdaten->addChild("Bekenntnis", $schueler[$s]->getBekenntnis());
+
+
+
+              $notenbogen = new Notenbogen($schueler[$s]);
+
+              $unterrichtsNoten = $notenbogen->getUnterrichtsNoten();
+
+              for($n = 0; $n < sizeof($unterrichtsNoten); $n++) {
+                  if($unterrichtsNoten[$n]->getUnterricht()->isPflichtunterricht()) {
+
+                      $gross = $unterrichtsNoten[$n]->getSchnittGrossOhneRunden();
+                      $klein = $unterrichtsNoten[$n]->getSchnittKleinOhneRunden();
+
+                      $hasNoten = true;
+
+                      if($gross >= 0 && $klein >= 0) {
+                          $schnittGesamt = ($gross+$klein)/2;
+                      }
+                      elseif($gross >= 0) {
+                          $schnittGesamt = $gross;
+                      }
+                      elseif($klein >= 0) {
+                          $schnittGesamt = $klein;
+                      }
+                      else {
+                          // Keine Noten
+                          $schnittGesamt = -1;
+                          $hasNoten = false;
+                      }
+
+                      if($schnittGesamt >= 0) {
+                          $note = round($schnittGesamt, 0, PHP_ROUND_HALF_UP);
+                      }
+
+                      if($hasNoten) {
+
+                          $belegungNotenImport = $schuelerChild->addChild("Belegung_NotenImport");
+                          $fachSubGroup = $belegungNotenImport->addChild("FachSubGroup");
+                          $Schluessel_NotenImport = $fachSubGroup->addChild("Schluessel_NotenImport");
+                          $Schluessel_NotenImport->addChild("Schluessel", $unterrichtsNoten[$n]->getUnterricht()->getFach()->getASDID());
+
+                          $kursdaten = $belegungNotenImport->addChild("Kursdaten");
+
+                          $semesterNotenImport = $kursdaten->addChild("Semester_Notenimport");
+                          $semesterNotenImport->addChild("Nummer", $_REQUEST['aa']);
+
+                          // Sonderfälle prüfen
+                          $isSonderfall = false;
+                          /**
+                           *
+                           * Geschichte und einstündige Sozialkunde (Sk)
+                           * Kunst und Bildnerische Praxis (KuB)
+                           * Musik und Instrument (MuI)
+                           * Sport und Sporttheorie (S-T)
+                           */
+
+                          {
+                              // Geschichte und einstündige Sozialkunde (Sk)
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'G') {
+                                  $skUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'Sk');
+                                  if ($skUnterricht != null) {
+                                      if ($skUnterricht->getUnterricht()->getStunden() == 1) {
+                                          $isSonderfall = true;
+                                      }
+                                  }
+                              }
+
+                              // Geschichte und einstündige Sozialkunde (Sk) - vice versa
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'Sk' && $unterrichtsNoten[$n]->getUnterricht()->getStunden() == 1) {
+                                  $gUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'G');
+                                  if ($gUnterricht != null) {
+                                      $isSonderfall = true;
+                                  }
+                              }
+                          }
+
+                          {
+                              // Sport und Sporttheorie (S-T)
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'Smw') {
+                                  $skUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'S-T');
+                                  if ($skUnterricht != null) {
+                                      $isSonderfall = true;
+                                  }
+                              }
+
+                              // Sport und Sporttheorie (S-T) - vice versa
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'S-T') {
+                                  $gUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'Smw');
+                                  if ($gUnterricht != null) {
+                                      $isSonderfall = true;
+                                  }
+                              }
+                          }
+
+                          {
+                              // Musik und Instrument (MuI)
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'MuI') {
+                                  $isSonderfall = true;
+                              }
+                          }
+
+                          {
+                              // Kunst und Bildnerische Praxis (KuB)
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'KuB') {
+                                  $isSonderfall = true;
+                              }
+                          }
+
+                          if ($isSonderfall) $semesterNotenImport->addAttribute("Sonderfall", "true");
+
+
+                          $leistung = $semesterNotenImport->addChild("Leistung");
+
+                          // if($klein >= 0) die(number_format((float)$klein, 12));
+
+                          if ($klein >= 0) $leistung->addChild("Schnitt_Kleine_Leistung", (string)number_format((float)$klein, 12));
+
+                          if ($gross >= 0) $leistung->addChild("Schnitt_Grosse_Leistung", (string)number_format((float)$gross, 12));
+
+                          if ($unterrichtsNoten[$n]->hasNoten()) $leistung->addChild("Schnitt_Gesamt", (string)number_format((float)$schnittGesamt, 12));
+
+                          if ($unterrichtsNoten[$n]->hasNoten()) $leistung->addChild("Note", $note);
+
+
+                          $semesterNotenImport->addChild("Unterrichtselement", $unterrichtsNoten[$n]->getUnterricht()->getAsvIDForExport());
+
+
+                      }
+                  }
+              }
+
+              $schuelerChild->addChild("Abiturjahr", "2022");
+          }
+      }
+
+
+      header("Content-type: text/xml");
+      if(!DB::isDebug()) header("Content-Disposition: attachment; filename=\"import.xml\"");
+
+      $dom = dom_import_simplexml($xml)->ownerDocument;
+      $dom->formatOutput = true;
+      echo $dom->saveXML();
+
+      exit(0);
+  }
+
+
+    /**
+     * @param UnterrichtsNoten[] $UnterrichtsNoten
+     * @param string$fachKurzform
+     * @return UnterrichtsNoten|null
+     */
+  private function getUnterichtsnotenForFach($UnterrichtsNoten, $fachKurzform) {
+      for($i = 0; $i < sizeof($UnterrichtsNoten); $i++) {
+          if($UnterrichtsNoten[$i]->getUnterricht()->getFach()->getKurzform() == $fachKurzform) return $UnterrichtsNoten[$i];
+      }
+
+      return null;
+  }
+
+  private function exportNotOSToASV() {
+      $zeugnis = NoteZeugnis::getByID($_REQUEST['zeugnisID']);
+
+      if($zeugnis == null) {
+          new errorPage('Ungültige Zeugnis Angabe');
+      }
+
+      $zeugnisKlassen = $zeugnis->getZeugnisKlassen();
+
+
+      $xml = '<?xml version="1.0" encoding="UTF-8"?>
+<zeugnisnoten-import version="0.1">
+';
+
+      $xml .= "<schulen>
+<schule>
+<schulnummer>" . DB::getGlobalSettings()->schulnummer . "</schulnummer>
+<schuelerinnen>";
+
+
+
+      for($k = 0; $k < sizeof($zeugnisKlassen); $k++) {
+          $schueler = $zeugnisKlassen[$k]->getKlasse()->getSchueler(false);
+
+          for($s = 0; $s < sizeof($schueler); $s++) {
+              $xml .= "
+    <schuelerin>
+        <identifizierende_merkmale>
+            <lokales_differenzierungsmerkmal>" . $schueler[$s]->getAsvID() . "</lokales_differenzierungsmerkmal>
+            <familienname></familienname>
+            <rufname></rufname>
+            <geschlecht></geschlecht>
+            <geburtsdatum></geburtsdatum>
+        </identifizierende_merkmale>
+        <zeugnisse>
+            <zeugnis>
+                <zeugnisart>" . $_REQUEST['zeugnis_typ'] . "</zeugnisart>
+                <gefaehrdung>01</gefaehrdung>
+                <ziel_der_jahrgangsstufe>50</ziel_der_jahrgangsstufe>
+                <noten>
+                ";
+
+              $zeugnisNoten = NoteZeugnisNote::getZeugnisNotenForSchueler($zeugnis, $schueler[$s]);#
+
+              for($n = 0; $n < sizeof($zeugnisNoten); $n++) {
+                  $xml .= "
+                    <note>
+                        <fach>
+                            <schluessel>" . $zeugnisNoten[$n]->getFach()->getASDID() . "</schluessel>
+                            <kurzform>" . $zeugnisNoten[$n]->getFach()->getKurzform() . "</kurzform>
+                        </fach>
+                        <notenwert>" . $zeugnisNoten[$n]->getWert() . "</notenwert>
+                        <datum>" . DateFunctions::getNaturalDateFromMySQLDate($zeugnisKlassen[$k]->getDatumAsSQLDate()) . "</datum>
+                    </note>
+                    ";
+
+              }
+
+
+              $xml .= "
+                </noten>
+            </zeugnis>
+        </zeugnisse>
+    </schuelerin>";
+          }
+
+
+      }
+
+
+
+
+      $xml .= "</schuelerinnen>
+</schule>
+</schulen>
+</zeugnisnoten-import>";
+
+      header("Content-type: text/xml");
+      header("Content-Disposition: attachment; filename=\"export.xml\"");
+      echo($xml);
+      exit(0);
+
   }
 
   private function printZeugnis() {
@@ -405,6 +686,14 @@ pause\r\n";
               $ausbildungsrichtung = "Sprachlichen ";
           }
 
+          if($schueler->getAusbildungsrichtung() == "GY_WWG_9") {
+              $ausbildungsrichtung = "Wirtschaftswissenschaftlichen ";
+          }
+
+          if($schueler->getAusbildungsrichtung() == "GY_NG_9") {
+              $ausbildungsrichtung = "Sprachlichen ";
+          }
+
           $templateProcessor->setValue("{AUSBILDUNGSRICHTUNG}", $ausbildungsrichtung);
 
       }
@@ -423,7 +712,7 @@ pause\r\n";
       if(sizeof(schulinfo::getSchulleitungLehrerObjects()) > 0) {
           $ersteSL = schulinfo::getSchulleitungLehrerObjects()[0];
           if($ersteSL->getAsvID() != $zeugnisKlasse->getSchulleitung()->getAsvID()) {
-              $unterschrift = "i. V. " . $zeugnisKlasse->getSchulleitung()->getZeugnisUnterschrift();
+              $unterschrift = "i.A. " . $zeugnisKlasse->getSchulleitung()->getZeugnisUnterschrift();
           }
           else {
               $unterschrift = $zeugnisKlasse->getSchulleitung()->getZeugnisUnterschrift();
@@ -690,20 +979,56 @@ pause\r\n";
 
           $klassen = $zeugnisse[$i]->getZeugnisKlassen();
 
+          $klassenSelectOptions = [];
+
           for($k = 0; $k < sizeof($klassen); $k++) {
               $zeugnisListe .= "<b>" . $klassen[$k]->getKlasse()->getKlassenName() . "</b> - " . DateFunctions::getNaturalDateFromMySQLDate($klassen[$k]->getDatumAsSQLDate()) . " - Notenschluss: " . DateFunctions::getNaturalDateFromMySQLDate($klassen[$k]->getNotenschulussAsSQLDate()) . "<br />";
 
               $zeugnisListe .= "KL: " . ($klassen[$k]->getKlassenleitung() != null ? $klassen[$k]->getKlassenleitung()->getDisplayNameMitAmtsbezeichnung() : "n/a") . "<br />";
               $zeugnisListe .= "SL: " . ($klassen[$k]->getSchulleitung() != null ? $klassen[$k]->getSchulleitung()->getDisplayNameMitAmtsbezeichnung() : "n/a") . "<br />";
+
+              $klassenSelectOptions[] = "<option value=\"" . $klassen[$k]->getID() . "\">" . $klassen[$k]->getKlasse()->getKlassenName() . "</option>";
           }
 
 
           $zeugnisListe .= "</td>";
           $zeugnisListe .= "<td>";
 
-          $zeugnisListe .= "<button type=\"buton\" class=\"btn btn-primary\" onclick=\"window.location.href='index.php?page=NotenverwaltungZeugnisse&action=printZeugnis&zeugnisID=" . $zeugnisse[$i]->getID() . "'\"><i class=\"fa fa-print\"></i> Zeugnisse drucken</button><br />";
+          $zeugnisListe .= "<div class='btn-group'><button type=\"buton\" class=\"btn btn-primary\" onclick=\"window.location.href='index.php?page=NotenverwaltungZeugnisse&action=printZeugnis&zeugnisID=" . $zeugnisse[$i]->getID() . "'\"><i class=\"fa fa-print\"></i> Zeugnisse drucken</button>";
+          $zeugnisListe .= '<button type="button" class="btn btn-danger" onclick="confirmAction(\'Zeugnis wirklich löschen? (WARNUNG: Lösche alle Bermerkungen, Zeugnisnoten etc.)\',\'index.php?page=NotenverwaltungZeugnisse&action=deleteZeugnis&zeugnisID=' . $zeugnisse[$i]->getID() . '\');"><i class="fa fa-trash"></i></button></div>';
 
-          $zeugnisListe .= '<button type="button" class="btn btn-danger" onclick="confirmAction(\'Zeugnis wirklich löschen? (WARNUNG: Lösche alle Bermerkungen, Zeugnisnoten etc.)\',\'index.php?page=NotenverwaltungZeugnisse&action=deleteZeugnis&zeugnisID=' . $zeugnisse[$i]->getID() . '\');"><i class="fa fa-trash"></i> Löschen</button>';
+          $zeugnisListe .= "<hr>";
+
+          $zeugnisListe .= "<p><b>Zeugnisnoten Unter- und Mittelstufe für ASV exportieren</b></p>";
+
+          $zeugnisListe .= "<form action=\"index.php?page=NotenverwaltungZeugnisse&action=exportUnterMittelstufeToASV&zeugnisID=" . $zeugnisse[$i]->getID() . "\" method=\"post\">";
+
+          $zeugnisListe .= "<p><select name='zeugnis_typ' required>
+                    <option disabled>Zeugnisart</option>
+                    <option value='01'>Zwischenzeugnis (Alle Schularten)</option>
+                    <option value='25'>Jahreszeugnis (Alle Schularten)</option>
+                    <option value='11'>AA1 Zeugnis</option>
+                    <option value='12'>AA2 Zeugnis</option>
+                    <option value='13'>AA3 Zeugnis</option>
+                    <option value='14'>AA4 Zeugnis</option>
+                    </select></p>
+                    
+          ";
+          
+          $zeugnisListe .= "<p><button type='submit' class='btn btn-default'><i class=\"fa fa-download\"></i> Export für ASV</button></p>";
+          $zeugnisListe .= "<small>Hinweis: Datei danach mit 7ZIP und einem Passwort zippen, damit es in ASV importiert werden kann.";
+
+          $zeugnisListe .= "<hr>";
+
+          $zeugnisListe .= "<a href=\"index.php?page=NotenverwaltungZeugnisse&action=exportOberstufe&zeugnisID=" . $zeugnisse[$i]->getID() . "&aa=1\" class='btn btn-default'><i class=\"fa fa-download\"></i> Oberstufenexport für ASV AA1</a>";
+          $zeugnisListe .= "<a href=\"index.php?page=NotenverwaltungZeugnisse&action=exportOberstufe&zeugnisID=" . $zeugnisse[$i]->getID() . "&aa=2\" class='btn btn-default'><i class=\"fa fa-download\"></i> Oberstufenexport für ASV AA2</a>";
+          $zeugnisListe .= "<a href=\"index.php?page=NotenverwaltungZeugnisse&action=exportOberstufe&zeugnisID=" . $zeugnisse[$i]->getID() . "&aa=3\" class='btn btn-default'><i class=\"fa fa-download\"></i> Oberstufenexport für ASV AA3</a>";
+          $zeugnisListe .= "<a href=\"index.php?page=NotenverwaltungZeugnisse&action=exportOberstufe&zeugnisID=" . $zeugnisse[$i]->getID() . "&aa=4\" class='btn btn-default'><i class=\"fa fa-download\"></i> Oberstufenexport für ASV AA4</a>";
+
+
+          $zeugnisListe .= "</form>";
+
+
 
           $zeugnisListe . "</td>";
 
@@ -729,7 +1054,7 @@ pause\r\n";
       $SLOptions = $this->getTeacherSelectOptions($SL);
 
       for($i = 0; $i < sizeof($klassen); $i++) {
-          $klassenHTML .= "<tr><td><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_checked\" value=\"1\" checked></td>";
+          $klassenHTML .= "<tr><td><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_checked\" value=\"1\"></td>";
 
           $klassenHTML .= "<td>" . $klassen[$i]->getKlassenName() . "</td>";
 
@@ -745,13 +1070,13 @@ pause\r\n";
 
 
           $klassenHTML .= "<td><select name=\"" . $klassen[$i]->getKlassenName() . "_kl\" class=\"form-control\">" . $this->getTeacherSelectOptions($KL) . "</select>
-                <label><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_kl_gez\" value=\"1\"> Mit gez. Unterschreiben</label>
+                <label><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_kl_gez\" value=\"1\"> i.A. drucken</label>
             </td>";
 
           // Schulleitung
 
           $klassenHTML .= "<td><select name=\"" . $klassen[$i]->getKlassenName() . "_sl\" class=\"form-control\">" . $SLOptions . "</select>
-                <label><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_sl_gez\" value=\"1\"> Mit gez. Unterschreiben</label>
+                <label><input type=\"checkbox\" class=\"icheck\" name=\"" . $klassen[$i]->getKlassenName() . "_sl_gez\" value=\"1\"> i.A. drucken</label>
             </td>";
 
 

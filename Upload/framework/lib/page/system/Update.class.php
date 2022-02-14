@@ -175,6 +175,8 @@ class Update extends AbstractPage
 
     private  function from140to141() {
 
+        DB::getDB()->query('ALTER TABLE `unterricht` ADD `unterrichtElementASVID` VARCHAR(200) NULL DEFAULT NULL AFTER `unterrichtID`;', 1);
+
         // Neue update.php
         //$this->updateTextFileInWWWDir("update.php");
         // Neue startup.php

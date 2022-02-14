@@ -313,7 +313,8 @@ class administrationasvimport extends AbstractPage {
 					"enddatum" => DateFunctions::getMySQLDateFromNaturalDate(strval($unterricht->bis)),
 					'klassenunterricht' => strval($unterricht->in_matrix) == 'true',
 					'koppeltext' => $koppelText,
-					'pseudokoppel' => $isPseudoKoppel
+					'pseudokoppel' => $isPseudoKoppel,
+                    'ueid' => $unterricht->ueid
 			);
 		}
 
@@ -329,7 +330,8 @@ class administrationasvimport extends AbstractPage {
 			"enddatum" => 0,
 			'klassenunterricht' => 0,
 			'koppeltext' => '',
-			'pseudokoppel' => 0
+			'pseudokoppel' => 0,
+            'ueid' => ''
 	);
 
 
@@ -369,7 +371,8 @@ class administrationasvimport extends AbstractPage {
                             unterrichtEnde,
                             unterrichtIsKlassenunterricht,
                             unterrichtKoppelText,
-                            unterrichtKoppelIsPseudo
+                            unterrichtKoppelIsPseudo,
+                            unterrichtElementASVID
                         )
                             values
                         (
@@ -384,7 +387,8 @@ class administrationasvimport extends AbstractPage {
                             '" . self::$unterricht[$i]['enddatum'] . "',
                             " . ((self::$unterricht[$i]['klassenunterricht'] != '' ) ? self::$unterricht[$i]['klassenunterricht'] : 0 ) . ",
                             " . ((self::$unterricht[$i]['koppeltext'] != '') ? "'" . self::$unterricht[$i]['koppeltext']  . "'" : 'null') . ",
-                            '" . self::$unterricht[$i]['pseudokoppel'] . "'
+                            '" . self::$unterricht[$i]['pseudokoppel'] . "',
+                            '" . DB::getDB()->escapeString(self::$unterricht[$i]['ueid']) . "'
                         ) ON DUPLICATE KEY UPDATE
                             unterrichtID=" . (int)self::$unterricht[$i]['id'] . ",
                             unterrichtLehrerID=" . ((self::$unterricht[$i]['lehrer'] != '') ? self::$unterricht[$i]['lehrer'] : 0 ) . ",
@@ -397,7 +401,8 @@ class administrationasvimport extends AbstractPage {
                             unterrichtEnde='" . self::$unterricht[$i]['enddatum'] . "',
                             unterrichtIsKlassenunterricht='" . ((self::$unterricht[$i]['klassenunterricht'] != '') ? self::$unterricht[$i]['klassenunterricht'] : 0 ) . "',
                             unterrichtKoppelText = " . ((self::$unterricht[$i]['koppeltext'] != '') ? "'" . self::$unterricht[$i]['koppeltext']  . "'" : 'null') . ",
-                            unterrichtKoppelIsPseudo='" . self::$unterricht[$i]['pseudokoppel'] . "'
+                            unterrichtKoppelIsPseudo='" . self::$unterricht[$i]['pseudokoppel'] . "',
+                            unterrichtElementASVID='" . DB::getDB()->escapeString(self::$unterricht[$i]['ueid']) . "'
                     ");
                 }
 			}

@@ -1,0 +1,1 @@
+ALTER TABLE `unterricht` ADD `unterrichtElementASVID` VARCHAR(200) NULL DEFAULT NULL AFTER `unterrichtID`;

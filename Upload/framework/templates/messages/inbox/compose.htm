@@ -469,7 +469,9 @@
 					        		<if($allTeacher)><then>
 					        		<tr>
 					        			<td style="width:20%">&nbsp;</td>
-					        			<td><button type="button" onclick="javascript:addRecipientAction({'key':'all_teacher', 'name':'Alle Lehrer'})" class="btn btn-primary">Alle Lehrer aufeinmal</button></td>
+					        			<td><button type="button" onclick="javascript:addRecipientAction({'key':'all_teacher', 'name':'Alle Lehrer'})" class="btn btn-primary">Alle Lehrer</button>
+											<button type="button" onclick="javascript:addRecipientAction({'key':'all_teacher_but_sl', 'name':'Alle Lehrer (ohne Schulleitung)'})" class="btn btn-primary">Alle Lehrer (ohne Schulleitung)</button>
+										</td>
 					        		</tr>
 					        		</then></if>
 					        		<if($schulleitung)><then>

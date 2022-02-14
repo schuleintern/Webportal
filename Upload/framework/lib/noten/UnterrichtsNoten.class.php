@@ -61,9 +61,8 @@ class UnterrichtsNoten {
      * @var NotenCalculcator
      */
     private $notenCalculator = null;
-    
-    
-    
+
+
     
     /**
      * 
@@ -123,6 +122,10 @@ class UnterrichtsNoten {
     public function hasNoten() {
         return $this->hasNoten;
     }
+
+    public function hasKleineNoten() {
+
+    }
     
     /**
      * 
@@ -150,7 +153,15 @@ class UnterrichtsNoten {
     public function getSchnittKlein() {
         return $this->notenCalculator->getSchnittKlein();
     }
-    
+
+    public function getSchnittGrossOhneRunden() {
+        return $this->notenCalculator->getSchnittGrossOhneRunden();
+    }
+
+    public function getSchnittKleinOhneRunden() {
+        return $this->notenCalculator->getSchnittKleinOhneRunden();
+    }
+
     public function getGewichtGross() {
         return $this->notenCalculator->getGewichtGross();
     }

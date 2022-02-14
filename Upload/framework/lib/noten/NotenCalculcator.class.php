@@ -42,13 +42,13 @@ class NotenCalculcator {
      *
      * @var integer
      */
-    private $schnittGross = 0;
+    private $schnittGross = -1;
 
     /**
      *
      * @var integer
      */
-    private $schnittKlein = 0;
+    private $schnittKlein = -1;
 
     /**
      *
@@ -84,9 +84,11 @@ class NotenCalculcator {
      * @param Note $note
      */
     public function addNote($note) {
-        if($note->getWert() == 0) return;       // TODO: Bei Oberstufe übergehen!
-        $this->noten[] = $note;
-        if($note->nurWennBesser()) $this->isNotenNurWennBesser = true;
+        if($note->getWert() == 0 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() < 11) {
+            return;
+        }
+        if(!$note->nurWennBesser()) $this->noten[] = $note;
+        // if(!$note->nurWennBesser()) $this->isNotenNurWennBesser = true;           // Nur bei
     }
 
     /**
@@ -233,7 +235,7 @@ class NotenCalculcator {
         if($ignoreNotenschutz == false && $this->schueler->getNachteilsausgleich() != null && $this->schueler->getNachteilsausgleich()->hasNotenschutz()) {
             if($this->fach != null) {
                 $kf = $this->fach->getKurzform();
-                if($kf == 'E' || $kf == 'F' || $kf == 'L'){
+                if($kf == 'E' || $kf == 'F' || $kf == 'L' || $kf == 'Sp'){
                     $this->isNotenschutzRechnung = true;
                     return $this->getSchnittMitNotenschutz();
                 }
@@ -463,6 +465,14 @@ class NotenCalculcator {
 
     public function getSchnittGross() {
         return self::NoteRunden($this->schnittGross);
+    }
+
+    public function getSchnittGrossOhneRunden() {
+        return $this->schnittGross;
+    }
+
+    public function getSchnittKleinOhneRunden() {
+        return $this->schnittKlein;
     }
 
     public function getSchnittKlein() {
