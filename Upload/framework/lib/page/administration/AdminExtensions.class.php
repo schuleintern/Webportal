@@ -161,8 +161,8 @@ class AdminExtensions extends AbstractPage {
 
 
 						// Install Extension DB
-						if ( file_exists($pathExtensions.$foldername.'/install/database.sql') ) {
-							$sql = file_get_contents($pathExtensions.$foldername.'/install/database.sql');
+						if ( file_exists($pathExtensions.$foldername.'/install/database_v'.$modulJSON->version.'.sql') ) {
+							$sql = file_get_contents($pathExtensions.$foldername.'/install/database_v'.$modulJSON->version.'.sql');
 							$sqlCommands = explode(';', $sql);
 							foreach($sqlCommands as $foo) {
 								$foo = trim($foo);

@@ -28,6 +28,12 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.flex-row-nowrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
 
 .flex-end {
   justify-content: flex-end;

@@ -30,15 +30,13 @@
               <td v-bind:key="j" v-for="(day, j) in daysInWeekFormat"
                 class="">
                 
-                <div class="box_1"
-                  v-bind:key="key" v-for="(date, key) in dates"
-                  v-if="showEintrag(date.ausleiheStunde, hour, date.ausleiheDatum, day[1]) == true" >
-
-                    <div class="">{{date.ausleiheLehrer}} / {{date.ausleiheKlasse}}</div>
-                    <div class="text-bold">{{date.objektName}} <span v-if="date.sub.length > 0"> ({{date.part}}/{{date.sum}})</span> </div>
-                    <div v-if="date.sub.length > 0">{{date.sub}}</div>
-
-                </div>
+                <span v-bind:key="key" v-for="(date, key) in dates" >
+                    <div class="box_1" v-if="showEintrag(date.ausleiheStunde, hour, date.ausleiheDatum, day[1]) == true">
+                      <div class="">{{date.ausleiheLehrer}} / {{date.ausleiheKlasse}}</div>
+                      <div class="text-bold">{{date.objektName}} <span v-if="date.sub.length > 0"> ({{date.part}}/{{date.sum}})</span> </div>
+                      <div v-if="date.sub.length > 0">{{date.sub}}</div>
+                    </div>
+                </span>
                 <button v-if="isAfterToday(day[1], getToday)" v-on:click="addDate(day,hour,$event)"
                   class="eventAdd btn btn-opacity noText width-100p"><i class="fa fa-plus"></i></button>
                   
@@ -75,9 +73,10 @@ export default {
     //console.log(this.firstDayWeek.format('dddd, MMMM Do YYYY'));
 
     var that = this;
-    EventBus.$on('calendar--reload', data => {
+    window.EventBus.$on('calendar--reload', () => {
       that.changedDate();
     });
+
 
   },
   computed: {
@@ -99,7 +98,7 @@ export default {
       var foo = this.$moment(this.firstDayWeek);
       for(let i = 0; i < 7; i++) {
         //arr.push( foo.format('YYYY-MM-D') );
-        arr.push( [foo, this.$moment(foo).format('YYYY-MM-D')] );
+        arr.push( [foo, this.$moment(foo).format('YYYY-MM-DD')] );
         foo = this.$moment(foo).add(1, 'day')
       }
       return arr;
@@ -132,8 +131,10 @@ export default {
   methods: {
 
     showEintrag(ausleiheStunde, hour, ausleiheDatum, day) {
+      //console.log(this.$moment(ausleiheDatum).format('YYYY-MM-DD') + ' == ' + this.$moment(day).format('YYYY-MM-DD'));
       if (ausleiheStunde == hour
-        && this.$moment(ausleiheDatum).format('YYYY-MM-D') == this.$moment(day).format('YYYY-MM-D') ) {
+        && this.$moment(ausleiheDatum).format('YYYY-MM-DD') == this.$moment(day).format('YYYY-MM-DD') ) {
+        console.log('jo');
         return true;
       }
       return false;
@@ -159,8 +160,8 @@ export default {
       this.changedDate();
     },
     addDate: function (day,hour,$event) {
-      
-      EventBus.$emit('calendar--addDate', {
+
+      window.EventBus.$emit('calendar--addDate', {
         day: day,
         hour: hour
       });
@@ -168,7 +169,7 @@ export default {
       return false;
     },
     changedDate: function () {
-      EventBus.$emit('calendar--changedDate', {
+      window.EventBus.$emit('calendar--changedDate', {
         von: this.firstDayWeek.unix(),
         bis: this.lastDayWeek.unix()
       });

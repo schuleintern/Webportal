@@ -5,16 +5,23 @@
 	        	{$tabs}
 	        </ul>
 	        <div class="tab-content">
-	        	<a href="$selfURL&network=$network&action=printAllNotPrinted"><i class="fa fa-file-pdf"></i> Noch nicht gedruckte Briefe drucken</a> (<b>Achtung: Diese Funktion steht nach einem ASV Import nur einmal zur Verfügung! Am besten die PDF Datei abspeichern!</b>)<br />
-				<a href="$selfURL&network=$network&action=printAll"><i class="fa fa-file-pdf"></i> Alle Briefe drucken</a><br />
-				
+
+				<br>
+				<a class="si-btn" href="$selfURL&network=$network&action=printAll"><i class="fa fa-file-pdf"></i> Alle Briefe drucken</a>
+
+				<div class="si-hinweis">
+					<p>
+					<b>Achtung:</b> Diese Funktion steht nach einem ASV Import nur einmal zur Verfügung! Am besten die PDF Datei abspeichern!</b>
+					</p>
+	        		<a class="si-btn" href="$selfURL&network=$network&action=printAllNotPrinted"><i class="fa fa-file-pdf"></i> Noch nicht gedruckte Briefe drucken</a>
+				</div>
+
+
 				<if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE" && $network == 'ELTERN')><then>
-				
-					<button class="btn btn-danger" onclick="confirmAction('Sollen wirklich <u>alle</u> Registrierungscodes neu generiert werden?','$selfURL&network=ELTRERN&action=regenerateAllElternCodes')"><i class="fa fas fa-sync-alt"></i> Alle Registrierungscodes widerrufen und neu generieren</button>
-				
+					<button class="si-btn si-btn-red" onclick="confirmAction('Sollen wirklich <u>alle</u> Registrierungscodes neu generiert werden?','$selfURL&network=ELTRERN&action=regenerateAllElternCodes')"><i class="fa fas fa-sync-alt"></i> Alle Registrierungscodes widerrufen und neu generieren</button>
 				</then></if>
 				
-				<table id="users" class="table table-bordered table-striped">
+				<table id="users" class="si-table">
 					<thead>
 						<tr>
 							<th>Klasse / Kürzel</th>

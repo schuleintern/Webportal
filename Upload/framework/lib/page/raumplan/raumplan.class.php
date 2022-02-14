@@ -265,7 +265,7 @@ class raumplan extends AbstractPage
 
     public static function getSiteDisplayName()
     {
-        return 'Raumplan';
+        return 'Raumplan (deprecated)';
     }
 
     /**
