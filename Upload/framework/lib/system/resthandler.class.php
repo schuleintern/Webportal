@@ -219,6 +219,11 @@ class resthandler {
                 $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
             }
         }
+        if ($_GET) {
+            foreach($_GET as $key => $val) {
+                $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
+            }
+        }
         return $postData;
     }
 

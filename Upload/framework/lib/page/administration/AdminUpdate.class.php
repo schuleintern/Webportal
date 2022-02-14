@@ -128,6 +128,12 @@ class AdminUpdate extends AbstractPage {
             die('Installationsdatei konnte nicht entpackt werden.');
         }
 
+        if (file_exists('../data/update/Update/www/update.php')) {
+            if ( !rename('../data/update/Update/www/update.php', '../www/update.php') ) {
+                die('Installationsdatei konnte nicht kopiert werden.');
+            }
+        }
+
         $random = random_int(100000,999999);
 
         // Wartungsinformation eintragen

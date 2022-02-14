@@ -131,5 +131,6 @@ class GlobalSettings
      * Domain des Extension Servers
      * @var string
      */
-    public $extensionsServer = "https://extensions.schule-intern.de//";
+    public $extensionsServer = "https://extensions.schule-intern.de/";
+
 }

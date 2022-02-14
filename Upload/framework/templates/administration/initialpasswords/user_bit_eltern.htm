@@ -13,9 +13,9 @@
 			<else>Noch nicht verwendet</else>
 		</if>
 		<br />
-		<button class="btn btn-danger btn-xs" onclick="confirmAction('Sollen wirklich dieser Registrierungscode (für {$user['schuelerRufname']} {$user['schuelerName']}) neu generiert werden?','$selfURL&network=ELTRERN&action=regenerateCode&schuelerAsvID={$user['schuelerAsvID']}')"><i class="fa fas fa-sync-alt"></i> Widerrufen und neu generieren</button>
+		<button class="si-btn si-btn-red" onclick="confirmAction('Sollen wirklich dieser Registrierungscode (für {$user['schuelerRufname']} {$user['schuelerName']}) neu generiert werden?','$selfURL&network=ELTRERN&action=regenerateCode&schuelerAsvID={$user['schuelerAsvID']}')"><i class="fa fas fa-sync-alt"></i> Widerrufen und neu generieren</button>
 	</td>
 	<td><if($user['codePrinted'] > 0)><then>Gedruckt</then><else>Noch nicht gedruckt</else></if></td>
 	
-	<td><a href="$selfURL&action=printLetter&schuelerAsvID={$user['schuelerAsvID']}"><i class="fa fa-file-pdf"></i> Code Brief ausdrucken</a></td>
+	<td><a class="si-btn" href="$selfURL&action=printLetter&schuelerAsvID={$user['schuelerAsvID']}"><i class="fa fa-file-pdf"></i> Code Brief ausdrucken</a></td>
 </tr>
