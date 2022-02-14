@@ -73,8 +73,8 @@ class NotenverwaltungZeugnisse extends AbstractPage {
 
       $zeugnisKlassen = $zeugnis->getZeugnisKlassen();
 
-      $xml = new SimpleXMLElement("<import></import>");
-      $xml->addAttribute("Generierungsdatum", date("Y-m-d+H:i"));
+      $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Import></Import>');
+      $xml->addAttribute("Generierungsdatum", date("Y-m-d") . "+02:00");
       $xml->addAttribute("Schemaversion", "1.0");
       $xml->addAttribute("Schuljahr", DB::getSettings()->getValue('general-schuljahr'));
 
@@ -87,6 +87,14 @@ class NotenverwaltungZeugnisse extends AbstractPage {
               $schuelerChild = $xml->addChild("Schueler_Notenimport");
               $schuelerStammdaten = $schuelerChild->addChild("Stammdaten");
               $schuelerStammdaten->addChild("Lokales_Differenzierungsmerkmal", $schueler[$s]->getAsvID());
+              $schuelerStammdaten->addChild("Name", $schueler[$s]->getName());
+              $schuelerStammdaten->addChild("Vorname", $schueler[$s]->getRufname());
+              $schuelerStammdaten->addChild("Geschlecht", ($schueler[$s]->getGeschlecht() == 'w' ? 'weiblich' : 'männlich'));
+              $schuelerStammdaten->addChild("Geburtsdatum", $schueler[$s]->getGeburtstagAsSQLDate() . "+02:00");
+
+              $schuelerStammdaten->addChild("Bekenntnis", $schueler[$s]->getBekenntnis());
+
+
 
               $notenbogen = new Notenbogen($schueler[$s]);
 
@@ -94,86 +102,11 @@ class NotenverwaltungZeugnisse extends AbstractPage {
 
               for($n = 0; $n < sizeof($unterrichtsNoten); $n++) {
                   if($unterrichtsNoten[$n]->getUnterricht()->isPflichtunterricht()) {
-                      $belegungNotenImport = $schuelerChild->addChild("Belegung_NotenImport");
-                      $fachSubGroup = $belegungNotenImport->addChild("FachSubGroup");
-                      $Schluessel_NotenImport = $fachSubGroup->addChild("Schluessel_NotenImport");
-                      $Schluessel_NotenImport->addChild("Schluessel", "0500401200");
-
-                      $kursdaten = $belegungNotenImport->addChild("Kursdaten");
-
-                      $semesterNotenImport = $kursdaten->addChild("Semester_Notenimport");
-                      $semesterNotenImport->addChild("Nummer", $_REQUEST['aa']);
-
-                      // Sonderfälle prüfen
-                      $isSonderfall = false;
-                      /**
-                       *
-                       * Geschichte und einstündige Sozialkunde (Sk)
-                       * Kunst und Bildnerische Praxis (KuB)
-                       * Musik und Instrument (MuI)
-                       * Sport und Sporttheorie (S-T)
-                       */
-
-                      {
-                          // Geschichte und einstündige Sozialkunde (Sk)
-                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'G') {
-                              $skUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'Sk');
-                              if ($skUnterricht != null) {
-                                  if ($skUnterricht->getUnterricht()->getStunden() == 1) {
-                                      $isSonderfall = true;
-                                  }
-                              }
-                          }
-
-                          // Geschichte und einstündige Sozialkunde (Sk) - vice versa
-                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'Sk' && $unterrichtsNoten[$n]->getUnterricht()->getStunden() == 1) {
-                              $gUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'G');
-                              if ($gUnterricht != null) {
-                                  $isSonderfall = true;
-                              }
-                          }
-                      }
-
-                      {
-                          // Sport und Sporttheorie (S-T)
-                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'Smw') {
-                              $skUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'S-T');
-                              if ($skUnterricht != null) {
-                                  $isSonderfall = true;
-                              }
-                          }
-
-                          // Sport und Sporttheorie (S-T) - vice versa
-                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'S-T') {
-                              $gUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'Smw');
-                              if ($gUnterricht != null) {
-                                  $isSonderfall = true;
-                              }
-                          }
-                      }
-
-                      {
-                          // Musik und Instrument (MuI)
-                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'MuI') {
-                              $isSonderfall = true;
-                          }
-                      }
-
-                      {
-                          // Kunst und Bildnerische Praxis (KuB)
-                          if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'KuB') {
-                              $isSonderfall = true;
-                          }
-                      }
-
-                      if($isSonderfall) $semesterNotenImport->addAttribute("Sonderfall", "true");
-
-                      $leistung = $semesterNotenImport->addChild("Leistung");
 
                       $gross = $unterrichtsNoten[$n]->getSchnittGrossOhneRunden();
                       $klein = $unterrichtsNoten[$n]->getSchnittKleinOhneRunden();
 
-                      $hasNoten = false;
+                      $hasNoten = true;
 
                       if($gross >= 0 && $klein >= 0) {
                           $schnittGesamt = ($gross+$klein)/2;
@@ -187,29 +120,122 @@ class NotenverwaltungZeugnisse extends AbstractPage {
                       else {
                           // Keine Noten
                           $schnittGesamt = -1;
+                          $hasNoten = false;
                       }
 
                       if($schnittGesamt >= 0) {
                           $note = round($schnittGesamt, 0, PHP_ROUND_HALF_UP);
                       }
 
-                      if($klein >= 0) $leistung->addChild("Schnitt_Kleine_Leistung", $klein);
-                      if($gross >= 0)$leistung->addChild("Schnitt_Grosse_Leistung", $gross);
-                      if($unterrichtsNoten[$n]->hasNoten()) $leistung->addChild("Schnitt_Gesamt", $schnittGesamt);
-                      if($unterrichtsNoten[$n]->hasNoten()) $leistung->addChild("Note", $note);
+                      if($hasNoten) {
+
+                          $belegungNotenImport = $schuelerChild->addChild("Belegung_NotenImport");
+                          $fachSubGroup = $belegungNotenImport->addChild("FachSubGroup");
+                          $Schluessel_NotenImport = $fachSubGroup->addChild("Schluessel_NotenImport");
+                          $Schluessel_NotenImport->addChild("Schluessel", $unterrichtsNoten[$n]->getUnterricht()->getFach()->getASDID());
+
+                          $kursdaten = $belegungNotenImport->addChild("Kursdaten");
+
+                          $semesterNotenImport = $kursdaten->addChild("Semester_Notenimport");
+                          $semesterNotenImport->addChild("Nummer", $_REQUEST['aa']);
+
+                          // Sonderfälle prüfen
+                          $isSonderfall = false;
+                          /**
+                           *
+                           * Geschichte und einstündige Sozialkunde (Sk)
+                           * Kunst und Bildnerische Praxis (KuB)
+                           * Musik und Instrument (MuI)
+                           * Sport und Sporttheorie (S-T)
+                           */
+
+                          {
+                              // Geschichte und einstündige Sozialkunde (Sk)
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'G') {
+                                  $skUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'Sk');
+                                  if ($skUnterricht != null) {
+                                      if ($skUnterricht->getUnterricht()->getStunden() == 1) {
+                                          $isSonderfall = true;
+                                      }
+                                  }
+                              }
+
+                              // Geschichte und einstündige Sozialkunde (Sk) - vice versa
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'Sk' && $unterrichtsNoten[$n]->getUnterricht()->getStunden() == 1) {
+                                  $gUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'G');
+                                  if ($gUnterricht != null) {
+                                      $isSonderfall = true;
+                                  }
+                              }
+                          }
+
+                          {
+                              // Sport und Sporttheorie (S-T)
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'Smw') {
+                                  $skUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'S-T');
+                                  if ($skUnterricht != null) {
+                                      $isSonderfall = true;
+                                  }
+                              }
+
+                              // Sport und Sporttheorie (S-T) - vice versa
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'S-T') {
+                                  $gUnterricht = $this->getUnterichtsnotenForFach($unterrichtsNoten, 'Smw');
+                                  if ($gUnterricht != null) {
+                                      $isSonderfall = true;
+                                  }
+                              }
+                          }
+
+                          {
+                              // Musik und Instrument (MuI)
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'MuI') {
+                                  $isSonderfall = true;
+                              }
+                          }
+
+                          {
+                              // Kunst und Bildnerische Praxis (KuB)
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'KuB') {
+                                  $isSonderfall = true;
+                              }
+                          }
+
+                          if ($isSonderfall) $semesterNotenImport->addAttribute("Sonderfall", "true");
 
 
-                      $semesterNotenImport->addChild("Unterrichtselement", $unterrichtsNoten[$n]->getUnterricht()->getAsvIDForExport());
+                          $leistung = $semesterNotenImport->addChild("Leistung");
 
+                          // if($klein >= 0) die(number_format((float)$klein, 12));
+
+                          if ($klein >= 0) $leistung->addChild("Schnitt_Kleine_Leistung", (string)number_format((float)$klein, 12));
+
+                          if ($gross >= 0) $leistung->addChild("Schnitt_Grosse_Leistung", (string)number_format((float)$gross, 12));
+
+                          if ($unterrichtsNoten[$n]->hasNoten()) $leistung->addChild("Schnitt_Gesamt", (string)number_format((float)$schnittGesamt, 12));
+
+                          if ($unterrichtsNoten[$n]->hasNoten()) $leistung->addChild("Note", $note);
+
+
+                          $semesterNotenImport->addChild("Unterrichtselement", $unterrichtsNoten[$n]->getUnterricht()->getAsvIDForExport());
+
+
+                      }
                   }
               }
 
+              $schuelerChild->addChild("Abiturjahr", "2022");
           }
       }
 
 
       header("Content-type: text/xml");
-      echo($xml->asXML());
+      if(!DB::isDebug()) header("Content-Disposition: attachment; filename=\"import.xml\"");
+
+      $dom = dom_import_simplexml($xml)->ownerDocument;
+      $dom->formatOutput = true;
+      echo $dom->saveXML();
+
       exit(0);
   }
 
