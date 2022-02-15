@@ -32,7 +32,7 @@ class ElternMailSenderCron extends AbstractCron {
 			    if($user != null && $user->getEMail() != '' && $user->receiveEMail()) {
 			        // Mail senden
 			        
-			        $betreff = DB::getGlobalSettings()->siteNamePlain . " - Neue Nachricht";
+			        $betreff = DB::getGlobalSettings()->siteNamePlain . "";
 
 			        if(!$mails[$i]->isConfidential()) $betreff .= "- " . $mails[$i]->getSubject();
 
