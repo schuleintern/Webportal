@@ -993,15 +993,25 @@ abstract class AbstractPage {
 		$html .= '<div class="flex-3 page-submenue" style="height: 3.2rem;">';
 		if (is_array($submenu) && count($submenu) >= 1) {
 			foreach($submenu as $item) {
+                $kill = false;
                 $item = (array)$item;
                 if ($item['hidden']) {
+                    $kill = true;
                     continue;
                 }
 				$class = '';
 				if ( $item['admin'] == 'true' && $this->isAnyAdmin == false ) {
+                    $kill = true;
 					continue;
 				}
-				if ($item['url'] && $item['title']) {
+                if ($item['acl']  && $this->isAnyAdmin == false) {
+                    $userType = DB::getSession()->getUser()->getUserTyp(true);
+                    if ( $userType && !in_array($userType, (array)$item['acl']) ) {
+                        $kill = true;
+                        continue;
+                    }
+                }
+				if ($kill == false && $item['url'] && $item['title']) {
                     $link = 'index.php?page='.$item['url']->page;
                     $params_str = [];
                     if ($item['url']->params && count(get_object_vars($item['url']->params)) ) {
