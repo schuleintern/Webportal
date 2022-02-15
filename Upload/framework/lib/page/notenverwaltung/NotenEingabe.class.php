@@ -906,8 +906,18 @@ class NotenEingabe extends AbstractPage {
           $presetNote = 0;
 
 
+          $normalCalcNote = 0;
 
-          $normalCalcNote = round($gesamtSchnitt, 0, PHP_ROUND_HALF_DOWN);
+
+
+          if($schueler[$i]->getKlassenObjekt()->getKlassenstufe() >= 11) {
+              if($gesamtSchnitt < 1) $normalCalcNote = 0;
+              else $normalCalcNote = round($gesamtSchnitt, 0, PHP_ROUND_HALF_UP);
+          }
+          else {
+              $normalCalcNote = round($gesamtSchnitt, 0, PHP_ROUND_HALF_DOWN);
+          }
+
 
           if($note == null) {
               $displayNote = $normalCalcNote;
@@ -932,12 +942,17 @@ class NotenEingabe extends AbstractPage {
               $presetNote = $note->getWert();
               $presetKommentar = str_replace("'","\'",str_replace("\r\n","\\n",$note->getPaedBegruendung()));
 
-              $buttonInnerHTML .= "<font size=\"+2\" color=\"" . Note::getNotenColor($note->getWert()) . "\">";
+              $buttonInnerHTML .= "<font size=\"+2\" color=\"" . Note::getNotenColor($note->getWert(), $note->getSchueler()->getKlassenObjekt()->getKlassenstufe()) . "\">";
 
 
-              if($note->getWert() >= 5) {
+              if($note->getWert() >= 5 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() < 11) {
                   $buttonInnerHTML .= " <i class=\"fa fa-exclamation-triangle\"></i> ";
               }
+
+              if($note->getWert() < 5 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() >= 11) {
+                  $buttonInnerHTML .= " <i class=\"fa fa-exclamation-triangle\"></i> ";
+              }
+
               $buttonInnerHTML .= $note->getWert();
 
 
@@ -1085,12 +1100,23 @@ class NotenEingabe extends AbstractPage {
       
       switch($_REQUEST['mode']) {
           case 'add':
+
+              if($_REQUEST['fach'] == 'alle_faecher_der_schule') {
+                  $faecher = fach::getAll();
+                  for($i = 0; $i < sizeof($faecher); $i++) {
+                      NoteGewichtung::addGewichtung($faecher[$i], $_POST['jgs'], $_POST['gewichtGross'], $_POST['gewichtKlein']);
+                  }
+              }
+              else {
+                  $fach = fach::getByKurzform($_REQUEST['fach']);
+
+
+                  if($fach != null)
+                      NoteGewichtung::addGewichtung($fach, $_POST['jgs'], $_POST['gewichtGross'], $_POST['gewichtKlein']);
+
+              }
               
-              $fach = fach::getByKurzform($_REQUEST['fach']);
-              
-              if($fach != null)              
-                  NoteGewichtung::addGewichtung($fach, $_POST['jgs'], $_POST['gewichtGross'], $_POST['gewichtKlein']);
-              
+
               header("Location: $selfURL");
               exit(0);
           break;

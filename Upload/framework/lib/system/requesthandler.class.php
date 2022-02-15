@@ -19,7 +19,8 @@ class requesthandler {
   	    'NotenWahlunterricht',
   	    'NotenZeugnisKlassenleitung',
   	    'NotenBerichte',
-  	    'NotenRespizienz'
+  	    'NotenRespizienz',
+        'NotenverwaltungSchulleitung'
   	],
     'ausweis' => [
         'Ausweis'

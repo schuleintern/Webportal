@@ -20,6 +20,7 @@ class NoteZeugnis {
         $this->art = $data['zeugnisArt'];
         $this->id = $data['zeugnisID'];
         $this->name = $data['zeugnisName'];
+        $this->datum = $data['zeugnisDatum'];
     }
 
     public function getID() {

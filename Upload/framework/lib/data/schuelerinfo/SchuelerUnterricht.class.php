@@ -109,6 +109,22 @@ class SchuelerUnterricht {
 	public function getID() {
 		return $this->data['unterrichtID'];
 	}
+
+    /**
+     * ASV ID des Unterrichtelements (Format 0050569c/2ee6/177b4a7d/1d5/1001)
+     * @return string
+     */
+    public function getAsvID() {
+        return $this->data['unterrichtElementASVID'];
+    }
+
+    /**
+     * ASV ID des Unterrichtelements (Format 0050569c-2ee6-177b4a7d-1d5-1001)
+     * @return string
+     */
+    public function getAsvIDForExport() {
+        return str_replace("/","-", $this->getAsvID());
+    }
 	
 	public function isPflichtunterricht() {
 	    return $this->data['unterrichtArt'] == 'Pflichtunterricht'|| $this->data['unterrichtArt'] == 'Wahlpflichtunterricht' || $this->data['unterrichtArt'] == 'Qualifikationsphase';
@@ -121,6 +137,7 @@ class SchuelerUnterricht {
 	public function isForderunterricht() {
 	    return $this->data['unterrichtArt'] == 'Förderunterricht';
 	}
+
 	/**
 	 * 
 	 * @return klasse[]

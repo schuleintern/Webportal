@@ -3,6 +3,7 @@
 class RecipientHandler {
 	private static $knownRecipientClasses = [
 		'AllTeacherRecipient',
+        'AllTeacherButSchulleitungRecipient',
 		'PupilsOfGrade',
 		'TeacherRecipient',
 		'FachschaftRecipient',
