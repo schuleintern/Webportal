@@ -178,9 +178,9 @@ class Update extends AbstractPage
         DB::getDB()->query('ALTER TABLE `unterricht` ADD `unterrichtElementASVID` VARCHAR(200) NULL DEFAULT NULL AFTER `unterrichtID`;', 1);
 
         // Neue update.php
-        //$this->updateTextFileInWWWDir("update.php");
+        $this->updateTextFileInWWWDir("update.php");
         // Neue startup.php
-        //$this->updateTextFileInWWWDir("startup.php");
+        $this->updateTextFileInWWWDir("startup.php");
 
         DB::getDB()->query("ALTER TABLE `raumplan_stunden` ADD COLUMN `createdBy` int(11) DEFAULT NULL;");
         DB::getDB()->query("ALTER TABLE `raumplan_stunden` ADD COLUMN `createdTime` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP;");
