@@ -41,6 +41,7 @@
     white-space: nowrap;
     border: 1px solid #b7c7ce;
     color: #000;
+    text-align: left;
 }
 .si-box-green {
     background-color: #00a65a;
@@ -220,12 +221,28 @@
     border: 1px solid #3c8dbc;
     color: #000;
 }
+.si-form .si-clock {
+    width: 20rem;
+    display: flex;
+}
+.si-form .si-clock .hours {
+    flex:1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: none;
+    text-align: right;
+}
+.si-form .si-clock .minutes {
+    flex:1;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-position: 80% center;
+}
 
 
-
-/**
-    MODAL
- */
+    /**
+        MODAL
+     */
 .si-modal {
     position: fixed;
     z-index: 99999999999;
@@ -468,6 +485,7 @@
     min-width: 23rem;
     text-align: left;
     cursor: pointer;
+    color: #000 !important;
 }
 .si-user .avatar {
 

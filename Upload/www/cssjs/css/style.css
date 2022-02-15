@@ -294,7 +294,7 @@ button.btn-blau {
 }
 
 .text-bold {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 .text-lineHeight-m {
   line-height: 200%;
