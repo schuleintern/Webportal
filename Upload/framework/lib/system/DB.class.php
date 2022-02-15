@@ -142,7 +142,7 @@ class DB {
 	}
 
 	public static function getVersion() {
-		return '1.4.1';
+		return '1.4.2';
 	}
 
 	/**
