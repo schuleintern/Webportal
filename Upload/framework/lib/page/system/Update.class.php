@@ -182,6 +182,11 @@ class Update extends AbstractPage
         // Neue startup.php
         //$this->updateTextFileInWWWDir("startup.php");
 
+        DB::getDB()->query("ALTER TABLE `raumplan_stunden` ADD COLUMN `createdBy` int(11) DEFAULT NULL;");
+        DB::getDB()->query("ALTER TABLE `raumplan_stunden` ADD COLUMN `createdTime` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP;");
+        DB::getDB()->query("ALTER TABLE `raumplan_stunden` ADD COLUMN `state` tinyint(1) DEFAULT NULL;");
+
+
     }
 
 
