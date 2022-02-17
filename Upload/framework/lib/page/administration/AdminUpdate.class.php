@@ -134,7 +134,7 @@ class AdminUpdate extends AbstractPage {
             }
         }
 
-        $random = random_int(100000,999999);
+        $random = random_int(100,999); // SLOW FUNCTION @ chris 02/2022
 
         // Wartungsinformation eintragen
 
