@@ -456,6 +456,18 @@
     background-color: #f39c12;
 }
 
+.si-btn-off {
+    cursor: inherit;
+    box-shadow: none;
+    color: #8aa4af;
+    border: 1px solid #b7c7ce;
+    background-color: rgba(0,0,0,0);
+}
+.si-btn-off:hover {
+    background-color: rgba(0,0,0,0);
+}
+
+
 .si-btn-multiple .si-btn {
     border-radius: 0.3rem;
 }
