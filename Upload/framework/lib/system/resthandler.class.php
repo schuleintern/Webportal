@@ -40,6 +40,7 @@ class resthandler {
 
         $authHeaderFound = false;
         $allowed = false;
+        $type = false;
 
         $headers = getallheaders();
         $method = $_SERVER['REQUEST_METHOD']; // GET or POST
@@ -59,6 +60,7 @@ class resthandler {
                 include_once(PATH_LIB."rest".DS."Rest" . $request[0] . ".class.php");
                 $allowed = true;
                 $classname = 'Rest' . $request[0];
+                $type = 'page';
             }
 
         } 
@@ -70,6 +72,7 @@ class resthandler {
                 include_once(PATH_EXTENSIONS.$module['folder'].'/rest/'.$request[1].'.php');
                 $allowed = true;
                 $classname = $request[1];
+                $type = 'extension';
                 define("PATH_EXTENSION", PATH_EXTENSIONS.$module['folder'].DS);
               }
             }
@@ -89,7 +92,7 @@ class resthandler {
 
             PAGE::setFactory( new FACTORY() );
 
-            $action = new $classname();
+            $action = new $classname($type);
 
             if($method != $action->getAllowedMethod()) {
                 $result = [
