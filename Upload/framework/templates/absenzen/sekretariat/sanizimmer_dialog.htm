@@ -54,7 +54,7 @@
 		        </div>
 		        
 		         <div class="tab-pane" id="tab3sanizimmer<expression>$schueler->getAsvID()</expression>">
-					<if(AbsenzSchuelerInfo::getComment($schueler) != "")><then><pre>AbsenzSchuelerInfo::getComment($schueler)</pre></then><else>Kein Kommentar hinterlegt!</else></if>
+					 <if(AbsenzSchuelerInfo::getComment($schueler) != "")><then><pre><expression>AbsenzSchuelerInfo::getComment($schueler)</expression></pre></then><else>Kein Kommentar hinterlegt!</else></if>
 		        </div>
 			</div>
 		</div>
