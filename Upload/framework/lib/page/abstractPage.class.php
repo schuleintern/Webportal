@@ -64,7 +64,10 @@ abstract class AbstractPage {
 
 		// Load Extension JSON and set Defaults
 		if ($this->extension) {
-            $path = str_replace(DS.'admin','',PATH_EXTENSION);
+
+            $path = str_replace(DS.'admin/','',PATH_EXTENSION).DS;
+
+
 			$this->extension['json'] = self::getExtensionJSON($path.'extension.json');
 			if ( isset($this->extension['json']) ) {
 
@@ -1021,13 +1024,14 @@ abstract class AbstractPage {
                         $params_str = join('&',$params_str);
                         $link .= '&'.$params_str;
                     }
+                    $class = '';
 					if (DS.$link == URL_FILE) {
-                        $class = 'active';
+                        $class .= 'active';
 					}
                     if ($item['admin']) {
-                        $class = ' admin';
+                        $class .= ' admin';
                     }
-					$html .= '<a href="'.$link.'"  class="margin-r-xs '.$class.'">';
+					$html .= '<a href="'.$link.'"  class=" '.$class.'">';
 					if ($item['icon']) {
 						$html .= '<i class="margin-r-s '.$item['icon'].'"></i>';
 					}
