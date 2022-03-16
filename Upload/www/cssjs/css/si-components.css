@@ -359,8 +359,11 @@
 .si-table.si-table-style-firstLeft tbody td:first-child,
 .si-table.si-table-style-firstLeft .tbody .td:first-child,
 .si-table.si-table-style-firstLeft thead td:first-child,
-.si-table.si-table-style-firstLeft .thead .td:first-child{
+.si-table.si-table-style-firstLeft .thead .td:first-child,
+.si-table.si-table-style-firstLeft thead th:first-child,
+.si-table.si-table-style-firstLeft .thead .th:first-child{
     text-align: left;
+    padding-left: 2.5rem;
 }
 
 .si-table.si-table-style-allLeft tbody td,
@@ -597,8 +600,8 @@
 .si-userselect .si-userselect-modal {
     position: fixed;
     z-index: 99999999999;
-    top: 0;
-    left: 0;
+    top: -50%;
+    left: -50%;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.85);
@@ -610,20 +613,41 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     background-color: #fff;
     */
-    width: 50vw;
+    width: 80vw;
     min-height: 20vh;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    left: 25vw;
+    left: 10vw;
     border-radius: 3rem;
 }
 .si-userselect .si-userselect-modal .si-userselect-modal-box .si-userselect-modal-content {
     padding: 3rem;
     max-height: 80vh;
     overflow-y: auto;
+    display: flex;
 }
-
-.si-userselect   li:nth-child(even) {
+.si-userselect .si-userselect-modal-content .list {
+    flex:3;
+    height: 70vh;
+}
+.si-userselect .si-userselect-modal-content .list .userlist {
+    height: 65vh;
+    overflow-y: auto;
+}
+.si-userselect  .si-userselect-modal-content .list li {
+    cursor: pointer;
+}
+.si-userselect  .si-userselect-modal-content .list li:nth-child(even) {
     background-color: rgba(0,0,0,0.15) !important;
 }
+.si-userselect .si-userselect-modal-content .form {
+    flex: 2;
+    height: 70vh;
+}
+.si-userselect .si-userselect-modal-content .form .selected {
+    height: 25vh;
+    overflow-y: auto;
+}
+
+
