@@ -69,7 +69,62 @@ class FileUpload {
 	public function getUploadTime() {
 		return $this->data['uploadTime'];
 	}
-	
+
+    /**
+     * Direkter Pfad zur Datei
+     * @return string
+     */
+    public function getFilePath() {
+        return "../data/uploads/" . $this->getID() . ".dat";
+    }
+
+    /**
+     *
+     * @return user|NULL
+     */
+    public function getUploader() {
+        return user::getUserByID($this->data['uploaderUserID']);
+    }
+
+    public function getID() {
+        return $this->data['uploadID'];
+    }
+
+    public function getFileSize() {
+        if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
+            return 'n/a';
+        }
+        return str_replace(".",",",round(filesize("../data/uploads/" . $this->getID() . ".dat") / 1024 / 1024,2)) . " MB";
+    }
+
+    public function getCollection() {
+        $collection = [
+            "name" => $this->getFileName(),
+            "ext" => $this->getExtension(),
+            "mime" => $this->getMimeType(),
+            "time" => date('d.m.Y', $this->getUploadTime() ),
+            "timestamp" => $this->getUploadTime(),
+            "path" => $this->getFilePath(),
+            "user" => false,
+            "id" => $this->getID(),
+            "exist" => $this->isExist(),
+            "size" => $this->getFileSize()
+        ];
+        $user = $this->getUploader();
+        if ($user) {
+            $collection['user'] = $user->getCollection(false, false);
+        }
+        return $collection;
+
+    }
+
+    public function isExist() {
+        if ( file_exists($this->getFilePath())) {
+            return true;
+        }
+        return false;
+    }
+
 	public function isImage() {
 	    return in_array($this->data['uploadFileMimeType'], self::$mimesPicture);
 	}
@@ -122,25 +177,7 @@ class FileUpload {
 		return DB::getGlobalSettings()->urlToIndexPHP . "?page=FileDownload&uploadID=" . $this->getID() . "&accessCode=" . $this->getAccessCode() . (($forceDownload) ? ("&fd=1") : (""));
 	}
 	
-	/**
-	 * Direkter Pfad zur Datei
-	 * @return string
-	 */
-	public function getFilePath() {
-	    return "../data/uploads/" . $this->getID() . ".dat";
-	}
-	
-	/**
-	 * 
-	 * @return user|NULL
-	 */
-	public function getUploader() {
-		return user::getUserByID($this->data['uploaderUserID']);
-	}
-	
-	public function getID() {
-		return $this->data['uploadID'];
-	}
+
 	
 	public function delete() {
 		@unlink('../data/uploads/' . $this->getID() . ".dat");
@@ -170,15 +207,7 @@ class FileUpload {
 		}
 	}
 	
-	public function getFileSize() {
-		if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
-			return 'n/a';
-		}
 
-
-		
-		return str_replace(".",",",round(filesize("../data/uploads/" . $this->getID() . ".dat") / 1024 / 1024,2)) . " MB";
-	}
 	
 	
 	public function sendFile() {
@@ -315,6 +344,21 @@ class FileUpload {
 		
 		return null;
 	}
+
+    /**
+     *
+     * @return FileUpload|null
+     */
+    public static function getAll() {
+        $ret = [];
+        $dataSQL = DB::getDB()->query("SELECT * FROM uploads");
+        while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
+            $ret[] = new FileUpload($data);
+        }
+
+        return $ret;
+    }
+
 	
 	/**
 	 * 
