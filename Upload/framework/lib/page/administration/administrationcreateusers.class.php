@@ -69,12 +69,13 @@ class administrationcreateusers extends AbstractPage {
 
       $networks = array();
 
-      if(DB::getGlobalSettings()->lehrerUserMode == "ASV") $networks[] = "Lehrer";
-      if(DB::getGlobalSettings()->schuelerUserMode == "ASV") $networks[] = "Schüler";
-      if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE") $networks[] = "Eltern";
+        if(DB::getGlobalSettings()->lehrerUserMode == "ASV") $networks[] = "SCHULEINTERN_LEHRER";
+        if(DB::getGlobalSettings()->schuelerUserMode == "ASV") $networks[] = "SCHULEINTERN_SCHUELER";
+        if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE") $networks[] = "ELTERN";
 
 
-      $first = true;
+
+        $first = true;
       for($i = 0; $i < sizeof($networks); $i++) {
         if($first) {
           if($network == "") $network = $networks[$i];
