@@ -119,6 +119,17 @@ class lehrer {
 		
 		return $result;
 	}
+
+    public function getKlassen() {
+        /*
+        $grades = klasse::getAllKlassen();
+        $result = array();
+        foreach($grades as $klasse) {
+            $result[] = new klasse($klasse);
+        }
+        */
+        return klasse::getMyKlassen();
+    }
 	
 	public function getUserID() {
 		return $this->data['lehrerUserID'];

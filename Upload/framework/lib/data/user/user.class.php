@@ -168,17 +168,37 @@ class user {
     return '';
   }
 
-  public function getCollection() {
+  public function getCollection($full = false, $avatar = false) {
       $collection = [
           "id" => $this->getUserID(),
           "vorname" => $this->getFirstName(),
           "nachname" => $this->getLastName(),
           "name" => $this->getDisplayName(),
-          "type" => $this->getUserTyp(true),
-          "avatar" => $this->getAvatar(true)
+          "type" => $this->getUserTyp(true)
       ];
-      if ($this->isPupil()) {
-          $collection['klasse'] = $this->getPupilObject()->getKlasse();
+      if ($avatar == true) {
+          $collection["avatar"] = $this->getAvatar(true);
+      }
+      if ($full == true) {
+          if ($this->isPupil()) {
+              $collection['klasse'] = $this->getPupilObject()->getKlasse();
+          }
+          if ($this->isEltern()) {
+              $collection['childs'] = [];
+              $klassen = [];
+              $childs = $this->getElternObject()->getMySchueler();
+              foreach ($childs as $child) {
+                  $klassen[] = $child->getKlasse();
+                  $collection['childs'][] = $child->getCollection();
+              }
+              $collection['klasse'] = '[' . implode(', ', $klassen) . ']';
+          }
+          if ($this->isTeacher()) {
+              $klassen = klasseDB::getByTeacher($this->getTeacherObject());
+              if ($klassen) {
+                  $collection['klasse'] = implode(', ', $klassen);
+              }
+          }
       }
       return $collection;
   }

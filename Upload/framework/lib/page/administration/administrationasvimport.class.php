@@ -207,6 +207,7 @@ class administrationasvimport extends AbstractPage {
     }
 
 	private static $klassen = array();
+    private static $klassengruppen = array();
 	private static $faecher = array();
 	private static $unterricht = array();
 	private static $lehrer = array();
@@ -234,6 +235,16 @@ class administrationasvimport extends AbstractPage {
 			    'istselbsterstellt' => strval($fach->ist_selbst_erstellt)
 			);
 		}
+
+        // Klassengruppen laden
+        foreach($simpleXML->schulen[0]->schule->klassen->klasse as $klasse) {
+            foreach($klasse->klassengruppen->klassengruppe as $klassengruppe) {
+                self::$klassengruppen[ (int)$klassengruppe->xml_id ] = [
+                    'name' => strval($klasse->klassenname)
+                ];
+            }
+        }
+
 
 		// Ganztags
 
@@ -300,6 +311,7 @@ class administrationasvimport extends AbstractPage {
 			}
 
 
+            $unterrichtKlasse = self::$klassengruppen[ (int)strval($unterricht->klassengruppe_id) ];
 
 			self::$unterricht[] = array(
 					"id" => strval($unterricht->xml_id),
@@ -314,7 +326,9 @@ class administrationasvimport extends AbstractPage {
 					'klassenunterricht' => strval($unterricht->in_matrix) == 'true',
 					'koppeltext' => $koppelText,
 					'pseudokoppel' => $isPseudoKoppel,
-                    'ueid' => $unterricht->ueid
+                    'ueid' => ueid,
+                    'klassen' => $unterrichtKlasse['name']
+
 			);
 		}
 
@@ -331,8 +345,9 @@ class administrationasvimport extends AbstractPage {
 			'klassenunterricht' => 0,
 			'koppeltext' => '',
 			'pseudokoppel' => 0,
-            'ueid' => ''
-	);
+            'ueid' => '',
+            'klassen' => ''
+	    );
 
 
 		$doneActions .= "Unterricht eingelesen\r\n";
@@ -372,7 +387,8 @@ class administrationasvimport extends AbstractPage {
                             unterrichtIsKlassenunterricht,
                             unterrichtKoppelText,
                             unterrichtKoppelIsPseudo,
-                            unterrichtElementASVID
+                            unterrichtElementASVID,
+                            unterrichtKlassen
                         )
                             values
                         (
@@ -388,7 +404,8 @@ class administrationasvimport extends AbstractPage {
                             " . ((self::$unterricht[$i]['klassenunterricht'] != '' ) ? self::$unterricht[$i]['klassenunterricht'] : 0 ) . ",
                             " . ((self::$unterricht[$i]['koppeltext'] != '') ? "'" . self::$unterricht[$i]['koppeltext']  . "'" : 'null') . ",
                             '" . self::$unterricht[$i]['pseudokoppel'] . "',
-                            '" . DB::getDB()->escapeString(self::$unterricht[$i]['ueid']) . "'
+                            '" . DB::getDB()->escapeString(self::$unterricht[$i]['ueid']) . "',
+                            '" . self::$unterricht[$i]['klassen'] . "'
                         ) ON DUPLICATE KEY UPDATE
                             unterrichtID=" . (int)self::$unterricht[$i]['id'] . ",
                             unterrichtLehrerID=" . ((self::$unterricht[$i]['lehrer'] != '') ? self::$unterricht[$i]['lehrer'] : 0 ) . ",
@@ -402,7 +419,8 @@ class administrationasvimport extends AbstractPage {
                             unterrichtIsKlassenunterricht='" . ((self::$unterricht[$i]['klassenunterricht'] != '') ? self::$unterricht[$i]['klassenunterricht'] : 0 ) . "',
                             unterrichtKoppelText = " . ((self::$unterricht[$i]['koppeltext'] != '') ? "'" . self::$unterricht[$i]['koppeltext']  . "'" : 'null') . ",
                             unterrichtKoppelIsPseudo='" . self::$unterricht[$i]['pseudokoppel'] . "',
-                            unterrichtElementASVID='" . DB::getDB()->escapeString(self::$unterricht[$i]['ueid']) . "'
+                            unterrichtElementASVID='" . DB::getDB()->escapeString(self::$unterricht[$i]['ueid']) . "',
+                            unterrichtKlassen='" . DB::getDB()->escapeString(self::$unterricht[$i]['klassen']) . "'
                     ");
                 }
 			}
@@ -491,11 +509,10 @@ class administrationasvimport extends AbstractPage {
 
 
 
-
-
 		$anzahlSchueler = 0;
-		
-	
+
+        DB::getDB()->query("DELETE FROM klassen");
+
 		foreach($simpleXML->schulen[0]->schule->klassen->klasse as $klasse) {
 		    
 		    $klassenName = strval($klasse->klassenname);
@@ -505,11 +522,9 @@ class administrationasvimport extends AbstractPage {
 		    
 		    if($_REQUEST[md5($fieldCheck)] > 0) {
 		        // Import starten
-		    }
-		    elseif($_REQUEST[md5($fieldCheck2)] > 0) {
+		    } elseif($_REQUEST[md5($fieldCheck2)] > 0) {
 		        // :-)
-		    }
-		    else {
+		    } else {
 		        $doneActions .= $klassenName . " übersprungen.\r\n";
 		        continue;
 		    }
@@ -521,6 +536,20 @@ class administrationasvimport extends AbstractPage {
 						'art' => (strval($klassenleitung->klassenleitung_art) == "K") ? 1 : 2
 				);
 			}
+
+            DB::getDB()->query("INSERT INTO klassen (
+                     klassenname, klassenname_lang, klassenname_naechstes_schuljahr,
+                     klassenname_zeugnis, klassenart, ausgelagert, aussenklasse) values(
+
+				'" . DB::getDB()->escapeString(strval($klasse->klassenname)) . "',
+				'" . DB::getDB()->escapeString(strval($klasse->klassenname_lang)) . "',
+				'" . DB::getDB()->escapeString(strval($klasse->klassenname_naechstes_schuljahr)) . "',
+				'" . DB::getDB()->escapeString(strval($klasse->klassenname_zeugnis)) . "',
+				'" . DB::getDB()->escapeString(strval($klasse->klassenart)) . "',
+				'" . DB::getDB()->escapeString(strval($klasse->ausgelagert)) . "',
+				'" . DB::getDB()->escapeString(strval($klasse->aussenklasse)) . "'
+			)");
+
 
 			$schuelerAnzahl = 0;
 
@@ -1111,6 +1140,17 @@ class administrationasvimport extends AbstractPage {
         // Lehrer anlegen
 
         $lehrer = self::$lehrer;
+
+        /*
+        foreach($simpleXML->schulen[0]->schule->unterrichtselemente as ) {
+
+        }
+        */
+        /*
+        for($i = 0; $i < sizeof($fach->unterrichtselemente->unterrichtselement_id); $i++) {
+            $unterrichtListe[] = strval($fach->unterrichtselemente->unterrichtselement_id[$i]);
+        }
+        */
 
         for($i = 0; $i < sizeof($lehrer); $i++) {
             DB::getDB()->query("

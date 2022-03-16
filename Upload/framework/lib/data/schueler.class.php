@@ -19,6 +19,10 @@ class schueler {
 		$this->data = $data;
 	}
 
+    public function getCollection() {
+        $user = user::getUserByID($this->getUserID());
+        return $user->getCollection();
+    }
 	
 	/**
 	 * 

@@ -76,6 +76,7 @@ $classes = [
 		'Ferien',
 		'grade',
 		'klasse',
+        'klasseDB',
 		'lehrer',
 		'MatchUsersFunctions',
 		'schueler',
