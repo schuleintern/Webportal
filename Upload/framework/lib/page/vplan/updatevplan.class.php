@@ -852,17 +852,17 @@ class updatevplan extends AbstractPage {
         $line = "<tr class=\"list even\">";
         // <tr class="list even"><td class="list" align="center">
         // Klasse(n)	Stunde	Vertreter	Fach	Raum	Art	(Fach)	(Lehrer)	Vertr. von	(Le.) nach
-        $line .= "<td class=\"list\" align=\"center\">" . $data[14] . "</td>";
-        $line .= "<td class=\"list\" align=\"center\">" . $data[2] . "</td>";
-        $line .= "<td class=\"list\" align=\"center\">" . $data[6] . "</td>";
-        $line .= "<td class=\"list\" align=\"center\">" . $data[9] . "</td>";
-        $line .= "<td class=\"list\" align=\"center\">" . $data[12] . "</td>";
+        $line .= "<td class=\"list\" align=\"center\">" . $data[14] . "</td>"; // klasse
+        $line .= "<td class=\"list\" align=\"center\">" . $data[2] . "</td>";  // stunde
+        $line .= "<td class=\"list\" align=\"center\">" . $data[6] . "</td>"; // vertreter
+        $line .= "<td class=\"list\" align=\"center\">" . $data[9] . "</td>"; // fach neu
+        $line .= "<td class=\"list\" align=\"center\">" . $data[12] . "</td>"; // raum neu
         
         //$line .= "<td class=\"list\" align=\"center\">" . self::getUntisArt($data[17]) . "</td>";
         
-        $line .= "<td class=\"list\" align=\"center\"><s>" . $data[7] . "</s></td>";
-        $line .= "<td class=\"list\" align=\"center\"><s>" . $data[5] . "</s></td>";
-        $line .= "<td class=\"list\" align=\"\">" . $data[16] . "</td>";
+        $line .= "<td class=\"list\" align=\"center\"><s>" . $data[7] . "</s></td>"; // fach alt
+        $line .= "<td class=\"list\" align=\"center\"><s>" . $data[5] . "</s></td>"; // lehrere alt
+        $line .= "<td class=\"list\" align=\"\">" . $data[16] . "</td>"; // info
         //$line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
         //$line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
         
