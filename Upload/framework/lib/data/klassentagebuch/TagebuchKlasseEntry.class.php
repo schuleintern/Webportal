@@ -175,45 +175,37 @@ class TagebuchKlasseEntry {
   /**
    *
    */
-  public function showEntryNow() {
+    public function showEntryNow()
+    {
 
-      if(DB::getSettings()->getBoolean('klassentagebuch-view-entries-all-times')) return true;
-      
-    // Für den Lehrer selbst immer anzeigen
-  	if(DB::getSession()->isTeacher() && $this->getTeacher() == DB::getSession()->getTeacherObject()->getKuerzel()) return true;
-
-  	// Alte Einträge vor heute anzeigen
-  	if(DateFunctions::isSQLDateBeforeToday($this->getDate())) {
-  	    return true;
-  	}
-  	
-  	// Heute: Erst Anzeigen, wenn Stunde zu Ende
-  	else if(DateFunctions::getTodayAsSQLDate() == $this->getDate()) {
-
-  	    if(DB::getSettings()->getBoolean('klassentagebuch-view-entries-begin-day')) {
-  	        return true;
+        if (DB::getSettings()->getBoolean('klassentagebuch-view-entries-all-times')) {
+            return true;
         }
+        // Für den Lehrer selbst immer anzeigen
+        if (DB::getSession()->isTeacher() && $this->getTeacher() == DB::getSession()->getTeacherObject()->getKuerzel()) return true;
 
-  	    $stunde = $this->getStunde();
-  	    
-  	    $tag = DateFunctions::getWeekDayFromSQLDateISO($this->getDate());
-  	    
-  	    $time = stundenplan::getEndTimeStunde($tag, $stunde);
-  	    
-  	    $time = explode(":", $time);
-  	    $timestamp = mktime($time[0]*1, $time[1]*1);
-  	     	    
-  	    return time() > $timestamp;
-  	}
-  	
-  	else {
-  	    
-  	    // Zukunft
-  	    
-  	    return false;
-
-  	}
-  }
+        // Alte Einträge vor heute anzeigen
+        if (DateFunctions::isSQLDateBeforeToday($this->getDate())) {
+            return true;
+        } else if (DateFunctions::getTodayAsSQLDate() == $this->getDate()) {
+            // Heute: Erst Anzeigen, wenn Stunde zu Ende
+            if (DB::getSettings()->getBoolean('klassentagebuch-view-entries-begin-day')) {
+                return true;
+            }
+            $stunde = $this->getStunde();
+            $tag = DateFunctions::getWeekDayFromSQLDateISO($this->getDate());
+            $time = stundenplan::getEndTimeStunde($tag, $stunde);
+            if ( !$stunde || !$tag || !$time || $time == '00:00') {
+                return false;
+            }
+            $time = explode(":", $time);
+            $timestamp = mktime($time[0] * 1, $time[1] * 1);
+            return time() > $timestamp;
+        } else {
+            // Zukunft
+            return false;
+        }
+    }
 
   public static function getAllForDateAndGrade($date, $grade) {
 
