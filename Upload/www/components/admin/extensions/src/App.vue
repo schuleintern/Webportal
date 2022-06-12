@@ -3,19 +3,24 @@
 
     <Error v-bind:error="error"></Error>
 
+    <Modal v-bind:data="installModal"></Modal>
+
     <div v-if="loading == true" class="overlay">
       <i class="fa fas fa-sync-alt fa-spin"></i>
     </div>
 
-    <div class="">
-      <button v-on:click="handlerTab('list')" class="si-btn si-btn-light"><i class="fa fas fa-plug"></i> Installierte Erweiterungen</button>
-      <button v-on:click="handlerTab('install')" class="si-btn si-btn-light"><i class="fas fa-shopping-cart"></i> Hinzufügen</button>
+    <div class="flex-row">
+      <div class="flex-3 page-submenue" >
+        <a v-on:click="handlerTab('list')" class="margin-r-xs padding-b-s" :class="{'active' : tab == 'list'}"><i class="fa fas fa-list"></i> Verwalten</a>
+        <a v-on:click="handlerTab('install')" class="margin-r-xs padding-b-s " :class="{'active' : tab == 'install'}"><i class="fas fa-plus"></i> Hinzufügen</a>
+      </div>
     </div>
 
 
-    <div v-if="tab == 'list'" class="padding-t-m">
-      <h3><i class="fa fas fa-plug"></i> Installierte Erweiterungen</h3>
-      <table class="si-table">
+
+    <div v-if="tab == 'list'" class="padding-t-m box">
+      <h3 class="padding-l-l"><i class="fa fas fa-plug"></i> Installierte Erweiterungen</h3>
+      <table class="si-table si-table-style-firstLeft">
         <thead>
         <tr>
           <td>Name</td>
@@ -28,7 +33,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-bind:key="index" v-for="(item, index) in  extInstalled"
+        <tr v-bind:key="index" v-for="(item, index) in  extInstalledCollection"
             class="line-oddEven"
             :class="{ 'text-grey' : item.active == 0}">
           <td>{{item.name}} <div class="text-small text-grey">{{item.uniqid}}</div></td>
@@ -37,37 +42,40 @@
             <button
                 v-if="item.active == 1"
                 v-on:click="handlerToggleActive(item, $event)"
-                class="si-btn si-btn-light text-green"><i class="fas fa-toggle-on"></i></button>
+                class="si-btn si-btn-toggle-on"><i class="fas fa-toggle-on"></i> An</button>
             <button
                 v-if="item.active == 0"
                 v-on:click="handlerToggleActive(item, $event)"
-                class="si-btn si-btn-light"><i class="fas fa-toggle-off"></i></button>
+                class="si-btn si-btn-toggle-off"><i class="fas fa-toggle-off"></i> Aus</button>
           </td>
           <td><span class="text-small">{{item.folder}}</span></td>
           <td><span class="text-small">{{item.json.dependencies}}</span></td>
           <td><button v-show="item.update" class="si-btn" v-on:click="handlerUpdate(item, $event)">Update</button></td>
-          <td><button class="si-btn" v-on:click="handlerRemove(item, $event)">Entfernen</button></td>
+          <td>
+            <button v-show="!item.delete" class="si-btn si-btn-light si-btn-icon" v-on:click="handlerRemove(item, index)"><i class="fas fa-trash"></i></button>
+            <button v-show="item.delete" class="si-btn si-btn-red" v-on:click="handlerRemoveConfirmed(item, $event)"><i class="fas fa-trash"></i> Endgültig Löschen</button>
+          </td>
 
         </tr>
         </tbody>
       </table>
     </div>
 
-    <div v-if="tab == 'install'" class="padding-t-l">
+    <div v-if="tab == 'install'" class="padding-t-l box">
 
-      <h4><i class="fas fa-file-upload"></i> Erweiterung hochladen</h4>
+      <h4 class="padding-l-l"><i class="fas fa-file-upload"></i> Erweiterung hochladen</h4>
       <p class="text-small padding-l-l">(Zip-Archive)</p>
       <p v-show="uploadError" class="text-red padding-t-m padding-b-m">{{uploadError}}</p>
       <div class="flex-row form-style-2 width-40vw padding-l-l">
         <input type="file" accept=".zip" multiple="false" v-on:change="handlerChangeUploadFile" class="flex-1 " />
-        <button class="si-btn margin-l-m" v-on:click="handlerUploadInstall">Hochladen & Installieren</button>
+        <button class="si-btn margin-l-m" v-on:click="handlerUploadInstall"><i class="fas fa-upload"></i> Hochladen & Installieren</button>
       </div>
 
       <br/>
 
-      <h4><i class="fas fa-shopping-cart"></i> Aus dem Store</h4>
+      <h4 class="padding-l-l"><i class="fas fa-shopping-cart"></i> Aus dem Store</h4>
       <p class="text-small padding-l-l">(URL: {{extensionsServer}})</p>
-      <table class="si-table">
+      <table class="si-table si-table-style-firstLeft">
         <thead>
         <tr>
           <td>Name</td>
@@ -84,7 +92,10 @@
           <td>{{item.desc}}</td>
           <td>{{item.lastRelease}}</td>
           <td>{{item.version}}</td>
-          <td><button class="si-btn" v-on:click="handlerInstall(item, $event)">Installieren</button></td>
+          <td>
+            <button  v-if="item.install != true" class="si-btn" v-on:click="handlerInstall(item, $event)"><i class="fa fa-download"></i> Installieren</button>
+            <button  v-if="item.install == true" class="si-btn si-btn-off"><i class="fas fa-check"></i> Installiert</button>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -92,17 +103,21 @@
 
 
   </div>
+
+
 </template>
 
 <script>
 
 const axios = require('axios').default;
 
-import Error from './mixins/Error.vue'
+import Error from './mixins/Error.vue';
+
+import Modal from './mixins/Modal.vue';
 
 export default {
   components: {
-    Error
+    Error, Modal
   },
   data() {
     return {
@@ -117,11 +132,61 @@ export default {
       extStore: globals.extStore,
       extensionsServer: globals.extensionsServer,
 
-      tab: 'list'
+      tab: 'list',
+      installModal: false
     };
   },
   created: function () {
     this.loadExtensions();
+
+    EventBus.$on('handlerToggleActive', data => {
+      if (data.item) {
+        this.handlerToggleActive(data.item, false, data.callback);
+      }
+    });
+    EventBus.$on('handlerAddMenue', data => {
+
+      var item = data.item;
+
+      if (!item.uniqid) {
+        return false;
+      }
+      this.loading = true;
+      this.error = false;
+      var that = this;
+      axios.get( this.selfURL+'&task=addMenue&uniqid='+item.uniqid)
+      .then(function(response){
+
+        if ( response.data ) {
+
+          if (response.data.error == true) {
+            that.error = response.data.msg;
+          } else {
+            that.error = false;
+          }
+
+        } else {
+          that.error = 'Fehler beim Aktivieren. 01';
+        }
+
+      })
+      .catch(function(){
+        that.error = 'Fehler beim Aktivieren. 02';
+      })
+      .finally(function () {
+        // always executed
+        that.loading = false;
+      });
+
+    });
+
+
+  },
+  computed: {
+    extInstalledCollection() {
+
+      return this.extInstalled;
+    }
   },
   methods: {
 
@@ -131,6 +196,8 @@ export default {
     loadExtensions: function () {
 
       this.loading = true;
+
+      this.extInstalled = [];
 
       var that = this;
       axios.get( this.selfURL+'&task=api-extensions')
@@ -152,7 +219,7 @@ export default {
       }); 
 
     },
-    handlerToggleActive: function (item, $event) {
+    handlerToggleActive: function (item, $event, callback) {
 
       if (!item.uniqid) {
         return false;
@@ -171,6 +238,9 @@ export default {
           } else {
             that.error = false;
             that.loadExtensions();
+            if (callback) {
+              callback(response.data.active);
+            }
           }
           
         } else {
@@ -232,7 +302,11 @@ export default {
       }); 
 
     },
-    handlerRemove: function (item, $event) {
+    handlerRemove: function (item, index) {
+      item.delete = 1;
+      item.active = 99; // bugfix rerender
+    },
+    handlerRemoveConfirmed: function (item, $event) {
 
       if (!item.uniqid) {
         return false;
@@ -334,7 +408,7 @@ export default {
       var _text = {
         default: 'Installieren',
         while: '<i class="fa fas fa-sync-alt fa-spin"></i>',
-        done: 'Installiert...!'
+        done: 'Installiert'
       }
       $event.srcElement.innerHTML = _text.while;
       this.error = false;
@@ -354,8 +428,10 @@ export default {
             $event.srcElement.innerHTML = _text.default;
           } else {
             that.error = false;
+            $event.srcElement.classList.add('si-btn-green');
             $event.srcElement.innerHTML = _text.done;
             that.loadExtensions();
+            that.installModal = item;
           }
         } else {
           that.error = 'Fehler beim Installieren. 01';

@@ -3,7 +3,7 @@
 
     <div class="flex-row">
       <div class="flex-1">
-        <button class="si-btn si-btn-light" v-on:click="handlerBack"> Zurück</button>
+        <button class="si-btn si-btn-light" v-on:click="handlerBack"><i class="fa fa-angle-left"></i> Zurück</button>
       </div>
     </div>
 
@@ -29,23 +29,23 @@
 
           <div v-if="item.access" class="blockInline">
 
-            <button class="si-btn margin-r-s" :class="{'si-btn-active': item.access.admin == 1}" v-on:click="handlerToggleAccess('admin')">
+            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.admin == 1}" v-on:click="handlerToggleAccess('admin')">
               <i v-if="item.access.admin == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.admin == 0" class="fas fa-toggle-off"></i> Admin</button>
-            <button class="si-btn margin-r-s" :class="{'si-btn-active': item.access.adminGroup == 1}" v-on:click="handlerToggleAccess('adminGroup')">
+            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.adminGroup == 1}" v-on:click="handlerToggleAccess('adminGroup')">
               <i v-if="item.access.adminGroup == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.adminGroup == 0" class="fas fa-toggle-off"></i> Moduladmin</button>
             <br>
-            <button class="si-btn margin-r-s" :class="{'si-btn-active': item.access.teacher == 1}" v-on:click="handlerToggleAccess('teacher')">
+            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.teacher == 1}" v-on:click="handlerToggleAccess('teacher')">
               <i v-if="item.access.teacher == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.teacher == 0" class="fas fa-toggle-off"></i> Lehrer</button>
-            <button class="si-btn margin-r-s" :class="{'si-btn-active': item.access.pupil == 1}" v-on:click="handlerToggleAccess('pupil')">
+            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.pupil == 1}" v-on:click="handlerToggleAccess('pupil')">
               <i v-if="item.access.pupil == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.pupil == 0" class="fas fa-toggle-off"></i> Schüler</button>
-            <button class="si-btn margin-r-s" :class="{'si-btn-active': item.access.parents == 1}" v-on:click="handlerToggleAccess('parents')">
+            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.parents == 1}" v-on:click="handlerToggleAccess('parents')">
               <i v-if="item.access.parents == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.parents == 0" class="fas fa-toggle-off"></i> Eltern</button>
-            <button class="si-btn margin-r-s" :class="{'si-btn-active': item.access.other == 1}" v-on:click="handlerToggleAccess('other')">
+            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.other == 1}" v-on:click="handlerToggleAccess('other')">
               <i v-if="item.access.other == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.other == 0" class="fas fa-toggle-off"></i> Sonstige</button>
 

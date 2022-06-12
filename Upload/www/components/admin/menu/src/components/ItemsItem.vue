@@ -9,16 +9,16 @@
             <button
                 v-if="item.active == 1"
                 v-on:click="handlerToggleActive(item)"
-                class="si-btn si-btn-light text-green"><i class="fas fa-toggle-on"></i></button>
+                class="si-btn si-btn-toggle-on "><i class="fas fa-toggle-on"></i> An</button>
             <button
                 v-if="item.active == 0"
                 v-on:click="handlerToggleActive(item)"
-                class="si-btn si-btn-light"><i class="fas fa-toggle-off"></i></button>
-            <button class="sortHandle si-btn si-btn-light"><i class="fas fa-sort"></i></button>
+                class="si-btn si-btn-toggle-off"><i class="fas fa-toggle-off"></i> Aus</button>
+            <button class="sortHandle si-btn si-btn-light si-btn-icon"><i class="fas fa-sort"></i></button>
           </div>
           <div class="flex-1 text-small flex-center-center td">{{item.page}}</div>
           <div class="flex-1 text-small flex-center-center td">{{item.params}}</div>
-          <div class="width-7rem td"><button class="si-btn si-btn-light" v-on:click="handlerFormOpen(item)"><i class="fas fa-plus"></i></button></div>
+          <div class="width-7rem td"><button class="si-btn si-btn-icon" v-on:click="handlerFormOpen(item)"><i class="fas fa-plus"></i></button></div>
           <div class="flex-1 text-small text-grey id flex-center-center td">{{item.id}}</div>
         </li>
 

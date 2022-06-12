@@ -34,6 +34,19 @@ class AdminExtensions extends AbstractPage {
     }
 
 
+    public static function getAdminMenuIcon()
+    {
+        return 'fa fa-plug';
+    }
+    public static function getAdminMenuGroup() {
+        return 'System';
+    }
+
+    public static function hasAdmin() {
+        return true;
+    }
+
+
 	public static function displayAdministration($selfURL) {
 
 		$html = '';
@@ -272,6 +285,58 @@ class AdminExtensions extends AbstractPage {
 		}
 
 
+        /**
+         * ADD MENUE
+         */
+        if ($_REQUEST['task'] == 'addMenue') {
+
+            if ($_REQUEST['uniqid']) {
+
+                $foldername = '';
+
+                $extension = DB::getDB()->query_first("SELECT `id`,`folder` FROM extensions WHERE `uniqid` = '".$_REQUEST['uniqid']."'" );
+                if ($extension['folder']) {
+                    $foldername = $extension['folder'];
+                }
+
+                if ( !file_exists(PATH_EXTENSIONS.$foldername.'/extension.json') ) {
+                    return ['error' => true, 'msg' => 'Missing extension.json File'.PATH_EXTENSIONS.$foldername.'/extension.json'];
+                }
+                $modulJSON = json_decode( file_get_contents(PATH_EXTENSIONS.$foldername.'/extension.json') );
+                if ( !$modulJSON ) {
+                    return ['error' => true, 'msg' => 'Missing extension.json Data'.PATH_EXTENSIONS.$foldername.'/extension.json'];
+                }
+
+                if ( !$modulJSON->name || !$modulJSON->version || !$modulJSON->uniqid  ) {
+                    return ['error' => true, 'msg' => 'Missing JSON Data'];
+                }
+
+                if ( MenueItems::setItem([
+                    "title" => $modulJSON->name,
+                    "page" => 'ext_'.$foldername,
+                    "menu_id" => 0,
+                    "parent_id" => $modulJSON->menu->categorie || 0,
+                    "icon" => $modulJSON->menu->icon | '',
+                    "params" => $modulJSON->menu->params || '',
+                    "active" => 1,
+                    "access" => '{"admin":1,"adminGroup":0,"teacher":1,"pupil":1,"parents":1,"other":1}'
+                ]) ) {
+                    $retun = ['error' => false];
+                    echo json_encode($retun); exit;
+                } else {
+                    $retun = ['error' => true, 'msg' => 'Fehler beim Speichern'];
+                    echo json_encode($retun); exit;
+                }
+
+
+            } else {
+                $retun = ['error' => true, 'msg' => 'Missing UniqID'];
+                echo json_encode($retun); exit;
+            }
+
+        }
+
+
 		/**
 		 * TOGGLE ACTIVE
 		 */
@@ -300,7 +365,7 @@ class AdminExtensions extends AbstractPage {
 							`active` = '".$active."'
 							WHERE `uniqid` =  '".$_REQUEST['uniqid']."'");
 					
-					$retun = ['error' => false];
+					$retun = ['error' => false, 'active' => $active];
 					echo json_encode($retun); exit;
 
 
@@ -345,8 +410,21 @@ class AdminExtensions extends AbstractPage {
 
 
         $extStore = file_get_contents($extensionsServer."extensions.json?task=list", false, stream_context_create($arrContextOptions));
+
         if (!$extStore) {
             $extStore = "false";
+        } else {
+            $extStore = json_decode($extStore);
+            $dbExt = [];
+            $result = DB::getDB()->query('SELECT `uniqid` FROM `extensions` ');
+            while($row = DB::getDB()->fetch_array($result)) {
+                foreach( $extStore  as $ext) {
+                    if ($ext->uniqid == $row['uniqid']) {
+                        $ext->install = true;
+                    }
+                }
+            }
+            $extStore = json_encode($extStore);
         }
 
 
@@ -439,18 +517,12 @@ class AdminExtensions extends AbstractPage {
 						);");
 
                 // $modulJSON->menu->categorie
-                MenueItems::setItem([
-                    "title" => $modulJSON->name,
-                    "page" => 'ext_'.$foldername,
-                    "menu_id" => 0,
-                    "parent_id" => $modulJSON->menu->categorie || 0,
-                    "icon" => $modulJSON->menu->icon | '',
-                    "params" => $modulJSON->menu->params || '',
-                    "active" => 0,
-                    "access" => '{"admin":1,"adminGroup":0,"teacher":1,"pupil":1,"parents":1,"other":1}'
-                ]);
 
-                return ['error' => false];
+
+                return [
+                    'error' => false,
+                    ''
+                ];
 
 
             } else {

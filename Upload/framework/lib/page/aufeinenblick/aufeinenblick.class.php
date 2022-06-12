@@ -765,7 +765,7 @@ class aufeinenblick extends AbstractPage {
   }
 
   public static function getSiteDisplayName() {
-    return "\"Auf einen Blick\"";
+    return "Auf einen Blick";
   }
 
   public static function getSettingsDescription() {
@@ -818,6 +818,11 @@ class aufeinenblick extends AbstractPage {
   public static function getAdminMenuGroupIcon() {
     return 'fa fa-file';
   }
+
+  public static function getAdminMenuIcon() {
+    return 'fa fa-calendar-check';
+  }
+
 }
 
 ?>

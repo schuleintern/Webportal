@@ -7,11 +7,11 @@
             <button
                 v-if="item.active == 1"
                 v-on:click="handlerToggleActive(item)"
-                class="si-btn si-btn-light text-green"><i class="fas fa-toggle-on"></i></button>
+                class="si-btn si-btn-toggle-on"><i class="fas fa-toggle-on"></i> An</button>
             <button
                 v-else
                 v-on:click="handlerToggleActive(item)"
-                class="si-btn si-btn-light"><i class="fas fa-toggle-off"></i></button>
+                class="si-btn si-btn-toggle-off"><i class="fas fa-toggle-off"></i> Aus</button>
           </div>
           <div class="flex-1 text-small flex-center-center td">{{item.page}}</div>
           <div class="flex-1 text-small flex-center-center td">{{item.params}}</div>
@@ -20,7 +20,6 @@
       </li>
     </div>
   </ul>
-
 
 </template>
 

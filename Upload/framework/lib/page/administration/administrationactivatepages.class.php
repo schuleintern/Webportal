@@ -168,6 +168,16 @@ class administrationactivatepages extends AbstractPage {
 	public static function need2Factor() {
 	    return TwoFactor::force2FAForAdmin();
 	}
+
+    public static function getAdminMenuGroup() {
+        return 'System';
+    }
+    public static function getAdminMenuIcon() {
+        return 'fa fas fa-toggle-on';
+    }
+    public static function hasAdmin() {
+        return false;
+    }
 }
 
 

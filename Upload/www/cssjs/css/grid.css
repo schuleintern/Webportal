@@ -168,6 +168,10 @@
   max-height: 35vh !important;
 }
 
+.height_100 {
+  max-height: 100vh !important;
+}
+
 
 
 

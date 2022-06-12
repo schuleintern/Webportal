@@ -5,7 +5,6 @@
         <tr>
           <td class="width-30rem">Name</td>
           <td class="">Alias</td>
-          <td class="width-4rem margin-r-m">ID</td>
         </tr>
       </thead>
       <tbody>
@@ -13,7 +12,6 @@
           class="line-oddEven">
           <td><button v-on:click="handlerMenuOpen(item)" class="si-btn">{{item.title}}</button></td>
           <td>{{item.alias}}</td>
-          <td>{{item.id}}</td>
         </tr>
       </tbody>
     </table>

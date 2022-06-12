@@ -31,15 +31,12 @@ class AdminMenu extends AbstractPage {
 		return 'Menu';
 	}
     public static function getAdminMenuIcon() {
-        return 'fa fas fa-ellipsis-v';
-    }
-
-    public static function getAdminMenuGroupIcon() {
         return 'fa fas fa-bars';
     }
 
+
     public static function getAdminMenuGroup() {
-        return 'Navigation';
+        return 'Seiteneinstellungen';
     }
 
     public static function hasAdmin() {

@@ -93,6 +93,9 @@ class requesthandler {
     'aufeinenblick' => [
       'aufeinenblick',
     ],
+      'dashboard' => [
+          'dashboard',
+      ],
     'ausleihe' => [
       'ausleihe',
       'ausleiheMonitor',

@@ -501,12 +501,12 @@ abstract class AbstractPage
      *
      * @param data Array
      */
-    private function getScriptData($data)
+    public function getScriptData($data, $varname = 'globals')
     {
         if ($data) {
-            return '<script>var globals = ' . json_encode($data) . ';</script>';
+            return '<script>var '.$varname.' = ' . json_encode($data) . ';</script>';
         }
-        return '<script>var globals = {};</script>';
+        return '<script>var '.$varname.' = {};</script>';
     }
 
 
@@ -541,7 +541,7 @@ abstract class AbstractPage
      * @param page String
      * @param scripts Array
      */
-    private function getScript($view, $scripts)
+    public function getScript($view, $scripts)
     {
 
         if (!$scripts || count($scripts) <= 0) {

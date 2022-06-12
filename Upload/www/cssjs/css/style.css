@@ -150,6 +150,10 @@ a {
 .curser {
   cursor: pointer;
 }
+.curser-sort {
+  cursor: row-resize;
+}
+
 .clickable {
   cursor: pointer;
 }
