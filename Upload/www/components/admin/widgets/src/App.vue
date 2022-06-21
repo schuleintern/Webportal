@@ -12,9 +12,9 @@
     <div v-if="tab=='list'">
       <h3><i class="fa fas fa-chart-pie"></i> Verfügbare Widgets</h3>
       <div v-bind:key="index" v-for="(extension, index) in  list" class="padding-t-l">
-        <h4><i class="fa fas fa-plug"></i> {{extension.title}}</h4>
+        <h4><i class="fa fas " :class="extension.icon"></i> {{extension.title}}</h4>
 
-        <table class="si-table">
+        <table class="si-table si-table-style-firstLeft si-table-style-firstWidth-m ">
           <thead>
           <tr>
             <td>Name</td>
@@ -32,19 +32,19 @@
               <button
                   v-if="item.status == 1"
                   v-on:click="handlerToggleActive(item)"
-                  class="si-btn si-btn-light text-green"><i class="fas fa-toggle-on"></i> An</button>
+                  class="si-btn si-btn-toggle-on"><i class="fas fa-toggle-on"></i> An</button>
               <button
                   v-if="item.status == 0"
                   v-on:click="handlerToggleActive(item)"
-                  class="si-btn si-btn-light"><i class="fas fa-toggle-off"></i> Aus</button>
+                  class="si-btn si-btn-toggle-off"><i class="fas fa-toggle-off"></i> Aus</button>
             </td>
             <td v-on:click="handlerFormShow(item)">
-              <button v-if="item.access.admin == 1" class="si-btn si-btn-light si-btn-small margin-r-s" > Admin</button>
-              <button v-if="item.access.adminGroup == 1" class="si-btn si-btn-light si-btn-small margin-r-s" > Moduladmin</button>
-              <button v-if="item.access.teacher == 1" class="si-btn si-btn-light si-btn-small margin-r-s" > Lehrer</button>
-              <button v-if="item.access.pupil == 1" class="si-btn si-btn-light si-btn-small margin-r-s" > Schüler</button>
-              <button v-if="item.access.parents == 1" class="si-btn si-btn-light si-btn-small margin-r-s" > Eltern</button>
-              <button v-if="item.access.other == 1" class="si-btn si-btn-light si-btn-small margin-r-s" > Sonsitige</button>
+              <button v-if="item.access.admin == 1" class="si-btn si-btn-off si-btn-small margin-r-s" > Admin</button>
+              <button v-if="item.access.adminGroup == 1" class="si-btn si-btn-off si-btn-small margin-r-s" > Moduladmin</button>
+              <button v-if="item.access.teacher == 1" class="si-btn si-btn-off si-btn-small margin-r-s" > Lehrer</button>
+              <button v-if="item.access.other == 1" class="si-btn si-btn-off si-btn-small margin-r-s" > Mitarbeiter</button>
+              <button v-if="item.access.pupil == 1" class="si-btn si-btn-off si-btn-small margin-r-s" > Schüler</button>
+              <button v-if="item.access.parents == 1" class="si-btn si-btn-off si-btn-small margin-r-s" > Eltern</button>
               <span v-if="item.access.admin == 0 && item.access.adminGroup == 0 && item.access.teacher == 0 && item.access.pupil == 0 && item.access.parents == 0 && item.access.other == 0" >
                 <button v-if="item.status == 1" class="si-btn si-btn-red si-btn-small margin-r-s" > Unsichtbar !</button>
               </span>

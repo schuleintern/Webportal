@@ -49,7 +49,7 @@ class adminsupport extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroup() {
-		return 'Support';
+		return 'System';
 	}
 	
 	public static function getAdminMenuGroupIcon() {

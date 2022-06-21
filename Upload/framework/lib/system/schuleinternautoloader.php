@@ -76,6 +76,7 @@ $classes = [
 		'Ferien',
 		'grade',
 		'klasse',
+        'klasseDB',
 		'lehrer',
 		'MatchUsersFunctions',
 		'schueler',
@@ -223,9 +224,10 @@ $classes = [
 	    'PrintNormalPageA4WithoutHeader',
 	    'PrintInBrowser'
 	],
+    /*,
 	'update' => [
 		'UpdateProcess'
-	],
+	],*/
 	'messages' => [
 		'Message',
 		'MessageFolder',

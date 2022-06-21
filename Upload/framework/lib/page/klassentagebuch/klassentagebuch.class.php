@@ -998,7 +998,10 @@ class klassentagebuch extends AbstractPage {
 
     $tableContent = "";
 
-    $aktuelleStunde = stundenplan::getCurrentStunde();
+      if ( $this->currentDateSQL == date('Y-m-d',time()) ) {
+          $aktuelleStunde = stundenplan::getCurrentStunde();
+          //echo 'aktuelleStunde: '.$aktuelleStunde.'<br>';
+      }
 
     $dialogs = "";
 
@@ -1470,17 +1473,18 @@ class klassentagebuch extends AbstractPage {
             'text' => ""
         ),
         array(
-            'name' => "klassentagebuch-view-entries-begin-day",
-            'typ' => 'BOOLEAN',
-            'titel' => "Klassentagebucheinträge bereits am Beginn des Tages für alle anzeigen?",
-            'text' => ""
-        ),
-        array(
             'name' => "klassentagebuch-view-entries-all-times",
             'typ' => 'BOOLEAN',
             'titel' => "Klassentagebucheinträge bereits nach dem Eintragen für alle anzeigen?",
-            'text' => ""
+            'text' => "Level 1"
+        ),
+        array(
+            'name' => "klassentagebuch-view-entries-begin-day",
+            'typ' => 'BOOLEAN',
+            'titel' => "Klassentagebucheinträge bereits am Beginn des Tages für alle anzeigen?",
+            'text' => "Level 2"
         )
+
     );
   }
 

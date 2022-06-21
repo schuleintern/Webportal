@@ -123,9 +123,9 @@ class menu {
 
     if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationactivatepages', 'Modulstatus', 'fa fas fa-toggle-on');
 
-    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationmodule&module=AdminExtensions', 'Erweiterungen', 'fa fas fa-plug');
+    //if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationmodule&module=AdminExtensions', 'Erweiterungen', 'fa fas fa-plug');
 
-    if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationmodule&module=AdminWidgets', 'Widgets', 'fa fas fa-chart-pie');
+    //if(DB::getSession()->isAdmin()) $modulAdminHTML .= $this->getMenuItem('administrationmodule&module=AdminWidgets', 'Widgets', 'fa fas fa-chart-pie');
 
 
     $displayActions = [];
@@ -369,6 +369,11 @@ class menu {
        
 
     $html .= $this->getMenuItem("aufeinenblick", " Auf einen Blick", "fa fa-calendar-check");
+
+      if( DB::isLoggedIn() && $this->isActive("dashboard") ) {
+          $html .= $this->getMenuItem("dashboard", " Dashboard", "fa fa-th");
+      }
+
 
 
     if(DB::isLoggedIn() && $this->isActive("vplan") && (DB::getSession()->isTeacher() || DB::getSettings()->getValue("vplan-schueleractive") != 0)) {

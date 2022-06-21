@@ -4,7 +4,10 @@ abstract class AbstractRest {
 	protected $statusCode = 200;
 
     static $adminGroupName = NULL;
-    
+    static $aclGroupName = NULL;
+    static $type = false;
+    static $extension = false;
+
 	/**
 	 * @var user
 	 */
@@ -14,6 +17,32 @@ abstract class AbstractRest {
 	 * @var acl
 	 */
 	public $acl = null;
+
+    /**
+     * @param false $type STRING | BOOLEAN
+     */
+    public function __construct($type = false) {
+
+        $this->type = $type;
+
+        if ( $this->type == 'extension' && PATH_EXTENSION ) {
+            $path = str_replace(DS.'admin','',PATH_EXTENSION);
+            $this->extension = FILE::getExtensionJSON($path.'extension.json');
+            if ( isset($this->extension) ) {
+
+                // Admin Group
+                if ( $this->extension['adminGroupName'] ) {
+                    self::setAdminGroup($this->extension['adminGroupName']);
+                }
+
+                // ACL Group
+                if ( $this->extension['aclGroupName'] ) {
+                    self::setAclGroup($this->extension['aclGroupName']);
+                }
+            }
+        }
+
+    }
 
 	
 	public abstract function execute($input, $request);
@@ -58,7 +87,9 @@ abstract class AbstractRest {
         return false;
     }
 
-
+    /**
+     * @deprecated:  use getAclGroup
+     */
 	public function aclModuleName() {
 		return get_called_class();
 	}
@@ -72,14 +103,47 @@ abstract class AbstractRest {
         return self::$adminGroupName;
     }
 
+    /**
+     * Setzt die Admin Gruppe als String
+     * @param String Gruppenname als String
+     */
+    public static function setAdminGroup($str) {
+        if ($str) {
+            self::$adminGroupName = $str;
+        }
+    }
+
+
+    /**
+     * Gibt den Gruppennamen für die ACL Rechte zurück
+     * @return String Gruppenname als String
+     */
+    public static function getAclGroup() {
+        if (self::$aclGroupName) {
+            return self::$aclGroupName;
+        }
+        return get_called_class();
+    }
+
+    /**
+     * Setzt die ACL Gruppe als String
+     * @param String Gruppenname als String
+     */
+    public static function setAclGroup($str) {
+        if ($str) {
+            self::$aclGroupName = $str;
+        }
+    }
+
+
+
 
 	/**
 	 * Access Control List
 	 * @return acl
 	 */
 	public function acl() {
-		$moduleClass = $this->aclModuleName();
-		$this->acl = ACL::getAcl($this->user, $moduleClass, false);
+		$this->acl = ACL::getAcl($this->user, $this->getAclGroup(), false, $this->getAdminGroup());
 	}
 
     public function getAclByID($id = false, $showRight = false) {

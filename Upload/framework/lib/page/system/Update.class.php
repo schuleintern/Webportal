@@ -161,7 +161,7 @@ class Update extends AbstractPage
             $this->from133to134();
         }
 
-        if ($from == "1.3.3" && $to == "1.4.0") {
+        if ($from == "1.3.4" && $to == "1.4.0") {
             $this->from134to140();
         }
 
@@ -169,11 +169,23 @@ class Update extends AbstractPage
             $this->from140to141();
         }
 
+        if ($from == "1.4.1" && $to == "1.4.2") {
+            $this->from141to142();
+        }
+
         return true;
     }
 
 
+    private  function from141to142() {
+        // Neue update.php
+        $this->updateTextFileInWWWDir("update.php");
+    }
+
     private  function from140to141() {
+
+        $this->updateCssJSFolder(133);
+        $this->updateComponentsFolder(131);
 
         DB::getDB()->query('ALTER TABLE `unterricht` ADD `unterrichtElementASVID` VARCHAR(200) NULL DEFAULT NULL AFTER `unterrichtID`;', 1);
 

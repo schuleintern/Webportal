@@ -32,7 +32,17 @@ class AdminWidgets extends AbstractPage {
         return 'Webportal_Wdigets_Admin';
     }
 
+    public static function getAdminMenuIcon() {
+        return 'fa fas fa-chart-pie';
+    }
+    public static function hasAdmin() {
+        return true;
+    }
 
+
+    public static function getAdminMenuGroup() {
+        return 'Seiteneinstellungen';
+    }
 
 	public static function displayAdministration($selfURL) {
 
@@ -141,6 +151,11 @@ class AdminWidgets extends AbstractPage {
             http_response_code(200);
 
             $ret = [];
+            $extension = [];
+            $result = DB::getDB()->query('SELECT * FROM `extensions` ');
+            while($row = DB::getDB()->fetch_array($result, true)) {
+                $extension[] = $row;
+            }
             $db = [];
             $result = DB::getDB()->query('SELECT * FROM `widgets` ');
             while($row = DB::getDB()->fetch_array($result, true)) {
@@ -151,11 +166,23 @@ class AdminWidgets extends AbstractPage {
                 $extPath = PATH_EXTENSIONS.$folder['filename'];
                 if (is_dir($extPath)) {
                     $json = FILE::getExtensionJSON($extPath.DS.'extension.json');
-                    if ($json['widgets']) {
+                    $go = false;
+                    foreach($extension as $ext) {
+                        if ($ext['uniqid'] == $json['uniqid']) {
+                            if ($ext['active'] == 1) {
+                                $go = true;
+                            }
+                        }
+                    }
+                    if ($go && $json['widgets']) {
                         $arr = [
                             "title" => $json['name'],
+                            "icon" => '',
                             "widgets" => []
                         ];
+                        if ($json['menu'] && $json['menu']->icon) {
+                            $arr['icon'] = $json['menu']->icon;
+                        }
                         foreach($json['widgets'] as $widget) {
                             $widget->status = 0;
                             $widget->access = [

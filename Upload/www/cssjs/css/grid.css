@@ -114,6 +114,9 @@
 .width-2rem {
   width: 2rem;
 }
+.width-3rem {
+  width: 3rem;
+}
 .width-4rem {
   width: 4rem;
 }
@@ -163,6 +166,10 @@
 
 .height_35 {
   max-height: 35vh !important;
+}
+
+.height_100 {
+  max-height: 100vh !important;
 }
 
 

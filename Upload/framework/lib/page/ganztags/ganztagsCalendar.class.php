@@ -322,7 +322,7 @@ class ganztagsCalendar extends AbstractPage {
 								if  ( $item->getAsvID() == $absenz->getSchueler()->getAsvID() ) {
 									$found_absenz = [
 										"stunden" => $absenz->getStundenAsString(),
-										"notiz" => nl2br($absenz->getGanztagsNotiz())
+										"notiz" => nl2br($absenz->getBemerkung()).' '.nl2br($absenz->getGanztagsNotiz())
 									];
 									$found_absenz_anz++;
 								}

@@ -263,7 +263,4 @@ export default {
 
 <style>
 
-.component-menu ul {
-  padding-left: 2rem;
-}
 </style>

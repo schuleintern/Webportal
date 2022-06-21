@@ -147,6 +147,12 @@
 a {
   cursor: pointer;
 }
+.curser {
+  cursor: pointer;
+}
+.curser-sort {
+  cursor: row-resize;
+}
 
 .clickable {
   cursor: pointer;
@@ -474,16 +480,26 @@ button.btn-blau {
   display: inline-block;
 
   border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   color: #666;
   background-color: #f1f1f1;
   cursor: pointer;
+  margin-right: 0.3rem;
 }
+
 .page-submenue a:hover,
 .page-submenue .item:hover{
   background-color: #dfe2e7;
   color: #000;
-} 
-
+}
+.page-submenue a.admin,
+.page-submenue .item.admin  {
+  background-color: #d2d6de;
+  color: #fff;
+  float: right;
+  margin-left: 0.3rem;
+  margin-right: 0;
+}
 .page-submenue a.active,
 .page-submenue .item.active {
   border-top-right-radius: 4px;
@@ -491,11 +507,7 @@ button.btn-blau {
   background-color: #d2d6de;
 
 }
-.page-submenue a.admin,
-.page-submenue .item.admin  {
-  opacity: 0.3;
-  float: right;
-}
+
 .page-submenue a.admin:hover,
 .page-submenue .item.admin:hover  {
   opacity: 1;

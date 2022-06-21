@@ -1,65 +1,74 @@
 <?php
 
-class AdminUpdate extends AbstractPage {
+class AdminUpdate extends AbstractPage
+{
 
-	private $info;
-	
-	private $adminGroup = 'Webportal_Administrator';
-	
-	
-	public function __construct() {
-		die();	
-	}
+    private $info;
 
-	public function execute() {
-	    new errorPage();
-	}
-	
-	private function index() {
-	}
-	
-	public static function hasSettings() {
-		return false;
-	}
-	
-	public static function getSettingsDescription() {
-		return [];
-	}
-	
-	
-	public static function getSiteDisplayName() {
-		return 'Update';
-	}
-	
-	public static function getAdminGroup() {
-		return 'Webportal_Update_Admin';
-	}
-	
-	public static function getAdminMenuIcon() {
-		return 'fa fa-download';
-	}
-	
-	public static function getAdminMenuGroupIcon() {
-		return 'fa fa-cogs';
-	}
-	
-	public static function getAdminMenuGroup() {
-		return 'System';
-	}
+    private $adminGroup = 'Webportal_Administrator';
 
-	public static function siteIsAlwaysActive() {
-		return true;
-	}
-	/**
-	 * Überprüft, ob die Seite eine Administration hat.
-	 * @return boolean
-	 */
-	public static function hasAdmin() {
-		return true;
-	}
+    public function __construct()
+    {
+        die();
+    }
 
-	public static function displayAdministration($selfURL) {
-	    $html = "";
+    public function execute()
+    {
+        new errorPage();
+    }
+
+    public static function hasSettings()
+    {
+        return false;
+    }
+
+    public static function getSettingsDescription()
+    {
+        return [];
+    }
+
+    public static function getSiteDisplayName()
+    {
+        return 'Update';
+    }
+
+    public static function getAdminGroup()
+    {
+        return 'Webportal_Update_Admin';
+    }
+
+    public static function getAdminMenuIcon()
+    {
+        return 'fa fa-download';
+    }
+
+    public static function getAdminMenuGroupIcon()
+    {
+        return 'fa fa-cogs';
+    }
+
+    public static function getAdminMenuGroup()
+    {
+        return 'System';
+    }
+
+    public static function siteIsAlwaysActive()
+    {
+        return true;
+    }
+
+    /**
+     * Überprüft, ob die Seite eine Administration hat.
+     * @return boolean
+     */
+    public static function hasAdmin()
+    {
+        return true;
+    }
+
+    public static function displayAdministration($selfURL)
+    {
+        $html = "";
 
         $currentVersion = DB::getVersion();
 
@@ -67,56 +76,48 @@ class AdminUpdate extends AbstractPage {
 
         $releaseID = DB::getSettings()->getValue("current-release-id");
 
-        $infoToReleaseID = file_get_contents(DB::getGlobalSettings()->updateServer . "/api/release/" . $releaseID);
+        $infoToReleaseID = file_get_contents($updateserver . "/api/release/" . $releaseID . "/" . DB::getGlobalSettings()->schulnummer);
 
         $versionInfo = json_decode($infoToReleaseID, true);
 
-
-        if($versionInfo['id'] > 0) {
+        if ($versionInfo['id'] > 0) {
 
             $versionInfoText = "Name: " . $versionInfo['name'] . "\r\n";
             $versionInfoText .= "Datum: " . $versionInfo['releaseDate'] . "\r\n";
 
-            if($versionInfo['nextVersionID'] > 0) {
+            if ($versionInfo['nextVersionID'] > 0) {
                 // Update verfügbar
-                $newVersion = file_get_contents(DB::getGlobalSettings()->updateServer . "/api/release/" . $versionInfo['nextVersionID']);
+                $newVersion = file_get_contents($updateserver . "/api/release/" . $versionInfo['nextVersionID'] . "/" . DB::getGlobalSettings()->schulnummer);
                 $versionInfoNewVersion = json_decode($newVersion, true);
 
-                if($_REQUEST['doUpdate'] > 0) {
+                if ($_REQUEST['doUpdate'] > 0) {
                     return self::updateToVersion($versionInfoNewVersion);
                     exit(0);
                 }
-
-                $newVersionNumber = $versionInfoNewVersion['versionMajor'] . "." .$versionInfoNewVersion['versionMinor'] . "." .$versionInfoNewVersion['versionPatch'];
-
-
+                $newVersionNumber = $versionInfoNewVersion['versionMajor'] . "." . $versionInfoNewVersion['versionMinor'] . "." . $versionInfoNewVersion['versionPatch'];
                 $newVersionText = "Name: " . $versionInfoNewVersion['name'] . "\r\n";
                 $newVersionText .= "Datum: " . $versionInfoNewVersion['releaseDate'] . "\r\n";
                 $newVersionText .= "Veränderungen: " . $versionInfoNewVersion['changeLog'] . "\r\n";
 
                 eval("\$html = \"" . DB::getTPL()->get("administration/update/updatestatusnew") . "\";");
-            }
-            else {
+            } else {
                 eval("\$html = \"" . DB::getTPL()->get("administration/update/updatestatusok") . "\";");
-
             }
-
-        }
-        else {
+        } else {
             eval("\$html = \"" . DB::getTPL()->get("administration/update/updateservernotavailible") . "\";");
         }
 
-		return $html;
-	}
+        return $html;
+    }
 
-	private static function updateToVersion($versionInfo) {
+    private static function updateToVersion($versionInfo)
+    {
 
-        $url = DB::getGlobalSettings()->updateServer . "/api/release/" . $versionInfo['id'] . "/download";
-
+        $url = DB::getGlobalSettings()->updateServer . "/api/release/" . $versionInfo['id'] . "/download/" . DB::getGlobalSettings()->schulnummer;
 
         self::deleteAll("../data/update");
 
-        mkdir("../data/update",0777);
+        mkdir("../data/update", 0777);
 
         file_put_contents("../data/update/update.zip", fopen($url, 'r'));
 
@@ -129,21 +130,20 @@ class AdminUpdate extends AbstractPage {
         }
 
         if (file_exists('../data/update/Update/www/update.php')) {
-            if ( !rename('../data/update/Update/www/update.php', '../www/update.php') ) {
+            if (!rename('../data/update/Update/www/update.php', '../www/update.php')) {
                 die('Installationsdatei konnte nicht kopiert werden.');
             }
         }
 
-        $random = random_int(100000,999999);
+        $random = random_int(100, 999); // SLOW FUNCTION @ chris 02/2022
 
         // Wartungsinformation eintragen
-
         $wartungsinfo = [
             'pendingUpdate' => true,
             'updateKey' => $random,
             'updateFromReleaseID' => DB::getSettings()->getInteger("current-release-id"),
             'updateFromVersion' => DB::getVersion(),
-            'updateToVersion' => $versionInfo['versionMajor'] . "." .$versionInfo['versionMinor'] . "." .$versionInfo['versionPatch'],
+            'updateToVersion' => $versionInfo['versionMajor'] . "." . $versionInfo['versionMinor'] . "." . $versionInfo['versionPatch'],
             'updateToReleaseID' => $versionInfo['id']
         ];
 
@@ -153,27 +153,26 @@ class AdminUpdate extends AbstractPage {
 
         eval("\$html = \"" . DB::getTPL()->get("administration/update/updatedownloaded") . "\";");
 
-	    // Wartungsmodus, um Frameworkdateien freizugeben.
-        file_put_contents("../data/wartungsmodus/status.dat","heute");
+        // Wartungsmodus, um Frameworkdateien freizugeben.
+        file_put_contents("../data/wartungsmodus/status.dat", "heute");
 
         return $html;
     }
 
-    private static function deleteAll($dir) {
-	    if(is_file($dir)) unlink($dir);
-	    else if(is_dir($dir)) {
+    private static function deleteAll($dir)
+    {
+        if (is_file($dir)) unlink($dir);
+        else if (is_dir($dir)) {
             $dirContent = opendir($dir);
-
-            while($content = readdir($dirContent)) {
-                if($content != '.' && $content != "..") {
+            while ($content = readdir($dirContent)) {
+                if ($content != '.' && $content != "..") {
                     self::deleteAll($content);
                 }
             }
-
             return @rmdir($dir);
         }
     }
-		
+
 }
 
 

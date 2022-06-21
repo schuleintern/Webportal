@@ -11,17 +11,26 @@ class Widget
     /**
      * Constructor
      */
-    public function __construct($data)
+    public function __construct($data = false)
     {
-        $this->data = $data;
+        if ($data) {
+            $this->data = $data;
+        }
     }
 
-    public function getData() {
+    public function getData()
+    {
         return $this->data;
     }
 
-    public function render() {
+    public function render()
+    {
         return '';
+    }
+
+    public function getScripts()
+    {
+        return false;
     }
 
 }
