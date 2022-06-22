@@ -197,7 +197,7 @@ class kalenderAllInOne extends AbstractPage {
 
           $return = ACL::setAcl( (array)$item->kalenderAcl );
           if (is_array($return) && $return['error']) {
-            return $return;
+            return json_encode($return);
           }
 
           if ( $item->kalenderID != 0 ) {
@@ -221,11 +221,11 @@ class kalenderAllInOne extends AbstractPage {
             '" . DB::getDB()->escapeString($item->kalenderID) . "',
             '" . DB::getDB()->escapeString($item->kalenderName) . "',
             '" . DB::getDB()->escapeString($item->kalenderColor) . "',
-            '" . DB::getDB()->escapeString($item->kalenderSort) . "',
-            '" . DB::getDB()->escapeString($item->kalenderPreSelect) . "',
-            '" . DB::getDB()->escapeString($item->kalenderFerien) . "',
-            '" . DB::getDB()->escapeString($item->kalenderPublic) . "',
-            ".$return['aclID']."
+            " . (int)DB::getDB()->escapeString($item->kalenderSort) . ",
+            " . (int)DB::getDB()->escapeString($item->kalenderPreSelect) . ",
+            " . (int)DB::getDB()->escapeString($item->kalenderFerien) . ",
+            " . (int)DB::getDB()->escapeString($item->kalenderPublic) . ",
+            ". (int)$return['aclID']."
             )");
           }
 
