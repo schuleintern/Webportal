@@ -25,31 +25,6 @@ class Updates {
 
     public static function to142($root) {
 
-        $root->update('www/startup.php');
-        $root->update('www/update.php');
-        $root->update('www/components');
-        $root->update('www/cssjs');
-
-        $root->query("ALTER TABLE `unterricht` ADD COLUMN `unterrichtElementASVID` varchar(255) NULL AFTER `unterrichtKoppelIsPseudo`;");
-        $root->query("ALTER TABLE `settings` ADD COLUMN `settingsExtension` varchar(100) NULL;");
-        $root->query("ALTER TABLE `widgets` ADD COLUMN `params` text;");
-        $root->query("ALTER TABLE `extensions` ADD COLUMN `menuCat` varchar(25) NULL;");
-
-        $root->query("CREATE TABLE `dashboard` (
-            `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-            `title` varchar(255) DEFAULT NULL,
-            `uniqid` varchar(100) DEFAULT NULL,
-            `user_id` varchar(100) DEFAULT NULL,
-            `widget_id` varchar(100) DEFAULT NULL,
-            `param` varchar(255) DEFAULT '',
-            PRIMARY KEY (`id`),
-            KEY `uniqid` (`uniqid`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-
-
-
-
-
         return true;
     }
 
@@ -282,7 +257,7 @@ class Update {
     public function executeVersion() {
         $method = 'to'.str_replace('.','',$this->nextVersion);
         if ( method_exists( Updates, $method ) ) {
-            if ( Updates::$method($this) ) {
+            if ( Updates::$method($this) != true ) {
                 return false;
             }
         }

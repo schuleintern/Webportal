@@ -169,17 +169,55 @@ class Update extends AbstractPage
             $this->from140to141();
         }
 
-        if ($from == "1.4.1" && $to == "1.4.2") {
-            $this->from141to142();
+        if ($from == "1.4.1" && $to == "1.4.1") {
+            $this->from141to141();
         }
 
         return true;
     }
 
 
-    private  function from141to142() {
+    private  function from141to141() {
+
         // Neue update.php
         $this->updateTextFileInWWWDir("update.php");
+        // Neue startup.php
+        $this->updateTextFileInWWWDir("startup.php");
+        // Neue index.php
+        $this->updateTextFileInWWWDir("index.php");
+        // Neue rest.php
+        $this->updateTextFileInWWWDir("rest.php");
+
+        $this->updateCssJSFolder(141);
+        $this->updateComponentsFolder(141);
+
+        DB::getDB()->query("ALTER TABLE `settings` ADD COLUMN `settingsExtension` varchar(100) NULL;");
+        DB::getDB()->query("ALTER TABLE `widgets` ADD COLUMN `params` text;");
+        DB::getDB()->query("ALTER TABLE `extensions` ADD COLUMN `menuCat` varchar(25) NULL;");
+
+        DB::getDB()->query("CREATE TABLE `dashboard` (
+            `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+            `title` varchar(255) DEFAULT NULL,
+            `uniqid` varchar(100) DEFAULT NULL,
+            `user_id` varchar(100) DEFAULT NULL,
+            `widget_id` varchar(100) DEFAULT NULL,
+            `param` varchar(255) DEFAULT '',
+            PRIMARY KEY (`id`),
+            KEY `uniqid` (`uniqid`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+        DB::getDB()->query("CREATE TABLE `klassen` (
+          `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+          `klassenname` varchar(50) DEFAULT NULL,
+          `klassenname_lang` varchar(50) DEFAULT NULL,
+          `klassenname_naechstes_schuljahr` varchar(50) DEFAULT NULL,
+          `klassenname_zeugnis` varchar(50) DEFAULT NULL,
+          `klassenart` varchar(50) DEFAULT NULL,
+          `ausgelagert` tinyint(1) DEFAULT NULL,
+          `aussenklasse` tinyint(1) DEFAULT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
     }
 
     private  function from140to141() {
