@@ -53,7 +53,7 @@ class ACL {
         }
 
         $acl['aclAdminGroup'] = $adminGroup;
-        if ( $adminGroup && DB::getSession()->isMember($adminGroup) ) {
+        if ( $adminGroup && ( DB::getSession() && DB::getSession()->isMember($adminGroup) )) {
             $acl['user']['admin'] = true;
         }
         //}
