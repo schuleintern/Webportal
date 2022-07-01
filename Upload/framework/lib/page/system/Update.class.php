@@ -194,6 +194,7 @@ class Update extends AbstractPage
         DB::getDB()->query("ALTER TABLE `settings` ADD COLUMN `settingsExtension` varchar(100) NULL;");
         DB::getDB()->query("ALTER TABLE `widgets` ADD COLUMN `params` text;");
         DB::getDB()->query("ALTER TABLE `extensions` ADD COLUMN `menuCat` varchar(25) NULL;");
+        DB::getDB()->query("ALTER TABLE `unterricht` ADD COLUMN `unterrichtKlassen` varchar(255) NULL;");
 
         DB::getDB()->query("CREATE TABLE `dashboard` (
             `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
