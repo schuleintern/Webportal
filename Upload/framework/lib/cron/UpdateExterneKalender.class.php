@@ -27,166 +27,163 @@ class UpdateExterneKalender extends AbstractCron {
 			$kalender = $alleKalender[$i];
 			
 			if($kalender['kalenderIcalFeed'] != "") {
-			
-    			$icalfeed = file_get_contents($kalender['kalenderIcalFeed']);
-    			
-    			$icalobj = new ZCiCal($icalfeed);
 
-    			
-    			
-    			$calData = [];
-					
-    			// read back icalendar data that was just parsed
-    			if(isset($icalobj->tree->child))
-    			{
-    				foreach($icalobj->tree->child as $node)
-    				{
-    					if($node->getName() == "VEVENT")
-    					{
-    						$event = [];
-    						
-    						foreach($node->data as $key => $value)
-    						{
-    							switch($key) {
-    								case 'DTSTART':
-    									// 20161221T140000Z
 
-    								    
-    									$val = $value->getValues();
-    									
-    									
-    									$addHour = 0;
-    									
-    									if(strpos($val, 'Z') > 0) $addHour = 1;
-    									
-    									
-    									$event['dateStart'] = substr($val,0,4). '-' . substr($val, 4, 2) . '-' . substr($val, 6, 2);
-    									if(strpos($val, 'T') == false) {
-    										$event['isWholeDay'] = 1;
-    										$event['startTime'] = '';
-    									}
-    									else {
-    										$event['isWholeDay'] = 0;
-    										// Zeit suchen
-												$time = substr($val, strpos($val,'T')+1);
-												// Bugfix Issue#38
-												// Eingaben mit dem Format x:xx bekommen eine 0 vorangestellt
-												$hour = (substr($time, 0, 2) + $addHour);
-												if (strlen($hour) < 2) {
-													$hour = "0".$hour;
-												}
-    										$time = $hour . ":" . substr($time, 2, 2);
-    										$event['startTime'] = $time;
-    									}
-    									break;
-    									
-    								case 'DTEND':
-    									// 20161221T140000Z
-    									$val = $value->getValues();
-    									$event['dateEnde'] = substr($val,0,4). '-' . substr($val, 4, 2) . '-' . substr($val, 6, 2);
-    									
-    									if(strpos($val, 'Z') > 0) $addHour = 1;
-    									
-    									if(strpos($val, 'T') == false) {
-    										$event['isWholeDay'] = 1;
-    										$event['endTime'] = '';
-    										$event['dateEnde'] = DateFunctions::substractOneDayToMySqlDate($event['dateEnde']);
-    									}
-    									else {
-    										$event['isWholeDay'] = 0;
-    										// Zeit suchen
-    										$time = substr($val, strpos($val,'T')+1);
-    										$time =  (substr($time, 0, 2)+$addHour) . ":" . substr($time, 2, 2);
-    										$event['endTime'] = $time;
-    									}
-    									
-    									break;
-    									
-    								case 'SUMMARY':
-    									$event['titel'] = $value->getValues();
-    									break;
-    									
-    								case 'LOCATION':
-    									$event['ort'] = $value->getValues();
-    									break;
-    									
-    								case 'DESCRIPTION':
-    									$event['beschreibung'] = htmlspecialchars($value->getValues());
-											break;
-										
-										case 'RRULE':
-											$val = str_replace(';', '&', $value->getValues() );
-											parse_str($val, $output);
-											$event['RRULE'] = $output;
-											break;
-    									
-    							}
-    						}
-    						
-    						$calData[] = $event;
-    					}
-    				}
-					}
-					
-					$_debug = [];
-					
-					foreach($calData as $node) {
-						if ($node['RRULE']) {
+                $client = new GuzzleHttp\Client();
+                $res = $client->request('GET', $kalender['kalenderIcalFeed'], [
+                ]);
 
-							if ($node['RRULE']['FREQ'] == 'YEARLY') {
+                if($res->getStatusCode() == 200) {
+                    $icalobj = new ZCiCal($res->getBody());
 
-								$interval = (int)$node['RRULE']['INTERVAL'];
-								unset( $node['RRULE'] );
 
-								for ($z = 1; $z <= $interval; $z++) {
+                    $calData = [];
 
-									$clone = $node;
-									$clone['dateStart'] = (int)substr($clone['dateStart'], 0,4) +$z .'-'.substr($clone['dateStart'], 5,2).'-'.substr($clone['dateStart'], 8,2);
-									$clone['dateEnde'] = (int)substr($clone['dateEnde'], 0,4) +$z .'-'.substr($clone['dateEnde'], 5,2).'-'.substr($clone['dateEnde'], 8,2);
-		
-									$calData[] = $clone;
-									$_debug[] = $clone;
+                    // read back icalendar data that was just parsed
+                    if (isset($icalobj->tree->child)) {
+                        foreach ($icalobj->tree->child as $node) {
+                            if ($node->getName() == "VEVENT") {
+                                $event = [];
 
-								}
-							}
-						}
-					}
+                                foreach ($node->data as $key => $value) {
+                                    switch ($key) {
+                                        case 'DTSTART':
+                                            // 20161221T140000Z
 
-					// if ($_debug) {
-					// 	echo "<pre>";
-					// 	print_r($_debug);
-					// 	echo "</pre>";
-			
 
-					// 	// echo "<pre>";
-					// 	// print_r($calData);
-					// 	// echo "</pre>";
-					// 	exit;
-					// }
-    			
-    			
-    			if(sizeof($calData) > 0) {
-    				DB::getDB()->query("DELETE FROM kalender_extern WHERE kalenderID='" . $kalender['kalenderID'] . "'");
-    				
-    				$inserts = [];
-    				
-    				for($v = 0; $v < sizeof($calData); $v++) {
-    					$line = "('" . $kalender['kalenderID'] . "',";
-    					$line .= "'" . DB::getDB()->escapeString($calData[$v]['titel']) . "',";
-    					$line .= "'" . DB::getDB()->escapeString($calData[$v]['dateStart']) . "',";
-    					$line .= "'" . DB::getDB()->escapeString($calData[$v]['dateEnde']) . "',";
-    					$line .= "'" . DB::getDB()->escapeString($calData[$v]['isWholeDay']) . "',";
-    					$line .= "'" . DB::getDB()->escapeString($calData[$v]['startTime']) . "',";
-    					$line .= "'" . DB::getDB()->escapeString($calData[$v]['endTime']) . "',";
-    					
-    					$line .= "UNIX_TIMESTAMP(),";
-    					$line .= "'" . DB::getDB()->escapeString($calData[$v]['ort']) . "',";
-    					$line .= "'" . DB::getDB()->escapeString($calData[$v]['beschreibung']) . "')";
-    					
-    					$inserts[] = $line;
-    				}
-    				
-    				DB::getDB()->query("INSERT INTO kalender_extern
+                                            $val = $value->getValues();
+
+
+                                            $addHour = 0;
+
+                                            if (strpos($val, 'Z') > 0) $addHour = 1;
+
+
+                                            $event['dateStart'] = substr($val, 0, 4) . '-' . substr($val, 4, 2) . '-' . substr($val, 6, 2);
+                                            if (strpos($val, 'T') == false) {
+                                                $event['isWholeDay'] = 1;
+                                                $event['startTime'] = '';
+                                            } else {
+                                                $event['isWholeDay'] = 0;
+                                                // Zeit suchen
+                                                $time = substr($val, strpos($val, 'T') + 1);
+                                                // Bugfix Issue#38
+                                                // Eingaben mit dem Format x:xx bekommen eine 0 vorangestellt
+                                                $hour = (substr($time, 0, 2) + $addHour);
+                                                if (strlen($hour) < 2) {
+                                                    $hour = "0" . $hour;
+                                                }
+                                                $time = $hour . ":" . substr($time, 2, 2);
+                                                $event['startTime'] = $time;
+                                            }
+                                            break;
+
+                                        case 'DTEND':
+                                            // 20161221T140000Z
+                                            $val = $value->getValues();
+                                            $event['dateEnde'] = substr($val, 0, 4) . '-' . substr($val, 4, 2) . '-' . substr($val, 6, 2);
+
+                                            if (strpos($val, 'Z') > 0) $addHour = 1;
+
+                                            if (strpos($val, 'T') == false) {
+                                                $event['isWholeDay'] = 1;
+                                                $event['endTime'] = '';
+                                                $event['dateEnde'] = DateFunctions::substractOneDayToMySqlDate($event['dateEnde']);
+                                            } else {
+                                                $event['isWholeDay'] = 0;
+                                                // Zeit suchen
+                                                $time = substr($val, strpos($val, 'T') + 1);
+                                                $time = (substr($time, 0, 2) + $addHour) . ":" . substr($time, 2, 2);
+                                                $event['endTime'] = $time;
+                                            }
+
+                                            break;
+
+                                        case 'SUMMARY':
+                                            $event['titel'] = $value->getValues();
+                                            break;
+
+                                        case 'LOCATION':
+                                            $event['ort'] = $value->getValues();
+                                            break;
+
+                                        case 'DESCRIPTION':
+                                            $event['beschreibung'] = htmlspecialchars($value->getValues());
+                                            break;
+
+                                        case 'RRULE':
+                                            $val = str_replace(';', '&', $value->getValues());
+                                            parse_str($val, $output);
+                                            $event['RRULE'] = $output;
+                                            break;
+
+                                    }
+                                }
+
+                                $calData[] = $event;
+                            }
+                        }
+                    }
+
+                    $_debug = [];
+
+                    foreach ($calData as $node) {
+                        if ($node['RRULE']) {
+
+                            if ($node['RRULE']['FREQ'] == 'YEARLY') {
+
+                                $interval = (int)$node['RRULE']['INTERVAL'];
+                                unset($node['RRULE']);
+
+                                for ($z = 1; $z <= $interval; $z++) {
+
+                                    $clone = $node;
+                                    $clone['dateStart'] = (int)substr($clone['dateStart'], 0, 4) + $z . '-' . substr($clone['dateStart'], 5, 2) . '-' . substr($clone['dateStart'], 8, 2);
+                                    $clone['dateEnde'] = (int)substr($clone['dateEnde'], 0, 4) + $z . '-' . substr($clone['dateEnde'], 5, 2) . '-' . substr($clone['dateEnde'], 8, 2);
+
+                                    $calData[] = $clone;
+                                    $_debug[] = $clone;
+
+                                }
+                            }
+                        }
+                    }
+
+                    // if ($_debug) {
+                    // 	echo "<pre>";
+                    // 	print_r($_debug);
+                    // 	echo "</pre>";
+
+
+                    // 	// echo "<pre>";
+                    // 	// print_r($calData);
+                    // 	// echo "</pre>";
+                    // 	exit;
+                    // }
+
+
+                    if (sizeof($calData) > 0) {
+                        DB::getDB()->query("DELETE FROM kalender_extern WHERE kalenderID='" . $kalender['kalenderID'] . "'");
+
+                        $inserts = [];
+
+                        for ($v = 0; $v < sizeof($calData); $v++) {
+                            $line = "('" . $kalender['kalenderID'] . "',";
+                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['titel']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['dateStart']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['dateEnde']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['isWholeDay']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['startTime']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['endTime']) . "',";
+
+                            $line .= "UNIX_TIMESTAMP(),";
+                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['ort']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['beschreibung']) . "')";
+
+                            $inserts[] = $line;
+                        }
+
+                        DB::getDB()->query("INSERT INTO kalender_extern
     						
     				(
     					kalenderID,
@@ -200,11 +197,17 @@ class UpdateExterneKalender extends AbstractCron {
     					eintragOrt,
     					eintragKommentar
     				) VALUES
-    			" . implode(",",$inserts));
-    				
-    			}
+    			" . implode(",", $inserts));
+
+                    }
+                    $this->result .= "Kalender " . $kalender['kalenderName'] . " importiert. (" . sizeof($inserts) . " Termine.)\r\n";
+
+                }
+                else {
+                    $this->result .= "Kalender " . $kalender['kalenderName'] . " nicht importiert. (Statuscode {$res->getStatusCode()})\r\n";
+
+                }
     			
-    			$this->result .= "Kalender " . $kalender['kalenderName'] . " importiert. (" . sizeof($inserts) . " Termine.)\r\n";
     		}
     		elseif($kalender['office365Username'] != "") {
     		    $terminData = Office365Api::getTermine($kalender['office365Username']);
