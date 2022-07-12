@@ -603,6 +603,7 @@ pause\r\n";
       $text2 = " ";
       $bestanden = "";
 
+      $bestandenOberstufeMR = "";
 
 
 
@@ -637,6 +638,10 @@ pause\r\n";
                   $bestanden = "Die Erlaubnis zum Vorrücken in die nächsthöhere Jahrgangsstufe hat er nicht erhalten.";
               }
           }
+      }
+
+      if(schulinfo::isGymnasium() && $schueler->getKlassenObjekt()->getKlassenstufe() == 10 && $bemerkung->klassenzielErreicht()) {
+          $bestandenOberstufeMR = "\n" . ($schueler->getGeschlecht() == 'm' ? "Der Schüler" : "Die Schülerin") . " ist damit zum Eintritt in die Qualifikationsphase der Oberstufe des Gymnasiums berechtigt; dies schließt den Nachweis eines mittleren Schulabschlusses ein.";
       }
 
       $nachname = "";
@@ -706,6 +711,7 @@ pause\r\n";
       $templateProcessor->setValue("{BEMERKUNG1}", $text1);
 
       $templateProcessor->setValue("{VOR}", $bestanden);
+      $templateProcessor->setValue("{VOROBERSTUFEMR}", $bestandenOberstufeMR);
 
       $templateProcessor->setValue("{DATUM}", DateFunctions::getNaturalDateFromMySQLDate($zeugnisKlasse->getDatumAsSQLDate()));
 
@@ -876,6 +882,8 @@ pause\r\n";
                   $latinum = "Dieses Zeugnis schließt das Latinum gemäß der Vereinbarung der Kultusministerkonferenz vom 22. September 2005 ein.";
               }
           }
+
+
       }
 
 
