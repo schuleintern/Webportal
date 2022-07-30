@@ -372,6 +372,14 @@ abstract class AbstractPage
             $HTML_widgets = implode('', $HTML_widgets);
 
 
+            // AutoLogout
+            $selectedAutoLogout = DB::$mySettings['autoLogout'];
+            if ($selectedAutoLogout == null ) {
+                $selectedAutoLogout = 2;
+            }
+            $selectedAutoLogout = $selectedAutoLogout * 60;
+
+
             // Render Header
             eval ("\$this->header =  \"" . DB::getTPL()->get('header/header') . "\";");
 
