@@ -182,6 +182,7 @@ class user {
       if ($full == true) {
           if ($this->isPupil()) {
               $collection['klasse'] = $this->getPupilObject()->getKlasse();
+              $collection['gender'] = $this->getPupilObject()->getGeschlecht();
           }
           if ($this->isEltern()) {
               $collection['childs'] = [];
