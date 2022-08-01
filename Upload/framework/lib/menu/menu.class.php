@@ -275,7 +275,7 @@ class menu {
 
       $html = '';
       if ($item_id) {
-          $menu_items = $this->menu->getCatsDeep($item_id)[0]['items'];
+          $menu_items = $this->menu->getCatsDeep($item_id);
           foreach($menu_items as $item) {
 
 /*

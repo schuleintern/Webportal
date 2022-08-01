@@ -110,16 +110,28 @@ class MenueItems {
         if ( !(int)$item_id ) {
             return false;
         }
+
+        $ret = [];
+        $menueItemData = PAGE::getFactory()->getMenuItemByParentID( (int)$item_id, $active );
+        if ($menueItemData) {
+            foreach($menueItemData as $data) {
+                $data['items'] = self::getNestedItems($data['id'], $active);
+                $data['access'] = self::getAccess($data['access']);
+                $ret[] = $data;
+            }
+        }
+
+        /*
         $where = '';
         if ($active == true) {
             $where .= ' AND active = 1';
         }
-        $ret = [];
         $dataSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE id = ".(int)$item_id." ".$where);
         while($data = DB::getDB()->fetch_array($dataSQL)) {
             $data['items'] = self::getNestedItems($data['id'], $active);
             $ret[] = $data;
         }
+        */
         return $ret;
     }
 
@@ -131,31 +143,54 @@ class MenueItems {
         if ( !(int)$menu_id ) {
             return false;
         }
+        $ret = [];
+        $menueItemData = PAGE::getFactory()->getMenuItemByMenuID( (int)(int)$menu_id, $active );
+        if ($menueItemData) {
+            foreach($menueItemData as $data) {
+                $data['items'] = self::getNestedItems($data['id'], $active);
+                $data['access'] = self::getAccess($data['access']);
+                $ret[] = $data;
+            }
+        }
+
+        /*
         $where = '';
         if ($active == true) {
             $where .= ' AND active = 1';
         }
-        $ret = [];
-
         $dataSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE menu_id = ".(int)$menu_id." ".$where." ORDER BY sort");
         while($data = DB::getDB()->fetch_array($dataSQL, true)) {
             $data['items'] = self::getNestedItems($data['id'], $active);
             $data['access'] = self::getAccess($data['access']);
             $ret[] = $data;
         }
+        */
         return $ret;
     }
 
     private static  function getNestedItems($parent_id, $active = true) {
 
+
         if ( !(int)$parent_id ) {
             return false;
         }
+
+
+        $ret = [];
+        $menueItemData = PAGE::getFactory()->getMenuItemByParentID( $parent_id, $active );
+        if ($menueItemData) {
+            foreach($menueItemData as $data) {
+                $data['items'] = self::getNestedItems($data['id'], $active );
+                $data['access'] = self::getAccess($data['access']);
+                $ret[] = $data;
+            }
+        }
+
+        /*
         $where = '';
         if ($active == true) {
             $where .= ' AND active = 1';
         }
-        $ret = [];
         $dataChildSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE parent_id = ".$parent_id." ".$where." ORDER BY sort");
         while($dataChild = DB::getDB()->fetch_array($dataChildSQL, true)) {
 
@@ -163,6 +198,7 @@ class MenueItems {
             $dataChild['access'] = self::getAccess($dataChild['access']);
             $ret[] = $dataChild;
         }
+        */
         return $ret;
 
     }
