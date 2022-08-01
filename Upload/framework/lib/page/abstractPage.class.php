@@ -716,6 +716,15 @@ abstract class AbstractPage
                     $settings[$key]['value'] = $result['settingValue'];
                 }
             }
+        } else {
+            $result = DB::getDB()->query('SELECT `settingValue`, `settingName` FROM `settings` WHERE `settingsExtension` = "ext_' . $this->extension['folder'] . '" ');
+            while ($data = DB::getDB()->fetch_array($result, true)) {
+
+                if (isset($data['settingValue']) && $data['settingName'] ) {
+                    $settings[$data['settingName']] = $data['settingValue'];
+                }
+            }
+
         }
         return $settings;
     }
