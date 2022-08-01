@@ -19,9 +19,9 @@ class schueler {
 		$this->data = $data;
 	}
 
-    public function getCollection() {
+    public function getCollection($full = false, $avatar = false) {
         $user = user::getUserByID($this->getUserID());
-        return $user->getCollection();
+        return $user->getCollection($full, $avatar);
     }
 	
 	/**

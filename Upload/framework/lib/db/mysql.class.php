@@ -44,7 +44,7 @@ class mysql {
 		return $this->errno;
 	}
 
-	public function query($query_string, $silent = 0, $clean = false) {
+	public function query($query_string, $silent = 0) {
 
 		$debug = array();
 		$debug['query'] = $query_string;

@@ -72,9 +72,6 @@ class AdminMenu extends AbstractPage {
             $menu =  Menue::getFromAlias($_REQUEST['id']);
             $menuAll =  $menu->getItemsDeep(false);
 
-            /*echo '<pre>';
-            print_r($menuAll);
-            echo '</pre>';*/
 
             echo json_encode($menuAll); exit;
             exit;

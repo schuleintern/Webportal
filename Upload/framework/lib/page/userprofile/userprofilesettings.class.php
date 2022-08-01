@@ -70,7 +70,7 @@ class userprofilesettings extends AbstractPage
                 DB::getDB()->query("INSERT INTO user_settings (userID, skinColor, startPage, autoLogout) values(
 						'" . DB::getUserID() . "',
 						'" . addslashes($_REQUEST['skinColor']) . "',
-						'" . addslashes($_REQUEST['startPage']) . "'),
+						'" . addslashes($_REQUEST['startPage']) . "',
 						" . $autoLogout . ")
 				");
             }
