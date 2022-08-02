@@ -90,9 +90,11 @@ abstract class AbstractRest {
     /**
      * @deprecated:  use getAclGroup
      */
-	public function aclModuleName() {
+	/*
+	 public function aclModuleName() {
 		return get_called_class();
 	}
+    */
 
 
     /**
