@@ -35,8 +35,18 @@ class NotenZeugnisMV extends AbstractPage {
     if($this->zeugnis == null) {
         new errorPage('Kein gültiges Zeugnis angegeben!');
     }
+
+    $zeugnisKlassen = $this->zeugnis->getZeugnisKlassen();
     
-    $this->unterrichte = SchuelerUnterricht::getUnterrichtForLehrer(DB::getSession()->getTeacherObject(), true);    
+    $alleUnterrichte = SchuelerUnterricht::getUnterrichtForLehrer(DB::getSession()->getTeacherObject(), true);
+
+    for($i = 0; $i < sizeof($alleUnterrichte); $i++) {
+        for($z = 0; $z < sizeof($zeugnisKlassen); $z++) {
+           if(in_array($zeugnisKlassen[$z]->getKlasse(), $alleUnterrichte[$i]->getAllKlassen())) {
+               $this->unterrichte[] = $alleUnterrichte[$i];
+           }
+        }
+    }
   }
 
   public function execute() {

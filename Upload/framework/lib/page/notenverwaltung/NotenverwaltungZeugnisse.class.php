@@ -11,7 +11,7 @@ class NotenverwaltungZeugnisse extends AbstractPage {
   public function __construct() {
 
     if(!DB::getGlobalSettings()->hasNotenverwaltung) {
-      die("Notenverwaltung nicht lizenziert.");
+      die("Notenverwaltung nicht aktiviert.");
     }
 
     parent::__construct(['Notenverwaltung', 'Zeugnisse'],false,false,true);
@@ -202,6 +202,21 @@ class NotenverwaltungZeugnisse extends AbstractPage {
                           }
 
                           if ($isSonderfall) $semesterNotenImport->addAttribute("Sonderfall", "true");
+
+                          // Sportnote als kleiner Leistungsnachweis exportieren
+                          {
+                              if ($unterrichtsNoten[$n]->getUnterricht()->getFach()->getKurzform() == 'Smw' && schulinfo::isGymnasium()) {
+                                  if($klein >= 0 && $gross >= 0) {
+                                      $gesamtNote = (
+                                          $klein +
+                                            (2 * $gross)
+                                          ) / 3;
+                                      $klein = $gesamtNote;
+                                      $gross = -1;
+                                  }
+                              }
+                          }
+
 
 
                           $leistung = $semesterNotenImport->addChild("Leistung");
@@ -603,6 +618,7 @@ pause\r\n";
       $text2 = " ";
       $bestanden = "";
 
+      $bestandenOberstufeMR = "";
 
 
 
@@ -637,6 +653,10 @@ pause\r\n";
                   $bestanden = "Die Erlaubnis zum Vorrücken in die nächsthöhere Jahrgangsstufe hat er nicht erhalten.";
               }
           }
+      }
+
+      if(schulinfo::isGymnasium() && $schueler->getKlassenObjekt()->getKlassenstufe() == 10 && $bemerkung->klassenzielErreicht()) {
+          $bestandenOberstufeMR = "\n" . ($schueler->getGeschlecht() == 'm' ? "Der Schüler" : "Die Schülerin") . " ist damit zum Eintritt in die Qualifikationsphase der Oberstufe des Gymnasiums berechtigt; dies schließt den Nachweis eines mittleren Schulabschlusses ein.";
       }
 
       $nachname = "";
@@ -706,6 +726,7 @@ pause\r\n";
       $templateProcessor->setValue("{BEMERKUNG1}", $text1);
 
       $templateProcessor->setValue("{VOR}", $bestanden);
+      $templateProcessor->setValue("{VOROBERSTUFEMR}", $bestandenOberstufeMR);
 
       $templateProcessor->setValue("{DATUM}", DateFunctions::getNaturalDateFromMySQLDate($zeugnisKlasse->getDatumAsSQLDate()));
 
@@ -876,6 +897,8 @@ pause\r\n";
                   $latinum = "Dieses Zeugnis schließt das Latinum gemäß der Vereinbarung der Kultusministerkonferenz vom 22. September 2005 ein.";
               }
           }
+
+
       }
 
 
@@ -1026,9 +1049,11 @@ pause\r\n";
           $zeugnisListe .= "<a href=\"index.php?page=NotenverwaltungZeugnisse&action=exportOberstufe&zeugnisID=" . $zeugnisse[$i]->getID() . "&aa=4\" class='btn btn-default'><i class=\"fa fa-download\"></i> Oberstufenexport für ASV AA4</a>";
 
 
+
           $zeugnisListe .= "</form>";
 
 
+          $zeugnisListe .= "<small>Hinweis: In der Oberstufe wird die Sportnote normal aus großen und kleinen Leistungsnachweisen gebildet. Diese Gesamtnote wird als \"Schnitt kleine Leistungsnachweise\" in die ASV importiert, weil die großen Leistungsnachweise von der ASV ignoriert werden.";
 
           $zeugnisListe . "</td>";
 
