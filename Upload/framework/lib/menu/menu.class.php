@@ -308,6 +308,7 @@ class menu {
     private function getDBMenuItem($item) {
         $html = '';
         $icon = $item['icon'];
+        $params = (array)json_decode($item['params']);
         if (!$icon) {
             $icon = 'fa fa-file';
         }
@@ -350,12 +351,24 @@ class menu {
                 }
             }
 
+            if ($item['options']) {
+                $options = json_decode($item['options']);
+                foreach ($options as $key => $option) {
+                    if ($option->value) {
+                        $params[$key] = $option->value;
+                    }
+                }
+            }
+            $target = '_self';
+            if ($item['target']) {
+                $target = '_blank';
+            }
             if ($do) {
-                $html .= $this->getMenuItem($item['page'], $item['title'], $icon, (array)json_decode($item['params']), false);
+                $html .= $this->getMenuItem($item['page'], $item['title'], $icon, $params, false, $target);
             }
 
         } else {
-            $html .= $this->getMenuItem($item['page'], $item['title'], $icon, (array)json_decode($item['params']), false);
+            $html .= $this->getMenuItem($item['page'], $item['title'], $icon, $params, false);
         }
         return $html;
     }
@@ -1145,26 +1158,32 @@ class menu {
    * @param String[] $addParams
    * @return string
    */
-  private function getMenuItem($page, $title, $icon, $addParams = [], $infoNumber = 0) {
+  private function getMenuItem($page, $title, $icon, $addParams = [], $infoNumber = 0, $target = '_self') {
     $isActive = false;
 
     $addParamString = "";
     if(sizeof($addParams) == 0) {
-      if($_REQUEST['page'] == $page) $isActive = true;
-    }
-    else {
+      if($_REQUEST['page'] == $page){
+          $isActive = true;
+      }
+    } else {
       foreach ($addParams as $name => $value) {
         $addParamString .= "&";
         $addParamString .= $name . "=" . urlencode($value);
-        if($_REQUEST[$name] == $value) $isActive = true;
-        else $isActive = false;
+        if($_REQUEST[$name] == $value){
+            $isActive = true;
+        } else {
+            $isActive = false;
+        }
       }
-
-      if($_REQUEST['page'] == $page && $isActive) $isActive = true;
-      else $isActive = false;
+      if($_REQUEST['page'] == $page && $isActive){
+          $isActive = true;
+      } else {
+          $isActive = false;
+      }
     }
 
-    return '<li' . (($isActive)?(" class=\"active\""):("")) . '><a href="index.php?page=' . $page . $addParamString . '"><i class="' . $icon . '"></i><span> ' . $title . '</span>' . (($infoNumber > 0) ? ('            <span class="pull-right-container">
+    return '<li' . (($isActive)?(" class=\"active\""):("")) . '><a href="index.php?page=' . $page . $addParamString . '" target="'.$target.'"><i class="' . $icon . '"></i><span> ' . $title . '</span>' . (($infoNumber > 0) ? ('            <span class="pull-right-container">
               <span class="label label-primary pull-right">' . $infoNumber . '</span>
             </span>') : ('')) . '</a></li>';
   }

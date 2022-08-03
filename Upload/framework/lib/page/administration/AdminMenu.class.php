@@ -92,13 +92,15 @@ class AdminMenu extends AbstractPage {
                 echo json_encode(['error' => true, 'msg' => 'Wrong ID']); exit;
             }
             if ( Menue::setItem([
-                "id" => $_POST['id'],
+                "id" => (int)$_POST['id'],
                 "title" => $_POST['title'],
                 "icon" => $_POST['icon'],
                 "params" => $_POST['params'],
                 "page" => $_POST['pageurl'],
-                "parent_id" => $_POST['parent_id'],
-                "access" => $_POST['access']
+                "parent_id" => (int)$_POST['parent_id'],
+                "access" => $_POST['access'],
+                "options" => $_POST['options'],
+                "target" => $_POST['target']
             ]) ) {
                 echo json_encode(['error' => false]); exit;
             }

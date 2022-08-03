@@ -72,16 +72,20 @@ class MenueItems {
 							`params`,
 							`page`,
                             `active`,
-                             `access`
+                            `access`,
+                            `options`,
+                            `target`
 							) VALUES (
 								'".DB::getDB()->escapeString((string)$data['title'])."',
 								'".DB::getDB()->escapeString((string)$data['icon'])."',
-								".DB::getDB()->escapeString((int)$data['menu_id']).",
-								".DB::getDB()->escapeString((int)$data['parent_id']).",
+								".(int)DB::getDB()->escapeString((int)$data['menu_id']).",
+								".(int)DB::getDB()->escapeString((int)$data['parent_id']).",
 								'".DB::getDB()->escapeString((string)$data['params'])."',
 								'".DB::getDB()->escapeString((string)$data['page'])."',
 								".$active.",
-								'".DB::getDB()->escapeString((string)$data['access'])."'
+								'".DB::getDB()->escapeString((string)$data['access'])."',
+								'".DB::getDB()->escapeString((string)$data['options'])."',
+								".DB::getDB()->escapeString((int)$data['target'])."
 						);") ) {
                 return true;
             }
@@ -90,9 +94,11 @@ class MenueItems {
                          title='" . DB::getDB()->escapeString((string)$data['title']) . "',
                          icon='" . DB::getDB()->escapeString($data['icon']) . "',
                          params='" . DB::getDB()->escapeString($data['params']) . "',
-                         parent_id='" . DB::getDB()->escapeString($data['parent_id']) . "',
+                         parent_id='" . (int)DB::getDB()->escapeString($data['parent_id']) . "',
                          page='" . DB::getDB()->escapeString($data['page']) . "',
-                         access='" . DB::getDB()->escapeString($data['access']) . "'
+                         access='" . DB::getDB()->escapeString($data['access']) . "',
+                         options='" . DB::getDB()->escapeString($data['options']) . "',
+                         target='" . (int)DB::getDB()->escapeString($data['target']) . "'
                          WHERE id='" . (int)$data['id'] . "'") ) {
                return true;
            }

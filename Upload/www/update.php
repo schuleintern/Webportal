@@ -23,9 +23,11 @@ include_once '../data/config/config.php';
 
 class Updates {
 
-    public static function to143($root) {
+    public static function to150($root) {
 
         $root->query("ALTER TABLE `user_settings` ADD COLUMN `autoLogout` int(11) DEFAULT NULL;");
+        $root->query("ALTER TABLE `menu_item` ADD COLUMN `options` TEXT;");
+        $root->query("ALTER TABLE `menu_item` ADD COLUMN `target` tinyint(1) DEFAULT NULL;");
 
         return true;
     }

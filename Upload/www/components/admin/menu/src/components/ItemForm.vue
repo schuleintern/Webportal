@@ -25,7 +25,7 @@
         <li v-show="parentOpen" class=" padding-t-m padding-b-m height_35 scrollable-y">
           <div  class="parent">
             <h4>Menu</h4>
-            <div v-bind:key="index" v-for="(menu_item, index) in items" class="" :value="item.id">
+            <div v-bind:key="b" v-for="(menu_item, b) in items" class="" :value="item.id">
               <div class="margin-b-s">
                 <button class="si-btn si-btn-border"
                         :class="{'si-btn-active': menu_item.id == item.parent_id }"
@@ -48,10 +48,10 @@
         </li>
         <li class=""></li>
         <li v-show="pagesOpen" class=" padding-t-m padding-b-m  height_35 scrollable-y">
-            <div v-bind:key="index" v-for="(sub, index) in pages" class="">
+            <div v-bind:key="c" v-for="(sub, c) in pages" class="">
               <h4>{{sub.name}}</h4>
               <div class="flex-row">
-                <span v-if="sub.submenu" v-bind:key="index" v-for="(page, i) in sub.submenu" class="margin-b-s" >
+                <span v-if="sub.submenu" v-bind:key="d" v-for="(page, d) in sub.submenu" class="margin-b-s" >
                   <button
                       v-if="page.menu != false"
                       class="si-btn si-btn-border margin-r-m"
@@ -61,14 +61,25 @@
               </div>
             </div>
         </li>
+        <span v-if="item.options">
+          <li class=""  v-bind:key="a" v-for="(item, a) in item.options">
+            <label class=""><b>Option:</b> {{item.label}}</label>
+            <span v-if="item.type == 'text'">
+              <input type="text" v-model="item.value" class="width-40vw" >
+            </span>
+            <span v-if="item.type == 'number'">
+              <input type="text" v-model="item.value" class="width-40vw" >
+            </span>
+          </li>
+          </span>
         <li class="">
           <label class="">Icon</label>
           <input type="text" v-model="item.icon" class="width-20vw" />
         </li>
-        <li class="">
+        <li class="" v-if="item.access">
           <label class="">Sichtbarkeit</label>
 
-          <div v-if="item.access" class="blockInline margin-l-l">
+          <div  class="blockInline margin-l-l">
 
             <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.admin == 1}" v-on:click="handlerToggleActive('admin')">
               <i v-if="item.access.admin == 1" class="fas fa-toggle-on"></i>
@@ -93,6 +104,17 @@
           </div>
 
         </li>
+
+
+        <li>
+          <label>Seite im neuen Fenster öffnen</label>
+          <div class="blockInline margin-l-l">
+            <button v-if="item.target == true" class="si-btn si-btn-toggle-on" v-on:click="handlerToggle"><i
+                class="fa fas fa-toggle-on"></i> Ja</button>
+            <button v-else class="si-btn si-btn-toggle-off" v-on:click="handlerToggle"><i
+                class="fa fas fa-toggle-off"></i> Nein</button>
+          </div>
+        </li>
         <li>
           <br>
           <button class="si-btn" v-on:click="handlerSubmit"><i class="fas fa-mouse-pointer"></i> Speichern</button>
@@ -113,7 +135,7 @@ export default {
 
   },
   props: {
-    item: Array,
+    item: Object,
     pages: Array,
     items: Array
   },
@@ -128,6 +150,16 @@ export default {
   },
   methods: {
 
+    handlerToggle: function () {
+
+      if (!this.item.target || this.item.target == 0  || this.item.target == '0') {
+        this.item.target = 1;
+      } else {
+        this.item.target = 0;
+      }
+
+      return false;
+    },
     handlerToggleActive: function (val) {
       if (this.item.access[val] == 1) {
         this.item.access[val] = 0;
@@ -157,6 +189,7 @@ export default {
       }
       this.item.page = page.url.page;
       this.item.params = JSON.stringify(page.url.params);
+      this.item.options = page.url.options;
       this.pagesOpen = false;
     },
     handlerPagesOpen: function () {

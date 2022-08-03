@@ -39,11 +39,11 @@ export default {
       loading: false,
 
       show: '',
-      itemOpen: false,
+      itemOpen: {},
 
       pages: globals.pages,
-      list: false,
-      items: false
+      list: [],
+      items: []
 
     };
   },
@@ -75,6 +75,11 @@ export default {
         this.itemOpen.parent_id = data.parent.id;
         this.itemOpen.parent_title = data.parent.title;
       }
+
+      if (this.itemOpen.options) {
+        this.itemOpen.options = JSON.parse(this.itemOpen.options);
+      }
+
       this.show = 'form';
 
     });
@@ -113,16 +118,21 @@ export default {
       if (!data.item.title) {
         return false;
       }
+      if (!data.item.page) {
+        return false;
+      }
       this.loading = true;
       var that = this;
       var formData = new FormData();
       formData.append("id", data.item.id || false );
       formData.append("title", data.item.title || '' );
       formData.append("icon", data.item.icon || '' );
+      formData.append("target", data.item.target || '' );
       formData.append("params", data.item.params || '' );
       formData.append("pageurl", data.item.page || '' );
       formData.append("parent_id", data.item.parent_id || 0 );
       formData.append("access", JSON.stringify(data.item.access) || '' );
+      formData.append("options", JSON.stringify(data.item.options) || '' );
       axios.post(this.selfURL+'&task=item-submit&id='+data.item.id, formData)
       .then(function (response) {
         //console.log(response);
