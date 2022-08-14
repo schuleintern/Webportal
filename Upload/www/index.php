@@ -44,12 +44,18 @@ include('./startup.php');
 include("../framework/lib/system/errorhandler.php");
 set_error_handler('schuleinternerrorhandler',E_ALL);
 
-if($_SERVER['SERVER_PORT'] != 443 && $_request['page'] != "updatevplan" && $_request['page'] != "digitalSignage" && !DB::isDebug()) {
+// lets check ssl Status
+$isSSL = false;
+
+if($_SERVER['SERVER_PORT'] == 443) $isSSL = true;                   // Direkt
+if($_SERVER['HTTP_X_FORWARDED_PROTO'] == "https") $isSSL = true;    // Hinter Reverse Proxy
+
+if(!$isSSL && $_request['page'] != "updatevplan" && $_request['page'] != "digitalSignage" && !DB::isDebug()) {
     if(isset($_request['ssl']) && $_request['ssl'] == 1) {
         new errorPage('Der Zugriff auf das Portal ist nur über SSL möglich. <br /><br ><br ><br><br><pre>Im Debug Modus ist auch ein Zugriff ohne SSL möglich.</pre>');
         exit();
     }
-  header("Location: " . DB::getGlobalSettings()->urlToIndexPHP . "?ssl=1");
+    header("Location: " . DB::getGlobalSettings()->urlToIndexPHP . "?ssl=1");
 }
 
 
