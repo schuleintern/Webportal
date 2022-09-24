@@ -276,6 +276,7 @@ class menu {
       $html = '';
       if ($item_id) {
           $menu_items = $this->menu->getCatsDeep($item_id);
+
           foreach($menu_items as $item) {
 
 /*
@@ -599,8 +600,7 @@ class menu {
         
         $html .= $this->getMenuItem("schulinfo", "Schulinformationen", "fa fa-info-circle");
 
-
-      $this->html .= $this->getDBMenuItems(2);
+        $html .= $this->getDBMenuItems(2);
 
         if($html != "") {
             
@@ -772,13 +772,14 @@ class menu {
    //     $html .= '<li' . (($_REQUEST['page'] == "AllInkMail")?(" class=\"active\""):("")) . '><a href="index.php?page=AllInkMail"><i class="fa fa-envelope"></i> Mail Account</a></li>';
    //
    // }
-    
+
+      $html .= $this->getDBMenuItems(3);
     
     if($html != "") {
         $this->html .= $this->getTrenner('<i class="fa fa-graduation-cap"></i> Lehreranwendungen');
 
 
-        $html .= $this->getDBMenuItems(3);
+
 
         $this->html .= $html;
         
@@ -1067,16 +1068,15 @@ class menu {
 
 
       } **/
-    
-    
 
-    
-    
+
+
+
+    $html .= $this->getDBMenuItems(4);
+
+
     if($html != "") {
         $this->html .= $this->getTrenner('<i class="fa fas fa-pencil-alt-square"></i> Verwaltung</i>');
-
-
-        $html .= $this->getDBMenuItems(4);
 
         $this->html .= $html;
     }
