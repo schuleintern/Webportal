@@ -512,3 +512,32 @@ button.btn-blau {
 .page-submenue .item.admin:hover  {
   opacity: 1;
 }
+
+
+
+
+.modal-autologout-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9999999999;
+}
+
+.modal-autologout-content {
+
+  background-color: #ffffff;
+  position: absolute;
+  float: left;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
+  padding: 2rem;
+  min-width: 30vw;
+  max-width: 75vw;
+  max-height: 80vh;
+  overflow-y: auto;
+}
