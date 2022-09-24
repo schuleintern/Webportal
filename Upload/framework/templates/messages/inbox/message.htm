@@ -23,31 +23,24 @@
                     <td class="mailbox-name">
                     
                     	<if(!$message->isRead())><then><b></then></if>
-                    	
 
-                    	
-						<a href="index.php?page=MessageRead&messageID={$message->getID()}">
-						
-						
+
+						<if($folder->getFolderSQL() == 'ENTWURF')><then>
+							<a href="index.php?page=MessageCompose&messageID={$message->getID()}">
+						</then><else>
+							<a href="index.php?page=MessageRead&messageID={$message->getID()}">
+						</else></if>
 						
 						    <if($isSentFolder)><then>
-                    	
 	                    		{$recipientsPreview}
-	                    	
 	                    	</then>
 	                    	<else>
-						
-						
+
 							<if($message->getSender() != null)><then>
 									{$message->getSender()->getDisplayName()}
 							</then><else><i>Unbekannter Absender</i></else></if>
-							
-							
-							
+
 							</else></if>
-							
-							
-							
 							</a>
 													
 						<if(!$message->isRead())><then></b></then></if>
@@ -56,7 +49,14 @@
 					</td>
                     <td class="mailbox-subject">
                     	<if(!$message->isRead())><then><b></then></if>
-                    	<a href="index.php?page=MessageRead&messageID={$message->getID()}">{$message->getSubject()}</a>
+
+						<if($folder->getFolderSQL() == 'ENTWURF')><then>
+						<a href="index.php?page=MessageCompose&messageID={$message->getID()}">{$message->getSubject()}</a>
+					</then><else>
+						<a href="index.php?page=MessageRead&messageID={$message->getID()}">{$message->getSubject()}</a>
+					</else></if>
+
+
                     	<if(!$message->isRead())><then></b></then></if>
                     	
                     	<if($message->needConfirmation() && $message->getFolder() != 'GESENDETE')><then><br />

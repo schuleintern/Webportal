@@ -21,27 +21,43 @@
 
 include_once '../data/config/config.php';
 
-class Updates {
+class Updates
+{
 
-    public static function to150($root) {
+    public static function to143($root)
+    {
 
         $root->query("ALTER TABLE `user_settings` ADD COLUMN `autoLogout` int(11) DEFAULT NULL;");
         $root->query("ALTER TABLE `menu_item` ADD COLUMN `options` TEXT;");
         $root->query("ALTER TABLE `menu_item` ADD COLUMN `target` tinyint(1) DEFAULT NULL;");
+        $root->query("ALTER TABLE `messages_messages` ADD COLUMN `messageGroupID` int(1) DEFAULT NULL;");
+
+
+        $root->query("ALTER TABLE
+            `messages_messages`
+            MODIFY COLUMN
+            `messageFolder` enum(
+            'POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV','ENTWURF'
+        ) NOT NULL;");
+
 
         return true;
     }
 
-    public static function to142($root) {
+    public static function to142($root)
+    {
 
         return true;
     }
 
-    public static function to141($root) {
+    public static function to141($root)
+    {
 
         return true;
     }
-    public static function to140($root) {
+
+    public static function to140($root)
+    {
 
         // HIER DER UPDATE STUFF
 
@@ -51,8 +67,8 @@ class Updates {
         // Add Extensions to Config
         $path = '../data/config/config.php';
         $config = file_get_contents($path);
-        $config = substr($config, 0, strrpos($config, '}') );
-        $config = $config.'
+        $config = substr($config, 0, strrpos($config, '}'));
+        $config = $config . '
     /**
      * Domain des Extension Servers
      * @var string
@@ -60,7 +76,6 @@ class Updates {
     public $extensionsServer = "https://extensions.schule-intern.de//";
 }';
         file_put_contents($path, $config);
-
 
 
         $root->update('www/startup.php');
@@ -184,14 +199,26 @@ class Updates {
             KEY `uniqid` (`uniqid`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 
-        
-        
+
+        return true;
+    }
+
+    public static function to134($root)
+    {
+
+        return true;
+    }
+
+    public static function to133($root)
+    {
+
         return true;
     }
 
 }
 
-class Update {
+class Update
+{
 
     private $rootUpdate = '../data/update/Upload/';
     private $folder = '../Backup_BeforeUpdateFrom';
@@ -201,7 +228,8 @@ class Update {
     private $settings = false;
     private $mysqli = false;
 
-    public function __construct($data) {
+    public function __construct($data)
+    {
 
         if ($data['lastVersion']) {
             $this->lastVersion = $data['lastVersion'];
@@ -209,7 +237,7 @@ class Update {
         if ($data['nextVersion']) {
             $this->nextVersion = $data['nextVersion'];
         }
-        $this->folder .= '-'.$this->lastVersion.'-'.date('Y-m-d',time());
+        $this->folder .= '-' . $this->lastVersion . '-' . date('Y-m-d', time());
 
         $this->settings = new GlobalSettings();
 
@@ -225,37 +253,40 @@ class Update {
 
     }
 
-    public function backupFile($folder) {
+    public function backupFile($folder)
+    {
 
         $path = explode('/', $folder);
         $file = array_pop($path);
         if (count($path) >= 1) {
             $deep = $this->folder;
-            foreach($path as $dir) {
-                $deep = $deep.'/'.$dir;
+            foreach ($path as $dir) {
+                $deep = $deep . '/' . $dir;
                 mkdir($deep);
             }
         }
-        if ( rename('../'.$folder, $this->folder.'/'.$folder) ) {
+        if (rename('../' . $folder, $this->folder . '/' . $folder)) {
             return true;
         }
         return false;
     }
 
-    public function copyFiles($folder) {
+    public function copyFiles($folder)
+    {
 
-        if ( file_exists($this->rootUpdate.$folder) ) {
-            if ( rename($this->rootUpdate.$folder, '../'.$folder) ) {
+        if (file_exists($this->rootUpdate . $folder)) {
+            if (rename($this->rootUpdate . $folder, '../' . $folder)) {
                 return true;
             }
         }
         return false;
     }
 
-    public function update($folder) {
+    public function update($folder)
+    {
         if ($folder) {
-            if ( $this->backupFile($folder) ) {
-                if ( $this->copyFiles($folder) ) {
+            if ($this->backupFile($folder)) {
+                if ($this->copyFiles($folder)) {
                     return true;
                 }
             }
@@ -263,10 +294,11 @@ class Update {
         return false;
     }
 
-    public function executeVersion() {
-        $method = 'to'.str_replace('.','',$this->nextVersion);
-        if ( method_exists( Updates, $method ) ) {
-            if ( Updates::$method($this) != true ) {
+    public function executeVersion()
+    {
+        $method = 'to' . str_replace('.', '', $this->nextVersion);
+        if (method_exists(Updates, $method)) {
+            if (Updates::$method($this) != true) {
                 return false;
             }
         }
@@ -274,13 +306,14 @@ class Update {
     }
 
 
-    public function query($query = false) {
+    public function query($query = false)
+    {
         if (!$query) {
             return false;
         }
         $result = $this->mysqli->query($query);
         $return = array();
-        while($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_array($result)) {
             $return[] = $row;
         }
         return $return;
@@ -289,23 +322,19 @@ class Update {
 }
 
 
-
-
-
-
 $wartungsmodus = file_get_contents("../data/wartungsmodus/status.dat");
-if($wartungsmodus != "") {
+if ($wartungsmodus != "") {
     // Im Wartungsmodus.
     // Update könnte ausgeführt werden.
 
     $updateInfo = file_get_contents("../data/update.json");
-    if($updateInfo === false) {
+    if ($updateInfo === false) {
         echo("update fail. (not availible)");
         exit(0);
     }
     $updateInfo = json_decode($updateInfo, true);
 
-    if($_REQUEST['key'] == $updateInfo['updateKey']) {
+    if ($_REQUEST['key'] == $updateInfo['updateKey']) {
 
         $Update = new Update([
             "lastVersion" => $updateInfo['updateFromVersion'],
@@ -348,19 +377,20 @@ if($wartungsmodus != "") {
         <ul>
             <li><h1>SchuleIntern - Update</h1></li>
             <li>Update wird durchgeführt...</li>
-            <?php if($Update->backupFile("framework")): ?>
+            <?php if ($Update->backupFile("framework")): ?>
                 <li class="text-green">Alte Version gesichert.</li>
-                <?php if($Update->copyFiles("framework")): ?>
+                <?php if ($Update->copyFiles("framework")): ?>
                     <li class="text-green">Neue Version erfolgreich kopiert.</li>
-                    <?php if($Update->executeVersion()): ?>
+                    <?php if ($Update->executeVersion()): ?>
                         <li class="text-green">Versionsupdate erfolgreich durchgeführt</li>
                         <li class="text-green"><b>Einspielen der neuen Programmversion erfolgreich!</b></li>
-                        <?php file_put_contents("../data/wartungsmodus/status.dat","") ?>
+                        <?php file_put_contents("../data/wartungsmodus/status.dat", "") ?>
                         <li class="text-green">Wartungsmodus deaktiviert!</li>
 
                         <li>
-                            <h2><a class="si-btn" href="index.php?page=Update&toVersion=<?= urlencode($updateInfo['updateToVersion']) ?>&key=<?= $updateInfo['updateKey'] ?>">
-                                Update abschließen</a></h2>
+                            <h2><a class="si-btn"
+                                   href="index.php?page=Update&toVersion=<?= urlencode($updateInfo['updateToVersion']) ?>&key=<?= $updateInfo['updateKey'] ?>">
+                                    Update abschließen</a></h2>
                         </li>
                     <?php else: ?>
                         <li class="text-red">FEHLER: Neue Version konnte nicht eingespielt werden!</li>
@@ -369,7 +399,7 @@ if($wartungsmodus != "") {
                     <li class="text-red">FEHLER: Neue Version konnte nicht kopiert werden!</li>
                 <?php endif ?>
             <?php else: ?>
-            <li class="text-red">FEHLER: Alter Version konnte nicht gesichert werden!</li>
+                <li class="text-red">FEHLER: Alter Version konnte nicht gesichert werden!</li>
             <?php endif ?>
         </ul>
     </div>
