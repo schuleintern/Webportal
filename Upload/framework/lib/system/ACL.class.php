@@ -11,6 +11,8 @@ class ACL {
 
   public function getAcl($user, $moduleClass = false, $id = false, $adminGroup = false) {
 
+        //echo $user->getUserID().' - '.$moduleClass.' - '.$id.' - '.$adminGroup;
+
 		$userID = $user->getUserID();
 
 		if (!$userID) {
@@ -61,16 +63,22 @@ class ACL {
 
 
 		if (!$aclDB || !$aclDB['id'] ) {
-			return $acl;
-		}
-
-		$acl['groups'] = [
-			'schueler' => ['read' => $aclDB['schuelerRead'], 'write' => $aclDB['schuelerWrite'], 'delete' => $aclDB['schuelerDelete'] ],
-			'eltern' => [ 'read' => $aclDB['elternRead'], 'write' => $aclDB['elternWrite'], 'delete' => $aclDB['elternDelete'] ],
-			'lehrer' => [ 'read' => $aclDB['lehrerRead'], 'write' => $aclDB['lehrerWrite'], 'delete' => $aclDB['lehrerDelete'] ],
-			'none' => [ 'read' => $aclDB['noneRead'], 'write' => $aclDB['noneWrite'], 'delete' => $aclDB['noneDelete'] ],
-			'owne' => [ 'read' => $aclDB['owneRead'], 'write' => $aclDB['owneWrite'], 'delete' => $aclDB['owneDelete'] ]
-		];
+            $acl['groups'] = [
+                'schueler' => ['read' => 0, 'write' => 0, 'delete' => 0 ],
+                'eltern' => [ 'read' => 0, 'write' => 0, 'delete' => 0 ],
+                'lehrer' => [ 'read' => 0, 'write' => 0, 'delete' => 0 ],
+                'none' => [ 'read' => 0, 'write' => 0, 'delete' => 0 ],
+                'owne' => [ 'read' => 0, 'write' => 0, 'delete' => 0 ]
+            ];
+		} else {
+            $acl['groups'] = [
+                'schueler' => ['read' => $aclDB['schuelerRead'], 'write' => $aclDB['schuelerWrite'], 'delete' => $aclDB['schuelerDelete'] ],
+                'eltern' => [ 'read' => $aclDB['elternRead'], 'write' => $aclDB['elternWrite'], 'delete' => $aclDB['elternDelete'] ],
+                'lehrer' => [ 'read' => $aclDB['lehrerRead'], 'write' => $aclDB['lehrerWrite'], 'delete' => $aclDB['lehrerDelete'] ],
+                'none' => [ 'read' => $aclDB['noneRead'], 'write' => $aclDB['noneWrite'], 'delete' => $aclDB['noneDelete'] ],
+                'owne' => [ 'read' => $aclDB['owneRead'], 'write' => $aclDB['owneWrite'], 'delete' => $aclDB['owneDelete'] ]
+            ];
+        }
 
 		if ( $acl['user']['schueler'] == 1 ) {
 			$acl['rights']['read'] = $acl['groups']['schueler']['read'];
@@ -101,11 +109,7 @@ class ACL {
 
 		$acl['owne'] = $acl['groups']['owne'];
 
-		// $acl['rights']['read'] = 1;
-		//  $acl['rights']['write'] = 0;
-    //  $acl['rights']['delete'] = 0;
-    //print_r($acl);
-    return $acl;
+        return $acl;
 	}
 	
 
