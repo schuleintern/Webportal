@@ -189,22 +189,56 @@
                  <if($selectedAutoLogout)>
                      <then>
                          <li class="messages-menu">
-                             <a href="index.php?page=logout"><i class="fas fa-sign-out-alt"></i> <span id="minutes">00</span>:<span id="seconds">00</span></a>
+                             <a href="index.php?page=logout"><i class="fas fa-sign-out-alt"></i> <span id="autologout-minutes">00</span>:<span id="autologout-seconds">00</span></a>
+                             <div id="modal-autologout" style="display:none;">
+                                 <div class="modal-autologout-bg">
+                                     <div class="modal-autologout-content flex">
+                                         <h3>Ihr Login-Session ist abgelaufen!</h3>
+                                         <p>In <span id="modal-autologout-counter" class="">10</span> Sekunden folgt ein automatischer Logout.</p>
+                                         <button class="si-btn" onclick="handlerAutologoutReset()">Session Verlängern</button>
+                                         <p class="text-small margin-t-m">Automatischer Logout <a href="index.php?page=userprofilesettings">Ausschalten</a></p>
+                                     </div>
+                                 </div>
+                             </divclass>
                              <script>
-                                 var minutesLabel = document.getElementById("minutes");
-                                 var secondsLabel = document.getElementById("seconds");
+                                 var minutesLabel = document.getElementById("autologout-minutes");
+                                 var secondsLabel = document.getElementById("autologout-seconds");
                                  var totalSeconds = {$selectedAutoLogout};
                                  var timer = setInterval(setTime, 1000);
+
+                                 var timeleft = 10;
+                                 var counterModal = document.getElementById("modal-autologout");
+                                 var counterLabel = document.getElementById("modal-autologout-counter");
+                                 var counterTimer;
+
+                                 function handlerAutologoutReset() {
+                                     counterModal.style.display = 'none';
+                                     clearInterval(counterTimer);
+                                     totalSeconds = {$selectedAutoLogout};
+                                     timer = setInterval(setTime, 1000);
+                                 }
+
+                                 function setCounter() {
+                                     if(timeleft <= 0){
+                                         clearInterval(counterTimer);
+                                         window.location.href='index.php?page=logout';
+                                     }
+                                     counterLabel.innerHTML = timeleft+' Sek';
+                                     timeleft -= 1;
+                                 }
 
                                  function setTime() {
                                      --totalSeconds;
                                      secondsLabel.innerHTML = pad(totalSeconds % 60);
                                      minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
                                      if (totalSeconds <= 0) {
+                                         counterModal.style.display = 'block';
+                                         timeleft = 10;
+                                         counterTimer = setInterval(setCounter, 1000);
                                          clearInterval ( timer );
-                                         window.location.href='index.php?page=logout';
                                      }
                                  }
+
                                  function pad(val) {
                                      var valString = val + "";
                                      if (valString.length < 2) {
