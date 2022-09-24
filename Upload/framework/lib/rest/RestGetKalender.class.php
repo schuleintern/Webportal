@@ -5,7 +5,12 @@ class RestGetKalender extends AbstractRest {
 
 	public function execute($input, $request) {
 
+        $this->setAclGroup($this->aclModuleName());
+        $this->acl();
+
 		$acl = $this->getAclAll();
+
+
 
 		if ($acl['user']['admin'] == 0 && $acl['rights']['read'] != 1) {
 			return [
