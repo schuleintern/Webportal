@@ -893,37 +893,47 @@ class absenzensekretariat extends AbstractPage {
 
     while($km = DB::getDB()->fetch_array($krankmeldungen)) {
       if($_POST['action_' . $km['krankmeldungID']] == "save") {
-        DB::getDB()->query("INSERT INTO absenzen_absenzen (
-        absenzSchuelerAsvID,
-        absenzDatum,
-        absenzDatumEnde,
-        absenzQuelle,
-        absenzErfasstTime,
-        absenzErfasstUserID,
-        absenzStunden,
-        absenzIsEntschuldigt,
-        absenzBefreiungID,
-        absenzBemerkung
-        )
-        values (
-          '" . $km['schuelerAsvID'] . "',
-          '" . $km['krankmeldungDate'] . "',
-          '" . $km['krankmeldungUntilDate'] . "',
-          'WEBPORTAL',
-          UNIX_TIMESTAMP(),
-          '" . DB::getUserID() . "',
-          '" . $allStunden . "',
-          '1',
-          '0',
-          'Online Krankmeldung vom " . functions::makeDateFromTimestamp($km['krankmeldungTime']) . ". \r\nBearbeitet durch " . DB::getSession()->getData("userName") . "\r\n" . DB::getDB()->escapeString($km['krankmeldungKommentar']) . "'
-        )");
 
-        $newID = DB::getDB()->insert_id();
-        DB::getDB()->query("UPDATE absenzen_krankmeldungen SET krankmeldungAbsenzID='" . $newID . "' WHERE krankmeldungID='" . $km['krankmeldungID'] . "'");
-      }
+        // vermeide doppelungen
+        $dataSQL = DB::getDB()->query_first("SELECT krankmeldungAbsenzID FROM absenzen_krankmeldungen WHERE `krankmeldungID` = " . (int)$km['krankmeldungID'], true);
+        if ( $dataSQL['krankmeldungAbsenzID'] == '' ) {
 
-      if($_POST['action_' . $km['krankmeldungID']] == "delete") {
-        DB::getDB()->query("DELETE FROM absenzen_krankmeldungen WHERE krankmeldungID='" . $km['krankmeldungID'] . "'");
+          DB::getDB()->query("INSERT INTO absenzen_absenzen (
+          absenzSchuelerAsvID,
+          absenzDatum,
+          absenzDatumEnde,
+          absenzQuelle,
+          absenzErfasstTime,
+          absenzErfasstUserID,
+          absenzStunden,
+          absenzIsEntschuldigt,
+          absenzBefreiungID,
+          absenzBemerkung,
+          absenzIsSchriftlichEntschuldigt,
+          absenzGanztagsNotiz
+          )
+          values (
+            '" . $km['schuelerAsvID'] . "',
+            '" . $km['krankmeldungDate'] . "',
+            '" . $km['krankmeldungUntilDate'] . "',
+            'WEBPORTAL',
+            UNIX_TIMESTAMP(),
+            '" . DB::getUserID() . "',
+            '" . $allStunden . "',
+            '1',
+            '0',
+            'Online Krankmeldung vom " . functions::makeDateFromTimestamp($km['krankmeldungTime']) . ". \r\nBearbeitet durch " . DB::getSession()->getData("userName") . "\r\n" . DB::getDB()->escapeString($km['krankmeldungKommentar']) . "',
+            0, 0
+          )");
+
+          $newID = DB::getDB()->insert_id();
+          DB::getDB()->query("UPDATE absenzen_krankmeldungen SET krankmeldungAbsenzID='" . $newID . "' WHERE krankmeldungID='" . $km['krankmeldungID'] . "'");
+        }
+
+
+        if($_POST['action_' . $km['krankmeldungID']] == "delete") {
+          DB::getDB()->query("DELETE FROM absenzen_krankmeldungen WHERE krankmeldungID='" . $km['krankmeldungID'] . "'");
+        }
       }
     }
 
