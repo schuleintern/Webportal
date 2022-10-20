@@ -432,7 +432,7 @@ abstract class AbstractPage
                     && file_exists(PATH_TMPL_OVERRIGHTS . 'extensions' . DS . $this->request['page'] . DS . $arg['tmpl'] . '.tmpl.php')) {
                     include_once(PATH_TMPL_OVERRIGHTS . 'extensions' . DS . $this->request['page'] . DS . $arg['tmpl'] . '.tmpl.php');
                 } else {
-                    if (count($arg['vars']) >= 1) {
+                    if ($arg['vars'] && count($arg['vars']) >= 1) {
                         foreach ($arg['vars'] as $key => $var) {
                             // TODO: better way?
                             if ($key && $var) {

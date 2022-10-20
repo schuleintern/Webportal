@@ -41,7 +41,7 @@ class klasseDB
 
 
 
-    public function getByTeacher($teacher = false) {
+    public static function getByTeacher($teacher = false) {
 
         if (!$teacher && $teacher->getXMLID()) {
             return false;
