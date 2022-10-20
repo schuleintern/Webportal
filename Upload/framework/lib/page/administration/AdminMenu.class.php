@@ -173,9 +173,9 @@ class AdminMenu extends AbstractPage {
 
         $html = '';
 
-        include_once ('../framework/lib/data/extensions/ExtensionsPages.php');
+        include_once (PATH_LIB.'data/extensions/ExtensionsPages.php');
         $pages = json_encode(ExtensionsPages::getPages());
-        
+
 		eval("\$html = \"" . DB::getTPL()->get("administration/menu/index") . "\";");
 
 		return $html;
