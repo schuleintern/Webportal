@@ -44,6 +44,11 @@ include('./startup.php');
 include("../framework/lib/system/errorhandler.php");
 set_error_handler('schuleinternerrorhandler',E_ALL);
 
+if (DB::isDebug()) {
+    ini_set('display_errors', true);
+    error_reporting(E_ALL);
+}
+
 if($_SERVER['SERVER_PORT'] != 443 && $_request['page'] != "updatevplan" && $_request['page'] != "digitalSignage" && !DB::isDebug()) {
     if(isset($_request['ssl']) && $_request['ssl'] == 1) {
         new errorPage('Der Zugriff auf das Portal ist nur über SSL möglich. <br /><br ><br ><br><br><pre>Im Debug Modus ist auch ein Zugriff ohne SSL möglich.</pre>');
@@ -51,8 +56,6 @@ if($_SERVER['SERVER_PORT'] != 443 && $_request['page'] != "updatevplan" && $_req
     }
   header("Location: " . DB::getGlobalSettings()->urlToIndexPHP . "?ssl=1");
 }
-
-
 
 
 

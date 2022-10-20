@@ -1,6 +1,5 @@
 <?php
 
-
 $wartungsmodus = file_get_contents("../data/wartungsmodus/status.dat");
 
 if($wartungsmodus != "") {
@@ -14,6 +13,11 @@ include_once '../data/config/config.php';
 include_once '../data/config/userlib.class.php';
 
 include('./startup.php');
+
+if (DB::isDebug()) {
+    ini_set('display_errors', true);
+    error_reporting(E_ALL);
+}
 
 new resthandler();
 
