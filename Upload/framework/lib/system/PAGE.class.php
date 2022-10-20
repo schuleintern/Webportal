@@ -8,11 +8,11 @@
 
 class PAGE {
 
-  public function setFactory($factory) {
+  public static function setFactory($factory) {
     $GLOBALS['factory'] = $factory;
   }
 
-  public function getFactory() {
+  public static function getFactory() {
     return $GLOBALS['factory'];
   }
 

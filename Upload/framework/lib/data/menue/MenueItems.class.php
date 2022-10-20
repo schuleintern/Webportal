@@ -209,7 +209,7 @@ class MenueItems {
 
     }
 
-    private function getAccess($access) {
+    private static function getAccess($access) {
         if ($access) {
             $access = json_decode($access);
         } else {
