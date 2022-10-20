@@ -274,7 +274,9 @@ class projektverwaltung extends AbstractPage {
 					);
 				}
 			}
-			
+
+            include_once('../framework/lib/phpexcel/PHPExcel.php');
+
 			$excelFile = new PHPExcel();
 			// Set document properties
 			

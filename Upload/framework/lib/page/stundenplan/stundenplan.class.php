@@ -1389,6 +1389,8 @@ class stundenplan extends AbstractPage {
 
         $values = array();
 
+        include_once('../framework/lib/phpexcel/PHPExcel.php');
+
         $objReader = PHPExcel_IOFactory::createReader('Excel2007');
         $objReader->setReadDataOnly(true);
         
@@ -1565,6 +1567,8 @@ class stundenplan extends AbstractPage {
         $newPlanID = $newPlanID;		// ;-)
 
         $stunden = [];
+
+        include_once('../framework/lib/phpexcel/PHPExcel.php');
 
         $objReader = PHPExcel_IOFactory::createReader('Excel2007');
         $objReader->setReadDataOnly(true);
