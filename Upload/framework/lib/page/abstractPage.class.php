@@ -375,7 +375,7 @@ abstract class AbstractPage
             // AutoLogout
             $selectedAutoLogout = DB::$mySettings['autoLogout'];
             if ($selectedAutoLogout == null ) {
-                $selectedAutoLogout = 2;
+                $selectedAutoLogout = 30;
             }
             $selectedAutoLogout = $selectedAutoLogout * 60;
 
