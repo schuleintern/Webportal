@@ -124,6 +124,20 @@ class klasse {
     return false;
   }
 
+
+  public function getKlassenleitungAll($klassenNamen = false) {
+
+        if (!$klassenNamen) {
+            return false;
+        }
+        $ret = [];
+        $dataSQL = DB::getDB()->query("SELECT * FROM klassenleitung WHERE klasseName = '" .$klassenNamen."' ORDER BY klassenleitungArt");
+        while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
+            $ret[] = $data;
+        }
+        return $ret;
+  }
+
   /**
    *
    * @return schueler[] Schueler der Klasse

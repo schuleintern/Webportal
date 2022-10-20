@@ -26,7 +26,11 @@ class lehrer {
 	public function getKuerzel() {
 		return $this->data['lehrerKuerzel'];
 	}
-	
+
+    public function getID() {
+        return $this->data['lehrerID'];
+    }
+
 	public function getName() {
 		return $this->data['lehrerName'];
 	}
