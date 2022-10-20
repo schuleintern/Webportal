@@ -34,7 +34,7 @@ class adminsupport extends AbstractPage {
 		return true;
 	}
 	
-	public static function displayAdministration() {
+	public static function displayAdministration($selfURL) {
 	    $html = "";
 	    eval("\$html = \"" . DB::getTPL()->get("administration/support/adminsupport") . "\";");
 	    return $html;
