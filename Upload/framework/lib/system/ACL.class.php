@@ -9,7 +9,7 @@
 class ACL {
 
 
-  public function getAcl($user, $moduleClass = false, $id = false, $adminGroup = false) {
+  public static function getAcl($user, $moduleClass = false, $id = false, $adminGroup = false) {
 
         //echo $user->getUserID().' - '.$moduleClass.' - '.$id.' - '.$adminGroup;
 
@@ -233,7 +233,7 @@ class ACL {
 		}
 	}
 
-	public function getBlank() {
+	public static function getBlank() {
 
 		$blank = [
 			'aclID' => 0,
