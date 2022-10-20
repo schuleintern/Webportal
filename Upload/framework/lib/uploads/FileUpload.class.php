@@ -53,7 +53,11 @@ class FileUpload {
 	public function __construct($data) {
 		$this->data = $data;
 	}
-	
+
+    public function getID() {
+        return $this->data['uploadID'];
+    }
+
 	public function getFileName() {
 		return $this->data['uploadFileName'];
 	}
@@ -86,9 +90,7 @@ class FileUpload {
         return user::getUserByID($this->data['uploaderUserID']);
     }
 
-    public function getID() {
-        return $this->data['uploadID'];
-    }
+
 
     public function getFileSize() {
         if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
@@ -117,6 +119,67 @@ class FileUpload {
         return $collection;
 
     }
+
+    public function getThumb() {
+
+        $folder = PATH_WWW_TMP.'avatar';
+        if ( !is_dir($folder) ) {
+            mkdir($folder);
+        }
+
+        $newFilename = $folder.DS.$this->getID().'.jpg';
+
+        if ( file_exists($newFilename) ) {
+            return $newFilename;
+        } else {
+
+            $filename = PATH_ROOT."data/imageUploads/" . $this->getID() . ".jpg";
+            if (file_exists($filename)) {
+                if ( !$this->copyAndResizeImage($filename, $newFilename) ) {
+                    copy($filename, $newFilename);
+                }
+                if (file_exists($newFilename)) {
+                    return $newFilename;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private function copyAndResizeImage($filename,$output, $size= [200,200]) {
+
+        // Set a maximum height and width
+        $width = $size[0];
+        $height = $size[1];
+
+        // Content type
+        header('Content-Type: image/jpeg');
+
+        // Get new dimensions
+        list($width_orig, $height_orig) = getimagesize($filename);
+
+        $ratio_orig = $width_orig/$height_orig;
+
+        if ($width/$height > $ratio_orig) {
+            $width = $height*$ratio_orig;
+        } else {
+            $height = $width/$ratio_orig;
+        }
+
+        // Resample
+        $image_p = imagecreatetruecolor($width, $height);
+        $image = imagecreatefromjpeg($filename);
+        imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
+
+        // Output
+        if ( imagejpeg($image_p, $output, 100) ) {
+            return true;
+        }
+
+        return false;
+    }
+
 
     public function isExist() {
         if ( file_exists($this->getFilePath())) {
