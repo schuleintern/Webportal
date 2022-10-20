@@ -177,7 +177,7 @@ class user {
           "type" => $this->getUserTyp(true)
       ];
       if ($avatar == true) {
-          $collection["avatar"] = $this->getAvatar(true);
+          $collection["avatar"] = $this->getAvatar();
       }
       if ($full == true) {
           if ($this->isPupil()) {
@@ -322,16 +322,34 @@ class user {
 
     public function getAvatar() {
       if (!$this->avatar) {
-          $image = DB::getDB()->query_first("SELECT uploadID FROM image_uploads WHERE uploadUserName LIKE '" . $this->getUserName() . "'");
+
+
+          $image = DB::getDB()->query_first("SELECT uploadID FROM image_uploads WHERE uploadUserName = '" . $this->getUserName() . "' ORDER BY uploadTime", true);
           if($image['uploadID'] > 0) {
               //$this->avatar = "index.php?page=userprofileuserimage&getImage=profile";
-              $upload = new UploadImage($image['uploadID']);
-              $this->avatar = $upload->getThumb();
-              //$this->avatar = 'data:image/jpeg;base64,'.$upload->getBase64();
-          } else {
-              $this->avatar = "cssjs/images/userimages/default.png";
-          }
 
+
+              $upload = new FileUpload($image);
+              $this->avatar = $upload->getThumb();
+              /*
+               * echo '<pre>';
+              print_r($upload);
+              echo '</pre>';
+              */
+
+              //$upload = new UploadImage($image['uploadID']);
+              //$this->avatar = $upload->getThumb();
+
+
+
+              //$this->avatar = 'data:image/jpeg;base64,'.$upload->getBase64();
+
+          }
+      }
+
+
+      if ( !$this->avatar || !file_exists($this->avatar) ) {
+        $this->avatar = "cssjs/images/userimages/default.png";
       }
       return $this->avatar;
     }
