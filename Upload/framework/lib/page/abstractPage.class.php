@@ -27,7 +27,7 @@ abstract class AbstractPage
     private static $activePages = array();
     private $acl = false;
     private $request = false;
-    private $extension = false;
+    public $extension = false;
     private $isAnyAdmin = false;
 
     static $adminGroupName = NULL;
@@ -1056,7 +1056,7 @@ abstract class AbstractPage
         $html = '<div class="flex-row">';
 
         // Submenu
-        $html .= '<div class="flex-3 page-submenue" style="height: 3.2rem;">';
+        $html .= '<div class="flex-3 page-submenue" style=""><div class="page-submenue-mobile">';
         if (is_array($submenu) && count($submenu) >= 1) {
             foreach ($submenu as $item) {
                 $kill = false;
@@ -1096,7 +1096,7 @@ abstract class AbstractPage
                     }
                     $html .= '<a href="' . $link . '"  class=" ' . $class . '">';
                     if ($item['icon']) {
-                        $html .= '<i class="margin-r-s ' . $item['icon'] . '"></i>';
+                        $html .= '<i class="margin-r-s fa ' . $item['icon'] . '"></i>';
                     }
                     $html .= $item['title'] . '</a>';
                 }
@@ -1104,7 +1104,7 @@ abstract class AbstractPage
 
             }
         }
-        $html .= '</div>';
+        $html .= '</div></div>';
 
         // Dropdown
         if (is_array($dropdown) && count($dropdown) >= 1) {
