@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.4.2
+ * Version 1.5.0
  *
  */
 
@@ -27,11 +27,11 @@ class Updates
     public static function to150($root)
     {
 
-        $root->query("ALTER TABLE `user_settings` ADD COLUMN `autoLogout` int(11) DEFAULT NULL;");
-        $root->query("ALTER TABLE `menu_item` ADD COLUMN `options` TEXT;");
-        $root->query("ALTER TABLE `menu_item` ADD COLUMN `target` tinyint(1) DEFAULT NULL;");
-        $root->query("ALTER TABLE `messages_messages` ADD COLUMN `messageGroupID` int(1) DEFAULT NULL;");
-        $root->query("ALTER TABLE `messages_messages` MODIFY COLUMN `messageFolder` enum('POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV','ENTWURF') NOT NULL;");
+        $root->query("ALTER TABLE `user_settings` ADD COLUMN `autoLogout` int(11) DEFAULT NULL;", false);
+        $root->query("ALTER TABLE `menu_item` ADD COLUMN `options` TEXT;", false);
+        $root->query("ALTER TABLE `menu_item` ADD COLUMN `target` tinyint(1) DEFAULT NULL;", false);
+        $root->query("ALTER TABLE `messages_messages` ADD COLUMN `messageGroupID` int(1) DEFAULT NULL;", false);
+        $root->query("ALTER TABLE `messages_messages` MODIFY COLUMN `messageFolder` enum('POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV','ENTWURF') NOT NULL;", false);
 
 
         return true;
@@ -299,17 +299,23 @@ class Update
     }
 
 
-    public function query($query = false)
+    public function query($query = false, $fetch = true)
     {
         if (!$query) {
             return false;
         }
         $result = $this->mysqli->query($query);
-        $return = array();
-        while ($row = mysqli_fetch_array($result)) {
-            $return[] = $row;
+        if ($result && $fetch) {
+            $return = array();
+            while ($row = $result->fetch_array()) {
+                $return[] = $row;
+            }
+            return $return;
+        } else if ($result && $fetch == false) {
+            return true;
         }
-        return $return;
+        return false;
+
     }
 
 }
