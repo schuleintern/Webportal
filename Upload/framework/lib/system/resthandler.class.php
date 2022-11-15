@@ -118,9 +118,11 @@ class resthandler {
                         }
                         DB::getSession()->update ();
                         $action->user = DB::getSession()->getUser();
+                        /*
                         if ($action->aclModuleName()) {
                             $action->setAclGroup($action->aclModuleName());
                         }
+                        */
                         $action->acl();
                     }
                 } else {
