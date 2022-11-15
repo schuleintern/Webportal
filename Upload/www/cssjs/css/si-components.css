@@ -68,6 +68,10 @@
     border-color: #00a65a;
     color: #fff;
 }
+.si-box-stripes {
+    background-color: #f9f9f9;
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(183, 199, 206,0.2) 35px, rgba(183, 199, 206,0.2) 70px);
+}
 
 /**
     Hinweis
@@ -327,6 +331,16 @@
     margin-bottom: 3rem;
 }
 
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : portrait) {
+
+    .si-modal .si-modal-box {
+        left: 10vw;
+        width: 80vw;
+    }
+}
 /**
     TABLE
  */
@@ -513,7 +527,7 @@
     margin-right: 0;
 }
 .si-btn-small {
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1rem;
     font-size: 10pt;
 }
 
@@ -541,6 +555,7 @@
     background-color: rgba(0,0,0,0);
 }
 .si-btn-border:hover {
+    border: 1px solid #8aa4af;
     background-color: rgba(0,0,0,0);
 }
 
@@ -611,6 +626,8 @@
     border-top-right-radius: 3rem;
     border-bottom-right-radius: 3rem;
 }
+
+
 
 
 
