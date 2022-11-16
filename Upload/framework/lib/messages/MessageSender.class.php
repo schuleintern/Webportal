@@ -186,7 +186,88 @@ class MessageSender{
 	    $this->needConfirmation = true;
 	    $this->messageQuestions[] = $question;
 	}
-	
+
+    public function save($folder = 'GESENDETE') {
+
+
+        $fields = [
+            'messageUserID',
+            'messageSubject',
+            'messageText',
+            'messageSender',
+            'messageRecipients',
+            'messageRecipientsPreview',
+            'messageCCRecipients',
+            'messageBCCRecipients',
+            'messageTime',
+            'messageIsReplyTo',
+            'messageIsForwardFrom',
+            'messageFolder',
+            'messageIsRead',
+            'messageNeedConfirmation',
+            'messageConfirmSecret',
+            'messageAttachments',
+            'messagePriority',
+            'messageAllowAnswer',
+            'messageHasQuestions',
+            'messageQuestionIDs',
+            'messageIsConfidential'
+        ];
+
+        $saveStrings = [];
+
+        $messageQuestionIDs = [];
+
+        for($i = 0; $i < sizeof($this->messageQuestions); $i++) $messageQuestionIDs[] = $this->messageQuestions[$i]->getID();
+
+        $messageQuestionIDs = implode(";",$messageQuestionIDs);
+
+        $recipientNames = [];
+
+        for($i = 0; $i < sizeof($this->recipients); $i++) {
+            $recipientNames[] = DB::getDB()->encodeString($this->recipients[$i]->getDisplayName());
+        }
+
+        $saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
+        $saveStringsCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->ccRecipients, $messageQuestionIDs);
+        $saveStringsBCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->bccRecipients, $messageQuestionIDs);
+
+        // Nachricht speichern
+        $insert = [];
+        $insert[] = "
+					('" . $this->sender->getUserID() . "',
+					'" . $this->subject . "',
+					'" . $this->text . "',
+					'" . $this->sender->getUserID() . "',
+					'" . implode(";",$saveStringsRecipients) . "',
+					'" . implode(", ", $recipientNames ) . "',
+                    '" . implode(";",$saveStringsCCRecipients) . "',
+                    '" . implode(";",$saveStringsBCCRecipients) . "',
+					UNIX_TIMESTAMP(),
+					'" . (($this->replyMessage != null) ? ($this->replyMessage->getID()) : 0) . "',
+					'" . (($this->forwardMessage != null) ? ($this->forwardMessage->getID()) : 0) . "',
+					'".(string)$folder."',
+					1,
+					" . (($this->needConfirmation) ? 1 : 0) . ",
+					'',
+					'" . implode(",",$this->attachments) . "',
+					'" . $this->priority . "',
+					'" . ($this->allowAnswer ? 1 : 0) . "',
+                    '" . ((sizeof($this->messageQuestions) > 0) ? 1 : 0) . "',
+                    '" . $messageQuestionIDs . "',
+                    " . ($this->messageIsConfidential ? $this->messageIsConfidential : 0) . "
+					)
+				";
+        if ( DB::getDB()->query("INSERT INTO messages_messages (" . implode(",", $fields) . ") VALUES " . implode(",",$insert)) ) {
+            return true;
+        }
+        return false;
+
+    }
+
+
+
+
 	public function send($onlyOnce = false) {
 		$fields = [
 			'messageUserID',
@@ -212,30 +293,25 @@ class MessageSender{
             'messageIsConfidential'
 		];
 		
-		$saveStrings = [];
-		
+
 		$messageQuestionIDs = [];
-		
-		for($i = 0; $i < sizeof($this->messageQuestions); $i++) $messageQuestionIDs[] = $this->messageQuestions[$i]->getID();
-		
+		for($i = 0; $i < sizeof($this->messageQuestions); $i++) {
+            $messageQuestionIDs[] = $this->messageQuestions[$i]->getID();
+        }
 		$messageQuestionIDs = implode(";",$messageQuestionIDs);
 
 		$recipientNames = [];
-
 		for($i = 0; $i < sizeof($this->recipients); $i++) {
 			$recipientNames[] = DB::getDB()->encodeString($this->recipients[$i]->getDisplayName());
 		}
 
-
-		$saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
-		$saveStringsCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->ccRecipients, $messageQuestionIDs);
-		$saveStringsBCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->bccRecipients, $messageQuestionIDs);
-
-
 		$sumRecipients = $this->sentMessages;
 
-        // SaveIDs mit Message IDs zusammenstellen
-		
+        $saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
+        $saveStringsCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->ccRecipients, $messageQuestionIDs);
+        $saveStringsBCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->bccRecipients, $messageQuestionIDs);
+
+
 		// Gesendete Nachricht einfügen
 		$insert = [];
 		$insert[] = "
@@ -261,7 +337,11 @@ class MessageSender{
 					)
 				";
 		DB::getDB()->query("INSERT INTO messages_messages (" . implode(",", $fields) . ") VALUES " . implode(",",$insert));
-		
+
+        //$messageGroupID = DB::getDB()->insert_id();
+
+
+
 
 		$maxRecipientsForAutoresponder = DB::getSettings()->getInteger("messages-max-recipients-for-autoresponder");
 

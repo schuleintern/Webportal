@@ -17,16 +17,16 @@ class RestDeleteKalenderEintrag extends AbstractRest {
 
 		$row = [];
 
-		if ( $input['data'] ) {
-			$ID = intval($input['data']);
-		} else {
-			return [
-				'error' => true,
-				'msg' => 'Fehlende Daten'
-			];
-		}
+        if ( $input['data'] ) {
+            $ID = intval($input['data']);
+        } else {
+            return [
+                'error' => true,
+                'msg' => 'Fehlende Daten'
+            ];
+        }
 
-		if ( !$ID ) {
+        if ( !$ID ) {
 			return [
 				'error' => true,
 				'msg' => 'Fehlende Kalender Eintrag ID'
@@ -84,6 +84,9 @@ class RestDeleteKalenderEintrag extends AbstractRest {
 	public function aclModuleName() {
 		return 'kalenderAllInOne';
 	}
+    public static function getAdminGroup() {
+        return 'Webportal_Kalender_allInOne_Admin';
+    }
 
 }	
 

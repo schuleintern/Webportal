@@ -155,7 +155,7 @@ class MessageFolder {
 	 * @return NULL|MessageFolder
 	 */
 	public static function getFolder($user, $folder, $folderID) {
-		if(!in_array($folder,['POSTEINGANG','GESENDETE','PAPIERKORB','ARCHIV','ANDERER'])) {
+		if(!in_array($folder,['POSTEINGANG','GESENDETE','PAPIERKORB','ARCHIV','ENTWURF','ANDERER'])) {
 			return NULL;
 		}
 		
@@ -182,6 +182,10 @@ class MessageFolder {
 		if($folder == 'ARCHIV') {
 		    return new MessageFolder(true, ['folderName' => 'Archiv'], $user, $folder);
 		}
+
+        if($folder == 'ENTWURF') {
+            return new MessageFolder(true, ['folderName' => 'Entwurf'], $user, $folder);
+        }
 		
 		return NULL;
 	

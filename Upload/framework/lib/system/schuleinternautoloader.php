@@ -298,10 +298,13 @@ function schuleinternautoloader($class) {
 	global $classes;
 	
 	include_once("../framework/lib/system/requesthandler.class.php");
+
+    /*
+     * in den Seiten/komponenten laden, nicht global
+     * Update to php8.0
 	include_once('../framework/lib/phpexcel/PHPExcel.php');
-	
 	if(PHPExcel_Autoloader::load($class)) return true;
-	
+	*/
 	
 	
 	// Message Bird Lib?

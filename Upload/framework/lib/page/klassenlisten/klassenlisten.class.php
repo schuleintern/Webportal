@@ -162,8 +162,15 @@ class klassenlisten extends AbstractPage {
 					
 					//echo $print;
 					//die();
-															
-					$pdfPage = new PrintNormalPageA4WithHeader("Klassenliste ".$klasse->getKlassenName() );
+
+
+                    $format = 'P';
+                    if ($_REQUEST['format'] == 'a4q') {
+                        //querformat
+                        $format = 'L';
+                    }
+
+					$pdfPage = new PrintNormalPageA4WithHeader("Klassenliste ".$klasse->getKlassenName(), 'A4', $format );
 					$pdfPage->setHTMLContent($print);
 					$pdfPage->showStand();
 					$pdfPage->send();

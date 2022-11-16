@@ -156,7 +156,12 @@ class krankmeldung extends AbstractPage {
 						}
 					}
 				}
-				
+
+                $krankmeldungDurch = DB::getDB()->escapeString($_POST['krankmeldungDurch']);
+                if (!$krankmeldungDurch) {
+                    $krankmeldungDurch = 's';
+                }
+
 				DB::getDB()->query("INSERT INTO absenzen_krankmeldungen (
 						krankmeldungSchuelerASVID,
 						krankmeldungDate,
@@ -169,7 +174,7 @@ class krankmeldung extends AbstractPage {
 						'" . DateFunctions::getMySQLDateFromNaturalDate($_POST['krankAb']) . "',
 						'" . DateFunctions::getMySQLDateFromNaturalDate($_POST['krankBis']) . "',
 						'" . DB::getUserID() . "',
-						'" . DB::getDB()->escapeString($_POST['krankmeldungDurch']) . "',
+						'" . $krankmeldungDurch . "',
 						'" . DB::getDB()->escapeString($_POST['krankmeldungKommentar']) . "',UNIX_TIMESTAMP())");
 				
 				

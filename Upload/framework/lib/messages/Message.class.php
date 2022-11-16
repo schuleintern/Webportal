@@ -404,7 +404,11 @@ class Message {
 	public function isLowPriority() {
 		return $this->priority == 'LOW';
 	}
-	
+
+    public function getPriority() {
+        return $this->priority;
+    }
+
 	public function getTime() {
 		return $this->messageTime;
 	}

@@ -69,6 +69,21 @@
                 <span class="label label-primary pull-right">{$archivOrdner->getUnreadMessageNumber()}</span>
                 </a>
                 </li>
+
+
+                <if($folder->getFolderSQL() == 'ENTWURF')><then>
+                <li class="active">
+              </then><else>
+                <li>
+              </else></if>
+                <a href="index.php?page=MessageInbox&folder=ENTWURF"><i class="fa fa-book"></i> Entwurf
+
+                  <span class="label label-primary pull-right"></span>
+
+                </a></li>
+
+
+
               </ul>
             </div>
             <!-- /.box-body -->

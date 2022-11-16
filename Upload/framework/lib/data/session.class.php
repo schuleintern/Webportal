@@ -151,8 +151,11 @@ class session {
 	 * @return eltern
 	 */
 	public function getElternObject() {
-		if($this->isEltern())	return $this->userObject->getElternObject();
-		else throw new RuntimeException("Internal Error. Parents Object not availible!");
+		if($this->isEltern()  ){
+            return $this->userObject->getElternObject();
+        } else {
+            throw new RuntimeException("Internal Error. Parents Object not availible!");
+        }
 	}
 	
 	/**

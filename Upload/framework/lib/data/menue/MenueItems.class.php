@@ -72,16 +72,20 @@ class MenueItems {
 							`params`,
 							`page`,
                             `active`,
-                             `access`
+                            `access`,
+                            `options`,
+                            `target`
 							) VALUES (
 								'".DB::getDB()->escapeString((string)$data['title'])."',
 								'".DB::getDB()->escapeString((string)$data['icon'])."',
-								".DB::getDB()->escapeString((int)$data['menu_id']).",
-								".DB::getDB()->escapeString((int)$data['parent_id']).",
+								".(int)DB::getDB()->escapeString((int)$data['menu_id']).",
+								".(int)DB::getDB()->escapeString((int)$data['parent_id']).",
 								'".DB::getDB()->escapeString((string)$data['params'])."',
 								'".DB::getDB()->escapeString((string)$data['page'])."',
 								".$active.",
-								'".DB::getDB()->escapeString((string)$data['access'])."'
+								'".DB::getDB()->escapeString((string)$data['access'])."',
+								'".DB::getDB()->escapeString((string)$data['options'])."',
+								".DB::getDB()->escapeString((int)$data['target'])."
 						);") ) {
                 return true;
             }
@@ -90,9 +94,11 @@ class MenueItems {
                          title='" . DB::getDB()->escapeString((string)$data['title']) . "',
                          icon='" . DB::getDB()->escapeString($data['icon']) . "',
                          params='" . DB::getDB()->escapeString($data['params']) . "',
-                         parent_id='" . DB::getDB()->escapeString($data['parent_id']) . "',
+                         parent_id='" . (int)DB::getDB()->escapeString($data['parent_id']) . "',
                          page='" . DB::getDB()->escapeString($data['page']) . "',
-                         access='" . DB::getDB()->escapeString($data['access']) . "'
+                         access='" . DB::getDB()->escapeString($data['access']) . "',
+                         options='" . DB::getDB()->escapeString($data['options']) . "',
+                         target='" . (int)DB::getDB()->escapeString($data['target']) . "'
                          WHERE id='" . (int)$data['id'] . "'") ) {
                return true;
            }
@@ -110,16 +116,28 @@ class MenueItems {
         if ( !(int)$item_id ) {
             return false;
         }
+
+        $ret = [];
+        $menueItemData = PAGE::getFactory()->getMenuItemByParentID( (int)$item_id, $active );
+        if ($menueItemData) {
+            foreach($menueItemData as $data) {
+                $data['items'] = self::getNestedItems($data['id'], $active);
+                $data['access'] = self::getAccess($data['access']);
+                $ret[] = $data;
+            }
+        }
+
+        /*
         $where = '';
         if ($active == true) {
             $where .= ' AND active = 1';
         }
-        $ret = [];
         $dataSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE id = ".(int)$item_id." ".$where);
         while($data = DB::getDB()->fetch_array($dataSQL)) {
             $data['items'] = self::getNestedItems($data['id'], $active);
             $ret[] = $data;
         }
+        */
         return $ret;
     }
 
@@ -131,31 +149,54 @@ class MenueItems {
         if ( !(int)$menu_id ) {
             return false;
         }
+        $ret = [];
+        $menueItemData = PAGE::getFactory()->getMenuItemByMenuID( (int)(int)$menu_id, $active );
+        if ($menueItemData) {
+            foreach($menueItemData as $data) {
+                $data['items'] = self::getNestedItems($data['id'], $active);
+                $data['access'] = self::getAccess($data['access']);
+                $ret[] = $data;
+            }
+        }
+
+        /*
         $where = '';
         if ($active == true) {
             $where .= ' AND active = 1';
         }
-        $ret = [];
-
         $dataSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE menu_id = ".(int)$menu_id." ".$where." ORDER BY sort");
         while($data = DB::getDB()->fetch_array($dataSQL, true)) {
             $data['items'] = self::getNestedItems($data['id'], $active);
             $data['access'] = self::getAccess($data['access']);
             $ret[] = $data;
         }
+        */
         return $ret;
     }
 
     private static  function getNestedItems($parent_id, $active = true) {
 
+
         if ( !(int)$parent_id ) {
             return false;
         }
+
+
+        $ret = [];
+        $menueItemData = PAGE::getFactory()->getMenuItemByParentID( $parent_id, $active );
+        if ($menueItemData) {
+            foreach($menueItemData as $data) {
+                $data['items'] = self::getNestedItems($data['id'], $active );
+                $data['access'] = self::getAccess($data['access']);
+                $ret[] = $data;
+            }
+        }
+
+        /*
         $where = '';
         if ($active == true) {
             $where .= ' AND active = 1';
         }
-        $ret = [];
         $dataChildSQL = DB::getDB()->query("SELECT * FROM menu_item WHERE parent_id = ".$parent_id." ".$where." ORDER BY sort");
         while($dataChild = DB::getDB()->fetch_array($dataChildSQL, true)) {
 
@@ -163,11 +204,12 @@ class MenueItems {
             $dataChild['access'] = self::getAccess($dataChild['access']);
             $ret[] = $dataChild;
         }
+        */
         return $ret;
 
     }
 
-    private function getAccess($access) {
+    private static function getAccess($access) {
         if ($access) {
             $access = json_decode($access);
         } else {

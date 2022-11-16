@@ -7,6 +7,11 @@ class RestGetKalenderIcsFeed extends AbstractRest {
 
 
 
+        $userID = (int)$request[1];
+        if (!$userID) {
+            return false;
+        }
+
         $calendar = new Eluceo\iCal\Component\Calendar('schule-intern');
         $calendar->setPublishedTTL('PT15M');
 
@@ -16,14 +21,27 @@ class RestGetKalenderIcsFeed extends AbstractRest {
 
 
         $kalenderIDs_array = [];
-        $result_cal = DB::getDB()->query("SELECT kalenderID, kalenderName FROM kalender_allInOne WHERE kalenderPublic = 1 ");
+        $result_cal = DB::getDB()->query("SELECT kalenderID, kalenderName, kalenderAcl FROM kalender_allInOne WHERE kalenderPublic = 1 ");
         while($row = DB::getDB()->fetch_array($result_cal)) {
-            array_push($kalenderIDs_array, array(
-                "id" => intval($row['kalenderID']),
-                "name" => $row['kalenderName']
-            ));
-        }
 
+            if ( (int)$row['kalenderAcl'] ) {
+
+                $acl = self::getAclByID( (int)$row['kalenderAcl'], true, $userID );
+
+
+                if ($acl && $acl['rights']['read'] == 1 ) {
+                    array_push($kalenderIDs_array, array(
+                        "id" => intval($row['kalenderID']),
+                        "name" => $row['kalenderName']
+                    ));
+                }
+
+
+            }
+
+
+
+        }
 
         if (count($kalenderIDs_array) > 0) {
 
@@ -65,13 +83,9 @@ class RestGetKalenderIcsFeed extends AbstractRest {
             }
         }
 
-
-
         header('Access-Control-Allow-Origin: *');
         header('Content-Type: text/calendar; charset=utf-8');
         header('Content-Disposition: attachment; filename="feed.ics"');
-
-
 
         echo $calendar->render();
         exit;
@@ -103,7 +117,7 @@ class RestGetKalenderIcsFeed extends AbstractRest {
     }
 
     public static function getAdminGroup() {
-        return '';
+        return 'Webportal_Kalender_allInOne_Admin';
     }
 
 }

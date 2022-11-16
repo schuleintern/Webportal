@@ -1,6 +1,10 @@
+<if($beurlaubungen[$i]->getSchueler())>
+<then>
 <tr>
 	<td>{$beurlaubungen[$i]->getSchueler()->getCompleteSchuelerName()}</td>
 	<td><expression>DateFunctions::getNaturalDateFromMySQLDate($beurlaubungen[$i]->getStartDatumAsSQLDate())</expression></td>
 	<td><expression>DateFunctions::getNaturalDateFromMySQLDate($beurlaubungen[$i]->getEndDatumAsSQLDate())</expression></td>
 	<td><code><expression>@htmlspecialchars($beurlaubungen[$i]->getBegruendung())</expression></code></td>
 </tr>
+</then>
+</if>
