@@ -5,8 +5,10 @@ class RestDeleteKalenderEintrag extends AbstractRest {
 
 	public function execute($input, $request) {
 
-
+        $this->setAclGroup('kalenderAllInOne');
+        $this->acl();
 		$acl = $this->getAcl();
+
 
 		if ($acl['rights']['delete'] != 1) {
 			return [
@@ -81,13 +83,16 @@ class RestDeleteKalenderEintrag extends AbstractRest {
 		return true;
 	}
 
-	public function aclModuleName() {
-		return 'kalenderAllInOne';
-	}
+
+
+    public function aclModuleName() {
+        return 'kalenderAllInOne';
+    }
+
     public static function getAdminGroup() {
         return 'Webportal_Kalender_allInOne_Admin';
     }
 
-}	
+}
 
 ?>
