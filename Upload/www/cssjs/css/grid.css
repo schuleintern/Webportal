@@ -4,6 +4,9 @@
   overflow-x: hidden;
 }
 
+.float-right {
+  float: right;
+}
 
 .block {
   display: block;
