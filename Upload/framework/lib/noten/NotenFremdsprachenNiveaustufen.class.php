@@ -27,11 +27,13 @@ class NotenFremdsprachenNiveaustufen {
         }
 
         if(sizeof($kompetenzen) > 0) {
-            $this->text = "Dieses Zeugnis schließt Kompetenzen entsprechend dem Gemeinsamen Europäischen Referenzrahmen für Sprachen auf folgenden Niveaustufen ein:\\n";
+            $this->text = "Dieses Zeugnis schließt Kompetenzen entsprechend dem Gemeinsamen Europäischen Referenzrahmen für Sprachen auf folgenden Niveaustufen ein: ";
 
             for($i = 0; $i < sizeof($kompetenzen); $i++) {
-                $this->text .= $kompetenzen[$i] . "\\n";
+                $this->text .= $kompetenzen[$i] .  (($i < (sizeof($kompetenzen)-1)) ? "; " : "");
             }
+
+            $this->text .= ".";
         }
     }
 

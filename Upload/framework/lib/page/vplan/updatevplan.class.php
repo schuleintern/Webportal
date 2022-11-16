@@ -8,10 +8,6 @@ class updatevplan extends AbstractPage {
         header("Content-Type: text/html; charset=UTF-8");
         
         if($_REQUEST['key'] != DB::getSettings()->getValue("vplan-updateKey")) die(("Kein Zugriff, da Zugriffstoken nicht korrekt! (Fehler 7)"));
-        
-        // $output = print_r($_POST, true);
-        // file_put_contents('POST.txt', $output);
-        
     }
     
     public function execute() {
@@ -22,7 +18,7 @@ class updatevplan extends AbstractPage {
         
         switch($_REQUEST['mode']) {
             case "startUpload":
-                $this->emptyDir($this->getPlanAction());
+                // $this->emptyDir($this->getPlanAction());     Entfernt Okt. 2022 (Spitschka) Nicht nötig. Macht nur Probleme.
                 break;
                 
             case "uploadFile":
@@ -40,8 +36,7 @@ class updatevplan extends AbstractPage {
                 
             default:
                 die(("Unknown Action!"));
-                break;
-                
+
         }
     }
     
@@ -61,7 +56,7 @@ class updatevplan extends AbstractPage {
             }
         }
         
-        echo(("OK"));
+        echo("OK");
     }
     
     private function uploadFile($name) {

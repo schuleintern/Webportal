@@ -203,6 +203,10 @@ class UnterrichtsNoten {
         return $this->schnitt;        
     }
 
+    public function getSchnittOhneRunden() {
+        return $this->notenCalculator->getSchnitt();
+    }
+
     public function getSchnittFormated() {
         return number_format($this->getSchnitt(), 2, ",",".");
     }
