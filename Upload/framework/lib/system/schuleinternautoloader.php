@@ -224,10 +224,6 @@ $classes = [
 	    'PrintNormalPageA4WithoutHeader',
 	    'PrintInBrowser'
 	],
-    /*,
-	'update' => [
-		'UpdateProcess'
-	],*/
 	'messages' => [
 		'Message',
 		'MessageFolder',
