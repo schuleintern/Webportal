@@ -33,6 +33,7 @@ class Updates
         $root->query("ALTER TABLE `messages_messages` ADD COLUMN `messageGroupID` int(1) DEFAULT NULL;", false);
         $root->query("ALTER TABLE `messages_messages` MODIFY COLUMN `messageFolder` enum('POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV','ENTWURF') NOT NULL;", false);
 
+        $root->update('www/cssjs');
 
         return true;
     }
