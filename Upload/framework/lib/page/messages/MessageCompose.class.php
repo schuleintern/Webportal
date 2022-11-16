@@ -494,7 +494,7 @@ class MessageCompose extends AbstractPage {
                     if ( $redirect ) {
                         header("Location: index.php?page=MessageInbox&folder=".$redirect);
                     } else {
-                        header("Location: index.php?page=MessageInbox&folder=POSTEINGANG");
+                        header("Location: index.php?page=MessageInbox&folder=ENTWURF");
                     }
                 }
                 exit(0);
