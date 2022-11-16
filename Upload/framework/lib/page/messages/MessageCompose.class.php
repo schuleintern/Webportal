@@ -449,7 +449,7 @@ class MessageCompose extends AbstractPage {
                 $text = $purifier->purify($_REQUEST['messageText']);
                 $messageSender->setText($text);
 
-                $messageSender->setPriority($_POST['priority']);
+                $messageSender->setPriority($_REQUEST['priority']);
 
                 $recipientHandler = new RecipientHandler($_REQUEST['recipients']);
                 $recipientHandlerCC = new RecipientHandler($_REQUEST['ccrecipients']);
@@ -765,6 +765,7 @@ class MessageCompose extends AbstractPage {
             $preSubject = '';
         }
 
+        $prePriorityNormal = 'selected="selected"';
 
         // Load Content from ENTWURF
         if ($_REQUEST['messageID']) {
@@ -817,7 +818,7 @@ class MessageCompose extends AbstractPage {
                 $preConfidential = 'checked="true"';
             }
 
-            $prePriorityNormal = 'selected="selected"';
+
             if ( strtolower($messageEntwurf->getPriority())  == 'low' ) {
                 $prePriorityNormal = '';
                 $prePriorityLow = 'selected="selected"';
