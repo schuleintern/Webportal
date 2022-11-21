@@ -26,14 +26,14 @@ class Updates
 
     public static function to150($root)
     {
-
+        /*
         $root->query("ALTER TABLE `user_settings` ADD COLUMN `autoLogout` int(11) DEFAULT NULL;", false);
         $root->query("ALTER TABLE `menu_item` ADD COLUMN `options` TEXT;", false);
         $root->query("ALTER TABLE `menu_item` ADD COLUMN `target` tinyint(1) DEFAULT NULL;", false);
         $root->query("ALTER TABLE `messages_messages` ADD COLUMN `messageGroupID` int(1) DEFAULT NULL;", false);
         $root->query("ALTER TABLE `messages_messages` MODIFY COLUMN `messageFolder` enum('POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV','ENTWURF') NOT NULL;", false);
-
         $root->update('www/cssjs');
+        */
 
         return true;
     }
