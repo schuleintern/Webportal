@@ -13,6 +13,7 @@ class FACTORY {
   private $DATA_schueler;
   private $DATA_users;
   private $DATA_users_groups_own;
+  private $DATA_menu_item;
 
   public function __construct() {
 
@@ -22,8 +23,59 @@ class FACTORY {
     $this->DATA_schueler = $this->load_schueler();
     $this->DATA_lehrer = $this->load_lehrer();
     $this->DATA_users_groups = $this->load_users_groups();
+    $this->DATA_menu_item = $this->load_menue_item_active();
     
   }
+
+
+    /**
+     * Table: menu_item
+     */
+
+    public function getMenuItemByParentID($id = false, $active = true) {
+
+        $ret = [];
+        $id = (int)$id;
+        if ($id) {
+            foreach($this->DATA_menu_item as $item) {
+                if ((int)$item['parent_id'] === $id) {
+                    if ($active == true && (int)$item['active'] === 1 ) {
+                        $ret[] = $item;
+                    } else {
+                        $ret[] = $item;
+                    }
+                }
+            }
+        }
+        return $ret;
+    }
+    public function getMenuItemByMenuID($id = false, $active = true) {
+
+        $ret = [];
+        $id = (int)$id;
+        if ($id) {
+            foreach($this->DATA_menu_item as $item) {
+                if ((int)$item['menu_id'] === $id) {
+                    if ($active == true && (int)$item['active'] === 1 ) {
+                        $ret[] = $item;
+                    } else {
+                        $ret[] = $item;
+                    }
+                }
+            }
+        }
+        return $ret;
+    }
+
+    private function load_menue_item_active() {
+
+        $result = DB::getDB()->query("SELECT * FROM menu_item  ORDER BY sort");
+        $arr = [];
+        while($item = DB::getDB()->fetch_array($result, true)) {
+            $arr[] = $item;
+        }
+        return $arr;
+    }
 
   /**
    * Table: users

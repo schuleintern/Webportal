@@ -1,32 +1,17 @@
-#
-************************************************************
-# Sequel Pro SQL dump
-# Version 4541
-#
-# http://www.sequelpro.com/
-# https://github.com/sequelpro/sequelpro
-#
-# Host: localhost (MySQL 5.7.32)
-# Datenbank: schuleintern_dev
-# Erstellt am: 2022-06-12 00:38:23 +0000
-# ************************************************************
-
+SET
+SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET
+AUTOCOMMIT = 0;
+START TRANSACTION;
+SET
+time_zone = "+00:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
-
-#
-Export von Tabelle absenzen_absenzen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_absenzen`;
-
+-- Create syntax for TABLE 'absenzen_absenzen'
 CREATE TABLE `absenzen_absenzen`
 (
     `absenzID`                        int(11) NOT NULL AUTO_INCREMENT,
@@ -37,26 +22,19 @@ CREATE TABLE `absenzen_absenzen`
     `absenzBemerkung`                 mediumtext  NOT NULL,
     `absenzErfasstTime`               int(11) NOT NULL,
     `absenzErfasstUserID`             int(11) NOT NULL,
-    `absenzBefreiungID`               int(11) NOT NULL DEFAULT '0',
+    `absenzBefreiungID`               int(11) NOT NULL,
     `absenzBeurlaubungID`             int(11) NOT NULL DEFAULT '0',
     `absenzStunden`                   mediumtext  NOT NULL,
-    `absenzisEntschuldigt`            tinyint(1) DEFAULT '0',
-    `absenzIsSchriftlichEntschuldigt` tinyint(1) DEFAULT '0',
-    `absenzKommtSpaeter`              tinyint(1) DEFAULT '0',
-    `absenzGanztagsNotiz`             varchar(255) DEFAULT '',
+    `absenzisEntschuldigt`            tinyint(1) NOT NULL,
+    `absenzIsSchriftlichEntschuldigt` tinyint(1) NOT NULL DEFAULT '0',
+    `absenzKommtSpaeter`              tinyint(1) NOT NULL DEFAULT '0',
+    `absenzGanztagsNotiz`             tinytext    NOT NULL,
     PRIMARY KEY (`absenzID`),
     KEY                               `absenzDatum` (`absenzDatum`) USING BTREE,
     KEY                               `absenzSchuelerAsvID` (`absenzSchuelerAsvID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=22932 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle absenzen_attestpflicht
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_attestpflicht`;
-
+-- Create syntax for TABLE 'absenzen_attestpflicht'
 CREATE TABLE `absenzen_attestpflicht`
 (
     `attestpflichtID`     int(11) NOT NULL AUTO_INCREMENT,
@@ -69,14 +47,7 @@ CREATE TABLE `absenzen_attestpflicht`
     KEY                   `schuelerAsvID` (`schuelerAsvID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle absenzen_befreiungen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_befreiungen`;
-
+-- Create syntax for TABLE 'absenzen_befreiungen'
 CREATE TABLE `absenzen_befreiungen`
 (
     `befreiungID`      int(11) NOT NULL AUTO_INCREMENT,
@@ -84,16 +55,9 @@ CREATE TABLE `absenzen_befreiungen`
     `befreiungLehrer`  varchar(100) NOT NULL,
     `befreiungPrinted` tinyint(1) NOT NULL DEFAULT '0',
     PRIMARY KEY (`befreiungID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=1602 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle absenzen_beurlaubung_antrag
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_beurlaubung_antrag`;
-
+-- Create syntax for TABLE 'absenzen_beurlaubung_antrag'
 CREATE TABLE `absenzen_beurlaubung_antrag`
 (
     `antragID`              int(11) NOT NULL AUTO_INCREMENT,
@@ -108,21 +72,13 @@ CREATE TABLE `absenzen_beurlaubung_antrag`
     `antragSLgenehmigt`     tinyint(1) NOT NULL DEFAULT '-1',
     `antragSLgenehmigtDate` date DEFAULT NULL,
     `antragIsVerarbeitet`   tinyint(1) NOT NULL DEFAULT '0',
-    `antragKLKommentar`     longtext,
-    `antragSLKommentar`     longtext,
+    `antragKLKommentar`     longtext     NOT NULL,
+    `antragSLKommentar`     longtext     NOT NULL,
     `antragStunden`         mediumtext   NOT NULL,
-    `antragSonstiges`       mediumtext,
     PRIMARY KEY (`antragID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3700 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle absenzen_beurlaubungen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_beurlaubungen`;
-
+-- Create syntax for TABLE 'absenzen_beurlaubungen'
 CREATE TABLE `absenzen_beurlaubungen`
 (
     `beurlaubungID`               int(11) NOT NULL AUTO_INCREMENT,
@@ -130,16 +86,9 @@ CREATE TABLE `absenzen_beurlaubungen`
     `beurlaubungPrinted`          tinyint(1) NOT NULL DEFAULT '0',
     `beurlaubungIsInternAbwesend` tinyint(1) NOT NULL DEFAULT '0',
     PRIMARY KEY (`beurlaubungID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4873 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle absenzen_comments
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_comments`;
-
+-- Create syntax for TABLE 'absenzen_comments'
 CREATE TABLE `absenzen_comments`
 (
     `schuelerAsvID` varchar(100) NOT NULL,
@@ -147,14 +96,7 @@ CREATE TABLE `absenzen_comments`
     PRIMARY KEY (`schuelerAsvID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle absenzen_krankmeldungen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_krankmeldungen`;
-
+-- Create syntax for TABLE 'absenzen_krankmeldungen'
 CREATE TABLE `absenzen_krankmeldungen`
 (
     `krankmeldungID`            int(11) NOT NULL AUTO_INCREMENT,
@@ -164,23 +106,16 @@ CREATE TABLE `absenzen_krankmeldungen`
     `krankmeldungElternID`      int(11) NOT NULL,
     `krankmeldungDurch`         enum('m','v','s','schueleru18','schuelerue18') NOT NULL,
     `krankmeldungKommentar`     mediumtext  NOT NULL,
-    `krankmeldungAbsenzID`      tinyint(1) NOT NULL DEFAULT '0',
+    `krankmeldungAbsenzID`      int(11) NOT NULL DEFAULT '0',
     `krankmeldungTime`          int(11) NOT NULL,
     PRIMARY KEY (`krankmeldungID`),
     KEY                         `krankmeldungAbsenzID` (`krankmeldungAbsenzID`) USING BTREE,
     KEY                         `krankmeldungDate` (`krankmeldungDate`) USING BTREE,
     KEY                         `krankmeldungElternID` (`krankmeldungElternID`) USING BTREE,
     KEY                         `krankmeldungSchuelerASVID` (`krankmeldungSchuelerASVID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=10943 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle absenzen_meldung
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_meldung`;
-
+-- Create syntax for TABLE 'absenzen_meldung'
 CREATE TABLE `absenzen_meldung`
 (
     `meldungDatum`  date         NOT NULL,
@@ -190,14 +125,7 @@ CREATE TABLE `absenzen_meldung`
     PRIMARY KEY (`meldungDatum`, `meldungKlasse`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle absenzen_merker
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_merker`;
-
+-- Create syntax for TABLE 'absenzen_merker'
 CREATE TABLE `absenzen_merker`
 (
     `merkerID`            int(11) NOT NULL AUTO_INCREMENT,
@@ -207,14 +135,7 @@ CREATE TABLE `absenzen_merker`
     PRIMARY KEY (`merkerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle absenzen_sanizimmer
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_sanizimmer`;
-
+-- Create syntax for TABLE 'absenzen_sanizimmer'
 CREATE TABLE `absenzen_sanizimmer`
 (
     `sanizimmerID`             int(11) NOT NULL AUTO_INCREMENT,
@@ -228,14 +149,7 @@ CREATE TABLE `absenzen_sanizimmer`
     KEY                        `sanizimmerSchuelerAsvID` (`sanizimmerSchuelerAsvID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle absenzen_verspaetungen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `absenzen_verspaetungen`;
-
+-- Create syntax for TABLE 'absenzen_verspaetungen'
 CREATE TABLE `absenzen_verspaetungen`
 (
     `verspaetungID`                  int(11) NOT NULL AUTO_INCREMENT,
@@ -250,14 +164,7 @@ CREATE TABLE `absenzen_verspaetungen`
     PRIMARY KEY (`verspaetungID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle acl
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `acl`;
-
+-- Create syntax for TABLE 'acl'
 CREATE TABLE `acl`
 (
     `id`                int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -281,16 +188,9 @@ CREATE TABLE `acl`
     PRIMARY KEY (`id`),
     KEY                 `moduleClass` (`moduleClass`) USING BTREE,
     KEY                 `moduleClassParent` (`moduleClassParent`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle amtsbezeichnungen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `amtsbezeichnungen`;
-
+-- Create syntax for TABLE 'amtsbezeichnungen'
 CREATE TABLE `amtsbezeichnungen`
 (
     `amtsbezeichnungID`           int(11) NOT NULL,
@@ -301,14 +201,7 @@ CREATE TABLE `amtsbezeichnungen`
     PRIMARY KEY (`amtsbezeichnungID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle andere_kalender
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `andere_kalender`;
-
+-- Create syntax for TABLE 'andere_kalender'
 CREATE TABLE `andere_kalender`
 (
     `kalenderID`                      int(11) NOT NULL AUTO_INCREMENT,
@@ -323,14 +216,7 @@ CREATE TABLE `andere_kalender`
     PRIMARY KEY (`kalenderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle andere_kalender_kategorie
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `andere_kalender_kategorie`;
-
+-- Create syntax for TABLE 'andere_kalender_kategorie'
 CREATE TABLE `andere_kalender_kategorie`
 (
     `kategorieID`         int(11) NOT NULL AUTO_INCREMENT,
@@ -341,14 +227,7 @@ CREATE TABLE `andere_kalender_kategorie`
     PRIMARY KEY (`kategorieID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle anschrifttyp
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `anschrifttyp`;
-
+-- Create syntax for TABLE 'anschrifttyp'
 CREATE TABLE `anschrifttyp`
 (
     `anschriftTypID`          varchar(10)  NOT NULL,
@@ -358,14 +237,7 @@ CREATE TABLE `anschrifttyp`
     PRIMARY KEY (`anschriftTypID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle aufeinenblick_settings
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `aufeinenblick_settings`;
-
+-- Create syntax for TABLE 'aufeinenblick_settings'
 CREATE TABLE `aufeinenblick_settings`
 (
     `aufeinenblickSettingsID`      int(11) NOT NULL AUTO_INCREMENT,
@@ -376,38 +248,24 @@ CREATE TABLE `aufeinenblick_settings`
     `aufeinenblickShowStundenplan` int(11) NOT NULL,
     PRIMARY KEY (`aufeinenblickSettingsID`),
     KEY                            `aufeinenblickUserID` (`aufeinenblickUserID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
+) ENGINE=MyISAM AUTO_INCREMENT=285 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 
-
-
-#
-Export von Tabelle ausleihe_ausleihe
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ausleihe_ausleihe`;
-
+-- Create syntax for TABLE 'ausleihe_ausleihe'
 CREATE TABLE `ausleihe_ausleihe`
 (
     `ausleiheID`              int(11) NOT NULL AUTO_INCREMENT,
     `ausleiheObjektID`        int(11) NOT NULL,
     `ausleiheObjektIndex`     int(11) NOT NULL,
     `ausleiheDatum`           date         NOT NULL,
-    `ausleiheAusleiherUserID` int(11) NOT NULL DEFAULT '0',
+    `ausleiheAusleiherUserID` int(11) NOT NULL,
     `ausleiheStunde`          int(11) NOT NULL,
     `ausleiheKlasse`          varchar(10)  NOT NULL,
     `ausleiheLehrer`          varchar(100) NOT NULL,
     PRIMARY KEY (`ausleiheID`),
     KEY                       `ausleiheObjektID` (`ausleiheObjektID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2935 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle ausleihe_objekte
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ausleihe_objekte`;
-
+-- Create syntax for TABLE 'ausleihe_objekte'
 CREATE TABLE `ausleihe_objekte`
 (
     `objektID`     int(11) NOT NULL AUTO_INCREMENT,
@@ -417,16 +275,9 @@ CREATE TABLE `ausleihe_objekte`
     `sortOrder`    int(11) NOT NULL,
     `sumItems`     int(11) NOT NULL DEFAULT '1',
     PRIMARY KEY (`objektID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle ausweise
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ausweise`;
-
+-- Create syntax for TABLE 'ausweise'
 CREATE TABLE `ausweise`
 (
     `ausweisID`                int(11) NOT NULL AUTO_INCREMENT,
@@ -451,14 +302,7 @@ CREATE TABLE `ausweise`
     KEY                        `ausweisStatus` (`ausweisStatus`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle bad_mail
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `bad_mail`;
-
+-- Create syntax for TABLE 'bad_mail'
 CREATE TABLE `bad_mail`
 (
     `badMailID`   int(11) NOT NULL AUTO_INCREMENT,
@@ -466,16 +310,9 @@ CREATE TABLE `bad_mail`
     `badMailDone` int(11) NOT NULL,
     PRIMARY KEY (`badMailID`),
     KEY           `badMailDone` (`badMailDone`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=1238 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle beobachtungsbogen_boegen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `beobachtungsbogen_boegen`;
-
+-- Create syntax for TABLE 'beobachtungsbogen_boegen'
 CREATE TABLE `beobachtungsbogen_boegen`
 (
     `beobachtungsbogenID`        int(11) NOT NULL AUTO_INCREMENT,
@@ -488,14 +325,7 @@ CREATE TABLE `beobachtungsbogen_boegen`
     PRIMARY KEY (`beobachtungsbogenID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle beobachtungsbogen_eintragungsfrist
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `beobachtungsbogen_eintragungsfrist`;
-
+-- Create syntax for TABLE 'beobachtungsbogen_eintragungsfrist'
 CREATE TABLE `beobachtungsbogen_eintragungsfrist`
 (
     `beobachtungsbogenID` int(11) NOT NULL,
@@ -504,14 +334,7 @@ CREATE TABLE `beobachtungsbogen_eintragungsfrist`
     PRIMARY KEY (`beobachtungsbogenID`, `userID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 
-
-
-#
-Export von Tabelle beobachtungsbogen_fragen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `beobachtungsbogen_fragen`;
-
+-- Create syntax for TABLE 'beobachtungsbogen_fragen'
 CREATE TABLE `beobachtungsbogen_fragen`
 (
     `frageID`             int(11) NOT NULL AUTO_INCREMENT,
@@ -522,14 +345,7 @@ CREATE TABLE `beobachtungsbogen_fragen`
     PRIMARY KEY (`frageID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle beobachtungsbogen_fragen_daten
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `beobachtungsbogen_fragen_daten`;
-
+-- Create syntax for TABLE 'beobachtungsbogen_fragen_daten'
 CREATE TABLE `beobachtungsbogen_fragen_daten`
 (
     `frageID`       int(11) NOT NULL,
@@ -540,14 +356,7 @@ CREATE TABLE `beobachtungsbogen_fragen_daten`
     PRIMARY KEY (`frageID`, `schuelerID`, `lehrerKuerzel`, `fachName`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle beobachtungsbogen_klasse_fach_lehrer
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `beobachtungsbogen_klasse_fach_lehrer`;
-
+-- Create syntax for TABLE 'beobachtungsbogen_klasse_fach_lehrer'
 CREATE TABLE `beobachtungsbogen_klasse_fach_lehrer`
 (
     `beobachtungsbogenID` int(11) NOT NULL,
@@ -558,14 +367,7 @@ CREATE TABLE `beobachtungsbogen_klasse_fach_lehrer`
     PRIMARY KEY (`beobachtungsbogenID`, `klasseName`, `fachName`, `lehrerKuerzel`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle beobachtungsbogen_klassenleitung
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `beobachtungsbogen_klassenleitung`;
-
+-- Create syntax for TABLE 'beobachtungsbogen_klassenleitung'
 CREATE TABLE `beobachtungsbogen_klassenleitung`
 (
     `beobachtungsbogenID`  int(11) NOT NULL,
@@ -575,14 +377,7 @@ CREATE TABLE `beobachtungsbogen_klassenleitung`
     PRIMARY KEY (`beobachtungsbogenID`, `klassenName`, `klassenleitungTyp`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle beobachtungsbogen_schueler_namen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `beobachtungsbogen_schueler_namen`;
-
+-- Create syntax for TABLE 'beobachtungsbogen_schueler_namen'
 CREATE TABLE `beobachtungsbogen_schueler_namen`
 (
     `beobachtungsbogenID` int(11) NOT NULL,
@@ -592,14 +387,7 @@ CREATE TABLE `beobachtungsbogen_schueler_namen`
     PRIMARY KEY (`beobachtungsbogenID`, `schuelerID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle beurlaubung_antrag
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `beurlaubung_antrag`;
-
+-- Create syntax for TABLE 'beurlaubung_antrag'
 CREATE TABLE `beurlaubung_antrag`
 (
     `antragID`                   int(11) NOT NULL AUTO_INCREMENT,
@@ -618,14 +406,7 @@ CREATE TABLE `beurlaubung_antrag`
     KEY                          `antragUserID` (`antragUserID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle cache
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `cache`;
-
+-- Create syntax for TABLE 'cache'
 CREATE TABLE `cache`
 (
     `cacheKey`  varchar(255) NOT NULL,
@@ -634,103 +415,7 @@ CREATE TABLE `cache`
     `cacheData` longtext     NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle cck_articles
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `cck_articles`;
-
-CREATE TABLE `cck_articles`
-(
-    `id`           int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `form_id`      int(11) DEFAULT NULL,
-    `title`        varchar(255) DEFAULT NULL,
-    `createdTime`  datetime     DEFAULT NULL,
-    `createdBy`    int(11) DEFAULT NULL,
-    `modifiedTime` datetime     DEFAULT NULL,
-    `modifiedBy`   int(11) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle cck_content
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `cck_content`;
-
-CREATE TABLE `cck_content`
-(
-    `id`         int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `article_id` int(11) DEFAULT NULL,
-    `field_id`   int(11) DEFAULT NULL,
-    `content`    mediumtext,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle cck_fieldtyp
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `cck_fieldtyp`;
-
-CREATE TABLE `cck_fieldtyp`
-(
-    `id`       int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `title`    varchar(255) DEFAULT NULL,
-    `template` mediumtext,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle cck_formfields
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `cck_formfields`;
-
-CREATE TABLE `cck_formfields`
-(
-    `id`       int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `form_id`  int(11) DEFAULT NULL,
-    `field_id` int(11) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle cck_forms
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `cck_forms`;
-
-CREATE TABLE `cck_forms`
-(
-    `id`           int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `title`        varchar(255) DEFAULT NULL,
-    `createdTime`  datetime     DEFAULT NULL,
-    `createdBy`    int(11) DEFAULT NULL,
-    `modifiedTime` datetime     DEFAULT NULL,
-    `modifiedBy`   int(11) DEFAULT NULL,
-    `template`     mediumtext,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle cron_execution
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `cron_execution`;
-
+-- Create syntax for TABLE 'cron_execution'
 CREATE TABLE `cron_execution`
 (
     `cronRunID`     int(11) NOT NULL AUTO_INCREMENT,
@@ -741,16 +426,9 @@ CREATE TABLE `cron_execution`
     `cronResult`    longtext     NOT NULL,
     PRIMARY KEY (`cronRunID`) USING BTREE,
     KEY             `cronName` (`cronName`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2377499 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle dashboard
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `dashboard`;
-
+-- Create syntax for TABLE 'dashboard'
 CREATE TABLE `dashboard`
 (
     `id`        int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -761,16 +439,9 @@ CREATE TABLE `dashboard`
     `param`     varchar(255) DEFAULT '',
     PRIMARY KEY (`id`),
     KEY         `uniqid` (`uniqid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle datenschutz_erklaerung
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `datenschutz_erklaerung`;
-
+-- Create syntax for TABLE 'datenschutz_erklaerung'
 CREATE TABLE `datenschutz_erklaerung`
 (
     `userID`        int(11) NOT NULL,
@@ -778,14 +449,7 @@ CREATE TABLE `datenschutz_erklaerung`
     PRIMARY KEY (`userID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 
-
-
-#
-Export von Tabelle dokumente_dateien
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `dokumente_dateien`;
-
+-- Create syntax for TABLE 'dokumente_dateien'
 CREATE TABLE `dokumente_dateien`
 (
     `dateiID`            int(11) NOT NULL AUTO_INCREMENT,
@@ -799,32 +463,18 @@ CREATE TABLE `dokumente_dateien`
     `dateiExtension`     varchar(20)  NOT NULL,
     PRIMARY KEY (`dateiID`) USING BTREE,
     KEY                  `gruppenID` (`gruppenID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=260 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle dokumente_gruppen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `dokumente_gruppen`;
-
+-- Create syntax for TABLE 'dokumente_gruppen'
 CREATE TABLE `dokumente_gruppen`
 (
     `gruppenID`   int(11) NOT NULL AUTO_INCREMENT,
     `gruppenName` varchar(255) NOT NULL,
     `kategorieID` int(11) NOT NULL,
     PRIMARY KEY (`gruppenID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle dokumente_kategorien
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `dokumente_kategorien`;
-
+-- Create syntax for TABLE 'dokumente_kategorien'
 CREATE TABLE `dokumente_kategorien`
 (
     `kategorieID`             int(11) NOT NULL AUTO_INCREMENT,
@@ -833,16 +483,9 @@ CREATE TABLE `dokumente_kategorien`
     `kategorieAccessLehrer`   tinyint(1) NOT NULL,
     `kategorieAccessEltern`   tinyint(1) NOT NULL,
     PRIMARY KEY (`kategorieID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle eltern_adressen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `eltern_adressen`;
-
+-- Create syntax for TABLE 'eltern_adressen'
 CREATE TABLE `eltern_adressen`
 (
     `adresseID`                     int(11) NOT NULL AUTO_INCREMENT,
@@ -862,35 +505,21 @@ CREATE TABLE `eltern_adressen`
     `adressePersonentyp`            varchar(20)  NOT NULL,
     PRIMARY KEY (`adresseID`) USING BTREE,
     KEY                             `adresseSchuelerAsvID` (`adresseSchuelerAsvID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=2204 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle eltern_codes
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `eltern_codes`;
-
+-- Create syntax for TABLE 'eltern_codes'
 CREATE TABLE `eltern_codes`
 (
     `codeID`            int(11) NOT NULL AUTO_INCREMENT,
     `codeSchuelerAsvID` varchar(100) NOT NULL,
     `codeText`          varchar(50)  NOT NULL,
     `codeUserID`        text         NOT NULL,
-    `codePrinted`       int(11) NOT NULL DEFAULT '0',
+    `codePrinted`       tinyint(1) NOT NULL DEFAULT '0',
     PRIMARY KEY (`codeID`) USING BTREE,
     KEY                 `codeSchuelerAsvID` (`codeSchuelerAsvID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=1560 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle eltern_email
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `eltern_email`;
-
+-- Create syntax for TABLE 'eltern_email'
 CREATE TABLE `eltern_email`
 (
     `elternEMail`         varchar(255) NOT NULL,
@@ -901,14 +530,7 @@ CREATE TABLE `eltern_email`
     KEY                   `elternUserID` (`elternUserID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle eltern_register
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `eltern_register`;
-
+-- Create syntax for TABLE 'eltern_register'
 CREATE TABLE `eltern_register`
 (
     `registerID`          int(11) NOT NULL AUTO_INCREMENT,
@@ -920,16 +542,9 @@ CREATE TABLE `eltern_register`
     `firstName`           text         NOT NULL,
     `lastName`            text         NOT NULL,
     PRIMARY KEY (`registerID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=1167 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle eltern_telefon
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `eltern_telefon`;
-
+-- Create syntax for TABLE 'eltern_telefon'
 CREATE TABLE `eltern_telefon`
 (
     `telefonNummer` varchar(255) NOT NULL,
@@ -942,14 +557,7 @@ CREATE TABLE `eltern_telefon`
     KEY             `telefonNummer_2` (`telefonNummer`,`schuelerAsvID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle eltern_to_schueler
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `eltern_to_schueler`;
-
+-- Create syntax for TABLE 'eltern_to_schueler'
 CREATE TABLE `eltern_to_schueler`
 (
     `elternUserID`   int(11) NOT NULL,
@@ -957,14 +565,7 @@ CREATE TABLE `eltern_to_schueler`
     PRIMARY KEY (`elternUserID`, `schuelerUserID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 
-
-
-#
-Export von Tabelle email_addresses
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `email_addresses`;
-
+-- Create syntax for TABLE 'email_addresses'
 CREATE TABLE `email_addresses`
 (
     `userID`          int(11) NOT NULL,
@@ -973,237 +574,7 @@ CREATE TABLE `email_addresses`
     PRIMARY KEY (`userID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle ext_chat_groups
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_chat_groups`;
-
-CREATE TABLE `ext_chat_groups`
-(
-    `id`          int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `status`      tinyint(4) DEFAULT NULL,
-    `title`       varchar(100) DEFAULT NULL,
-    `lastMsgTime` int(11) DEFAULT NULL,
-    `lastMsg`     int(11) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle ext_chat_groups_member
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_chat_groups_member`;
-
-CREATE TABLE `ext_chat_groups_member`
-(
-    `id`       int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `group_id` int(11) DEFAULT NULL,
-    `user_id`  varchar(100) DEFAULT NULL,
-    `unread`   tinyint(1) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle ext_chat_msg
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_chat_msg`;
-
-CREATE TABLE `ext_chat_msg`
-(
-    `id`         int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `group_id`   int(11) DEFAULT NULL,
-    `from`       varchar(100)  DEFAULT NULL,
-    `msg`        varchar(1000) DEFAULT NULL,
-    `timeCreate` int(11) DEFAULT NULL,
-    `status`     tinyint(1) DEFAULT NULL,
-    `user_id`    int(11) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle ext_example_a
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_example_a`;
-
-CREATE TABLE `ext_example_a`
-(
-    `id`   int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `test` int(11) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle ext_example_b
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_example_b`;
-
-CREATE TABLE `ext_example_b`
-(
-    `id`   int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `test` int(11) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle ext_kalender
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_kalender`;
-
-CREATE TABLE `ext_kalender`
-(
-    `id`        int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `title`     varchar(255) NOT NULL DEFAULT '',
-    `state`     tinyint(1) DEFAULT '1',
-    `color`     varchar(7)            DEFAULT NULL,
-    `sort`      tinyint(1) DEFAULT NULL,
-    `preSelect` tinyint(1) DEFAULT NULL,
-    `acl`       int(11) DEFAULT NULL,
-    `ferien`    tinyint(1) DEFAULT '0',
-    `public`    tinyint(1) NOT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-
-
-
-#
-Export von Tabelle ext_sprechstunde_dates
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_sprechstunde_dates`;
-
-CREATE TABLE `ext_sprechstunde_dates`
-(
-    `id`      int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `date`    date         DEFAULT NULL,
-    `slot_id` int(11) DEFAULT NULL,
-    `info`    varchar(255) DEFAULT NULL,
-    `user_id` int(11) DEFAULT NULL,
-    `block`   tinyint(1) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle ext_sprechstunde_slots
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_sprechstunde_slots`;
-
-CREATE TABLE `ext_sprechstunde_slots`
-(
-    `id`       int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `state`    tinyint(1) DEFAULT '0',
-    `user_id`  int(11) DEFAULT NULL,
-    `title`    varchar(255) DEFAULT NULL,
-    `day`      varchar(2)   DEFAULT NULL,
-    `time`     time         DEFAULT NULL,
-    `duration` int(11) DEFAULT NULL,
-    `typ`      varchar(255) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle ext_userlist_list
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_userlist_list`;
-
-CREATE TABLE `ext_userlist_list`
-(
-    `id`          int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `createdTime` datetime     DEFAULT NULL,
-    `createdBy`   int(11) DEFAULT NULL,
-    `title`       varchar(255) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle ext_userlist_list_members
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_userlist_list_members`;
-
-CREATE TABLE `ext_userlist_list_members`
-(
-    `id`      int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `list_id` int(11) DEFAULT NULL,
-    `user_id` int(11) DEFAULT NULL,
-    `toggle`  tinyint(1) DEFAULT NULL,
-    `info`    varchar(255) DEFAULT '',
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle ext_userlist_list_owner
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_userlist_list_owner`;
-
-CREATE TABLE `ext_userlist_list_owner`
-(
-    `id`      int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `list_id` int(11) DEFAULT NULL,
-    `user_id` int(11) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle ext_vplan
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ext_vplan`;
-
-CREATE TABLE `ext_vplan`
-(
-    `id`          int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `createdTime` datetime     DEFAULT NULL,
-    `createdUser` int(11) DEFAULT NULL,
-    `date`        varchar(20)  DEFAULT NULL,
-    `klasse`      varchar(20)  DEFAULT NULL,
-    `stunde`      varchar(20)  DEFAULT NULL,
-    `user_alt`    varchar(20)  DEFAULT NULL,
-    `user_neu`    varchar(20)  DEFAULT NULL,
-    `fach_neu`    varchar(20)  DEFAULT NULL,
-    `fach_alt`    varchar(20)  DEFAULT NULL,
-    `raum`        varchar(20)  DEFAULT NULL,
-    `info`        varchar(255) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-#
-Export von Tabelle extensions
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `extensions`;
-
+-- Create syntax for TABLE 'extensions'
 CREATE TABLE `extensions`
 (
     `id`      int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -1214,16 +585,9 @@ CREATE TABLE `extensions`
     `folder`  varchar(255) DEFAULT NULL,
     `menuCat` varchar(25)  DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle externe_kalender
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `externe_kalender`;
-
+-- Create syntax for TABLE 'externe_kalender'
 CREATE TABLE `externe_kalender`
 (
     `kalenderID`             int(11) NOT NULL AUTO_INCREMENT,
@@ -1234,16 +598,9 @@ CREATE TABLE `externe_kalender`
     `kalenderIcalFeed`       mediumtext   NOT NULL,
     `office365Username`      varchar(255) NOT NULL,
     PRIMARY KEY (`kalenderID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle externe_kalender_kategorien
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `externe_kalender_kategorien`;
-
+-- Create syntax for TABLE 'externe_kalender_kategorien'
 CREATE TABLE `externe_kalender_kategorien`
 (
     `kalenderID`     int(11) NOT NULL,
@@ -1254,14 +611,7 @@ CREATE TABLE `externe_kalender_kategorien`
     PRIMARY KEY (`kalenderID`, `kategorieName`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle faecher
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `faecher`;
-
+-- Create syntax for TABLE 'faecher'
 CREATE TABLE `faecher`
 (
     `fachID`                int(11) NOT NULL COMMENT 'Aus XML File',
@@ -1273,14 +623,7 @@ CREATE TABLE `faecher`
     PRIMARY KEY (`fachID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle fremdlogin
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `fremdlogin`;
-
+-- Create syntax for TABLE 'fremdlogin'
 CREATE TABLE `fremdlogin`
 (
     `fremdloginID` int(11) NOT NULL AUTO_INCREMENT,
@@ -1289,16 +632,9 @@ CREATE TABLE `fremdlogin`
     `loginMessage` longtext NOT NULL,
     `loginTime`    int(11) NOT NULL,
     PRIMARY KEY (`fremdloginID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=263 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle ganztags_events
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ganztags_events`;
-
+-- Create syntax for TABLE 'ganztags_events'
 CREATE TABLE `ganztags_events`
 (
     `id`        int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -1308,16 +644,9 @@ CREATE TABLE `ganztags_events`
     `room`      varchar(100) DEFAULT NULL,
     PRIMARY KEY (`id`),
     UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=821 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle ganztags_gruppen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ganztags_gruppen`;
-
+-- Create syntax for TABLE 'ganztags_gruppen'
 CREATE TABLE `ganztags_gruppen`
 (
     `id`        int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1326,16 +655,9 @@ CREATE TABLE `ganztags_gruppen`
     `raum`      varchar(30) NOT NULL,
     `farbe`     varchar(8)  NOT NULL,
     PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle ganztags_schueler
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `ganztags_schueler`;
-
+-- Create syntax for TABLE 'ganztags_schueler'
 CREATE TABLE `ganztags_schueler`
 (
     `asvid`       varchar(200) NOT NULL DEFAULT '',
@@ -1359,14 +681,7 @@ CREATE TABLE `ganztags_schueler`
     KEY           `gruppe` (`gruppe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle icsfeeds
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `icsfeeds`;
-
+-- Create syntax for TABLE 'icsfeeds'
 CREATE TABLE `icsfeeds`
 (
     `feedID`     int(11) NOT NULL AUTO_INCREMENT,
@@ -1380,16 +695,9 @@ CREATE TABLE `icsfeeds`
     KEY          `feedKey` (`feedKey`),
     KEY          `feedType` (`feedType`),
     KEY          `feedUserID` (`feedUserID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=426 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle image_uploads
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `image_uploads`;
-
+-- Create syntax for TABLE 'image_uploads'
 CREATE TABLE `image_uploads`
 (
     `uploadID`       int(11) NOT NULL AUTO_INCREMENT,
@@ -1397,16 +705,9 @@ CREATE TABLE `image_uploads`
     `uploadUserName` varchar(20) NOT NULL,
     PRIMARY KEY (`uploadID`) USING BTREE,
     KEY              `uploadUserName` (`uploadUserName`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=716 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle initialpasswords
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `initialpasswords`;
-
+-- Create syntax for TABLE 'initialpasswords'
 CREATE TABLE `initialpasswords`
 (
     `initialPasswordID`     int(11) NOT NULL AUTO_INCREMENT,
@@ -1416,16 +717,9 @@ CREATE TABLE `initialpasswords`
     PRIMARY KEY (`initialPasswordID`) USING BTREE,
     KEY                     `initialPasswordUserID` (`initialPasswordUserID`),
     KEY                     `passwordPrinted` (`passwordPrinted`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3456 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle kalender_allInOne
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `kalender_allInOne`;
-
+-- Create syntax for TABLE 'kalender_allInOne'
 CREATE TABLE `kalender_allInOne`
 (
     `kalenderID`        int(11) NOT NULL,
@@ -1438,14 +732,7 @@ CREATE TABLE `kalender_allInOne`
     `kalenderPublic`    tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle kalender_allInOne_eintrag
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `kalender_allInOne_eintrag`;
-
+-- Create syntax for TABLE 'kalender_allInOne_eintrag'
 CREATE TABLE `kalender_allInOne_eintrag`
 (
     `eintragID`           int(11) NOT NULL AUTO_INCREMENT,
@@ -1463,16 +750,9 @@ CREATE TABLE `kalender_allInOne_eintrag`
     `eintragModifiedTime` datetime     NOT NULL,
     PRIMARY KEY (`eintragID`),
     UNIQUE KEY `eintragID` (`eintragID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=1930 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle kalender_allInOne_kategorie
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `kalender_allInOne_kategorie`;
-
+-- Create syntax for TABLE 'kalender_allInOne_kategorie'
 CREATE TABLE `kalender_allInOne_kategorie`
 (
     `kategorieID`         int(11) NOT NULL,
@@ -1482,14 +762,7 @@ CREATE TABLE `kalender_allInOne_kategorie`
     `kategorieIcon`       varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle kalender_andere
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `kalender_andere`;
-
+-- Create syntax for TABLE 'kalender_andere'
 CREATE TABLE `kalender_andere`
 (
     `eintragID`               int(11) NOT NULL AUTO_INCREMENT,
@@ -1510,14 +783,7 @@ CREATE TABLE `kalender_andere`
     KEY                       `kalenderID` (`kalenderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle kalender_extern
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `kalender_extern`;
-
+-- Create syntax for TABLE 'kalender_extern'
 CREATE TABLE `kalender_extern`
 (
     `eintragID`                int(11) NOT NULL AUTO_INCREMENT,
@@ -1538,16 +804,9 @@ CREATE TABLE `kalender_extern`
     PRIMARY KEY (`eintragID`) USING BTREE,
     KEY                        `eintragDatumStart` (`eintragDatumStart`,`eintragDatumEnde`),
     KEY                        `kalenderID` (`kalenderID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4028801 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle kalender_ferien
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `kalender_ferien`;
-
+-- Create syntax for TABLE 'kalender_ferien'
 CREATE TABLE `kalender_ferien`
 (
     `ferienID`        int(11) NOT NULL AUTO_INCREMENT,
@@ -1557,16 +816,9 @@ CREATE TABLE `kalender_ferien`
     `ferienSchuljahr` varchar(7) NOT NULL,
     PRIMARY KEY (`ferienID`) USING BTREE,
     KEY               `ferienStart` (`ferienStart`,`ferienEnde`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Alle Ferien in den nächsten Jahren';
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Alle Ferien in den nächsten Jahren';
 
-
-
-#
-Export von Tabelle kalender_klassentermin
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `kalender_klassentermin`;
-
+-- Create syntax for TABLE 'kalender_klassentermin'
 CREATE TABLE `kalender_klassentermin`
 (
     `eintragID`               int(11) NOT NULL AUTO_INCREMENT,
@@ -1581,16 +833,9 @@ CREATE TABLE `kalender_klassentermin`
     `eintragOrt`              text NOT NULL,
     PRIMARY KEY (`eintragID`) USING BTREE,
     KEY                       `eintragDatumStart` (`eintragDatumStart`,`eintragDatumEnde`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=356 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle kalender_lnw
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `kalender_lnw`;
-
+-- Create syntax for TABLE 'kalender_lnw'
 CREATE TABLE `kalender_lnw`
 (
     `eintragID`               int(11) NOT NULL AUTO_INCREMENT,
@@ -1610,16 +855,9 @@ CREATE TABLE `kalender_lnw`
     KEY                       `eintragDatumStart` (`eintragDatumStart`,`eintragDatumEnde`),
     KEY                       `eintragKlasse` (`eintragKlasse`),
     KEY                       `eintragLehrer` (`eintragLehrer`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=6469 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle klassen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `klassen`;
-
+-- Create syntax for TABLE 'klassen'
 CREATE TABLE `klassen`
 (
     `id`                              int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -1631,16 +869,9 @@ CREATE TABLE `klassen`
     `ausgelagert`                     tinyint(1) DEFAULT NULL,
     `aussenklasse`                    tinyint(1) DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle klassenleitung
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `klassenleitung`;
-
+-- Create syntax for TABLE 'klassenleitung'
 CREATE TABLE `klassenleitung`
 (
     `klasseName`        varchar(200) NOT NULL,
@@ -1649,14 +880,7 @@ CREATE TABLE `klassenleitung`
     PRIMARY KEY (`klasseName`, `lehrerID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle klassentagebuch_fehl
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `klassentagebuch_fehl`;
-
+-- Create syntax for TABLE 'klassentagebuch_fehl'
 CREATE TABLE `klassentagebuch_fehl`
 (
     `fehlID`     int(11) NOT NULL AUTO_INCREMENT,
@@ -1669,16 +893,9 @@ CREATE TABLE `klassentagebuch_fehl`
     KEY          `fehlDatum` (`fehlDatum`),
     KEY          `fehlKlasse` (`fehlKlasse`),
     KEY          `fehlLehrer` (`fehlLehrer`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=200852 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle klassentagebuch_klassen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `klassentagebuch_klassen`;
-
+-- Create syntax for TABLE 'klassentagebuch_klassen'
 CREATE TABLE `klassentagebuch_klassen`
 (
     `entryID`           int(11) NOT NULL AUTO_INCREMENT,
@@ -1698,16 +915,9 @@ CREATE TABLE `klassentagebuch_klassen`
     PRIMARY KEY (`entryID`) USING BTREE,
     KEY                 `entryGrade` (`entryGrade`),
     KEY                 `entryTeacher` (`entryTeacher`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle klassentagebuch_pdf
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `klassentagebuch_pdf`;
-
+-- Create syntax for TABLE 'klassentagebuch_pdf'
 CREATE TABLE `klassentagebuch_pdf`
 (
     `pdfKlasse`   varchar(100) NOT NULL,
@@ -1717,14 +927,7 @@ CREATE TABLE `klassentagebuch_pdf`
     PRIMARY KEY (`pdfKlasse`, `pdfJahr`, `pdfMonat`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle kms
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `kms`;
-
+-- Create syntax for TABLE 'kms'
 CREATE TABLE `kms`
 (
     `kmsID`           int(11) NOT NULL,
@@ -1734,14 +937,7 @@ CREATE TABLE `kms`
     `kmsUploadID`     int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle kondolenzbuch
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `kondolenzbuch`;
-
+-- Create syntax for TABLE 'kondolenzbuch'
 CREATE TABLE `kondolenzbuch`
 (
     `eintragID`   int(11) NOT NULL AUTO_INCREMENT,
@@ -1751,14 +947,7 @@ CREATE TABLE `kondolenzbuch`
     PRIMARY KEY (`eintragID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle laufzettel
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `laufzettel`;
-
+-- Create syntax for TABLE 'laufzettel'
 CREATE TABLE `laufzettel`
 (
     `laufzettelID`                           int(11) NOT NULL AUTO_INCREMENT,
@@ -1776,16 +965,9 @@ CREATE TABLE `laufzettel`
     PRIMARY KEY (`laufzettelID`) USING BTREE,
     KEY                                      `laufzettelDatum` (`laufzettelDatum`),
     KEY                                      `laufzettelErsteller` (`laufzettelErsteller`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle laufzettel_stunden
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `laufzettel_stunden`;
-
+-- Create syntax for TABLE 'laufzettel_stunden'
 CREATE TABLE `laufzettel_stunden`
 (
     `laufzettelStundeID`            int(11) NOT NULL AUTO_INCREMENT,
@@ -1800,16 +982,9 @@ CREATE TABLE `laufzettel_stunden`
     PRIMARY KEY (`laufzettelStundeID`) USING BTREE,
     KEY                             `laufzettelID` (`laufzettelID`),
     KEY                             `laufzettelLehrer` (`laufzettelLehrer`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle lehrer
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `lehrer`;
-
+-- Create syntax for TABLE 'lehrer'
 CREATE TABLE `lehrer`
 (
     `lehrerID`                  int(11) NOT NULL COMMENT 'XML ID aus ASV',
@@ -1830,30 +1005,16 @@ CREATE TABLE `lehrer`
     KEY                         `lehrerUserID` (`lehrerUserID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle lerntutoren
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `lerntutoren`;
-
+-- Create syntax for TABLE 'lerntutoren'
 CREATE TABLE `lerntutoren`
 (
     `lerntutorID`            int(11) NOT NULL AUTO_INCREMENT,
     `lerntutorSchuelerAsvID` varchar(100) NOT NULL,
     PRIMARY KEY (`lerntutorID`) USING BTREE,
     KEY                      `lerntutorSchuelerAsvID` (`lerntutorSchuelerAsvID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle lerntutoren_slots
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `lerntutoren_slots`;
-
+-- Create syntax for TABLE 'lerntutoren_slots'
 CREATE TABLE `lerntutoren_slots`
 (
     `slotID`             int(11) NOT NULL AUTO_INCREMENT,
@@ -1862,16 +1023,9 @@ CREATE TABLE `lerntutoren_slots`
     `slotJahrgangsstufe` varchar(255) NOT NULL,
     `slotSchuelerBelegt` varchar(255) DEFAULT '',
     PRIMARY KEY (`slotID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle loginstat
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `loginstat`;
-
+-- Create syntax for TABLE 'loginstat'
 CREATE TABLE `loginstat`
 (
     `statTimestamp`        timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -1881,14 +1035,7 @@ CREATE TABLE `loginstat`
     PRIMARY KEY (`statTimestamp`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle mail_change_requests
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `mail_change_requests`;
-
+-- Create syntax for TABLE 'mail_change_requests'
 CREATE TABLE `mail_change_requests`
 (
     `changeRequestID`      int(11) NOT NULL,
@@ -1898,14 +1045,7 @@ CREATE TABLE `mail_change_requests`
     `changeRequestNewMail` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle mail_send
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `mail_send`;
-
+-- Create syntax for TABLE 'mail_send'
 CREATE TABLE `mail_send`
 (
     `mailID`               int(11) NOT NULL AUTO_INCREMENT,
@@ -1921,16 +1061,9 @@ CREATE TABLE `mail_send`
     `mailAttachments`      text       NOT NULL,
     PRIMARY KEY (`mailID`) USING BTREE,
     KEY                    `mailSent` (`mailSent`,`mailCrawler`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=432401 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle math_captcha
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `math_captcha`;
-
+-- Create syntax for TABLE 'math_captcha'
 CREATE TABLE `math_captcha`
 (
     `captchaID`       int(11) NOT NULL AUTO_INCREMENT,
@@ -1938,16 +1071,9 @@ CREATE TABLE `math_captcha`
     `captchaSolution` int(11) NOT NULL,
     `captchaSecret`   varchar(5)   NOT NULL,
     PRIMARY KEY (`captchaID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=8222 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle mebis_accounts
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `mebis_accounts`;
-
+-- Create syntax for TABLE 'mebis_accounts'
 CREATE TABLE `mebis_accounts`
 (
     `mebisAccountID`           int(11) NOT NULL AUTO_INCREMENT,
@@ -1960,14 +1086,7 @@ CREATE TABLE `mebis_accounts`
     KEY                        `mebisAccountVorname` (`mebisAccountVorname`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle mensa_order
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `mensa_order`;
-
+-- Create syntax for TABLE 'mensa_order'
 CREATE TABLE `mensa_order`
 (
     `id`           int(11) NOT NULL,
@@ -1976,14 +1095,7 @@ CREATE TABLE `mensa_order`
     `time`         datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle mensa_speiseplan
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `mensa_speiseplan`;
-
+-- Create syntax for TABLE 'mensa_speiseplan'
 CREATE TABLE `mensa_speiseplan`
 (
     `id`             int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1999,32 +1111,18 @@ CREATE TABLE `mensa_speiseplan`
     `bio`            tinyint(1) DEFAULT NULL,
     `regional`       tinyint(1) DEFAULT NULL,
     PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle menu
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `menu`;
-
+-- Create syntax for TABLE 'menu'
 CREATE TABLE `menu`
 (
     `id`    int(11) unsigned NOT NULL AUTO_INCREMENT,
     `alias` varchar(100)          DEFAULT NULL,
     `title` varchar(100) NOT NULL DEFAULT '',
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle menu_item
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `menu_item`;
-
+-- Create syntax for TABLE 'menu_item'
 CREATE TABLE `menu_item`
 (
     `id`        int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -2037,33 +1135,21 @@ CREATE TABLE `menu_item`
     `icon`      varchar(100)          DEFAULT NULL,
     `params`    text,
     `access`    varchar(255) NOT NULL,
+    `options`   text,
+    `target`    tinyint(1) DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle messages_attachment
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `messages_attachment`;
-
+-- Create syntax for TABLE 'messages_attachment'
 CREATE TABLE `messages_attachment`
 (
     `attachmentID`           int(11) NOT NULL AUTO_INCREMENT,
     `attachmentFileUploadID` int(11) NOT NULL,
     `attachmentAccessCode`   varchar(20) NOT NULL,
     PRIMARY KEY (`attachmentID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=25755 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle messages_folders
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `messages_folders`;
-
+-- Create syntax for TABLE 'messages_folders'
 CREATE TABLE `messages_folders`
 (
     `folderID`     int(11) NOT NULL AUTO_INCREMENT,
@@ -2071,16 +1157,9 @@ CREATE TABLE `messages_folders`
     `folderUserID` int(11) NOT NULL,
     PRIMARY KEY (`folderID`) USING BTREE,
     KEY            `folderUserID` (`folderUserID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=2112 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle messages_messages
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `messages_messages`;
-
+-- Create syntax for TABLE 'messages_messages'
 CREATE TABLE `messages_messages`
 (
     `messageID`                    int(11) NOT NULL AUTO_INCREMENT,
@@ -2088,19 +1167,19 @@ CREATE TABLE `messages_messages`
     `messageSubject`               text        NOT NULL,
     `messageText`                  longtext    NOT NULL,
     `messageSender`                int(11) NOT NULL,
-    `messageFolder`                enum('POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV') NOT NULL DEFAULT 'POSTEINGANG',
+    `messageFolder`                enum('POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV','ENTWURF') NOT NULL,
     `messageFolderID`              int(11) NOT NULL DEFAULT '0',
     `messageRecipients`            longtext    NOT NULL,
     `messageRecipientsPreview`     longtext,
     `messageCCRecipients`          longtext,
-    `messageBCCRecipients`         longtext,
+    `messageBCCRecipients`         longtext    NOT NULL,
     `messageIsRead`                tinyint(1) NOT NULL DEFAULT '0',
     `messagePriority`              enum('NORMAL','HIGH','LOW','') NOT NULL DEFAULT 'NORMAL',
     `messageTime`                  int(11) NOT NULL DEFAULT '0',
     `messageAttachments`           text        NOT NULL,
     `messageNeedConfirmation`      tinyint(1) NOT NULL DEFAULT '0',
-    `messageIsConfirmed`           tinyint(1) DEFAULT '0',
-    `messageConfirmTime`           int(11) DEFAULT '0',
+    `messageIsConfirmed`           tinyint(1) NOT NULL DEFAULT '0',
+    `messageConfirmTime`           int(11) NOT NULL DEFAULT '0',
     `messageConfirmChannel`        enum('PORTAL','MAIL') NOT NULL,
     `messageHasQuestions`          tinyint(1) NOT NULL DEFAULT '0',
     `messageAllowAnswer`           int(11) NOT NULL DEFAULT '1',
@@ -2112,18 +1191,12 @@ CREATE TABLE `messages_messages`
     `messageIsForwardFrom`         int(11) NOT NULL DEFAULT '0',
     `messageMyRecipientSaveString` varchar(255) DEFAULT NULL COMMENT 'In welchem Empfänger ist der Empfänger dieser Nachricht enthalten. (Wen betrifft es.)',
     `messageIsConfidential`        tinyint(1) NOT NULL DEFAULT '0',
+    `messageGroupID`               int(1) NOT NULL DEFAULT '0',
     PRIMARY KEY (`messageID`) USING BTREE,
     KEY                            `messagesKey` (`messageUserID`,`messageSender`,`messageFolder`,`messageFolderID`,`messageIsRead`,`messageIsDeleted`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=1206127 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle messages_questions
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `messages_questions`;
-
+-- Create syntax for TABLE 'messages_questions'
 CREATE TABLE `messages_questions`
 (
     `questionID`     int(11) NOT NULL AUTO_INCREMENT,
@@ -2133,16 +1206,9 @@ CREATE TABLE `messages_questions`
     `questionSecret` varchar(10) NOT NULL,
     PRIMARY KEY (`questionID`) USING BTREE,
     KEY              `questionUserID` (`questionUserID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2455 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle messages_questions_answers
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `messages_questions_answers`;
-
+-- Create syntax for TABLE 'messages_questions_answers'
 CREATE TABLE `messages_questions_answers`
 (
     `answerID`         int(11) NOT NULL AUTO_INCREMENT,
@@ -2152,16 +1218,9 @@ CREATE TABLE `messages_questions_answers`
     PRIMARY KEY (`answerID`) USING BTREE,
     KEY                `answerMessageID` (`answerMessageID`),
     KEY                `answerQuestionID` (`answerQuestionID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=121386 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle modul_admin_notes
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `modul_admin_notes`;
-
+-- Create syntax for TABLE 'modul_admin_notes'
 CREATE TABLE `modul_admin_notes`
 (
     `noteID`         int(11) NOT NULL AUTO_INCREMENT,
@@ -2171,16 +1230,9 @@ CREATE TABLE `modul_admin_notes`
     `noteTime`       int(11) NOT NULL,
     PRIMARY KEY (`noteID`) USING BTREE,
     KEY              `noteModuleName` (`noteModuleName`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle nextcloud_users
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `nextcloud_users`;
-
+-- Create syntax for TABLE 'nextcloud_users'
 CREATE TABLE `nextcloud_users`
 (
     `userID`            int(11) NOT NULL AUTO_INCREMENT COMMENT 'Same UserID as in SI',
@@ -2191,14 +1243,7 @@ CREATE TABLE `nextcloud_users`
     PRIMARY KEY (`userID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_arbeiten
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_arbeiten`;
-
+-- Create syntax for TABLE 'noten_arbeiten'
 CREATE TABLE `noten_arbeiten`
 (
     `arbeitID`             int(11) NOT NULL AUTO_INCREMENT,
@@ -2213,14 +1258,7 @@ CREATE TABLE `noten_arbeiten`
     PRIMARY KEY (`arbeitID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_bemerkung_textvorlagen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_bemerkung_textvorlagen`;
-
+-- Create syntax for TABLE 'noten_bemerkung_textvorlagen'
 CREATE TABLE `noten_bemerkung_textvorlagen`
 (
     `bemerkungID`            int(11) NOT NULL AUTO_INCREMENT,
@@ -2231,14 +1269,7 @@ CREATE TABLE `noten_bemerkung_textvorlagen`
     PRIMARY KEY (`bemerkungID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_bemerkung_textvorlagen_gruppen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_bemerkung_textvorlagen_gruppen`;
-
+-- Create syntax for TABLE 'noten_bemerkung_textvorlagen_gruppen'
 CREATE TABLE `noten_bemerkung_textvorlagen_gruppen`
 (
     `gruppeID`     int(11) NOT NULL AUTO_INCREMENT,
@@ -2247,14 +1278,7 @@ CREATE TABLE `noten_bemerkung_textvorlagen_gruppen`
     PRIMARY KEY (`gruppeID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_fach_einstellungen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_fach_einstellungen`;
-
+-- Create syntax for TABLE 'noten_fach_einstellungen'
 CREATE TABLE `noten_fach_einstellungen`
 (
     `fachKurzform`           varchar(100) NOT NULL,
@@ -2264,14 +1288,7 @@ CREATE TABLE `noten_fach_einstellungen`
     PRIMARY KEY (`fachKurzform`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_gewichtung
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_gewichtung`;
-
+-- Create syntax for TABLE 'noten_gewichtung'
 CREATE TABLE `noten_gewichtung`
 (
     `fachKuerzel`        varchar(100) NOT NULL,
@@ -2281,14 +1298,7 @@ CREATE TABLE `noten_gewichtung`
     PRIMARY KEY (`fachKuerzel`, `fachJahrgangsstufe`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_mv
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_mv`;
-
+-- Create syntax for TABLE 'noten_mv'
 CREATE TABLE `noten_mv`
 (
     `mvFachKurzform`   varchar(200) NOT NULL,
@@ -2301,14 +1311,7 @@ CREATE TABLE `noten_mv`
     PRIMARY KEY (`mvFachKurzform`, `mvUnterrichtName`, `schuelerAsvID`, `zeugnisID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_noten
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_noten`;
-
+-- Create syntax for TABLE 'noten_noten'
 CREATE TABLE `noten_noten`
 (
     `noteSchuelerAsvID` varchar(20) NOT NULL,
@@ -2322,14 +1325,7 @@ CREATE TABLE `noten_noten`
     PRIMARY KEY (`noteSchuelerAsvID`, `noteArbeitID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_verrechnung
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_verrechnung`;
-
+-- Create syntax for TABLE 'noten_verrechnung'
 CREATE TABLE `noten_verrechnung`
 (
     `verrechnungID`          int(11) NOT NULL AUTO_INCREMENT,
@@ -2341,14 +1337,7 @@ CREATE TABLE `noten_verrechnung`
     PRIMARY KEY (`verrechnungID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_wahlfach_faecher
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_wahlfach_faecher`;
-
+-- Create syntax for TABLE 'noten_wahlfach_faecher'
 CREATE TABLE `noten_wahlfach_faecher`
 (
     `wahlfachID`          int(11) NOT NULL AUTO_INCREMENT,
@@ -2359,14 +1348,7 @@ CREATE TABLE `noten_wahlfach_faecher`
     PRIMARY KEY (`wahlfachID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_wahlfach_noten
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_wahlfach_noten`;
-
+-- Create syntax for TABLE 'noten_wahlfach_noten'
 CREATE TABLE `noten_wahlfach_noten`
 (
     `wahlfachID`    int(11) NOT NULL,
@@ -2375,14 +1357,7 @@ CREATE TABLE `noten_wahlfach_noten`
     PRIMARY KEY (`wahlfachID`, `schuelerAsvID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_zeugnis_bemerkung
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_zeugnis_bemerkung`;
-
+-- Create syntax for TABLE 'noten_zeugnis_bemerkung'
 CREATE TABLE `noten_zeugnis_bemerkung`
 (
     `bemerkungSchuelerAsvID` varchar(100) NOT NULL,
@@ -2393,14 +1368,7 @@ CREATE TABLE `noten_zeugnis_bemerkung`
     PRIMARY KEY (`bemerkungSchuelerAsvID`, `bemerkungZeugnisID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_zeugnis_exemplar
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_zeugnis_exemplar`;
-
+-- Create syntax for TABLE 'noten_zeugnis_exemplar'
 CREATE TABLE `noten_zeugnis_exemplar`
 (
     `zeugnisID`     int(11) NOT NULL,
@@ -2410,14 +1378,7 @@ CREATE TABLE `noten_zeugnis_exemplar`
     PRIMARY KEY (`zeugnisID`, `schuelerAsvID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_zeugnisse
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_zeugnisse`;
-
+-- Create syntax for TABLE 'noten_zeugnisse'
 CREATE TABLE `noten_zeugnisse`
 (
     `zeugnisID`   int(11) NOT NULL AUTO_INCREMENT,
@@ -2426,14 +1387,7 @@ CREATE TABLE `noten_zeugnisse`
     PRIMARY KEY (`zeugnisID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_zeugnisse_klassen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_zeugnisse_klassen`;
-
+-- Create syntax for TABLE 'noten_zeugnisse_klassen'
 CREATE TABLE `noten_zeugnisse_klassen`
 (
     `zeugnisID`                                        int(11) NOT NULL,
@@ -2447,14 +1401,7 @@ CREATE TABLE `noten_zeugnisse_klassen`
     PRIMARY KEY (`zeugnisID`, `zeugnisKlasse`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle noten_zeugnisse_noten
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `noten_zeugnisse_noten`;
-
+-- Create syntax for TABLE 'noten_zeugnisse_noten'
 CREATE TABLE `noten_zeugnisse_noten`
 (
     `noteSchuelerAsvID`   varchar(100) NOT NULL,
@@ -2466,14 +1413,7 @@ CREATE TABLE `noten_zeugnisse_noten`
     PRIMARY KEY (`noteSchuelerAsvID`, `noteZeugnisID`, `noteFachKurzform`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle office365_accounts
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `office365_accounts`;
-
+-- Create syntax for TABLE 'office365_accounts'
 CREATE TABLE `office365_accounts`
 (
     `accountAsvID`           varchar(200)  NOT NULL,
@@ -2488,14 +1428,7 @@ CREATE TABLE `office365_accounts`
     PRIMARY KEY (`accountAsvID`, `accountIsTeacher`, `accountIsPupil`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle projekt_lehrer2grade
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `projekt_lehrer2grade`;
-
+-- Create syntax for TABLE 'projekt_lehrer2grade'
 CREATE TABLE `projekt_lehrer2grade`
 (
     `lehrerUserID` int(11) NOT NULL,
@@ -2503,14 +1436,7 @@ CREATE TABLE `projekt_lehrer2grade`
     PRIMARY KEY (`lehrerUserID`, `gradeName`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle projekt_projekte
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `projekt_projekte`;
-
+-- Create syntax for TABLE 'projekt_projekte'
 CREATE TABLE `projekt_projekte`
 (
     `userID`         varchar(100) NOT NULL,
@@ -2523,14 +1449,7 @@ CREATE TABLE `projekt_projekte`
     PRIMARY KEY (`userID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle raumplan_stunden
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `raumplan_stunden`;
-
+-- Create syntax for TABLE 'raumplan_stunden'
 CREATE TABLE `raumplan_stunden`
 (
     `stundeID`      int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -2545,16 +1464,9 @@ CREATE TABLE `raumplan_stunden`
     `createdTime`   datetime    DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
     `state`         tinyint(1) DEFAULT NULL,
     PRIMARY KEY (`stundeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle remote_usersync
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `remote_usersync`;
-
+-- Create syntax for TABLE 'remote_usersync'
 CREATE TABLE `remote_usersync`
 (
     `syncID`             int(11) NOT NULL AUTO_INCREMENT,
@@ -2570,14 +1482,7 @@ CREATE TABLE `remote_usersync`
     PRIMARY KEY (`syncID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle resetpassword
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `resetpassword`;
-
+-- Create syntax for TABLE 'resetpassword'
 CREATE TABLE `resetpassword`
 (
     `resetID`              int(11) NOT NULL AUTO_INCREMENT,
@@ -2586,16 +1491,9 @@ CREATE TABLE `resetpassword`
     `resetCode`            varchar(200) NOT NULL,
     PRIMARY KEY (`resetID`) USING BTREE,
     KEY                    `resetUserID` (`resetUserID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=1202 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle respizienz
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `respizienz`;
-
+-- Create syntax for TABLE 'respizienz'
 CREATE TABLE `respizienz`
 (
     `respizienzID`       int(11) NOT NULL,
@@ -2606,14 +1504,7 @@ CREATE TABLE `respizienz`
     PRIMARY KEY (`respizienzID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schaukasten_bildschirme
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schaukasten_bildschirme`;
-
+-- Create syntax for TABLE 'schaukasten_bildschirme'
 CREATE TABLE `schaukasten_bildschirme`
 (
     `schaukastenID`                int(11) NOT NULL AUTO_INCREMENT,
@@ -2635,14 +1526,7 @@ CREATE TABLE `schaukasten_bildschirme`
     PRIMARY KEY (`schaukastenID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schaukasten_inhalt
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schaukasten_inhalt`;
-
+-- Create syntax for TABLE 'schaukasten_inhalt'
 CREATE TABLE `schaukasten_inhalt`
 (
     `schaukastenID`       int(11) NOT NULL,
@@ -2651,14 +1535,7 @@ CREATE TABLE `schaukasten_inhalt`
     PRIMARY KEY (`schaukastenID`, `schaukastenPosition`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schaukasten_powerpoint
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schaukasten_powerpoint`;
-
+-- Create syntax for TABLE 'schaukasten_powerpoint'
 CREATE TABLE `schaukasten_powerpoint`
 (
     `powerpointID`   int(11) NOT NULL AUTO_INCREMENT,
@@ -2668,14 +1545,7 @@ CREATE TABLE `schaukasten_powerpoint`
     PRIMARY KEY (`powerpointID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schaukasten_website
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schaukasten_website`;
-
+-- Create syntax for TABLE 'schaukasten_website'
 CREATE TABLE `schaukasten_website`
 (
     `websiteID`             int(11) NOT NULL AUTO_INCREMENT,
@@ -2687,14 +1557,7 @@ CREATE TABLE `schaukasten_website`
     UNIQUE KEY `websiteName` (`websiteID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schueler
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schueler`;
-
+-- Create syntax for TABLE 'schueler'
 CREATE TABLE `schueler`
 (
     `schuelerAsvID`                 varchar(200) NOT NULL,
@@ -2723,14 +1586,7 @@ CREATE TABLE `schueler`
     KEY                             `schuelerUserID` (`schuelerUserID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schueler_briefe
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schueler_briefe`;
-
+-- Create syntax for TABLE 'schueler_briefe'
 CREATE TABLE `schueler_briefe`
 (
     `briefID`                int(11) NOT NULL AUTO_INCREMENT,
@@ -2748,16 +1604,9 @@ CREATE TABLE `schueler_briefe`
     `briefKommentar`         longtext     NOT NULL,
     `briefSaveLonger`        int(11) NOT NULL DEFAULT '0' COMMENT 'Bei 0 dauerhafte Speicherung, bei Wert letzte Änderung',
     PRIMARY KEY (`briefID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schueler_fremdsprache
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schueler_fremdsprache`;
-
+-- Create syntax for TABLE 'schueler_fremdsprache'
 CREATE TABLE `schueler_fremdsprache`
 (
     `schuelerAsvID`                varchar(100) NOT NULL,
@@ -2768,14 +1617,7 @@ CREATE TABLE `schueler_fremdsprache`
     PRIMARY KEY (`schuelerAsvID`, `spracheSortierung`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schueler_nachteilsausgleich
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schueler_nachteilsausgleich`;
-
+-- Create syntax for TABLE 'schueler_nachteilsausgleich'
 CREATE TABLE `schueler_nachteilsausgleich`
 (
     `schuelerAsvID`            varchar(100) NOT NULL,
@@ -2788,14 +1630,7 @@ CREATE TABLE `schueler_nachteilsausgleich`
     PRIMARY KEY (`schuelerAsvID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schueler_quarantaene
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schueler_quarantaene`;
-
+-- Create syntax for TABLE 'schueler_quarantaene'
 CREATE TABLE `schueler_quarantaene`
 (
     `quarantaeneID`              int(11) NOT NULL AUTO_INCREMENT,
@@ -2811,14 +1646,7 @@ CREATE TABLE `schueler_quarantaene`
     KEY                          `quarantaeneStart` (`quarantaeneStart`,`quarantaeneEnde`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schuelerinfo_dokumente
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schuelerinfo_dokumente`;
-
+-- Create syntax for TABLE 'schuelerinfo_dokumente'
 CREATE TABLE `schuelerinfo_dokumente`
 (
     `dokumentID`            int(11) NOT NULL AUTO_INCREMENT,
@@ -2828,16 +1656,9 @@ CREATE TABLE `schuelerinfo_dokumente`
     `dokumentUploadID`      int(11) NOT NULL,
     PRIMARY KEY (`dokumentID`) USING BTREE,
     KEY                     `dokumentSchuelerAsvID` (`dokumentSchuelerAsvID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schulbuch_ausleihe
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schulbuch_ausleihe`;
-
+-- Create syntax for TABLE 'schulbuch_ausleihe'
 CREATE TABLE `schulbuch_ausleihe`
 (
     `ausleiheID`             int(11) NOT NULL AUTO_INCREMENT,
@@ -2859,14 +1680,7 @@ CREATE TABLE `schulbuch_ausleihe`
     KEY                      `rueckgeberUserID` (`rueckgeberUserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schulbuch_buecher
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schulbuch_buecher`;
-
+-- Create syntax for TABLE 'schulbuch_buecher'
 CREATE TABLE `schulbuch_buecher`
 (
     `buchID`             int(11) NOT NULL AUTO_INCREMENT,
@@ -2880,14 +1694,7 @@ CREATE TABLE `schulbuch_buecher`
     PRIMARY KEY (`buchID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schulbuch_exemplare
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schulbuch_exemplare`;
-
+-- Create syntax for TABLE 'schulbuch_exemplare'
 CREATE TABLE `schulbuch_exemplare`
 (
     `exemplarID`               int(11) NOT NULL AUTO_INCREMENT,
@@ -2902,14 +1709,7 @@ CREATE TABLE `schulbuch_exemplare`
     KEY                        `exemplarBuchID` (`exemplarBuchID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle schulen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `schulen`;
-
+-- Create syntax for TABLE 'schulen'
 CREATE TABLE `schulen`
 (
     `schuleID`     int(11) NOT NULL,
@@ -2920,14 +1720,7 @@ CREATE TABLE `schulen`
     KEY            `schuleNummer` (`schuleNummer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle sessions
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `sessions`;
-
+-- Create syntax for TABLE 'sessions'
 CREATE TABLE `sessions`
 (
     `sessionID`            varchar(255) NOT NULL,
@@ -2946,14 +1739,7 @@ CREATE TABLE `sessions`
     KEY                    `sessionUserID` (`sessionUserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle settings
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `settings`;
-
+-- Create syntax for TABLE 'settings'
 CREATE TABLE `settings`
 (
     `settingsExtension` varchar(100) NOT NULL DEFAULT '0',
@@ -2962,14 +1748,7 @@ CREATE TABLE `settings`
     PRIMARY KEY (`settingName`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle settings_history
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `settings_history`;
-
+-- Create syntax for TABLE 'settings_history'
 CREATE TABLE `settings_history`
 (
     `settingHistoryID`         int(11) NOT NULL AUTO_INCREMENT,
@@ -2979,16 +1758,9 @@ CREATE TABLE `settings_history`
     `settingHistoryNewValue`   mediumtext   NOT NULL,
     `settingHistoryUserID`     int(11) DEFAULT NULL,
     PRIMARY KEY (`settingHistoryID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=100298 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle site_activation
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `site_activation`;
-
+-- Create syntax for TABLE 'site_activation'
 CREATE TABLE `site_activation`
 (
     `siteName`     varchar(200) NOT NULL,
@@ -2997,14 +1769,7 @@ CREATE TABLE `site_activation`
     KEY            `siteIsActive` (`siteIsActive`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle sprechtag
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `sprechtag`;
-
+-- Create syntax for TABLE 'sprechtag'
 CREATE TABLE `sprechtag`
 (
     `sprechtagID`                              int(11) NOT NULL AUTO_INCREMENT,
@@ -3022,16 +1787,9 @@ CREATE TABLE `sprechtag`
     PRIMARY KEY (`sprechtagID`) USING BTREE,
     KEY                                        `sprechtagDate` (`sprechtagDate`),
     KEY                                        `sprechtagIsActive` (`sprechtagIsActive`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle sprechtag_buchungen
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `sprechtag_buchungen`;
-
+-- Create syntax for TABLE 'sprechtag_buchungen'
 CREATE TABLE `sprechtag_buchungen`
 (
     `buchungID`     int(11) NOT NULL AUTO_INCREMENT,
@@ -3046,16 +1804,9 @@ CREATE TABLE `sprechtag_buchungen`
     KEY             `lehrerKuerzel` (`lehrerKuerzel`),
     KEY             `schuelerAsvID` (`schuelerAsvID`),
     KEY             `sprechtagID` (`sprechtagID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6144 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle sprechtag_raeume
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `sprechtag_raeume`;
-
+-- Create syntax for TABLE 'sprechtag_raeume'
 CREATE TABLE `sprechtag_raeume`
 (
     `sprechtagID`   int(11) NOT NULL,
@@ -3064,14 +1815,7 @@ CREATE TABLE `sprechtag_raeume`
     PRIMARY KEY (`sprechtagID`, `lehrerKuerzel`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle sprechtag_slots
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `sprechtag_slots`;
-
+-- Create syntax for TABLE 'sprechtag_slots'
 CREATE TABLE `sprechtag_slots`
 (
     `slotID`              int(11) NOT NULL AUTO_INCREMENT,
@@ -3082,16 +1826,9 @@ CREATE TABLE `sprechtag_slots`
     `slotIsOnlineBuchbar` int(11) NOT NULL DEFAULT '1',
     PRIMARY KEY (`slotID`) USING BTREE,
     KEY                   `sprechtagID` (`sprechtagID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle stundenplan_aufsichten
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `stundenplan_aufsichten`;
-
+-- Create syntax for TABLE 'stundenplan_aufsichten'
 CREATE TABLE `stundenplan_aufsichten`
 (
     `aufsichtID`            int(11) NOT NULL AUTO_INCREMENT,
@@ -3104,14 +1841,7 @@ CREATE TABLE `stundenplan_aufsichten`
     KEY                     `stundenplanID` (`stundenplanID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle stundenplan_plaene
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `stundenplan_plaene`;
-
+-- Create syntax for TABLE 'stundenplan_plaene'
 CREATE TABLE `stundenplan_plaene`
 (
     `stundenplanID`           int(11) NOT NULL AUTO_INCREMENT,
@@ -3122,16 +1852,9 @@ CREATE TABLE `stundenplan_plaene`
     `stundenplanIsDeleted`    int(11) NOT NULL,
     PRIMARY KEY (`stundenplanID`) USING BTREE,
     KEY                       `stundenplanAb` (`stundenplanAb`,`stundenplanBis`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=246 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle stundenplan_stunden
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `stundenplan_stunden`;
-
+-- Create syntax for TABLE 'stundenplan_stunden'
 CREATE TABLE `stundenplan_stunden`
 (
     `stundeID`      int(11) NOT NULL AUTO_INCREMENT,
@@ -3144,16 +1867,9 @@ CREATE TABLE `stundenplan_stunden`
     `stundeStunde`  int(11) NOT NULL,
     PRIMARY KEY (`stundeID`) USING BTREE,
     KEY             `stundenplanID` (`stundenplanID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=667160 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle templates
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `templates`;
-
+-- Create syntax for TABLE 'templates'
 CREATE TABLE `templates`
 (
     `templateName`             varchar(200) NOT NULL,
@@ -3161,14 +1877,7 @@ CREATE TABLE `templates`
     PRIMARY KEY (`templateName`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle trenndaten
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `trenndaten`;
-
+-- Create syntax for TABLE 'trenndaten'
 CREATE TABLE `trenndaten`
 (
     `trennWort`         varchar(255) NOT NULL,
@@ -3176,14 +1885,7 @@ CREATE TABLE `trenndaten`
     PRIMARY KEY (`trennWort`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle tutoren
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `tutoren`;
-
+-- Create syntax for TABLE 'tutoren'
 CREATE TABLE `tutoren`
 (
     `tutorenID`         int(11) NOT NULL AUTO_INCREMENT,
@@ -3194,16 +1896,9 @@ CREATE TABLE `tutoren`
     `jahrgang`          varchar(100) DEFAULT NULL,
     `einheiten`         int(11) DEFAULT NULL,
     PRIMARY KEY (`tutorenID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle tutoren_slots
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `tutoren_slots`;
-
+-- Create syntax for TABLE 'tutoren_slots'
 CREATE TABLE `tutoren_slots`
 (
     `slotID`            int(11) NOT NULL AUTO_INCREMENT,
@@ -3217,16 +1912,9 @@ CREATE TABLE `tutoren_slots`
     `slotInfo`          text,
     `slotDates`         text,
     PRIMARY KEY (`slotID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle two_factor_trusted_devices
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `two_factor_trusted_devices`;
-
+-- Create syntax for TABLE 'two_factor_trusted_devices'
 CREATE TABLE `two_factor_trusted_devices`
 (
     `deviceID`         int(11) NOT NULL AUTO_INCREMENT,
@@ -3237,14 +1925,7 @@ CREATE TABLE `two_factor_trusted_devices`
     CONSTRAINT `two_factor_trusted_devices_ibfk_1` FOREIGN KEY (`deviceUserID`) REFERENCES `users` (`userID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle unknown_mails
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `unknown_mails`;
-
+-- Create syntax for TABLE 'unknown_mails'
 CREATE TABLE `unknown_mails`
 (
     `mailID`      int(11) NOT NULL AUTO_INCREMENT,
@@ -3252,22 +1933,15 @@ CREATE TABLE `unknown_mails`
     `mailText`    longtext   NOT NULL,
     `mailSender`  mediumtext NOT NULL,
     PRIMARY KEY (`mailID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=479 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle unterricht
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `unterricht`;
-
+-- Create syntax for TABLE 'unterricht'
 CREATE TABLE `unterricht`
 (
     `unterrichtID`                  int(11) NOT NULL COMMENT 'Aus ASV Export File',
+    `unterrichtElementASVID`        varchar(200) DEFAULT NULL,
     `unterrichtLehrerID`            int(11) NOT NULL,
     `unterrichtFachID`              int(11) NOT NULL,
-    `unterrichtKlassen`             varchar(255) DEFAULT NULL,
     `unterrichtBezeichnung`         varchar(200)  NOT NULL,
     `unterrichtArt`                 varchar(255)  NOT NULL,
     `unterrichtStunden`             decimal(4, 2) NOT NULL,
@@ -3277,20 +1951,13 @@ CREATE TABLE `unterricht`
     `unterrichtIsKlassenunterricht` tinyint(1) NOT NULL,
     `unterrichtKoppelText`          varchar(255) DEFAULT '',
     `unterrichtKoppelIsPseudo`      tinyint(1) NOT NULL DEFAULT '0',
-    `unterrichtElementASVID`        varchar(255) DEFAULT NULL,
+    `unterrichtKlassen`             varchar(255) DEFAULT NULL,
     PRIMARY KEY (`unterrichtID`) USING BTREE,
     KEY                             `unterrichtFachID` (`unterrichtFachID`),
     KEY                             `unterrichtLehrerID` (`unterrichtLehrerID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle unterricht_besuch
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `unterricht_besuch`;
-
+-- Create syntax for TABLE 'unterricht_besuch'
 CREATE TABLE `unterricht_besuch`
 (
     `unterrichtID`  int(11) NOT NULL,
@@ -3298,14 +1965,7 @@ CREATE TABLE `unterricht_besuch`
     KEY             `unterrichtID` (`unterrichtID`,`schuelerAsvID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle uploads
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `uploads`;
-
+-- Create syntax for TABLE 'uploads'
 CREATE TABLE `uploads`
 (
     `uploadID`            int(11) NOT NULL AUTO_INCREMENT,
@@ -3314,35 +1974,22 @@ CREATE TABLE `uploads`
     `uploadFileMimeType`  varchar(200) NOT NULL,
     `uploadTime`          int(11) NOT NULL,
     `uploaderUserID`      int(11) NOT NULL,
-    `fileAccessCode`      varchar(222) NOT NULL DEFAULT '0',
+    `fileAccessCode`      varchar(222) DEFAULT '0',
     PRIMARY KEY (`uploadID`) USING BTREE,
     KEY                   `fileAccessCode` (`fileAccessCode`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=26619 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle user_settings
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `user_settings`;
-
+-- Create syntax for TABLE 'user_settings'
 CREATE TABLE `user_settings`
 (
-    `userID`    int(11) NOT NULL,
-    `skinColor` enum('blue','black','purple','yellow','red','green') NOT NULL DEFAULT 'green',
-    `startPage` enum('aufeinenblick','vplan','stundenplan') NOT NULL DEFAULT 'aufeinenblick',
+    `userID`     int(11) NOT NULL,
+    `skinColor`  enum('blue','black','purple','yellow','red','green') NOT NULL DEFAULT 'green',
+    `startPage`  enum('aufeinenblick','vplan','stundenplan') NOT NULL DEFAULT 'aufeinenblick',
+    `autoLogout` int(11) DEFAULT NULL,
     PRIMARY KEY (`userID`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 
-
-
-#
-Export von Tabelle users
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `users`;
-
+-- Create syntax for TABLE 'users'
 CREATE TABLE `users`
 (
     `userID`                       int(11) NOT NULL AUTO_INCREMENT,
@@ -3370,16 +2017,9 @@ CREATE TABLE `users`
     `userAutoresponseText`         longtext     NOT NULL,
     PRIMARY KEY (`userID`) USING BTREE,
     KEY                            `userName` (`userName`(255))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4472 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle users_groups
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `users_groups`;
-
+-- Create syntax for TABLE 'users_groups'
 CREATE TABLE `users_groups`
 (
     `userID`    int(11) NOT NULL,
@@ -3389,14 +2029,7 @@ CREATE TABLE `users_groups`
     KEY         `userID` (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle users_groups_own
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `users_groups_own`;
-
+-- Create syntax for TABLE 'users_groups_own'
 CREATE TABLE `users_groups_own`
 (
     `groupName`               varchar(255) NOT NULL,
@@ -3410,14 +2043,7 @@ CREATE TABLE `users_groups_own`
     KEY                       `groupIsMessageRecipient` (`groupIsMessageRecipient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle vplan
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `vplan`;
-
+-- Create syntax for TABLE 'vplan'
 CREATE TABLE `vplan`
 (
     `vplanName`              varchar(20)  NOT NULL,
@@ -3431,14 +2057,7 @@ CREATE TABLE `vplan`
     PRIMARY KEY (`vplanName`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle vplan_data
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `vplan_data`;
-
+-- Create syntax for TABLE 'vplan_data'
 CREATE TABLE `vplan_data`
 (
     `vplanDate`            date         NOT NULL,
@@ -3453,14 +2072,7 @@ CREATE TABLE `vplan_data`
     `isNew`                tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
-#
-Export von Tabelle widgets
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `widgets`;
-
+-- Create syntax for TABLE 'widgets'
 CREATE TABLE `widgets`
 (
     `id`       int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -3470,33 +2082,23 @@ CREATE TABLE `widgets`
     `params`   text,
     PRIMARY KEY (`id`),
     KEY        `uniqid` (`uniqid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
-
-
-#
-Export von Tabelle wlan_ticket
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `wlan_ticket`;
-
+-- Create syntax for TABLE 'wlan_ticket'
 CREATE TABLE `wlan_ticket`
 (
     `ticketID`           int(11) NOT NULL AUTO_INCREMENT,
     `ticketType`         enum('GAST','SCHUELER') NOT NULL,
     `ticketText`         mediumtext   NOT NULL,
-    `ticketAssignedTo`   int(11) NOT NULL DEFAULT '0',
+    `ticketAssignedTo`   int(11) NOT NULL,
     `ticketValidMinutes` int(11) NOT NULL,
     `ticketAssignedDate` varchar(255)          DEFAULT NULL,
-    `ticketAssignedBy`   int(11) NOT NULL DEFAULT '0',
+    `ticketAssignedBy`   int(11) NOT NULL,
     `ticketName`         varchar(255) NOT NULL DEFAULT '0',
     PRIMARY KEY (`ticketID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

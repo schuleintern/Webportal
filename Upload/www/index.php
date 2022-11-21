@@ -44,6 +44,11 @@ include('./startup.php');
 include("../framework/lib/system/errorhandler.php");
 set_error_handler('schuleinternerrorhandler',E_ALL);
 
+if (DB::isDebug()) {
+    ini_set('display_errors', true);
+    error_reporting(E_ALL);
+}
+
 // lets check ssl Status
 $isSSL = false;
 
@@ -57,8 +62,6 @@ if(!$isSSL && $_request['page'] != "updatevplan" && $_request['page'] != "digita
     }
     header("Location: " . DB::getGlobalSettings()->urlToIndexPHP . "?ssl=1");
 }
-
-
 
 
 

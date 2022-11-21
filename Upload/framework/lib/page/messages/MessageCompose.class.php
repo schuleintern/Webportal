@@ -430,16 +430,79 @@ class MessageCompose extends AbstractPage {
 		        echo json_encode($result);
 		        exit(0);
 		    break;
-	    
+
+            case 'save':
+
+
+                $messageSender = new MessageSender();
+
+                if($_REQUEST['isConfidential'] > 0) {
+                    $messageSender->setConfidential();;
+                }
+
+                $messageSender->setSender(DB::getSession()->getUser());
+                $messageSender->setSubject($_POST['messageSubject']);
+
+                $config = HTMLPurifier_Config::createDefault();
+                $config->set('URI.AllowedSchemes', ['data' => true,'src'=>true,'http' => true, 'https' => true]);      // Bilder as Base64 erlauben
+                $purifier = new HTMLPurifier($config);
+                $text = $purifier->purify($_REQUEST['messageText']);
+                $messageSender->setText($text);
+
+                $messageSender->setPriority($_REQUEST['priority']);
+
+                $recipientHandler = new RecipientHandler($_REQUEST['recipients']);
+                $recipientHandlerCC = new RecipientHandler($_REQUEST['ccrecipients']);
+                $recipientHandlerBCC = new RecipientHandler($_REQUEST['bccrecipients']);
+
+                $messageSender->setRecipients($recipientHandler);
+                $messageSender->setCCRecipients($recipientHandlerCC);
+                $messageSender->setBCCRecipients($recipientHandlerBCC);
+
+                $attachments = explode(";",$_REQUEST['attachments']);
+                for($i = 0; $i < sizeof($attachments); $i++) {
+                    list($id, $secret) = explode("#",$attachments[$i]);
+                    $attachment = MessageAttachment::getByID($id);
+                    if($attachment != null) {
+                        if($attachment->getAccessCode() == $secret) {
+                            $messageSender->addAttachment($attachment);
+                        }
+                    }
+                }
+
+                if(MessageSendRights::canAskQuestions()) {
+                    $questions = explode(";",$_REQUEST['questions']);
+                    for($i = 0; $i < sizeof($questions); $i++) {
+                        list($id, $secret) = explode("#",$questions[$i]);
+                        $question = MessageQuestion::getByID($id);
+                        if($question != null && $question->getSecret() == $secret) {
+                            $messageSender->addQuestion($question);
+                        }
+                    }
+                }
+
+                if(MessageSendRights::canRequestReadingConfirmation() && $_REQUEST['readConfirmation'] > 0) {
+                    $messageSender->setNeedConfirmation();
+                }
+
+                if($_REQUEST['dontAllowAnser'] > 0) {
+                    $messageSender->dontAllowAnswer();
+                }
+
+                if ( $messageSender->save('ENTWURF') ) {
+                    $redirect = DB::getSettings()->getValue('message-send-redirect');
+                    if ( $redirect ) {
+                        header("Location: index.php?page=MessageInbox&folder=".$redirect);
+                    } else {
+                        header("Location: index.php?page=MessageInbox&folder=POSTEINGANG");
+                    }
+                }
+                exit(0);
+                break;
+
 			case 'send':
+
 				$messageSender = new MessageSender();
-				
-
-								
-				$recipientHandler = new RecipientHandler($_REQUEST['recipients']);
-				$recipientHandlerCC = new RecipientHandler($_REQUEST['ccrecipients']);
-				$recipientHandlerBCC = new RecipientHandler($_REQUEST['bccrecipients']);
-
 
 				$addMeetingHTML = "";
 
@@ -492,27 +555,26 @@ class MessageCompose extends AbstractPage {
                 }
 
                 // Vertraulichkeit
-
                 if($_REQUEST['isConfidential'] > 0) {
                     $messageSender->setConfidential();;
                 }
 
-
 				$messageSender->setSender(DB::getSession()->getUser());
-				
 				$messageSender->setSubject($_POST['messageSubject']);
 
                 $config = HTMLPurifier_Config::createDefault();
                 $config->set('URI.AllowedSchemes', ['data' => true,'src'=>true,'http' => true, 'https' => true]);      // Bilder as Base64 erlauben
                 $purifier = new HTMLPurifier($config);
-
                 $text = $purifier->purify($_REQUEST['messageText']);
-
                 $text .= $addMeetingHTML;
-
 				$messageSender->setText($text);
+
 				$messageSender->setPriority($_POST['priority']);
-				
+
+                $recipientHandler = new RecipientHandler($_REQUEST['recipients']);
+                $recipientHandlerCC = new RecipientHandler($_REQUEST['ccrecipients']);
+                $recipientHandlerBCC = new RecipientHandler($_REQUEST['bccrecipients']);
+
 				$messageSender->setRecipients($recipientHandler);				
 				$messageSender->setCCRecipients($recipientHandlerCC);
 				$messageSender->setBCCRecipients($recipientHandlerBCC);
@@ -520,15 +582,9 @@ class MessageCompose extends AbstractPage {
 				// Debugger::debugObject($messageSender,1);
 								
 				$attachments = explode(";",$_REQUEST['attachments']);
-
-				
 				for($i = 0; $i < sizeof($attachments); $i++) {
 					list($id, $secret) = explode("#",$attachments[$i]);
-					
-					
-					
 					$attachment = MessageAttachment::getByID($id);
-					
 					if($attachment != null) {
 					    if($attachment->getAccessCode() == $secret) {			        
 					        $messageSender->addAttachment($attachment);
@@ -537,30 +593,23 @@ class MessageCompose extends AbstractPage {
 				}
 				
 				if(MessageSendRights::canAskQuestions()) {
-				    
 				    $questions = explode(";",$_REQUEST['questions']);
-				    
-				    
 				    for($i = 0; $i < sizeof($questions); $i++) {
 				        list($id, $secret) = explode("#",$questions[$i]);
-				        
 				        $question = MessageQuestion::getByID($id);
-				        
 				        if($question != null && $question->getSecret() == $secret) {
 				            $messageSender->addQuestion($question);
 				        }				        
 				    }
 				}
-				
-				
-				if(MessageSendRights::canRequestReadingConfirmation() && $_REQUEST['readConfirmation'] > 0) $messageSender->setNeedConfirmation();
-				
-				
+
+				if(MessageSendRights::canRequestReadingConfirmation() && $_REQUEST['readConfirmation'] > 0) {
+                    $messageSender->setNeedConfirmation();
+                }
+
 				$isReply = false;
-				
 
 				if($_REQUEST['forwardMessage'] != "") {
-							
 						$forwardMessage = Message::getByID(intval($_REQUEST['forwardMessage']));
 						if($forwardMessage!= null) {
 								if($forwardMessage->getUserID() == DB::getSession()->getUserID()) {
@@ -570,7 +619,6 @@ class MessageCompose extends AbstractPage {
 				}
 				
 				if($_REQUEST['replyMessage'] != "") {
-				    
 				    $replyMessage = Message::getByID(intval($_REQUEST['replyMessage']));
 				    if($replyMessage!= null) {
 				        if($replyMessage->getUserID() == DB::getSession()->getUserID()) {
@@ -580,17 +628,14 @@ class MessageCompose extends AbstractPage {
 				}
 				
 				if($_REQUEST['replyAllMessage'] != "") {
-				    
 				    $replyMessage = Message::getByID(intval($_REQUEST['replyMessage']));
-				    
 				    if($replyMessage!= null) {
 				        if($replyMessage->getUserID() == DB::getSession()->getUserID()) {
 				            $messageSender->setReplyMessage($replyMessage);
 				        }
 				    }
 				}
-				
-						
+
 				if($_REQUEST['dontAllowAnser'] > 0) {
 					$messageSender->dontAllowAnswer();
 				}
@@ -609,6 +654,8 @@ class MessageCompose extends AbstractPage {
 
 				
 		}
+
+
 
 		$this->showForm();
 	}
@@ -714,9 +761,104 @@ class MessageCompose extends AbstractPage {
 		if($_REQUEST['messageSubject'] != '') {
 			$preText = htmlspecialchars($_REQUEST['messageText']);
 			$preSubject = htmlspecialchars($_REQUEST['messageSubject']);
-		}
-		else $preSubject = '';
-		
+		} else {
+            $preSubject = '';
+        }
+
+        $prePriorityNormal = 'selected="selected"';
+
+        // Load Content from ENTWURF
+        if ($_REQUEST['messageID']) {
+
+            $messageEntwurf = Message::getByID(intval($_REQUEST['messageID']));
+
+            if (DB::getUserID() != $messageEntwurf->getUserID()) {
+                new errorPage('Kein Zugriff');
+            }
+            if ($messageEntwurf->getFolder() != 'ENTWURF') {
+                new errorPage('Kein Zugriff');
+            }
+
+            $preRecipientsArray = $messageEntwurf->getRecipients();
+            $preRecipients = [];
+            foreach($preRecipientsArray as $a) {
+                $preRecipients[] = ['key' => $a->getSaveString(), 'name' => $a->getDisplayName()];
+            }
+            $preRecipients = json_encode($preRecipients);
+
+            $preCCRecipientsArray = $messageEntwurf->getCCRecipients();
+            $preCCRecipients = [];
+            foreach($preCCRecipientsArray as $a) {
+                $preCCRecipients[] = ['key' => $a->getSaveString(), 'name' => $a->getDisplayName()];
+            }
+            $preCCRecipients = json_encode($preCCRecipients);
+
+            $preBCCRecipientsArray = $messageEntwurf->getBCCRecipients();
+            $preBCCRecipients = [];
+            foreach($preBCCRecipientsArray as $a) {
+                $preBCCRecipients[] = ['key' => $a->getSaveString(), 'name' => $a->getDisplayName()];
+            }
+            $preBCCRecipients = json_encode($preBCCRecipients);
+
+            $preText = $messageEntwurf->getText();
+            $preSubject = $messageEntwurf->getSubject();
+
+            $preConfirmation = '';
+            if ($messageEntwurf->needConfirmation()) {
+                $preConfirmation = 'checked="true"';
+            }
+
+            $preAllowAnswer = '';
+            if ($messageEntwurf->allowAnswer() == 0) {
+                $preAllowAnswer = 'checked="true"';
+            }
+
+            $preConfidential = '';
+            if ($messageEntwurf->isConfidential()) {
+                $preConfidential = 'checked="true"';
+            }
+
+
+            if ( strtolower($messageEntwurf->getPriority())  == 'low' ) {
+                $prePriorityNormal = '';
+                $prePriorityLow = 'selected="selected"';
+            } else if ( strtolower($messageEntwurf->getPriority()) == 'high' ) {
+                $prePriorityNormal = '';
+                $prePriorityHigh = 'selected="selected"';
+            }
+
+            if ($messageEntwurf->hasAttachment()) {
+                $preAttachment = [];
+                foreach ($messageEntwurf->getAttachments() as $attachment) {
+                    $file = $attachment->getUpload();
+                    $preAttachment[] = [
+                        'attachmentID' => $attachment->getID(),
+                        'attachmentAccessCode' => $attachment->getAccessCode(),
+                        'attachmentURL' => $file->getURLToFile(),
+                        'attachmentFileName' => $file->getFileName()
+                    ];
+                }
+                $preAttachment = json_encode($preAttachment);
+            }
+
+            if ($messageEntwurf->hasQuestions()) {
+                $preQuestion = [];
+                foreach ($messageEntwurf->getQuestions() as $question) {
+                    $preQuestion[] = [
+                        'questionID' => $question->getID(),
+                        'questionText' => $question->getQuestionText(),
+                        'questionType' => $question->getQuestionType(),
+                        'questionUserID' => $question->getUserID(),
+                        'questionSecret' => $question->getSecret()
+                    ];
+                }
+                $preQuestion = json_encode($preQuestion);
+            }
+
+
+
+        }
+
 		
 		$folder = 'GESENDETE';
 		$folderID = 0;

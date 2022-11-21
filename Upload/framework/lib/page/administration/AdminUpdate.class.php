@@ -115,25 +115,33 @@ class AdminUpdate extends AbstractPage
 
         $url = DB::getGlobalSettings()->updateServer . "/api/release/" . $versionInfo['id'] . "/download/" . DB::getGlobalSettings()->schulnummer;
 
-        self::deleteAll("../data/update");
+        $path = PATH_ROOT.'data'.DS.'update';
 
-        mkdir("../data/update", 0777);
+        self::deleteAll($path);
 
-        file_put_contents("../data/update/update.zip", fopen($url, 'r'));
+        mkdir($path, 0777);
+
+        file_put_contents($path.DS."update.zip", fopen($url, 'r'));
 
         $zip = new ZipArchive;
-        if ($zip->open('../data/update/update.zip') === TRUE) {
-            $zip->extractTo('../data/update/');
+        if ($zip->open($path.DS.'update.zip') === TRUE) {
+            $zip->extractTo($path.DS);
+
+            if (file_exists($path.DS.'Upload/www/update.php')) {
+                if (!rename($path.DS.'Upload/www/update.php', '../www/update.php')) {
+                    die('Installationsdatei konnte nicht kopiert werden.');
+                }
+            } else {
+                die('Installationsdatei konnte nicht gefunden werden.');
+            }
+
+
             $zip->close();
         } else {
             die('Installationsdatei konnte nicht entpackt werden.');
         }
 
-        if (file_exists('../data/update/Update/www/update.php')) {
-            if (!rename('../data/update/Update/www/update.php', '../www/update.php')) {
-                die('Installationsdatei konnte nicht kopiert werden.');
-            }
-        }
+
 
         $random = random_int(100, 999); // SLOW FUNCTION @ chris 02/2022
 

@@ -212,13 +212,14 @@ class administrationusers extends AbstractPage {
 						new errorPage("Der Benutzername ist schon vergeben!");
 					}
 					
-					DB::getDB()->query("INSERT INTO users (userName, userFirstName, userLastName, userCachedPasswordHash, userCachedPasswordHashTime, userNetwork) values(
+					DB::getDB()->query("INSERT INTO users (userName, userFirstName, userLastName, userCachedPasswordHash, userCachedPasswordHashTime, userNetwork, userRemoteUserID,userAsvID,userAutoresponseText) values(
 							'" . DB::getDB()->escapeString($_POST['userName']) . "',
 							'" . DB::getDB()->escapeString($_POST['firstName']) . "',
 							'" . DB::getDB()->escapeString($_POST['lastName']) . "',
 							'" . login::hash($_POST['password']) . "',
 							UNIX_TIMESTAMP(),
-							'SCHULEINTERN'
+							'SCHULEINTERN',
+							'','',''
 							
 							
 					)");

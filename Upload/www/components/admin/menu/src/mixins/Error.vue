@@ -18,7 +18,7 @@ export default {
     };
   },
   props: {
-    error: String
+    error: String | Boolean
   },
   created: function () {
 

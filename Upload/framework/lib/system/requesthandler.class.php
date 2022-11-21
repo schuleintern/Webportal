@@ -126,7 +126,7 @@ class requesthandler {
     'respizienz' => [
         'respizienz'
     ],
-  		
+
     'kalender' => [
       'klassenkalender',
       'extKalender',
@@ -246,9 +246,14 @@ class requesthandler {
 
     PAGE::setFactory( new FACTORY() );
 
+    // Make www/tmp Folder
+    if ( !is_dir(PATH_WWW_TMP) ) {
+      mkdir(PATH_WWW_TMP);
+    }
+
     $allowed = false;
     $type = false;
-    
+
     // First: Load Page
     $allowed = self::loadPage($action);
     if ($allowed) {
@@ -282,7 +287,7 @@ class requesthandler {
         $page = new $action($_request, $extension);
 
         if ($type == 'extension' && $_request['task']) {
-          
+
           $taskMethod = 'task'.ucfirst($_request['task']);
           if ( method_exists($page, 'task'.ucfirst($_request['task']) )) {
             $postData= self::getPostData();
@@ -320,12 +325,12 @@ class requesthandler {
       die();
     }
     PAGE::kill(true);
-    
+
   }
 
   /**
    * Erlaute Aktion am RequestHandler
-   * 
+   *
    * @return array
    */
   public static function getAllowedActions() {
@@ -355,20 +360,20 @@ class requesthandler {
 
         return self::$allAdminGroups;
     }
-  
+
   /**
    * Load Page
-   * 
+   *
    * @param unknown $action
    * @return boolean
    */
   public static function loadPage($action) {
-      
+
       $allowed = false;
 
       foreach(self::$actions as $f => $pages) {
         for($p = 0; $p < sizeof($pages); $p++) {
-            
+
           if($pages[$p] == $action) {
             require_once (PATH_PAGE.'abstractPage.class.php');
             include_once(PATH_PAGE . $f . '/' . $pages[$p] . '.class.php');
@@ -381,12 +386,12 @@ class requesthandler {
 
   /**
    * Load Extensions
-   * 
+   *
    * @param unknown $action
    * @return boolean
    */
   public static function loadExtensions($action, $view = 'default', $admin = false) {
-      
+
     $allowed = false;
 
     $realname = str_replace('ext_','',$action);

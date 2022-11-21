@@ -5,6 +5,9 @@ class RestGetKalenderEintrag extends AbstractRest {
 
 	public function execute($input, $request) {
 
+        $this->setAclGroup($this->aclModuleName());
+        $this->acl();
+        
 		$acl = $this->getAcl();
 
 		if ($acl['rights']['read'] != 1) {
@@ -52,7 +55,7 @@ class RestGetKalenderEintrag extends AbstractRest {
 			$where = ' WHERE '.$where;
 		}
 
-		$result = DB::getDB()->query("SELECT * FROM kalender_allInOne_eintrag ".$where);
+		$result = DB::getDB()->query("SELECT * FROM kalender_allInOne_eintrag ".$where." ORDER BY eintragDatumStart, eintragDatumEnde DESC ");
 		while($row = DB::getDB()->fetch_array($result)) {
 			
 			$createdUser = new user(array('userID' => intval($row['eintragUserID']) ));
@@ -116,9 +119,9 @@ class RestGetKalenderEintrag extends AbstractRest {
 	public function aclModuleName() {
 		return 'kalenderAllInOne';
 	}
-	public static function getAdminGroup() {
-    return 'Webportal_Kalender_allInOne_Admin';
-	}
+    public static function getAdminGroup() {
+        return 'Webportal_Kalender_allInOne_Admin';
+    }
 
 }	
 

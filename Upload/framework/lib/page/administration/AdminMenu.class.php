@@ -72,9 +72,6 @@ class AdminMenu extends AbstractPage {
             $menu =  Menue::getFromAlias($_REQUEST['id']);
             $menuAll =  $menu->getItemsDeep(false);
 
-            /*echo '<pre>';
-            print_r($menuAll);
-            echo '</pre>';*/
 
             echo json_encode($menuAll); exit;
             exit;
@@ -95,13 +92,15 @@ class AdminMenu extends AbstractPage {
                 echo json_encode(['error' => true, 'msg' => 'Wrong ID']); exit;
             }
             if ( Menue::setItem([
-                "id" => $_POST['id'],
+                "id" => (int)$_POST['id'],
                 "title" => $_POST['title'],
                 "icon" => $_POST['icon'],
                 "params" => $_POST['params'],
                 "page" => $_POST['pageurl'],
-                "parent_id" => $_POST['parent_id'],
-                "access" => $_POST['access']
+                "parent_id" => (int)$_POST['parent_id'],
+                "access" => $_POST['access'],
+                "options" => $_POST['options'],
+                "target" => $_POST['target']
             ]) ) {
                 echo json_encode(['error' => false]); exit;
             }
@@ -174,9 +173,9 @@ class AdminMenu extends AbstractPage {
 
         $html = '';
 
-        include_once ('../framework/lib/data/extensions/ExtensionsPages.php');
+        include_once (PATH_LIB.'data/extensions/ExtensionsPages.php');
         $pages = json_encode(ExtensionsPages::getPages());
-        
+
 		eval("\$html = \"" . DB::getTPL()->get("administration/menu/index") . "\";");
 
 		return $html;

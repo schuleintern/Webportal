@@ -90,9 +90,11 @@ abstract class AbstractRest {
     /**
      * @deprecated:  use getAclGroup
      */
-	public function aclModuleName() {
+	/*
+	 public function aclModuleName() {
 		return get_called_class();
 	}
+    */
 
 
     /**
@@ -119,6 +121,9 @@ abstract class AbstractRest {
      * @return String Gruppenname als String
      */
     public static function getAclGroup() {
+
+        //echo ' - getAclGroup:'.self::$aclGroupName;
+
         if (self::$aclGroupName) {
             return self::$aclGroupName;
         }
@@ -130,6 +135,9 @@ abstract class AbstractRest {
      * @param String Gruppenname als String
      */
     public static function setAclGroup($str) {
+
+        //echo ' - setAclGroup:'.$str;
+
         if ($str) {
             self::$aclGroupName = $str;
         }

@@ -38,7 +38,7 @@ class Menue {
     /**
      * @return boolean
      */
-    public function setItem($data) {
+    public static function setItem($data) {
         return MenueItems::setItem($data);
     }
 

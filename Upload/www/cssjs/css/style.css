@@ -143,7 +143,12 @@
 .btn.noText i {
   margin-right: 0rem;
 }
-
+/*
+p {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+*/
 a {
   cursor: pointer;
 }
@@ -476,7 +481,7 @@ button.btn-blau {
   padding-left: 1.3rem;
   padding-right: 1.3rem;
   padding-bottom: 0.3rem;
-  height: 100%;
+  height: 3.2rem;
   display: inline-block;
 
   border-top-left-radius: 4px;
@@ -511,4 +516,60 @@ button.btn-blau {
 .page-submenue a.admin:hover,
 .page-submenue .item.admin:hover  {
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .page-submenue-mobile {
+    display: flex;
+    flex-direction: column;
+    height: 3rem;
+    padding-top: 3rem;
+    overflow: hidden;
+    background-image: url('./images/mobileUI-site-nav-opener-bg.svg');
+    background-size: auto 80%;
+    background-position: right center;
+    background-repeat: no-repeat;
+  }
+  .page-submenue-mobile:hover, .page-submenue-mobile:active {
+    height: auto;
+    padding-bottom: 1rem;
+    background: none;
+  }
+  .page-submenue-mobile a,
+  .page-submenue-mobile a.admin{
+    margin-top: 0.3rem;
+    border-radius: 4px;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    float: left;
+  }
+}
+
+
+
+
+.modal-autologout-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9999999999;
+}
+
+.modal-autologout-content {
+
+  background-color: #ffffff;
+  position: absolute;
+  float: left;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
+  padding: 2rem;
+  min-width: 30vw;
+  max-width: 75vw;
+  max-height: 80vh;
+  overflow-y: auto;
 }

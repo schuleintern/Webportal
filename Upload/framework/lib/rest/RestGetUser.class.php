@@ -38,7 +38,7 @@ class RestGetUser extends AbstractRest {
         // Lade ALLE User )=
         $users = user::getAll();
         foreach ($users as $user) {
-            $user_collection[] = $user->getCollection();
+            $user_collection[] = $user->getCollection(true, true);
         }
 
 

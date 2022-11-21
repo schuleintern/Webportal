@@ -68,6 +68,10 @@
     border-color: #00a65a;
     color: #fff;
 }
+.si-box-stripes {
+    background-color: #f9f9f9;
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(183, 199, 206,0.2) 35px, rgba(183, 199, 206,0.2) 70px);
+}
 
 /**
     Hinweis
@@ -230,9 +234,23 @@
     background-size: auto 40%;
     cursor: pointer;
 }
+.si-input,
 .si-form ul li input {
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
     border-radius: 3rem;
+    padding: 1rem 2.6rem;
+    font-size: 11pt;
+    font-weight: 300;
+    letter-spacing: 0.75pt;
+
+    background-color: #fff;
+    border: 1px solid #3c8dbc;
+    color: #000;
+}
+.si-textarea,
+.si-form ul li textarea {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    border-radius: 1rem;
     padding: 1rem 2.6rem;
     font-size: 11pt;
     font-weight: 300;
@@ -313,6 +331,16 @@
     margin-bottom: 3rem;
 }
 
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : portrait) {
+
+    .si-modal .si-modal-box {
+        left: 10vw;
+        width: 80vw;
+    }
+}
 /**
     TABLE
  */
@@ -390,7 +418,9 @@
 .si-table.si-table-style-allLeft tbody td,
 .si-table.si-table-style-allLeft .tbody .td,
 .si-table.si-table-style-allLeft thead td,
-.si-table.si-table-style-allLeft .thead .td{
+.si-table.si-table-style-allLeft .thead .td,
+.si-table.si-table-style-allLeft thead th,
+.si-table.si-table-style-allLeft .thead .th{
     text-align: left;
 }
 
@@ -431,6 +461,21 @@
     padding-right: 0.5rem;
     padding-left: 0.5rem;
     padding-bottom: 0.5rem;
+}
+
+.si-table-fixedHeader{
+    overflow-y: auto;
+    height: 50vh;
+}
+.si-table-fixedHeader table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 0;
+}
+.si-table-fixedHeader thead th{
+    position: sticky;
+    top: 0;
+    background-color: #fff;
 }
 
 /**
@@ -482,7 +527,7 @@
     margin-right: 0;
 }
 .si-btn-small {
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1rem;
     font-size: 10pt;
 }
 
@@ -510,6 +555,7 @@
     background-color: rgba(0,0,0,0);
 }
 .si-btn-border:hover {
+    border: 1px solid #8aa4af;
     background-color: rgba(0,0,0,0);
 }
 
@@ -580,6 +626,8 @@
     border-top-right-radius: 3rem;
     border-bottom-right-radius: 3rem;
 }
+
+
 
 
 
@@ -698,8 +746,8 @@
 .si-userselect .si-userselect-modal {
     position: fixed;
     z-index: 99999999999;
-    top: -50%;
-    left: -50%;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.85);

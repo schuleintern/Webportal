@@ -2,6 +2,7 @@
 <script src="cssjs/plugins/select2/select2.full.min.js"></script>
 
 
+
 <input type="hidden" name="recipients" id="recipientList">
 <input type="hidden" name="ccrecipients" id="ccRecipientList">
 <input type="hidden" name="bccrecipients" id="bccRecipientList">
@@ -40,15 +41,15 @@
               <div class="form-group">
                 <if($isReply OR $isForward)><then>
 										<if($isReply)><then>
-											<input type="hidden" name="messageSubject" value="RE: {$replyMessage->getSubject()}">
+											<input type="hidden" name="messageSubject" id="messageSubject" value="RE: {$replyMessage->getSubject()}">
 										</then></if>
 										<if($isForward)><then>
-											<input type="hidden" name="messageSubject" value="FW: {$forwardMessage->getSubject()}">
+											<input type="hidden" name="messageSubject" id="messageSubject" value="FW: {$forwardMessage->getSubject()}">
 										</then></if>
                		
 								 </then>
 								 <else>
-               	    <input class="form-control" placeholder="Betreff: " name="messageSubject" value="{$preSubject}">
+               	    <input class="form-control" placeholder="Betreff: " name="messageSubject" id="messageSubject" value="{$preSubject}">
                	</else></if>
               </div>
               <div class="form-group">
@@ -63,7 +64,10 @@
               
               <table class="table table-striped">
               		<tr>
-		              	<td style="width:10%"><b>Dateianhänge</b><br /><button type="button" class="btn btn-sm btn-default btn-block" data-toggle="modal" data-target="#addAttachment"><i class="fa fa-upload"></i> Datei anhängen</button></td>
+		              	<td style="width:10%">
+							<b>Dateianhänge</b><br />
+							<button type="button" class="btn btn-sm btn-default btn-block" data-toggle="modal" data-target="#addAttachment"><i class="fa fa-upload"></i> Datei anhängen</button>
+						</td>
 		              	<td><span id="currentAttachmentHTML"></span></td>
 		            </tr>
 		            
@@ -82,7 +86,7 @@
               <if($canRequestReadConfirmation)><then>
               <tr>
 		              	<td style="width:10%"><b>Lesebestätigung anfordern?</b></td>
-						<td><input type="checkbox" name="readConfirmation" value="1" class="onoffswitch-checkbox" id="readConfirmation"$selectedReedConfirmationTrue>           
+						<td><input type="checkbox" name="readConfirmation" value="1" class="onoffswitch-checkbox" id="readConfirmation" $preConfirmation >
               				</td>
 			  </tr>
               
@@ -115,13 +119,13 @@
               
                             <tr>
 		              	<td style="width:10%"><b>Antworten nicht erlauben?</b></td>
-						<td><input type="checkbox" name="dontAllowAnser" value="1" class="onoffswitch-checkbox" id="dontAllowAnser">           
+						<td><input type="checkbox" name="dontAllowAnser" value="1" class="onoffswitch-checkbox" id="dontAllowAnser" $preAllowAnswer>
               				</td>
 			  </tr>
 
 				  <tr>
 					  <td style="width:10%"><b>Inhalt der Nachricht ist vertraulich?</b></td>
-					  <td><input type="checkbox" name="isConfidential" value="1" class="onoffswitch-checkbox" id="isConfidential">
+					  <td><input type="checkbox" name="isConfidential" value="1" class="onoffswitch-checkbox" id="isConfidential" $preConfidential>
 					  </td>
 				  </tr>
 			 
@@ -129,9 +133,9 @@
 		              	<td style="width:10%"><b>Priorität</b></td>
 						<td>
 							<select name="priority" class="form-control">
-							  	<option value="low">Niedrige Priorität</option>
-							  	<option value="normal" selected>Normale Priorität</option>
-							  	<option value="high">Hohe Priorität</option>
+							  	<option value="low" $prePriorityLow>Niedrige Priorität</option>
+							  	<option value="normal" $prePriorityNormal>Normale Priorität</option>
+							  	<option value="high">$prePriorityHigh Priorität</option>
 							  </select>  
 						</td>
 			  </tr> 
@@ -140,8 +144,9 @@
 			  </table>
             </div>
             <div class="box-footer">
-				<input type="hidden" name="action" value="send">
+				<input type="hidden" name="action" value="send" id="hiddenTask">
 				<button type="button" class="btn btn-primary" id="composeSendButton" onclick="sendMessage()"><i class="fa fa-envelope"></i> Nachricht senden</button>
+				<button type="button" class="btn float-right" id="" onclick="saveMessage()"><i class="fa fa-save"></i> Als Entwurf speichern</button>
             </div>
           </div>
           
@@ -289,6 +294,7 @@
 			        	if(data.uploadOK) {
 							currentAttachmentList.push(data);
 
+							console.log(currentAttachmentList);
 
 							updateAttachmentFields();
 
@@ -874,8 +880,10 @@ function addRecipientAction(list) {
 		updateListHTML($('#currentBCCRecipientsHTML'), currentBCCRecipients, type);
 	}
 	
-		 
-	$("#addRecipient").modal("hide");
+	if ($("#addRecipient") && $("#addRecipient").modal) {
+		$("#addRecipient").modal("hide");
+	}
+
 }
 
 function updateHiddenField(field, data) {
@@ -893,8 +901,18 @@ function updateHiddenField(field, data) {
 function sendMessage() {
 	if(currentRecipients.length == 0) {
 		fireErrorMessage("Kein Empfänger angegeben!", "Es muss mindestens ein Empfänger angegeben sein!");
+	}else {
+		$('#hiddenTask').val('send');
+		$("#composeForm").submit();
 	}
-	else {
+}
+
+function saveMessage() {
+
+	if($('#messageSubject').val() == '') {
+		fireErrorMessage("Kein Betreff angegeben!", "Zum Speichern muss ein Betreff angegeben werden.");
+	}else {
+		$('#hiddenTask').val('save');
 		$("#composeForm").submit();
 	}
 }
@@ -1005,7 +1023,7 @@ function addRecipientActionFromSelect2(select2Element) {
 	select2Element.empty();
 	
 	addRecipientAction(newData);
-	
+
 }
 
 function addRecipientActionFromSelectStudentKlassen() {
@@ -1116,4 +1134,40 @@ $(document).ready(function() {
 </then></if>
 
 </script>
-		    
+
+
+
+
+<script>
+	<if($preRecipients)><then>
+		type = 'r';
+		addRecipientAction($preRecipients)
+	</then></if>
+
+	<if($preCCRecipients)><then>
+		type = 'ccr';
+		addRecipientAction($preCCRecipients)
+	</then></if>
+
+	<if($preBCCRecipients)><then>
+		type = 'bccr';
+		addRecipientAction($preBCCRecipients)
+	</then></if>
+
+	type = 'r';
+
+
+
+	<if($preAttachment)><then>
+		currentAttachmentList = {$preAttachment}
+		updateAttachmentFields();
+	</then></if>
+
+	<if($preQuestion)><then>
+	currentQuestionList = {$preQuestion}
+	updateQuestionFields();
+	</then></if>
+
+
+
+</script>

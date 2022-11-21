@@ -1,6 +1,6 @@
 <?php
 
-function schuleinternerrorhandler ($code, $msg, $file, $line, $context) {
+function schuleinternerrorhandler ($code = false, $msg = false, $file = false, $line = false, $context = false) {
 
     if(isFatalError($code) && DB::isDebug()) {
 		// Fehler anzeigen

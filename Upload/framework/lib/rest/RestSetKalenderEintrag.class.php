@@ -96,6 +96,9 @@ class RestSetKalenderEintrag extends AbstractRest {
 								
 		} else {
 
+            if (!$row['endDay'] || $row['endDay'] == 'Invalid date') {
+                $row['endDay'] = '0000-00-00';
+            }
 			DB::getDB()->query("INSERT INTO kalender_allInOne_eintrag (
 				kalenderID,
 				eintragTitel,
@@ -106,17 +109,19 @@ class RestSetKalenderEintrag extends AbstractRest {
 				eintragOrt,
 				eintragKommentar,
 				eintragUserID,
-				eintragCreatedTime
+				eintragCreatedTime,
+                eintragModifiedTime
 				) values (
 				".intval($row['calenderID']).",
 				'".DB::getDB()->encodeString($row['title'])."',
 				'".DB::getDB()->escapeString($row['startDay'])."',
-				'".DB::getDB()->escapeString($row['endDay'])."',
+				'".DB::getDB()->escapeString($row['startDay'])."',
 				'".DB::getDB()->escapeString($row['startTime'])."',
 				'".DB::getDB()->escapeString($row['endTime'])."',
 				'".DB::getDB()->encodeString($row['place'])."',
 				'".DB::getDB()->encodeString(nl2br($row['comment']))."',
 				".$this->user->getUserID().",
+				'".$now."',
 				'".$now."'
 			);");
 

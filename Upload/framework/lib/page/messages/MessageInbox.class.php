@@ -205,7 +205,7 @@ class MessageInbox extends AbstractPage {
 		
 		
 		
-		if($folder->getFolderSQL() == 'GESENDETE') {
+		if($folder->getFolderSQL() == 'GESENDETE' || $folder->getFolderSQL() == 'ENTWURF') {
 		    $isSentFolder = true;
 		}
 		else $isSentFolder = false;

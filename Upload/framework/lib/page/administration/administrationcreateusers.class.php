@@ -318,7 +318,8 @@ class administrationcreateusers extends AbstractPage {
                           userCachedPasswordHash,
                           userCachedPasswordHashTime,
                           userNetwork,
-                          userAsvID
+                          userAsvID,
+                            userAutoresponseText
                         ) values(
                           '" . DB::getDB()->escapeString($lehrer[$i]->getKuerzel()) . "',
                           '" . DB::getDB()->escapeString($lehrer[$i]->getRufname()) . "',
@@ -326,7 +327,8 @@ class administrationcreateusers extends AbstractPage {
                           '" . login::hash($newPassword) . "',
                           UNIX_TIMESTAMP(),
                           'SCHULEINTERN_LEHRER',
-                          '" . DB::getDB()->escapeString($lehrer[$i]->getAsvID()) . "'
+                          '" . DB::getDB()->escapeString($lehrer[$i]->getAsvID()) . "',
+                          ''
                         ) ON DUPLICATE KEY UPDATE userAsvID='" . DB::getDB()->escapeString($lehrer[$i]->getAsvID()) . "'
                       ");
         
@@ -371,7 +373,8 @@ class administrationcreateusers extends AbstractPage {
                   userCachedPasswordHash,
                   userCachedPasswordHashTime,
                   userNetwork,
-                  userAsvID
+                  userAsvID,
+                 userAutoresponseText
                 ) values(
                   '_PLACEHOLDER_',
                   '" . DB::getDB()->escapeString($schuelerOhneKennungData[$i]['schuelerRufname']) . "',
@@ -379,7 +382,8 @@ class administrationcreateusers extends AbstractPage {
                   '" . login::hash($newPassword) . "',
                   UNIX_TIMESTAMP(),
                   'SCHULEINTERN_SCHUELER',
-                  '" . DB::getDB()->escapeString($schuelerOhneKennungData[$i]['schuelerAsvID']) . "'
+                  '" . DB::getDB()->escapeString($schuelerOhneKennungData[$i]['schuelerAsvID']) . "',
+                  ''
                 ) ON DUPLICATE KEY UPDATE userAsvID='" . DB::getDB()->escapeString($schuelerOhneKennungData[$i]['schuelerAsvID']) . "'
               ");
 

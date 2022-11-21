@@ -27,7 +27,7 @@ abstract class AbstractPage
     private static $activePages = array();
     private $acl = false;
     private $request = false;
-    private $extension = false;
+    public $extension = false;
     private $isAnyAdmin = false;
 
     static $adminGroupName = NULL;
@@ -372,6 +372,14 @@ abstract class AbstractPage
             $HTML_widgets = implode('', $HTML_widgets);
 
 
+            // AutoLogout
+            $selectedAutoLogout = DB::$mySettings['autoLogout'];
+            if ($selectedAutoLogout == null ) {
+                $selectedAutoLogout = 30;
+            }
+            $selectedAutoLogout = $selectedAutoLogout * 60;
+
+
             // Render Header
             eval ("\$this->header =  \"" . DB::getTPL()->get('header/header') . "\";");
 
@@ -424,7 +432,7 @@ abstract class AbstractPage
                     && file_exists(PATH_TMPL_OVERRIGHTS . 'extensions' . DS . $this->request['page'] . DS . $arg['tmpl'] . '.tmpl.php')) {
                     include_once(PATH_TMPL_OVERRIGHTS . 'extensions' . DS . $this->request['page'] . DS . $arg['tmpl'] . '.tmpl.php');
                 } else {
-                    if (count($arg['vars']) >= 1) {
+                    if ($arg['vars'] && count($arg['vars']) >= 1) {
                         foreach ($arg['vars'] as $key => $var) {
                             // TODO: better way?
                             if ($key && $var) {
@@ -708,6 +716,15 @@ abstract class AbstractPage
                     $settings[$key]['value'] = $result['settingValue'];
                 }
             }
+        } else {
+            $result = DB::getDB()->query('SELECT `settingValue`, `settingName` FROM `settings` WHERE `settingsExtension` = "ext_' . $this->extension['folder'] . '" ');
+            while ($data = DB::getDB()->fetch_array($result, true)) {
+
+                if (isset($data['settingValue']) && $data['settingName'] ) {
+                    $settings[$data['settingName']] = $data['settingValue'];
+                }
+            }
+
         }
         return $settings;
     }
@@ -1039,7 +1056,7 @@ abstract class AbstractPage
         $html = '<div class="flex-row">';
 
         // Submenu
-        $html .= '<div class="flex-3 page-submenue" style="height: 3.2rem;">';
+        $html .= '<div class="flex-3 page-submenue" style=""><div class="page-submenue-mobile">';
         if (is_array($submenu) && count($submenu) >= 1) {
             foreach ($submenu as $item) {
                 $kill = false;
@@ -1079,7 +1096,7 @@ abstract class AbstractPage
                     }
                     $html .= '<a href="' . $link . '"  class=" ' . $class . '">';
                     if ($item['icon']) {
-                        $html .= '<i class="margin-r-s ' . $item['icon'] . '"></i>';
+                        $html .= '<i class="margin-r-s fa ' . $item['icon'] . '"></i>';
                     }
                     $html .= $item['title'] . '</a>';
                 }
@@ -1087,7 +1104,7 @@ abstract class AbstractPage
 
             }
         }
-        $html .= '</div>';
+        $html .= '</div></div>';
 
         // Dropdown
         if (is_array($dropdown) && count($dropdown) >= 1) {
