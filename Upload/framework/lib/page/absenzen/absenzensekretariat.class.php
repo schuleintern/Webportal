@@ -896,7 +896,7 @@ class absenzensekretariat extends AbstractPage {
 
         // vermeide doppelungen
         $dataSQL = DB::getDB()->query_first("SELECT krankmeldungAbsenzID FROM absenzen_krankmeldungen WHERE `krankmeldungID` = " . (int)$km['krankmeldungID'], true);
-        if ( $dataSQL['krankmeldungAbsenzID'] == '' ) {
+        if (  (int)$dataSQL['krankmeldungAbsenzID'] <= 0 ) {
 
           DB::getDB()->query("INSERT INTO absenzen_absenzen (
           absenzSchuelerAsvID,

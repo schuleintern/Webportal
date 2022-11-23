@@ -77,13 +77,30 @@
     Hinweis
  */
 .si-hinweis {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     background-color: #f9f9f9;
     padding: 3rem;
     padding-left: 7rem;
     background-image: url('./images/icon-bubble.png');
+    background-repeat: no-repeat;
+    background-position: 2rem 2.8rem;
+    background-size: auto 3rem;
+    font-size: 11pt;
+    font-weight: 300;
+    line-height: 14pt;
+    letter-spacing: 0.25pt;
+}
+
+.si-hinweis-empty {
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    background-color: #f9f9f9;
+    padding: 3rem;
+    padding-left: 7rem;
+    background-image: url('./images/icon-empty.png');
     background-repeat: no-repeat;
     background-position: 2rem 3rem;
     background-size: auto 3rem;
@@ -600,7 +617,7 @@ and (orientation : portrait) {
     color: #fff;
 }
 .si-btn-active:hover {
-    background-color: #f39c12;
+    background-color: #e08e0b;
 }
 
 .si-btn-off {
@@ -612,6 +629,9 @@ and (orientation : portrait) {
 }
 .si-btn-off:hover {
     background-color: rgba(0,0,0,0);
+}
+.si-btn-curser-off {
+    cursor: inherit;
 }
 
 
