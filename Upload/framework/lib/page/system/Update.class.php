@@ -182,7 +182,6 @@ class Update extends AbstractPage
         return true;
     }
 
-
     private  function from142to150() {
 
         DB::getDB()->query("ALTER TABLE `user_settings` ADD COLUMN `autoLogout` int(11) DEFAULT NULL;", false);
