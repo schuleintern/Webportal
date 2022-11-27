@@ -191,6 +191,7 @@ class Update extends AbstractPage
         DB::getDB()->query("ALTER TABLE `messages_messages` MODIFY COLUMN `messageFolder` enum('POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV','ENTWURF') NOT NULL;", false);
 
         $this->updateCssJSFolder(142);
+        $this->updateComponentsFolder(142);
     }
 
     private  function from141to141() {
