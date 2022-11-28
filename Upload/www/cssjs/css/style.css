@@ -57,7 +57,7 @@
   transform: translate(-50%, -50%);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
   padding: 2rem;
-  min-width: 30vw;
+  min-width: 40vw;
   max-width: 75vw;
   max-height: 80vh;
   overflow-y: auto;

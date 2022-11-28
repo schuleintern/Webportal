@@ -52,7 +52,7 @@ class RestGetKalenderEintrag extends AbstractRest {
 			}
 		}
 		if ($where) {
-			$where = ' WHERE '.$where;
+			$where = ' WHERE ('.$where.') ';
 		}
 
 		$result = DB::getDB()->query("SELECT * FROM kalender_allInOne_eintrag ".$where." ORDER BY eintragDatumStart, eintragDatumEnde DESC ");
@@ -74,7 +74,8 @@ class RestGetKalenderEintrag extends AbstractRest {
 				'eintragCreatedTime' => $row['eintragCreatedTime'],
 				'eintragModifiedTime' => $row['eintragModifiedTime'],
 				'eintragUserID' => $row['eintragUserID'],
-				'eintragUserName' => $createdUser->getDisplayName()
+				'eintragUserName' => $createdUser->getDisplayName(),
+                'eintragRepeat' => $row['eintragRepeat']
 			];
 
 			$ret[] = $item;

@@ -3,7 +3,7 @@
 
       <div class="calendar-header">
           <button class="btn chevron-left margin-r-xs" @click="prevMonth">
-            <i class="fa fa-arrow-left"></i>Vor
+            <i class="fa fa-arrow-left"></i>Zurück
           </button>
           <button @click="gotoToday"
             class="btn">
@@ -60,7 +60,7 @@
                 <div class="title">{{eintrag.title}}</div>
                 <div class="info margin-t-s flex-row text-gey text-small" v-if="eintrag.place || eintrag.comment">
                   <div v-if="eintrag.place" class="flex-1"><i class="fas fa-map-marker-alt margin-r-xs"></i> {{eintrag.place}}</div>
-                  <div v-if="eintrag.comment" class="margin-t-s"><i class="fas fa-comment"></i> {{eintrag.comment}}</div>
+                  <div v-if="eintrag.comment" class="margin-t-s"><i class="fas fa-comment margin-r-s"></i> <span v-html="eintrag.comment">{{eintrag.comment}}</span></div>
                 </div>
 
               </div>
@@ -123,7 +123,7 @@ export default {
       if (!eintrag) {
         return false;
       }
-      EventBus.$emit('eintrag--show-open', {
+      window.EventBus.$emit('eintrag--show-open', {
         eintrag: eintrag
       });
     },
@@ -167,6 +167,9 @@ export default {
       return true;
     },
     getEintrag: function (day) {
+
+      //console.log('get Eintrag day: ', day);
+
       if (this.eintraege.length <= 0 ) {
         return '';
       }
@@ -187,55 +190,122 @@ export default {
         //   ) {
 
         //console.log(eintrag);
-        if ( that.acl && that.acl.rights
-          && parseInt(that.acl.read) != 1 ) {
+        if ( that.acl && that.acl.rights && parseInt(that.acl.read) != 1 ) {
 
 
-          var date_start = new Date(eintrag.eintragDatumStart);
-          var date_end = new Date(eintrag.eintragDatumEnde);
+          var eintrag_start = new Date(eintrag.eintragDatumStart);
+          var eintrag_ende = new Date(eintrag.eintragDatumEnde);
 
           var date_day = new Date(day[1]);
 
-          if ( !date_end.getTime() ) {
-            date_end = new Date(eintrag.eintragDatumStart);
+          if ( !eintrag_ende.getTime() ) {
+            eintrag_ende = new Date(eintrag.eintragDatumStart);
           }
 
-          //console.log(date1, date0, date2);
-          if(
-            date_start <= date_day && date_day <= date_end
-          ) {
-            
-            var wholeDay = false;
-            if (eintrag.eintragTimeStart == eintrag.eintragTimeEnde) {
-              wholeDay = true;
+          var wholeDay = false;
+          if (eintrag.eintragTimeStart == eintrag.eintragTimeEnde) {
+            wholeDay = true;
+          }
+          var newItem = {
+            'id': eintrag.eintragID,
+            'title': eintrag.eintragTitel,
+            'startDay': eintrag.eintragDatumStart,
+            'startTime': that.$moment(eintrag.eintragTimeStart, 'HH:mm:ss', true).format('HH:mm'),
+            'endDay': eintrag.eintragDatumEnde,
+            'endTime': that.$moment(eintrag.eintragTimeEnde, 'HH:mm:ss', true).format('HH:mm'),
+            'wholeDay': wholeDay,
+            'place': eintrag.eintragOrt,
+            'comment': eintrag.eintragKommentar,
+            'calenderID': eintrag.kalenderID,
+            'categoryID': eintrag.eintragKategorieID,
+            'createdTime': eintrag.eintragCreatedTime,
+            'modifiedTime': eintrag.eintragModifiedTime,
+            'createdUserID': eintrag.eintragUserID,
+            'createdUserName': eintrag.eintragUserName,
+            'repeat_type': eintrag.eintragRepeat
+          };
+
+          /*
+              DEFAULT
+           */
+          if( !eintrag.eintragRepeat && eintrag_start <= date_day && date_day <= eintrag_ende ) {
+            ret.push(newItem);
+          }
+
+
+          /*
+              REPEAT
+           */
+          if ( eintrag.eintragRepeat ) {
+
+            newItem.repeat_root = [that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD'),
+              that.$moment(eintrag.eintragDatumEnde, 'YYYY-MM-DD', true).format('YYYY-MM-DD')];
+            newItem.endDay = '0000-00-00';
+
+
+            if (eintrag.eintragRepeat == 'week') {
+
+              if ( eintrag_start <= date_day && date_day <= eintrag_start ) {
+                newItem.startDay = that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD');
+                ret.push(newItem);
+              }
+              const ms = 1000 * 60 * 60 * 24 * 7;
+              let anz =  Math.round(Math.abs(eintrag_ende - eintrag_start) / ms);
+              for(var i = 1; i <= anz; i++) {
+                let nextStart = that.$moment(eintrag_start).add(i, 'week');
+                let nextStartDate = nextStart.toDate();
+                if ( nextStartDate <= date_day && date_day <= nextStartDate ) {
+                  newItem.startDay = nextStart.format('YYYY-MM-DD');
+                  ret.push(newItem);
+                }
+              }
             }
-            //console.log( eintrag.eintragTimeStart );
-            ret.push({
-              'id': eintrag.eintragID,
-              'title': eintrag.eintragTitel,
-              'startDay': eintrag.eintragDatumStart, //that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD'),
-              //'start': eintrag.eintragDatumStart,
-              'startTime': that.$moment(eintrag.eintragTimeStart, 'HH:mm:ss', true).format('HH:mm'),
-              'endDay': eintrag.eintragDatumEnde,
-              'endTime': that.$moment(eintrag.eintragTimeEnde, 'HH:mm:ss', true).format('HH:mm'), 
-              'wholeDay': wholeDay,
-              'place': eintrag.eintragOrt,
-              'comment': eintrag.eintragKommentar,
-              'calenderID': eintrag.kalenderID,
-              'categoryID': eintrag.eintragKategorieID,
-              'createdTime': eintrag.eintragCreatedTime,
-              'modifiedTime': eintrag.eintragModifiedTime,
-              'createdUserID': eintrag.eintragUserID,
-              'createdUserName': eintrag.eintragUserName
-            });
-            //console.log(ret);
-          }
-        }
 
+            if (eintrag.eintragRepeat == 'month') {
+
+              if ( eintrag_start <= date_day && date_day <= eintrag_start ) {
+                newItem.startDay = that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD');
+                ret.push(newItem);
+              }
+              let anz =  (
+                  eintrag_ende.getMonth() -
+                  eintrag_start.getMonth() +
+                  12 * (eintrag_ende.getFullYear() - eintrag_start.getFullYear())
+              )
+              for(let i = 1; i <= anz; i++) {
+                let nextStart = that.$moment(eintrag_start).add(i, 'month');
+                let nextStartDate = nextStart.toDate();
+                if ( nextStartDate <= date_day && date_day <= nextStartDate ) {
+                  newItem.startDay = nextStart.format('YYYY-MM-DD');
+                  ret.push(newItem);
+                }
+              }
+            }
+
+            if (eintrag.eintragRepeat == 'year') {
+
+              if ( eintrag_start <= date_day && date_day <= eintrag_start ) {
+                newItem.startDay = that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD');
+                ret.push(newItem);
+              }
+              let anz = new Date(eintrag_ende - eintrag_start).getFullYear() - 1970;
+              for(let i = 1; i <= anz; i++) {
+                let nextStart = that.$moment(eintrag_start).add(i, 'year');
+                let nextStartDate = nextStart.toDate();
+                if ( nextStartDate <= date_day && date_day <= nextStartDate ) {
+                  newItem.startDay = nextStart.format('YYYY-MM-DD');
+                  ret.push(newItem);
+                }
+              }
+            }
+
+          }
+
+        }
       });
 
       ret = ret.sort((a, b) => {
-        return moment(a.start).diff(b.start);
+        return a.startTime > b.startTime;
       });
 
       return ret;
@@ -250,7 +320,7 @@ export default {
       if (!day) {
         return false;
       }
-      EventBus.$emit('eintrag--form-open', {
+      window.EventBus.$emit('eintrag--form-open', {
         form: {
           startDay: day
         }

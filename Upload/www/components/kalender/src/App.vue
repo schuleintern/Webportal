@@ -8,8 +8,7 @@
       </ul>
     </div>
 
-    <CalendarForm 
-      
+    <CalendarForm
       v-bind:kalender="kalender"
       v-bind:calendarSelected="calendarSelected"
       v-bind:acl="acl"></CalendarForm>
@@ -93,11 +92,11 @@ export default {
             });
             
           
-            EventBus.$emit('list--preselected', {
+            window.EventBus.$emit('list--preselected', {
               selected: that.calendarSelected
             });
 
-            EventBus.$emit('eintrag--load', {});
+            window.EventBus.$emit('eintrag--load', {});
 
           } 
           
@@ -107,17 +106,17 @@ export default {
       }
     );
 
-    EventBus.$on('list--selected', data => {
+    window.EventBus.$on('list--selected', data => {
 
       that.calendarSelected = data.selected;
-      EventBus.$emit('eintrag--load', {});
+      window.EventBus.$emit('eintrag--load', {});
     });
 
 
-    EventBus.$on('eintrag--load', data => {
+    window.EventBus.$on('eintrag--load', data => {
 
       that.ajaxGet(
-        'rest.php/GetKalenderEintrag/'+that.calendarSelected.join('-'),
+        'rest.php/GetKalenderEintrag/'+that.calendarSelected.join('-')+'/short',
         {},
         function (response, that) {
           
@@ -127,6 +126,7 @@ export default {
           } else {
             if (response.data && response.data.list && that.acl.rights.read) {
               that.eintraege = response.data.list;
+              //console.log(that.eintraege);
             } else {
               that.eintraege = [];
             }
@@ -137,7 +137,7 @@ export default {
     });
 
 
-    EventBus.$on('eintrag--delete', data => {
+    window.EventBus.$on('eintrag--delete', data => {
 
       if ( that.acl.rights.delete != 1 ) {
         that.error = "Keine Löschrechte!";
@@ -159,7 +159,7 @@ export default {
             that.error = response.data.msg;
           } else if (response.data.done == true) {
 
-            EventBus.$emit('eintrag--load', {});
+            window.EventBus.$emit('eintrag--load', {});
 
           }
 
@@ -169,7 +169,7 @@ export default {
 
 
 
-    EventBus.$on('eintrag--submit', data => {
+    window.EventBus.$on('eintrag--submit', data => {
 
 
       if ( that.acl.rights.write != 1 ) {
@@ -192,8 +192,8 @@ export default {
           if (response.data.error == true && response.data.msg) {
             that.error = response.data.msg;
           } else if (response.data.done == true) {
-            EventBus.$emit('eintrag--form-reset', {});
-            EventBus.$emit('eintrag--load', {});
+            window.EventBus.$emit('eintrag--form-reset', {});
+            window.EventBus.$emit('eintrag--load', {});
           }
 
         }
