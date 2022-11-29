@@ -285,7 +285,8 @@ class menu {
               echo '</pre>';
               */
 
-              if ($item['items']) {
+
+              if ( (int)$item['active'] === 1 && $item['items']) {
                   $arr = [$item['page']];
                   $sub = '';
                   foreach($item['items'] as $child) {
@@ -308,6 +309,9 @@ class menu {
 
     private function getDBMenuItem($item) {
         $html = '';
+        if ( (int)$item['active'] !== 1 ) {
+            return $html;
+        }
         $icon = $item['icon'];
         $params = (array)json_decode($item['params']);
         if (!$icon) {
