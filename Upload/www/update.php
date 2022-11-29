@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.5.0
+ * Version 1.5.1
  *
  */
 
@@ -23,6 +23,16 @@ include_once '../data/config/config.php';
 
 class Updates
 {
+
+    public static function to151($root)
+    {
+
+        $root->query("ALTER TABLE `kalender_allInOne_eintrag` ADD COLUMN `eintragRepeat` varchar(255) NULL;", false);
+
+        $root->update('www/cssjs');
+
+        return true;
+    }
 
     public static function to150($root)
     {
