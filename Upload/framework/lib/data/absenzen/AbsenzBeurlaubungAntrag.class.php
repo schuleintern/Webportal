@@ -84,7 +84,16 @@ class AbsenzBeurlaubungAntrag {
     }
     
     public function setVerarbeitet() {
-        $this->setField('antragIsVerarbeitet', 1);
+
+
+        if ( $this->data['extension'] ) {
+
+            DB::getDB()->query("UPDATE ext_beurlaubung_antrag SET status = 21 WHERE id='" . $this->getID() . "'");
+
+        } else {
+            $this->setField('antragIsVerarbeitet', 1);
+        }
+
     }
     
     public function setKLGenehmigung($genehmigt, $kommentar) {
@@ -180,7 +189,7 @@ class AbsenzBeurlaubungAntrag {
         if ( ExtensionsPages::isActive('ext.zwiebelgasse.beurlaubung')) {
             include_once PATH_EXTENSIONS . 'beurlaubung' . DS . 'models' . DS . 'Antrag.class.php';
             $ext_beurlaubungen = extBeurlaubungModelAntrag::getGenehmigtNichtVerarbeitete();
-            $beurlaubungen = array_merge($beurlaubungen, $ext_beurlaubungen);
+            $allD = array_merge($allD, $ext_beurlaubungen);
         }
 
         return $allD;
