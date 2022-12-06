@@ -175,7 +175,14 @@ class AbsenzBeurlaubungAntrag {
         while($b = DB::getDB()->fetch_array($sql)) {
             $allD[] = new AbsenzBeurlaubungAntrag($b);
         }
-        
+
+        include_once (PATH_LIB.'data/extensions/ExtensionsPages.php');
+        if ( ExtensionsPages::isActive('ext.zwiebelgasse.beurlaubung')) {
+            include_once PATH_EXTENSIONS . 'beurlaubung' . DS . 'models' . DS . 'Antrag.class.php';
+            $ext_beurlaubungen = extBeurlaubungModelAntrag::getGenehmigtNichtVerarbeitete();
+            $beurlaubungen = array_merge($beurlaubungen, $ext_beurlaubungen);
+        }
+
         return $allD;
     }
     
