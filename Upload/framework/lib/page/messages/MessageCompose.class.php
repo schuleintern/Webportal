@@ -59,12 +59,12 @@ class MessageCompose extends AbstractPage {
 		        // Debugger::debugObject($singleTeachers,1);
 		        
 		        if($_REQUEST['term'] != "") {
-		            $search = strtolower($_REQUEST['term']);
+		            $search = mb_strtolower($_REQUEST['term']);
 		        }
 		        else {
 		            $search = null;
 		        }
-		        
+
 		        $selectOptionsSingleTeacher = "";
 		        if(sizeof($singleTeachers) > 0) {
 		            $canContactAnyTeacher = true;
@@ -72,7 +72,7 @@ class MessageCompose extends AbstractPage {
 		                
 		                $ok = false;
 		                
-		                if($search != null && strpos(strtolower($singleTeachers[$i]->getDisplayName()), $search) > 0) {
+		                if($search != null && strpos(mb_strtolower($singleTeachers[$i]->getDisplayName()), $search) > 0) {
 		                    $ok = true;
 		                }
 		                
