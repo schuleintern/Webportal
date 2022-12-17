@@ -84,16 +84,18 @@
 export default {
   name: 'Calendar',
   props: {
-    eintraege: Array,
     kalender: Array,
-    acl: Object
+    acl: Object,
+    content: Array
   },
   data() {
     return {
       today: this.$moment(),
       openMonth: false,
       openMonthDay: false,
-      days: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']
+      days: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
+
+      tempDates: []
     }
   },
   created: function () {
@@ -171,38 +173,20 @@ export default {
     },
     getEintrag: function (day) {
 
-      //console.log('get Eintrag day: ', day);
-
-      if (this.eintraege.length <= 0) {
+      let monthName = day[0].format('MM-YYYY');
+      if ( !this.content[monthName] || this.content[monthName].length <= 0) {
         return '';
       }
-      var that = this;
-      //console.log(day, this.eintraege)
+      if (this.acl && this.acl.rights && parseInt(this.acl.read) != 1) {
 
-      var ret = [];
-      //console.log(this.acl);
-      this.eintraege.forEach(function (eintrag) {
-
-        var done = false;
-
-        // if( that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD HH:mm:ss', true)
-        //   .isSameOrAfter(day[1]+' 00:00:00') 
-        //   && that.$moment(eintrag.eintragDatumEnde, 'YYYY-MM-DD HH:mm:ss', true)
-        //   .isBefore(day[1]+' 23:59:59')) {
-
-        // if( that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true)
-        //   .isSame(day[1], 'day') 
-        //   ) {
-
-        //console.log(eintrag);
-        if (that.acl && that.acl.rights && parseInt(that.acl.read) != 1) {
-
+        var ret = [];
+        var that = this;
+        this.content[monthName].forEach((eintrag) => {
 
           var eintrag_start = new Date(eintrag.eintragDatumStart);
           var eintrag_ende = new Date(eintrag.eintragDatumEnde);
 
           var date_day = new Date(day[1]);
-          var date_day_moment = that.$moment(date_day);
 
           if (!eintrag_ende.getTime()) {
             eintrag_ende = new Date(eintrag.eintragDatumStart);
@@ -212,13 +196,13 @@ export default {
           if (eintrag.eintragTimeStart == eintrag.eintragTimeEnde) {
             wholeDay = true;
           }
-          var newItem = {
+          let newItem = {
             'id': eintrag.eintragID,
             'title': eintrag.eintragTitel,
             'startDay': eintrag.eintragDatumStart,
-            'startTime': that.$moment(eintrag.eintragTimeStart, 'HH:mm:ss', true).format('HH:mm'),
+            'startTime': eintrag.eintragTimeStart,
             'endDay': eintrag.eintragDatumEnde,
-            'endTime': that.$moment(eintrag.eintragTimeEnde, 'HH:mm:ss', true).format('HH:mm'),
+            'endTime': eintrag.eintragTimeEnde,
             'wholeDay': wholeDay,
             'place': eintrag.eintragOrt,
             'comment': eintrag.eintragKommentar,
@@ -236,98 +220,32 @@ export default {
            */
           if (!eintrag.eintragRepeat && eintrag_start <= date_day && date_day <= eintrag_ende) {
             ret.push(newItem);
-            done = true;
+            //done = true;
           }
 
 
           /*
               REPEAT
            */
-          if (eintrag.eintragRepeat && done == false) {
+          if (eintrag.eintragRepeat && +eintrag_start == +date_day) {
 
             newItem.repeat_root = [that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD'),
               that.$moment(eintrag.eintragDatumEnde, 'YYYY-MM-DD', true).format('YYYY-MM-DD')];
             newItem.endDay = '0000-00-00';
 
-
-            if (eintrag.eintragRepeat == 'week') {
-              if (eintrag_start <= date_day && date_day <= eintrag_start) {
-                newItem.startDay = that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD');
-                ret.push(newItem);
-                done = true;
-              }
-              if (done == false) {
-                const ms = 1000 * 60 * 60 * 24 * 7;
-                let anz = Math.round(Math.abs(eintrag_ende - eintrag_start) / ms);
-                for (var i = 1; i <= anz; i++) {
-                  let nextStart = that.$moment(eintrag_start).add(i, 'week');
-                  if ( nextStart.isSame( date_day_moment , 'day') ) {
-                    newItem.startDay = nextStart.format('YYYY-MM-DD');
-                    ret.push(newItem);
-                    done = true;
-                    anz = i;
-                  }
-                }
-              }
-
-            }
-
-            if (eintrag.eintragRepeat == 'month') {
-
-              if (eintrag_start <= date_day && date_day <= eintrag_start) {
-                newItem.startDay = that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD');
-                ret.push(newItem);
-                done = true;
-              }
-              let anz = (
-                  eintrag_ende.getMonth() -
-                  eintrag_start.getMonth() +
-                  12 * (eintrag_ende.getFullYear() - eintrag_start.getFullYear())
-              )
-              if (done == false) {
-                for (let i = 1; i <= anz; i++) {
-                  let nextStart = that.$moment(eintrag_start).add(i, 'month');
-                  if ( nextStart.isSame( date_day_moment , 'day') ) {
-                    newItem.startDay = nextStart.format('YYYY-MM-DD');
-                    ret.push(newItem);
-                    done = true;
-                    anz = i;
-                  }
-                }
-              }
-            }
-
-            if (eintrag.eintragRepeat == 'year') {
-
-              if (eintrag_start <= date_day && date_day <= eintrag_start) {
-                newItem.startDay = that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('YYYY-MM-DD');
-                ret.push(newItem);
-                done = true;
-              }
-              let anz = new Date(eintrag_ende - eintrag_start).getFullYear() - 1970;
-              if (done == false) {
-                for (let i = 1; i <= anz; i++) {
-                  let nextStart = that.$moment(eintrag_start).add(i, 'year');
-                  if ( nextStart.isSame( date_day_moment , 'day') ) {
-                    newItem.startDay = nextStart.format('YYYY-MM-DD');
-                    ret.push(newItem);
-                    done = true;
-                    anz = i;
-                  }
-                }
-              }
-            }
-
+            ret.push(newItem);
           }
 
-        }
-      });
+        });
 
-      ret = ret.sort((a, b) => {
-        return a.startTime > b.startTime;
-      });
 
-      return ret;
+        ret = ret.sort((a, b) => {
+          return a.startTime > b.startTime;
+        });
+
+
+        return ret;
+      }
     },
 
     handlerClickAdd: function (day) {
