@@ -133,6 +133,9 @@
 .width-7rem {
   width: 7rem;
 }
+.width-10rem {
+  width: 10rem;
+}
 .width-12rem {
   width: 12rem;
 }
@@ -331,4 +334,5 @@
 
 .box .overlay > .fa {
   position: fixed;
+  z-index: 9999999999999999999;
 }

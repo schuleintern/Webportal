@@ -26,9 +26,21 @@
 .si-calendar .si-table {
     margin-top: 0;
 }
-.si-calendar .si-table td.day {
+
+.si-calendar .si-table td {
+    vertical-align: bottom;
+    display: table-cell;
+    max-width: 0;
+}
+.si-calendar .si-table tbody td {
+    height: 10rem;
+    vertical-align: top;
+}
+
+.si-calendar .si-table .day {
     width: calc(100%/7);
 }
+
 .si-calendar .dayLabel {
     font-size: 110%;
     font-weight: bold;
@@ -36,6 +48,55 @@
     padding-left: 0.6rem;
 }
 
+.si-calendar .labelKW {
+    font-size: 90%;
+    line-height: 90%;
+    color: rgb(192, 192, 192);
+    font-weight: bold;
+    max-width: 3rem !important;
+    padding-top: 0.3rem;
+}
+
+.si-calendar .eintrag {
+    border: 1px solid #8aa4af;
+    background-color: #fff;
+    color: #000 !important;
+    margin-bottom: 0.6rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 3px;
+    margin: 0.6rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 20ms all;
+}
+.si-calendar .eintrag .title {
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+.si-calendar .eintrag.open .title {
+    overflow: hidden;
+    white-space: normal;
+}
+
+.si-calendar .eintrag .info {
+    display: none;
+}
+.si-calendar .eintrag.open .info {
+    display: block;
+}
+
+
+.si-calendar .eintrag-multiple {
+    border-left: 0;
+    border-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
 
 /**
     Box
@@ -204,6 +265,12 @@
 .si-form ul li:nth-child(even) {
     background-color: #f9f9f9;
 }
+.si-form ul.si-form-colorSwitch li:nth-child(even) {
+    background-color: #fff;
+}
+.si-form ul.si-form-colorSwitch li:nth-child(odd) {
+    background-color: #f9f9f9;
+}
 .si-form ul li:first-child {
     padding-top: 3rem;
     border-top-left-radius: 3rem;
@@ -264,6 +331,12 @@
     border: 1px solid #3c8dbc;
     color: #000;
 }
+
+.si-input[type="radio"],
+.si-form ul li input[type="radio"] {
+    max-width: 1.5rem;
+}
+
 .si-textarea,
 .si-form ul li textarea {
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
@@ -498,6 +571,7 @@ and (orientation : portrait) {
 /**
     BUTTON
  */
+
 .si-btn {
 
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -629,6 +703,19 @@ and (orientation : portrait) {
 }
 .si-btn-off:hover {
     background-color: rgba(0,0,0,0);
+}
+.si-btn-hide {
+    cursor: inherit;
+    box-shadow: none;
+    color: #8aa4af;
+    border: 1px solid #b7c7ce;
+    background-color: rgba(0,0,0,0);
+    opacity: 0.4;
+}
+.si-btn-hide:hover {
+    background-color: rgba(0,0,0,0);
+    border: 1px solid #b7c7ce;
+    color: #8aa4af;
 }
 .si-btn-curser-off {
     cursor: inherit;
@@ -796,13 +883,24 @@ and (orientation : portrait) {
 .si-userselect .si-userselect-modal-content .list {
     flex:3;
     height: 70vh;
+    list-style: none;
 }
 .si-userselect .si-userselect-modal-content .list .userlist {
     height: 65vh;
     overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .si-userselect  .si-userselect-modal-content .list li {
     cursor: pointer;
+    margin: 0;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 .si-userselect  .si-userselect-modal-content .list li:nth-child(even) {
     background-color: rgba(0,0,0,0.15) !important;
