@@ -1143,7 +1143,7 @@ abstract class AbstractPage
      *
      * @param String
      */
-    public function reloadWithoutParam($str)
+    public function reloadWithoutParam($str = 'task')
     {
 
         if ($str) {
@@ -1158,4 +1158,85 @@ abstract class AbstractPage
         }
 
     }
+
+
+    public function taskSaveAdminACL()
+    {
+        if (DB::getSession()->isAdmin()) {
+            if ($_POST['acl']) {
+                echo json_encode(ACL::setAcl(json_decode($_POST['acl'])));
+                exit;
+            }
+        }
+        echo json_encode(array("error" => true));
+        exit;
+    }
+
+
+    public function taskSaveAdminAdmins()
+    {
+        if (DB::getSession()->isAdmin() && $_POST['userlist']) {
+            $groupName = self::getAdminGroup();
+            if ($groupName) {
+                DB::getDB()->query("DELETE FROM users_groups WHERE groupName='" . $groupName . "' ");
+                $list = json_decode($_POST['userlist']);
+                if ($list) {
+                    foreach ($list as $user) {
+                        $userID = (int)$user->id;
+                        if ($userID) {
+                            DB::getDB()->query("INSERT INTO users_groups (userID, groupName) values('" . $userID . "','" . $groupName . "') ");
+                        }
+                    }
+                    echo json_encode(array("success" => true, "msg" => "Erfolgreich Gespeichert"));
+                    exit;
+                } else {
+                    echo json_encode(array("success" => true, "msg" => "Erfolgreich Geleert"));
+                    exit;
+                }
+            }
+        }
+        echo json_encode(array("error" => "Fehler beim Speichern"));
+        exit;
+    }
+
+
+    static  function getGroupMembers($groupName)
+    {
+
+        if (!$groupName) {
+            return false;
+        }
+        $obj = usergroup::getGroupByName($groupName);
+        $list = $obj->getMembers();
+        foreach ($list as $key => $item) {
+            $list[$key] = $item->getCollection(false, true);
+        }
+        return $list;
+    }
+
+    public function taskSaveAdminSettings() {
+
+        if (DB::getSession()->isAdmin()) {
+            $settings = json_decode($_POST['settings']);
+            $request = $this->getRequest();
+            if ($request['page'] && $settings) {
+                foreach ($settings as $item) {
+
+                    DB::getDB()->query("INSERT INTO settings (settingName, settingValue, settingsExtension)
+				values ('" . DB::getDB()->escapeString($item->name) . "',
+				'" . DB::getDB()->escapeString(($item->value)) . "'
+				,'" . DB::getDB()->escapeString(($request['page'])) . "')
+				ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($item->value) . "'");
+                }
+                echo json_encode(['success' => true, "msg" => "Erfolgreich gespeichert!"]);
+            } else {
+                echo json_encode(['error' => 'Fehler beim Speichern!']);
+            }
+            exit;
+        }
+        echo json_encode(array("error" => "Fehler beim Speichern"));
+        exit;
+    }
+
+
 }
