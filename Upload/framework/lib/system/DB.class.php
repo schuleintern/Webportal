@@ -4,6 +4,7 @@
 
 class DB {
 	private static $db;
+    private static $pdb;
 	private static $tpl;
 	private static $cache;
 	
@@ -49,14 +50,22 @@ class DB {
 	public static function start() {
 		self::$globalsettings = new GlobalSettings();
 		self::$db = new mysql();
+        self::$pdb = new PDB();
 		self::$tpl = new tpl();
 		self::$db->connect();
 		self::$settings = new settings();
 		self::$settings->init();
 		self::$cache = new Cache();
 
-		
 	}
+
+    /**
+     * @return mysql
+     */
+    public static function run($sql = false, $arg = false) {
+        return self::$pdb->run($sql, $arg);
+    }
+
 
     /**
      * @return mysql

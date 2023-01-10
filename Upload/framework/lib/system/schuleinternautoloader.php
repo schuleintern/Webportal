@@ -182,6 +182,7 @@ $classes = [
 		'cronhandler',
 		'DateFunctions',
 		'DB',
+        'PDB',
 		'functions',
 		'requesthandler',
 		'settings',
