@@ -30,6 +30,7 @@ class Updates
         $root->query("ALTER TABLE `kalender_allInOne_eintrag` ADD COLUMN `eintragRepeat` varchar(255) NULL;", false);
 
         $root->update('www/cssjs');
+        $root->update('www/components');
 
         return true;
     }
