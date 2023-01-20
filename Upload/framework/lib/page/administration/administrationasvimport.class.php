@@ -329,7 +329,7 @@ class administrationasvimport extends AbstractPage
                 'klassenunterricht' => strval($unterricht->in_matrix) == 'true',
                 'koppeltext' => $koppelText,
                 'pseudokoppel' => $isPseudoKoppel,
-                'ueid' => ueid,
+                'ueid' => strval($unterricht->ueid),
                 'klassen' => $unterrichtKlasse['name']
 
             );
