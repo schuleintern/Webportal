@@ -88,8 +88,8 @@ class Update extends AbstractPage
         DB::getDB()->query("TRUNCATE `templates`");
 
         // CLI Scripte erneuern
-        rename("../cli", "../cli_" . $fromVersion);
-        rename("../data/update/Upload/cli", "../cli");
+        //rename("../cli", "../cli_" . $fromVersion);
+        //rename("../data/update/Upload/cli", "../cli");
 
         // Abschluss
         unlink("../data/update.json");
@@ -173,9 +173,26 @@ class Update extends AbstractPage
             $this->from141to141();
         }
 
+        if ($from == "1.4.2" && $to == "1.5.0") {
+            $this->from142to150();
+        }
+
+
+
         return true;
     }
 
+
+    private  function from142to150() {
+
+        DB::getDB()->query("ALTER TABLE `user_settings` ADD COLUMN `autoLogout` int(11) DEFAULT NULL;", false);
+        DB::getDB()->query("ALTER TABLE `menu_item` ADD COLUMN `options` TEXT;", false);
+        DB::getDB()->query("ALTER TABLE `menu_item` ADD COLUMN `target` tinyint(1) DEFAULT NULL;", false);
+        DB::getDB()->query("ALTER TABLE `messages_messages` ADD COLUMN `messageGroupID` int(1) DEFAULT NULL;", false);
+        DB::getDB()->query("ALTER TABLE `messages_messages` MODIFY COLUMN `messageFolder` enum('POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV','ENTWURF') NOT NULL;", false);
+
+        $this->updateCssJSFolder(142);
+    }
 
     private  function from141to141() {
 

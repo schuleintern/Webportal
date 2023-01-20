@@ -218,7 +218,9 @@ class MessageSender{
 
         $messageQuestionIDs = [];
 
-        for($i = 0; $i < sizeof($this->messageQuestions); $i++) $messageQuestionIDs[] = $this->messageQuestions[$i]->getID();
+        for($i = 0; $i < sizeof($this->messageQuestions); $i++) {
+            $messageQuestionIDs[] = $this->messageQuestions[$i]->getID();
+        }
 
         $messageQuestionIDs = implode(";",$messageQuestionIDs);
 
@@ -228,9 +230,9 @@ class MessageSender{
             $recipientNames[] = DB::getDB()->encodeString($this->recipients[$i]->getDisplayName());
         }
 
-        $saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
-        $saveStringsCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->ccRecipients, $messageQuestionIDs);
-        $saveStringsBCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->bccRecipients, $messageQuestionIDs);
+        //$saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
+        //$saveStringsCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->ccRecipients, $messageQuestionIDs);
+        //$saveStringsBCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->bccRecipients, $messageQuestionIDs);
 
         // Nachricht speichern
         $insert = [];
@@ -239,10 +241,10 @@ class MessageSender{
 					'" . $this->subject . "',
 					'" . $this->text . "',
 					'" . $this->sender->getUserID() . "',
-					'" . implode(";",$saveStringsRecipients) . "',
+					'',
 					'" . implode(", ", $recipientNames ) . "',
-                    '" . implode(";",$saveStringsCCRecipients) . "',
-                    '" . implode(";",$saveStringsBCCRecipients) . "',
+                    '',
+                    '',
 					UNIX_TIMESTAMP(),
 					'" . (($this->replyMessage != null) ? ($this->replyMessage->getID()) : 0) . "',
 					'" . (($this->forwardMessage != null) ? ($this->forwardMessage->getID()) : 0) . "',
@@ -258,6 +260,7 @@ class MessageSender{
                     " . ($this->messageIsConfidential ? $this->messageIsConfidential : 0) . "
 					)
 				";
+
         if ( DB::getDB()->query("INSERT INTO messages_messages (" . implode(",", $fields) . ") VALUES " . implode(",",$insert)) ) {
             return true;
         }
