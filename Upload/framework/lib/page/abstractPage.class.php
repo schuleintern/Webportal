@@ -201,11 +201,16 @@ abstract class AbstractPage
             $menuHTML = $menu->getHTML();
 
             $sitemapline = "";
-            for ($i = 0; $i < sizeof($pageline); $i++) {
-                $sitemapline .= '<li class="active">' . $pageline [$i] . '</li>';
+            $siteTitle = '';
+            if (is_array($pageline)) {
+                for ($i = 0; $i < sizeof($pageline); $i++) {
+                    $sitemapline .= '<li class="active">' . $pageline [$i] . '</li>';
+                }
+                $siteTitle = $pageline[sizeof($pageline) - 1];
             }
 
-            $siteTitle = $pageline[sizeof($pageline) - 1];
+
+
 
 
             // Page Skin Color
