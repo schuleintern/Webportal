@@ -65,7 +65,7 @@ class klassenlisten extends AbstractPage {
 
 	public function execute() {
 		
-		include_once("../framework/lib/phpexcel/PHPExcel.php");
+		//include_once("../framework/lib/phpexcel/PHPExcel.php");
 				
 		$today = date("d.m.Y");
 		
@@ -318,7 +318,7 @@ class klassenlisten extends AbstractPage {
 					header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
 					header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 					header ('Pragma: public'); // HTTP/1.0
-					$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Excel2007');
+					$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Xlsx');
 					$objWriter->save('php://output');
 					exit();
 				}
@@ -393,7 +393,7 @@ class klassenlisten extends AbstractPage {
 					header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
 					header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 					header ('Pragma: public'); // HTTP/1.0
-					$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Excel2007');
+					$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Xlsx');
 					$objWriter->save('php://output');
 					exit();
 				}
