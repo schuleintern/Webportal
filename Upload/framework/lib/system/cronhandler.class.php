@@ -48,7 +48,7 @@ class cronhandler
             exit(0);
         }
 
-        include("../framework/lib/page/abstractPage.class.php");
+        include(PATH_PAGE."abstractPage.class.php");
 
         PAGE::setFactory(new FACTORY());
 

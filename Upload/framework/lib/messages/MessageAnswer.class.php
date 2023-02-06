@@ -64,7 +64,7 @@ class MessageAnswer {
      * @param int $id
      * @return MessageAnswer[]
      */
-    public function getByMessageID($id) {
+    public static function getByMessageID($id) {
         $all = [];
         
         $data = DB::getDB()->query("SELECT * FROM messages_questions_answers WHERE answerMessageID='" . DB::getDB()->escapeString($id) . "'");
