@@ -20,7 +20,7 @@ class RestGetKalenderEintrag extends AbstractRest {
 			$kalenderIDs = explode('-', $request[1]);
 		}
 
-		if ( count($kalenderIDs) <= 0) {
+		if ( $request[1] == 'short' || intval($request[1]) == 0  || !$kalenderIDs || count($kalenderIDs) <= 0) {
 			return [
 				'error' => true,
 				'msg' => 'Fehlende Kalender IDs'

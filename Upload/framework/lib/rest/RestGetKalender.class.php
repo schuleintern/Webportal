@@ -41,8 +41,10 @@ class RestGetKalender extends AbstractRest {
 			if (!$item['kalenderAcl']) {
 				$item['kalenderAcl'] = $this->getAclAll();
 			}
+            if ($item['kalenderAcl']['rights']['read'] == 1) {
+                $kalender[] = $item;
+            }
 
-			$kalender[] = $item;
 		}
 
 		if(count($kalender) > 0) {
