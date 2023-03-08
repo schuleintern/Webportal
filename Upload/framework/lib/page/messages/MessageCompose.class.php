@@ -506,6 +506,10 @@ class MessageCompose extends AbstractPage {
 
 				$addMeetingHTML = "";
 
+                $recipientHandler = new RecipientHandler($_REQUEST['recipients']);
+                $recipientHandlerCC = new RecipientHandler($_REQUEST['ccrecipients']);
+                $recipientHandlerBCC = new RecipientHandler($_REQUEST['bccrecipients']);
+
 				// Videokonferenz
                 if(DB::getSession()->isTeacher() && Office365Meetings::isActiveForTeacher() && $_POST['addMeetingURL'] > 0) {
                     if(DateFunctions::isNaturalDate($_POST['meetingDate'])) {
@@ -571,9 +575,7 @@ class MessageCompose extends AbstractPage {
 
 				$messageSender->setPriority($_POST['priority']);
 
-                $recipientHandler = new RecipientHandler($_REQUEST['recipients']);
-                $recipientHandlerCC = new RecipientHandler($_REQUEST['ccrecipients']);
-                $recipientHandlerBCC = new RecipientHandler($_REQUEST['bccrecipients']);
+
 
 				$messageSender->setRecipients($recipientHandler);				
 				$messageSender->setCCRecipients($recipientHandlerCC);
