@@ -69,7 +69,7 @@ export default {
   },
   created: function () {
 
-    this.acl = globals.acl;
+    this.acl = window.globals.acl;
 
     //console.log(globals);
     var that = this;
@@ -87,7 +87,7 @@ export default {
               //that.calendarSelected = [ parseInt(response.data.list[0].kalenderID) ];
 
               that.kalender = response.data.list;
-              that.kalender.forEach(function (o, i) {
+              that.kalender.forEach(function (o) {
                 if (o.kalenderPreSelect == 1) {
                   that.calendarSelected.push(parseInt(o.kalenderID));
                 }
@@ -115,7 +115,7 @@ export default {
     });
 
 
-    window.EventBus.$on('eintrag--load', data => {
+    window.EventBus.$on('eintrag--load', () => {
 
       that.ajaxGet(
           'rest.php/GetKalenderEintrag/' + that.calendarSelected.join('-') + '/short',
@@ -285,11 +285,35 @@ export default {
           eintrag.eintragTimeStart = that.$moment(eintrag.eintragTimeStart, 'HH:mm:ss', true).format('HH:mm');
           eintrag.eintragTimeEnde = that.$moment(eintrag.eintragTimeEnde, 'HH:mm:ss', true).format('HH:mm');
 
-          let monthName = that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('MM-YYYY');
-          if (!Array.isArray(this.month[monthName])) {
-            this.month[monthName] = [];
+          let monthNameStart = that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('MM-YYYY');
+
+
+          // Startmonat / Default
+          if (monthNameStart &&  eintrag.eintragDatumEnde == '0000-00-00' ) {
+            //let monthName = that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true).format('MM-YYYY');
+            if (!Array.isArray(this.month[monthNameStart])) {
+              this.month[monthNameStart] = [];
+            }
+            this.month[monthNameStart].push(eintrag);
           }
-          this.month[monthName].push(eintrag);
+
+          // Termin geht in den folgemonaten weiter
+          if (eintrag.eintragDatumEnde != '0000-00-00') {
+            let dateStart = that.$moment(eintrag.eintragDatumStart, 'YYYY-MM-DD', true);
+            let diff = parseInt(that.$moment(eintrag.eintragDatumEnde, 'YYYY-MM-DD', true).get("month") - dateStart.get("month"));
+            if (diff >= 0) {
+              for(let i = 0; i <= diff; i++) {
+                let monthNameNext = dateStart.add(i, 'month').format('MM-YYYY');
+                if (!Array.isArray(this.month[monthNameNext])) {
+                  this.month[monthNameNext] = [];
+                }
+                this.month[monthNameNext].push(eintrag);
+              }
+            }
+          }
+
+
+
         }
       });
 
