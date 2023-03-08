@@ -23,7 +23,11 @@ class usergroup {
         $this->ownGroupData = $ownGroupData;
     }
   }
-  
+
+    public function getGroupID() {
+        return $this->ownGroupData['groupID'] ;
+    }
+
   public function getName() {
   	return $this->name;
   }
@@ -122,6 +126,9 @@ class usergroup {
     $groups = DB::getDB()->query("SELECT * FROM users_groups WHERE userID='" . $userID . "'");
 
     while($g = DB::getDB()->fetch_array($groups)) {
+
+        $groupAnswer[] = new usergroup($g['groupName']);
+        /*
       $found = false;
       for($i = 0; $i < sizeof(self::$allGroups); $i++) {
         if(self::$allGroups[$i]->name == $g['groupName']) {
@@ -133,8 +140,10 @@ class usergroup {
       if(!$found) {
         $groupAnswer[] = new usergroup($g['groupName']);
       }
+        */
     }
 
+    return $groupAnswer;
   }
 
   public static function getGroupByName($group) {
