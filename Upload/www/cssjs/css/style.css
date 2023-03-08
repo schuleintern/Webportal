@@ -327,7 +327,7 @@ button.btn-blau {
   color: #738b96;
 }
 .text-white {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .text-small {

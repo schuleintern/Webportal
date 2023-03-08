@@ -12,6 +12,7 @@
     display: flex;
     padding: 1rem;
     padding-bottom: 3rem;
+
 }
 .si-calendar-header button {
     margin-right: 1rem;
@@ -22,6 +23,35 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+}
+.si-calendar .day-box-handler {
+    display: none;
+}
+
+@media only screen
+and (max-device-width : 667px)
+and (orientation : portrait) {
+    .si-calendar-header {
+        flex-wrap: wrap;
+    }
+    .si-calendar-header .title {
+        flex-basis: 100%;
+    }
+    .si-calendar-header .si-btn {
+        order: 1;
+        flex:1;
+    }
+    .si-calendar-header .title {
+        order: 2;
+        margin-top: 2rem;
+    }
+    .si-calendar .day-box {
+        display: none;
+    }
+    .si-calendar .day-box-handler {
+        display: block;
+    }
 }
 .si-calendar .si-table {
     margin-top: 0;
@@ -422,7 +452,6 @@
 }
 
 @media only screen
-and (min-device-width : 375px)
 and (max-device-width : 667px)
 and (orientation : portrait) {
 
