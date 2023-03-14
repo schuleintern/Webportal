@@ -169,7 +169,8 @@ $classes = [
 		'mpdf.php'
 	],
 	'menu' => [
-		'menu',
+		'abstractMenu',
+        'menu',
 	],
     'raumplan' => [
         'raumplan',
