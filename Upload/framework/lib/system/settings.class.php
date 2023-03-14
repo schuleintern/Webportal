@@ -30,7 +30,7 @@ class settings {
     }
 	
 	public function setValue($setting, $value) {
-		DB::getDB()->query("INSERT INTO settings (settingsExtension, settingName, settingValue) values(NULL,'$setting','" . DB::getDB()->escapeString($value) . "') ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($value) . "'");
+		DB::getDB()->query("INSERT INTO settings (settingsExtension, settingName, settingValue) values('','$setting','" . DB::getDB()->escapeString($value) . "') ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($value) . "'");
 
 		// Hirstory bei Änderung des Wertes
         if(self::getValue($setting) != $value) {
