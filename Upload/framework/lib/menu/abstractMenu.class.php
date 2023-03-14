@@ -93,15 +93,21 @@ abstract class AbstractMenu
                 }
             }
             if ($do) {
+                $htmlClass = false;
                 if (isset($json['menu']->class) && $json['menu']->class) {
                     $menuClassPath = PATH_EXTENSIONS . $path . DS . 'menu' . DS . 'menu.php';
                     if (file_exists($menuClassPath)) {
                         include_once($menuClassPath);
+                        $menuClass = new $json['menu']->class();
+                        $htmlClass = $menuClass->render();
                     }
-                    $menuClass = new $json['menu']->class();
-                    $html .= $menuClass->render();
-                } else {
+
+                }
+
+                if ($htmlClass == false) {
                     $html .= $this->getMenuItem($item['page'], $item['title'], $icon, $params, false, $target);
+                } else {
+                    $html .= $htmlClass;
                 }
             }
         } else {
