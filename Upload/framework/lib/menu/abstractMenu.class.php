@@ -116,7 +116,10 @@ abstract class AbstractMenu
 
         $active = false;
 
-
+        // TODO: WORKAROUND
+        if ($_REQUEST['page'] == 'klassenkalender') {
+            $_REQUEST['page'] = 'ext_klassenkalender';
+        }
 
         if (sizeof($addParams) > 0) {
             foreach ($addParams as $name => $value) {
