@@ -100,6 +100,16 @@ class session {
 	public function isMember($groupName) {
 		return in_array($groupName, $this->getGroupNames());
 	}
+
+    public function isAdminOrGroupAdmin($groupName = false) {
+        if ( DB::getSession()->getUser()->isAdmin() ) {
+            return true;
+        }
+        if (!$groupName) {
+            return false;
+        }
+        return in_array($groupName, $this->getGroupNames()) ? true : false;
+    }
 	
 	/**
 	 * 
