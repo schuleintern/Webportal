@@ -27,16 +27,16 @@ class session {
 	}
 	
 	public function update() {
-	    
 	    if($this->is2FactorActive()) {
 	        DB::getDB()->query("UPDATE sessions SET session2FactorActive=UNIX_TIMESTAMP(), sessionLastActivity=UNIX_TIMESTAMP(), sessionIP='" . $_SERVER['REMOTE_ADDR'] . "' WHERE sessionID='" . $this->data['sessionID'] . "'");
-	    }
-	    	
-		else {
+	    } else {
 		    DB::getDB()->query("UPDATE sessions SET session2FactorActive=0, sessionLastActivity=UNIX_TIMESTAMP(), sessionIP='" . $_SERVER['REMOTE_ADDR'] . "' WHERE sessionID='" . $this->data['sessionID'] . "'");
 		}
-		
 	}
+    public function delete() {
+        DB::getDB()->query("DELETE FROM sessions WHERE sessionID='" . $this->data['sessionID'] ."'");
+        setcookie("schuleinternsession", null, time()-3600);	// Cookie löschen
+    }
 	
 	public static function cleanSessions() {
 		DB::getDB()->query("DELETE FROM sessions WHERE sessionLastActivity < ".(time()-3600) . " AND sessionType='NORMAL'");
@@ -53,45 +53,34 @@ class session {
 	public function getGroupNames() {
 		return $this->userObject->getGroupNames();
 	}
+    public function getSessionID() {
+        return $this->data['sessionID'];
+    }
 	
 	public function isPupil() {
 		return $this->userObject->isPupil();
 	}
-	
-	public function getSessionID() {
-		return $this->data['sessionID'];
-	}
-	
+    public function isEltern() {
+        return $this->userObject->isEltern();
+    }
 	public function isTeacher() {
 		return $this->userObject->isTeacher();
 	}
-
     public function isNone() {
         return $this->userObject->isNone();
     }
-
 	
 	public function isAdmin() {
-	    
 		return $this->userObject->isAdmin();
 	}
-	
-	/**
-	 * Überprüft, ob der Benutzer Zugriff zur Administration hat.
-	 * @return boolean
-	 */
+
 	public function isAnyAdmin() {
 		return $this->userObject->isAnyAdmin();
 	}
 
-	public function isEltern() {
-		return $this->userObject->isEltern();
-	}
+
 	
-	public function delete() {
-		DB::getDB()->query("DELETE FROM sessions WHERE sessionID='" . $this->data['sessionID'] ."'");
-		setcookie("schuleinternsession", null, time()-3600);	// Cookie löschen
-	}
+
 	
 	public function getUserID() {
 		return $this->getUser()->getUserID();
