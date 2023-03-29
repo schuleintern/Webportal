@@ -1391,7 +1391,7 @@ class stundenplan extends AbstractPage {
 
         include_once('../framework/lib/phpexcel/PHPExcel.php');
 
-        $objReader = PHPExcel_IOFactory::createReader('Xlsx');
+        $objReader = PHPExcel_IOFactory::createReader('Excel2007');
         $objReader->setReadDataOnly(true);
         
 
@@ -1570,7 +1570,7 @@ class stundenplan extends AbstractPage {
 
         include_once('../framework/lib/phpexcel/PHPExcel.php');
 
-        $objReader = PHPExcel_IOFactory::createReader('Xlsx');
+        $objReader = PHPExcel_IOFactory::createReader('Excel2007');
         $objReader->setReadDataOnly(true);
         try {
           $excelPlan = $objReader->load($_FILES['newStundenplanExportFile']['tmp_name']);

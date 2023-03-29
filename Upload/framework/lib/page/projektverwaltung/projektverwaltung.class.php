@@ -327,7 +327,7 @@ class projektverwaltung extends AbstractPage {
 			header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 			header ('Pragma: public'); // HTTP/1.0
 			
-			$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Xlsx');
+			$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Excel2007');
 			$objWriter->save('php://output');
 			
 			exit(0);

@@ -65,7 +65,7 @@ class klassenlisten extends AbstractPage {
 
 	public function execute() {
 		
-		//include_once("../framework/lib/phpexcel/PHPExcel.php");
+		include_once("../framework/lib/phpexcel/PHPExcel.php");
 				
 		$today = date("d.m.Y");
 		
@@ -82,8 +82,7 @@ class klassenlisten extends AbstractPage {
 				if($klasse != null) {
 					$pupils = $klasse->getSchueler($_REQUEST['withAusgetretene'] > 0);
 				}
-				
-				
+
 				if(isset($_REQUEST['createPDF']) && $_REQUEST['createPDF'] != "") {
 					
 					$cols = $_REQUEST['spalten'];
@@ -199,7 +198,6 @@ class klassenlisten extends AbstractPage {
 					
 					$excelFile = new PHPExcel();
 					// Set document properties
-					
 					$excelFile->getProperties()
 						->setCreator(DB::getGlobalSettings()->siteNamePlain)
 						->setTitle('Klassenliste ' . $grade)
@@ -318,7 +316,7 @@ class klassenlisten extends AbstractPage {
 					header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
 					header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 					header ('Pragma: public'); // HTTP/1.0
-					$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Xlsx');
+					$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Excel2007');
 					$objWriter->save('php://output');
 					exit();
 				}
@@ -327,10 +325,8 @@ class klassenlisten extends AbstractPage {
 					error_reporting(0);
 					// Excel
 					$grade = $_REQUEST['grade'];
-						
 					$excelFile = new PHPExcel();
 					// Set document properties
-						
 					$excelFile->getProperties()
 					->setCreator(DB::getGlobalSettings()->siteNamePlain)
 					->setTitle('Klassenliste ' . $grade)
@@ -393,7 +389,7 @@ class klassenlisten extends AbstractPage {
 					header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
 					header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 					header ('Pragma: public'); // HTTP/1.0
-					$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Xlsx');
+					$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Excel2007');
 					$objWriter->save('php://output');
 					exit();
 				}
