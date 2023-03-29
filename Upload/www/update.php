@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.5.2
+ * Version 1.5.3
  *
  */
 
@@ -23,6 +23,14 @@ include_once '../data/config/config.php';
 
 class Updates
 {
+
+    public static function to153($root)
+    {
+
+        $root->query("ALTER TABLE `user_settings` MODIFY COLUMN `startPage` enum('aufeinenblick','vplan','stundenplan','dashboard') NOT NULL;", false);
+
+        return true;
+    }
 
     public static function to152($root)
     {

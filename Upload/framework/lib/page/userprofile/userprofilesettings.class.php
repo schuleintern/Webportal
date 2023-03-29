@@ -39,7 +39,8 @@ class userprofilesettings extends AbstractPage
             if (!in_array($_POST['startPage'], array(
                     "aufeinenblick",
                     "vplan",
-                    "stundenplan"
+                    "stundenplan",
+                    "dashboard"
                 )
             )
             ) {
@@ -91,7 +92,8 @@ class userprofilesettings extends AbstractPage
         $selectedPage = array(
             "index" => "",
             "vplan" => "",
-            "stundenplan" => ""
+            "stundenplan" => "",
+            "dashboard" => ""
         );
 
         $selectedColor[DB::$mySettings['skinColor']] = " selected=\"selected\"";
