@@ -159,6 +159,24 @@ a {
   cursor: row-resize;
 }
 
+/*
+.colum-sort {
+  background-image: url("./images/sort.png");
+  background-repeat: no-repeat;
+  background-size: auto 30%;
+  background-position: right 1.4rem;
+}
+*/
+
+.colum-sort::after {
+  font-family: "Font Awesome 5 Free";
+  content: '\f0dc';
+  font-weight: 900;
+  padding-left: 1rem;
+}
+
+
+
 .clickable {
   cursor: pointer;
 }
@@ -573,3 +591,4 @@ button.btn-blau {
   max-height: 80vh;
   overflow-y: auto;
 }
+

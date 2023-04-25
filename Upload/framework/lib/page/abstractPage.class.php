@@ -362,12 +362,17 @@ abstract class AbstractPage
                                 if ($widget->class) {
                                     $widgetPath = PATH_EXTENSIONS . $ext[0] . DS . 'widgets' . DS . $ext[1] . DS . 'widget.php';
                                     if (file_exists($widgetPath)) {
-                                        include_once($widgetPath);
+                                        if ($widget->class) {
+                                            if ( include_once($widgetPath) ) {
+                                                $widgetClass = new $widget->class([
+                                                    "path" => PATH_EXTENSIONS . $ext[0]
+                                                ]);
+                                                if ($widgetClass && method_exists($widgetClass, 'render')) {
+                                                    $HTML_widgets[] = '<li class="dropdown messages-menu">' . $widgetClass->render() . '</li>';
+                                                }
+                                            }
+                                        }
                                     }
-                                    $widgetClass = new $widget->class([
-                                        "path" => PATH_EXTENSIONS . $ext[0]
-                                    ]);
-                                    $HTML_widgets[] = '<li class="dropdown messages-menu">' . $widgetClass->render() . '</li>';
                                 }
                             }
                         }
@@ -614,6 +619,38 @@ abstract class AbstractPage
             header("Location: index.php");
         }
     }
+
+    protected function canRead () {
+        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+            return true;
+        }
+        if ( (int)$this->acl['rights']['read'] === 1  ) {
+            return true;
+        }
+        return false;
+    }
+
+    protected function canWrite () {
+        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+            return true;
+        }
+        if ( (int)$this->acl['rights']['write'] === 1  ) {
+            return true;
+        }
+        return false;
+    }
+
+    protected function canDelete () {
+        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+            return true;
+        }
+        if ( (int)$this->acl['rights']['delete'] === 1  ) {
+            return true;
+        }
+        return false;
+    }
+
+
 
     /**
      * Prüft, ob eine Person angemeldet ist.
