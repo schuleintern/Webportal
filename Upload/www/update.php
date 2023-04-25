@@ -24,6 +24,14 @@ include_once '../data/config/config.php';
 class Updates
 {
 
+    public static function to154($root)
+    {
+        $root->update('www/cssjs');
+        $root->update('www/images');
+        return true;
+    }
+
+
     public static function to153($root)
     {
 
