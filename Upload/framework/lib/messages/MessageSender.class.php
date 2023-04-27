@@ -467,11 +467,15 @@ class MessageSender{
 					)
 				";
 	            $this->sentMessages++;
+
+                // TODO: PUSH
+                PUSH::send( $users[$u] );
+
 	        }
 	        
 	        if(sizeof($insert) > 0) {
 	            DB::getDB()->query("INSERT INTO messages_messages (" . implode(",", $fields) . ") VALUES " . implode(",",$insert));
-	        }
+            }
 	        
 	        $firstNewID = DB::getDB()->insert_id();
 	        

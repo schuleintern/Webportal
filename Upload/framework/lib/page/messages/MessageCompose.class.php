@@ -1204,7 +1204,15 @@ class MessageCompose extends AbstractPage {
 		for($i = 0; $i < sizeof($groups); $i++) {
 		    $htmlGroups .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary \">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
 		}
-		
+
+
+        $inboxs = InboxRecipient::getAllInstances();
+        $htmlInboxs = "";
+        for($i = 0; $i < sizeof($inboxs); $i++) {
+            $htmlInboxs .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary \">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
+        }
+
+
 		
 		if($_REQUEST['recipient'] != "") {
             $saveString = $_REQUEST['recipient'];
