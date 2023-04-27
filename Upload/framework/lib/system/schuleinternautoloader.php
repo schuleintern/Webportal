@@ -191,6 +191,7 @@ $classes = [
 		'Encoding',
 		'resthandler',
 		'PAGE',
+        'PUSH',
 		'FILE',
 		'FACTORY',
 		'ACL',
@@ -256,7 +257,8 @@ $classes = [
 	    'GroupRecipient',
 	    'KlassenleitungRecipient',
 	    'PupilsOfClassRecipient',
-	    'ParentsOfPupilsOfClassRecipient'
+	    'ParentsOfPupilsOfClassRecipient',
+        'InboxRecipient'
 	],
 	'data/schuelerinfo' => [
 		'SchuelerDokument',

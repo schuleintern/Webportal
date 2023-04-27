@@ -37,6 +37,9 @@ class requesthandler {
   	'skin' => [
   		'SkinSettings'
   	],
+    'settings' => [
+        'PushSettings'
+    ],
     /**  'nextcloud' => [
         'nextcloud'
     ], **/

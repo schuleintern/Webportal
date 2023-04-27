@@ -87,8 +87,75 @@
 	}
 	</style>
 
+      <if($pushActive)><then>
+      <script>
+
+          // (A) OBTAIN USER PERMISSION TO SHOW NOTIFICATION
+          window.onload = () => {
+              if (Notification) {
+                  // (A1) ASK FOR PERMISSION
+                  if (Notification.permission === "default") {
+                      Notification.requestPermission().then(perm => {
+                          if (Notification.permission === "granted") {
+                              regWorker().catch(err => console.error(err));
+                          } else {
+                              //console.log("Please allow notifications.");
+                          }
+                      });
+                  }
+                  // (A2) GRANTED
+                  else if (Notification.permission === "granted") {
+                      regWorker().catch(err => console.error(err));
+                  }
+                  // (A3) DENIED
+                  else {
+                      //console.log("Please allow notifications.");
+                  }
+              }
+          }
+
+          // (B) REGISTER SERVICE WORKER
+          async function regWorker () {
+              // (B1) YOUR PUBLIC KEY - CHANGE TO YOUR OWN!
+              const publicKey = "$pushPublicKey";
+
+              // (B2) REGISTER SERVICE WORKER
+              navigator.serviceWorker.register("serviceWorker.js", { scope: "/" });
+
+              // (B3) SUBSCRIBE TO PUSH SERVER
+              navigator.serviceWorker.ready
+                  .then(reg => {
+                      reg.pushManager.subscribe({
+                          userVisibleOnly: true,
+                          applicationServerKey: publicKey
+                      }).then(
+
+
+                          // (B3-1) OK - TEST PUSH NOTIFICATION
+                          sub => {
+                              //console.log(sub);
+                              var data = new FormData();
+                              data.append("sub", JSON.stringify(sub));
+                              data.append("uid", "$userID");
+                              fetch("push.php", { method: "POST", body : data })
+                                  .then(res => res.text())
+                                  .then(txt => console.log(txt))
+                                  .catch(err => console.error(err));
+                          },
+
+                          // (B3-2) ERROR!
+                          err => console.error(err)
+
+                      );
+                  });
+          }
+
+      </script>
+  </then></if>
+
+
   </head>
-  <body class="skin-{$skinColor}"><div class="wrapper">
+  <body class="skin-{$skinColor}"><div class="wrapper" id="pageWrapper">
       <header class="main-header">
 		<a href="index.php?page=index" class="logo">
           <span class="logo-mini"><expression>DB::getGlobalSettings()->siteNameHTMLDisplayShort</expression></span>

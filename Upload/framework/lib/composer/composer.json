@@ -1,14 +1,15 @@
 {
     "require": {
         "eluceo/ical": "^0.14.0",
-        "spomky-labs/otphp": "^9.1",
+        "spomky-labs/otphp": "10.0.0",
         "monolog/monolog": "^2.0",
         "phpmailer/phpmailer": "^6.1",
         "mpdf/mpdf": "^8.0",
         "thenetworg/oauth2-azure": "^1.4",
         "camcima/php-mysql-diff": "^1.2",
         "ezyang/htmlpurifier": "^4.13",
-        "ifsnop/mysqldump-php": "^2.9"
+        "ifsnop/mysqldump-php": "^2.9",
+        "minishlink/web-push": "^7.0"
         
     }
     
