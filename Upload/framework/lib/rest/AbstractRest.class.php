@@ -221,6 +221,13 @@ abstract class AbstractRest {
         return false;
     }
 
+    protected function canAdmin () {
+        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+            return true;
+        }
+        return false;
+    }
+
 
 }	
 

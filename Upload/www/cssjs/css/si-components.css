@@ -782,7 +782,8 @@ and (orientation : portrait) {
     min-width: 23rem;
     text-align: left;
     cursor: pointer;
-    color: #000 !important;
+    /*color: #000 !important;*/
+    white-space: normal;
 }
 .si-user .avatar {
 
@@ -835,6 +836,18 @@ and (orientation : portrait) {
     box-shadow: none;
     text-align: inherit;
     display: block;
+}
+.si-user.si-user-icon {
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+    box-shadow: none;
+    text-align: inherit;
+    display: block;
+    max-width: inherit;
+    min-width: inherit;
+    color: inherit;
+    white-space: normal;
 }
 
 .si-user--infoBox .avatar {

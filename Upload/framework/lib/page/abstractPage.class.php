@@ -390,6 +390,21 @@ abstract class AbstractPage
             $selectedAutoLogout = $selectedAutoLogout * 60;
 
 
+            // Push-Nachrichten
+            $pushActive = DB::getSettings()->getBoolean('global-push-active');
+            if ($pushActive) {
+                $pushPublicKey = DB::getSettings()->getValue('global-push-publicKey');
+                $pushPrivateKey = DB::getSettings()->getValue('global-push-privateKey');
+                if ($pushPublicKey == '' || $pushPrivateKey == '') {
+                    $pushActive = false;
+                }
+            }
+
+            if (DB::getSession()) {
+                $userID = DB::getSession()->getUserID();
+            }
+
+
             // Render Header
             eval ("\$this->header =  \"" . DB::getTPL()->get('header/header') . "\";");
 
@@ -645,6 +660,13 @@ abstract class AbstractPage
             return true;
         }
         if ( (int)$this->acl['rights']['delete'] === 1  ) {
+            return true;
+        }
+        return false;
+    }
+
+    protected function canAdmin () {
+        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
             return true;
         }
         return false;
