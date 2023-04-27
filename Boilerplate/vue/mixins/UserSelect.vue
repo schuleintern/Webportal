@@ -19,7 +19,7 @@
               <ul class="userlist">
                 <span v-if="users">
                   <li v-bind:key="index" v-for="(item, index) in  users" v-on:click="handlerSelectUser(item)"
-                    :class="{'text-green': isSelected(item)}"  >
+                      :class="{'text-green': isSelected(item)}"  >
                     <span class="flex-1 flex-row">
                       <div class="flex-1"><img :src="item.avatar" class="width-3rem height-3rem"/></div>
                       <div class="flex-1 ">{{item.vorname}}</div>
@@ -85,22 +85,22 @@
                       <table class="si-table">
                         <tr v-bind:key="index" v-for="(item, index) in  selected" class="padding-0" style="padding-top: 0.3rem; padding-bottom: 0.3rem">
 
-                            <td class="1 "><img :src="item.avatar" class="width-3rem height-3rem"/></td>
-                            <td class="padding-l-s vorname ">{{item.vorname}}</td>
-                            <td class=" text-bold nachname ">{{item.nachname}}</td>
-                            <td class=" ">
-                              <button v-if="item.type == 'isPupil'"
-                                      class="si-btn si-btn-off margin-r-m">Schüler*in</button>
-                              <button v-if="item.type == 'isEltern'"
-                                      class="si-btn si-btn-off margin-r-m">Eltern</button>
-                              <button v-if="item.type == 'isNone'"
-                                      class="si-btn si-btn-off margin-r-m">Sonstige</button>
-                              <button v-if="item.type == 'isTeacher'"
-                                      class="si-btn si-btn-off margin-r-m">Lehrer*in</button>
-                            </td>
-                            <td class=" ">
-                              <button class="si-btn si-btn-icon" v-on:click="handlerSelectUser(item)"><i class="fa fa-trash"></i></button>
-                            </td>
+                          <td class="1 "><img :src="item.avatar" class="width-3rem height-3rem"/></td>
+                          <td class="padding-l-s vorname ">{{item.vorname}}</td>
+                          <td class=" text-bold nachname ">{{item.nachname}}</td>
+                          <td class=" ">
+                            <button v-if="item.type == 'isPupil'"
+                                    class="si-btn si-btn-off margin-r-m">Schüler*in</button>
+                            <button v-if="item.type == 'isEltern'"
+                                    class="si-btn si-btn-off margin-r-m">Eltern</button>
+                            <button v-if="item.type == 'isNone'"
+                                    class="si-btn si-btn-off margin-r-m">Sonstige</button>
+                            <button v-if="item.type == 'isTeacher'"
+                                    class="si-btn si-btn-off margin-r-m">Lehrer*in</button>
+                          </td>
+                          <td class=" ">
+                            <button class="si-btn si-btn-icon" v-on:click="handlerSelectUser(item)"><i class="fa fa-trash"></i></button>
+                          </td>
 
                         </tr>
                       </table>
@@ -108,7 +108,7 @@
                     <span v-else><label>-</label></span>
                   </li>
                   <li class="flex-row">
-                    <button v-if="minAnzahl <= selected.length" class="si-btn si-btn-green margin-r-m flex-1" v-on:click="handlerSubmit"><i class="fas fa-plus"></i> OK</button>
+                    <button v-if="showSubmit() == true" class="si-btn si-btn-green margin-r-m flex-1" v-on:click="handlerSubmit"><i class="fas fa-plus"></i> OK</button>
                     <button class="si-btn" v-on:click="handlerCloseForm"><i class="fa fa-times-circle"></i> Abbrechen</button>
                   </li>
                 </ul>
@@ -150,12 +150,15 @@ export default {
       filterType: '',
 
       users: false,
+      ajaxRequest: false
 
-      minAnzahl: 0
+
     };
   },
   props: {
-    preselected: Array
+    preselected: Array,
+    minAnzahl: Boolean,
+    maxAnzahl: Boolean
   },
   mounted: function () {
     this.selected = this.preselected;
@@ -168,6 +171,20 @@ export default {
   },
   methods: {
 
+    showSubmit: function () {
+
+      if (this.minAnzahl) {
+        if ( this.minAnzahl >= this.selected.length ) {
+          return true;
+        }
+      }
+      if (this.maxAnzahl) {
+        if ( this.selected.length <= this.maxAnzahl ) {
+          return true;
+        }
+      }
+      return false;
+    },
     handlerSelectAll: function () {
       this.users.forEach((item)  => {
         this.handlerSelectUser(item);
@@ -215,37 +232,52 @@ export default {
         return false;
       }
 
+
+      if (this.ajaxRequest) {
+        this.ajaxRequest.cancel();
+      }
+      this.ajaxRequest = axios.CancelToken.source();
+
       this.loading = true;
       var that = this;
-      axios.get( 'rest.php/GetUser/'+this.searchString+'/'+this.filterType)
-      .then(function(response){
-        if ( response.data ) {
-          if (!response.data.error) {
+      axios.get( 'rest.php/GetUser/'+this.searchString+'/'+this.filterType, {cancelToken: this.ajaxRequest.token})
+          .then(function(response){
+            if ( response.data ) {
+              if (!response.data.error) {
 
-            //console.log(response.data);
-            if (response.data && response.data.length > 0) {
-              that.users = response.data;
+                //console.log(response.data);
+                if (response.data && response.data.length > 0) {
+                  that.users = response.data;
+                } else {
+                  that.users = [];
+                }
+
+              } else {
+                that.error = ''+response.data.msg;
+                that.users = [];
+              }
             } else {
+              that.error = 'Fehler beim Laden. 01';
               that.users = [];
             }
+            that.loading = false;
+          })
+          .catch(function(err){
+            if (axios.isCancel(err)) {
+              //console.log('Previous request canceled, new request is send', err.message);
+              //that.loading = false;
+            } else {
+              // handle error
+              that.error = 'Fehler beim Laden. 02';
+              that.users = [];
+              that.loading = false;
+            }
 
-          } else {
-            that.error = ''+response.data.msg;
-            that.users = [];
-          }
-        } else {
-          that.error = 'Fehler beim Laden. 01';
-          that.users = [];
-        }
-      })
-      .catch(function(){
-        that.error = 'Fehler beim Laden. 02';
-        that.users = [];
-      })
-      .finally(function () {
-        // always executed
-        that.loading = false;
-      });
+          })
+          .finally(function () {
+            // always executed
+            //that.loading = false;
+          });
 
     },
     handlerCloseForm: function () {
