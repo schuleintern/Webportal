@@ -66,6 +66,17 @@ class FACTORY {
         }
         return $ret;
     }
+    public function getMenuItemByPageAndParams($page = false, $params = true) {
+
+        if ($page && $params) {
+            foreach($this->DATA_menu_item as $item) {
+                if ($item['page'] === $page && $item['params'] === $params) {
+                    return $item;
+                }
+            }
+        }
+        return false;
+    }
 
     private function load_menue_item_active() {
 

@@ -211,6 +211,22 @@ abstract class AbstractPage
 
 
 
+            // Seitennamen durch Menüpunkt-DB-Title ersetzen
+            $params = [];
+            foreach($this->request as $request_key => $request) {
+                if ($request_key != 'page') {
+                    $params[$request_key] = $request;
+                }
+            }
+            $menuItem = MenueItems::getFromPageAndParams($this->request['page'], json_encode($params));
+            $icon = 'fa fa-file';
+            if ($menuItem['title']) {
+                if ($menuItem['icon']) {
+                    $icon = $menuItem['icon'];
+                }
+                $siteTitle = '<i class="'.$icon.'"></i> '.$menuItem['title'];
+            }
+
 
 
             // Page Skin Color
@@ -636,7 +652,7 @@ abstract class AbstractPage
     }
 
     protected function canRead () {
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+        if ( $this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
             return true;
         }
         if ( (int)$this->acl['rights']['read'] === 1  ) {
@@ -646,7 +662,7 @@ abstract class AbstractPage
     }
 
     protected function canWrite () {
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+        if ( $this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
             return true;
         }
         if ( (int)$this->acl['rights']['write'] === 1  ) {
@@ -656,7 +672,7 @@ abstract class AbstractPage
     }
 
     protected function canDelete () {
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+        if ( $this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
             return true;
         }
         if ( (int)$this->acl['rights']['delete'] === 1  ) {
@@ -666,7 +682,7 @@ abstract class AbstractPage
     }
 
     protected function canAdmin () {
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+        if ( $this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
             return true;
         }
         return false;
@@ -797,6 +813,7 @@ abstract class AbstractPage
      * Liest den Displaynamen der Seite aus.
      */
     public abstract static function getSiteDisplayName();
+
 
     /**
      * @deprecated

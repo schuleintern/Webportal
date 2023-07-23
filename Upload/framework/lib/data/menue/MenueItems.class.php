@@ -111,6 +111,17 @@ class MenueItems {
     /**
      * @return Menu[]
      */
+    public static function getFromPageAndParams($page = false, $params = true) {
+
+        return PAGE::getFactory()->getMenuItemByPageAndParams($page, $params);
+
+    }
+
+
+
+    /**
+     * @return Menu[]
+     */
     public static function getFromItemDeep($item_id = false, $active = true) {
 
         if ( !(int)$item_id ) {
