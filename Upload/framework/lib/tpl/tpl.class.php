@@ -41,27 +41,26 @@ class tpl {
 
         if($this->isDevelopment) $ignoreCache = true;
 
-
 	    if($ignoreCache) {
             return $this->templateCompiler->parse(file_get_contents("../framework/templates/$name.htm"));
         }
-
 
 		if(isset($this->templateCache[$name])) {
 			return $this->templateCache[$name];
 		}
 		
-		
+		/*
 		$templateContent = DB::getDB()->query_first("SELECT * FROM templates WHERE templateName LIKE '" . $name . "'");
 
 		if($templateContent['templateCompiledContents'] != "") {
 			if(!$this->isDevelopment) return $templateContent['templateCompiledContents'];
 		}
-		
 
-	
+
+		*/
 		$this->templateCache[$name] = $this->templateCompiler->parse(file_get_contents("../framework/templates/$name.htm"));
-		
+
+        /*
 		DB::getDB()->query("INSERT INTO templates
 				(templateName, templateCompiledContents)
 				values(
@@ -69,7 +68,7 @@ class tpl {
 					'" . DB::getDB()->escapeString($this->templateCache[$name]) . "'
 				) ON DUPLICATE KEY UPDATE templateCompiledContents='" . DB::getDB()->escapeString($this->templateCache[$name]) . "'
 				");
-		
+		*/
 		
 		
 		return $this->templateCache[$name];
