@@ -67,6 +67,13 @@ class index extends AbstractPage {
       'text' => 'Im Wartungsmodus können nur Administratoren die Seite nutzen. Es können sich nur Administratoren einloggen. Alle anderen sehen einen Hinweis auf die Wartungsarbeiten.'
     );
 
+    $settings[] = array(
+      'name' => 'general-internmodus',
+      'typ' => 'BOOLEAN',
+      'titel' => "Internmodus aktiv?",
+      'text' => 'Im Internmodus können nur Administratoren und Lehrer die Seite nutzen. Es können sich nur Administratoren und Lehrer einloggen. Eltern und Schüler sehen einen Hinweis auf die Wartungsarbeiten.'
+    );
+
 
     /*$settings[] = array(
         'name' => 'general-homepage',

@@ -143,7 +143,20 @@ abstract class AbstractPage
                     eval("echo(\"" . DB::getTPL()->get("wartungsmodus/index") . "\");");
                     exit();
                 } else {
-                    $infoWartungsmodus = "<div class=\"callout callout-danger\"><i class=\"fa fa-cogs\"></i> Die Seite befindet sich im Wartungsmodus! Bitte unter den <a href=\"index.php?page=administrationmodule&module=index\">Einstellungen</a> wieder deaktivieren!</div>";
+                    $infoWartungsmodus .= "<div class=\"callout callout-danger\"><i class=\"fa fa-cogs\"></i> Die Seite befindet sich im Wartungsmodus! Bitte unter den <a href=\"index.php?page=administrationmodule&module=index\">Einstellungen</a> wieder deaktivieren!</div>";
+                }
+            }
+
+            // Internmodus
+            if (DB::getSettings()->getValue("general-internmodus")
+                && $_REQUEST['page'] != "login"
+                && $_REQUEST['page'] != "logout"
+                && $_REQUEST['page'] != "impressum") {
+                if (!DB::isLoggedIn() || !DB::getSession()->isAdmin()) {
+                    eval("echo(\"" . DB::getTPL()->get("internmodus/index") . "\");");
+                    exit();
+                } else {
+                    $infoWartungsmodus .= "<div class=\"callout callout-danger\"><i class=\"fa fa-cogs\"></i> Die Seite befindet sich im Internmodus! Bitte unter den <a href=\"index.php?page=administrationmodule&module=index\">Einstellungen</a> wieder deaktivieren!</div>";
                 }
             }
 
