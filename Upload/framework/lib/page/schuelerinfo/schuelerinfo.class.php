@@ -1338,8 +1338,10 @@ class schuelerinfo extends AbstractPage {
       			$schuelerListe .= "<tr><td width=\"10%\">" . ($i+1) . "</td>";
 
 
-      			$schuelerListe .= "<td width=\"90%\">" . $schueler[$i]->getCompleteSchuelerName() . "</td>";
-      			$schuelerListe .= "</tr>";
+      			$schuelerListe .= "<td width=\"10%\">" . $schueler[$i]->getKlasse() . "</td>";
+      			$schuelerListe .= "<td width=\"80%\">" . $schueler[$i]->getCompleteSchuelerName(). "</td>";
+
+            $schuelerListe .= "</tr>";
       		break;
 
       		case 'listWithNA':
