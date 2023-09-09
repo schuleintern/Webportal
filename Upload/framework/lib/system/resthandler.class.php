@@ -30,7 +30,8 @@ class resthandler {
         //'GetKalenderIcsFeed',
         'GetUser'
     ];
-  
+
+    private $extension = false;
   
     public function __construct() {
 
@@ -41,6 +42,8 @@ class resthandler {
         $authHeaderFound = false;
         $allowed = false;
         $type = false;
+
+        $adminGroupName = false;
 
         $headers = getallheaders();
         $method = $_SERVER['REQUEST_METHOD']; // GET or POST
@@ -74,6 +77,12 @@ class resthandler {
                 $classname = $request[1];
                 $type = 'extension';
                 define("PATH_EXTENSION", PATH_EXTENSIONS.$module['folder'].DS);
+
+                $this->extension = FILE::getExtensionJSON(PATH_EXTENSION.'extension.json');
+                if ( isset($this->extension) ) {
+                    $adminGroupName = $this->extension['adminGroupName'];
+                }
+                
               }
             }
         }
@@ -112,7 +121,7 @@ class resthandler {
                         $this->answer([], 401);
                     } else {
                         if($action->needsAdminAuth()) {
-                            if ( !DB::getSession()->getUser()->isAdmin() ) {
+                            if ( DB::getSession()->isAdminOrGroupAdmin($adminGroupName) !== true ) {
                                 $this->answer([], 401);
                             }
                         }
