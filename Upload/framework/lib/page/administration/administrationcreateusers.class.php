@@ -89,9 +89,9 @@ class administrationcreateusers extends AbstractPage {
         $users = DB::getDB()->query("SELECT * FROM users JOIN initialpasswords ON userID=initialPasswordUserID LEFT JOIN schueler ON userID=schuelerUserID WHERE userNetwork = '" . $network . "' ORDER BY length(schuelerKlasse) ASC, schuelerKlasse ASC, schuelerName ASC, schuelerRufname ASC");
       }
       else if($network == "SCHULEINTERN_LEHRER") {
-        $users = DB::getDB()->query("SELECT * FROM users JOIN initialpasswords ON userID=initialPasswordUserID LEFT JOIN lehrer ON userID=lehrerUserID WHERE userNetwork = '" . $network . "' ORDER BY lehrerKuerzel ASC, lehrerName ASC, lehrerRufname ASC");
-      }
-      else {
+        $users = DB::getDB()->query( "SELECT a.*, b.*, c.* FROM users AS a LEFT JOIN initialpasswords AS b ON a.userID = b.initialPasswordUserID LEFT JOIN lehrer AS c ON a.userID = c.lehrerUserID WHERE a.userNetwork = 'SCHULEINTERN_LEHRER'" );
+        //$users = DB::getDB()->query("SELECT * FROM users JOIN initialpasswords ON userID=initialPasswordUserID LEFT JOIN lehrer ON userID=lehrerUserID WHERE userNetwork = '" . $network . "' ORDER BY lehrerKuerzel ASC, lehrerName ASC, lehrerRufname ASC");
+      } else {
       	$users = DB::getDB()->query("SELECT * FROM eltern_codes JOIN schueler ON schuelerAsvID=codeSchuelerAsvID ORDER BY length(schuelerKlasse) ASC, schuelerKlasse ASC, schuelerName ASC, schuelerRufname ASC");
       }
 
@@ -354,16 +354,13 @@ class administrationcreateusers extends AbstractPage {
         }
 
         if(DB::getGlobalSettings()->schuelerUserMode == "ASV") {
+
+          /*
           $schuelerOhneKennungSQL = DB::getDB()->query("SELECT * FROM schueler WHERE schuelerUserID=0");
-
           $schuelerOhneKennungData = array();
-
           while($l = DB::getDB()->fetch_array($schuelerOhneKennungSQL)) $schuelerOhneKennungData[] = $l;
-
-
           for($i = 0; $i < sizeof($schuelerOhneKennungData); $i++) {
             $newPassword = substr(md5(rand()), 1, 10);
-
             // Benutzeranlegen
             DB::getDB()->query("INSERT INTO users
                 (
@@ -386,12 +383,51 @@ class administrationcreateusers extends AbstractPage {
                   ''
                 ) ON DUPLICATE KEY UPDATE userAsvID='" . DB::getDB()->escapeString($schuelerOhneKennungData[$i]['schuelerAsvID']) . "'
               ");
-
             $userID = DB::getDB()->insert_id();
-
             DB::getDB()->query("UPDATE schueler SET schuelerUserID='" . $userID . "' WHERE schuelerAsvID='" . $schuelerOhneKennungData[$i]['schuelerAsvID'] . "'");
             DB::getDB()->query("INSERT INTO initialpasswords (initialPasswordUserID, initialPassword) values('" . $userID . "','" . $newPassword . "')");
           }
+          */
+
+
+          $schueler_create = [];
+          $dataSQL = DB::getDB()->query("SELECT * FROM schueler WHERE schuelerUserID=0");
+          while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
+            $schueler_create[] = $data;
+          }
+
+
+
+          foreach($schueler_create as $data) {
+            $newPassword = substr(md5(rand()), 1, 10);
+            // Benutzeranlegen
+            DB::getDB()->query("INSERT INTO users
+                (
+                  userName,
+                  userFirstName,
+                  userLastName,
+                  userCachedPasswordHash,
+                  userCachedPasswordHashTime,
+                  userNetwork,
+                  userAsvID,
+                 userAutoresponseText
+                ) values(
+                  '_PLACEHOLDER_',
+                  '" . DB::getDB()->escapeString($data['schuelerRufname']) . "',
+                  '" . DB::getDB()->escapeString($data['schuelerName']) . "',
+                  '" . login::hash($newPassword) . "',
+                  UNIX_TIMESTAMP(),
+                  'SCHULEINTERN_SCHUELER',
+                  '" . DB::getDB()->escapeString($data['schuelerAsvID']) . "',
+                  ''
+                ) ON DUPLICATE KEY UPDATE userAsvID='" . DB::getDB()->escapeString($data['schuelerAsvID']) . "'
+              ");
+            $newUserID = DB::getDB()->insert_id();
+            DB::getDB()->query("UPDATE schueler SET schuelerUserID='" . $newUserID . "' WHERE schuelerAsvID='" . $data['schuelerAsvID'] . "'");
+            DB::getDB()->query("INSERT INTO initialpasswords (initialPasswordUserID, initialPassword) values('" . $newUserID . "','" . $newPassword . "')");
+            echo 'schueler '.$newUserID.' - '.$data['schuelerName'].'<br>';
+          }
+
 
 
           DB::getDB()->query("UPDATE users SET userName = CONCAT('S', userID) WHERE userName='_PLACEHOLDER_'");
