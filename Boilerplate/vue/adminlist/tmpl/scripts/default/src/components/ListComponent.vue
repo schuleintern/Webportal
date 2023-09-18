@@ -1,7 +1,6 @@
 <template>
   <div class="">
 
-    <button v-if="acl.write == 1" class="si-btn" @click="handlerOpen()"><i class="fa fa-plus"></i> Hinzufügen</button>
     <table class="si-table" v-if="sortList && sortList.length >= 1">
       <thead>
       <tr>
