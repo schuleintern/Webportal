@@ -39,7 +39,6 @@ class resthandler {
 
         include_once(PATH_LIB."rest/AbstractRest.class.php");
 
-        $authHeaderFound = false;
         $allowed = false;
         $type = false;
 
@@ -125,7 +124,7 @@ class resthandler {
                                 $this->answer([], 401);
                             }
                         }
-                        DB::getSession()->update ();
+                        DB::getSession()->update();
                         $action->user = DB::getSession()->getUser();
                         /*
                         if ($action->aclModuleName()) {
@@ -139,26 +138,20 @@ class resthandler {
                 }
             } else {
 
-                foreach($headers as $headername => $headervalue) {
-                    if(strtolower($headername) == 'authorization') {
-                        $authHeaderFound = true;
-                    }
-                }
 
                 // Check Auth
                 if ($action->needsSystemAuth()) {
                     $apiKey = null;
                     foreach ($headers as $headername => $headervalue) {
-                        if (strtolower($headername) == 'authorization') {
-                            $authHeaderFound = true;
-                            $apiKey = substr($headervalue, 7);
+                        if (strtolower($headername) == 'authorization' && $headervalue) {
+                            $apiKey = $headervalue;
                         }
                     }
-                    if ($apiKey != null && $apiKey != DB::getGlobalSettings()->apiKey) {
+
+                    if ( !(string)$apiKey || (string)$apiKey !== (string)DB::getGlobalSettings()->apiKey) {
                         $result = [
                             'error' => 1,
-                            'errorText' => 'Auth Failedd',
-                            'SERVER' => $apiKey
+                            'errorText' => 'Auth Failedd'
                         ];
                         $this->answer($result, 401);
                     }
