@@ -10,6 +10,46 @@ class FILE {
 
 
 
+      /**
+     * Get JavaScript Scripts Files
+     *
+     * @param page String
+     * @param scripts Array
+     */
+    public static function getScripts($scripts)
+    {
+        if (!$scripts || count($scripts) <= 0) {
+            return false;
+        }
+        $html = '';
+        foreach ($scripts as $script) {
+            $script = trim($script);
+            if (file_exists($script)) {
+                $file = file_get_contents($script);
+                if ($file) {
+                    $html .= '<script>' . $file . '</script>';
+                }
+            }
+        }
+        return $html;
+    }
+
+    public static function getScript($script)
+    {
+        if (!$script) {
+            return false;
+        }
+        $script = trim($script);
+        if (file_exists($script)) {
+          $file = file_get_contents($script);
+          if ($file) {
+              return $file;
+          }
+        }
+        
+        return false;
+    }
+
     /**
      * @author: Christian Marienfeld
      *
