@@ -149,8 +149,14 @@ p {
   word-wrap: break-word;
 }
 */
+
+body {
+  background: #d2d6de;
+}
+
 a {
   cursor: pointer;
+  text-decoration: none;
 }
 .curser {
   cursor: pointer;

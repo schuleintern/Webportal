@@ -142,6 +142,7 @@ and (orientation : portrait) {
     border: 1px solid #b7c7ce;
     color: #000;
     text-align: left;
+    white-space: break-spaces;
 }
 .si-box-shadow {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -182,6 +183,7 @@ and (orientation : portrait) {
     font-weight: 300;
     line-height: 14pt;
     letter-spacing: 0.25pt;
+    white-space: normal;
 }
 
 .si-hinweis-empty {

@@ -1,4 +1,11 @@
 
+body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 .scrollable-y {
   overflow-y: auto;
   overflow-x: hidden;
@@ -45,6 +52,14 @@
 .flex-center-center {
   justify-content: center;
   align-self: center;
+}
+.flex-center-center-center {
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
 }
 
 .flex-space-between {
