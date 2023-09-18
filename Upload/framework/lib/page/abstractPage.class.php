@@ -152,12 +152,15 @@ abstract class AbstractPage
                 && $_REQUEST['page'] != "login"
                 && $_REQUEST['page'] != "logout"
                 && $_REQUEST['page'] != "impressum") {
-                if (!DB::isLoggedIn() || !DB::getSession()->isAdmin()) {
-                    eval("echo(\"" . DB::getTPL()->get("internmodus/index") . "\");");
-                    exit();
-                } else {
-                    $infoWartungsmodus .= "<div class=\"callout callout-danger\"><i class=\"fa fa-cogs\"></i> Die Seite befindet sich im Internmodus! Bitte unter den <a href=\"index.php?page=administrationmodule&module=index\">Einstellungen</a> wieder deaktivieren!</div>";
-                }
+
+                    if (DB::isLoggedIn() && (DB::getSession()->isAdmin() || DB::getSession()->isTeacher() || DB::getSession()->isNone()  ) ) {
+                        if (DB::isLoggedIn()) {
+                            $infoWartungsmodus .= "<div class=\"callout callout-danger\"><i class=\"fa fa-cogs\"></i> Die Seite befindet sich im Internmodus!</div>";
+                        }
+                    } else {
+                        eval("echo(\"" . DB::getTPL()->get("internmodus/index") . "\");");
+                        exit();
+                    }
             }
 
             // Datenschutz
@@ -520,7 +523,7 @@ abstract class AbstractPage
 
             // import JavaScript Files
             if ($arg['scripts']) {
-                echo $this->getScript($arg['tmpl'], $arg['scripts']);
+                echo FILE::getScripts($arg['scripts']);
             }
             // import CSS Files
             if ($arg['style']) {
@@ -603,6 +606,9 @@ abstract class AbstractPage
      * @param page String
      * @param scripts Array
      */
+    /*
+    MOVED: to FILE.class.php
+
     public function getScript($view, $scripts)
     {
 
@@ -621,6 +627,7 @@ abstract class AbstractPage
         }
         return $html;
     }
+    */
 
 
     /**
@@ -1148,10 +1155,10 @@ abstract class AbstractPage
     {
 
         $html = '<div class="flex-row">';
-
         // Submenu
         $html .= '<div class="flex-3 page-submenue" style=""><div class="page-submenue-mobile">';
-        if (is_array($submenu) && count($submenu) >= 1) {
+        $temp_arr = [];
+        if (is_array($submenu) && count($submenu) >= 1 ) {
             foreach ($submenu as $item) {
                 $kill = false;
                 $item = (array)$item;
@@ -1188,14 +1195,18 @@ abstract class AbstractPage
                     if ($item['admin']) {
                         $class .= ' admin';
                     }
-                    $html .= '<a href="' . $link . '"  class=" ' . $class . '">';
-                    if ($item['icon']) {
-                        $html .= '<i class="margin-r-s fa ' . $item['icon'] . '"></i>';
-                    }
-                    $html .= $item['title'] . '</a>';
+                    $temp_arr[] = [$link, $item['title'], $class, $item['icon']];
+                    
                 }
-
-
+            }
+        }
+        if ($temp_arr && count($temp_arr) > 1) {
+            foreach($temp_arr as $foo) {
+                $html .= '<a href="' . $foo[0] . '"  class=" ' . $foo[2] . '">';
+                    if ($foo[3]) {
+                        $html .= '<i class="margin-r-s fa ' . $foo[3] . '"></i>';
+                    }
+                    $html .= $foo[1] . '</a>';
             }
         }
         $html .= '</div></div>';
