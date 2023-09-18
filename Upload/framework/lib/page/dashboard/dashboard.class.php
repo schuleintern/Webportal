@@ -89,7 +89,7 @@ class dashboard extends AbstractPage
                                     $script .= $this->getScriptData($class->getScriptData(), $varname);
                                 }
                                 if (method_exists($class, 'getScripts')) {
-                                    $script .= $this->getScript(false, $class->getScripts());
+                                    $script .= FILE::getScripts($class->getScripts());
                                 }
                             }
 

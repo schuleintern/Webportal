@@ -245,10 +245,13 @@ class session {
         if(DB::isDebug()) {
             // Im Debug kein Secure Cookie
             setcookie("schuleinternsession", $sessionID, $time, "/", null, false, true);
+			return true;
         }
         else {
             setcookie("schuleinternsession", $sessionID, $time, "/", null, true, true);
+			return true;
         }
+		return false;
     }
 	
 	
