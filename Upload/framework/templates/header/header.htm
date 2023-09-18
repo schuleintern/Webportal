@@ -159,7 +159,7 @@
       <header class="main-header">
 		<a href="index.php?page=index" class="logo">
           <span class="logo-mini"><expression>DB::getGlobalSettings()->siteNameHTMLDisplayShort</expression></span>
-          <span class="logo-lg"><img src="index.php?page=SkinSettings&action=getLogo" height="40"> <expression>DB::getGlobalSettings()->siteNameHTMLDisplay</expression></span>
+          <span class="logo-lg"><img src="<expression>PAGE::logo()</expression>" height="40"> <expression>DB::getGlobalSettings()->siteNameHTMLDisplay</expression></span>
 
         </a>
         <nav class="navbar navbar-static-top" role="navigation">

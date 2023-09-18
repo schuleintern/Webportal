@@ -8,6 +8,31 @@
 
 class PAGE {
 
+  private $logoURL = '';
+
+
+  public static function logo() {
+    
+    $upload = DB::getSettings()->getUpload('global-logo');
+		if ( $url = $upload->getThumb('logo','logo') ) {
+      return $url;
+    }
+    return false;
+
+  }
+
+  public static function logoPrint() {
+    
+    $upload = DB::getSettings()->getUpload('print-header');
+		if ( $url = $upload->getThumb('logo','print') ) {
+      return $url;
+    }
+    return "/cssjs/images/Briefkopf.jpg";
+
+  }
+
+
+
   public static function setFactory($factory) {
     $GLOBALS['factory'] = $factory;
   }

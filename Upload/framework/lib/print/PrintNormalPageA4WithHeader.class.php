@@ -35,8 +35,9 @@ class PrintNormalPageA4WithHeader extends TCPDF {
     public function Header() {
         // Logo
          if($this->page == 1|| $this->showHeaderOnEachPage) {
-            $image_file = DB::getGlobalSettings()->urlToIndexPHP . '/index.php?page=printSettings&action=GetPrintHeader';
-
+            
+          //$image_file = DB::getGlobalSettings()->urlToIndexPHP . '/index.php?page=printSettings&action=GetPrintHeader';
+            $image_file = PAGE::logoPrint();
           
            $this->Image($image_file, 15, 10, '180', '', 'JPG', '', 'M', false, 300, '', false, false, 0, false, false, false);
           

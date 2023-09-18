@@ -7,12 +7,16 @@ class SkinSettings extends AbstractPage {
 
   public function execute() {
 		if($_REQUEST['action'] == 'getLogo') {
+			return PAGE::logo();
+
+			/*
 			$upload = DB::getSettings()->getUpload('global-logo');
 			if($upload != null) $upload->sendFile();
 			else {
 				return header("Location: cssjs/images/Icon.png");
 				exit(0);
 			}
+			*/
 		}
   }
 

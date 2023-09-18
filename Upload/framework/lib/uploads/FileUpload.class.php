@@ -120,7 +120,7 @@ class FileUpload {
 
     }
 
-    public function getThumb() {
+    public function getAvatarThumb() {
 
         $folder = PATH_WWW_TMP.'avatar';
         if ( !is_dir($folder) ) {
@@ -179,6 +179,39 @@ class FileUpload {
 
         return false;
     }
+
+	public function getThumb($folder = 'thumbs', $title = false) {
+
+        $folder = PATH_WWW_TMP.$folder;
+        if ( !is_dir($folder) ) {
+            mkdir($folder);
+        }
+
+		
+        $newFilename = $folder.DS.$this->getID().'.'.$this->getExtension();
+		if ($title) {
+			$newFilename = $folder.DS.$title.'.'.$this->getExtension();
+		}
+		
+        if ( file_exists($newFilename) ) {
+            return $newFilename;
+        } else {
+
+            $filename = PATH_ROOT."data/imageUploads/" . $this->getID() . ".".$this->getExtension();
+            if (file_exists($filename)) {
+
+                if ( !$this->copyAndResizeImage($filename, $newFilename) ) {
+                    copy($filename, $newFilename);
+                }
+                if (file_exists($newFilename)) {
+                    return $newFilename;
+                }
+            }
+        }
+
+        return false;
+    }
+
 
 
     public function isExist() {
