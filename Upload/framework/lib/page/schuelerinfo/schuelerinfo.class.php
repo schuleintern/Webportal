@@ -1451,8 +1451,7 @@ class schuelerinfo extends AbstractPage {
       for($k = 0; $k < sizeof($kls); $k++) {
         $kNamen[] =  $kls[$k]->getDisplayNameMitAmtsbezeichnung();
       }
-
-      $gradeHTML .= "<br /><small>Klassenleitung: " . implode(" | ", $kNamen) . "<br />Ausbildungsrichtung: " . implode(", ",$grades[$i]->getAusbildungsrichtungen()) . "</small>";
+      $gradeHTML .= "<br /><small>Klassenleitung: " . implode(" | ", $kNamen) . "<br />Ausbildungsrichtung: " . implode(", ",$grades[$i]->getAusbildungsrichtungen()) . "<br>Anzahl: ".$grades[$i]->getAnzahlSchueler()."</small>";
 
       if(SchuelerQuarantaene::isActive()) {
         if(SchuelerQuarantaene::hasOneInClass($grades[$i])) {
