@@ -126,8 +126,29 @@ abstract class AbstractPage
                 $currentPage = $_REQUEST['page'];
                 if (!DB::getSession()->is2FactorActive()
                     && !in_array($currentPage, $pagesWithoutTwoFactor)) {
-                    header("Location: index.php?page=TwoFactor&action=initSession&gotoPage=" . urlencode($currentPage));
-                    exit(0);
+
+                    $whitelist = TwoFactor::getWhitelist();
+                 
+                    $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']);
+                    if ((int)$ip < 1) {
+                        // Localhost
+                        $ip = getHostByName(getHostName());
+                    }
+
+                    $found = false;
+                    if ($whitelist && $ip) {
+                        
+                        foreach($whitelist as $wip) {
+                            if ($wip == $ip) {
+                                $found = true;
+                            }
+                        }
+                    }
+                    if ($found != true) {
+                        header("Location: index.php?page=TwoFactor&action=initSession&gotoPage=" . urlencode($currentPage));
+                        exit(0);
+                    }
+
                 }
             }
 

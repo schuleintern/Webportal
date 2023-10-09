@@ -338,6 +338,12 @@ class TwoFactor extends AbstractPage {
 	            'titel' => "2FA für Sonstige Benutzer erzwingen?",
 	            'text' => ""
 	        ],
+			[
+	            'name' => "2fa-whitelist",
+	            'typ' => 'TEXT',
+	            'titel' => "IP Allowlist (kommagetrennt)",
+	            'text' => ""
+	        ],
 	    ];
 	}
 	
@@ -457,6 +463,18 @@ class TwoFactor extends AbstractPage {
 	 */
 	public static function is2FAActive() {
 	    return DB::getSettings()->getBoolean('2fa-active');
+	}
+
+	public static function getWhitelist() {
+	    $text = DB::getSettings()->getValue('2fa-whitelist');
+		if ($text) {
+			$arr = explode(',', $text);
+			foreach($arr as $k => $foo) {
+				$arr[$k] = trim($foo);
+			}
+			return $arr;
+		}
+		return false;
 	}
 	
 	/**
