@@ -155,7 +155,7 @@
 
 
   </head>
-  <body class="skin-{$skinColor}"><div class="wrapper" id="pageWrapper">
+  <body class="skin-{$skinColor} <if($this->isMobile == 1)><then>isMobile</then></if>"><div class="wrapper " id="pageWrapper">
       <header class="main-header">
 		<a href="index.php?page=index" class="logo">
           <span class="logo-mini"><expression>DB::getGlobalSettings()->siteNameHTMLDisplayShort</expression></span>
@@ -233,10 +233,10 @@
 
                   <if($isType == "module" )>
                     <then>
-                      <a href="index.php?page={$_REQUEST['page']}&admin=true" class=""><i class="fa fa-wrench"></i> Moduladministration</a>
+                      <a href="index.php?page={$_REQUEST['page']}&admin=true" class=""><i class="fa fa-wrench"></i><if($this->isMobile == 0)><then> Moduladministration</then></if></a>
                     </then>
                     <else>
-                      <a href="index.php?page=administrationmodule&module={$_REQUEST['page']}" class=""><i class="fa fa-wrench"></i> Moduladministration</a>
+                      <a href="index.php?page=administrationmodule&module={$_REQUEST['page']}" class=""><i class="fa fa-wrench"></i><if($this->isMobile == 0)><then> Moduladministration</then></if></a>
                     </else>
                   </if>
 
@@ -248,7 +248,7 @@
 
                  <if(DB::getSession()->isAnyAdmin())>
                     <then>
-                        <li class="messages-menu"><a href="index.php?page=administration"><i class="fa fa-cogs"></i> Admin</a></li>
+                        <li class="messages-menu"><a href="index.php?page=administration"><i class="fa fa-cogs"></i> <if($this->isMobile == 0)><then>Admin</then></if></a></li>
                     </then>
 				</if>
 
@@ -383,10 +383,19 @@
 
             </then></if>
 
+            <!--
             <ol class="breadcrumb">
             <li><a href="index.php?page=index&gplsession={$_GET['gplsession']}"><i class="fa fa-dashboard"></i> Startseite</a></li>
                 $sitemapline
             </ol>
+          -->
+
+          <if($missingEMail)><then>
+
+          	<div class="callout callout-info"><i class="fa fa-cogs"></i> <b>System</b> - Du hast bisher keine E-Mail Adresse hinzugefügt.   <a class="btn btn-primary" href="index.php?page=userprofile"><i class="fa fa-user"></i> Profil bearbeiten</a></div>
+
+          </then></if>
+
 
           <if($debugSession)><then>
 
