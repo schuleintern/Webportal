@@ -66,6 +66,12 @@ class index extends AbstractPage {
       'titel' => "Wartungsmodus aktiv?",
       'text' => 'Im Wartungsmodus können nur Administratoren die Seite nutzen. Alle anderen sehen einen Hinweis auf die Wartungsarbeiten.'
     );
+    $settings[] = array(
+      'name' => 'general-wartungsmodus-text',
+      'typ' => 'TEXT',
+      'titel' => "Text für die Seite: Wartungsmodus",
+      'text' => ''
+    );
 
     $settings[] = array(
       'name' => 'general-internmodus',
