@@ -58,14 +58,14 @@ class Absenz {
     else return true;
   }
 
-  public function getKommentar() {
-    return $this->data['absenzBemerkung'];
-  }
 
   public function getGanztagsNotiz() {
     return $this->data['absenzGanztagsNotiz'];
   }
 
+  public function getKommentar() {
+    return $this->data['absenzBemerkung'];
+  }
   public function getBemerkung() {
     return $this->data['absenzBemerkung'];
   }
@@ -142,11 +142,38 @@ class Absenz {
   public function getUserID() {
     return $this->data['absenzErfasstUserID'];
   }
+  public function getSchuelerAsvID() {
+    return $this->data['absenzSchuelerAsvID'];
+  }
+
+  
 
   public function getBeurlaubung() {
     $data = DB::getDB()->query_first("SELECT * FROM absenzen_beurlaubungen WHERE beurlaubungID='" . $this->data['absenzBeurlaubungID'] . "'");
     return new AbsenzBeurlaubung($data);
   }
+
+
+  public function getCollection($full = false) {
+
+        $collection = [
+            "id" => $this->getID(),
+            "asvID" => $this->getSchuelerAsvID(),
+            "datum_start" => $this->getDateAsSQLDate(),
+            "datum_end" => $this->getEnddatumAsSQLDate(),
+            "quelle" => $this->getKanal(),
+            "bemerkung" => $this->getBemerkung(),
+            "stunden" => $this->getStundenAsString()
+        ];
+
+        if ($full) {
+
+        }
+
+        return $collection;
+    }
+
+
 
   /**
    * Überprüft, ob generell eine schriftliche Entschuldigung vorgelegt werden muss.
