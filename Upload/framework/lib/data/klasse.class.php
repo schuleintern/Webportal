@@ -21,6 +21,9 @@ class klasse {
 
 
   }
+  public function getAnzahlSchueler() {
+    return $this->anzahlSchueler;
+  }
 
   public function getKlassenName() {
     return $this->klassenName;
@@ -298,18 +301,18 @@ class klasse {
     $klassen = [];
 
     // TODO schneller?
-    /*
+    
 
       //$unterricht = SchuelerUnterricht::getUnterrichtForLehrer($teacher, true);       // Kopplungen ignorieren, da hier nur Klassen gesucht werden.
-      $unterrichtDB = DB::getDB()->query("SELECT * FROM unterricht WHERE unterrichtLehrerID = " . $teacher->getXMLID() . " ");
+      $unterrichtDB = DB::getDB()->query("SELECT  DISTINCT unterrichtKlassen FROM unterricht WHERE unterrichtLehrerID = " . $teacher->getXMLID() . " ");
 
       while ($unterricht = DB::getDB()->fetch_array($unterrichtDB)) {
           $klassen[] = self::getByName($unterricht['unterrichtKlassen']);
       }
-
+      //$klassen = super_unique($klassen,'klasse');
       usort($klassen, ['klasse', 'cmp_obj']);
 
-      */
+      /*
     $unterricht = SchuelerUnterricht::getUnterrichtForLehrer($teacher, true);       // Kopplungen ignorieren, da hier nur Klassen gesucht werden.
 
     for($i = 0; $i < sizeof($unterricht); $i++) {
@@ -333,7 +336,7 @@ class klasse {
     }
     
     usort($klassen, ['klasse','cmp_obj']);
-
+*/
 
     return $klassen;
   }
