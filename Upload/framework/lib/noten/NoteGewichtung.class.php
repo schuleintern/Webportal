@@ -82,8 +82,12 @@ class NoteGewichtung {
         if($fach == null) return null;
         
         for($i = 0; $i < sizeof(self::$cache); $i++) {
-           if(self::$cache[$i]->getFach()->getID() == $fach->getID() && self::$cache[$i]->getJGS() == $jgs) return self::$cache[$i];
-        }
+            if(self::$cache[$i]->getFach()
+            && self::$cache[$i]->getFach()->getID() == $fach->getID()
+            && self::$cache[$i]->getJGS() == $jgs) {
+             return self::$cache[$i];
+            }
+         }
         
         return null;
     }
