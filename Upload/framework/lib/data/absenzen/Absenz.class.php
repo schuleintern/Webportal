@@ -296,9 +296,9 @@ class Absenz {
    * @param $klasse
    * @return Absenz[]
    */
-  public static function getAbsenzenForDate($mysqldate,$klasse) {
+  public static function getAbsenzenForDate($mysqldate,$klasse, $where = "absenzStunden != 'ganztag' AND") {
     $data = DB::getDB()->query("SELECT * FROM absenzen_absenzen LEFT JOIN schueler ON absenzen_absenzen.absenzSchuelerAsvID=schueler.schuelerAsvID
-        WHERE
+        WHERE $where
           absenzDatum <= '" . $mysqldate ."' AND absenzDatumEnde >= '" . $mysqldate . "'" . (($klasse != "") ? (" AND schuelerKlasse LIKE '" . $klasse . "'") : ("")) . "ORDER BY LENGTH(schuelerKlasse) ASC, schuelerKlasse ASC, schuelerName ASC, schuelerRufname ASC");
 
     $absenzen = array();
