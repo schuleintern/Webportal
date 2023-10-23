@@ -277,8 +277,10 @@ class requesthandler {
               $action = $extension['classname'];
               if ($_request['admin']) {
                   define("PATH_EXTENSION", PATH_EXTENSIONS.$extension['folder'].DS."admin".DS);
+                  define("PATH_EXTENSION_ROOT", PATH_EXTENSIONS.$extension['folder'].DS);
               } else {
                   define("PATH_EXTENSION", PATH_EXTENSIONS.$extension['folder'].DS);
+                  define("PATH_EXTENSION_ROOT", PATH_EXTENSIONS.$extension['folder'].DS);
               }
           }
       }
@@ -287,8 +289,9 @@ class requesthandler {
 
     if($allowed) {
       try {
+   
         $page = new $action($_request, $extension);
-
+        
         if ($type == 'extension' && $_request['task']) {
 
           $taskMethod = 'task'.ucfirst($_request['task']);
@@ -303,6 +306,10 @@ class requesthandler {
         } else {
             if ($type == 'extension') {
 
+                if (file_exists(PATH_LIB . 'extensions' . DS . 'Model.class.php')) {
+                  include_once(PATH_LIB . 'extensions' . DS . 'Model.class.php');
+                }
+             
                 self::loadFileFromFolder( PATH_EXTENSION.'models');
 
                 if ($extension['json'] && $extension['json']->dependencies) {
@@ -316,6 +323,7 @@ class requesthandler {
                 }
 
             }
+            
           $page->execute();
         }
       }
