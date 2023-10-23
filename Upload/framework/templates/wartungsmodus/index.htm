@@ -12,6 +12,8 @@
     <link href="cssjs/font/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
+    <link href="cssjs/css/si-components.css" rel="stylesheet" type="text/css" />
+    <link href="cssjs/css/grid.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,8 +30,11 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       	$message
+        
+
       	<div class="callout callout-danger"><strong><i class="fa fa-info"></i> Das Portal befindet sich momentan im Wartungsmodus. Bitte besuchen Sie uns in einigen Minuten erneut.</strong></div>
-      	<div style="text-align: center">
+        <div class="si-hinweis margin-b-m">$text</div>
+        <div style="text-align: center">
       	
       	<if(DB::isLoggedIn() && $_REQUEST['page'] != "logout")><then>Angemeldet als "<expression>DB::getSession()->getData("userName")</expression>" | <a href="index.php?page=logout"><i class="fa fa-sign-out"></i> Logout</a>
       	</then><else>
