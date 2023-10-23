@@ -9,7 +9,6 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="cssjs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	  <link href="cssjs/font/fontawesome/css/all.css" rel="stylesheet" type="text/css" />
-	  <link href="cssjs/font/fontawesome/js/v4-shims.js" rel="stylesheet" type="text/css" />
     <link href="cssjs/font/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link href="cssjs/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
@@ -138,7 +137,7 @@
 
   	<div class="login-box" id="noJSWarning">
       <div class="login-logo">
-        <a href="index.php"><img src="index.php?page=SkinSettings&action=getLogo" width="150" border="0"></a>
+        <a href="index.php"><img src="<expression>PAGE::logo()</expression>" width="150" border="0"></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       <b>Sie haben in Ihrem Browser kein JavaScript aktiviert.</b><br />
@@ -156,7 +155,7 @@
 
     <div class="login-box" id="loginboxmain" style="display:none">
       <div class="login-logo">
-        <a href="index.php"><img src="index.php?page=SkinSettings&action=getLogo" width="150" border="0"></a>
+        <a href="index.php"><img src="<expression>PAGE::logo()</expression>" width="150" border="0"></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       	$message
