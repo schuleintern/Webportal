@@ -29,6 +29,7 @@ abstract class AbstractPage
     private $request = false;
     public $extension = false;
     private $isAnyAdmin = false;
+    private $isMobile = false;
 
     static $adminGroupName = NULL;
     static $aclGroupName = NULL;
@@ -43,13 +44,14 @@ abstract class AbstractPage
      * @param request Array ( _GET Parameter)
      * @param extension Array
      */
-    public function __construct($pageline,
-                                $ignoreSession = false,
-                                $isAdmin = false,
-                                $isNotenverwaltung = false,
-                                $request = [],
-                                $extension = [])
-    {
+    public function __construct(
+        $pageline,
+        $ignoreSession = false,
+        $isAdmin = false,
+        $isNotenverwaltung = false,
+        $request = [],
+        $extension = []
+    ) {
 
 
         header("X-Frame-Options: deny");
@@ -61,8 +63,10 @@ abstract class AbstractPage
 
         if ($this->sitename != "" && in_array($this->sitename, requesthandler::getAllowedActions()) && !self::isActive($this->sitename)) {
             // TODO: Sinnvolle Fehlermeldung
-            die ("Die angegebene Seite ist leider nicht aktiviert");
+            die("Die angegebene Seite ist leider nicht aktiviert");
         }
+
+        $this->isMobile = $this->isMobileDevice();
 
         // Load Extension JSON and set Defaults
         if ($this->extension) {
@@ -100,9 +104,8 @@ abstract class AbstractPage
                         setcookie("schuleinternsession", null);
                     }
                     $message = "<div class=\"callout callout-danger\"><p><strong>Sie waren leider zu lange inaktiv. Sie k&ouml;nnen dauerhaft angemeldet bleiben, wenn Sie den Haken bei \"Anmeldung speichern\" setzen. </strong></p></div>";
-                    eval ("echo(\"" . DB::getTPL()->get("login/index") . "\");");
+                    eval("echo(\"" . DB::getTPL()->get("login/index") . "\");");
                     exit;
-
                 } else {
                     DB::getSession()->update();
                 }
@@ -112,11 +115,14 @@ abstract class AbstractPage
             // 2 Faktor
 
             $needTwoFactor = false;
-            if (DB::isLoggedIn()
+            if (
+                DB::isLoggedIn()
                 && TwoFactor::is2FAActive()
-                && TwoFactor::enforcedForUser(DB::getSession()->getUser())) {
+                && TwoFactor::enforcedForUser(DB::getSession()->getUser())
+            ) {
                 $needTwoFactor = true;
             }
+
             if ($needTwoFactor || ($this->need2Factor() && TwoFactor::is2FAActive())) {
                 $pagesWithoutTwoFactor = [
                     'login',
@@ -124,11 +130,13 @@ abstract class AbstractPage
                     'TwoFactor'
                 ];
                 $currentPage = $_REQUEST['page'];
-                if (!DB::getSession()->is2FactorActive()
-                    && !in_array($currentPage, $pagesWithoutTwoFactor)) {
+                if (
+                    !DB::getSession()->is2FactorActive()
+                    && !in_array($currentPage, $pagesWithoutTwoFactor)
+                ) {
 
                     $whitelist = TwoFactor::getWhitelist();
-                 
+
                     $ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']);
                     if ((int)$ip < 1) {
                         // Localhost
@@ -137,8 +145,8 @@ abstract class AbstractPage
 
                     $found = false;
                     if ($whitelist && $ip) {
-                        
-                        foreach($whitelist as $wip) {
+
+                        foreach ($whitelist as $wip) {
                             if ($wip == $ip) {
                                 $found = true;
                             }
@@ -148,7 +156,6 @@ abstract class AbstractPage
                         header("Location: index.php?page=TwoFactor&action=initSession&gotoPage=" . urlencode($currentPage));
                         exit(0);
                     }
-
                 }
             }
 
@@ -156,11 +163,14 @@ abstract class AbstractPage
             // Wartungsmodus
 
             $infoWartungsmodus = "";
-            if (DB::getSettings()->getValue("general-wartungsmodus")
+            if (
+                DB::getSettings()->getValue("general-wartungsmodus")
                 && $_REQUEST['page'] != "login"
                 && $_REQUEST['page'] != "logout"
-                && $_REQUEST['page'] != "impressum") {
+                && $_REQUEST['page'] != "impressum"
+            ) {
                 if (!DB::isLoggedIn() || !DB::getSession()->isAdmin()) {
+                    $text = nl2br(DB::getSettings()->getValue("general-wartungsmodus-text"));
                     eval("echo(\"" . DB::getTPL()->get("wartungsmodus/index") . "\");");
                     exit();
                 } else {
@@ -169,30 +179,34 @@ abstract class AbstractPage
             }
 
             // Internmodus
-            if (DB::getSettings()->getValue("general-internmodus")
+            if (
+                DB::getSettings()->getValue("general-internmodus")
                 && $_REQUEST['page'] != "login"
                 && $_REQUEST['page'] != "logout"
-                && $_REQUEST['page'] != "impressum") {
+                && $_REQUEST['page'] != "impressum"
+            ) {
 
-                    if (DB::isLoggedIn() && (DB::getSession()->isAdmin() || DB::getSession()->isTeacher() || DB::getSession()->isNone()  ) ) {
-                        if (DB::isLoggedIn()) {
-                            $infoWartungsmodus .= "<div class=\"callout callout-danger\"><i class=\"fa fa-cogs\"></i> Die Seite befindet sich im Internmodus!</div>";
-                        }
-                    } else {
-                        eval("echo(\"" . DB::getTPL()->get("internmodus/index") . "\");");
-                        exit();
+                if (DB::isLoggedIn() && (DB::getSession()->isAdmin() || DB::getSession()->isTeacher() || DB::getSession()->isNone())) {
+                    if (DB::isLoggedIn()) {
+                        $infoWartungsmodus .= "<div class=\"callout callout-danger\"><i class=\"fa fa-cogs\"></i> Die Seite befindet sich im Internmodus!</div>";
                     }
+                } else {
+                    eval("echo(\"" . DB::getTPL()->get("internmodus/index") . "\");");
+                    exit();
+                }
             }
 
             // Datenschutz
 
-            if (DB::isLoggedIn()
+            if (
+                DB::isLoggedIn()
                 && datenschutz::needFreigabe(DB::getSession()->getUser())
                 && !datenschutz::isFreigegeben(DB::getSession()->getUser())
                 && $_REQUEST['page'] != "login"
                 && $_REQUEST['page'] != "logout"
                 && $_REQUEST['page'] != "impressum"
-                && $_REQUEST['page'] != "datenschutz") {
+                && $_REQUEST['page'] != "datenschutz"
+            ) {
                 header("Location: index.php?page=datenschutz&confirmPopUp=1");
                 exit(0);
             }
@@ -200,8 +214,10 @@ abstract class AbstractPage
 
             // Check Adminrights
 
-            if (DB::isLoggedIn()
-                && (DB::getSession()->isAdmin() || DB::getSession()->isMember($this->getAdminGroup()))) {
+            if (
+                DB::isLoggedIn()
+                && (DB::getSession()->isAdmin() || DB::getSession()->isMember($this->getAdminGroup()))
+            ) {
                 $this->isAnyAdmin = true;
             } else {
                 $this->isAnyAdmin = false;
@@ -237,20 +253,23 @@ abstract class AbstractPage
             $menu = new menu($isAdmin, $isNotenverwaltung);
             $menuHTML = $menu->getHTML();
 
-            $sitemapline = "";
+
+            //$sitemapline = "";
             $siteTitle = '';
             if (is_array($pageline)) {
-                for ($i = 0; $i < sizeof($pageline); $i++) {
+                /*for ($i = 0; $i < sizeof($pageline); $i++) {
                     $sitemapline .= '<li class="active">' . $pageline [$i] . '</li>';
                 }
+                */
                 $siteTitle = $pageline[sizeof($pageline) - 1];
             }
 
 
 
+
             // Seitennamen durch Menüpunkt-DB-Title ersetzen
             $params = [];
-            foreach($this->request as $request_key => $request) {
+            foreach ($this->request as $request_key => $request) {
                 if ($request_key != 'page') {
                     $params[$request_key] = $request;
                 }
@@ -261,7 +280,7 @@ abstract class AbstractPage
                 if ($menuItem['icon']) {
                     $icon = $menuItem['icon'];
                 }
-                $siteTitle = '<i class="'.$icon.'"></i> '.$menuItem['title'];
+                $siteTitle = '<i class="' . $icon . '"></i> ' . $menuItem['title'];
             }
 
 
@@ -282,9 +301,11 @@ abstract class AbstractPage
 
             // Laufzettel Info
 
-            if ($this->isActive("laufzettel")
+            if (
+                $this->isActive("laufzettel")
                 && DB::isLoggedIn()
-                && DB::getSession()->isTeacher()) {
+                && DB::getSession()->isTeacher()
+            ) {
                 $zuBestaetigen = DB::getDB()->query_first("SELECT COUNT(laufzettelID) AS zubestaetigen FROM laufzettel WHERE laufzettelDatum >= CURDATE() AND laufzettelID IN (SELECT laufzettelID FROM laufzettel_stunden WHERE laufzettelLehrer LIKE '" . DB::getSession()->getTeacherObject()->getKuerzel() . "' AND laufzettelZustimmung=0)");
 
                 if ($zuBestaetigen[0] > 0) {
@@ -343,9 +364,11 @@ abstract class AbstractPage
 
 
             // Is Admin ?
-            if (DB::isLoggedIn()
+            if (
+                DB::isLoggedIn()
                 && $this->hasAdmin()
-                && (DB::getSession()->isAdmin() || DB::getSession()->isMember($this->getAdminGroup()))) {
+                && (DB::getSession()->isAdmin() || DB::getSession()->isMember($this->getAdminGroup()))
+            ) {
                 $isAdmin = true;
             } else {
                 $isAdmin = false;
@@ -407,7 +430,6 @@ abstract class AbstractPage
                                     }
                                 }
                             }
-
                         }
 
                         if ($do == true && $json['widgets']) {
@@ -416,7 +438,7 @@ abstract class AbstractPage
                                     $widgetPath = PATH_EXTENSIONS . $ext[0] . DS . 'widgets' . DS . $ext[1] . DS . 'widget.php';
                                     if (file_exists($widgetPath)) {
                                         if ($widget->class) {
-                                            if ( include_once($widgetPath) ) {
+                                            if (include_once($widgetPath)) {
                                                 $widgetClass = new $widget->class([
                                                     "path" => PATH_EXTENSIONS . $ext[0]
                                                 ]);
@@ -437,7 +459,7 @@ abstract class AbstractPage
 
             // AutoLogout
             $selectedAutoLogout = DB::$mySettings['autoLogout'];
-            if ($selectedAutoLogout == null ) {
+            if ($selectedAutoLogout == null) {
                 $selectedAutoLogout = 30;
             }
             $selectedAutoLogout = $selectedAutoLogout * 60;
@@ -455,13 +477,27 @@ abstract class AbstractPage
 
             if (DB::getSession()) {
                 $userID = DB::getSession()->getUserID();
+
+                // Missing E-Mail
+                if ( DB::getSession()->getData('userEMail') == '' ) {
+                    $missingEMail = true;
+                }
+                
             }
 
-
             // Render Header
-            eval ("\$this->header =  \"" . DB::getTPL()->get('header/header') . "\";");
-
+            eval("\$this->header =  \"" . DB::getTPL()->get('header/header') . "\";");
         }
+    }
+
+
+    public function isMobileDevice()
+    {
+        return preg_match(
+            "/(android|avantgo|blackberry|bolt|boost|cricket|docomo
+    |fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i",
+            $_SERVER["HTTP_USER_AGENT"]
+        );
     }
 
 
@@ -506,8 +542,10 @@ abstract class AbstractPage
             } else {
 
                 // Check for tmpl Overrights
-                if ($this->request['page']
-                    && file_exists(PATH_TMPL_OVERRIGHTS . 'extensions' . DS . $this->request['page'] . DS . $arg['tmpl'] . '.tmpl.php')) {
+                if (
+                    $this->request['page']
+                    && file_exists(PATH_TMPL_OVERRIGHTS . 'extensions' . DS . $this->request['page'] . DS . $arg['tmpl'] . '.tmpl.php')
+                ) {
                     include_once(PATH_TMPL_OVERRIGHTS . 'extensions' . DS . $this->request['page'] . DS . $arg['tmpl'] . '.tmpl.php');
                 } else {
                     if ($arg['vars'] && count($arg['vars']) >= 1) {
@@ -530,7 +568,6 @@ abstract class AbstractPage
                                         break;
                                 }
                             }
-
                         }
                     }
                     include_once($path . $arg['tmpl'] . '.tmpl.php');
@@ -550,7 +587,6 @@ abstract class AbstractPage
             if ($arg['style']) {
                 echo $this->getStyle($arg['tmpl'], $arg['style']);
             }
-
         } else {
             new errorPage('Missing Template File');
             exit;
@@ -590,9 +626,9 @@ abstract class AbstractPage
     public function getScriptData($data, $varname = 'globals')
     {
         if ($data) {
-            return '<script>var '.$varname.' = ' . json_encode($data) . ';</script>';
+            return '<script>var ' . $varname . ' = ' . json_encode($data) . ';</script>';
         }
-        return '<script>var '.$varname.' = {};</script>';
+        return '<script>var ' . $varname . ' = {};</script>';
     }
 
 
@@ -666,7 +702,6 @@ abstract class AbstractPage
                 $this->userImage = "cssjs/images/userimages/default.png";
             }
             eval("\$this->loginStatus = \"" . DB::getTPL()->get("header/loginStatusLoggedIn") . "\";");
-
         } else {
             $this->displayName = "Nicht angemeldet";
             eval("\$this->loginStatus = \"" . DB::getTPL()->get("header/loginStatusNotLoggedIn") . "\";");
@@ -692,38 +727,42 @@ abstract class AbstractPage
         }
     }
 
-    protected function canRead () {
-        if ( $this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+    protected function canRead()
+    {
+        if ($this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true) {
             return true;
         }
-        if ( (int)$this->acl['rights']['read'] === 1  ) {
-            return true;
-        }
-        return false;
-    }
-
-    protected function canWrite () {
-        if ( $this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
-            return true;
-        }
-        if ( (int)$this->acl['rights']['write'] === 1  ) {
+        if ((int)$this->acl['rights']['read'] === 1) {
             return true;
         }
         return false;
     }
 
-    protected function canDelete () {
-        if ( $this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+    protected function canWrite()
+    {
+        if ($this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true) {
             return true;
         }
-        if ( (int)$this->acl['rights']['delete'] === 1  ) {
+        if ((int)$this->acl['rights']['write'] === 1) {
             return true;
         }
         return false;
     }
 
-    protected function canAdmin () {
-        if ( $this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true ) {
+    protected function canDelete()
+    {
+        if ($this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true) {
+            return true;
+        }
+        if ((int)$this->acl['rights']['delete'] === 1) {
+            return true;
+        }
+        return false;
+    }
+
+    protected function canAdmin()
+    {
+        if ($this->extension['json']['adminGroupName'] && DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === true) {
             return true;
         }
         return false;
@@ -763,7 +802,6 @@ abstract class AbstractPage
      */
     public static function notifyUserAdded($userID)
     {
-
     }
 
     /**
@@ -771,7 +809,6 @@ abstract class AbstractPage
      */
     public static function notifyUserDeleted($userID)
     {
-
     }
 
     /**
@@ -798,7 +835,6 @@ abstract class AbstractPage
                     self::$activePages[] = $row['name'];
                 }
             }
-
         }
         if (sizeof($name::onlyForSchool()) > 0) {
             if (!in_array(DB::getGlobalSettings()->schulnummer, $name::onlyForSchool())) {
@@ -841,11 +877,10 @@ abstract class AbstractPage
             $result = DB::getDB()->query('SELECT `settingValue`, `settingName` FROM `settings` WHERE `settingsExtension` = "ext_' . $this->extension['folder'] . '" ');
             while ($data = DB::getDB()->fetch_array($result, true)) {
 
-                if (isset($data['settingValue']) && $data['settingName'] ) {
+                if (isset($data['settingValue']) && $data['settingName']) {
                     $settings[$data['settingName']] = $data['settingValue'];
                 }
             }
-
         }
         return $settings;
     }
@@ -1064,7 +1099,6 @@ abstract class AbstractPage
      */
     public static function doSchuljahreswechsel($sqlDateFirstSchoolDay)
     {
-
     }
 
 
@@ -1083,7 +1117,6 @@ abstract class AbstractPage
             }
         }
         return $submenuHTML;
-
     }
 
     /**
@@ -1179,7 +1212,7 @@ abstract class AbstractPage
         // Submenu
         $html .= '<div class="flex-3 page-submenue" style=""><div class="page-submenue-mobile">';
         $temp_arr = [];
-        if (is_array($submenu) && count($submenu) >= 1 ) {
+        if (is_array($submenu) && count($submenu) >= 1) {
             foreach ($submenu as $item) {
                 $kill = false;
                 $item = (array)$item;
@@ -1217,17 +1250,16 @@ abstract class AbstractPage
                         $class .= ' admin';
                     }
                     $temp_arr[] = [$link, $item['title'], $class, $item['icon']];
-                    
                 }
             }
         }
         if ($temp_arr && count($temp_arr) > 1) {
-            foreach($temp_arr as $foo) {
+            foreach ($temp_arr as $foo) {
                 $html .= '<a href="' . $foo[0] . '"  class=" ' . $foo[2] . '">';
-                    if ($foo[3]) {
-                        $html .= '<i class="margin-r-s fa ' . $foo[3] . '"></i>';
-                    }
-                    $html .= $foo[1] . '</a>';
+                if ($foo[3]) {
+                    $html .= '<i class="margin-r-s fa ' . $foo[3] . '"></i>';
+                }
+                $html .= $foo[1] . '</a>';
             }
         }
         $html .= '</div></div>';
@@ -1238,7 +1270,11 @@ abstract class AbstractPage
 									<button class="dropbtn"><i class="fas fa-ellipsis-v"></i></button>
 									<div class="page-dropdownMenue-content">';
             foreach ($dropdown as $item) {
-                $html .= '<a href="' . $item['url'] . '" class="margin-r-xs active">';
+                $html .= '<a href="' . $item['url'] . '"';
+                if ($item['target']) {
+                    $html .= ' target="_blank" ';
+                }
+                $html .= 'class="margin-r-xs active">';
                 if ($item['icon']) {
                     $html .= '<i class="margin-r-s ' . $item['icon'] . '"></i>';
                 }
@@ -1282,7 +1318,6 @@ abstract class AbstractPage
         } else {
             exit;
         }
-
     }
 
 
@@ -1340,7 +1375,8 @@ abstract class AbstractPage
         return $list;
     }
 
-    public function taskSaveAdminSettings() {
+    public function taskSaveAdminSettings()
+    {
 
         if (DB::getSession()->isAdmin()) {
             $settings = json_decode($_POST['settings']);
@@ -1363,6 +1399,4 @@ abstract class AbstractPage
         echo json_encode(array("error" => "Fehler beim Speichern"));
         exit;
     }
-
-
 }
