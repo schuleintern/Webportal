@@ -17,8 +17,8 @@ class PrintNormalPageA4WithoutHeader extends TCPDF {
 
 
     // set document information
-    $this->SetCreator('SchuleIntern');
-    $this->SetAuthor('SchuleIntern');
+    $this->SetCreator('Schule-Intern');
+    $this->SetAuthor('Schule-Intern');
     $this->SetTitle($name);
 
     $this->name = $name;
