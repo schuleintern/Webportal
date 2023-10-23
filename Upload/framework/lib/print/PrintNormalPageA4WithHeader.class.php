@@ -1,6 +1,7 @@
 <?php
 
-class PrintNormalPageA4WithHeader extends TCPDF {
+class PrintNormalPageA4WithHeader extends TCPDF
+{
 
   private $name = "";
 
@@ -9,80 +10,85 @@ class PrintNormalPageA4WithHeader extends TCPDF {
   private $showPrinted = false;
 
   private $showLochmarken = false;
-  
+
   private $showHeaderOnEachPage = false;
-  
+
   private $printSpitschkaHeader = false;
 
-  public function __construct($name, $format='A4', $orientation='P') {
-    parent::__construct($orientation,'mm',$format,true,'UTF-8',false,true);
+  public function __construct($name, $format = 'A4', $orientation = 'P')
+  {
+    parent::__construct($orientation, 'mm', $format, true, 'UTF-8', false, true);
 
     $this->showLochmarken = ($format == 'A4' && $orientation == 'P');
 
 
     // set document information
-    $this->SetCreator('SchuleIntern');
-    $this->SetAuthor('SchuleIntern');
+    $this->SetCreator('Schule-Intern');
+    $this->SetAuthor('Schule-Intern');
     $this->SetTitle($name);
 
     $this->name = $name;
 
     $this->SetMargins(20, 35);
-    
   }
-  
-    //Page header
-    public function Header() {
-        // Logo
-         if($this->page == 1|| $this->showHeaderOnEachPage) {
-            
-          //$image_file = DB::getGlobalSettings()->urlToIndexPHP . '/index.php?page=printSettings&action=GetPrintHeader';
-            $image_file = PAGE::logoPrint();
-          
-           $this->Image($image_file, 15, 10, '180', '', 'JPG', '', 'M', false, 300, '', false, false, 0, false, false, false);
-          
-        }
+
+  //Page header
+  public function Header()
+  {
+    // Logo
+    if ($this->page == 1 || $this->showHeaderOnEachPage) {
+
+      //$image_file = DB::getGlobalSettings()->urlToIndexPHP . '/index.php?page=printSettings&action=GetPrintHeader';
+      $image_file = PAGE::logoPrint();
+
+      $this->Image($image_file, 15, 10, '180', '', 'JPG', '', 'M', false, 300, '', false, false, 0, false, false, false);
     }
+  }
 
-    public function setHTMLContent($html) {
-      $this->AddPage();
-      $this->SetFont("dejavusans","",9);
-      $this->writeHTML($html, true, false, false, false, '');
-    }
-    
-    public function showHeaderOnEachPage() {
-    	$this->showHeaderOnEachPage = true;
-    }
+  public function setHTMLContent($html)
+  {
+    $this->AddPage();
+    $this->SetFont("dejavusans", "", 9);
+    $this->writeHTML($html, true, false, false, false, '');
+  }
 
-    public function send() {
+  public function showHeaderOnEachPage()
+  {
+    $this->showHeaderOnEachPage = true;
+  }
 
-      if($this->showLochmarken) {
+  public function send()
+  {
 
-          for($i = 1; $i <= $this->numpages; $i++) {
-          $this->setPage($i);
-          $this->Line(0, 148.5, 10, 148.5,[]);	// Lochmarke
-        }
+    if ($this->showLochmarken) {
 
+      for ($i = 1; $i <= $this->numpages; $i++) {
+        $this->setPage($i);
+        $this->Line(0, 148.5, 10, 148.5, []);  // Lochmarke
       }
-      if(DB::isDebug()) $this->Output($this->name . ".pdf", "I");
-      else $this->Output($this->name . ".pdf", "D");
     }
+    if (DB::isDebug()) $this->Output($this->name . ".pdf", "I");
+    else $this->Output($this->name . ".pdf", "D");
+  }
 
-    // Page footer
-    public function Footer() {
-        // Position at 15 mm from bottom
-        $this->SetY(-15);
-        // Set font
-        $this->SetFont('helvetica', 'I', 8);
-        // Page number
-        $this->Cell(0, 10, 'Seite '.$this->getAliasNumPage(). ' von ' .$this->getAliasNbPages() . (($this->showStand) ? (" | Stand: " . DB::getAsvStand()) : "") . (($this->showPrinted) ? (" | Gedruckt: " . DateFunctions::getTodayAsNaturalDate()) : "") . " | " . DB::getGlobalSettings()->siteNamePlain, 0, false, 'C', 0, '', 0, false, 'T', 'M');
-    }
+  // Page footer
+  public function Footer()
+  {
+    // Position at 15 mm from bottom
+    $this->SetY(-15);
+    // Set font
+    $this->SetFont('helvetica', 'I', 8);
+    // Page number
+    $this->Cell(0, 10, 'Seite ' . $this->getAliasNumPage() . ' von ' . $this->getAliasNbPages() . (($this->showStand) ? (" | Stand: " . DB::getAsvStand()) : "") . (($this->showPrinted) ? (" | Gedruckt: " . DateFunctions::getTodayAsNaturalDate()) : "") . " | " . DB::getGlobalSettings()->siteNamePlain, 0, false, 'C', 0, '', 0, false, 'T', 'M');
+  }
 
-    public function showStand() {
-      $this->showStand = true;
-    }
+  public function showStand()
+  {
+    $this->showStand = true;
+  }
 
-    public function setPrintedDateInFooter() {
-      $this->showPrinted = true;
-    }
+  public function setPrintedDateInFooter()
+  {
+    $this->showPrinted = true;
+  }
 }
