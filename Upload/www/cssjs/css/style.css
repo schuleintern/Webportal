@@ -355,7 +355,11 @@ button.btn-blau {
 }
 
 .text-small {
-  font-size: 80%;
+  font-size: 80% !important;
+}
+.text-label {
+  font-size: 80% !important;
+  font-weight: bold !important;
 }
 
 .text-big-2 {
@@ -529,6 +533,11 @@ button.btn-blau {
   margin-left: 0.3rem;
   margin-right: 0;
 }
+.page-submenue a:hover,
+.page-submenue .item:hover{
+  color: #666;
+  background-color: #d2d6de;
+}
 .page-submenue a.active,
 .page-submenue .item.active {
   border-top-right-radius: 4px;
@@ -598,3 +607,15 @@ button.btn-blau {
   overflow-y: auto;
 }
 
+
+
+
+
+
+/**
+*  MOBILE 
+*/
+
+body.isMobile .breadcrumb {
+  display: none !important;
+}

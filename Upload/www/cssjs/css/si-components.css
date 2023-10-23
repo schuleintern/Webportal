@@ -401,6 +401,62 @@ and (orientation : portrait) {
 }
 
 
+
+/**
+    DETAILS BOX
+ */
+ .si-details {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid #8aa4af;
+    border-radius: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    text-align: left;
+    color: #000;
+}
+.si-details ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.si-details ul li {
+    margin: 0;
+    padding-left: 6rem;
+    padding-right: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.si-details ul li:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.si-details ul li:first-child {
+    padding-top: 3rem;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+}
+.si-details ul li:last-child {
+    padding-bottom: 3rem;
+    border-bottom-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+}
+.si-details ul li label {
+    margin-top: 0.3rem;
+    padding-bottom: 0.5rem;
+    font-size: 11pt;
+    font-weight: 400;
+    line-height: 14pt;
+    letter-spacing: 0.75pt;
+    left: -3rem;
+    position: relative;
+}
+
+
+
+
     /**
         MODAL
      */
