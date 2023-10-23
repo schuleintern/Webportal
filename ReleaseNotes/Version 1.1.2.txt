@@ -1,5 +1,0 @@
-- Diverse Buttons / Icons wieder da (https://github.com/schuleintern/Webportal/issues/123)
-- Updateprozess stabilisiert
-- Absenzenverwaltung: Druck von Befreiungen mit falschem Druckkopf
-- Nachrichten: Roter Banner kann in den Einstellungen aktiviert werden.
-- All-Inkl Mail Account Erzeugung versteckt, da noch nicht fertig.
