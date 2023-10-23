@@ -197,12 +197,10 @@ class FileUpload {
             return $newFilename;
         } else {
 
-            $filename = PATH_ROOT."data/imageUploads/" . $this->getID() . ".".$this->getExtension();
+            $filename = $this->getFilePath(); //PATH_ROOT."data/uploads/" . $this->getID() . ".dat";
             if (file_exists($filename)) {
 
-                if ( !$this->copyAndResizeImage($filename, $newFilename) ) {
-                    copy($filename, $newFilename);
-                }
+                copy($filename, $newFilename);
                 if (file_exists($newFilename)) {
                     return $newFilename;
                 }
@@ -703,7 +701,7 @@ class FileUpload {
 			else $mime = $mimetype;
 		}
 		else new errorPage("MIME Type kann nicht bestimmt werden!");
-		
+
 		if($mime != null) {
 			
 			DB::getDB()->query("INSERT INTO uploads
@@ -724,7 +722,14 @@ class FileUpload {
 			
 			$newID = DB::getDB()->insert_id();
 
-			move_uploaded_file($_FILES[$fieldName]["tmp_name"], "../data/uploads/" . $newID . ".dat");
+			if (!move_uploaded_file($_FILES[$fieldName]["tmp_name"], "../data/uploads/" . $newID . ".dat")) {
+				return [
+					'result' => false,
+					'uploadobject' => null,
+					'mimeerror' => false,
+					'text' => "Es gab einen Fehler beim Upload: Move File"
+				];	
+			}
 			
 			$data = DB::getDB()->query_first("SELECT * FROM uploads WHERE uploadID='" . $newID. "'");
 			
