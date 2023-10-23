@@ -3,7 +3,8 @@
 
     <div class="flex-row">
       <div class="flex-1">
-        <button class="si-btn si-btn-light" v-on:click="handlerBack"><i class="fa fa-angle-left"></i> Zurück</button>
+        <button class="si-btn si-btn-light margin-r-m" v-on:click="handlerBack"><i class="fa fa-angle-left"></i> Zurück</button>
+        <button class="si-btn" v-on:click="handlerSubmit"><i class="fas fa-save"></i> Speichern</button>
       </div>
       <div v-show="item.id" class="flex flex-end">
         <button v-show="deleteItem == false" v-on:click="handlerDelete(item)" class="si-btn si-btn-light"><i class="far fa-trash-alt"></i> Löschen</button>
@@ -11,15 +12,15 @@
       </div>
     </div>
 
-    <div class="si-form">
-      <ul class="">
+    <div class="si-form flex-row">
+      <ul class="flex-3">
         <li class="">
           <label class="">Titel</label>
           <input type="text" v-model="item.title" class="width-40vw" />
         </li>
         <li class="">
           <label class="">Gruppe</label>
-          <input type="text" readonly class="select readonly width-20vw" :value="item.parent_title" v-on:click="handlerParentOpen" />
+          <input type="text" readonly class="curser width-20vw" :value="item.parent_title" v-on:click="handlerParentOpen" />
         </li>
         <li class=""></li>
         <li v-show="parentOpen" class=" padding-t-m padding-b-m height_35 scrollable-y">
@@ -44,7 +45,7 @@
         <li class="">
           <label class="">Seite</label>
           <label v-if="item.params" class="small">Params: {{item.params}}</label>
-          <input type="text" :value="item.page" readonly class="select readonly width-20vw" v-on:click="handlerPagesOpen"/>
+          <input type="text" :value="item.page" readonly class="curser width-20vw" v-on:click="handlerPagesOpen"/>
         </li>
         <li class=""></li>
         <li v-show="pagesOpen" class=" padding-t-m padding-b-m  height_35 scrollable-y">
@@ -72,40 +73,41 @@
             </span>
           </li>
           </span>
-        <li class="">
-          <label class="">Icon</label>
-          <input type="text" v-model="item.icon" class="width-20vw" />
-        </li>
+
         <li class="" v-if="item.access">
           <label class="">Sichtbarkeit</label>
 
-          <div  class="blockInline margin-l-l">
+          <div  class="margin-l-l si-btn-multiple">
 
-            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.admin == 1}" v-on:click="handlerToggleActive('admin')">
+            <button class="si-btn si-btn-toggle-off " :class="{'si-btn-toggle-on': item.access.admin == 1}" v-on:click="handlerToggleActive('admin')">
               <i v-if="item.access.admin == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.admin == 0" class="fas fa-toggle-off"></i> Admin</button>
-            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.adminGroup == 1}" v-on:click="handlerToggleActive('adminGroup')">
+            <button class="si-btn si-btn-toggle-off " :class="{'si-btn-toggle-on': item.access.adminGroup == 1}" v-on:click="handlerToggleActive('adminGroup')">
               <i v-if="item.access.adminGroup == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.adminGroup == 0" class="fas fa-toggle-off"></i> Moduladmin</button>
-            <br>
-            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.teacher == 1}" v-on:click="handlerToggleActive('teacher')">
+
+            <button class="si-btn si-btn-toggle-off " :class="{'si-btn-toggle-on': item.access.teacher == 1}" v-on:click="handlerToggleActive('teacher')">
               <i v-if="item.access.teacher == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.teacher == 0" class="fas fa-toggle-off"></i> Lehrer</button>
-            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.pupil == 1}" v-on:click="handlerToggleActive('pupil')">
+            <button class="si-btn si-btn-toggle-off " :class="{'si-btn-toggle-on': item.access.pupil == 1}" v-on:click="handlerToggleActive('pupil')">
               <i v-if="item.access.pupil == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.pupil == 0" class="fas fa-toggle-off"></i> Schüler</button>
-            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.parents == 1}" v-on:click="handlerToggleActive('parents')">
+            <button class="si-btn si-btn-toggle-off " :class="{'si-btn-toggle-on': item.access.parents == 1}" v-on:click="handlerToggleActive('parents')">
               <i v-if="item.access.parents == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.parents == 0" class="fas fa-toggle-off"></i> Eltern</button>
-            <button class="si-btn si-btn-toggle-off margin-r-s" :class="{'si-btn-toggle-on': item.access.other == 1}" v-on:click="handlerToggleActive('other')">
+            <button class="si-btn si-btn-toggle-off " :class="{'si-btn-toggle-on': item.access.other == 1}" v-on:click="handlerToggleActive('other')">
               <i v-if="item.access.other == 1" class="fas fa-toggle-on"></i>
               <i v-if="item.access.other == 0" class="fas fa-toggle-off"></i> Sonstige</button>
-
           </div>
-
         </li>
+      </ul>
+      <ul class="flex-2">
 
-
+        <li class="">
+          <label class="">Icon</label>
+          <input type="text" v-model="item.icon" class="width-20vw" />
+          <p class="text-small padding-l-l padding-t-s"><a href="https://fontawesome.com/v5/search?o=r&f=classic" target="_blank">fontawesome.com</a></p>
+        </li>
         <li>
           <label>Seite im neuen Fenster öffnen</label>
           <div class="blockInline margin-l-l">
@@ -114,10 +116,6 @@
             <button v-else class="si-btn si-btn-toggle-off" v-on:click="handlerToggle"><i
                 class="fa fas fa-toggle-off"></i> Nein</button>
           </div>
-        </li>
-        <li>
-          <br>
-          <button class="si-btn" v-on:click="handlerSubmit"><i class="fas fa-mouse-pointer"></i> Speichern</button>
         </li>
       </ul>
     </div>

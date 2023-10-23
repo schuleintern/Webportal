@@ -12,6 +12,7 @@
     display: flex;
     padding: 1rem;
     padding-bottom: 3rem;
+
 }
 .si-calendar-header button {
     margin-right: 1rem;
@@ -22,13 +23,54 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+}
+.si-calendar .day-box-handler {
+    display: none;
+}
+
+@media only screen
+and (max-device-width : 667px)
+and (orientation : portrait) {
+    .si-calendar-header {
+        flex-wrap: wrap;
+    }
+    .si-calendar-header .title {
+        flex-basis: 100%;
+    }
+    .si-calendar-header .si-btn {
+        order: 1;
+        flex:1;
+    }
+    .si-calendar-header .title {
+        order: 2;
+        margin-top: 2rem;
+    }
+    .si-calendar .day-box {
+        display: none;
+    }
+    .si-calendar .day-box-handler {
+        display: block;
+    }
 }
 .si-calendar .si-table {
     margin-top: 0;
 }
-.si-calendar .si-table td.day {
+
+.si-calendar .si-table td {
+    vertical-align: bottom;
+    display: table-cell;
+    max-width: 0;
+}
+.si-calendar .si-table tbody td {
+    height: 10rem;
+    vertical-align: top;
+}
+
+.si-calendar .si-table .day {
     width: calc(100%/7);
 }
+
 .si-calendar .dayLabel {
     font-size: 110%;
     font-weight: bold;
@@ -36,6 +78,55 @@
     padding-left: 0.6rem;
 }
 
+.si-calendar .labelKW {
+    font-size: 90%;
+    line-height: 90%;
+    color: rgb(192, 192, 192);
+    font-weight: bold;
+    max-width: 3rem !important;
+    padding-top: 0.3rem;
+}
+
+.si-calendar .eintrag {
+    border: 1px solid #8aa4af;
+    background-color: #fff;
+    color: #000 !important;
+    margin-bottom: 0.6rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 3px;
+    margin: 0.6rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 20ms all;
+}
+.si-calendar .eintrag .title {
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+.si-calendar .eintrag.open .title {
+    overflow: hidden;
+    white-space: normal;
+}
+
+.si-calendar .eintrag .info {
+    display: none;
+}
+.si-calendar .eintrag.open .info {
+    display: block;
+}
+
+
+.si-calendar .eintrag-multiple {
+    border-left: 0;
+    border-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
 
 /**
     Box
@@ -51,6 +142,7 @@
     border: 1px solid #b7c7ce;
     color: #000;
     text-align: left;
+    white-space: break-spaces;
 }
 .si-box-shadow {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -91,6 +183,7 @@
     font-weight: 300;
     line-height: 14pt;
     letter-spacing: 0.25pt;
+    white-space: normal;
 }
 
 .si-hinweis-empty {
@@ -204,6 +297,12 @@
 .si-form ul li:nth-child(even) {
     background-color: #f9f9f9;
 }
+.si-form ul.si-form-colorSwitch li:nth-child(even) {
+    background-color: #fff;
+}
+.si-form ul.si-form-colorSwitch li:nth-child(odd) {
+    background-color: #f9f9f9;
+}
 .si-form ul li:first-child {
     padding-top: 3rem;
     border-top-left-radius: 3rem;
@@ -264,6 +363,12 @@
     border: 1px solid #3c8dbc;
     color: #000;
 }
+
+.si-input[type="radio"],
+.si-form ul li input[type="radio"] {
+    max-width: 1.5rem;
+}
+
 .si-textarea,
 .si-form ul li textarea {
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
@@ -294,6 +399,62 @@
     border-bottom-left-radius: 0;
     background-position: 80% center;
 }
+
+
+
+/**
+    DETAILS BOX
+ */
+ .si-details {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid #8aa4af;
+    border-radius: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    text-align: left;
+    color: #000;
+}
+.si-details ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.si-details ul li {
+    margin: 0;
+    padding-left: 6rem;
+    padding-right: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.si-details ul li:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.si-details ul li:first-child {
+    padding-top: 3rem;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+}
+.si-details ul li:last-child {
+    padding-bottom: 3rem;
+    border-bottom-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+}
+.si-details ul li label {
+    margin-top: 0.3rem;
+    padding-bottom: 0.5rem;
+    font-size: 11pt;
+    font-weight: 400;
+    line-height: 14pt;
+    letter-spacing: 0.75pt;
+    left: -3rem;
+    position: relative;
+}
+
+
 
 
     /**
@@ -349,7 +510,6 @@
 }
 
 @media only screen
-and (min-device-width : 375px)
 and (max-device-width : 667px)
 and (orientation : portrait) {
 
@@ -498,6 +658,7 @@ and (orientation : portrait) {
 /**
     BUTTON
  */
+
 .si-btn {
 
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -630,6 +791,19 @@ and (orientation : portrait) {
 .si-btn-off:hover {
     background-color: rgba(0,0,0,0);
 }
+.si-btn-hide {
+    cursor: inherit;
+    box-shadow: none;
+    color: #8aa4af;
+    border: 1px solid #b7c7ce;
+    background-color: rgba(0,0,0,0);
+    opacity: 0.4;
+}
+.si-btn-hide:hover {
+    background-color: rgba(0,0,0,0);
+    border: 1px solid #b7c7ce;
+    color: #8aa4af;
+}
 .si-btn-curser-off {
     cursor: inherit;
 }
@@ -666,7 +840,8 @@ and (orientation : portrait) {
     min-width: 23rem;
     text-align: left;
     cursor: pointer;
-    color: #000 !important;
+    /*color: #000 !important;*/
+    white-space: normal;
 }
 .si-user .avatar {
 
@@ -719,6 +894,18 @@ and (orientation : portrait) {
     box-shadow: none;
     text-align: inherit;
     display: block;
+}
+.si-user.si-user-icon {
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+    box-shadow: none;
+    text-align: inherit;
+    display: block;
+    max-width: inherit;
+    min-width: inherit;
+    color: inherit;
+    white-space: normal;
 }
 
 .si-user--infoBox .avatar {
@@ -796,13 +983,24 @@ and (orientation : portrait) {
 .si-userselect .si-userselect-modal-content .list {
     flex:3;
     height: 70vh;
+    list-style: none;
 }
 .si-userselect .si-userselect-modal-content .list .userlist {
     height: 65vh;
     overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .si-userselect  .si-userselect-modal-content .list li {
     cursor: pointer;
+    margin: 0;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 .si-userselect  .si-userselect-modal-content .list li:nth-child(even) {
     background-color: rgba(0,0,0,0.15) !important;

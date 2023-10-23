@@ -46,8 +46,9 @@ class PrintLetterWithWindowA4 extends TCPDF {
     public function addLetter($empfaenger, $html) {
     	$this->AddPage();
     	
-    	$image_file = DB::getGlobalSettings()->urlToIndexPHP . '?page=printSettings&action=GetPrintHeader';
-    	
+    	//$image_file = DB::getGlobalSettings()->urlToIndexPHP . '?page=printSettings&action=GetPrintHeader';
+    	$image_file = PAGE::logoPrint();
+
     	$this->Image($image_file, 15, 10, '180', '', 'JPG', '', 'M', false, 300, '', false, false, 0, false, false, false);
 
     	

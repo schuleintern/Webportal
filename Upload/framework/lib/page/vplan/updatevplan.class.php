@@ -789,7 +789,10 @@ class updatevplan extends AbstractPage {
                     ");
                 
                 
-                
+                if (is_dir(PATH_DATA.'vplan')) {
+                    mkdir(PATH_DATA.'vplan');
+                }
+                move_uploaded_file($_FILES['vplanFile']["tmp_name"], PATH_DATA.'vplan' . date('Y-m-d', time()) . ".txt");
                 
                 header("Location: " . $selfURL . "&updated=1");
                 exit(0);

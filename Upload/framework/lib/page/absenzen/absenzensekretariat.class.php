@@ -929,11 +929,9 @@ class absenzensekretariat extends AbstractPage {
           $newID = DB::getDB()->insert_id();
           DB::getDB()->query("UPDATE absenzen_krankmeldungen SET krankmeldungAbsenzID='" . $newID . "' WHERE krankmeldungID='" . $km['krankmeldungID'] . "'");
         }
-
-
-        if($_POST['action_' . $km['krankmeldungID']] == "delete") {
-          DB::getDB()->query("DELETE FROM absenzen_krankmeldungen WHERE krankmeldungID='" . $km['krankmeldungID'] . "'");
-        }
+      }
+      if($_POST['action_' . $km['krankmeldungID']] == "delete") {
+        DB::getDB()->query("DELETE FROM absenzen_krankmeldungen WHERE krankmeldungID='" . $km['krankmeldungID'] . "'");
       }
     }
 

@@ -16,8 +16,18 @@ class Debugger {
 		$html = '';
 		$html .= self::getDbQueries();
 		$html .= self::getDump();
+        $html .= self::getAcl();
 		return $html;
 	}
+
+    public static function getAcl() {
+
+        $html = '<div class="acl">';
+
+        $html .= '</div>';
+
+        return $html;
+    }
 
 	public static function getDbQueries() {
 

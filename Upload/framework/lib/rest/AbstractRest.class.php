@@ -188,7 +188,47 @@ abstract class AbstractRest {
 	public function getAclDelete() {
 		return $this->acl['rights']['delete'];
 	}
-	
+
+
+
+    protected function canRead () {
+        if ( DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
+            return true;
+        }
+        if ( (int)$this->acl['rights']['read'] === 1  ) {
+            return true;
+        }
+        return false;
+    }
+
+    protected function canWrite () {
+        if ( DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
+            return true;
+        }
+        if ( (int)$this->acl['rights']['write'] === 1  ) {
+            return true;
+        }
+        return false;
+    }
+
+    protected function canDelete () {
+        if ( DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
+            return true;
+        }
+        if ( (int)$this->acl['rights']['delete'] === 1  ) {
+            return true;
+        }
+        return false;
+    }
+
+    protected function canAdmin () {
+        //echo $this->getAdminGroup();
+
+        if ( DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
+            return true;
+        }
+        return false;
+    }
 
 
 }	

@@ -6,7 +6,7 @@
  * @author Christian
  *
  */
-class menu {
+class menu extends AbstractMenu {
   private $html = "";
 
   public $menu = [];
@@ -270,112 +270,6 @@ class menu {
     
   }
 
-
-  private function getDBMenuItems($item_id) {
-
-      $html = '';
-      if ($item_id) {
-          $menu_items = $this->menu->getCatsDeep($item_id);
-
-          foreach($menu_items as $item) {
-
-/*
-              echo '<pre>';
-              print_r($item);
-              echo '</pre>';
-              */
-
-              if ($item['items']) {
-                  $arr = [$item['page']];
-                  $sub = '';
-                  foreach($item['items'] as $child) {
-                      $arr[] = $child['page'];
-                      $sub .= $this->getDBMenuItem($child);
-                  }
-                  $html .= $this->startDropDown($arr, $item['title'], $item['icon']);
-                  $html .= $this->getDBMenuItem($item);
-                  $html .= $sub;
-                  $html .= $this->endDropDown();
-              } else {
-                  $html .= $this->getDBMenuItem($item);
-              }
-
-          }
-      }
-      return $html;
-
-  }
-
-    private function getDBMenuItem($item) {
-        $html = '';
-        $icon = $item['icon'];
-        $params = (array)json_decode($item['params']);
-        if (!$icon) {
-            $icon = 'fa fa-file';
-        }
-        if ($item['access']) {
-
-            $do = false;
-
-            if ($item['access']->other) {
-                if (DB::isLoggedIn() && DB::getSession()->isNone()) {
-                    $do = true;
-                }
-            }
-            if ($item['access']->parents) {
-                if (DB::isLoggedIn() && DB::getSession()->isEltern()) {
-                    $do = true;
-                }
-            }
-            if ($item['access']->pupil) {
-                if (DB::isLoggedIn() && DB::getSession()->isPupil()) {
-                    $do = true;
-                }
-            }
-            if ($item['access']->teacher) {
-                if (DB::isLoggedIn() && DB::getSession()->isTeacher()) {
-                    $do = true;
-                }
-            }
-            if ($item['access']->adminGroup && $item['page']) {
-                $path = str_replace('ext_','',PATH_EXTENSIONS.$item['page'].DS);
-                $json = FILE::getExtensionJSON($path.'extension.json');
-                if ($json && $json['adminGroupName']) {
-                    if ( in_array($json['adminGroupName'], DB::getSession()->getGroupNames()) ) {
-                        $do = true;
-                    }
-                }
-            }
-            if ($item['access']->admin) {
-                if (DB::isLoggedIn() && DB::getSession()->isAdmin()) {
-                    $do = true;
-                }
-            }
-
-            if ($item['options']) {
-                $options = json_decode($item['options']);
-                foreach ($options as $key => $option) {
-                    if ($option->value) {
-                        $params[$key] = $option->value;
-                    }
-                }
-            }
-            $target = '_self';
-            if ($item['target']) {
-                $target = '_blank';
-            }
-            if ($do) {
-                $html .= $this->getMenuItem($item['page'], $item['title'], $icon, $params, false, $target);
-            }
-
-        } else {
-            $html .= $this->getMenuItem($item['page'], $item['title'], $icon, $params, false);
-        }
-        return $html;
-    }
-
-
-
   
   private function aktuelles() {
           
@@ -395,7 +289,7 @@ class menu {
     }
     
     
-    if($this->isActive("klassenkalender") || $this->isActive('extKalender') || $this->isActive('andereKalender') || $this->isActive('kalenderAllInOne')) {
+    if($this->isActive("klassenkalender") && ( $this->isActive('extKalender') || $this->isActive('andereKalender') || $this->isActive('kalenderAllInOne'))) {
         $html .= $this->startDropDown(['klassenkalender','extKalender','andereKalender','terminuebersicht'], "Kalender", "fa fa-calendar");
         
         
@@ -1148,84 +1042,6 @@ class menu {
 
   public function getHTML() {
     return $this->html;
-  }
-
-  /**
-   *
-   * @param unknown $page
-   * @param unknown $title
-   * @param unknown $icon
-   * @param String[] $addParams
-   * @return string
-   */
-  private function getMenuItem($page, $title, $icon, $addParams = [], $infoNumber = 0, $target = '_self') {
-    $isActive = false;
-
-    $addParamString = "";
-    if(sizeof($addParams) == 0) {
-      if($_REQUEST['page'] == $page){
-          $isActive = true;
-      }
-    } else {
-      foreach ($addParams as $name => $value) {
-        $addParamString .= "&";
-        $addParamString .= $name . "=" . urlencode($value);
-        if($_REQUEST[$name] == $value){
-            $isActive = true;
-        } else {
-            $isActive = false;
-        }
-      }
-      if($_REQUEST['page'] == $page && $isActive){
-          $isActive = true;
-      } else {
-          $isActive = false;
-      }
-    }
-
-    return '<li' . (($isActive)?(" class=\"active\""):("")) . '><a href="index.php?page=' . $page . $addParamString . '" target="'.$target.'"><i class="' . $icon . '"></i><span> ' . $title . '</span>' . (($infoNumber > 0) ? ('            <span class="pull-right-container">
-              <span class="label label-primary pull-right">' . $infoNumber . '</span>
-            </span>') : ('')) . '</a></li>';
-  }
-
-  private function startDropDown($pages, $title, $icon, $addParams = [], $infoNumber = 0) {
-
-      $active = false;
-
-    if(sizeof($addParams) > 0) {      
-      foreach ($addParams as $name => $value) {
-          if(is_array($value) && in_array($_REQUEST['page'],$pages)) {
-            if($value[0] == 'ISPRESENT' && $_REQUEST[$name] != "") {
-                $active = true;
-            }
-            else $active = in_array($_REQUEST[$name], $value);
-        }
-      }
-    }
-    else {
-        $active = in_array($_REQUEST['page'],$pages);
-        
-    }
-
-    return '<li class="' . (($active) ? ("active ") : ("")) . 'treeview">
-              <a href="#">
-                <i class="' . $icon . '"></i> <span>' . $title . '</span> ' . (($infoNumber > 0) ? (' <span class="pull-right-container">
-              <span class="label label-primary">' . $infoNumber . '</span>
-            </span>') : ('')) . ' <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">';
-  }
-
-  public function endDropDown() {
-    return '</ul></li>';
-  }
-
-  public function isActive($page) {
-    return AbstractPage::isActive($page);
-  }
-
-  public static function siteIsAlwaysActive() {
-    return true;
   }
 
 }

@@ -1,4 +1,11 @@
 
+body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 .scrollable-y {
   overflow-y: auto;
   overflow-x: hidden;
@@ -45,6 +52,14 @@
 .flex-center-center {
   justify-content: center;
   align-self: center;
+}
+.flex-center-center-center {
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
 }
 
 .flex-space-between {
@@ -132,6 +147,9 @@
 }
 .width-7rem {
   width: 7rem;
+}
+.width-10rem {
+  width: 10rem;
 }
 .width-12rem {
   width: 12rem;
@@ -258,6 +276,7 @@
 }
 .padding-r-l {
   padding-right: 2.3rem;
+  padding-left: 2.3rem;
 }
 
 
@@ -331,4 +350,5 @@
 
 .box .overlay > .fa {
   position: fixed;
+  z-index: 9999999999999999999;
 }

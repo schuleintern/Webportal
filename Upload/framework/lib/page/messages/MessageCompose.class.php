@@ -59,12 +59,12 @@ class MessageCompose extends AbstractPage {
 		        // Debugger::debugObject($singleTeachers,1);
 		        
 		        if($_REQUEST['term'] != "") {
-		            $search = strtolower($_REQUEST['term']);
+		            $search = mb_strtolower($_REQUEST['term']);
 		        }
 		        else {
 		            $search = null;
 		        }
-		        
+
 		        $selectOptionsSingleTeacher = "";
 		        if(sizeof($singleTeachers) > 0) {
 		            $canContactAnyTeacher = true;
@@ -72,7 +72,7 @@ class MessageCompose extends AbstractPage {
 		                
 		                $ok = false;
 		                
-		                if($search != null && strpos(strtolower($singleTeachers[$i]->getDisplayName()), $search) > 0) {
+		                if($search != null && strpos(mb_strtolower($singleTeachers[$i]->getDisplayName()), $search) > 0) {
 		                    $ok = true;
 		                }
 		                
@@ -506,6 +506,10 @@ class MessageCompose extends AbstractPage {
 
 				$addMeetingHTML = "";
 
+                $recipientHandler = new RecipientHandler($_REQUEST['recipients']);
+                $recipientHandlerCC = new RecipientHandler($_REQUEST['ccrecipients']);
+                $recipientHandlerBCC = new RecipientHandler($_REQUEST['bccrecipients']);
+
 				// Videokonferenz
                 if(DB::getSession()->isTeacher() && Office365Meetings::isActiveForTeacher() && $_POST['addMeetingURL'] > 0) {
                     if(DateFunctions::isNaturalDate($_POST['meetingDate'])) {
@@ -571,9 +575,7 @@ class MessageCompose extends AbstractPage {
 
 				$messageSender->setPriority($_POST['priority']);
 
-                $recipientHandler = new RecipientHandler($_REQUEST['recipients']);
-                $recipientHandlerCC = new RecipientHandler($_REQUEST['ccrecipients']);
-                $recipientHandlerBCC = new RecipientHandler($_REQUEST['bccrecipients']);
+
 
 				$messageSender->setRecipients($recipientHandler);				
 				$messageSender->setCCRecipients($recipientHandlerCC);
@@ -1202,7 +1204,15 @@ class MessageCompose extends AbstractPage {
 		for($i = 0; $i < sizeof($groups); $i++) {
 		    $htmlGroups .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary \">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
 		}
-		
+
+
+        $inboxs = InboxRecipient::getAllInstances();
+        $htmlInboxs = "";
+        for($i = 0; $i < sizeof($inboxs); $i++) {
+            $htmlInboxs .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary \">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
+        }
+
+
 		
 		if($_REQUEST['recipient'] != "") {
             $saveString = $_REQUEST['recipient'];

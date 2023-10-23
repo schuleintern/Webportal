@@ -838,7 +838,7 @@ class elternsprechtag extends AbstractPage {
 	
 	
 	private static function resetSprechtag($selfURL) {
-	    DB::getDB()->query("UPDATE sprechtag_buchungen SET schuelerAsvID='', elternUserID=0 WHERE slotID IN (SELECT slotID FROM sprechtag_slots WHERE sprechtagID='" . self::$currentSprechtagID . "')");
+	    DB::getDB()->query("UPDATE sprechtag_buchungen SET schuelerAsvID='', elternUserID=0, meetingURL='' WHERE slotID IN (SELECT slotID FROM sprechtag_slots WHERE sprechtagID='" . self::$currentSprechtagID . "')");
 	    
 	    header("Location: $selfURL&sprechtagID=" . self::$currentSprechtagID);
 	    exit(0);
@@ -917,7 +917,7 @@ class elternsprechtag extends AbstractPage {
 	        sprechtagBeginTime='" . DB::getDB()->escapeString($beginFirstSlotTimestamp) . "',
             sprechtagBuchbarAb='" . DB::getDB()->escapeString($bookAbleFromTimestamp) . "',
             sprechtagKlassen='" . DB::getDB()->escapeString($saveKlassen) . "',
-            sprechtagIsOnline='$isOnline'
+            sprechtagIsOnline=".(int)$isOnline."
 
         WHERE sprechtagID='" . self::$currentSprechtagID . "'");
 	    

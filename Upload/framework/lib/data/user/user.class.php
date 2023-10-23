@@ -191,7 +191,9 @@ class user {
               $childs = $this->getElternObject()->getMySchueler();
               foreach ($childs as $child) {
                   $klassen[] = $child->getKlasse();
-                  $collection['childs'][] = $child->getCollection();
+                  if ( $child->getCollection ) {
+                    $collection['childs'][] = $child->getCollection(false);
+                  }
               }
               $collection['klasse'] = '[' . implode(', ', $klassen) . ']';
           }
@@ -330,7 +332,7 @@ class user {
 
 
               $upload = new FileUpload($image);
-              $this->avatar = $upload->getThumb();
+              $this->avatar = $upload->getAvatarThumb();
               /*
                * echo '<pre>';
               print_r($upload);
@@ -338,7 +340,7 @@ class user {
               */
 
               //$upload = new UploadImage($image['uploadID']);
-              //$this->avatar = $upload->getThumb();
+              //$this->avatar = $upload->getAvatarThumb();
 
 
 

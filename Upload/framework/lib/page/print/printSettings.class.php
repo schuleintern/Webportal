@@ -9,7 +9,13 @@ class printSettings extends AbstractPage {
 
 	public function execute() {
 
+		/*
 		if($_REQUEST['action'] == 'GetPrintHeader') {
+
+			//new:
+			return PAGE::logoPrint();
+			
+			//old:
 			$image = DB::getSettings()->getUpload('print-header');
 
 			if($image != null) {
@@ -19,9 +25,11 @@ class printSettings extends AbstractPage {
 				header("Location: /cssjs/images/Briefkopf.jpg");
 				exit(0);
 			}
+			
 		}
 
 	  new errorPage();
+	  */
 	}
 	
 	

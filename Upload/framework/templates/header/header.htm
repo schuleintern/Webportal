@@ -87,12 +87,79 @@
 	}
 	</style>
 
+      <if($pushActive)><then>
+      <script>
+
+          // (A) OBTAIN USER PERMISSION TO SHOW NOTIFICATION
+          window.onload = () => {
+              if (Notification) {
+                  // (A1) ASK FOR PERMISSION
+                  if (Notification.permission === "default") {
+                      Notification.requestPermission().then(perm => {
+                          if (Notification.permission === "granted") {
+                              regWorker().catch(err => console.error(err));
+                          } else {
+                              //console.log("Please allow notifications.");
+                          }
+                      });
+                  }
+                  // (A2) GRANTED
+                  else if (Notification.permission === "granted") {
+                      regWorker().catch(err => console.error(err));
+                  }
+                  // (A3) DENIED
+                  else {
+                      //console.log("Please allow notifications.");
+                  }
+              }
+          }
+
+          // (B) REGISTER SERVICE WORKER
+          async function regWorker () {
+              // (B1) YOUR PUBLIC KEY - CHANGE TO YOUR OWN!
+              const publicKey = "$pushPublicKey";
+
+              // (B2) REGISTER SERVICE WORKER
+              navigator.serviceWorker.register("serviceWorker.js", { scope: "/" });
+
+              // (B3) SUBSCRIBE TO PUSH SERVER
+              navigator.serviceWorker.ready
+                  .then(reg => {
+                      reg.pushManager.subscribe({
+                          userVisibleOnly: true,
+                          applicationServerKey: publicKey
+                      }).then(
+
+
+                          // (B3-1) OK - TEST PUSH NOTIFICATION
+                          sub => {
+                              //console.log(sub);
+                              var data = new FormData();
+                              data.append("sub", JSON.stringify(sub));
+                              data.append("uid", "$userID");
+                              fetch("push.php", { method: "POST", body : data })
+                                  .then(res => res.text())
+                                  .then(txt => console.log(txt))
+                                  .catch(err => console.error(err));
+                          },
+
+                          // (B3-2) ERROR!
+                          err => console.error(err)
+
+                      );
+                  });
+          }
+
+      </script>
+  </then></if>
+
+
   </head>
-  <body class="skin-{$skinColor}"><div class="wrapper">
+  <body class="skin-{$skinColor} <if($this->isMobile == 1)><then>isMobile</then></if>"><div class="wrapper " id="pageWrapper">
       <header class="main-header">
 		<a href="index.php?page=index" class="logo">
           <span class="logo-mini"><expression>DB::getGlobalSettings()->siteNameHTMLDisplayShort</expression></span>
-          <span class="logo-lg"><img src="index.php?page=SkinSettings&action=getLogo" height="40"> <expression>DB::getGlobalSettings()->siteNameHTMLDisplay</expression></span>
+          <span class="logo-lg"><img src="<expression>PAGE::logo()</expression>" height="40"> <expression>DB::getGlobalSettings()->siteNameHTMLDisplay</expression></span>
 
         </a>
         <nav class="navbar navbar-static-top" role="navigation">
@@ -166,10 +233,10 @@
 
                   <if($isType == "module" )>
                     <then>
-                      <a href="index.php?page={$_REQUEST['page']}&admin=true" class=""><i class="fa fa-wrench"></i> Moduladministration</a>
+                      <a href="index.php?page={$_REQUEST['page']}&admin=true" class=""><i class="fa fa-wrench"></i><if($this->isMobile == 0)><then> Moduladministration</then></if></a>
                     </then>
                     <else>
-                      <a href="index.php?page=administrationmodule&module={$_REQUEST['page']}" class=""><i class="fa fa-wrench"></i> Moduladministration</a>
+                      <a href="index.php?page=administrationmodule&module={$_REQUEST['page']}" class=""><i class="fa fa-wrench"></i><if($this->isMobile == 0)><then> Moduladministration</then></if></a>
                     </else>
                   </if>
 
@@ -181,7 +248,7 @@
 
                  <if(DB::getSession()->isAnyAdmin())>
                     <then>
-                        <li class="messages-menu"><a href="index.php?page=administration"><i class="fa fa-cogs"></i> Admin</a></li>
+                        <li class="messages-menu"><a href="index.php?page=administration"><i class="fa fa-cogs"></i> <if($this->isMobile == 0)><then>Admin</then></if></a></li>
                     </then>
 				</if>
 
@@ -316,10 +383,19 @@
 
             </then></if>
 
+            <!--
             <ol class="breadcrumb">
             <li><a href="index.php?page=index&gplsession={$_GET['gplsession']}"><i class="fa fa-dashboard"></i> Startseite</a></li>
                 $sitemapline
             </ol>
+          -->
+
+          <if($missingEMail)><then>
+
+          	<div class="callout callout-info"><i class="fa fa-cogs"></i> <b>System</b> - Du hast bisher keine E-Mail Adresse hinzugefügt.   <a class="btn btn-primary" href="index.php?page=userprofile"><i class="fa fa-user"></i> Profil bearbeiten</a></div>
+
+          </then></if>
+
 
           <if($debugSession)><then>
 

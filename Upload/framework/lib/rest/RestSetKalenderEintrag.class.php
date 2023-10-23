@@ -83,7 +83,8 @@ class RestSetKalenderEintrag extends AbstractRest {
 					eintragDatumEnde = '".DB::getDB()->escapeString($row['endDay'])."',
 					eintragOrt = '".DB::getDB()->encodeString($row['place'])."',
 					eintragKommentar = '".DB::getDB()->encodeString(nl2br($row['comment']))."',
-					eintragModifiedTime = '".$now."'
+					eintragModifiedTime = '".$now."',
+					eintragRepeat = '".DB::getDB()->encodeString($row['repeat_type'])."'
 					WHERE eintragID = " . intval($row['id']) . ";");
 		
 			} else {
@@ -110,7 +111,8 @@ class RestSetKalenderEintrag extends AbstractRest {
 				eintragKommentar,
 				eintragUserID,
 				eintragCreatedTime,
-                eintragModifiedTime
+                eintragModifiedTime,
+                eintragRepeat                  
 				) values (
 				".intval($row['calenderID']).",
 				'".DB::getDB()->encodeString($row['title'])."',
@@ -122,7 +124,8 @@ class RestSetKalenderEintrag extends AbstractRest {
 				'".DB::getDB()->encodeString(nl2br($row['comment']))."',
 				".$this->user->getUserID().",
 				'".$now."',
-				'".$now."'
+				'".$now."',
+				'".DB::getDB()->encodeString($row['repeat_type'])."'
 			);");
 
 		}

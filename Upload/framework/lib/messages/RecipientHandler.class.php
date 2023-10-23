@@ -19,7 +19,8 @@ class RecipientHandler {
 	    'GroupRecipient',
 	    'KlassenleitungRecipient',
 	    'PupilsOfClassRecipient',
-	    'ParentsOfPupilsOfClassRecipient'
+	    'ParentsOfPupilsOfClassRecipient',
+        'InboxRecipient'
 	];
 	
 	/**

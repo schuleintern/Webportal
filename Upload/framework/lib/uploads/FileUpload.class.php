@@ -120,7 +120,7 @@ class FileUpload {
 
     }
 
-    public function getThumb() {
+    public function getAvatarThumb() {
 
         $folder = PATH_WWW_TMP.'avatar';
         if ( !is_dir($folder) ) {
@@ -179,6 +179,37 @@ class FileUpload {
 
         return false;
     }
+
+	public function getThumb($folder = 'thumbs', $title = false) {
+
+        $folder = PATH_WWW_TMP.$folder;
+        if ( !is_dir($folder) ) {
+            mkdir($folder);
+        }
+
+		
+        $newFilename = $folder.DS.$this->getID().'.'.$this->getExtension();
+		if ($title) {
+			$newFilename = $folder.DS.$title.'.'.$this->getExtension();
+		}
+		
+        if ( file_exists($newFilename) ) {
+            return $newFilename;
+        } else {
+
+            $filename = $this->getFilePath(); //PATH_ROOT."data/uploads/" . $this->getID() . ".dat";
+            if (file_exists($filename)) {
+
+                copy($filename, $newFilename);
+                if (file_exists($newFilename)) {
+                    return $newFilename;
+                }
+            }
+        }
+
+        return false;
+    }
+
 
 
     public function isExist() {
@@ -670,7 +701,7 @@ class FileUpload {
 			else $mime = $mimetype;
 		}
 		else new errorPage("MIME Type kann nicht bestimmt werden!");
-		
+
 		if($mime != null) {
 			
 			DB::getDB()->query("INSERT INTO uploads
@@ -691,7 +722,14 @@ class FileUpload {
 			
 			$newID = DB::getDB()->insert_id();
 
-			move_uploaded_file($_FILES[$fieldName]["tmp_name"], "../data/uploads/" . $newID . ".dat");
+			if (!move_uploaded_file($_FILES[$fieldName]["tmp_name"], "../data/uploads/" . $newID . ".dat")) {
+				return [
+					'result' => false,
+					'uploadobject' => null,
+					'mimeerror' => false,
+					'text' => "Es gab einen Fehler beim Upload: Move File"
+				];	
+			}
 			
 			$data = DB::getDB()->query_first("SELECT * FROM uploads WHERE uploadID='" . $newID. "'");
 			

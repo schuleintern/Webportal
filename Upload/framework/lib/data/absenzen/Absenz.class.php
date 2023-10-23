@@ -58,14 +58,14 @@ class Absenz {
     else return true;
   }
 
-  public function getKommentar() {
-    return $this->data['absenzBemerkung'];
-  }
 
   public function getGanztagsNotiz() {
     return $this->data['absenzGanztagsNotiz'];
   }
 
+  public function getKommentar() {
+    return $this->data['absenzBemerkung'];
+  }
   public function getBemerkung() {
     return $this->data['absenzBemerkung'];
   }
@@ -142,11 +142,38 @@ class Absenz {
   public function getUserID() {
     return $this->data['absenzErfasstUserID'];
   }
+  public function getSchuelerAsvID() {
+    return $this->data['absenzSchuelerAsvID'];
+  }
+
+  
 
   public function getBeurlaubung() {
     $data = DB::getDB()->query_first("SELECT * FROM absenzen_beurlaubungen WHERE beurlaubungID='" . $this->data['absenzBeurlaubungID'] . "'");
     return new AbsenzBeurlaubung($data);
   }
+
+
+  public function getCollection($full = false) {
+
+        $collection = [
+            "id" => $this->getID(),
+            "asvID" => $this->getSchuelerAsvID(),
+            "datum_start" => $this->getDateAsSQLDate(),
+            "datum_end" => $this->getEnddatumAsSQLDate(),
+            "quelle" => $this->getKanal(),
+            "bemerkung" => $this->getBemerkung(),
+            "stunden" => $this->getStundenAsString()
+        ];
+
+        if ($full) {
+
+        }
+
+        return $collection;
+    }
+
+
 
   /**
    * Überprüft, ob generell eine schriftliche Entschuldigung vorgelegt werden muss.
@@ -269,9 +296,9 @@ class Absenz {
    * @param $klasse
    * @return Absenz[]
    */
-  public static function getAbsenzenForDate($mysqldate,$klasse) {
+  public static function getAbsenzenForDate($mysqldate,$klasse, $where = "absenzStunden != 'ganztag' AND") {
     $data = DB::getDB()->query("SELECT * FROM absenzen_absenzen LEFT JOIN schueler ON absenzen_absenzen.absenzSchuelerAsvID=schueler.schuelerAsvID
-        WHERE
+        WHERE $where
           absenzDatum <= '" . $mysqldate ."' AND absenzDatumEnde >= '" . $mysqldate . "'" . (($klasse != "") ? (" AND schuelerKlasse LIKE '" . $klasse . "'") : ("")) . "ORDER BY LENGTH(schuelerKlasse) ASC, schuelerKlasse ASC, schuelerName ASC, schuelerRufname ASC");
 
     $absenzen = array();

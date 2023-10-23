@@ -27,12 +27,18 @@
       <div class="flex-row">
         <div class="flex-1">
           <ul class="noListStyle">
+            <li v-if="form.repeat_type">
+              <label class="text-small text-gey margin-r-s"><i class="fas fa-undo margin-r-s"></i>Wiederholen:</label>
+              <span v-if="form.repeat_type == 'week'">Wöchentlich</span>
+              <span v-if="form.repeat_type == 'month'">Monatlich</span>
+              <span v-if="form.repeat_type == 'year'">Jährlich</span>
+            </li>
             <li v-if="form.place">
-              <label class="text-small text-gey"><i class="fas fa-map-marker-alt margin-r-xs"></i>Ort:</label>
+              <label class="text-small text-gey margin-r-s"><i class="fas fa-map-marker-alt margin-r-s"></i>Ort:</label>
               {{form.place}}
             </li>
-            <li v-if="form.comment" class="margin-t-m">
-              <label class="text-small text-gey"><i class="fas fa-comment margin-r-xs"></i>Notiz:</label>
+            <li v-if="form.comment" class="">
+              <label class="text-small text-gey margin-r-s"><i class="fas fa-comment margin-r-s"></i>Notiz:</label>
               <br>
               <span v-html="form.comment">{{form.comment}}</span>
             </li>
@@ -94,7 +100,7 @@ export default {
 
     var that = this;
 
-    EventBus.$on('eintrag--show-open', data => {
+    window.EventBus.$on('eintrag--show-open', data => {
 
       if (data.eintrag.title) {
         that.form = data.eintrag;
@@ -119,7 +125,7 @@ export default {
       if (!this.form.id) {
         return false;
       }
-      EventBus.$emit('eintrag--delete', {
+      window.EventBus.$emit('eintrag--delete', {
         id: this.form.id
       });
       this.handlerCloseModal();
@@ -133,7 +139,7 @@ export default {
       if (!this.form.startDay) {
         return false;
       }
-      EventBus.$emit('eintrag--form-open', {
+      window.EventBus.$emit('eintrag--form-open', {
         form: this.form
       });
       this.handlerCloseModal();
@@ -151,7 +157,7 @@ export default {
         return false;
       }
       var ret = false;
-      this.kalender.forEach(function (o,i) {
+      this.kalender.forEach(function (o) {
         if ( parseInt(o.kalenderID) == calenderID ) {
           ret = o;
         }

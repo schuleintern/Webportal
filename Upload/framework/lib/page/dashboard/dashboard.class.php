@@ -29,11 +29,13 @@ class dashboard extends AbstractPage
                 $userTyp = DB::getSession()->getUser()->getUserTyp(true);
 
 
+                $ok = false;
                 if ( DB::getSession()->getUser()->isAdmin() ) {
                     $userTyp = 'isAdmin';
+                    $ok = true;
                 }
 
-                $ok = false;
+
                 $access = json_decode($row['access']);
                 if ($access) {
                     if ($access->pupil == 1 && $userTyp == 'isPupil') {
@@ -87,7 +89,7 @@ class dashboard extends AbstractPage
                                     $script .= $this->getScriptData($class->getScriptData(), $varname);
                                 }
                                 if (method_exists($class, 'getScripts')) {
-                                    $script .= $this->getScript(false, $class->getScripts());
+                                    $script .= FILE::getScripts($class->getScripts());
                                 }
                             }
 

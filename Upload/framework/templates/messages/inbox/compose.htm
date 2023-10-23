@@ -466,6 +466,7 @@
 			        	<if($canContactAnyParents)><then><li><a href="#eltern" data-toggle="tab"><i class="fa fa-users"></i> Eltern</a></li></then></if>
 			        	<if($canContactAnyVerwaltung)><then><li><a href="#verwaltung" data-toggle="tab"><i class="fa fa-users"></i> Verwaltung / Personalrat / Hausmeister</a></li></then></if>
 			        	<if($canContactAnyGroups)><then><li><a href="#groups" data-toggle="tab"><i class="fa fa-female"></i> Sonstige</a></li></then></if>
+						<li><a href="#inboxs" data-toggle="tab"><i class="fa fa-female"></i> Inbox</a></li>
 			        </ul>
 			        <div class="tab-content">
 				        <if($canContactAnyTeacher)><then>
@@ -744,6 +745,14 @@
 										</table>
 									</div>
 									</then></if>
+
+						<div class="tab-pane" id="inboxs">
+							<table class="table table-striped">
+								$htmlInboxs
+							</table>
+						</div>
+
+
 	
 				        <!-- <div class="tab-pane" id="andere">
 				        	Andere

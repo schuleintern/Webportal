@@ -64,7 +64,20 @@ class index extends AbstractPage {
       'name' => 'general-wartungsmodus',
       'typ' => 'BOOLEAN',
       'titel' => "Wartungsmodus aktiv?",
-      'text' => 'Im Wartungsmodus können nur Administratoren die Seite nutzen. Es können sich nur Administratoren einloggen. Alle anderen sehen einen Hinweis auf die Wartungsarbeiten.'
+      'text' => 'Im Wartungsmodus können nur Administratoren die Seite nutzen. Alle anderen sehen einen Hinweis auf die Wartungsarbeiten.'
+    );
+    $settings[] = array(
+      'name' => 'general-wartungsmodus-text',
+      'typ' => 'TEXT',
+      'titel' => "Text für die Seite: Wartungsmodus",
+      'text' => ''
+    );
+
+    $settings[] = array(
+      'name' => 'general-internmodus',
+      'typ' => 'BOOLEAN',
+      'titel' => "Verwaltungsmodus aktiv?",
+      'text' => 'Im Verwaltungsmodus können nur Administratoren, Lehrer und Mitarbeiter die Seite nutzen. Eltern und Schüler sehen einen Hinweis auf die Wartungsarbeiten.'
     );
 
 

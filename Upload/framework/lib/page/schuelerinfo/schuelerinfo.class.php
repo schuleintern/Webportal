@@ -1338,8 +1338,10 @@ class schuelerinfo extends AbstractPage {
       			$schuelerListe .= "<tr><td width=\"10%\">" . ($i+1) . "</td>";
 
 
-      			$schuelerListe .= "<td width=\"90%\">" . $schueler[$i]->getCompleteSchuelerName() . "</td>";
-      			$schuelerListe .= "</tr>";
+      			$schuelerListe .= "<td width=\"10%\">" . $schueler[$i]->getKlasse() . "</td>";
+      			$schuelerListe .= "<td width=\"80%\">" . $schueler[$i]->getCompleteSchuelerName(). "</td>";
+
+            $schuelerListe .= "</tr>";
       		break;
 
       		case 'listWithNA':
@@ -1449,8 +1451,7 @@ class schuelerinfo extends AbstractPage {
       for($k = 0; $k < sizeof($kls); $k++) {
         $kNamen[] =  $kls[$k]->getDisplayNameMitAmtsbezeichnung();
       }
-
-      $gradeHTML .= "<br /><small>Klassenleitung: " . implode(" | ", $kNamen) . "<br />Ausbildungsrichtung: " . implode(", ",$grades[$i]->getAusbildungsrichtungen()) . "</small>";
+      $gradeHTML .= "<br /><small>Klassenleitung: " . implode(" | ", $kNamen) . "<br />Ausbildungsrichtung: " . implode(", ",$grades[$i]->getAusbildungsrichtungen()) . "<br>Anzahl: ".$grades[$i]->getAnzahlSchueler()."</small>";
 
       if(SchuelerQuarantaene::isActive()) {
         if(SchuelerQuarantaene::hasOneInClass($grades[$i])) {

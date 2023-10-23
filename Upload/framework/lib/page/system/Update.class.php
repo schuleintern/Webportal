@@ -182,7 +182,6 @@ class Update extends AbstractPage
         return true;
     }
 
-
     private  function from142to150() {
 
         DB::getDB()->query("ALTER TABLE `user_settings` ADD COLUMN `autoLogout` int(11) DEFAULT NULL;", false);
@@ -192,6 +191,7 @@ class Update extends AbstractPage
         DB::getDB()->query("ALTER TABLE `messages_messages` MODIFY COLUMN `messageFolder` enum('POSTEINGANG','GESENDETE','PAPIERKORB','ANDERER','ARCHIV','ENTWURF') NOT NULL;", false);
 
         $this->updateCssJSFolder(142);
+        $this->updateComponentsFolder(142);
     }
 
     private  function from141to141() {

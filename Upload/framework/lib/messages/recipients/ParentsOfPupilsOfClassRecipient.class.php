@@ -25,7 +25,10 @@ class ParentsOfPupilsOfClassRecipient extends MessageRecipient {
 	}
 
 	public function getDisplayName() {
-		return 'Eltern der Schüler im Unterricht ' . $this->unterricht->getBezeichnung();
+        if ($this->unterricht) {
+            return 'Eltern der Schüler im Unterricht ' . $this->unterricht->getBezeichnung();
+        }
+		return '';
 	}
 	
 	public static function isSaveStringRecipientForThisRecipientGroup($saveString) {

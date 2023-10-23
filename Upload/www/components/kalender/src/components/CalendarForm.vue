@@ -57,6 +57,21 @@
               <vue-timepicker v-model="form.endTime" format="HH:mm" :minute-interval="5"></vue-timepicker>
             </li>
             <li>
+              <input type="checkbox" v-model="form.repeat" style="display: inline-block" id="form_ipnut_repeat"/>
+              <label class="text-small padding-l-m" for="form_ipnut_repeat" style="display: inline-block; width: 80%">Termin wiederholen</label>
+            </li>
+            <li v-if="form.repeat == 1" class="padding-b-m padding-t-s">
+              <input type="radio" name="repeat_type" id="repeat_type_week" value="week" v-model="form.repeat_type">
+              <label class="padding-l-m" for="repeat_type_week">Wöchentlich (jeden {{formatDate(form.startDay,'dddd')}})</label>
+              <br>
+              <input type="radio" name="repeat_type" id="repeat_type_month" value="month" v-model="form.repeat_type">
+              <label class="padding-l-m" for="repeat_type_month">Monatlich (jeden {{formatDate(form.startDay,'DD.')}})</label>
+              <br>
+              <input type="radio" name="repeat_type" id="repeat_type_year" value="year" v-model="form.repeat_type">
+              <label class="padding-l-m" for="repeat_type_year">Jährlich (jeden {{formatDate(form.startDay,'DD.MM.')}})</label>
+
+            </li>
+            <li>
               <label class="text-small block">Ort:</label>
               <input type="text" v-model="form.place" />
             </li>
@@ -122,7 +137,7 @@ export default {
     //     this.form.calenderID = this.calendarSelected[0];
     //   }
     // },
-    'form.startDay': function (newValue,oldValue) {
+    'form.startDay': function (newValue) {
 
       if (this.form.endDay) {
         var date_start = new Date(newValue);
@@ -137,8 +152,8 @@ export default {
   created: function () {
 
     var that = this;
-    
-    EventBus.$on('eintrag--form-open', data => {
+
+    window.EventBus.$on('eintrag--form-open', data => {
 
 
       if (!data.form.startDay) {
@@ -172,12 +187,22 @@ export default {
       if ( data.form.comment ) {
         this.form.comment = that.strippedContent(data.form.comment);
       }
+      if ( data.form.repeat_type ) {
+        this.form.repeat = true;
+        this.form.repeat_type = data.form.repeat_type;
+        this.form.repeat_root = data.form.repeat_root;
+        if (data.form.repeat_root[0] && data.form.repeat_root[1]) {
+          this.form.startDay = data.form.repeat_root[0];
+          this.form.endDay = new Date(data.form.repeat_root[1]);
+        }
+
+      }
 
       this.modalActive = true;
 
     });
 
-    EventBus.$on('eintrag--form-reset', data => {
+    window.EventBus.$on('eintrag--form-reset', () => {
 
       this.form = {
         id: 0,
@@ -188,7 +213,8 @@ export default {
         endTime: '00:00:00',
         title: '',
         place: '',
-        comment: ''
+        comment: '',
+        repeat_type: ''
       };
 
     });
@@ -200,7 +226,10 @@ export default {
    }
   },
   methods: {
-    
+
+    formatDate:function(date,format) {
+      return this.$moment(date).format(format);
+    },
     strippedContent: function (str) {
       let regex = /(<([^>]+)>)/ig;
       return str.replace(regex, "");
@@ -239,6 +268,10 @@ export default {
         && this.form.title != ''
         && this.form.calenderID != '' ) {
 
+        if (this.form.repeat != 1) {
+          this.form.repeat_type = '';
+        }
+
         var values = {
           id: this.form.id,
           calenderID: this.form.calenderID,
@@ -248,11 +281,12 @@ export default {
           place: this.form.place,
           comment: this.form.comment,
           startDay: this.form.startDay,
-          endDay: this.$moment(this.form.endDay).format('YYYY-MM-DD')
+          endDay: this.$moment(this.form.endDay).format('YYYY-MM-DD'),
+          repeat_type: this.form.repeat_type,
         };
 
 
-        EventBus.$emit('eintrag--submit', {
+        window.EventBus.$emit('eintrag--submit', {
           form: values
         });
 

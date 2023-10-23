@@ -15,6 +15,7 @@ class logout extends AbstractPage {
 		$message = "<div class=\"callout callout-info\"><p><strong>Sie wurden erfolgreich abgemeldet.</strong></p></div>";
 		
 		if(DB::getSettings()->getValue("general-wartungsmodus")) {
+			$text = nl2br(DB::getSettings()->getValue("general-wartungsmodus-text"));
 			eval("echo(\"".DB::getTPL()->get("wartungsmodus/index")."\");");
 		}
 		else {

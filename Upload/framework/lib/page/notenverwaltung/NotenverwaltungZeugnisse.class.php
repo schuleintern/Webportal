@@ -653,10 +653,11 @@ pause\r\n";
                   $bestanden = "Die Erlaubnis zum Vorrücken in die nächsthöhere Jahrgangsstufe hat er nicht erhalten.";
               }
           }
-      }
 
-      if(schulinfo::isGymnasium() && $schueler->getKlassenObjekt()->getKlassenstufe() == 10 && $bemerkung->klassenzielErreicht()) {
-          $bestandenOberstufeMR = "\n" . ($schueler->getGeschlecht() == 'm' ? "Der Schüler" : "Die Schülerin") . " ist damit zum Eintritt in die Qualifikationsphase der Oberstufe des Gymnasiums berechtigt; dies schließt den Nachweis eines mittleren Schulabschlusses ein.";
+
+          if(schulinfo::isGymnasium() && $schueler->getKlassenObjekt()->getKlassenstufe() == 10 && $bemerkung->klassenzielErreicht()) {
+              $bestandenOberstufeMR = "\n" . ($schueler->getGeschlecht() == 'm' ? "Der Schüler" : "Die Schülerin") . " ist damit zum Eintritt in die Qualifikationsphase der Oberstufe des Gymnasiums berechtigt; dies schließt den Nachweis eines mittleren Schulabschlusses ein.";
+          }
       }
 
       $nachname = "";

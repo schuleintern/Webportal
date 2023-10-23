@@ -48,7 +48,7 @@ class cronhandler
             exit(0);
         }
 
-        include("../framework/lib/page/abstractPage.class.php");
+        include(PATH_PAGE."abstractPage.class.php");
 
         PAGE::setFactory(new FACTORY());
 
@@ -135,30 +135,61 @@ class cronhandler
 
         $jsonAntwort['crons'] = [];
 
-        //
+        $cronList = [];
+
 
         for ($i = 0; $i < sizeof(self::$allowedActions); $i++) {
+
+            // Import default Class
             require_once('../framework/lib/cron/' . self::$allowedActions[$i] . ".class.php");
+
+            // Remove Slashes in pages
+            if (strpos(self::$allowedActions[$i], "/") > 0) {
+                $cronList[$i] = substr(self::$allowedActions[$i], strpos(self::$allowedActions[$i], "/") + 1);
+            } else {
+                $cronList[$i] = self::$allowedActions[$i];
+            }
         }
 
-        // Remove Slashes in pages
-        for ($i = 0; $i < sizeof(self::$allowedActions); $i++) {
-            if (strpos(self::$allowedActions[$i], "/") > 0) self::$allowedActions[$i] = substr(self::$allowedActions[$i], strpos(self::$allowedActions[$i], "/") + 1);
+
+        // Import Extensions Crons
+        $extensions = DB::getDB()->query('SELECT `name`,`folder` FROM `extensions` WHERE active = 1 ');
+        while($ext = DB::getDB()->fetch_array($extensions)) {
+            if ($ext['folder']) {
+                $path = PATH_EXTENSIONS.$ext['folder'].DS;
+                if (file_exists($path.'extension.json')) {
+                    $json = FILE::getExtensionJSON($path.'extension.json');
+                    if ( isset($json['cron']) && count($json['cron']) > 0 ) {
+                        foreach($json['cron'] as $cronExt) {
+                            $remove = 'ext'.ucfirst($ext['folder']).'Cron';
+                            $filename = lcfirst(str_replace($remove, '', $cronExt->class));
+                            $classPath = $path.'cron'.DS.$filename.'.php';
+                            if (file_exists($classPath)) {
+                                require_once($classPath);
+                                array_push($cronList, $cronExt->class);
+                            }
+                        }
+                    }
+                }
+            }
         }
+        
+
+        for ($i = 0; $i < sizeof($cronList); $i++) {
 
 
-        for ($i = 0; $i < sizeof(self::$allowedActions); $i++) {
             /**
              *
              * @var AbstractCron $cron
              */
-            $cron = new self::$allowedActions[$i]();
+            $cron = new $cronList[$i]();
 
 
             if (!$cron->onlyExecuteSeparate()) {
 
 
-                $lastExecution = DB::getDB()->query_first("SELECT * FROM cron_execution WHERE cronName='" . self::$allowedActions[$i] . "' ORDER BY cronStartTime DESC LIMIT 1");
+                $lastExecution = DB::getDB()->query_first("SELECT * FROM cron_execution WHERE cronName='" . $cronList[$i] . "' ORDER BY cronStartTime DESC LIMIT 1");
+
 
                 if (sizeof($lastExecution) == 0) {
                     $lastExecution = time() - 1 - $cron->executeEveryXSeconds();    // First Run
@@ -190,7 +221,7 @@ class cronhandler
     						cronSuccess,
     						cronResult) 
     						values(
-    							'" . self::$allowedActions[$i] . "',
+    							'" . $cronList[$i] . "',
     							'" . $startTime . "',
     							'" . $endTime . "',
     							'" . ($result['success'] ? 1 : 0) . "',
@@ -200,7 +231,7 @@ class cronhandler
                 }
 
                 $jsonAntwort['crons'][] = [
-                    'name' => self::$allowedActions[$i],
+                    'name' => $cronList[$i],
                     'status' => $cronStatus,
                     'lastExecution' => $lastExecution,
                     'result' => $result

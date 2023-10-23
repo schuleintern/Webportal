@@ -169,7 +169,8 @@ $classes = [
 		'mpdf.php'
 	],
 	'menu' => [
-		'menu',
+		'abstractMenu',
+        'menu',
 	],
     'raumplan' => [
         'raumplan',
@@ -182,6 +183,7 @@ $classes = [
 		'cronhandler',
 		'DateFunctions',
 		'DB',
+        'PDB',
 		'functions',
 		'requesthandler',
 		'settings',
@@ -189,6 +191,7 @@ $classes = [
 		'Encoding',
 		'resthandler',
 		'PAGE',
+        'PUSH',
 		'FILE',
 		'FACTORY',
 		'ACL',
@@ -254,7 +257,8 @@ $classes = [
 	    'GroupRecipient',
 	    'KlassenleitungRecipient',
 	    'PupilsOfClassRecipient',
-	    'ParentsOfPupilsOfClassRecipient'
+	    'ParentsOfPupilsOfClassRecipient',
+        'InboxRecipient'
 	],
 	'data/schuelerinfo' => [
 		'SchuelerDokument',

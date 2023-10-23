@@ -2,18 +2,20 @@
 
 
 if (!function_exists('getallheaders')) {
-    function getallheaders() {
-        $headers = array ();
-        foreach ($_SERVER as $name => $value)  {
+    function getallheaders()
+    {
+        $headers = array();
+        foreach ($_SERVER as $name => $value) {
             if (substr($name, 0, 5) == 'HTTP_') {
                 $headers[str_replace(' ', '-', strtolower(str_replace('_', ' ', substr($name, 5))))] = $value;
             }
         }
         return $headers;
     }
-} 
+}
 
-class resthandler {
+class resthandler
+{
     private static $actions = [
         'GetSettingsValue',
         'SetSettingsValue',
@@ -30,24 +32,27 @@ class resthandler {
         //'GetKalenderIcsFeed',
         'GetUser'
     ];
-  
-  
-    public function __construct() {
+
+    private $extension = false;
+
+    public function __construct()
+    {
 
         error_reporting(E_ERROR);
 
-        include_once(PATH_LIB."rest/AbstractRest.class.php");
+        include_once(PATH_LIB . "rest/AbstractRest.class.php");
 
-        $authHeaderFound = false;
         $allowed = false;
         $type = false;
 
+        $adminGroupName = false;
+
         $headers = getallheaders();
         $method = $_SERVER['REQUEST_METHOD']; // GET or POST
-        $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
+        $request = explode('/', trim($_SERVER['PATH_INFO'], '/'));
 
 
-        if(sizeof($request) == 0) {
+        if (sizeof($request) == 0) {
             $result = [
                 'error' => 1,
                 'errorText' => 'No Action given'
@@ -55,31 +60,42 @@ class resthandler {
             $this->answer($result, 404);
         }
 
-        if(in_array($request[0],self::$actions)) {
-            if (file_exists(PATH_LIB."rest".DS."Rest" . $request[0] . ".class.php")) {
-                include_once(PATH_LIB."rest".DS."Rest" . $request[0] . ".class.php");
+        if (in_array($request[0], self::$actions)) {
+            if (file_exists(PATH_LIB . "rest" . DS . "Rest" . $request[0] . ".class.php")) {
+                include_once(PATH_LIB . "rest" . DS . "Rest" . $request[0] . ".class.php");
                 $allowed = true;
                 $classname = 'Rest' . $request[0];
                 $type = 'page';
             }
+        }
 
-        } 
-
-        if ( $allowed == false && $request[1] ) {
-            $module = DB::getDB()->query_first("SELECT `id`,`name`,`folder` FROM extensions WHERE `folder` = '".$request[0]."'" );
+        if ($allowed == false && $request[1]) {
+            $module = DB::getDB()->query_first("SELECT `id`,`name`,`folder` FROM extensions WHERE `folder` = '" . $request[0] . "'");
             if ($module) {
-              if (file_exists(PATH_EXTENSIONS.$module['folder'].'/rest/'.$request[1].'.php')) {
-                include_once(PATH_EXTENSIONS.$module['folder'].'/rest/'.$request[1].'.php');
-                $allowed = true;
-                $classname = $request[1];
-                $type = 'extension';
-                define("PATH_EXTENSION", PATH_EXTENSIONS.$module['folder'].DS);
-              }
+                define("PATH_EXTENSION", PATH_EXTENSIONS . $module['folder'] . DS);
+                define("PATH_EXTENSION_ROOT", PATH_EXTENSIONS . $module['folder'] . DS);
+
+                if (file_exists(PATH_EXTENSIONS . $module['folder'] . '/rest/' . $request[1] . '.php')) {
+                    
+                    if (file_exists(PATH_LIB . 'extensions' . DS . 'Model.class.php')) {
+                        include_once(PATH_LIB . 'extensions' . DS . 'Model.class.php');
+                    }
+
+                    include_once(PATH_EXTENSIONS . $module['folder'] . '/rest/' . $request[1] . '.php');
+                    $allowed = true;
+                    $classname = $request[1];
+                    $type = 'extension';
+
+                    $this->extension = FILE::getExtensionJSON(PATH_EXTENSION . 'extension.json');
+                    if (isset($this->extension)) {
+                        $adminGroupName = $this->extension['adminGroupName'];
+                    }
+                }
             }
         }
 
         // Keine Action/Modul gefunden
-        if ( $allowed == false ) {
+        if ($allowed == false) {
             $result = [
                 'error' => 3,
                 'errorText' => 'Unknown Action'
@@ -90,11 +106,11 @@ class resthandler {
 
         if ($allowed) {
 
-            PAGE::setFactory( new FACTORY() );
+            PAGE::setFactory(new FACTORY());
 
             $action = new $classname($type);
 
-            if($method != $action->getAllowedMethod()) {
+            if ($method != $action->getAllowedMethod()) {
                 $result = [
                     'error' => 2,
                     'errorText' => 'method not allowed'
@@ -102,21 +118,21 @@ class resthandler {
                 $this->answer($result, 405);
             }
 
-            if($action->needsUserAuth()) {
-                if (isset ( $_COOKIE ['schuleinternsession'] )) {
-                    DB::initSession ( $_COOKIE ['schuleinternsession'] );
-                    if (! DB::isLoggedIn ()) {
-                        if (isset ( $_COOKIE ['schuleinternsession'] )) {
-                            setcookie ( "schuleinternsession", null );
+            if ($action->needsUserAuth()) {
+                if (isset($_COOKIE['schuleinternsession'])) {
+                    DB::initSession($_COOKIE['schuleinternsession']);
+                    if (!DB::isLoggedIn()) {
+                        if (isset($_COOKIE['schuleinternsession'])) {
+                            setcookie("schuleinternsession", null);
                         }
                         $this->answer([], 401);
                     } else {
-                        if($action->needsAdminAuth()) {
-                            if ( !DB::getSession()->getUser()->isAdmin() ) {
+                        if ($action->needsAdminAuth()) {
+                            if (DB::getSession()->isAdminOrGroupAdmin($adminGroupName) !== true) {
                                 $this->answer([], 401);
                             }
                         }
-                        DB::getSession()->update ();
+                        DB::getSession()->update();
                         $action->user = DB::getSession()->getUser();
                         /*
                         if ($action->aclModuleName()) {
@@ -130,26 +146,20 @@ class resthandler {
                 }
             } else {
 
-                foreach($headers as $headername => $headervalue) {
-                    if(strtolower($headername) == 'authorization') {
-                        $authHeaderFound = true;
-                    }
-                }
 
                 // Check Auth
                 if ($action->needsSystemAuth()) {
                     $apiKey = null;
                     foreach ($headers as $headername => $headervalue) {
-                        if (strtolower($headername) == 'authorization') {
-                            $authHeaderFound = true;
-                            $apiKey = substr($headervalue, 7);
+                        if (strtolower($headername) == 'authorization' && $headervalue) {
+                            $apiKey = $headervalue;
                         }
                     }
-                    if ($apiKey != null && $apiKey != DB::getGlobalSettings()->apiKey) {
+
+                    if (!(string)$apiKey || (string)$apiKey !== (string)DB::getGlobalSettings()->apiKey) {
                         $result = [
                             'error' => 1,
-                            'errorText' => 'Auth Failedd',
-                            'SERVER' => $apiKey
+                            'errorText' => 'Auth Failedd'
                         ];
                         $this->answer($result, 401);
                     }
@@ -170,27 +180,26 @@ class resthandler {
             // Execute wird nur aufgerufen, wenn die Authentifizierung erfolgreich war.
             $result = $action->execute($input, $request);
 
-            if(!is_array($result) && !is_object($result)) {
+            if (!is_array($result) && !is_object($result)) {
                 $result = [
                     'error' => 1,
                     'errorText' => 'Missing Return'
                 ];
-                
-                if($action->getStatusCode() == 200) {
+
+                if ($action->getStatusCode() == 200) {
                     // Interner Fehler, da kein Status gesetzt wurde
                     $this->answer($result, 500);
                 } else {
                     $this->answer($result, $action->getStatusCode());
                 }
-                
             } else {
-                $this->answer($result,$action->getStatusCode());
+                $this->answer($result, $action->getStatusCode());
             }
         }
-
     }
 
-    private function answer($result, $statusCode) {
+    private function answer($result, $statusCode)
+    {
 
         header("Content-type: application/json");
         http_response_code($statusCode);
@@ -198,14 +207,15 @@ class resthandler {
         exit(0);
     }
 
-    public static function __htmlspecialchars($data) {
+    public static function __htmlspecialchars($data)
+    {
         if (is_array($data)) {
-            foreach ( $data as $key => $value ) {
+            foreach ($data as $key => $value) {
                 $data[htmlspecialchars($key)] = self::__htmlspecialchars($value);
             }
         } else if (is_object($data)) {
             $values = get_class_vars(get_class($data));
-            foreach ( $values as $key => $value ) {
+            foreach ($values as $key => $value) {
                 $data->{htmlspecialchars($key)} = self::__htmlspecialchars($value);
             }
         } else {
@@ -214,25 +224,25 @@ class resthandler {
         return $data;
     }
 
-    public static function getPostData() {
+    public static function getPostData()
+    {
         $postData = [];
         if ($_POST) {
-            foreach($_POST as $key => $val) {
+            foreach ($_POST as $key => $val) {
                 $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
             }
         }
         $_post = json_decode(file_get_contents("php://input"), TRUE);
         if ($_post) {
-            foreach($_post as $key => $val) {
+            foreach ($_post as $key => $val) {
                 $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
             }
         }
         if ($_GET) {
-            foreach($_GET as $key => $val) {
+            foreach ($_GET as $key => $val) {
                 $postData[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = self::__htmlspecialchars($val);
             }
         }
         return $postData;
     }
-
 }

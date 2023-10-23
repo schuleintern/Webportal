@@ -39,50 +39,43 @@ class grade {
 	 * Bestimmt die höchste Klassenstufe
 	 */
 	public static function getMaxGrade() {
+
 		$all = self::getAllGrades();
-		
-		
-		$maxGrade = 0;
-		
-		for($i = 0; $i < sizeof($all); $i++) {
-			$number = [];
-			for($c = 0; $c < strlen($all[$i]); $c++) {
-				if(functions::isNumber($all[$i][$c])) {
-					$number[] = $all[$i][$c];
+		if ($all) {
+			$foo = [];
+			foreach($all as $item) {
+				if ($item) {
+					preg_match_all('!\d+!', $item, $matches); 
+					if ($matches[0]) {
+						$foo = array_merge($foo, $matches[0]);
+					}
 				}
 			}
-			
-			$number = implode("",$number);
-			
-			if($number > $maxGrade) $maxGrade = $number;
+			return max($foo);
 		}
-		
-		return $maxGrade;
+		return false;
 	}
 	
 	/**
 	 * Bestimmt die niedrigste Klassenstufe
 	 */
 	public static function getMinGrade() {
+
+
 		$all = self::getAllGrades();
-	
-	
-		$minGrade = 9999;
-	
-			for($i = 0; $i < sizeof($all); $i++) {
-			$number = [];
-			for($c = 0; $c < strlen($all[$i]); $c++) {
-				if(functions::isNumber($all[$i][$c])) {
-					$number[] = $all[$i][$c];
+		if ($all) {
+			$foo = [];
+			foreach($all as $item) {
+				if ($item) {
+					preg_match_all('!\d+!', $item, $matches); 
+					if ($matches[0]) {
+						$foo = array_merge($foo, $matches[0]);
+					}
 				}
 			}
-			
-			$number = implode("",$number);
-			
-			if($number < $minGrade) $minGrade = $number;
+			return min($foo);
 		}
-	
-		return $minGrade;
+		return false;
 	}
 	
 	/**

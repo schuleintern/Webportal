@@ -1,6 +1,11 @@
 <?php
-//ini_set('display_errors', true);
-error_reporting(0);
+ini_set('display_errors', true);
+error_reporting(E_ALL);
+
+if ( version_compare(phpversion(), '8.0.0') >= 1 ) {
+    echo 'PHP 8.0!!!!!';
+}
+
 
 /**
  *
@@ -32,7 +37,7 @@ if($wartungsmodus != "") {
 $_request = [];
 if ($_REQUEST) {
     foreach($_REQUEST as $key => $val) {
-        $_request[stripslashes(strip_tags(htmlspecialchars($key, ENT_IGNORE, 'utf-8')))] = stripslashes(strip_tags(htmlspecialchars($val, ENT_IGNORE, 'utf-8')));
+        $_request[stripslashes(strip_tags(htmlspecialchars((string)$key, ENT_IGNORE, 'utf-8')))] = stripslashes(strip_tags(htmlspecialchars((string)$val, ENT_IGNORE, 'utf-8')));
     }
 }
 

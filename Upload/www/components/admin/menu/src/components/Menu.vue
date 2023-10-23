@@ -1,5 +1,16 @@
 <template>
   <div>
+
+    <div class="flex-row">
+      <div class="flex-1">
+
+      </div>
+      <div  class=" flex flex-end">
+        <button class="si-btn si-btn-red" v-on:click="handlerReset"><i class="fas fa-redo-alt"></i> Reset</button>
+      </div>
+    </div>
+
+
     <table class="si-table">
       <thead>
         <tr>
@@ -33,6 +44,9 @@ export default {
   },
   methods: {
 
+    handlerReset() {
+
+    },
     handlerMenuOpen: function (item) {
 
       //console.log(item);

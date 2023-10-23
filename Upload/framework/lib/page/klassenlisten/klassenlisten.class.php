@@ -82,8 +82,7 @@ class klassenlisten extends AbstractPage {
 				if($klasse != null) {
 					$pupils = $klasse->getSchueler($_REQUEST['withAusgetretene'] > 0);
 				}
-				
-				
+
 				if(isset($_REQUEST['createPDF']) && $_REQUEST['createPDF'] != "") {
 					
 					$cols = $_REQUEST['spalten'];
@@ -199,7 +198,6 @@ class klassenlisten extends AbstractPage {
 					
 					$excelFile = new PHPExcel();
 					// Set document properties
-					
 					$excelFile->getProperties()
 						->setCreator(DB::getGlobalSettings()->siteNamePlain)
 						->setTitle('Klassenliste ' . $grade)
@@ -327,10 +325,8 @@ class klassenlisten extends AbstractPage {
 					error_reporting(0);
 					// Excel
 					$grade = $_REQUEST['grade'];
-						
 					$excelFile = new PHPExcel();
 					// Set document properties
-						
 					$excelFile->getProperties()
 					->setCreator(DB::getGlobalSettings()->siteNamePlain)
 					->setTitle('Klassenliste ' . $grade)

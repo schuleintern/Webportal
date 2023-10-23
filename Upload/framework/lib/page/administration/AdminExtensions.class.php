@@ -137,20 +137,7 @@ class AdminExtensions extends AbstractPage {
                         echo json_encode($retun); exit;
                     }
 
-					if (file_exists($pathExtensions.$foldername)) {
-						FILE::removeFolder($pathExtensions.$foldername);
-					}
 
-					if ( !$zip->extractTo($pathExtensions) ) {
-						unlink(PATH_TMP.$filename);
-						$retun = ['error' => true, 'msg' => 'Error Unpack'];
-						echo json_encode($retun); exit;
-					}
-					$zip->close();
-
-                    if (file_exists(PATH_TMP.$filename)) {
-                        unlink(PATH_TMP . $filename);
-                    }
 
 					// Get Extension JSON
 					if ( file_exists($pathExtensions.$foldername.'/extension.json') ) {
@@ -171,19 +158,33 @@ class AdminExtensions extends AbstractPage {
 								echo json_encode($retun); exit;
 							}
 						}
+                        
 
+                        // Delete and Copy new version
+                        if (file_exists($pathExtensions.$foldername)) {
+                            FILE::removeFolder($pathExtensions.$foldername);
+                        }
+                        if ( !$zip->extractTo($pathExtensions) ) {
+                            unlink(PATH_TMP.$filename);
+                            $retun = ['error' => true, 'msg' => 'Error Unpack'];
+                            echo json_encode($retun); exit;
+                        }
+                        $zip->close();
+                        if (file_exists(PATH_TMP.$filename)) {
+                            unlink(PATH_TMP . $filename);
+                        }
 
-						// Install Extension DB
-						if ( file_exists($pathExtensions.$foldername.'/install/database_v'.$modulJSON->version.'.sql') ) {
-							$sql = file_get_contents($pathExtensions.$foldername.'/install/database_v'.$modulJSON->version.'.sql');
-							$sqlCommands = explode(';', $sql);
-							foreach($sqlCommands as $foo) {
-								$foo = trim($foo);
-								if ($foo) {
-									DB::getDB()->query($foo);
-								}
-							}
-						}
+                        // Install Extension DB
+                        if ( file_exists($pathExtensions.$foldername.'/install/database_v'.$modulJSON->version.'.sql') ) {
+                            $sql = file_get_contents($pathExtensions.$foldername.'/install/database_v'.$modulJSON->version.'.sql');
+                            $sqlCommands = explode(';', $sql);
+                            foreach($sqlCommands as $foo) {
+                                $foo = trim($foo);
+                                if ($foo) {
+                                    DB::getDB()->query($foo);
+                                }
+                            }
+                        }
 
 						// Update Extension
 						DB::getDB()->query("UPDATE `extensions` SET 

@@ -843,6 +843,11 @@ class administrationasvimport extends AbstractPage
 
                 if (self::$klassen[$i]['schueler'][$s]['ganztag_betreuung'] != "") DB::getDB()->query("INSERT INTO unterricht_besuch (unterrichtID, schuelerAsvID) values ('1','" . self::$klassen[$i]['schueler'][$s]['asvid'] . "')");
 
+                // Update USER data
+                DB::getDB()->query("UPDATE users SET 
+                         userFirstName = " . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['rufname']) . ",
+                         userLastName = " . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['name']) . "
+                         WHERE userAsvID = '" . self::$klassen[$i]['schueler'][$s]['asvid']."'" );
             }
         }
 
@@ -1181,6 +1186,14 @@ class administrationasvimport extends AbstractPage
 						lehrerNameVorgestellt='" . DB::getDB()->escapeString($lehrer[$i]['namevorgestellt']) . "',
 						lehrerNameNachgestellt='" . DB::getDB()->escapeString($lehrer[$i]['namenachgestellt']) . "'
 			");
+
+            // Update USERS Table
+
+            DB::getDB()->query("UPDATE users SET 
+                         userFirstName = " . DB::getDB()->escapeString($lehrer[$i]['rufname']) . ",
+                         userLastName = " . DB::getDB()->escapeString($lehrer[$i]['name']) . "
+                         WHERE userAsvID = '" . $lehrer[$i]['asvid']."'" );
+
         }
 
 
