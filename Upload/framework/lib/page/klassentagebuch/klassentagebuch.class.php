@@ -844,7 +844,7 @@ class klassentagebuch extends AbstractPage {
   			$tableContent .= "<br /><i class=\"fa fa-home\"></i> " . $entry->getHausaufgabe();
   		}
   		else {
-  			$tableContent .= "<br /><i class=\"fa fa-home\"></i> <i>Keine Hausaufgaben</i>";
+  			$tableContent .= "<br /><i class=\"fa fa-home\"></i> <i>Keine Hausaufgaben - Grundwissen wiederholen & auf die nächste Stunde vorbereiten</i>";
   		}
 
   		$privateFiles = $entry->getPrivateFiles();
@@ -1071,7 +1071,7 @@ class klassentagebuch extends AbstractPage {
               $tableContent .= "<br /><i class=\"fa fa-home\"></i> " . $entries[$e]->getHausaufgabe();
             }
             else {
-              $tableContent .= "<br /><i class=\"fa fa-home\"></i> <i>Keine Hausaufgaben</i>";
+              $tableContent .= "<br /><i class=\"fa fa-home\"></i> <i>Keine Hausaufgaben - Grundwissen wiederholen & auf die nächste Stunde vorbereiten</i>";
             }
           }
 
