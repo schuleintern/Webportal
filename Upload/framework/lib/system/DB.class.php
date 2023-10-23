@@ -60,7 +60,7 @@ class DB {
 	}
 
     /**
-     * @return mysql
+     * @return pdb
      */
     public static function run($sql = false, $arg = false) {
         return self::$pdb->run($sql, $arg);

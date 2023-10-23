@@ -43,6 +43,8 @@ class PDB
             return false;
         }
 
+        $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+
         if (!$args) {
             try {
                 return $this->connection->query($sql);
@@ -60,6 +62,7 @@ class PDB
             try {
                 $stmt->execute($args);
             } catch (\PDOException $e) {
+                print_r($stmt->errorInfo());
                 throw new \PDOException($e->getMessage(), (int)$e->getCode());
             }
 
