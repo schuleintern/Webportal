@@ -131,11 +131,11 @@ class RestGetUser extends AbstractRest {
 	 * @return boolean
 	 */
 	public function needsSystemAuth() {
-		return true;
+		return false;
 	}
 
 	public function needsUserAuth() {
-		return false;
+		return true;
 	}
 
 	public function aclModuleName() {
