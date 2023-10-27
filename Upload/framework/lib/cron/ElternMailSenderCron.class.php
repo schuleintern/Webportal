@@ -58,7 +58,8 @@ class ElternMailSenderCron extends AbstractCron {
 			        
 			        $needConfirm = $mails[$i]->needConfirmation();
 			        $confirmLink = DB::getGlobalSettings()->urlToIndexPHP . "?page=MessageConfirm&mailID=" . $mails[$i]->getID() . "&a=" . $mails[$i]->getConfirmationSecret();
-			        
+					$replyLink = DB::getGlobalSettings()->urlToIndexPHP."?page=MessageCompose&replyMessage=".$mails[$i]->getID();
+
 			        $unsubscribeLink = DB::getGlobalSettings()->urlToIndexPHP . "?index.php?page=userprofile";
 			        
 			        $messageText = $mails[$i]->getText();
