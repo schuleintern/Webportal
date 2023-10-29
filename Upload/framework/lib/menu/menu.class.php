@@ -1014,10 +1014,6 @@ class menu extends AbstractMenu {
       $html = "";
 
 
-      if($this->isActive("Lerntutoren") && (DB::getSession()->isPupil() || DB::getSession()->isEltern() || DB::getSession()->isTeacher())) {
-          $html .= $this->getMenuItem("Lerntutoren", "Lerntutoren", "fa fa-graduation-cap");
-      }
-
     if((($this->isActive("mebis"))&& (DB::getSession()->isTeacher() || DB::getSession()->isPupil()))) {
       $html .= $this->startDropDown(['mebis'], "Unterrichtstools", "fa fa-cubes");
 
