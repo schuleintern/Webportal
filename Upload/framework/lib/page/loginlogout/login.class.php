@@ -432,13 +432,17 @@ class login extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroup() {
-	    return 'System';
+	    return 'Allgemeine Einstellungen';
 	}
 	
 	public static function getAdminMenuGroupIcon() {
 	    return 'fa fa-desktop';
 	}
 	
+	public static function getAdminMenuIcon() {
+		return 'fa fa-desktop';
+	}
+
 	public static function hasAdmin() {
 	    return true;
 	}

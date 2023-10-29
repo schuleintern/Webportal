@@ -62,6 +62,9 @@ class PushSettings extends AbstractPage
     {
         return 'Webportal_Admin_Skin_Settings';
     }
+    public static function getAdminMenuIcon() {
+        return 'fa fa-bell';
+    }
 
     public static function getAdminMenuGroup()
     {

@@ -1190,8 +1190,8 @@ class administrationasvimport extends AbstractPage
             // Update USERS Table
 
             DB::getDB()->query("UPDATE users SET 
-                         userFirstName = " . DB::getDB()->escapeString($lehrer[$i]['rufname']) . ",
-                         userLastName = " . DB::getDB()->escapeString($lehrer[$i]['name']) . "
+                         userFirstName = '" . DB::getDB()->escapeString($lehrer[$i]['rufname']) . "',
+                         userLastName = '" . DB::getDB()->escapeString($lehrer[$i]['name']) . "'
                          WHERE userAsvID = '" . $lehrer[$i]['asvid']."'" );
 
         }
