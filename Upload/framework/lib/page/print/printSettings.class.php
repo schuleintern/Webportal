@@ -108,7 +108,7 @@ class printSettings extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroup() {
-		return 'System';
+		return 'Allgemeine Einstellungen';
 	}
 	
 	public static function getAdminMenuGroupIcon() {

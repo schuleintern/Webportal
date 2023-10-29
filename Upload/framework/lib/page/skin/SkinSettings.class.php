@@ -100,6 +100,10 @@ class SkinSettings extends AbstractPage {
   	return 'Allgemeine Einstellungen';
   }
   
+  public static function getAdminMenuIcon() {
+	return 'fa fa-palette';
+}
+
   public static function displayAdministration($selfURL) {
     return '';
   }
