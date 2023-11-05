@@ -109,6 +109,11 @@ class mebis extends AbstractPage {
 	    for($i = 0; $i < sizeof($data); $i++) {
 	        $line = explode(";",str_replace("\r","",str_replace("\n","",str_replace("\"","",$data[$i]))));
 	        
+			$line[0] = str_replace("'", '', $line[0]);
+			$line[1] = str_replace("'", '', $line[1]);
+			$line[2] = str_replace("'", '', $line[2]);
+			$line[3] = str_replace("'", '', $line[3]);
+
 	        $vorhanden = DB::getDB()->query_first("SELECT * FROM mebis_accounts WHERE mebisAccountBenutzername LIKE '" . DB::getDB()->escapeString(($line[2])) . "'");
 	        
 	        if($vorhanden['mebisAccountID'] > 0) {
