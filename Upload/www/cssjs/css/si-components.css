@@ -950,7 +950,8 @@ and (orientation : portrait) {
 .si-userselect {
 
 }
-.si-userselect .si-userselect-modal {
+.si-userselect .si-userselect-modal,
+.si-modalblack {
     position: fixed;
     z-index: 99999999999;
     top: 0;
