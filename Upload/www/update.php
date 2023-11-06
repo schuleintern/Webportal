@@ -28,6 +28,8 @@ class Updates
     {
         $root->update('www/push.php');
         $root->update('www/serviceWorker.js');
+        $root->update('www/cssjs');
+        $root->update('www/startup.php');
 
         $root->query("ALTER TABLE `users` ADD `userPush` TEXT NOT NULL;");
 
