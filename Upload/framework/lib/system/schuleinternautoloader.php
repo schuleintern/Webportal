@@ -4,12 +4,6 @@ $classes = [
 	'abstractPages' => [
 		'AbstractKalenderPage'
 	],
-    'externalRESTapi' => [
-        'ExternalPortalRESTapi'
-    ],
-    'rest' => [
-        'SimpleRestClient'
-    ],
 	'ajax' => [
 		'ajax',
 		'showHideElements',
