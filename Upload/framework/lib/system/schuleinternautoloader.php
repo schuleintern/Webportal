@@ -162,9 +162,6 @@ $classes = [
 	'exception' => [
 		'DbException',
 	],
-	'GarbageCollector' => [
-		'GarbageCollector',
-	],
 	'html2pdf' => [
 		'mpdf.php'
 	],
