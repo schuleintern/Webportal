@@ -31,7 +31,7 @@ class Updates
         $root->update('www/cssjs');
         $root->update('www/startup.php');
 
-        $root->query("ALTER TABLE `users` ADD `userPush` TEXT NOT NULL;");
+        $root->query("ALTER TABLE `users` ADD `userPush` TEXT NOT NULL;", false);
 
         return true;
     }
