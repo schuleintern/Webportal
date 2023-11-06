@@ -24,6 +24,18 @@ include_once '../data/config/config.php';
 class Updates
 {
 
+    public static function to161($root)
+    {
+        $root->update('www/push.php');
+        $root->update('www/serviceWorker.js');
+        $root->update('www/cssjs');
+        $root->update('www/startup.php');
+
+        $root->query("ALTER TABLE `users` ADD `userPush` TEXT NOT NULL;");
+
+        return true;
+    }
+
     public static function to160($root)
     {
         $root->update('www/cssjs');

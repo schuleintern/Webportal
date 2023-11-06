@@ -4,12 +4,6 @@ $classes = [
 	'abstractPages' => [
 		'AbstractKalenderPage'
 	],
-    'externalRESTapi' => [
-        'ExternalPortalRESTapi'
-    ],
-    'rest' => [
-        'SimpleRestClient'
-    ],
 	'ajax' => [
 		'ajax',
 		'showHideElements',
@@ -161,9 +155,6 @@ $classes = [
 	],
 	'exception' => [
 		'DbException',
-	],
-	'GarbageCollector' => [
-		'GarbageCollector',
 	],
 	'html2pdf' => [
 		'mpdf.php'
