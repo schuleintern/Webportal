@@ -33,7 +33,7 @@ class Updates
 
         $root->query("ALTER TABLE `users` ADD `userPush` TEXT NOT NULL;");
 
-
+        return true;
     }
 
     public static function to160($root)
