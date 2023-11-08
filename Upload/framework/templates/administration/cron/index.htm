@@ -14,7 +14,17 @@
 		<div class="input-group btn-block">
 			<label>2. Cronjob (Alle 2 Minuten)</label>
 			<input type="text" value="$url2" class="form-control">
-		</div><br /><br />
+		</div>
+
+		<if($hasUserSync)><then>
+			<div class="input-group btn-block">
+				<label>3. Cronjob (Alle 15 Minuten) (Benutzersync)</label>
+				<input type="text" value="$url3" class="form-control">
+			</div>
+		</then></if>
+
+
+		<br /><br />
 
 		<div class="nav-tabs-custom">
 			<ul class="nav nav-tabs">
