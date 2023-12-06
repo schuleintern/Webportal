@@ -178,6 +178,7 @@ class user {
       ];
       if ($avatar == true) {
           $collection["avatar"] = $this->getAvatar();
+          $collection["avatarURL"] = URL_ROOT.substr($collection["avatar"],1);
       }
       if ($full == true) {
           if ($this->isPupil()) {
@@ -202,6 +203,7 @@ class user {
               if ($klassen) {
                   $collection['klasse'] = implode(', ', $klassen);
               }
+              $collection['short'] = $this->getTeacherObject()->getKuerzel();
           }
       }
       return $collection;
