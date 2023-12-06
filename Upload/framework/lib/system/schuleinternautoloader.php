@@ -187,7 +187,8 @@ $classes = [
 		'FACTORY',
 		'ACL',
         'Cache',
-        'Widget'
+        'Widget',
+		'EXTENSION'
 
 	],
 	'tpl' => [
