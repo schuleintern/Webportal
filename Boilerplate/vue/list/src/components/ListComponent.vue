@@ -56,7 +56,9 @@ export default {
             var search_result = [];
             this.searchColumns.forEach(function (col) {
               search_temp = data.filter((item) => {
-                return split.every(v => item[col].toLowerCase().includes(v));
+                if (item[col]) {
+                  return split.every(v => item[col].toLowerCase().includes(v));
+                }
               });
               if (search_temp.length > 0) {
                 search_result = Object.assign(search_result, search_temp);
