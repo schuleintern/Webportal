@@ -354,6 +354,10 @@ button.btn-blau {
   color: #ffffff !important;
 }
 
+.text-line {
+  text-decoration: line-through;
+}
+
 .text-small {
   font-size: 80% !important;
 }
@@ -366,7 +370,7 @@ button.btn-blau {
   font-size: 140%;
 }
 .text-big-m {
-  font-size: 160%;
+  font-size: 160% !important; 
 }
 
 .text-right {

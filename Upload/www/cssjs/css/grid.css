@@ -116,6 +116,29 @@ body {
   flex-basis: 100%;
 }
 
+
+
+.columns-2 {
+  columns: 2;
+}
+.columns-4 {
+  columns: 4;
+}
+.columns-6 {
+  columns: 6;
+}
+.columns-8 {
+  columns: 8;
+}
+
+
+.isMobile .mobile-colums-1 {
+  columns: 1;
+}
+
+
+
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -342,6 +365,21 @@ body {
 .margin-0 {
   margin: 0 !important;
 }
+
+
+
+.isMobile .mobile-margin-t-s {
+  margin-top: 0.6rem;
+}
+.isMobile .mobile-margin-t-m {
+  margin-top: 1.3rem;
+}
+.isMobile .mobile-margin-t-l {
+  margin-top: 2.3rem;
+}
+
+
+
 
 .overlay i.fa {
   top: 50vh !important;

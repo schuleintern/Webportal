@@ -142,7 +142,10 @@ and (orientation : portrait) {
     border: 1px solid #b7c7ce;
     color: #000;
     text-align: left;
-    white-space: break-spaces;
+    white-space: normal;
+}
+.si-box p{
+    white-space: break-word;
 }
 .si-box-shadow {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -362,6 +365,7 @@ and (orientation : portrait) {
     background-color: #fff;
     border: 1px solid #3c8dbc;
     color: #000;
+    max-height: 4rem;
 }
 
 .si-input[type="radio"],
@@ -906,6 +910,23 @@ and (orientation : portrait) {
     min-width: inherit;
     color: inherit;
     white-space: normal;
+}
+.si-user.si-user-avatar {
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+    box-shadow: none;
+    text-align: inherit;
+    display: block;
+    max-width: inherit;
+    min-width: inherit;
+    color: inherit;
+    white-space: normal;
+}
+.si-user.si-user-avatar img {
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
 }
 
 .si-user--infoBox .avatar {
