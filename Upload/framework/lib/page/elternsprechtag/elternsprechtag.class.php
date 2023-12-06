@@ -800,6 +800,10 @@ class elternsprechtag extends AbstractPage {
 				return self::massEditTeacher($selfURL);
 			break;
 			
+			case "printRooms":
+				return self::printRooms($selfURL);
+			break;
+
 			case "printZettel":
 				return self::printZettel($selfURL);
 			break;
@@ -1019,6 +1023,80 @@ class elternsprechtag extends AbstractPage {
 	    
 	}
 	
+	
+
+	private static function printRooms($selfURL) {
+
+		$print = new PrintNormalPageA4WithHeader('Aushangezettel' . ($_REQUEST['noNames'] == 1) ? " ohne Namen" : "");
+		$print->showHeaderOnEachPage();
+
+		
+		$lehrerMitSlotsSQL = DB::getDB()->query("SELECT * FROM lehrer WHERE lehrerKuerzel IN (SELECT DISTINCT lehrerKuerzel FROM  sprechtag_buchungen WHERE sprechtagID='" . self::$currentSprechtagID . "' AND isBuchbar=1) ORDER BY lehrerName ASC, lehrerRufname ASC");
+		
+		$lehrerMitSlots = array();
+		
+		while($l = DB::getDB()->fetch_array($lehrerMitSlotsSQL)) {
+			$lehrerMitSlots[] = $l;
+		}
+				
+		// Räume	
+		
+		$rooms = array();
+		$roomsql = DB::getDB()->query("SELECT * FROM sprechtag_raeume WHERE sprechtagID='" . self::$currentSprechtagID . "' ORDER BY lehrerKuerzel ASC");
+		while($s = DB::getDB()->fetch_array($roomsql)) {
+			$rooms[$s['lehrerKuerzel']] = $s['raumName'];
+		}
+		
+		$html = '';
+
+
+		$html .= '<thead><tr>';
+		$html .= '<td><b>Name</b></td>';
+		$html .= '<td><b>Raum</b></td>';
+		$html .= '<td width="10%"></td>';
+		$html .= '<td><b>Name</b></td>';
+		$html .= '<td><b>Raum</b><br></td>';
+		$html .= '</tr></thead><tbody>';
+
+		$i = 0;
+
+		foreach ($lehrerMitSlots as $slot) {
+			
+			if ( $i % 2 == 0 ) {
+				$html .= '<tr>';
+			}
+		
+			if ($slot && $slot['lehrerName']) {
+				$html .= '<td>'.$slot['lehrerName'].'</td>';
+				$html .= '<td>'.$rooms[$slot['lehrerKuerzel']].'</td>';
+			}
+		
+			if ( $i % 2 == 1 ) {
+				$html .= '</tr>';
+			} else {
+				$html .= '<td width="10%"></td>';
+			}
+			
+			$i++;
+		}
+
+		if ( $i % 2 == 1 ) {
+			$html .= '<td></td>';
+			$html .= '<td></td>';
+			$html .= '</tr>';
+		}
+
+		$html .= '</tbody>';
+		eval("\$data = \"" . DB::getTPL()->get("elternsprechtag/admin/print_rooms") . "\";");
+		$print->setHTMLContent($data);
+		$print->send();
+		
+		exit(0);
+		
+
+	}
+
+
 	private static function printZettel($selfURL) {
 		$print = new PrintNormalPageA4WithoutHeader('Aushangezettel' . ($_REQUEST['noNames'] == 1) ? " ohne Namen" : "");
 		$print->showHeaderOnEachPage();
@@ -1146,27 +1224,30 @@ class elternsprechtag extends AbstractPage {
 			if($_POST["select_" . $teacherData[$i]['lehrerKuerzel']] > 0) {
 				for($s = 0; $s < sizeof($slotData); $s++) {
 				    
+					// Doppelte Slots?
+					$multipleSlots = DB::getDB()->query("SELECT * FROM sprechtag_buchungen WHERE sprechtagID='" . intval(self::$currentSprechtagID) . "' AND slotID='" . $slotData[$s]['slotID'] . "' AND lehrerKuerzel='" . $teacherData[$i]['lehrerKuerzel'] . "'");
+					if ($multipleSlots->num_rows > 1) {
+						DB::getDB()->query("DELETE FROM sprechtag_buchungen WHERE sprechtagID='" . intval(self::$currentSprechtagID) . "' AND slotID='" . $slotData[$s]['slotID'] . "' AND lehrerKuerzel='" . $teacherData[$i]['lehrerKuerzel'] . "'");
+					}
+
+
 				    // Buchbarer Slot vorhanden?
 				    
 				    $singleSlot = DB::getDB()->query_first("SELECT * FROM sprechtag_buchungen WHERE sprechtagID='" . intval(self::$currentSprechtagID) . "' AND slotID='" . $slotData[$s]['slotID'] . "' AND lehrerKuerzel='" . $teacherData[$i]['lehrerKuerzel'] . "'");
 				    
 				    if($singleSlot['buchungID'] > 0) {
 				        if($_POST["slot_" . $slotData[$s]['slotID']] > 0) {
-				            
-				            //
 				            DB::getDB()->query("UPDATE sprechtag_buchungen SET isBuchbar=1 WHERE sprechtagID='" . intval(self::$currentSprechtagID) . "' AND slotID='" . $slotData[$s]['slotID'] . "' AND lehrerKuerzel='" . $teacherData[$i]['lehrerKuerzel'] . "'");
-				        }
-				        else {
+				        } else {
 				            DB::getDB()->query("UPDATE sprechtag_buchungen SET isBuchbar=0, schuelerAsvID='', elternUserID=0 WHERE sprechtagID='" . intval(self::$currentSprechtagID) . "' AND slotID='" . $slotData[$s]['slotID'] . "' AND lehrerKuerzel='" . $teacherData[$i]['lehrerKuerzel'] . "'");
 				        }
-				    }
-				    else {
+				    } else {
 				        DB::getDB()->query("INSERT INTO sprechtag_buchungen (lehrerKuerzel, sprechtagID, slotID, isBuchbar) values(
 
                             '" . DB::getDB()->escapeString($teacherData[$i]['lehrerKuerzel']) . "',
                             '" . intval(self::$currentSprechtagID) . "',
                             '" . $slotData[$s]['slotID'] . "',
-                            '" . ($_POST["slot_" . $slotData[$s]['slotID']] > 0) . "'
+                            " . (int)($_POST["slot_" . $slotData[$s]['slotID']] > 0) . "
                         )");
 				    }
 				    
