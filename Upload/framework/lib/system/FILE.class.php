@@ -94,7 +94,7 @@ class FILE
       if (file_exists($script)) {
         $file = file_get_contents($script);
         if ($file) {
-          $html .= '<script>' . $file . '</script>';
+          $html .= '<script defer>' . $file . '</script>';
         }
       }
     }
