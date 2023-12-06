@@ -425,7 +425,7 @@ class administrationcreateusers extends AbstractPage {
             $newUserID = DB::getDB()->insert_id();
             DB::getDB()->query("UPDATE schueler SET schuelerUserID='" . $newUserID . "' WHERE schuelerAsvID='" . $data['schuelerAsvID'] . "'");
             DB::getDB()->query("INSERT INTO initialpasswords (initialPasswordUserID, initialPassword) values('" . $newUserID . "','" . $newPassword . "')");
-            echo 'schueler '.$newUserID.' - '.$data['schuelerName'].'<br>';
+            //echo 'schueler '.$newUserID.' - '.$data['schuelerName'].'<br>';
           }
 
 
