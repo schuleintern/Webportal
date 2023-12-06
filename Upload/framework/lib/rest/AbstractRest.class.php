@@ -87,6 +87,12 @@ abstract class AbstractRest {
         return false;
     }
 
+    public function needsAppAuth() {
+        return false;
+    }
+
+    
+
     /**
      * @deprecated:  use getAclGroup
      */
@@ -192,7 +198,8 @@ abstract class AbstractRest {
 
 
     protected function canRead () {
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
+
+        if ( DB::getSession() && DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
             return true;
         }
         if ( (int)$this->acl['rights']['read'] === 1  ) {
@@ -202,7 +209,7 @@ abstract class AbstractRest {
     }
 
     protected function canWrite () {
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
+        if ( DB::getSession() && DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
             return true;
         }
         if ( (int)$this->acl['rights']['write'] === 1  ) {
@@ -212,7 +219,7 @@ abstract class AbstractRest {
     }
 
     protected function canDelete () {
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
+        if ( DB::getSession() && DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
             return true;
         }
         if ( (int)$this->acl['rights']['delete'] === 1  ) {
@@ -224,7 +231,7 @@ abstract class AbstractRest {
     protected function canAdmin () {
         //echo $this->getAdminGroup();
 
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
+        if ( DB::getSession() && DB::getSession()->isAdminOrGroupAdmin($this->getAdminGroup()) === true ) {
             return true;
         }
         return false;
