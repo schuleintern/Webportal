@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.6.0
+ * Version 1.6.2
  *
  */
 
@@ -23,6 +23,15 @@ include_once '../data/config/config.php';
 
 class Updates
 {
+
+    public static function to162($root)
+    {
+        $root->update('www/cssjs');
+        $root->query("ALTER TABLE `sessions` CHANGE `sessionDevice` `sessionDevice` ENUM('APP','NORMAL','SINGLESIGNON')  CHARACTER SET utf8  COLLATE utf8_general_ci  NOT NULL  DEFAULT 'NORMAL';", false);
+    
+        return true;
+    }
+    
 
     public static function to161($root)
     {
