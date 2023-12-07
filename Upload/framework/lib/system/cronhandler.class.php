@@ -119,7 +119,6 @@ class cronhandler
         // Cron Running?
 
         $isRunning = DB::getSettings()->getValue("cronRunning");
-
         if ($isRunning != 0) {
             if (($isRunning + 1800) <= time() || isset($_REQUEST['resetCronStatus']) && $_REQUEST['resetCronStatus'] > 0) {
                 // Nach 30 Minuten Reset
@@ -140,22 +139,25 @@ class cronhandler
 
         $cronList = [];
 
-
         for ($i = 0; $i < sizeof($allowedActions); $i++) {
 
-            // Import default Class
-            require_once('../framework/lib/cron/' . $allowedActions[$i] . ".class.php");
+            if (file_exists('../framework/lib/cron/' . $allowedActions[$i] . ".class.php")) {
+                // Import default Class
+                require_once('../framework/lib/cron/' . $allowedActions[$i] . ".class.php");
 
-            // Remove Slashes in pages
-            if (strpos($allowedActions[$i], "/") > 0) {
-                $cronList[$i] = substr($allowedActions[$i], strpos($allowedActions[$i], "/") + 1);
-            } else {
+                // Remove Slashes in pages
+                if (strpos($allowedActions[$i], "/") > 0) {
+                    $cronList[$i] = substr($allowedActions[$i], strpos($allowedActions[$i], "/") + 1);
+                } else {
+                    $cronList[$i] = $allowedActions[$i];
+                }
+            } else if ( strpos($allowedActions[$i], 'ext') == 0 ) {
+                // Extensions Cron was imported @ getAllowedActions()
                 $cronList[$i] = $allowedActions[$i];
             }
+            
         }
-
-
-
+        
         
 
         for ($i = 0; $i < sizeof($cronList); $i++) {
