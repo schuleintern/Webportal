@@ -29,7 +29,7 @@ abstract class AbstractPage
     private $request = false;
     public $extension = false;
     private $isAnyAdmin = false;
-    private $isMobile = false;
+    public $isMobile = false;
 
     static $adminGroupName = NULL;
     static $aclGroupName = NULL;
