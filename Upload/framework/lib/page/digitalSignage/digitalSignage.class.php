@@ -593,6 +593,8 @@ class digitalSignage extends AbstractPage {
 				],	
 		];
 		
+		$hasPPT = true; // Hack ??? Weil Bug in der Rückmeldung ob ppt unterstützt wird oder nicht? (isgy)
+		
 		if($layoutID == 'layout1' && $hasPPT) {
 		    // Powerpoints laden
 		    
