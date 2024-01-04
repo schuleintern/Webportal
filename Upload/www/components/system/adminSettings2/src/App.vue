@@ -21,8 +21,13 @@
           </div>
           <div class="flex-2">
 
+            <FormRules
+                v-if="item.typ == 'ACL'"
+                :input="item.value"
+                @done="triggerToggleValue($event, item)"></FormRules>
+
             <FormToggle
-                v-if="item.typ == 'BOOLEAN'"
+                v-else-if="item.typ == 'BOOLEAN'"
                 :input="item.value"
                 @change="triggerToggleValue($event, item)"></FormToggle>
 
@@ -71,6 +76,7 @@ import FormSelect from './mixins/FormSelect.vue'
 import FormText from './mixins/FormText.vue'
 import FormToggle from './mixins/FormToggle.vue'
 import FormNumber from './mixins/FormNumber.vue'
+import FormRules from './mixins/FormRules.vue'
 
 const axios = require('axios').default;
 
@@ -80,7 +86,7 @@ export default {
   name: 'App',
   components: {
     AjaxError, AjaxSpinner, AjaxNotif,
-    FormInput, FormSelect, FormText, FormToggle, FormNumber
+    FormInput, FormSelect, FormText, FormToggle, FormNumber, FormRules
   },
   data() {
     return {
@@ -98,7 +104,7 @@ export default {
 
     triggerToggleValue(data, item) {
 
-      //console.log('triggerToggleEvent', 'neu:',data.value, item);
+      console.log('triggerToggleEvent', 'neu:',data.value, item);
       item.value = data.value;
       this.saveData();
 
