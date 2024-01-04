@@ -91,7 +91,8 @@ class requesthandler {
       'AdminDatabaseUpdate',
       'AdminExtensions',
       'AdminMenu',
-      'AdminWidgets'
+      'AdminWidgets',
+      'AdminInfo'
     ],
     'aufeinenblick' => [
       'aufeinenblick',

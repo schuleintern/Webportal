@@ -11,7 +11,7 @@ class administration extends AbstractPage {
 		$this->needLicense = false;
 		$this->sitename = "Administration / Allgemeines";
 		
-		parent::__construct(array("Administration", "Allgemeines, Lizenz"), false, true);
+		parent::__construct(array("Administration", "Administration"), false, true);
 		
 		$this->checkLogin();
 
@@ -20,97 +20,20 @@ class administration extends AbstractPage {
 			header("Location: index.php");
 			exit(0);
 		}
-		
+
 	}
 
 	public function execute() {
-		$users = DB::getDB()->query("SELECT userID,sessionLastActivity FROM sessions JOIN users ON sessions.sessionUserID=users.userID WHERE sessionLastActivity > (UNIX_TIMESTAMP()-600)");
-		
-		$userList = "";
-		$count = 0;
-		while($u = DB::getDB()->fetch_array($users)) {
-			$count++;
-
-			$user = user::getUserByID($u['userID']);
-            $userList .= "<tr><td><strong>";
-
-            $userList .= $user->getDisplayName();
-			
-			
-			$userList .= "</strong><br />" . functions::makeDateFromTimestamp($u['sessionLastActivity']) . "</td>";
 
 
-			if($user->isTeacher()) {
-			    $userList .= "<td style='width: 20%'><button class='btn btn-app disabled'><i class='fa fa-female'></i></button></td>";
-            }
+        include_once PATH_LIB.'menu'.DS.'admin.class.php';
+        $adminMenu = new SystemAdminMenu();
 
-            elseif($user->isPupil()) {
-                $userList .= "<td style='width: 20%'><button class='btn btn-app disabled'><i class='fa fa-child'></i></button></td>";
-            }
-
-            elseif($user->isEltern()) {
-                $userList .= "<td style='width: 20%'><button class='btn btn-app disabled'><i class='fa fa-user-friends'></i></button></td>";
-            }
-
-			else {
-                $userList .= "<td style='width: 20%'><button class='btn btn-app disabled'><i class='fa fa-question-circle'></i></button></td>";
-
-            }
-
-
-		}
-
-		// Statistik
-
-        $labels = [];
-
-		$eltern = [];
-		$schueler = [];
-		$lehrer = [];
-
-		$stat = [];
-
-        switch($_REQUEST['statType']) {
-            case 'today':
-            default:
-                $title = "Eingeloggte Benutzer heute";
-                $stat = UserLoginStat::getTodayStat();
-                break;
-
-            case 'month':
-                $title = "Eingeloggte Benutzer diesen Monat";
-
-                $stat = UserLoginStat::getCurrentMonth();
-                break;
-
-            case 'year':
-                $title = "Eingeloggte Benutzer im Jahr " . date("Y");
-
-                $stat = UserLoginStat::getYear(date("Y"));
-                break;
-
-            case 'lastyear':
-                $title = "Eingeloggte Benutzer im Jahr " . (date("Y")-1);
-
-                $stat = UserLoginStat::getYear(date("Y")-1);
-                break;
-
+        $html = '';
+        foreach ($adminMenu->data as $item) {
+            $html .= '<h4>'.$item['title'].'</h4>';
+            $html .= '<ul>'.$item['html'].'</ul>';
         }
-
-        if(sizeof($stat) > 0) {
-            $labels = $stat['labels'];
-            $lehrer = $stat['teacherdata'];
-            $schueler = $stat['studentdata'];
-            $eltern = $stat['parentsdata'];
-        }
-
-
-        $labelsJSONEncoded = json_encode($labels);
-        $schuelerJSONEncoded = json_encode($schueler);
-        $elternJSONEncoded = json_encode($eltern);
-        $lehrerJSONEncoded = json_encode($lehrer);
-
-
 
 		eval("echo(\"" . DB::getTPL()->get("administration/index") . "\");");
 	}

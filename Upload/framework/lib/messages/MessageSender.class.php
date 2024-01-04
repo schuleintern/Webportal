@@ -310,9 +310,9 @@ class MessageSender{
 
 		$sumRecipients = $this->sentMessages;
 
-        $saveStringsRecipients = $this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
-        $saveStringsCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->ccRecipients, $messageQuestionIDs);
-        $saveStringsBCCRecipients = $this->sendToRecipientsAndGetSaveStrings($this->bccRecipients, $messageQuestionIDs);
+        $saveStringsRecipients = (array)$this->sendToRecipientsAndGetSaveStrings($this->recipients, $messageQuestionIDs);
+        $saveStringsCCRecipients = (array)$this->sendToRecipientsAndGetSaveStrings($this->ccRecipients, $messageQuestionIDs);
+        $saveStringsBCCRecipients = (array)$this->sendToRecipientsAndGetSaveStrings($this->bccRecipients, $messageQuestionIDs);
 
 
 		// Gesendete Nachricht einfügen

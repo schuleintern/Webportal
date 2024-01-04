@@ -581,6 +581,26 @@ button.btn-blau {
     float: left;
   }
 }
+.adminMenu ul  {
+  margin: 0;
+  padding-left: 2rem;
+}
+.adminMenu li  {
+  list-style: none;
+  padding: 1.2rem;
+}
+.adminMenu li:nth-child(even)  {
+  background-color: #f9f9f9;
+}
+.adminMenu li a  {
+  color: #666;
+}
+.adminMenu li a:hover  {
+  color: #367fa9;
+}
+.adminMenu li a i {
+  padding-right: 0.6rem;
+}
 
 
 

@@ -3,124 +3,68 @@
 <div class="row">
 
 	
-	<div class="col-md-5">
+	<div class="col-md-8">
 
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title"><i class="fa fa-chart-line"></i> Anmeldestatistik - $title</h3>
-            </div>
+        <div class="box box-solid">
             <div class="box-body">
-                <p>
-                    <a href="index.php?page=administration&statType=today" class="btn btn-default"><i class="fa fa-chart-line"></i> Heute</a>
-                    <a href="index.php?page=administration&statType=month" class="btn btn-default"><i class="fa fa-chart-line"></i> Dieser Monat</a>
-                    <a href="index.php?page=administration&statType=year" class="btn btn-default"><i class="fa fa-chart-line"></i> Dieses Jahr</a>
-                    <a href="index.php?page=administration&statType=lastyear" class="btn btn-default"><i class="fa fa-chart-line"></i> Vorheriges Jahr</a>
+            <p>
+                <a href="index.php?page=administrationmodule&module=AdminInfo" class="btn btn-app"><i class="fa fa-check"></i> Info / Statistik</a>
+                <a href="index.php?page=administrationmodule&module=administrationusers" class="btn btn-app" ><i class="fa fa-users"></i> Benutzer</a>
+                <a href="index.php?page=administrationmodule&module=administrationasvimport" class="btn btn-app" ><i class="fa fa-cogs"></i> ASV Import</a>
 
-                </p>
-                <canvas id="myChart" width="400" height="400"></canvas>
+                <a href="index.php?page=administrationmodule&module=AdminMenu" class="btn btn-app" ><i class="fa fa-bars"></i> Menü</a>
 
+                <a href="index.php?page=administrationmodule&module=AdminExtensions" class="btn btn-app" ><i class="fa fa-plug"></i> Erweiterungen</a>
+
+                <a href="index.php?page=administrationmodule&module=AdminUpdate" class="btn btn-app" ><i class="fa fa-download"></i> Update</a>
+
+            </p>
             </div>
         </div>
 
-        <script>
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: $labelsJSONEncoded,
-                    datasets: [{
-                        label: 'Angemeldete Eltern',
-                        data: $elternJSONEncoded,
-                        borderWidth: 3,
-                        "borderColor":"rgb(250, 192, 192)"
-                    },
-                        {
-                            label: 'Angemeldete Lehrer',
-                            data: $lehrerJSONEncoded,
-                            borderWidth: 3,
-                            "borderColor":"rgb(75, 192, 192)"
-                        },
-                        {
-                            label: 'Angemeldete Schüler',
-                            data: $schuelerJSONEncoded,
-                            borderWidth: 3,
-                            "borderColor":"rgb(75, 0, 192)"
-                        }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-        </script>
+        <div class="box adminMenu padding-m ">
+            {$html}
+        </div>
 
 	</div>
 
-    <div class="col-md-3">
-        <div class="box">
+    <div class="col-md-4">
+
+
+        <div class="box box-solid box-danger">
 
             <div class="box-header">
 
-                <h3 class="box-title"><i class="fa fa-user"></i> Benutzer mit Aktivität in den letzten 5 Minuten</h3>
+                <h3 class="box-title"><i class="fa fa-newspaper"></i> Software SchuleIntern</h3><br />
 
             </div>
 
             <div class="box-body">
-                <p><i class="fa fa-female"></i> Lehrkraft | <i class="fa fa-child"></i> Schüler | <i class="fa fa-user-friends"></i> Eltern | <i class="fa fa-question-circle"></i> Sonstige</p>
-                <p><strong>Derzeit $count angemeldete Benutzer</strong></p>
 
-                <table class="table table-hover table-striped">
-                    $userList
-                </table>
+                <p>SchuleIntern ist freie Software unter der GPLv2.</p>
+
+                <p>
+                    <a href="https://www.schule-intern.de/" class="btn btn-app" target="_blank"><i class="fa fa-home"></i> Projektseite</a>
+                    <a href="https://www.schule-intern.de/forum/" class="btn btn-app" target="_blank"><i class="fa fa-hands-helping"></i> Supportforum</a>
+                    <a href="https://www.github.com/schuleintern" class="btn btn-app" target="_blank"><i class="fab fa-github"></i> Github</a>
+
+
+                </p>
 
             </div>
 
         </div>
 
-    </div>
-	
-		<div class="col-md-4">
 
+        <div class="box box-solid box-danger">
 
-            <div class="box box-solid box-danger">
+            <div class="box-header">
 
-                <div class="box-header">
-
-                    <h3 class="box-title"><i class="fa fa-newspaper"></i> Software SchuleIntern</h3><br />
-
-                </div>
-
-                <div class="box-body">
-
-                    <p>SchuleIntern ist freie Software unter der GPLv2.</p>
-
-                    <p>
-                        <a href="https://www.schule-intern.de/" class="btn btn-app" target="_blank"><i class="fa fa-home"></i> Projektseite</a>
-                        <a href="https://www.schule-intern.de/forum/" class="btn btn-app" target="_blank"><i class="fa fa-hands-helping"></i> Supportforum</a>
-                        <a href="https://www.github.com/schuleintern" class="btn btn-app" target="_blank"><i class="fab fa-github"></i> Github</a>
-
-
-                    </p>
-
-                </div>
+                <h3 class="box-title"><i class="fa fa-certificate"></i> Lizenz - GPLv2</h3><br />
 
             </div>
 
-
-			<div class="box box-solid box-danger">
-
-				<div class="box-header">
-
-					<h3 class="box-title"><i class="fa fa-certificate"></i> Lizenz - GPLv2</h3><br />
-
-				</div>
-
-				<div class="box-body height_100 scrollable-y">
+            <div class="box-body height_100 scrollable-y">
 
 				<pre>                    GNU GENERAL PUBLIC LICENSE
                        Version 2, June 1991
@@ -462,10 +406,11 @@ consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.</pre>
 
-				</div>
+            </div>
 
-			</div>
-	</div>
+        </div>
+    </div>
+
 
 </div>
 
