@@ -41,6 +41,7 @@ class resthandler
         error_reporting(E_ERROR);
 
         include_once(PATH_LIB . "rest/AbstractRest.class.php");
+        
 
         $allowed = false;
         $type = false;
@@ -147,30 +148,29 @@ class resthandler
                 } else {
                     $this->answer([], 401);
                 }
-            } else {
+            } 
 
-
-                // Check Auth
-                if ($action->needsSystemAuth()) {
-                    $apiKey = null;
-                    foreach ($headers as $headername => $headervalue) {
-                        if (strtolower($headername) == 'authorization' && $headervalue) {
-                            $apiKey = $headervalue;
-                        }
+            // Check Auth
+            if ($action->needsSystemAuth()) {
+                $apiKey = null;
+                foreach ($headers as $headername => $headervalue) {
+                    if (strtolower($headername) == 'authorization' && $headervalue) {
+                        $apiKey = $headervalue;
                     }
+                }
 
-                    if (!(string)$apiKey || (string)$apiKey !== (string)DB::getGlobalSettings()->apiKey) {
-                        $result = [
-                            'error' => 1,
-                            'errorText' => 'Auth Failedd'
-                        ];
-                        $this->answer($result, 401);
-                    }
+                if (!(string)$apiKey || (string)$apiKey !== (string)DB::getGlobalSettings()->apiKey) {
+                    $result = [
+                        'error' => 1,
+                        'errorText' => 'Auth Failedd'
+                    ];
+                    $this->answer($result, 401);
+                }
 
-                    $do = true;
-                } 
+                $do = true;
+            } 
 
-            }
+            
 
             // APP API Auth
             if ($action->needsAppAuth()) {
@@ -187,24 +187,25 @@ class resthandler
                     }
                 }
 
-        
 
                 if (!$appKey || $appKey !== (string)DB::getGlobalSettings()->apiKey) {
                     $result = [
                         'error' => 1,
-                        'errorText' => 'App Auth Failed'
+                        'errorText' => 'App Auth Failed '.$appKey
                     ];
                     $this->answer($result, 401);
                 }
 
+                
 
-                if ($appSession && $appSession != 'null') {
+                if ($appSession && ( $appSession != 'null' && $appSession != null) ) {
 
                     DB::initSession($appSession);
+                    $action->user = DB::getSession()->getUser();
+                    $action->acl();
                     $do = true;
 
                 } else {
-
 
                     if (isset($_COOKIE['schuleinternsession'])) {
                         DB::initSession($_COOKIE['schuleinternsession']);
@@ -217,9 +218,6 @@ class resthandler
 
                 }
 
-                
-
-                
             }
 
             if ($do != true) {
@@ -236,9 +234,6 @@ class resthandler
             
 
 
-
-
-
             $input = self::getPostData();
 
             // Execute wird nur aufgerufen, wenn die Authentifizierung erfolgreich war.
@@ -246,7 +241,6 @@ class resthandler
                 $result = $action->execute($input, $request);
             }
             
-
             if (!is_array($result) && !is_object($result)) {
                 $result = [
                     'error' => 1,
