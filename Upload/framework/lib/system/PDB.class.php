@@ -12,7 +12,10 @@ class PDB
 
         $host = DB::getGlobalSettings()->dbSettigns['host'];
         $db = DB::getGlobalSettings()->dbSettigns['database'];
-        $port = DB::getGlobalSettings()->dbSettigns['port'] | 3306;
+        $port = 3306;
+        if ( isset(DB::getGlobalSettings()->dbSettigns['port']) && DB::getGlobalSettings()->dbSettigns['port'] ) {
+            $port = DB::getGlobalSettings()->dbSettigns['port'];
+        }
         $username = DB::getGlobalSettings()->dbSettigns['user'];
         $password = DB::getGlobalSettings()->dbSettigns['password'];
 
