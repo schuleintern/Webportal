@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.6.2
+ * Version 1.6.3
  *
  */
 
@@ -33,7 +33,10 @@ class Updates
         $root->update('www/components');
         $root->update('www/startup.php');
         $root->update('www/index.php');
-        
+
+        $root->query("INSERT INTO `menu` (`id`, `alias`, `title`) VALUES (3, 'admin', 'Admin');", false);
+        $root->query("INSERT INTO `menu_item` (`active`, `menu_id`, `parent_id`, `sort`, `page`, `title`, `icon`, `params`, `access`, `options`, `target`) VALUES (1, 3, 0, 0, '', 'Allgemein', NULL, NULL, '{}', NULL, NULL);", false);
+
         return true;
     }
 
