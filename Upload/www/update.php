@@ -24,6 +24,20 @@ include_once '../data/config/config.php';
 class Updates
 {
 
+    public static function to163($root)
+    {
+        $root->update('www/push.php');
+        $root->update('www/serviceWorker.js');
+        $root->update('www/cssjs');
+        $root->update('www/images');
+        $root->update('www/components');
+        $root->update('www/startup.php');
+        $root->update('www/index.php');
+        
+        return true;
+    }
+
+
     public static function to162($root)
     {
         $root->update('www/cssjs');
