@@ -4,11 +4,11 @@
       {{ data.name }}
     </div>
 
-    <div v-if="size == 'icon'" class="si-user si-user-icon" :class="data.type" v-on:click="handlerOpen">
+    <div v-else-if="size == 'icon'" class="si-user si-user-icon" :class="data.type" v-on:click="handlerOpen">
       <i class="fa fa-user padding-r-s"></i>{{ data.name }}
     </div>
 
-    <div v-if="size == 'avatar'" class="si-user si-user-avatar" :class="data.type" v-on:click="handlerOpen">
+    <div v-else-if="size == 'avatar'" class="si-user si-user-avatar" :class="data.type" v-on:click="handlerOpen">
       <img v-if="data.avatarURL" :src="data.avatarURL" :alt="'Profilbild: '+data.name" :title="data.name" />
       <img v-else :src="data.avatar" :alt="'Profilbild: '+data.name" :title="data.name" />
     </div>

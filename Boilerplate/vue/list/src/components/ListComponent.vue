@@ -5,8 +5,8 @@
     <table class="si-table" v-if="sortList && sortList.length >= 1">
       <thead>
       <tr>
-        <th v-on:click="handlerSort('title')" class="curser-sort">Titel</th>
-        <th v-on:click="handlerSort('id')" class="curser-sort">ID</th>
+        <th v-on:click="handlerSort('title')" class="curser-sort" :class="{'text-orange': sort.column == 'title'}">Titel</th>
+        <th v-on:click="handlerSort('id')" class="curser-sort" :class="{'text-orange': sort.column == 'id'}">ID</th>
       </tr>
       </thead>
       <tbody>
@@ -90,9 +90,23 @@ export default {
                 }
               } else {
                 if (this.sort.order) {
-                  return data.sort((a, b) => a[this.sort.column].localeCompare(b[this.sort.column]))
+                  return data.sort((a, b) => {
+                    if ( !isNaN(a[this.sort.column]) ) {
+                      return a[this.sort.column] - b[this.sort.column];
+                    } else {
+                      return a[this.sort.column].localeCompare(b[this.sort.column])
+                    }
+                  })
                 } else {
-                  return data.sort((a, b) => b[this.sort.column].localeCompare(a[this.sort.column]))
+                  return data.sort((a, b) => {
+                    if (b[this.sort.column] && a[this.sort.column]) {
+                      if ( !isNaN(a[this.sort.column]) ) {
+                        return b[this.sort.column] - a[this.sort.column];
+                      } else {
+                        return b[this.sort.column].localeCompare(a[this.sort.column])
+                      }
+                    }
+                  })
                 }
               }
             } else if (typeof this.sort.column === 'object') {
