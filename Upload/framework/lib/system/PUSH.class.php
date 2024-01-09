@@ -25,8 +25,6 @@ class PUSH
     }
 
     /**
-     * Beeendet die Seite und gibt vorher den Footer aus
-     *
      * @author: Christian Marienfeld
      *
      */
@@ -41,42 +39,45 @@ class PUSH
         $userSub = DB::getDB()->query_first("SELECT userPush FROM users WHERE userID='" . (int)$user_id . "'");
 
         if ($userSub && $userSub['userPush']) {
-            // (B) GET SUBSCRIPTION
-            $sub = Subscription::create(json_decode($userSub['userPush'], true));
+            $arr = json_decode($userSub['userPush'], true);
+            if ($arr && is_array($arr)) {
+                // (B) GET SUBSCRIPTION
+                $sub = Subscription::create($arr);
 
-            $publicKey = DB::getSettings()->getValue('global-push-publicKey');
-            $privateKey = DB::getSettings()->getValue('global-push-privateKey');
+                $publicKey = DB::getSettings()->getValue('global-push-publicKey');
+                $privateKey = DB::getSettings()->getValue('global-push-privateKey');
 
-            if ($publicKey && $privateKey) {
-
-
-                // (C) NEW WEB PUSH OBJECT - CHANGE TO YOUR OWN!
-                $push = new WebPush(["VAPID" => [
-                    "subject" => "post@zwiebelgasse.de",
-                    "publicKey" => $publicKey,
-                    "privateKey" => $privateKey
-                ]]);
+                if ($publicKey && $privateKey) {
 
 
-                // (D) SEND TEST PUSH NOTIFICATION
-                $result = $push->sendOneNotification($sub, json_encode([
-                    "title" => "Welcome!",
-                    "body" => "Yes, it works!",
-                    "icon" => "i-loud.png",
-                    "image" => "i-zap.png"
-                ]));
-                $endpoint = $result->getRequest()->getUri()->__toString();
+                    // (C) NEW WEB PUSH OBJECT - CHANGE TO YOUR OWN!
+                    $push = new WebPush(["VAPID" => [
+                        "subject" => "support@schule-intern.de",
+                        "publicKey" => $publicKey,
+                        "privateKey" => $privateKey
+                    ]]);
 
-                // (E) SHOW RESULT - OPTIONAL
-                if ($result->isSuccess()) {
-                    //echo "Successfully sent {$endpoint}.";
-                    return true;
-                } else {
-                    return false;
-                    //echo "Send failed {$endpoint}: {$result->getReason()}";
-                    // $result->getRequest();
-                    // $result->getResponse();
-                    // $result->isSubscriptionExpired();
+
+                    // (D) SEND TEST PUSH NOTIFICATION
+                    $result = $push->sendOneNotification($sub, json_encode([
+                        "title" => "Schule-Intern",
+                        "body" => "Neue Nachricht",
+                        "icon" => "i-loud.png",
+                        "image" => "i-zap.png"
+                    ]));
+                    $endpoint = $result->getRequest()->getUri()->__toString();
+
+                    // (E) SHOW RESULT - OPTIONAL
+                    if ($result->isSuccess()) {
+                        //echo "Successfully sent {$endpoint}.";
+                        return true;
+                    } else {
+                        return false;
+                        //echo "Send failed {$endpoint}: {$result->getReason()}";
+                        // $result->getRequest();
+                        // $result->getResponse();
+                        // $result->isSubscriptionExpired();
+                    }
                 }
             }
         }

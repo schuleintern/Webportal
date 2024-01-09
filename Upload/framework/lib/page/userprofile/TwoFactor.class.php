@@ -81,7 +81,9 @@ class TwoFactor extends AbstractPage {
 	                $new2FAObject = TOTP::create($secret);
 	                
 	                $new2FAObject->setLabel(DB::getGlobalSettings()->siteNamePlain);
-	                $urlToQRCode = $new2FAObject->getQrCodeUri();
+					$uri = 'https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl={PROVISIONING_URI}';
+					$placeholder = '{PROVISIONING_URI}';
+	                $urlToQRCode = $new2FAObject->getQrCodeUri($uri, $placeholder);
 	                
 	                eval("\$html = \"" . DB::getTPL()->get("userprofile/2fa/print") . "\";");
 	                
@@ -257,7 +259,11 @@ class TwoFactor extends AbstractPage {
 	        }
 	        
 	        $new2FAObject->setLabel(DB::getGlobalSettings()->siteNamePlain);
-	        $urlToQRCode = $new2FAObject->getQrCodeUri();      
+			
+			$uri = 'https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl={PROVISIONING_URI}';
+			$placeholder = '{PROVISIONING_URI}';
+	        
+			$urlToQRCode = $new2FAObject->getQrCodeUri($uri, $placeholder);      
 	        
 	    }
 

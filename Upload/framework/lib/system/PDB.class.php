@@ -37,6 +37,10 @@ class PDB
 
     }
 
+    public function lastID() {
+        return $this->connection->lastInsertId();
+    }
+
     public function run($sql = false, $args = NULL)
     {
         if (!$sql) {
@@ -65,6 +69,8 @@ class PDB
                 print_r($stmt->errorInfo());
                 throw new \PDOException($e->getMessage(), (int)$e->getCode());
             }
+            
+            $stmt->lastID = $this->connection->lastInsertId();
 
             return $stmt;
         }

@@ -1,11 +1,20 @@
 <?php
 
+header('Content-type: application/json');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+
+if ($_SERVER['REQUEST_METHOD'] === "OPTIONS") {
+    die();
+}
+
 $wartungsmodus = file_get_contents("../data/wartungsmodus/status.dat");
 
-if($wartungsmodus != "") {
+if ($wartungsmodus != "") {
     // Admin Wartungsmodus
     $html = file_get_contents("../data/wartungsmodus/index.htm");
-    echo(str_replace("{ENDE}", $wartungsmodus, $html));
+    echo (str_replace("{ENDE}", $wartungsmodus, $html));
     exit(0);
 }
 
@@ -20,4 +29,3 @@ if (DB::isDebug()) {
 }
 
 new resthandler();
-

@@ -249,23 +249,23 @@
 				</div>
 				<script>
 					var openContent = false;
-					$('#devTools .devIcon').click(function (e) {
+					jQuery('#devTools .devIcon').click(function (e) {
 						if (openContent) {
 							openContent.hide();
 						}
-						openContent = $(e.target).next('.devContent');
+						openContent = jQuery(e.target).next('.devContent');
 						if (openContent) {
 							openContent.show();
 						}
 						
 					});
-					$('#devTools .devContentClose').click(function (e) {
+					jQuery('#devTools .devContentClose').click(function (e) {
 						if (openContent) {
 							openContent.hide();
 						}
 					});
-					$('#devToolsClose').click(function (e) {
-						$('#devTools').hide();
+					jQuery('#devToolsClose').click(function (e) {
+						jQuery('#devTools').hide();
 					});
 				</script>
 			</then>

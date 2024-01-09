@@ -788,11 +788,20 @@ class updatevplan extends AbstractPage {
                      WHERE vplanName='lehrermorgen'
                     ");
                 
-                
-                if (is_dir(PATH_DATA.'vplan')) {
-                    mkdir(PATH_DATA.'vplan');
+                    
+                if ( EXTENSION::isActive('ext.zwiebelgasse.vplan') ) {
+
+                    $dir = PATH_WWW_TMP . 'ext_vplan';
+                    if ( !is_dir($dir) ) {
+                        mkdir($dir);
+                    }
+                    $uploadfile = $dir . DS . date('Y-m-d_H-i', time()).'.txt';
+                    move_uploaded_file($_FILES['vplanFile']["tmp_name"], $uploadfile);
+                    include_once PATH_EXTENSIONS . 'vplan' . DS . 'models' . DS . 'Upload.class.php';
+                    extVplanModelUpload::addFile($uploadfile, true);
+
                 }
-                move_uploaded_file($_FILES['vplanFile']["tmp_name"], PATH_DATA.'vplan' . date('Y-m-d', time()) . ".txt");
+                
                 
                 header("Location: " . $selfURL . "&updated=1");
                 exit(0);

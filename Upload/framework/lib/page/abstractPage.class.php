@@ -29,7 +29,7 @@ abstract class AbstractPage
     private $request = false;
     public $extension = false;
     private $isAnyAdmin = false;
-    private $isMobile = false;
+    public $isMobile = false;
 
     static $adminGroupName = NULL;
     static $aclGroupName = NULL;
@@ -623,7 +623,7 @@ abstract class AbstractPage
      *
      * @param data Array
      */
-    public function getScriptData($data, $varname = 'globals')
+    static public function getScriptData($data, $varname = 'globals')
     {
         if ($data) {
             return '<script>var ' . $varname . ' = ' . json_encode($data) . ';</script>';

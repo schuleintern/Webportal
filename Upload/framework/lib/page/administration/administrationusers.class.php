@@ -281,7 +281,7 @@ class administrationusers extends AbstractPage {
 		return true;
 	}
 	
-	private function showIndex($selfURL) {
+	private static function showIndex($selfURL) {
 		$allG = DB::getDB()->query("SELECT * FROM users_groups");
 		
 		
@@ -339,7 +339,7 @@ class administrationusers extends AbstractPage {
 				}
 			}
 			
-			if(in_array("Webportal_Administrator", self::$currentGroups[$user['userID']])) {
+			if(self::$currentGroups[$user['userID']] && in_array("Webportal_Administrator", self::$currentGroups[$user['userID']])) {
 				$isAdmin = true;
 			}
 			else $isAdmin = false;

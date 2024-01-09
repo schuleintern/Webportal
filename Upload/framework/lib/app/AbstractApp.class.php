@@ -1,12 +1,10 @@
 <?php
 
-abstract class AbstractRest {
-	protected $statusCode = 200;
+abstract class AbstractApp {
+
 
     static $adminGroupName = NULL;
     static $aclGroupName = NULL;
-    static $type = false;
-    static $extension = false;
 
 	/**
 	 * @var user
@@ -18,89 +16,22 @@ abstract class AbstractRest {
 	 */
 	public $acl = null;
 
+
     /**
      * @param false $type STRING | BOOLEAN
      */
     public function __construct($type = false) {
 
-        $this->type = $type;
-
-        if ( $this->type == 'extension' && PATH_EXTENSION ) {
-            $path = str_replace(DS.'admin','',PATH_EXTENSION);
-            $this->extension = FILE::getExtensionJSON($path.'extension.json');
-            if ( isset($this->extension) ) {
-
-                // Admin Group
-                if ( $this->extension['adminGroupName'] ) {
-                    self::setAdminGroup($this->extension['adminGroupName']);
-                }
-
-                // ACL Group
-                if ( $this->extension['aclGroupName'] ) {
-                    self::setAclGroup($this->extension['aclGroupName']);
-                }
-            }
-        }
+        //$this->user = DB::getSession()->getUser();
+        //$this->acl();
 
     }
 
 	
-	public abstract function execute($input, $request);
+	public abstract function execute();
 	
-	public abstract function getAllowedMethod();
-	
-	public function getStatusCode() {
-	    return $this->statusCode;
-	}
-	
-	protected function malformedRequest() {
-	    $this->statusCode = 400;
-	}
-	
-	/**
-	 * Überprüft, ob ein Modul eine System Authentifizierung benötigt. (z.B. zum Abfragen aller Schülerdaten)
-	 * @return boolean
-	 */
-	public function needsSystemAuth() {
-	    return true;
-	}
-	
-	/**
-	 * Überprüft die Authentifizierung
-	 * @param String $username Benutzername
-	 * @param String $password Passwort
-	 * @return boolean Login erfolgreich
-	 */
-	public function checkAuth($username, $password) {
-	    return false;
-	}
-
-    /**
-     * Setzt die Auth Methode auf User (Cookie)
-     * @return bool
-     */
-	public function needsUserAuth() {
-		return false;
-	}
-
-    public function needsAdminAuth() {
-        return false;
-    }
-
-    public function needsAppAuth() {
-        return false;
-    }
 
     
-
-    /**
-     * @deprecated:  use getAclGroup
-     */
-	/*
-	 public function aclModuleName() {
-		return get_called_class();
-	}
-    */
 
 
     /**

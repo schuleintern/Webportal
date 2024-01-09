@@ -31,21 +31,23 @@
 			    <p><b>Stunden</b></p>
 			    
 			    <p><expression>implode(", ",$_POST['stunden'])</expression></p>
-	          				<select name="stunden[]" multiple="multiple" data-placeholder="Alle betroffenen Stunden auswählen" style="display:none">
-			                  <option value="1"{$selected['s1']}>1. Stunde</option>
-			                  <option value="2"{$selected['s2']}>2. Stunde</option>
-			                  <option value="3"{$selected['s3']}>3. Stunde</option>
-			                  <option value="4"{$selected['s4']}>4. Stunde</option>
-			                  <option value="5"{$selected['s5']}>5. Stunde</option>
-			                  <option value="6"{$selected['s6']}>6. Stunde</option>
-			                  <option value="7"{$selected['s7']}>7. Stunde</option>
-			                  <option value="8"{$selected['s8']}>8. Stunde</option>
-			                  <option value="9"{$selected['s9']}>9. Stunde</option>
-			                  <option value="10"{$selected['s10']}>10. Stunde</option>
-			                  <option value="11"{$selected['s11']}>Klassenleiterstunde</option>
-			    <p><b>Nachricht an die Kollegen</b></p>
+				<select name="stunden[]" multiple="multiple" data-placeholder="Alle betroffenen Stunden auswählen" style="display:none">
+					<option value="1"{$selected['s1']}>1. Stunde</option>
+					<option value="2"{$selected['s2']}>2. Stunde</option>
+					<option value="3"{$selected['s3']}>3. Stunde</option>
+					<option value="4"{$selected['s4']}>4. Stunde</option>
+					<option value="5"{$selected['s5']}>5. Stunde</option>
+					<option value="6"{$selected['s6']}>6. Stunde</option>
+					<option value="7"{$selected['s7']}>7. Stunde</option>
+					<option value="8"{$selected['s8']}>8. Stunde</option>
+					<option value="9"{$selected['s9']}>9. Stunde</option>
+					<option value="10"{$selected['s10']}>10. Stunde</option>
+					<option value="11"{$selected['s11']}>Klassenleiterstunde</option>
+				</select>
+			    
+				<p><b>Nachricht an die Kollegen</b></p>
 			    <p>{$_POST['laufzettelNachricht']}</p>
-			          		<input name="laufzettelNachricht" type="hidden" name="<expression>addslashes($_POST['laufzettelNachricht'])</expression>">
+			    <input name="laufzettelNachricht" type="hidden" value="<expression>addslashes($_POST['laufzettelNachricht'])</expression>" />
           				
           		          		
           		<p><b>Betroffene KollegInnen</b></p>

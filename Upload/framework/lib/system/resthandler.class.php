@@ -41,6 +41,7 @@ class resthandler
         error_reporting(E_ERROR);
 
         include_once(PATH_LIB . "rest/AbstractRest.class.php");
+        
 
         $allowed = false;
         $type = false;
@@ -108,6 +109,7 @@ class resthandler
 
             PAGE::setFactory(new FACTORY());
 
+            $do = false;
             $action = new $classname($type);
 
             if ($method != $action->getAllowedMethod()) {
@@ -117,6 +119,7 @@ class resthandler
                 ];
                 $this->answer($result, 405);
             }
+            
 
             if ($action->needsUserAuth()) {
                 if (isset($_COOKIE['schuleinternsession'])) {
@@ -140,46 +143,104 @@ class resthandler
                         }
                         */
                         $action->acl();
+                        $do = true;
                     }
                 } else {
                     $this->answer([], 401);
                 }
-            } else {
+            } 
+
+            // Check Auth
+            if ($action->needsSystemAuth()) {
+                $apiKey = null;
+                foreach ($headers as $headername => $headervalue) {
+                    if (strtolower($headername) == 'authorization' && $headervalue) {
+                        $apiKey = $headervalue;
+                    }
+                }
+
+                if (!(string)$apiKey || (string)$apiKey !== (string)DB::getGlobalSettings()->apiKey) {
+                    $result = [
+                        'error' => 1,
+                        'errorText' => 'Auth Failedd'
+                    ];
+                    $this->answer($result, 401);
+                }
+
+                $do = true;
+            } 
+
+            
+
+            // APP API Auth
+            if ($action->needsAppAuth()) {
+
+                $appKey = false;
+                $appSession = false;
+
+                foreach ($headers as $headername => $headervalue) {
+                    if (strtolower($headername) == 'auth-app' && $headervalue) {
+                        $appKey = (string)$headervalue;
+                    }
+                    if (strtolower($headername) == 'auth-session' && $headervalue) {
+                        $appSession = (string)trim($headervalue);
+                    }
+                }
 
 
-                // Check Auth
-                if ($action->needsSystemAuth()) {
-                    $apiKey = null;
-                    foreach ($headers as $headername => $headervalue) {
-                        if (strtolower($headername) == 'authorization' && $headervalue) {
-                            $apiKey = $headervalue;
+                if (!$appKey || $appKey !== (string)DB::getGlobalSettings()->apiKey) {
+                    $result = [
+                        'error' => 1,
+                        'errorText' => 'App Auth Failed '.$appKey
+                    ];
+                    $this->answer($result, 401);
+                }
+
+                
+
+                if ($appSession && ( $appSession != 'null' && $appSession != null) ) {
+
+                    DB::initSession($appSession);
+                    $action->user = DB::getSession()->getUser();
+                    $action->acl();
+                    $do = true;
+
+                } else {
+
+                    if (isset($_COOKIE['schuleinternsession'])) {
+                        DB::initSession($_COOKIE['schuleinternsession']);
+                        if (DB::isLoggedIn()) {
+                            $action->user = DB::getSession()->getUser();
+                            $action->acl();
+                            $do = true;
                         }
                     }
 
-                    if (!(string)$apiKey || (string)$apiKey !== (string)DB::getGlobalSettings()->apiKey) {
-                        $result = [
-                            'error' => 1,
-                            'errorText' => 'Auth Failedd'
-                        ];
-                        $this->answer($result, 401);
-                    }
-                } else {
-                    if (!$action->checkAuth($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {
-                        $result = [
-                            'error' => 1,
-                            'errorText' => 'Auth Failed'
-                        ];
-                        $this->answer($result, 401);
-                    }
                 }
+
             }
+
+            if ($do != true) {
+                if (!$action->checkAuth($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {
+                    $result = [
+                        'error' => 1,
+                        'errorText' => 'Auth Failed'
+                    ];
+                    $this->answer($result, 401);
+                }
+                $do = true;
+            }
+
+            
 
 
             $input = self::getPostData();
 
             // Execute wird nur aufgerufen, wenn die Authentifizierung erfolgreich war.
-            $result = $action->execute($input, $request);
-
+            if ($do == true) {
+                $result = $action->execute($input, $request);
+            }
+            
             if (!is_array($result) && !is_object($result)) {
                 $result = [
                     'error' => 1,

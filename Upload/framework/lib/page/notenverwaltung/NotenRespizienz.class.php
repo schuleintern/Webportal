@@ -91,7 +91,7 @@ class NotenRespizienz extends AbstractPage {
 
           $notenSkala = [];
 
-          if($jgs < 11) {
+          if($jgs <= 11) { // Seit 2023 ( isgy)
               for($i = 1; $i < 7; $i++) {
                   $notenSkala[$i] = 0;
               }

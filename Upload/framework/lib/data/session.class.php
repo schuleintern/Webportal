@@ -216,12 +216,12 @@ class session {
 	}
 
 
-	public static function loginAndCreateSession($userID, $keepLogin = false) {
+	public static function loginAndCreateSession($userID, $keepLogin = false, $deviceType = 'NORMAL') {
         DB::getDB()->query("UPDATE users SET userFailedLoginCount=0 WHERE userID='" . $userID . "'");
 
         $sessionID = substr(base64_encode(random_bytes(1000)), 0, 220);
 
-        $deviceType = "NORMAL";
+        //$deviceType = "NORMAL";
 
         DB::getDB()->query("INSERT INTO sessions 
 					(sessionID, sessionUserID, sessionType, sessionIP, sessionLastActivity, sessionBrowser, sessionDevice)
@@ -246,12 +246,36 @@ class session {
             // Im Debug kein Secure Cookie
             setcookie("schuleinternsession", $sessionID, $time, "/", null, false, true);
 			return true;
-        }
-        else {
+        } else {
             setcookie("schuleinternsession", $sessionID, $time, "/", null, true, true);
-			return true;
+			return $sessionID;
         }
 		return false;
+    }
+
+
+	public static function createSessionForApi($userID) {
+
+
+        $sessionID = substr(base64_encode(random_bytes(1000)), 0, 220);
+
+
+        DB::getDB()->query("INSERT INTO sessions 
+					(sessionID, sessionUserID, sessionType, sessionIP, sessionLastActivity, sessionBrowser, sessionDevice)
+					values
+						(
+							'" . $sessionID . "',
+							'" . $userID . "',
+							'" . ($keepLogin ? ("SAVED") : ("NORMAL")) . "',
+							'" . $_SERVER['REMOTE_ADDR'] . "',
+							UNIX_TIMESTAMP(),
+							'" . $_SERVER['HTTP_USER_AGENT'] . "',
+							'APP'
+						)
+			");
+
+
+		return $sessionID;
     }
 	
 	

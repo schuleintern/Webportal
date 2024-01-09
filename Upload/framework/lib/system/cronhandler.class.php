@@ -52,6 +52,9 @@ class cronhandler
 
         PAGE::setFactory(new FACTORY());
 
+
+        $allowedActions = self::getAllowedActions();
+
         //Check Access Key
 
         if (isset($_REQUEST['cronName']) && $_REQUEST['cronName'] != "") {
@@ -63,7 +66,7 @@ class cronhandler
             $jsonAntwort = [];
 
 
-            if (in_array($cronName, self::$allowedActions)) {
+            if (in_array($cronName, $allowedActions)) {
                 /**
                  *
                  * @var AbstractCron $cron
@@ -116,7 +119,6 @@ class cronhandler
         // Cron Running?
 
         $isRunning = DB::getSettings()->getValue("cronRunning");
-
         if ($isRunning != 0) {
             if (($isRunning + 1800) <= time() || isset($_REQUEST['resetCronStatus']) && $_REQUEST['resetCronStatus'] > 0) {
                 // Nach 30 Minuten Reset
@@ -137,42 +139,25 @@ class cronhandler
 
         $cronList = [];
 
+        for ($i = 0; $i < sizeof($allowedActions); $i++) {
 
-        for ($i = 0; $i < sizeof(self::$allowedActions); $i++) {
+            if (file_exists('../framework/lib/cron/' . $allowedActions[$i] . ".class.php")) {
+                // Import default Class
+                require_once('../framework/lib/cron/' . $allowedActions[$i] . ".class.php");
 
-            // Import default Class
-            require_once('../framework/lib/cron/' . self::$allowedActions[$i] . ".class.php");
-
-            // Remove Slashes in pages
-            if (strpos(self::$allowedActions[$i], "/") > 0) {
-                $cronList[$i] = substr(self::$allowedActions[$i], strpos(self::$allowedActions[$i], "/") + 1);
-            } else {
-                $cronList[$i] = self::$allowedActions[$i];
-            }
-        }
-
-
-        // Import Extensions Crons
-        $extensions = DB::getDB()->query('SELECT `name`,`folder` FROM `extensions` WHERE active = 1 ');
-        while($ext = DB::getDB()->fetch_array($extensions)) {
-            if ($ext['folder']) {
-                $path = PATH_EXTENSIONS.$ext['folder'].DS;
-                if (file_exists($path.'extension.json')) {
-                    $json = FILE::getExtensionJSON($path.'extension.json');
-                    if ( isset($json['cron']) && count($json['cron']) > 0 ) {
-                        foreach($json['cron'] as $cronExt) {
-                            $remove = 'ext'.ucfirst($ext['folder']).'Cron';
-                            $filename = lcfirst(str_replace($remove, '', $cronExt->class));
-                            $classPath = $path.'cron'.DS.$filename.'.php';
-                            if (file_exists($classPath)) {
-                                require_once($classPath);
-                                array_push($cronList, $cronExt->class);
-                            }
-                        }
-                    }
+                // Remove Slashes in pages
+                if (strpos($allowedActions[$i], "/") > 0) {
+                    $cronList[$i] = substr($allowedActions[$i], strpos($allowedActions[$i], "/") + 1);
+                } else {
+                    $cronList[$i] = $allowedActions[$i];
                 }
+            } else if ( strpos($allowedActions[$i], 'ext') == 0 ) {
+                // Extensions Cron was imported @ getAllowedActions()
+                $cronList[$i] = $allowedActions[$i];
             }
+            
         }
+        
         
 
         for ($i = 0; $i < sizeof($cronList); $i++) {
@@ -251,6 +236,30 @@ class cronhandler
 
     public static function getAllowedActions()
     {
+
+
+        // Import Extensions Crons
+        $extensions = DB::getDB()->query('SELECT `name`,`folder`, id FROM `extensions` WHERE active = 1 ');
+        while($ext = DB::getDB()->fetch_array($extensions)) {
+            if ($ext['folder']) {
+                $path = PATH_EXTENSIONS.$ext['folder'].DS;
+                if (file_exists($path.'extension.json')) {
+                    $json = FILE::getExtensionJSON($path.'extension.json');
+                    if ( isset($json['cron']) && count($json['cron']) > 0 ) {
+                        foreach($json['cron'] as $cronExt) {
+                            $remove = 'ext'.ucfirst($ext['folder']).'Cron';
+                            $filename = lcfirst(str_replace($remove, '', $cronExt->class));
+                            $classPath = $path.'cron'.DS.$filename.'.php';
+                            if (file_exists($classPath)) {
+                                require_once($classPath);
+                                array_push(self::$allowedActions, $cronExt->class);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
         return self::$allowedActions;
     }
 }

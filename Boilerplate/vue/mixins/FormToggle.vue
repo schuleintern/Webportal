@@ -1,8 +1,10 @@
 <template>
   <div>
-    <button v-if="status == 1" class="si-btn si-btn-toggle-on" :class="{'si-btn-hide': parseInt(disable) === 0  }"   v-on:click="handlerClick">
+    <button v-if="status == 1" class="si-btn si-btn-toggle-on" :class="{ 'si-btn-hide': parseInt(disable) === 0 }"
+      v-on:click="handlerClick">
       <i class="fa fas fa-toggle-on"></i> An</button>
-    <button v-else class="si-btn si-btn-toggle-off" :class="{'si-btn-hide': parseInt(disable) === 0  }" v-on:click="handlerClick">
+    <button v-else class="si-btn si-btn-toggle-off" :class="{ 'si-btn-hide': parseInt(disable) === 0 }"
+      v-on:click="handlerClick">
       <i class="fa fas fa-toggle-off"></i> Aus</button>
   </div>
 </template>
@@ -20,7 +22,12 @@ export default {
     disable: Number
   },
   created: function () {
-    this.status = this.input;
+    this.status = parseInt(this.input);
+  },
+  watch: {
+    input: function () { 
+      this.status = parseInt(this.input);
+    }
   },
   methods: {
     handlerClick: function () {
@@ -42,6 +49,4 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>
