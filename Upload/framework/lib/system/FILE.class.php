@@ -46,12 +46,15 @@ class FILE
   }
   
 
-  public static function getFile($path)
+  public static function getFile($path, $filename = false)
   {
 
     if (!$path) {
       return false;
     }
+      if (!$filename) {
+          $filename = $path;
+      }
 
     if (!file_exists($path)) {
       return false;
@@ -60,7 +63,7 @@ class FILE
 
     header('Content-Description: Dateidownload');
     header('Content-Type: ' . mime_content_type($path));
-    header('Content-Disposition: inline; filename="' . $path . '"');
+    header('Content-Disposition: inline; filename="' . $filename . '"');
     //header('Expires: 0');
     //header('Cache-Control: must-revalidate');
     //header('Pragma: public');
@@ -94,7 +97,7 @@ class FILE
       if (file_exists($script)) {
         $file = file_get_contents($script);
         if ($file) {
-          $html .= '<script defer>' . $file . '</script>';
+          $html .= '<script>' . $file . '</script>';
         }
       }
     }

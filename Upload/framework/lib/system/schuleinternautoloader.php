@@ -300,7 +300,8 @@ function schuleinternautoloader($class) {
 	
 	
 	// Message Bird Lib?
-	
+
+    /*
 	// project-specific namespace prefix
 	$prefix = 'MessageBird\\';
 	
@@ -326,12 +327,12 @@ function schuleinternautoloader($class) {
 	    require $file;
 	    return;
 	}
+    */
 	
 	
 	
 	// if(in_array($class, requesthandler::getAllowedActions())) return;		// Seiten nicht automatisch laden, macht der Requesthandler
-	
-	
+    
 	if($class == "mPDF") {
 		include_once '../framework/lib/html2pdf/mpdf.php';
 		return;
