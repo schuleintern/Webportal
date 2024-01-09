@@ -1037,3 +1037,9 @@ and (orientation : portrait) {
 }
 
 
+.si-handler {
+    opacity: 0;
+}
+.si-handler-parent:hover .si-handler {
+    opacity: 1;
+}

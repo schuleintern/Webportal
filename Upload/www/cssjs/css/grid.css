@@ -135,6 +135,12 @@ body {
 .isMobile .mobile-colums-1 {
   columns: 1;
 }
+.isMobile .mobile-colums-2 {
+  columns: 2;
+}
+.isMobile .mobile-colums-3 {
+  columns: 3;
+}
 
 
 
