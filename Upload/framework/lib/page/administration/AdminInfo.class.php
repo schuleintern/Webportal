@@ -198,7 +198,7 @@ class AdminInfo extends AbstractPage {
 
     public static function getAdminMenuIcon()
     {
-        return 'fa fa-plug';
+        return 'fa fa-info';
     }
     public static function getAdminMenuGroup() {
         return 'System';
