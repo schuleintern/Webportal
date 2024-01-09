@@ -581,7 +581,7 @@ class MessageRead extends AbstractPage {
 		      <div class="modal-body">' . $htmlConfirmation . '</div></div></div></div>';
       }
       
-      $allRecipientsWithConfirmationStatus = implode(" ", $allRecipientsWithConfirmationStatus);
+      $allRecipientsWithConfirmationStatus = implode(" ", (array)$allRecipientsWithConfirmationStatus);
       
       return $allRecipientsWithConfirmationStatus;
   }
