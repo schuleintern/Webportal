@@ -26,22 +26,6 @@ class DB {
 
 	public static $mySettings = array();
 
-    /**
-     * @var \Monolog\Logger
-     */
-	private static $errorLogger = null;
-
-    /**
-     * @var \Monolog\Logger
-     */
-    private static $infoLogger = null;
-
-    /**
-     * @var \Monolog\Logger
-     */
-    private static $activityLog = null;
-
-
 
     public static function boo() {
 	    self::$globalsettings = new GlobalSettings();
@@ -151,7 +135,7 @@ class DB {
 	}
 
 	public static function getVersion() {
-		return '1.6.3';
+		return '1.7.0';
 	}
 
 	/**
