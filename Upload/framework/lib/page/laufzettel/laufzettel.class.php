@@ -2,6 +2,7 @@
 
 
 
+
 class laufzettel extends AbstractPage {
 
 	private $isAdmin = false;
@@ -441,22 +442,21 @@ class laufzettel extends AbstractPage {
 
 		if(!isset($_POST['laufzettelDatum']) || $_POST['laufzettelDatum'] == "") {
 			$errors[] = "Es wurde kein Laufzetteldatum angegeben!";
-		}
-		else {
+		} else {
 			if(!DateFunctions::isNaturalDateTodayOrLater($_POST['laufzettelDatum'])) {
 				$errors[] = "Es wurde ein ungültiges Datum für den Laufzettel angegeben! (Darf nicht in der Vergangenheit liegen!)";
 			}
 		}
 
-		if(sizeof($_POST['klassen']) == 0) {
+		if($_POST['klassen'] && count($_POST['klassen']) == 0) {
 			$errors[] = "Es wurden keine Klassen ausgewählt!";
 		}
 
-		if(sizeof($_POST['stunden']) == 0) {
+		if($_POST['stunden'] && count($_POST['stunden']) == 0) {
 			$errors[] = "Es wurden kein Stunden ausgewählt!";
 		}
 
-		if(sizeof($errors) == 0) {
+		if( count($errors) < 1 ) {
 
 			if($_POST['action'] == "correct") {
 				$this->showAddForm();

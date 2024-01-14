@@ -1024,25 +1024,27 @@ class klassentagebuch extends AbstractPage {
 
       $alleLehrerDerStunde = [];
 
-      for($s = 0; $s < sizeof($stundenplan[$i]); $s++) {
-        if($s > 0) $tableContent .= "<br />";
-        $tableContent .= "<b>" . $stundenplan[$i][$s]['subject'] . "</b> (" . $stundenplan[$i][$s]['teacher'] . ")";
-        $tableContent .= "<br />" . $stundenplan[$i][$s]['room'];
-        if($canEdit) $tableContent .= "<br /><button type=\"button\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#history$dialogID\"><i class=\"fa fa-clock\"></i></button>";
-        $fach = $stundenplan[$i][$s]['subject'];
-        $lehrer = $stundenplan[$i][$s]['teacher'];
+      if ($stundenplan[$i]) {
+          for($s = 0; $s < count($stundenplan[$i]); $s++) {
+            if($s > 0) $tableContent .= "<br />";
+            $tableContent .= "<b>" . $stundenplan[$i][$s]['subject'] . "</b> (" . $stundenplan[$i][$s]['teacher'] . ")";
+            $tableContent .= "<br />" . $stundenplan[$i][$s]['room'];
+            if($canEdit) $tableContent .= "<br /><button type=\"button\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#history$dialogID\"><i class=\"fa fa-clock\"></i></button>";
+            $fach = $stundenplan[$i][$s]['subject'];
+            $lehrer = $stundenplan[$i][$s]['teacher'];
 
-        $alleLehrerDerStunde[] = strtolower($lehrer);
+            $alleLehrerDerStunde[] = strtolower($lehrer);
 
-        if($this->isTeacher && $lehrer == DB::getSession()->getTeacherObject()->getKuerzel()) $myFach = $fach;
+            if($this->isTeacher && $lehrer == DB::getSession()->getTeacherObject()->getKuerzel()) $myFach = $fach;
 
 
-        if($canEdit) $history = $this->getHistory($grade, $fach);
+            if($canEdit) $history = $this->getHistory($grade, $fach);
 
-        eval("\$dialogs .= \"" . DB::getTPL()->get("klassentagebuch/history_dialog") . "\";");
+            eval("\$dialogs .= \"" . DB::getTPL()->get("klassentagebuch/history_dialog") . "\";");
 
-        $dialogID++;
+            $dialogID++;
 
+          }
       }
 
       if($myFach != "") $fach = $myFach;
