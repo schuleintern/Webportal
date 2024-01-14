@@ -2,8 +2,8 @@
 ini_set('display_errors', true);
 error_reporting(E_ALL);
 
-if ( version_compare(phpversion(), '8.0.0') >= 1 ) {
-    echo 'PHP 8.0!!!!!';
+if ( version_compare(phpversion(), '8.0.0') < 1 ) {
+    die 'PHP 8.x is necessary';
 }
 
 
@@ -11,7 +11,8 @@ if ( version_compare(phpversion(), '8.0.0') >= 1 ) {
  *
  * Software is licensed unter GPLv2
  *
- * (c) Christian Spitschka, 2012-2019
+ * (c) Christian Marienfeld, 2019-2024
+ * (c) Christian Spitschka  (2012-2019)
  *
  * _______  _______                    _        _______ _________ _       _________ _______  _______  _
  * (  ____ \(  ____ \|\     /||\     /|( \      (  ____ \\__   __/( (    /|\__   __/(  ____ \(  ____ )( (    /|
@@ -36,8 +37,13 @@ if($wartungsmodus != "") {
 // Store and Secure $_REQUEST Variables
 $_request = [];
 if ($_REQUEST) {
+
     foreach($_REQUEST as $key => $val) {
-        $_request[stripslashes(strip_tags(htmlspecialchars((string)$key, ENT_IGNORE, 'utf-8')))] = stripslashes(strip_tags(htmlspecialchars((string)$val, ENT_IGNORE, 'utf-8')));
+        if (is_array($val)) {
+            $_request[stripslashes(strip_tags(htmlspecialchars((string)$key, ENT_IGNORE, 'utf-8')))] = $val;
+        } else {
+            $_request[stripslashes(strip_tags(htmlspecialchars((string)$key, ENT_IGNORE, 'utf-8')))] = stripslashes(strip_tags(htmlspecialchars((string)$val, ENT_IGNORE, 'utf-8')));
+        }
     }
 }
 
