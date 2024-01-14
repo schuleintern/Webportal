@@ -1,5 +1,18 @@
 {$this->header}
 
+<link href="cssjs/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+<link href="cssjs/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+<link href="cssjs/plugins/jQueryUI/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+
+<script src="cssjs/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+<link href="cssjs/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script src="cssjs/plugins/jQueryUI/jquery-ui.min.js"></script>
+<script>
+	$.widget.bridge('uibutton', $.ui.button);
+</script>
+
 <script>
      var time = new Date().getTime();
      $(document.body).bind("mousemove keypress", function(e) {

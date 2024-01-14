@@ -1,6 +1,17 @@
 {$this->header}
+<link href="cssjs/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+<link href="cssjs/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+<link href="cssjs/plugins/jQueryUI/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 
-          
+<script src="cssjs/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+<link href="cssjs/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
+<script src="cssjs/plugins/select2/select2.full.min.js"></script>
+
+<script src="cssjs/plugins/jQueryUI/jquery-ui.min.js"></script>
+<script>
+	$.widget.bridge('uibutton', $.ui.button);
+</script>
+
           <form action="index.php?page=laufzettel&mode=create" method="post">
           <div class="box">
           	<div class="box-header">
@@ -80,9 +91,12 @@ $(function () {
 
 	$(function() {
 		$("#laufzettelDatum").datepicker({
-			format: 'yyyy-mm-dd',
-	        language: "de",
-	        autoclose: true
+			startDate : "today",
+			todayHighlight : true,
+			format : 'dd.mm.yyyy',
+			daysOfWeekDisabled : [ 0, 6 ],
+			language : "de",
+			autoclose : true,
 		});
 	});
 	</script>
