@@ -551,6 +551,17 @@ class user {
     return null;
   }
 
+    public static function getCollectionByID($userID, $full = false, $avatar = false) {
+        $user = User::getUserByID($userID);
+        if ($user) {
+            $ucoll = $user->getCollection($full, $avatar);
+            if ($ucoll) {
+                return $ucoll;
+            }
+        }
+        return false;
+    }
+
   /**
    *
    * @return user
