@@ -1,0 +1,39 @@
+{
+  "name": "Schulinformationen",
+  "uniqid": "ext.zwiebelgasse.schulinfo",
+  "version": 3,
+
+  "requiredVersion": "1.3.2",
+
+  "menu": {
+    "categorie": 2,
+    "icon": "fa fa-info-circle",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Schulinfo",
+  "aclGroupName": "ext_schulinfo",
+
+  "submenu": [
+    {
+      "title": "Schulinformationen",
+      "icon": "fa fa-cogs",
+      "url": {
+        "page": "ext_schulinfo",
+        "params": {}
+      }
+    }
+  ],
+
+  "widgets": [
+    {
+      "title": "Info",
+      "uniqid": "schulinfo.info",
+      "position": "dashboard",
+      "params": {
+        "minH": 4,
+        "minW": 4
+      }
+    }
+  ]
+}

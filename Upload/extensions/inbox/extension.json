@@ -1,0 +1,83 @@
+{
+  "name": "Inbox",
+  "uniqid": "ext.zwiebelgasse.inbox",
+  "version": "1",
+
+  "requiredVersion": "1.6.3",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-envelope",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Inbox",
+  "aclGroupName": "ext_inbox",
+
+  "submenu": [
+    {
+      "title": "Nachrichten",
+      "icon": "fa fa-envelope",
+      "url": {
+        "page": "ext_inbox",
+        "params": {
+          "view": "default"
+        }
+      },
+      "hidden": false
+    },
+
+
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_inbox",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_inbox",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Gruppen",
+      "icon": "fa fa-users",
+      "admin": true,
+      "url": {
+        "page": "ext_inbox",
+        "params": {
+          "view": "groups",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Accounts",
+      "icon": "fa fa-users",
+      "admin": true,
+      "url": {
+        "page": "ext_inbox",
+        "params": {
+          "view": "users",
+          "admin": "true"
+        }
+      }
+    }
+
+
+  ]
+
+}

@@ -1,0 +1,77 @@
+{
+  "name": "Raumplan",
+  "uniqid": "ext.zwiebelgasse.raumplan",
+  "version": "4",
+
+  "requiredVersion": "1.4.1",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-door-open",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Raumplan",
+  "aclGroupName": "ext_raumplan",
+
+  "widgets": [
+    {
+      "title": "Meine Heute",
+      "uniqid": "raumplan.mytoday",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
+    },
+    {
+      "title": "Meine Nächsten",
+      "uniqid": "raumplan.mynext",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
+    }
+  ],
+
+
+  "submenu": [
+    {
+      "title": "Kalender",
+      "icon": "fa fa-door-open",
+      "url": {
+        "page": "ext_raumplan",
+        "params": {
+          "view": "default"
+        }
+      },
+      "hidden": false
+    },
+    {
+      "title": "Kalender",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_raumplan",
+        "params": {
+          "view": "default",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Räume",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_raumplan",
+        "params": {
+          "view": "custom",
+          "admin": "true"
+        }
+      }
+    }
+  ]
+
+}

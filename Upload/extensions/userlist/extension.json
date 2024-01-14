@@ -1,0 +1,48 @@
+{
+  "name": "Benutzerlisten",
+  "uniqid": "ext.zwiebelgasse.userlist",
+  "version": "4",
+
+  "requiredVersion": "1.7.0",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-user-check",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Userlist",
+  "aclGroupName": "ext_userlist",
+
+
+
+  "submenu": [
+    {
+      "title": "Meine Listen",
+      "icon": "fas fa-user-check",
+      "url": {
+        "page": "ext_userlist",
+        "params": {
+          "view": "default"
+        }
+      },
+      "hidden": false,
+      "acl": ["isTeacher", "isEltern", "isPupil", "isNone"]
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_userlist",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    }
+
+
+  ]
+
+}

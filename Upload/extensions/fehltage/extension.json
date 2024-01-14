@@ -1,0 +1,80 @@
+{
+  "name": "Fehltage",
+  "uniqid": "ext.zwiebelgasse.fehltage",
+  "version": "1",
+
+  "requiredVersion": "1.6.1",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-user-md",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Fehltage",
+  "aclGroupName": "ext_fehltage",
+
+  "cron": [
+    {
+      "typ": "default",
+      "class": "extFehltageCronFetchSlots"
+    }
+  ],
+
+
+  "submenu": [
+    {
+      "title": "Fehltage",
+      "icon": "fa fa-user-md",
+      "url": {
+        "page": "ext_fehltage",
+        "params": {
+          "view": "default"
+        }
+      },
+      "hidden": false
+    },
+
+
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_fehltage",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_fehltage",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Slots",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_fehltage",
+        "params": {
+          "view": "slots",
+          "admin": "true"
+        }
+      }
+    }
+
+
+
+  ]
+
+}

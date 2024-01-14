@@ -1,0 +1,59 @@
+{
+  "name": "Profil",
+  "uniqid": "ext.core.user",
+  "version": "2",
+
+  "requiredVersion": "1.6.1",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-user",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_User",
+  "aclGroupName": "ext_user",
+
+
+  "submenu": [
+    {
+      "title": "Profil",
+      "icon": "fa fa-user",
+      "url": {
+        "page": "ext_user",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_user",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_user",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

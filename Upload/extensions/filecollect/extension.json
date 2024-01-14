@@ -1,0 +1,66 @@
+{
+  "name": "Filecollect",
+  "uniqid": "ext.zwiebelgasse.filecollect",
+  "version": "5",
+
+  "requiredVersion": "1.6.1",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fas fa fa-file-import",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Filecollect",
+  "aclGroupName": "ext_filecollect",
+
+  "widgets": [
+    {
+      "title": "Dashboard",
+      "uniqid": "filecollect.dashboard",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
+    }
+  ],
+
+  "submenu": [
+    {
+      "title": "Uploads",
+      "icon": "fas fa-file-import",
+      "url": {
+        "page": "ext_filecollect",
+        "params": {
+          "view": "default"
+        }
+      },
+      "hidden": false
+    },
+    {
+      "title": "Gruppen",
+      "icon": "fas fa-folder",
+      "url": {
+        "page": "ext_filecollect",
+        "params": {
+          "view": "list"
+        }
+      },
+      "acl": ["isTeacher","isNone"]
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_filecollect",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    }
+  ]
+
+}

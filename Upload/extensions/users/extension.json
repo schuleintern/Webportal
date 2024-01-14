@@ -1,0 +1,34 @@
+{
+  "name": "Benutzer",
+  "uniqid": "ext.zwiebelgasse.users",
+  "version": "1",
+
+  "requiredVersion": "1.5.2",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-users",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Users",
+  "aclGroupName": "ext_users",
+
+
+  "submenu": [
+    {
+      "title": "Benutzer",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "default"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

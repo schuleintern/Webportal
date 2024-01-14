@@ -1,0 +1,35 @@
+{
+  "name": "Klassen Kalender",
+  "uniqid": "ext.zwiebelgasse.klassenkalender",
+  "version": "1",
+
+  "requiredVersion": "1.5.3",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-calendar",
+    "params": "",
+    "class": "extKlassenkalenderMenu"
+  },
+
+  "adminGroupName": "Admin_Ext_KlassenKalender",
+  "aclGroupName": "ext_klassenkalender",
+
+
+  "submenu": [
+    {
+      "title": "Klassen Kalender",
+      "icon": "fa fa-calendar",
+      "url": {
+        "page": "ext_klassenkalender",
+        "params": {
+          "view": "default"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

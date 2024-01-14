@@ -1,0 +1,81 @@
+{
+  "name": "Sanktionen",
+  "uniqid": "ext.zwiebelgasse.sanctions",
+  "version": "3",
+
+  "requiredVersion": "1.6.1",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-gavel",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Sanctions",
+  "aclGroupName": "ext_sanctions",
+
+  "submenu": [
+
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_sanctions",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_sanctions",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+
+    {
+      "title": "Übersicht",
+      "icon": "fa fa-user",
+      "url": {
+        "page": "ext_sanctions",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+    {
+      "title": "Regeln",
+      "icon": "fa fa-gavel",
+      "url": {
+        "page": "ext_sanctions",
+        "params": {
+          "view": "rules"
+        }
+      }
+    },
+    {
+      "title": "Liste",
+      "icon": "fa fa-users",
+      "acl": ["isTeacher"],
+      "url": {
+        "page": "ext_sanctions",
+        "params": {
+          "view": "list"
+        }
+      }
+    }
+
+    
+  ]
+
+
+
+}

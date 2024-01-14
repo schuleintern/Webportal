@@ -1,0 +1,117 @@
+{
+  "name": "Ganztags",
+  "uniqid": "ext.zwiebelgasse.ganztags",
+  "version": "4",
+
+  "requiredVersion": "1.5.4",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-campground",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Ganztags",
+  "aclGroupName": "ext_ganztags",
+
+  "submenu": [
+    {
+      "title": "Meine Gruppe",
+      "icon": "fas fa-users",
+      "url": {
+        "page": "ext_ganztags",
+        "params": {
+          "view": "my"
+        }
+      },
+      "hidden": false,
+      "acl": ["isTeacher"]
+    },
+    {
+      "title": "Kalender",
+      "icon": "fas fa-users",
+      "url": {
+        "page": "ext_ganztags",
+        "params": {
+          "view": "kalender"
+        }
+      },
+      "hidden": false,
+      "acl": ["isTeacher"]
+    },
+    {
+      "title": "Schüler",
+      "icon": "fas fa-users",
+      "url": {
+        "page": "ext_ganztags",
+        "params": {
+          "view": "default"
+        }
+      },
+      "hidden": false,
+      "acl": ["isTeacher"]
+    },
+
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_ganztags",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_ganztags",
+        "params": {
+          "view": "default",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Team",
+      "icon": "fas fa-user",
+      "url": {
+        "page": "ext_ganztags",
+        "params": {
+          "view": "leader"
+        }
+      },
+      "hidden": false,
+      "admin": true
+    },
+    {
+      "title": "Gruppen",
+      "icon": "fas fa-users",
+      "url": {
+        "page": "ext_ganztags",
+        "params": {
+          "view": "groups"
+        }
+      },
+      "hidden": false,
+      "admin": true
+    },
+    {
+      "title": "Aktivitäten",
+      "icon": "fas fa-campground",
+      "url": {
+        "page": "ext_ganztags",
+        "params": {
+          "view": "activity"
+        }
+      },
+      "hidden": false,
+      "admin": true
+    }
+  ]
+
+}

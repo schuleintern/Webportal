@@ -1,0 +1,1 @@
+ ALTER TABLE `ext_sprechstunde_dates` ADD `medium` VARCHAR(10)  NULL  DEFAULT NULL ;

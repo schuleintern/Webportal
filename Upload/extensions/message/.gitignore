@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+.idea/
+*/.idea
+workspace.xml
+*/workspace.xml
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*/.idea/workspace.xml
+*/.idea/tasks.xml.idea

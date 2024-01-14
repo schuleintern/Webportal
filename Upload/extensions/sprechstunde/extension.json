@@ -1,0 +1,103 @@
+{
+  "name": "Sprechstunde",
+  "uniqid": "ext.zwiebelgasse.sprechstunde",
+  "version": "9",
+
+  "requiredVersion": "1.6.1",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-people-arrows",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Sprechstunde",
+  "aclGroupName": "ext_sprechstunde",
+
+  "widgets": [
+    {
+      "title": "Header Counter",
+      "uniqid": "sprechstunde.counter",
+      "position": "header",
+      "class": "extSprechstundeWidgetCounter",
+      "params": {}
+    }
+  ],
+
+  "submenu": [
+    {
+      "title": "Kalender",
+      "icon": "fas fa-people-arrows",
+      "url": {
+        "page": "ext_sprechstunde",
+        "params": {
+          "view": "default"
+        }
+      },
+      "hidden": false,
+      "acl": ["isTeacher", "isEltern", "isPupil", "isNone"]
+    },
+    {
+      "title": "Termine",
+      "icon": "fa fa-calendar-check",
+      "url": {
+        "page": "ext_sprechstunde",
+        "params": {
+          "view": "list"
+        }
+      },
+      "hidden": false
+    },
+    {
+      "title": "Planer",
+      "icon": "fa fa-calendar",
+      "url": {
+        "page": "ext_sprechstunde",
+        "params": {
+          "view": "planer"
+        }
+      },
+      "hidden": false,
+      "acl": ["isTeacher"]
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_sprechstunde",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_sprechstunde",
+        "params": {
+          "view": "default",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Kalender",
+      "icon": "fa fa-calendar",
+      "admin": true,
+      "url": {
+        "page": "ext_sprechstunde",
+        "params": {
+          "view": "calendar",
+          "admin": "true"
+        }
+      }
+    }
+
+
+  ]
+
+}

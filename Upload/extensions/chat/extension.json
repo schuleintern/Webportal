@@ -1,0 +1,38 @@
+{
+  "name": "Chat Extension",
+  "uniqid": "ext.zwiebelgasse.chat",
+  "version": "1",
+
+  "requiredVersion": "1.3.2",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fas fa-comments",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Chat",
+  "aclGroupName": "ext_chat",
+
+  "widgets": [
+    {
+      "title": "Header Counter",
+      "uniqid": "chat.counter",
+      "position": "header",
+      "class": "extChatWidgetCounter",
+      "params": {}
+    }
+  ],
+
+  "submenu": [
+    {
+      "title": "Default",
+      "icon": "fas fa-comments",
+      "url": {
+        "page": "ext_chat",
+        "params": {}
+      }
+    }
+  ]
+
+}

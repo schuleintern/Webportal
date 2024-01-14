@@ -1,0 +1,70 @@
+{
+  "name": "Vertretungsplan",
+  "uniqid": "ext.zwiebelgasse.vplan",
+  "version": "4",
+
+  "requiredVersion": "1.6.1",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-retweet",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Vplan",
+  "aclGroupName": "ext_vplan",
+
+
+  "submenu": [
+    {
+      "title": "Vertretungsplan",
+      "icon": "fa fa-retweet",
+      "url": {
+        "page": "ext_vplan",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_vplan",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_vplan",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Import",
+      "icon": "fa fa-upload",
+      "admin": true,
+      "url": {
+        "page": "ext_vplan",
+        "params": {
+          "view": "import",
+          "admin": "true"
+        }
+      }
+    }
+  ]
+
+
+
+}

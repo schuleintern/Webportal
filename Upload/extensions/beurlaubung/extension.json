@@ -1,0 +1,95 @@
+{
+  "name": "Beurlaubung",
+  "uniqid": "ext.zwiebelgasse.beurlaubung",
+  "version": "9",
+
+  "requiredVersion": "1.5.4",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-sun",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Beurlaubung",
+  "aclGroupName": "ext_beurlaubung",
+
+
+  "widgets": [
+    {
+      "title": "Counter",
+      "uniqid": "beurlaubung.counter",
+      "position": "header",
+      "class": "extBeurlaubungWidgetCounter",
+      "params": {}
+    }
+  ],
+
+
+
+  "submenu": [
+    {
+      "title": "Anträge",
+      "icon": "fa fa-sun",
+      "url": {
+        "page": "ext_beurlaubung",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+
+
+
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_beurlaubung",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_beurlaubung",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Alle Anträge",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_beurlaubung",
+        "params": {
+          "view": "list",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Offene Anträge",
+      "icon": "fa fa-list",
+      "acl": ["isTeacher"],
+      "url": {
+        "page": "ext_beurlaubung",
+        "params": {
+          "view": "open"
+        }
+      }
+    }
+  ]
+
+
+
+}

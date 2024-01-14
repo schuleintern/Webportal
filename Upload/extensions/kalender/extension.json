@@ -1,0 +1,109 @@
+{
+  "name": "Kalender",
+  "uniqid": "ext.zwiebelgasse.kalender",
+  "version": "10",
+
+  "requiredVersion": "1.5.4",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-calendar",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Kalender",
+  "aclGroupName": "ext_kalender",
+
+  "cron": [
+    {
+      "typ": "default",
+      "class": "extKalenderCronFetchHoliday"
+    }
+  ],
+
+  "widgets": [
+    {
+      "title": "Counter",
+      "uniqid": "kalender.counter",
+      "position": "header",
+      "class": "extKalenderWidgetCounter",
+      "params": {}
+    },
+    {
+      "title": "Dashboard",
+      "uniqid": "kalender.dashboard",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
+    }
+  ],
+
+  "submenu": [
+    {
+      "title": "Kalender",
+      "icon": "fa fa-calendar",
+      "url": {
+        "page": "ext_kalender",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+    {
+      "hidden": "true",
+      "title": "KlassenKalender",
+      "icon": "fa fa-calendar",
+      "url": {
+        "page": "ext_kalender",
+        "params": {
+          "view": "klassenkalender"
+        }
+      }
+    },
+
+
+
+    {
+      "title": "Import",
+      "icon": "fa fa-sync",
+      "admin": true,
+      "url": {
+        "page": "ext_kalender",
+        "params": {
+          "view": "import",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_kalender",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Kalender",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_kalender",
+        "params": {
+          "view": "list",
+          "admin": "true"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

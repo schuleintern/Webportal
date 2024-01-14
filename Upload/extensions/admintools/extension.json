@@ -1,0 +1,58 @@
+{
+  "name": "Admintools",
+  "uniqid": "ext.zwiebelgasse.admintools",
+  "version": "4",
+
+  "requiredVersion": "1.6.3",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-tools",
+    "params": {
+      "view": "default",
+      "admin": "true"
+    }
+  },
+
+  "adminGroupName": "Admin_Ext_Admintools",
+  "aclGroupName": "ext_admintools",
+
+  "widgets": [
+    {
+      "title": "ChangeUser",
+      "uniqid": "admintools.changeuser",
+      "position": "header",
+      "class": "extAdmintoolsWidgetChangeuser",
+      "params": {}
+    }
+  ],
+
+  "submenu": [
+    {
+      "title": "Übersicht",
+      "icon": "fa fa-tools",
+      "admin": true,
+      "url": {
+        "page": "ext_admintools",
+        "params": {
+          "view": "default",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ChangeUser",
+      "icon": "fa fa-tools",
+      "admin": true,
+      "url": {
+        "page": "ext_admintools",
+        "params": {
+          "view": "changeuser",
+          "admin": "true"
+        }
+      }
+    }
+
+  ]
+
+}

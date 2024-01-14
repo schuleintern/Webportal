@@ -1,0 +1,55 @@
+{
+  "name": "Content Creation Kit",
+  "uniqid": "ext.example.cck",
+  "version": "1",
+
+  "requiredVersion": "1.4.1",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-plug",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_CCK",
+  "aclGroupName": "ext_cck",
+
+
+  "submenu": [
+    {
+      "title": "Forms",
+      "icon": "fa fa-cogs",
+      "url": {
+        "page": "ext_cck",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+    {
+      "title": "Articles",
+      "icon": "fa fa-cogs",
+      "url": {
+        "page": "ext_cck",
+        "params": {
+          "view": "articles"
+        }
+      }
+    },
+    {
+      "title": "Fieldtyp",
+      "icon": "fa fa-cogs",
+      "url": {
+        "page": "ext_cck",
+        "params": {
+          "view": "fieldtyp"
+        }
+      }
+    }
+
+    
+  ]
+
+
+
+}

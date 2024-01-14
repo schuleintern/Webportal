@@ -1,0 +1,32 @@
+{
+  "name": "App-Connector",
+  "uniqid": "ext.zwiebelgasse.app",
+  "version": "1",
+
+  "requiredVersion": "1.4.1",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-plug",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_App",
+  "aclGroupName": "ext_app",
+
+
+  "submenu": [
+    {
+      "title": "App",
+      "icon": "fa fa-cogs",
+      "url": {
+        "page": "ext_app",
+        "params": {
+          "view": "default"
+        }
+      }
+    }
+    
+  ]
+
+}
