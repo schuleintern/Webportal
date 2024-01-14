@@ -2,7 +2,7 @@
 
 
 class FileUpload {
-		
+
 	private static $mimeTypesMSOffice = array(
 			'application/msword',
 			'application/msword',
@@ -38,7 +38,7 @@ class FileUpload {
         'audio/vnd.wav',
         'audio/basic'
     ];
-	
+
 	private static $mimesPicture = [
 			'image/png',
 			'image/tiff',
@@ -46,10 +46,10 @@ class FileUpload {
 			'image/jpg',
 			'image/gif'
 	];
-	
+
 	private $data = [];
-	
-	
+
+
 	public function __construct($data) {
 		$this->data = $data;
 	}
@@ -61,15 +61,15 @@ class FileUpload {
 	public function getFileName() {
 		return $this->data['uploadFileName'];
 	}
-	
+
 	public function getExtension() {
 		return $this->data['uploadFileExtension'];
 	}
-	
+
 	public function getMimeType() {
 		return $this->data['uploadFileMimeType'];
 	}
-	
+
 	public function getUploadTime() {
 		return $this->data['uploadTime'];
 	}
@@ -79,7 +79,7 @@ class FileUpload {
      * @return string
      */
     public function getFilePath() {
-        return "../data/uploads/" . $this->getID() . ".dat";
+        return PATH_DATA."uploads/" . $this->getID() . ".dat";
     }
 
     /**
@@ -187,16 +187,14 @@ class FileUpload {
             mkdir($folder);
         }
 
-		
         $newFilename = $folder.DS.$this->getID().'.'.$this->getExtension();
 		if ($title) {
 			$newFilename = $folder.DS.$title.'.'.$this->getExtension();
 		}
-		
+
         if ( file_exists($newFilename) ) {
             return $newFilename;
         } else {
-
             $filename = $this->getFilePath(); //PATH_ROOT."data/uploads/" . $this->getID() . ".dat";
             if (file_exists($filename)) {
 
@@ -222,88 +220,88 @@ class FileUpload {
 	public function isImage() {
 	    return in_array($this->data['uploadFileMimeType'], self::$mimesPicture);
 	}
-	
+
 	public function isWord() {
 	    return $this->getExtension() == 'doc' || $this->getExtension() == 'docx';
 	}
-	
+
 	public function isExcel() {
 	    return $this->getExtension() == 'xls' || $this->getExtension() == 'xlsx';
 	}
-	
+
 	public function isPowerpoint() {
 	    return $this->getExtension() == 'ppt' || $this->getExtension() == 'ppts';
 	}
-	
+
 	public function isPDF() {
 	    return $this->getMimeType() == 'application/pdf';
 	}
-	
+
 	public function getAccessCode() {
 		return $this->data['fileAccessCode'];
 	}
-	
+
 	public function reuploadJPEGImageFromBase64($base64) {
 	    $ifp = fopen( $this->getFilePath(), 'wb' );
-	    
+
 	    $data = explode( ',', $base64 );
-	    
+
 	    fwrite( $ifp, base64_decode( $data[ 1 ] ) );
-	    
+
 	    fclose( $ifp );
-	    
+
 	    DB::getDB()->query("UPDATE uploads SET uploadFileMimeType='image/jpeg' WHERE uploadID='" . $this->getID() . "'");
 	    DB::getDB()->query("UPDATE uploads SET uploadFileExtension='jpg' WHERE uploadID='" . $this->getID() . "'");
 	}
-	
+
 	public function getTextFileContent() {
 	    if($this->getMimeType() == 'text/plain') return file_get_contents($this->getFilePath());
 	    else return 'no text Content - invalid mime type';
 	}
-	
+
 	public function getURLToFile($forceDownload=false) {
-		
+
 		if($this->getAccessCode() == '') {
 			$this->data['fileAccessCode'] = strtoupper(md5(rand()) . md5(rand()));
 			DB::getDB()->query("UPDATE uploads SET fileAccessCode='" . $this->data['fileAccessCode'] . "' WHERE uploadID='" . $this->getID() . "'");
 		}
-		
+
 		return DB::getGlobalSettings()->urlToIndexPHP . "?page=FileDownload&uploadID=" . $this->getID() . "&accessCode=" . $this->getAccessCode() . (($forceDownload) ? ("&fd=1") : (""));
 	}
-	
 
-	
+
+
 	public function delete() {
 		@unlink('../data/uploads/' . $this->getID() . ".dat");
 		DB::getDB()->query("DELETE FROM uploads WHERE uploadID='" . $this->getID() . "'");
 	}
-	
+
 	public function getFileTypeIcon() {
 		switch(strtolower($this->getExtension())) {
 			case 'pdf':
 				return 'fa fa-file-pdf';
-				
+
 			case 'doc':
 			case 'docx':
 			    return 'fa fa-file-word';
-			    
+
 			case 'xls':
 			case 'xlsx':
 			    return 'fa fa-file-excel';
-			    
+
 			case 'ppt':
 			case 'pptx':
 			    return 'fa fa-file-powerpoint';
-			    
-			
+
+
 			default:
 				return 'fa fa-file';
 		}
 	}
-	
 
-	
-	
+
+
+
 	public function sendFile() {
 		if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
 			new errorPage("Upload existiert nicht!");
@@ -320,7 +318,7 @@ class FileUpload {
         if(substr($filename,-(strlen(($fileextension)))) != $fileextension) {
             $filename =  $filename . "." . $fileextension;
         }
-				
+
 		header('Content-Description: Dateidownload');
 		header('Content-Type: ' . $this->getMimeType());
 		header('Content-Disposition: attachment; filename="'. $filename . '"');
@@ -335,55 +333,55 @@ class FileUpload {
         $fp = fopen("../data/uploads/" . $this->getID() . ".dat", 'rb');		// READ / BINARY
 
         fpassthru($fp);
-		
+
 		exit(0);
 	}
-	
+
 	public function sendPreviewForPDFFirstPage($width) {
 	    if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
 	        new errorPage("Upload existiert nicht!");
 	    }
-	    
+
 	    if($this->getMimeType() != "application/pdf") new errorPage();
-	    
+
 	    $this->sendPDFPageAsImage(1);
 	}
-	
+
 	public function sendPDFPageAsImage($page) {
 	    if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
 	        new errorPage("Upload existiert nicht!");
 	    }
-	    
+
 	    if($this->getMimeType() != "application/pdf") new errorPage();
-	    
+
 	    $showPage = 0;
-	    
+
 	    if($page <= $this->getPDFPageNumber()) {
 	        $showPage = $page-1;
 	    }
-	    
+
 	    $image = new Imagick("../data/uploads/" . $this->getID() . ".dat[" . $showPage ."]");
-	    
+
 	    $image->setImageFormat('jpg');
-	    
+
 	    header('Content-Type: image/jpeg');
 	    echo $image;
-        exit();	    
+        exit();
 	}
-	
+
 	public function getPDFPageNumber() {
-	    
+
 	    if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
 	        new errorPage("Upload existiert nicht!");
 	    }
-	   	    
+
 	    $image = new Imagick();
 	    $image->pingImage("../data/uploads/" . $this->getID() . ".dat");
 	    return $image->getNumberImages();
 	}
-	
+
 	public function sendImageWidthMaxWidth($maxWidth) {
-		
+
 		if(!file_exists("../data/uploads/" . $this->getID() . ".dat")) {
 			new errorPage("Upload existiert nicht!");
 		}
@@ -395,24 +393,24 @@ class FileUpload {
             echo DB::getCache()->getFromBase64($cacheKey);
             exit(0);
         }
-		
+
 		$oldSize = getImageSize ( "../data/uploads/" . $this->getID() . ".dat" );
-		
+
 		$scale = $maxWidth / $oldSize [0];
-		
+
 		$newWidth = round ( $oldSize [0] * $scale );
 		$newHeight = round ( $oldSize [1] * $scale );
-		
+
 		$altesBild = ImageCreateFromJPEG ( "../data/uploads/" . $this->getID() . ".dat" );
-		
+
 		if($this->getExtension() == 'png') {
 		    $altesBild = imagecreatefrompng( "../data/uploads/" . $this->getID() . ".dat" );
 		}
-		
+
 		$neuesBild = imagecreatetruecolor ( $newWidth, $newHeight );
-		
+
 		ImageCopyResized ( $neuesBild, $altesBild, 0, 0, 0, 0, $newWidth, $newHeight, $oldSize [0], $oldSize [1] );
-		
+
 		header ( "Content-type: image/jpeg" );
 
         ImageJPEG($neuesBild, "../data/temp/" . $cacheKey);
@@ -421,12 +419,12 @@ class FileUpload {
         unlink("../data/temp/" . $cacheKey);
 
 		ImageJPEG ( $neuesBild );
-		
+
 		exit ( 0 ); // Script zur Sicherheit beenden
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param int $id
 	 * @return FileUpload|null
 	 */
@@ -435,7 +433,7 @@ class FileUpload {
 		if($upload['uploadID'] > 0) {
 			return new FileUpload($upload);
 		}
-		
+
 		return null;
 	}
 
@@ -453,9 +451,9 @@ class FileUpload {
         return $ret;
     }
 
-	
+
 	/**
-	 * 
+	 *
 	 * @param String $fieldName
 	 * @param String $fileName
 	 * @return String[]
@@ -463,7 +461,7 @@ class FileUpload {
 	public static function uploadPicture($fieldName, $fileName) {
 
 
-		return self::uploadFileImpl($fieldName, self::$mimesPicture, $fileName);	
+		return self::uploadFileImpl($fieldName, self::$mimesPicture, $fileName);
 	}
 
 
@@ -518,40 +516,40 @@ class FileUpload {
             'text' => "Upload OK"
         ];
     }
-	
+
 	public static function uploadPDF($fieldName, $fileName) {
 		$mimePDF = [
 				'application/pdf'
 		];
-		
-		return self::uploadFileImpl($fieldName, $mimePDF, $fileName);	
+
+		return self::uploadFileImpl($fieldName, $mimePDF, $fileName);
 	}
-	
+
 	public static function uploadCSV($fieldName, $fileName) {
 	    $mime = [
 	        'text/csv',
 	        'text/plain'
 	    ];
-	    
+
 	    return self::uploadFileImpl($fieldName, $mime, $fileName);
 	}
 	public static function uploadPowerpoint($fieldName, $fileName) {
 	    $mimePDF = [
 	        'application/vnd.openxmlformats-officedocument.presentationml.presentation'
 	    ];
-	    
+
 	    return self::uploadFileImpl($fieldName, $mimePDF, $fileName);
 	}
-	
+
 	public static function uploadOfficeDocumentsAndPDF($fieldName, $fileName) {
 		$mimes = self::$mimeTypesMSOffice;
 		$mimes[] = 'application/pdf';
-		
+
 		for($i = 0; $i < sizeof(self::$mimesPicture); $i++) {
 		    $mimes[] = self::$mimesPicture[$i];
 		}
-		
-		return self::uploadFileImpl($fieldName, $mimes, $fileName);	
+
+		return self::uploadFileImpl($fieldName, $mimes, $fileName);
 	}
 
 	public static function uploadOfficeFilesPicturesTextAndZip($fieldName, $fileName) {
@@ -575,58 +573,58 @@ class FileUpload {
 
         return self::uploadFileImpl($fieldName, $mimes, $fileName);
     }
-	
+
 	public static function uploadOfficeDocument($fieldName, $fileName) {
 		return self::uploadFileImpl($fieldName, self::$mimeTypesMSOffice, $fileName);
 	}
-	
+
 	public static function uploadOfficePdfOrPicture($fieldName, $fileName) {
 		$mimes = self::$mimeTypesMSOffice;
-		
+
 		for($i = 0; $i < sizeof(self::$mimesPicture); $i++) {
 		    $mimes[] = self::$mimesPicture[$i];
 		}
-		
+
 		$mimes[] = 'application/pdf';
-		
-		
+
+
 		return self::uploadFileImpl($fieldName, $mimes, $fileName);
 	}
-	
+
 	public static function uploadPDFOrZip($fieldName, $fileName) {
 	    $mimes = [];
 
 	    $mimes[] = 'application/pdf';
-	    $mimes[] = 'application/zip';	    
-	    
+	    $mimes[] = 'application/zip';
+
 	    return self::uploadFileImpl($fieldName, $mimes, $fileName);
 	}
-	
-	
-	
-	
+
+
+
+
 	/**
-	 * 
+	 *
 	 * @param String $filename
 	 * @param TCPDF $tcpdf
 	 */
 	public static function uploadFromTCPdf($filename, $tcpdf) {
 		$mime = 'application/pdf';
-		
+
 		if(DB::isLoggedIn()) {
-		
+
     		$user = DB::getSession()->getUser();
-    		
+
     		if($user == null) {
     		    // SystemCall
-    		    
+
     		    $userID = 0;
     		}
     		else $userID = $user->getUserID();
-		
+
 		}
 		else $userID = 0;
-		
+
 		DB::getDB()->query("INSERT INTO uploads
 				(
 					uploadFileName,
@@ -644,8 +642,8 @@ class FileUpload {
 					'" . strtoupper(md5(rand()) . md5(rand())) . "'
 				)
 			");
-		
-		
+
+
 		$newID = DB::getDB()->insert_id();
 
 		$path = getcwd();
@@ -656,20 +654,20 @@ class FileUpload {
 
 
         $tcpdf->Output($saveDir, 'F');
-				
+
 		$data = DB::getDB()->query_first("SELECT * FROM uploads WHERE uploadID='" . $newID. "'");
-		
+
 		return [
 				'result' => true,
 				'uploadobject' => new FileUpload($data),
 				'mimeerror' => false,
 				'text' => "Save from TCPDF OK"
 		];
-		
-		
-		
+
+
+
 	}
-	
+
 	private static function uploadFileImpl($fieldName, $mimes, $fileName='') {
 		if ($_FILES[$fieldName]['error'] !== UPLOAD_ERR_OK) {
 			return [
@@ -677,15 +675,15 @@ class FileUpload {
 				'uploadobject' => null,
 				'mimeerror' => false,
 				'text' => "Es gab einen Fehler beim Upload: " . $_FILES['file']['error']
-			];			
+			];
 		}
-		
+
 		$mime = null;
-		
+
 		if($fileName == '') $fileName = $_FILES[$fieldName]['name'];
-		
+
 		$ext = strtolower(array_pop(explode('.',$_FILES[$fieldName]['name'])));
-		
+
 		if (function_exists('finfo_open')) {
 			$finfo = finfo_open(FILEINFO_MIME);
 			$mimetype = finfo_file($finfo, $_FILES[$fieldName]['tmp_name']);
@@ -693,7 +691,7 @@ class FileUpload {
 			$mimetype = str_replace("; charset=binary", "", $mimetype);
 			$mimetype = str_replace("; charset=utf-8", "", $mimetype);
             $mimetype = str_replace("; charset=us-ascii", "", $mimetype);
-						
+
 			if(!in_array($mimetype, $mimes)) {
 			    $mimeerror = $mimetype;
 				$mime = null;
@@ -703,7 +701,7 @@ class FileUpload {
 		else new errorPage("MIME Type kann nicht bestimmt werden!");
 
 		if($mime != null) {
-			
+
 			DB::getDB()->query("INSERT INTO uploads
 				(
 					uploadFileName,
@@ -719,7 +717,7 @@ class FileUpload {
 					" . DB::getSession()->getUser()->getUserID() . "				
 				)
 			");
-			
+
 			$newID = DB::getDB()->insert_id();
 
 			if (!move_uploaded_file($_FILES[$fieldName]["tmp_name"], "../data/uploads/" . $newID . ".dat")) {
@@ -728,11 +726,11 @@ class FileUpload {
 					'uploadobject' => null,
 					'mimeerror' => false,
 					'text' => "Es gab einen Fehler beim Upload: Move File"
-				];	
+				];
 			}
-			
+
 			$data = DB::getDB()->query_first("SELECT * FROM uploads WHERE uploadID='" . $newID. "'");
-			
+
 			return [
 					'result' => true,
 					'uploadobject' => new FileUpload($data),
@@ -749,10 +747,10 @@ class FileUpload {
 			];
 		}
 	}
-	
+
 	public static function uploadTextFileContents($name, $content) {
 	    $mime = 'text/plain';
-	    
+
 	    DB::getDB()->query("INSERT INTO uploads
 				(
 					uploadFileName,
@@ -770,35 +768,35 @@ class FileUpload {
 					'" . strtoupper(md5(rand()) . md5(rand())) . "'
 				)
 			");
-	    
-	    
+
+
 	    $newID = DB::getDB()->insert_id();
-	    
+
 	    $saveDir = "../data/uploads/" . $newID . ".dat";
-	    
+
 	    file_put_contents($saveDir, $content);
-	    
+
 	    $data = DB::getDB()->query_first("SELECT * FROM uploads WHERE uploadID='" . $newID. "'");
-	    
+
 	    return [
 	        'result' => true,
 	        'uploadobject' => new FileUpload($data),
 	        'mimeerror' => false,
 	        'text' => "Upload from Text - Content OK"
 	    ];
-	    
+
 	}
-	
+
 	public static function generateUploadID($name, $extension, $isWord, $isPDF) {
-	    
+
 	    if($isWord) {
 	        $mime = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 	    }
-	    
+
 	    if($isPDF) {
 	        $mime = 'application/pdf';
 	    }
-	    
+
 	    DB::getDB()->query("INSERT INTO uploads
 				(
 					uploadFileName,
@@ -816,23 +814,23 @@ class FileUpload {
 					'" . strtoupper(md5(rand()) . md5(rand())) . "'
 				)
 			");
-	    
-	    
+
+
 	    $newID = DB::getDB()->insert_id();
-	    
+
 	    $saveDir = "../data/uploads/" . $newID . ".dat";
-	    
+
 	    // file_put_contents($saveDir, "");
-	    
+
 	    $data = DB::getDB()->query_first("SELECT * FROM uploads WHERE uploadID='" . $newID. "'");
-	    
+
 	    return [
 	        'result' => true,
 	        'uploadobject' => new FileUpload($data),
 	        'mimeerror' => false,
 	        'text' => "Upload from Text - Content OK"
 	    ];
-	    
+
 	}
 }
 
