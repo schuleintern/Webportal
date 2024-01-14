@@ -1,15 +1,7 @@
 {
     "name": "eluceo/ical",
-    "description": "The eluceo/iCal package offers a abstraction layer for creating iCalendars. You can easily create iCal files by using PHP object instead of typing your *.ics file by hand. The output will follow RFC 5545 as best as possible.",
+    "description": "The eluceo/iCal package offers an abstraction layer for creating iCalendars. You can easily create iCal files by using PHP objects instead of typing your *.ics file by hand. The output will follow RFC 5545 as best as possible.",
     "license": "MIT",
-    "homepage": "https://github.com/markuspoerschke/iCal",
-    "authors": [
-        {
-            "name": "Markus Poerschke",
-            "email": "markus@eluceo.de",
-            "role": "Developer"
-        }
-    ],
     "keywords": [
         "ical",
         "php calendar",
@@ -17,25 +9,50 @@
         "ics",
         "calendar"
     ],
+    "authors": [
+        {
+            "name": "Markus Poerschke",
+            "email": "markus@poerschke.nrw",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/markuspoerschke/iCal",
     "support": {
         "issues": "https://github.com/markuspoerschke/iCal/issues",
-        "source": "https://github.com/markuspoerschke/iCal"
+        "forum": "https://github.com/markuspoerschke/iCal/discussions",
+        "source": "https://github.com/markuspoerschke/iCal",
+        "docs": "https://ical.poerschke.nrw"
+    },
+    "require": {
+        "php": ">=7.4 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
+        "ext-mbstring": "*",
+        "symfony/deprecation-contracts": "^2.1 || ^3.0"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.23.1",
+        "friendsofphp/php-cs-fixer": "^3.4",
+        "infection/infection": "^0.23 || ^0.26 || ^0.27",
+        "phpmd/phpmd": "^2.13",
+        "phpunit/phpunit": "^9.5",
+        "vimeo/psalm": "^4.8 || ^5.0"
+    },
+    "conflict": {
+        "php": "7.4.6"
     },
     "autoload": {
         "psr-4": {
             "Eluceo\\iCal\\": "src/"
         }
     },
-    "require": {
-        "php": ">=7.0"
+    "autoload-dev": {
+        "psr-4": {
+            "Eluceo\\iCal\\": "tests/"
+        }
     },
-    "suggest": {
-        "ext-mbstring" : "Massive performance enhancement of line folding"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^6.0"
-    },
-    "scripts": {
-        "test": "phpunit"
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "infection/extension-installer": true
+        }
     }
 }
