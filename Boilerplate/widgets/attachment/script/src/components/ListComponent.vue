@@ -5,14 +5,21 @@
     <table class="si-table" v-if="sortList && sortList.length >= 1">
       <thead>
       <tr>
-        <th v-on:click="handlerSort('title')" class="curser-sort" :class="{'text-orange': sort.column == 'title'}">Titel</th>
-        <th v-on:click="handlerSort('id')" class="curser-sort" :class="{'text-orange': sort.column == 'id'}">ID</th>
+        <th v-on:click="handlerSort('title')" class="curser-sort" :class="{'text-orange': sort.column == 'title'}" width="30%">Titel</th>
+        <th v-on:click="handlerSort('state')" class="curser-sort" :class="{'text-orange': sort.column == 'state'}" width="5%">Status</th>
+        <th v-on:click="handlerSort('createdTime')" class="curser-sort" :class="{'text-orange': sort.column == 'createdTime'}">Erstellt</th>
       </tr>
       </thead>
       <tbody>
       <tr v-bind:key="index" v-for="(item, index) in  sortList" class="">
         <td><a :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{ item.title }}</a></td>
-        <td>{{ item.id }}</td>
+        <td>
+          <button v-if="item.state == 1" class="si-btn si-btn-off text-green si-btn-icon" >
+            <i class="fa fas fa-toggle-on"></i></button>
+          <button v-else class="si-btn si-btn-off si-btn-icon" >
+            <i class="fa fas fa-toggle-off"></i></button>
+        </td>
+        <td><span v-if="item.createdTime" class="text-small">{{ item.createdTime }}</span></td>
       </tr>
       </tbody>
     </table>
@@ -31,7 +38,7 @@ export default {
     return {
 
       sort: {
-        column: 'id',
+        column: 'createdTime',
         order: true
       },
       searchColumns: ['id', 'title'],
@@ -56,7 +63,7 @@ export default {
             var search_result = [];
             this.searchColumns.forEach(function (col) {
               search_temp = data.filter((item) => {
-                if (item[col] && typeof item[col] === 'string') {
+                if (item[col]) {
                   return split.every(v => item[col].toLowerCase().includes(v));
                 }
               });
@@ -99,12 +106,10 @@ export default {
                   })
                 } else {
                   return data.sort((a, b) => {
-                    if (b[this.sort.column] && a[this.sort.column]) {
-                      if ( !isNaN(a[this.sort.column]) ) {
-                        return b[this.sort.column] - a[this.sort.column];
-                      } else {
-                        return b[this.sort.column].localeCompare(a[this.sort.column])
-                      }
+                    if ( !isNaN(a[this.sort.column]) ) {
+                      return b[this.sort.column] - a[this.sort.column];
+                    } else {
+                      return b[this.sort.column].localeCompare(a[this.sort.column])
                     }
                   })
                 }
