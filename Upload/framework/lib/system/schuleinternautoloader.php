@@ -1,9 +1,7 @@
 <?php 
 
 $classes = [
-	'abstractPages' => [
-		'AbstractKalenderPage'
-	],
+
 	'ajax' => [
 		'ajax',
 		'showHideElements',
@@ -28,7 +26,6 @@ $classes = [
         'WLanTicket'
     ],
 	'cron' => [
-		'AbstractCron',
 		'CreateElternUsers',
 		'ElternMailReceiver',
 		'ElternMailSenderCron',
@@ -153,14 +150,23 @@ $classes = [
 		'email',
 		'phpmailer',
 	],
+    'export' => [
+        'exportXls'
+    ],
 	'exception' => [
 		'DbException',
 	],
 	'html2pdf' => [
 		'mpdf.php'
 	],
+    'models' => [
+        'abstractMenu',
+        'abstractKalenderPage',
+        'extensionsModel',
+        'abstractApp',
+        'abstractCron'
+    ],
 	'menu' => [
-		'abstractMenu',
         'menu',
 	],
     'raumplan' => [
@@ -194,9 +200,6 @@ $classes = [
 	'tpl' => [
 		'TemplateParser',
 		'tpl'
-	],
-	'uploadImage' => [
-		'UploadImage',
 	],
 	'nextcloud' => [
 		'NextCloudApi'
@@ -259,7 +262,8 @@ $classes = [
 		'SchuelerBrief'
 	],
 	'uploads' => [
-		'FileUpload'
+		'FileUpload',
+        'UploadImage'
 	],
 	'noten' => [
 		'Note',
@@ -332,7 +336,8 @@ function schuleinternautoloader($class) {
 	
 	
 	// if(in_array($class, requesthandler::getAllowedActions())) return;		// Seiten nicht automatisch laden, macht der Requesthandler
-    
+
+    /*
 	if($class == "mPDF") {
 		include_once '../framework/lib/html2pdf/mpdf.php';
 		return;
@@ -341,11 +346,11 @@ function schuleinternautoloader($class) {
 		include_once '../framework/lib/tcpdf/tcpdf.php';
 		return;
 	}
-	
 	if($class == 'ZCiCal') {
 		include_once ('../framework/lib/ical/zapcallib.php');
 		return;
 	}
+
 	
 	
 	if(strtolower($class) == "phpmailer") {
@@ -353,6 +358,7 @@ function schuleinternautoloader($class) {
 		include_once '../framework/lib/email/phpmailer/class.smtp.php';
 		return;
 	}
+    */
 	
 	if($class == "AbstractPage") return;
 	

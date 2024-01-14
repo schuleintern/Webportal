@@ -160,6 +160,7 @@ abstract class AbstractPage
             }
 
 
+
             // Wartungsmodus
 
             $infoWartungsmodus = "";

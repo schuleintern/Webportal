@@ -1,6 +1,8 @@
 <?php
 
 
+ 
+
 abstract class AbstractKalenderPage extends AbstractPage {
 	private $info;
 	protected $tableName;
