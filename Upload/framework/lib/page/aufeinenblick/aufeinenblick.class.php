@@ -1,5 +1,7 @@
 <?php
 
+
+
 class aufeinenblick extends AbstractPage {
 
   private $mySettings = array(
@@ -804,7 +806,7 @@ class aufeinenblick extends AbstractPage {
   }
 
   public static function getAdminGroup() {
-    return AUFEINENBLICK_ADMINGROUP;
+    return 'Webportal_Aufeinenblick_admin';
   }
 
   public static function displayAdministration($selfURL) {
