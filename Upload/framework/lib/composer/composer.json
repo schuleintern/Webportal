@@ -9,6 +9,7 @@
         "ezyang/htmlpurifier": "^4.17",
         "minishlink/web-push": "^8.0",
         "tecnickcom/tcpdf": "^6.6.5",
-        "phpoffice/phpspreadsheet": "^1.29"
+        "phpoffice/phpspreadsheet": "^1.29",
+        "endroid/qr-code": "^5.0"
     }
 }

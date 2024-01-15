@@ -36,10 +36,13 @@ return array(
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
+    'Endroid\\QrCode\\' => array($vendorDir . '/endroid/qr-code/src'),
     'Eluceo\\iCal\\' => array($vendorDir . '/eluceo/ical/src'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
+    'DASPRiD\\Enum\\' => array($vendorDir . '/dasprid/enum/src'),
     'Complex\\' => array($vendorDir . '/markbaker/complex/classes/src'),
     'Camcima\\MySqlDiff\\' => array($vendorDir . '/camcima/php-mysql-diff/src'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
     'Base64Url\\' => array($vendorDir . '/spomky-labs/base64url/src'),
+    'BaconQrCode\\' => array($vendorDir . '/bacon/bacon-qr-code/src'),
 );

@@ -82,11 +82,13 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
         ),
         'E' => 
         array (
+            'Endroid\\QrCode\\' => 15,
             'Eluceo\\iCal\\' => 12,
         ),
         'D' => 
         array (
             'DeepCopy\\' => 9,
+            'DASPRiD\\Enum\\' => 13,
         ),
         'C' => 
         array (
@@ -97,6 +99,7 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
         array (
             'Brick\\Math\\' => 11,
             'Base64Url\\' => 10,
+            'BaconQrCode\\' => 12,
         ),
     );
 
@@ -222,6 +225,10 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
+        'Endroid\\QrCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/endroid/qr-code/src',
+        ),
         'Eluceo\\iCal\\' => 
         array (
             0 => __DIR__ . '/..' . '/eluceo/ical/src',
@@ -229,6 +236,10 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'DASPRiD\\Enum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dasprid/enum/src',
         ),
         'Complex\\' => 
         array (
@@ -245,6 +256,10 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
         'Base64Url\\' => 
         array (
             0 => __DIR__ . '/..' . '/spomky-labs/base64url/src',
+        ),
+        'BaconQrCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
         ),
     );
 
