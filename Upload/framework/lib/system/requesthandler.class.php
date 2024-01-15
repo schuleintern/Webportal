@@ -196,8 +196,7 @@ class requesthandler {
       'GetMathCaptcha',
       'index',
       'info',
-      'Update',
-      'Backup'
+      'Update'
     ],
     'userprofile' => [
       'changeuseridinsession',
@@ -213,9 +212,6 @@ class requesthandler {
       'updatevplan',
       'vplan'
     ],
-  	'test' => [
-  		'test'
-  	],
   	'klassentagebuch' => [
   		'klassentagebuch',
   	    'klassentagebuchauswertung'
