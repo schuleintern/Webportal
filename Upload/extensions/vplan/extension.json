@@ -1,9 +1,9 @@
 {
   "name": "Vertretungsplan",
   "uniqid": "ext.zwiebelgasse.vplan",
-  "version": "4",
+  "version": "5",
 
-  "requiredVersion": "1.6.1",
+  "requiredVersion": "1.6.3",
 
   "menu": {
     "categorie": "1",
