@@ -1,0 +1,46 @@
+{
+  "name": "Import",
+  "uniqid": "ext.zwiebelgasse.import",
+  "version": "2",
+
+  "requiredVersion": "1.6.3",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-sync-alt",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Import",
+  "aclGroupName": "ext_import",
+
+  "submenu": [
+
+    {
+      "title": "Imort ASV",
+      "icon": "fa fa-sync-alt",
+      "url": {
+        "page": "ext_import",
+        "params": {
+          "view": "asv"
+        }
+      },
+      "hidden": false
+    },
+
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_import",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    }
+
+  ]
+
+}
