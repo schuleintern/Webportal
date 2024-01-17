@@ -169,7 +169,6 @@ class extImportModelASV extends ExtensionModel
 
             $koppelText = '';
             $isPseudoKoppel = 0;
-            $ueid = 0;
 
             if (is_object($unterricht->koppel)) {
                 $koppelText = strval($unterricht->koppel->kurzform);
@@ -191,7 +190,7 @@ class extImportModelASV extends ExtensionModel
                 'klassenunterricht' => strval($unterricht->in_matrix) == 'true',
                 'koppeltext' => $koppelText,
                 'pseudokoppel' => $isPseudoKoppel,
-                'ueid' => $ueid,
+                'ueid' => strval($unterricht->ueid),
                 'klassen' => $unterrichtKlasse['name']
 
             );
