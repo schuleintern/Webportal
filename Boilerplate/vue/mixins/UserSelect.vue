@@ -1,6 +1,5 @@
 <template>
   <div class="si-userselect">
-
     <AjaxError v-bind:error="error"></AjaxError>
     <AjaxSpinner v-bind:loading="loading"></AjaxSpinner>
 
@@ -157,9 +156,10 @@ export default {
     };
   },
   props: {
+    prefilter: String,
     preselected: Array,
-    minAnzahl: Boolean,
-    maxAnzahl: Boolean
+    minAnzahl: Number,
+    maxAnzahl: Number
   },
   watch: {
     preselected: function (newVal) {
@@ -167,10 +167,18 @@ export default {
     }
   },
   mounted: function () {
-    this.selected = this.preselected;
+    if (this.preselected && this.preselected[0] != false) {
+      this.selected = this.preselected;
+    }
     if (!this.selected) {
       this.selected = [];
     }
+
+    if (this.prefilter) {
+      this.filterType = this.prefilter;
+    }
+
+
   },
   created: function () {
 
