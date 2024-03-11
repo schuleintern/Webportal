@@ -326,7 +326,7 @@ class klassenlisten extends AbstractPage
 
                 $excelFile->getActiveSheet()->getStyle($this->colLetters[$aufgaben + 4] . "1" . ':' . $this->colLetters[$aufgaben + 8] . (7))->applyFromArray($BStyle);
 
-                $exportClass->output("Klassenliste_" . $grade . ".xlsx");
+                $exportClass->output("Klassenliste_" . $grade . ".xls");
 
                 /*
                 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
