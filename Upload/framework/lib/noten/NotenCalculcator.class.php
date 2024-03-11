@@ -84,7 +84,7 @@ class NotenCalculcator {
      * @param Note $note
      */
     public function addNote($note) {
-        if($note->getWert() == 0 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() < 11) {
+        if($note->getWert() == 0 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() <= 11) {
             return;
         }
         if(!$note->nurWennBesser()) $this->noten[] = $note;
