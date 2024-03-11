@@ -1,9 +1,9 @@
 <?php
-ini_set('display_errors', true);
-error_reporting(E_ALL);
+ini_set('display_errors', false);
+error_reporting(0);
 
 if ( version_compare(phpversion(), '8.0.0') < 1 ) {
-    die 'PHP 8.x is necessary';
+    die('PHP 8.x is necessary');
 }
 
 
@@ -37,7 +37,6 @@ if($wartungsmodus != "") {
 // Store and Secure $_REQUEST Variables
 $_request = [];
 if ($_REQUEST) {
-
     foreach($_REQUEST as $key => $val) {
         if (is_array($val)) {
             $_request[stripslashes(strip_tags(htmlspecialchars((string)$key, ENT_IGNORE, 'utf-8')))] = $val;
