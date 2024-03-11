@@ -28,6 +28,7 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
         'T' => 
         array (
             'TheNetworg\\OAuth2\\Client\\' => 25,
+            'Tests\\PhpOffice\\Math\\' => 21,
         ),
         'S' => 
         array (
@@ -42,7 +43,9 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
+            'PhpOffice\\PhpWord\\' => 18,
             'PhpOffice\\PhpSpreadsheet\\' => 25,
+            'PhpOffice\\Math\\' => 15,
             'ParagonIE\\ConstantTime\\' => 23,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
@@ -116,6 +119,10 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
         array (
             0 => __DIR__ . '/..' . '/thenetworg/oauth2-azure/src',
         ),
+        'Tests\\PhpOffice\\Math\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/math/tests/Math',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -149,9 +156,17 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
+        'PhpOffice\\PhpWord\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/phpword/src/PhpWord',
+        ),
         'PhpOffice\\PhpSpreadsheet\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
+        ),
+        'PhpOffice\\Math\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/math/src/Math',
         ),
         'ParagonIE\\ConstantTime\\' => 
         array (
