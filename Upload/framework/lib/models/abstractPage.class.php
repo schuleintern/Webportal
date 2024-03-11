@@ -1254,7 +1254,7 @@ abstract class AbstractPage
                 }
             }
         }
-        if ($temp_arr && count($temp_arr) > 1) {
+        if ($temp_arr && count($temp_arr) >= 1) {
             foreach ($temp_arr as $foo) {
                 $html .= '<a href="' . $foo[0] . '"  class=" ' . $foo[2] . '">';
                 if ($foo[3]) {

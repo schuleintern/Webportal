@@ -287,7 +287,11 @@ class requesthandler {
       try {
    
         $page = new $action($_request, $extension);
-        
+
+          if (file_exists(PATH_LIB . 'models' . DS . 'extensionsModel.class.php')) {
+              include_once(PATH_LIB . 'models' . DS . 'extensionsModel.class.php');
+          }
+
         if ($type == 'extension' && $_request['task']) {
 
           $taskMethod = 'task'.ucfirst($_request['task']);
@@ -302,9 +306,7 @@ class requesthandler {
         } else {
             if ($type == 'extension') {
 
-                if (file_exists(PATH_LIB . 'models' . DS . 'extensionsModel.class.php')) {
-                  include_once(PATH_LIB . 'models' . DS . 'extensionsModel.class.php');
-                }
+
              
                 self::loadFileFromFolder( PATH_EXTENSION.'models');
 

@@ -2037,7 +2037,7 @@ class absenzensekretariat extends AbstractPage {
     $selectLehrer = "";
     $alleLehrer = lehrer::getAll();
     for($i = 0; $i < sizeof($alleLehrer); $i++) {
-        $selectLehrer .= "<option value=\"" . $alleLehrer[$i]->getKuerzel() . "\"" . ((in_array($alleLehrer[$i]->getKuerzel(), $currentLehrer)) ? (" selected=\"selected\"") : ("")) . ">" . $alleLehrer[$i]->getKuerzel() . "</option>\r\n";
+        $selectLehrer .= "<option value=\"" . $alleLehrer[$i]->getKuerzel() . "\"" . ((in_array($alleLehrer[$i]->getKuerzel(), (array)$currentLehrer)) ? (" selected=\"selected\"") : ("")) . ">" . $alleLehrer[$i]->getKuerzel() . "</option>\r\n";
     }
 
 

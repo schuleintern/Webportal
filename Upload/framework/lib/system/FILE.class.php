@@ -247,7 +247,7 @@ class FILE
    * 
    */
 
-  public function removeFolder($dir)
+  public static function removeFolder($dir)
   {
     if (is_dir($dir)) {
       $objects = scandir($dir);

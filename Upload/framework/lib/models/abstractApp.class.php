@@ -2,6 +2,7 @@
 
 abstract class AbstractApp {
 
+    public $isMobile = true;
 
     static $adminGroupName = NULL;
     static $aclGroupName = NULL;

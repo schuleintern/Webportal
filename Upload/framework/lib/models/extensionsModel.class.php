@@ -51,7 +51,7 @@ abstract class ExtensionModel
 
     public function setData($data = [])
     {
-        $this->data = $data;
+        $this->data = (array)$data;
         return $this->getData();
     }
 
