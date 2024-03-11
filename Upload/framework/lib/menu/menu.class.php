@@ -205,18 +205,16 @@ class menu extends AbstractMenu
     {
         if (!DB::isLoggedIn()) return;
 
+        /*
         $currentStundenplan = stundenplandata::getCurrentStundenplan();
-
         if ($currentStundenplan == null) {
             $this->html .= $this->getMenuItem("index", "Kein Stundenplan vorhanden!", "fa fa-exclamation-triangle");
-
             if (DB::isLoggedIn() && DB::getSession()->isAnyAdmin()) {
                 $this->html .= $this->getMenuItem("administration", "Administration", "fa fa-cogs");
             }
-
-
             return;
         }
+        */
 
 
         if ($this->isActive('kondolenzbuch')) {
