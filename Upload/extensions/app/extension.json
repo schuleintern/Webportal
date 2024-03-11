@@ -3,7 +3,7 @@
   "uniqid": "ext.zwiebelgasse.app",
   "version": "1",
 
-  "requiredVersion": "1.4.1",
+  "requiredVersion": "1.6.3",
 
   "menu": {
     "categorie": "1",

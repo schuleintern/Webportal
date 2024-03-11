@@ -35,7 +35,8 @@ class extKalenderWidgetDashboard extends Widget
 
     static function loadDate($var, $date, $kalenders) {
         $events = extKalenderModelEvent::getDayByKalender($date, $kalenders);
-        if ( count($events) >= 1) {
+
+        if ( $events ) {
             $eventsCollection = [];
             foreach($events as $event) {
                 $eventsCollection[] = $event->getCollection();

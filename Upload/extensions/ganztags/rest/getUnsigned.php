@@ -17,16 +17,17 @@ class getUnsigned extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ((int)$acl['rights']['read'] !== 1 && (int)DB::getSession()->isMember($this->extension['adminGroupName']) !== 1 ) {
+        if ( !$this->canRead() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Schueler.class.php';
-
-        $data = extGanztagsModelSchueler::getUnsigned();
+        include_once PATH_EXTENSION . 'models' . DS . 'Schueler2.class.php';
+        $class = new extGanztagsModelSchueler2();
+        $data = $class->getUnsigned();
+        // $data = extGanztagsModelSchueler::getUnsigned();
 
         if (count($data) > 0) {
             return [ 'count' => count($data) ];

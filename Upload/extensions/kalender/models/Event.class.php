@@ -102,7 +102,7 @@ class extKalenderModelEvent
      * Collection
      */
 
-    public function getCollection($full = false) {
+    public function getCollection($full = false, $calender = false) {
 
         $collection = [
             "id" => $this->getID(),
@@ -133,6 +133,16 @@ class extKalenderModelEvent
             }
         }
 
+        if ($calender == true) {
+            if ($collection["calenderID"]) {
+                include_once PATH_EXTENSION . 'models' . DS . 'Kalender.class.php';
+                $calender = extKalenderModelKalender::getByID($collection["calenderID"]);
+                if ($calender) {
+                    $collection["calender"] = $calender->getCollection();
+                }
+            }
+        }
+
         return $collection;
     }
 
@@ -145,15 +155,20 @@ class extKalenderModelEvent
 
         $where = [];
         foreach($kalenderIDs as $k_id) {
-            $where[] = ' kalender_id = '.(int)$k_id;
+            $where[] = ' kalender_id = '.(int)$k_id['id'];
         }
         $where = implode(' OR ',$where);
 
         $ret =  [];
         $dataSQL = DB::getDB()->query("SELECT  a.*
             FROM ext_kalender_events as a
-            WHERE (".$where.") AND dateStart = '".$date."'
+            WHERE (
+                ( DATE '".$date."' = dateStart AND dateEnd IS NULL )
+                OR
+                (  dateStart <= DATE '".$date."' AND DATE '".$date."' <= dateEnd ) 
+            ) AND (".$where.") AND ( status IS NULL OR status = 0)
             ORDER BY a.dateStart ");
+
         while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
             $ret[] = new self($data);
         }
@@ -180,13 +195,40 @@ class extKalenderModelEvent
         $ret =  [];
         $dataSQL = DB::getDB()->query("SELECT  a.*
             FROM ext_kalender_events as a
-            WHERE ".$where."
+            WHERE (".$where.") AND ( status IS NULL OR status = 0)
             ORDER BY a.dateStart ");
         while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
             $ret[] = new self($data);
         }
         return $ret;
     }
+
+
+    /**
+     * @return Array[]
+     */
+    public static function getAllByStatus($status = false) {
+
+        if (!$status || !is_array($status)) {
+            return false;
+        }
+        $where = [];
+        foreach ($status as $s) {
+            $where[] =  'status = '.(int)$s;
+        }
+        $where = join(' OR ', $where);
+
+        $ret =  [];
+        $dataSQL = DB::getDB()->query("SELECT  a.*
+            FROM ext_kalender_events as a
+            WHERE ".$where);
+        while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
+            $ret[] = new self($data);
+        }
+        return $ret;
+    }
+
+
 
 
     public static function submitData($array = false, $user_id = false) {
@@ -231,7 +273,8 @@ class extKalenderModelEvent
                         place = '" . DB::getDB()->escapeString($array['place']) . "',
                         comment = '" . DB::getDB()->escapeString($array['comment']) . "',
                         repeat_type = '" . DB::getDB()->escapeString($array['repeat_type']) . "',
-                        modifiedTime = '" . date('Y-m-d H-i:s', time()) . "'
+                        modifiedTime = '" . date('Y-m-d H-i:s', time()) . "',
+                        status = ".(int)DB::getDB()->escapeString($array['status'])."
                         WHERE id = " . (int)$array['id'])) {
                 return false;
             }
@@ -254,7 +297,8 @@ class extKalenderModelEvent
                 comment,
                 repeat_type,
                 user_id,
-                createdTime
+                createdTime,
+                status
             ) values (
             " .  (int)DB::getDB()->escapeString($array['kalender_id']) . ",
             '" .  DB::getDB()->escapeString($array['title']) . "',
@@ -266,7 +310,8 @@ class extKalenderModelEvent
             '" . DB::getDB()->escapeString($array['comment']) . "',
             '" . DB::getDB()->escapeString($array['repeat_type']) . "',
             " . $user_id . ",
-            '" . date('Y-m-d H-i:s', time()) . "'
+            '" . date('Y-m-d H-i:s', time()) . "',
+            " . DB::getDB()->escapeString($array['status']) . "
             ) ") ) {
                 return false;
             }
@@ -300,13 +345,20 @@ class extKalenderModelEvent
     }
 
     public static function countAll(  ) {
-        if ($data = DB::getDB()->query_first("SELECT COUNT(id) AS count FROM ext_kalender_events; ")) {
+        if ($data = DB::getDB()->query_first("SELECT COUNT(id) AS count FROM ext_kalender_events WHERE ( status IS NULL OR status = 0); ")) {
             return $data['count'];
         }
         return true;
     }
 
-
+    public static function updateStatus($id, $state)
+    {
+        if ( DB::run( 'UPDATE ext_kalender_events SET status = :status WHERE id = :id ',
+            ["id" => (int)$id, "status" => (int)$state] ) ) {
+            return true;
+        }
+        return false;
+    }
 
 
 }

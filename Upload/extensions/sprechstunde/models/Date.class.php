@@ -65,6 +65,9 @@ class extSprechstundeModelDate
     public function getStatus() {
         return $this->data['status'];
     }
+    public function getBlock() {
+        return $this->data['block'];
+    }
 
     public function getUser () {
         if (!$this->user && $this->data['user_id']) {
@@ -82,7 +85,8 @@ class extSprechstundeModelDate
             "info" => $this->getInfo(),
             "medium" => $this->getMedium(),
             "user" => false,
-            "status" => $this->getStatus()
+            "status" => $this->getStatus(),
+            "block" => $this->getBlock()
         ];
         if ($this->getUser()) {
             $collection['user'] = $this->getUser()->getCollection();
@@ -157,16 +161,27 @@ class extSprechstundeModelDate
             return false;
         }
 
-        $today = date('Y-m-d',time());
-        $count =  0;
+        include_once PATH_EXTENSIONS . 'sprechstunde'.DS.'models' . DS . 'Slot.class.php';
 
+        $today = date('Y-m-d',time());
+        $arr = [];
 
         // Selbst gebuchte Dates
-        $where = 'WHERE block = 0 AND status = 0 AND user_id = '.(int)$user_id.' AND date >=  DATE "'.$today.'"';
+        $where = 'WHERE block = 0 AND status = 0 AND user_id = '.(int)$user_id.' AND date >= DATE "'.$today.'" ORDER BY date  ';
         $dataSQL = DB::getDB()->query("SELECT id FROM ext_sprechstunde_dates ".$where);
         while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
             if ($data['id']) {
-                $count++;
+                echo $data['id'];
+
+                $obj = new self($data);
+                $ret = $obj->getCollection();
+                if ($data['slot_id']) {
+                    $slot = extSprechstundeModelSlot::getByID($data['slot_id']);
+                    if ($slot) {
+                        $ret['slot'] = $slot->getCollection();
+                    }
+                }
+                $arr[] = $ret;
             }
         }
 
@@ -175,16 +190,24 @@ class extSprechstundeModelDate
         $where = 'WHERE user_id = '.(int)$user_id;
         $dataSQL = DB::getDB()->query("SELECT id FROM ext_sprechstunde_slots ".$where);
         while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
-            $where2 = 'WHERE block = 0 AND status = 0 AND id = '.(int)$data['id'].' AND date >=  DATE "'.$today.'"';
-            $dataSQL2 = DB::getDB()->query("SELECT id FROM ext_sprechstunde_dates ".$where2);
+            $where2 = 'WHERE status = 0 AND slot_id = '.(int)$data['id'].' AND date >= DATE "'.$today.'" ORDER BY date ';
+            $dataSQL2 = DB::getDB()->query("SELECT * FROM ext_sprechstunde_dates ".$where2);
             while ($data2 = DB::getDB()->fetch_array($dataSQL2, true)) {
-                $count++;
+                if ($data2['id']) {
+                    $obj = new self($data2);
+                    $ret = $obj->getCollection();
+                    if ($data2['slot_id']) {
+                        $slot = extSprechstundeModelSlot::getByID($data2['slot_id']);
+                        if ($slot) {
+                            $ret['slot'] = $slot->getCollection();
+                        }
+                    }
+                    $arr[] = $ret;
+                }
             }
         }
 
-
-
-        return $count;
+        return $arr;
 
 
     }

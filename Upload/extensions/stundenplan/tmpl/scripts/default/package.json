@@ -13,6 +13,7 @@
     "@vuepic/vue-datepicker": "^3.6.8",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "jspdf": "^2.5.1",
     "vue": "^3.2.13",
     "vue-axios": "^3.4.1"
   },

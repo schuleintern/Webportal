@@ -4,19 +4,64 @@
     <AjaxError v-bind:error="error"></AjaxError>
     <AjaxSpinner v-bind:loading="loading"></AjaxSpinner>
 
+    <div class="si-details">
+      <h3 class="margin-l-l" v-if="today">Deine Übersicht vom {{ today }}</h3>
+      <ul>
+        <li v-bind:key="index" v-for="(item, index) in  list" class="">
 
-    <div v-bind:key="index" v-for="(item, index) in  list" class="">
-        {{ item.title }} - {{ item.room }} - {{ item.info }}
 
-        <div v-bind:key="key" v-for="(schueler, key) in  item.schueler" class="">
-        {{ schueler.vorname }}
+          <div class="text-big-m flex-row">
+            <div v-if="item.color" class="margin-r-l"
+                 :style="'width: 3rem; height: 3rem; border-radius: 3rem; background-color:'+item.color"></div>
+            {{ item.title }}
+          </div>
+
+          <div class="margin-l-l margin-t-m padding-l-l">
+            <div v-if="item.room">
+              <label class="width-10rem">Raum:</label>
+              {{ item.room }}
+            </div>
+            <div v-if="item.info">
+              <label class="width-10rem">Info:</label>
+              {{ item.info }}
+            </div>
+            <div v-if="item.leader && item.leader.userName">
+              <label class="width-10rem">Leitung:</label>
+              {{ item.leader.userName }}
+            </div>
+            <div v-if="item.schueler" class="width-55vw">
+              <label class="width-10rem">Schüler*innen:</label>
+              <table class="si-table si-table-style-allLeft si-table-small">
+                <thead>
+                <tr>
+                  <td></td>
+                  <td>Vorname</td>
+                  <td>Nachname</td>
+                  <td>Klasse</td>
+                  <td>Info</td>
+                  <td>Absenz</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-bind:key="key" v-for="(schueler, key) in  item.schueler" >
+                  <td class="text-grey">{{key+1}}</td>
+                  <td :class="{'text-line': schueler.absenz}">{{ schueler.vorname }}</td>
+                  <td :class="{'text-line': schueler.absenz}">{{ schueler.nachname }}</td>
+                  <td :class="{'text-line': schueler.absenz}">{{ schueler.klasse }}</td>
+                  <td :class="{'text-line': schueler.absenz}">{{ schueler.info }}</td>
+                  <td><span v-if="schueler.absenz" v-html="schueler.absenz"></span></td>
+                </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
+
+
+        </li>
+      </ul>
     </div>
-
-    </div>
-
-
-    <ListComponent v-if="page === 'list'" :acl="acl" :list="list" ></ListComponent>
-    <ItemComponent v-if="page === 'item'" :acl="acl" :item="item" ></ItemComponent>
 
 
   </div>
@@ -27,8 +72,6 @@
 import AjaxError from './mixins/AjaxError.vue'
 import AjaxSpinner from './mixins/AjaxSpinner.vue'
 
-import ListComponent from './components/ListComponent.vue'
-import ItemComponent from './components/ItemComponent.vue'
 
 const axios = require('axios').default;
 
@@ -37,8 +80,7 @@ export default {
 
   name: 'App',
   components: {
-    AjaxError, AjaxSpinner,
-    ListComponent, ItemComponent
+    AjaxError, AjaxSpinner
   },
   data() {
     return {
@@ -52,6 +94,14 @@ export default {
       item: []
 
     };
+  },
+  computed: {
+    today: function () {
+      if (this.list && this.list[0] && this.list[0].date) {
+        return this.list[0].date;
+      }
+      return false;
+    }
   },
   created() {
     this.loadList();
@@ -91,30 +141,30 @@ export default {
       this.loading = true;
       var that = this;
       axios.post(this.apiURL + '/setAdminKalender', formData)
-      .then(function (response) {
-        if (response.data) {
+          .then(function (response) {
+            if (response.data) {
 
-          if (response.data.error) {
-            that.error = '' + response.data.msg;
-          } else {
+              if (response.data.error) {
+                that.error = '' + response.data.msg;
+              } else {
 
-            that.loadList();
-            if (data.callback) {
-              data.callback(response.data);
+                that.loadList();
+                if (data.callback) {
+                  data.callback(response.data);
+                }
+
+              }
+            } else {
+              that.error = 'Fehler beim Speichern. 01';
             }
-
-          }
-        } else {
-          that.error = 'Fehler beim Speichern. 01';
-        }
-      })
-      .catch(function () {
-        that.error = 'Fehler beim Speichern. 02';
-      })
-      .finally(function () {
-        // always executed
-        that.loading = false;
-      });
+          })
+          .catch(function () {
+            that.error = 'Fehler beim Speichern. 02';
+          })
+          .finally(function () {
+            // always executed
+            that.loading = false;
+          });
 
 
     });
@@ -133,27 +183,27 @@ export default {
       this.loading = true;
       var that = this;
       axios.post(this.apiURL + '/deleteAdminKalender', formData)
-      .then(function (response) {
-        if (response.data) {
+          .then(function (response) {
+            if (response.data) {
 
-          if (response.data.error) {
-            that.error = '' + response.data.msg;
-          } else {
-            that.loadList();
-            that.handlerPage();
-          }
-        } else {
-          that.error = 'Fehler beim Speichern. 01';
-        }
-      })
-      .catch(function (e) {
-        console.log(e);
-        that.error = 'Fehler beim Speichern. 02';
-      })
-      .finally(function () {
-        // always executed
-        that.loading = false;
-      });
+              if (response.data.error) {
+                that.error = '' + response.data.msg;
+              } else {
+                that.loadList();
+                that.handlerPage();
+              }
+            } else {
+              that.error = 'Fehler beim Speichern. 01';
+            }
+          })
+          .catch(function (e) {
+            console.log(e);
+            that.error = 'Fehler beim Speichern. 02';
+          })
+          .finally(function () {
+            // always executed
+            that.loading = false;
+          });
 
     });
 
@@ -166,24 +216,24 @@ export default {
       this.loading = true;
       var that = this;
       axios.get(this.apiURL + '/getMy')
-      .then(function (response) {
-        if (response.data) {
-          if (response.data.error) {
-            that.error = '' + response.data.msg;
-          } else {
-            that.list = response.data;
-          }
-        } else {
-          that.error = 'Fehler beim Laden. 01';
-        }
-      })
-      .catch(function () {
-        that.error = 'Fehler beim Laden. 02';
-      })
-      .finally(function () {
-        // always executed
-        that.loading = false;
-      });
+          .then(function (response) {
+            if (response.data) {
+              if (response.data.error) {
+                that.error = '' + response.data.msg;
+              } else {
+                that.list = response.data;
+              }
+            } else {
+              that.error = 'Fehler beim Laden. 01';
+            }
+          })
+          .catch(function () {
+            that.error = 'Fehler beim Laden. 02';
+          })
+          .finally(function () {
+            // always executed
+            that.loading = false;
+          });
 
     },
 

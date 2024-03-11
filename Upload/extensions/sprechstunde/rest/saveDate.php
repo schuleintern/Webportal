@@ -53,7 +53,7 @@ class saveDate extends AbstractRest {
             $info = '';
         }
         $block = 0;
-        if ($userID == $slot->getUserID()) {
+        if ($userID == $slot->getUserID() || (int)$input['block'] == 1 ) {
             $block = 1;
         }
         if (!DB::getDB()->query("INSERT INTO ext_sprechstunde_dates

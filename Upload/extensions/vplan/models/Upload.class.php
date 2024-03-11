@@ -27,17 +27,17 @@ class extVplanModelUpload
             
 
             $settings = [];
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-stunde') -1] = 'stunde';
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-klasse') -1] = 'klasse';
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-user_alt') -1] = 'user_alt';
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-user_neu') -1] = 'user_neu';
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-fach_alt') -1] = 'fach_alt';
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-fach_neu') -1] = 'fach_neu';
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-raum_alt') -1] = 'raum_alt';
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-raum_neu') -1] = 'raum_neu';
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-info_1') -1] = 'info1';
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-info_2') -1] = 'info2';
-            $settings[DB::getSettings()->getValue('extVplan-import-untis-col-info_3') -1] = 'info3';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-stunde') -1] = 'stunde';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-klasse') -1] = 'klasse';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-user_alt') -1] = 'user_alt';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-user_neu') -1] = 'user_neu';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-fach_alt') -1] = 'fach_alt';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-fach_neu') -1] = 'fach_neu';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-raum_alt') -1] = 'raum_alt';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-raum_neu') -1] = 'raum_neu';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-info_1') -1] = 'info1';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-info_2') -1] = 'info2';
+            $settings[(int)DB::getSettings()->getValue('extVplan-import-untis-col-info_3') -1] = 'info3';
             
             if ( count($settings) < 1) {
                 return false;

@@ -1,9 +1,9 @@
 {
   "name": "Ganztags",
   "uniqid": "ext.zwiebelgasse.ganztags",
-  "version": "4",
+  "version": "9",
 
-  "requiredVersion": "1.5.4",
+  "requiredVersion": "1.7.0",
 
   "menu": {
     "categorie": "1",
@@ -16,7 +16,7 @@
 
   "submenu": [
     {
-      "title": "Meine Gruppe",
+      "title": "Heute",
       "icon": "fas fa-users",
       "url": {
         "page": "ext_ganztags",
@@ -76,13 +76,15 @@
         }
       }
     },
+
     {
-      "title": "Team",
-      "icon": "fas fa-user",
+      "title": "Aktivitäten",
+      "icon": "fas fa-campground",
       "url": {
         "page": "ext_ganztags",
         "params": {
-          "view": "leader"
+          "view": "activity",
+          "admin": "true"
         }
       },
       "hidden": false,
@@ -94,24 +96,27 @@
       "url": {
         "page": "ext_ganztags",
         "params": {
-          "view": "groups"
+          "view": "groups",
+          "admin": "true"
         }
       },
       "hidden": false,
       "admin": true
     },
     {
-      "title": "Aktivitäten",
-      "icon": "fas fa-campground",
+      "title": "Team",
+      "icon": "fas fa-user",
       "url": {
         "page": "ext_ganztags",
         "params": {
-          "view": "activity"
+          "view": "leaders",
+          "admin": "true"
         }
       },
       "hidden": false,
       "admin": true
     }
+
   ]
 
 }

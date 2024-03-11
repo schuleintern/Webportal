@@ -57,7 +57,7 @@
                     </div>
                   </div>
                   <div class="flex-row flex-space-between padding-t-s">
-                    <div v-if="content.leader"><i class="fas fa-user"></i> {{ content.leader.name }}</div>
+                    <div v-if="content.leader"><i class="fas fa-user"></i> {{ content.leader.userName }}</div>
                     <div v-if="content.room"><i class="fas fa-map-marker-alt"></i> {{ content.room }}</div>
                   </div>
                   <div v-if="content.info"><i class="fas fa-info-circle"></i> {{ content.info }}</div>
@@ -70,8 +70,8 @@
                     <div class="flex-3">
                       <div v-if="content.room"><i class="fas fa-map-marker-alt"></i> {{ content.room }}</div>
                       <div v-if="content.info"><i class="fas fa-info-circle"></i> {{ content.info }}</div>
-                      <div v-if="content.leader" :class="{'text-green': myUserID == content.leader.id}"><i
-                          class="fas fa-user"></i> {{ content.leader.name }}
+                      <div v-if="content.leader_id" :class="{'text-green': myUserID == content.leader_id}"><i
+                          class="fas fa-user"></i> {{ content.leader.userName }}
                       </div>
                     </div>
 
@@ -99,7 +99,8 @@
                     <div v-if="content.info"><i class="fas fa-info-circle"></i> {{ content.info }}</div>
                     <div v-if="content.room"><i class="fas fa-map-marker-alt"></i> {{ content.room }}</div>
                   </div>
-                  <div v-if="content.leader_id != 0"><i class="fas fa-user"></i> {{ content.leader_id }}</div>
+
+                  <div v-if="content.leader_id != 0"><i class="fas fa-user"></i> {{ content.leader.userName }}</div>
                 </div>
 
 

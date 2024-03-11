@@ -20,21 +20,22 @@ class extGanztagsAdminDefault extends AbstractPage {
 
         $user = DB::getSession()->getUser();
 
-        if ( !$user->isAnyAdmin() ) {
+        if ( !$this->canAdmin() ) {
             new errorPage('Kein Zugriff');
         }
 
-		$this->render([
-			"tmplHTML" => '<div class="box"><div class="box-body"><div id=app></div></div></div>',
-			"scripts" => [
-				PATH_COMPONENTS.'system/adminSettings/dist/main.js'
-			],
-			"data" => [
-				"selfURL" => URL_SELF,
-				"settings" => $this->getSettings()
-			]
+        $this->render([
+            "tmplHTML" => '<div class="box"><div class="box-body"><div id=app></div></div></div>',
+            "scripts" => [
+                PATH_COMPONENTS.'system/adminSettings2/dist/js/chunk-vendors.js',
+                PATH_COMPONENTS.'system/adminSettings2/dist/js/app.js'
+            ],
+            "data" => [
+                "selfURL" => URL_SELF,
+                "settings" => $this->getSettings()
+            ]
 
-		]);
+        ]);
 
 	}
 
@@ -89,21 +90,22 @@ class extGanztagsAdminDefault extends AbstractPage {
 
 	}
 
-	public function taskSave($postData) {
+    public function taskSave($postData) {
 
-		$request = $this->getRequest();
-		if ($request['page'] && $postData['settings']) {
-			foreach($postData['settings'] as $item) {
-				DB::getDB()->query("INSERT INTO settings (settingName, settingValue, settingsExtension)
+        $request = $this->getRequest();
+        if ($request['page'] && $postData['settings']) {
+            foreach($postData['settings'] as $item) {
+
+                DB::getDB()->query("INSERT INTO settings (settingName, settingValue, settingsExtension)
 				values ('" .DB::getDB()->escapeString($item['name']) . "',
 				'" . DB::getDB()->escapeString(($item['value'])) . "'
 				,'" . DB::getDB()->escapeString(($request['page'])) . "')
 				ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($item['value']) . "'");
-			}
-			echo json_encode(['done' => 'true']);
-		} else {
-			echo json_encode(['error' => 'Fehler beim Speichern!']);
-		}
-	}
+            }
+            echo json_encode(['done' => 'true']);
+        } else {
+            echo json_encode(['error' => 'Fehler beim Speichern!']);
+        }
+    }
 
 }

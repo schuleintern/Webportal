@@ -23,7 +23,7 @@
             class="">
           <td>{{ item.createdTime }}</td>
           <td>{{ item.datumStart }}<span v-if="item.datumEnde && item.datumEnde != item.datumStart"> - {{ item.datumEnde }}</span></td>
-          <td><span v-if="user">{{item.user.name}} <span class="text-small" v-if="item.user.klasse">( {{item.user.klasse}} )</span></span></td>
+          <td><span v-if="item.user">{{item.user.name}} <span class="text-small" v-if="item.user.klasse">( {{item.user.klasse}} )</span></span></td>
           <td>{{ item.stunden }}</td>
           <td>{{ item.info }}</td>
           <td v-if="item.status == 1">
@@ -278,6 +278,7 @@ console.log(response.data);
 </script>
 
 <style>
+
 .dp__theme_light {
   --dp-background-color: #ffffff;
   --dp-text-color: #212121;

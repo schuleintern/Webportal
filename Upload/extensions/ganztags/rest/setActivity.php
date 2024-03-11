@@ -17,51 +17,59 @@ class setActivity extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ((int)$acl['rights']['write'] !== 1 && (int)DB::getSession()->isMember($this->extension['adminGroupName']) !== 1 ) {
+        if (!$this->canWrite() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
             ];
         }
 
-        $items = $_POST['items'];
-        if (!$items) {
+
+        $title = $input['title'];
+        if (!$title) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data'
             ];
         }
-        $items = json_decode($_POST['items']);
-        if (count($items) < 1 ) {
+        $room = $input['room'];
+        if (!$room || $room == 'undefined') {
+            $room = '';
+        }
+        $info = $input['info'];
+        if (!$info || $info == 'undefined') {
+            $info = '';
+        }
+        $color = $input['color'];
+        if (!$color || $color == 'undefined') {
+            $color = '';
+        }
+
+
+        include_once PATH_EXTENSION . 'models' . DS . 'Activity2.class.php';
+        $class = new extGanztagsModelActivity2();
+
+        if ( $class->save([
+            'id' => (int)$input['id'],
+            'title' => $title,
+            'leader_id' => (int)$input['leader_id'],
+            'type' => 'activity',
+            'room' => $room,
+            'color' => $color,
+            'info' => $info,
+            'days' => $_POST['days'],
+            'duration' => (int)$input['duration']
+        ]) ) {
             return [
-                'error' => true,
-                'msg' => 'Missing Data (2)'
+                'success' => true
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Activity.class.php';
+        return [
+            'error' => true,
+            'msg' => 'Fehler beim Speichern!'
+        ];
 
-
-        if ( !extGanztagsModelActivity::setAll($items) ) {
-            return [
-                'error' => true,
-                'msg' => 'Fehler beim Speichern!'
-            ];
-        }
-
-        $data = extGanztagsModelActivity::getAll();
-
-        $ret = [];
-        if (count($data) > 0) {
-            foreach ($data as $item) {
-
-                $ret[] = $item->getCollection();
-            }
-        }
-
-
-
-        return $ret;
 
 	}
 

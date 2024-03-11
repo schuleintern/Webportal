@@ -17,7 +17,7 @@ class getActivity extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ((int)$acl['rights']['read'] !== 1 && (int)DB::getSession()->isMember($this->extension['adminGroupName']) !== 1 ) {
+        if (!$this->canRead() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,15 +25,16 @@ class getActivity extends AbstractRest {
         }
 
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Activity.class.php';
 
-        $data = extGanztagsModelActivity::getAll();
+        include_once PATH_EXTENSION . 'models' . DS . 'Activity2.class.php';
+        $class = new extGanztagsModelActivity2();
+        $data = $class->getByParentID('activity');
 
         $ret = [];
-        if (count($data) > 0) {
+        if ($data && count($data) > 0) {
             foreach ($data as $item) {
 
-                $ret[] = $item->getCollection();
+                $ret[] = $item->getCollection(true);
             }
         }
 

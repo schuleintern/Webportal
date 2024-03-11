@@ -1,7 +1,5 @@
 <?php
 
-
-
 class extKalenderKlassenkalender extends AbstractPage {
 	
 	public static function getSiteDisplayName() {

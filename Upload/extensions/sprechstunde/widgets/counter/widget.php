@@ -8,7 +8,11 @@ class extSprechstundeWidgetCounter extends Widget
 
     private function getCount() {
         include_once( $this->getData()['path'].DS.'models'.DS.'Date.class.php' );
-        return extSprechstundeModelDate::getMyInFuture( DB::getSession()->getUser()->getUserID() );
+        $data = extSprechstundeModelDate::getMyInFuture( DB::getSession()->getUser()->getUserID() );
+        if ($data) {
+            return count($data);
+        }
+        return false;
     }
 
     public function render() {

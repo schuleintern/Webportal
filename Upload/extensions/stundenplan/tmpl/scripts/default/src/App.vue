@@ -6,7 +6,6 @@
 
 
     <ListComponent v-if="page === 'list'" :acl="acl" :list="list" :defaults="defaults"></ListComponent>
-    <ItemComponent v-if="page === 'item'" :acl="acl" :item="item" ></ItemComponent>
 
   </div>
 </template>
@@ -17,7 +16,6 @@ import AjaxError from './mixins/AjaxError.vue'
 import AjaxSpinner from './mixins/AjaxSpinner.vue'
 
 import ListComponent from './components/ListComponent.vue'
-import ItemComponent from './components/ItemComponent.vue'
 
 const axios = require('axios').default;
 
@@ -27,7 +25,7 @@ export default {
   name: 'App',
   components: {
     AjaxError, AjaxSpinner,
-    ListComponent, ItemComponent
+    ListComponent
   },
   data() {
     return {

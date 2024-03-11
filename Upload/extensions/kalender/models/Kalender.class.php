@@ -77,7 +77,7 @@ class extKalenderModelKalender
      * Collection
      */
 
-    public function getCollection($full = false) {
+    public function getCollection($full = false, $userID = false) {
 
         $collection = [
             "id" => $this->getID(),
@@ -93,7 +93,16 @@ class extKalenderModelKalender
         if ($full == true) {
 
             if ($collection['aclID']) {
-                $collection['acl'] = ACL::getAcl( DB::getSession()->getUser(), false, (int)$collection['aclID'] );
+                if ($userID) {
+                    $user = user::getUserByID($userID);
+                } else if (DB::getSession()) {
+                    $user = DB::getSession()->getUser();
+                }
+                if ($user) {
+                    $collection['acl'] = ACL::getAcl( $user, false, (int)$collection['aclID'] );
+                } else {
+                    $collection['acl'] = ACL::getBlank();
+                }
             } else {
                 $collection['acl'] = ACL::getBlank();
             }
@@ -108,13 +117,13 @@ class extKalenderModelKalender
     /**
      * @return Array[]
      */
-    public static function getAllAllowed($state = false, $public = false) {
+    public static function getAllAllowed($state = false, $public = false, $userID = false) {
 
         $kalenderDB = self::getAll($state);
         $kalenders = [];
         if (count($kalenderDB) > 0) {
             foreach ($kalenderDB as $item) {
-                $arr = $item->getCollection(true);
+                $arr = $item->getCollection(true, $userID);
                 if ( (int)$arr['acl']['rights']['read'] === 1) {
                     if ($public) {
                         if ($arr['public'] == 1) {
@@ -124,6 +133,8 @@ class extKalenderModelKalender
                         $kalenders[] = $arr;
                     }
                     
+                } else if ($arr['public'] == 1) {
+                    $kalenders[] = $arr;
                 }
             }
         }
@@ -164,6 +175,22 @@ class extKalenderModelKalender
             $ret[] = new self($item);
         }
         return $ret;
+    }
+
+
+    public static function getByID($id = false) {
+
+        if (!$id) {
+            return false;
+        }
+
+        $dataSQL = DB::getDB()->query("SELECT  a.*
+            FROM ext_kalender as a
+            WHERE id = ".(int)$id);
+        while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
+            return new self($data);
+        }
+        return false;
     }
 
 

@@ -98,7 +98,7 @@
               </li>
 
             </ul>
-
+            <input type="hidden" v-model="form.status"/>
             <input type="hidden" v-model="form.id"/>
             <input type="hidden" v-model="form.startDay"/>
           </div>
@@ -106,7 +106,7 @@
 
         </div>
         <br>
-        <button v-on:click="handlerClickAddEintrag" class="si-btn width-100p"><i class="fa fa-save"></i>Speichern</button>
+        <button v-on:click="handlerClickAddEintrag" class="si-btn width-100p"><i class="fa fa-save"></i> <span v-if="form.status">Vorschlag </span>Speichern</button>
       </div>
 
     </div>
@@ -251,6 +251,7 @@ export default {
         startDay: this.form.startDay,
         endDay: this.form.endDay,
         repeat_type: this.form.repeat_type,
+        status: this.form.status
       };
 
 

@@ -1,7 +1,5 @@
 <?php
 
-
-
 class extKalenderDefault extends AbstractPage {
 	
 	public static function getSiteDisplayName() {
@@ -27,19 +25,9 @@ class extKalenderDefault extends AbstractPage {
             new errorPage('Kein Zugriff');
         }
 
-        /*
+        $suggest = DB::getSettings()->getValue('extKalender-suggest');
+        $ics = DB::getSettings()->getValue('extKalender-ics');
 
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['json']['adminGroupName']) === false ) {
-            if ((int)$acl['rights']['read'] !== 1  ) {
-                new errorPage('Kein Zugriff');
-            }
-        }
-*/
-
-
-        //print_r( $acl );
-
-        //$user = DB::getSession()->getUser();
 
         $this->render([
             "tmpl" => "default",
@@ -49,14 +37,11 @@ class extKalenderDefault extends AbstractPage {
             ],
             "data" => [
                 "apiURL" => "rest.php/kalender",
-                "acl" => $acl['rights']
+                "acl" => $acl['rights'],
+                "suggest" => $suggest,
+                "ics" => $ics
             ],
             "dropdown" => [
-                [
-                    "url" => "index.php?page=ext_kalender&view=default&task=icsFeed",
-                    "title" => "ICS Feed",
-                    "icon" => "fa fa-rss"
-                ],
                 [
                     "url" => "index.php?page=ext_kalender&view=default&task=printAll",
                     "title" => "Drucken",
@@ -65,74 +50,6 @@ class extKalenderDefault extends AbstractPage {
                 ]
             ]
         ]);
-
-
-    }
-
-    public function taskIcsFeed() {
-
-
-        $userID = DB::getSession()->getUserID();
-        if (!$userID) {
-            return false;
-        }
-
-        $calendar = new Eluceo\iCal\Component\Calendar('schule-intern');
-        $calendar->setPublishedTTL('PT15M');
-
-        $tz  = 'Europe/Amsterdam';
-        $dtz = new \DateTimeZone($tz);
-        date_default_timezone_set($tz);
-
-        include_once PATH_EXTENSION . 'models' . DS . 'Event.class.php';
-        include_once PATH_EXTENSION . 'models' . DS . 'Kalender.class.php';
-
-        $kalenders = extKalenderModelKalender::getAllAllowed(1, true);
-
-        if ($kalenders) {
-
-            foreach ($kalenders as $kalender) {
-
-                $result = extKalenderModelEvent::getAllByKalenderID([$kalender['id']]);
-                foreach($result as $row ) {
-                    $event = (new Eluceo\iCal\Component\Event())
-                        ->setUseTimezone(true)
-                        ->setUseUtc(true)
-                        ->setSummary(DB::getDB()->decodeString($row->getTitle()))
-                        ->setCategories([$kalender['title']])
-                        ->setLocation( DB::getDB()->decodeString($row->getPlace()) )
-                        ->setDescription( DB::getDB()->decodeString($row->getComment()) );
-
-                    if ( intval( $row->getTimeStart() ) <= 0) {
-                        $event->setNoTime(true);
-                        $event->setDtStart(new \DateTime($row->getDateStart(), $dtz));
-                    } else {
-                        $event->setDtStart(new \DateTime($row->getDateStart().' '.$row->getTimeStart(), $dtz));
-                    }
-
-                    if ( intval( $row->getDateEnd() ) <= 0) {
-                        $event->setNoTime(true);
-                        $event->setDtEnd(new \DateTime($row->getDateStart(), $dtz));
-                    } else {
-                        if ( intval( $row->getTimeEnd() ) <= 0) {
-                            $event->setDtEnd(new \DateTime($row->getDateEnd().' 00:00:01', $dtz));
-                        } else {
-                            $event->setDtEnd(new \DateTime($row->getDateEnd().' '.$row->getTimeEnd(), $dtz));
-                        }
-                    }
-
-                    $calendar->addComponent($event);
-                }
-
-            }
-        }
-
-        header('Access-Control-Allow-Origin: *');
-        header('Content-Type: text/calendar; charset=utf-8');
-        header('Content-Disposition: attachment; filename="feed.ics"');
-
-        echo $calendar->render();
-        exit;
 
 
     }

@@ -40,7 +40,7 @@ class extInboxModelMessageBody2 extends ExtensionModel
 
 
 
-    public function getCollection($full = false, $withText = falsee)
+    public function getCollection($full = false, $withText = false)
     {
 
         $collection = parent::getCollection();

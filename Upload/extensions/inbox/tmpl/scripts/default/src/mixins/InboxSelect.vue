@@ -98,20 +98,37 @@
                 </div>
                 <div v-if="openTab == 'teacher'" class="tab flex-row">
                   <div class="flex-1 padding-r-l">
-                    <h3 @click="handlerAccoTeacher('default')" class="curser">Alle Lehrer*innen der Klasse</h3>
-                    <div v-if="accoTeacher == 'default'">
+                    <h3 @click="handlerAccoTeacher('default')" class="curser">
+                      <i v-if="accoTeacher == 'default'" class="fa fa-chevron-down"></i>
+                      <i v-else class="fa fa-chevron-right"></i>
+                      Lehrer*innen</h3>
+                    <div v-if="accoTeacher == 'default'" class="padding-l-l">
+                      <button  class="si-btn margin-r-s" :class="{'si-btn-active': selectActive('teachers::all', 'all') }"
+                              @click="handlerSelect('teachers::all', 'all')">Alle Lehrer*innen</button>
+                    </div>
+                    <h3 @click="handlerAccoTeacher('klassen')" class="curser">
+                      <i v-if="accoTeacher == 'klassen'" class="fa fa-chevron-down"></i>
+                      <i v-else class="fa fa-chevron-right"></i>
+                      Lehrer*innen der Klasse</h3>
+                    <div v-if="accoTeacher == 'klassen'" class="padding-l-l">
                       <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
                         <BtnKlasse typ="teachers::klasse" :content="item" :selected="selected"></BtnKlasse>
                       </span>
                     </div>
-                    <h3 @click="handlerAccoTeacher('leader')" class="curser">Klassenleitung</h3>
-                    <div v-if="accoTeacher == 'leader'">
+                    <h3 @click="handlerAccoTeacher('leader')" class="curser">
+                      <i v-if="accoTeacher == 'leader'" class="fa fa-chevron-down"></i>
+                      <i v-else class="fa fa-chevron-right"></i>
+                      Klassenleitung</h3>
+                    <div v-if="accoTeacher == 'leader'" class="padding-l-l">
                       <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
                         <BtnKlasse typ="leaders::klasse" :content="item" :selected="selected"></BtnKlasse>
                       </span>
                     </div>
-                    <h3 @click="handlerAccoTeacher('fachschaft')" class="curser">Fachschaften</h3>
-                    <div v-if="accoTeacher == 'fachschaft'">
+                    <h3 @click="handlerAccoTeacher('fachschaft')" class="curser">
+                      <i v-if="accoTeacher == 'fachschaft'" class="fa fa-chevron-down"></i>
+                      <i v-else class="fa fa-chevron-right"></i>
+                      Fachschaften</h3>
+                    <div v-if="accoTeacher == 'fachschaft'" class="padding-l-l">
                       <button v-bind:key="index" v-for="(item, index) in  recipients.fachschaft" class="si-btn margin-r-s"
                               :class="{'si-btn-active': selectActive('fachschaft', item.id) }"
                               @click="handlerSelect('fachschaft', item.id)">{{ item.title }}
@@ -166,7 +183,7 @@
 
               <div class="selected flex-1 margin-l-l">
 
-                <div class="scrollable-y height-60vh padding-b-m margin-t-l">
+                <div class="scrollable-y height_80 padding-b-m margin-t-l">
                   <div v-bind:key="index" v-for="(item, index) in  selectedUserList"
                        class="margin-b-s line-oddEvenDark padding-s padding-l-m">
                     <div class="">
@@ -215,7 +232,7 @@ export default {
 
       selectedUserShow: false,
 
-      accoTeacher: false
+      accoTeacher: 'default'
     };
   },
   props: {
@@ -439,7 +456,7 @@ export default {
     },
     loadRecipients(typ, content) {
 
-      console.log('loadRecipients', typ, content);
+      //console.log('loadRecipients', typ, content);
 
       if (!typ || !content) {
         return false;
@@ -486,7 +503,7 @@ export default {
     },
     handlerSelect(typ, content) {
 
-      console.log('handlerSelect',typ, content);
+      //console.log('handlerSelect',typ, content);
 
       let found = false;
       this.selected.forEach((select, i) => {

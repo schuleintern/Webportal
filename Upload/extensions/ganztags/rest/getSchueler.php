@@ -24,19 +24,35 @@ class getSchueler extends AbstractRest {
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Schueler.class.php';
+        include_once PATH_EXTENSION . 'models' . DS . 'Schueler2.class.php';
+        $class = new extGanztagsModelSchueler2();
+        $data = $class->getAll();
 
-        $data = extGanztagsModelSchueler::getAll();
+        $tage_summe = 0;
+        $tage_diff = 0;
+        $schueler_summe = 0;
 
         $ret = [];
         if (count($data) > 0) {
             foreach ($data as $item) {
 
-                $ret[] = $item->getCollection();
+                $foo = $item->getCollection(true);
+                $tage_summe += $foo['anz'];
+                $tage_diff += $foo['diff'];
+                $schueler_summe++;
+                $ret[] = $foo;
             }
         }
 
-        return $ret;
+        return [
+            'list' => $ret,
+            'details' => [
+                'tage_summe' => $tage_summe,
+                'tage_zaehl' => $tage_summe/4,
+                'tage_diff' => $tage_diff,
+                'schueler_summe' => $schueler_summe
+            ]
+        ];
 
 	}
 

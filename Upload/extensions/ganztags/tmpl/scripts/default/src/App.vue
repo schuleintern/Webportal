@@ -4,7 +4,7 @@
     <Spinner v-bind:loading="loading"></Spinner>
 
     <List v-show="tabOpen == 'list' && acl.read == 1" v-bind:items="items" v-bind:unsigned="unsigned" v-bind:acl="acl"
-      v-bind:groups="groups"></List>
+      v-bind:groups="groups" :details="details"></List>
     <Item v-if="tabOpen == 'item' && acl.read == 1" v-bind:item="item" v-bind:acl="acl" v-bind:groups="groups"
       v-bind:showDays="showDays" v-bind:beurlaubung="beurlaubung" v-bind:absenz="absenz"></Item>
 
@@ -50,7 +50,8 @@ export default {
       beurlaubung: [],
       absenz: [],
 
-      tabOpen: 'list'
+      tabOpen: 'list',
+      details: {}
 
     };
   },
@@ -279,7 +280,8 @@ export default {
           if (response.data) {
             if (!response.data.error) {
 
-              that.items = response.data;
+              that.items = response.data.list;
+              that.details = response.data.details;
 
             } else {
               that.error = '' + response.data.msg;

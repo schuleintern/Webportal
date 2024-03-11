@@ -1,9 +1,9 @@
 {
   "name": "Sprechstunde",
   "uniqid": "ext.zwiebelgasse.sprechstunde",
-  "version": "9",
+  "version": "11",
 
-  "requiredVersion": "1.6.1",
+  "requiredVersion": "1.7.0",
 
   "menu": {
     "categorie": "1",
@@ -21,6 +21,15 @@
       "position": "header",
       "class": "extSprechstundeWidgetCounter",
       "params": {}
+    },
+    {
+      "title": "Dashboard",
+      "uniqid": "sprechstunde.dashboard",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 3
+      }
     }
   ],
 

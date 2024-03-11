@@ -66,7 +66,10 @@ class getDefault extends AbstractRest
         $teachers = [];
         $teacherData = lehrer::getAll();
         foreach($teacherData as $teacher) {
-            $teachers[] = $teacher->getUser()->getCollection(true);
+            $teacher_user = $teacher->getUser();
+            if ($teacher_user) {
+                $teachers[] = $teacher_user->getCollection(true);
+            }
         }
        
 

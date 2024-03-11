@@ -26,7 +26,6 @@ class getCalender extends AbstractRest
         }
 
 
-
         $userID = DB::getSession()->getUser()->getUserID();
         if (!$userID) {
             return [
@@ -35,15 +34,15 @@ class getCalender extends AbstractRest
             ];
         }
 
-        $acl = $this->getAcl();
-        if ((int)$acl['rights']['read'] !== 1 && (int)DB::getSession()->isMember($this->extension['adminGroupName']) !== 1) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Day.class.php';
+
+        include_once PATH_EXTENSION . 'models' . DS . 'Day2.class.php';
 
         $this->week = array(
             'mo' => DB::getSettings()->getValue("ext_ganztags-day-mo") ? true : false,
@@ -54,19 +53,23 @@ class getCalender extends AbstractRest
             'sa' => DB::getSettings()->getValue("ext_ganztags-day-sa") ? true : false,
             'so' => DB::getSettings()->getValue("ext_ganztags-day-so") ? true : false
         );
+
+
+
+        $Day = new extGanztagsModelDay2();
         $i = 0;
         foreach ($this->week as $day => $val) {
             if ($val) {
                 $time = $date_von + (86400 * $i);
-                $date = date('Y-m-d', $time );
-                $this->week[$day] = (object)['date' => $date, 'content' => []  ] ;
+                $date = date('Y-m-d', $time);
+                $this->week[$day] = (object)['date' => $date, 'content' => []];
 
                 //setlocale(LC_TIME, 'de_DE', 'deu_deu');
 
                 $day = date('D', $time);
-                $days_arr = ['Mon' => 'mo','Tue' => 'di','Wed' => 'mi','Thu' => 'do','Fri' => 'fr','Sat' => 'sa','Son' => 'so'];
+                $days_arr = ['Mon' => 'mo', 'Tue' => 'di', 'Wed' => 'mi', 'Thu' => 'do', 'Fri' => 'fr', 'Sat' => 'sa', 'Son' => 'so'];
                 $day = $days_arr[$day];
-                $days = extGanztagsModelDay::getByDate($date);
+                $days = $Day->getByDate($date);
                 if ($days && $day) {
                     foreach ($days as $d) {
                         $d->getSchueler($day);
@@ -79,44 +82,40 @@ class getCalender extends AbstractRest
         }
 
 
+        include_once PATH_EXTENSION . 'models' . DS . 'Activity2.class.php';
+        $Activity = new extGanztagsModelActivity2();
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Activity.class.php';
-        $activity = extGanztagsModelActivity::getAll();
-        foreach($activity as $group) {
+        $activity = $Activity->getByParentID('activity');
+        foreach ($activity as $group) {
             $group->getSchueler();
         }
         $this->addToContent($activity);
 
-
-        include_once PATH_EXTENSION . 'models' . DS . 'Groups.class.php';
-        $groups = extGanztagsModelGroups::getAll();
-        foreach($groups as $group) {
+        $groups = $Activity->getByParentID('group');
+        foreach ($groups as $group) {
             $group->getSchueler();
             $group->getWeekSchueler();
         }
         $this->addToContent($groups);
 
 
-
-
-
         return $this->week;
 
 
+    }
 
-	}
-
-    private function addToContent($items) {
+    private function addToContent($items)
+    {
 
         if ($items && $this->week) {
             foreach ($items as $item) {
-                $days = $item->getDays();
+                $days = json_decode($item->getData('days'));
 
+                foreach ($days as $day => $val) {
 
-                foreach($days as $day => $val) {
+                    if ($val && $this->week[$day] && is_array($this->week[$day]->content)) {
 
-                    if ( $val  && $this->week[$day]  && is_array($this->week[$day]->content) ) {
-                        if ( $this->findContent($this->week[$day]->content, $item->getID()) == false ) {
+                        if ($this->findContent($this->week[$day]->content, $item->getID()) == false) {
                             array_unshift($this->week[$day]->content, $item->getCollection(true));
                         }
                     }
@@ -125,12 +124,13 @@ class getCalender extends AbstractRest
         }
     }
 
-    private function findContent($arr, $val) {
+    private function findContent($arr, $val)
+    {
 
         $found = false;
-        if ($arr && count($arr) > 0 ) {
+        if ($arr && count($arr) > 0) {
             foreach ($arr as $content) {
-                if ($content['group_id'] && $content['group_id'] == $val ) {
+                if ($content['group_id'] && $content['group_id'] == $val) {
                     $found = true;
                 }
             }

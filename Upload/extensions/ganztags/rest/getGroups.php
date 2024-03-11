@@ -17,22 +17,22 @@ class getGroups extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ((int)$acl['rights']['read'] !== 1 && (int)DB::getSession()->isMember($this->extension['adminGroupName']) !== 1 ) {
+        if ( !$this->canRead() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Groups.class.php';
-
-        $data = extGanztagsModelGroups::getAll();
+        include_once PATH_EXTENSION . 'models' . DS . 'Activity2.class.php';
+        $class = new extGanztagsModelActivity2();
+        $data = $class->getByParentID('group');
 
         $ret = [];
-        if (count($data) > 0) {
+        if ($data && count($data) > 0) {
             foreach ($data as $item) {
 
-                $ret[] = $item->getCollection();
+                $ret[] = $item->getCollection(true);
             }
         }
 

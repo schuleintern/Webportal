@@ -74,11 +74,6 @@ class extFileshareAdminSettings extends AbstractPage {
         if ($request['page'] && $postData['settings']) {
             foreach($postData['settings'] as $item) {
 
-                echo "INSERT INTO settings (settingName, settingValue, settingsExtension)
-				values ('" .DB::getDB()->escapeString($item['name']) . "',
-				'" . DB::getDB()->escapeString(($item['value'])) . "'
-				,'" . DB::getDB()->escapeString(($request['page'])) . "')
-				ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($item['value']) . "'";
 
                 DB::getDB()->query("INSERT INTO settings (settingName, settingValue, settingsExtension)
 				values ('" .DB::getDB()->escapeString($item['name']) . "',

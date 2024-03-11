@@ -69,8 +69,9 @@ class extGanztagsDefault extends AbstractPage
             exit;
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Groups.class.php';
-        $groups = extGanztagsModelGroups::getAll();
+        include_once PATH_EXTENSION . 'models' . DS . 'Activity2.class.php';
+        $class = new extGanztagsModelActivity2();
+        $groups = $class->getAll();
 
         $user_data = array();
         foreach ($users_ids as $user_id) {
@@ -79,7 +80,7 @@ class extGanztagsDefault extends AbstractPage
 
                 $data = $user->getCollection();
 
-                include_once 'Schueler.class.php';
+                //include_once 'Schueler2.class.php';
 
                 $dataSQL = DB::getDB()->query_first("SELECT *  FROM ext_ganztags_schueler WHERE user_id =". (int)$user_id, true );
 
@@ -90,7 +91,7 @@ class extGanztagsDefault extends AbstractPage
                         if ($day && $day->group) {
                             foreach ($groups as $group) {
                                 if ($group->getID() == $day->group) {
-                                    $day->group = $group->getTitle();
+                                    $day->group = $group->getData('title');
                                 }
                             }
                         }

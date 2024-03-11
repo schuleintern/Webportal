@@ -24,6 +24,13 @@ class extFinanzenDefault extends AbstractPage
             new errorPage('Kein Zugriff');
         }
 
+
+        $bankEmpfaenger = DB::getSettings()->getValue('extFinanzen-bank-empfaenger');
+        $bankName = DB::getSettings()->getValue('extFinanzen-bank-name');
+        $bankIBAN = DB::getSettings()->getValue('extFinanzen-bank-iban');
+        $bankBIC = DB::getSettings()->getValue('extFinanzen-bank-bic');
+
+
         $this->render([
             "tmpl" => "default",
             "scripts" => [
@@ -32,7 +39,11 @@ class extFinanzenDefault extends AbstractPage
             ],
             "data" => [
                 "apiURL" => "rest.php/finanzen",
-                "acl" => $acl['rights']
+                "acl" => $acl['rights'],
+                "bankEmpfaenger" => $bankEmpfaenger,
+                "bankName" => $bankName,
+                "bankIBAN" => $bankIBAN,
+                "bankBIC" => $bankBIC
             ]
         ]);
     }

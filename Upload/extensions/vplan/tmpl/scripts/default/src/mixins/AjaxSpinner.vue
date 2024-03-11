@@ -12,7 +12,7 @@ export default {
     };
   },
   props: {
-    loading: String
+    loading: Boolean
   },
   created: function () {
 

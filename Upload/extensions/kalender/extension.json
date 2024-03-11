@@ -1,9 +1,9 @@
 {
   "name": "Kalender",
   "uniqid": "ext.zwiebelgasse.kalender",
-  "version": "10",
+  "version": "13",
 
-  "requiredVersion": "1.5.4",
+  "requiredVersion": "1.6.3",
 
   "menu": {
     "categorie": "1",
@@ -64,7 +64,18 @@
     },
 
 
-
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_kalender",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
     {
       "title": "Import",
       "icon": "fa fa-sync",
@@ -97,6 +108,18 @@
         "page": "ext_kalender",
         "params": {
           "view": "list",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Vorschläge",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_kalender",
+        "params": {
+          "view": "suggest",
           "admin": "true"
         }
       }

@@ -19,9 +19,7 @@ class getPage extends AbstractRest {
             if (file_exists($filepath)) {
                 
 
-                // AUtoloader
                 //include_once(PATH_LIB . "app/AbstractApp.class.php");
-
                 include_once($filepath);
 
                 //return [$ext, $page, $classname];

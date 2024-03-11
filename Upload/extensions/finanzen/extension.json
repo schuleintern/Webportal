@@ -1,9 +1,9 @@
 {
   "name": "Finanzen",
   "uniqid": "ext.zwiebelgasse.finanzen",
-  "version": "1",
+  "version": "2",
 
-  "requiredVersion": "1.5.4",
+  "requiredVersion": "1.7.0",
 
   "menu": {
     "categorie": "1",
@@ -17,7 +17,7 @@
 
   "submenu": [
     {
-      "title": "Finanzen",
+      "title": "Meine Finanzen",
       "icon": "fa fa-wallet",
       "url": {
         "page": "ext_finanzen",
@@ -26,9 +26,11 @@
         }
       }
     },
+
     {
       "title": "Antrag",
       "icon": "fa fa-wallet",
+      "acl": ["isTeacher","inNone"],
       "url": {
         "page": "ext_finanzen",
         "params": {

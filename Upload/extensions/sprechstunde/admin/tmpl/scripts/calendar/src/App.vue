@@ -113,6 +113,8 @@ export default {
       formData.append('date', data.form.date);
       formData.append('slot_id', data.form.slot_id);
       formData.append('info', data.form.info);
+      formData.append('medium', data.form.medium);
+      formData.append('block', 1);
 
       this.loading = true;
       var that = this;

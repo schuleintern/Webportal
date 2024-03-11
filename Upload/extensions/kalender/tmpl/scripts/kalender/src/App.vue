@@ -3,13 +3,14 @@
   <div class="calender">
     <AjaxError :error="error"></AjaxError>
     <AjaxSpinner :loading="loading"></AjaxSpinner>
-
     <CalendarForm :calendars="kalenders"></CalendarForm>
     <CalendarItem :kalenders="kalenders" :acl="acl"></CalendarItem>
 
-    <CalendarList :kalenders="kalenders" :selectedKalenders="selectedKalenders"></CalendarList>
-    <CalendarView :events="events" :calendars="kalenders" :acl="acl"></CalendarView>
+    <CalendarList :kalenders="kalenders" :selectedKalenders="selectedKalenders" :suggest="suggest" :ics="ics"></CalendarList>
+    <CalendarView :events="events" :calendars="kalenders" :acl="acl" ></CalendarView>
 
+
+    <IcsForm></IcsForm>
 
   </div>
 </template>
@@ -23,6 +24,7 @@ import CalendarList from './components/CalendarList.vue'
 import CalendarView from './components/CalendarView.vue'
 import CalendarForm from './components/CalendarForm.vue'
 import CalendarItem from './components/CalendarItem.vue'
+import IcsForm from './components/IcsForm.vue'
 
 const axios = require('axios').default;
 
@@ -32,11 +34,13 @@ export default {
   name: 'App',
   components: {
     AjaxError, AjaxSpinner,
-    CalendarList, CalendarView, CalendarForm, CalendarItem
+    CalendarList, CalendarView, CalendarForm, CalendarItem, IcsForm
   },
   data() {
     return {
       apiURL: window.globals.apiURL,
+      suggest: window.globals.suggest,
+      ics: window.globals.ics,
       acl: window.globals.acl,
       error: false,
       loading: false,
@@ -101,6 +105,7 @@ export default {
       formData.append('place', data.form.place || '');
       formData.append('comment', data.form.comment || '');
       formData.append('repeat_type', data.form.repeat_type || '');
+      formData.append('status', data.form.status || '0');
 
       this.loading = true;
       var that = this;

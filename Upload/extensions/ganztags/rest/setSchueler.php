@@ -17,7 +17,7 @@ class setSchueler extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if (!$this->canWrite() ) {
+        if ( !$this->canWrite() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -32,26 +32,48 @@ class setSchueler extends AbstractRest {
             ];
         }
         $days = json_decode($_POST['days']);
-        if (count($days) < 1 ) {
+        if ($days && count((array)$days) < 1 ) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data'
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Schueler.class.php';
+        include_once PATH_EXTENSION . 'models' . DS . 'Schueler2.class.php';
+        $class = new extGanztagsModelSchueler2();
 
-        if (!$input['info'] || $input['info'] == 'null') {
+
+        if (!$input['info'] || $input['info'] == 'null' || $input['info'] == 'undefined') {
             $input['info'] = '';
         }
-        if ( !extGanztagsModelSchueler::updateSchueler($id, json_encode($days), $input['info'], $input['anz']) ) {
+
+
+        $arr = [
+            'id' => $id,
+            'days' => json_encode($days),
+            'info' => $input['info'],
+            'anz' => (int)$input['anz']
+        ];
+        $data = $class->getByID($id);
+        if ($data->getData('user_id')) {
+            $arr['user_id'] = $data->getData('user_id');
+        }
+        if ( !$arr['user_id']) {
+            return [
+                'error' => true,
+                'msg' => 'Fehler beim Speichern! (User_id)'
+            ];
+        }
+
+
+        if ( !$class->save($arr)) {
             return [
                 'error' => true,
                 'msg' => 'Fehler beim Speichern!'
             ];
         }
 
-        $data = extGanztagsModelSchueler::getByID($id);
+        $data = $class->getByID($id);
         return $data->getCollection();
 
 

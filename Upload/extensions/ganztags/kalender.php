@@ -81,13 +81,13 @@ class extGanztagsKalender extends AbstractPage
         //include_once PATH_EXTENSION . 'models' . DS . 'Groups.class.php';
         //$groups = extGanztagsModelGroups::getAll();
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Day.class.php';
-        $groups = extGanztagsModelDay::getByDate($date);
+        include_once PATH_EXTENSION . 'models' . DS . 'Day2.class.php';
+        $class = new extGanztagsModelDay2();
+        $groups = $class->getByDate($date);
 
         include_once("../framework/lib/data/absenzen/Absenz.class.php");
 
         $absenzen = Absenz::getAbsenzenForDate($date, null, "");
-
 
         $activities = [];
 
@@ -97,6 +97,7 @@ class extGanztagsKalender extends AbstractPage
 
             $group->getSchueler($day);
             $group_data = $group->getCollection(true);
+
 
 
             if ($group_data['type'] == 'day-group') {
@@ -109,7 +110,7 @@ class extGanztagsKalender extends AbstractPage
 					</style>';
                 $html .= '<h3 style="text-align: right">' . $date . '</h3>';
                 $html .= '<h1>' . $group_data['title'] . '</h1>';
-                $html .= '<h4 style="color:#ccc">' . $group_data['leader']['name'].' - '.$group_data['room'] . '</h4>';
+                $html .= '<h4 style="color:#ccc">' . $group_data['leader']['userName'].' - '.$group_data['room'] . '</h4>';
                 $html .= '<table cellspacing="0" cellpadding="5" border="0" style="border-color:white; border-collapse: collapse;" >
 						<thead >
 							<tr>
@@ -252,7 +253,7 @@ class extGanztagsKalender extends AbstractPage
             foreach ($activities as $activity) {
                 $html .= '<h2 style="color:'.$activity['color'].'">' . $activity['title'] . '</h2>';
 
-                $html .= '<table cellpadding="5"><tr><td width="70%"><h4 style="color: #ccc">'.$activity['leader']['name'].'</h4></td><td><span style="color: #ccc">'.$activity['room'].'</span></td></tr>';
+                $html .= '<table cellpadding="5"><tr><td width="70%"><h4 style="color: #ccc">'.$activity['leader']['userName'].'</h4></td><td><span style="color: #ccc">'.$activity['room'].'</span></td></tr>';
 
                 if ($activity['info'] || $activity['duration']) {
                     $html .= '<tr><td>';

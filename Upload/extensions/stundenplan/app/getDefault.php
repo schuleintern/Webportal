@@ -1,19 +1,20 @@
 <?php
 
-class extKalenderAppGetDefault extends AbstractApp
-{	
+class extStundenplanAppGetDefault extends AbstractApp
+{
 
     public function execute() {
 
         return [
             "scripts" => [
-                PATH_EXTENSIONS . '/kalender/tmpl/scripts/kalender/dist/js/chunk-vendors.js',
-                PATH_EXTENSIONS . '/kalender/tmpl/scripts/kalender/dist/js/app.js'
+                PATH_EXTENSIONS . '/stundenplan/tmpl/scripts/default/dist/js/chunk-vendors.js',
+                PATH_EXTENSIONS . '/stundenplan/tmpl/scripts/default/dist/js/app.js'
             ],
             "data" => [
-                "apiURL" => URL_ROOT."/rest.php/kalender",
+                "apiURL" => URL_ROOT."/rest.php/stundenplan",
                 "acl" => ["read"=>1,"write"=>1,"delete"=>1],
-                "apiKey" => DB::getGlobalSettings()->apiKey
+                "apiKey" => DB::getGlobalSettings()->apiKey,
+                "isMobile" => $this->isMobile
             ]
         ];
 

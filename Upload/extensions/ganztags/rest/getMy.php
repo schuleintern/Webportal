@@ -29,18 +29,26 @@ class getMy extends AbstractRest
         $data = [];
         $today = date('Y-m-d', time());
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Leaders.class.php';
-        include_once PATH_EXTENSION . 'models' . DS . 'Day.class.php';
 
-        $leader = extGanztagsModelLeaders::getByUserID($userID);
+        include_once PATH_EXTENSION . 'models' . DS . 'Leaders2.class.php';
+        include_once PATH_EXTENSION . 'models' . DS . 'Day2.class.php';
+
+        $Leaders = new extGanztagsModelLeaders2();
+        $Day = new extGanztagsModelDay2();
+
+        $leader = $Leaders->getByParentID($userID);
+
+        if ($leader[0]) {
+            $leader = $leader[0];
+        }
 
         if ($leader) {
             $leader_id = $leader->getID();
 
-            $dates = extGanztagsModelDay::getByDate($today);
+            $dates = $Day->getByDate($today);
 
             foreach ($dates as $date) {
-                if ($date->getLeaderID() == $leader_id) {
+                if ($date->getData('leader_id') == $leader_id) {
                     $data[] = $date;
                 }
             }
@@ -58,25 +66,36 @@ class getMy extends AbstractRest
 
         $ret = [];
 
-        foreach ($data as $group) {
+        if ($data) {
+            foreach ($data as $group) {
 
-            $html = '';
+                $html = '';
 
-            $group->getSchueler($day);
-            $ret[] = $group->getCollection(true);
-
-            /*
-            foreach($absenzen as $absenz) {
-                if  ( $schueler['asvid'] == $absenz->getSchueler()->getAsvID() ) {
-                    $isAbsenz = true;
-                    if ($schueler['info']) {
-                        $schueler['info'] .= '<br>';
-                    }
-                    $schueler['info'] .= '<b>Absenz:</b> '.$absenz->getStundenAsString().' Stunde<br><i>'.nl2br($absenz->getBemerkung()).'</i> '.nl2br($absenz->getGanztagsNotiz());
+                $group->getSchueler($day);
+                $foo = $group->getCollection(true);
+                if ($foo['date']) {
+                    $foo['date'] = DateFunctions::getNaturalDateFromMySQLDate($foo['date']);
                 }
-            }
-            */
 
+
+                if ($foo['schueler']) {
+                    foreach($foo['schueler'] as $key => $schueler) {
+
+                        foreach($absenzen as $absenz) {
+                            if  ( $schueler['asvid'] == $absenz->getSchueler()->getAsvID() ) {
+                                $foo['schueler'][$key]['absenz'] = $absenz->getStundenAsString().' Stunde<br><i>'.nl2br($absenz->getBemerkung()).'</i> '.nl2br($absenz->getGanztagsNotiz());
+                            }
+                        }
+                    }
+                }
+
+
+
+
+                $ret[] = $foo;
+
+
+            }
         }
 
             

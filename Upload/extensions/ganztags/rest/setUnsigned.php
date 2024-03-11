@@ -17,23 +17,23 @@ class setUnsigned extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ((int)$acl['rights']['write'] !== 1 && (int)DB::getSession()->isMember($this->extension['adminGroupName']) !== 1 ) {
+        if ( !$this->canWrite() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Schueler.class.php';
-
-        if ( !extGanztagsModelSchueler::setAllUnsigned() ) {
+        include_once PATH_EXTENSION . 'models' . DS . 'Schueler2.class.php';
+        $class = new extGanztagsModelSchueler2();
+        if ( !$class->setAllUnsigned() ) {
             return [
                 'error' => true,
                 'msg' => 'Fehler beim Speichern!'
             ];
         }
 
-        $data = extGanztagsModelSchueler::getUnsigned();
+        $data = $class->getUnsigned();
         if (count($data) > 0) {
             return [ 'count' => count($data) ];
         }

@@ -24,12 +24,13 @@ class getLeaders extends AbstractRest {
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Leaders.class.php';
+        include_once PATH_EXTENSION . 'models' . DS . 'Leaders2.class.php';
 
-        $data = extGanztagsModelLeaders::getAll();
+        $class = new extGanztagsModelLeaders2();
+        $data = $class->getAll();
 
         $ret = [];
-        if (count($data) > 0) {
+        if ($data && count($data) > 0) {
             foreach ($data as $item) {
 
                 $ret[] = $item->getCollection();

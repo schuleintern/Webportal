@@ -10,6 +10,23 @@
         </button>
         <input type="search" class="si-input" v-model="searchString" placeholder="Suche..."/>
       </div>
+      <div class="flex-1"></div>
+      <div class="flex-1 padding-l-l">
+        <div>
+          <label class="margin-r-s">Schülerinnen:</label>{{details.schueler_summe}}
+        </div>
+        <div>
+          <label class="margin-r-s">Zählschülerinnen:</label>{{details.tage_zaehl}}
+        </div>
+      </div>
+      <div class="flex-1 ">
+        <div>
+          <label class="margin-r-s">Tage:</label>{{details.tage_summe}}
+        </div>
+        <div>
+          <label class="margin-r-s">Differenz:</label>{{details.tage_diff}}
+        </div>
+      </div>
       <div class="flex-1 flex-row flex-end">
         <form action="index.php?page=ext_ganztags&view=default&task=printList" method="POST" target="_blank"
               class="">
@@ -49,7 +66,7 @@
           {{ item.klasse }}
         </td>
         <td class="">
-          {{ item.anz }}
+          {{ item.anz }} <span v-if="item.diff" class="text-small">({{ item.diff }})</span>
         </td>
 
         <td v-bind:key="i" v-for="(day, i) in  item.days">
@@ -82,7 +99,8 @@ export default {
     items: Array,
     unsigned: Object,
     acl: Object,
-    groups: Array
+    groups: Array,
+    details: Object
   },
   data() {
     return {
@@ -116,7 +134,7 @@ export default {
             var search_result = [];
             this.searchColumns.forEach(function (col) {
               search_temp = data.filter((item) => {
-                if (item[col]) {
+                if (item[col] && typeof item[col] === 'string') {
                   return split.every(v => item[col].toLowerCase().includes(v));
                 }
               });
@@ -129,18 +147,54 @@ export default {
 
           // SORTIERUNG
           if (this.sort.column) {
-            if (this.sort.order) {
-              return data.sort((a, b) => {
-                if (a[this.sort.column] && b[this.sort.column]) {
-                  return a[this.sort.column].localeCompare(b[this.sort.column])
+            if (typeof this.sort.column === 'string') {
+              if (this.sort.column == 'date') {
+                if (this.sort.order) {
+                  return data.sort((a, b) => {
+                    let aa = a[this.sort.column].split(' ');
+                    let bb = b[this.sort.column].split(' ');
+                    let date1 = new Date(aa[0].split('.')[2], aa[0].split('.')[1] - 1, aa[0].split('.')[0], aa[1].split(':')[0], aa[1].split(':')[1])
+                    let date2 = new Date(bb[0].split('.')[2], bb[0].split('.')[1] - 1, bb[0].split('.')[0], bb[1].split(':')[0], bb[1].split(':')[1])
+                    return date1 - date2;
+                  })
+                } else {
+                  return data.sort((a, b) => {
+                    let aa = a[this.sort.column].split(' ');
+                    let bb = b[this.sort.column].split(' ');
+                    let date1 = new Date(aa[0].split('.')[2], aa[0].split('.')[1] - 1, aa[0].split('.')[0], aa[1].split(':')[0], aa[1].split(':')[1])
+                    let date2 = new Date(bb[0].split('.')[2], bb[0].split('.')[1] - 1, bb[0].split('.')[0], bb[1].split(':')[0], bb[1].split(':')[1])
+                    return date2 - date1;
+                  })
                 }
-              })
-            } else {
-              return data.sort((a, b) => {
-                if (a[this.sort.column] && b[this.sort.column]) {
-                  return b[this.sort.column].localeCompare(a[this.sort.column])
+              } else {
+                if (this.sort.order) {
+                  return data.sort((a, b) => {
+                    if (a[this.sort.column] && b[this.sort.column]) {
+                      if (!isNaN(a[this.sort.column]) && !isNaN(b[this.sort.column])) {
+                        return a[this.sort.column] - b[this.sort.column];
+                      } else {
+                        return a[this.sort.column].localeCompare(b[this.sort.column])
+                      }
+                    }
+                  })
+                } else {
+                  return data.sort((a, b) => {
+                    if (b[this.sort.column] && a[this.sort.column]) {
+                      if (!isNaN(a[this.sort.column])) {
+                        return b[this.sort.column] - a[this.sort.column];
+                      } else {
+                        return b[this.sort.column].localeCompare(a[this.sort.column])
+                      }
+                    }
+                  })
                 }
-              })
+              }
+            } else if (typeof this.sort.column === 'object') {
+              if (this.sort.order) {
+                return data.sort((a, b) => a[this.sort.column[0]][this.sort.column[1]].localeCompare(b[this.sort.column[0]][this.sort.column[1]]))
+              } else {
+                return data.sort((a, b) => b[this.sort.column[0]][this.sort.column[1]].localeCompare(a[this.sort.column[0]][this.sort.column[0]]))
+              }
             }
           }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="padding-b-m">
+  <div class="padding-b-m flex-row ">
 
     <div class="si-btn-multiple">
       <button v-bind:key="index" v-for="(item, index) in  kalenders"
@@ -8,6 +8,11 @@
               @click="handlerSelect($event, item)"
       > {{ item.title }}
       </button>
+    </div>
+    <div class="flex-1 "></div>
+    <div class="flex-1 flex-end flex-row ">
+      <button v-if="suggest == 1" class="si-btn si-btn-border margin-l-m" v-on:click="handlerSuggest"><i class="fa fa-plus"></i> Termin vorschlagen</button>
+      <button v-if="ics == 1" class="si-btn si-btn-border margin-l-m" v-on:click="handlerICS"><i class="fa fa-rss"></i> ICS Feed</button>
     </div>
 
   </div>
@@ -25,7 +30,9 @@ export default {
   },
   props: {
     kalenders: Array,
-    selectedKalenders: Array
+    selectedKalenders: Array,
+    suggest: Boolean,
+    ics: Boolean
   },
   created: function () {
 
@@ -35,6 +42,17 @@ export default {
 
   },
   methods: {
+    handlerICS() {
+      this.$bus.$emit('ics-form--open', {
+      });
+    },
+    handlerSuggest() {
+      this.$bus.$emit('event-form--open', {
+        form: {
+          status: 2
+        }
+      });
+    },
     styleButton(id, color) {
 
       if (this.isSelected(id) === true) {

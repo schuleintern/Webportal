@@ -1,8 +1,8 @@
 <template>
   <div>
 
-    <Error v-bind:error="error"></Error>
-    <Spinner v-bind:loading="loading"></Spinner>
+    <AjaxError v-bind:error="error"></AjaxError>
+    <AjaxSpinner v-bind:loading="loading"></AjaxSpinner>
 
     <div class="flex-row head">
       <input type="search" v-model="searchString" placeholder="Suche..." class="si-input blockInline margin-r-m"/>
@@ -55,21 +55,25 @@
 
       </tbody>
     </table>
+    <div v-else class="padding-t-l">
+      <i>- keine Inhalte -</i>
+    </div>
 
   </div>
+
 </template>
 
 <script>
 
 const axios = require('axios').default;
 
-import Error from './mixins/Error.vue'
-import Spinner from './mixins/Spinner.vue'
+import AjaxError from './mixins/AjaxError.vue'
+import AjaxSpinner from './mixins/AjaxSpinner.vue'
 
 
 export default {
   components: {
-    Error, Spinner
+    AjaxError, AjaxSpinner
   },
   data() {
     return {

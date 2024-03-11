@@ -17,7 +17,7 @@ class setDateAktivity extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ((int)$acl['rights']['write'] !== 1 && (int)DB::getSession()->isMember($this->extension['adminGroupName']) !== 1 ) {
+        if ( !$this->canWrite() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -50,51 +50,34 @@ class setDateAktivity extends AbstractRest {
         }
 
         if ($arr->group_id) {
-            include_once PATH_EXTENSION . 'models' . DS . 'Groups.class.php';
-            $group = extGanztagsModelGroups::getByID($arr->group_id);
-            $arr->color = $group->getColor();
-            $arr->info = $group->getInfo();
-            $arr->room = $group->getRoom();
-            $arr->duration = $group->getDuration();
-        }
-
-/*
-        $aktivity_id = $input['aktivity'];
-        if (!$aktivity_id) {
-            return [
-                'error' => true,
-                'msg' => 'Missing aktivityID'
-            ];
-        }
-        */
-        include_once PATH_EXTENSION . 'models' . DS . 'Day.class.php';
-
-
-
-        if ( !extGanztagsModelDay::setItem($arr, $userID) ) {
-            return [
-                'error' => true,
-                'msg' => 'Fehler beim Speichern!'
-            ];
-        }
-
-        $ret = [];
-
-        /*
-        $data = extGanztagsModelGroups::getAll();
-
-
-        if (count($data) > 0) {
-            foreach ($data as $item) {
-
-                $ret[] = $item->getCollection();
+            include_once PATH_EXTENSION . 'models' . DS . 'Activity2.class.php';
+            $class = new extGanztagsModelActivity2();
+            $group = $class->getByID($arr->group_id);
+            if ($group) {
+                $arr->color = $group->getData('color');
+                $arr->info = $group->getData('info');
+                $arr->room = $group->getData('room');
+                $arr->duration = $group->getData('duration');
             }
+
         }
 
-        */
+        $arr->createdBy = $userID;
+        $arr->createdTime = date("Y-m-d H:i:s",time());
 
 
-        return $ret;
+        include_once PATH_EXTENSION . 'models' . DS . 'Day2.class.php';
+        $Day = new extGanztagsModelDay2();
+        if ( $Day->save((array)$arr) ) {
+            return [
+                'success' => true
+            ];
+        }
+
+        return [
+            'error' => true,
+            'msg' => 'Fehler beim Speichern!'
+        ];
 
 	}
 

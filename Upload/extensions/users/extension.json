@@ -1,9 +1,9 @@
 {
   "name": "Benutzer",
   "uniqid": "ext.zwiebelgasse.users",
-  "version": "1",
+  "version": "4",
 
-  "requiredVersion": "1.5.2",
+  "requiredVersion": "1.7.0",
 
   "menu": {
     "categorie": "1",
@@ -16,17 +16,76 @@
 
 
   "submenu": [
+
+
     {
       "title": "Benutzer",
       "icon": "fa fa-users",
       "url": {
         "page": "ext_users",
         "params": {
-          "view": "default"
+          "view": "users",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Schüler",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "schueler",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Lehrer",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "teacher",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Eltern",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "eltern",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Elterncodes",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "codes",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Initialpasswörter",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "initcodes",
+          "admin": "true"
         }
       }
     }
-    
+
+
   ]
 
 

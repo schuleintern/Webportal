@@ -4,7 +4,7 @@
     <div class="si-calendar">
       <div class="si-calendar-header">
         <button class="si-btn  chevron-left" @click="subtractWeek">
-          <i class="fa fa-arrow-left"></i>Vor
+          <i class="fa fa-arrow-left"></i>Zurück
         </button>
         <button @click="gotoToday"
                 class="si-btn si-btn-light">
@@ -43,8 +43,7 @@
                 <User size="icon" v-bind:data="slot.user"></User>
                 <div v-if="slot.date" class="si-box si-box-green">
                   <h4><i class="far fa-calendar-check margin-r-s"></i> Termin</h4>
-
-                  <button v-if="slot.date.user_id == slot.user_id" class="si-btn si-btn-red"><i class="fa fa-plus"></i> geblockt</button>
+                  <button v-if="slot.date.block == 1" class="si-btn si-btn-red"><i class="fa fa-ban"></i> Geblockt</button>
                   <User v-else size="icon" v-bind:data="slot.date.user"></User>
 
                   <div v-if="slot.date.medium" class="padding-s text-small">
@@ -55,6 +54,10 @@
 
                   <div v-if="slot.date.info" class="padding-t-m" style="white-space: normal;"><i class="fas fa-info-circle"></i> {{slot.date.info}}</div>
                 </div>
+
+                <button v-else-if="isTodayOrFuture(day.day)" class="si-btn"
+                        v-on:click.stop="openForm(day.day, slot)"><i class="fa fa-ban"></i> Blocken</button>
+
               </div>
             </span>
 
@@ -139,7 +142,18 @@ export default {
 
   },
   methods: {
-
+    isFuture: function (day) {
+      if (this.today.isBefore(day, 'day')) {
+        return true;
+      }
+      return false;
+    },
+    isTodayOrFuture: function (day) {
+      if (this.isToday(day) || this.isFuture(day)) {
+        return true;
+      }
+      return false;
+    },
     showBuchenBtn: function (day) {
       var prev = this.today.add(this.prevDays, 'day');
       if (prev.isBefore(day)) {

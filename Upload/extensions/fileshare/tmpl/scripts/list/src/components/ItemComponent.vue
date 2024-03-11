@@ -1,18 +1,22 @@
 <template>
   <div class="">
-
     <div class="flex-row flex-space-between">
       <div class="">
-      <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück</button>
-      <button class="si-btn " @click="handlerSaveForm()"><i class="fa fa fa-save"></i> Speichern</button>
+        <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück
+        </button>
+        <button class="si-btn " @click="handlerSaveForm()"><i class="fa fa fa-save"></i> Speichern</button>
+      </div>
+      <div class="">
+        <button class="si-btn si-btn-light" @click="handlerDelete()" v-if="deleteBtn === false"><i
+            class="fa fa fa-trash"></i> Löschen
+        </button>
+        <button class="si-btn si-btn-red" @click="handlerDeleteDo(item)" v-if="deleteBtn === true"><i
+            class="fa fa fa-trash"></i> Wirklich Löschen ?
+        </button>
+      </div>
     </div>
-    <div class="">
-      <button class="si-btn si-btn-light" @click="handlerDelete()" v-if="deleteBtn === false"><i class="fa fa fa-trash"></i> Löschen</button>
-      <button class="si-btn si-btn-red" @click="handlerDeleteDo(item)" v-if="deleteBtn === true"><i class="fa fa fa-trash"></i> Wirklich Löschen ?</button>
-    </div> 
-  </div>
 
-    {{form}}
+    {{ form }}
     <input type="text" v-model="form.folder">
 
     <div class="si-form" v-if="form">
@@ -25,7 +29,7 @@
           </div>
           <div class="flex-1 flex">
             <label>Status</label>
-          <FormToggle :input="form.state" @change="handlerState"></FormToggle>
+            <FormToggle :input="form.state" @change="handlerState"></FormToggle>
           </div>
         </li>
         <li>
@@ -39,17 +43,18 @@
         </li>
       </ul>
     </div>
-    <div class="si-form">  
+    <div class="si-form">
       <ul>
         <li>
-          {{form.folder}}
+          {{ form.folder }}
 
-          <FormUpload v-if="form.folder"  @done="handerUpload" :target="'rest.php/fileshare/setUpload/'+form.folder" ></FormUpload>
+          <FormUpload v-if="form.folder" @done="handerUpload"
+                      :target="'rest.php/fileshare/setUpload/'+form.folder"></FormUpload>
 
         </li>
-        <li v-bind:key="index" v-for="(item, index) in  form.childs"  class="flex-row">
+        <li v-bind:key="index" v-for="(item, index) in  form.childs" class="flex-row">
           {{ item }}
-          <input type="text" v-model="item.title" />
+          <input type="text" v-model="item.title"/>
 
         </li>
       </ul>
@@ -91,14 +96,14 @@ export default {
 
     this.form = this.item;
 
-    if ( this.form.id == 0 ) {
+    if (this.form.id == 0) {
       this.form.folder = window.globals.randFolder;
     }
 
 
   },
   watch: {
-    item: function(newVal)  {
+    item: function (newVal) {
       this.form = newVal;
 
       //console.log('wwww')
@@ -116,7 +121,7 @@ export default {
     },
 
     handlerState(data) {
-      this.form.state = data.value; 
+      this.form.state = data.value;
     },
     handlerBack: function () {
       this.$bus.$emit('page--open', {
@@ -141,8 +146,8 @@ export default {
             that.item.id = data.id;
           }
           */
-         that.handlerBack();
-          
+          that.handlerBack();
+
         }
       });
       return false;

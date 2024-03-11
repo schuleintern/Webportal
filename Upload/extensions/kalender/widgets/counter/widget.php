@@ -19,7 +19,7 @@ class extKalenderWidgetCounter extends Widget
             foreach ($kalenderDB as $item) {
                 $arr = $item->getCollection(true);
                 if ( $this->getGroupACL( $arr['acl']['groups'], $userType ) === 1 ) {
-                    $kalenders[] = $arr['id'];
+                    $kalenders[] = $arr;
                 }
             }
         }

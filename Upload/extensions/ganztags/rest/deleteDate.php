@@ -17,7 +17,7 @@ class deleteDate extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ((int)$acl['rights']['delete'] !== 1 && (int)DB::getSession()->isMember($this->extension['adminGroupName']) !== 1 ) {
+        if ( !$this->canDelete() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -33,13 +33,18 @@ class deleteDate extends AbstractRest {
         }
 
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Day.class.php';
+        include_once PATH_EXTENSION . 'models' . DS . 'Day2.class.php';
 
+        $class = new extGanztagsModelDay2();
+        $item = $class->getByID($id);
+        if ( $item->delete() ) {
+            return ['delete' => true];
+        }
 
-        extGanztagsModelDay::deleteItem($id);
-
-        return ['delete' => true];
-
+        return [
+            'error' => true,
+            'msg' => 'Fehler beim Löschen!'
+        ];
 
 	}
 

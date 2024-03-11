@@ -76,6 +76,104 @@ class extImportModelASV extends ExtensionModel
         DB::run("INSERT INTO ext_import_asv_log  ( log, createdTime, createdUserID ) values( :log, :createdTime, :createdUserID );", $data);
     }
 
+
+
+
+
+    public function handleXML($simpleXML)
+    {
+
+
+        $schulnummer = $simpleXML->schulen[0]->schule->schulnummer;
+        //$schulnummer = '0740';
+
+
+
+        if ($schulnummer != DB::getGlobalSettings()->schulnummer) {
+            return [
+                'error' => true,
+                'msg' =>"Die Schulnummer in der Exportdatei (" . $schulnummer . ") stimmt nicht mit der Schulnummer der Installation (" . DB::getGlobalSettings()->schulnummer . ") überein!"
+            ];
+        }
+
+        if ( $this->loadFaecher($simpleXML) ) {
+            $this->log('ERFOLGREICH: Faecher eingelesen', $this->faecher );
+        }
+
+
+        if ( $this->loadUnterricht($simpleXML) ) {
+            $this->log('ERFOLGREICH: Unterricht eingelesen', $this->unterricht );
+        }
+
+        if ( $retSchulen = $this->loadSchulen($simpleXML) ) {
+            $this->log('ERFOLGREICH: Schulen eingelesen', $retSchulen );
+        }
+
+        if ( $retKlassen = $this->loadKlassen($simpleXML) ) {
+            $this->log('ERFOLGREICH: Klassen eingelesen.', $retKlassen );
+        }
+
+        if ( $this->loadLehrer($simpleXML) ) {
+            $this->log('ERFOLGREICH: Lehrer eingelesen.', $this->lehrer );
+        }
+
+        if ( $retLeitung = $this->loadKlassenleitung() ) {
+            $this->log('ERFOLGREICH: Klassenleitungen eingelesen.', $retLeitung );
+        }
+
+        if ( $retSchueler = $this->loadSchueler() ) {
+            $this->log('ERFOLGREICH: Schüler eingelesen.', $retSchueler );
+        }
+
+        if ( $retKontakt = $this->loadKontaktdaten() ) {
+            $this->log('ERFOLGREICH: Kontaktdaten der Eltern gelöscht.', $retKontakt );
+        }
+
+        if ( $retAdressen = $this->loadElternAdressen($simpleXML) ) {
+            $this->log('ERFOLGREICH: Adressen der Eltern eingelesen.', $retAdressen );
+        }
+
+
+        $matcher = new MatchUserFunctions();
+        if (DB::getGlobalSettings()->lehrerUserlehrerUserModeMode == "SYNC") {
+            $ret = $matcher->matchLehrer();
+            $this->log('ERFOLGREICH: Sync Lehrer mit User-Tabelle', $ret);
+        }
+        if (DB::getGlobalSettings()->schuelerUserMode == "SYNC") {
+            $ret = $matcher->matchSchueler();
+            $this->log('ERFOLGREICH: Sync Schueler mit User-Tabelle', $ret);
+        }
+
+
+
+        if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE") {
+            $schuelerOhneCodeSQL = DB::getDB()->query("SELECT * FROM schueler WHERE schuelerAsvID NOT IN (SELECT codeSchuelerAsvID FROM eltern_codes)");
+            $ret = [];
+            while($schueler = DB::getDB()->fetch_array($schuelerOhneCodeSQL)) {
+                $code = substr(md5($schueler['schuelerAsvID']),0,5) . "-" . substr(md5(rand()),0,10);
+                DB::getDB()->query("INSERT INTO eltern_codes (codeSchuelerAsvID, codeText, codeUserID) values('" . $schueler['schuelerAsvID'] . "','" . $code . "',0)");
+                $ret[] = [
+                    'schuelerAsvID' => $schueler['schuelerAsvID'],
+                    'codeUserID' => 0
+                ];
+            }
+            if ($ret) {
+                $this->log('ERFOLGREICH: Elternbenutzer Codes angelegt', $ret);
+            }
+
+        }
+
+
+
+        $this->saveLog();
+
+        return $this->getLog();
+    }
+
+
+
+
+
     private function loadFaecher($simpleXML) {
 
         // Faecher laden
@@ -1098,77 +1196,6 @@ class extImportModelASV extends ExtensionModel
         $this->log(sizeof($insertsAdressen). ' Eltern Adressen hinzugefügt');
 
         return $insertsAdressen;
-    }
-
-
-    public function handleXML($simpleXML)
-    {
-
-
-        $schulnummer = $simpleXML->schulen[0]->schule->schulnummer;
-        //$schulnummer = '0740';
-
-
-
-        if ($schulnummer != DB::getGlobalSettings()->schulnummer) {
-            return [
-                'error' => true,
-                'msg' =>"Die Schulnummer in der Exportdatei (" . $schulnummer . ") stimmt nicht mit der Schulnummer der Installation (" . DB::getGlobalSettings()->schulnummer . ") überein!"
-            ];
-        }
-
-        if ( $this->loadFaecher($simpleXML) ) {
-            $this->log('ERFOLGREICH: Faecher eingelesen', $this->faecher );
-        }
-
-
-        if ( $this->loadUnterricht($simpleXML) ) {
-            $this->log('ERFOLGREICH: Unterricht eingelesen', $this->unterricht );
-        }
-
-        if ( $retSchulen = $this->loadSchulen($simpleXML) ) {
-            $this->log('ERFOLGREICH: Schulen eingelesen', $retSchulen );
-        }
-
-        if ( $retKlassen = $this->loadKlassen($simpleXML) ) {
-            $this->log('ERFOLGREICH: Klassen eingelesen.', $retKlassen );
-        }
-
-        if ( $this->loadLehrer($simpleXML) ) {
-            $this->log('ERFOLGREICH: Lehrer eingelesen.', $this->lehrer );
-        }
-
-        if ( $retLeitung = $this->loadKlassenleitung() ) {
-            $this->log('ERFOLGREICH: Klassenleitungen eingelesen.', $retLeitung );
-        }
-
-        if ( $retSchueler = $this->loadSchueler() ) {
-            $this->log('ERFOLGREICH: Schüler eingelesen.', $retSchueler );
-        }
-
-        if ( $retKontakt = $this->loadKontaktdaten() ) {
-            $this->log('ERFOLGREICH: Kontaktdaten der Eltern gelöscht.', $retKontakt );
-        }
-
-        if ( $retAdressen = $this->loadElternAdressen($simpleXML) ) {
-            $this->log('ERFOLGREICH: Adressen der Eltern eingelesen.', $retAdressen );
-        }
-
-
-        $matcher = new MatchUserFunctions();
-        if (DB::getGlobalSettings()->lehrerUserMode == "SYNC") {
-            $ret = $matcher->matchLehrer();
-            $this->log($ret);
-        }
-        if (DB::getGlobalSettings()->schuelerUserMode == "SYNC") {
-            $ret = $matcher->matchSchueler();
-            $this->log($ret);
-        }
-
-
-        $this->saveLog();
-
-        return $this->getLog();
     }
 
 

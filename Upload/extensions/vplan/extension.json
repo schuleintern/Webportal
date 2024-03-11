@@ -1,9 +1,9 @@
 {
   "name": "Vertretungsplan",
   "uniqid": "ext.zwiebelgasse.vplan",
-  "version": "5",
+  "version": "7",
 
-  "requiredVersion": "1.6.3",
+  "requiredVersion": "1.7.0",
 
   "menu": {
     "categorie": "1",
@@ -59,6 +59,18 @@
         "page": "ext_vplan",
         "params": {
           "view": "import",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Liste",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_vplan",
+        "params": {
+          "view": "list",
           "admin": "true"
         }
       }
