@@ -516,7 +516,13 @@ class MessageRead extends AbstractPage {
                       
                       $htmlConfirmation .= "Summe: " . $answerStat[$q]['summe'] . "<br />";
                       $htmlConfirmation .= "Abgegeben: " . $answerStat[$q]['abgegeben'] . "<br />";
-                      $htmlConfirmation .= "Mittelwert: " . round($answerStat[$q]['summe'] / $answerStat[$q]['abgegeben'], 2) . "<br />";
+                      $div = $answerStat[$q]['abgegeben'];
+                      if ($div > 0) {
+                          $htmlConfirmation .= "Mittelwert: " . round($answerStat[$q]['summe'] / $div, 2) . "<br />";
+                      } else {
+                          $htmlConfirmation .= "Mittelwert: ---- <br />";
+                      }
+
                       
                   }
                   
@@ -534,7 +540,7 @@ class MessageRead extends AbstractPage {
           
       }
       
-      $allRecipientsWithConfirmationStatus = implode("; ", $allRecipientsWithConfirmationStatus);
+      $allRecipientsWithConfirmationStatus = implode("; ", (array)$allRecipientsWithConfirmationStatus);
       
       return $allRecipientsWithConfirmationStatus;
       
@@ -867,8 +873,15 @@ class MessageRead extends AbstractPage {
                       
                       $html .= "Summe: " . $answerStat[$q]['summe'] . "<br />";
                       $html .= "Abgegeben: " . $answerStat[$q]['abgegeben'] . "<br />";
-                      $html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $answerStat[$q]['abgegeben'], 2) . "<br />";
-                      
+                      //$html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $answerStat[$q]['abgegeben'], 2) . "<br />";
+
+                      $div = $answerStat[$q]['abgegeben'];
+                      if ($div > 0) {
+                          $html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $div, 2) . "<br />";
+                      } else {
+                          $html .= "Mittelwert: ---- <br />";
+                      }
+
                       $answerStatTotal[$q]['summe'] += $answerStat[$q]['summe'];
                       $answerStatTotal[$q]['abgegeben'] += $answerStat[$q]['abgegeben'];
                       
@@ -932,9 +945,15 @@ class MessageRead extends AbstractPage {
               
               $html .= "Summe: " . $answerStat[$q]['summe'] . "<br />";
               $html .= "Abgegeben: " . $answerStat[$q]['abgegeben'] . "<br />";
-              $html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $answerStat[$q]['abgegeben'], 2) . "<br />";
-              
-              
+              //$html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $answerStat[$q]['abgegeben'], 2) . "<br />";
+
+              $div = $answerStat[$q]['abgegeben'];
+              if ($div > 0) {
+                  $html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $div, 2) . "<br />";
+              } else {
+                  $html .= "Mittelwert: ---- <br />";
+              }
+
           }
           
           $html .= "</td>";
