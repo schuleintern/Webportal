@@ -26,6 +26,8 @@ class Updates
 
     public static function to170($root)
     {
+        $root->update('www/cssjs');
+        $root->update('www/index.php');
         return true;
     }
 
