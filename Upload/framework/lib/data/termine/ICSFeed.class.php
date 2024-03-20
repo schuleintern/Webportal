@@ -95,7 +95,7 @@ class ICSFeed {
         
     }
     
-    public function getByIDAndKeys($id, $key1, $key2) {
+    public static function getByIDAndKeys($id, $key1, $key2) {
         $feed = DB::getDB()->query_first("SELECT * FROM icsfeeds WHERE feedID='" . intval($id). "' AND feedKey='" . DB::getDB()->escapeString($key1) . "' AND feedKey2='" . DB::getDB()->escapeString($key2) . "'");
              
         
