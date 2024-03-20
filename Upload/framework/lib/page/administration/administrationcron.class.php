@@ -54,6 +54,15 @@ class administrationcron extends AbstractPage {
         $url2 = str_replace("index.php", "cron.php", DB::getGlobalSettings()->urlToIndexPHP)
             . "?cronkey=" . DB::getGlobalSettings()->cronkey . "&cronName=MailSender";
 
+        $hasUserSync = false;
+
+        if(DB::getGlobalSettings()->lehrerUserMode == "SYNC" || DB::getGlobalSettings()->schuelerUserMode == "SYNC") {
+            $hasUserSync = true;
+        }
+        // UserSync Cron
+        $url3 = str_replace("index.php", "cron.php", DB::getGlobalSettings()->urlToIndexPHP)
+            . "?cronkey=" . DB::getGlobalSettings()->cronkey . "&cronName=SyncUsers";
+
 
 
         /** @var String[] $allCrons */
