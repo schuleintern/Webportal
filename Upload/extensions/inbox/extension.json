@@ -1,9 +1,9 @@
 {
   "name": "Inbox",
   "uniqid": "ext.zwiebelgasse.inbox",
-  "version": "1",
+  "version": "3",
 
-  "requiredVersion": "1.6.3",
+  "requiredVersion": "1.7.0",
 
   "menu": {
     "categorie": "1",
@@ -13,6 +13,16 @@
 
   "adminGroupName": "Admin_Ext_Inbox",
   "aclGroupName": "ext_inbox",
+
+  "widgets": [
+    {
+      "title": "Counter",
+      "uniqid": "inbox.counter",
+      "position": "header",
+      "class": "extInboxWidgetCounter",
+      "params": {}
+    }
+  ],
 
   "submenu": [
     {

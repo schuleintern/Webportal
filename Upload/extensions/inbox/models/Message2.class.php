@@ -194,6 +194,23 @@ class extInboxModelMessage2 extends ExtensionModel
         return $ret;
     }
 
+    public function getUnreadMessages($inbox_id = false, $folder_id = false)
+    {
+        if (!self::$table) {
+            return false;
+        }
+        if (!$inbox_id || !$folder_id ) {
+            return false;
+        }
+        $ret = [];
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE inbox_id = :inbox_id AND folder_id = :folder_id AND isRead = 0 ', ['inbox_id' => $inbox_id, 'folder_id' => $folder_id])->fetchAll();
+
+        foreach($data as $item) {
+            $ret[] = new self($item);
+        }
+        return $ret;
+    }
+
 
 
     public function sendMessage($data = false)
