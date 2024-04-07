@@ -277,7 +277,7 @@ class schueler {
 		list($cJahr, $cMonat, $cTag) = explode("-",$currentDate);
 		list($sJahr, $sMonat, $sTag) = explode("-",$this->data['schuelerGeburtsdatum']);
 
-		$alter = $cJahr - $sJahr;
+		$alter = (int)$cJahr - (int)$sJahr;
 
 		if($cMonat < $sMonat) return $alter-1;
 		else if($cMonat > $sMonat) return $alter;
