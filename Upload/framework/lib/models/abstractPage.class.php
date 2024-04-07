@@ -485,6 +485,10 @@ abstract class AbstractPage
                 }
                 
             }
+            $header_extension = false;
+            if ($this->extension) {
+                $header_extension = true;
+            }
 
             // Render Header
             eval("\$this->header =  \"" . DB::getTPL()->get('header/header') . "\";");
