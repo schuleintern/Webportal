@@ -99,7 +99,7 @@ class PupilsOfGrade extends MessageRecipient {
 		
 		$all = [];
 		
-		for($i = 0; $i < sizeof($klassen); $i++) {
+		for($i = 0; $i < sizeof((array)$klassen); $i++) {
 			$all[] = new PupilsOfGrade($klassen[$i]);
 		}
 		
@@ -110,7 +110,7 @@ class PupilsOfGrade extends MessageRecipient {
 		
 		$all = [];
 		
-		for($g = 0; $g < sizeof($grades); $g++) {
+		for($g = 0; $g < sizeof((array)$grades); $g++) {
 			$klassen = klasse::getByStundenplanName($grades[$g]);
 		
 	
@@ -123,7 +123,7 @@ class PupilsOfGrade extends MessageRecipient {
 	public static function getInstancesForGrades($grades) {
 	    $alle = [];
 	    
-	    for($i = 0; $i < sizeof($grades); $i++) {
+	    for($i = 0; $i < sizeof((array)$grades); $i++) {
 	        $k = self::getOnly($grades[$i]);
 	        for($l = 0; $l < sizeof($k); $l++) {
 	            $alle = $l[$l];
