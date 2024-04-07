@@ -20,7 +20,11 @@ class setAntrag extends AbstractRest {
 
         $volljaehrige = DB::getSettings()->getBoolean("extBeurlaubung-volljaehrige-schueler");
         if ($volljaehrige == 1) {
-            $acl['rights']['write'] = 1;
+            $this->acl['rights']['write'] = 0;
+            $alter = (int)DB::getSession()->getPupilObject()->getAlter();
+            if ($alter >= 18) {
+                $this->acl['rights']['write'] = 1;
+            }
         }
 
         if ( !$this->canWrite() ) {
