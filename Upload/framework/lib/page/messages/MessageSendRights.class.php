@@ -207,7 +207,9 @@ class MessageSendRights extends AbstractPage {
     }
 
     public static function init() {
-        self::$isAdmin = (DB::getSession()->isAdmin() || DB::getSession()->isMember('Webportal_Elternmail'));
+        if (DB::getSession()) {
+            self::$isAdmin = (DB::getSession()->isAdmin() || DB::getSession()->isMember('Webportal_Elternmail'));
+        }
     }
 
     /**
@@ -266,7 +268,7 @@ class MessageSendRights extends AbstractPage {
                         for($u = 0; $u < sizeof($unterricht); $u++) {
                             $lehrers = $unterricht[$u]->getLehrer();
 
-                            if($lehrers && count($lehrers) > 0) {
+                            if($lehrers && count((array)$lehrers) > 0) {
 
                                 $found = false;
                                 for($n = 0; $n < sizeof($lehrer); $n++) {

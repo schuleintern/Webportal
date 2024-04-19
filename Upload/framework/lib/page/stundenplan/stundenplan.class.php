@@ -329,8 +329,8 @@ class stundenplan extends AbstractPage {
 
 
 
-            self::$begin[$i][$s] = $dataStart[0]*60+ $dataStart[1];
-            self::$ende[$i][$s] =  $dataEnde[0]*60+$dataEnde[1];
+            self::$begin[$i][$s] = (int)$dataStart[0] * 60+ $dataStart[1];
+            self::$ende[$i][$s] =  (int)$dataEnde[0] * 60+$dataEnde[1];
           }
         } elseif($i > 1) {
           self::$begin[$i] = self::$begin[1];
@@ -543,7 +543,7 @@ class stundenplan extends AbstractPage {
 
         for($s = 0; $s < 5; $s++) {
           for($t = 0; $t < 11; $t++) {
-            $a = sizeof($sData[$s][$t]);
+            $a = sizeof((array)$sData[$s][$t]);
             if($maxcells[$s] < $a) $maxcells[$s] = $a;
           }
         }

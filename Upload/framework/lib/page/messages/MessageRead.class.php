@@ -22,7 +22,7 @@ class MessageRead extends AbstractPage {
       new errorPage("Nachricht nicht gefunden!");
     }
 
-    if($this->message->getUserID() != DB::getSession()->getUserID()) {
+    if(!DB::getSession() || $this->message->getUserID() != DB::getSession()->getUserID()) {
       new errorPage("Zugriffsverletzung!");
     }
     

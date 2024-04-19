@@ -70,18 +70,19 @@ class WLanTickets extends AbstractPage {
 		            }
 		        }
 		        
-		        
-		        for($i = 0; $i < sizeof($_REQUEST['klassen']); $i++) {
-		            $klasse = klasse::getByName($_REQUEST['klassen'][$i]);
-		            
-		            if($klasse != null) {
-		                $scs = $klasse->getSchueler();
-		                
-		                for($s = 0; $s < sizeof($scs); $s++) {
-		                    if($scs[$s]->getUser() != null) $schueler[] = $scs[$s];
-		                }
-		            }
-		        }
+		        if ($_REQUEST['klassen']) {
+                    for($i = 0; $i < sizeof($_REQUEST['klassen']); $i++) {
+                        $klasse = klasse::getByName($_REQUEST['klassen'][$i]);
+
+                        if($klasse != null) {
+                            $scs = $klasse->getSchueler();
+
+                            for($s = 0; $s < sizeof($scs); $s++) {
+                                if($scs[$s]->getUser() != null) $schueler[] = $scs[$s];
+                            }
+                        }
+                    }
+                }
 		        
 		        for($i = 0; $i < sizeof($schueler); $i++) {
 		            $ticket = WLanTicket::getNextTicket('SCHUELER', $_REQUEST['duration']);

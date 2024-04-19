@@ -6,7 +6,7 @@ class updatevplan extends AbstractPage {
         parent::__construct("Startseite");
 
         header("Content-Type: text/html; charset=UTF-8");
-        
+
         if($_REQUEST['key'] != DB::getSettings()->getValue("vplan-updateKey")) die(("Kein Zugriff, da Zugriffstoken nicht korrekt! (Fehler 7)"));
     }
     
@@ -101,7 +101,7 @@ class updatevplan extends AbstractPage {
                 $page = file("./vplan/$name/seite$i.htm");
                 
                 // Datum suchen
-                for($z = 0; $z < sizeof($page); $z++) {
+                for($z = 0; $z < sizeof((array)$page); $z++) {
                     if(strpos($page[$z], "Stand: ")) {
                         // Stand gefunden
                         $line = explode("Stand: ", $page[$z]);
@@ -186,7 +186,7 @@ class updatevplan extends AbstractPage {
                 
                 if($datum == $stand) {
                     $doit = false;
-                    for($z = 0; $z < sizeof($page); $z++) {
+                    for($z = 0; $z < sizeof((array)$page); $z++) {
                         $page[$z] = ($page[$z]);
                         // if($doit && !strpos($page[$z], "Pausenaufsicht") && !strpos($page[$z], "Bereitschaft") ) {
                         

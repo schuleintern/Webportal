@@ -21,7 +21,10 @@ class schueler {
 
     public function getCollection($full = false, $avatar = false) {
         $user = user::getUserByID($this->getUserID());
-        return $user->getCollection($full, $avatar);
+        if ($user) {
+            return $user->getCollection($full, $avatar);
+        }
+        return false;
     }
 	
 	/**
