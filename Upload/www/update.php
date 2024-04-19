@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.7.0
+ * Version 1.7.1
  *
  */
 
@@ -23,6 +23,11 @@ include_once '../data/config/config.php';
 
 class Updates
 {
+
+    public static function to171($root)
+    {
+        return true;
+    }
 
     public static function to170($root)
     {
@@ -324,7 +329,7 @@ class Update
         if ($data['nextVersion']) {
             $this->nextVersion = $data['nextVersion'];
         }
-        $this->folder .= '-' . $this->lastVersion . '-' . date('Y-m-d', time());
+        $this->folder .= '-' . $this->lastVersion . '-' . date('Y-m-d-H-i-s', time());
 
         $this->settings = new GlobalSettings();
 
@@ -384,7 +389,7 @@ class Update
     public function executeVersion()
     {
         $method = 'to' . str_replace('.', '', $this->nextVersion);
-        if (method_exists(Updates, $method)) {
+        if (method_exists('Updates', $method)) {
             if (Updates::$method($this) != true) {
                 return false;
             }
