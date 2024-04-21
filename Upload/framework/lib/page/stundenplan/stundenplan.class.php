@@ -1,5 +1,6 @@
 <?php
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class stundenplan extends AbstractPage {
 
@@ -1389,9 +1390,12 @@ class stundenplan extends AbstractPage {
 
         $values = array();
 
-        include_once('../framework/lib/phpexcel/PHPExcel.php');
+        //include_once('../framework/lib/phpexcel/PHPExcel.php');
+        //$exportClass = new exportXls();
 
-        $objReader = PHPExcel_IOFactory::createReader('Excel2007');
+        //$objReader = PHPExcel_IOFactory::createReader('Excel2007');
+        $objReader = IOFactory::createReader('Xlsx');
+
         $objReader->setReadDataOnly(true);
         
 
