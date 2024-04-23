@@ -112,7 +112,7 @@ class stundenplandata {
 				break;
 				
 				case "grade":
-					if(substr($filter[1],-1) != "%") $filter[1] .= "%";
+					if(substr((string)$filter[1],-1) != "%") $filter[1] .= "%";
 					$sql = "stundeKlasse LIKE '" . $filter[1] . "'";
 				break;
 			}

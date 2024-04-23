@@ -469,7 +469,7 @@ class laufzettel extends AbstractPage {
 
 			for($i = 0; $i < sizeof($grades); $i++) {
 				if($grades[$i] != "")
-					$optionsGrades .= "<option value=\"" . $grades[$i] . "\"" . ((in_array($grades[$i],$_POST['klassen'])) ? (" selected=\"selected\"") : ("")) . ">" . $grades[$i] . "</option>\n";
+					$optionsGrades .= "<option value=\"" . $grades[$i] . "\"" . ((in_array($grades[$i],(array)$_POST['klassen'])) ? (" selected=\"selected\"") : ("")) . ">" . $grades[$i] . "</option>\n";
 			}
 
 			// $myData = "<tr><td colspan=\"6\" style=\"text-align:center\"><strong>Keine</strong></td></tr>";
@@ -507,15 +507,16 @@ class laufzettel extends AbstractPage {
 
 			$ersteller = DB::getSession()->getTeacherObject()->getKuerzel();
 
-			$alleKlassen = implode(", ", $_POST['klassen']);
+			$alleKlassen = implode(", ", (array)$_POST['klassen']);
 
 			$datum = $_POST['laufzettelDatum'];
 			
 			$messageRecipients = [];
-			
 
-			for($i = 0; $i < sizeof($_POST['klassen']); $i++) {
-				$klassendata = $stundenplan->getPlan(array("grade",$_POST['klassen'][$i]));
+            $klassen = (array)$_POST['klassen'];
+
+			for($i = 0; $i < sizeof($klassen); $i++) {
+				$klassendata = $stundenplan->getPlan(array("grade",$klassen[$i]));
 
 				for($stunde = 0; $stunde < sizeof($klassendata[$tag]); $stunde++) {
 					$realStunde = $stunde+1;
@@ -587,7 +588,7 @@ class laufzettel extends AbstractPage {
 				exit(0);
 			}
 
-			$listKlassen = implode(", ",$_POST['klassen']);
+			$listKlassen = implode(", ",(array)$_POST['klassen']);
 			
 			
 			eval("echo(\"" . DB::getTPL()->get("laufzettel/add/check/index") . "\");");
@@ -800,7 +801,10 @@ class laufzettel extends AbstractPage {
 
 			}
 
-			$perCentDone = round($zustimmung / $gesamt *100);
+            if ( $gesamt > 0) {
+                $perCentDone = round($zustimmung / $gesamt *100);
+            }
+
 			
 			$optionenUnterrichtsgang = "";
 
