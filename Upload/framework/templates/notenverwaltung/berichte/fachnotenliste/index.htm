@@ -8,18 +8,18 @@ Stand: <expression>DateFunctions::getTodayAsNaturalDate()</expression>
 				<th<expression>(sizeof($arbeiten['SA']) > 1 ? ' colspan="' . sizeof($arbeiten['SA'] . '"') : "")</expression>>Große Leistungsnachweise</th>
 				<th>&Oslash; groß</th>
 				<th colspan="<expression>
-					
+
 					(
-				
+
 					(sizeof($arbeiten['KA']) > 0 ? sizeof($arbeiten['KA']) : 0)
 						+
 					(sizeof($arbeiten['EX']) > 0 ? sizeof($arbeiten['EX']) : 1)
 						+
 					(sizeof($arbeiten['MDL']) > 0 ? sizeof($arbeiten['MDL']) : 1)
-					
+
 					)
-				
-				
+
+
 				</expression>">Kleine Leistungsnachweise</th>
 				<th>&Oslash; klein</th>
 				<th colspan="$colspanGesamtNoten">Gesamtnoten</th>
@@ -32,14 +32,14 @@ Stand: <expression>DateFunctions::getTodayAsNaturalDate()</expression>
 					<th<expression>(sizeof($arbeiten['KA']) > 1 ? ' colspan="' . sizeof($arbeiten['KA'] . '"') : "")</expression>>Kurzarbeiten</th>
 				</then></if>
 				<th<expression>(sizeof($arbeiten['EX']) > 1 ? ' colspan="' . sizeof($arbeiten['EX'] . '"') : "")</expression>>Stegreifaufgaben</th>
-				<th<expression>(sizeof($arbeiten['MDL']) > 1 ? ' colspan="' . sizeof($arbeiten['MDL'] . '"') : "")</expression>>mündliche Noten</th>
+				<th<expression>if(is_array($arbeiten['MDL'])) {(sizeof($arbeiten['MDL']) > 1 ? ' colspan="' . sizeof($arbeiten['MDL'] . '"') : "")}</expression>>mündliche Noten</th>
 				<th>&nbsp;</th>
-				
+
 				<if($verrechnung != null)><then><th colspan="3">Schnitt</th></then>
-				
+
 				<else><th>Schnitt</th></else></if>
-				
+
 				<th colspan="<expression>($colspanGesamtNoten-1)</expression>">Zeugnisse</th>
 			</tr>
-			$htmlSchueler		
+			$htmlSchueler
 		</table>
