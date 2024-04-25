@@ -24,51 +24,54 @@ class ElternMailReceiver extends AbstractCron {
 
 		    $mb = imap_open("{" . DB::getSettings()->getValue('mail-server') . ":143/imap}INBOX",DB::getSettings()->getValue('mail-server-username'), DB::getSettings()->getValue('mail-server-password') );
 
-			$messageCount = imap_num_msg($mb);
-			
-			if($messageCount > 200) $messageCount = 200;
-			for( $MID = 1; $MID <= $messageCount; $MID++ ) {
-				$EmailHeaders = imap_headerinfo( $mb, $MID );
-							
-				$betreff = mb_decode_mimeheader($EmailHeaders->subject);
-				
-				$this->receivedMails++;
-							
-				if(substr_count($betreff,"[") == 1) {
-					if(substr_count($betreff,"]") == 1) {
-						if(substr_count($betreff,"{") == 1 && substr_count($betreff,"}") == 1) {
-							$mailID = substr($betreff,strpos($betreff, "[")+1,strpos($betreff, "]") - strpos($betreff, "[")-1);
-							$code = substr($betreff,strpos($betreff, "{")+1,strpos($betreff, "}") - strpos($betreff, "{")-1);
-							
-							$mail = DB::getDB()->query_first("SELECT * FROM messages_messages WHERE messageID='" . DB::getDB()->escapeString($mailID) . "'");			
-							
-							if($mail['messageID'] > 0) {
-								if($mail['messageNeedConfirmation'] > 0) {
-									if($mail['messageID'] == $mailID && $mail['messageConfirmSecret'] == $code) {
-										DB::getDB()->query("UPDATE messages_messages SET messageIsConfirmed=1, messageConfirmTime=UNIX_TIMESTAMP() WHERE messageID='" . DB::getDB()->escapeString($mailID) . "'");
-										imap_delete($mb,$EmailHeaders->Msgno);
-									}
-									else imap_delete($mb,$EmailHeaders->Msgno);
-								}
-								else {
-									imap_delete($mb,$EmailHeaders->Msgno);
-								}
-							} else imap_delete($mb,$EmailHeaders->Msgno);
-						} else imap_delete($mb,$EmailHeaders->Msgno);
-					}
-					else {
-						$this->handleUnknownMail($mb, $MID);
-						imap_delete($mb,$EmailHeaders->Msgno);
-					}
-				}
-				else {
-					$this->handleUnknownMail($mb, $MID);
-					imap_delete($mb,$EmailHeaders->Msgno);
-				}
-			}
-			
-			imap_expunge($mb);	// Nachrichten löschen
-			imap_close($mb);	// Verbindung schließen
+            if ($mb) {
+
+                $messageCount = imap_num_msg($mb);
+
+                if($messageCount > 200) $messageCount = 200;
+                for( $MID = 1; $MID <= $messageCount; $MID++ ) {
+                    $EmailHeaders = imap_headerinfo( $mb, $MID );
+
+                    $betreff = mb_decode_mimeheader($EmailHeaders->subject);
+
+                    $this->receivedMails++;
+
+                    if(substr_count($betreff,"[") == 1) {
+                        if(substr_count($betreff,"]") == 1) {
+                            if(substr_count($betreff,"{") == 1 && substr_count($betreff,"}") == 1) {
+                                $mailID = substr($betreff,strpos($betreff, "[")+1,strpos($betreff, "]") - strpos($betreff, "[")-1);
+                                $code = substr($betreff,strpos($betreff, "{")+1,strpos($betreff, "}") - strpos($betreff, "{")-1);
+
+                                $mail = DB::getDB()->query_first("SELECT * FROM messages_messages WHERE messageID='" . DB::getDB()->escapeString($mailID) . "'");
+
+                                if($mail['messageID'] > 0) {
+                                    if($mail['messageNeedConfirmation'] > 0) {
+                                        if($mail['messageID'] == $mailID && $mail['messageConfirmSecret'] == $code) {
+                                            DB::getDB()->query("UPDATE messages_messages SET messageIsConfirmed=1, messageConfirmTime=UNIX_TIMESTAMP() WHERE messageID='" . DB::getDB()->escapeString($mailID) . "'");
+                                            imap_delete($mb,$EmailHeaders->Msgno);
+                                        }
+                                        else imap_delete($mb,$EmailHeaders->Msgno);
+                                    }
+                                    else {
+                                        imap_delete($mb,$EmailHeaders->Msgno);
+                                    }
+                                } else imap_delete($mb,$EmailHeaders->Msgno);
+                            } else imap_delete($mb,$EmailHeaders->Msgno);
+                        }
+                        else {
+                            $this->handleUnknownMail($mb, $MID);
+                            imap_delete($mb,$EmailHeaders->Msgno);
+                        }
+                    }
+                    else {
+                        $this->handleUnknownMail($mb, $MID);
+                        imap_delete($mb,$EmailHeaders->Msgno);
+                    }
+                }
+
+                imap_expunge($mb);	// Nachrichten löschen
+                imap_close($mb);	// Verbindung schließen
+            }
 		}
 	}
 		
