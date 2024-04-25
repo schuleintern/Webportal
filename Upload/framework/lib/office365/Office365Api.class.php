@@ -138,16 +138,18 @@ class Office365Api {
         $data = self::getCurlContext('GET', 'v1.0/subscribedSkus', []);
 
 
-        for($i = 0; $i < sizeof($data['data']->value); $i++) {
-            $l = $data['data']->value[$i];
+        if ($data['data']->value) {
+            for($i = 0; $i < sizeof($data['data']->value); $i++) {
+                $l = $data['data']->value[$i];
 
-            if($l->capabilityStatus == 'Enabled') {
-                $lizenzen[] = [
-                    'name' => $l->skuPartNumber,
-                    'availible' => $l->prepaidUnits->enabled,
-                    'consumed' => $l->consumedUnits,
-                    'id' => $l->skuId
-                ];
+                if($l->capabilityStatus == 'Enabled') {
+                    $lizenzen[] = [
+                        'name' => $l->skuPartNumber,
+                        'availible' => $l->prepaidUnits->enabled,
+                        'consumed' => $l->consumedUnits,
+                        'id' => $l->skuId
+                    ];
+                }
             }
         }
 
