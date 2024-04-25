@@ -534,7 +534,8 @@ class NotenBerichte extends AbstractPage {
     $print = new PrintInBrowser("");
     $print->setHTMLContent($html);
     $print->send();
-    
+
+    exit;
     
   }
   
