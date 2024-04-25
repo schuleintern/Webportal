@@ -73,7 +73,7 @@ class administrationusermatch extends AbstractPage {
 		}
 	}
 	
-	private function showIndex() {
+	private static function showIndex() {
 		
 		if($_GET['showNetwork'] > 0) {
 			$tabs = "";

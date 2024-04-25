@@ -261,7 +261,7 @@ class AdministrationEltern extends AbstractPage {
 		}
 	}
 	
-	private function showIndex($selfURL) {
+	private static function showIndex($selfURL) {
 
 		$tabs = "";
 
