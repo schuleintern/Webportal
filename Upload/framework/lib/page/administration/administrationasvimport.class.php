@@ -656,7 +656,7 @@ class administrationasvimport extends AbstractPage
 
                     foreach ($schueler->fremdsprachen->fremdsprache as $sprache) {
                         $sprachen[] = [
-                            'jahrgangsstufe' => $jahrgangsstufen[strval($sprache->von_jahrgangsstufe) * 1],
+                            'jahrgangsstufe' => $jahrgangsstufen[(int)$sprache->von_jahrgangsstufe * 1],
                             'feststellungspruefung' => ((strval($sprache->feststellungspruefung) == 'true') ? 1 : 0),
                             'unterrichtsfach' => $unterrichtsfaecher[strval($sprache->unterrichtsfach) * 1],
                             'sortierung' => strval($sprache->sortierung)
