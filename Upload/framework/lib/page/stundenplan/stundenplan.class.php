@@ -1420,6 +1420,8 @@ class stundenplan extends AbstractPage {
 
         $values = array();
 
+        $days = ['Mo','Di','Mi','Do','Fr'];
+
         for($i = 0; $i < sizeof($klassenPlaene); $i++) {
           $klasse = ($klassenPlaene[$i]->getTitle());
           $klasse = str_split($klasse);
@@ -1449,7 +1451,8 @@ class stundenplan extends AbstractPage {
           
           $fridaySeen = false;
           foreach($cellIt as $cell) {
-            if($cell->getValue() != "" && $cell->getValue() != "SPM++") {
+
+            if( $cell->getValue() && in_array( $cell->getValue() , $days) ) {
               $tag = $cell->getValue();
              
               
@@ -1465,7 +1468,6 @@ class stundenplan extends AbstractPage {
             }
             $maxCell++;
           }
-          
 
           // Breiten bestimmen
 
@@ -1502,7 +1504,7 @@ class stundenplan extends AbstractPage {
               for($s = 1; $s <= DB::getSettings()->getValue("stundenplan-anzahlstunden"); $s++) {
                 $zeilen = ($anfangZeilen[$s+1] - $anfangZeilen[$s]) / 3;
                 for($b = $anfangZeilen[$s]; $b < $anfangZeilen[$s+1]; $b = $b+3) {
-                  $spalte = $k-1;
+                  $spalte = $k;
                   $stunde = $s;
                   $tag = $tagNummer;
 
@@ -1528,9 +1530,9 @@ class stundenplan extends AbstractPage {
                       $zeileRaum = $b+3;
                   }
 
-                  $fach = ($klassenPlaene[$i]->getCellByColumnAndRow($spalte,$zeileFach));
-                  $lehrer = ($klassenPlaene[$i]->getCellByColumnAndRow($spalte,$zeileLehrer));
-                  $raum = ($klassenPlaene[$i]->getCellByColumnAndRow($spalte,$zeileRaum));
+                  $fach = ($klassenPlaene[$i]->getCell([$spalte,$zeileFach]));
+                  $lehrer = ($klassenPlaene[$i]->getCell([$spalte,$zeileLehrer]));
+                  $raum = ($klassenPlaene[$i]->getCell([$spalte,$zeileRaum]));
 
                   if($lehrer != "" || $fach != "" || $raum != "") {
                     $values[] = "(
