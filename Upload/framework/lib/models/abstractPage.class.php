@@ -54,7 +54,7 @@ abstract class AbstractPage
     ) {
 
 
-        header("X-Frame-Options: deny");
+        //header("X-Frame-Options: deny"); // aus damit print im browser geht - notenverwaltung
 
         $this->request = $request;
         $this->extension = $extension;
