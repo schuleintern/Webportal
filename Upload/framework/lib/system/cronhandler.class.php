@@ -48,7 +48,8 @@ class cronhandler
             exit(0);
         }
 
-        include(PATH_PAGE."abstractPage.class.php");
+        //include(PATH_PAGE."abstractPage.class.php");
+        include (PATH_LIB.'models'.DS.'abstractPage.class.php');
 
         PAGE::setFactory(new FACTORY());
 
@@ -176,9 +177,11 @@ class cronhandler
                 $lastExecution = DB::getDB()->query_first("SELECT * FROM cron_execution WHERE cronName='" . $cronList[$i] . "' ORDER BY cronStartTime DESC LIMIT 1");
 
 
-                if (sizeof($lastExecution) == 0) {
+                if ($lastExecution && sizeof($lastExecution) == 0) {
                     $lastExecution = time() - 1 - $cron->executeEveryXSeconds();    // First Run
-                } else $lastExecution = $lastExecution['cronStartTime'];
+                } else {
+                    $lastExecution = $lastExecution['cronStartTime'];
+                }
 
                 $cronStatus = 'skipped';
 
