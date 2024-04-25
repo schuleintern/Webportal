@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.7.2
+ * Version 1.7.3
  *
  */
 
@@ -23,6 +23,11 @@ include_once '../data/config/config.php';
 
 class Updates
 {
+
+    public static function to173($root)
+    {
+        return true;
+    }
 
     public static function to172($root)
     {
