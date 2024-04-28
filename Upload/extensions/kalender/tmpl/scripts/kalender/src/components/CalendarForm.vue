@@ -161,7 +161,8 @@ export default {
   data() {
     return {
       open: false,
-      form: []
+      form: [],
+      aclVorschlag: false
     };
   },
   props: {
@@ -186,6 +187,9 @@ export default {
       }
 
       that.open = true;
+
+      that.aclVorschlag = true;
+
     });
     this.$bus.$on('event-form--close', data => {
       that.open = false;
@@ -209,9 +213,11 @@ export default {
     },
     checkAcl(acl) {
 
+      //console.log(acl);
+
       if (acl && acl.rights) {
         //console.log(acl);
-        if (parseInt(acl.rights.write) === 1) {
+        if ( parseInt(acl.rights.write) === 1 || this.aclVorschlag) {
           return true;
         }
       }

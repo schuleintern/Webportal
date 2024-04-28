@@ -2,13 +2,18 @@
   <div class="">
 
     <div class="flex-row flex-space-between">
-      <button class="si-btn si-btn-light" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück</button>
-      <button class="si-btn si-btn-light" @click="handlerDelete()" v-if="deleteBtn === false"><i
-          class="fa fa fa-trash"></i> Löschen
-      </button>
-      <button class="si-btn si-btn-red" @click="handlerDeleteDo(item)" v-if="deleteBtn === true"><i
-          class="fa fa fa-trash"></i> Wirklich Löschen ?
-      </button>
+      <div class="">
+        <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück</button>
+        <button class="si-btn " @click="handlerSaveForm()"><i class="fa fa fa-save"></i> Speichern</button>
+      </div>
+      <div class="">
+        <button class="si-btn si-btn-light" @click="handlerDelete()" v-if="deleteBtn === false"><i
+            class="fa fa fa-trash"></i> Löschen
+        </button>
+        <button class="si-btn si-btn-red" @click="handlerDeleteDo(item)" v-if="deleteBtn === true"><i
+            class="fa fa fa-trash"></i> Wirklich Löschen ?
+        </button>
+      </div>
     </div>
 
 
@@ -116,8 +121,9 @@ export default {
       var that = this;
       this.$bus.$emit('item--submit', {
         item: this.form,
-        callback: function (data) {
-          that.item.id = data.id;
+        callback: function () {
+          //that.item.id = data.id;
+          that.handlerBack();
         }
       });
       return false;
@@ -137,16 +143,19 @@ export default {
 
     handlerToggleChange(event, item, elm) {
       item[elm] = event.value;
-      this.handlerSaveForm();
+      //this.handlerSaveForm();
     },
 
-    handlerChangeAcl(newVal) {
+    handlerChangeAcl() {
 
-
+      //this.form.acl = JSON.stringify(newVal)
+      /*
       this.$bus.$emit('item--acl', {
         acl: newVal,
         id: this.item.id
       });
+      */
+
     }
 
   }

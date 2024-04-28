@@ -1,9 +1,9 @@
 {
   "name": "Kalender",
   "uniqid": "ext.zwiebelgasse.kalender",
-  "version": "13",
+  "version": "14",
 
-  "requiredVersion": "1.6.3",
+  "requiredVersion": "1.7.3",
 
   "menu": {
     "categorie": "1",

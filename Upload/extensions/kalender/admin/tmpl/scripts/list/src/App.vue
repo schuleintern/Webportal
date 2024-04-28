@@ -177,9 +177,10 @@ export default {
       formData.append('color', data.item.color);
       formData.append('sort', data.item.sort);
       formData.append('preSelect', data.item.preSelect);
-      formData.append('acl', data.item.acl);
+      //formData.append('acl', data.item.acl);
       formData.append('ferien', data.item.ferien);
       formData.append('public', data.item.public);
+      formData.append('acl', JSON.stringify(data.item.acl));
 
       this.loading = true;
       var that = this;
@@ -250,6 +251,7 @@ export default {
 
     });
 
+    /*
     this.$bus.$on('item--acl', data => {
 
       if (!data.id) {
@@ -289,6 +291,8 @@ export default {
 
 
     });
+    */
+
 
 
   },

@@ -50,6 +50,17 @@ class setAdminKalender extends AbstractRest {
 
         if ( $insert_id = extKalenderModelKalender::submitData($input) ) {
 
+            $acl = json_decode($_POST['acl']);
+            echo '<pre>';
+            print_r($acl);
+            echo '</pre>';
+            if ( $acl ) {
+                $acl->aclModuleClassParent = 'ext_kalender';
+                if ( $return = ACL::setAcl($acl) ) {
+                    extKalenderModelKalender::updateAcl($id, $return['aclID']);
+                }
+            }
+
             return [
                 'success' => true,
                 'id' => $insert_id

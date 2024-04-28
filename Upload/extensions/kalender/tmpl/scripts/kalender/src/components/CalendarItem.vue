@@ -131,6 +131,7 @@ export default {
   methods: {
 
     handlerClose: function () {
+      this.deleteBtn = false;
       this.$bus.$emit('event-item--close');
     },
 
