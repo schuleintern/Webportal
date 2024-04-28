@@ -280,16 +280,16 @@ abstract class ExtensionModel
             }
         }
 
-        if ( !$data['id'] || $data['id'] == 0 )  {
+        if ( !$data[$this->_table_id] || $data[$this->_table_id] == 0 )  {
             return DB::run('INSERT INTO ' . $this->_table . ' (' . implode(',', array_keys($data)) . ') values(:' . implode(', :', array_keys($data)) . ');', $data);
         } else {
             $sql = [];
             foreach($data as $k => $o) {
-                if ($k != 'id') {
+                if ($k != $this->_table_id  ) {
                     $sql[] = $k.' = :'.$k;
                 }
             }
-            return DB::run("UPDATE " . $this->_table . " SET ".implode(', ', $sql)." WHERE ".$this->_table_id." = :id", $data);
+            return DB::run("UPDATE " . $this->_table . " SET ".implode(', ', $sql)." WHERE ".$this->_table_id." = :".$this->_table_id, $data);
         }
     }
 

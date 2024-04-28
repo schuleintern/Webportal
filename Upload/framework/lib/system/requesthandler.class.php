@@ -250,6 +250,12 @@ class requesthandler {
       mkdir(PATH_WWW_TMP);
     }
 
+    if ( !is_dir(PATH_TMP)) {
+        mkdir(PATH_TMP);
+    }
+
+
+
     $allowed = false;
     $type = false;
 
