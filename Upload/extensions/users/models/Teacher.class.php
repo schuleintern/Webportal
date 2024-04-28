@@ -22,6 +22,8 @@ class extUsersModelTeacher extends ExtensionModel
 
 
     static $defaults = [
+        'lehrerNameVorgestellt' => '',
+        'lehrerNameNachgestellt' => ''
     ];
 
 

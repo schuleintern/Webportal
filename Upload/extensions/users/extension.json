@@ -1,9 +1,9 @@
 {
   "name": "Benutzer",
   "uniqid": "ext.zwiebelgasse.users",
-  "version": "4",
+  "version": "5",
 
-  "requiredVersion": "1.7.0",
+  "requiredVersion": "1.7.3",
 
   "menu": {
     "categorie": "1",
@@ -17,7 +17,17 @@
 
   "submenu": [
 
-
+    {
+      "title": "Übersicht",
+      "icon": "fa fa-chart-line",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "default",
+          "admin": "true"
+        }
+      }
+    },
     {
       "title": "Benutzer",
       "icon": "fa fa-users",

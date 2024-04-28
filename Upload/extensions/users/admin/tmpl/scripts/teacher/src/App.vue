@@ -52,8 +52,7 @@ export default {
         this.item = data.item;
       } else {
         this.item = {
-          id: 0,
-          title: ''
+          id: 0
         };
       }
       this.handlerPage(data.page);
@@ -62,28 +61,33 @@ export default {
 
     this.$bus.$on('item--submit', data => {
 
-      if (!data.item.title) {
+
+      if (!data.asvid) {
         console.log('missing');
         return false;
       }
 
       const formData = new FormData();
-      formData.append('id', data.item.id);
-      formData.append('title', data.item.title);
-      formData.append('leader_id', data.item.leader_id);
-      formData.append('color', data.item.color);
-      formData.append('room', data.item.room);
-      formData.append('info', data.item.info);
-      formData.append('days', JSON.stringify(data.item.days));
+      formData.append('id', data.id || '');
+      formData.append('asvid', data.asvid || '');
+      formData.append('vorname', data.vorname || '');
+      formData.append('nachname', data.nachname || '');
+      formData.append('short', data.short || '');
+      formData.append('rufname', data.rufname || '');
+      formData.append('gender', data.gender || '');
+      formData.append('zeugniss', data.zeugniss || '');
+      formData.append('amtbez', data.amtbez || '');
+      formData.append('userid', data.userid || '');
 
       this.loading = true;
       var that = this;
-      axios.post(this.apiURL + '/setActivity', formData)
+      axios.post(this.apiURL + '/setTeacher', formData)
       .then(function (response) {
         if (response.data) {
 
           if (response.data.error) {
             that.error = '' + response.data.msg;
+            console.log(response.data.msg)
           } else {
 
             that.loadList();

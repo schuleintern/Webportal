@@ -3,7 +3,7 @@
 
     <div v-show="open" class="si-error"  >
       <div class="head">Error:</div>
-      <div class="msg">{{ msg }}</div>
+      <div class="msg">{{ error }}</div>
     </div>
 
   </div>
@@ -15,31 +15,23 @@ export default {
   data() {
     return {
       interval: false,
-      open: false,
-      msg: false
+      open: false
     };
   },
   props: {
-    error: String
+      error: String
   },
   created: function () {
-
-    this.$bus.$on('error', data => {
-
-      if (data.msg) {
-        this.open = true;
-        this.msg = data.msg;
-        this.interval = window.setTimeout(this.close,3000);
-      }
-
-    });
 
   },
   watch: {
     error: function(newVal) {
-      this.msg = newVal;
-      this.open = true;
-      this.interval = window.setTimeout(this.close,3000);
+      if (newVal != false) {
+        this.open = true;
+        this.interval = window.setTimeout(this.close,3000);
+      } else {
+        window.clearTimeout(this.interval);
+      }
     }
   },
   methods: {

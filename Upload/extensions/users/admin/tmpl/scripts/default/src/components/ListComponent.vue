@@ -3,34 +3,36 @@
 
 
     <input type="search" class="si-input " v-model="searchString" placeholder="Suche..."/>
-    <button class="si-btn margin-l-l" @click="handlerOpen()"><i class="fa fa-plus"></i> Lehrer hinzufügen</button>
 
+    <select class="si-input margin-l-m" v-on:change="handlerFilter($event, 'type')">
+      <option>- Type -</option>
+      <option value="isPupil">Schüler*in</option>
+      <option value="isEltern">Eltern</option>
+      <option value="isTeacher">Lehrer*in</option>
+      <option value="isNone">Sonstige</option>
+    </select>
 
     <table class="si-table si-table-style-allLeft" v-if="sortList && sortList.length >= 1">
       <thead>
       <tr>
-        <th v-on:click="handlerSort('lehrerAsvID')" class="curser-sort" :class="{'text-orange': sort.column == 'lehrerAsvID'}">AsvID</th>
-        <th v-on:click="handlerSort('lehrerName')" class="curser-sort" :class="{'text-orange': sort.column == 'lehrerName'}">Name</th>
-        <th v-on:click="handlerSort('lehrerVornamen')" class="curser-sort" :class="{'text-orange': sort.column == 'lehrerVornamen'}">Vorname</th>
-        <th v-on:click="handlerSort('lehrerRufname')" class="curser-sort" :class="{'text-orange': sort.column == 'lehrerRufname'}">Rufname</th>
-        <th v-on:click="handlerSort('lehrerGeschlecht')" class="curser-sort" :class="{'text-orange': sort.column == 'lehrerGeschlecht'}">Geschlecht</th>
-        <th v-on:click="handlerSort('lehrerZeugnisunterschrift')" class="curser-sort" :class="{'text-orange': sort.column == 'lehrerZeugnisunterschrift'}">Zeugnisunterschrift</th>
-        <th v-on:click="handlerSort('lehrerAmtsbezeichnung')" class="curser-sort" :class="{'text-orange': sort.column == 'lehrerAmtsbezeichnung'}">Amtsbezeichnung</th>
-        <th v-on:click="handlerSort('lehrerUserID')" class="curser-sort" :class="{'text-orange': sort.column == 'lehrerUserID'}">UserID</th>
+        <th v-on:click="handlerSort('vorname')" class="curser-sort" :class="{'text-orange': sort.column == 'vorname'}">Vorname</th>
+        <th v-on:click="handlerSort('nachname')" class="curser-sort" :class="{'text-orange': sort.column == 'nachname'}">Nachname</th>
+        <th v-on:click="handlerSort('type')" class="curser-sort" :class="{'text-orange': sort.column == 'type'}">Type</th>
+        <th v-on:click="handlerSort('id')" class="curser-sort" :class="{'text-orange': sort.column == 'id'}">ID</th>
       </tr>
       </thead>
       <tbody>
       <tr v-bind:key="index" v-for="(item, index) in  sortList" class="">
-        <td>{{ item.lehrerAsvID }}</td>
-        <td><a :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{ item.lehrerName }}</a></td>
-        <td>{{ item.lehrerVornamen}}</td>
-        <td>{{ item.lehrerRufname }}</td>
-        <td>{{ item.lehrerGeschlecht }}</td>
-        <td>{{ item.lehrerZeugnisunterschrift }}</td>
-        <td>{{ item.lehrerAmtsbezeichnung }}</td>
-        <td>{{ item.lehrerUserID }}</td>
+        <td>{{ item.vorname }}</td>
+        <td><a :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{ item.nachname }}</a></td>
+        <td>
+          <button v-if="item.type=='isPupil'" class="si-btn si-btn-border si-btn-small">Schüler*in</button>
+          <button v-if="item.type=='isEltern'" class="si-btn si-btn-border si-btn-small">Eltern</button>
+          <button v-if="item.type=='isTeacher'" class="si-btn si-btn-border si-btn-small">Lehrer*in</button>
+          <button v-if="item.type=='isNone'" class="si-btn si-btn-border si-btn-small">Sonstige</button>
 
-
+        </td>
+        <td>{{ item.id }}</td>
       </tr>
       </tbody>
     </table>
@@ -49,10 +51,10 @@ export default {
     return {
 
       sort: {
-        column: 'lehrerAsvID',
+        column: 'nachname',
         order: true
       },
-      searchColumns: ['id', 'lehrerAsvID','lehrerName','lehrerVornamen','lehrerRufname','lehrerUserID'],
+      searchColumns: ['id', 'nachname','vorname','type'],
       searchString: '',
       filter: {
         colum: false,
@@ -124,7 +126,7 @@ export default {
               } else {
                 if (this.sort.order) {
                   return data.sort((a, b) => {
-                    if ( !isNaN(a[this.sort.column]) && !isNaN(b[this.sort.column]) ) {
+                    if (!isNaN(a[this.sort.column])) {
                       return a[this.sort.column] - b[this.sort.column];
                     } else {
                       return a[this.sort.column].localeCompare(b[this.sort.column])
@@ -133,7 +135,7 @@ export default {
                 } else {
                   return data.sort((a, b) => {
                     if (b[this.sort.column] && a[this.sort.column]) {
-                      if ( !isNaN(a[this.sort.column]) ) {
+                      if (!isNaN(a[this.sort.column])) {
                         return b[this.sort.column] - a[this.sort.column];
                       } else {
                         return b[this.sort.column].localeCompare(a[this.sort.column])
