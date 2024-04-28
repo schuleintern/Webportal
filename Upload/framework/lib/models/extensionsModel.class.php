@@ -157,6 +157,14 @@ abstract class ExtensionModel
         return $collection;
     }
 
+    public function getCount()
+    {
+        $all = $this->getAll();
+        if ($all) {
+            return count($all);
+        }
+        return false;
+    }
 
 
     public function getAll()
