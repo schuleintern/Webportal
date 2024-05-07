@@ -850,23 +850,28 @@ class MessageRead extends AbstractPage {
                   
                   if($questions[$q]->isBooleanQuestion()) {
                       $summe = $answerStat[$q]['ja'] + $answerStat[$q]['nein'] + $answerStat[$q]['keine'];
-                      
-                      $html .= "Ja: " . $answerStat[$q]['ja'] . " (" . round($answerStat[$q]['ja']/$summe*100) . " %)<br />";
-                      $html .= "Nein: " . $answerStat[$q]['nein'] . " (" . round($answerStat[$q]['nein']/$summe*100) . " %)<br />";
-                      $html .= "Keine Antwort: " . $answerStat[$q]['keine'] . " (" . round($answerStat[$q]['keine']/$summe*100) . " %)<br />";
-                      
-                      $answerStatTotal[$q]['ja'] += $answerStat[$q]['ja'];
-                      $answerStatTotal[$q]['nein'] += $answerStat[$q]['nein'];
+                      if ($summe) {
+                          $html .= "Ja: " . $answerStat[$q]['ja'] . " (" . round($answerStat[$q]['ja']/$summe*100) . " %)<br />";
+                          $html .= "Nein: " . $answerStat[$q]['nein'] . " (" . round($answerStat[$q]['nein']/$summe*100) . " %)<br />";
+                          $html .= "Keine Antwort: " . $answerStat[$q]['keine'] . " (" . round($answerStat[$q]['keine']/$summe*100) . " %)<br />";
+
+                          $answerStatTotal[$q]['ja'] += $answerStat[$q]['ja'];
+                          $answerStatTotal[$q]['nein'] += $answerStat[$q]['nein'];
+                      }
+
                       
                   }
                   
                   if($questions[$q]->isFileQuestion() || $questions[$q]->isTextQuestion()) {
                       $summe = $answerStat[$q]['abgegeben'] + $answerStat[$q]['keine'];
-                      $html .= "Abgegeben: " . $answerStat[$q]['abgegeben'] . " (" . round($answerStat[$q]['abgegeben']/$summe*100) . " %)<br />";
-                      $html .= "Keine Antwort: " . $answerStat[$q]['keine'] . " (" . round($answerStat[$q]['keine']/$summe*100) . " %)<br />";
-                      
-                      $answerStatTotal[$q]['abgegeben'] += $answerStat[$q]['abgegeben'];
-                      
+                      if ($summe) {
+                          $html .= "Abgegeben: " . $answerStat[$q]['abgegeben'] . " (" . round($answerStat[$q]['abgegeben']/$summe*100) . " %)<br />";
+                          $html .= "Keine Antwort: " . $answerStat[$q]['keine'] . " (" . round($answerStat[$q]['keine']/$summe*100) . " %)<br />";
+
+                          $answerStatTotal[$q]['abgegeben'] += $answerStat[$q]['abgegeben'];
+
+                      }
+
                   }
                   
                   if($questions[$q]->isNumberQuestion()) {

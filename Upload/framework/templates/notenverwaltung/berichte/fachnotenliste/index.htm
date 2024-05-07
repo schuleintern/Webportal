@@ -26,13 +26,17 @@ Stand: <expression>DateFunctions::getTodayAsNaturalDate()</expression>
 			</tr>
 			<tr>
 				<th colspan="2"></th>
-				<th<expression>(sizeof($arbeiten['SA']) > 1 ? ' colspan="' . sizeof($arbeiten['SA'] . '"') : "")</expression>>Schulaufgaben</th>
+				<th<expression>(sizeof($arbeiten['SA']) > 1 ? ' colspan="' . sizeof($arbeiten['SA']) . '"' : "")</expression>>Schulaufgaben</th>
 				<th>&nbsp;</th>
 				<if(sizeof($arbeiten['KA']) > 0)><then>
-					<th<expression>(sizeof($arbeiten['KA']) > 1 ? ' colspan="' . sizeof($arbeiten['KA'] . '"') : "")</expression>>Kurzarbeiten</th>
+					<th<expression>(sizeof($arbeiten['KA']) > 1 ? ' colspan="' . sizeof($arbeiten['KA']) . '"' : "")</expression>>Kurzarbeiten</th>
 				</then></if>
-				<th<expression>(sizeof($arbeiten['EX']) > 1 ? ' colspan="' . sizeof($arbeiten['EX'] . '"') : "")</expression>>Stegreifaufgaben</th>
-				<th<expression>if(is_array($arbeiten['MDL'])) {(sizeof($arbeiten['MDL']) > 1 ? ' colspan="' . sizeof($arbeiten['MDL'] . '"') : "")}</expression>>mündliche Noten</th>
+				<if(is_array($arbeiten['EX']))><then>
+					<th<expression>(sizeof($arbeiten['EX']) > 1 ? ' colspan="' . sizeof($arbeiten['EX']) . '"' : "")</expression>>Stegreifaufgaben</th>
+				</then></if>
+				<if($arbeiten['MDL'] && is_array($arbeiten['MDL']))><then>
+					<th<expression>(sizeof($arbeiten['MDL']) > 1 ? ' colspan="' . sizeof($arbeiten['MDL']) . '"' : "") </expression>>mündliche Noten</th>
+				</then></if>
 				<th>&nbsp;</th>
 
 				<if($verrechnung != null)><then><th colspan="3">Schnitt</th></then>
