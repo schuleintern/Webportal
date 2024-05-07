@@ -46,7 +46,8 @@ $classes = [
         'CronStatMaker',
         'SprechtagVikoCreator',
         'LehrertagebuchExporter',
-        'AllInOneKalenderFerien'
+        'AllInOneKalenderFerien',
+        'ClearTmpFolders'
 	],
 	'data/schulbuch' => [
 		'BuchAusleihe',

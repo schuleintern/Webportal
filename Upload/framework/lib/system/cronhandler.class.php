@@ -27,12 +27,16 @@ class cronhandler
         'CronStatMaker',
         'SprechtagVikoCreator',
         'LehrertagebuchExporter',
-        'AllInOneKalenderFerien'
+        'AllInOneKalenderFerien',
+        'ClearTmpFolders'
     ];
 
 
     public function __construct()
     {
+        echo 1; exit;
+
+
         header("Content-type: application/json");
 
         error_reporting(E_ERROR);
