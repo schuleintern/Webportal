@@ -35,6 +35,7 @@ return array(
     'Jose\\Component\\KeyManagement\\' => array($vendorDir . '/web-token/jwt-key-mgmt'),
     'Jose\\Component\\Core\\Util\\Ecc\\' => array($vendorDir . '/web-token/jwt-util-ecc'),
     'Jose\\Component\\Core\\' => array($vendorDir . '/web-token/jwt-core'),
+    'ICalendarOrg\\' => array($vendorDir . '/phpfui/icalendar/src/ICalendarOrg'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),

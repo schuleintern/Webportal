@@ -73,6 +73,10 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
             'Jose\\Component\\Core\\Util\\Ecc\\' => 29,
             'Jose\\Component\\Core\\' => 20,
         ),
+        'I' => 
+        array (
+            'ICalendarOrg\\' => 13,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -223,6 +227,10 @@ class ComposerStaticInit1567581b21d980f01e053aadc64a8d4f
         'Jose\\Component\\Core\\' => 
         array (
             0 => __DIR__ . '/..' . '/web-token/jwt-core',
+        ),
+        'ICalendarOrg\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpfui/icalendar/src/ICalendarOrg',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

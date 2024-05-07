@@ -1544,6 +1544,74 @@
             "install-path": "../paragonie/random_compat"
         },
         {
+            "name": "phpfui/icalendar",
+            "version": "V1.0.10",
+            "version_normalized": "1.0.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpfui/icalendar.git",
+                "reference": "80bd29b55137e44b342f7bb9447317f1d7864edf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpfui/icalendar/zipball/80bd29b55137e44b342f7bb9447317f1d7864edf",
+                "reference": "80bd29b55137e44b342f7bb9447317f1d7864edf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4 <8.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.3",
+                "phpfui/phpunit-syntax-coverage": "^1.0",
+                "phpstan/phpstan": "^1.8",
+                "phpunit/phpunit": "<11.0"
+            },
+            "time": "2019-10-31T00:00:00+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "ICalendarOrg\\": "src/ICalendarOrg/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Bruce Wells",
+                    "email": "brucekwells@gmail.com"
+                }
+            ],
+            "description": "A modern fork of the icalendar.org PHP implementation of rfc5545, management of iCal formatted files",
+            "homepage": "https://icalendar.org/php-library.html",
+            "keywords": [
+                "calendar",
+                "daylight",
+                "file",
+                "iCalendar",
+                "management",
+                "rfc2445",
+                "rfc5545",
+                "rfc6321",
+                "standard",
+                "vCalendar",
+                "valarm",
+                "vevent",
+                "vfreebusy",
+                "vjournal",
+                "vtimezone",
+                "vtodo"
+            ],
+            "support": {
+                "issues": "https://github.com/phpfui/icalendar/issues",
+                "source": "https://github.com/phpfui/icalendar/tree/V1.0.10"
+            },
+            "install-path": "../phpfui/icalendar"
+        },
+        {
             "name": "phpmailer/phpmailer",
             "version": "v6.9.1",
             "version_normalized": "6.9.1.0",

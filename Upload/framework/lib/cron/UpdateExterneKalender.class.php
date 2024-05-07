@@ -23,6 +23,8 @@ class UpdateExterneKalender extends AbstractCron {
 			$alleKalender[] = $d;
 		}
 
+        $inserts = [];
+
         if ($alleKalender) {
             for($i = 0; $i < sizeof($alleKalender); $i++) {
                 $kalender = $alleKalender[$i];
@@ -31,11 +33,13 @@ class UpdateExterneKalender extends AbstractCron {
 
 
                     $client = new GuzzleHttp\Client();
-                    $res = $client->request('GET', $kalender['kalenderIcalFeed'], [
-                    ]);
+                    $res = $client->request('GET', $kalender['kalenderIcalFeed'], [ ]);
+
 
                     if($res->getStatusCode() == 200) {
-                        $icalobj = new ZCiCal($res->getBody());
+
+                        $icalobj = new \ICalendarOrg\ZCiCal($res->getBody());
+                        //$icalobj = new ZCiCal($res->getBody());
 
 
                         $calData = [];
@@ -166,7 +170,7 @@ class UpdateExterneKalender extends AbstractCron {
                         if (sizeof($calData) > 0) {
                             DB::getDB()->query("DELETE FROM kalender_extern WHERE kalenderID='" . $kalender['kalenderID'] . "'");
 
-                            $inserts = [];
+
 
                             for ($v = 0; $v < sizeof($calData); $v++) {
                                 $line = "('" . $kalender['kalenderID'] . "',";
