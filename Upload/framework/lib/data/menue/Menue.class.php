@@ -45,7 +45,7 @@ class Menue {
     /**
      * @return boolean
      */
-    public function removeItem($item_id = false) {
+    public static function removeItem($item_id = false) {
         return MenueItems::removeItem($item_id);
     }
 

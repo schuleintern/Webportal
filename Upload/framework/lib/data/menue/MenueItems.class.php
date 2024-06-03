@@ -26,7 +26,7 @@ class MenueItems {
         return true;
     }
 
-    public function removeItem($item_id = false) {
+    public static function removeItem($item_id = false) {
         if ( !(int)$item_id ) {
             return false;
         }
