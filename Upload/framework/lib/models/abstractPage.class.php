@@ -443,6 +443,9 @@ abstract class AbstractPage
                                                 $widgetClass = new $widget->class([
                                                     "path" => PATH_EXTENSIONS . $ext[0]
                                                 ]);
+                                                if (method_exists($widgetClass, 'globals')) {
+                                                    $HTML_widgets[]  = '<script>'.$widgetClass->globals().'</script>';
+                                                }
                                                 if ($widgetClass && method_exists($widgetClass, 'render')) {
                                                     $HTML_widgets[] = '<li class="dropdown messages-menu">' . $widgetClass->render() . '</li>';
                                                 }
@@ -539,7 +542,26 @@ abstract class AbstractPage
             }
             // render submenu and dropdown
             if ($arg['submenu'] || $arg['dropdown']) {
-                echo $this->makeSubmenu($arg['submenu'], $arg['dropdown']);
+                $defaultSubmenu = $arg['submenu'];
+                $called = get_called_class();
+                $calledClass = new $called;
+                if (method_exists($calledClass,'submenu')) {
+                    $newSubmenu = $calledClass->submenu();
+                    if ($newSubmenu['data']) {
+                        if ($newSubmenu['overright']) {
+                            $foo = [];
+                            foreach ($defaultSubmenu as $default) {
+                                if ($default->admin) {
+                                    $foo[] = $default;
+                                }
+                            }
+                            $defaultSubmenu = $foo;
+                        }
+                        $defaultSubmenu = array_merge($newSubmenu['data'],$defaultSubmenu);
+                    }
+                }
+                echo $this->makeSubmenu($defaultSubmenu, $arg['dropdown']);
+
             }
 
             if ($arg['tmplHTML']) {
