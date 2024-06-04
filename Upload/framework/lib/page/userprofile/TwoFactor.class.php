@@ -3,6 +3,13 @@
 
 
 use OTPHP\TOTP;
+use Endroid\QrCode\Builder\Builder;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel;
+use Endroid\QrCode\Label\LabelAlignment;
+use Endroid\QrCode\Label\Font\NotoSans;
+use Endroid\QrCode\RoundBlockSizeMode;
+use Endroid\QrCode\Writer\PngWriter;
 
 /**
  * Funktionen für die Zweifaktorauthentifizierung
@@ -81,10 +88,33 @@ class TwoFactor extends AbstractPage {
 	                $new2FAObject = TOTP::create($secret);
 	                
 	                $new2FAObject->setLabel(DB::getGlobalSettings()->siteNamePlain);
-					$uri = 'https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl={PROVISIONING_URI}';
-					$placeholder = '{PROVISIONING_URI}';
-	                $urlToQRCode = $new2FAObject->getQrCodeUri($uri, $placeholder);
-	                
+					//$uri = 'https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl={PROVISIONING_URI}';
+					//$placeholder = '{PROVISIONING_URI}';
+	                //$urlToQRCode = $new2FAObject->getQrCodeUri($uri, $placeholder);
+
+                    $urlToQRCode = $new2FAObject->getQrCodeUri('[DATA]', '[DATA]');
+
+                    $result = Builder::create()
+                        ->writer(new PngWriter())
+                        ->writerOptions([])
+                        ->data(urldecode($urlToQRCode))
+                        ->encoding(new Encoding('UTF-8'))
+                        ->errorCorrectionLevel(ErrorCorrectionLevel::High)
+                        ->size(200)
+                        ->margin(10)
+                        //->roundBlockSizeMode(RoundBlockSizeMode::Margin)
+                        //->logoPath( PAGE::logo() )
+                        //->logoResizeToWidth(50)
+                        //->logoPunchoutBackground(true)
+                        //->labelText('This is the label')
+                        //->labelFont(new NotoSans(20))
+                        //->labelAlignment(LabelAlignment::Center)
+                        ->validateResult(false)
+                        ->build();
+
+                    $urlToQRCode = $result->getDataUri();
+
+
 	                eval("\$html = \"" . DB::getTPL()->get("userprofile/2fa/print") . "\";");
 	                
 	                $print = new PrintNormalPageA4WithHeader("QR Code zur 2FA");
@@ -252,19 +282,39 @@ class TwoFactor extends AbstractPage {
 	        if(DB::getSession()->getFromSessionStore("2fasecretinit") != "") {
 	            $new2FAObject = TOTP::create(DB::getSession()->getFromSessionStore("2fasecretinit"));
 	            
-	        }
-	        else {
+	        } else {
 	            $new2FAObject = TOTP::create(null);
 	            DB::getSession()->addToSessionStore("2fasecretinit", $new2FAObject->getSecret());
 	        }
 	        
 	        $new2FAObject->setLabel(DB::getGlobalSettings()->siteNamePlain);
 			
-			$uri = 'https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl={PROVISIONING_URI}';
-			$placeholder = '{PROVISIONING_URI}';
-	        
-			$urlToQRCode = $new2FAObject->getQrCodeUri($uri, $placeholder);      
-	        
+			//$uri = 'https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl={PROVISIONING_URI}';
+			//$placeholder = '[DATA]';
+
+			$urlToQRCode = $new2FAObject->getQrCodeUri('[DATA]', '[DATA]');
+
+            $result = Builder::create()
+                ->writer(new PngWriter())
+                ->writerOptions([])
+                ->data(urldecode($urlToQRCode))
+                ->encoding(new Encoding('UTF-8'))
+                ->errorCorrectionLevel(ErrorCorrectionLevel::High)
+                ->size(200)
+                ->margin(10)
+                //->roundBlockSizeMode(RoundBlockSizeMode::Margin)
+                ->logoPath( PAGE::logo() )
+                ->logoResizeToWidth(50)
+                ->logoPunchoutBackground(true)
+                //->labelText('This is the label')
+                //->labelFont(new NotoSans(20))
+                //->labelAlignment(LabelAlignment::Center)
+                ->validateResult(false)
+                ->build();
+
+            $urlToQRCode = $result->getDataUri();
+
+
 	    }
 
 	    eval("DB::getTPL()->out(\"" . DB::getTPL()->get("userprofile/2fa/index") . "\");");

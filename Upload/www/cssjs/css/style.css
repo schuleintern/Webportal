@@ -321,6 +321,9 @@ button.btn-blau {
   padding: 0;
   margin: 0;
 }
+.noListStyle2 {
+  list-style: none;
+}
 .line-oddEven:nth-child(odd)  {
   background-color: #f9f9f9;
 }

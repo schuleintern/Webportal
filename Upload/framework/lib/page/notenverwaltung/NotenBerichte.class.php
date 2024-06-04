@@ -109,7 +109,7 @@ class NotenBerichte extends AbstractPage {
         }
 
         if($anzahl > 0) {
-            $fachSchnitte[$i] = number_format($summe / $anzahl,2,",",".");
+            $fachSchnitte[$i] = number_format((float)$summe / $anzahl,2,",",".");
         }
     }
     
@@ -131,7 +131,7 @@ class NotenBerichte extends AbstractPage {
                     case 'MDL': $htmlSchueler .= "<b>" . ($a+1) . ". MDL</b><br />"; break;
                 }
 
-                $info = '<b>' . $arbs[$a]->getName() . "</b><br />(" . number_format($arbs[$a]->getGewichtung(),2,",",".") . " fach)";
+                $info = '<b>' . $arbs[$a]->getName() . "</b><br />(" . number_format((float)$arbs[$a]->getGewichtung(),2,",",".") . " fach)";
 
                 $htmlSchueler .= $info;
                //  $htmlSchueler .= "<button class=\"btn btn-xs btn-success\" type=\"button\" data-toggle=\"tooltip\" data-html=\"true\" title=\"" . addslashes(strip_tags($info)) . "\"><i class=\"fa fa-info-circle\"></i></button>";
@@ -392,11 +392,11 @@ class NotenBerichte extends AbstractPage {
 
         if($typ == 'SA') {
             
-            $htmlSchueler .= "<td>" . number_format($notenCalculator->getSchnittGrossMitRechnung(),2,",",".") . "&nbsp;</td>";
+            $htmlSchueler .= "<td>" . number_format((float)$notenCalculator->getSchnittGrossMitRechnung(),2,",",".") . "&nbsp;</td>";
         }
 
         if($typ == 'MDL') {
-            $htmlSchueler .= "<td>" . number_format($notenCalculator->getSchnittKleinMitRechnung(),2,",",".") . "&nbsp;</td>";
+            $htmlSchueler .= "<td>" . number_format((float)$notenCalculator->getSchnittKleinMitRechnung(),2,",",".") . "&nbsp;</td>";
         }
       }
 
@@ -404,7 +404,7 @@ class NotenBerichte extends AbstractPage {
         $htmlSchueler .= "<td>--</td>";
       }
       else {
-          $htmlSchueler .= "<td>" . number_format($notenCalculator->getSchnitt(),2,",",".");
+          $htmlSchueler .= "<td>" . number_format((float)$notenCalculator->getSchnitt(),2,",",".");
 
         if($notenCalculator->isNotenschutzrechnung()) {
             $htmlSchueler .= "<br ><small>§34 Abs. 7 Nr. 2 BaySchO</small>";
@@ -428,7 +428,7 @@ class NotenBerichte extends AbstractPage {
           $unterrichtNote = new UnterrichtsNoten($otherFach, $schueler[$i]);
 
           if($unterrichtNote->hasNoten()) {
-              $htmlSchueler .= "<td>" . number_format($unterrichtNote->getNotenCalculator()->getSchnitt(),2,",",".") . "";
+              $htmlSchueler .= "<td>" . number_format((float)$unterrichtNote->getNotenCalculator()->getSchnitt(),2,",",".") . "";
 
               if($unterrichtNote->getNotenCalculator()->isNotenschutzrechnung()) {
                   $htmlSchueler .= "<br ><small>§34 Abs. 7 Nr. 2 BaySchO</small>";
@@ -461,7 +461,7 @@ class NotenBerichte extends AbstractPage {
 
           $gesamtSchnitt = $gesamtNote;
 
-          if($gesamtNote > 0) $htmlSchueler .= "<td>" . number_format($gesamtNote,2,",",".") . "&nbsp;</td>";
+          if($gesamtNote > 0) $htmlSchueler .= "<td>" . number_format((float)$gesamtNote,2,",",".") . "&nbsp;</td>";
           else $htmlSchueler .= "<td>--</td>";
       }
 
@@ -512,7 +512,7 @@ class NotenBerichte extends AbstractPage {
               $noteSchnitt = "---";
           }
           else {
-              $noteSchnitt = number_format($notenCalculator->getSchnitt(),2,",",".");
+              $noteSchnitt = number_format((float)$notenCalculator->getSchnitt(),2,",",".");
           }
 
           $htmlSchueler .= "<td>";
@@ -525,7 +525,6 @@ class NotenBerichte extends AbstractPage {
 
 
 
-
       $htmlSchueler .= "</tr>";
     }
 
@@ -534,7 +533,8 @@ class NotenBerichte extends AbstractPage {
     $print = new PrintInBrowser("");
     $print->setHTMLContent($html);
     $print->send();
-    
+
+    exit;
     
   }
   

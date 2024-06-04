@@ -1,5 +1,7 @@
 <?php
 
+
+
 class aufeinenblick extends AbstractPage {
 
   private $mySettings = array(
@@ -397,9 +399,9 @@ class aufeinenblick extends AbstractPage {
 
       if(!is_array($grades)) $grades = array();
 
-      $HTML .= $this->getToday ( $plaeneDay1, implode(", ",$grades), $dateDay1, $dayOfWeekOne, $grades );
+      $HTML .= $this->getToday ( (array)$plaeneDay1, implode(", ",$grades), $dateDay1, $dayOfWeekOne, $grades );
 
-      $HTML .= $this->getToday ( $plaeneDay2, implode(", ",$grades), $dateDay2, $dayOfWeekTwo, $grades );
+      $HTML .= $this->getToday ( (array)$plaeneDay2, implode(", ",$grades), $dateDay2, $dayOfWeekTwo, $grades );
     }
 
     // eval("\$indexStatus = \"".DB::getTPL()->get("index_loggedin")."\";");
@@ -434,12 +436,16 @@ class aufeinenblick extends AbstractPage {
 
     // $currentStundenplanID = stundenplandata::getCurrentStundenplanID();
 
-    $maxCells = array ();
+    $maxCells = array();
 
-    for($i = 0; $i < sizeof ( $plan ); $i ++) {
-      for($s = 0; $s < sizeof ( $plan [$i] ); $s ++) {
-        if (sizeof ( $plan [$i] [$s] ) > $maxCells [$i]) {
-          $maxCells [$i] = sizeof ( $plan [$i] [$s] );
+
+
+
+    for($i = 0; $i < sizeof ( (array)$plan ); $i ++) {
+      for($s = 0; $s < sizeof ( (array)$plan [$i] ); $s ++) {
+
+        if ( sizeof( (array)$plan[$i][$s] ) > $maxCells[$i]) {
+          $maxCells[$i] = sizeof ( (array)$plan [$i] [$s] );
         }
       }
     }
@@ -453,16 +459,16 @@ class aufeinenblick extends AbstractPage {
 
     $stundenplanHTML .= "</tr>";
 
-    for($i = 0; $i < sizeof ( $plan [0] ); $i ++) {
+    for($i = 0; $i < sizeof ( (array)$plan [0] ); $i ++) {
       $stundenplanHTML .= "<tr><td>" . ($i + 1) . "</td>";
 
-      for($p = 0; $p < sizeof ( $plan ); $p ++) {
+      for($p = 0; $p < sizeof ( (array)$plan ); $p ++) {
 
         $usedCols = 0;
-        for($s = 0; $s < sizeof ( $plan [$p] [$i] ); $s ++) {
+        for($s = 0; $s < sizeof ( (array)$plan [$p] [$i] ); $s ++) {
           $usedCols ++;
 
-          if ($s == (sizeof ( $plan [$p] [$i] ) - 1)) {
+          if ($s == (sizeof ( (array)$plan [$p] [$i] ) - 1)) {
             $colspan = $maxCells [$p] - $usedCols + 1;
           } else
             $colspan = 1;
@@ -804,7 +810,7 @@ class aufeinenblick extends AbstractPage {
   }
 
   public static function getAdminGroup() {
-    return AUFEINENBLICK_ADMINGROUP;
+    return 'Webportal_Aufeinenblick_admin';
   }
 
   public static function displayAdministration($selfURL) {

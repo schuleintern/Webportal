@@ -1,0 +1,153 @@
+{
+  "name": "Example Extension",
+  "uniqid": "ext.example.default",
+  "version": "7",
+  "requiredVersion": "1.5.3",
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-plug",
+    "params": "",
+    "class": "extExampleMenu"
+  },
+  "adminGroupName": "Admin_Ext_Example",
+  "aclGroupName": "ext_example",
+  "cron": [
+    {
+      "typ": "default",
+      "class": "extExampleCronDoSomething"
+    }
+  ],
+  "widgets": [
+    {
+      "title": "Counter",
+      "uniqid": "example.counter",
+      "position": "header",
+      "class": "extExampleWidgetCounter",
+      "params": {}
+    },
+    {
+      "title": "Dashboard",
+      "uniqid": "example.dashboard",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
+    }
+  ],
+  "submenu": [
+    {
+      "title": "Default",
+      "icon": "fa fa-cogs",
+      "url": {
+        "page": "ext_example",
+        "params": {}
+      }
+    },
+    {
+      "title": "si-Components",
+      "icon": "fa fa-cogs",
+      "url": {
+        "page": "ext_example",
+        "params": {
+          "view": "components"
+        },
+        "options": {
+          "href": {
+            "type": "text"
+          },
+          "id": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    {
+      "title": "Frontend",
+      "icon": "fa fa-book",
+      "menu": false,
+      "url": {
+        "page": "ext_example",
+        "params": {
+          "view": "frontend"
+        }
+      }
+    },
+    {
+      "title": "HTML",
+      "icon": "fa fa-book",
+      "url": {
+        "page": "ext_example",
+        "params": {
+          "view": "html"
+        }
+      }
+    },
+    {
+      "title": "Overwrite",
+      "icon": "fa fa-book",
+      "url": {
+        "page": "ext_example",
+        "params": {
+          "view": "overwrite"
+        }
+      }
+    },
+    {
+      "title": "Modul",
+      "icon": "fa fa-book",
+      "url": {
+        "page": "ext_example",
+        "params": {
+          "view": "modul"
+        }
+      }
+    },
+    {
+      "title": "Acl",
+      "icon": "fa fa-user-shield",
+      "url": {
+        "page": "ext_example",
+        "params": {
+          "view": "acl"
+        }
+      }
+    },
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-sliders-h",
+      "admin": true,
+      "url": {
+        "page": "ext_example",
+        "params": {
+          "view": "default",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Benutzerrechte",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_example",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Admin Custom",
+      "icon": "fa fa-cog",
+      "admin": true,
+      "url": {
+        "page": "ext_example",
+        "params": {
+          "view": "custom",
+          "admin": "true"
+        }
+      }
+    }
+  ]
+}

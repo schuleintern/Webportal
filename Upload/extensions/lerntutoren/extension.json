@@ -1,0 +1,107 @@
+{
+  "name": "Lerntutoren",
+  "uniqid": "ext.zwiebelgasse.lerntutoren",
+  "version": "15",
+
+  "requiredVersion": "1.7.0",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-graduation-cap",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Lerntutoren",
+  "aclGroupName": "ext_lerntutoren",
+
+  "widgets": [
+    {
+      "title": "Anzahl Freigaben",
+      "uniqid": "lerntutoren.counter",
+      "position": "header",
+      "class": "extLerntutorenWidgetCounter",
+      "params": {
+        "minH": 1,
+        "minW": 2
+      }
+    },
+    {
+      "title": "Freigaben",
+      "uniqid": "lerntutoren.freigaben",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
+    }
+  ],
+
+  "submenu": [
+    {
+      "title": "Verfügbare Lerntutoren",
+      "icon": "fa fa-graduation-cap",
+      "url": {
+        "page": "ext_lerntutoren",
+        "params": {}
+      }
+    },
+    {
+      "title": "Meine Lernangebote",
+      "icon": "fa fa-user",
+      "url": {
+        "page": "ext_lerntutoren",
+        "params": {
+          "view": "myslots"
+        }
+      }
+    },
+    {
+      "title": "Lernangebot hinzufügen",
+      "icon": "fa fa-plus-circle",
+      "url": {
+        "page": "ext_lerntutoren",
+        "params": {
+          "view": "form"
+        }
+      }
+    },
+
+    {
+      "admin": true,
+      "title": "ACL",
+      "icon": "fa fa-cog",
+      "url": {
+        "page": "ext_lerntutoren",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "admin": true,
+      "title": "Einstellungen",
+      "icon": "fa fa-cog",
+      "url": {
+        "page": "ext_lerntutoren",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "admin": true,
+      "title": "Übersicht",
+      "icon": "fa fa-graduation-cap",
+      "url": {
+        "page": "ext_lerntutoren",
+        "params": {
+          "view": "custom",
+          "admin": "true"
+        }
+      }
+    }
+  ]
+
+}

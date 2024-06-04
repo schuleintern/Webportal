@@ -1,4 +1,7 @@
 node_modules/
+*/node_modules/
+node_modules
+*/node_modules
 .DS_Store
 .idea/
 */.idea
@@ -9,7 +12,6 @@ yarn-debug.log*
 yarn-error.log*
 */.idea/workspace.xml
 */.idea/tasks.xml.idea
-extensions/
-extensions/*
+
 www/tmp/*
 www/tmp/

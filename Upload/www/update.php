@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.6.3
+ * Version 1.7.4
  *
  */
 
@@ -23,6 +23,36 @@ include_once '../data/config/config.php';
 
 class Updates
 {
+
+    public static function to174($root)
+    {
+        $root->update('www/cssjs');
+        $root->update('www/cron.php');
+        $root->update('www/index.php');
+        return true;
+    }
+
+    public static function to173($root)
+    {
+        return true;
+    }
+
+    public static function to172($root)
+    {
+        return true;
+    }
+
+    public static function to171($root)
+    {
+        return true;
+    }
+
+    public static function to170($root)
+    {
+        $root->update('www/cssjs');
+        $root->update('www/index.php');
+        return true;
+    }
 
     public static function to163($root)
     {
@@ -317,7 +347,7 @@ class Update
         if ($data['nextVersion']) {
             $this->nextVersion = $data['nextVersion'];
         }
-        $this->folder .= '-' . $this->lastVersion . '-' . date('Y-m-d', time());
+        $this->folder .= '-' . $this->lastVersion . '-' . date('Y-m-d-H-i-s', time());
 
         $this->settings = new GlobalSettings();
 
@@ -377,7 +407,7 @@ class Update
     public function executeVersion()
     {
         $method = 'to' . str_replace('.', '', $this->nextVersion);
-        if (method_exists(Updates, $method)) {
+        if (method_exists('Updates', $method)) {
             if (Updates::$method($this) != true) {
                 return false;
             }

@@ -1,0 +1,95 @@
+{
+  "name": "Finanzen",
+  "uniqid": "ext.zwiebelgasse.finanzen",
+  "version": "3",
+
+  "requiredVersion": "1.7.0",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-wallet",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Finanzen",
+  "aclGroupName": "ext_finanzen",
+
+
+  "submenu": [
+    {
+      "title": "Meine Finanzen",
+      "icon": "fa fa-wallet",
+      "url": {
+        "page": "ext_finanzen",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+
+    {
+      "title": "Antrag",
+      "icon": "fa fa-wallet",
+      "acl": ["isTeacher","inNone"],
+      "url": {
+        "page": "ext_finanzen",
+        "params": {
+          "view": "antrag"
+        }
+      }
+    },
+   
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_finanzen",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_finanzen",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Anträge",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_finanzen",
+        "params": {
+          "view": "antrag",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Buchungen",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_finanzen",
+        "params": {
+          "view": "buchung",
+          "admin": "true"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

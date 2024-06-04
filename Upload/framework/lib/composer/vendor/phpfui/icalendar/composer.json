@@ -1,0 +1,42 @@
+{
+    "name": "phpfui/icalendar",
+    "type": "library",
+    "description": "A modern fork of the icalendar.org PHP implementation of rfc5545, management of iCal formatted files",
+    "keywords": [ "rfc2445",
+                  "rfc5545",
+                  "rfc6321",
+									"management",
+								  "icalendar",
+                  "calendar",
+                  "vCalendar",
+                  "vevent",
+                  "vtodo",
+                  "vjournal",
+                  "vfreebusy",
+                  "valarm",
+                  "vtimezone",
+                  "standard",
+                  "daylight",
+                  "file" ],
+    "time" : "2019-10-31",
+    "license": "GPL-3.0-or-later",
+    "homepage": "https://icalendar.org/php-library.html",
+    "authors": [
+        {
+            "name": "Bruce Wells",
+            "email": "brucekwells@gmail.com"
+        }
+		],
+    "autoload": {
+        "psr-4": {"ICalendarOrg\\": "src/ICalendarOrg/"}
+    },
+    "require": {
+        "php": ">=7.4 <8.4"
+		},
+		"require-dev": {
+        "phpunit/phpunit": "<11.0",
+        "friendsofphp/php-cs-fixer": "^3.3",
+        "phpstan/phpstan": "^1.8",
+        "phpfui/phpunit-syntax-coverage": "^1.0"
+    }
+}

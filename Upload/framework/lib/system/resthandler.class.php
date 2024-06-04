@@ -40,7 +40,7 @@ class resthandler
 
         error_reporting(E_ERROR);
 
-        include_once(PATH_LIB . "rest/AbstractRest.class.php");
+        include_once(PATH_LIB.'models'.DS ."abstractRest.class.php");
         
 
         $allowed = false;
@@ -78,8 +78,8 @@ class resthandler
 
                 if (file_exists(PATH_EXTENSIONS . $module['folder'] . '/rest/' . $request[1] . '.php')) {
                     
-                    if (file_exists(PATH_LIB . 'extensions' . DS . 'Model.class.php')) {
-                        include_once(PATH_LIB . 'extensions' . DS . 'Model.class.php');
+                    if (file_exists(PATH_LIB . 'models' . DS . 'extensionsModel.class.php')) {
+                        include_once(PATH_LIB . 'models' . DS . 'extensionsModel.class.php');
                     }
 
                     include_once(PATH_EXTENSIONS . $module['folder'] . '/rest/' . $request[1] . '.php');

@@ -21,7 +21,10 @@ class schueler {
 
     public function getCollection($full = false, $avatar = false) {
         $user = user::getUserByID($this->getUserID());
-        return $user->getCollection($full, $avatar);
+        if ($user) {
+            return $user->getCollection($full, $avatar);
+        }
+        return false;
     }
 	
 	/**
@@ -277,7 +280,7 @@ class schueler {
 		list($cJahr, $cMonat, $cTag) = explode("-",$currentDate);
 		list($sJahr, $sMonat, $sTag) = explode("-",$this->data['schuelerGeburtsdatum']);
 
-		$alter = $cJahr - $sJahr;
+		$alter = (int)$cJahr - (int)$sJahr;
 
 		if($cMonat < $sMonat) return $alter-1;
 		else if($cMonat > $sMonat) return $alter;

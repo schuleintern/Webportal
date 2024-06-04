@@ -1,6 +1,8 @@
 <?php
 
 
+ 
+
 class absenzenstatistik extends AbstractPage {
 
 	private $stundenplan = null;
@@ -94,7 +96,7 @@ class absenzenstatistik extends AbstractPage {
 
         while($s = DB::getDB()->fetch_array($schuelerMitAbsenzen)) $asvIDs[] = $s['absenzSchuelerAsvID'];
 
-
+/*
         include_once('../framework/lib/phpexcel/PHPExcel.php');
 
         $excelFile = new PHPExcel();
@@ -105,6 +107,16 @@ class absenzenstatistik extends AbstractPage {
             ->setTitle('Absenzen Statistik '.$today )
             ->setLastModifiedBy(DB::getGlobalSettings()->siteNamePlain)
             ->setDescription('Absenzen Statistik vom '.$today);
+*/
+        $today = date('d_m_Y', time() );
+        $exportClass = new exportXls();
+        $exportClass->setOptions([
+            'title' => 'Absenzen Statistik ' . $today,
+            'desc' => 'Absenzen Statistik vom '.$today,
+            'creator' => DB::getGlobalSettings()->siteNamePlain,
+            'modifiedBy' => DB::getGlobalSettings()->siteNamePlain
+        ]);
+        $excelFile = $exportClass->getSheet();
 
         $excelFile->setActiveSheetIndex(0)->setCellValue("A1", 'Schüler');
         $excelFile->getActiveSheet()->getStyle("A1")->getFont()->setBold(true);
@@ -159,8 +171,9 @@ class absenzenstatistik extends AbstractPage {
 
 
 
+        $exportClass->output("Absenzen_Statistik_".$today.".xlsx");
 
-
+    /*
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename="Absenzen_Statistik_'.$today.'.xlsx"');
         header('Cache-Control: max-age=0');
@@ -173,6 +186,7 @@ class absenzenstatistik extends AbstractPage {
         header ('Pragma: public'); // HTTP/1.0
         $objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Excel2007');
         $objWriter->save('php://output');
+        */
         exit();
 
 

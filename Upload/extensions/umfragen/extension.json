@@ -1,0 +1,70 @@
+{
+  "name": "Umfragen",
+  "uniqid": "ext.zwiebelgasse.umfragen",
+  "version": "1",
+
+  "requiredVersion": "1.6.3",
+
+  "menu": {
+    "categorie": "3",
+    "icon": "fa fa-poll",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Umfragen",
+  "aclGroupName": "ext_umfragen",
+
+
+  
+  "submenu": [
+    {
+      "title": "Umfragen",
+      "icon": "fa fa-poll",
+      "url": {
+        "page": "ext_umfragen",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+    {
+      "title": "Liste",
+      "icon": "fa fa-list",
+      "url": {
+        "page": "ext_umfragen",
+        "params": {
+          "view": "list"
+        }
+      }
+    },
+   
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_umfragen",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_umfragen",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

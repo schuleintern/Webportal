@@ -22,7 +22,7 @@ class MessageRead extends AbstractPage {
       new errorPage("Nachricht nicht gefunden!");
     }
 
-    if($this->message->getUserID() != DB::getSession()->getUserID()) {
+    if(!DB::getSession() || $this->message->getUserID() != DB::getSession()->getUserID()) {
       new errorPage("Zugriffsverletzung!");
     }
     
@@ -516,7 +516,13 @@ class MessageRead extends AbstractPage {
                       
                       $htmlConfirmation .= "Summe: " . $answerStat[$q]['summe'] . "<br />";
                       $htmlConfirmation .= "Abgegeben: " . $answerStat[$q]['abgegeben'] . "<br />";
-                      $htmlConfirmation .= "Mittelwert: " . round($answerStat[$q]['summe'] / $answerStat[$q]['abgegeben'], 2) . "<br />";
+                      $div = $answerStat[$q]['abgegeben'];
+                      if ($div > 0) {
+                          $htmlConfirmation .= "Mittelwert: " . round($answerStat[$q]['summe'] / $div, 2) . "<br />";
+                      } else {
+                          $htmlConfirmation .= "Mittelwert: ---- <br />";
+                      }
+
                       
                   }
                   
@@ -534,7 +540,7 @@ class MessageRead extends AbstractPage {
           
       }
       
-      $allRecipientsWithConfirmationStatus = implode("; ", $allRecipientsWithConfirmationStatus);
+      $allRecipientsWithConfirmationStatus = implode("; ", (array)$allRecipientsWithConfirmationStatus);
       
       return $allRecipientsWithConfirmationStatus;
       
@@ -844,31 +850,43 @@ class MessageRead extends AbstractPage {
                   
                   if($questions[$q]->isBooleanQuestion()) {
                       $summe = $answerStat[$q]['ja'] + $answerStat[$q]['nein'] + $answerStat[$q]['keine'];
-                      
-                      $html .= "Ja: " . $answerStat[$q]['ja'] . " (" . round($answerStat[$q]['ja']/$summe*100) . " %)<br />";
-                      $html .= "Nein: " . $answerStat[$q]['nein'] . " (" . round($answerStat[$q]['nein']/$summe*100) . " %)<br />";
-                      $html .= "Keine Antwort: " . $answerStat[$q]['keine'] . " (" . round($answerStat[$q]['keine']/$summe*100) . " %)<br />";
-                      
-                      $answerStatTotal[$q]['ja'] += $answerStat[$q]['ja'];
-                      $answerStatTotal[$q]['nein'] += $answerStat[$q]['nein'];
+                      if ($summe) {
+                          $html .= "Ja: " . $answerStat[$q]['ja'] . " (" . round($answerStat[$q]['ja']/$summe*100) . " %)<br />";
+                          $html .= "Nein: " . $answerStat[$q]['nein'] . " (" . round($answerStat[$q]['nein']/$summe*100) . " %)<br />";
+                          $html .= "Keine Antwort: " . $answerStat[$q]['keine'] . " (" . round($answerStat[$q]['keine']/$summe*100) . " %)<br />";
+
+                          $answerStatTotal[$q]['ja'] += $answerStat[$q]['ja'];
+                          $answerStatTotal[$q]['nein'] += $answerStat[$q]['nein'];
+                      }
+
                       
                   }
                   
                   if($questions[$q]->isFileQuestion() || $questions[$q]->isTextQuestion()) {
                       $summe = $answerStat[$q]['abgegeben'] + $answerStat[$q]['keine'];
-                      $html .= "Abgegeben: " . $answerStat[$q]['abgegeben'] . " (" . round($answerStat[$q]['abgegeben']/$summe*100) . " %)<br />";
-                      $html .= "Keine Antwort: " . $answerStat[$q]['keine'] . " (" . round($answerStat[$q]['keine']/$summe*100) . " %)<br />";
-                      
-                      $answerStatTotal[$q]['abgegeben'] += $answerStat[$q]['abgegeben'];
-                      
+                      if ($summe) {
+                          $html .= "Abgegeben: " . $answerStat[$q]['abgegeben'] . " (" . round($answerStat[$q]['abgegeben']/$summe*100) . " %)<br />";
+                          $html .= "Keine Antwort: " . $answerStat[$q]['keine'] . " (" . round($answerStat[$q]['keine']/$summe*100) . " %)<br />";
+
+                          $answerStatTotal[$q]['abgegeben'] += $answerStat[$q]['abgegeben'];
+
+                      }
+
                   }
                   
                   if($questions[$q]->isNumberQuestion()) {
                       
                       $html .= "Summe: " . $answerStat[$q]['summe'] . "<br />";
                       $html .= "Abgegeben: " . $answerStat[$q]['abgegeben'] . "<br />";
-                      $html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $answerStat[$q]['abgegeben'], 2) . "<br />";
-                      
+                      //$html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $answerStat[$q]['abgegeben'], 2) . "<br />";
+
+                      $div = $answerStat[$q]['abgegeben'];
+                      if ($div > 0) {
+                          $html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $div, 2) . "<br />";
+                      } else {
+                          $html .= "Mittelwert: ---- <br />";
+                      }
+
                       $answerStatTotal[$q]['summe'] += $answerStat[$q]['summe'];
                       $answerStatTotal[$q]['abgegeben'] += $answerStat[$q]['abgegeben'];
                       
@@ -932,9 +950,15 @@ class MessageRead extends AbstractPage {
               
               $html .= "Summe: " . $answerStat[$q]['summe'] . "<br />";
               $html .= "Abgegeben: " . $answerStat[$q]['abgegeben'] . "<br />";
-              $html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $answerStat[$q]['abgegeben'], 2) . "<br />";
-              
-              
+              //$html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $answerStat[$q]['abgegeben'], 2) . "<br />";
+
+              $div = $answerStat[$q]['abgegeben'];
+              if ($div > 0) {
+                  $html .= "Mittelwert: " . round($answerStat[$q]['summe'] / $div, 2) . "<br />";
+              } else {
+                  $html .= "Mittelwert: ---- <br />";
+              }
+
           }
           
           $html .= "</td>";

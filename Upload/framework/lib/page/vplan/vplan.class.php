@@ -91,23 +91,24 @@ class vplan extends AbstractPage {
 			
 			
 			$date = $plan['vplanDate'];
-			$date = explode(", ",$date);
-			
-			list($day, $month, $year) = explode(".",$date[1]);
+            if ($date) {
+                $date = explode(", ",$date);
 
-			$timevplan = mktime(23,59,59,$month,$day,$year);
-			
-			if($timevplan > time()) {
-				$listPlan .= "<td width=\"" . ((DB::getSession ()->isTeacher() || (!DB::getSession()->isPupil() && !DB::getSession()->isEltern() && !DB::getSession()->isTeacher())) ? ("25%") : ("50%")) . "\" align=\"center\"" . (($_GET ['vplanid'] == $i) ? (" style=\"background-color:#D1D1D1; padding:10px" . (($i == 2) ? ("; border-left: 1px solid") : ("")) . "\"") : ((($i == 2) ? (" style=\"border-left: 1px solid\"") : ("")))) . "><a href=\"index.php?page=vplan&gplsession=&vplanid=$i\"><b>" . $plan['vplanDate'] . "</b><font size=\"-1\"><br />Aktualisierung: " . $lastUpdate . "</a></font></td>\n";
-			}
-			else {
-				if($planname == "schuelerheute" && $_GET['vplanid'] == 0) $_GET['vplanid'] = 1;
-				else if($planname == "schuelermorgen" && $_GET['vplanid'] == 1) $_GET['vplanid'] = -1;
-				else if($planname == "lehrerheute" && $_GET['vplanid'] == 2) $_GET['vplanid'] = 3;
-				else if($planname == "lehrermorgen" && $_GET['vplanid'] == 3) $_GET['vplanid'] = -1;
-				
-				$listPlan .= "<td width=\"" . ((DB::getSession ()->isTeacher() == 'Lehrer') ? ("25%") : ("50%")) . "\" align=\"center\"> <i class=\"fa fa-ban\"></i></td>";
-			}
+                list($day, $month, $year) = explode(".",$date[1]);
+
+                $timevplan = mktime(23,59,59,$month,$day,$year);
+
+                if($timevplan > time()) {
+                    $listPlan .= "<td width=\"" . ((DB::getSession ()->isTeacher() || (!DB::getSession()->isPupil() && !DB::getSession()->isEltern() && !DB::getSession()->isTeacher())) ? ("25%") : ("50%")) . "\" align=\"center\"" . (($_GET ['vplanid'] == $i) ? (" style=\"background-color:#D1D1D1; padding:10px" . (($i == 2) ? ("; border-left: 1px solid") : ("")) . "\"") : ((($i == 2) ? (" style=\"border-left: 1px solid\"") : ("")))) . "><a href=\"index.php?page=vplan&gplsession=&vplanid=$i\"><b>" . $plan['vplanDate'] . "</b><font size=\"-1\"><br />Aktualisierung: " . $lastUpdate . "</a></font></td>\n";
+                } else {
+                    if($planname == "schuelerheute" && $_GET['vplanid'] == 0) $_GET['vplanid'] = 1;
+                    else if($planname == "schuelermorgen" && $_GET['vplanid'] == 1) $_GET['vplanid'] = -1;
+                    else if($planname == "lehrerheute" && $_GET['vplanid'] == 2) $_GET['vplanid'] = 3;
+                    else if($planname == "lehrermorgen" && $_GET['vplanid'] == 3) $_GET['vplanid'] = -1;
+
+                    $listPlan .= "<td width=\"" . ((DB::getSession ()->isTeacher() == 'Lehrer') ? ("25%") : ("50%")) . "\" align=\"center\"> <i class=\"fa fa-ban\"></i></td>";
+                }
+            }
 			
 			
 		}

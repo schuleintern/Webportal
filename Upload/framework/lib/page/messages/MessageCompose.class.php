@@ -30,7 +30,7 @@ class MessageCompose extends AbstractPage {
 		        if($recipient != null) {
 		            $users = $recipient->getRecipientUserIDs();
 		            
-		            for($i = 0; $i < sizeof($users); $i++) {
+		            for($i = 0; $i < sizeof((array)$users); $i++) {
 		                $user = user::getUserByID($users[$i]);
 		                if($user != null) {
 		                    $recipientList[] = $user->getDisplayNameWithFunction();
@@ -66,9 +66,9 @@ class MessageCompose extends AbstractPage {
 		        }
 
 		        $selectOptionsSingleTeacher = "";
-		        if(sizeof($singleTeachers) > 0) {
+		        if(sizeof((array)$singleTeachers) > 0) {
 		            $canContactAnyTeacher = true;
-		            for($i = 0; $i < sizeof($singleTeachers); $i++) {
+		            for($i = 0; $i < sizeof((array)$singleTeachers); $i++) {
 		                
 		                $ok = false;
 		                
@@ -109,7 +109,7 @@ class MessageCompose extends AbstractPage {
 		        if($search != null) {
 							$pupilRecipients = MessageSendRights::getAllowedPupils();
 
-							for($i = 0; $i < sizeof($pupilRecipients); $i++) {
+							for($i = 0; $i < sizeof((array)$pupilRecipients); $i++) {
 								if(strpos(strtolower($pupilRecipients[$i]->getDisplayName()), $search) !== false) {
 									$responseData['results'][] = [
 										'id' => $pupilRecipients[$i]->getSaveString(),
@@ -142,7 +142,7 @@ class MessageCompose extends AbstractPage {
 		        }
 		        
 		        
-		        for($i = 0; $i < sizeof($parentsRecipients); $i++) {
+		        for($i = 0; $i < sizeof((array)$parentsRecipients); $i++) {
 		            if($search != null && strpos(strtolower($parentsRecipients[$i]->getDisplayName()), $search) > 0) {
 		                
     		            $responseData['results'][] = [
@@ -184,7 +184,7 @@ class MessageCompose extends AbstractPage {
     		            
     		            $schueler = DB::getSession()->getElternObject()->getMySchueler();
     		            
-    		            for($s = 0; $s < sizeof($schueler); $s++) {
+    		            for($s = 0; $s < sizeof((array)$schueler); $s++) {
     		                $unterrichts = SchuelerUnterricht::getUnterrichtForSchueler($schueler[$i]);
     		                
     		                $unterrichte = array_merge($unterrichte, $unterrichts);
@@ -206,7 +206,7 @@ class MessageCompose extends AbstractPage {
 		        }
 		        
 		        
-		        for($i = 0; $i < sizeof($unterrichte); $i++) {
+		        for($i = 0; $i < sizeof((array)$unterrichte); $i++) {
 		            
 		            if($search == "%" || ($search != null && strpos(strtolower($unterrichte[$i]->getBezeichnung()), $search) > 0)) {
 		                
@@ -248,7 +248,7 @@ class MessageCompose extends AbstractPage {
     		            
     		            $schueler = DB::getSession()->getElternObject()->getMySchueler();
     		            
-    		            for($s = 0; $s < sizeof($schueler); $s++) {
+    		            for($s = 0; $s < sizeof((array)$schueler); $s++) {
     		                $unterrichts = SchuelerUnterricht::getUnterrichtForSchueler($schueler[$i]);
     		                
     		                $unterrichte = array_merge($unterrichte, $unterrichts);
@@ -270,7 +270,7 @@ class MessageCompose extends AbstractPage {
 		        }
 		        
 		        
-		        for($i = 0; $i < sizeof($unterrichte); $i++) {
+		        for($i = 0; $i < sizeof((array)$unterrichte); $i++) {
 		            if($search == "%" || ($search != null && strpos(strtolower($unterrichte[$i]->getBezeichnung()), $search) > 0)) {
 		                
 		                $recipient = new ParentsOfPupilsOfClassRecipient($unterrichte[$i]);
@@ -310,7 +310,7 @@ class MessageCompose extends AbstractPage {
 		        ];
 		        
 		        
-		        for($i = 0; $i < sizeof($unterrichte); $i++) {
+		        for($i = 0; $i < sizeof((array)$unterrichte); $i++) {
 		                
 		                $recipient = new PupilsOfClassRecipient($unterrichte[$i]);
 		                
@@ -347,7 +347,7 @@ class MessageCompose extends AbstractPage {
 		        ];
 		        
 		        
-		        for($i = 0; $i < sizeof($unterrichte); $i++) {
+		        for($i = 0; $i < sizeof((array)$unterrichte); $i++) {
 		            
 		            $recipient = new ParentsOfPupilsOfClassRecipient($unterrichte[$i]);
 		            
@@ -460,7 +460,7 @@ class MessageCompose extends AbstractPage {
                 $messageSender->setBCCRecipients($recipientHandlerBCC);
 
                 $attachments = explode(";",$_REQUEST['attachments']);
-                for($i = 0; $i < sizeof($attachments); $i++) {
+                for($i = 0; $i < sizeof((array)$attachments); $i++) {
                     list($id, $secret) = explode("#",$attachments[$i]);
                     $attachment = MessageAttachment::getByID($id);
                     if($attachment != null) {
@@ -472,7 +472,7 @@ class MessageCompose extends AbstractPage {
 
                 if(MessageSendRights::canAskQuestions()) {
                     $questions = explode(";",$_REQUEST['questions']);
-                    for($i = 0; $i < sizeof($questions); $i++) {
+                    for($i = 0; $i < sizeof((array)$questions); $i++) {
                         list($id, $secret) = explode("#",$questions[$i]);
                         $question = MessageQuestion::getByID($id);
                         if($question != null && $question->getSecret() == $secret) {
@@ -536,7 +536,7 @@ class MessageCompose extends AbstractPage {
                         $dateTimeStart = $meetingDate . "T" . $stundeStart . ":" . $minuteStart . ":00";
                         $dateTimeENde = $meetingDateEnde . "T" . $stundeEnde . ":" . $minuteEnde . ":00";
 
-                        if(sizeof($recipientHandler->getAllRecipients()) > 0) {
+                        if(sizeof((array)$recipientHandler->getAllRecipients()) > 0) {
                             $meetingSubject = "Videokonferenz mit " . $recipientHandler->getAllRecipients()[0]->getDisplayName();
                         }
                         else {
@@ -546,7 +546,7 @@ class MessageCompose extends AbstractPage {
                         $meetingText = "Teilnehmer:<br><br>";
 
                         $allRecipients = $recipientHandler->getAllRecipients();
-                        for($i = 0; $i < sizeof($allRecipients); $i++) {
+                        for($i = 0; $i < sizeof((array)$allRecipients); $i++) {
                             $meetingText .= $allRecipients[$i]->getDisplayName() . "<br>";
                         }
 
@@ -584,7 +584,7 @@ class MessageCompose extends AbstractPage {
 				// Debugger::debugObject($messageSender,1);
 								
 				$attachments = explode(";",$_REQUEST['attachments']);
-				for($i = 0; $i < sizeof($attachments); $i++) {
+				for($i = 0; $i < sizeof((array)$attachments); $i++) {
 					list($id, $secret) = explode("#",$attachments[$i]);
 					$attachment = MessageAttachment::getByID($id);
 					if($attachment != null) {
@@ -596,7 +596,7 @@ class MessageCompose extends AbstractPage {
 				
 				if(MessageSendRights::canAskQuestions()) {
 				    $questions = explode(";",$_REQUEST['questions']);
-				    for($i = 0; $i < sizeof($questions); $i++) {
+				    for($i = 0; $i < sizeof((array)$questions); $i++) {
 				        list($id, $secret) = explode("#",$questions[$i]);
 				        $question = MessageQuestion::getByID($id);
 				        if($question != null && $question->getSecret() == $secret) {
@@ -676,7 +676,7 @@ class MessageCompose extends AbstractPage {
 
 					$arr = array();
 					$attachments = $forwardMessage->getAttachments();
-						for($i = 0; $i < sizeof($attachments); $i++) {
+						for($i = 0; $i < sizeof((array)$attachments); $i++) {
 							array_push($arr, array(
 								'attachmentID' => $attachments[$i]->getID(),
 								'attachmentFileName' => $attachments[$i]->getUpload()->getFileName(),
@@ -733,7 +733,7 @@ class MessageCompose extends AbstractPage {
     		            
     		            $recipients = $replyMessage->getRecipients();
     		            
-    		            for($i = 0; $i < sizeof($recipients); $i++) {
+    		            for($i = 0; $i < sizeof((array)$recipients); $i++) {
     		                $replyJSONData[] = [
     		                    'key' => $recipients[$i]->getSaveString(),
     		                    'name' => $recipients[$i]->getDisplayName()
@@ -742,7 +742,7 @@ class MessageCompose extends AbstractPage {
     		            
     		            $ccRecipients = $replyMessage->getCCRecipients();
     		            
-    		            for($i = 0; $i < sizeof($ccRecipients); $i++) {
+    		            for($i = 0; $i < sizeof((array)$ccRecipients); $i++) {
     		                $replyJSONDataCC[] = [
     		                    'key' => $ccRecipients[$i]->getSaveString(),
     		                    'name' => $ccRecipients[$i]->getDisplayName()
@@ -882,7 +882,7 @@ class MessageCompose extends AbstractPage {
 		$selectFolders = "<option value=\"POSTEINGANG\">Posteingang</option>";
 		$selectFolders .= "<option value=\"ARCHIV\">Archiv</option>";
 		
-		for($i = 0; $i < sizeof($folders); $i++) {
+		for($i = 0; $i < sizeof((array)$folders); $i++) {
 		    if($_REQUEST['folderID'] == $folders[$i]->getID() && $_REQUEST['folder'] == 'ANDERER') $ownFolders .= '<li class="active">';
 		    else $ownFolders .= '<li>';
 		    
@@ -933,7 +933,7 @@ class MessageCompose extends AbstractPage {
 		$canContactAnySingleTeacher = false;
 		
 		$allowedTeachers = MessageSendRights::getAllowedTeachers();
-		$canContactAnySingleTeacher = sizeof($allowedTeachers) > 0;
+		$canContactAnySingleTeacher = sizeof((array)$allowedTeachers) > 0;
 		
 		if($canContactAnySingleTeacher) $canContactAnyTeacher = true;
 		
@@ -944,7 +944,7 @@ class MessageCompose extends AbstractPage {
 			
 			$fachschaften = FachschaftRecipient::getAllInstances();
 			
-			for($i = 0; $i < sizeof($fachschaften); $i++) {
+			for($i = 0; $i < sizeof((array)$fachschaften); $i++) {
 				$selectOptionsFachschaften .= "<option value=\"" . $fachschaften[$i]->getSaveString() . "\">" . $fachschaften[$i]->getDisplayName() . "</option>\r\n";
 				
 			}
@@ -955,7 +955,7 @@ class MessageCompose extends AbstractPage {
 		
 		$selectOptionsKlassenteams = '';
 		
-		for($i = 0; $i < sizeof($klassenteams); $i++) {
+		for($i = 0; $i < sizeof((array)$klassenteams); $i++) {
 			$selectOptionsKlassenteams .= "<option value=\"" . $klassenteams[$i]->getSaveString() . "\">" . $klassenteams[$i]->getDisplayName() . "</option>\r\n";
 			$canContactAnyVerwaltung = true;
 		}
@@ -966,7 +966,7 @@ class MessageCompose extends AbstractPage {
 		$selectOptionsKlassenleitung = '';
 		$selectOptionsKlassenleitungJSON = [];
 		
-		for($i = 0; $i < sizeof($klassenleitungen); $i++) {
+		for($i = 0; $i < sizeof((array)$klassenleitungen); $i++) {
 		    $selectOptionsKlassenleitungJSON[] = $klassenleitungen[$i]->getSaveString();
 		    $selectOptionsKlassenleitung .= "<option value=\"" . $klassenleitungen[$i]->getSaveString() . "\">" . $klassenleitungen[$i]->getDisplayName() . "</option>\r\n";
 		    $canContactAnyVerwaltung = true;
@@ -978,8 +978,8 @@ class MessageCompose extends AbstractPage {
         if($canContactAnySingleTeacher) {
             $selectOptionsSingleTeacher = '';
             $singleTeachers = MessageSendRights::getAllowedTeachers();
-            if(sizeof($singleTeachers) > 0) {
-                for($i = 0; $i < sizeof($singleTeachers); $i++) {
+            if(sizeof((array)$singleTeachers) > 0) {
+                for($i = 0; $i < sizeof((array)$singleTeachers); $i++) {
                     if ($singleTeachers[$i] ) {
                         $selectOptionsSingleTeacher .= '<option value="'.$singleTeachers[$i]->getSaveString().'">'.$singleTeachers[$i]->getDisplayName().'</option>';
                     }
@@ -993,12 +993,12 @@ class MessageCompose extends AbstractPage {
 		
 		$canContactAnyPupil = false;
 		
-		$canContactAnySinglePupil = sizeof(MessageSendRights::getAllowedPupils()) > 0;
+		$canContactAnySinglePupil = sizeof((array)MessageSendRights::getAllowedPupils()) > 0;
 		
 		if($canContactAnySinglePupil) $canContactAnyPupil = true;
 	
 
-		$canContactAnySingleParents = sizeof(MessageSendRights::getAllowedParents()) > 0;
+		$canContactAnySingleParents = sizeof((array)MessageSendRights::getAllowedParents()) > 0;
 		if($canContactAnySingleParents) $canContactAnyParents = true;
 		
 		
@@ -1009,7 +1009,7 @@ class MessageCompose extends AbstractPage {
 		$selectIDs = [];
 		
 				
-		for($i = 0; $i < sizeof($pupilRecipients); $i++) {
+		for($i = 0; $i < sizeof((array)(array)$pupilRecipients); $i++) {
 			
 			$ks = $pupilRecipients[$i]->getKlasse()->getKlassenstufe();
 			if($ks == '') $ks = 'Andere Klassen';
@@ -1037,7 +1037,7 @@ class MessageCompose extends AbstractPage {
 			
 			// $preSelect .= "<button class=\"btn\" type=\"button\" onclick=\"$('#wholeGradeParents').val([";
 			
-			for($i = 0; $i < sizeof($klassen); $i++) {
+			for($i = 0; $i < sizeof((array)$klassen); $i++) {
 				
 				$selectOptionsWholeGrades .= "<input type=\"checkbox\" name=\"" . $klassen[$i]->getSaveString() . "\" value=\"1\" id=\"" . md5($klassen[$i]->getSaveString()) . "\"> <label for=\"" . $klassen[$i]->getSaveString() . "\">" . $klassen[$i]->getKlasse()->getKlassenName() . "</label><br />";
 				
@@ -1064,7 +1064,7 @@ class MessageCompose extends AbstractPage {
 			$select56 = '';
 			$select57 = '';
 			
-			for($i = 0; $i < sizeof($klassen); $i++) {
+			for($i = 0; $i < sizeof((array)$klassen); $i++) {
 				
 				$select56 .= "$('#" . md5($klassen[$i]->getSaveString()) . "').iCheck('check');\r\n";
 				$select57 .= "$('#" . md5($klassen[$i]->getSaveString()) . "').iCheck('uncheck');\r\n";
@@ -1110,7 +1110,7 @@ class MessageCompose extends AbstractPage {
 		
 		$selectIDs = [];
 		
-		for($i = 0; $i < sizeof($parentsOfGradeRecipients); $i++) {
+		for($i = 0; $i < sizeof((array)$parentsOfGradeRecipients); $i++) {
 			$canContactAnyParents = true;
 			
 			$ks = $parentsOfGradeRecipients[$i]->getKlasse()->getKlassenstufe();
@@ -1138,7 +1138,7 @@ class MessageCompose extends AbstractPage {
 			
 			// $preSelect .= "<button class=\"btn\" type=\"button\" onclick=\"$('#wholeGradeParents').val([";
 			
-			for($i = 0; $i < sizeof($klassen); $i++) {
+			for($i = 0; $i < sizeof((array)$klassen); $i++) {
 				
 				$selectOptionsWholeGradesParents .= "<input type=\"checkbox\" name=\"" . $klassen[$i]->getSaveString() . "\" value=\"1\" id=\"" . md5($klassen[$i]->getSaveString()) . "\"> <label for=\"" . $klassen[$i]->getSaveString() . "\">" . $klassen[$i]->getKlasse()->getKlassenName() . "</label><br />";
 			
@@ -1165,7 +1165,7 @@ class MessageCompose extends AbstractPage {
 			$select56 = '';
 			$select57 = '';
 			
-			for($i = 0; $i < sizeof($klassen); $i++) {
+			for($i = 0; $i < sizeof((array)$klassen); $i++) {
 				
 				$select56 .= "$('#" . md5($klassen[$i]->getSaveString()) . "').iCheck('check');\r\n";
 				$select57 .= "$('#" . md5($klassen[$i]->getSaveString()) . "').iCheck('uncheck');\r\n";
@@ -1197,18 +1197,18 @@ class MessageCompose extends AbstractPage {
 		
 		$groups = GroupRecipient::getAllInstances();
 		
-		$canContactAnyGroups = sizeof($groups) > 0;
+		$canContactAnyGroups = sizeof((array)$groups) > 0;
 		
 		$htmlGroups = "";
 		
-		for($i = 0; $i < sizeof($groups); $i++) {
+		for($i = 0; $i < sizeof((array)$groups); $i++) {
 		    $htmlGroups .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary \">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
 		}
 
 
         $inboxs = InboxRecipient::getAllInstances();
         $htmlInboxs = "";
-        for($i = 0; $i < sizeof($inboxs); $i++) {
+        for($i = 0; $i < sizeof((array)$inboxs); $i++) {
             $htmlInboxs .= "<tr><td><button type=\"button\" onclick=\"javascript:addRecipientAction({'key':'" . $groups[$i]->getSaveString() . "', 'name':'" . addslashes($groups[$i]->getDisplayName()) . "'})\" class=\"btn btn-primary \">" . ($groups[$i]->getDisplayName()) . "</button></td></tr>";
         }
 

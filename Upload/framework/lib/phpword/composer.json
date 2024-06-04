@@ -1,5 +1,0 @@
-{
-    "require": {
-        "phpoffice/phpword": "^0.15.0"
-    }
-}

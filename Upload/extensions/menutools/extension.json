@@ -1,0 +1,29 @@
+{
+  "name": "Menu Tools",
+  "uniqid": "ext.zwiebelgasse.menutools",
+  "version": "1",
+
+  "requiredVersion": "1.5.0",
+
+  "submenu": [
+    {
+      "title": "Weiterleiten",
+      "icon": "fa fa-square-right",
+      "url": {
+        "page": "ext_menutools",
+        "params": {
+          "view": "redirect"
+        },
+        "options": {
+          "href": {
+            "type": "text",
+            "label": "Link URL"
+          }
+        }
+      }
+    }
+  ]
+
+
+
+}

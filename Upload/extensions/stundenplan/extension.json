@@ -1,0 +1,86 @@
+{
+  "name": "Stundenplan",
+  "uniqid": "ext.zwiebelgasse.stundenplan",
+  "version": "12",
+
+  "requiredVersion": "1.7.3",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-table",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Stundenplan",
+  "aclGroupName": "ext_stundenplan",
+
+
+
+  "widgets": [
+    {
+      "title": "Dashboard",
+      "uniqid": "stundenplan.dashboard",
+      "position": "dashboard",
+      "class": "extStundenplanWidgetDashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
+    }
+  ],
+
+  
+  "submenu": [
+    {
+      "title": "Stundenplan",
+      "icon": "fa fa-wallet",
+      "url": {
+        "page": "ext_stundenplan",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+   
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_stundenplan",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_stundenplan",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Stundenpläne",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_stundenplan",
+        "params": {
+          "view": "list",
+          "admin": "true"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

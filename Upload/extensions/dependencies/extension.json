@@ -1,0 +1,29 @@
+{
+  "name": "Dependencies Example",
+  "uniqid": "ext.example.dependencies",
+  "version": "3",
+
+  "requiredVersion": "1.3.2",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-plug",
+    "params": ""
+  },
+
+  "dependencies": [
+    "ext.example.default"
+  ],
+
+  "submenu": [
+    {
+      "url": {
+        "page": "ext_dependencies",
+        "params": {}
+      },
+      "title": "Default",
+      "icon": "fa fa-cogs"
+    }
+  ]
+
+}

@@ -540,7 +540,7 @@ class Message {
 		return $messages;
 	}
 	
-	public function getMessagesSearch($user, $folder, $folderID, $search, $limit, $offset) {
+	public static function getMessagesSearch($user, $folder, $folderID, $search, $limit, $offset) {
 	    if($folder == 'ANDERER') {
 	        $addSQL = " AND messageFolderID='" . $folderID . "' ";
 	    }

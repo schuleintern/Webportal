@@ -87,7 +87,7 @@ class CreateElternUsers extends AbstractCron {
 	    	    // 
 	    	    
 	    	    
-		    	include_once(PATH_LIB."/pageabstractPage.class.php");
+		    	//include_once(PATH_LIB."/page/abstractPage.class.php");
 		    	include_once(PATH_LIB."page/loginlogout/login.class.php");
 		    	
 	    		$users = DB::getDB()->query("SELECT * FROM users WHERE userNetwork='SCHULEINTERN_ELTERN' AND userID NOT IN (SELECT elternUserID FROM eltern_email JOIN eltern_adressen ON eltern_email.elternAdresseID=eltern_adressen.adresseID WHERE adresseWessen != 'S' AND elternUserID>0)");

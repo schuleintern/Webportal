@@ -74,7 +74,7 @@ class DateFunctions {
 	public static function isNaturalDateTodayOrLater($date) {
 		$data = explode(".",$date);
 
-		$timeTest = mktime(0,0,0,$data[1],$data[0],$data[2]);
+		$timeTest = mktime(0,0,0,(int)$data[1],(int)$data[0],(int)$data[2]);
 
 		$timeToday = mktime(0,0,0,date("m"),date("d"),date("Y"));
 

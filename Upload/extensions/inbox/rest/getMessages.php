@@ -1,0 +1,120 @@
+<?php
+
+class getMessages extends AbstractRest {
+	
+	protected $statusCode = 200;
+
+
+	public function execute($input, $request) {
+
+
+        $userID = DB::getSession()->getUser()->getUserID();
+        if (!$userID) {
+            return [
+                'error' => true,
+                'msg' => 'Missing User ID'
+            ];
+        }
+
+        $acl = $this->getAcl();
+        if ( !$this->canRead() ) {
+            return [
+                'error' => true,
+                'msg' => 'Kein Zugriff'
+            ];
+        }
+
+        $inbox_id = (int)$input['inbox_id'];
+        if ( !$inbox_id ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: ID'
+            ];
+        }
+
+        $folder_id = (int)$input['folder_id'];
+        if ( !$folder_id ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: Folder'
+            ];
+        }
+
+
+        /*
+        include_once PATH_EXTENSION . 'models' . DS . 'Inbox.class.php';
+        if ( !extInboxModelInbox::isInboxFromUser($inbox_id, $userID) ) {
+            return [
+                'error' => true,
+                'msg' => 'Kein Zugriff auf das Postfach'
+            ];
+        }
+        */
+        //include_once PATH_EXTENSION . 'models' . DS . 'Message.class.php';
+        //$tmp_data = extInboxModelMessage::getMessages($inbox_id, $folder_id);
+
+        include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
+        $Inbox = new extInboxModelInbox2();
+        if ( !$Inbox->isInboxFromUser($inbox_id, $userID) ) {
+            return [
+                'error' => true,
+                'msg' => 'Kein Zugriff auf das Postfach'
+            ];
+        }
+
+
+        include_once PATH_EXTENSION . 'models' . DS . 'Message2.class.php';
+        $class = new extInboxModelMessage2();
+        $tmp_data = $class->getMessages($inbox_id, $folder_id);
+
+        $ret = [];
+        foreach ($tmp_data as $item) {
+            $ret[] = $item->getCollection(true, false);
+        }
+
+        return $ret;
+
+	}
+
+
+    /**
+     * Set Allowed Request Method
+     * (GET, POST, ...)
+     *
+     * @return String
+     */
+    public function getAllowedMethod() {
+        return 'POST';
+    }
+
+
+    /**
+     * Muss der Benutzer eingeloggt sein?
+     * Ist Eine Session vorhanden
+     * @return Boolean
+     */
+    public function needsUserAuth() {
+        return true;
+    }
+
+    /**
+     * Ist eine Admin berechtigung nötig?
+     * only if : needsUserAuth = true
+     * @return Boolean
+     */
+    public function needsAdminAuth()
+    {
+        return false;
+    }
+    /**
+     * Ist eine System Authentifizierung nötig? (mit API key)
+     * only if : needsUserAuth = false
+     * @return Boolean
+     */
+    public function needsSystemAuth() {
+        return false;
+    }
+
+}
+
+?>

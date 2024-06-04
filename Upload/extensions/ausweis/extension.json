@@ -1,0 +1,107 @@
+{
+  "name": "Ausweis",
+  "uniqid": "ext.zwiebelgasse.ausweis",
+  "version": "5",
+
+  "requiredVersion": "1.6.0",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-address-card",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Ausweis",
+  "aclGroupName": "ext_ausweis",
+
+
+
+  "widgets": [
+    {
+      "title": "Counter",
+      "uniqid": "ausweis.counter",
+      "position": "header",
+      "class": "extAusweisWidgetCounter",
+      "params": {}
+    }
+  ],
+
+
+
+  "submenu": [
+    {
+      "title": "Ausweis",
+      "icon": "fa fa-address-card",
+      "url": {
+        "page": "ext_ausweis",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+    {
+      "title": "Offene Anträge",
+      "icon": "fa fa-address-card",
+      "url": {
+        "page": "ext_ausweis",
+        "params": {
+          "view": "open"
+        }
+      },
+      "acl": ["isTeacher"]
+    },
+   
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_ausweis",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_ausweis",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Anträge",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_ausweis",
+        "params": {
+          "view": "antrag",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Ausweis",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_ausweis",
+        "params": {
+          "view": "ausweis",
+          "admin": "true"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

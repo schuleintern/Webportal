@@ -1,5 +1,6 @@
 <?php
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class stundenplan extends AbstractPage {
 
@@ -329,8 +330,8 @@ class stundenplan extends AbstractPage {
 
 
 
-            self::$begin[$i][$s] = $dataStart[0]*60+ $dataStart[1];
-            self::$ende[$i][$s] =  $dataEnde[0]*60+$dataEnde[1];
+            self::$begin[$i][$s] = (int)$dataStart[0] * 60+ $dataStart[1];
+            self::$ende[$i][$s] =  (int)$dataEnde[0] * 60+$dataEnde[1];
           }
         } elseif($i > 1) {
           self::$begin[$i] = self::$begin[1];
@@ -543,7 +544,7 @@ class stundenplan extends AbstractPage {
 
         for($s = 0; $s < 5; $s++) {
           for($t = 0; $t < 11; $t++) {
-            $a = sizeof($sData[$s][$t]);
+            $a = sizeof((array)$sData[$s][$t]);
             if($maxcells[$s] < $a) $maxcells[$s] = $a;
           }
         }
@@ -1389,9 +1390,12 @@ class stundenplan extends AbstractPage {
 
         $values = array();
 
-        include_once('../framework/lib/phpexcel/PHPExcel.php');
+        //include_once('../framework/lib/phpexcel/PHPExcel.php');
+        //$exportClass = new exportXls();
 
-        $objReader = PHPExcel_IOFactory::createReader('Excel2007');
+        //$objReader = PHPExcel_IOFactory::createReader('Excel2007');
+        $objReader = IOFactory::createReader('Xlsx');
+
         $objReader->setReadDataOnly(true);
         
 
@@ -1415,6 +1419,8 @@ class stundenplan extends AbstractPage {
         $tageStart = array();
 
         $values = array();
+
+        $days = ['Mo','Di','Mi','Do','Fr'];
 
         for($i = 0; $i < sizeof($klassenPlaene); $i++) {
           $klasse = ($klassenPlaene[$i]->getTitle());
@@ -1445,7 +1451,8 @@ class stundenplan extends AbstractPage {
           
           $fridaySeen = false;
           foreach($cellIt as $cell) {
-            if($cell->getValue() != "" && $cell->getValue() != "SPM++") {
+
+            if( $cell->getValue() && in_array( $cell->getValue() , $days) ) {
               $tag = $cell->getValue();
              
               
@@ -1461,7 +1468,6 @@ class stundenplan extends AbstractPage {
             }
             $maxCell++;
           }
-          
 
           // Breiten bestimmen
 
@@ -1498,7 +1504,7 @@ class stundenplan extends AbstractPage {
               for($s = 1; $s <= DB::getSettings()->getValue("stundenplan-anzahlstunden"); $s++) {
                 $zeilen = ($anfangZeilen[$s+1] - $anfangZeilen[$s]) / 3;
                 for($b = $anfangZeilen[$s]; $b < $anfangZeilen[$s+1]; $b = $b+3) {
-                  $spalte = $k-1;
+                  $spalte = $k;
                   $stunde = $s;
                   $tag = $tagNummer;
 
@@ -1524,9 +1530,9 @@ class stundenplan extends AbstractPage {
                       $zeileRaum = $b+3;
                   }
 
-                  $fach = ($klassenPlaene[$i]->getCellByColumnAndRow($spalte,$zeileFach));
-                  $lehrer = ($klassenPlaene[$i]->getCellByColumnAndRow($spalte,$zeileLehrer));
-                  $raum = ($klassenPlaene[$i]->getCellByColumnAndRow($spalte,$zeileRaum));
+                  $fach = ($klassenPlaene[$i]->getCell([$spalte,$zeileFach]));
+                  $lehrer = ($klassenPlaene[$i]->getCell([$spalte,$zeileLehrer]));
+                  $raum = ($klassenPlaene[$i]->getCell([$spalte,$zeileRaum]));
 
                   if($lehrer != "" || $fach != "" || $raum != "") {
                     $values[] = "(

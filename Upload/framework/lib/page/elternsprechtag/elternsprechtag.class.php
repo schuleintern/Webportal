@@ -572,17 +572,17 @@ class elternsprechtag extends AbstractPage {
 		$optionsSchueler = "";
 		
 		$schueler = DB::getSession()->getElternObject()->getMySchueler();
-		for($k = 0; $k < sizeof($schueler); $k++) {
+		for($k = 0; $k < sizeof((array)$schueler); $k++) {
 		    if($alleKlassen || in_array($schueler[$k]->getKlasse(), $sprechtagKlassen)) {
                 $optionsSchueler .= "<option value=\"" . $schueler[$k]->getAsvID() . "\">" . $schueler[$k]->getCompleteSchuelerName() . " (Klasse " . $schueler[$k]->getKlasse() . ")</option>";
                 $klassen = stundenplandata::getCurrentStundenplan()->getAllMyPossibleGrades($schueler[$k]->getKlasse());
 
-                for ($i = 0; $i < sizeof($klassen); $i++) {
+                for ($i = 0; $i < sizeof((array)$klassen); $i++) {
                     $plan = stundenplandata::getCurrentStundenplan()->getPlan(array("grade", $klassen[$i]));
 
-                    for ($s = 0; $s < sizeof($plan); $s++) {
-                        for ($o = 0; $o < sizeof($plan[$s]); $o++) {
-                            for ($d = 0; $d < sizeof($plan[$s][$o]); $d++) {
+                    for ($s = 0; $s < sizeof((array)$plan); $s++) {
+                        for ($o = 0; $o < sizeof((array)$plan[$s]); $o++) {
+                            for ($d = 0; $d < sizeof((array)$plan[$s][$o]); $d++) {
                                 $label = $plan[$s][$o][$d]['teacher'] . " (" . $plan[$s][$o][$d]['grade'] . " in " . $plan[$s][$o][$d]['subject'] . ")";
                                 if (!in_array($label, $lehrer)) $lehrer[] = $label;
                                 if (!in_array($plan[$s][$o][$d]['teacher'], $lehrerKuerzel)) $lehrerKuerzel[] = $plan[$s][$o][$d]['teacher'];

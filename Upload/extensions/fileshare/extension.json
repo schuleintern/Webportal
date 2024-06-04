@@ -1,0 +1,79 @@
+{
+  "name": "Fileshare",
+  "uniqid": "ext.zwiebelgasse.fileshare",
+  "version": "1",
+
+  "requiredVersion": "1.6.3",
+
+  "menu": {
+    "categorie": "3",
+    "icon": "fa fa-upload",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Fileshare",
+  "aclGroupName": "ext_fileshare",
+
+
+  "widgets": [
+    {
+      "title": "Attachment",
+      "uniqid": "fileshare.attachment",
+      "position": "dashboard",
+      "class": "extFileshareWidgetAttachment",
+      "params": {}
+    }
+  ],
+  
+  "submenu": [
+    {
+      "title": "Fileshare",
+      "icon": "fa fa-poll",
+      "url": {
+        "page": "ext_fileshare",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+    {
+      "title": "Ordner",
+      "icon": "fa fa-folder",
+      "url": {
+        "page": "ext_fileshare",
+        "params": {
+          "view": "list"
+        }
+      }
+    },
+   
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_fileshare",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_fileshare",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

@@ -175,11 +175,13 @@ $(function () {
   }
 
   //Activate Bootstrap tooltip
+  /*
   if (o.enableBSToppltip) {
     $('body').tooltip({
       selector: o.BSTooltipSelector
     });
   }
+  */
 
   //Activate box widget
   if (o.enableBoxWidget) {

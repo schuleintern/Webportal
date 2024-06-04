@@ -1,5 +1,7 @@
 <?php
 
+
+
 class extPodcastAdminSettings extends AbstractPage {
 	
 	public static function getSiteDisplayName() {

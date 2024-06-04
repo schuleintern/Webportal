@@ -61,6 +61,9 @@ body {
   align-content: center;
   justify-items: center;
 }
+.flex-center-horz {
+  align-items: center;
+}
 
 .flex-space-between {
   justify-content: space-between;
@@ -228,11 +231,25 @@ body {
 .height-20rem {
   height: 20rem;
 }
+.height-50rem {
+  height: 50rem;
+}
 
 .height_35 {
   max-height: 35vh !important;
 }
-
+.height_60{
+  max-height: 60vh;
+}
+.height_70 {
+  max-height: 70vh;
+}
+.min_height_70 {
+  min-height: 70vh;
+}
+.height_80 {
+  max-height: 80vh;
+}
 .height_100 {
   max-height: 100vh !important;
 }
@@ -309,6 +326,9 @@ body {
 }
 
 
+.margin-m {
+  margin: 1.3rem;
+}
 
 .margin-r-xs {
   margin-right: 0.3rem;

@@ -672,7 +672,7 @@ pause\r\n";
 
       // die(getcwd());
 
-      $templateProcessor = new TemplateProcessor('../framework/vorlagen/notenverwaltung/zeugnisse/zeugnis2.docx');
+      $templateProcessor = new TemplateProcessor('../framework/vorlagen/notenverwaltung/zeugnisse/zwischenzeugnis20240126.docx');
 
       $templateProcessor->setValue("{BEMERKUNG2}", $text2);
 
@@ -838,7 +838,7 @@ pause\r\n";
                   $spfs = $this->getFremdspracheNummer("Spanisch", $schueler);
                   break;
 
-              case 'Sk':
+              case 'PuG':
                   $noten["{N17}"] = $zeugnisNoten[$z]->getWertText();
                   break;
 
@@ -983,8 +983,8 @@ pause\r\n";
                         '" . DB::getDB()->escapeString($notenschluss) . "',
                         '" . DB::getDB()->escapeString($kl) . "',
                         '" . DB::getDB()->escapeString($sl) . "',
-                        '" . DB::getDB()->escapeString($klGez) . "',
-                        '" . DB::getDB()->escapeString($slGez) . "'
+                        " . (int)DB::getDB()->escapeString($klGez) . ",
+                        " . (int)DB::getDB()->escapeString($slGez) . "
                     )
                 ");
           }

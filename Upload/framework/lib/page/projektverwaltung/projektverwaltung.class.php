@@ -1,6 +1,8 @@
 <?php
 
 
+
+
 /**
  * Projektverwaltung 9. Klasse
  * // TODO: Remake mit ASV Datensätzen und Drucken der Zertifikate?
@@ -17,29 +19,30 @@ class projektverwaltung extends AbstractPage {
 		parent::__construct(array("Lehrertools", "Projektverwaltung"));
 		
 		$this->checkLogin();
-		
-		if(!DB::getSession()->isTeacher()) {
-			header("Location: index.php");
-			exit(0);
-		}
-		
-		if($_GET['action'] == "admin") {
-		    if(!DB::getSession()->isAdmin()) $this->checkAccessWithGroup("Webportal_Projektverwaltung_Admin");
-		}
+
+
+        if( !DB::getSession()->isTeacher() ) {
+            if($_GET['action'] == "admin") {
+                if(!DB::getSession()->isAdmin()) {
+                    $this->checkAccessWithGroup("Webportal_Projektverwaltung_Admin");
+                }
+            } else {
+                header("Location: index.php");
+                exit(0);
+            }
+        }
 	}
 
-	public function execute() {		
+	public function execute() {
 		if($_GET['action'] == "admin") {
 			$this->adminPage();
 			exit(0);
-		}
-		elseif($_GET['action'] == "grade") {
+		} elseif($_GET['action'] == "grade") {
 			if($_GET['mode'] == "print") $this->showPrintVersion($_GET['gradeName']);
 			if($_GET['mode'] == "print2") $this->showPrintVersion2($_GET['gradeName']);
 			else $this->showGrade($_GET['gradeName']);
-		}
-		else {
-			die("Error 2983471298ddwww3e");
+		} else {
+			die("Error");
 		}
 	}
 	
@@ -121,7 +124,6 @@ class projektverwaltung extends AbstractPage {
 	
 	private function showPrintVersion($grade) {
 		if($this->checkGradeAccess($grade)) {
-				
 			// Schueler der Klasse
 			$schueler = array();
 				
@@ -254,8 +256,7 @@ class projektverwaltung extends AbstractPage {
 					"AE"
 			);
 			
-			include_once("../framework/lib/phpexcel/PHPExcel.php");
-			
+
 			$allData = array();
 			
 			for($i = 0; $i < sizeof($neunteKlassen); $i++) {
@@ -275,6 +276,16 @@ class projektverwaltung extends AbstractPage {
 				}
 			}
 
+            $exportClass = new exportXls();
+            $exportClass->setOptions([
+                'title' => 'Projekte',
+                'desc' => 'Projekte',
+                'creator' => DB::getGlobalSettings()->siteNamePlain,
+                'modifiedBy' => DB::getGlobalSettings()->siteNamePlain
+            ]);
+            $excelFile = $exportClass->getSheet();
+
+            /*
             include_once('../framework/lib/phpexcel/PHPExcel.php');
 
 			$excelFile = new PHPExcel();
@@ -285,6 +296,7 @@ class projektverwaltung extends AbstractPage {
 			->setTitle('Projekte')
 			->setLastModifiedBy('RSU Intern')
 			->setDescription('');
+            */
 			
 			$excelFile->setActiveSheetIndex(0)->setCellValue("A1","Name");
 			$excelFile->setActiveSheetIndex(0)->setCellValue("B1","Vorname");
@@ -315,7 +327,11 @@ class projektverwaltung extends AbstractPage {
 				$excelFile->setActiveSheetIndex(0)->setCellValue("I$row",$allData[$i]['Lehrer2']);
 				
 			}
-			
+
+
+            $exportClass->output("Projekte_9_Klassen.xlsx");
+
+            /*
 			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 			header('Content-Disposition: attachment;filename="Projekte_9.Klassen.xlsx"');
 			header('Cache-Control: max-age=0');
@@ -329,7 +345,7 @@ class projektverwaltung extends AbstractPage {
 			
 			$objWriter = PHPExcel_IOFactory::createWriter($excelFile, 'Excel2007');
 			$objWriter->save('php://output');
-			
+			*/
 			exit(0);
 		}
 		

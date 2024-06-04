@@ -24,19 +24,16 @@ class SyncUsers extends AbstractCron {
 
 		$this->userlib = new userlib();
 
-		header("Content-type: text/plain");
+		//header("Content-type: text/plain");
 
 		$sync = DB::getDB()->query_first("SELECT * FROM remote_usersync WHERE syncIsActive=1 AND (syncLastSync <= " . (time() - 3600) . " OR syncSuccessFull=0) ORDER BY syncLastSync ASC");
 
-		if($sync['syncID'] > 0) {
+		if($sync && $sync['syncID'] > 0) {
             $this->doSync($sync);
-		}
-		else {
+		} else {
 			$this->result = "Keine Aktion durchgeführt.";
 		}
 
-
-		echo($result);
 	}
 	
 	public function doManualUserSync($syncID) {

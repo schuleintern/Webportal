@@ -1,0 +1,60 @@
+{
+  "name": "Podcast",
+  "uniqid": "ext.zwiebelgasse.podcast",
+  "version": "3",
+
+  "requiredVersion": "1.5.4",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fas fa fa-microphone-alt",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Podacste",
+  "aclGroupName": "ext_podcast",
+
+  "submenu": [
+    {
+      "title": "Podcast",
+      "icon": "fas fa fa-microphone-alt",
+      "url": {
+        "page": "ext_podcast",
+        "params": {
+          "view": "default"
+        }
+      },
+      "hidden": false
+    },
+
+
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_podcast",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Podcasts",
+      "icon": "fas fa fa-microphone-alt",
+      "admin": true,
+      "url": {
+        "page": "ext_podcast",
+        "params": {
+          "view": "list",
+          "admin": "true"
+        }
+      }
+    }
+
+
+
+  ]
+
+}

@@ -56,7 +56,7 @@ export default {
             var search_result = [];
             this.searchColumns.forEach(function (col) {
               search_temp = data.filter((item) => {
-                if (item[col]) {
+                if (item[col] && typeof item[col] === 'string') {
                   return split.every(v => item[col].toLowerCase().includes(v));
                 }
               });
@@ -91,16 +91,18 @@ export default {
               } else {
                 if (this.sort.order) {
                   return data.sort((a, b) => {
-                    if ( !isNaN(a[this.sort.column]) ) {
-                      return a[this.sort.column] - b[this.sort.column];
-                    } else {
-                      return a[this.sort.column].localeCompare(b[this.sort.column])
+                    if (a[this.sort.column] && b[this.sort.column]) {
+                      if (!isNaN(a[this.sort.column]) && !isNaN(b[this.sort.column])) {
+                        return a[this.sort.column] - b[this.sort.column];
+                      } else {
+                        return a[this.sort.column].localeCompare(b[this.sort.column])
+                      }
                     }
                   })
                 } else {
                   return data.sort((a, b) => {
                     if (b[this.sort.column] && a[this.sort.column]) {
-                      if ( !isNaN(a[this.sort.column]) ) {
+                      if (!isNaN(a[this.sort.column])) {
                         return b[this.sort.column] - a[this.sort.column];
                       } else {
                         return b[this.sort.column].localeCompare(a[this.sort.column])

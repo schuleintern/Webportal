@@ -1,16 +1,17 @@
 {
     "require": {
-        "eluceo/ical": "^0.14.0",
-        "spomky-labs/otphp": "10.0.0",
-        "monolog/monolog": "^2.0",
-        "phpmailer/phpmailer": "^6.1",
-        "mpdf/mpdf": "^8.0",
-        "thenetworg/oauth2-azure": "^1.4",
-        "camcima/php-mysql-diff": "^1.2",
-        "ezyang/htmlpurifier": "^4.13",
-        "ifsnop/mysqldump-php": "^2.9",
-        "minishlink/web-push": "^7.0"
-        
+        "eluceo/ical": "^2.13.0",
+        "spomky-labs/otphp": "11.2.0",
+        "phpmailer/phpmailer": "^6.9.1",
+        "mpdf/mpdf": "^8.2.2",
+        "thenetworg/oauth2-azure": "^2.2.2",
+        "camcima/php-mysql-diff": "^1.2.1",
+        "ezyang/htmlpurifier": "^4.17",
+        "minishlink/web-push": "^8.0",
+        "tecnickcom/tcpdf": "^6.6.5",
+        "phpoffice/phpspreadsheet": "^1.29",
+        "endroid/qr-code": "^5.0",
+        "phpoffice/phpword": "^1.2",
+        "phpfui/icalendar": "^1.0"
     }
-    
 }

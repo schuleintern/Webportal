@@ -2037,7 +2037,7 @@ class absenzensekretariat extends AbstractPage {
     $selectLehrer = "";
     $alleLehrer = lehrer::getAll();
     for($i = 0; $i < sizeof($alleLehrer); $i++) {
-        $selectLehrer .= "<option value=\"" . $alleLehrer[$i]->getKuerzel() . "\"" . ((in_array($alleLehrer[$i]->getKuerzel(), $currentLehrer)) ? (" selected=\"selected\"") : ("")) . ">" . $alleLehrer[$i]->getKuerzel() . "</option>\r\n";
+        $selectLehrer .= "<option value=\"" . $alleLehrer[$i]->getKuerzel() . "\"" . ((in_array($alleLehrer[$i]->getKuerzel(), (array)$currentLehrer)) ? (" selected=\"selected\"") : ("")) . ">" . $alleLehrer[$i]->getKuerzel() . "</option>\r\n";
     }
 
 
@@ -2319,31 +2319,31 @@ class absenzensekretariat extends AbstractPage {
         ),*/
         array(
             'name' => "absenzen-meldungaktivieren",
-            'typ' => BOOLEAN,
+            'typ' => 'BOOLEAN',
             'titel' => "Meldung im Sekretariat aktivieren?",
             'text' => "Dadurch wird es möglich einen Haken zu setzen, der anzeigt, ob der Klassentagebuchführer schon im Sekretariat gemeldet hat."
         ),
         [
             'name' => "absenzen-sekretariat-fotos-anzeigen",
-            'typ' => BOOLEAN,
+            'typ' => "BOOLEAN",
             'titel' => "Fotos der Schüler in der Sekretariatansicht aktivieren?",
             'text' => ""
         ],
         array(
             'name' => "absenzen-merkeraktivieren",
-            'typ' => BOOLEAN,
+            'typ' => "BOOLEAN",
             'titel' => "Merker im Sekretariat aktivieren?",
             'text' => "Mit dieser Option ist es möglich kleine Erinnerungen zu einzelnen Schülern zu setzen (für einen einzelnen Tag. z.B. 2. Pause Sekretariat)"
         ),
     	array(
     		'name' => "absenzen-schriftlicheentschuldigung-sek",
-    		'typ' => BOOLEAN,
+    		'typ' => "BOOLEAN",
     		'titel' => "Anzeige Schriftlifliche Entschuldigung im Sekretariat aktivieren?",
     		'text' => "Sollen die Haken, ob eine schriftliche Entschuldigung vorliegt angezeigt werden?"
     	),
     	array(
     		'name' => "absenzen-generelleattestpflicht",
-    		'typ' => BOOLEAN,
+    		'typ' => "BOOLEAN",
     		'titel' => "Generelle Attestpflicht aktivieren?",
     		'text' => ""
     	),

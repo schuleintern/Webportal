@@ -171,8 +171,8 @@ class NotenEingabe extends AbstractPage {
                     '" . $arbeit->getID() . "',
                     $datum,
                     '" . DB::getDB()->escapeString($_REQUEST['noteKommentar']) . "',
-                    '" . DB::getDB()->escapeString($_REQUEST['noteIsNachtermin'] > 0) . "',
-                    '" . DB::getDB()->escapeString($_REQUEST['noteNurWennBesser'] > 0) . "'
+                    " . (int)DB::getDB()->escapeString($_REQUEST['noteIsNachtermin'] > 0) . ",
+                    " . (int)DB::getDB()->escapeString($_REQUEST['noteNurWennBesser'] > 0) . "
                 ) ON DUPLICATE KEY UPDATE
                     noteWert='" . DB::getDB()->escapeString($note) . "',
                     noteTendenz='" . DB::getDB()->escapeString($tendenz) . "',
@@ -436,7 +436,7 @@ class NotenEingabe extends AbstractPage {
         }
 
         if($anzahl > 0) {
-            $fachSchnitte[$i] = number_format($summe / $anzahl,2,",",".");
+            $fachSchnitte[$i] = number_format((float)($summe / $anzahl),2,",",".");
         }
     }
 
@@ -462,7 +462,7 @@ class NotenEingabe extends AbstractPage {
                     case 'MDL': $htmlSchueler .= "<b>" . ($a+1) . ". MDL</b><br />"; break;
                 }
 
-                $info = '<b>' . $arbs[$a]->getName() . "</b><br />(" . number_format($arbs[$a]->getGewichtung(),2,",",".") . " fach)";
+                $info = '<b>' . $arbs[$a]->getName() . "</b><br />(" . number_format((float)$arbs[$a]->getGewichtung(),2,",",".") . " fach)";
 
                 $htmlSchueler .= $info;
                //  $htmlSchueler .= "<button class=\"btn btn-xs btn-success\" type=\"button\" data-toggle=\"tooltip\" data-html=\"true\" title=\"" . addslashes(strip_tags($info)) . "\"><i class=\"fa fa-info-circle\"></i></button>";
@@ -808,11 +808,11 @@ class NotenEingabe extends AbstractPage {
         }
 
         if($typ == 'SA') {
-            $htmlSchueler .= "<td><font size=\"+2\">" . number_format($notenCalculator->getSchnittGrossMitRechnung(),2,",",".") . "</font></td>";
+            $htmlSchueler .= "<td><font size=\"+2\">" . number_format((float)$notenCalculator->getSchnittGrossMitRechnung(),2,",",".") . "</font></td>";
         }
 
         if($typ == 'MDL') {
-            $htmlSchueler .= "<td><font size=\"+2\">" . number_format($notenCalculator->getSchnittKleinMitRechnung(),2,",",".") . "</font></td>";
+            $htmlSchueler .= "<td><font size=\"+2\">" . number_format((float)$notenCalculator->getSchnittKleinMitRechnung(),2,",",".") . "</font></td>";
         }
       }
 
@@ -820,7 +820,7 @@ class NotenEingabe extends AbstractPage {
         $htmlSchueler .= "<td>--</td>";
       }
       else {
-          $htmlSchueler .= "<td><font size=\"+2\">" . number_format($notenCalculator->getSchnitt(),2,",",".") . "</font>";
+          $htmlSchueler .= "<td><font size=\"+2\">" . number_format((float)$notenCalculator->getSchnitt(),2,",",".") . "</font>";
 
         if($notenCalculator->isNotenschutzrechnung()) {
             $htmlSchueler .= "<br ><small>§34 Abs. 7 Nr. 2 BaySchO</small>";
@@ -852,7 +852,7 @@ class NotenEingabe extends AbstractPage {
               $unterrichtNote = new UnterrichtsNoten($otherFach, $schueler[$i]);
 
               if ($unterrichtNote->hasNoten()) {
-                  $htmlSchueler .= "<td><font size=\"+2\">" . number_format($unterrichtNote->getNotenCalculator()->getSchnitt(), 2, ",", ".") . "</font>";
+                  $htmlSchueler .= "<td><font size=\"+2\">" . number_format((float)$unterrichtNote->getNotenCalculator()->getSchnitt(), 2, ",", ".") . "</font>";
 
                   if ($unterrichtNote->getNotenCalculator()->isNotenschutzrechnung()) {
                       $htmlSchueler .= "<br ><small>§34 Abs. 7 Nr. 2 BaySchO</small>";
@@ -887,7 +887,7 @@ class NotenEingabe extends AbstractPage {
 
           }
 
-          if ($gesamtNote > 0) $htmlSchueler .= "<td><font size=\"+2\">" . number_format($gesamtNote, 2, ",", ".") . "</font></td>";
+          if ($gesamtNote > 0) $htmlSchueler .= "<td><font size=\"+2\">" . number_format((float)$gesamtNote, 2, ",", ".") . "</font></td>";
           else {
               $htmlSchueler .= "<td>--</td>";
           }
@@ -910,7 +910,7 @@ class NotenEingabe extends AbstractPage {
 
 
 
-          if($schueler[$i]->getKlassenObjekt()->getKlassenstufe() >= 11) {
+          if($schueler[$i]->getKlassenObjekt()->getKlassenstufe() > 11) {
               if($gesamtSchnitt < 1) $normalCalcNote = 0;
               else $normalCalcNote = round($gesamtSchnitt, 0, PHP_ROUND_HALF_UP);
           }
@@ -945,11 +945,11 @@ class NotenEingabe extends AbstractPage {
               $buttonInnerHTML .= "<font size=\"+2\" color=\"" . Note::getNotenColor($note->getWert(), $note->getSchueler()->getKlassenObjekt()->getKlassenstufe()) . "\">";
 
 
-              if($note->getWert() >= 5 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() < 11) {
+              if($note->getWert() >= 5 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() <= 11) {
                   $buttonInnerHTML .= " <i class=\"fa fa-exclamation-triangle\"></i> ";
               }
 
-              if($note->getWert() < 5 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() >= 11) {
+              if($note->getWert() < 5 && $note->getSchueler()->getKlassenObjekt()->getKlassenstufe() > 11) {
                   $buttonInnerHTML .= " <i class=\"fa fa-exclamation-triangle\"></i> ";
               }
 
@@ -971,7 +971,7 @@ class NotenEingabe extends AbstractPage {
               $noteSchnitt = "---";
           }
           else {
-              $noteSchnitt = number_format($gesamtNote,2,",",".");
+              $noteSchnitt = number_format((float)$gesamtNote,2,",",".");
           }
 
           if($zeugnisse[$z]->isNotenschlussVorbei()) $disabled = " disabled=\"disabled\"";

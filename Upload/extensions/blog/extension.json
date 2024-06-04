@@ -1,0 +1,59 @@
+{
+  "name": "Blog",
+  "uniqid": "ext.zwiebelgasse.blog",
+  "version": "1",
+
+  "requiredVersion": "1.7.0",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-wallet",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Finanzen",
+  "aclGroupName": "ext_finanzen",
+
+
+  "submenu": [
+    {
+      "title": "Blog",
+      "icon": "fa fa-wallet",
+      "url": {
+        "page": "ext_blog",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_finanzen",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_finanzen",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

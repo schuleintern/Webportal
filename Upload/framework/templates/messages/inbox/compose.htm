@@ -1,7 +1,3 @@
-          
-<script src="cssjs/plugins/select2/select2.full.min.js"></script>
-
-
 
 <input type="hidden" name="recipients" id="recipientList">
 <input type="hidden" name="ccrecipients" id="ccRecipientList">
@@ -151,7 +147,18 @@
           </div>
           
 			<script src="cssjs/plugins/tinymce/tinymce.min.js"></script>
-          
+
+
+<style>
+	.mce-widget.mce-tooltip {
+		display: none !important;
+	}
+	.tox .tox-pop {display: none !important;}
+	.ui-tooltip {display: none !important;}
+</style>
+<script>$(document).tooltip({ track: true });
+$('#menu *[title]').tooltip({ disabled: true });</script>
+
 			<script>
 			tinymce.init({
 			    selector: '#compose-textarea',

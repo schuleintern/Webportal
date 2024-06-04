@@ -3,9 +3,8 @@
 namespace TheNetworg\OAuth2\Client\Token;
 
 use Firebase\JWT\JWT;
-use InvalidArgumentException;
-use League\OAuth2\Client\Tool\RequestFactory;
 use RuntimeException;
+use TheNetworg\OAuth2\Client\Provider\Azure;
 
 class AccessToken extends \League\OAuth2\Client\Token\AccessToken
 {
@@ -13,11 +12,16 @@ class AccessToken extends \League\OAuth2\Client\Token\AccessToken
 
     protected $idTokenClaims;
 
+    /**
+     * @param Azure $provider
+     */
     public function __construct(array $options, $provider)
     {
         parent::__construct($options);
         if (!empty($options['id_token'])) {
             $this->idToken = $options['id_token'];
+
+            unset($this->values['id_token']);
 
             $keys          = $provider->getJwtVerificationKeys();
             $idTokenClaims = null;
@@ -25,7 +29,7 @@ class AccessToken extends \League\OAuth2\Client\Token\AccessToken
                 $tks = explode('.', $this->idToken);
                 // Check if the id_token contains signature
                 if (3 == count($tks) && !empty($tks[2])) {
-                    $idTokenClaims = (array)JWT::decode($this->idToken, $keys, ['RS256']);
+                    $idTokenClaims = (array)JWT::decode($this->idToken, $keys);
                 } else {
                     // The id_token is unsigned (coming from v1.0 endpoint) - https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx
 
@@ -38,34 +42,34 @@ class AccessToken extends \League\OAuth2\Client\Token\AccessToken
             } catch (JWT_Exception $e) {
                 throw new RuntimeException('Unable to parse the id_token!');
             }
-            if ($provider->getClientId() != $idTokenClaims['aud']) {
-                throw new RuntimeException('The audience is invalid!');
-            }
-            if ($idTokenClaims['nbf'] > time() || $idTokenClaims['exp'] < time()) {
-                // Additional validation is being performed in firebase/JWT itself
-                throw new RuntimeException('The id_token is invalid!');
-            }
 
-            if ('common' == $provider->tenant) {
-                $provider->tenant = $idTokenClaims['tid'];
-
-                $tenant = $provider->getTenantDetails($provider->tenant);
-                if ($idTokenClaims['iss'] != $tenant['issuer']) {
-                    throw new RuntimeException('Invalid token issuer!');
-                }
-            } else {
-                $tenant = $provider->getTenantDetails($provider->tenant);
-                if ($idTokenClaims['iss'] != $tenant['issuer']) {
-                    throw new RuntimeException('Invalid token issuer!');
-                }
-            }
+            $provider->validateTokenClaims($idTokenClaims);
 
             $this->idTokenClaims = $idTokenClaims;
         }
     }
 
+    public function getIdToken()
+    {
+        return $this->idToken;
+    }
+
     public function getIdTokenClaims()
     {
         return $this->idTokenClaims;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize()
+    {
+        $parameters = parent::jsonSerialize();
+
+        if ($this->idToken) {
+            $parameters['id_token'] = $this->idToken;
+        }
+
+        return $parameters;
     }
 }

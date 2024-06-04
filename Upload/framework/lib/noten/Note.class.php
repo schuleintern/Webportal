@@ -126,7 +126,7 @@ class Note {
 	}
 	
 	public static function getNotenColor($wert, $jgst=1) {
-        if($jgst >= 11) {
+        if($jgst > 11) {
             if($wert >= 10) return "#1e8c00";
             if($wert >= 4) return "#f49542";
             return "#820000";

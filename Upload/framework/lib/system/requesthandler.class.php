@@ -1,5 +1,7 @@
 <?php
 
+ 
+
 /**
  * Verwaltet die Aktionen des Benutzers.
  * @author Christian Spitschka
@@ -194,8 +196,7 @@ class requesthandler {
       'GetMathCaptcha',
       'index',
       'info',
-      'Update',
-      'Backup'
+      'Update'
     ],
     'userprofile' => [
       'changeuseridinsession',
@@ -211,9 +212,6 @@ class requesthandler {
       'updatevplan',
       'vplan'
     ],
-  	'test' => [
-  		'test'
-  	],
   	'klassentagebuch' => [
   		'klassentagebuch',
   	    'klassentagebuchauswertung'
@@ -252,6 +250,12 @@ class requesthandler {
       mkdir(PATH_WWW_TMP);
     }
 
+    if ( !is_dir(PATH_TMP)) {
+        mkdir(PATH_TMP);
+    }
+
+
+
     $allowed = false;
     $type = false;
 
@@ -289,7 +293,11 @@ class requesthandler {
       try {
    
         $page = new $action($_request, $extension);
-        
+
+          if (file_exists(PATH_LIB . 'models' . DS . 'extensionsModel.class.php')) {
+              include_once(PATH_LIB . 'models' . DS . 'extensionsModel.class.php');
+          }
+
         if ($type == 'extension' && $_request['task']) {
 
           $taskMethod = 'task'.ucfirst($_request['task']);
@@ -304,9 +312,7 @@ class requesthandler {
         } else {
             if ($type == 'extension') {
 
-                if (file_exists(PATH_LIB . 'extensions' . DS . 'Model.class.php')) {
-                  include_once(PATH_LIB . 'extensions' . DS . 'Model.class.php');
-                }
+
              
                 self::loadFileFromFolder( PATH_EXTENSION.'models');
 
@@ -384,7 +390,7 @@ class requesthandler {
         for($p = 0; $p < sizeof($pages); $p++) {
 
           if($pages[$p] == $action) {
-            require_once (PATH_PAGE.'abstractPage.class.php');
+            require_once (PATH_LIB.'models'.DS.'abstractPage.class.php');
             include_once(PATH_PAGE . $f . '/' . $pages[$p] . '.class.php');
             $allowed = true;
           }
@@ -412,7 +418,7 @@ class requesthandler {
         $path = PATH_EXTENSIONS.$extension['folder'].DS.$view.'.php';
       }
       if (file_exists($path)) {
-        require_once (PATH_PAGE.'abstractPage.class.php');
+        require_once (PATH_LIB.'models'.DS.'abstractPage.class.php');
         include_once($path);
         $allowed = true;
       }

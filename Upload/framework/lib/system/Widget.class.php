@@ -1,5 +1,7 @@
 <?php
 
+
+
 /**
  *
  */
@@ -37,8 +39,8 @@ class Widget
     {
         $script = '';
         $html = '';
-        if (file_exists(PATH_LIB . 'extensions' . DS . 'Model.class.php')) {
-            include_once(PATH_LIB . 'extensions' . DS . 'Model.class.php');
+        if (file_exists(PATH_LIB . 'models' . DS . 'extensionsModel.class.php')) {
+            include_once(PATH_LIB . 'models' . DS . 'extensionsModel.class.php');
         }
 
         $filepath = PATH_EXTENSIONS . $extension . DS . 'widgets' . DS . $widget . DS . 'widget.php';

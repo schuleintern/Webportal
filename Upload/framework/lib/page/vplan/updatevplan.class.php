@@ -6,7 +6,7 @@ class updatevplan extends AbstractPage {
         parent::__construct("Startseite");
 
         header("Content-Type: text/html; charset=UTF-8");
-        
+
         if($_REQUEST['key'] != DB::getSettings()->getValue("vplan-updateKey")) die(("Kein Zugriff, da Zugriffstoken nicht korrekt! (Fehler 7)"));
     }
     
@@ -101,7 +101,7 @@ class updatevplan extends AbstractPage {
                 $page = file("./vplan/$name/seite$i.htm");
                 
                 // Datum suchen
-                for($z = 0; $z < sizeof($page); $z++) {
+                for($z = 0; $z < sizeof((array)$page); $z++) {
                     if(strpos($page[$z], "Stand: ")) {
                         // Stand gefunden
                         $line = explode("Stand: ", $page[$z]);
@@ -186,7 +186,7 @@ class updatevplan extends AbstractPage {
                 
                 if($datum == $stand) {
                     $doit = false;
-                    for($z = 0; $z < sizeof($page); $z++) {
+                    for($z = 0; $z < sizeof((array)$page); $z++) {
                         $page[$z] = ($page[$z]);
                         // if($doit && !strpos($page[$z], "Pausenaufsicht") && !strpos($page[$z], "Bereitschaft") ) {
                         
@@ -239,6 +239,10 @@ class updatevplan extends AbstractPage {
                         }
                     }
                 }
+                
+
+                // TODO: add html files to exte
+                // extVplanModelUpload::addFile() ???
                 
             }
             
@@ -671,7 +675,7 @@ class updatevplan extends AbstractPage {
                 
                 $dateHeute = str_replace("-","",$today);
                 $dateMorgen = str_replace("-","",$morgen);
-                
+
                 for($i = 0; $i < sizeof($data); $i++) {
                     if($data[$i][1] == $dateHeute) $dataHeute[] = $data[$i];
                     if($data[$i][1] == $dateMorgen) $dataMorgen[] = $data[$i];
@@ -861,15 +865,15 @@ class updatevplan extends AbstractPage {
         // Klasse(n)	Stunde	Vertreter	Fach	Raum	Art	(Fach)	(Lehrer)	Vertr. von	(Le.) nach
         $line .= "<td class=\"list\" align=\"center\">" . $data[14] . "</td>"; // klasse
         $line .= "<td class=\"list\" align=\"center\">" . $data[2] . "</td>";  // stunde
-        $line .= "<td class=\"list\" align=\"center\">" . $data[6] . "</td>"; // vertreter
-        $line .= "<td class=\"list\" align=\"center\">" . $data[9] . "</td>"; // fach neu
-        $line .= "<td class=\"list\" align=\"center\">" . $data[12] . "</td>"; // raum neu
+        $line .= "<td class=\"list\" align=\"center\">" . utf8_decode($data[6]) . "</td>"; // vertreter
+        $line .= "<td class=\"list\" align=\"center\">" . utf8_decode($data[9]) . "</td>"; // fach neu
+        $line .= "<td class=\"list\" align=\"center\">" . utf8_decode($data[12]) . "</td>"; // raum neu
         
         //$line .= "<td class=\"list\" align=\"center\">" . self::getUntisArt($data[17]) . "</td>";
         
-        $line .= "<td class=\"list\" align=\"center\"><s>" . $data[7] . "</s></td>"; // fach alt
-        $line .= "<td class=\"list\" align=\"center\"><s>" . $data[5] . "</s></td>"; // lehrere alt
-        $line .= "<td class=\"list\" align=\"\">" . $data[16] . "</td>"; // info
+        $line .= "<td class=\"list\" align=\"center\"><s>" . utf8_decode($data[7]) . "</s></td>"; // fach alt
+        $line .= "<td class=\"list\" align=\"center\"><s>" . utf8_decode($data[5]) . "</s></td>"; // lehrere alt
+        $line .= "<td class=\"list\" align=\"\">" . utf8_decode($data[16]) . "</td>"; // info
         //$line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
         //$line .= "<td class=\"list\" align=\"center\">&nbsp;</td>";
         

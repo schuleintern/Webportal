@@ -126,7 +126,7 @@ class klassenkalender extends AbstractPage {
         $stunden = [];
 
         for($i = 1; $i <= DB::getSettings()->getValue("stundenplan-anzahlstunden"); $i++) {
-          if(in_array($i, $_POST['stunden'])) {
+          if(in_array($i, (array)$_POST['stunden'])) {
             $stunden[] = $i;
           }
         }
@@ -135,7 +135,7 @@ class klassenkalender extends AbstractPage {
 
         $ort = addslashes($_POST['ort']);
         $betrifft = addslashes($_POST['betrifft']);
-    $klassen = implode(",",$addGrades);
+        $klassen = implode(",",$addGrades);
 
 
         DB::getDB()->query("INSERT INTO kalender_klassentermin (
@@ -191,7 +191,7 @@ class klassenkalender extends AbstractPage {
         $stunden = [];
 
         for($i = 1; $i <= DB::getSettings()->getValue("stundenplan-anzahlstunden"); $i++) {
-          if(in_array($i, $_POST['stunden'])) {
+          if(in_array($i, (array)$_POST['stunden'])) {
             $stunden[] = $i;
           }
         }

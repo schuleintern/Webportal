@@ -1,0 +1,114 @@
+{
+  "name": "Benutzer",
+  "uniqid": "ext.zwiebelgasse.users",
+  "version": "6",
+
+  "requiredVersion": "1.7.3",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fa-users",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Users",
+  "aclGroupName": "ext_users",
+
+
+  "submenu": [
+
+    {
+      "title": "Übersicht",
+      "icon": "fa fa-chart-line",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "default",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Benutzer",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "users",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Schüler",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "schueler",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Lehrer",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "teacher",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Eltern",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "eltern",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Elterncodes",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "codes",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Initialpasswörter",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "initcodes",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Gruppen",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "groups",
+          "admin": "true"
+        }
+      }
+    }
+
+
+  ]
+
+
+
+}

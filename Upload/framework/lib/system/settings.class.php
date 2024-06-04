@@ -14,11 +14,11 @@ class settings {
 	}
 	
 	public function getValue($setting) {
-		return $this->settingsValues[$setting];
+            return array_key_exists($setting, $this->settingsValues) ? $this->settingsValues[$setting] : null;
 	}
 
 	public function getInteger($setting) {
-        return intval($this->settingsValues[$setting]);
+        return intval($this->getValue($setting));
     }
 
     /**
@@ -72,8 +72,8 @@ class settings {
     }
 	
 	public function getBoolean($setting) {
-		if($this->settingsValues[$setting] == "") return false;
-		return $this->settingsValues[$setting] != "0";
+		if($this->getValue($setting) == "") return false;
+		return $this->getValue($setting) != "0";
 	}
 	
 	public function getAllSettings() {
@@ -81,8 +81,8 @@ class settings {
 	}
 	
 	public function getSelectedItems($setting) {
-	    if($this->settingsValues[$setting] == "") return [];
-	    else return explode("~~~~",$this->settingsValues[$setting]);
+	    if($this->getValue($setting) == "") return [];
+	    else return explode("~~~~",$this->getValue($setting));
 	}
 	
 	public function isItemSelected($setting, $item) {

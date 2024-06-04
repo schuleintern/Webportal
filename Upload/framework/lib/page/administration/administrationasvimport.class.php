@@ -264,10 +264,12 @@ class administrationasvimport extends AbstractPage
         $ordnungszahlen = [];
 
         $faecher = DB::getDB()->query("SELECT * FROM faecher");
-        while ($f = DB::getDB()->escapeString($faecher)) $ordnungszahlen[] = [
-            'asdID' => $f['fachASDID'],
-            'ordnung' => $f['fachOrdnung']
-        ];
+        while ($f = DB::getDB()->fetch_array($faecher)) {
+            $ordnungszahlen[] = [
+                'asdID' => $f['fachASDID'],
+                'ordnung' => $f['fachOrdnung']
+            ];
+        }
 
         $doneActions .= "Fächer eingelesen\r\n";
 
@@ -329,7 +331,7 @@ class administrationasvimport extends AbstractPage
                 'klassenunterricht' => strval($unterricht->in_matrix) == 'true',
                 'koppeltext' => $koppelText,
                 'pseudokoppel' => $isPseudoKoppel,
-                'ueid' => ueid,
+                'ueid' => strval($unterricht->ueid),
                 'klassen' => $unterrichtKlasse['name']
 
             );
@@ -440,7 +442,7 @@ class administrationasvimport extends AbstractPage
         $schularten = [];
         foreach ($ausbSXML->eintrag as $bg) {
             // print_r($bg);
-            $schularten[strval($bg->schluessel) * 1] = strval($bg->kurzform);
+            $schularten[(int)$bg->schluessel] = (int)$bg->kurzform;
         }
 
 
@@ -449,9 +451,9 @@ class administrationasvimport extends AbstractPage
         foreach ($simpleXML->schulverzeichnis_liste->schulverzeichniseintrag as $schule) {
             DB::getDB()->query("INSERT INTO schulen (schuleID, schuleNummer, schuleArt, schuleName) values(
 
-				'" . DB::getDB()->escapeString(strval($schule->xml_id) * 1) . "',
+				'" . DB::getDB()->escapeString((int)$schule->xml_id) . "',
 				'" . DB::getDB()->escapeString(strval($schule->schulnummer)) . "',
-				'" . DB::getDB()->escapeString($schularten[strval($schule->schulart) * 1]) . "',
+				'" . DB::getDB()->escapeString($schularten[(int)$schule->schulart]) . "',
 				'" . DB::getDB()->escapeString(strval($schule->dienststellenname)) . "'
 			)");
         }
@@ -559,7 +561,7 @@ class administrationasvimport extends AbstractPage
 
                 $ausbildungsrichtung = strval($klassengruppe->bildungsgang);
                 $ausbildungsrichtung = $ausbs[$ausbildungsrichtung];
-                $jahrgangsstufe = $jahrgangsstufen[strval($klassengruppe->jahrgangsstufe) * 1];
+                $jahrgangsstufe = $jahrgangsstufen[(int)$klassengruppe->jahrgangsstufe];
 
                 foreach ($klassengruppe->schuelerliste->schuelerin as $schueler) {
 
@@ -569,14 +571,17 @@ class administrationasvimport extends AbstractPage
                     foreach ($schueler->schueleranschriften->schueleranschrift as $schueleranschrift) {
 
                         $kontakt = [];
-                        for ($i = 0; $i < sizeof($schueleranschrift->kommunikationsdaten->kommunikation); $i++) {
+                        if ($schueleranschrift->kommunikationsdaten->kommunikation) {
+                            for ($i = 0; $i < sizeof($schueleranschrift->kommunikationsdaten->kommunikation); $i++) {
 
-                            $kontakt[] = array(
-                                "typ" => strval($schueleranschrift->kommunikationsdaten->kommunikation[$i]->typ),
-                                "wert" => (strval($schueleranschrift->kommunikationsdaten->kommunikation[$i]->nummer_adresse)),
-                                "anschrifttyp" => strval($schueleranschrift->anschriftstyp)
-                            );
+                                $kontakt[] = array(
+                                    "typ" => strval($schueleranschrift->kommunikationsdaten->kommunikation[$i]->typ),
+                                    "wert" => (strval($schueleranschrift->kommunikationsdaten->kommunikation[$i]->nummer_adresse)),
+                                    "anschrifttyp" => strval($schueleranschrift->anschriftstyp)
+                                );
+                            }
                         }
+
 
 
                         $wessenText = "";
@@ -623,12 +628,17 @@ class administrationasvimport extends AbstractPage
 
                     $unterrichtListe = array();
 
-                    for ($f = 0; $f < sizeof($schueler->besuchte_faecher->besuchtes_fach); $f++) {
-                        $fach = $schueler->besuchte_faecher->besuchtes_fach[$f];
-                        for ($i = 0; $i < sizeof($fach->unterrichtselemente->unterrichtselement_id); $i++) {
-                            $unterrichtListe[] = strval($fach->unterrichtselemente->unterrichtselement_id[$i]);
+                    if ($schueler->besuchte_faecher->besuchtes_fach) {
+                        for ($f = 0; $f < sizeof($schueler->besuchte_faecher->besuchtes_fach); $f++) {
+                            $fach = $schueler->besuchte_faecher->besuchtes_fach[$f];
+                            if ($fach->unterrichtselemente->unterrichtselement_id) {
+                                for ($i = 0; $i < sizeof($fach->unterrichtselemente->unterrichtselement_id); $i++) {
+                                    $unterrichtListe[] = strval($fach->unterrichtselemente->unterrichtselement_id[$i]);
+                                }
+                            }
                         }
                     }
+
 
                     $import = true;
 
@@ -646,7 +656,7 @@ class administrationasvimport extends AbstractPage
 
                     foreach ($schueler->fremdsprachen->fremdsprache as $sprache) {
                         $sprachen[] = [
-                            'jahrgangsstufe' => $jahrgangsstufen[strval($sprache->von_jahrgangsstufe) * 1],
+                            'jahrgangsstufe' => $jahrgangsstufen[(int)$sprache->von_jahrgangsstufe * 1],
                             'feststellungspruefung' => ((strval($sprache->feststellungspruefung) == 'true') ? 1 : 0),
                             'unterrichtsfach' => $unterrichtsfaecher[strval($sprache->unterrichtsfach) * 1],
                             'sortierung' => strval($sprache->sortierung)
@@ -670,7 +680,7 @@ class administrationasvimport extends AbstractPage
                             'geburtsort' => strval($schueler->geburtsort),
                             'geburtsland' => $staaten[strval($schueler->Geburtsland)],
                             'jahrgangsstufe' => $jahrgangsstufe,
-                            'jahrgangsstufeeintritt' => $jahrgangsstufen[strval($schueler->eintritt_jahrgangsstufe) * 1],
+                            'jahrgangsstufeeintritt' => $jahrgangsstufen[(int)$schueler->eintritt_jahrgangsstufe],
                             'eintrittsdatum' => DateFunctions::getMySQLDateFromNaturalDate(strval($schueler->eintrittsdatum)),
                             // "kontakt" => $kontakt,
                             "adressen" => $adressen,
@@ -844,10 +854,13 @@ class administrationasvimport extends AbstractPage
                 if (self::$klassen[$i]['schueler'][$s]['ganztag_betreuung'] != "") DB::getDB()->query("INSERT INTO unterricht_besuch (unterrichtID, schuelerAsvID) values ('1','" . self::$klassen[$i]['schueler'][$s]['asvid'] . "')");
 
                 // Update USER data
-                DB::getDB()->query("UPDATE users SET 
+                if (self::$klassen[$i]['schueler'][$s]['asvid']) {
+                    DB::getDB()->query("UPDATE users SET 
                          userFirstName = '" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['rufname']) . "',
                          userLastName = '" . DB::getDB()->escapeString(self::$klassen[$i]['schueler'][$s]['name']) . "'
                          WHERE userAsvID = '" . self::$klassen[$i]['schueler'][$s]['asvid']."'" );
+                }
+
             }
         }
 
@@ -906,6 +919,7 @@ class administrationasvimport extends AbstractPage
 
         DB::getDB()->query("DELETE FROM eltern_telefon");
 
+        /*
         for ($i = 0; $i < sizeof(self::$klassen); $i++) {
             for ($s = 0; $s < sizeof(self::$klassen[$i]['schueler']); $s++) {
                 for ($k = 0; $k < sizeof(self::$klassen[$i]['schueler'][$s]['kontakt']); $k++) {
@@ -915,6 +929,7 @@ class administrationasvimport extends AbstractPage
 
             }
         }
+        */
 
         $doneActions .= "Telefonnummern synchronisiert.\r\n";
 
@@ -1063,7 +1078,7 @@ class administrationasvimport extends AbstractPage
 
         foreach ($simpleXML->schulen[0]->schule->lehrkraefte->lehrkraft as $lehrer) {
 
-            $datenID = intval($lehrer->lehrkraftdaten_nicht_schulbezogen_id);
+            $datenID = (int)$lehrer->lehrkraftdaten_nicht_schulbezogen_id;
 
             $name = "";
             $vornamen = "";
@@ -1074,7 +1089,7 @@ class administrationasvimport extends AbstractPage
             $asvID = "";
 
             foreach ($simpleXML->lehrkraftdaten_nicht_schulbezogen_liste->lehrkraftdaten_nicht_schulbezogen as $daten) {
-                if (intval($daten->xml_id) == $datenID) {
+                if ( (int)$daten->xml_id == $datenID) {
                     $name = strval($daten->familienname);
                     $vornamen = strval($daten->vornamen);
                     $rufname = strval($daten->rufname);
@@ -1082,19 +1097,17 @@ class administrationasvimport extends AbstractPage
                     $zeugnisname = strval($daten->zeugnisname_1);
                     $amtsbezeichnungID = intval($daten->amtsbezeichnung);
                     $asvID = strval($daten->lokales_differenzierungsmerkmal);
-                    $nameNachgestellt = $daten->namensbestandteil_nachgestellt;
-                    $nameVorgestellt = $daten->namensbestandteil_vorangestellt;
-                    break;
+                    $nameNachgestellt = (string)$daten->namensbestandteil_nachgestellt;
+                    $nameVorgestellt = (string)$daten->namensbestandteil_vorangestellt;
                 }
             }
 
-
-            if (strval($lehrer->namenskuerzel) != "")
+            if ( (string)$lehrer->namenskuerzel != "")
                 self::$lehrer[] = array(
                     "xmlid" => intval($lehrer->xml_id),
                     "datenid" => intval($lehrer->lehrkraftdaten_nicht_schulbezogen_id),
                     "kuerzel" => (strval($lehrer->namenskuerzel)),
-                    "name" => ($name),
+                    "name" => $name,
                     "namevorgestellt" => $nameVorgestellt,
                     "namenachgestellt" => $nameNachgestellt,
                     "vornamen" => ($vornamen),
@@ -1106,7 +1119,7 @@ class administrationasvimport extends AbstractPage
                 );
         }
 
-        $doneActions .= "Lehrer eingelesen\r\n";
+        //$doneActions .= "Lehrer eingelesen\r\n";
 
         // Sync Lehrer
 
@@ -1189,10 +1202,13 @@ class administrationasvimport extends AbstractPage
 
             // Update USERS Table
 
-            DB::getDB()->query("UPDATE users SET 
+            if ($lehrer[$i]['asvid']) {
+                DB::getDB()->query("UPDATE users SET 
                          userFirstName = '" . DB::getDB()->escapeString($lehrer[$i]['rufname']) . "',
                          userLastName = '" . DB::getDB()->escapeString($lehrer[$i]['name']) . "'
                          WHERE userAsvID = '" . $lehrer[$i]['asvid']."'" );
+            }
+
 
         }
 

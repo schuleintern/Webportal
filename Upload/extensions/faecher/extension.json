@@ -1,0 +1,59 @@
+{
+  "name": "Fächer und Unterricht",
+  "uniqid": "ext.zwiebelgasse.faecher",
+  "version": "1",
+
+  "requiredVersion": "1.7.3",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fas fa fa-chalkboard-teacher",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Faecher",
+  "aclGroupName": "ext_faecher",
+
+
+  "submenu": [
+
+    {
+      "title": "Übersicht",
+      "icon": "fa fa-chart-line",
+      "url": {
+        "page": "ext_faecher",
+        "params": {
+          "view": "default",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Fächer",
+      "icon": "fa fas fa-chalkboard",
+      "url": {
+        "page": "ext_faecher",
+        "params": {
+          "view": "faecher",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Unterricht",
+      "icon": "fa fas fa-chalkboard-teacher",
+      "url": {
+        "page": "ext_faecher",
+        "params": {
+          "view": "unterricht",
+          "admin": "true"
+        }
+      }
+    }
+
+
+  ]
+
+
+
+}

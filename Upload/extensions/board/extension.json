@@ -1,0 +1,78 @@
+{
+  "name": "Board",
+  "uniqid": "ext.zwiebelgasse.board",
+  "version": "3",
+
+  "requiredVersion": "1.7.4",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fas fa-chalkboard-teacher",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Board",
+  "aclGroupName": "ext_board",
+
+  "submenu": [
+
+    {
+      "title": "Boards",
+      "icon": "fa fas fa-chalkboard",
+      "url": {
+        "page": "ext_board",
+        "params": {
+          "view": "boards"
+        },
+        "options": {
+          "category": {
+            "type": "text",
+            "label": "Kategorie ID"
+          }
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_board",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Kategorien",
+      "icon": "fas fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_board",
+        "params": {
+          "view": "categories",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Boards",
+      "icon": "fas fa-chalkboard",
+      "admin": true,
+      "url": {
+        "page": "ext_board",
+        "params": {
+          "view": "boards",
+          "admin": "true"
+        }
+      }
+    }
+
+
+
+  ]
+
+
+
+}

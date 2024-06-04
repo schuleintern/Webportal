@@ -30,7 +30,7 @@ class GlobalSettings
      * URL zur index.php für diese Installation (SSL!)
      * @var string
      */
-    public $urlToIndexPHP = "http://schuleintern.local/index.php";
+    public $urlToIndexPHP = "https://schuleintern:8890/index.php";
 
     /**
      * Schlüssel zum Ausführen des Cron Jobs.
