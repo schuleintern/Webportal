@@ -58,11 +58,15 @@ class getKalenders extends AbstractRest {
         $ret = [];
         if (count($data) > 0) {
             foreach ($data as $item) {
-                $arr = $item->getCollection(true);
+                $arr = $item->getCollection(true,false,true);
 
                 if ( $isAdmin || $this->getGroupACL( $arr['acl']['groups'], $userType ) === 1  ) {
                     if ( $isAdmin ) {
-                        $arr['acl']['rights'] = ['read' => 1, 'write' => 1, 'delete' => 1];
+                        $write = 1;
+                        if ($arr['icsfeed']) {
+                            $write = 0;
+                        }
+                        $arr['acl']['rights'] = ['read' => 1, 'write' => $write, 'delete' => $write];
                     }
                     $ret[] = $arr;
                 }

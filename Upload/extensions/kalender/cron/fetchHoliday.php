@@ -41,7 +41,8 @@ class extKalenderCronFetchHoliday extends AbstractCron
 					place,
 					comment,
 					user_id,
-					createdTime
+					createdTime,
+                    status
 					) values (
 					" . intval($ferien_kalender['id']) . ",
 					'" . DB::getDB()->escapeString($ferien[2]) . "',
@@ -52,7 +53,8 @@ class extKalenderCronFetchHoliday extends AbstractCron
 					'',
 					'',
 					1,
-					'" . $now . "'
+					'" . $now . "',
+					0
 				);");
 
             }

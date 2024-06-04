@@ -47,7 +47,7 @@ class getAdminKalenders extends AbstractRest {
         $ret = [];
         if (count($data) > 0) {
             foreach ($data as $item) {
-                $ret[] = $item->getCollection(true);
+                $ret[] = $item->getCollection(true, false, true);
             }
         }
 

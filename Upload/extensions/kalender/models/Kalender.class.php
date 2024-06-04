@@ -77,7 +77,7 @@ class extKalenderModelKalender
      * Collection
      */
 
-    public function getCollection($full = false, $userID = false) {
+    public function getCollection($full = false, $userID = false, $admin = false) {
 
         $collection = [
             "id" => $this->getID(),
@@ -107,6 +107,9 @@ class extKalenderModelKalender
                 $collection['acl'] = ACL::getBlank();
             }
 
+        }
+        if ($admin == true) {
+            $collection['icsfeed'] = $this->data['icsfeed'];
         }
 
         return $collection;
@@ -247,6 +250,9 @@ class extKalenderModelKalender
         if ( !$array['color'] || $array['color'] == 'undefined' ) {
             $array['color'] = '';
         }
+        if ( !$array['icsfeed'] || $array['icsfeed'] == 'undefined' ) {
+            $array['icsfeed'] = '';
+        }
 
         $insert_id = 0;
         if ($array['id']) {
@@ -260,7 +266,8 @@ class extKalenderModelKalender
                         preSelect = " . (int)DB::getDB()->escapeString($array['preSelect']) . ",
                         acl = " . (int)DB::getDB()->escapeString($array['acl']) . ",
                         ferien = " . (int)DB::getDB()->escapeString($array['ferien']) . ",
-                        public = " . (int)DB::getDB()->escapeString($array['public']) . "
+                        public = " . (int)DB::getDB()->escapeString($array['public']) . ",
+                        icsfeed = '" . DB::getDB()->escapeString($array['icsfeed']) . "'
                         WHERE id = " . (int)$array['id'])) {
                 return false;
             }
@@ -278,7 +285,8 @@ class extKalenderModelKalender
                 preSelect,
                 acl,
                 ferien,
-                public
+                public,
+                icsfeed
             ) values(
             1,
             '" .  DB::getDB()->escapeString($array['title']) . "',
@@ -287,7 +295,8 @@ class extKalenderModelKalender
             " . (int)DB::getDB()->escapeString($array['preSelect']) . ",
             " . (int)DB::getDB()->escapeString($array['acl']) . ",
             " . (int)DB::getDB()->escapeString($array['ferien']) . ",
-            " . (int)DB::getDB()->escapeString($array['public']) . "
+            " . (int)DB::getDB()->escapeString($array['public']) . ",
+            '" .  DB::getDB()->escapeString($array['icsfeed']) . "'
             ) ") ) {
                 return false;
             }

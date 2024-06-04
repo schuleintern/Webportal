@@ -56,7 +56,7 @@ export default {
   },
   created() {
     this.list = window._widget_kalender_events.today;
-    console.log(this.list)
+    //console.log(this.list)
   },
   methods: {}
 }

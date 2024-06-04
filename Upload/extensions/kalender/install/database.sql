@@ -1,20 +1,21 @@
 CREATE TABLE `ext_kalender`
 (
-    `id`        int(11) UNSIGNED NOT NULL,
+    `id`        int(11) unsigned NOT NULL AUTO_INCREMENT,
     `title`     varchar(255) NOT NULL DEFAULT '',
-    `state`     tinyint(1) DEFAULT 1,
+    `state`     tinyint(1) DEFAULT '1',
     `color`     varchar(7)            DEFAULT NULL,
     `sort`      tinyint(1) DEFAULT NULL,
     `preSelect` tinyint(1) DEFAULT NULL,
     `acl`       int(11) DEFAULT NULL,
-    `ferien`    tinyint(1) DEFAULT 0,
+    `ferien`    tinyint(1) DEFAULT '0',
     `public`    tinyint(1) NOT NULL,
+    `icsfeed`   varchar(255)          DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 CREATE TABLE `ext_kalender_events`
 (
-    `id`           int(11) NOT NULL,
+    `id`           int(11) NOT NULL AUTO_INCREMENT,
     `status`       tinyint(4) DEFAULT 0,
     `kalender_id`  int(11) NOT NULL,
     `title`        varchar(255) NOT NULL DEFAULT '',
@@ -36,8 +37,10 @@ CREATE TABLE `ext_kalender_events`
 
 CREATE TABLE `ext_kalender_ics`
 (
-    `id`          int(11) UNSIGNED NOT NULL,
+    `id`          int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
     `createdTime` date         DEFAULT NULL,
     `user_id`     int(11) DEFAULT NULL,
-    `keyCode`     varchar(100) DEFAULT NULL
+    `keyCode`     varchar(100) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci ROW_FORMAT=DYNAMIC;

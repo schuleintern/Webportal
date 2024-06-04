@@ -152,6 +152,9 @@ class extKalenderModelEvent
         if (!$date) {
             return false;
         }
+        if (!$kalenderIDs) {
+            return false;
+        }
 
         $where = [];
         foreach($kalenderIDs as $k_id) {
@@ -237,13 +240,17 @@ class extKalenderModelEvent
             return false;
         }
         if (!$user_id) {
-            return false;
+            $user_id = 1;
         }
+
         if (!$array['title']) {
             return false;
         }
         if (!$array['kalender_id']) {
             return false;
+        }
+        if (!$array['status']) {
+            $array['status'] = "NULL";
         }
 
         $dateStart = DB::getDB()->escapeString($array['dateStart']);

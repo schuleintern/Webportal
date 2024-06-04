@@ -6,6 +6,10 @@
 class extKalenderWidgetCounter extends Widget
 {
 
+    public function globals()
+    {
+
+    }
 
     public function render($dashboard = false) {
 
@@ -25,8 +29,8 @@ class extKalenderWidgetCounter extends Widget
         }
         $today = date('Y-m-d', time());
         $events = extKalenderModelEvent::getDayByKalender($today, $kalenders);
-        $anz = count($events);
-        if ( count($events) >= 1) {
+        if ( $events && count($events) >= 1) {
+            $anz = count($events);
             return '<a href="index.php?page=ext_kalender&view=default" class="btn">
                     <i class="fa fa-calendar"></i>
                     <span class="label bg-red">'.$anz.'</span>

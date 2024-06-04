@@ -17,7 +17,7 @@
     </div>
 
 
-    <form class="si-form flex-row" @change="handlerSaveForm($event)">
+    <form class="si-form flex-row" >
       <div class="flex-5">
         <ul>
           <li style="display: block" class="">
@@ -57,6 +57,10 @@
             <label>Veröffentlichen im allgemeinen ICS Feed</label>
             <FormToggle :input="form.public" class="margin-l-l"
                         @change="handlerToggleChange($event, form,'public')"></FormToggle>
+          </li>
+          <li>
+            <label>Externer ICS Feed</label>
+            <input type="text" v-model="form.icsfeed">
           </li>
         </ul>
       </div>
