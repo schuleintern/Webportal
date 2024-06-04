@@ -1,0 +1,71 @@
+{
+  "name": "Pausen",
+  "uniqid": "ext.zwiebelgasse.pausen",
+  "version": "2",
+
+  "requiredVersion": "1.7.3",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fas fa-pause-circle",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Pause",
+  "aclGroupName": "ext_pausen",
+
+  "widgets": [
+    {
+      "title": "Dashboard",
+      "uniqid": "pausen.dashboard",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 2
+      }
+    }
+  ],
+
+  "submenu": [
+
+    {
+      "title": "Aufsicht",
+      "icon": "fa fas fa-chalkboard",
+      "url": {
+        "page": "ext_pausen",
+        "params": {
+          "view": "aufsicht"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_pausen",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Pausen",
+      "icon": "fa fas fa-chalkboard",
+      "admin": true,
+      "url": {
+        "page": "ext_pausen",
+        "params": {
+          "view": "pausen",
+          "admin": "true"
+        }
+      }
+    }
+
+
+  ]
+
+
+
+}
