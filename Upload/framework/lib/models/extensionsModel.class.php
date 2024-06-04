@@ -6,7 +6,7 @@
 abstract class ExtensionModel
 {
 
-    private string $_table;
+    private string $_table = '';
     private string $_table_id = 'id';
     private string $_table_parent_id = 'parent_id';
 
@@ -16,11 +16,7 @@ abstract class ExtensionModel
         'createdUserID'
     ];
 
-    protected array $_defaults = [
-        'state' => 0,
-        'createdTime' => 0,
-        'createdUserID' => 0
-    ];
+    protected array $_defaults = [];
 
     public function __construct($data, $_table = false, $_option = false)
     {
@@ -91,7 +87,7 @@ abstract class ExtensionModel
 
     public  function getModelDefaults()
     {
-        if ($this->_defaults['createdTime'] == 0) {
+        if (isset($this->_defaults['createdTime']) && $this->_defaults['createdTime'] == 0) {
             $this->_defaults['createdTime'] = date('Y-m-d H:i:s', time());
         }
         return $this->_defaults;
@@ -134,12 +130,27 @@ abstract class ExtensionModel
         if (is_array($root) ) {
             $collection = $root;
         } else {
+            /*
             $collection = [
-                "id" => $this->getID(),
+                //"id" => $this->getID(),
                 "state" => $this->getState(),
                 "createdTime" => $this->getCreatedTime(),
                 "createdUserID" => $this->getCreatedUserID()
             ];
+            */
+            $_fields = $this->getModelFields();
+            if (in_array('id',$_fields)) {
+                $collection["id"] = $this->getID();
+            }
+            if (in_array('state',$_fields)) {
+                $collection["state"] = $this->getState();
+            }
+            if (in_array('createdTime',$_fields)) {
+                $collection["createdTime"] = $this->getCreatedTime();
+            }
+            if (in_array('createdUserID',$_fields)) {
+                $collection["createdUserID"] = $this->getCreatedUserID();
+            }
 
         }
         
@@ -284,7 +295,12 @@ abstract class ExtensionModel
 
         foreach ($_fields as $field) {
             if (!isset($data[$field])) {
-                $data[$field] = $_defaults[$field] ? $_defaults[$field] : 0;
+                $data[$field] = isset($_defaults[$field]) ? $_defaults[$field] : NULL;
+            }
+        }
+        foreach ($_defaults as $key => $item) {
+            if (!isset($data[$key])) {
+                $data[$key] = $item;
             }
         }
 
@@ -315,5 +331,109 @@ abstract class ExtensionModel
             return true;
         }
         return false;
+    }
+
+
+    public function uploadFile($file = false, $newname = false, $folders = false) {
+
+
+
+        if (!$file || !$newname) {
+            return false;
+        }
+
+        $target_Path = PATH_TMP;
+        if ($folders) {
+            $target_Path .= $folders.DS;
+            if (!file_exists($target_Path)) {
+                mkdir($target_Path,0777,true);
+            }
+        }
+
+        $info = pathinfo($file['name']);
+        $newname = $newname . '.' . $info['extension'];
+
+        if (move_uploaded_file($file['tmp_name'], $target_Path . $newname)) {
+            return [
+                'path' => $target_Path,
+                'filename' => $newname
+            ];
+        }
+
+        return false;
+
+    }
+
+    public function uploadMove($file = false, $tmp_id = false)
+    {
+        if (!$file) {
+            return false;
+        }
+        $newFile = basename($file);
+        $newFolder = str_replace(PATH_TMP,'',$file);
+        $newFolder = str_replace($newFile,'',$newFolder);
+
+        $newFolders = explode('/', $newFolder);
+        $target_Path = PATH_ROOT . 'data' . DS;
+        foreach ($newFolders as $folder) {
+            if ($folder) {
+                if ($tmp_id) {
+                    $folder = str_replace('__tmp',$tmp_id, $folder);
+                }
+                $target_Path .= $folder.DS;
+                if (!file_exists($target_Path)) {
+                    mkdir($target_Path,0777,true);
+                }
+            }
+        }
+
+        $newPath = $target_Path.$newFile;
+        if (!file_exists($target_Path)) {
+            return false;
+        }
+        if (file_exists($newPath)) {
+            return true; // Datei wurde schon verschoben
+        }
+        if (!file_exists($file)) {
+            return false;
+        }
+        if ( rename($file, $newPath) ) {
+            return $newPath;
+        }
+        return false;
+    }
+
+    public function uploadMoveOrDelete($data = false, $oldData = false, $tmp_id = false)
+    {
+
+        $ret = false;
+        if ( $data ) {
+            $ret = $data;
+
+            if (!$oldData || $oldData != $data) {
+                if ( $newPath = $this->uploadMove($data, $tmp_id) ) {
+                    $ret = $newPath;
+                } else {
+                    return false;
+                }
+            }
+
+        } else if ( $data === '' && $oldData ) {
+            if (file_exists($oldData)) {
+                if (unlink($oldData)) {
+                    $ret = '';
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        if ( $data === '' ) {
+            return '';
+        }
+        return $ret;
+
+
     }
 }
