@@ -1,6 +1,6 @@
 <?php
 
-class getUsers extends AbstractRest
+class getGroups extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -19,15 +19,12 @@ class getUsers extends AbstractRest
         }
 
 
-        //include_once PATH_EXTENSION . 'models' . DS . 'Antrag.class.php';
-
-        $tmp_data = user::getAll();
-
-
+        include_once PATH_EXTENSION . 'models' . DS . 'Groups.class.php';
+        $class = new extUsersModelGroups();
+        $tmp_data = $class->getAll();
         $ret = [];
         foreach ($tmp_data as $item) {
-            $collection = $item->getCollection(true, true, true);
-            $ret[] = $collection;
+            $ret[] = $item->getCollection(true);
         }
 
         return $ret;

@@ -11,6 +11,14 @@ class extUsersModelUsers extends ExtensionModel
 
 
     static $defaults = [
+        'userRemoteUserID' => '',
+        'userAsvID' => '',
+        'userAutoresponseText' => '',
+        'userLastPasswordChangeRemote' => 0,
+        'userEMail' => '',
+        'userSignature' => '',
+        'userMailInitialPassword' => '',
+        'userPush' => ''
     ];
 
 

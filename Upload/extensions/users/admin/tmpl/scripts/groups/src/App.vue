@@ -62,21 +62,20 @@ export default {
 
     this.$bus.$on('item--submit', data => {
 
-      if (!data.item.username) {
+      if (!data.title) {
         console.log('missing');
         return false;
       }
 
       const formData = new FormData();
-      formData.append('id', data.item.id);
-      formData.append('vorname', data.item.vorname || '');
-      formData.append('nachname', data.item.nachname || '');
-      formData.append('username', data.item.username || '');
-      formData.append('password', data.item.password || '');
+      formData.append('id', data.id|| '');
+      formData.append('title', data.title|| '');
+      formData.append('state', data.state);
+      formData.append('users', JSON.stringify(data.users) || '');
 
       this.loading = true;
       var that = this;
-      axios.post(this.apiURL + '/setUser', formData)
+      axios.post(this.apiURL + '/setGroups', formData)
       .then(function (response) {
         if (response.data) {
 
@@ -149,7 +148,7 @@ export default {
 
       this.loading = true;
       var that = this;
-      axios.get(this.apiURL + '/getUsers')
+      axios.get(this.apiURL + '/getGroups')
       .then(function (response) {
         if (response.data) {
           if (response.data.error) {

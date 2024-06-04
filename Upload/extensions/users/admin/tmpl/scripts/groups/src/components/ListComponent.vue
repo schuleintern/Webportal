@@ -4,6 +4,9 @@
 
     <input type="search" class="si-input " v-model="searchString" placeholder="Suche..."/>
 
+    <button class="si-btn margin-l-l" @click="handlerOpen()"><i class="fa fa-plus"></i> Gruppe hinzufügen</button>
+
+    <!--
     <select class="si-input margin-l-m" v-on:change="handlerFilter($event, 'type')">
       <option>- Type -</option>
       <option value="isPupil">Schüler*in</option>
@@ -11,36 +14,27 @@
       <option value="isTeacher">Lehrer*in</option>
       <option value="isNone">Sonstige</option>
     </select>
-
-    <button v-if="acl.write == 1" class="si-btn margin-l-m" @click="handlerOpen()"><i class="fa fa-plus"></i> Hinzufügen</button>
-
+    -->
 
     <table class="si-table si-table-style-allLeft" v-if="sortList && sortList.length >= 1">
       <thead>
       <tr>
-        <th v-on:click="handlerSort('vorname')" class="curser-sort" :class="{'text-orange': sort.column == 'vorname'}">Vorname</th>
-        <th v-on:click="handlerSort('nachname')" class="curser-sort" :class="{'text-orange': sort.column == 'nachname'}">Nachname</th>
-        <th v-on:click="handlerSort('username')" class="curser-sort" :class="{'text-orange': sort.column == 'username'}">Benutzername</th>
-        <th v-on:click="handlerSort('type')" class="curser-sort" :class="{'text-orange': sort.column == 'type'}">Type</th>
-        <th v-on:click="handlerSort('klasse')" class="curser-sort" :class="{'text-orange': sort.column == 'klasse'}">Klasse</th>
-        <th v-on:click="handlerSort('klasse')" class="curser-sort" :class="{'text-orange': sort.column == 'klasse'}">Klasse</th>
-        <th v-on:click="handlerSort('id')" class="curser-sort" :class="{'text-orange': sort.column == 'id'}">ID</th>
+        <th v-on:click="handlerSort('title')" class="curser-sort" :class="{'text-orange': sort.column == 'title'}">Titel</th>
+        <th v-on:click="handlerSort('state')" class="curser-sort" :class="{'text-orange': sort.column == 'state'}">Status</th>
+        <th v-on:click="handlerSort('users')" class="curser-sort" :class="{'text-orange': sort.column == 'users'}">Benutzer*innen</th>
+
       </tr>
       </thead>
       <tbody>
       <tr v-bind:key="index" v-for="(item, index) in  sortList" class="">
-        <td>{{ item.vorname }}</td>
-        <td><a :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{ item.nachname }}</a></td>
-        <td><a :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{ item.username }}</a></td>
+
+        <td><a :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{ item.title }}</a></td>
+        <td><FormToggle :disable="false" :input="item.state"></FormToggle></td>
         <td>
-          <button v-if="item.type=='isPupil'" class="si-btn si-btn-border si-btn-small">Schüler*in</button>
-          <button v-if="item.type=='isEltern'" class="si-btn si-btn-border si-btn-small">Eltern</button>
-          <button v-if="item.type=='isTeacher'" class="si-btn si-btn-border si-btn-small">Lehrer*in</button>
-          <button v-if="item.type=='isNone'" class="si-btn si-btn-border si-btn-small">Sonstige</button>
+          <div v-bind:key="i" v-for="(user, i) in  item.users" >
+            <User :data="user"></User>
+          </div>
         </td>
-        <td>{{ item.klasse }}</td>
-        <td>{{ item.email }}</td>
-        <td>{{ item.id }}</td>
       </tr>
       </tbody>
     </table>
@@ -53,16 +47,23 @@
 
 <script>
 
+import FormToggle from '../mixins/FormToggle.vue'
+import User from "@/mixins/User.vue";
+
 export default {
   name: 'ListComponent',
+  components: {
+    User,
+    FormToggle
+  },
   data() {
     return {
 
       sort: {
-        column: 'nachname',
+        column: 'title',
         order: true
       },
-      searchColumns: ['id', 'nachname','vorname','type','username','klasse'],
+      searchColumns: ['id', 'title'],
       searchString: '',
       filter: {
         colum: false,

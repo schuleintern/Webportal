@@ -1,7 +1,7 @@
 {
   "name": "Benutzer",
   "uniqid": "ext.zwiebelgasse.users",
-  "version": "5",
+  "version": "6",
 
   "requiredVersion": "1.7.3",
 
@@ -90,6 +90,17 @@
         "page": "ext_users",
         "params": {
           "view": "initcodes",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Gruppen",
+      "icon": "fa fa-users",
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "groups",
           "admin": "true"
         }
       }
