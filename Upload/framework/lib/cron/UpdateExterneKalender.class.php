@@ -277,20 +277,20 @@ class UpdateExterneKalender extends AbstractCron {
 
                         for($v = 0; $v < sizeof($calData); $v++) {
                             $line = "('" . $kalender['kalenderID'] . "',";
-                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['titel']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString((string)$calData[$v]['titel']) . "',";
                             $line .= "'" . DB::getDB()->escapeString($calData[$v]['dateStart']) . "',";
                             $line .= "'" . DB::getDB()->escapeString($calData[$v]['dateEnde']) . "',";
-                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['isWholeDay']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString((int)$calData[$v]['isWholeDay']) . "',";
                             $line .= "'" . DB::getDB()->escapeString($calData[$v]['startTime']) . "',";
                             $line .= "'" . DB::getDB()->escapeString($calData[$v]['endTime']) . "',";
 
                             $line .= "UNIX_TIMESTAMP(),";
-                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['ort']) . "',";
-                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['beschreibung']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString((string)$calData[$v]['ort']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString(trim((string)$calData[$v]['beschreibung'])) . "',";
 
-                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['externalID']) . "',";
-                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['changeKey']) . "',";
-                            $line .= "'" . DB::getDB()->escapeString($calData[$v]['kategorie']) . "'";
+                            $line .= "'" . DB::getDB()->escapeString((string)$calData[$v]['externalID']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString((string)$calData[$v]['changeKey']) . "',";
+                            $line .= "'" . DB::getDB()->escapeString((string)$calData[$v]['kategorie']) . "'";
                             $line .= ")";
 
                             $inserts++;

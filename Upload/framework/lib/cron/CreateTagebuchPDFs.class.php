@@ -18,7 +18,7 @@ class CreateTagebuchPDFs extends AbstractCron {
 	    $missingPDF = DB::getDB()->query_first("SELECT * FROM klassentagebuch_pdf WHERE pdfUploadID=0 LIMIT 1");
 	    
 	    
-	    if($missingPDF['pdfKlasse'] != "") {
+	    if($missingPDF && $missingPDF['pdfKlasse'] != "") {
 	        $firstDay = mktime(10,10,10,$missingPDF['pdfMonat'],1,$missingPDF['pdfJahr']);
 	    
 	        $nextMonth = $missingPDF['pdfMonat'] + 1;
@@ -45,8 +45,9 @@ class CreateTagebuchPDFs extends AbstractCron {
 	        }
 	        
 	        return true;
-	    }
-	    else return false;
+	    } else {
+            return false;
+        }
 	    
 	}
 	
