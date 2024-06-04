@@ -349,7 +349,7 @@ and (orientation : portrait) {
 
     background-image: url('./images/arrow-down.png');
     background-repeat: no-repeat;
-    background-position: 96% center;
+    background-position: 90% center;
     background-size: auto 40%;
     cursor: pointer;
 }

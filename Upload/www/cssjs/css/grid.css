@@ -244,6 +244,9 @@ body {
 .height_70 {
   max-height: 70vh;
 }
+.min_height_70 {
+  min-height: 70vh;
+}
 .height_80 {
   max-height: 80vh;
 }
