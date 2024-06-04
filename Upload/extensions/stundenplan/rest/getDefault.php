@@ -31,19 +31,22 @@ class getDefault extends AbstractRest
         //echo $currentPlanID;
 
         //$currentPlan = stundenplandata::getCurrentStundenplan();
-        $maxStunden = stundenplandata::getMaxStunden();
+        //$maxStunden = stundenplandata::getMaxStunden();
+
+
+        $anzStunden = DB::getSettings()->getValue("ext-stundenplan-anzahlstunden");
         $stunden = [];
-        for($i = 0; $i < $maxStunden; $i++) {
+        for($i = 0; $i < $anzStunden; $i++) {
             $stunden[] = $i;
         }
 
         $stundenZeiten = [];
         for($i = 1; $i < 6; $i++) {
-            if(DB::getSettings()->getValue("stundenplan-everydayothertimes") > 0 || $i == 1) {
-                for($s = 1; $s <= DB::getSettings()->getValue("stundenplan-anzahlstunden"); $s++) {
+            if(DB::getSettings()->getValue("ext-stundenplan-everydayothertimes") > 0 || $i == 1) {
+                for($s = 1; $s <= $anzStunden; $s++) {
                     $stundenZeiten[] = [
-                        'begin' => DB::getSettings()->getValue("stundenplan-stunde-$i-$s-start"),
-                        'ende' => DB::getSettings()->getValue("stundenplan-stunde-$i-$s-ende")
+                        'begin' => DB::getSettings()->getValue("ext-stundenplan-stunde-$i-$s-start"),
+                        'ende' => DB::getSettings()->getValue("ext-stundenplan-stunde-$i-$s-ende")
                     ];
                 }
             }

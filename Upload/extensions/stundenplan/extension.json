@@ -1,9 +1,9 @@
 {
   "name": "Stundenplan",
   "uniqid": "ext.zwiebelgasse.stundenplan",
-  "version": "11",
+  "version": "12",
 
-  "requiredVersion": "1.7.0",
+  "requiredVersion": "1.7.3",
 
   "menu": {
     "categorie": "1",
@@ -62,6 +62,18 @@
         "page": "ext_stundenplan",
         "params": {
           "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Stundenpläne",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_stundenplan",
+        "params": {
+          "view": "list",
           "admin": "true"
         }
       }
