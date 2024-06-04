@@ -29,7 +29,11 @@
         </li>
         <li>
           <label>Benutzer*innen</label>
-          <User v-bind:key="index" v-for="(item, index) in  form.userlist" :data="item" ></User>
+          <div v-bind:key="index" v-for="(item, index) in  form.userlist" class="flex-row margin-b-s" >
+            <User :data="item"  class="margin-r-l"></User>
+            <button v-if="item.buchung_state == 1" class="si-btn si-btn-off"><i class="fa fa-check"></i> Offen</button>
+            <button v-if="item.buchung_state == 2" class="si-btn si-btn-off text-green"><i class="fa fa-check"></i> Bezahlt</button>
+          </div>
         </li>
         <li>
           <label>Erstellt:</label>

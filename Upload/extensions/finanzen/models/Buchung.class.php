@@ -98,6 +98,24 @@ class extFinanzenModelBuchung extends ExtensionModel
     }
 
 
+    /**
+     * @return Integer
+     */
+    public function getStatausByAntragAndUser($antrag_id = false, $user_id = false)
+    {
+        if (!$antrag_id || !$user_id) {
+            return false;
+        }
+
+        $data = DB::run('SELECT * FROM ext_finanzen_buchung WHERE antrag_id = :antragID AND user_id = :userID ', ['userID' => $user_id, 'antragID' => $antrag_id])->fetch();
+        if ($data) {
+            $class = new self($data);
+            return (int)$class->getData('state');
+        }
+        return false;
+
+    }
+
 
 
     public function getMy($userID = false)

@@ -20,6 +20,7 @@
           <th v-on:click="handlerSort('amount')" class="curser-sort" :class="{'text-orange': sort.column == 'amount'}">Betrag</th>
           <th v-on:click="handlerSort('payee')" class="curser-sort" :class="{'text-orange': sort.column == 'payee'}">Zahlungsempfänger</th>
           <th v-on:click="handlerSort('dueDate')" class="curser-sort" :class="{'text-orange': sort.column == 'dueDate'}">Fälligkeitsdatum</th>
+          <th>Fortschritt</th>
           <th></th>
         </tr>
       </thead>
@@ -31,6 +32,9 @@
           <td>{{ item.amount }} €</td>
           <td>{{ item.payee }}</td>
           <td>{{ item.dueDate }}</td>
+          <td class="">
+            <span class="blockInline padding-s width-12rem" :style="'background-image:linear-gradient(90deg, #00a65a 0%, #00a65a '+item.buchnungDone+'%, #fff '+item.buchnungDone+'%)'" >{{item.buchnungDone}}%</span>
+          </td>
           <td>
             <button v-if="item.state == 1" class="si-btn si-btn-green" v-on:click="handlerSet(item)"><i class="fa fa-check"></i> Freigeben</button>
             <button v-if="item.state == 2" class="si-btn si-btn-off"><i class="fa fa-check"></i> Gebucht</button>

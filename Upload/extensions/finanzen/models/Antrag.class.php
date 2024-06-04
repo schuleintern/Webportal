@@ -74,10 +74,27 @@ class extFinanzenModelAntrag extends ExtensionModel
                 $collection['userlist'] = [];
                 $users = explode(',', $this->getData('users'));
                 if ($users && count($users) >= 1) {
+                    include_once PATH_EXTENSIONS . 'finanzen' . DS . 'models' . DS . 'Buchung.class.php';
+                    $Buchung = new extFinanzenModelBuchung();
+
+                    $userAnz = count($users);
+                    $buchungAnz = 0;
                     foreach ($users as $u) {
-                        $collection['userlist'][] = user::getCollectionByID($u);
+                        $userCollection = user::getCollectionByID($u);
+                        $buchung = $Buchung->getStatausByAntragAndUser($this->getID(), $u);
+                        if ($buchung) {
+                            $userCollection['buchung_state'] = $buchung;
+                            if ($buchung == 2) { // State ist bezahlt
+                                $buchungAnz++;
+                            }
+                        }
+                        $collection['userlist'][] = $userCollection;
                     }
 
+                }
+                $collection['buchnungDone'] = 0;
+                if ($userAnz > 0 && $buchungAnz > 0) {
+                    $collection['buchnungDone'] = (int)($buchungAnz/$userAnz *100);
                 }
             }
 
