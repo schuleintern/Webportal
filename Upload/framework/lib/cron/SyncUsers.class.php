@@ -100,7 +100,7 @@ class SyncUsers extends AbstractCron {
 	        while($u = DB::getDB()->fetch_array($allUsersSQL)) {
 	            $allUsers[] = $u;
 	        }
-	        
+
 	        $deleteUserIDs = array();
 	        // Welche Nutze müssen gelöscht werden?
 	        for($i = 0; $i < sizeof($allUsers); $i++) {
@@ -251,6 +251,11 @@ class SyncUsers extends AbstractCron {
 	public function executeEveryXSeconds() {
 		return 180;		// Alle 3 Minuten ausführen.
 	}
+
+    public function onlyExecuteSeparate()
+    {
+        return true;
+    }
 }
 
 
