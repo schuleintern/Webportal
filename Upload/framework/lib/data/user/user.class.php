@@ -36,7 +36,7 @@ class user {
     // Is Teacher
     $lehrer = PAGE::getFactory()->getLehrerByID( $this->data['userID'] );
     // $lehrer = DB::getDB()->query_first("SELECT * FROM lehrer WHERE lehrerUserID='" . $this->data['userID'] . "'");
-    if($lehrer['lehrerID'] != "") {
+    if($lehrer && $lehrer['lehrerID'] != "") {
       $this->isTeacher = true;
       $this->teacherObject = new lehrer($lehrer);
     }
@@ -45,7 +45,7 @@ class user {
       // Is Schüler
       $schueler = PAGE::getFactory()->getSchuelerByID( $this->data['userID'] );
       //$schueler = DB::getDB()->query_first("SELECT * FROM schueler WHERE schuelerUserID='" . $this->data['userID'] . "'");
-      if($schueler['schuelerUserID'] != "") {
+      if($schueler && $schueler['schuelerUserID'] != "") {
         $this->isPupil = true;
         $this->pupilObject = new schueler($schueler);
       }
@@ -55,7 +55,7 @@ class user {
     // Is Eltern
     $eltern = PAGE::getFactory()->getElternEmailByUserID( $this->data['userID'] );
     //$eltern = DB::getDB()->query_first("SELECT * FROM eltern_email WHERE elternUserID='" . $this->data['userID'] . "'");
-    if($eltern['elternSchuelerAsvID'] != "") {
+    if($eltern && $eltern['elternSchuelerAsvID'] != "") {
       $this->isEltern = true;
       $this->elternObject = new eltern($this->data['userID']);
     }
@@ -168,7 +168,7 @@ class user {
     return '';
   }
 
-  public function getCollection($full = false, $avatar = false) {
+  public function getCollection($full = false, $avatar = false, $username = false) {
       $collection = [
           "id" => $this->getUserID(),
           "vorname" => $this->getFirstName(),
@@ -205,6 +205,10 @@ class user {
               }
               $collection['short'] = $this->getTeacherObject()->getKuerzel();
           }
+      }
+      if ($username == true) {
+          $collection['username'] = $this->getUserName();
+          $collection['email'] = $this->getEMail();
       }
       return $collection;
   }

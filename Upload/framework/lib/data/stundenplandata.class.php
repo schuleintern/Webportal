@@ -317,7 +317,7 @@ class stundenplandata {
 	
 	private static function loadCurrentStundenplan() {
 		if(self::$currentPlanID < 0) {
-			$currentPlanID = DB::getDB()->query_first("SELECT stundenplanID FROM stundenplan_plaene WHERE stundenplanIsDeleted=0 AND stundenplanAb <= CURDATE() AND (stundenplanBis IS NULL OR stundenplanBis >= CURDATE())");
+			$currentPlanID = DB::getDB()->query_first("SELECT stundenplanID FROM stundenplan_plaene WHERE stundenplanIsDeleted=0 AND stundenplanAb <= CURDATE() AND (stundenplanBis = '0000-00-00' OR stundenplanBis IS NULL OR stundenplanBis >= CURDATE()) ORDER BY stundenplanID DESC");
 			if($currentPlanID['stundenplanID'] > 0) {
 				self::$currentPlanID = $currentPlanID['stundenplanID'];
 				

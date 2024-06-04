@@ -18,7 +18,7 @@ class usergroup {
     $ownGroupData = PAGE::getFactory()->getUserGroupsOwnByName( DB::getDB()->escapeString($name) );
     //$ownGroupData = DB::getDB()->query_first("SELECT * FROM users_groups_own WHERE groupName='" . DB::getDB()->escapeString($name) . "'");
     
-    if($ownGroupData['groupName'] != "") {
+    if($ownGroupData && $ownGroupData['groupName'] != "") {
         $this->isOwnGroup = true;
         $this->ownGroupData = $ownGroupData;
     }

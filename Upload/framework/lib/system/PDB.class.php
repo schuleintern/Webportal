@@ -54,7 +54,9 @@ class PDB
 
         if (!$args) {
             try {
-                return $this->connection->query($sql);
+                $stmt = $this->connection->query($sql);
+                $stmt->lastID = $this->connection->lastInsertId();
+                return $stmt;
             } catch (\PDOException $e) {
                 throw new \PDOException($e->getMessage(), (int)$e->getCode());
             }

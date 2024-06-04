@@ -11,6 +11,8 @@ class FACTORY {
   private $DATA_lehrer;
   private $DATA_users_groups;
   private $DATA_schueler;
+
+  private $DATA_eltern_email;
   private $DATA_users;
   private $DATA_users_groups_own;
   private $DATA_menu_item;

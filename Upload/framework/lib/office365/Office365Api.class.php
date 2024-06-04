@@ -86,7 +86,7 @@ class Office365Api {
     public static function getTermine($username) {
         $completeData = [];
         
-        $data = self::getCurlContext('GET', 'v1.0/users/' . $username . '/events?$top=1000', [], [
+        $data = self::getCurlContext('GET', 'v1.0/users/' . $username . '/events?$top=100', [], [
             'Prefer: outlook.timezone="W. Europe Standard Time"',
             'Prefer: outlook.body-content-type="text"'            
         ]);
@@ -103,9 +103,11 @@ class Office365Api {
                 $link = str_replace("https://graph.microsoft.com/","",$link);
                 
                 $data = self::getCurlContext('GET', $link, []);
-                
-                for($b = 0; $b < sizeof($data['data']->value); $b++) {
-                    $completeData[] = $data['data']->value[$b];
+
+                if ($data['data']->value && is_array($data['data']->value)) {
+                    for($b = 0; $b < sizeof($data['data']->value); $b++) {
+                        $completeData[] = $data['data']->value[$b];
+                    }
                 }
             }
             else break;
