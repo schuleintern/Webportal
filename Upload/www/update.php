@@ -26,6 +26,9 @@ class Updates
 
     public static function to174($root)
     {
+        $root->update('www/cssjs');
+        $root->update('www/cron.php');
+        $root->update('www/index.php');
         return true;
     }
 
