@@ -18,6 +18,7 @@ class dashboard extends AbstractPage
 
         $script = '';
         $list = [];
+        $globals = [];
         $result = DB::getDB()->query('SELECT a.id, a.param, a.uniqid, b.access
             FROM dashboard as a 
             LEFT JOIN widgets as b ON a.widget_id = b.id
@@ -86,7 +87,13 @@ class dashboard extends AbstractPage
                             ]);
 
                             if ($class && method_exists($class, 'render')) {
-                                $temp->html = $class->render(true);
+
+                                if (method_exists($class, 'globals')) {
+                                    $globals[] = $class->globals();
+                                }
+                                if (method_exists($class, 'render')) {
+                                    $temp->html = $class->render(true);
+                                }
                                 if (method_exists($class, 'getScriptData')) {
                                     $varname = 'globals_widget_' . $uidClass[0] . '_' . $uidClass[1];
                                     $script .= $this->getScriptData($class->getScriptData(), $varname);
@@ -103,6 +110,7 @@ class dashboard extends AbstractPage
             }
         }
 
+        $globals = join('', $globals);
 
         $list = json_encode($list);
 
