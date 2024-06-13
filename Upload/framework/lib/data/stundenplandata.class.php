@@ -509,14 +509,18 @@ class stundenplandata {
      */
     public static function getTimesForWeekdayAndPeriod($day_of_week, $period) {
         $settings = DB::getSettings();
+        if ($settings->getValue("stundenplan-everydayothertimes") <= 0) {
+            // If the timetable uses the same times every day, just query the times for Monday.
+            $day_of_week = 1;
+        }
         $start = $settings->getValue("stundenplan-stunde-$day_of_week-$period-start");
         $end = $settings->getValue("stundenplan-stunde-$day_of_week-$period-ende");
         if ($start === null || $end === null) { return null; }
 
         $today = new DateTimeImmutable("today");  # This is the current date time at 00:00h.
         return array(
-            "start" => (new DateTimeImmutable($start))->diff($today),
-            "end" => (new DateTimeImmutable($end))->diff($today)
+            "start" => $today->diff(new DateTimeImmutable($start)),
+            "end" => $today->diff(new DateTimeImmutable($end))
         );
     }
 
@@ -531,12 +535,6 @@ class stundenplandata {
     public static function getTimesForWeekday($day_of_week) {
         $settings = DB::getSettings();
         $periodsCount = $settings->getValue("stundenplan-anzahlstunden");
-
-        if ($settings->getValue("stundenplan-everydayothertimes") <= 0) {
-            // If the timetable uses the same times every day, just query the times for Monday.
-            $day_of_week = 1;
-        }
-
         $times_weekday = array();
         for ($period = 1; $period < $periodsCount; $period++) {
             $times_weekday[$period] = static::getTimesForWeekdayAndPeriod($day_of_week, $period);
