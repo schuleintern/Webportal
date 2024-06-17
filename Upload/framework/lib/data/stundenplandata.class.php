@@ -483,14 +483,14 @@ class stundenplandata {
             } elseif ($lastPeriod === null) {
                 $times[] = array("start" => static::getTimesForWeekdayAndPeriod($day_of_week, $period)["start"]);
             } elseif ($period != $lastPeriod + 1) {
-                end($times)["end"] = stundenplandata::getTimesForWeekdayAndPeriod($day_of_week, $lastPeriod)["end"];
+                $times[count($times) - 1]["end"] = stundenplandata::getTimesForWeekdayAndPeriod($day_of_week, $lastPeriod)["end"];
                 $times[] = array("start" => stundenplandata::getTimesForWeekdayAndPeriod($day_of_week, $period)["start"]);
             }
             $lastPeriod = $period;
         }
 
         if ($continuous && $lastPeriod !== null) {
-            end($times)["end"] = stundenplandata::getTimesForWeekdayAndPeriod($day_of_week, $lastPeriod)["end"];
+            $times[count($times) - 1]["end"] = stundenplandata::getTimesForWeekdayAndPeriod($day_of_week, $lastPeriod)["end"];
         }
 
         return $times;

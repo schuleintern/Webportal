@@ -358,26 +358,67 @@ class geticsfeed extends AbstractPage {
 
         for($i = 0; $i < sizeof($lnwData); $i++) {
             if($lnwData[$i]->showForNotTeacher() || $withEx) {
-                $vCalendar->addEvent(ICSFeed::getICSFeedObject(
-                    "LNW" . $lnwData[$i]->getID(),
-                    (($showGrade) ? ($lnwData[$i]->getKlasse() . ": ") : "") . $lnwData[$i]->getArtLangtext() . " in " . $lnwData[$i]->getFach() . " bei " . $lnwData[$i]->getLehrer(),
-                    new \DateTime($lnwData[$i]->getDatumStart()),
-                    new \DateTime($lnwData[$i]->getDatumStart()),
-                    $lnwData[$i]->getBetrifft(),
-                    "", true));
+                $periods = $lnwData[$i]->getStunden();
+                $date = new DateTimeImmutable($lnwData[$i]->getDatumStart());
+                $events = stundenplandata::getTimesForWeekdayAndPeriods($date->format("w"), $periods, true);
+                if (empty($events)) {
+                    $events = array(array(
+                        "start" => new DateInterval("P0D"),
+                        "end" => new DateInterval("P0D"),
+                        "all_day" => true
+                    ));
+                }
+
+                foreach ($events as $eventno=>$event) {
+                    $vCalendar->addEvent(ICSFeed::getICSFeedObject(
+                        "LNW" . $lnwData[$i]->getID() . "-$eventno",
+                        (($showGrade) ? ($lnwData[$i]->getKlasse() . ": ") : "") . $lnwData[$i]->getArtLangtext() . " in " . $lnwData[$i]->getFach() . " bei " . $lnwData[$i]->getLehrer(),
+                        $date->add($event["start"]),
+                        $date->add($event["end"]),
+                        $lnwData[$i]->getBetrifft(),
+                        "",
+                        array_key_exists("all_day", $event)
+                    ));
+                }
             }
         }
 
 
         for($i = 0; $i < sizeof($termine); $i++) {
-            $vCalendar->addEvent(ICSFeed::getICSFeedObject(
-                "KT" . $termine[$i]->getID(),
-                $termine[$i]->getTitle(),
-                new \DateTime($termine[$i]->getDatumStart()),
-                new \DateTime(($termine[$i]->getDatumStart() != $termine[$i]->getDatumEnde()) ? $termine[$i]->getDatumEnde() : $termine[$i]->getDatumStart()),
-                $termine[$i]->getOrt(),
-                implode(", ", $termine[$i]->getKlassen()) . "\r\n" . $termine[$i]->getBetrifft(),
-                (($termine[$i]->getDatumStart() != $termine[$i]->getDatumEnde()) ? true : false)));
+            $start = new DateTimeImmutable($termine[$i]->getDatumStart());
+            $end = new DateTimeImmutable($termine[$i]->getDatumEnde());
+            if ($start != $end) {
+                $events = null;
+            } else {
+                $events = stundenplandata::getTimesForWeekdayAndPeriods($start->format("w"), $termine[$i]->getStunden(), true);
+                if (!empty($events)) {
+                    // getTimesForWeekdayAndPeriods only returns the time, so we need to add that to the dates before we continue
+                    foreach ($events as &$event) {
+                        $event["start"] = $start->add($event["start"]);
+                        $event["end"] = $start->add($event["end"]);
+                    }
+                }
+            }
+
+            if (empty($events)) {
+                $events = array(array(
+                    "start" => $start,
+                    "end" => $end,
+                    "all_day" => true
+                ));
+            }
+
+            foreach ($events as $eventno=>$event) {
+                $vCalendar->addEvent(ICSFeed::getICSFeedObject(
+                    "KT" . $termine[$i]->getID() . "-$eventno",
+                    $termine[$i]->getTitle(),
+                    $event["start"],
+                    $event["end"],
+                    $termine[$i]->getOrt(),
+                    implode(", ", $termine[$i]->getKlassen()) . "\r\n" . $termine[$i]->getBetrifft(),
+                    array_key_exists("all_day", $event)
+                ));
+            }
         }
 
 
