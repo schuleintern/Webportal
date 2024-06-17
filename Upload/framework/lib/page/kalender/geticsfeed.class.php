@@ -66,52 +66,6 @@ class geticsfeed extends AbstractPage {
 
     }
 
-
-    /**
-     * @param AbstractTermin[] $events
-     * @return \Eluceo\iCal\Domain\Entity\Event[]
-     */
-    private static function transformEvents($events) {
-        $out = array();
-        foreach ($events as $event) {
-            $title = $event->getTitleRaw();
-            if (!$title) { continue; }  // fast skip if title is not set
-
-            $startDate = $event->getDatumStart();
-            $endDate = $event->getDatumEnde();
-
-            $start = \DateTime::createFromFormat('Y-m-d', $startDate);
-            if ($start === false) { continue; }  // skip on malformed dates
-
-            $end = $endDate ? \DateTime::createFromFormat('Y-m-d', $endDate) : $start;
-            if ($end === false) { continue; }  // ditto
-
-            if(!$event->isWholeDay()) {
-                list($stundeStart, $minuteStart) = explode(":", $event->getUhrzeitStart());
-                list($stundeEnde, $minuteEnde) = explode(":", $event->getUhrzeitEnde());
-
-                $start->setTime($stundeStart, $minuteStart);
-                $end->setTime($stundeEnde, $minuteEnde);
-                $allDay = false;
-            } else {
-                $allDay = true;
-            }
-
-            $out[] = ICSFeed::getICSFeedObject(
-                $event->getID(),
-                $title,
-                $start,
-                $end,
-                $event->getOrt(),
-                $event->getKommentar() . " (Eingetragen von " . $event->getCreatorName() . ")",
-                $allDay
-            );
-        }
-
-        return $out;
-    }
-
-
     /**
      *
      * @param ICSFeed $feed
@@ -124,7 +78,7 @@ class geticsfeed extends AbstractPage {
         $time1 = $time - (100 * 24 * 3600);
         $time2 = $time + (365 * 24 * 3600);
         $kalenderTermine = AndererKalenderTermin::getAll($data, DateFunctions::getMySQLDateFromUnixTimeStamp($time1), DateFunctions::getMySQLDateFromUnixTimeStamp($time2));
-        $events = self::transformEvents($kalenderTermine);
+        $events = array_filter(array_map(fn($e) => $e->transform(), $kalenderTermine));
 
         $calendar = new Calendar($events);
         $calendar->setPublishedTTL(new DateInterval('PT1H'));
@@ -144,7 +98,7 @@ class geticsfeed extends AbstractPage {
         $time1 = $time - (100 * 24 * 3600);
         $time2 = $time + (365 * 24 * 3600);
         $kalenderTermine = ExtKalenderTermin::getAll($data, DateFunctions::getMySQLDateFromUnixTimeStamp($time1), DateFunctions::getMySQLDateFromUnixTimeStamp($time2));
-        $events = self::transformEvents($kalenderTermine);
+        $events = array_filter(array_map(fn($e) => $e->transform(), $kalenderTermine));
 
         $calendar = new Calendar($events);
         $calendar->setPublishedTTL(new DateInterval('PT1H')); // recommend a one-hour delay before refreshing the calendar
