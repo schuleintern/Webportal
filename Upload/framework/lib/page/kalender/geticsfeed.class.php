@@ -351,20 +351,18 @@ class geticsfeed extends AbstractPage {
 
         if($withEx) $name .= " (Mit unangekündigten Leisungsnachweisen.)";
 
-        $feedText = "";
-
-        $vCalendar = new \Eluceo\iCal\Component\Calendar(DB::getGlobalSettings()->siteNamePlain);
-        $vCalendar->setPublishedTTL('P1H');
+        $vCalendar = new NamedCalendar();
         $vCalendar->setName($name);
+        $vCalendar->setPublishedTTL(new DateInterval('PT1H')); // recommend a one-hour delay before refreshing the calendar
 
 
         for($i = 0; $i < sizeof($lnwData); $i++) {
             if($lnwData[$i]->showForNotTeacher() || $withEx) {
-                $vCalendar->addComponent(ICSFeed::getICSFeedObject(
+                $vCalendar->addEvent(ICSFeed::getICSFeedObject(
                     "LNW" . $lnwData[$i]->getID(),
                     (($showGrade) ? ($lnwData[$i]->getKlasse() . ": ") : "") . $lnwData[$i]->getArtLangtext() . " in " . $lnwData[$i]->getFach() . " bei " . $lnwData[$i]->getLehrer(),
-                    new DateTime($lnwData[$i]->getDatumStart()),
-                    new DateTime($lnwData[$i]->getDatumStart()),
+                    new \DateTime($lnwData[$i]->getDatumStart()),
+                    new \DateTime($lnwData[$i]->getDatumStart()),
                     $lnwData[$i]->getBetrifft(),
                     "", true));
             }
@@ -372,11 +370,11 @@ class geticsfeed extends AbstractPage {
 
 
         for($i = 0; $i < sizeof($termine); $i++) {
-            $vCalendar->addComponent(ICSFeed::getICSFeedObject(
+            $vCalendar->addEvent(ICSFeed::getICSFeedObject(
                 "KT" . $termine[$i]->getID(),
                 $termine[$i]->getTitle(),
-                new DateTime($termine[$i]->getDatumStart()),
-                new DateTime(($termine[$i]->getDatumStart() != $termine[$i]->getDatumEnde()) ? $termine[$i]->getDatumEnde() : $termine[$i]->getDatumStart()),
+                new \DateTime($termine[$i]->getDatumStart()),
+                new \DateTime(($termine[$i]->getDatumStart() != $termine[$i]->getDatumEnde()) ? $termine[$i]->getDatumEnde() : $termine[$i]->getDatumStart()),
                 $termine[$i]->getOrt(),
                 implode(", ", $termine[$i]->getKlassen()) . "\r\n" . $termine[$i]->getBetrifft(),
                 (($termine[$i]->getDatumStart() != $termine[$i]->getDatumEnde()) ? true : false)));
