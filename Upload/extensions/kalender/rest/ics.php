@@ -35,8 +35,10 @@ class ics extends AbstractRest
         $Class = new extKalenderModelIcs();
 
         $data = $Class->getByCode($request[2]);
+        $userFirstName = null;
         if ($data) {
             $userID = $data->getData('user_id');
+            $userFirstName = user::getUserByID($userID)->getFirstName();
             //echo $userID;
         }
 
@@ -57,75 +59,26 @@ class ics extends AbstractRest
 
                 $result = extKalenderModelEvent::getAllByKalenderID([$kalender['id']]);
                 foreach ($result as $row) {
-
-                    $sameDay = false;
-                    $von = $row->getDateStart() . ' ' . $row->getTimeStart();
-                    $bis_date = $row->getDateEnd();
-                    if (!$bis_date || $row->getDateStart() == $row->getDateEnd() ) {
-                        $bis_date = $row->getDateStart();
-                        $sameDay = true;
-                    }
-                    $timeEnd = $row->getTimeEnd();
-                    if ($sameDay && $timeEnd == '00:00') {
-                        $timeEnd = $row->getTimeStart();
-                    }
-                    $bis = $bis_date . ' ' . $timeEnd;
-
-
-                    if ($row->getDateStart() && $von) {
-                        if ( $von != $bis ) {
-                            $start = new DateTime(DateTimeImmutable::createFromFormat('Y-m-d H:i', $von), false);
-                            $end = new DateTime(DateTimeImmutable::createFromFormat('Y-m-d H:i', $bis), false);
-                            $occurrence = new TimeSpan($start, $end);
-
-                        } elseif ( $sameDay == true && $row->getTimeStart() == $timeEnd ) {
-                            $date = new Date(DateTimeImmutable::createFromFormat('Y-m-d', $row->getDateStart()));
-                            $occurrence = new SingleDay($date);
-                        } else {
-
-                            $firstDay = new Date(DateTimeImmutable::createFromFormat('Y-m-d H:i', $von));
-                            $lastDay = new Date(DateTimeImmutable::createFromFormat('Y-m-d H:i', $bis));
-                            $occurrence = new MultiDay($firstDay, $lastDay);
-                        }
-                    }
-
-
-
-                    $event = (new Eluceo\iCal\Domain\Entity\Event())
-                        //->setUseTimezone(true)
-                        //->setUseUtc(true)
-                        ->setSummary( DB::getDB()->decodeString($row->getTitle()) )
-                        ->setCategories([$kalender['title']])
-                        ->setLocation(new Eluceo\iCal\Domain\ValueObject\Location(
-                            DB::getDB()->decodeString($row->getPlace())
-                        ))
-                        ->setDescription(DB::getDB()->decodeString($row->getComment()))
-                        ->setOccurrence($occurrence);
-
-
-                    $events[] = $event;
-
+                    $evt = $row->transform();
+                    $evt->setCategories([$kalender['title']]);
+                    $events[] = $evt;
                 }
             }
         }
 
+        $calendar = new NamedCalendar($events);
+        $calendar->setPublishedTTL(new DateInterval('PT1H'));
+        if (!empty($userFirstName)) {
+            if (in_array(strtolower(substr($userFirstName, -1)), array('s', 'ß', 'x', 'z'))) {
+                // use the construct "Kalender von <name>" when name ends on an S sound
+                $calendar->setName("Kalender von {$userFirstName}");
+            } else {
+                $calendar->setName("{$userFirstName}s Kalender");
+            }
+        }
 
-        // 2. Create Calendar domain entity
-        $calendar = new Eluceo\iCal\Domain\Entity\Calendar($events);
-
-        // 3. Transform domain entity into an iCalendar component
-        $componentFactory = new Eluceo\iCal\Presentation\Factory\CalendarFactory();
-        $calendarComponent = $componentFactory->createCalendar($calendar);
-
-        // 4. Set headers
-        header('Content-Type: text/calendar; charset=utf-8');
-        header('Content-Disposition: attachment; filename="cal.ics"');
-
-        // 5. Output
-        echo $calendarComponent;
+        ICSFeed::sendICSFeed($calendar);
         exit;
-
-
     }
 
 

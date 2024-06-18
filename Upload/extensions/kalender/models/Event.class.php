@@ -146,6 +146,58 @@ class extKalenderModelEvent
         return $collection;
     }
 
+    /**
+     * Transforms the event to an Event object from Eluceo iCal.
+     *
+     * Returns `false` if the start or end date could not be parsed using the format `YYYY-MM-DD`.
+     *
+     * @return \Eluceo\iCal\Domain\Entity\Event|false
+     */
+    public function transform() {
+        $startDate = $this->getDateStart();
+
+        $start = \DateTime::createFromFormat('Y-m-d', $startDate);
+        if ($start === false) { return false; }  // skip on malformed date
+
+        $endDate = $this->getDateEnd();
+        if ($endDate !== null) {
+            $end = \DateTime::createFromFormat('Y-m-d', $endDate);
+            if ($end === false) { return false; } // ditto
+        } else {
+            $end = $start;
+        }
+
+        $endTime = $this->getTimeEnd();
+        if ($endDate === null && $endTime == '00:00') {
+            // all-day event
+            $allDay = true;
+        } else {
+            $startTime = $this->getTimeStart();
+
+            list($startHour, $startMinute) = explode(':', $startTime);
+            if ($startMinute === null) { return false; }  // skip on malformed time
+
+            list($endHour, $endMinute) = explode(':', $endTime);
+            if ($endMinute === null) { return false; }  // ditto
+
+            $start->setTime($startHour, $startMinute);
+            $end->setTime($endHour, $endMinute);
+            $allDay = false;
+        }
+
+        $db = DB::getDB();
+        return ICSFeed::getICSFeedObject(
+            $this->getID(),
+            $this->getTitle(),
+            $start,
+            $end,
+            // $this->getPlace() does not, as compared to $this->getTitle(), decode the URL-encoded string from the database, so we have to do that here instead.
+            $db->decodeString($this->getPlace()),
+            $db->decodeString($this->getComment()),  // ditto
+            $allDay
+        );
+    }
+
 
     public static function getDayByKalender($date = false, $kalenderIDs = false) {
 
