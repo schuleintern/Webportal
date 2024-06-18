@@ -37,9 +37,6 @@ class kalenderAllInOne extends AbstractPage {
               return false;
           }
 
-          $calendar = new Eluceo\iCal\Component\Calendar('schule-intern');
-          $calendar->setPublishedTTL('PT15M');
-
           $tz  = 'Europe/Amsterdam';
           $dtz = new \DateTimeZone($tz);
           date_default_timezone_set($tz);
@@ -61,6 +58,8 @@ class kalenderAllInOne extends AbstractPage {
               }
           }
 
+          $db = DB::getDB();
+          $events = array();
           if (count($kalenderIDs_array) > 0) {
 
               foreach ($kalenderIDs_array as $kalender) {
@@ -68,46 +67,48 @@ class kalenderAllInOne extends AbstractPage {
                   $result = DB::getDB()->query("SELECT * FROM kalender_allInOne_eintrag WHERE kalenderID = ".$kalender['id']  );
 
                   while($row = DB::getDB()->fetch_array($result)) {
+                      $start = \DateTime::createFromFormat('Y-m-d', $row['eintragDatumStart'], $dtz);
+                      if ($start === false) { continue; }  // fast skip on malformed dates
 
-                      $event = (new Eluceo\iCal\Component\Event())
-                          ->setUseTimezone(true)
-                          ->setUseUtc(true)
-                          ->setSummary(DB::getDB()->decodeString($row['eintragTitel']))
-                          ->setCategories([$kalender['name']])
-                          ->setLocation( DB::getDB()->decodeString($row['eintragOrt']) )
-                          ->setDescription( DB::getDB()->decodeString($row['eintragKommentar']) );
+                      $end = \DateTime::createFromFormat('Y-m-d', $row['eintragDatumEnde'], $dtz);
+                      if ($end === false) { continue; }  // ditto
 
-                      if ( intval( $row['eintragTimeStart'] ) <= 0) {
-                          $event->setNoTime(true);
-                          $event->setDtStart(new \DateTime($row['eintragDatumStart'], $dtz));
+                      $endTime = $row['eintragTimeEnde'];
+                      if ($endTime == '00:00:00') {
+                          $allDay = true;
                       } else {
-                          $event->setDtStart(new \DateTime($row['eintragDatumStart'].' '.$row['eintragTimeStart'], $dtz));
+                          list($startHour, $startMinute, $startSecond) = explode(':', $row['eintragTimeStart']);
+                          if (empty($startMinute)) { continue; }  // fast skip on malformed times
+
+                          list($endHour, $endMinute, $endSecond) = explode(':', $endTime);
+                          if (empty($endMinute)) { continue; }  // ditto
+
+                          $start->setTime($startHour, $startMinute, empty($startSecond) ? 0 : $startSecond);
+                          $end->setTime($endHour, $endMinute, empty($endSecond) ? 0 : $endSecond);
+                          $allDay = false;
                       }
 
-                      if ( intval( $row['eintragDatumEnde'] ) <= 0) {
-                          $event->setNoTime(true);
-                          $event->setDtEnd(new \DateTime($row['eintragDatumStart'], $dtz));
-                      } else {
-                          if ( intval( $row['eintragTimeEnde'] ) <= 0) {
-                              $event->setDtEnd(new \DateTime($row['eintragDatumEnde'].' 00:00:01', $dtz));
-                          } else {
-                              $event->setDtEnd(new \DateTime($row['eintragDatumEnde'].' '.$row['eintragTimeEnde'], $dtz));
-                          }
-                      }
-
-                      $calendar->addComponent($event);
+                      $evt = ICSFeed::getICSFeedObject(
+                          $row['eintragID'],
+                          $db->decodeString($row['eintragTitel']),
+                          $start,
+                          $end,
+                          $db->decodeString($row['eintragOrt']),
+                          $db->decodeString($row['eintragKommentar']),
+                          $allDay
+                      );
+                      $evt->setCategories([$kalender['name']]);
+                      $events[] = $evt;
                   }
 
               }
           }
 
-          header('Access-Control-Allow-Origin: *');
-          header('Content-Type: text/calendar; charset=utf-8');
-          header('Content-Disposition: attachment; filename="feed.ics"');
-
-          echo $calendar->render();
+          $calendar = new NamedCalendar($events);
+          $calendar->setName(DB::getGlobalSettings()->siteNamePlain);
+          $calendar->setPublishedTTL(new DateInterval('PT1H'));
+          ICSFeed::sendICSFeed($calendar);
           exit;
-
       }
 
 

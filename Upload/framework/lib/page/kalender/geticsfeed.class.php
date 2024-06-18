@@ -66,66 +66,24 @@ class geticsfeed extends AbstractPage {
 
     }
 
-
     /**
      *
      * @param ICSFeed $feed
      */
     private function sendAndererKalender($feed) {
-        $vCalendar = new \Eluceo\iCal\Component\Calendar(DB::getGlobalSettings()->siteNamePlain);
-        $vCalendar->setPublishedTTL('P1H');
-
-        // $vCalendar->setName($name);
-
         $data = json_decode($feed->getFeedData());
 
         // 100 Tage vorher abfragen
-
         $time = DateFunctions::getUnixTimeFromMySQLDate(DateFunctions::getTodayAsSQLDate());
         $time1 = $time - (100 * 24 * 3600);
-
         $time2 = $time + (365 * 24 * 3600);
-
         $kalenderTermine = AndererKalenderTermin::getAll($data, DateFunctions::getMySQLDateFromUnixTimeStamp($time1), DateFunctions::getMySQLDateFromUnixTimeStamp($time2));
+        $events = array_filter(array_map(fn($e) => $e->transform(), $kalenderTermine));
 
-
-        for($i = 0; $i < sizeof($kalenderTermine); $i++) {
-
-            $timeStart = new DateTime($kalenderTermine[$i]->getDatumStart());
-            $timeEnd = new DateTime($kalenderTermine[$i]->getDatumEnde());
-
-            if($kalenderTermine[$i]->getDatumEnde() != $kalenderTermine[$i]->getDatumStart()) {
-                $timeEnd = new DateTime(DateFunctions::addOneDayToMySqlDate($kalenderTermine[$i]->getDatumEnde()));
-            }
-
-            if(!$kalenderTermine[$i]->isWholeDay()) {
-                $uhrZeitStart = $kalenderTermine[$i]->getUhrzeitStart();
-                $uhrZeitEnde = $kalenderTermine[$i]->getUhrzeitEnde();
-
-                list($stundeStart, $minuteStart) = explode(":",$uhrZeitStart);
-                list($stundeEnde, $minuteEnde) = explode(":",$uhrZeitEnde);
-
-
-                $timeStart->setTime($stundeStart, $minuteStart, 0);
-
-                $timeEnd->setTime($stundeEnde, $minuteEnde, 0);
-
-            }
-
-            $vCalendar->addComponent(
-                ICSFeed::getICSFeedObject(
-                    "",
-                    $kalenderTermine[$i]->getTitleRaw(),
-                    $timeStart,
-                    $timeEnd,
-                    $kalenderTermine[$i]->getOrt(),
-                    $kalenderTermine[$i]->getKommentar() . " (Eingetragen von " . $kalenderTermine[$i]->getCreatorName() . ")",
-                    $kalenderTermine[$i]->isWholeDay())
-            );
-        }
-
-        ICSFeed::sendICSFeed($vCalendar);
-
+        $calendar = new Calendar($events);
+        $calendar->setPublishedTTL(new DateInterval('PT1H'));
+        ICSFeed::sendICSFeed($calendar);
+        exit;
     }
 
     /**
@@ -133,121 +91,19 @@ class geticsfeed extends AbstractPage {
      * @param ICSFeed $feed
      */
     private function sendExternerKalender($feed) {
-        //$vCalendar = new \Eluceo\iCal\Component\Calendar(DB::getGlobalSettings()->siteNamePlain);
-        //$vCalendar->setPublishedTTL('P1H');
-
-
-        // $vCalendar->setName($name);
-
         $data = json_decode($feed->getFeedData());
 
         // 100 Tage vorher abfragen
-
         $time = DateFunctions::getUnixTimeFromMySQLDate(DateFunctions::getTodayAsSQLDate());
         $time1 = $time - (100 * 24 * 3600);
-
         $time2 = $time + (365 * 24 * 3600);
-
         $kalenderTermine = ExtKalenderTermin::getAll($data, DateFunctions::getMySQLDateFromUnixTimeStamp($time1), DateFunctions::getMySQLDateFromUnixTimeStamp($time2));
+        $events = array_filter(array_map(fn($e) => $e->transform(), $kalenderTermine));
 
-        $events = [];
-        for($i = 0; $i < sizeof($kalenderTermine); $i++) {
-
-            /*
-            if ($kalenderTermine[$i]->getDatumStart()) {
-                $timeStart = new DateTime( DateTimeImmutable::createFromFormat('Y-m-d', $kalenderTermine[$i]->getDatumStart()), true);
-            }
-            if ($kalenderTermine[$i]->getDatumEnde()) {
-                $timeEnd = new DateTime( DateTimeImmutable::createFromFormat('Y-m-d', $kalenderTermine[$i]->getDatumEnde()), true);
-            }
-            */
-
-            //$timeEnd = new DateTime($kalenderTermine[$i]->getDatumEnde());
-
-            /*
-            if($kalenderTermine[$i]->getDatumEnde() != $kalenderTermine[$i]->getDatumStart()) {
-                $timeEnd = new DateTime(DateFunctions::addOneDayToMySqlDate($kalenderTermine[$i]->getDatumEnde()));
-            }
-            */
-
-            if(!$kalenderTermine[$i]->isWholeDay()) {
-                $uhrZeitStart = $kalenderTermine[$i]->getUhrzeitStart();
-                $uhrZeitEnde = $kalenderTermine[$i]->getUhrzeitEnde();
-
-                list($stundeStart, $minuteStart) = explode(":",$uhrZeitStart);
-                list($stundeEnde, $minuteEnde) = explode(":",$uhrZeitEnde);
-
-
-                //$timeStart->setTime($stundeStart, $minuteStart, 0);
-                //$timeEnd->setTime($stundeEnde, $minuteEnde, 0);
-
-                if ($kalenderTermine[$i]->getDatumStart() && $kalenderTermine[$i]->getDatumEnde()) {
-
-
-
-                    $startStr = $kalenderTermine[$i]->getDatumStart().' '.$stundeStart.':'.$minuteStart;
-                    $endStr = $kalenderTermine[$i]->getDatumEnde().' '.$stundeEnde.':'.$minuteEnde;
-
-                    $timeStart = new DateTime( DateTimeImmutable::createFromFormat('Y-m-d H:i', $startStr), true);
-                    $timeEnd = new DateTime( DateTimeImmutable::createFromFormat('Y-m-d H:i', $endStr), true);
-
-                    $occurrence = new TimeSpan($timeStart, $timeEnd);
-                }
-
-            } else {
-
-                $timeStart = new Date(DateTimeImmutable::createFromFormat('Y-m-d', $kalenderTermine[$i]->getDatumStart() ));
-                $occurrence = new SingleDay($timeStart);
-            }
-
-
-
-
-            /*
-            $vCalendar->addComponent(
-                ICSFeed::getICSFeedObject(
-                    "",
-                    $kalenderTermine[$i]->getTitleRaw(),
-                    $timeStart,
-                    $timeEnd,
-                    $kalenderTermine[$i]->getOrt(),
-                    $kalenderTermine[$i]->getKommentar() . " (Eingetragen von " . $kalenderTermine[$i]->getCreatorName() . ")",
-                    $kalenderTermine[$i]->isWholeDay())
-            );
-            */
-
-            if ($occurrence && $kalenderTermine[$i]->getTitleRaw()) {
-
-
-                $event = new Eluceo\iCal\Domain\Entity\Event();
-                $event
-                    ->setOccurrence($occurrence)
-                    ->setSummary($kalenderTermine[$i]->getTitleRaw())
-                    ->setLocation( new Eluceo\iCal\Domain\ValueObject\Location($kalenderTermine[$i]->getOrt()) )
-                    ->setDescription($kalenderTermine[$i]->getKommentar() . " (Eingetragen von " . $kalenderTermine[$i]->getCreatorName() . ")");
-
-
-                $events[] = $event;
-            }
-        }
-
-        // 2. Create Calendar domain entity
-        $calendar = new Eluceo\iCal\Domain\Entity\Calendar($events);
-
-        // 3. Transform domain entity into an iCalendar component
-        $componentFactory = new Eluceo\iCal\Presentation\Factory\CalendarFactory();
-        $calendarComponent = $componentFactory->createCalendar($calendar);
-
-        // 4. Set headers
-        header('Content-Type: text/calendar; charset=utf-8');
-        header('Content-Disposition: attachment; filename="cal.ics"');
-
-        // 5. Output
-        echo $calendarComponent;
+        $calendar = new Calendar($events);
+        $calendar->setPublishedTTL(new DateInterval('PT1H')); // recommend a one-hour delay before refreshing the calendar
+        ICSFeed::sendICSFeed($calendar);
         exit;
-
-        //ICSFeed::sendICSFeed($vCalendar);
-
     }
 
     /**
@@ -351,35 +207,74 @@ class geticsfeed extends AbstractPage {
 
         if($withEx) $name .= " (Mit unangekündigten Leisungsnachweisen.)";
 
-        $feedText = "";
-
-        $vCalendar = new \Eluceo\iCal\Component\Calendar(DB::getGlobalSettings()->siteNamePlain);
-        $vCalendar->setPublishedTTL('P1H');
+        $vCalendar = new NamedCalendar();
         $vCalendar->setName($name);
+        $vCalendar->setPublishedTTL(new DateInterval('PT1H')); // recommend a one-hour delay before refreshing the calendar
 
 
         for($i = 0; $i < sizeof($lnwData); $i++) {
             if($lnwData[$i]->showForNotTeacher() || $withEx) {
-                $vCalendar->addComponent(ICSFeed::getICSFeedObject(
-                    "LNW" . $lnwData[$i]->getID(),
-                    (($showGrade) ? ($lnwData[$i]->getKlasse() . ": ") : "") . $lnwData[$i]->getArtLangtext() . " in " . $lnwData[$i]->getFach() . " bei " . $lnwData[$i]->getLehrer(),
-                    new DateTime($lnwData[$i]->getDatumStart()),
-                    new DateTime($lnwData[$i]->getDatumStart()),
-                    $lnwData[$i]->getBetrifft(),
-                    "", true));
+                $periods = $lnwData[$i]->getStunden();
+                $date = new DateTimeImmutable($lnwData[$i]->getDatumStart());
+                $events = stundenplandata::getTimesForWeekdayAndPeriods($date->format("w"), $periods, true);
+                if (empty($events)) {
+                    $events = array(array(
+                        "start" => new DateInterval("P0D"),
+                        "end" => new DateInterval("P0D"),
+                        "all_day" => true
+                    ));
+                }
+
+                foreach ($events as $eventno=>$event) {
+                    $vCalendar->addEvent(ICSFeed::getICSFeedObject(
+                        "LNW" . $lnwData[$i]->getID() . "-$eventno",
+                        (($showGrade) ? ($lnwData[$i]->getKlasse() . ": ") : "") . $lnwData[$i]->getArtLangtext() . " in " . $lnwData[$i]->getFach() . " bei " . $lnwData[$i]->getLehrer(),
+                        $date->add($event["start"]),
+                        $date->add($event["end"]),
+                        $lnwData[$i]->getBetrifft(),
+                        "",
+                        array_key_exists("all_day", $event)
+                    ));
+                }
             }
         }
 
 
         for($i = 0; $i < sizeof($termine); $i++) {
-            $vCalendar->addComponent(ICSFeed::getICSFeedObject(
-                "KT" . $termine[$i]->getID(),
-                $termine[$i]->getTitle(),
-                new DateTime($termine[$i]->getDatumStart()),
-                new DateTime(($termine[$i]->getDatumStart() != $termine[$i]->getDatumEnde()) ? $termine[$i]->getDatumEnde() : $termine[$i]->getDatumStart()),
-                $termine[$i]->getOrt(),
-                implode(", ", $termine[$i]->getKlassen()) . "\r\n" . $termine[$i]->getBetrifft(),
-                (($termine[$i]->getDatumStart() != $termine[$i]->getDatumEnde()) ? true : false)));
+            $start = new DateTimeImmutable($termine[$i]->getDatumStart());
+            $end = new DateTimeImmutable($termine[$i]->getDatumEnde());
+            if ($start != $end) {
+                $events = null;
+            } else {
+                $events = stundenplandata::getTimesForWeekdayAndPeriods($start->format("w"), $termine[$i]->getStunden(), true);
+                if (!empty($events)) {
+                    // getTimesForWeekdayAndPeriods only returns the time, so we need to add that to the dates before we continue
+                    foreach ($events as &$event) {
+                        $event["start"] = $start->add($event["start"]);
+                        $event["end"] = $start->add($event["end"]);
+                    }
+                }
+            }
+
+            if (empty($events)) {
+                $events = array(array(
+                    "start" => $start,
+                    "end" => $end,
+                    "all_day" => true
+                ));
+            }
+
+            foreach ($events as $eventno=>$event) {
+                $vCalendar->addEvent(ICSFeed::getICSFeedObject(
+                    "KT" . $termine[$i]->getID() . "-$eventno",
+                    $termine[$i]->getTitle(),
+                    $event["start"],
+                    $event["end"],
+                    $termine[$i]->getOrt(),
+                    implode(", ", $termine[$i]->getKlassen()) . "\r\n" . $termine[$i]->getBetrifft(),
+                    array_key_exists("all_day", $event)
+                ));
+            }
         }
 
 
