@@ -1,9 +1,9 @@
 {
   "name": "Fileshare",
   "uniqid": "ext.zwiebelgasse.fileshare",
-  "version": "1",
+  "version": "2",
 
-  "requiredVersion": "1.6.3",
+  "requiredVersion": "1.7.4",
 
   "menu": {
     "categorie": "3",

@@ -47,7 +47,14 @@ class setUpload extends AbstractRest {
             ];
         }
         $info = pathinfo($file['name']);
-        if ($info['extension'] != 'png' && $info['extension'] != 'jpg' && $info['extension'] != 'zip') {
+
+        $allowedString = DB::getSettings()->getValue("extFileshare-extension-allowed");
+        if (!$allowedString) {
+            $allowedString = '';
+        }
+        $allowed = explode(',',$allowedString );
+
+        if ( !in_array( $info['extension'], $allowed) ) {
             $this->statusCode = 400;
             return [
                 'error' => true,
