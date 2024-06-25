@@ -119,10 +119,12 @@ class TagebuchPDFCreator {
 	                
 	                for($stunde = 1; $stunde <= stundenplandata::getMaxStunden(); $stunde++) {
 	                    $klasseHTML .= "<tr><td>" . $stunde . ".</td><td>";
-	                    
-	                    for($u = 0; $u < sizeof($planAmTag[$stunde]); $u++) {
-	                        $klasseHTML .= $planAmTag[$stunde][$u]['fach'] . " bei " . $planAmTag[$stunde][$u]['lehrer'] . " in " . $planAmTag[$stunde][$u]['raum'] . "<br />";
-	                    }
+
+                        if ($planAmTag && $stunde && $planAmTag[$stunde] && is_array($planAmTag[$stunde])) {
+                            for($u = 0; $u < sizeof($planAmTag[$stunde]); $u++) {
+                                $klasseHTML .= $planAmTag[$stunde][$u]['fach'] . " bei " . $planAmTag[$stunde][$u]['lehrer'] . " in " . $planAmTag[$stunde][$u]['raum'] . "<br />";
+                            }
+                        }
 	                    
 	                    $klasseHTML .= "</td><td>";
 	                    

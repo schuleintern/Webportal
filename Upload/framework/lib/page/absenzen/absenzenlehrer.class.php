@@ -715,26 +715,26 @@ class absenzenlehrer extends AbstractPage {
     return array(
         array(
           'name' => "absenzen-lehreransicht",
-          'typ' => BOOLEAN,
+          'typ' => 'BOOLEAN',
           'titel' => "Lehreransicht auf die Absenzenverwaltung aktivieren?",
           'text' => "Mit dieser Ansicht können, die Lehrer auf die Absenzenverwaltung zugreifen. (Ohne Schreibrechte)"
         ),
     	array(
     		'name' => "absenzen-lehreransicht-entschuldigungen",
-    		'typ' => BOOLEAN,
+    		'typ' => 'BOOLEAN',
     		'titel' => "Überprüfen der Entschuldigungen für Lehrer aktivieren?",
     		'text' => "Auf die Überprüfung der Entschuldigungen haben die Personen Zugriff, die auch auf das Sekretariatsmodul Zugriff haben. Für Lehrer (Klassenleiter) kann die Ansicht hier freigeschaltet werden."
     	),
     		
     	array(
     		'name' => "absenzen-lehrer-meldungaktivieren",
-    		'typ' => BOOLEAN,
+    		'typ' => 'BOOLEAN',
     		'titel' => "Meldung der Lehrer aktivieren?",
     		'text' => "Ist diese Option aktiv, können Lehrer in der Gesamtansicht der Absenzen für Lehrer einen Haken setzen, wenn die Absenzen vollständig und richtig sind. (z.B. direkt aus dem Unterricht heraus)"
    		),
         array(
             'name' => "absenzen-lehrer-allelehreralleklassenentschuldigungenueberpruefen",
-            'typ' => BOOLEAN,
+            'typ' => 'BOOLEAN',
             'titel' => "Alle Lehrer für alle Klassenleiteransichten freischalten?",
             'text' => "Ist diese Option aktiv, können alle Lehrer die Entschuldigungen und die Klassenleiteransicht für alle Klassen einsehen."
         ),

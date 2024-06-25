@@ -237,10 +237,13 @@ abstract class ExtensionModel
 
 
 
-    public function getByState($status = [1])
+    public function getByState($status = [1], $order = false)
     {
         if (!$this->_table) {
             return false;
+        }
+        if (!$order) {
+            $order = 'createdTime';
         }
         if (!$status || !is_array($status)) {
             return false;
@@ -253,7 +256,7 @@ abstract class ExtensionModel
             $where .= " `state` = " . (int)$s;
         }
         $ret = [];
-        $dataSQL = DB::getDB()->query("SELECT * FROM " . $this->_table . " WHERE " . $where . " ORDER BY createdTime");
+        $dataSQL = DB::getDB()->query("SELECT * FROM " . $this->_table . " WHERE " . $where . " ORDER BY ".$order);
         while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
             $class = get_called_class();
             $ret[] = new $class($data);
@@ -274,6 +277,23 @@ abstract class ExtensionModel
         }
 
         if ( DB::run("UPDATE " . $this->_table . " SET state = :status WHERE ".$this->_table_id." = :id", ['id' => $id, 'status' => $status]) ) {
+            return true;
+        }
+        return false;
+    }
+
+    public function setSort($sort = false)
+    {
+
+        if (!$this->_table) {
+            return false;
+        }
+        $id = (int)$this->getID();
+        if (!$id || !$sort) {
+            return false;
+        }
+
+        if ( DB::run("UPDATE " . $this->_table . " SET sort = :sort WHERE ".$this->_table_id." = :id", ['id' => $id, 'sort' => $sort]) ) {
             return true;
         }
         return false;
@@ -315,6 +335,21 @@ abstract class ExtensionModel
             }
             return DB::run("UPDATE " . $this->_table . " SET ".implode(', ', $sql)." WHERE ".$this->_table_id." = :".$this->_table_id, $data);
         }
+    }
+
+    public function update($data = false)
+    {
+        if ( !$data[$this->_table_id] || $data[$this->_table_id] == 0 )  {
+            return false;
+        }
+        $sql = [];
+        foreach($data as $k => $o) {
+            if ($k != $this->_table_id  ) {
+                $sql[] = $k.' = :'.$k;
+            }
+        }
+        return DB::run("UPDATE " . $this->_table . " SET ".implode(', ', $sql)." WHERE ".$this->_table_id." = :".$this->_table_id, $data);
+
     }
 
     public function delete()

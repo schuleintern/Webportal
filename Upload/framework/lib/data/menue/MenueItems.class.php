@@ -13,7 +13,7 @@ class MenueItems {
 
     }
 
-    public function setItemsSort($items = false) {
+    public static function setItemsSort($items = false) {
 
         if ( !$items || !is_array($items) ) {
             return false;
