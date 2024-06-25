@@ -11,11 +11,14 @@ class extBoardModelBoard extends ExtensionModel
         'createdTime',
         'state',
         'title',
+        'sort',
         'cat_id'
+
     ];
 
 
     static $defaults = [
+        'sort' => 1
     ];
 
 
@@ -30,7 +33,7 @@ class extBoardModelBoard extends ExtensionModel
     }
 
 
-    public function getCollection($full = false, $withItems = false, $withACL = false)
+    public function getCollection($full = false, $withItems = false, $withACL = false, $adminGroup = false)
     {
 
         $collection = parent::getCollection();
@@ -40,19 +43,25 @@ class extBoardModelBoard extends ExtensionModel
                 include_once PATH_EXTENSION . 'models' . DS . 'Category.class.php';
                 $Category = new extBoardModelCategory();
                 $tmp_data = $Category->getByID($this->getData('cat_id'));
-                $collection['catTitle'] = $tmp_data->getData('title');
-                if ($withACL) {
-                    if ($tmp_data->getData('acl')) {
-                        $userTyp = DB::getSession()->getUser()->getUserTyp(true);
-                        $userAdmin = DB::getSession()->getUser()->isAdmin();
-                        $acl = json_decode($tmp_data->getData('acl'));
-                        if (!$userAdmin && $acl) {
-                            if (!$acl->{$userTyp}) {
-                                return false;
+                if ($tmp_data) {
+                    $collection['catTitle'] = $tmp_data->getData('title');
+                    if ($withACL) {
+                        if ($tmp_data->getData('acl')) {
+                            $userTyp = DB::getSession()->getUser()->getUserTyp(true);
+                            $userAdmin = DB::getSession()->getUser()->isAdmin();
+                            if ( $adminGroup && DB::getSession() && DB::getSession()->isAdminOrGroupAdmin($adminGroup) === true ) {
+                                $userAdmin = true;
+                            }
+                            $acl = json_decode($tmp_data->getData('acl'));
+                            if (!$userAdmin && $acl) {
+                                if (!$acl->{$userTyp}) {
+                                    return false;
+                                }
                             }
                         }
                     }
                 }
+
 
 
             }

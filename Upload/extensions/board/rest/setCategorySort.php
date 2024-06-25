@@ -1,6 +1,6 @@
 <?php
 
-class getMyBoards extends AbstractRest
+class setCategorySort extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -9,34 +9,52 @@ class getMyBoards extends AbstractRest
     public function execute($input, $request)
     {
 
-
-        //$user = DB::getSession()->getUser();
-
-
+        $user = DB::getSession()->getUser();
+        if (!$user) {
+            return [
+                'error' => true,
+                'msg' => 'Missing User'
+            ];
+        }
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if ( !$this->canWrite() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Board.class.php';
+        $items = json_decode((string)$_POST['items']);
+        if ( !$items ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: Items'
+            ];
+        }
 
-        $class = new extBoardModelBoard();
-        $tmp_data = $class->getByState([1], 'sort');
 
-        $ret = [];
-        foreach($tmp_data as $item) {
-            $collection = $item->getCollection(true, true, true, $this->getAdminGroup() );
-            if ($collection) {
-                $ret[] = $collection;
+
+        include_once PATH_EXTENSION . 'models' . DS .'Category.class.php';
+
+        foreach($items as $item) {
+            if ($item->id) {
+                $class = new extBoardModelCategory([
+                    "id" => $item->id
+                ]);
+                $class->setSort($item->sort);
             }
 
         }
 
-        return $ret;
+        return [
+            'success' => true
+        ];
 
+
+        return [
+            'error' => true,
+            'msg' => 'Nicht Erfolgreich!'
+        ];
 
     }
 
@@ -49,7 +67,7 @@ class getMyBoards extends AbstractRest
      */
     public function getAllowedMethod()
     {
-        return 'GET';
+        return 'POST';
     }
 
 
@@ -80,11 +98,6 @@ class getMyBoards extends AbstractRest
      */
     public function needsSystemAuth()
     {
-        return false;
-    }
-
-
-    public function needsAppAuth() {
         return false;
     }
 

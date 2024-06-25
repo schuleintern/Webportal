@@ -11,11 +11,13 @@ class extBoardModelCategory extends ExtensionModel
         'createdTime',
         'createdUserID',
         'title',
-        'acl'
+        'acl',
+        'sort'
     ];
 
 
     static $defaults = [
+        'sort' => 1
     ];
 
 
@@ -41,13 +43,16 @@ class extBoardModelCategory extends ExtensionModel
         return $collection;
     }
 
-    public function getAllAllowed()
+    public function getAllAllowed($adminGroup = false)
     {
         $ret = [];
-        $data = $this->getByState([1]);
+        $data = $this->getByState([1], 'sort');
         if ($data) {
             $userTyp = DB::getSession()->getUser()->getUserTyp(true);
             $userAdmin = DB::getSession()->getUser()->isAdmin();
+            if ( $adminGroup && DB::getSession() && DB::getSession()->isAdminOrGroupAdmin($adminGroup) === true ) {
+                $userAdmin = true;
+            }
             if ($userAdmin) {
                 $ret = $data;
             }

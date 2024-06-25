@@ -15,12 +15,15 @@
       <tr>
         <th v-on:click="handlerSort('title')" class="curser-sort" :class="{'text-orange': sort.column == 'title'}">Titel</th>
         <th v-on:click="handlerSort('catTitle')" class="curser-sort" :class="{'text-orange': sort.column == 'catTitle'}">Kategory</th>
+        <th v-if="filter.colum == 'catTitle'" v-on:click="handlerSort('sort')" class="curser-sort" :class="{'text-orange': sort.column == 'sort'}">Sortierung</th>
+
       </tr>
       </thead>
       <tbody>
       <tr v-bind:key="index" v-for="(item, index) in  sortList" class="">
         <td><a class="si-btn" :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{ item.title }}</a></td>
         <td>{{item.catTitle}}</td>
+        <td v-if="filter.colum == 'catTitle'">{{item.sort}}</td>
       </tr>
       </tbody>
     </table>
@@ -176,6 +179,8 @@ export default {
         this.filter.colum = "catTitle";
         this.filter.value = this.activeCat;
         this.activeCat = false;
+        this.sort.order = false;
+        this.handlerSort('sort');
       }
 
 

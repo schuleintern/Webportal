@@ -84,6 +84,48 @@ export default {
     });
 
 
+
+    this.$bus.$on('item--sort', data => {
+
+      if (!data.items) {
+        console.log('missing');
+        return false;
+      }
+
+      const formData = new FormData();
+      formData.append('items', JSON.stringify(data.items));
+
+      this.loading = true;
+      var that = this;
+      axios.post(this.apiURL + '/setBoardsSort', formData)
+          .then(function (response) {
+            if (response.data) {
+
+              if (response.data.error) {
+                that.error = '' + response.data.msg;
+              } else {
+
+                that.loadList();
+                //that.$bus.$emit('page--open', {'page':'list'});
+
+              }
+            } else {
+              that.error = 'Fehler beim Speichern. 01';
+            }
+          })
+          .catch(function () {
+            that.error = 'Fehler beim Speichern. 02';
+          })
+          .finally(function () {
+            // always executed
+            that.loading = false;
+          });
+
+
+    });
+
+
+
     this.$bus.$on('editform--submit', data => {
 
       if (!data.title || !data.board_id) {
