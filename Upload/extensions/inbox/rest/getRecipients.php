@@ -1,11 +1,14 @@
 <?php
 
-class getRecipients extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+class getRecipients extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +20,7 @@ class getRecipients extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,13 +28,12 @@ class getRecipients extends AbstractRest {
         }
 
 
-
         /*
             Fachschaften
         */
         $fachschaften = [];
         $faecher = fach::getAll();
-        foreach($faecher as $fach) {
+        foreach ($faecher as $fach) {
             /*
             $users = [];
             $teachers = $fach->getFachLehrer();
@@ -51,10 +53,18 @@ class getRecipients extends AbstractRest {
         /*
             Gruppen
         */
+        /*
+
+        */
+
         $groups = [];
-        $dataSQL = DB::getDB()->query("SELECT id, title FROM ext_inboxs WHERE type = 'group'");
-        while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
-            $groups[] = $data;
+        if (EXTENSION::isActive('ext.zwiebelgasse.users')) {
+            include_once PATH_EXTENSIONS . 'users' . DS . 'models' . DS . 'Groups.class.php';
+            $class = new extUsersModelGroups();
+            $tmp_data = $class->getAll();
+            foreach ($tmp_data as $item) {
+                $groups[] = $item->getCollection();
+            }
         }
 
 
@@ -63,31 +73,39 @@ class getRecipients extends AbstractRest {
         */
         $klassen = [];
         $klassenData = klasse::getAllKlassen();
-        foreach($klassenData as $klasse) {
-            $stufe = $klasse->getKlassenstufe() ? $klasse->getKlassenstufe() : (int)$klasse->getKlassenName(); 
+        foreach ($klassenData as $klasse) {
+            $stufe = $klasse->getKlassenstufe() ? $klasse->getKlassenstufe() : (int)$klasse->getKlassenName();
             if ($stufe) {
-                if ( !is_array($klassen[ $stufe ]) ) {
-                    $klassen[ $stufe ] = [];
+                if (!is_array($klassen[$stufe])) {
+                    $klassen[$stufe] = [];
                 }
-                $klassen[ $stufe ][] = $klasse->getKlassenName();
+                $klassen[$stufe][] = $klasse->getKlassenName();
             }
         }
 
         /*
             Verwaltung
         */
+        /*
+                $verwaltung = [];
 
-        $verwaltung = [];
+                if ( $this->isAllowed('extInbox-acl-verwaltung') == 1 ) {
+                    $verwaltung = [
+                        ['id' => 'schulleitung', 'title' => 'Schulleitung'],
+                        ['id' => 'sekretariat', 'title' => 'Sekretariat'],
+                        ['id' => 'personalrat', 'title' => 'Personalrat'],
+                        ['id' => 'hausmeister', 'title' => 'Hausmeister']
+                    ];
+                }
+        */
 
-
-
-        if ( $this->isAllowed('extInbox-acl-verwaltung') == 1 ) {
-            $verwaltung = [
-                ['id' => 'schulleitung', 'title' => 'Schulleitung'],
-                ['id' => 'sekretariat', 'title' => 'Sekretariat'],
-                ['id' => 'personalrat', 'title' => 'Personalrat'],
-                ['id' => 'hausmeister', 'title' => 'Hausmeister']
-            ];
+        /*
+            Postfach Gruppe
+        */
+        $inboxs = [];
+        $dataSQL = DB::getDB()->query("SELECT id, title FROM ext_inboxs WHERE type = 'group'");
+        while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
+            $inboxs[] = $data;
         }
 
 
@@ -95,14 +113,14 @@ class getRecipients extends AbstractRest {
             'klassen' => $klassen,
             'group' => $groups,
             'fachschaft' => $fachschaften,
-            'verwaltung' => $verwaltung
+            'inboxs' => $inboxs
         ];
 
 
+    }
 
-	}
-
-    private function isAllowed($val) {
+    private function isAllowed($val)
+    {
 
         $content = DB::getSettings()->getValue($val);
         if ($content) {
@@ -121,7 +139,8 @@ class getRecipients extends AbstractRest {
      *
      * @return String
      */
-    public function getAllowedMethod() {
+    public function getAllowedMethod()
+    {
         return 'GET';
     }
 
@@ -131,7 +150,8 @@ class getRecipients extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -144,12 +164,14 @@ class getRecipients extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 

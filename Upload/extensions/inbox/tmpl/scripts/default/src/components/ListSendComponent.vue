@@ -40,7 +40,7 @@
             {{ inbox.title }} ({{ inbox.count }})
           </span>
           <!--
-          <div v-if="item.to.length <= 3">
+          <div v-if="item.to && item.to.length <= 3">
             <div v-bind:key="i" v-for="(inbox, i) in  item.to">
               <span v-if="inbox.user">{{ inbox.user.name }}</span>
               <span v-else>{{ inbox.title }}</span>
@@ -57,13 +57,13 @@
             <span v-bind:key="i" v-for="(inbox, i) in  msg.toCC">
               <span v-if="inbox.user">{{ inbox.user.name }}</span>
               <span v-else>{{ inbox.title }}</span>
-              <span v-if="i+1 < item.to.length">, </span>
+              <span v-if="i+1 < msg.toCC.length">, </span>
             </span>
           </div>
 
         </td>
         <td :class="{'text-bold': msg.isRead == 0}">{{ msg.subject }}</td>
-        <td>{{ msg.files }}</td>
+        <td><i v-if="msg.files" class="fa fa-paperclip"></i></td>
         <td>{{ msg.date }}</td>
 
       </tr>

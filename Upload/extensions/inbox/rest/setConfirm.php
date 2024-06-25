@@ -1,11 +1,14 @@
 <?php
 
-class setConfirm extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+class setConfirm extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +20,7 @@ class setConfirm extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,7 +28,7 @@ class setConfirm extends AbstractRest {
         }
 
         $message_id = (int)$input['mid'];
-        if ( !$message_id ) {
+        if (!$message_id) {
             return [
                 'error' => true,
                 'msg' => 'Missing ID'
@@ -39,7 +42,7 @@ class setConfirm extends AbstractRest {
 
         include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
         $Inbox = new extInboxModelInbox2();
-        if ( !$Inbox->isInboxFromUser($tmp_data->getData('inbox_id'), $userID) ) {
+        if (!$Inbox->isInboxFromUser($tmp_data->getData('inbox_id'), $userID)) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff auf das Postfach'
@@ -47,7 +50,7 @@ class setConfirm extends AbstractRest {
         }
 
 
-        if ( !$tmp_data->setConfirm() ) {
+        if (!$tmp_data->setConfirm()) {
             return [
                 'error' => true,
                 'msg' => 'Lesebestätigung konnte nicht gesendet werden'
@@ -55,13 +58,12 @@ class setConfirm extends AbstractRest {
         }
 
 
-
         return [
-            'done' => true,
-            'isConfirm' => $tmp_data->getIsConfirm()
+            'done' => true
+            //'isConfirm' => $tmp_data->getIsConfirm()
         ];
 
-	}
+    }
 
 
     /**
@@ -70,7 +72,8 @@ class setConfirm extends AbstractRest {
      *
      * @return String
      */
-    public function getAllowedMethod() {
+    public function getAllowedMethod()
+    {
         return 'POST';
     }
 
@@ -80,7 +83,8 @@ class setConfirm extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -93,12 +97,14 @@ class setConfirm extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 

@@ -45,7 +45,7 @@ export default {
       return false;
     },
     handlerSelectGroup(typ, content) {
-      this.$bus.$emit('handlerSelectGroup', {
+      this.$emit('submit', {
         typ: typ,
         content: content
       });
@@ -53,7 +53,7 @@ export default {
     },
     handlerSelect($event, typ, content) {
       $event.preventDefault();
-      this.$bus.$emit('handlerSelect', {
+      this.$emit('submit', {
         typ: typ,
         content: content
       });
@@ -70,7 +70,7 @@ export default {
     }
   }
 
-};
+}
 </script>
 
 <style scoped>

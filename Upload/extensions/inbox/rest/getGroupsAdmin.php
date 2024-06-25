@@ -1,5 +1,6 @@
 <?php
 
+
 class getGroupsAdmin extends AbstractRest
 {
 
@@ -11,7 +12,7 @@ class getGroupsAdmin extends AbstractRest
 
         //$user = DB::getSession()->getUser();
         $acl = $this->getAcl();
-        if ( !$this->canAdmin() ) {
+        if (!$this->canAdmin()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -32,12 +33,12 @@ class getGroupsAdmin extends AbstractRest
 
             $collection['childs'] = [];
             $childs = $classUsers->getByParentID($collection['id']);
-            foreach($childs as $child) {
+            foreach ($childs as $child) {
                 if ($child) {
                     $collection['childs'][] = $child->getCollection(true);
                 }
             }
-            
+
 
             $ret[] = $collection;
         }

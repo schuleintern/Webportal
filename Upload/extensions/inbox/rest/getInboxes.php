@@ -1,11 +1,14 @@
 <?php
 
-class getInboxes extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+class getInboxes extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +20,7 @@ class getInboxes extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,14 +28,14 @@ class getInboxes extends AbstractRest {
         }
 
         $typ = (string)$input['typ'];
-        if ( !$typ ) {
+        if (!$typ) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Typ'
             ];
         }
         $content = (string)$input['content'];
-        if ( !$content ) {
+        if (!$content) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Content'
@@ -40,11 +43,11 @@ class getInboxes extends AbstractRest {
         }
 
         $className = explode('::', $typ);
-        $className = 'extInboxRecipient'.ucfirst($className[0]).ucfirst($className[1]);
+        $className = 'extInboxRecipient' . ucfirst($className[0]) . ucfirst($className[1]);
 
-        $typ = str_replace('::','_', $typ);
+        $typ = str_replace('::', '_', $typ);
 
-        include_once PATH_EXTENSION . 'inboxs' . DS . $typ.'.class.php';
+        include_once PATH_EXTENSION . 'inboxs' . DS . $typ . '.class.php';
         $tmp_data = $className::getInboxs($content);
 
         if ($tmp_data) {
@@ -53,7 +56,7 @@ class getInboxes extends AbstractRest {
 
         return [];
 
-	}
+    }
 
 
     /**
@@ -62,7 +65,8 @@ class getInboxes extends AbstractRest {
      *
      * @return String
      */
-    public function getAllowedMethod() {
+    public function getAllowedMethod()
+    {
         return 'POST';
     }
 
@@ -72,7 +76,8 @@ class getInboxes extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -85,12 +90,14 @@ class getInboxes extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 

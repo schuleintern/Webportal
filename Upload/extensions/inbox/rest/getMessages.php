@@ -1,11 +1,13 @@
 <?php
 
-class getMessages extends AbstractRest {
-	
-	protected $statusCode = 200;
+class getMessages extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +19,7 @@ class getMessages extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,7 +27,7 @@ class getMessages extends AbstractRest {
         }
 
         $inbox_id = (int)$input['inbox_id'];
-        if ( !$inbox_id ) {
+        if (!$inbox_id) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: ID'
@@ -33,7 +35,7 @@ class getMessages extends AbstractRest {
         }
 
         $folder_id = (int)$input['folder_id'];
-        if ( !$folder_id ) {
+        if (!$folder_id) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Folder'
@@ -55,7 +57,7 @@ class getMessages extends AbstractRest {
 
         include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
         $Inbox = new extInboxModelInbox2();
-        if ( !$Inbox->isInboxFromUser($inbox_id, $userID) ) {
+        if (!$Inbox->isInboxFromUser($inbox_id, $userID)) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff auf das Postfach'
@@ -74,7 +76,7 @@ class getMessages extends AbstractRest {
 
         return $ret;
 
-	}
+    }
 
 
     /**
@@ -83,7 +85,8 @@ class getMessages extends AbstractRest {
      *
      * @return String
      */
-    public function getAllowedMethod() {
+    public function getAllowedMethod()
+    {
         return 'POST';
     }
 
@@ -93,7 +96,8 @@ class getMessages extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -106,12 +110,14 @@ class getMessages extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 

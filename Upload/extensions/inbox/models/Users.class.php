@@ -54,6 +54,40 @@ class extInboxModelUsers extends ExtensionModel
         return $collection;
     }
 
+
+    public function makeUsers()
+    {
+        include_once PATH_EXTENSIONS.'inbox'.DS . 'models' . DS . 'Inbox2.class.php';
+        $Users = new extInboxModelUsers();
+        $Inbox = new extInboxModelInbox2();
+
+        $users = user::getAll();
+
+        $i = 0;
+
+        foreach($users as $user) {
+            if ( $user->getUserID() && !$Inbox->getByUserID( $user->getUserID() ) ) {
+                $db = $Inbox->save([
+                    'title' => 'user-'.$user->getUserID(),
+                    'parent_id' => (int)$user->getUserID(),
+                    'type' => 'user',
+                    'createdUserID' => 1,
+                    'createdTime' => date('Y-m-d H:i:s', time())
+                ]);
+                if ($db->lastID) {
+                    $Users->save([
+                        'inbox_id' => $db->lastID,
+                        'user_id' => $user->getUserID()
+                    ]);
+                    $i++;
+                }
+            }
+        }
+        return $i;
+
+    }
+
+
 /*
     public function getByInboxID ($id = false) {
 

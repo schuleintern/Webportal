@@ -53,6 +53,18 @@ class extInboxAdminSettings extends AbstractPage {
 
         $settings =  [
             [
+                'name' => "extInbox-files-allowedExt",
+                'typ' => 'STRING',
+                'title' => "Erlaubte Dateitypen",
+                'desc' => "Kommagetrennt (z.b. jpg,png,zip)"
+            ],
+            [
+                'name' => "extInbox-files-maxSize",
+                'typ' => 'STRING',
+                'title' => "Erlaubte Dateigröße",
+                'desc' => "in Kilobyte"
+            ],
+            [
                 'name' => "extInbox-acl-verwaltung",
                 'typ' => 'ACL',
                 'title' => "Verwaltung",

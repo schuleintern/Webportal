@@ -6,9 +6,10 @@
       ref="uploaderRef"
       @file-complete="fileComplete"
       @file-success="fileSuccess"
+      @file-error="fileError"
       @complete="complete"
   >
-     <uploader-unsupport></uploader-unsupport>
+    <uploader-unsupport></uploader-unsupport>
     <uploader-btn class="si-btn">Datei hochladen</uploader-btn>
     <!--
     <uploader-drop>
@@ -51,14 +52,25 @@ export default {
     }
     const complete = () => {
       //console.log('complete', arguments)
-      emit('done', arguments);
+      //emit('complete', arguments);
+
+      //console.log(window.uploader)
+
     }
     const fileComplete = () => {
       //console.log('file complete', arguments)
     }
 
-    const fileSuccess = ()  => {
+    const fileError = (error, file,message) => {
+      //console.log('file fileError', message )
+      emit('error', error, JSON.parse(message));
+    }
 
+
+
+    const fileSuccess = (rootFile, file, message)  => {
+      //console.log('file success', rootFile.file.name, JSON.parse(message))
+      emit('done', rootFile.file.name, JSON.parse(message));
     }
 
 
@@ -74,7 +86,8 @@ export default {
       statusText,
       complete,
       fileComplete,
-      fileSuccess
+      fileSuccess,
+      fileError
     }
   }
 }
@@ -133,7 +146,7 @@ export default {
 }
 
 .uploader-file-progress {
- background: none !important;
+  background: none !important;
 }
 
 </style>

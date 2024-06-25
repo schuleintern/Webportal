@@ -22,7 +22,7 @@ class extInboxRecipientUser
             return false;
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
+        include_once PATH_EXTENSIONS. 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
         $class = new extInboxModelInbox2();
         $inbox = $class->getByUserIDFirst((int)$user_id);
 
@@ -54,7 +54,13 @@ class extInboxRecipientUser
         if ($inbox) {
             $inbox_collection = $inbox->getCollection(true);
             if ($inbox_collection) {
-                return [$inbox_collection];
+                //return [$inbox_collection];
+
+
+                return [
+                    "title" => $inbox_collection['title'],
+                    "data" => [$inbox_collection]
+                ];
             }
         }
 

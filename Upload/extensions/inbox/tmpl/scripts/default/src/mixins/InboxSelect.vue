@@ -5,9 +5,13 @@
     <button v-if="!state" class="si-btn si-btn-green" v-on:click="handlerOpenForm">Empfänger wählen</button>
 
     <div v-if="state == 'done'" class="flex-row">
-      <button class="si-btn" v-on:click="handlerOpenForm"><i class="fa fa-user"></i> {{ selectedUserLength() }} Empfänger</button>
+      <button class="si-btn" v-on:click="handlerOpenForm"><i class="fa fa-user"></i> {{ selectedUserLength() }}
+        Empfänger
+      </button>
       <div class="flex-1 margin-l-l">
-        <button v-if="selectedUserLength() > 5" v-on:click="handlerShowSelectedtUserList" class="si-btn si-btn-border">Empfängerliste anzeigen</button>
+        <button v-if="selectedUserLength() >= 5" v-on:click="handlerShowSelectedtUserList" class="si-btn si-btn-border">
+          Empfängerliste anzeigen
+        </button>
         <div v-if="selectedUserLength() < 5 || selectedUserShow == true">
           <div v-bind:key="index" v-for="(item, index) in  cachedUserList" class="blockInline margin-r-m margin-b-s">
             <span v-if="item.user">{{ item.user.name }}</span>
@@ -18,7 +22,7 @@
       </div>
     </div>
     <div v-if="state == 'form'">
-      <div class="si-modalblack" v-on:click.self="handlerCloseForm">
+      <div class="si-modalblack_2" v-on:click.self="handlerCloseForm">
         <div class="si-modalblack-box">
           <div class="si-modalblack-content flex padding-l" style="overflow: hidden">
 
@@ -33,16 +37,13 @@
                 <button class="si-btn" :class="{'si-btn-active':openTab=='teacher'}" @click="handlerOpenTab('teacher')">
                   Lehrer*innen
                 </button>
-                <button class="si-btn" :class="{'si-btn-active':openTab=='shool'}" @click="handlerOpenTab('shool')">
-                  Verwaltung
-                </button>
                 <button class="si-btn" :class="{'si-btn-active':openTab=='groups'}" @click="handlerOpenTab('groups')">
                   Gruppen
                 </button>
               </div>
               <div class="si-btn-multiple">
                 <button class="si-btn si-btn-green" @click="handlerSubmit"><i class="fa fa-check"></i>
-                  {{ selectedUserList.length }} Empfänger wählen
+                  {{ selectedList.length }} Empfänger wählen
                 </button>
                 <button class="si-btn si-btn-border si-btn-icon" @click="handlerCloseForm"><i class="fa fa-times"></i>
                 </button>
@@ -57,13 +58,15 @@
                   <div class="flex-1" v-if="recipients.klassen">
                     <h3>Schüler*in der Klasse</h3>
                     <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
-                      <BtnKlasse typ="pupils::klasse" :content="item" :selected="selected"></BtnKlasse>
+                      <BtnKlasse typ="pupils::klasse" :content="item" :selected="selected"
+                                 @submit="handlerBtnSubmit"></BtnKlasse>
                     </span>
                   </div>
 
                   <div class="flex-1">
                     <h3>Schüler*in</h3>
-                    <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isPupil')" placeholder="Max 5a"/>
+                    <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isPupil')"
+                           placeholder="Max 5a"/>
                     <div class="list padding-t-m scrollable-y height_70">
                       <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn margin-r-s"
                               :class="{'si-btn-active': selectActive('user', item.id) }"
@@ -79,14 +82,16 @@
                   <div class="flex-1" v-if="recipients.klassen">
                     <h3>Eltern der Klasse</h3>
                     <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
-                      <BtnKlasse typ="parents::klasse" :content="item" :selected="selected"></BtnKlasse>
+                      <BtnKlasse typ="parents::klasse" :content="item" :selected="selected"
+                                 @submit="handlerBtnSubmit"></BtnKlasse>
                     </span>
                   </div>
                   <div v-else class="flex-1">- kein Postfach vorhanden -</div>
 
                   <div class="flex-1">
                     <h3>Eltern von</h3>
-                    <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isPupil')" placeholder="Max 5a"/>
+                    <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isPupil')"
+                           placeholder="Max 5a"/>
                     <div class="list padding-t-m scrollable-y height_70">
                       <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn"
                               :class="{'si-btn-active': selectActive('user', item.id) }"
@@ -103,8 +108,10 @@
                       <i v-else class="fa fa-chevron-right"></i>
                       Lehrer*innen</h3>
                     <div v-if="accoTeacher == 'default'" class="padding-l-l">
-                      <button  class="si-btn margin-r-s" :class="{'si-btn-active': selectActive('teachers::all', 'all') }"
-                              @click="handlerSelect('teachers::all', 'all')">Alle Lehrer*innen</button>
+                      <button class="si-btn margin-r-s"
+                              :class="{'si-btn-active': selectActive('teachers::all', 'all') }"
+                              @click="handlerSelect('teachers::all', 'all')">Alle Lehrer*innen
+                      </button>
                     </div>
                     <h3 @click="handlerAccoTeacher('klassen')" class="curser">
                       <i v-if="accoTeacher == 'klassen'" class="fa fa-chevron-down"></i>
@@ -112,7 +119,8 @@
                       Lehrer*innen der Klasse</h3>
                     <div v-if="accoTeacher == 'klassen'" class="padding-l-l">
                       <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
-                        <BtnKlasse typ="teachers::klasse" :content="item" :selected="selected"></BtnKlasse>
+                        <BtnKlasse typ="teachers::klasse" :content="item" :selected="selected"
+                                   @submit="handlerBtnSubmit"></BtnKlasse>
                       </span>
                     </div>
                     <h3 @click="handlerAccoTeacher('leader')" class="curser">
@@ -121,7 +129,8 @@
                       Klassenleitung</h3>
                     <div v-if="accoTeacher == 'leader'" class="padding-l-l">
                       <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
-                        <BtnKlasse typ="leaders::klasse" :content="item" :selected="selected"></BtnKlasse>
+                        <BtnKlasse typ="leaders::klasse" :content="item" :selected="selected"
+                                   @submit="handlerBtnSubmit"></BtnKlasse>
                       </span>
                     </div>
                     <h3 @click="handlerAccoTeacher('fachschaft')" class="curser">
@@ -129,17 +138,19 @@
                       <i v-else class="fa fa-chevron-right"></i>
                       Fachschaften</h3>
                     <div v-if="accoTeacher == 'fachschaft'" class="padding-l-l">
-                      <button v-bind:key="index" v-for="(item, index) in  recipients.fachschaft" class="si-btn margin-r-s"
+                      <button v-bind:key="index" v-for="(item, index) in  recipients.fachschaft"
+                              class="si-btn margin-r-s"
                               :class="{'si-btn-active': selectActive('fachschaft', item.id) }"
                               @click="handlerSelect('fachschaft', item.id)">{{ item.title }}
                       </button>
                     </div>
-                    
+
                   </div>
                   <div class="flex-1">
                     <h3>Lehrer*in</h3>
 
-                    <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isTeacher')" placeholder="Müller"/>
+                    <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isTeacher')"
+                           placeholder="Müller"/>
                     <div class="list padding-t-m scrollable-y height_70">
                       <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn"
                               :class="{'si-btn-active': selectActive('user', item.id) }"
@@ -148,33 +159,33 @@
                     </div>
 
 
-
                   </div>
-                </div>
-                <div v-if="openTab == 'shool'" class="tab">
-
-                  <h3>Verwaltung</h3>
-
-                  <div class="list">
-                    <button v-bind:key="index" v-for="(item, index) in  recipients.verwaltung" class="si-btn margin-r-s"
-                            :class="{'si-btn-active': selectActive('verwaltung', item.id) }"
-                            @click="handlerSelect('verwaltung', item.id)">{{ item.title }}
-                    </button>
-                  </div>
-
-
                 </div>
                 <div v-if="openTab == 'groups'" class="tab">
-                  
-                  <h3>Gruppen</h3>
 
-                  <div v-if="recipients.group">
-                    <button v-bind:key="index" v-for="(item, index) in  recipients.group" class="si-btn margin-r-s"
-                            :class="{'si-btn-active': selectActive('group', item.id) }"
-                            @click="handlerSelect('group', item.id)">{{ item.title }}
-                    </button>
+                  <div class="">
+                    <h3>Postfach</h3>
+
+                    <div v-if="recipients.inboxs">
+                      <button v-bind:key="index" v-for="(item, index) in  recipients.inboxs" class="si-btn margin-r-s"
+                              :class="{'si-btn-active': selectActive('inbox', item.id) }"
+                              @click="handlerSelect('inbox', item.id)">{{ item.title }}
+                      </button>
+                    </div>
+                    <div v-else>- kein Postfach vorhanden -</div>
                   </div>
-                  <div v-else>- kein Postfach vorhanden -</div>
+
+                  <div class="">
+                    <h3>Gruppen</h3>
+
+                    <div v-if="recipients.group">
+                      <button v-bind:key="index" v-for="(item, index) in  recipients.group" class="si-btn margin-r-s"
+                              :class="{'si-btn-active': selectActive('group', item.id) }"
+                              @click="handlerSelect('group', item.id)">{{ item.title }}
+                      </button>
+                    </div>
+                    <div v-else>- kein Postfach vorhanden -</div>
+                  </div>
 
                 </div>
 
@@ -183,21 +194,12 @@
 
               <div class="selected flex-1 margin-l-l">
 
-                <div class="scrollable-y height_80 padding-b-m margin-t-l">
-                  <div v-bind:key="index" v-for="(item, index) in  selectedUserList"
-                       class="margin-b-s line-oddEvenDark padding-s padding-l-m">
-                    <div class="">
-                      <!--
-                      <span v-if="item.user">{{ item.user.name }}
-                        <span v-if="item.user.klasse" class="text-small">{{ item.user.klasse }}</span>
-                      </span>
-                      <span v-else-if="item.title">{{ item.title }}</span>
-                    -->
 
-                      {{ item.title }}
-                    </div>
-                  </div>
+                <div v-bind:key="index" v-for="(item, index) in  selectedList"
+                     class="margin-b-s line-oddEvenDark padding-s padding-l-m">
+                  {{ item.title }} - <span v-if="item.inboxs"><i class="fa fa-users"></i>{{ item.inboxs.length }}</span>
                 </div>
+
 
               </div>
             </div>
@@ -243,7 +245,10 @@ export default {
   computed: {
     cachedUserList: function () {
 
+      //console.log(this.cache)
 
+      return this.cache;
+      /*
       let ret = [];
       if (this.cache) {
         this.cache.forEach((o) => {
@@ -268,34 +273,44 @@ export default {
         })
       }
       return ret;
+      */
 
     },
+    selectedList: function () {
+      //console.log(this.selected)
+      if (this.selected.length > 0) {
+        return this.selected;
+      }
+      return false;
+    },
+
     selectedUserList: function () {
 
+      return true;
+      /*
+          let ret = [];
+          this.selected.forEach((o) => {
+            if (o.inboxs) {
+              //ret = [...ret,...o.userlist]
+              //ret = ret.concat(o.userlist)
+              o.inboxs.forEach((user) => {
 
-      let ret = [];
-      this.selected.forEach((o) => {
-        if (o.inboxs) {
-          //ret = [...ret,...o.userlist]
-          //ret = ret.concat(o.userlist)
-          o.inboxs.forEach((user) => {
+                // Doppelte vermeiden
+                var found = false;
+                ret.forEach((m) => {
+                  if (m.id == user.id) {
+                    found = true;
+                  }
+                })
+                if (found == false) {
+                  ret.push(user);
+                }
 
-            // Doppelte vermeiden
-            var found = false;
-            ret.forEach((m) => {
-              if (m.id == user.id) {
-                found = true;
-              }
-            })
-            if (found == false) {
-              ret.push(user);
+              })
             }
-
           })
-        }
-      })
-      return ret;
-
+          return ret;
+      */
     }
   },
   mounted: function () {
@@ -309,22 +324,21 @@ export default {
 
       //this.selected = JSON.parse(this.preselect);
 
-
 /*
-      let obj = JSON.parse(this.preselect);
-      //console.log(obj)
-      obj.forEach((o) => {
-        //console.log('TODO no cahce? ')
-        //this.handlerSelect(o.typ, o.content);
-        //this.loadRecipients(o.typ, o.content);
-      })
+
+            let obj = JSON.parse(this.preselect);
+            //console.log(obj)
+            obj.forEach((o) => {
+              //console.log('TODO no cahce? ')
+              this.handlerSelect(o.typ, o.content);
+              //this.loadRecipients(o.typ, o.content);
+            })
       */
+
 
       //this.handlerSubmit();
 
       //this.$emit('submit', obj, obj)
-
-
 
 
       //console.log('selec',this.selected);
@@ -333,26 +347,25 @@ export default {
 
     }
 
-    var that = this;
-
-    this.$bus.$on('handlerSelect', data => {
-      that.handlerSelect(data.typ, data.content)
-    });
-
-    this.$bus.$on('handlerSelectGroup', data => {
-      that.handlerSelectGroup(data.typ, data.content)
-    });
-    /*
-    this.$bus.$on('selectActive', data => {
-      that.selectActive(data.typ, data.content)
-    });
-
-     */
-
 
   },
   methods: {
 
+    handlerBtnSubmit: function (data) {
+      //console.log('handlerBtnSubmit', data)
+      if (data.typ && data.content) {
+
+        if (typeof data.content === 'object') {
+          data.content.forEach((o) => {
+            this.handlerSelect(data.typ, o);
+          })
+
+        } else {
+          this.handlerSelect(data.typ, data.content)
+        }
+
+      }
+    },
     handlerAccoTeacher: function (item) {
 
       if (this.accoTeacher == item) {
@@ -363,7 +376,12 @@ export default {
     },
     selectedUserLength: function () {
 
+      if (this.cache) {
+        return this.cache.length;
+      }
+      return 0;
 
+  /*
       let ret = 0;
       if (this.cache) {
         this.cache.forEach((o) => {
@@ -377,6 +395,8 @@ export default {
         })
       }
       return ret;
+      */
+
 
     },
 
@@ -448,7 +468,8 @@ export default {
 
       this.selected.forEach((o) => {
         if (o.typ == typ && o.content == content) {
-          o.inboxs = list;
+          o.inboxs = list.data;
+          o.title = list.title;
         }
       })
 
@@ -490,17 +511,6 @@ export default {
       });
 
     },
-    handlerSelectGroup(typ, content) {
-
-      //console.log('handlerSelectGroup',typ, content);
-
-      if (!content) {
-        return false;
-      }
-      content.forEach((o) => {
-        this.handlerSelect(typ, o);
-      })
-    },
     handlerSelect(typ, content) {
 
       //console.log('handlerSelect',typ, content);
@@ -520,12 +530,14 @@ export default {
             })
           }
         }
-      })
+      });
 
       if (!found) {
         this.selected.push({typ: typ, content: content});
+        //console.log(this.selected)
         this.loadRecipients(typ, content);
       }
+      return false;
     },
     handlerChangeSearch(type) {
 

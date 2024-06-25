@@ -22,7 +22,7 @@ class extInboxRecipientParent
             return false;
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
+        include_once PATH_EXTENSIONS. 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
         $class = new extInboxModelInbox2();
         $inbox = $class->getByUserIDFirst((int)$user_id);
 
@@ -64,15 +64,20 @@ class extInboxRecipientParent
                 $inbox_collection = $inbox->getCollection(true);
                 if ($inbox_collection) {
 
-                    $inbox_collection['title'] = 'Eltern von '.$user->getDisplayName();
+                    //$inbox_collection['title'] = 'Eltern von '.$user->getDisplayName();
 
-                    $ret = [$inbox_collection];
+                    $ret = [
+                        "title" => 'Eltern von '.$user->getDisplayName(),
+                        "data" => [$inbox_collection]
+                    ];
+
                 }
             }
         }
 
         // TODO: Multiple Parents
         return $ret;
+
 
 
     }

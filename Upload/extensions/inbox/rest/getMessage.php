@@ -1,11 +1,14 @@
 <?php
 
-class getMessage extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+class getMessage extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +20,7 @@ class getMessage extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,7 +28,7 @@ class getMessage extends AbstractRest {
         }
 
         $message_id = (int)$input['message_id'];
-        if ( !$message_id ) {
+        if (!$message_id) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: ID'
@@ -52,7 +55,7 @@ class getMessage extends AbstractRest {
 
         include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
         $Inbox = new extInboxModelInbox2();
-        if ( !$Inbox->isInboxFromUser($tmp_data->getData('inbox_id'), $userID) ) {
+        if (!$Inbox->isInboxFromUser($tmp_data->getData('inbox_id'), $userID)) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff auf das Postfach'
@@ -60,9 +63,8 @@ class getMessage extends AbstractRest {
         }
 
 
-
-        if ( !(int)$tmp_data->getData('isRead') ) {
-            if ( !$tmp_data->setRead($userID) ) {
+        if (!(int)$tmp_data->getData('isRead')) {
+            if (!$tmp_data->setRead($userID)) {
                 return [
                     'error' => true,
                     'msg' => 'Nachricht konnte nicht als gelesen markiert werden'
@@ -73,7 +75,7 @@ class getMessage extends AbstractRest {
 
         return $tmp_data->getCollection(true, true, true, true);
 
-	}
+    }
 
 
     /**
@@ -82,7 +84,8 @@ class getMessage extends AbstractRest {
      *
      * @return String
      */
-    public function getAllowedMethod() {
+    public function getAllowedMethod()
+    {
         return 'POST';
     }
 
@@ -92,7 +95,8 @@ class getMessage extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -105,12 +109,14 @@ class getMessage extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 

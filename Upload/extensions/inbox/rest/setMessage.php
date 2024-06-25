@@ -1,11 +1,14 @@
 <?php
 
-class setMessage extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+class setMessage extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +20,7 @@ class setMessage extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,36 +28,36 @@ class setMessage extends AbstractRest {
         }
 
         $sender_id = (int)$input['sender'];
-        if ( !$sender_id ) {
+        if (!$sender_id) {
             return [
                 'error' => true,
                 'msg' => 'Missing SID'
             ];
         }
         $receiver = (string)$_POST['receiver'];
-        if ( !$receiver ) {
+        if (!$receiver) {
             return [
                 'error' => true,
                 'msg' => 'Missing RID'
             ];
         }
         $receivers_cc = (string)$_POST['receiver_cc'];
-        if ( !$receivers_cc ) {
+        if (!$receivers_cc) {
             $receivers_cc = '';
         }
 
         $subject = (string)$input['subject'];
-        if ( !$subject || $subject == 'undefined' ) {
+        if (!$subject || $subject == 'undefined') {
             $subject = '- Kein Betreff -';
         }
 
         $text = (string)$_POST['text'];
-        if ( !$text  || $text == 'undefined' ) {
+        if (!$text || $text == 'undefined') {
             $text = '';
         }
 
         $confirm = (int)$input['confirm'];
-        if ( !$confirm  || $confirm == 'undefined' ) {
+        if (!$confirm || $confirm == 'undefined') {
             $confirm = 0;
         }
 
@@ -76,6 +79,8 @@ class setMessage extends AbstractRest {
             $files = 0;
         }
 
+
+        /*
         if ($files && EXTENSION::isActive('ext.zwiebelgasse.fileshare') ) {
             include_once PATH_EXTENSIONS . 'fileshare' . DS . 'models' . DS . 'List.class.php';
             $FileShare = new extFileshareModelList();
@@ -85,10 +90,13 @@ class setMessage extends AbstractRest {
                 $filesFolder = $files;
             }
         }
+        */
 
         include_once PATH_EXTENSION . 'models' . DS . 'Message2.class.php';
         $class = new extInboxModelMessage2();
-        if ( !$class->sendMessage([
+
+
+        if (!$class->sendMessage([
             'receiver' => $receiver,
             'receivers_cc' => $receivers_cc,
             'sender_id' => $sender_id,
@@ -98,13 +106,14 @@ class setMessage extends AbstractRest {
             'priority' => $priority,
             'noAnswer' => $noAnswer,
             'isPrivat' => $isPrivat,
-            'files' => $filesFolder
-        ]) ) {
+            'files' => $files
+        ])) {
             return [
                 'error' => true,
                 'msg' => 'Fehler'
             ];
         }
+
 
         /*
         include_once PATH_EXTENSION . 'models' . DS . 'Message.class.php';
@@ -117,12 +126,11 @@ class setMessage extends AbstractRest {
         */
 
 
-
         return [
             'done' => true
         ];
 
-	}
+    }
 
 
     /**
@@ -131,7 +139,8 @@ class setMessage extends AbstractRest {
      *
      * @return String
      */
-    public function getAllowedMethod() {
+    public function getAllowedMethod()
+    {
         return 'POST';
     }
 
@@ -141,7 +150,8 @@ class setMessage extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -154,12 +164,14 @@ class setMessage extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 

@@ -20,7 +20,7 @@ class extInboxDefault extends AbstractPage
     public function execute()
     {
 
-        //$this->getRequest();
+        $request = $this->getRequest();
         $acl = $this->getAcl();
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -30,8 +30,6 @@ class extInboxDefault extends AbstractPage
                 'msg' => 'Missing User ID'
             ];
         }
-
-
 
         /*
         if ( !$this->canRead() ) {
@@ -43,20 +41,18 @@ class extInboxDefault extends AbstractPage
         */
 
         $ret = [];
-
         include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
         $class = new extInboxModelInbox2();
         $tmp_data = $class->getByUserID($userID);
 
         if ($tmp_data) {
             foreach ($tmp_data as $item) {
-                $ret[] = $item->getCollection(true, true);
+                $ret[] = $item->getCollection(true, true, false, true);
             }
         }
 
-
-
-
+        $inbox_id = $request['iid'];
+        $message_id = $request['mid'];
 
         $this->render([
             "tmpl" => "default",
@@ -67,7 +63,9 @@ class extInboxDefault extends AbstractPage
             "data" => [
                 "acl" => $acl['rights'],
                 "apiURL" => "rest.php/inbox",
-                "data" => $ret
+                "data" => $ret,
+                "inbox_id" => $inbox_id,
+                "message_id" => $message_id
 
             ]
         ]);

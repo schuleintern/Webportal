@@ -65,8 +65,11 @@ class extInboxRecipientTeachersKlasse
 
 
         }
-        return $ret;
-
+        //return $ret;
+        return [
+            "title" => 'Lehrer*innen '.$content,
+            "data" => $ret
+        ];
     }
 
 

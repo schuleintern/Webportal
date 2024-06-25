@@ -62,7 +62,10 @@ class extInboxRecipientTeachersAll
 
 
         }
-        return $ret;
+        return [
+            "title" => 'Alle Lehrer*innen',
+            "data" => $ret
+        ];
 
     }
 
