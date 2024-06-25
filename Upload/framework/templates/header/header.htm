@@ -133,19 +133,23 @@
                       }).then(
 
 
-                          /*
+
                           // (B3-1) OK - TEST PUSH NOTIFICATION
                           sub => {
+                              console.log('- push active');
                               //console.log(sub);
+
+
                               var data = new FormData();
                               data.append("sub", JSON.stringify(sub));
                               data.append("uid", "$userID");
                               fetch("push.php", { method: "POST", body : data })
                                   .then(res => res.text())
-                                  .then(txt => console.log(txt))
+                                  //.then(txt => console.log(txt))
                                   .catch(err => console.error(err));
+
                           },
-                          */
+
 
                           // (B3-2) ERROR!
                           err => console.error(err)

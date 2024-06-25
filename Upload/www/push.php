@@ -19,17 +19,11 @@ if (DB::isDebug()) {
 
 if ($_POST["sub"] && $_POST['uid']) {
 
-
-
     if ( PUSH::subscribe((string)$_POST['sub'], (int)$_POST['uid']) ) {
-
-        echo true;
-
+        //echo true;
         //PUSH::send($_POST['uid']);
-
     }
-    echo false;
-
+    //echo false;
 
 }
 
