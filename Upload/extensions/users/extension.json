@@ -1,9 +1,9 @@
 {
   "name": "Benutzer",
   "uniqid": "ext.zwiebelgasse.users",
-  "version": "6",
+  "version": "9",
 
-  "requiredVersion": "1.7.3",
+  "requiredVersion": "1.7.4",
 
   "menu": {
     "categorie": "1",
@@ -104,9 +104,19 @@
           "admin": "true"
         }
       }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_users",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
     }
-
-
   ]
 
 

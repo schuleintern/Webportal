@@ -62,6 +62,9 @@ class extUsersModelUsers extends ExtensionModel
             }
             return true;
         }
+        if (DB::getGlobalSettings()->elternUserMode == "ASV_MAIL") {
+            return true;
+        }
         return false;
     }
 

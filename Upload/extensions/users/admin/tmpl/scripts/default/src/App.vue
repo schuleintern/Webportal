@@ -26,13 +26,13 @@
           </li>
           <li class="text-red" v-if="unsetSchueler">
             <label>Neue Schüler*innen</label>
-            <a class="si-btn si-btn-red" href="index.php?page=ext_users&view=default&admin=true&task=createTeacher"><i class="fa fa-plus"></i> {{ unsetSchueler }}
+            <a class="si-btn si-btn-red" href="index.php?page=ext_users&view=default&admin=true&task=createSchueler"><i class="fa fa-plus"></i> {{ unsetSchueler }}
               Benutzer anlegen
             </a>
           </li>
           <li class="text-red" v-if="unsetEltern">
             <label>Neue Eltern</label>
-            <a class="si-btn si-btn-red" href="index.php?page=ext_users&view=default&admin=true&task=createTeacher"><i class="fa fa-plus"></i> {{ unsetEltern }}
+            <a class="si-btn si-btn-red" href="index.php?page=ext_users&view=default&admin=true&task=createEltern"><i class="fa fa-plus"></i> {{ unsetEltern }}
               Benutzer anlegen
             </a>
           </li>
