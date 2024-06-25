@@ -10,6 +10,8 @@ class NoteZeugnis {
     private $datum;
     private $notenschluss;
 
+    private $template;
+
     /**
      *
      * @var NoteZeugnisKlasse[] Klassen
@@ -21,6 +23,7 @@ class NoteZeugnis {
         $this->id = $data['zeugnisID'];
         $this->name = $data['zeugnisName'];
         $this->datum = $data['zeugnisDatum'];
+        $this->template = $data['zeugnisTemplate'];
     }
 
     public function getID() {
@@ -33,6 +36,9 @@ class NoteZeugnis {
 
     public function getArt() {
         return $this->art;
+    }
+    public function getTemplate() {
+        return $this->template;
     }
 
     public function isZwischenzeugnis() {

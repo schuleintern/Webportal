@@ -672,7 +672,12 @@ pause\r\n";
 
       // die(getcwd());
 
-      $templateProcessor = new TemplateProcessor('../framework/vorlagen/notenverwaltung/zeugnisse/zwischenzeugnis20240126.docx');
+      $template = $zeugnis->getTemplate();
+      if (!$template) {
+          return false;
+      }
+
+      $templateProcessor = new TemplateProcessor(PATH_VORLAGEN.'notenverwaltung/zeugnisse/'.$template);
 
       $templateProcessor->setValue("{BEMERKUNG2}", $text2);
 
@@ -949,8 +954,10 @@ pause\r\n";
   private function addZeugnis() {
       $typ = $_POST['zeugnisTyp'];
       $name = $_POST['zeugnisName'];
+      $zeugnisTemplate = $_POST['zeugnisTemplate'];
 
-      DB::getDB()->query("INSERT INTO noten_zeugnisse (zeugnisName, zeugnisArt) values('" . DB::getDB()->escapeString($name) . "','" . DB::getDB()->escapeString($typ) . "')");
+      DB::getDB()->query("INSERT INTO noten_zeugnisse (zeugnisName, zeugnisArt, zeugnisTemplate)
+        values('" . DB::getDB()->escapeString($name) . "','" . DB::getDB()->escapeString($typ) . "','" . DB::getDB()->escapeString($zeugnisTemplate) . "')");
       $newID = DB::getDB()->insert_id();
 
       $klassen = klasse::getAllKlassen();
@@ -1108,6 +1115,15 @@ pause\r\n";
 
 
           $klassenHTML .= "</tr>";
+      }
+
+      $optionsTemplate = '';
+      $path = PATH_VORLAGEN.'notenverwaltung/zeugnisse/';
+      if (is_dir($path)) {
+          $files = array_diff(scandir($path), array('..', '.'));
+          foreach ($files as $file) {
+              $optionsTemplate .= '<option>'.$file.'</option>';
+          }
       }
 
       eval("DB::getTPL()->out(\"" . DB::getTPL()->get("notenverwaltung/zeugnisse/index") . "\");");
