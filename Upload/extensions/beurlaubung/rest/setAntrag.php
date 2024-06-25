@@ -1,11 +1,13 @@
 <?php
 
-class setAntrag extends AbstractRest {
-	
-	protected $statusCode = 200;
+class setAntrag extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,17 +19,20 @@ class setAntrag extends AbstractRest {
         }
 
         $acl = $this->getAcl();
+        if (DB::getSession()->getUser()->isPupil()) {
+            $volljaehrige = DB::getSettings()->getBoolean("extBeurlaubung-volljaehrige-schueler");
+            if ($volljaehrige == 1) {
+                $this->acl['rights']['write'] = 0;
 
-        $volljaehrige = DB::getSettings()->getBoolean("extBeurlaubung-volljaehrige-schueler");
-        if ($volljaehrige == 1) {
-            $this->acl['rights']['write'] = 0;
-            $alter = (int)DB::getSession()->getPupilObject()->getAlter();
-            if ($alter >= 18) {
-                $this->acl['rights']['write'] = 1;
+                $alter = (int)DB::getSession()->getPupilObject()->getAlter();
+                if ($alter >= 18) {
+                    $this->acl['rights']['write'] = 1;
+                }
             }
+
         }
 
-        if ( !$this->canWrite() ) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -35,7 +40,7 @@ class setAntrag extends AbstractRest {
         }
 
         $info = trim(nl2br($input['info']));
-        if ( DB::getSettings()->getBoolean("extBeurlaubung-form-info-required") && ( !$info || $info == '' ) ) {
+        if (DB::getSettings()->getBoolean("extBeurlaubung-form-info-required") && (!$info || $info == '')) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Info'
@@ -43,7 +48,7 @@ class setAntrag extends AbstractRest {
         }
 
         $schueler = (int)$input['schueler'];
-        if ( !$schueler ) {
+        if (!$schueler) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Schueler'
@@ -51,7 +56,7 @@ class setAntrag extends AbstractRest {
         }
 
         $date = explode(',', $input['date']);
-        if ( !$date || !$date[0] ) {
+        if (!$date || !$date[0]) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: date'
@@ -60,7 +65,7 @@ class setAntrag extends AbstractRest {
 
 
         $stunden = $input['stunden'];
-        if ( !$stunden ) {
+        if (!$stunden) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Stunden'
@@ -77,9 +82,9 @@ class setAntrag extends AbstractRest {
             // Automatisch Freigeben
             $status = 2;
         }
-        if ( extBeurlaubungModelAntrag::setAntrag($userID, $schueler, $date, $stunden, $info, $status) ) {
+        if (extBeurlaubungModelAntrag::setAntrag($userID, $schueler, $date, $stunden, $info, $status)) {
 
-            if ($freigabeSL && DB::getSettings()->getBoolean("extBeurlaubung-schulleitung-nachricht") ) {
+            if ($freigabeSL && DB::getSettings()->getBoolean("extBeurlaubung-schulleitung-nachricht")) {
 
                 $messageSender = new MessageSender();
                 $recipientHandler = new RecipientHandler("");
@@ -91,7 +96,7 @@ class setAntrag extends AbstractRest {
                 $messageSender->send();
             }
 
-            if ($freigabeKL && DB::getSettings()->getBoolean("extBeurlaubung-klassenleitung-nachricht") ) {
+            if ($freigabeKL && DB::getSettings()->getBoolean("extBeurlaubung-klassenleitung-nachricht")) {
 
                 $schuelerUser = user::getUserByID($schueler);
                 $schuelerUser = $schuelerUser->getCollection(true, false);
@@ -99,7 +104,7 @@ class setAntrag extends AbstractRest {
                 if ($klasse) {
                     $messageSender = new MessageSender();
                     $recipientHandler = new RecipientHandler("");
-                    $recipientHandler->addRecipient(new KlassenleitungRecipient( $klasse ));
+                    $recipientHandler->addRecipient(new KlassenleitungRecipient($klasse));
                     $messageSender->setRecipients($recipientHandler);
                     $messageSender->setSender(new user(['userID' => 0]));
                     $messageSender->setSubject('Neuer Beurlaubungsantrag');
@@ -120,18 +125,19 @@ class setAntrag extends AbstractRest {
             'msg' => 'Error'
         ];
 
-	}
+    }
 
 
-	/**
-	 * Set Allowed Request Method
-	 * (GET, POST, ...)
-	 * 
-	 * @return String
-	 */
-	public function getAllowedMethod() {
-		return 'POST';
-	}
+    /**
+     * Set Allowed Request Method
+     * (GET, POST, ...)
+     *
+     * @return String
+     */
+    public function getAllowedMethod()
+    {
+        return 'POST';
+    }
 
 
     /**
@@ -139,7 +145,8 @@ class setAntrag extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -152,15 +159,17 @@ class setAntrag extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 
-}	
+}
 
 ?>

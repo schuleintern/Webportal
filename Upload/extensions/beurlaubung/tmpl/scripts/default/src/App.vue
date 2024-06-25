@@ -107,7 +107,7 @@
           </li>
           <li>
             <label>Datum</label>
-            
+
             <div class=" flex-row ">
               <Datepicker placeholder="Von - Bis" class="flex-1" required :previewFormat="format" :format="format" v-model="form.date" modelType="yyyy-MM-dd" range
               :enableTimePicker="false" locale="de" cancelText="Abbrechen" selectText="Ok" :monthChangeOnScroll="false">
@@ -144,10 +144,7 @@
                   <span v-if="formGanztagsLabel">{{ formGanztagsLabel }}</span><span v-else>Ganztag</span>
                 </button>
               </div>
-
             </div>
-
-
           </li>
           <li>
             <label>Begründung <span v-if="settings['extBeurlaubung-form-info-required'] == 1" class="text-small">*

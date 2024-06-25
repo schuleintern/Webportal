@@ -80,6 +80,9 @@ class extBeurlaubungDefault extends AbstractPage
         $stundenVormittag = 6;
         $stundenNachmittag = $maxStunden - $stundenVormittag;
 
+        if ($stundenNachmittag < 0) {
+            $stundenNachmittag = 0;
+        }
 
         //$settings = $this->getSettings();
 
