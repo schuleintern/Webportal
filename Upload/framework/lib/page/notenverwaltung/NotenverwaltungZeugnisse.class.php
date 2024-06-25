@@ -655,8 +655,11 @@ pause\r\n";
           }
 
 
+          if(schulinfo::isGymnasium() && $schueler->getKlassenObjekt()->getKlassenstufe() == 11 && $bemerkung->klassenzielErreicht()) {
+              $bestandenOberstufeMR = "\n" . ($schueler->getGeschlecht() == 'm' ? "Der Schüler" : "Die Schülerin") . " ist damit zum Eintritt in die Qualifikationsphase der Oberstufe des Gymnasiums berechtigt.";
+          }
           if(schulinfo::isGymnasium() && $schueler->getKlassenObjekt()->getKlassenstufe() == 10 && $bemerkung->klassenzielErreicht()) {
-              $bestandenOberstufeMR = "\n" . ($schueler->getGeschlecht() == 'm' ? "Der Schüler" : "Die Schülerin") . " ist damit zum Eintritt in die Qualifikationsphase der Oberstufe des Gymnasiums berechtigt; dies schließt den Nachweis eines mittleren Schulabschlusses ein.";
+              $bestandenOberstufeMR = "\n Dieses Zeugnis schließt den Nachweis eines mittleren Schulabschlusses ein.";
           }
       }
 
@@ -774,9 +777,9 @@ pause\r\n";
       /** @var NoteZeugnisNote $lateinNote */
       $lateinNote = null;
 
+
       for($z = 0; $z < sizeof($zeugnisNoten); $z++) {
           $fach = $zeugnisNoten[$z]->getFach()->getKurzform();
-
           switch($fach) {
               case 'Ev':
                   $ra = "ev.";
@@ -853,6 +856,10 @@ pause\r\n";
 
               case 'Sw':
                   $noten["{N20}"] = $zeugnisNoten[$z]->getWertText();
+                  break;
+
+              case 'SEM':
+                  $noten["{N21}"] = $zeugnisNoten[$z]->getWertText();
                   break;
 
               case 'E':
