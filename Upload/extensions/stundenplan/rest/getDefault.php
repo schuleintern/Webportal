@@ -35,6 +35,9 @@ class getDefault extends AbstractRest
 
 
         $anzStunden = DB::getSettings()->getValue("ext-stundenplan-anzahlstunden");
+        if (!$anzStunden) {
+            $anzStunden = 6;
+        }
         $stunden = [];
         for($i = 0; $i < $anzStunden; $i++) {
             $stunden[] = $i;
@@ -53,16 +56,18 @@ class getDefault extends AbstractRest
         }
 
 
-
         $klassen = [];
         $klassenData = klasse::getAllKlassen();
         foreach($klassenData as $klasse) {
-            $stufe = $klasse->getKlassenstufe() ? $klasse->getKlassenstufe() : (int)$klasse->getKlassenName(); 
+
+            $stufe = $klasse->getKlassenstufe() ? $klasse->getKlassenstufe() : (int)$klasse->getKlassenName();
             if ($stufe) {
                 if ( !is_array($klassen[ $stufe ]) ) {
                     $klassen[ $stufe ] = [];
                 }
                 $klassen[ $stufe ][] = $klasse->getKlassenName();
+            } else {
+                $klassen[] = $klasse->getKlassenName();
             }
         }
 
