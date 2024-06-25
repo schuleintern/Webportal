@@ -153,7 +153,7 @@ class AdminExtensions extends AbstractPage {
 						// Schule-intern is needed Version ???
 						if ( $modulJSON->requiredVersion ) {
 							if ( version_compare($modulJSON->requiredVersion, DB::getVersion(), '>') ) {
-								FILE::removeFolder($pathExtensions.$foldername);
+								//FILE::removeFolder($pathExtensions.$foldername);
 								$retun = ['error' => true, 'msg' => 'System has wrong Version'];
 								echo json_encode($retun); exit;
 							}
@@ -175,13 +175,16 @@ class AdminExtensions extends AbstractPage {
                         }
 
                         // Install Extension DB
-                        if ( file_exists($pathExtensions.$foldername.'/install/database_v'.$modulJSON->version.'.sql') ) {
-                            $sql = file_get_contents($pathExtensions.$foldername.'/install/database_v'.$modulJSON->version.'.sql');
-                            $sqlCommands = explode(';', $sql);
-                            foreach($sqlCommands as $foo) {
-                                $foo = trim($foo);
-                                if ($foo) {
-                                    DB::getDB()->query($foo);
+                        $diff = (int)$modulJSON->version - (int)$extension['version'];
+                        for ($i = 0; $i <= $diff; $i++ ) {
+                            if ( file_exists($pathExtensions.$foldername.'/install/database_v'.$i.'.sql') ) {
+                                $sql = file_get_contents($pathExtensions.$foldername.'/install/database_v'.$i.'.sql');
+                                $sqlCommands = explode(';', $sql);
+                                foreach($sqlCommands as $foo) {
+                                    $foo = trim($foo);
+                                    if ($foo) {
+                                        DB::getDB()->query($foo, true);
+                                    }
                                 }
                             }
                         }
