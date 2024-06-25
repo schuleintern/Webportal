@@ -374,6 +374,9 @@ class dashboard extends AbstractPage
                 $temp->title = $row['title'];
                 $temp->widget_id = $row['widget_id'];
                 $temp->access = json_decode($row['access']);
+                if ($temp->access == null) {
+                    $temp->access = new stdClass();
+                }
                 $list[] = $temp;
 
 
