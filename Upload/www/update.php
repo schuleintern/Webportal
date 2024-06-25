@@ -26,6 +26,13 @@ class Updates
 
     public static function to175($root)
     {
+
+        $root->query("ALTER TABLE `noten_zeugnisse` ADD `zeugnisTemplate` VARCHAR(255)  NULL  DEFAULT NULL  AFTER `zeugnisName`", false);
+        $root->query("ALTER TABLE `noten_wahlfach_faecher` ADD `textZeugnis` VARCHAR(255)  NULL  DEFAULT NULL  AFTER `wahlfachBezeichnung`", false);
+        $root->update('www/index.php');
+        $root->update('www/components');
+        $root->update('www/startup.php');
+        $root->update('www/push.php');
         return true;
     }
 
