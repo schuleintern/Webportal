@@ -52,7 +52,19 @@ class NoteZeugnisBemerkung {
         $wahlunterricht = NoteWahlfachNote::getForSchueler($schueler, $zeugnis);
 
         for($i = 0; $i < sizeof($wahlunterricht); $i++) {
-            if($wahlunterricht[$i]->getNote() < 5 && $wahlunterricht[$i]->getNote() > 0) {
+
+
+            $textZeugnis = $wahlunterricht[$i]->getWahlfach()->getTextZeugnis();
+
+            if ( $textZeugnis ) {
+
+                $textZeugnis = str_replace('{USER}', $schueler->getRufname(), $textZeugnis);
+                $textZeugnis = str_replace('{NOTE}', $wahlunterricht[$i]->getNote(), $textZeugnis);
+                $textZeugnis = str_replace('{FACH}', $wahlunterricht[$i]->getWahlfach()->getBezeichnung() ,$textZeugnis);
+                $text .= $textZeugnis;
+
+            } else if($wahlunterricht[$i]->getNote() < 5 && $wahlunterricht[$i]->getNote() > 0) {
+
                 $text .= $wahlunterricht[$i]->getZeugnisText($schueler) . "\r\n";
             }
         }
