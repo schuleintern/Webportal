@@ -300,7 +300,7 @@ abstract class ExtensionModel
     }
 
 
-    public function save($data = false)
+    public function save($data = false, $forceCreate = false)
     {
 
         if (!$this->_table) {
@@ -324,7 +324,7 @@ abstract class ExtensionModel
             }
         }
 
-        if ( !$data[$this->_table_id] || $data[$this->_table_id] == 0 )  {
+        if ( !$data[$this->_table_id] || $data[$this->_table_id] == 0 || $forceCreate == true )  {
             return DB::run('INSERT INTO ' . $this->_table . ' (' . implode(',', array_keys($data)) . ') values(:' . implode(', :', array_keys($data)) . ');', $data);
         } else {
             $sql = [];
