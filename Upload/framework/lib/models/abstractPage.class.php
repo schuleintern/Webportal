@@ -846,7 +846,7 @@ abstract class AbstractPage
     public static function isActive($name)
     {
         if (!$name || !is_object($name) || !method_exists($name, 'siteIsAlwaysActive')) {
-            return false;
+            //return false;
         }
         if ( $name::siteIsAlwaysActive()) {
             return true;

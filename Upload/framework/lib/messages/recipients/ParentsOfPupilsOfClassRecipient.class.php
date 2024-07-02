@@ -35,19 +35,22 @@ class ParentsOfPupilsOfClassRecipient extends MessageRecipient {
 		return substr($saveString,0,6) == 'POPOC:';
 	}
 	public function getRecipientUserIDs() {
-		$schueler = $this->unterricht->getSchueler();
-		
-		$userIDs = [];
-		for($i = 0; $i < sizeof($schueler); $i++) {
-		    $eltern = $schueler[$i]->getParentsUsers();
-		    
-		    for($p = 0; $p < sizeof($eltern); $p++) {
-		        $userIDs[] = $eltern[$p]->getUserID();
-		    }
-		    
-		}
-		
-		return $userIDs;
+        if ($this->unterricht) {
+            $schueler = $this->unterricht->getSchueler();
+
+            $userIDs = [];
+            for($i = 0; $i < sizeof($schueler); $i++) {
+                $eltern = $schueler[$i]->getParentsUsers();
+
+                for($p = 0; $p < sizeof($eltern); $p++) {
+                    $userIDs[] = $eltern[$p]->getUserID();
+                }
+
+            }
+
+            return $userIDs;
+        }
+
 	}
 	
 	/**
