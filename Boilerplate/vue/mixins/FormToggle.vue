@@ -1,10 +1,10 @@
 <template>
   <div>
-    <button v-if="status == 1" class="si-btn si-btn-toggle-on" :class="{ 'si-btn-hide': parseInt(disable) === 0 }"
-      v-on:click="handlerClick">
+    <button v-if="status == 1" class="si-btn si-btn-toggle-on" :class="{ 'si-btn-hide': parseInt(disable) === 0, 'si-btn-curser-off' : disable == false }"
+            v-on:click="handlerClick">
       <i class="fa fas fa-toggle-on"></i> {{label_true}}</button>
-    <button v-else class="si-btn si-btn-toggle-off" :class="{ 'si-btn-hide': parseInt(disable) === 0 }"
-      v-on:click="handlerClick">
+    <button v-else class="si-btn si-btn-toggle-off" :class="{ 'si-btn-hide': parseInt(disable) === 0, 'si-btn-curser-off' : disable == false }"
+            v-on:click="handlerClick">
       <i class="fa fas fa-toggle-off"></i> {{label_false}}</button>
   </div>
 </template>
@@ -35,13 +35,13 @@ export default {
     }
   },
   watch: {
-    input: function () { 
+    input: function () {
       this.status = parseInt(this.input);
     }
   },
   methods: {
     handlerClick: function () {
-      console.log(this.disable)
+      //console.log(this.disable)
       if (this.disable == false || this.disable == 0 || this.disable == 'false') { // AUS
         return false;
       }
