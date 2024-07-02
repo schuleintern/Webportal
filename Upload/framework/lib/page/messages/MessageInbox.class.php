@@ -2,7 +2,14 @@
 
 class MessageInbox extends AbstractPage {
 	public function __construct() {
-		parent::__construct(array("Nachrichten"));
+
+
+        if ( DB::getSettings()->getValue("extInbox-global-messageSystem") ) {
+            parent::__construct(array("<span class='text-red'>Das alte Nachrichtensystem wurde deaktiviert:</span> <a href='index.php?page=ext_inbox'>Zum neuen System</a>"));
+        } else {
+            parent::__construct(array("Nachrichten"));
+        }
+
 		
 		$this->checkLogin();
 	}
@@ -315,6 +322,9 @@ class MessageInbox extends AbstractPage {
 	}
 
 	public static function hasAdmin() {
+        if ( DB::getSettings()->getValue("extInbox-global-messageSystem") ) {
+            return false;
+        }
 	    return true;
     }
 	

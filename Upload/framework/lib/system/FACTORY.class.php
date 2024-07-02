@@ -30,6 +30,80 @@ class FACTORY {
   }
 
 
+  public static function sendMessage($data = false) {
+
+      if (!$data) {
+          return false;
+      }
+      if ( DB::getSettings()->getValue("extInbox-global-messageSystem") ) {
+
+          if ($data['receiver_leader_klasse']) {
+              include_once PATH_EXTENSIONS. 'inbox' .DS . 'inboxs' . DS . 'leaders_klasse.class.php';
+              $inboxs = extInboxRecipientLeadersKlasse::getInboxs($data['receiver_leader_klasse']);
+              $arr = [];
+              if ($inboxs['data']) {
+                  foreach ($inboxs['data'] as $foo) {
+                      $arr[] = $foo['id'];
+                  }
+              }
+              $data['receiver'] = '[{"typ":"leaders::klasse","content":"'.$data['receiver_leader_klasse'].'","inboxs":'.json_encode($arr).'}]';
+          }
+
+          if (!$data['sender_id']) {
+              $data['sender_id'] = 1;
+          }
+
+          include_once PATH_EXTENSIONS. 'inbox' .DS . 'models' . DS . 'Message2.class.php';
+          $class = new extInboxModelMessage2();
+          if (!$class->sendMessage([
+              'receiver' => $data['receiver'],
+              'receivers_cc' => $data['receivers_cc'],
+              'sender_id' => $data['sender_id'],
+              'subject' => $data['subject'],
+              'text' => $data['text'],
+              'confirm' => $data['confirm'],
+              'priority' => $data['priority'],
+              'noAnswer' => $data['noAnswer'],
+              'isPrivat' => $data['isPrivat'],
+              'files' => $data['files']
+          ])) {
+                return false;
+          }
+          return true;
+
+      } else {
+
+          $messageSender = new MessageSender();
+
+          if ($data['receiver_leader_klasse']) {
+              $messageRecipientHandler = new RecipientHandler("");
+              $messageRecipientHandler->addRecipient(new KlassenteamRecipient($data['receiver_leader_klasse']));
+              $messageSender->setRecipients($messageRecipientHandler);
+          }
+
+          if (!$data['sender_id']) {
+              $messageSender->setSender(user::getSystemUser());
+          }
+
+
+          if ($data['noAnswer']) {
+              $messageSender->dontAllowAnswer();
+          }
+          if ($data['isPrivat']) {
+              $messageSender->setConfidential();  // Vertraulich
+          }
+
+          $messageSender->setSubject($data['subject']);
+          $messageSender->setText($data['text']);
+
+          $messageSender->send();
+          return true;
+      }
+
+      return false;
+
+  }
+
     /**
      * Table: menu_item
      */

@@ -53,32 +53,25 @@ class Update extends AbstractPage
 
         // Release Info abholen
 
+        /*
         $infoToReleaseID = file_get_contents(DB::getGlobalSettings()->updateServer . "/api/release/" . $updateInfo['updateToReleaseID']);
-
         $versionInfo = json_decode($infoToReleaseID, true);
-
         if(isset($versionInfo['changeLog'])) {
             $messageSender = new MessageSender();
             $messageSender->setSender(user::getSystemUser());
-
             $recipientHandler = new RecipientHandler("");
-
             $recipientHandler->addRecipient(new GroupRecipient("Webportal_Administrator"));
-
             // Jeden Modul Admin informieren
-
             $allPagesAdminGroups = requesthandler::getAllAdminGroups();
             for($i = 0; $i < sizeof($allPagesAdminGroups); $i++) {
                 $recipientHandler->addRecipient(new GroupRecipient($allPagesAdminGroups[$i]));
             }
-
-
             $messageSender->setRecipients($recipientHandler);
-
             $messageSender->setSubject('Neue Version installiert');
             $messageSender->setText("Es wurde eine neue Version der Portalsoftware SchuleIntern installiert. <br><br><pre>Änderungen:\r\n" . $versionInfo['changeLog'] . "</pre>" . "<br><br><br><br><i>Dies ist eine automatisch erzeugte Nachricht.</i>");
             $messageSender->send();
         }
+        */
 
         // /Admins informieren
 

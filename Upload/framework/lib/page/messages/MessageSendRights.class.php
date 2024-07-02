@@ -42,6 +42,9 @@ class MessageSendRights extends AbstractPage {
     }
 
     public static function hasAdmin() {
+        if ( DB::getSettings()->getValue("extInbox-global-messageSystem") ) {
+            return false;
+        }
         return true;
     }
 

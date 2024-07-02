@@ -965,7 +965,9 @@ class menu extends AbstractMenu
 
         $this->html .= $this->endDropDown();
 
-        $this->html .= $this->getMenuItem('MessageInbox', "Nachrichten", "fa fa-envelope");
+        if ( !DB::getSettings()->getValue("extInbox-global-messageSystem") ) {
+            $this->html .= $this->getMenuItem('MessageInbox', "Nachrichten", "fa fa-envelope");
+        }
 
         $this->html .= $this->getDBMenuItems(5);
     }
