@@ -54,7 +54,7 @@
             </td>
 
             <td>
-              <button class="si-btn si-btn-light margin-l-l" @click="handlerOpen(item)"><i class="fa fa-edit"></i>
+              <button class="si-btn si-btn-light margin-l-l" @click="handlerOpen(element)"><i class="fa fa-edit"></i>
                 Bearbeiten
               </button>
             </td>

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <button v-if="status == 1" class="si-btn si-btn-toggle-on" :class="{ 'si-btn-hide': parseInt(disable) === 0 }"
+    <button v-if="status == 1" class="si-btn si-btn-toggle-on" :class="{ 'si-btn-hide': parseInt(disable) === 0, 'si-btn-curser-off' : disable == false }"
       v-on:click="handlerClick">
       <i class="fa fas fa-toggle-on"></i> {{label_true}}</button>
-    <button v-else class="si-btn si-btn-toggle-off" :class="{ 'si-btn-hide': parseInt(disable) === 0 }"
+    <button v-else class="si-btn si-btn-toggle-off" :class="{ 'si-btn-hide': parseInt(disable) === 0, 'si-btn-curser-off' : disable == false }"
       v-on:click="handlerClick">
       <i class="fa fas fa-toggle-off"></i> {{label_false}}</button>
   </div>
