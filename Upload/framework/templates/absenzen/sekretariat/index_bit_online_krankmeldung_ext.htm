@@ -1,0 +1,9 @@
+<tr>
+	<td>{$km['user']['name']} <if($km['user']['klasse'])><then>(Klasse: {$km['user']['klasse']})</then></if></td>
+	<td><expression>DateFunctions::getNaturalDateFromMySQLDate($km['dateStart'])</expression></td>
+	<td><expression>DateFunctions::getNaturalDateFromMySQLDate($km['dateEnd'])</expression></td>
+	<td><if($km['createdUserUser']['name'])><then>{$km['createdUserUser']['name']}</then></if></td>
+	<td><if($km['info'])><then><code><expression>($km['info'])</expression></code></then></if></td>
+	<td><expression>functions::makeDateFromTimestamp($km['krankmeldungTime'])</expression></td>
+	<td><select name="action_{$km['id']}" class="form-control"><option value="save">Absenz erstellen</option><option value="delete">Löschen</option></select>
+</tr>
