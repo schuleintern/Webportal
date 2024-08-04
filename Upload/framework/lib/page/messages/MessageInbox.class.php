@@ -152,6 +152,126 @@ class MessageInbox extends AbstractPage {
 		    header("Location: index.php?page=MessageInbox&folder=" . $folder->getFolderSQL() . "&folderID=" . $folder->getID());
 		    exit(0);
 		}
+
+        if($_REQUEST['action'] == 'export') {
+
+            $markIDs = [];
+            for($i = 0; $i < sizeof($messages); $i++) {
+                if($_POST['message_' . $messages[$i]->getID()] > 0) {
+                    $markIDs[] = $messages[$i]->getID();
+                }
+            }
+
+            $zipname = 'NachrichtenExport-txt-'.date('Y-m-d_H:i', time()).'.zip';
+            $zip = new ZipArchive();
+            $filename = PATH_TMP.$zipname;
+
+            if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
+                die("cannot open <$filename>\n");
+            }
+
+
+            foreach ($markIDs as $mID) {
+                $data = DB::run('SELECT * FROM messages_messages WHERE messageID = :messageID', ['messageID' => $mID] )->fetch();
+
+
+                $text = '';
+                foreach($data as $key => $item) {
+                    if ($key != 'messageText') {
+                        $text .= $key . ": " . $item . "\r\n";
+                    }
+                }
+                if ($data['messageText']) {
+                    $text .=  "messageText: " . $data['messageText'] . "\r\n";
+                    $text .=  "-----------------------\r\n";
+                    $text .=  "messageText (ohne HTML):\r\n\r\n " .strip_tags(str_replace('<br />',"\n", $data['messageText'])) . "\r\n";
+                    $text .=  "------------ Export Ende -----------\r\n";
+                }
+
+                //$text = 'Betreff:\r\n'.$data['messageSubject'].'\n\rText:n'.$data['messageText'];
+
+                $filenameTxt = "message_$mID.txt";
+                $pathTxt = PATH_TMP.$filenameTxt;
+                $file = fopen($pathTxt, "w") or die("Unable to open file!");
+                fwrite($file, $text);
+                fclose($file);
+
+                if (file_exists($pathTxt)) {
+                    $zip->addFile($pathTxt, $filenameTxt);
+                }
+
+
+            }
+
+            $zip->close();
+            ob_clean();
+            ob_end_flush();
+            header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+            header('Content-Type: application/zip;\n');
+            header("Content-Transfer-Encoding: Binary");
+            //header('Content-Length: ' . filesize($filename));
+            header('Content-Disposition: attachment; filename="'.$zipname.'"');
+            readfile($filename);
+            unlink($filename);
+            exit;
+
+            //header("Location: index.php?page=MessageInbox&folder=" . $folder->getFolderSQL() . "&folderID=" . $folder->getID());
+
+        }
+
+        if($_REQUEST['action'] == 'exportSql') {
+            $markIDs = [];
+            for($i = 0; $i < sizeof($messages); $i++) {
+                if($_POST['message_' . $messages[$i]->getID()] > 0) {
+                    $markIDs[] = $messages[$i]->getID();
+                }
+            }
+
+            $zipname = 'NachrichtenExport-sql-'.date('Y-m-d_H:i', time()).'.zip';
+            $zip = new ZipArchive();
+            $filename = PATH_TMP.$zipname;
+
+            if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
+                die("cannot open <$filename>\n");
+            }
+
+            foreach ($markIDs as $mID) {
+                $data = DB::run('SELECT * FROM messages_messages WHERE messageID = :messageID', ['messageID' => $mID] )->fetch();
+
+                $columns = implode(", ",array_keys($data));
+                $escaped_values = array_values($data);
+                $values  = implode("', '", $escaped_values);
+                $sql = "INSERT INTO `fbdata`($columns) VALUES ('$values')";
+
+                $filenameTxt = "message_$mID.sql";
+                $pathTxt = PATH_TMP.$filenameTxt;
+                $file = fopen($pathTxt, "w") or die("Unable to open file!");
+                fwrite($file, $sql);
+                fclose($file);
+
+                if (file_exists($pathTxt)) {
+                    $zip->addFile($pathTxt, $filenameTxt);
+                }
+
+            }
+
+            $zip->close();
+            ob_clean();
+            ob_end_flush();
+            header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+            header('Content-Type: application/zip;\n');
+            header("Content-Transfer-Encoding: Binary");
+            //header('Content-Length: ' . filesize($filename));
+            header('Content-Disposition: attachment; filename="'.$zipname.'"');
+            readfile($filename);
+            unlink($filename);
+            exit;
+
+            //header("Location: index.php?page=MessageInbox&folder=" . $folder->getFolderSQL() . "&folderID=" . $folder->getID());
+            //exit(0);
+        }
+
+
 		
 		$folders = MessageFolder::getMyFolders(DB::getSession()->getUser());
 		
