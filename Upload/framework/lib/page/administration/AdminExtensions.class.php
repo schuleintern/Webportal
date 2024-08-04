@@ -441,9 +441,18 @@ class AdminExtensions extends AbstractPage {
 
 		foreach($arr as $ext) {
 			if ($ext->uniqid == $row['uniqid']) {
-				if ( intval($ext->version) > intval($row['version']) ) {
-					return true;
-				}
+                if ($ext->requiredsystem) {
+                    if ( version_compare($ext->requiredsystem, DB::getVersion(), '<=') ) {
+                        if ( intval($ext->version) > intval($row['version']) ) {
+                            return true;
+                        }
+                    }
+                } else {
+                    if ( intval($ext->version) > intval($row['version']) ) {
+                        return true;
+                    }
+                }
+
 			}
 		}
 		return false;
