@@ -238,6 +238,9 @@ body {
 .height_35 {
   max-height: 35vh !important;
 }
+.height_50{
+  max-height: 50vh;
+}
 .height_60{
   max-height: 60vh;
 }

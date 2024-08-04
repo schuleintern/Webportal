@@ -646,3 +646,7 @@ button.btn-blau {
 body.isMobile .breadcrumb {
   display: none !important;
 }
+
+.isMobile .content {
+  padding: 0;
+}

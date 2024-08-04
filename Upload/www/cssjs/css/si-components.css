@@ -12,7 +12,10 @@
     display: flex;
     padding: 1rem;
     padding-bottom: 3rem;
-
+}
+.isMobile .si-calendar-header {
+    padding: 0;
+    box-shadow: none;
 }
 .si-calendar-header button {
     margin-right: 1rem;
@@ -29,30 +32,24 @@
     display: none;
 }
 
-@media only screen
-and (max-device-width : 667px)
-and (orientation : portrait) {
-    .si-calendar-header {
-        flex-wrap: wrap;
-    }
-    .si-calendar-header .title {
-        flex-basis: 100%;
-    }
-    .si-calendar-header .si-btn {
-        order: 1;
-        flex:1;
-    }
-    .si-calendar-header .title {
-        order: 2;
-        margin-top: 2rem;
-    }
-    .si-calendar .day-box {
-        display: none;
-    }
-    .si-calendar .day-box-handler {
-        display: block;
-    }
+.isMobile .si-calendar-header {
+    flex-wrap: wrap;
 }
+.isMobile .si-calendar-header .title {
+    flex-basis: 100%;
+}
+.isMobile .si-calendar-header .si-btn {
+    order: 1;
+    flex:1;
+}
+.isMobile .si-calendar-header .title {
+    order: 2;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+
 .si-calendar .si-table {
     margin-top: 0;
 }
@@ -120,12 +117,20 @@ and (orientation : portrait) {
     display: block;
 }
 
-
 .si-calendar .eintrag-multiple {
     border-left: 0;
     border-right: 0;
     margin-left: 0;
     margin-right: 0;
+}
+
+.isMobile .si-calendar .day {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 /**
@@ -206,6 +211,7 @@ and (orientation : portrait) {
     letter-spacing: 0.25pt;
 }
 
+
 /**
     ERROR
  */
@@ -233,6 +239,10 @@ and (orientation : portrait) {
     line-height: 100%;
     padding-bottom: 1rem;
     text-align: center;
+}
+.isMobile .si-succeed {
+    width: 80vw;
+    left: 10vw;
 }
 
 
@@ -266,6 +276,11 @@ and (orientation : portrait) {
     font-weight: 300;
     line-height: 100%;
     padding-bottom: 1rem;
+}
+
+.isMobile .si-error {
+    width: 80vw;
+    left: 10vw;
 }
 
 
@@ -458,6 +473,12 @@ and (orientation : portrait) {
     position: relative;
 }
 
+.isMobile .si-details ul li {
+    padding-left: 3rem;
+}
+.isMobile .si-details ul li label {
+    left: -1.5rem;
+}
 
 
 
@@ -513,15 +534,21 @@ and (orientation : portrait) {
     margin-bottom: 3rem;
 }
 
-@media only screen
-and (max-device-width : 667px)
-and (orientation : portrait) {
-
-    .si-modal .si-modal-box {
-        left: 10vw;
-        width: 80vw;
-    }
+.isMobile .si-modal {
+    background-color: rgba(0,0,0,0.75);
 }
+.isMobile .si-modal .si-modal-box .si-modal-btn-close{
+    right: 0rem;
+    top: -3rem;
+}
+.isMobile .si-modal .si-modal-box {
+    left: 2vw;
+    width: 96vw;
+}
+.isMobile .si-modal .si-modal-box .si-modal-content {
+    padding: 1rem;
+}
+
 /**
     TABLE
  */
@@ -982,7 +1009,15 @@ and (orientation : portrait) {
     background-color: rgba(0,0,0,0.85);
     color: #fff;
 }
+.si-modalblack-box{
+    width: 60vw;
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    transform: translateY(10vh);
 
+}
 .si-userselect .si-userselect-modal .si-userselect-modal-box {
     /*
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
