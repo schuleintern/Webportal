@@ -78,7 +78,7 @@ class Update extends AbstractPage
 
 
         // Template Cache leeren
-        DB::getDB()->query("TRUNCATE `templates`");
+        //DB::getDB()->query("TRUNCATE `templates`");
 
         // CLI Scripte erneuern
         //rename("../cli", "../cli_" . $fromVersion);
