@@ -489,7 +489,7 @@ class administrationcreateusers extends AbstractPage {
         );
 
     }
-      if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE") {
+      //if(DB::getGlobalSettings()->elternUserMode == "ASV_CODE") {
 
         $settings[] = array(
             'name' => 'createusers-letterneweltern',
@@ -504,7 +504,7 @@ class administrationcreateusers extends AbstractPage {
         	'titel' => "Text der Verifikationsmail",
         	'text' => "{LINK} ist der Link zur Bestätigung der E-Mailadresse."
         );
-      }
+      //}
 
       return $settings;
   }
