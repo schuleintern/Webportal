@@ -305,7 +305,7 @@ class login extends AbstractPage {
 	public static function getLehrerZugangsdaten() {
 		$html = "";
 		
-		if(DB::getGlobalSettings()->schulnummer == "9400") {
+		if(DB::checkDemoAccess()) {
 			$passwords = DB::getDB()->query("SELECT * FROM lehrer JOIN initialpasswords ON lehrerUserID=initialPasswordUserID ORDER BY RAND(), lehrerName ASC, lehrerRufname ASC LIMIT 10");
 			
 			while($l = DB::getDB()->fetch_array($passwords)) {
@@ -328,7 +328,7 @@ class login extends AbstractPage {
 	public static function getSchuelerZugangsdaten() {
 		$html = "";
 		
-		if(DB::getGlobalSettings()->schulnummer == "9400") {
+		if(DB::checkDemoAccess()) {
 			$passwords = DB::getDB()->query("SELECT * FROM schueler JOIN initialpasswords ON schuelerUserID=initialPasswordUserID JOIN users ON schuelerUserID=userID ORDER BY RAND(), schuelerName ASC, schuelerRufname ASC LIMIT 10");
 			
 			while($l = DB::getDB()->fetch_array($passwords)) {
@@ -351,7 +351,7 @@ class login extends AbstractPage {
 	public static function getElternCodes() {
 		$html = "";
 		
-		if(DB::getGlobalSettings()->schulnummer == "9400") {
+		if(DB::checkDemoAccess()) {
 			$passwords = DB::getDB()->query("SELECT * FROM schueler JOIN eltern_codes ON schuelerAsvID=codeSchuelerAsvID ORDER BY RAND(), schuelerName ASC, schuelerRufname ASC LIMIT 10");
 			
 			while($l = DB::getDB()->fetch_array($passwords)) {

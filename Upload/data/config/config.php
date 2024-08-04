@@ -12,7 +12,9 @@ class GlobalSettings
      * Schulnummer als String (mit führender Null)
      * @var string
      */
-    public $schulnummer = "0740";
+    // public $schulnummer = "0740";
+    public $schulnummern = ["0740","7660"];
+
 
     /**
      * Datenbankeinstellungen für diese Installation

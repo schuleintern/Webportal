@@ -14,7 +14,7 @@ class userprofilepassword extends AbstractPage {
 			new errorPage("Die Passwortänderung ist nur noch für lokal erstellte Benutzer möglich!");
 		}
 		
-		if(DB::getGlobalSettings()->schulnummer == "9400") {
+		if(!DB::checkDemoAccess()) {
 			new errorPage("In der Demo Version ist keine Passwort Änderung möglich!");
 		}
 		

@@ -135,8 +135,8 @@ class administrationasvimport extends AbstractPage
 
         $schulnummer = $simpleXML->schulen[0]->schule->schulnummer;
 
-        if ($schulnummer != DB::getGlobalSettings()->schulnummer) {
-            new errorPage("Die Schulnummer in der Exportdatei (" . $schulnummer . ") stimmt nicht mit der Schulnummer der Installation (" . DB::getGlobalSettings()->schulnummer . ") überein!");
+        if (!DB::isSchulnummern($schulnummer)) {
+            new errorPage("Die Schulnummer in der Exportdatei (" . $schulnummer . ") stimmt nicht mit der Schulnummer der Installation (" . DB::getSchulnummern(true) . ") überein!");
             exit(0);
         }
 
@@ -223,8 +223,8 @@ class administrationasvimport extends AbstractPage
 
         $schulnummer = $simpleXML->schulen[0]->schule->schulnummer;
 
-        if ($schulnummer != DB::getGlobalSettings()->schulnummer) {
-            new errorPage("Die Schulnummer in der Exportdatei (" . $schulnummer . ") stimmt nicht mit der Schulnummer der Installation (" . DB::getGlobalSettings()->schulnummer . ") überein!");
+        if (!DB::isSchulnummern($schulnummer)) {
+            new errorPage("Die Schulnummer in der Exportdatei (" . $schulnummer . ") stimmt nicht mit der Schulnummer der Installation (" . DB::getSchulnummern(true) . ") überein!");
             exit(0);
         }
 

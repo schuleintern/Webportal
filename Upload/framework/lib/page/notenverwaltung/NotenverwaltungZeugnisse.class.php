@@ -284,7 +284,7 @@ class NotenverwaltungZeugnisse extends AbstractPage {
 
       $xml .= "<schulen>
 <schule>
-<schulnummer>" . DB::getGlobalSettings()->schulnummer . "</schulnummer>
+<schulnummer>" . DB::getSchulnummern(true) . "</schulnummer>
 <schuelerinnen>";
 
 
@@ -781,12 +781,16 @@ pause\r\n";
       for($z = 0; $z < sizeof($zeugnisNoten); $z++) {
           $fach = $zeugnisNoten[$z]->getFach()->getKurzform();
           switch($fach) {
+
+              case 'SEM':
+                  $noten["{N22}"] = $zeugnisNoten[$z]->getWertText();
+                  $templateProcessor->setValue("{LEITFACH}", $zeugnisNoten[$z]->getFach()->getLangform());
+                  break;
+
               case 'Ev':
                   $ra = "ev.";
                   $noten["{N1}"] = $zeugnisNoten[$z]->getWertText();
               break;
-
-
 
               case 'K':
                   $ra = "r.-k.";
@@ -811,6 +815,9 @@ pause\r\n";
 
               case 'G':
                   $noten["{N14}"] = $zeugnisNoten[$z]->getWertText();
+                  // TODO: gibt es noch weitere unterrichte in diesem fach? mit "sem" im namen ? dann:
+                  //$noten["{N22}"] = $zeugnisNoten[$z]->getWertText();
+                  //$templateProcessor->setValue("{LEITFACH}", $zeugnisNoten[$z]->getFach()->getLangform());
                   break;
 
               case 'Geo':
@@ -858,9 +865,7 @@ pause\r\n";
                   $noten["{N20}"] = $zeugnisNoten[$z]->getWertText();
                   break;
 
-              case 'SEM':
-                  $noten["{N21}"] = $zeugnisNoten[$z]->getWertText();
-                  break;
+
 
               case 'E':
                   $noten["{N6}"] = $zeugnisNoten[$z]->getWertText();
@@ -906,7 +911,7 @@ pause\r\n";
               if($schueler->getKlassenObjekt()->getKlassenstufe() == 9) {
                   $latinum = "Dieses Zeugnis schließt gesicherte Kenntnisse in Latein ein.";
               }
-              if($schueler->getKlassenObjekt()->getKlassenstufe() == 10) {
+              if($schueler->getKlassenObjekt()->getKlassenstufe() == 10 || $schueler->getKlassenObjekt()->getKlassenstufe() == 11) {
                   $latinum = "Dieses Zeugnis schließt das Latinum gemäß der Vereinbarung der Kultusministerkonferenz vom 22. September 2005 ein.";
               }
           }
@@ -916,14 +921,14 @@ pause\r\n";
 
 
 
-      $templateProcessor->setValue("{LFS}", $lfs);
-      $templateProcessor->setValue("{GRFS}", $grfs);
-      $templateProcessor->setValue("{EFS}", $efs);
-      $templateProcessor->setValue("{FFS}", $ffs);
-      $templateProcessor->setValue("{RA}", $ra);
+      $templateProcessor->setValue("{LFS}", $lfs); // Latein
+      $templateProcessor->setValue("{GRFS}", $grfs); // nix...
+      $templateProcessor->setValue("{EFS}", $efs); // Englisch
+      $templateProcessor->setValue("{FFS}", $ffs); // Französisch
+      $templateProcessor->setValue("{RA}", $ra); // nix...
       $templateProcessor->setValue("{LATINUM}", $latinum);
 
-      $templateProcessor->setValue("{SPFS}", $spfs);
+      $templateProcessor->setValue("{SPFS}", $spfs); // Spanisch
 
       $fileUpload = FileUpload::generateUploadID($zeugnis->getArt() . " - " . $schueler->getCompleteSchuelerName() . ".docx", "docx", true, false);
 

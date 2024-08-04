@@ -15,7 +15,7 @@ class CreateDemoVplan extends AbstractCron {
 	}
 
 	public function execute() {
-		if(DB::getGlobalSettings()->schulnummer == "9400") {
+		if(!DB::isSchulnummern(9400)) {
 			$heute = DateFunctions::getTodayAsSQLDate();
 			
 			while(true) {
@@ -136,7 +136,7 @@ class CreateDemoVplan extends AbstractCron {
 	 * @return ['success' => 'true/false', 'resultText' => 'Text, der in der Administration angezeigt wird.']
 	 */
 	public function getCronResult() {
-	    if(DB::getGlobalSettings()->schulnummer == "9400") {
+	    if(DB::isSchulnummern(9400)) {
 	    	return [
 	    		'success' => true,
 	    		'resultText' => $this->createdVPlans

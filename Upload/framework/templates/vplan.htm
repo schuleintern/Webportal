@@ -98,7 +98,7 @@
 
                </else></if>
 
-               <if(DB::getGlobalSettings()->schulnummer == "9400")><then>
+               <if(!DB::checkDemoAccess())><then>
                <div class="callout callout-info">
                    Die Demoversion enthält für jede Klasse / Lehrer eine Vertretung. (Die Vertretungen ergeben keinen Sinn. Sie sind rein zufällig.)</div>
            </then></if>

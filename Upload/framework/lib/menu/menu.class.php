@@ -58,13 +58,8 @@ class menu extends AbstractMenu
         $actions = requesthandler::getAllowedActions();
         for ($i = 0; $i < sizeof($actions); $i++) {
             if ($actions[$i]::hasAdmin()) {
-                $view = false;
 
-                if (sizeof($actions[$i]::onlyForSchool()) > 0) {
-                    $view = in_array(DB::getGlobalSettings()->schulnummer, $actions[$i]::onlyForSchool());
-                } else $view = true;
-
-                if ($view && (DB::getSession()->isAdmin() || in_array($actions[$i]::getAdminGroup(), DB::getSession()->getGroupNames()))) {
+                if ((DB::getSession()->isAdmin() || in_array($actions[$i]::getAdminGroup(), DB::getSession()->getGroupNames()))) {
                     if (!is_array($displayActions[$actions[$i]::getAdminMenuGroup()])) {
                         $displayActions[$actions[$i]::getAdminMenuGroup()] = [
                             $actions[$i]

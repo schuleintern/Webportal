@@ -15,7 +15,7 @@ class SyncUsers extends AbstractCron {
 	}
 
 	public function execute() {
-		if(DB::getGlobalSettings()->schulnummer == "9400") {
+		if(DB::isSchulnummern(9400)) {
 			$this->result = "Kein UserSync in der DEMO Version";
 			return;
 		}

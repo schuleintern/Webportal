@@ -866,9 +866,13 @@ abstract class AbstractPage
             }
         }
         if (sizeof($name::onlyForSchool()) > 0) {
-            if (!in_array(DB::getGlobalSettings()->schulnummer, $name::onlyForSchool())) {
-                return false;
+            $schulnummern = DB::getSchulnummern();
+            foreach ($schulnummern as $schulnummer) {
+                if (!in_array($schulnummer, $name::onlyForSchool())) {
+                    return false;
+                }
             }
+
         }
         return in_array($name, self::$activePages);
     }
