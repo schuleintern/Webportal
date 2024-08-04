@@ -156,7 +156,7 @@ class FACTORY {
 
     private function load_menue_item_active() {
 
-        $result = DB::getDB()->query("SELECT * FROM menu_item  ORDER BY sort");
+        $result = DB::getDB()->query("SELECT * FROM menu_item ORDER BY sort");
         $arr = [];
         while($item = DB::getDB()->fetch_array($result, true)) {
             $arr[] = $item;

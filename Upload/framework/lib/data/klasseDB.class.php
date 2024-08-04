@@ -30,7 +30,7 @@ class klasseDB
     public static function getAll() {
 
         $ret = [];
-        $db = DB::getDB()->query("SELECT * FROM klassen");
+        $db = DB::getDB()->query("SELECT * FROM klassen ORDER BY klassenname");
         while ($data = DB::getDB()->fetch_array($db, true)) {
             $ret[] = new self($data);
         }

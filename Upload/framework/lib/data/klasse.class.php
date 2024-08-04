@@ -15,7 +15,7 @@ class klasse {
   private $schueler = array();
 
 
-  public function __construct($klassenname, $anzahlSchueler) {
+  public function __construct($klassenname = false, $anzahlSchueler = 0) {
     $this->klassenName = $klassenname;
     $this->anzahlSchueler = $anzahlSchueler;
 

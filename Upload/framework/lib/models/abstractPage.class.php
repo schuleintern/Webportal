@@ -443,7 +443,7 @@ abstract class AbstractPage
                                                 $widgetClass = new $widget->class([
                                                     "path" => PATH_EXTENSIONS . $ext2[0]
                                                 ]);
-                                                if (method_exists($widgetClass, 'globals')) {
+                                                if ($widgetClass && method_exists($widgetClass, 'globals')) {
                                                     $HTML_widgets[]  = '<script>'.$widgetClass->globals().'</script>';
                                                 }
                                                 if ($widgetClass && method_exists($widgetClass, 'render')) {

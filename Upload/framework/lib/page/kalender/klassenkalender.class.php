@@ -186,7 +186,7 @@ class klassenkalender extends AbstractPage {
         $art = DB::getDB()->escapeString($_POST['art']);
         $fach = DB::getDB()->escapeString($_POST['fach']);
         $betrifft = DB::getDB()->escapeString($_POST['betrifft']);
-        $alwaysShow = $_POST['alwaysShow'] > 0;
+        $alwaysShow = (int)( $_POST['alwaysShow'] > 0 );
 
         $stunden = [];
 

@@ -272,11 +272,10 @@ abstract class ExtensionModel
             return false;
         }
         $id = (int)$this->getID();
-        if (!$id || !$status) {
+        if (!$id || !isset($status)) {
             return false;
         }
-
-        if ( DB::run("UPDATE " . $this->_table . " SET state = :status WHERE ".$this->_table_id." = :id", ['id' => $id, 'status' => $status]) ) {
+        if ( DB::run("UPDATE " . $this->_table . " SET state = :status WHERE ".$this->_table_id." = :id", ['id' => $id, 'status' => (int)$status]) ) {
             return true;
         }
         return false;
@@ -319,7 +318,7 @@ abstract class ExtensionModel
             }
         }
         foreach ($_defaults as $key => $item) {
-            if (!isset($data[$key])) {
+            if (!isset($data[$key]) || $data[$key] == 'undefined') {
                 $data[$key] = $item;
             }
         }

@@ -112,7 +112,9 @@ class usergroup {
     if(sizeof($this->members) == 0) {
         $users = DB::getDB()->query("SELECT * FROM users NATURAL JOIN users_groups WHERE groupName='" . DB::getDB()->escapeString($this->name) . "' ORDER BY userName ASC, userLastName ASC, userFirstName ASC");
     	while($u = DB::getDB()->fetch_array($users)) {
-    		$this->members[] = new user($u);
+            if ($u['userID']) {
+                $this->members[] = new user($u);
+            }
     	}
     }
     

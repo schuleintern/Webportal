@@ -582,8 +582,8 @@ class klassentagebuch extends AbstractPage {
   		}
 
 
-  		if(sizeof($stundenAdd) > 0) {
-  			for($i = 0; $i < sizeof($_REQUEST['klassen']); $i++) {
+  		if(sizeof($stundenAdd) > 0 && $_REQUEST['klassen'] ) {
+  			for($i = 0; $i < sizeof( (array)$_REQUEST['klassen']); $i++) {
   				TagebuchKlasseEntry::createEntry(
   						$_REQUEST['klassen'][$i],
   						$this->currentDateSQL,

@@ -424,19 +424,19 @@ class ausleihe extends AbstractPage {
 		return [
 			[
 				'name' => "ausleihe-lehrer",
-				'typ' => BOOLEAN,
+				'typ' => 'BOOLEAN',
 				'titel' => "Zugriff auf das Ausleihmodul durch Lehrer?",
 				'text' => ""
 			],
 			[
 				'name' => "ausleihe-schueler",
-				'typ' => BOOLEAN,
+				'typ' => 'BOOLEAN',
 				'titel' => "Zugriff auf das Ausleihmodul durch Schüler?",
 				'text' => ""
 			],
 			[
 				'name' => "ausleihe-eltern",
-				'typ' => BOOLEAN,
+				'typ' => 'BOOLEAN',
 				'titel' => "Zugriff auf das Ausleihmodul durch Eltern?",
 				'text' => ""
 			]
