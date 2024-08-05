@@ -8,12 +8,11 @@
 
 </then></if>
 
-<if(stundenplan::userHasAccess(DB::getSession()->getUser()))>
+<if($stundenplanACL)>
 <then>
-    <a class="btn btn-app" href="index.php?page=stundenplan">
+    <a class="btn btn-app" href="$stundenplanURL">
         <i class="fa fa-table"></i> Stundenplan
     </a>
-
 </then></if>
 
 

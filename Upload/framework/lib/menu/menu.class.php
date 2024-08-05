@@ -389,22 +389,26 @@ class menu extends AbstractMenu
 
         $this->html .= $this->getTrenner('<i class="fa fa-info-circle"></i> Informationen</i>');
 
+        $html = '';
         // Stundenplan ist immer aktiv
-        if (DB::getSession()->isTeacher() || DB::getSession()->isMember("Webportal_Stundenplananzeige")) $html .= $this->getMenuItem("stundenplan", "Stundenplan", "fa fa-table");
 
-        if (DB::getSession()->isEltern()) {
 
-            $klassen = DB::getSession()->getElternObject()->getKlassenAsArray();
-
-            for ($i = 0; $i < sizeof($klassen); $i++) {
-                $html .= $this->getMenuItem("stundenplan", "Stundenplan " . $klassen[$i], "fa fa-table", ['grade' => $klassen[$i]]);
+        if (!DB::getSettings()->getBoolean('ext-stundenplan-global')) {
+            if (DB::getSession()->isTeacher() || DB::getSession()->isMember("Webportal_Stundenplananzeige")) {
+                $html .= $this->getMenuItem("stundenplan", "Stundenplan", "fa fa-table");
             }
-        }
+            if (DB::getSession()->isEltern()) {
+                $klassen = DB::getSession()->getElternObject()->getKlassenAsArray();
+                for ($i = 0; $i < sizeof($klassen); $i++) {
+                    $html .= $this->getMenuItem("stundenplan", "Stundenplan " . $klassen[$i], "fa fa-table", ['grade' => $klassen[$i]]);
+                }
+            }
 
-        if (DB::getSession()->isPupil()) {
-            $klassen = $currentStundenplan->getAllMyPossibleGrades(DB::getSession()->getSchuelerObject()->getKlasse());
-            for ($i = 0; $i < sizeof($klassen); $i++) {
-                $html .= $this->getMenuItem("stundenplan", "Stundenplan " . $klassen[$i], "fa fa-table", ['grade' => $klassen[$i]]);
+            if (DB::getSession()->isPupil()) {
+                $klassen = $currentStundenplan->getAllMyPossibleGrades(DB::getSession()->getSchuelerObject()->getKlasse());
+                for ($i = 0; $i < sizeof($klassen); $i++) {
+                    $html .= $this->getMenuItem("stundenplan", "Stundenplan " . $klassen[$i], "fa fa-table", ['grade' => $klassen[$i]]);
+                }
             }
         }
 
