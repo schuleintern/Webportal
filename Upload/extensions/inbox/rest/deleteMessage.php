@@ -1,11 +1,14 @@
 <?php
 
-class deleteMessage extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+class deleteMessage extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +20,7 @@ class deleteMessage extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,13 +28,12 @@ class deleteMessage extends AbstractRest {
         }
 
         $message_id = (int)$input['mid'];
-        if ( !$message_id ) {
+        if (!$message_id) {
             return [
                 'error' => true,
                 'msg' => 'Missing ID'
             ];
         }
-
 
 
         include_once PATH_EXTENSION . 'models' . DS . 'Message2.class.php';
@@ -40,7 +42,7 @@ class deleteMessage extends AbstractRest {
 
         include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
         $Inbox = new extInboxModelInbox2();
-        if ( !$Inbox->isInboxFromUser($tmp_data->getData('inbox_id'), $userID) ) {
+        if (!$Inbox->isInboxFromUser($tmp_data->getData('inbox_id'), $userID)) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff auf das Postfach'
@@ -50,7 +52,7 @@ class deleteMessage extends AbstractRest {
         $body_id = $tmp_data->getData('body_id');
 
 
-        if ( !$tmp_data->delete() ) {
+        if (!$tmp_data->delete()) {
             return [
                 'error' => true,
                 'msg' => 'Nachricht konnte nicht gelöscht werden!'
@@ -59,18 +61,22 @@ class deleteMessage extends AbstractRest {
 
         $messagesAll = $class->getMessagesByBody($body_id);
 
-        if ( count($messagesAll) < 1) {
+        if (count($messagesAll) < 1) {
 
             include_once PATH_EXTENSION . 'models' . DS . 'MessageBody2.class.php';
             $Body = new extInboxModelMessageBody2();
             $body = $Body->getByID($body_id);
 
-            if ( !$body->delete() ) {
+            if (!$body->delete()) {
                 return [
                     'error' => true,
                     'msg' => 'Nachrichttext konnte nicht gelöscht werden!'
                 ];
             }
+
+            // TODO: anhänge löschen ?
+            // TODO: umfragen löschen?
+
 
         }
 
@@ -79,7 +85,7 @@ class deleteMessage extends AbstractRest {
             'done' => true
         ];
 
-	}
+    }
 
 
     /**
@@ -88,7 +94,8 @@ class deleteMessage extends AbstractRest {
      *
      * @return String
      */
-    public function getAllowedMethod() {
+    public function getAllowedMethod()
+    {
         return 'POST';
     }
 
@@ -98,7 +105,8 @@ class deleteMessage extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -111,12 +119,14 @@ class deleteMessage extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 

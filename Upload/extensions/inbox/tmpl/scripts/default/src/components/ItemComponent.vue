@@ -3,8 +3,10 @@
 
     <div class="flex-row flex-end si-btn-multiple padding-r-m padding-b-m">
 
-      <button class="si-btn si-btn-light si-btn-small" @click="handlerAnswer()"><i class="fa fa fa-reply"></i> Antworten</button>
-      <button class="si-btn si-btn-light si-btn-small" @click="handlerForward()"><i class="fa fa fa-share"></i> Weiterleiten</button>
+      <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerAnswer()"><i class="fa fa fa-reply"></i> Antworten</button>
+      <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerAnswerAll()"><i class="fa fa fa-reply"></i> Allen Antworten</button>
+
+      <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerForward()"><i class="fa fa fa-share"></i> Weiterleiten</button>
 
       <button class="si-btn si-btn-light si-btn-small" @click="handlerDelete()"><i class="fa fa fa-trash"></i></button>
       <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerBack()"><i class="fa fa-times-circle"></i></button>
@@ -99,12 +101,14 @@
         <label>Gelesen von:</label>
         <span>{{item.isReadDate}} - {{ item.isReadUser.name }}</span>
       </li>
-      <li v-if="item.filesFolder" class="line-oddEven padding-s">
+      <li v-if="item.files" class="line-oddEven padding-s">
         <label>Anhang:</label>
-        <span class="flex">
-          <div v-bind:key="i" v-for="(obj, i) in  item.filesFolder.childs">
-            <a :href="'index.php?page=ext_fileshare&view=file&folder='+obj.folder+'&fid='+obj.id" target="_blank">{{obj.title}}</a>
+        <span class="blockInline">
+          <div class="flex">
+          <div v-bind:key="i" v-for="(obj, i) in  item.files">
+            <a :href="'index.php?page=ext_inbox&view=file&fid='+obj.uniqid" target="_blank">{{obj.name}}</a>
           </div>
+            </div>
         </span>
       </li>
       <li class="line-oddEven  padding-s padding-t-m">
@@ -155,6 +159,17 @@ export default {
         item: this.item,
         props: {
           answer: true
+        }
+      });
+
+    },
+    handlerAnswerAll() {
+
+      this.$bus.$emit('page--open', {
+        page: 'form',
+        item: this.item,
+        props: {
+          answerAll: true
         }
       });
 

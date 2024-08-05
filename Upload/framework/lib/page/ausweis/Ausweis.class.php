@@ -941,7 +941,7 @@ class Ausweis extends AbstractPage {
 	
 	
 	public static function getSiteDisplayName() {
-		return 'Ausweise';
+		return 'Ausweise (deprecated!)';
 	}
 	
 	public static function siteIsAlwaysActive() {

@@ -58,13 +58,8 @@ class menu extends AbstractMenu
         $actions = requesthandler::getAllowedActions();
         for ($i = 0; $i < sizeof($actions); $i++) {
             if ($actions[$i]::hasAdmin()) {
-                $view = false;
 
-                if (sizeof($actions[$i]::onlyForSchool()) > 0) {
-                    $view = in_array(DB::getGlobalSettings()->schulnummer, $actions[$i]::onlyForSchool());
-                } else $view = true;
-
-                if ($view && (DB::getSession()->isAdmin() || in_array($actions[$i]::getAdminGroup(), DB::getSession()->getGroupNames()))) {
+                if ((DB::getSession()->isAdmin() || in_array($actions[$i]::getAdminGroup(), DB::getSession()->getGroupNames()))) {
                     if (!is_array($displayActions[$actions[$i]::getAdminMenuGroup()])) {
                         $displayActions[$actions[$i]::getAdminMenuGroup()] = [
                             $actions[$i]
@@ -394,22 +389,26 @@ class menu extends AbstractMenu
 
         $this->html .= $this->getTrenner('<i class="fa fa-info-circle"></i> Informationen</i>');
 
+        $html = '';
         // Stundenplan ist immer aktiv
-        if (DB::getSession()->isTeacher() || DB::getSession()->isMember("Webportal_Stundenplananzeige")) $html .= $this->getMenuItem("stundenplan", "Stundenplan", "fa fa-table");
 
-        if (DB::getSession()->isEltern()) {
 
-            $klassen = DB::getSession()->getElternObject()->getKlassenAsArray();
-
-            for ($i = 0; $i < sizeof($klassen); $i++) {
-                $html .= $this->getMenuItem("stundenplan", "Stundenplan " . $klassen[$i], "fa fa-table", ['grade' => $klassen[$i]]);
+        if (!DB::getSettings()->getBoolean('ext-stundenplan-global')) {
+            if (DB::getSession()->isTeacher() || DB::getSession()->isMember("Webportal_Stundenplananzeige")) {
+                $html .= $this->getMenuItem("stundenplan", "Stundenplan", "fa fa-table");
             }
-        }
+            if (DB::getSession()->isEltern()) {
+                $klassen = DB::getSession()->getElternObject()->getKlassenAsArray();
+                for ($i = 0; $i < sizeof($klassen); $i++) {
+                    $html .= $this->getMenuItem("stundenplan", "Stundenplan " . $klassen[$i], "fa fa-table", ['grade' => $klassen[$i]]);
+                }
+            }
 
-        if (DB::getSession()->isPupil()) {
-            $klassen = $currentStundenplan->getAllMyPossibleGrades(DB::getSession()->getSchuelerObject()->getKlasse());
-            for ($i = 0; $i < sizeof($klassen); $i++) {
-                $html .= $this->getMenuItem("stundenplan", "Stundenplan " . $klassen[$i], "fa fa-table", ['grade' => $klassen[$i]]);
+            if (DB::getSession()->isPupil()) {
+                $klassen = $currentStundenplan->getAllMyPossibleGrades(DB::getSession()->getSchuelerObject()->getKlasse());
+                for ($i = 0; $i < sizeof($klassen); $i++) {
+                    $html .= $this->getMenuItem("stundenplan", "Stundenplan " . $klassen[$i], "fa fa-table", ['grade' => $klassen[$i]]);
+                }
             }
         }
 
@@ -494,7 +493,7 @@ class menu extends AbstractMenu
 
             if ($this->isActive("schuelerinfo") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen"))) $html .= $this->getMenuItem("schuelerinfo", "Schülerinformationen", "fa fa-info");
             if ($this->isActive("klassenlisten") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen"))) $html .= $this->getMenuItem("klassenlisten", "Klassenlisten", "fa fa-list");
-            if ($this->isActive("ganztags") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen"))) $html .= $this->getMenuItem("ganztags", "Ganztags", "fa fa-list");
+            //if ($this->isActive("ganztags") && (DB::getSession()->isTeacher() || DB::getSession()->isAdmin() || DB::getSession()->isMember("Schuelerinfo_Sehen"))) $html .= $this->getMenuItem("ganztags", "Ganztags", "fa fa-list");
             if (DB::getSession()->isAdmin() || DB::getSession()->isMember('Webportal_Elternmail')) $html .= $this->getMenuItem("AngemeldeteEltern", "Angemeldete Eltern", "fa fa-list");
 
             $html .= $this->endDropDown();
@@ -965,7 +964,9 @@ class menu extends AbstractMenu
 
         $this->html .= $this->endDropDown();
 
-        $this->html .= $this->getMenuItem('MessageInbox', "Nachrichten", "fa fa-envelope");
+        if ( !DB::getSettings()->getValue("extInbox-global-messageSystem") ) {
+            $this->html .= $this->getMenuItem('MessageInbox', "Nachrichten", "fa fa-envelope");
+        }
 
         $this->html .= $this->getDBMenuItems(5);
     }

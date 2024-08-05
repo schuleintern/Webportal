@@ -1,11 +1,4 @@
 <?php
-ini_set('display_errors', false);
-error_reporting(0);
-
-if ( version_compare(phpversion(), '8.0.0') < 1 ) {
-    die('PHP 8.x is necessary');
-}
-
 
 /**
  *
@@ -24,6 +17,10 @@ if ( version_compare(phpversion(), '8.0.0') < 1 ) {
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  */
+
+if ( version_compare(phpversion(), '8.0.0') < 1 ) {
+    die('PHP 8.x is necessary');
+}
 
 $wartungsmodus = file_get_contents("../data/wartungsmodus/status.dat");
 
@@ -53,6 +50,9 @@ include('./startup.php');
 
 include("../framework/lib/system/errorhandler.php");
 set_error_handler('schuleinternerrorhandler',E_ALL);
+
+ini_set('display_errors', false);
+error_reporting(0);
 
 if (DB::isDebug()) {
     ini_set('display_errors', true);

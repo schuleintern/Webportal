@@ -1,11 +1,11 @@
 <?php
 
 class getKalenders extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request) {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -73,7 +73,7 @@ class getKalenders extends AbstractRest {
             }
         }
         return $ret;
-	}
+    }
 
     function getGroupACL($groups,$userType) {
 
@@ -95,24 +95,29 @@ class getKalenders extends AbstractRest {
         return false;
     }
 
-	/**
-	 * Set Allowed Request Method
-	 * (GET, POST, ...)
-	 * 
-	 * @return String
-	 */
-	public function getAllowedMethod() {
-		return 'GET';
-	}
+    /**
+     * Set Allowed Request Method
+     * (GET, POST, ...)
+     *
+     * @return String
+     */
+    public function getAllowedMethod() {
+        return 'GET';
+    }
 
 
+
+
+    public function needsAppAuth() {
+        return true;
+    }
     /**
      * Muss der Benutzer eingeloggt sein?
      * Ist Eine Session vorhanden
      * @return Boolean
      */
     public function needsUserAuth() {
-        return true;
+        return false;
     }
 
     /**
@@ -133,6 +138,6 @@ class getKalenders extends AbstractRest {
         return false;
     }
 
-}	
+}
 
 ?>

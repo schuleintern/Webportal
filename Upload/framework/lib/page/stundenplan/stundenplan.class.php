@@ -1199,7 +1199,7 @@ class stundenplan extends AbstractPage {
   }
 
   public static function getAdminMenuGroup() {
-    return 'Stundenplan';
+    return 'Stundenplan (deprecated!)';
   }
 
   public static function getAdminGroup() {

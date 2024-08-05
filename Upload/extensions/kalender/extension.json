@@ -2,18 +2,14 @@
   "name": "Kalender",
   "uniqid": "ext.zwiebelgasse.kalender",
   "version": "17",
-
-  "requiredVersion": "1.7.3",
-
+  "requiredVersion": "1.7.4",
   "menu": {
     "categorie": "1",
     "icon": "fa fa-calendar",
     "params": ""
   },
-
   "adminGroupName": "Admin_Ext_Kalender",
   "aclGroupName": "ext_kalender",
-
   "cron": [
     {
       "typ": "default",
@@ -24,8 +20,15 @@
       "class": "extKalenderCronFetchICS"
     }
   ],
-
   "widgets": [
+
+    {
+      "title": "Vorschläge",
+      "uniqid": "kalender.suggest",
+      "position": "header",
+      "class": "extKalenderWidgetSuggest",
+      "params": {}
+    },
     {
       "title": "Counter",
       "uniqid": "kalender.counter",
@@ -43,7 +46,6 @@
       }
     }
   ],
-
   "submenu": [
     {
       "title": "Kalender",
@@ -66,8 +68,6 @@
         }
       }
     },
-
-
     {
       "title": "Einstellungen",
       "icon": "fa fa-cogs",
@@ -128,9 +128,5 @@
         }
       }
     }
-    
   ]
-
-
-
 }

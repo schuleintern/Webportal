@@ -35,6 +35,35 @@ class administration extends AbstractPage {
             $html .= '<ul>'.$item['html'].'</ul>';
         }
 
+        $countExtUpdate = 0;
+        $extensionsServer = DB::getGlobalSettings()->extensionsServer;
+        $arrContextOptions=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        );
+        $extStore = json_decode(file_get_contents($extensionsServer."extensions.json?task=checkVersion", false, stream_context_create($arrContextOptions)));
+        $result = DB::getDB()->query('SELECT `name`,`active`,`uniqid`,`version`,`folder` FROM `extensions` ');
+        while($row = DB::getDB()->fetch_array($result)) {
+            if (AdminExtensions::checkUpdate($extStore, $row)) {
+                $countExtUpdate++;
+            }
+        }
+
+
+        $updateSys = false;
+        $releaseID = DB::getSettings()->getValue("current-release-id");
+        $updateserver = DB::getGlobalSettings()->updateServer;
+        $schulnummern = implode('-',DB::getSchulnummern());
+        $versionInfo = json_decode(file_get_contents($updateserver . "/api/release/" . $releaseID . "/" . $schulnummern), true);
+        if ($versionInfo['id'] > 0) {
+            if ($versionInfo['nextVersionID'] > 0) {
+                $updateSys = true;
+            }
+        }
+
+
 		eval("echo(\"" . DB::getTPL()->get("administration/index") . "\");");
 	}
 	

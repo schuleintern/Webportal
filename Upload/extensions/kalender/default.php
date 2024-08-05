@@ -39,7 +39,8 @@ class extKalenderDefault extends AbstractPage {
                 "apiURL" => "rest.php/kalender",
                 "acl" => $acl['rights'],
                 "suggest" => $suggest,
-                "ics" => $ics
+                "ics" => $ics,
+                "apiKey" => DB::getGlobalSettings()->apiKey
             ],
             "dropdown" => [
                 [

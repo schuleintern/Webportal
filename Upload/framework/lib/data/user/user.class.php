@@ -168,7 +168,7 @@ class user {
     return '';
   }
 
-  public function getCollection($full = false, $avatar = false, $username = false) {
+  public function getCollection($full = false, $avatar = false, $username = false, $email = false) {
       $collection = [
           "id" => $this->getUserID(),
           "vorname" => $this->getFirstName(),
@@ -176,6 +176,9 @@ class user {
           "name" => $this->getDisplayName(),
           "type" => $this->getUserTyp(true)
       ];
+      if ($email == true) {
+          $collection["email"] = $this->getEMail();
+      }
       if ($avatar == true) {
           $collection["avatar"] = $this->getAvatar();
           $collection["avatarURL"] = URL_ROOT.substr($collection["avatar"],1);
@@ -555,10 +558,10 @@ class user {
     return null;
   }
 
-    public static function getCollectionByID($userID, $full = false, $avatar = false) {
+    public static function getCollectionByID($userID, $full = false, $avatar = false, $username = false, $email = false) {
         $user = User::getUserByID($userID);
         if ($user) {
-            $ucoll = $user->getCollection($full, $avatar);
+            $ucoll = $user->getCollection($full, $avatar, $username, $email);
             if ($ucoll) {
                 return $ucoll;
             }

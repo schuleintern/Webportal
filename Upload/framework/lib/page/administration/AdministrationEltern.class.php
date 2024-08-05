@@ -179,7 +179,7 @@ class AdministrationEltern extends AbstractPage {
                 break;
 
 			case 'addUserAsAdmin':
-				if(DB::getGlobalSettings()->schulnummer == "9400" && DB::getUserID() != 1) {
+				if(DB::isSchulnummern(9400) && DB::getUserID() != 1) {
 					new errorPage("In der Demo Version ist keine Änderung der Gruppen möglich!");
 				}
 								
@@ -195,7 +195,7 @@ class AdministrationEltern extends AbstractPage {
 				
 			case 'deleteUserAsAdmin':
 				
-				if(DB::getGlobalSettings()->schulnummer == "9400" && DB::getUserID() != 1) {
+				if(DB::isSchulnummern(9400) && DB::getUserID() != 1) {
 					new errorPage("In der Demo Version ist keine Änderung der Gruppen möglich!");
 				}
 				
@@ -211,7 +211,7 @@ class AdministrationEltern extends AbstractPage {
 				break;
 			
 			case 'resetPassword':
-				if(DB::getGlobalSettings()->schulnummer == "9400") {
+				if(DB::isSchulnummern(9400)) {
 					new errorPage("In der Demo Version ist keine Passwort Änderung möglich!");
 				}
 				
@@ -347,7 +347,7 @@ class AdministrationEltern extends AbstractPage {
 	
 	
 	public static function getSiteDisplayName() {
-		return 'Elternbenutzer';
+		return 'Elternbenutzer (deprecated!)';
 	}
 	
 	/**

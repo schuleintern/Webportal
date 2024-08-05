@@ -1,11 +1,14 @@
 <?php
 
-class setMessageFolder extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+class setMessageFolder extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +20,7 @@ class setMessageFolder extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,14 +28,14 @@ class setMessageFolder extends AbstractRest {
         }
 
         $message_id = (int)$input['mid'];
-        if ( !$message_id ) {
+        if (!$message_id) {
             return [
                 'error' => true,
                 'msg' => 'Missing MID'
             ];
         }
         $folder_id = (int)$input['fid'];
-        if ( !$folder_id ) {
+        if (!$folder_id) {
             return [
                 'error' => true,
                 'msg' => 'Missing FID'
@@ -60,7 +63,7 @@ class setMessageFolder extends AbstractRest {
 
         include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
         $Inbox = new extInboxModelInbox2();
-        if ( !$Inbox->isInboxFromUser($tmp_data->getData('inbox_id'), $userID) ) {
+        if (!$Inbox->isInboxFromUser($tmp_data->getData('inbox_id'), $userID)) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff auf das Postfach'
@@ -68,7 +71,7 @@ class setMessageFolder extends AbstractRest {
         }
 
 
-        if ( !$tmp_data->moveToFolderID($folder_id) ) {
+        if (!$tmp_data->moveToFolderID($folder_id)) {
             return [
                 'error' => true,
                 'msg' => 'Nachricht konnte nicht verschoben werden'
@@ -76,12 +79,11 @@ class setMessageFolder extends AbstractRest {
         }
 
 
-
         return [
             'done' => true
         ];
 
-	}
+    }
 
 
     /**
@@ -90,7 +92,8 @@ class setMessageFolder extends AbstractRest {
      *
      * @return String
      */
-    public function getAllowedMethod() {
+    public function getAllowedMethod()
+    {
         return 'POST';
     }
 
@@ -100,7 +103,8 @@ class setMessageFolder extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -113,12 +117,14 @@ class setMessageFolder extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 

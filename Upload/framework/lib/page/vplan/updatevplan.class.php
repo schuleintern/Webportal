@@ -612,7 +612,7 @@ class updatevplan extends AbstractPage {
     }
     
     public static function getAdminMenuGroup() {
-        return 'Vertretungsplan';
+        return 'Vertretungsplan (deprecated!)';
     }
     
     

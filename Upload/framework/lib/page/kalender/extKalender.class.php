@@ -114,7 +114,7 @@ class extKalender extends AbstractKalenderPage {
 	
 	
 	public static function getSiteDisplayName(){
-		return "Externe Kalender (iCAL/Office365)";
+		return "Externe Kalender (iCAL/Office365) (deprecated!)";
 	}
 	
 	/**

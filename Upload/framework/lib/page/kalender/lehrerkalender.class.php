@@ -68,7 +68,7 @@ class lehrerkalender extends AbstractKalenderPage {
 	
 	
 	public static function getSiteDisplayName(){
-		return "Lehrerkalender";
+		return "Lehrerkalender (deprecated!)";
 	}
 	
 	/**

@@ -20,7 +20,7 @@ class extBoardBoards extends AbstractPage {
 
         include_once PATH_EXTENSION . 'models' . DS . 'Category.class.php';
         $class = new extBoardModelCategory();
-        $tmp_data = $class->getAllAllowed();
+        $tmp_data = $class->getAllAllowed($this->getAdminGroup());
         foreach($tmp_data as $item) {
             //$data = $item->getCollection(true);
 
@@ -52,7 +52,7 @@ class extBoardBoards extends AbstractPage {
 
         include_once PATH_EXTENSION . 'models' . DS . 'Category.class.php';
         $class = new extBoardModelCategory();
-        $tmp_data = $class->getAllAllowed();
+        $tmp_data = $class->getAllAllowed($this->getAdminGroup());
         $cats = [];
         foreach($tmp_data as $item) {
             $cats[] = $item->getCollection(true);

@@ -298,7 +298,7 @@ class administrationimportmgsd2 extends AbstractPage {
 	
 	
 	public static function getSiteDisplayName() {
-		return 'MGSD2 Import';
+		return 'MGSD2 Import (deprecated!)';
 	}
 	
 	/**

@@ -275,7 +275,7 @@ class schuelerinfo extends AbstractPage {
 
     if($attachmentUpload['result']) $attachment = $attachmentUpload['uploadobject'];
 
-    $informTeacher = $_REQUEST['informTeacher'] > 0;
+
     $addOtherK1 = $_REQUEST['addk1forother'] > 0;
 
     SchuelerQuarantaene::addForSchueler($schueler, $startDate, $endDate, $type, $_REQUEST['comment'], $attachment);
@@ -307,24 +307,49 @@ class schuelerinfo extends AbstractPage {
 
     $infoTable .= "</table>";
 
+    $informTeacher = $_REQUEST['informTeacher'] > 0;
     if($informTeacher) {
-      $messageSender = new MessageSender();
-      $messageRecipientHandler = new RecipientHandler("");
-      $messageRecipientHandler->addRecipient(new KlassenteamRecipient($schueler->getKlasse()));
-      $messageSender->setRecipients($messageRecipientHandler);
-      $messageSender->setSender(user::getSystemUser());
-      $messageSender->dontAllowAnswer();
-      $messageSender->setConfidential();  // Vertraulich
 
-      if($type == 'I') $messageSender->setSubject("Neuer Isolationsfall in Klasse " . $schueler->getKlasse());
-      else $messageSender->setSubject("Neuer Quarantänefall in Klasse " . $schueler->getKlasse());
-
-      $text = "<p>In der Klasse " . $schueler->getKlasse() . "gibt es folgende neue Quaratänefalle:</p>";
+      if($type == 'I') {
+        $subject = "Neuer Isolationsfall in Klasse " . $schueler->getKlasse();
+      } else {
+        $subject = "Neuer Quarantänefall in Klasse " . $schueler->getKlasse();
+      }
+      $text = "<p>In der Klasse " . $schueler->getKlasse() . " gibt es folgende neue Quaratänefalle:</p>";
       $text .= $infoTable;
 
-      $messageSender->setText($text);
 
-      $messageSender->send();
+
+      FACTORY::sendMessage([
+          "receiver_leader_klasse" => $schueler->getKlasse(),
+          "sender_id" => false,
+          "noAnswer" => true,
+          "isPrivat" => true,
+          "subject" => $subject,
+          "text" => $text
+      ]);
+
+      /*
+        $messageSender = new MessageSender();
+        $messageRecipientHandler = new RecipientHandler("");
+        $messageRecipientHandler->addRecipient(new KlassenteamRecipient($schueler->getKlasse()));
+        $messageSender->setRecipients($messageRecipientHandler);
+        $messageSender->setSender(user::getSystemUser());
+
+        $messageSender->dontAllowAnswer();
+        $messageSender->setConfidential();  // Vertraulich
+        if($type == 'I') {
+          $messageSender->setSubject("Neuer Isolationsfall in Klasse " . $schueler->getKlasse());
+        } else {
+          $messageSender->setSubject("Neuer Quarantänefall in Klasse " . $schueler->getKlasse());
+        }
+        $text = "<p>In der Klasse " . $schueler->getKlasse() . "gibt es folgende neue Quaratänefalle:</p>";
+        $text .= $infoTable;
+        $messageSender->setText($text);
+
+        $messageSender->send();
+        */
+
     }
 
     header("Location: index.php?page=schuelerinfo&mode=schueler&schuelerAsvID=" . $schueler->getAsvID() . "&openQuarantaene=1");
@@ -1049,9 +1074,10 @@ class schuelerinfo extends AbstractPage {
 
 
     // Ausgetreten?`
-
-    if($schueler->isAusgetreten()) $austrittInfo .= "<label class=\"label label-danger\">Ausgetreten zum " . DateFunctions::getNaturalDateFromMySQLDate($schueler->getAustrittDatumAsMySQLDate()) . "</label> ";
-    else $austrittInfo = "";
+    $austrittInfo = "";
+    if($schueler->isAusgetreten()) {
+      $austrittInfo = "<label class=\"label label-danger\">Ausgetreten zum " . DateFunctions::getNaturalDateFromMySQLDate($schueler->getAustrittDatumAsMySQLDate()) . "</label> ";
+    }
 
     // Nachteilsausgleich
 

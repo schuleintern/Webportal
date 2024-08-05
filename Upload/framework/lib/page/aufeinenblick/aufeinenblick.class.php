@@ -22,6 +22,12 @@ class aufeinenblick extends AbstractPage {
 
     $this->checkLogin();
 
+    $stundenplanACL = stundenplan::userHasAccess(DB::getSession()->getUser());
+    $stundenplanURL = 'index.php?page=stundenplan';
+    if (DB::getSettings()->getBoolean('ext-stundenplan-global')) {
+      $stundenplanURL = 'index.php?page=ext_stundenplan';
+    }
+
     if ( $_REQUEST['action'] == '' ) {
 
         if(!DB::getSession()->isTeacher() && !DB::getSession()->isPupil() && !DB::getSession()->isEltern()) {
@@ -173,6 +179,11 @@ class aufeinenblick extends AbstractPage {
     //TODO: wirft ein fehler | from chris apr 2021
     //Stundenplan::getCurrentStunde();
 
+    $stundenplanACL = stundenplan::userHasAccess(DB::getSession()->getUser());
+    $stundenplanURL = 'index.php?page=stundenplan';
+    if (DB::getSettings()->getBoolean('ext-stundenplan-global')) {
+      $stundenplanURL = 'index.php?page=ext_stundenplan';
+    }
 
 
     // Stundenplan heute laden

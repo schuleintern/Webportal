@@ -70,7 +70,7 @@ class terminuebersicht extends AbstractPage {
   }
   
   public static function getSiteDisplayName(){
-    return "Terminübersicht";
+    return "Terminübersicht (deprecated!)";
   }
 
   /**

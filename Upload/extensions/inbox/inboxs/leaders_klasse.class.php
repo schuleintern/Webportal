@@ -65,7 +65,10 @@ class extInboxRecipientLeadersKlasse
 
 
         }
-        return $ret;
+        return [
+            "title" => 'Klassenleitung '.$content,
+            "data" => $ret
+        ];
 
     }
 

@@ -32,7 +32,7 @@
         <p>Bei <expression>DB::getGlobalSettings()->siteNameHTMLDisplay</expression> als Eltern registrieren.</p>
         <p>Geben Sie bitte Ihren Namen, Ihre E-Mailadresse, den Registrierungscode aus dem Elternbrief und ein von Ihnen gewähltes Passwort (zweimal) ein.</p>
 
- 		<if(DB::getGlobalSettings()->schulnummer=="9400")><then>
+ 		<if(!DB::checkDemoAccess()><then>
  			<div class="callout callout-info">In der Demoversion wird die Registrierung sofort aktiv. Sie müssen keine echte E-Mailadresse eingeben. Bitte merken Sie sich die Zugangsdaten oder registrieren Sie sich später erneut für einen Account.</div>
  		</then>
  		<else>

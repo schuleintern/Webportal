@@ -469,7 +469,7 @@ class MessageSender{
 	            $this->sentMessages++;
 
                 // TODO: PUSH
-                PUSH::send( $users[$u] );
+                PUSH::send( $users[$u], 'Schule-Intern','Neue Nachricht' );
 
 	        }
 	        

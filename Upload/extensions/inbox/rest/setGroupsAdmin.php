@@ -1,5 +1,6 @@
 <?php
 
+
 class setGroupsAdmin extends AbstractRest
 {
 
@@ -11,7 +12,7 @@ class setGroupsAdmin extends AbstractRest
 
         //$user = DB::getSession()->getUser();
         $acl = $this->getAcl();
-        if ( !$this->canAdmin() ) {
+        if (!$this->canAdmin()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -21,7 +22,7 @@ class setGroupsAdmin extends AbstractRest
         $id = (int)$input['id'];
 
         $title = (string)$input['title'];
-        if ( !$title || $title == 'undefined' ) {
+        if (!$title || $title == 'undefined') {
             return [
                 'error' => true,
                 'msg' => 'Missing Data'
@@ -34,14 +35,15 @@ class setGroupsAdmin extends AbstractRest
         $class = new extInboxModelInbox2();
 
 
-        if ( $db = $class->save([
+        if ($db = $class->save([
             'id' => $id,
             'title' => $title,
             'type' => 'group'
-        ]) ) {
+        ])) {
 
-            if (!$id) {
-                $id = $db->lastID();
+
+            if (!$id && $db->lastID) {
+                $id = $db->lastID;
             }
             $childs = (string)$_POST['childs'];
             if ($childs) {

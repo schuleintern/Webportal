@@ -307,12 +307,15 @@ class absenzenberichte extends AbstractPage {
 	}
 	
 	private function notenmanagerExport() {
+
+        $schulnummern = DB::getSchulnummern(true);
+
 		if($this->isSekretariat) {
 			$klassen = klasse::getAllKlassen();
 			
 			$xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n";
 			$xml .= "<nm_fehltage_interface version=\"1.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n";
-			$xml .= "<schulnummer>" . DB::getGlobalSettings()->schulnummer . "</schulnummer>\r\n";
+			$xml .= "<schulnummer>" . $schulnummern . "</schulnummer>\r\n";
 			
 			// Fix für den Notenmanager, da dieser das Schuljahr leider falsch prüft
 			$schuljahr = DB::getSettings()->getValue("general-schuljahr");

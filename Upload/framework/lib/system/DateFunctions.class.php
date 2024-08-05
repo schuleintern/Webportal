@@ -187,6 +187,14 @@ class DateFunctions {
 
 		return $data[2] . "." . $data[1] . "." . $data[0];
 	}
+
+    public static function getNaturalDateTimeFromMySQLDate($date) {
+        $data = explode(" ",$date);
+        $date = explode("-",$data[0]);
+        $time = explode(":",$data[1]);
+        return $date[2] . "." . $date[1] . "." . $date[0]. " - " . $time[0]. ":" . $time[1];
+    }
+
 	public static function getNaturalDateFromMySQLDateShort($date) {
 		$data = explode("-",$date);
 

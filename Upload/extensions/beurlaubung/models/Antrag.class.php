@@ -155,7 +155,7 @@ class extBeurlaubungModelAntrag
         $collection = [
             "id" => $this->getID(),
             "status" => $this->getStatus(),
-            "createdTime" => date('d.m.Y', $this->getCreatedTime()),
+            "createdTime" => date('d.m.Y H:i', $this->getCreatedTime()),
             "createdUserID" => $this->getCreatedUserID(),
             "userID" => $this->getUserID(),
             "datumStart" => $dateStart->format('d.m.Y' ),

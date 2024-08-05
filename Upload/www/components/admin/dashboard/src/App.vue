@@ -33,7 +33,7 @@
         <h4 class=""><i class="fa fa-th"></i> {{item.title}}</h4>
 
         <label>Sichtbar:</label>
-        <div class="si-btn-multiple">
+        <div class="si-btn-multiple" v-if="item.access">
           <button v-if="item.access.admin == 1" class="si-btn si-btn-off si-btn-small " > Admin</button>
           <button v-if="item.access.adminGroup == 1" class="si-btn si-btn-off si-btn-small " > Moduladmin</button>
           <button v-if="item.access.teacher == 1" class="si-btn si-btn-off si-btn-small " > Lehrer</button>

@@ -20,7 +20,7 @@ class ElternMailReceiver extends AbstractCron {
 	
 	public function execute() {
 
-		if(DB::getGlobalSettings()->schulnummer != "9400") {
+		if(!DB::isSchulnummern(9400)) {
 
 		    $mb = imap_open("{" . DB::getSettings()->getValue('mail-server') . ":143/imap}INBOX",DB::getSettings()->getValue('mail-server-username'), DB::getSettings()->getValue('mail-server-password') );
 

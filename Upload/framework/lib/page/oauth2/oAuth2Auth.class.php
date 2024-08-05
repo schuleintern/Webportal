@@ -136,7 +136,7 @@ class oAuth2Auth extends AbstractPage {
     }
 
     public static function getSiteDisplayName() {
-        return 'Office 365 Single Sign On';
+        return 'Office 365 Single Sign On (deprecated!)';
     }
 
     public static function siteIsAlwaysActive() {

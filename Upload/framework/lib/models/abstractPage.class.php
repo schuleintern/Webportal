@@ -382,10 +382,8 @@ abstract class AbstractPage
                 $result = DB::getDB()->query('SELECT * FROM `widgets` WHERE position = "header" ');
                 while ($row = DB::getDB()->fetch_array($result, true)) {
 
-
                     $access = false;
                     $do = true;
-
 
                     $ext = explode('.', (string)$row['uniqid']);
                     if ($ext[0] && $ext[1] && is_dir(PATH_EXTENSIONS . $ext[0])) {
@@ -435,15 +433,17 @@ abstract class AbstractPage
 
                         if ($do == true && $json['widgets']) {
                             foreach ($json['widgets'] as $widget) {
-                                if ($widget->class) {
-                                    $widgetPath = PATH_EXTENSIONS . $ext[0] . DS . 'widgets' . DS . $ext[1] . DS . 'widget.php';
+
+                                if ($widget->uniqid == $row['uniqid']) {
+                                    $ext2 = explode('.', (string)$widget->uniqid);
+                                    $widgetPath = PATH_EXTENSIONS . $ext2[0] . DS . 'widgets' . DS . $ext2[1] . DS . 'widget.php';
                                     if (file_exists($widgetPath)) {
                                         if ($widget->class) {
                                             if (include_once($widgetPath)) {
                                                 $widgetClass = new $widget->class([
-                                                    "path" => PATH_EXTENSIONS . $ext[0]
+                                                    "path" => PATH_EXTENSIONS . $ext2[0]
                                                 ]);
-                                                if (method_exists($widgetClass, 'globals')) {
+                                                if ($widgetClass && method_exists($widgetClass, 'globals')) {
                                                     $HTML_widgets[]  = '<script>'.$widgetClass->globals().'</script>';
                                                 }
                                                 if ($widgetClass && method_exists($widgetClass, 'render')) {
@@ -845,8 +845,10 @@ abstract class AbstractPage
      */
     public static function isActive($name)
     {
-
-        if ($name::siteIsAlwaysActive()) {
+        if (!$name || !is_object($name) || !method_exists($name, 'siteIsAlwaysActive')) {
+            //return false;
+        }
+        if ( $name::siteIsAlwaysActive()) {
             return true;
         }
         if (sizeof(self::$activePages) == 0) {
@@ -864,9 +866,13 @@ abstract class AbstractPage
             }
         }
         if (sizeof($name::onlyForSchool()) > 0) {
-            if (!in_array(DB::getGlobalSettings()->schulnummer, $name::onlyForSchool())) {
-                return false;
+            $schulnummern = DB::getSchulnummern();
+            foreach ($schulnummern as $schulnummer) {
+                if (!in_array($schulnummer, $name::onlyForSchool())) {
+                    return false;
+                }
             }
+
         }
         return in_array($name, self::$activePages);
     }

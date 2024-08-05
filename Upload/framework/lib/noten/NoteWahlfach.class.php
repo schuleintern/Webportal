@@ -42,7 +42,11 @@ class NoteWahlfach {
     public function getUnterricht() {
         return $this->unterricht;
     }
-    
+
+    public function getTextZeugnis() {
+        return $this->data['textZeugnis'];
+    }
+
     /**
      * 
      * @return NoteWahlfachNote[]
@@ -141,20 +145,22 @@ class NoteWahlfach {
      * @param SchuelerUnterricht $unterricht
      * @param NoteZeugnis $zeugnis
      */
-    public static function addUnterrichtAsWahlfachForZeugnis($unterricht, $zeugnis, $bezeichnung) {
+    public static function addUnterrichtAsWahlfachForZeugnis($unterricht, $zeugnis, $bezeichnung, $text) {
         DB::getDB()->query("INSERT INTO noten_wahlfach_faecher
             (
                 zeugnisID,
                 fachKurzform,
                 fachUnterrichtName,
-                wahlfachBezeichnung
+                wahlfachBezeichnung,
+                textZeugnis
             )
             values 
             (
                 '" . DB::getDB()->escapeString($zeugnis->getID()) . "',
                 '" . DB::getDB()->escapeString($unterricht->getFach()->getKurzform()) . "',
                 '" . DB::getDB()->escapeString($unterricht->getBezeichnung()) . "',
-                '" . DB::getDB()->escapeString($bezeichnung) . "'
+                '" . DB::getDB()->escapeString($bezeichnung) . "',
+                '" . DB::getDB()->escapeString($text) . "'
             )
         ");
     }

@@ -9,15 +9,9 @@
             <div class="box-body">
             <p>
                 <a href="index.php?page=administrationmodule&module=AdminInfo" class="btn btn-app"><i class="fa fa-check"></i> Info / Statistik</a>
-                <a href="index.php?page=administrationmodule&module=administrationusers" class="btn btn-app" ><i class="fa fa-users"></i> Benutzer</a>
-                <a href="index.php?page=administrationmodule&module=administrationasvimport" class="btn btn-app" ><i class="fa fa-cogs"></i> ASV Import</a>
-
                 <a href="index.php?page=administrationmodule&module=AdminMenu" class="btn btn-app" ><i class="fa fa-bars"></i> Menü</a>
-
-                <a href="index.php?page=administrationmodule&module=AdminExtensions" class="btn btn-app" ><i class="fa fa-plug"></i> Erweiterungen</a>
-
-                <a href="index.php?page=administrationmodule&module=AdminUpdate" class="btn btn-app" ><i class="fa fa-download"></i> Update</a>
-
+                <a href="index.php?page=administrationmodule&module=AdminExtensions" class="btn btn-app" ><i class="fa fa-plug"></i> <if($countExtUpdate>0)><then><span class="label bg-red">$countExtUpdate</span> </then></if>Erweiterungen</a>
+                <a href="index.php?page=administrationmodule&module=AdminUpdate" class="btn btn-app" ><i class="fa fa-download"></i> <if($updateSys)><then><span class="label bg-red">1</span> </then></if>Update</a>
             </p>
             </div>
         </div>

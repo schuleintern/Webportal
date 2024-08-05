@@ -21,16 +21,14 @@ class getMyBoards extends AbstractRest
             ];
         }
 
-
-
         include_once PATH_EXTENSION . 'models' . DS . 'Board.class.php';
 
         $class = new extBoardModelBoard();
-        $tmp_data = $class->getByState([1]);
+        $tmp_data = $class->getByState([1], 'sort');
 
         $ret = [];
         foreach($tmp_data as $item) {
-            $collection = $item->getCollection(true, true, true);
+            $collection = $item->getCollection(true, true, true, $this->getAdminGroup() );
             if ($collection) {
                 $ret[] = $collection;
             }

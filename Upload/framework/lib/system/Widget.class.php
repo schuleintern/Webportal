@@ -18,6 +18,9 @@ class Widget
         if ($data) {
             $this->data = $data;
         }
+        if (file_exists(PATH_LIB . 'models' . DS . 'extensionsModel.class.php')) {
+            include_once(PATH_LIB . 'models' . DS . 'extensionsModel.class.php');
+        }
     }
 
     public function getData()

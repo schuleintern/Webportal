@@ -26,8 +26,14 @@ class NotenFremdsprachenNiveaustufen {
             if($this->checkFach("Sp", $zeugnisnoten)) $kompetenzen[] = "Spanisch: B1, Leseverstehen B1+";
         }
 
+        if($jgs == 11) {
+            if($this->checkFach("E", $zeugnisnoten)) $kompetenzen[] = "Englisch: B1+/B2";
+            if($this->checkFach("F", $zeugnisnoten)) $kompetenzen[] = "Französisch: B1+";
+            if($this->checkFach("Sp", $zeugnisnoten)) $kompetenzen[] = "Spanisch: B1+";
+        }
+
         if(sizeof($kompetenzen) > 0) {
-            $this->text = "Dieses Zeugnis schließt Kompetenzen entsprechend dem Gemeinsamen Europäischen Referenzrahmen für Sprachen auf folgenden Niveaustufen ein: ";
+            $this->text = " Dieses Zeugnis schließt Kompetenzen entsprechend dem Gemeinsamen Europäischen Referenzrahmen für Sprachen auf folgenden Niveaustufen ein: ";
 
             for($i = 0; $i < sizeof($kompetenzen); $i++) {
                 $this->text .= $kompetenzen[$i] .  (($i < (sizeof($kompetenzen)-1)) ? "; " : "");

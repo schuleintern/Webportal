@@ -11,6 +11,11 @@ use Minishlink\WebPush\WebPush;
 class PUSH
 {
 
+    public static function active()
+    {
+        return DB::getSettings()->getValue('global-push-active') > 0;
+    }
+
 
     public static function subscribe($sub, $uid)
     {
@@ -29,14 +34,16 @@ class PUSH
      *
      */
 
-    public static function send($user_id)
+    public static function send($user_id, $title = 'Schule-Intern', $body = 'Push-Nachricht')
     {
 
-        if (DB::getSettings()->getBoolean('global-push-active') != true) {
+        if ( !$user_id && !PUSH::active()) {
             return false;
         }
 
-        $userSub = DB::getDB()->query_first("SELECT userPush FROM users WHERE userID='" . (int)$user_id . "'");
+
+        $userSub = DB::run("SELECT userPush FROM users WHERE userID=".(int)$user_id)->fetch();
+
 
         if ($userSub && $userSub['userPush']) {
             $arr = json_decode($userSub['userPush'], true);
@@ -60,20 +67,21 @@ class PUSH
 
                     // (D) SEND TEST PUSH NOTIFICATION
                     $result = $push->sendOneNotification($sub, json_encode([
-                        "title" => "Schule-Intern",
-                        "body" => "Neue Nachricht",
+                        "title" => $title,
+                        "body" => $body,
                         "icon" => "i-loud.png",
                         "image" => "i-zap.png"
                     ]));
                     $endpoint = $result->getRequest()->getUri()->__toString();
+
 
                     // (E) SHOW RESULT - OPTIONAL
                     if ($result->isSuccess()) {
                         //echo "Successfully sent {$endpoint}.";
                         return true;
                     } else {
-                        return false;
                         //echo "Send failed {$endpoint}: {$result->getReason()}";
+                        return false;
                         // $result->getRequest();
                         // $result->getResponse();
                         // $result->isSubscriptionExpired();

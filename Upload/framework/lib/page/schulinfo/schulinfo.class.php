@@ -373,6 +373,7 @@ class schulinfo extends AbstractPage {
 			$lehrerHTML .= "<option value=\"anwesendVZ\"" . ((DB::getSettings()->getValue("schulinfo-status-lehrer-" . $alleLehrer[$i]->getAsvID()) == "anwesendVZ") ? " selected=\"seletected\"" : "") . ">Anwesend (Vollzeit)</option>";
 			$lehrerHTML .= "<option value=\"anwesendTZ\"" . ((DB::getSettings()->getValue("schulinfo-status-lehrer-" . $alleLehrer[$i]->getAsvID()) == "anwesendTZ") ? " selected=\"seletected\"" : "") . ">Anwesend (Teilzeit)</option>";
 			$lehrerHTML .= "<option value=\"abwesend\"" . ((DB::getSettings()->getValue("schulinfo-status-lehrer-" . $alleLehrer[$i]->getAsvID()) == "abwesend") ? " selected=\"seletected\"" : "") . ">Temporär abwesend (z.B. Elternzeit, Sabbatjahr)</option>";
+			$lehrerHTML .= "<option value=\"abwesendActive\"" . ((DB::getSettings()->getValue("schulinfo-status-lehrer-" . $alleLehrer[$i]->getAsvID()) == "abwesendActive") ? " selected=\"seletected\"" : "") . ">Temporär abwesend aber aktive Benutzer*in</option>";
 			$lehrerHTML .= "<option value=\"keinlehrer\"" . ((DB::getSettings()->getValue("schulinfo-status-lehrer-" . $alleLehrer[$i]->getAsvID()) == "keinlehrer") ? " selected=\"seletected\"" : "") . ">Nicht mehr an der Schule</option>";
 
 			$lehrerHTML .= "</select></td></tr>";

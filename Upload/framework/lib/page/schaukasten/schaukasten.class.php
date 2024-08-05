@@ -96,7 +96,7 @@ class schaukasten extends AbstractPage {
 	}
 	
 	public static function getAdminMenuGroup() {
-		return 'Vertretungsplan';
+		return 'Vertretungsplan (deprecated!)';
 	}
 	
 	public static function getAdminMenuGroupIcon() {

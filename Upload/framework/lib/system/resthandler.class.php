@@ -173,7 +173,7 @@ class resthandler
             
 
             // APP API Auth
-            if ($action->needsAppAuth()) {
+            if (!$do && $action->needsAppAuth()) {
 
                 $appKey = false;
                 $appSession = false;

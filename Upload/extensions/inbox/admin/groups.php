@@ -5,7 +5,7 @@
 class extInboxAdminGroups extends AbstractPage {
 	
 	public static function getSiteDisplayName() {
-		return '<i class="fas fa-user-shield"></i> Inbox - Gruppen';
+		return '<i class="fas fa-user-shield"></i> Inbox - Postfach';
 	}
 
 	public function __construct($request = [], $extension = []) {

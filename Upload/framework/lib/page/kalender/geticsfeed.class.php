@@ -416,7 +416,7 @@ class geticsfeed extends AbstractPage {
 
 
     public static function getSiteDisplayName() {
-        return 'ICS Feeds';
+        return 'ICS Feeds (deprecated!)';
     }
 
     public static function siteIsAlwaysActive() {

@@ -23,7 +23,7 @@
         <th v-on:click="handlerSort('username')" class="curser-sort" :class="{'text-orange': sort.column == 'username'}">Benutzername</th>
         <th v-on:click="handlerSort('type')" class="curser-sort" :class="{'text-orange': sort.column == 'type'}">Type</th>
         <th v-on:click="handlerSort('klasse')" class="curser-sort" :class="{'text-orange': sort.column == 'klasse'}">Klasse</th>
-        <th v-on:click="handlerSort('klasse')" class="curser-sort" :class="{'text-orange': sort.column == 'klasse'}">Klasse</th>
+        <th v-on:click="handlerSort('email')" class="curser-sort" :class="{'text-orange': sort.column == 'email'}">Email</th>
         <th v-on:click="handlerSort('id')" class="curser-sort" :class="{'text-orange': sort.column == 'id'}">ID</th>
       </tr>
       </thead>

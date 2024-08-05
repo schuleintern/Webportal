@@ -98,6 +98,10 @@ class absenzensekretariat extends AbstractPage {
 
       case 'processKrankmeldungen':
         $this->processKrankmeldungen();
+        $this->processKrankmeldungen_Ext();
+
+        header("Location: index.php?page=absenzensekretariat&currentDate=$currentDate&activeKlasse={$_GET['activeKlasse']}");
+        exit(0);
       break;
       
       case 'processBeurlaubungen':
@@ -881,6 +885,77 @@ class absenzensekretariat extends AbstractPage {
 			//exit(0);
   }
 
+  private function processKrankmeldungen_Ext() {
+
+    if (EXTENSION::isActive('ext.zwiebelgasse.krankmeldung')) {
+
+      $allStunden = array();
+      for ($i = 1; $i <= DB::getSettings()->getValue("stundenplan-anzahlstunden"); $i++) {
+        $allStunden[] = $i;
+      }
+      $allStunden = implode(",",$allStunden);
+
+      //$krankmeldungen = DB::getDB()->query("SELECT * FROM absenzen_krankmeldungen LEFT JOIN schueler ON krankmeldungSchuelerAsvID=schuelerAsvID LEFT JOIN users ON krankmeldungElternID=userID WHERE krankmeldungAbsenzID=0");
+
+      include_once PATH_EXTENSIONS.'krankmeldung'.DS . 'models' . DS . 'Antrag.class.php';
+      $extKrankmeldungModelAntrag = new extKrankmeldungModelAntrag();
+
+      $krankmeldungen = $extKrankmeldungModelAntrag->getUntouched();
+
+      foreach ($krankmeldungen as $km) {
+
+        if ($_POST['action_' . $km->getID()] == "save") {
+
+          // nur für Schüler
+          if ($km->getData('asv_id')) {
+
+            DB::getDB()->query("INSERT INTO absenzen_absenzen (
+            absenzSchuelerAsvID,
+            absenzDatum,
+            absenzDatumEnde,
+            absenzQuelle,
+            absenzErfasstTime,
+            absenzErfasstUserID,
+            absenzStunden,
+            absenzIsEntschuldigt,
+            absenzBefreiungID,
+            absenzBemerkung,
+            absenzIsSchriftlichEntschuldigt,
+            absenzGanztagsNotiz
+            )
+            values (
+              '" . $km->getData('asv_id') . "',
+              '" . $km->getData('dateStart') . "',
+              '" . $km->getData('dateEnd') . "',
+              'WEBPORTAL',
+              UNIX_TIMESTAMP(),
+              '" . DB::getUserID() . "',
+              '" . $allStunden . "',
+              '1',
+              '0',
+              'Online Krankmeldung vom " . $km->getData('createdTime') . ". \r\nBearbeitet durch " . DB::getSession()->getData("userName") . "\r\nBemerkung: " . DB::getDB()->escapeString($km->getData('info')) . "',
+              0, 0
+            )");
+
+            $newID = DB::getDB()->insert_id();
+
+            $extKrankmeldungModelAntrag->update(['id'=>$km->getID() , 'absenzID' => $newID]);
+            $km->setState(1);
+
+          } else {
+            $km->setState(1); // genehmigt (für Eltern, Lehrer, Sonstige)
+          }
+        }
+        else if ($_POST['action_' . $km->getID()] == "delete") {
+          $km->setState(2); // gelöscht
+        }
+
+      }
+    }
+
+  }
+
+
   private function processKrankmeldungen() {
     $krankmeldungen = DB::getDB()->query("SELECT * FROM absenzen_krankmeldungen LEFT JOIN schueler ON krankmeldungSchuelerAsvID=schuelerAsvID LEFT JOIN users ON krankmeldungElternID=userID WHERE krankmeldungAbsenzID=0");
 
@@ -935,8 +1010,7 @@ class absenzensekretariat extends AbstractPage {
       }
     }
 
-    header("Location: index.php?page=absenzensekretariat&currentDate=$currentDate&activeKlasse={$_GET['activeKlasse']}");
-    exit(0);
+
 
   }
 
@@ -1931,7 +2005,21 @@ class absenzensekretariat extends AbstractPage {
       $hasKrankmeldungen = true;
       eval("\$krankmeldungHTML .= \"" . DB::getTPL()->get("absenzen/sekretariat/index_bit_online_krankmeldung") . "\";");
     }
-    
+
+    if (EXTENSION::isActive('ext.zwiebelgasse.krankmeldung')) {
+      $onlineKrankmeldungen_ext = false;
+      include_once PATH_EXTENSIONS .'krankmeldung'.DS . 'models' . DS . 'Antrag.class.php';
+      $extKrankmeldungModelAntrag = new extKrankmeldungModelAntrag();
+      $krankmeldungen = $extKrankmeldungModelAntrag->getUntouched();
+      if ($krankmeldungen && count($krankmeldungen) > 0) {
+        foreach ($krankmeldungen as $krankmeldung) {
+          $km = $krankmeldung->getCollection(true);
+          $hasKrankmeldungen = true;
+          eval("\$krankmeldungHTML .= \"" . DB::getTPL()->get("absenzen/sekretariat/index_bit_online_krankmeldung_ext") . "\";");
+        }
+      }
+    }
+
     $hasBeurlaubungen = false;
     $beurlaubungenHTML = '';
     $beurlaubungen = AbsenzBeurlaubungAntrag::getGenehmigtNichtVerarbeitete();

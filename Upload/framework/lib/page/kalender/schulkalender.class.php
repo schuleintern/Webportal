@@ -49,7 +49,7 @@ class schulkalender extends AbstractKalenderPage {
 	
 	
 	public static function getSiteDisplayName(){
-		return "Schulkalender";
+		return "Schulkalender (deprecated!)";
 	}
 	
 	/**

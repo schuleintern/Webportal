@@ -79,7 +79,7 @@ export default {
         return false;
       }
 
-      if (this.acl.write != 1) {
+      if (this.acl.write != 1 && data.form.status != 2) {  // status 2 = vorschlag
         this.error = "Keine Schreibrechte!";
         return false;
       }
@@ -196,11 +196,18 @@ export default {
       const formData = new FormData();
       formData.append('kalenders', selected);
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
       this.loading = true;
       var that = this;
       this.axios.post(this.apiURL + '/getEvents', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       })
           .then(function (response) {
@@ -330,9 +337,21 @@ export default {
     },
     loadKalenders() {
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
+      //console.log(window.globals.apiKey)
+
       this.loading = true;
       var that = this;
-      this.axios.get(this.apiURL + '/getKalenders')
+      this.axios.get(this.apiURL + '/getKalenders', {
+        headers: {
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
+        }
+      })
           .then(function (response) {
             if (response.data) {
               if (response.data.error) {

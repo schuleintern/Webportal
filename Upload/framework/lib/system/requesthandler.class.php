@@ -87,10 +87,10 @@ class requesthandler {
       'administrationgroups',
       'AdminMailSettings',
       'AdminUpdate',
-      'AdminBackup',
-      'AdminDatabase',
+      //'AdminBackup',
+      //'AdminDatabase',
       'AdministrationEltern',
-      'AdminDatabaseUpdate',
+      //'AdminDatabaseUpdate',
       'AdminExtensions',
       'AdminMenu',
       'AdminWidgets',
@@ -144,11 +144,13 @@ class requesthandler {
     'klassenlisten' => [
       'klassenlisten',
     ],
+      /*
     'ganztags' => [
       'ganztags',
       'ganztagsEdit',
       'ganztagsCalendar'
     ],
+      */
     'krankmeldung' => [
       'krankmeldung',
     ],
@@ -199,7 +201,7 @@ class requesthandler {
       'Update'
     ],
     'userprofile' => [
-      'changeuseridinsession',
+      //'changeuseridinsession',
       'forgotPassword',
       'userprofile',
       'userprofilemylogins',

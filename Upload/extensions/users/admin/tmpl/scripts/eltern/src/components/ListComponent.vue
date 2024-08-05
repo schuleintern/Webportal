@@ -49,10 +49,10 @@ export default {
     return {
 
       sort: {
-        column: 'elternUserID',
+        column: 'elternUserName',
         order: true
       },
-      searchColumns: ['elternUserID', 'elternEMail','elternSchuelerAsvID', 'elternUserName','schuelerUserName'],
+      searchColumns: ['elternEMail','elternSchuelerAsvID', 'elternUserName','schuelerUserName'],
       searchString: '',
       filter: {
         colum: false,

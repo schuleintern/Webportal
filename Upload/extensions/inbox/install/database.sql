@@ -6,7 +6,7 @@ CREATE TABLE `ext_inbox_folders`
     `inbox_id` int(11) DEFAULT NULL,
     `sort`     tinyint(1) DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Create syntax for TABLE 'ext_inbox_message'
 CREATE TABLE `ext_inbox_message`
@@ -18,8 +18,9 @@ CREATE TABLE `ext_inbox_message`
     `isRead`     int(11) DEFAULT NULL,
     `isReadUser` int(11) DEFAULT NULL,
     `isConfirm`  int(11) DEFAULT NULL,
+    `isEmail`    int(11) DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- Create syntax for TABLE 'ext_inbox_message_body'
 CREATE TABLE `ext_inbox_message_body`
@@ -36,7 +37,7 @@ CREATE TABLE `ext_inbox_message_body`
     `subject`      varchar(255) DEFAULT NULL,
     `text`         text,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Create syntax for TABLE 'ext_inbox_user'
 CREATE TABLE `ext_inbox_user`
@@ -47,7 +48,7 @@ CREATE TABLE `ext_inbox_user`
     `timeOn`   time DEFAULT NULL,
     `timeOff`  time DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1520 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1529 DEFAULT CHARSET=utf8;
 
 -- Create syntax for TABLE 'ext_inboxs'
 CREATE TABLE `ext_inboxs`
@@ -57,11 +58,6 @@ CREATE TABLE `ext_inboxs`
     `createdTime`   datetime     DEFAULT NULL,
     `title`         varchar(255) DEFAULT NULL,
     `type`          varchar(100) DEFAULT NULL,
+    `parent_id`     int(11) DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1520 DEFAULT CHARSET=utf8;
-
-INSERT INTO `ext_inbox_folders` (`id`, `title`, `inbox_id`, `sort`)
-VALUES (1, 'Posteingang', 0, 1),
-       (2, 'Postausgang', 0, 2),
-       (3, 'Archive', 0, 3),
-       (4, 'Entwurf', 0, 4);
+) ENGINE=InnoDB AUTO_INCREMENT=1524 DEFAULT CHARSET=utf8;

@@ -1,11 +1,14 @@
 <?php
 
-class deleteGroupsAdmin extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+class deleteGroupsAdmin extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +20,7 @@ class deleteGroupsAdmin extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canDelete() ) {
+        if (!$this->canDelete()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -32,7 +35,7 @@ class deleteGroupsAdmin extends AbstractRest {
         $class = new extInboxModelInbox2();
         $data = $class->getByID($id);
         if ($data) {
-            if ( $data->delete() ) {
+            if ($data->delete()) {
 
                 include_once PATH_EXTENSION . 'models' . DS . 'Users.class.php';
                 $Users = new extInboxModelUsers();
@@ -51,7 +54,7 @@ class deleteGroupsAdmin extends AbstractRest {
         return ['error' => true, 'msg' => 'Fehler bei Löschen!'];
 
 
-	}
+    }
 
 
     /**
@@ -60,7 +63,8 @@ class deleteGroupsAdmin extends AbstractRest {
      *
      * @return String
      */
-    public function getAllowedMethod() {
+    public function getAllowedMethod()
+    {
         return 'POST';
     }
 
@@ -70,7 +74,8 @@ class deleteGroupsAdmin extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -83,12 +88,14 @@ class deleteGroupsAdmin extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 

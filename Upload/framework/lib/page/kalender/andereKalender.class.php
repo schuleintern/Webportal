@@ -140,7 +140,7 @@ class andereKalender extends AbstractKalenderPage {
 
 
   public static function getSiteDisplayName(){
-    return "Andere Kalender";
+    return "Andere Kalender (deprecated!)";
   }
 
   /**

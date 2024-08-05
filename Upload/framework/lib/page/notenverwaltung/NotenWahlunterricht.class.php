@@ -52,7 +52,7 @@ class NotenWahlunterricht extends AbstractPage {
                   }
                   
                   if(!$found) {
-                      NoteWahlfach::addUnterrichtAsWahlfachForZeugnis($unterricht, $this->zeugnis, $_POST['bezeichnung']);
+                      NoteWahlfach::addUnterrichtAsWahlfachForZeugnis($unterricht, $this->zeugnis, $_POST['bezeichnung'], $_POST['text']);
                   }
               }
               
@@ -97,7 +97,6 @@ class NotenWahlunterricht extends AbstractPage {
       $optionsUnterricht = "";
       
       for($i = 0; $i < sizeof($this->unterrichte); $i++) {
-          
           $found = false;
           for($w = 0; $w < sizeof($this->wahlFaecher); $w++) {
               if($this->wahlFaecher[$w]->getUnterricht()->getID() == $this->unterrichte[$i]->getID()) $found = true;

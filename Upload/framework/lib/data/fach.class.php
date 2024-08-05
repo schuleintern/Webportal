@@ -128,6 +128,18 @@ class fach {
     
     return self::$all;
   }
+
+    public static function getAllAktive()
+    {
+        $all = self::getAll();
+        $ret = [];
+        foreach ($all as $item) {
+            if( DB::getSettings()->getBoolean("schulinfo-fach-" . $item->getID() . "-unterrichtet")) {
+                $ret[] = $item;
+            }
+        }
+        return $ret;
+    }
   
   public static function getAllUnterrichtet() {
     $all = self::getAll();

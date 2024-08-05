@@ -5,6 +5,10 @@ class MessageCompose extends AbstractPage {
 	private $recipientHandler = NULL;
 	
 	public function __construct() {
+
+        if ( DB::getSettings()->getValue("extInbox-global-messageSystem") ) {
+            new errorPage("Das alte Nachrichtensystem wurde deaktiviert!<br><a href='index.php?page=ext_inbox'>Zum neuen System</a>");
+        }
 		parent::__construct(array("Nachrichten"));
 		
 		$this->checkLogin();
@@ -1319,6 +1323,9 @@ class MessageCompose extends AbstractPage {
 	}
 	
 	public static function hasAdmin() {
+        if ( DB::getSettings()->getValue("extInbox-global-messageSystem") ) {
+            return false;
+        }
 		return true;
 	}
 
@@ -1357,7 +1364,7 @@ class MessageCompose extends AbstractPage {
 	}
 
     public static function getAdminMenuGroup() {
-        return 'Nachrichten';
+        return 'Nachrichten (deprecated!)';
     }
 }
 

@@ -168,7 +168,7 @@ class elternregister extends AbstractPage {
 		
 		// Registrieren
 		
-		if(DB::getGlobalSettings()->schulnummer == "9400") {
+		if(DB::isSchulnummern(9400)) {
 			// Demoversion --> direkt registrieren
 			
 			DB::getDB()->query("INSERT INTO users

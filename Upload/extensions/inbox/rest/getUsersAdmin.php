@@ -1,5 +1,6 @@
 <?php
 
+
 class getUsersAdmin extends AbstractRest
 {
 
@@ -11,7 +12,7 @@ class getUsersAdmin extends AbstractRest
 
         //$user = DB::getSession()->getUser();
         $acl = $this->getAcl();
-        if ( !$this->canAdmin() ) {
+        if (!$this->canAdmin()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -19,7 +20,7 @@ class getUsersAdmin extends AbstractRest
         }
 
         include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
-        include_once PATH_EXTENSION . 'models' . DS . 'Users.class.php';
+        //include_once PATH_EXTENSION . 'models' . DS . 'Users.class.php';
 
         $class = new extInboxModelInbox2;
         $tmp_data = $class->getByTypUser();
@@ -43,7 +44,7 @@ class getUsersAdmin extends AbstractRest
                 }
             }
 */
-            
+
 
             $ret[] = $collection;
         }

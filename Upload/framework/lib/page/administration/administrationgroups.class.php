@@ -156,7 +156,7 @@ class administrationgroups extends AbstractPage {
 	
 	
 	public static function getSiteDisplayName() {
-		return 'Gruppen';
+		return 'Gruppen (deprecated!)';
 	}
 	
 	/**

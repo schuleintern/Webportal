@@ -1,9 +1,9 @@
 {
   "name": "Inbox",
   "uniqid": "ext.zwiebelgasse.inbox",
-  "version": "3",
+  "version": "8",
 
-  "requiredVersion": "1.7.0",
+  "requiredVersion": "1.7.4",
 
   "menu": {
     "categorie": "1",
@@ -14,6 +14,17 @@
   "adminGroupName": "Admin_Ext_Inbox",
   "aclGroupName": "ext_inbox",
 
+  "cron": [
+    {
+      "typ": "default",
+      "class": "extInboxCronMakeInboxs"
+    },
+    {
+      "typ": "default",
+      "class": "extInboxCronSendMails"
+    }
+  ],
+
   "widgets": [
     {
       "title": "Counter",
@@ -21,6 +32,15 @@
       "position": "header",
       "class": "extInboxWidgetCounter",
       "params": {}
+    },
+    {
+      "title": "Dashboard",
+      "uniqid": "inbox.dashboard",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
     }
   ],
 
@@ -63,7 +83,7 @@
       }
     },
     {
-      "title": "Gruppen",
+      "title": "Postfächer",
       "icon": "fa fa-users",
       "admin": true,
       "url": {

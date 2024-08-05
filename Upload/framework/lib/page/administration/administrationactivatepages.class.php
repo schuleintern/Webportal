@@ -36,16 +36,7 @@ class administrationactivatepages extends AbstractPage {
 			$skip = false;
 			
 			$hinweis = "";
-						
-			if(sizeof($pageName::onlyForSchool()) > 0) {
-				// Nur für bestimtme Schulen
-				if(!in_array(DB::getGlobalSettings()->schulnummer,$pageName::onlyForSchool())) {
-					$skip = true;
-				}
-				else {
-					$hinweis = "<br /><i>Diese Funktion ist speziell für Schule " . DB::getGlobalSettings()->schulnummer . " freigeschaltet.";
-				}
-			}
+
 			
 			if($pageName::siteIsAlwaysActive()) {
 				$skip = true;

@@ -9,25 +9,31 @@
 
     </div>
 
-    <div class="width-70vw">
+    <div class="">
       <h2>{{ item.title }}</h2>
 
       <div v-if="item.items" class="flex-row">
-        <div v-bind:key="index" v-for="(child, index) in  item.items" class="si-box flex-b-30 margin-r-m">
+
+        <div v-bind:key="index" v-for="(child, index) in item.items" class="si-box margin-r-m" style="width: 25vw">
+
+          <img v-if="child.coverURL" :src="child.coverURL" width="100%" height="auto"/>
+
           <h3>{{ child.title }}</h3>
+          <div v-if="child.textHTML" v-html="child.textHTML" class="padding-t-m" :style="boxStyle(child)"></div>
 
-          <div v-if="child.coverURL">
-            <img v-if="!child.coverOff" :src="child.coverURL" :width="width+'px'" @click="handlerCover(child)" />
-            <VuePdfEmbed v-if="child.pdfURL && child.coverOff" annotation-layer text-layer :source="child.pdfURL" :width="width"  />
+          <div class="margin-t-m">
+            <button v-if="child.textHTML && !child.open" @click="handlerReadMore(child)" class="si-btn si-btn-green "><i
+                class="fa fa-arrow-right"></i> Weiterlesen
+            </button>
           </div>
-          <div v-else>
-            <VuePdfEmbed v-if="child.pdfURL" annotation-layer text-layer :source="child.pdfURL" :width="width"  />
+          <div v-if="child.pdfURL" class="margin-t-m">
+            <a :href="child.pdfURL" class="si-btn "><i class="fa fa-download"></i> Download PDF</a>
           </div>
 
-          <div v-if="child.textHTML" v-html="child.textHTML" class="padding-t-m"></div>
-          <div v-if="child.enddate"  class="padding-t-m text-grey text-right">Bis {{child.enddate}}</div>
+          <div v-if="child.enddate" class="padding-t-m text-grey text-right">Bis {{ child.enddate }}</div>
 
         </div>
+
       </div>
 
     </div>
@@ -38,24 +44,13 @@
 
 <script>
 
-import VuePdfEmbed from 'vue-pdf-embed'
-
-// essential styles
-import 'vue-pdf-embed/dist/style/index.css'
-
-// optional styles
-import 'vue-pdf-embed/dist/style/annotationLayer.css'
-import 'vue-pdf-embed/dist/style/textLayer.css'
-
 
 export default {
   name: 'ItemComponent',
-  components: {
-    VuePdfEmbed
-  },
+  components: {},
   data() {
     return {
-      width: 400,
+      width: 10,
       form: {}
     };
   },
@@ -64,14 +59,19 @@ export default {
     item: []
   },
   created: function () {
-
+  },
+  mounted: function () {
   },
   methods: {
 
-    handlerCover: function (item) {
-      if (item.pdf) {
-        item.coverOff = true;
+    boxStyle: function (child) {
+      if (!child.open) {
+        return 'height:14.5rem; overflow: hidden;';
       }
+      return '';
+    },
+    handlerReadMore: function (child) {
+      child.open = true;
     },
     handlerBack: function () {
       this.$bus.$emit('page--open', {

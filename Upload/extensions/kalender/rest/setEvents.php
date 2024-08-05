@@ -17,14 +17,15 @@ class setEvents extends AbstractRest {
 
         $acl = $this->getAcl();
 
-        if ( !$this->canWrite() ) {
-        //if ((int)$acl['rights']['write'] !== 1 || DB::getSession()->isAdminOrGroupAdmin($this->extension['adminGroupName']) !== true ) {
-        //if ((int)$acl['rights']['write'] !== 1 && (int)DB::getSession()->getUser()->isAnyAdmin() !== 1 ) {
-            return [
-                'error' => true,
-                'msg' => 'Kein Zugriff'
-            ];
+        if ($input['status'] != 2) { // status 2 = vorschlag
+            if ( !$this->canWrite() ) {
+                return [
+                    'error' => true,
+                    'msg' => 'Kein Zugriff'
+                ];
+            }
         }
+
 
 
 

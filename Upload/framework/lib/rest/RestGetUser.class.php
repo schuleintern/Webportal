@@ -143,7 +143,7 @@ class RestGetUser extends AbstractRest {
 	}
 
 	public static function getAdminGroup() {
-    return false;
+        return false;
 	}
 	
 }	

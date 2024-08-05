@@ -76,10 +76,17 @@ class DB {
 	 * 
 	 */
 	public static function checkDemoAccess() {
-		if(DB::getGlobalSettings()->schulnummer != "9400") return true;		// Nicht Demo --> Zugriff
-		else {
-			if(DB::isLoggedIn() && DB::getUserID() == 1) return true;
-			else return false;
+
+		if( !DB::isSchulnummern(9400) ) {
+            // Nicht Demo -> Zugriff
+            return true;
+        } else {
+            echo 'demo!';
+			if(DB::isLoggedIn() && DB::getUserID() == 1) {
+                return true;
+            } else {
+                return false;
+            }
 		}
 	}
 
@@ -134,8 +141,29 @@ class DB {
 		return self::$globalsettings;
 	}
 
+    public static function isSchulnummern($int = false) {
+        if (!$int) {
+            return false;
+        }
+        if ( in_array( (int)$int, self::getSchulnummern() ) ) {
+            return true;
+        }
+        return false;
+    }
+    public static function getSchulnummern($returnString = false) {
+
+        $foo = self::getGlobalSettings()->schulnummern;
+        if (!$foo && self::getGlobalSettings()->schulnummer) {
+            $foo = [self::getGlobalSettings()->schulnummer];
+        }
+        if ($returnString) {
+            return implode(', ',$foo);
+        }
+        return $foo;
+    }
+
 	public static function getVersion() {
-		return '1.7.4';
+		return '1.7.6';
 	}
 
 	/**

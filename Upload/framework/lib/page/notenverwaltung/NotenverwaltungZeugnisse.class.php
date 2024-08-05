@@ -284,7 +284,7 @@ class NotenverwaltungZeugnisse extends AbstractPage {
 
       $xml .= "<schulen>
 <schule>
-<schulnummer>" . DB::getGlobalSettings()->schulnummer . "</schulnummer>
+<schulnummer>" . DB::getSchulnummern(true) . "</schulnummer>
 <schuelerinnen>";
 
 
@@ -655,8 +655,11 @@ pause\r\n";
           }
 
 
+          if(schulinfo::isGymnasium() && $schueler->getKlassenObjekt()->getKlassenstufe() == 11 && $bemerkung->klassenzielErreicht()) {
+              $bestandenOberstufeMR = "\n" . ($schueler->getGeschlecht() == 'm' ? "Der Schüler" : "Die Schülerin") . " ist damit zum Eintritt in die Qualifikationsphase der Oberstufe des Gymnasiums berechtigt.";
+          }
           if(schulinfo::isGymnasium() && $schueler->getKlassenObjekt()->getKlassenstufe() == 10 && $bemerkung->klassenzielErreicht()) {
-              $bestandenOberstufeMR = "\n" . ($schueler->getGeschlecht() == 'm' ? "Der Schüler" : "Die Schülerin") . " ist damit zum Eintritt in die Qualifikationsphase der Oberstufe des Gymnasiums berechtigt; dies schließt den Nachweis eines mittleren Schulabschlusses ein.";
+              $bestandenOberstufeMR = "\n Dieses Zeugnis schließt den Nachweis eines mittleren Schulabschlusses ein.";
           }
       }
 
@@ -672,7 +675,12 @@ pause\r\n";
 
       // die(getcwd());
 
-      $templateProcessor = new TemplateProcessor('../framework/vorlagen/notenverwaltung/zeugnisse/zwischenzeugnis20240126.docx');
+      $template = $zeugnis->getTemplate();
+      if (!$template) {
+          return false;
+      }
+
+      $templateProcessor = new TemplateProcessor(PATH_VORLAGEN.'notenverwaltung/zeugnisse/'.$template);
 
       $templateProcessor->setValue("{BEMERKUNG2}", $text2);
 
@@ -769,16 +777,20 @@ pause\r\n";
       /** @var NoteZeugnisNote $lateinNote */
       $lateinNote = null;
 
+
       for($z = 0; $z < sizeof($zeugnisNoten); $z++) {
           $fach = $zeugnisNoten[$z]->getFach()->getKurzform();
-
           switch($fach) {
+
+              case 'SEM':
+                  $noten["{N22}"] = $zeugnisNoten[$z]->getWertText();
+                  $templateProcessor->setValue("{LEITFACH}", $zeugnisNoten[$z]->getFach()->getLangform());
+                  break;
+
               case 'Ev':
                   $ra = "ev.";
                   $noten["{N1}"] = $zeugnisNoten[$z]->getWertText();
               break;
-
-
 
               case 'K':
                   $ra = "r.-k.";
@@ -803,6 +815,9 @@ pause\r\n";
 
               case 'G':
                   $noten["{N14}"] = $zeugnisNoten[$z]->getWertText();
+                  // TODO: gibt es noch weitere unterrichte in diesem fach? mit "sem" im namen ? dann:
+                  //$noten["{N22}"] = $zeugnisNoten[$z]->getWertText();
+                  //$templateProcessor->setValue("{LEITFACH}", $zeugnisNoten[$z]->getFach()->getLangform());
                   break;
 
               case 'Geo':
@@ -850,6 +865,8 @@ pause\r\n";
                   $noten["{N20}"] = $zeugnisNoten[$z]->getWertText();
                   break;
 
+
+
               case 'E':
                   $noten["{N6}"] = $zeugnisNoten[$z]->getWertText();
                   $efs = $this->getFremdspracheNummer("Englisch", $schueler);
@@ -894,7 +911,7 @@ pause\r\n";
               if($schueler->getKlassenObjekt()->getKlassenstufe() == 9) {
                   $latinum = "Dieses Zeugnis schließt gesicherte Kenntnisse in Latein ein.";
               }
-              if($schueler->getKlassenObjekt()->getKlassenstufe() == 10) {
+              if($schueler->getKlassenObjekt()->getKlassenstufe() == 10 || $schueler->getKlassenObjekt()->getKlassenstufe() == 11) {
                   $latinum = "Dieses Zeugnis schließt das Latinum gemäß der Vereinbarung der Kultusministerkonferenz vom 22. September 2005 ein.";
               }
           }
@@ -904,14 +921,14 @@ pause\r\n";
 
 
 
-      $templateProcessor->setValue("{LFS}", $lfs);
-      $templateProcessor->setValue("{GRFS}", $grfs);
-      $templateProcessor->setValue("{EFS}", $efs);
-      $templateProcessor->setValue("{FFS}", $ffs);
-      $templateProcessor->setValue("{RA}", $ra);
+      $templateProcessor->setValue("{LFS}", $lfs); // Latein
+      $templateProcessor->setValue("{GRFS}", $grfs); // nix...
+      $templateProcessor->setValue("{EFS}", $efs); // Englisch
+      $templateProcessor->setValue("{FFS}", $ffs); // Französisch
+      $templateProcessor->setValue("{RA}", $ra); // nix...
       $templateProcessor->setValue("{LATINUM}", $latinum);
 
-      $templateProcessor->setValue("{SPFS}", $spfs);
+      $templateProcessor->setValue("{SPFS}", $spfs); // Spanisch
 
       $fileUpload = FileUpload::generateUploadID($zeugnis->getArt() . " - " . $schueler->getCompleteSchuelerName() . ".docx", "docx", true, false);
 
@@ -949,8 +966,10 @@ pause\r\n";
   private function addZeugnis() {
       $typ = $_POST['zeugnisTyp'];
       $name = $_POST['zeugnisName'];
+      $zeugnisTemplate = $_POST['zeugnisTemplate'];
 
-      DB::getDB()->query("INSERT INTO noten_zeugnisse (zeugnisName, zeugnisArt) values('" . DB::getDB()->escapeString($name) . "','" . DB::getDB()->escapeString($typ) . "')");
+      DB::getDB()->query("INSERT INTO noten_zeugnisse (zeugnisName, zeugnisArt, zeugnisTemplate)
+        values('" . DB::getDB()->escapeString($name) . "','" . DB::getDB()->escapeString($typ) . "','" . DB::getDB()->escapeString($zeugnisTemplate) . "')");
       $newID = DB::getDB()->insert_id();
 
       $klassen = klasse::getAllKlassen();
@@ -1108,6 +1127,15 @@ pause\r\n";
 
 
           $klassenHTML .= "</tr>";
+      }
+
+      $optionsTemplate = '';
+      $path = PATH_VORLAGEN.'notenverwaltung/zeugnisse/';
+      if (is_dir($path)) {
+          $files = array_diff(scandir($path), array('..', '.'));
+          foreach ($files as $file) {
+              $optionsTemplate .= '<option>'.$file.'</option>';
+          }
       }
 
       eval("DB::getTPL()->out(\"" . DB::getTPL()->get("notenverwaltung/zeugnisse/index") . "\");");

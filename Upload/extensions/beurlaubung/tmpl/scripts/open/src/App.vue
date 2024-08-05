@@ -46,8 +46,11 @@
             <label>Info (intern)</label>
             <textarea maxlength="600" v-model="formItem.doneInfoIntern"></textarea>
           </li>
-          <li>
-            <button class="si-btn si-btn-red" v-on:click="setAntrag(formItem, 3)"><i class="fa fa-check"></i> Antrag
+          <li class="flex-row ">
+            <button class="si-btn si-btn-green margin-r-l" v-on:click="setAntrag(formItem, 2)"><i class="fa fa-check"></i> Antrag
+              zulassen
+            </button>
+            <button class="si-btn si-btn-red" v-on:click="setAntrag(formItem, 3)"><i class="fa fa-ban"></i> Antrag
               ablehnen
             </button>
           </li>
@@ -263,7 +266,7 @@ export default {
       }
 
       // Open Modal
-      if (status == 3) {
+      if (status == 3 || status == 2) {
         this.formItem = item;
         this.handlerPage('form');
       } else {

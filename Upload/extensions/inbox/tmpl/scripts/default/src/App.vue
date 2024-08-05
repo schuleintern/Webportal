@@ -5,17 +5,19 @@
     <AjaxSpinner v-bind:loading="loading"></AjaxSpinner>
 
     <div v-if="page === 'list'" class="">
+
       <div class="si-btn-multiple margin-b-m">
         <button v-bind:key="index" v-for="(item, index) in  inboxs" @click="handlerClickInbox(item)"
                 class="si-btn si-btn-light" :class="{'si-btn-toggle-on': item == this.inbox}">
           {{ item.title }}
+          <span v-if="item.unread" class="margin-l-s label bg-white text-grey">{{item.unread}}</span>
+
         </button>
         <button v-if="acl.write == 1" class="si-btn" @click="handlerForm()"><i class="fa fa-plus"></i> Neue Nachricht
         </button>
       </div>
+
       <div class="flex-row">
-
-
         <div class="bar flex-2 padding-r-m">
           <div class="flex-row">
 
@@ -30,6 +32,7 @@
               <i v-else-if="item.id == 4" class="fa fa-book"></i>
               <i v-else class="fa fa-folder"></i>
               {{ item.title }}
+              <span v-if="item.unread" class="margin-l-s label bg-white text-grey">{{item.unread}}</span>
             </button>
 
           </div>
@@ -46,7 +49,7 @@
 
 
     <FormComponent v-if="page === 'form'" :acl="acl" :inbox="inbox" :inboxs="inboxs" :answerToMsg="message"
-                   :recipients="recipients" :uploadFolder="uploadFolder"></FormComponent>
+                   :recipients="recipients" ></FormComponent>
 
 
   </div>
@@ -94,7 +97,10 @@ export default {
       messages: false,
       message: false,
 
-      recipients: false
+      recipients: false,
+
+      selectedInbox: window.globals.inbox_id,
+      selectedMessage: window.globals.message_id,
 
     };
   },
@@ -102,9 +108,18 @@ export default {
   created: function () {
 
     // INIT
-    if (this.inboxs && this.inboxs[0]) {
+    if (this.inboxs && this.selectedInbox) {
+      this.inboxs.forEach((o) => {
+        if (o.id == this.selectedInbox) {
+          this.handlerClickInbox(o);
+          this.selectedInbox = false;
+        }
+      })
+    } else if (this.inboxs && this.inboxs[0]) {
       this.handlerClickInbox(this.inboxs[0]);
     }
+
+
 
 
     this.$bus.$on('page--open', data => {
@@ -150,7 +165,7 @@ export default {
       formData.append('priority', data.form.priority);
       formData.append('noAnswer', data.form.noAnswer);
       formData.append('isPrivat', data.form.isPrivat);
-      formData.append('files', data.form.files);
+      formData.append('files', JSON.stringify(data.form.files));
 
 
       axios.post(this.apiURL + '/setMessage', formData, {
@@ -234,7 +249,7 @@ export default {
             that.error = '' + response.data.msg;
           } else {
             //that.message.isConfirm = response.data.isConfirm;
-            console.log('done')
+            //console.log('done')
             let i = that.messages.find((item) => {
               if (item.id == data.item.id) {
                 return true;
@@ -366,7 +381,7 @@ export default {
         if (!this.recipients) {
           this.loadRecipients();
         }
-        this.loadUploadFolder();
+        //this.loadUploadFolder();
         //console.log(item);
         if (item) {
           this.message = item;
@@ -374,7 +389,7 @@ export default {
       }
       this.page = page;
     },
-
+/*
     loadUploadFolder() {
 
       this.loading = true;
@@ -396,6 +411,8 @@ export default {
       });
 
     },
+
+ */
     loadRecipients() {
 
       this.loading = true;
@@ -479,6 +496,18 @@ export default {
             that.error = '' + response.data.msg;
           } else {
             that.messages = response.data;
+
+            if (that.inboxs && that.selectedMessage) {
+              that.messages.forEach((o) => {
+                if (o.id == that.selectedMessage) {
+                  that.$bus.$emit('message--read', {
+                    message: o
+                  });
+                  that.selectedMessage = false;
+                }
+              });
+            }
+
           }
         } else {
           that.error = 'Fehler beim Laden. 01';

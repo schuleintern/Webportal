@@ -38,9 +38,9 @@ class extInboxRecipientFachschaft
         }
 
         $fach = fach::getByID((int)$content);
+        $teachers = $fach->getFachLehrer();
 
-
-        include_once $teachers = $fach->getFachLehrer();PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
+        include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
         $class = new extInboxModelInbox2();
             
         $ret = [];
@@ -55,16 +55,14 @@ class extInboxRecipientFachschaft
                     $ret[] = $inbox_collection;
                 }
             }
-
-
         }
 
+        return [
+            "title" => 'Fachschaft '.$fach->getKurzform(),
+            "data" => $ret
+        ];
 
 
-
-
-
-        return $ret;
 
     }
 

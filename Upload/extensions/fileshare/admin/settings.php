@@ -53,14 +53,20 @@ class extFileshareAdminSettings extends AbstractPage {
 
         $settings =  [
 
-            /*
+
             [
-                'name' => "extFinanzen-antrag-freigeben",
-                'typ' => 'BOOLEAN',
-                'title' => "Anträge werden automatisch freigegeben",
-                'desc' => ""
+                'name' => "extFileshare-extension-allowed",
+                'typ' => 'STRING',
+                'title' => "Erlaubte Dateitypen",
+                'desc' => "Kommagetrennt (z.b. jpg,png,zip)"
+            ],
+            [
+                'name' => "extFileshare-filesize-max",
+                'typ' => 'STRING',
+                'title' => "Erlaubte Dateigröße",
+                'desc' => "in Kilobyte"
             ]
-            */
+
             
             
         ];
