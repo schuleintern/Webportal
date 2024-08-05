@@ -52,8 +52,7 @@
           <td><span class="text-small">{{item.json.dependencies}}</span></td>
           <td><button v-show="item.update" class="si-btn" v-on:click="handlerUpdate(item, $event)">Update</button></td>
           <td>
-            <button v-show="!item.delete" class="si-btn si-btn-light si-btn-icon" v-on:click="handlerRemove(item, index)"><i class="fas fa-trash"></i></button>
-            <button v-show="item.delete" class="si-btn si-btn-red" v-on:click="handlerRemoveConfirmed(item, $event)"><i class="fas fa-trash"></i> Endgültig Löschen</button>
+            <button v-show="!item.delete" class="si-btn si-btn-light si-btn-icon" v-on:click="handlerRemoveConfirmed(item)"><i class="fas fa-trash"></i></button>
           </td>
 
         </tr>
@@ -303,53 +302,55 @@ export default {
 
     },
     handlerRemove: function (item, index) {
-      item.delete = 1;
-      item.active = 99; // bugfix rerender
+      //item.delete = 1;
+      //item.active = 99; // bugfix rerender
     },
-    handlerRemoveConfirmed: function (item, $event) {
+    handlerRemoveConfirmed: function (item) {
 
       if (!item.uniqid) {
         return false;
       }
 
-      var _text = {
-        default: 'Entfernen',
-        while: '<i class="fa fas fa-sync-alt fa-spin"></i>'
-      }
+      if ( confirm("Erweiterung vollständig löschen?\nEs werden auch sämtlichen Dateien und Datenbanktabellen gelöscht!") ) {
 
-      $event.srcElement.innerHTML = _text.while;
-      this.error = false;
-
-      var that = this;
-      axios.get( this.selfURL+'&task=remove&uniqid='+item.uniqid)
-      .then(function(response){
-        
-        if ( response.data ) {
-
-          //console.log(response.data)
-
-          if (response.data.error == true) {
-            that.error = response.data.msg;
-            $event.srcElement.innerHTML = _text.default;
-          } else {
-            that.error = false;
-            that.loadExtensions();
-          }
-          
-        } else {
-          that.error = 'Fehler beim Entfernen. 01';
-          $event.srcElement.innerHTML = _text.default;
+        var _text = {
+          default: 'Entfernen',
+          while: '<i class="fa fas fa-sync-alt fa-spin"></i>'
         }
-        
-      })
-      .catch(function(){
-        that.error = 'Fehler beim Entfernen. 02';
-          $event.srcElement.innerHTML = _text.default;
-      })
-      .finally(function () {
-        // always executed
-      }); 
 
+        //$event.srcElement.innerHTML = _text.while;
+        this.error = false;
+
+        var that = this;
+        axios.get( this.selfURL+'&task=remove&uniqid='+item.uniqid)
+        .then(function(response){
+
+          if ( response.data ) {
+
+            //console.log(response.data)
+
+            if (response.data.error == true) {
+              that.error = response.data.msg;
+              //$event.srcElement.innerHTML = _text.default;
+            } else {
+              that.error = false;
+              that.loadExtensions();
+            }
+
+          } else {
+            that.error = 'Fehler beim Entfernen. 01';
+            //$event.srcElement.innerHTML = _text.default;
+          }
+
+        })
+        .catch(function(){
+          that.error = 'Fehler beim Entfernen. 02';
+            //$event.srcElement.innerHTML = _text.default;
+        })
+        .finally(function () {
+          // always executed
+        });
+      }
     },
     handlerChangeUploadFile: function ($event) {
 

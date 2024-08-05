@@ -271,10 +271,21 @@ class AdminExtensions extends AbstractPage {
 				$extension = DB::getDB()->query_first("SELECT `id`,`folder` FROM extensions WHERE `uniqid` = '".$_REQUEST['uniqid']."'" );
 				if ($extension['folder'] && file_exists($pathExtensions.$extension['folder']) ) {
 
+                    if (file_exists($pathExtensions.$extension['folder'].DS.'install')) {
+                        if (file_exists($pathExtensions.$extension['folder'].DS.'install'.DS.'uninstall.php')) {
+                            include_once $pathExtensions.$extension['folder'].DS.'install'.DS.'uninstall.php';
+
+                            $classname = 'ext'.ucfirst($extension['folder']).'Uninstall';
+                            $uninstallClass = new $classname();
+                            if (method_exists($uninstallClass, 'uninstall')) {
+                                $uninstallClass::uninstall();
+                            }
+                        }
+                    }
+
 					FILE::removeFolder($pathExtensions.$extension['folder']);
 					DB::getDB()->query("DELETE FROM `extensions` WHERE `uniqid` = '".$_REQUEST['uniqid']."'" );
 
-                    // TODO: DELETE ext_database_tabeles ?
 					$retun = ['error' => false];
 					echo json_encode($retun); exit;
 				} else {
