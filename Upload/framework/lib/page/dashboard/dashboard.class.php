@@ -8,7 +8,7 @@ class dashboard extends AbstractPage
     public function __construct()
     {
 
-        parent::__construct(array("Dashboard", "Dashboard"));
+        parent::__construct(array("Dashboard", ""));
         $this->checkLogin();
 
     }

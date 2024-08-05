@@ -1231,7 +1231,7 @@ class administrationasvimport extends AbstractPage
 
     public static function getSiteDisplayName()
     {
-        return "ASV Import";
+        return "ASV Import (deprecated!)";
     }
 
     public static function getSettingsDescription()

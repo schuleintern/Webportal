@@ -221,7 +221,7 @@ class kalenderAllInOne extends AbstractPage {
 
 
   public static function getSiteDisplayName(){
-    return "Kalender AllInOne (Beta)";
+    return "Kalender AllInOne (deprecated!)";
   }
 
   /**

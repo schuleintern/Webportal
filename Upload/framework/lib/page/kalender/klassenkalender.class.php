@@ -1210,7 +1210,7 @@ class klassenkalender extends AbstractPage {
 
 
   public static function getSiteDisplayName() {
-    return 'Klassenkalender';
+    return 'Klassenkalender (deprecated!)';
   }
 
   /**

@@ -470,7 +470,7 @@ class MessageInbox extends AbstractPage {
     }
 
     public static function getAdminMenuGroup() {
-        return 'Nachrichten';
+        return 'Nachrichten (deprecated!)';
     }
 }
 

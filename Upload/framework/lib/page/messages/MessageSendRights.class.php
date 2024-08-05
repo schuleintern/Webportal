@@ -206,7 +206,7 @@ class MessageSendRights extends AbstractPage {
     }
 
     public static function getAdminMenuGroup() {
-        return 'Nachrichten';
+        return 'Nachrichten (deprecated!)';
     }
 
     public static function init() {

@@ -404,7 +404,7 @@ class administrationusers extends AbstractPage {
 	
 	
 	public static function getSiteDisplayName() {
-		return 'Benutzer';
+		return 'Benutzer (deprecated!)';
 	}
 	
 	/**

@@ -511,7 +511,7 @@ class administrationcreateusers extends AbstractPage {
 
 
   public static function getSiteDisplayName() {
-    return 'Initialpasswörter';
+    return 'Initialpasswörter (deprecated!)';
   }
 
   /**

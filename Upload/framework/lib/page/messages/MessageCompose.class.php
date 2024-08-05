@@ -1364,7 +1364,7 @@ class MessageCompose extends AbstractPage {
 	}
 
     public static function getAdminMenuGroup() {
-        return 'Nachrichten';
+        return 'Nachrichten (deprecated!)';
     }
 }
 

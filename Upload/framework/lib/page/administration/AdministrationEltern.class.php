@@ -347,7 +347,7 @@ class AdministrationEltern extends AbstractPage {
 	
 	
 	public static function getSiteDisplayName() {
-		return 'Elternbenutzer';
+		return 'Elternbenutzer (deprecated!)';
 	}
 	
 	/**
