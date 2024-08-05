@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.7.5
+ * Version 1.8.0
  *
  */
 
@@ -24,11 +24,50 @@ include_once '../data/config/config.php';
 class Updates
 {
 
+    public static function to180($root)
+    {
+        $root->query("ALTER TABLE `lehrer` CHANGE `lehrerID` `lehrerID` INT(11)  NOT NULL  AUTO_INCREMENT  COMMENT 'XML ID aus ASV';", false);
+
+        $root->query("ALTER TABLE `faecher` ADD `schulnummer` INT  NULL  DEFAULT NULL  AFTER `fachOrdnung`;", false);
+        $root->query("ALTER TABLE `unterricht` ADD `schulnummer` INT  NULL  DEFAULT NULL  AFTER `unterrichtKlassen`;", false);
+        $root->query("ALTER TABLE `klassen` ADD `schulnummer` INT  NULL  DEFAULT NULL  AFTER `aussenklasse`;", false);
+        $root->query("ALTER TABLE `lehrer` ADD `schulnummer` INT  NULL  DEFAULT NULL  AFTER `lehrerNameNachgestellt`;", false);
+        $root->query("ALTER TABLE `schueler` ADD `schulnummer` INT  NULL  DEFAULT NULL  AFTER `schuelerNameNachgestellt`;", false);
+
+
+        // CONFIG: Schulnummer zu Array
+        $path = '../data/config/config.php';
+        $fp = fopen($path,"r");
+        if($fp)  {
+            $config_neu = '';
+            while(!feof($fp))  {
+                $zeile = fgets($fp, 4096);
+
+                if (strpos($zeile, "public \$schulnummer")) {
+                    $txt = '    // '.trim($zeile).'
+    public $schulnummern = ["'.DB::getGlobalSettings()->schulnummer.'"];';
+                } else {
+                    $txt = $zeile;
+                }
+                $config_neu .= $txt;
+            }
+            fclose($fp);
+            file_put_contents($path, $config_neu);
+        }
+
+        return true;
+    }
+
+    public static function to176($root)
+    {
+        return true;
+    }
+
     public static function to175($root)
     {
 
-        $root->query("ALTER TABLE `noten_zeugnisse` ADD `zeugnisTemplate` VARCHAR(255)  NULL  DEFAULT NULL  AFTER `zeugnisName`", false);
-        $root->query("ALTER TABLE `noten_wahlfach_faecher` ADD `textZeugnis` VARCHAR(255)  NULL  DEFAULT NULL  AFTER `wahlfachBezeichnung`", false);
+        $root->query("ALTER TABLE `noten_zeugnisse` ADD `zeugnisTemplate` VARCHAR(255)  NULL  DEFAULT NULL  AFTER `zeugnisName`;", false);
+        $root->query("ALTER TABLE `noten_wahlfach_faecher` ADD `textZeugnis` VARCHAR(255)  NULL  DEFAULT NULL  AFTER `wahlfachBezeichnung`;", false);
         $root->update('www/index.php');
         $root->update('www/components');
         $root->update('www/startup.php');
