@@ -1,5 +1,13 @@
 <?php
 
+use \Eluceo\iCal\Domain\Entity\Event;
+use \Eluceo\iCal\Domain\ValueObject\Location;
+use \Eluceo\iCal\Domain\ValueObject\Date;
+use \Eluceo\iCal\Domain\ValueObject\DateTime;
+use \Eluceo\iCal\Domain\ValueObject\TimeSpan;
+use \Eluceo\iCal\Domain\ValueObject\SingleDay;
+use \Eluceo\iCal\Domain\ValueObject\MultiDay;
+
 class ICSFeed {
     private $data;
     
@@ -114,27 +122,45 @@ class ICSFeed {
     
     
     /**
-     * 
-     * @param String $id unsued
-     * @param String $title
-     * @param DateTime $dateStart
-     * @param DateTime $dateEnd
-     * @param String $ort
-     * @param String $beschreibung
+     * @param DateTimeInterface $dateStart
+     * @param DateTimeInterface $dateEnd
      * @param boolean $isAllDay
-     * @return \Eluceo\iCal\Component\Event
+     * @return \Eluceo\iCal\Domain\ValueObject\Occurrence
      */
-    public static function getICSFeedObject($id, $title, $dateStart, $dateEnd, $ort, $beschreibung, $isAllDay=true) {
-        
-        
-        
-        $vEvent = new \Eluceo\iCal\Component\Event();
+    private static function makeOccurrence($dateStart, $dateEnd, $isAllDay) {
+        if ($isAllDay) {
+            // clone the start and end dates and set their times to 00:00:00, just to be on the safe side.
+            $start = (clone $dateStart)->setTime(0, 0);
+            $end = (clone $dateEnd)->setTime(0, 0);
+            if (date_diff($start, $end)->days === 0) {
+                return new SingleDay(new Date($start));
+            }
+
+            return new MultiDay(new Date($start), new Date($end));
+        }
+
+        // we don't need to make any further adjustments, just take the start and end dates as-is
+        return new TimeSpan(new DateTime($dateStart, true), new DateTime($dateEnd, true));
+    }
+
+
+    /**
+     *
+     * @param string $id unsued
+     * @param string $title
+     * @param DateTimeInterface $dateStart
+     * @param DateTimeInterface $dateEnd
+     * @param string $ort
+     * @param string $beschreibung
+     * @param boolean $isAllDay
+     * @return \Eluceo\iCal\Domain\Entity\Event
+     */
+    public static function getICSFeedObject($id, $title, $dateStart, $dateEnd, $ort, $beschreibung, $isAllDay = true) {
+        $vEvent = new Event();
         $vEvent
-        ->setDtStart($dateStart)
-        ->setDtEnd($dateEnd)
-        ->setNoTime($isAllDay)
+        ->setOccurrence(static::makeOccurrence($dateStart, $dateEnd, $isAllDay))
         ->setSummary($title)
-        ->setLocation($ort)
+        ->setLocation(new Location($ort))
         ->setDescription($beschreibung)
         ;
         
@@ -172,14 +198,18 @@ class ICSFeed {
             END:VEVENT
          */
     }
-    
+
+    /**
+     * @param \Eluceo\iCal\Domain\Entity\Calendar $vCalendarObject
+     */
     public static function sendICSFeed($vCalendarObject) {
-        
+        $factory = new NamedCalendarFactory();
+        $rendered = $factory->createCalendar($vCalendarObject);
+
         header('Content-Type: text/calendar; charset=utf-8');
         header('Content-Disposition: attachment; filename="cal.ics"');
-        
-        echo $vCalendarObject->render();
-        
+
+        echo $rendered;
         exit(0);
     }
     

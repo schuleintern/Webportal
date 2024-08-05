@@ -462,6 +462,100 @@ class stundenplandata {
 		return DB::getSettings()->getValue("stundenplan-anzahlstunden");
 	}
 	
+    /**
+     * @param int $day_of_week The number of the weekday to query (1: Monday, 5: Friday)
+     * @param int[] $periods The numbers of the periods to query (1: first period)
+     * @param bool $continuous Whether periods that directly follow a previous period should be merged (true: do merge)
+     * @return array<array{start: DateInterval, end: DateInterval}>|null
+     */
+    public static function getTimesForWeekdayAndPeriods($day_of_week, $periods, $continuous=false) {
+        if (empty($periods)) { return null; }
+
+        // Ensure that $periods is sorted in an ascending order.
+        // Since the array isn't passed by reference, we don't need to create a copy first.
+        sort($periods, SORT_NUMERIC);
+
+        $times = array();
+        $lastPeriod = null;
+        foreach ($periods as $period) {
+            if (!$continuous) {
+                $times[] = static::getTimesForWeekdayAndPeriod($day_of_week, $period);
+            } elseif ($lastPeriod === null) {
+                $times[] = array("start" => static::getTimesForWeekdayAndPeriod($day_of_week, $period)["start"]);
+            } elseif ($period != $lastPeriod + 1) {
+                $times[count($times) - 1]["end"] = stundenplandata::getTimesForWeekdayAndPeriod($day_of_week, $lastPeriod)["end"];
+                $times[] = array("start" => stundenplandata::getTimesForWeekdayAndPeriod($day_of_week, $period)["start"]);
+            }
+            $lastPeriod = $period;
+        }
+
+        if ($continuous && $lastPeriod !== null) {
+            $times[count($times) - 1]["end"] = stundenplandata::getTimesForWeekdayAndPeriod($day_of_week, $lastPeriod)["end"];
+        }
+
+        return $times;
+    }
+
+    /**
+     * Returns the start and end time of a specific period on the specified day of week.
+     *
+     * The array contains two array keys, "start" and "end", which map to the start and end times of the queried period, respectively.
+     *
+     * Returns null if no data is available for the specified combination of weekday and period.
+     *
+     * @param int $day_of_week The number of the weekday to query (1: Monday, 5: Friday)
+     * @param int $period The number of the period to query (1: first period)
+     * @return array{start: DateInterval, end: DateInterval}|null
+     */
+    public static function getTimesForWeekdayAndPeriod($day_of_week, $period) {
+        $settings = DB::getSettings();
+        if ($settings->getValue("stundenplan-everydayothertimes") <= 0) {
+            // If the timetable uses the same times every day, just query the times for Monday.
+            $day_of_week = 1;
+        }
+        $start = $settings->getValue("stundenplan-stunde-$day_of_week-$period-start");
+        $end = $settings->getValue("stundenplan-stunde-$day_of_week-$period-ende");
+        if ($start === null || $end === null) { return null; }
+
+        $today = new DateTimeImmutable("today");  # This is the current date time at 00:00h.
+        return array(
+            "start" => $today->diff(new DateTimeImmutable($start)),
+            "end" => $today->diff(new DateTimeImmutable($end))
+        );
+    }
+
+    /**
+     * Returns the start and end times of all periods on the specified day of week.
+     *
+     * The top-level array maps the number of the period (1: first period) to another array containing the start and end times of that period.
+     *
+     * @param int $day_of_week The number of the week day to query (1: Monday, 5: Friday)
+     * @return array<array{start: DateInterval, end: DateInterval}|null>
+     */
+    public static function getTimesForWeekday($day_of_week) {
+        $settings = DB::getSettings();
+        $periodsCount = $settings->getValue("stundenplan-anzahlstunden");
+        $times_weekday = array();
+        for ($period = 1; $period < $periodsCount; $period++) {
+            $times_weekday[$period] = static::getTimesForWeekdayAndPeriod($day_of_week, $period);
+        }
+        return $times_weekday;
+    }
+
+    /**
+     * Returns the start and end times of all periods on the timetable.
+     *
+     * The top-level array maps the number of the week day (1: Monday, 5: Friday) to another array, which maps the number of the period (1: first period) to a third array containing the start and end times of that period.
+     *
+     * @return array<array<array{start: DateInterval, end: DateInterval}|null>>
+     */
+    public static function getTimes() {
+        $times = array();
+        for ($day_of_week = 1; $day_of_week < 6; $day_of_week++) {
+            $times[$day_of_week] = static::getTimesForWeekday($day_of_week);
+        }
+        return $times;
+    }
 }
 
 
