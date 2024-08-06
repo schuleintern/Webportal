@@ -9,6 +9,7 @@ class extFinanzenModelAntrag extends ExtensionModel
     static $table = 'ext_finanzen_antrag';
 
     static $fields = [
+        'id',
         'title',
         'payee',
         'users',
