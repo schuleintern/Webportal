@@ -52,8 +52,10 @@
               Im Folgenden finden sie das Protokoll:
             </div>
           </li>
-          <li v-bind:key="index" v-for="(obj, index) in  item" class="">
-            {{ obj.msg }}
+          <li v-bind:key="index" v-for="(obj, index) in  item" class="" >
+            <div v-html="obj.msg"></div>
+            <div v-if="obj.data">{{obj.data}}</div>
+
           </li>
         </ul>
       </div>

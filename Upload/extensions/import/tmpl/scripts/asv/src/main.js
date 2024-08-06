@@ -3,8 +3,8 @@ import { createApp } from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import App from './App.vue'
-import { QuillEditor } from '@vueup/vue-quill'
-import '@vueup/vue-quill/dist/vue-quill.snow.css';
+//import { QuillEditor } from '@vueup/vue-quill'
+//import '@vueup/vue-quill/dist/vue-quill.snow.css';
 //import '@vueup/vue-quill/dist/vue-quill.bubble.css'
 
 import $bus from './event.js';
@@ -20,7 +20,7 @@ import 'vue-simple-uploader/dist/style.css'
 
 const app = createApp(App)
 //app.component('Datepicker', Datepicker);
-app.component('QuillEditor', QuillEditor)
+//app.component('QuillEditor', QuillEditor)
 
 app.config.globalProperties.$bus = $bus;
 
