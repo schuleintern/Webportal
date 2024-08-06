@@ -1,11 +1,13 @@
 <?php
 
-class setAntragDoneAdmin extends AbstractRest {
-	
-	protected $statusCode = 200;
+class setAntragDoneAdmin extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +19,7 @@ class setAntragDoneAdmin extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if (!$this->canAdmin()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,7 +27,7 @@ class setAntragDoneAdmin extends AbstractRest {
         }
 
         $id = (int)$input['id'];
-        if ( !$id ) {
+        if (!$id) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Id'
@@ -33,7 +35,7 @@ class setAntragDoneAdmin extends AbstractRest {
         }
 
         $status = (int)$input['status'];
-        if ( !$status ) {
+        if (!$status) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Status'
@@ -45,10 +47,9 @@ class setAntragDoneAdmin extends AbstractRest {
         $doneInfoIntern = trim(nl2br($input['doneInfoIntern']));
 
 
-
         include_once PATH_EXTENSION . 'models' . DS . 'Antrag.class.php';
-
-        if ( extBeurlaubungModelAntrag::setDone($id, $status, $doneInfo, $userID, $doneInfoIntern) ) {
+        $class = new extBeurlaubungModelAntrag();
+        if ($class->setDone($id, $status, $doneInfo, $userID, $doneInfoIntern)) {
             return [
                 'success' => true
             ];
@@ -59,18 +60,19 @@ class setAntragDoneAdmin extends AbstractRest {
             'msg' => 'Error'
         ];
 
-	}
+    }
 
 
-	/**
-	 * Set Allowed Request Method
-	 * (GET, POST, ...)
-	 * 
-	 * @return String
-	 */
-	public function getAllowedMethod() {
-		return 'POST';
-	}
+    /**
+     * Set Allowed Request Method
+     * (GET, POST, ...)
+     *
+     * @return String
+     */
+    public function getAllowedMethod()
+    {
+        return 'POST';
+    }
 
 
     /**
@@ -78,7 +80,8 @@ class setAntragDoneAdmin extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -91,15 +94,17 @@ class setAntragDoneAdmin extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 
-}	
+}
 
 ?>

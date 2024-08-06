@@ -10,9 +10,8 @@ class extBeurlaubungDefault extends AbstractPage
         return '<i class="fa fas fa-sun"></i> Beurlaubung';
     }
 
-    public function __construct($request = [], $extension = [])
-    {
-        parent::__construct(array(self::getSiteDisplayName()), false, false, false, $request, $extension);
+    public function __construct($request = [], $extension = []) {
+        parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);
         $this->checkLogin();
     }
 
@@ -32,9 +31,11 @@ class extBeurlaubungDefault extends AbstractPage
 
         //$user = DB::getSession()->getUser();
 
+
+        $mySchueler = [];
+
         if (DB::getSession()->isPupil()) {
 
-            $mySchueler = [];
             $mySchueler_temp = DB::getSession()->getUser();
             $mySchueler[] = $mySchueler_temp->getCollection(true, false);
 
@@ -58,8 +59,7 @@ class extBeurlaubungDefault extends AbstractPage
         }
 
         if (DB::getSession()->isTeacher()) {
-            $isSchulleitung = DB::getSession()->getTeacherObject()->isSchulleitung();
-
+            //$isSchulleitung = DB::getSession()->getTeacherObject()->isSchulleitung();
             $mySchueler = [];
             $mySchueler_temp = DB::getSession()->getUser();
             $mySchueler[] = $mySchueler_temp->getCollection(true, false);
@@ -73,9 +73,12 @@ class extBeurlaubungDefault extends AbstractPage
 
 
 
-        $maxStunden = (int)DB::getSettings()->getValue("stundenplan-anzahlstunden");
+        $maxStunden = (int)DB::getSettings()->getValue("ext-stundenplan-anzahlstunden");
         if (!$maxStunden) {
-            $maxStunden = 6;
+            $maxStunden = (int)DB::getSettings()->getValue("stundenplan-anzahlstunden");
+            if (!$maxStunden) {
+                $maxStunden = 6;
+            }
         }
         $stundenVormittag = 6;
         $stundenNachmittag = $maxStunden - $stundenVormittag;
@@ -85,12 +88,10 @@ class extBeurlaubungDefault extends AbstractPage
         }
 
         //$settings = $this->getSettings();
-
-        $user = DB::getSession()->getUser();
+        //$user = DB::getSession()->getUser();
 
         $freigabeSL = DB::getSettings()->getBoolean("extBeurlaubung-schulleitung-freigabe");
         $freigabeKL = DB::getSettings()->getBoolean("extBeurlaubung-klassenleitung-freigabe");
-
 
 
         $this->render([
@@ -113,7 +114,7 @@ class extBeurlaubungDefault extends AbstractPage
                 "hinweisAntragOpenFinish" => nl2br(DB::getSettings()->getValue("extBeurlaubung-antrag-finish")),
                 "formGanztags" => (int)DB::getSettings()->getValue("extBeurlaubung-form-ganztag"),
                 "formGanztagsLabel" => (string)DB::getSettings()->getValue("extBeurlaubung-form-ganztag-label")
-                
+
             ]
         ]);
 

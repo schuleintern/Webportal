@@ -1,11 +1,13 @@
 <?php
 
-class getMyList extends AbstractRest {
-	
-	protected $statusCode = 200;
+class getMyList extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +19,7 @@ class getMyList extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -26,8 +28,8 @@ class getMyList extends AbstractRest {
 
 
         include_once PATH_EXTENSION . 'models' . DS . 'Antrag.class.php';
-
-        $tmp_data = extBeurlaubungModelAntrag::getByUserID($userID);
+        $class = new extBeurlaubungModelAntrag();
+        $tmp_data = $class->getByUserID($userID);
 
         $ret = [];
         foreach ($tmp_data as $item) {
@@ -36,18 +38,19 @@ class getMyList extends AbstractRest {
 
         return $ret;
 
-	}
+    }
 
 
-	/**
-	 * Set Allowed Request Method
-	 * (GET, POST, ...)
-	 * 
-	 * @return String
-	 */
-	public function getAllowedMethod() {
-		return 'GET';
-	}
+    /**
+     * Set Allowed Request Method
+     * (GET, POST, ...)
+     *
+     * @return String
+     */
+    public function getAllowedMethod()
+    {
+        return 'GET';
+    }
 
 
     /**
@@ -55,7 +58,8 @@ class getMyList extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -68,15 +72,17 @@ class getMyList extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 
-}	
+}
 
 ?>

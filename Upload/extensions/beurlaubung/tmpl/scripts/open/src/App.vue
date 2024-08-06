@@ -27,15 +27,10 @@
 
       <div class="si-form ">
         <ul>
-          <li>
+          <li v-if="textVorlagen">
             <label>Vorlagen:</label>
             <div class="si-btn-multiple">
-              <button class="si-btn si-btn-border margin-r-s" v-on:click="presetInfo($event)">Begründung ist nicht
-                ausreichend
-              </button>
-              <button class="si-btn si-btn-border margin-r-s" v-on:click="presetInfo($event)">Leistungserhebung</button>
-              <button class="si-btn si-btn-border margin-r-s" v-on:click="presetInfo($event)">Datum nicht möglich
-              </button>
+              <button v-bind:key="i" v-for="(vorlage, i) in  textVorlagen" class="si-btn si-btn-border margin-r-s" v-on:click="presetInfo($event)">{{vorlage}}</button>
             </div>
           </li>
           <li>
@@ -159,6 +154,7 @@ export default {
       freigabe: window.globals.freigabe,
       freigabeKL: window.globals.freigabeKL,
       freigabeSL: window.globals.freigabeSL,
+      textVorlagen: window.globals.textVorlagen,
       error: false,
       loading: false,
       page: 'list',

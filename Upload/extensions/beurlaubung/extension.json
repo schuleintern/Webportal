@@ -1,9 +1,9 @@
 {
   "name": "Beurlaubung",
   "uniqid": "ext.zwiebelgasse.beurlaubung",
-  "version": "10",
+  "version": "11",
 
-  "requiredVersion": "1.6.3",
+  "requiredVersion": "1.8.0",
 
   "menu": {
     "categorie": "1",

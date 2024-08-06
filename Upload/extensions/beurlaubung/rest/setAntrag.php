@@ -74,6 +74,7 @@ class setAntrag extends AbstractRest
 
 
         include_once PATH_EXTENSION . 'models' . DS . 'Antrag.class.php';
+        $class = new extBeurlaubungModelAntrag();
 
         $status = 1;
         $freigabeKL = DB::getSettings()->getBoolean("extBeurlaubung-klassenleitung-freigabe");
@@ -82,37 +83,7 @@ class setAntrag extends AbstractRest
             // Automatisch Freigeben
             $status = 2;
         }
-        if (extBeurlaubungModelAntrag::setAntrag($userID, $schueler, $date, $stunden, $info, $status)) {
-
-            if ($freigabeSL && DB::getSettings()->getBoolean("extBeurlaubung-schulleitung-nachricht")) {
-
-                $messageSender = new MessageSender();
-                $recipientHandler = new RecipientHandler("");
-                $recipientHandler->addRecipient(new SchulleitungRecipient());
-                $messageSender->setRecipients($recipientHandler);
-                $messageSender->setSender(new user(['userID' => 0]));
-                $messageSender->setSubject('Neuer Beurlaubungsantrag');
-                $messageSender->setText('Es liegt ein neuer Beurlaubungsantrag vor. Bitte prüfen.<br /><br /><i>Dies ist eine automatisch versendete Nachricht.</i>');
-                $messageSender->send();
-            }
-
-            if ($freigabeKL && DB::getSettings()->getBoolean("extBeurlaubung-klassenleitung-nachricht")) {
-
-                $schuelerUser = user::getUserByID($schueler);
-                $schuelerUser = $schuelerUser->getCollection(true, false);
-                $klasse = $schuelerUser['klasse'];
-                if ($klasse) {
-                    $messageSender = new MessageSender();
-                    $recipientHandler = new RecipientHandler("");
-                    $recipientHandler->addRecipient(new KlassenleitungRecipient($klasse));
-                    $messageSender->setRecipients($recipientHandler);
-                    $messageSender->setSender(new user(['userID' => 0]));
-                    $messageSender->setSubject('Neuer Beurlaubungsantrag');
-                    $messageSender->setText('Es liegt ein neuer Beurlaubungsantrag vor. Bitte prüfen.<br /><br /><i>Dies ist eine automatisch versendete Nachricht.</i>');
-                    $messageSender->send();
-                }
-
-            }
+        if ($class->setAntrag($userID, $schueler, $date, $stunden, $info, $status)) {
 
             return [
                 'error' => false,

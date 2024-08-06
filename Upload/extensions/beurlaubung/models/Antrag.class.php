@@ -3,14 +3,37 @@
 /**
  *
  */
-class extBeurlaubungModelAntrag
+class extBeurlaubungModelAntrag extends ExtensionModel
 {
 
 
-    /**
-     * @var data []
-     */
-    private $data = [];
+    static $table = 'ext_beurlaubung_antrag';
+
+    static $fields = [
+        'id',
+        'status',
+        'createdTime',
+        'createdUserID',
+        'userID',
+        'datumStart',
+        'datumEnde',
+        'stunden',
+        'info',
+        'doneInfo',
+        'doneUser',
+        'doneDate',
+        'doneKL',
+        'doneKLDate',
+        'doneKLInfo',
+        'doneSL',
+        'doneSLDate',
+        'doneSLInfo',
+    ];
+
+
+    static $defaults = [
+
+    ];
 
 
     /**
@@ -19,158 +42,40 @@ class extBeurlaubungModelAntrag
      */
     public function __construct($data = false)
     {
-        if (!$data) {
-            $data = $this->data;
-        }
-        $this->setData($data);
-    }
-
-    /**
-     * @return boolean
-     */
-    public static function isVisible()
-    {
-
-        return true;
+        parent::__construct($data, self::$table ? self::$table : false);
+        self::setModelFields(self::$fields, self::$defaults);
     }
 
 
-    /**
-     * @return data
-     */
-    public function setData($data = [])
-    {
-        $this->data = $data;
-        return $this->getData();
-    }
-
-    /**
-     * @return data
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-
-    /**
-     * Getter
-     */
-    public function getID()
-    {
-        return $this->data['id'];
-    }
-
-    public function getStatus()
-    {
-        return $this->data['status'];
-    }
-
-    public function getCreatedTime()
-    {
-        return $this->data['createdTime'];
-    }
-
-    public function getCreatedUserID()
-    {
-        return $this->data['createdUserID'];
-    }
-
-    public function getUserID()
-    {
-        return $this->data['userID'];
-    }
-
-    public function getDatumStart()
-    {
-        return $this->data['datumStart'];
-    }
-
-    public function getDatumEnde()
-    {
-        return $this->data['datumEnde'];
-    }
-
-    public function getStunden()
-    {
-        return $this->data['stunden'];
-    }
-
-    public function getInfo()
-    {
-        return $this->data['info'];
-    }
-    public function getDoneInfo()
-    {
-        return $this->data['doneInfo'];
-    }
-    public function getDoneDate()
-    {
-        return $this->data['doneDate'];
-    }
-    public function getDoneUser()
-    {
-        return $this->data['doneUser'];
-    }
-
-    public function getDoneKL()
-    {
-        return $this->data['doneKL'];
-    }
-
-    public function getDoneKLDate()
-    {
-        return $this->data['doneKLDate'];
-    }
-
-    public function getDoneKLInfo()
-    {
-        return $this->data['doneKLInfo'];
-    }
-
-    public function getDoneSL()
-    {
-        return $this->data['doneSL'];
-    }
-
-    public function getDoneSLDate()
-    {
-        return $this->data['doneSLDate'];
-    }
-
-    public function getDoneSLInfo()
-    {
-        return $this->data['doneSLInfo'];
-    }
 
 
     public function getCollection($full = false)
     {
 
-        $dateStart = DateTime::createFromFormat('Y-m-d',$this->getDatumStart());
-        $dateEnde = DateTime::createFromFormat('Y-m-d',$this->getDatumEnde());
+        $dateStart = DateTime::createFromFormat('Y-m-d',$this->getData('datumStart'));
+        $dateEnde = DateTime::createFromFormat('Y-m-d',$this->getData('datumEnde'));
 
-        $doneDate = DateTime::createFromFormat('Y-m-d H:i:s',$this->getDoneDate());
+        $doneDate = DateTime::createFromFormat('Y-m-d H:i',$this->getData('doneDate'));
 
         $collection = [
             "id" => $this->getID(),
-            "status" => $this->getStatus(),
-            "createdTime" => date('d.m.Y H:i', $this->getCreatedTime()),
-            "createdUserID" => $this->getCreatedUserID(),
-            "userID" => $this->getUserID(),
+            "status" => $this->getData('status'),
+            "createdTime" => date('d.m.Y H:i', $this->getData('createdTime')),
+            "createdUserID" => $this->getData('createdUserID'),
+            "userID" => $this->getData('userID'),
             "datumStart" => $dateStart->format('d.m.Y' ),
             "datumEnde" => $dateEnde->format('d.m.Y' ),
-            "stunden" => $this->getStunden(),
-            "info" => $this->getInfo(),
-            "doneInfo" => $this->getDoneInfo() ? $this->getDoneInfo() : '',
-            "doneUser" => $this->getDoneuser(),
+            "stunden" => $this->getData('stunden'),
+            "info" => $this->getData('info'),
+            "doneInfo" => $this->getData('doneInfo') ? $this->getData('doneInfo') : '',
+            "doneUser" => $this->getData('doneUser'),
             "doneDate" => $doneDate ? $doneDate->format('d.m. H:i') : 0 ,
-            "doneKL" => $this->getDoneKL(),
-            "doneKLDate" => $this->getDoneKLDate(),
-            "doneKLInfo" => $this->getDoneKLInfo(),
-            "doneSL" => $this->getDoneSL(),
-            "doneSLDate" => $this->getDoneSLDate(),
-            "doneSLInfo" => $this->getDoneSLInfo(),
+            "doneKL" => $this->getData('doneKL'),
+            "doneKLDate" => $this->getData('doneKLDate'),
+            "doneKLInfo" => $this->getData('doneKLInfo'),
+            "doneSL" => $this->getData('doneSL'),
+            "doneSLDate" => $this->getData('doneSLDate'),
+            "doneSLInfo" => $this->getData('doneSLInfo'),
         ];
 
         if ( $this->getCreatedTime() >= $dateStart  ) {
@@ -179,20 +84,20 @@ class extBeurlaubungModelAntrag
                 $collection['diff'] = $diff->days;
             }
         }
-        
+
 
 
         if ($full) {
-            if ( $this->getUserID() ) {
-                $temp_user_1 = user::getUserByID($this->getUserID());
+            if ( $this->getData('userID') ) {
+                $temp_user_1 = user::getUserByID((int)$this->getData('userID'));
                 if ($temp_user_1) {
                     $collection['user'] = $temp_user_1->getCollection(true);
                     $collection['username'] = $collection['user']['name'];
                 }
 
             }
-            if ( $this->getDoneuser() ) {
-                $temp_user_2 = user::getUserByID($this->getDoneuser());
+            if ( $this->getData('doneUser') ) {
+                $temp_user_2 = user::getUserByID((int)$this->getData('doneUser'));
                 if ($temp_user_2) {
                     $collection['doneUserUser'] = $temp_user_2->getCollection(true);
                 }
@@ -205,10 +110,8 @@ class extBeurlaubungModelAntrag
 
 
 
-    /**
-     * @return Array[]
-     */
-    public static function getByStatus($status = [1])
+
+    public  function getByStatus($status = [1])
     {
         if (!$status || !is_array($status)) {
             return false;
@@ -228,10 +131,7 @@ class extBeurlaubungModelAntrag
     }
 
 
-    /**
-     * @return Array[]
-     */
-    public static function getByUserID($userID = false)
+    public  function getByUserID($userID = false)
     {
         if (!$userID) {
             return false;
@@ -244,10 +144,8 @@ class extBeurlaubungModelAntrag
         return $ret;
     }
 
-    /**
-     * @return Array[]
-     */
-    public static function getByUserIDAndStatus($userID = false, $status = 1)  // 1- offen  2- ja  3- nein
+
+    public  function getByUserIDAndStatus($userID = false, $status = 1)  // 1- offen  2- ja  3- nein
     {
         if (!$userID) {
             return false;
@@ -280,10 +178,7 @@ class extBeurlaubungModelAntrag
     }
 
 
-    /**
-     * @return Array[]
-     */
-    public static function setDone($id = false, $status = false, $info = false, $userID = false, $doneInfoIntern = '')
+    public  function setDone($id = false, $status = false, $info = false, $userID = false, $doneInfoIntern = '')
     {
         if (!$id || !$status || !$userID) {
             return false;
@@ -310,8 +205,9 @@ class extBeurlaubungModelAntrag
             }
             if ($teacherID) {
                 $klassen = klasseDB::getAll();
+                $classKlasse = new klasse();
                 foreach ($klassen as $klasse) {
-                    $leitungen = klasse::getKlassenleitungAll($klasse->getKlassenname());
+                    $leitungen = $classKlasse->getKlassenleitungAll($klasse->getKlassenname());
                     foreach ($leitungen as $leitung) {
                         if ($leitung['lehrerID'] == $teacherID) {
                             $sql = 'doneKL = 1, doneKLDate = "'.date('Y-m-d H:i', time()).'" , doneKLInfo = "'.DB::getDB()->escapeString($doneInfoIntern).'" ';
@@ -352,11 +248,11 @@ class extBeurlaubungModelAntrag
                         $messageSender->send();
                     }
                 }
-                
 
-    
+
+
             }
-            
+
 
 
             return true;
@@ -365,10 +261,7 @@ class extBeurlaubungModelAntrag
     }
 
 
-    /**
-     * @return Array[]
-     */
-    public static function setAntrag($userID = false, $schueler = false, $date = false, $stunden = false, $info = '', $status = 1)
+    public  function setAntrag($userID = false, $schueler = false, $date = false, $stunden = false, $info = '', $status = 1)
     {
         if (!$userID || !$schueler || !$date || !is_array($date) || !$date[0] || !$stunden) {
             return false;
@@ -405,7 +298,7 @@ class extBeurlaubungModelAntrag
     }
 
 
-    public static function getFreigabeBy($collection, $user) {
+    public  function getFreigabeBy($collection, $user) {
 
         if ( $user->isTeacher() ) {
             $teacherID = $user->getTeacherObject()->getID();
@@ -426,9 +319,10 @@ class extBeurlaubungModelAntrag
             $freigabeKL = DB::getSettings()->getBoolean("extBeurlaubung-klassenleitung-freigabe");
             if ($freigabeKL && $teacherID ) {
                 $arr = [];
+                $classKlasse = new klasse();
                 foreach ($collection as $item) {
                     $klasse = $item['user']['klasse'];
-                    $leitungen = klasse::getKlassenleitungAll($klasse);
+                    $leitungen = $classKlasse->getKlassenleitungAll($klasse);
                     $ok = false;
                     foreach ($leitungen as $leitung) {
                         if ($leitung['lehrerID'] == $teacherID) {

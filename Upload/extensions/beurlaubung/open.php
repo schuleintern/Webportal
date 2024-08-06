@@ -42,6 +42,10 @@ class extBeurlaubungOpen extends AbstractPage {
             $freigabe = true;
         }
 
+        $textVorlagen = DB::getSettings()->getValue("extBeurlaubung-done-vorlagen");
+        $textVorlagen = explode(';', $textVorlagen);
+
+
 
         $this->render([
             "tmpl" => "default",
@@ -54,7 +58,8 @@ class extBeurlaubungOpen extends AbstractPage {
                 "apiURL" => "rest.php/beurlaubung",
                 "freigabe" => (int)$freigabe,
                 "freigabeKL" => (int)$freigabeKL,
-                "freigabeSL" => (int)$freigabeSL
+                "freigabeSL" => (int)$freigabeSL,
+                "textVorlagen" => $textVorlagen
             ]
 
         ]);

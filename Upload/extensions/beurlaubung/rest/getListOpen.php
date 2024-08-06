@@ -10,7 +10,7 @@ class getListOpen extends AbstractRest
     {
 
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -19,10 +19,10 @@ class getListOpen extends AbstractRest
 
 
         include_once PATH_EXTENSION . 'models' . DS . 'Antrag.class.php';
-
+        $class = new extBeurlaubungModelAntrag();
         $status = [1];
 
-        $tmp_data = extBeurlaubungModelAntrag::getByStatus($status);
+        $tmp_data = $class->getByStatus($status);
 
 
         $ret = [];
@@ -30,22 +30,19 @@ class getListOpen extends AbstractRest
             $collection = $item->getCollection(true);
 
 
-
             if ($collection['user'] && $collection['user']['klasse']) {
 
-                $leistungsnachweis = Leistungsnachweis::getByClass([$collection['user']['klasse']], DateFunctions::getMySQLDateFromNaturalDate($collection['datumStart']), DateFunctions::getMySQLDateFromNaturalDate($collection['datumEnde']) );
-
-
+                $leistungsnachweis = Leistungsnachweis::getByClass([$collection['user']['klasse']], DateFunctions::getMySQLDateFromNaturalDate($collection['datumStart']), DateFunctions::getMySQLDateFromNaturalDate($collection['datumEnde']));
 
                 if (count($leistungsnachweis) > 0) {
 
                     $collection['events'] = [];
-                    foreach($leistungsnachweis as $lnw) {
+                    foreach ($leistungsnachweis as $lnw) {
                         $collection['events'][] = [
                             'art' => $lnw->getArtLangtext(),
                             'fach' => $lnw->getFach(),
                             'user' => $lnw->getLehrer(),
-                            'stunde' => join(',',$lnw->getStunden())
+                            'stunde' => join(',', $lnw->getStunden())
                         ];
                     }
 
@@ -57,9 +54,10 @@ class getListOpen extends AbstractRest
 
         $user = DB::getSession()->getUser();
 
-        $freigabe = extBeurlaubungModelAntrag::getFreigabeBy($ret, $user);
 
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['adminGroupName']) === true ) {
+        $freigabe = $class->getFreigabeBy($ret, $user);
+
+        if (DB::getSession()->isAdminOrGroupAdmin($this->extension['adminGroupName']) === true) {
             $freigabe = true;
         }
 

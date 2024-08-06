@@ -18,7 +18,7 @@ class extBeurlaubungAdminAcl extends AbstractPage {
 		//$this->getRequest();
 		//$this->getAcl();
 
-        $user = DB::getSession()->getUser();
+        //$user = DB::getSession()->getUser();
 
         if ( !$this->canWrite() ) {
             new errorPage('Kein Zugriff');
