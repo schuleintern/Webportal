@@ -1,35 +1,98 @@
 {
-  "name": "Klassen Kalender",
+  "name": "Klassenkalender",
   "uniqid": "ext.zwiebelgasse.klassenkalender",
-  "version": "1",
-
-  "requiredVersion": "1.5.3",
-
+  "version": "2",
+  "requiredVersion": "1.8.0",
   "menu": {
     "categorie": "1",
-    "icon": "fa fa-calendar",
-    "params": "",
-    "class": "extKlassenkalenderMenu"
+    "icon": "fa fa-calendar-alt",
+    "params": ""
   },
-
-  "adminGroupName": "Admin_Ext_KlassenKalender",
+  "adminGroupName": "Admin_ext_klassenklassenkalender",
   "aclGroupName": "ext_klassenkalender",
+  "cron": [
+    {
+      "typ": "default",
+      "class": "extKlassenkalenderCronFetchKlassen"
+    }
+  ],
+  "widgets": [
 
-
+    {
+      "title": "Counter",
+      "uniqid": "klassenkalender.counter",
+      "position": "header",
+      "class": "extKlassenkalenderWidgetCounter",
+      "params": {}
+    },
+    {
+      "title": "Dashboard",
+      "uniqid": "klassenkalender.dashboard",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
+    }
+  ],
   "submenu": [
     {
-      "title": "Klassen Kalender",
-      "icon": "fa fa-calendar",
+      "title": "Klassenkalender",
+      "icon": "fa fa-calendar-alt",
       "url": {
         "page": "ext_klassenkalender",
         "params": {
           "view": "default"
         }
       }
+    },
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_klassenkalender",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_klassenkalender",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "LNW",
+      "icon": "fa fa-graduation-cap",
+      "admin": true,
+      "url": {
+        "page": "ext_klassenkalender",
+        "params": {
+          "view": "lnws",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Kalender",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_klassenkalender",
+        "params": {
+          "view": "list",
+          "admin": "true"
+        }
+      }
     }
-    
   ]
-
-
-
 }
