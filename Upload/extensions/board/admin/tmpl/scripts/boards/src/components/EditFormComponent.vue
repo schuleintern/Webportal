@@ -41,7 +41,10 @@
                 <button v-if="form.pdf" class="blockInline margin-l-m si-btn si-btn-icon si-btn-border" @click="handlerClearPdf"><i
                     class="fa fa-trash"></i></button>
               </div>
-
+            </li>
+            <li>
+              <label>URL</label>
+              <input type="text" v-model="form.url">
             </li>
 
           </ul>

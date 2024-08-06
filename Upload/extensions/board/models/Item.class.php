@@ -15,7 +15,8 @@ class extBoardModelItem extends ExtensionModel
         'text',
         'pdf',
         'cover',
-        'enddate'
+        'enddate',
+        'url'
     ];
 
 

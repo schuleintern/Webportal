@@ -1,9 +1,9 @@
 {
   "name": "Board",
   "uniqid": "ext.zwiebelgasse.board",
-  "version": "6",
+  "version": "8",
 
-  "requiredVersion": "1.7.4",
+  "requiredVersion": "1.8.0",
 
   "menu": {
     "categorie": "1",

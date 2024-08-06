@@ -33,7 +33,7 @@ class extBoardModelBoard extends ExtensionModel
     }
 
 
-    public function getCollection($full = false, $withItems = false, $withACL = false, $adminGroup = false)
+    public function getCollection($full = false, $withItems = false, $withACL = false, $adminGroup = false, $withRead = false)
     {
 
         $collection = parent::getCollection();
@@ -61,9 +61,6 @@ class extBoardModelBoard extends ExtensionModel
                         }
                     }
                 }
-
-
-
             }
         }
         if ($withItems) {
@@ -84,6 +81,17 @@ class extBoardModelBoard extends ExtensionModel
                 }
             }
             $collection['items'] = $childs;
+        }
+        if ($withRead) {
+            include_once PATH_EXTENSION . 'models' . DS . 'ItemRead.class.php';
+            $ItemRead = new extBoardModelItemRead();
+            foreach($collection['items'] as $key => $item) {
+                $reads = $ItemRead->getByParentID($item['id']);
+                if ($reads) {
+                    $collection['items'][$key]['read'] = true;
+                }
+            }
+
         }
         return $collection;
     }

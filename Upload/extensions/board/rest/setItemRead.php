@@ -1,6 +1,6 @@
 <?php
 
-class getMyBoards extends AbstractRest
+class setItemRead extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -9,10 +9,13 @@ class getMyBoards extends AbstractRest
     public function execute($input, $request)
     {
 
-
-        //$user = DB::getSession()->getUser();
-
-
+        $user = DB::getSession()->getUser();
+        if (!$user) {
+            return [
+                'error' => true,
+                'msg' => 'Missing User'
+            ];
+        }
         $acl = $this->getAcl();
         if ( !$this->canRead() ) {
             return [
@@ -21,22 +24,45 @@ class getMyBoards extends AbstractRest
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Board.class.php';
+        $item_id = (int)$request[2];
+        if ( !$item_id ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: ID'
+            ];
+        }
 
-        $class = new extBoardModelBoard();
-        $tmp_data = $class->getByState([1], 'sort');
+        $user_id = $user->getUserID();
+        if ( !$user_id ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: User'
+            ];
+        }
 
-        $ret = [];
-        foreach($tmp_data as $item) {
-            $collection = $item->getCollection(true, true, true, $this->getAdminGroup(), true );
-            if ($collection) {
-                $ret[] = $collection;
-            }
+        include_once PATH_EXTENSION . 'models' . DS .'ItemRead.class.php';
+        $class = new extBoardModelItemRead();
+
+        $data = [
+            'item_id' => $item_id,
+            'user_id' => $user_id
+        ];
+
+
+
+        if ( $class->save($data) ) {
+
+            return [
+                'success' => true
+            ];
 
         }
 
-        return $ret;
 
+        return [
+            'error' => true,
+            'msg' => 'Nicht Erfolgreich!'
+        ];
 
     }
 
@@ -80,11 +106,6 @@ class getMyBoards extends AbstractRest
      */
     public function needsSystemAuth()
     {
-        return false;
-    }
-
-
-    public function needsAppAuth() {
         return false;
     }
 

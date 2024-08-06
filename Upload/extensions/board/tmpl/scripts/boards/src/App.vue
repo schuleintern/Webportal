@@ -48,6 +48,36 @@ export default {
     this.loadList();
 
 
+
+    this.$bus.$on('page--read', data => {
+
+      if (!data.item && !data.item.id) {
+        return false;
+      }
+      this.loading = true;
+      var that = this;
+      axios.get(this.apiURL + '/setItemRead/'+data.item.id)
+      .then(function (response) {
+        if (response.data) {
+          if (response.data.error) {
+            that.error = '' + response.data.msg;
+          } else {
+            //that.list = response.data;
+          }
+        } else {
+          that.error = 'Fehler beim Laden. 01';
+        }
+      })
+      .catch(function () {
+        that.error = 'Fehler beim Laden. 02';
+      })
+      .finally(function () {
+        // always executed
+        that.loading = false;
+      });
+
+    });
+
     this.$bus.$on('page--open', data => {
       if (data.item) {
         this.item = data.item;
