@@ -32,10 +32,11 @@
           </li>
           <li class="text-red" v-if="unsetEltern">
             <label>Neue Eltern</label>
-            <a class="si-btn si-btn-red" href="index.php?page=ext_users&view=default&admin=true&task=createEltern"><i class="fa fa-plus"></i> {{ unsetEltern }}
+
+            <div v-if="elternUserMode == 'ASV_MAIL'" class="si-hinweis">Benutzer werden automatisch erstellt.<br>Noch fehlen {{unsetEltern}} Eltern-Benutzer. </div>
+            <a v-else class="si-btn si-btn-red" href="index.php?page=ext_users&view=default&admin=true&task=createEltern"><i class="fa fa-plus"></i> {{ unsetEltern }}
               Benutzer anlegen
-            </a>
-          </li>
+            </a></li>
         </ul>
       </div>
       <div class="flex-1 si-details">

@@ -42,6 +42,9 @@ class extUsersModelEltern extends ExtensionModel
                     $collection['elternUserName'] = $collection['elternUser']['name'];
                 }
             }
+            if (!$collection['elternUserName']) {
+                $collection['elternUserName'] = "";
+            }
             if ($this->getData('elternSchuelerAsvID')) {
                 $user = user::getByASVID($this->getData('elternSchuelerAsvID'));
                 if ($user) {

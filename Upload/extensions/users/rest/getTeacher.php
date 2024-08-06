@@ -1,5 +1,9 @@
 <?php
 
+namespace users\rest;
+use AbstractRest;
+use extUsersModelTeacher;
+
 class getTeacher extends AbstractRest
 {
 
@@ -11,7 +15,7 @@ class getTeacher extends AbstractRest
 
         //$user = DB::getSession()->getUser();
         $acl = $this->getAcl();
-        if ( !$this->canAdmin() ) {
+        if (!$this->canAdmin()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'

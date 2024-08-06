@@ -1,9 +1,9 @@
 {
   "name": "Benutzer",
   "uniqid": "ext.zwiebelgasse.users",
-  "version": "9",
+  "version": "11",
 
-  "requiredVersion": "1.7.4",
+  "requiredVersion": "1.8.0",
 
   "menu": {
     "categorie": "1",

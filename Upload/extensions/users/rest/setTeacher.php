@@ -1,5 +1,10 @@
 <?php
 
+namespace users\rest;
+use AbstractRest;
+use DB;
+use extUsersModelTeacher;
+
 class setTeacher extends AbstractRest
 {
 
@@ -17,7 +22,7 @@ class setTeacher extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -29,64 +34,64 @@ class setTeacher extends AbstractRest
         $userid = (int)$input['userid'];
 
         $asvid = (string)$input['asvid'];
-        if ( !$asvid ) {
+        if (!$asvid) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: ASV ID'
             ];
         }
         $vorname = (string)$input['vorname'];
-        if ( !$vorname ) {
+        if (!$vorname) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Vorname'
             ];
         }
         $nachname = (string)$input['nachname'];
-        if ( !$nachname ) {
+        if (!$nachname) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Nachname'
             ];
         }
         $short = (string)$input['short'];
-        if ( !$short ) {
+        if (!$short) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Kürzel'
             ];
         }
         $rufname = (string)$input['rufname'];
-        if ( !$rufname ) {
+        if (!$rufname) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Rufname'
             ];
         }
         $gender = (string)$input['gender'];
-        if ( !$gender  ) {
+        if (!$gender) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Geschlecht'
             ];
         }
         $zeugniss = (string)$input['zeugniss'];
-        if ( !$zeugniss ) {
+        if (!$zeugniss) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Zeugnissunterschrift'
             ];
         }
         $amtbez = (int)$input['amtbez'];
-        if ( !$amtbez ) {
+        if (!$amtbez) {
             $amtbez = 0;
         }
 
 
-        include_once PATH_EXTENSION . 'models' . DS .'Teacher.class.php';
+        include_once PATH_EXTENSION . 'models' . DS . 'Teacher.class.php';
         $class = new extUsersModelTeacher();
 
-        if ( $class->save([
+        if ($class->save([
             'lehrerID' => $id,
             'lehrerAsvID' => $asvid,
             'lehrerKuerzel' => $short,
@@ -98,7 +103,7 @@ class setTeacher extends AbstractRest
             'lehrerZeugnisunterschrift' => $zeugniss,
             'lehrerAmtsbezeichnung' => $amtbez,
             'lehrerUserID' => $userid
-        ]) ) {
+        ])) {
 
             return [
                 'success' => true

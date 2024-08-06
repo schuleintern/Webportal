@@ -1,5 +1,9 @@
 <?php
 
+namespace users\rest;
+use AbstractRest;
+use user;
+
 class getUsers extends AbstractRest
 {
 
@@ -11,7 +15,7 @@ class getUsers extends AbstractRest
 
         //$user = DB::getSession()->getUser();
         $acl = $this->getAcl();
-        if ( !$this->canAdmin() ) {
+        if (!$this->canAdmin()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'

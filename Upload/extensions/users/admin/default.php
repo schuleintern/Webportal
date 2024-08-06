@@ -48,7 +48,7 @@ class extUsersAdminDefault extends AbstractPage {
         }
 
         $unsetEltern = 0;
-        $schuelerOhneCodeSQL = DB::getDB()->query("SELECT * FROM schueler WHERE schuelerAsvID NOT IN (SELECT codeSchuelerAsvID FROM eltern_codes)");
+        $schuelerOhneCodeSQL = DB::getDB()->query("SELECT * FROM eltern_email WHERE elternUserID IS NULL ");
         while ($eltern = DB::getDB()->fetch_array($schuelerOhneCodeSQL)) {
             $unsetEltern++;
         }

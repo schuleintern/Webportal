@@ -1,5 +1,12 @@
 <?php
 
+namespace users\rest;
+use AbstractRest;
+use DB;
+use EXTENSION;
+use extInboxModelInbox2;
+use extUsersModelGroups;
+
 class setGroups extends AbstractRest
 {
 
@@ -17,7 +24,7 @@ class setGroups extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -32,7 +39,7 @@ class setGroups extends AbstractRest
         }
 
         $title = (string)$input['title'];
-        if ( !$title ) {
+        if (!$title) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Title'
@@ -40,7 +47,7 @@ class setGroups extends AbstractRest
         }
 
         $users = json_decode((string)$_POST['users']);
-        if ( !$users || count($users) < 1 ) {
+        if (!$users || count($users) < 1) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Users'
@@ -58,17 +65,17 @@ class setGroups extends AbstractRest
         include_once PATH_EXTENSION . 'models' . DS . 'Groups.class.php';
         $class = new extUsersModelGroups();
 
-        if ( $class->save([
+        if ($class->save([
             'id' => $id,
             'title' => $title,
             'state' => $state,
             'users' => json_encode($userlist),
-            'createdTime' => date('Y-m-d H:i',time()),
+            'createdTime' => date('Y-m-d H:i', time()),
             'createdBy' => $myUser->getUserID()
-        ]) ) {
+        ])) {
 
 
-            if(EXTENSION::isActive('ext.zwiebelgasse.inbox')) {
+            if (EXTENSION::isActive('ext.zwiebelgasse.inbox')) {
                 include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
                 $class = new extInboxModelInbox2();
                 $class->syncUserGroups();
