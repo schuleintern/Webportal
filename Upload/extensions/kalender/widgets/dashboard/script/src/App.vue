@@ -55,6 +55,7 @@ export default {
     };
   },
   created() {
+    console.log(window)
     this.list = window._widget_kalender_events.today;
     //console.log(this.list)
   },

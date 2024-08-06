@@ -6,6 +6,8 @@
       <button class="si-modal-btn-close" v-on:click="handlerClose"></button>
       <div class="si-modal-content si-form ">
         <ul>
+          <li v-if="form.status == 2"><h3><i class="fas fa-calendar-plus"></i> Terminvorschlag erstellen</h3></li>
+          <li v-else ><h3><i class="fas fa-calendar-plus"></i> Termin hinzufügen</h3></li>
           <li style="padding-bottom: 0;padding-top: 0">
             <label>Titel</label>
             <input type="text" v-model="form.title" placeholder="Event Titel" class=""/>
@@ -183,11 +185,8 @@ export default {
           let dateEnd = that.form.endTime.split(':');
           that.form.endTime = { "hours": dateEnd[0], "minutes": dateEnd[1], "seconds": 0 };
         }
-
       }
-
       that.open = true;
-
       that.aclVorschlag = true;
 
     });
@@ -195,7 +194,6 @@ export default {
       that.open = false;
       that.form = [];
     });
-
 
   },
   methods: {

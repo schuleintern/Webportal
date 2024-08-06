@@ -15,26 +15,49 @@ class setEvents extends AbstractRest {
             ];
         }
 
-        $acl = $this->getAcl();
-
-        if ($input['status'] != 2) { // status 2 = vorschlag
-            if ( !$this->canWrite() ) {
-                return [
-                    'error' => true,
-                    'msg' => 'Kein Zugriff'
-                ];
-            }
-        }
-
-
-
-
         if ( !$input['kalender_id'] ) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: CalenderID'
             ];
         }
+
+
+        $acl = $this->getAcl();
+
+
+        $access = false;
+
+        if ($input['status'] == 2) { // status 2 = vorschlag
+            $access = true;
+        }
+        if ( $this->canWrite() ) {
+            $access = true;
+        }
+         if (!$access) {
+             include_once PATH_EXTENSION . 'models' . DS . 'Kalender.class.php';
+             $calendars = extKalenderModelKalender::getAll(1);
+             foreach ($calendars as $calendar) {
+                 if ($input['kalender_id'] == $calendar->getID()) {
+                     if ($kadmins = $calendar->getAdmins()) {
+                         if (in_array($userID,$kadmins )) {
+                             $access = true;
+                         }
+                     }
+                 }
+             }
+         }
+
+        if (!$access) {
+            return [
+                'error' => true,
+                'msg' => 'Kein Zugriff'
+            ];
+        }
+
+
+
+
         if ( !$input['title'] ) {
             return [
                 'error' => true,

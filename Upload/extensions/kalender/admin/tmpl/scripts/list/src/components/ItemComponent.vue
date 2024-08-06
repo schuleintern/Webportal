@@ -62,6 +62,13 @@
             <label>Externer ICS Feed</label>
             <input type="text" v-model="form.icsfeed">
           </li>
+          <li>
+            <label>Kalenderadmin</label>
+            <UserSelect :preselected="form.admins" @submit="handlerChangeUserlist"></UserSelect>
+            <span v-bind:key="index" v-for="(item, index) in  form.admins" class="margin-t-s">
+              <User :data="item"></User>
+            </span>
+          </li>
         </ul>
       </div>
 
@@ -76,12 +83,15 @@
 
 import FormToggle from './../mixins/FormToggle.vue';
 import FormAcl from './../mixins/FormAcl.vue';
+import User from './../mixins/User.vue';
+import UserSelect from './../mixins/UserSelect.vue';
 
 
 export default {
   name: 'ItemComponent',
   components: {
-    FormToggle, FormAcl
+    FormToggle, FormAcl,
+    UserSelect, User
   },
   data() {
     return {
@@ -108,6 +118,11 @@ export default {
     this.form = this.item;
   },
   methods: {
+
+    handlerChangeUserlist: function (data) {
+      this.form.admins = data;
+      //this.$emit('submit', data);
+    },
 
     handlerBack: function () {
       this.$bus.$emit('page--open', {

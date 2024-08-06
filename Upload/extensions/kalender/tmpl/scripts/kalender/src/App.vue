@@ -1,16 +1,17 @@
 <template>
 
-  <div class="calender">
-    <AjaxError :error="error"></AjaxError>
-    <AjaxSpinner :loading="loading"></AjaxSpinner>
+  <div class="calender" :class="{'isMobile': isMobile}">
+
     <CalendarForm :calendars="kalenders"></CalendarForm>
     <CalendarItem :kalenders="kalenders" :acl="acl"></CalendarItem>
 
     <CalendarList :kalenders="kalenders" :selectedKalenders="selectedKalenders" :suggest="suggest" :ics="ics"></CalendarList>
     <CalendarView :events="events" :calendars="kalenders" :acl="acl" ></CalendarView>
 
-
     <IcsForm></IcsForm>
+
+    <AjaxError :error="error"></AjaxError>
+    <AjaxSpinner :loading="loading"></AjaxSpinner>
 
   </div>
 </template>
@@ -38,6 +39,7 @@ export default {
   },
   data() {
     return {
+      isMobile: window.globals.isMobile,
       apiURL: window.globals.apiURL,
       suggest: window.globals.suggest,
       ics: window.globals.ics,
@@ -359,6 +361,7 @@ export default {
               } else {
                 that.kalenders = response.data;
                 that.setPreSelected();
+                that.setACL();
               }
             } else {
               that.error = 'Fehler beim Laden. 01';
@@ -371,6 +374,19 @@ export default {
             // always executed
             that.loading = false;
           });
+
+    },
+    setACL() {
+
+      this.kalenders.forEach((o) => {
+        if (o.acl.rights.write) {
+          this.acl.write = 1;
+        }
+        if (o.acl.rights.delete) {
+          this.acl.delete = 1;
+        }
+      });
+
 
     },
     setPreSelected() {

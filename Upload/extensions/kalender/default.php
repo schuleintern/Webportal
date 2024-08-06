@@ -40,7 +40,8 @@ class extKalenderDefault extends AbstractPage {
                 "acl" => $acl['rights'],
                 "suggest" => $suggest,
                 "ics" => $ics,
-                "apiKey" => DB::getGlobalSettings()->apiKey
+                "apiKey" => DB::getGlobalSettings()->apiKey,
+                "isMobile" => $this->isMobile
             ],
             "dropdown" => [
                 [

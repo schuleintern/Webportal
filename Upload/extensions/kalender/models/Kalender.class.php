@@ -71,13 +71,32 @@ class extKalenderModelKalender
         return $this->data['public'];
     }
 
+    public function getAdmins($full = false) {
+        if ($this->data['admins']) {
+            $ret = [];
+            $list = json_decode($this->data['admins']);
+            foreach ($list as $foo) {
+                if ($full) {
+                    if ($user = USER::getCollectionByID($foo, false, true)) {
+                        $ret[] = $user;
+                    }
+                } else {
+                    $ret[] = $foo;
+                }
+
+            }
+            return $ret;
+        }
+        return [];
+    }
+
 
 
     /**
      * Collection
      */
 
-    public function getCollection($full = false, $userID = false, $admin = false) {
+    public function getCollection($full = false, $userID = false, $withIcsfeed = false, $withAdmins = false) {
 
         $collection = [
             "id" => $this->getID(),
@@ -108,8 +127,11 @@ class extKalenderModelKalender
             }
 
         }
-        if ($admin == true) {
+        if ($withIcsfeed == true) {
             $collection['icsfeed'] = $this->data['icsfeed'];
+        }
+        if ($withAdmins == true) {
+            $collection['admins'] = $this->getAdmins(true);
         }
 
         return $collection;
@@ -250,8 +272,11 @@ class extKalenderModelKalender
         if ( !$array['color'] || $array['color'] == 'undefined' ) {
             $array['color'] = '';
         }
-        if ( !$array['icsfeed'] || $array['icsfeed'] == 'undefined' ) {
+        if ( !$array['icsfeed'] || $array['icsfeed'] == 'undefined' || $array['icsfeed'] == 'null' ) {
             $array['icsfeed'] = '';
+        }
+        if ( !$array['admins'] || $array['admins'] == 'undefined' || $array['admins'] == 'null' ) {
+            $array['admins'] = '';
         }
 
         $insert_id = 0;
@@ -267,7 +292,8 @@ class extKalenderModelKalender
                         acl = " . (int)DB::getDB()->escapeString($array['acl']) . ",
                         ferien = " . (int)DB::getDB()->escapeString($array['ferien']) . ",
                         public = " . (int)DB::getDB()->escapeString($array['public']) . ",
-                        icsfeed = '" . DB::getDB()->escapeString($array['icsfeed']) . "'
+                        icsfeed = '" . DB::getDB()->escapeString($array['icsfeed']) . "',
+                        admins = '" . DB::getDB()->escapeString($array['admins']) . "'
                         WHERE id = " . (int)$array['id'])) {
                 return false;
             }
@@ -286,7 +312,8 @@ class extKalenderModelKalender
                 acl,
                 ferien,
                 public,
-                icsfeed
+                icsfeed,
+                admins
             ) values(
             1,
             '" .  DB::getDB()->escapeString($array['title']) . "',
@@ -296,7 +323,8 @@ class extKalenderModelKalender
             " . (int)DB::getDB()->escapeString($array['acl']) . ",
             " . (int)DB::getDB()->escapeString($array['ferien']) . ",
             " . (int)DB::getDB()->escapeString($array['public']) . ",
-            '" .  DB::getDB()->escapeString($array['icsfeed']) . "'
+            '" .  DB::getDB()->escapeString($array['icsfeed']) . "',
+            '" .  DB::getDB()->escapeString($array['admins']) . "'
             ) ") ) {
                 return false;
             }

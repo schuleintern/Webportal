@@ -2,71 +2,83 @@
 
   <div class="si-calendar">
 
-    <div class="si-calendar-header">
-      <button class="si-btn" @click="prevMonth"><i class="fa fa-arrow-left"></i>Zurück</button>
-      <button @click="gotoToday" class="si-btn si-btn-light"><i class="fa fa-home"></i>Heute</button>
-      <div class="title">{{ openMonthFormat }}</div>
-      <button class="si-btn" @click="nextMonth">Weiter <i class="fa fa-arrow-right"></i></button>
+
+
+    <div v-if="isMobile">
+
+      <div class="si-calendar-header">
+        <button class="si-btn" @click="prevMonth"><i class="fa fa-arrow-left"></i></button>
+        <button @click="gotoToday" class="si-btn si-btn-light"><i class="fa fa-home"></i></button>
+        <div class="title">{{ openMonthFormat }}</div>
+        <button class="si-btn" @click="nextMonth"><i class="fa fa-arrow-right"></i></button>
+      </div>
+
+      <div class="scrollable-y">
+        <div v-bind:key="a" v-for="(week, a) in weekInMonthFormat">
+          <div v-bind:key="i" v-for="(day, i) in daysInWeekFormat(week)" class="day"
+               :class="{'bg-orange': day[1] == getToday}">
+            <div class="dayLabel"
+                 v-on:click.self="handlerClickAdd(day[1])">
+              {{ showDayLabelMobile(day[1]) }}</div>
+            <div v-bind:key="j" v-for="(eintrag, j) in getEintrag(day)" class="eintrag"
+                 v-bind:style="styleEintrag(eintrag, day[1])"
+                 v-on:click="handlerClickEintrag(eintrag)">
+              <DayEintrag :eintrag="eintrag"></DayEintrag>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <table class="si-table si-table-style-allLeft">
-      <thead>
-      <tr>
-        <td class="labelKW"></td>
-        <td v-bind:key="index" v-for="(item, index) in days" class="day">
-          {{ item }}
-        </td>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-bind:key="a" v-for="(week, a) in weekInMonthFormat">
-        <td class="labelKW"><span class="text-small">KW</span><br>{{ kwInMonth(week) }}
-        </td>
+    <div v-else>
+      <div class="si-calendar-header">
+        <button class="si-btn" @click="prevMonth"><i class="fa fa-arrow-left"></i>Zurück</button>
+        <button @click="gotoToday" class="si-btn si-btn-light"><i class="fa fa-home"></i>Heute</button>
+        <div class="title">{{ openMonthFormat }}</div>
+        <button class="si-btn" @click="nextMonth">Weiter <i class="fa fa-arrow-right"></i></button>
+      </div>
+      <table  class="si-table si-table-style-allLeft">
+        <thead>
+        <tr>
+          <td class="labelKW"></td>
+          <td v-bind:key="index" v-for="(item, index) in days" class="day">
+            {{ item }}
+          </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-bind:key="a" v-for="(week, a) in weekInMonthFormat">
+          <td class="labelKW"><span class="text-small">KW</span><br>{{ kwInMonth(week) }}
+          </td>
 
-        <td v-bind:key="i" v-for="(day, i) in daysInWeekFormat(week)"
-            :class="{'bg-orange': day[1] == getToday}"
-            class="day"
-            v-on:dblclick.self="handlerClickAdd(day[1])">
+          <td v-bind:key="i" v-for="(day, i) in daysInWeekFormat(week)"
+              :class="{'bg-orange': day[1] == getToday}"
+              class="day"
+              v-on:dblclick.self="handlerClickAdd(day[1])">
 
-          <div class="dayLabel"
-               v-on:dblclick.self="handlerClickAdd(day[1])"
-          >{{ showDayLabel(day[1]) }}
-          </div>
-
-          <div v-bind:key="j" v-for="(eintrag, j) in getEintrag(day)"
-               class="eintrag"
-               :class="{ 'eintrag-multiple': styleMultipe(eintrag) }"
-               v-bind:style="styleEintrag(eintrag, day[1])"
-               v-on:click="handlerClickEintrag(eintrag)"
-               v-on:mouseover="handlerMouseoverEintrag($event)"
-               v-on:mouseleave="handlerMouseleaveEintrag($event)">
-
-            <div class="date">
-              <strong>
-                    <span v-if="eintrag.startTime != '00:00'">
-                      {{ eintrag.startTime }}
-                    </span>
-                <span v-if="eintrag.endTime != '00:00' && eintrag.wholeDay == false">
-                      - {{ eintrag.endTime }}
-                    </span>
-              </strong>
+            <div class="dayLabel"
+                 v-on:dblclick.self="handlerClickAdd(day[1])"
+            >{{ showDayLabel(day[1]) }}
             </div>
 
-            <div class="title">{{ eintrag.title }}</div>
-            <div class="info margin-t-s flex-row text-gey text-small" v-if="eintrag.place || eintrag.comment">
-              <div v-if="eintrag.place" class="flex-1"><i class="fas fa-map-marker-alt margin-r-xs"></i>
-                {{ eintrag.place }}
-              </div>
-              <div v-if="eintrag.comment" class="margin-t-s"><i class="fas fa-comment margin-r-s"></i> <span
-                  v-html="eintrag.comment"></span></div>
+            <div v-bind:key="j" v-for="(eintrag, j) in getEintrag(day)"
+                 class="eintrag"
+                 :class="{ 'eintrag-multiple': styleMultipe(eintrag) }"
+                 v-bind:style="styleEintrag(eintrag, day[1])"
+                 v-on:click="handlerClickEintrag(eintrag)"
+                 v-on:mouseover="handlerMouseoverEintrag($event)"
+                 v-on:mouseleave="handlerMouseleaveEintrag($event)">
+
+              <DayEintrag :eintrag="eintrag"></DayEintrag>
+
             </div>
 
-          </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
-        </td>
-      </tr>
-      </tbody>
-    </table>
 
 
   </div>
@@ -80,13 +92,16 @@
 //import dayGridPlugin from '@fullcalendar/daygrid'
 //import interactionPlugin from '@fullcalendar/interaction'
 
-
+import DayEintrag from './../mixins/DayEintrag.vue'
 
 export default {
   name: 'CalendarView',
-  components: {},
+  components: {
+    DayEintrag
+  },
   data() {
     return {
+      isMobile: window.globals.isMobile,
       calendarOptions: {
         //plugins: [ dayGridPlugin, interactionPlugin ],
         initialView: 'dayGridMonth'
@@ -128,6 +143,9 @@ export default {
   methods: {
     showDayLabel(day) {
       return this.$dayjs(day).format("D") + '.';
+    },
+    showDayLabelMobile(day) {
+      return this.$dayjs(day).locale('de').format("DD.MM. dddd");
     },
     handlerMouseoverEintrag: function (e) {
       e.target.classList.add('open');

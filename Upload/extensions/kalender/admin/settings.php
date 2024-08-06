@@ -40,6 +40,7 @@ class extKalenderAdminSettings extends AbstractPage {
 
     public static function getSettingsDescription() {
 
+        /*
         $userGroups = usergroup::getAllOwnGroups();
 
         $options = [];
@@ -50,6 +51,7 @@ class extKalenderAdminSettings extends AbstractPage {
                 'name' => $userGroups[$i]->getName()
             ];
         }
+        */
 
         $settings =  [
 

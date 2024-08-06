@@ -81,13 +81,16 @@ class getEvents extends AbstractRest {
 	}
 
 
+    public function needsAppAuth() {
+        return true;
+    }
     /**
      * Muss der Benutzer eingeloggt sein?
      * Ist Eine Session vorhanden
      * @return Boolean
      */
     public function needsUserAuth() {
-        return true;
+        return false;
     }
 
     /**
