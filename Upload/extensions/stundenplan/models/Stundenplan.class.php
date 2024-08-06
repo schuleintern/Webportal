@@ -19,7 +19,7 @@ class extStundenplanModelStundenplan extends ExtensionModel
         'stundeStunde'
     ];
 
-    
+
     static $defaults = [
         'stundeKlasse' => '',
         'stundeLehrer' => '',
@@ -40,7 +40,6 @@ class extStundenplanModelStundenplan extends ExtensionModel
         ]);
         self::setModelFields(self::$fields, self::$defaults);
     }
-
 
 
     public function getCollection($full = false)
@@ -87,9 +86,6 @@ class extStundenplanModelStundenplan extends ExtensionModel
 
         //return $collection;
     }
-
-
-
 
 
 }

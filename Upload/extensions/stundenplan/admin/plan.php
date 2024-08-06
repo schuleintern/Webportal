@@ -2,25 +2,30 @@
 
 
 
-class extStundenplanAdminPlan extends AbstractPage {
-	
-	public static function getSiteDisplayName() {
-		return '<i class="fas fa-table"></i> Stundenplan - Plan';
-	}
 
-	public function __construct($request = [], $extension = []) {
-		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);
-		$this->checkLogin();
-	}
+class extStundenplanAdminPlan extends AbstractPage
+{
 
-	public function execute() {
+    public static function getSiteDisplayName()
+    {
+        return '<i class="fas fa-table"></i> Stundenplan - Plan';
+    }
 
-		//$this->getRequest();
-		//$this->getAcl();
+    public function __construct($request = [], $extension = [])
+    {
+        parent::__construct(array(self::getSiteDisplayName()), false, false, false, $request, $extension);
+        $this->checkLogin();
+    }
+
+    public function execute()
+    {
+
+        //$this->getRequest();
+        //$this->getAcl();
         $acl = $this->getAcl();
         //$user = DB::getSession()->getUser();
 
-        if ( !$this->canAdmin() ) {
+        if (!$this->canAdmin()) {
             new errorPage('Kein Zugriff');
         }
 
@@ -46,7 +51,7 @@ class extStundenplanAdminPlan extends AbstractPage {
         $teachers = lehrer::getAll();
         foreach ($teachers as $teacher) {
             $retTeacher[] = [
-                'title' => $teacher->getKuerzel().' - '.$teacher->getName(),
+                'title' => $teacher->getKuerzel() . ' - ' . $teacher->getName(),
                 'value' => $teacher->getKuerzel()
             ];
         }
@@ -69,6 +74,6 @@ class extStundenplanAdminPlan extends AbstractPage {
             ]
         ]);
 
-	}
+    }
 
 }

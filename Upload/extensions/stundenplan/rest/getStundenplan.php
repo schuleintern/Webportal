@@ -1,5 +1,6 @@
 <?php
 
+
 class getStundenplan extends AbstractRest
 {
 
@@ -18,7 +19,7 @@ class getStundenplan extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -39,47 +40,46 @@ class getStundenplan extends AbstractRest
             $key = (string)$input['key'];
             $value = (string)$input['value'];
         } else {
-            if ( $user->isPupil() ) {
+            if ($user->isPupil()) {
                 $key = 'grade';
                 $value = $user->getPupilObject()->getKlasse();
-                
             }
-            if ( $user->isTeacher() ) {
+            if ($user->isTeacher()) {
                 $key = 'teacher';
                 $value = $user->getTeacherObject()->getKuerzel();
             }
-            if ( $user->isEltern() ) {
+            if ($user->isEltern()) {
                 $key = 'grade';
                 $klassen = $user->getElternObject()->getKlassenAsArray();
                 if ($klassen && $klassen[0]) {
                     $value = $klassen[0];
                 }
             }
-    
+
         }
 
-        
+
         if ($key && $value) {
-            $plan = $currentPlan->getPlan( [$key, $value] );
-            
+            $plan = $currentPlan->getPlan([$key, $value]);
+
             if ($key == 'grade') {
-                $title = 'Klasse: '.$value;
+                $title = 'Klasse: ' . $value;
             } else if ($key == 'teacher') {
-                $title = 'Lehrer*in: '.$value;
+                $title = 'Lehrer*in: ' . $value;
             } else if ($key == 'subject') {
-                $title = 'Fach: '.$value;
+                $title = 'Fach: ' . $value;
             } else if ($key == 'room') {
-                $title = 'Raumplan: '.$value;
+                $title = 'Raumplan: ' . $value;
             }
 
-            if ( EXTENSION::isActive('ext.zwiebelgasse.vplan') ) {
-               
-                include_once PATH_EXTENSIONS . 'vplan' . DS. 'models' . DS . 'List.class.php';
+            if (EXTENSION::isActive('ext.zwiebelgasse.vplan')) {
+
+                include_once PATH_EXTENSIONS . 'vplan' . DS . 'models' . DS . 'List.class.php';
                 $date = DateFunctions::getTodayAsSQLDate();
                 $tmp_data = extVplanModelList::getByDate($date);
 
                 $vplan = [];
-                foreach($tmp_data as $item) {
+                foreach ($tmp_data as $item) {
                     $temp = $item->getCollection();
                     //$date = DATE('N', DateFunctions::getUnixTimeFromMySQLDate($item->getDate()));
                     $temp['daynum'] = DATE('N', DateFunctions::getUnixTimeFromMySQLDate($item->getDate()));
@@ -87,7 +87,7 @@ class getStundenplan extends AbstractRest
                     $vplan[] = $temp;
                 }
             }
-            
+
 
             return [
                 'plan' => $plan,
@@ -98,9 +98,7 @@ class getStundenplan extends AbstractRest
         }
 
 
-
         return [];
-       
 
 
         /*
@@ -120,7 +118,6 @@ class getStundenplan extends AbstractRest
         }
         */
 
-        
 
     }
 
@@ -172,7 +169,7 @@ class getStundenplan extends AbstractRest
         return true;
     }
 
-    
+
 }
 
 ?>

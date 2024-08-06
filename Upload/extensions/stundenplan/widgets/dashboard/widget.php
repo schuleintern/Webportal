@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  *
  */
@@ -7,7 +8,8 @@ class extStundenplanWidgetDashboard extends Widget
 {
 
 
-    public function render($dashboard = false) {
+    public function render($dashboard = false)
+    {
 
 
         /*
@@ -32,11 +34,8 @@ class extStundenplanWidgetDashboard extends Widget
 
     public function getScripts()
     {
-        return [PATH_EXTENSIONS.'stundenplan/widgets/dashboard/script/dist/app.js'];
+        return [PATH_EXTENSIONS . 'stundenplan/widgets/dashboard/script/dist/app.js'];
     }
-
-
-
 
 
 }

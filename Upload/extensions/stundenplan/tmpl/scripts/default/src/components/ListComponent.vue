@@ -25,20 +25,21 @@
       </div>
 
       <div class="mobile-margin-t-s" v-if="plan">
-        <button v-if="toggleVplan == 1" class="si-btn si-btn-icon si-btn-toggle-on" v-on:click="handlerToggleVplan">
-          <i class="fa fas fa-toggle-on"></i> <i class="fa fa-retweet"></i></button>
-        <button v-else class="si-btn si-btn-icon si-btn-toggle-off" v-on:click="handlerToggleVplan">
-          <i class="fa fas fa-toggle-off"></i> <i class="fa fa-retweet"></i></button>
-
+        <span v-if="showVplanBtn" >
+          <button v-if="toggleVplan == 1" class="si-btn si-btn-icon si-btn-toggle-on" v-on:click="handlerToggleVplan">
+            <i class="fa fas fa-toggle-on"></i> <i class="fa fa-retweet"></i></button>
+          <button v-else class="si-btn si-btn-icon si-btn-toggle-off" v-on:click="handlerToggleVplan">
+            <i class="fa fas fa-toggle-off"></i> <i class="fa fa-retweet"></i></button>
+        </span>
         <!--
         <a class="si-btn si-btn-border si-btn-icon margin-l-m" target="_blank"
            :href="'index.php?page=ext_stundenplan&view=default&task=print'+activePlanParams"><i class="fa fa-print"></i></a>
            -->
-        <button class="si-btn si-btn-border si-btn-icon margin-l-m" @click="handlerPrint"><i class="fa fa-print"></i></button>
+        <button v-if="showPrintBtn" class="si-btn si-btn-border si-btn-icon margin-l-m" @click="handlerPrint"><i class="fa fa-print"></i></button>
       </div>
 
       <div class="title flex-1 flex-row flex-end padding-r-l">
-        <h3>{{ list.title }}</h3>
+        <h3 id="stundenplanHeadTitle">{{ list.title }}</h3>
       </div>
 
     </div>
@@ -67,7 +68,7 @@
       <table id="stundenplanTable" class="si-table si-table-style-firstLeft" v-if="plan && plan.length >= 1">
 
         <thead>
-        <tr>
+        <tr class="rowTableHead">
           <td ></td>
           <td :class="{'text-orange': daynum == 0 && toggleVplan == 1 }">Montag {{ showVplanDay(0) }}</td>
           <td :class="{'text-orange': daynum == 1 && toggleVplan == 1 }">Dienstag {{ showVplanDay(1) }}</td>
@@ -79,7 +80,7 @@
         <tbody>
         <tr v-bind:key="s" v-for="(stunde, s) in stunden" class="rowTable">
           <td width="10%" class="tdTable">
-            {{ stunde + 1 }}. Stunde
+            {{ stunde + 1 }}. {{stundeLabel}}
             <div class="text-small">{{ defaults.zeiten[stunde].begin }} - {{ defaults.zeiten[stunde].ende }}</div>
           </td>
           <td v-bind:key="d" v-for="(day, d) in  days" class="tdTable" width="19%">
@@ -114,7 +115,9 @@ export default {
   },
   data() {
     return {
-
+      showVplanBtn: window.globals.showVplanBtn,
+      showPrintBtn: window.globals.showPrintBtn,
+      stundeLabel: window.globals.stundeLabel || 'Stunde',
       isMobile: window.globals.isMobile,
 
       searchString: '',
@@ -178,18 +181,28 @@ export default {
 
       window.html2canvas = html2canvas;
 
-// Default export is a4 paper, portrait, using millimeters for units
+      // Default export is a4 paper, portrait, using millimeters for units
       var doc = new jsPDF(
           'l', 'mm', 'a4'
       );
 
       let html = document.getElementById('stundenplanTable');
-      html.style.width = '250mm';
-      html.style.height = '210mm';
-      html.style.fontSize = '80%';
-      html.style.margin = '10mm';
 
-      var childDiv = html.getElementsByClassName('si-box');
+      let tableTemp = document.createElement('table');
+      //tableTemp.style.margin = '0';
+      //tableTemp.style.margintop = '1rem';
+      tableTemp.classList = html.classList;
+      NodeList.prototype.forEach = Array.prototype.forEach;
+      html.childNodes.forEach(function(item){
+        tableTemp.appendChild(item.cloneNode(true));
+      });
+
+      tableTemp.style.width = '250mm';
+      tableTemp.style.height = '210mm';
+      tableTemp.style.fontSize = '80%';
+      tableTemp.style.margin = '10mm';
+
+      var childDiv = tableTemp.getElementsByClassName('si-box');
       for (var i = 0; i < childDiv.length; i++) {
         childDiv[i].style.marginTop = "0";
         childDiv[i].style.marginBottom = "0";
@@ -200,10 +213,11 @@ export default {
       }
 
 
-      var tds = html.getElementsByClassName('tdTable');
+      var tds = tableTemp.getElementsByClassName('tdTable');
       for (var m = 0; m < tds.length; m++) {
 
         tds[m].style.padding = '0';
+        tds[m].style.margin = '0';
 
         var boxs = tds[m].getElementsByClassName('si-box');
 
@@ -218,35 +232,58 @@ export default {
       }
 
 
-      var rows = html.getElementsByClassName('rowTable');
-      const length = rows.length;
-      for (var j = 0; j < length; j++) {
+      var rows = tableTemp.getElementsByClassName('rowTable');
+      const rowHeight = 28 / rows.length;
+
+      for (var j = 0; j < rows.length; j++) {
 
         if (rows[j]) {
-          var boxsRow = rows[j].getElementsByClassName('si-box');
-          if (boxsRow.length == 0) {
-            rows[j].style.display = 'none';
-            rows[j].remove();
-            //console.log(rows[j])
+          rows[j].style.padding = '0';
+          rows[j].style.margin = '0';
+          rows[j].style.height = rowHeight+'rem';
+        }
+      }
+
+      var rowsHead = tableTemp.getElementsByClassName('rowTableHead');
+      for (var j2 = 0; j2 < rowsHead.length; j2++) {
+
+        if (rowsHead[j2]) {
+          rowsHead[j2].style.padding = '0';
+          rowsHead[j2].style.margin = '0';
+          rowsHead[j2].style.height = '3rem';
+
+          var rowsHeadTds = rowsHead[j2].getElementsByTagName('td');
+          if (rowsHeadTds) {
+            for (var j3 = 0; j3 < rowsHeadTds.length; j3++) {
+              rowsHeadTds[j3].style.padding = '0';
+            }
           }
         }
 
-
-
       }
 
+      let htmlTemp = document.createElement('div');
+      htmlTemp.style.height = '60rem';
+
+      let htmlHead = document.createElement('h3');
+      let nodeTitle = document.getElementById('stundenplanHeadTitle');
+      htmlHead.innerText = nodeTitle.innerText;
+      htmlHead.style.textAlign = 'right';
+      htmlHead.style.padding = '0';
+      htmlHead.style.margin = '0';
+      htmlHead.style.paddingRight = '5rem';
+      htmlHead.style.marginTop = '2rem';
+      htmlTemp.appendChild(htmlHead);
 
 
+      htmlTemp.style.marginLeft = '3rem';
+      htmlTemp.appendChild(tableTemp);
 
+      //html.parentNode.appendChild(htmlTemp);
 
-
-
-
-
-
-      doc.html(html, {
+      doc.html(htmlTemp, {
         callback: function (doc) {
-          doc.save("a4.pdf");
+          doc.save("Stundenplan-A4.pdf");
         },
         x: 0,
         y: 0,
@@ -354,9 +391,14 @@ export default {
       if (typ == 'class') {
         for (const key in this.defaults.klassen) {
           //if (that.defaults.klassen.hasOwnProperty(key)) {
-          that.defaults.klassen[key].forEach((o) => {
-            that.searchResult.push([o, 'grade']);
-          });
+          if (that.defaults.klassen[key] && typeof that.defaults.klassen[key] == 'object') {
+            that.defaults.klassen[key].forEach((o) => {
+              that.searchResult.push([o, 'grade']);
+            });
+          } else {
+            that.searchResult.push([that.defaults.klassen[key], 'grade']);
+          }
+
           //}
         }
       }

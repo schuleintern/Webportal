@@ -1,5 +1,6 @@
 <?php
 
+
 class getDefault extends AbstractRest
 {
 
@@ -17,7 +18,7 @@ class getDefault extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -39,14 +40,14 @@ class getDefault extends AbstractRest
             $anzStunden = 6;
         }
         $stunden = [];
-        for($i = 0; $i < $anzStunden; $i++) {
+        for ($i = 0; $i < $anzStunden; $i++) {
             $stunden[] = $i;
         }
 
         $stundenZeiten = [];
-        for($i = 1; $i < 6; $i++) {
-            if(DB::getSettings()->getValue("ext-stundenplan-everydayothertimes") > 0 || $i == 1) {
-                for($s = 1; $s <= $anzStunden; $s++) {
+        for ($i = 1; $i < 6; $i++) {
+            if (DB::getSettings()->getValue("ext-stundenplan-everydayothertimes") > 0 || $i == 1) {
+                for ($s = 1; $s <= $anzStunden; $s++) {
                     $stundenZeiten[] = [
                         'begin' => DB::getSettings()->getValue("ext-stundenplan-stunde-$i-$s-start"),
                         'ende' => DB::getSettings()->getValue("ext-stundenplan-stunde-$i-$s-ende")
@@ -58,14 +59,14 @@ class getDefault extends AbstractRest
 
         $klassen = [];
         $klassenData = klasse::getAllKlassen();
-        foreach($klassenData as $klasse) {
+        foreach ($klassenData as $klasse) {
 
             $stufe = $klasse->getKlassenstufe() ? $klasse->getKlassenstufe() : (int)$klasse->getKlassenName();
             if ($stufe) {
-                if ( !is_array($klassen[ $stufe ]) ) {
-                    $klassen[ $stufe ] = [];
+                if (!is_array($klassen[$stufe])) {
+                    $klassen[$stufe] = [];
                 }
-                $klassen[ $stufe ][] = $klasse->getKlassenName();
+                $klassen[$stufe][] = $klasse->getKlassenName();
             } else {
                 $klassen[] = $klasse->getKlassenName();
             }
@@ -73,35 +74,34 @@ class getDefault extends AbstractRest
 
         $teachers = [];
         $teacherData = lehrer::getAll();
-        foreach($teacherData as $teacher) {
+        foreach ($teacherData as $teacher) {
             $teacher_user = $teacher->getUser();
             if ($teacher_user) {
                 $teachers[] = $teacher_user->getCollection(true);
             }
         }
-       
+
 
         $currentPlan = stundenplandata::getCurrentStundenplan();
         $rooms = $currentPlan->getAll('room');
         $fach = $currentPlan->getAll('subject');
 
 
-        
-        $myKlassen =[];
-        if ( $user->isPupil() ) {
+        $myKlassen = [];
+        if ($user->isPupil()) {
 
         }
-        if ( $user->isTeacher() ) {
+        if ($user->isTeacher()) {
             $myKlassen = klasseDB::getByTeacher($user->getTeacherObject());
             $showFilter = true;
         }
-        if ( $user->isEltern() ) {
+        if ($user->isEltern()) {
             $myKlassen = $user->getElternObject()->getKlassenAsArray();
         }
-        if ( $user->isNone() ) {
+        if ($user->isNone()) {
             $showFilter = true;
         }
-        if ( $this->canAdmin() ) {
+        if ($this->canAdmin()) {
             $showFilter = true;
         }
 

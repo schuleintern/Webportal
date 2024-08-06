@@ -3,7 +3,8 @@
 class extStundenplanAppGetDefault extends AbstractApp
 {
 
-    public function execute() {
+    public function execute()
+    {
 
         return [
             "scripts" => [
@@ -11,8 +12,8 @@ class extStundenplanAppGetDefault extends AbstractApp
                 PATH_EXTENSIONS . '/stundenplan/tmpl/scripts/default/dist/js/app.js'
             ],
             "data" => [
-                "apiURL" => URL_ROOT."/rest.php/stundenplan",
-                "acl" => ["read"=>1,"write"=>1,"delete"=>1],
+                "apiURL" => URL_ROOT . "/rest.php/stundenplan",
+                "acl" => ["read" => 1, "write" => 1, "delete" => 1],
                 "apiKey" => DB::getGlobalSettings()->apiKey,
                 "isMobile" => $this->isMobile
             ]

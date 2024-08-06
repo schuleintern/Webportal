@@ -17,7 +17,7 @@ class extStundenplanModelStundenplaene extends ExtensionModel
         'stundenplanIsDeleted'
     ];
 
-    
+
     static $defaults = [
         'stundenplanIsDeleted' => 0
     ];
@@ -34,7 +34,6 @@ class extStundenplanModelStundenplaene extends ExtensionModel
         ]);
         self::setModelFields(self::$fields, self::$defaults);
     }
-
 
 
     public function getCollection($full = false)
@@ -62,9 +61,6 @@ class extStundenplanModelStundenplaene extends ExtensionModel
 
         //return $collection;
     }
-
-
-
 
 
 }

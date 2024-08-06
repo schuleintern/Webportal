@@ -1,6 +1,7 @@
 <?php
 
 
+
 class extStundenplanAdminSettings extends AbstractPage
 {
 
@@ -46,7 +47,12 @@ class extStundenplanAdminSettings extends AbstractPage
 
 
         $settings = [
-
+            [
+                'name' => "ext-stundenplan-global",
+                'typ' => 'BOOLEAN',
+                'title' => "Stundenplanmodul global schalten",
+                'desc' => ""
+            ],
             [
                 'name' => "ext-stundenplan-everydayothertimes",
                 'typ' => 'BOOLEAN',
@@ -58,7 +64,25 @@ class extStundenplanAdminSettings extends AbstractPage
                 'typ' => 'NUMBER',
                 'title' => "Maximale Anzahl der Stunden pro Tag",
                 'desc' => "Nach dem setzen dieser Einstellung bitte einmal abspeichern und zu den Einstellungen zurückkehren, um die einzelnen Tage zu sehen."
-            ]
+            ],
+            [
+                'name' => "ext-stundenplan-stunde-label",
+                'typ' => 'STRING',
+                'title' => "Alternative Labeltext für 'Stunde'",
+                'desc' => "default: Stunde"
+            ],
+            [
+                'name' => "ext-stundenplan-vplanBtn",
+                'typ' => 'BOOLEAN',
+                'title' => "Vertretungsplan im Stundenplan anzeigen?",
+                'desc' => ""
+            ],
+            [
+                'name' => "ext-stundenplan-printBtn",
+                'typ' => 'BOOLEAN',
+                'title' => "Drucken erlauben?",
+                'desc' => ""
+            ],
 
 
         ];

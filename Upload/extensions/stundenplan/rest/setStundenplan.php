@@ -1,11 +1,14 @@
 <?php
 
-class setStundenplan extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+class setStundenplan extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +20,7 @@ class setStundenplan extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,22 +28,22 @@ class setStundenplan extends AbstractRest {
         }
 
         $stundenplanID = (string)$input['stundenplanID'];
-        if ( !$stundenplanID || $stundenplanID == 'undefined' ) {
+        if (!$stundenplanID || $stundenplanID == 'undefined') {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: stundenplanID'
             ];
         }
-        
+
         $day = (int)$input['day'];
-        if ( !$day || $day == 'undefined' ) {
+        if (!$day || $day == 'undefined') {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Tag'
             ];
         }
         $hour = (int)$input['hour'];
-        if ( !$hour || $hour == 'undefined' ) {
+        if (!$hour || $hour == 'undefined') {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Stunde'
@@ -50,7 +53,7 @@ class setStundenplan extends AbstractRest {
         include_once PATH_EXTENSION . 'models' . DS . 'Stundenplan.class.php';
         $class = new extStundenplanModelStundenplan();
 
-        if ( $db = $class->save([
+        if ($db = $class->save([
             'stundeID' => (int)$input['id'],
             'stundenplanID' => $stundenplanID,
             'stundeStunde' => $hour,
@@ -59,9 +62,9 @@ class setStundenplan extends AbstractRest {
             'stundeRaum' => (string)$input['room'],
             'stundeLehrer' => (string)$input['teacher'],
             'stundeFach' => (string)$input['fach']
-        ]) ) {
+        ])) {
 
-     
+
             return [
                 'error' => false,
                 'success' => true
@@ -73,18 +76,19 @@ class setStundenplan extends AbstractRest {
             'msg' => 'Error'
         ];
 
-	}
+    }
 
 
-	/**
-	 * Set Allowed Request Method
-	 * (GET, POST, ...)
-	 * 
-	 * @return String
-	 */
-	public function getAllowedMethod() {
-		return 'POST';
-	}
+    /**
+     * Set Allowed Request Method
+     * (GET, POST, ...)
+     *
+     * @return String
+     */
+    public function getAllowedMethod()
+    {
+        return 'POST';
+    }
 
 
     /**
@@ -92,7 +96,8 @@ class setStundenplan extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -105,15 +110,17 @@ class setStundenplan extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 
-}	
+}
 
 ?>

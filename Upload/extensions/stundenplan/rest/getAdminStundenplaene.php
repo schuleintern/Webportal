@@ -1,5 +1,6 @@
 <?php
 
+
 class getAdminStundenplaene extends AbstractRest
 {
 
@@ -18,7 +19,7 @@ class getAdminStundenplaene extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -31,7 +32,7 @@ class getAdminStundenplaene extends AbstractRest
         $tmp_data = $class->getAll();
 
         $ret = [];
-        foreach($tmp_data as $item) {
+        foreach ($tmp_data as $item) {
             if ($item->getData('stundenplanIsDeleted') != 1) {
                 $ret[] = $item->getCollection(true);
             }
@@ -89,7 +90,7 @@ class getAdminStundenplaene extends AbstractRest
         return false;
     }
 
-    
+
 }
 
 ?>
