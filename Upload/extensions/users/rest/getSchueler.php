@@ -1,8 +1,6 @@
 <?php
 
-namespace users\rest;
-use AbstractRest;
-use extUsersModelSchueler;
+
 
 class getSchueler extends AbstractRest
 {

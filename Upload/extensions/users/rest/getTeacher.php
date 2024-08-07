@@ -1,9 +1,5 @@
 <?php
 
-namespace users\rest;
-use AbstractRest;
-use extUsersModelTeacher;
-
 class getTeacher extends AbstractRest
 {
 

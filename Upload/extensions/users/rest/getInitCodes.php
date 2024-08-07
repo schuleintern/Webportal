@@ -1,8 +1,5 @@
 <?php
 
-namespace users\rest;
-use AbstractRest;
-use extUsersModelInitCodes;
 
 class getInitCodes extends AbstractRest
 {

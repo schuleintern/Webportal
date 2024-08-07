@@ -1,12 +1,5 @@
 <?php
 
-namespace users\rest;
-use AbstractRest;
-use DB;
-use extUsersModelUsers;
-use login;
-use user;
-
 class setUser extends AbstractRest
 {
 

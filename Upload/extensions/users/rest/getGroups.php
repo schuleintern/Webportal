@@ -1,8 +1,5 @@
 <?php
 
-namespace users\rest;
-use AbstractRest;
-use extUsersModelGroups;
 
 class getGroups extends AbstractRest
 {

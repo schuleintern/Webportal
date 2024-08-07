@@ -1,10 +1,5 @@
 <?php
 
-namespace users\rest;
-use AbstractRest;
-use DB;
-use extUsersModelTeacher;
-
 class setTeacher extends AbstractRest
 {
 

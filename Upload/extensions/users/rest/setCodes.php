@@ -1,10 +1,5 @@
 <?php
 
-namespace users\rest;
-use AbstractRest;
-use DB;
-use extUsersModelCodes;
-use extUsersModelSchueler;
 
 class setCodes extends AbstractRest
 {

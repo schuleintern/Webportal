@@ -1,12 +1,5 @@
 <?php
 
-namespace users\rest;
-use AbstractRest;
-use DB;
-use EXTENSION;
-use extInboxModelInbox2;
-use extUsersModelGroups;
-
 class setGroups extends AbstractRest
 {
 

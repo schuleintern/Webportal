@@ -1,7 +1,7 @@
 {
   "name": "Benutzer",
   "uniqid": "ext.zwiebelgasse.users",
-  "version": "11",
+  "version": "12",
 
   "requiredVersion": "1.8.0",
 

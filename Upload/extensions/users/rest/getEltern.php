@@ -1,8 +1,5 @@
 <?php
 
-namespace users\rest;
-use AbstractRest;
-use extUsersModelEltern;
 
 class getEltern extends AbstractRest
 {
