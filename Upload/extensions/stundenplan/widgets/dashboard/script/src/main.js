@@ -1,6 +1,13 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import App from './App.vue'
 
-createApp(App).mount('#app-widget-stundenplan-dashboard')
+import $bus from './event.js';
+
+const app = createApp(App)
+
+app.config.globalProperties.$bus = $bus;
+
+app.use(VueAxios, axios)
+app.mount('#app-widget-stundenplan-dashboard')

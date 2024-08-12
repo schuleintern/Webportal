@@ -79,7 +79,7 @@
         </thead>
         <tbody>
         <tr v-bind:key="s" v-for="(stunde, s) in stunden" class="rowTable">
-          <td width="10%" class="tdTable">
+          <td width="10%" class="">
             {{ stunde + 1 }}. {{stundeLabel}}
             <div class="text-small">{{ defaults.zeiten[stunde].begin }} - {{ defaults.zeiten[stunde].ende }}</div>
           </td>
@@ -119,6 +119,9 @@ export default {
       showPrintBtn: window.globals.showPrintBtn,
       stundeLabel: window.globals.stundeLabel || 'Stunde',
       isMobile: window.globals.isMobile,
+      printLogo: window.globals.printLogo,
+      printSystem: window.globals.printSystem,
+      printDate: window.globals.printDate,
 
       searchString: '',
       searchResult: false,
@@ -197,10 +200,6 @@ export default {
         tableTemp.appendChild(item.cloneNode(true));
       });
 
-      tableTemp.style.width = '250mm';
-      tableTemp.style.height = '210mm';
-      tableTemp.style.fontSize = '80%';
-      tableTemp.style.margin = '10mm';
 
       var childDiv = tableTemp.getElementsByClassName('si-box');
       for (var i = 0; i < childDiv.length; i++) {
@@ -218,6 +217,7 @@ export default {
 
         tds[m].style.padding = '0';
         tds[m].style.margin = '0';
+        tds[m].style.height = '1rem';
 
         var boxs = tds[m].getElementsByClassName('si-box');
 
@@ -233,14 +233,14 @@ export default {
 
 
       var rows = tableTemp.getElementsByClassName('rowTable');
-      const rowHeight = 28 / rows.length;
+      const rowHeight = 145 / rows.length;
 
       for (var j = 0; j < rows.length; j++) {
 
         if (rows[j]) {
           rows[j].style.padding = '0';
           rows[j].style.margin = '0';
-          rows[j].style.height = rowHeight+'rem';
+          rows[j].style.height = rowHeight+'mm';
         }
       }
 
@@ -252,33 +252,66 @@ export default {
           rowsHead[j2].style.margin = '0';
           rowsHead[j2].style.height = '3rem';
 
+
           var rowsHeadTds = rowsHead[j2].getElementsByTagName('td');
           if (rowsHeadTds) {
             for (var j3 = 0; j3 < rowsHeadTds.length; j3++) {
               rowsHeadTds[j3].style.padding = '0';
+              rowsHeadTds[j3].classList.remove('text-orange');
             }
           }
         }
 
       }
 
+      tableTemp.style.margin = 0;
+      tableTemp.style.marginTop = '4mm';
+
       let htmlTemp = document.createElement('div');
-      htmlTemp.style.height = '60rem';
+      htmlTemp.style.width = '250mm';
+      htmlTemp.style.height = '170mm'; //210mm
+      htmlTemp.style.fontSize = '80%';
+      htmlTemp.style.marginTop = '7mm';
+      htmlTemp.style.marginLeft = '10mm';
+      htmlTemp.style.marginRight = '10mm';
+
+      let imgHead = document.createElement('img');
+      imgHead.src = this.printLogo;
+      imgHead.style.textAlign = 'right';
+      imgHead.style.width = '10mm';
+      imgHead.style.height = '10mm';
+      imgHead.style.display = 'inline';
+      imgHead.style.top = '-2mm';
+      imgHead.style.position = 'relative';
+      htmlTemp.appendChild(imgHead);
+
 
       let htmlHead = document.createElement('h3');
       let nodeTitle = document.getElementById('stundenplanHeadTitle');
       htmlHead.innerText = nodeTitle.innerText;
-      htmlHead.style.textAlign = 'right';
+      htmlHead.style.textAlign = 'left';
       htmlHead.style.padding = '0';
       htmlHead.style.margin = '0';
       htmlHead.style.paddingRight = '5rem';
-      htmlHead.style.marginTop = '2rem';
+      htmlHead.style.paddingLeft = '2rem';
+      htmlHead.style.display = 'inline-block';
+      htmlHead.style.width = '200mm';
       htmlTemp.appendChild(htmlHead);
 
 
       htmlTemp.style.marginLeft = '3rem';
       htmlTemp.appendChild(tableTemp);
 
+      let htmlFooter = document.createElement('div');
+      htmlFooter.innerText = this.printSystem+' - '+this.printDate;
+      htmlFooter.style.fontSize = '7pt';
+      htmlFooter.style.width = '100%';
+      htmlFooter.style.textAlign = 'center';
+      htmlFooter.style.paddingTop = '2mm';
+      htmlFooter.style.color = '#ccc';
+      htmlTemp.appendChild(htmlFooter);
+
+      // for Debug:
       //html.parentNode.appendChild(htmlTemp);
 
       doc.html(htmlTemp, {

@@ -22,6 +22,8 @@ class extStundenplanDefault extends AbstractPage
             new errorPage('Kein Zugriff');
         }
 
+        $image_file = PAGE::logo();
+
         $this->render([
             "tmpl" => "default",
             "scripts" => [
@@ -35,8 +37,10 @@ class extStundenplanDefault extends AbstractPage
                 "apiKey" => DB::getGlobalSettings()->apiKey,
                 "stundeLabel" => DB::getSettings()->getValue("ext-stundenplan-stunde-label"),
                 "showVplanBtn" => DB::getSettings()->getValue("ext-stundenplan-vplanBtn"),
-                "showPrintBtn" => DB::getSettings()->getValue("ext-stundenplan-printBtn")
-
+                "showPrintBtn" => DB::getSettings()->getValue("ext-stundenplan-printBtn"),
+                "printLogo" => $image_file,
+                "printSystem" => DB::getGlobalSettings()->siteNamePlain,
+                "printDate" => date('d.m.Y H:i', time())
             ]
         ]);
     }

@@ -1,7 +1,7 @@
 {
   "name": "Stundenplan",
   "uniqid": "ext.zwiebelgasse.stundenplan",
-  "version": "15",
+  "version": "16",
 
   "requiredVersion": "1.8.0",
 
@@ -23,8 +23,8 @@
       "position": "dashboard",
       "class": "extStundenplanWidgetDashboard",
       "params": {
-        "minH": 2,
-        "minW": 4
+        "minH": 4,
+        "minW": 2
       }
     }
   ],
