@@ -368,7 +368,7 @@ export default {
               } else {
                 that.kalenders = response.data;
                 that.setPreSelected();
-                that.setACL();
+
               }
             } else {
               that.error = 'Fehler beim Laden. 01';
@@ -381,19 +381,6 @@ export default {
             // always executed
             that.loading = false;
           });
-
-    },
-    setACL() {
-
-      this.kalenders.forEach((o) => {
-        if (o.acl.rights.write) {
-          this.acl.write = 1;
-        }
-        if (o.acl.rights.delete) {
-          this.acl.delete = 1;
-        }
-      });
-
 
     },
     setPreSelected() {

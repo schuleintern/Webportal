@@ -20,7 +20,6 @@ class extKlassenkalenderDefault extends AbstractPage {
         $acl = $this->getAcl();
 
 
-
         if ( !$this->canRead() ) {
             new errorPage('Kein Zugriff');
         }
