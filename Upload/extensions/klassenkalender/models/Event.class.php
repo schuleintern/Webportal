@@ -47,12 +47,22 @@ class extKlassenkalenderModelEvent extends ExtensionModel
     }
 
 
-    public function getCollection($full = false, $withAdmins = false)
+    public function getCollection($full = false, $withCheck = false)
     {
         $collection = parent::getCollection();
 
-        if ($full) {
+        if ($collection['timeStart']) {
+            $arr = explode(':', $collection['timeStart']);
+            $collection['timeStart'] = $arr[0] . ':' . $arr[1];
+        }
 
+        if ($collection['timeEnd']) {
+            $arr = explode(':', $collection['timeEnd']);
+            $collection['timeEnd'] = $arr[0] . ':' . $arr[1];
+        }
+
+
+        if ($full) {
 
             if ($collection['kalender_id']) {
                 $collection['calenderID'] = $collection['kalender_id'];
@@ -61,16 +71,94 @@ class extKlassenkalenderModelEvent extends ExtensionModel
                 $collection['user'] = user::getCollectionByID($collection['user_id']);
             }
 
-            if ($collection['timeStart']) {
-                $arr = explode(':', $collection['timeStart']);
-                $collection['timeStart'] = $arr[0].':'.$arr[1];
+        }
+
+        if ($withCheck) {
+
+            if ($collection['teacher']) {
+                $teacher = lehrer::getByXMLID($collection['teacher']);
+                if ($teacher) {
+                    $collection['teacherUser'] = $teacher->getUser()->getCollection();
+                }
+
             }
 
-            if ($collection['timeEnd']) {
-                $arr = explode(':', $collection['timeEnd']);
-                $collection['timeEnd'] = $arr[0].':'.$arr[1];
+            if ($collection['art']) {
+                include_once PATH_EXTENSIONS.'klassenkalender'.DS . 'models' . DS . 'Lnw.class.php';
+                $class = new extKlassenkalenderModelLnws();
+                $lnw = $class->getByID($collection['art']);
+                $collection['lnw'] = $lnw->getCollection();
             }
 
+            if ($collection['kalender_id']) {
+                include_once PATH_EXTENSIONS.'klassenkalender'.DS . 'models' . DS . 'Kalender.class.php';
+                $class = new extKlassenkalenderModelKalender();
+                $calender = $class->getByID($collection['kalender_id']);
+                $collection['kalender'] = [
+                    'title' => $calender->getData('title'),
+                    'color' => $calender->getData('color')
+                ];
+            }
+
+
+            if ($collection['stunde']) {
+                $anzStunden = DB::getSettings()->getValue("ext-stundenplan-anzahlstunden");
+                if (!$anzStunden) {
+                    $anzStunden = 6;
+                }
+                $stundenZeiten = [];
+                for ($i = 1; $i < 6; $i++) {
+                    if (DB::getSettings()->getValue("ext-stundenplan-everydayothertimes") > 0 || $i == 1) {
+                        for ($s = 1; $s <= $anzStunden; $s++) {
+                            $stundenZeiten[] = [
+                                'begin' => DB::getSettings()->getValue("ext-stundenplan-stunde-$i-$s-start"),
+                                'ende' => DB::getSettings()->getValue("ext-stundenplan-stunde-$i-$s-ende")
+                            ];
+                        }
+                    }
+                }
+                if ($stundenZeiten[$collection['stunde']]) {
+                    $collection['timeStart'] = $stundenZeiten[$collection['stunde']]['begin'];
+                    $collection['timeEnd'] = $stundenZeiten[$collection['stunde']]['ende'];
+                }
+            }
+
+
+
+
+
+
+
+            if (DB::getSession()->getUser()->isAdmin()) {
+                return $collection;
+            } else {
+                $user = DB::getSession()->getUser()->getCollection(true);
+                $userType = DB::getSession()->getUser()->getUserTyp(true);
+                if ($userType == 'isTeacher') {
+                    if ($user['klassen'] && is_array($user['klassen']) && $collection['kalender'] && $collection['kalender']['title'] ) {
+                        if ( in_array($collection['kalender']['title'], $user['klassen']) ) {
+                            if ($collection['typ'] == 'event') {
+                                return $collection;
+                            } else if ($collection['typ'] == 'lnw') {
+                                return $collection;
+                            }
+                        }
+                    }
+                } else if ($userType == 'isPupil' || $userType == 'isEltern') {
+                    if ($user['klassen'] && is_array($user['klassen']) && $collection['kalender'] && $collection['kalender']['title'] ) {
+                        if ( in_array($collection['kalender']['title'], $user['klassen']) ) {
+                            if ($collection['typ'] == 'event') {
+                                return $collection;
+                            } else if ($collection['typ'] == 'lnw') {
+                                if ($collection['lnw'] && $collection['lnw']['isPublic'] == 1) {
+                                    return $collection;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false; // nicht ausgeben da keine Rechte
 
         }
 

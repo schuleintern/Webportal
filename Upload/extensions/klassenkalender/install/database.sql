@@ -46,15 +46,17 @@ CREATE TABLE `ext_klassenkalender_lnw`
     `title`    varchar(50) DEFAULT NULL,
     `short`    varchar(50) DEFAULT NULL,
     `isPublic` int(11) DEFAULT NULL,
+    `color`    varchar(11) DEFAULT NULL,
     PRIMARY KEY (`id`),
     UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
-INSERT INTO `ext_klassenkalender_lnw` (`id`, `title`, `short`, `isPublic`)
-VALUES (1, 'Schulaufgabe', 'SA', 0),
-       (2, 'Nachholschulaufgabe', 'NSA', 0),
-       (3, 'Modus Test', 'MT', 1),
-       (4, 'Kurzarbeit', 'KA', 1),
-       (5, 'Praktischer Leistungsnachweis', 'PLNW', 1),
-       (6, 'Stegreifaufgabe', 'EX', 1);
+INSERT INTO `ext_klassenkalender_lnw` (`id`, `title`, `short`, `isPublic`, `color`)
+VALUES
+    (1, 'Schulaufgabe', 'SA', 1, '#a83632'),
+    (2, 'Nachholschulaufgabe', 'NSA', 1, '#540d0b'),
+    (3, 'Modus Test', 'MT', 0, '#ab2c6e'),
+    (4, 'Kurzarbeit', 'KA', 0, '#1a68a3'),
+    (5, 'Praktischer Leistungsnachweis', 'PLNW', 1, '#335e12'),
+    (6, 'Stegreifaufgabe', 'EX', 0, '#10209c');

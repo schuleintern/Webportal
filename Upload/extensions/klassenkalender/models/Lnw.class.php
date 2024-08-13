@@ -10,6 +10,7 @@ class extKlassenkalenderModelLnws extends ExtensionModel
         'title',
         'short',
         'isPublic',
+        'color'
     ];
 
     static $defaults = [

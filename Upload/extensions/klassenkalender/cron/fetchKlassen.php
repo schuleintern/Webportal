@@ -32,6 +32,8 @@ class extKlassenkalenderCronFetchKlassen extends AbstractCron
             foreach ($teachers as $teacher) {
                 $admins[] = $teacher->getUserID();
             }
+            $admins = array_unique($admins);
+
 
             if (!$found) {
 

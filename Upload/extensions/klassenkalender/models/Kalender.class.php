@@ -67,7 +67,10 @@ class extKlassenkalenderModelKalender extends ExtensionModel
             }
         }
 
-        $collection['preSelect'] = 1;
+        $collection['preSelect'] = 0;
+        if (DB::getSession()->getUser()->isAdmin()) {
+            $collection['preSelect'] = 1;
+        }
 
         return $collection;
     }

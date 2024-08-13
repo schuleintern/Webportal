@@ -14,12 +14,26 @@ class extKlassenkalenderWidgetDashboard extends Widget
 
         $kalenderDB = $KALENDER->getByState([1]);
         $userType = DB::getSession()->getUser()->getUserTyp(true);
+        $userCollection = DB::getSession()->getUser()->getCollection(true);
         $kalenders = [];
         if ($kalenderDB && count($kalenderDB) > 0) {
             foreach ($kalenderDB as $item) {
                 $arr = $item->getCollection(true);
                 if ($this->getGroupACL($arr['acl']['groups'], $userType) === 1) {
                     $kalenders[] = $arr;
+                }
+                if ($userType == 'isPupil') {
+                    if ($userCollection['klasse']) {
+                        if ($userCollection['klasse'] == $arr['title']) {
+                            $kalenders[] = $arr;
+                        }
+                    }
+                } else if ($userType == 'isEltern') {
+                    if ($userCollection['klassen']) {
+                        if ( in_array($arr['title'], $userCollection['klassen']) ) {
+                            $kalenders[] = $arr;
+                        }
+                    }
                 }
             }
         }
@@ -63,10 +77,14 @@ class extKlassenkalenderWidgetDashboard extends Widget
         if ($events) {
             $eventsCollection = [];
             foreach ($events as $event) {
-                $eventsCollection[] = $event->getCollection();
+
+                $item = $event->getCollection(false, true);
+                if ($item) {
+                    $eventsCollection[] = $item;
+                }
+
             }
             $ret[$var] = $eventsCollection;
-            //echo '<script>>window._widget_kalender_events.'.$var.' = '.json_encode($eventsCollection).';</script>';
         }
         return $ret;
     }

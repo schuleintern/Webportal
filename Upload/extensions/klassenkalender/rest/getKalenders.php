@@ -63,9 +63,9 @@ class getKalenders extends AbstractRest {
                         }
                     }
                 }
-                if ($userType == 'isPupil') {
+                if ($userType == 'isPupil' || $userType == 'isEltern') {
                     if ($userCollection['klasse']) {
-                        if ($userCollection['klasse'] == $arr['title']) {
+                        if ( in_array($arr['title'],$userCollection['klassen']) ) {
                             $show = true;
                             $arr['preSelect'] = 1;
                         }

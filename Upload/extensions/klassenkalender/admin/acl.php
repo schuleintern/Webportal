@@ -25,7 +25,7 @@ class extKlassenkalenderAdminAcl extends AbstractPage {
         }
 
         $form = [
-            "desc" => "Welcher Benutzer kann die Kalender sehen (Lesen) und neue Einträge hinzufügen(Schreiben)? Einzelne Kalender werden separat gesteuert.",
+            "desc" => "Welcher Benutzer kann seine Klassenkalender sehen (Lesen) und neue Einträge hinzufügen(Schreiben)? Einzelne Kalender werden separat gesteuert. Für SuS, Eltern werden unabhängig der Einstellungen nur ihre Kalender angezeigt.",
             "acl" => [
                 "schueler" => [
                     "read" => 1,

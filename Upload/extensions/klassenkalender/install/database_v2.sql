@@ -52,9 +52,9 @@ CREATE TABLE `ext_klassenkalender_lnw`
 
 
 INSERT INTO `ext_klassenkalender_lnw` (`id`, `title`, `short`, `isPublic`)
-VALUES (1, 'Schulaufgabe', 'SA', 0),
-       (2, 'Nachholschulaufgabe', 'NSA', 0),
+VALUES (1, 'Schulaufgabe', 'SA', 1),
+       (2, 'Nachholschulaufgabe', 'NSA', 1),
        (3, 'Modus Test', 'MT', 1),
-       (4, 'Kurzarbeit', 'KA', 1),
+       (4, 'Kurzarbeit', 'KA', 0),
        (5, 'Praktischer Leistungsnachweis', 'PLNW', 1),
-       (6, 'Stegreifaufgabe', 'EX', 1);
+       (6, 'Stegreifaufgabe', 'EX', 0);
