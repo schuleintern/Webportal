@@ -260,6 +260,8 @@ class FILE
       }
       reset($objects);
       rmdir($dir);
+      return true;
     }
+    return false;
   }
 }
