@@ -25,13 +25,26 @@
           <label>Title</label>
           <input type="text" v-model="form.title" required>
         </li>
-
-
-        <li v-bind:key="index" v-for="(item, index) in  form.childs" class="margin-b-s margin-r-s blockInline">
-          <User v-if="item.user" v-bind:data="item.user"></User>
-          <UserSelect maxAnzahl="1" @submit="handelerUser(item, $event)" :preselected="item.user"></UserSelect>
-
-
+        <li>
+          <table class="si-table">
+            <tbody>
+            <tr v-bind:key="index" v-for="(item, index) in  form.childs" class="">
+              <td>{{ index + 1 }}.</td>
+              <td>
+                <User v-if="item.user" v-bind:data="item.user"></User>
+              </td>
+              <td>
+                <UserSelect maxAnzahl="1" @submit="handelerUser(item, $event)" :preselected="[item.user]"></UserSelect>
+              </td>
+              <td>
+                <button class="si-btn si-btn-light" @click="handlerDeleteChild(item)"><i
+                    class="fa fa fa-trash"></i> Löschen
+                </button>
+              </td>
+              <td width="60%"></td>
+            </tr>
+            </tbody>
+          </table>
         </li>
         <li>
           <button class="si-btn" @click="handlerAddLine"><i class="fa fa-plus"></i>Neue Benutzer*in</button>
@@ -89,7 +102,8 @@ export default {
       }
       this.form.childs.push({
         inbox_id: this.form.id,
-        user_id: false
+        user_id: false,
+        user: false
       });
     },
     handelerUsers: function (data) {
@@ -129,6 +143,15 @@ export default {
         item: item
       });
 
+    },
+
+    handlerDeleteChild(item) {
+
+      this.form.childs.forEach((o,i) => {
+        if (o.id == item.id) {
+          this.form.childs.splice(i,1);
+        }
+      });
     }
 
   }

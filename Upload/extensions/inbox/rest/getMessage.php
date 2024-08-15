@@ -90,6 +90,9 @@ class getMessage extends AbstractRest
     }
 
 
+    public function needsAppAuth() {
+        return true;
+    }
     /**
      * Muss der Benutzer eingeloggt sein?
      * Ist Eine Session vorhanden
@@ -97,7 +100,7 @@ class getMessage extends AbstractRest
      */
     public function needsUserAuth()
     {
-        return true;
+        return false;
     }
 
     /**

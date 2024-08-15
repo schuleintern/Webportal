@@ -9,6 +9,7 @@ class extInboxModelUsers extends ExtensionModel
     static $table = 'ext_inbox_user';
 
     static $fields = [
+        'id',
         'inbox_id',
         'user_id',
         'timeOn',
@@ -57,10 +58,31 @@ class extInboxModelUsers extends ExtensionModel
 
     public function makeUsers()
     {
-        include_once PATH_EXTENSIONS.'inbox'.DS . 'models' . DS . 'Inbox2.class.php';
-        $Users = new extInboxModelUsers();
-        $Inbox = new extInboxModelInbox2();
 
+        $makeSystem = true;
+        include_once PATH_EXTENSIONS.'inbox'.DS . 'models' . DS . 'Inbox2.class.php';
+        $Inbox = new extInboxModelInbox2();
+        $systemInbox = $Inbox->getByID(1);
+        if ($systemInbox) {
+            if ( $systemInbox->getData('type') != 'system' ) {
+                $systemInbox->delete();
+            } else {
+                $makeSystem = false;
+            }
+        }
+
+        if ($makeSystem) {
+            $Inbox->save([
+                'id' => 1,
+                'title' => 'System Nachricht',
+                'parent_id' =>  0,
+                'type' => 'system',
+                'createdUserID' => 1,
+                'createdTime' => date('Y-m-d H:i:s', time())
+            ], true);
+        }
+
+        $Users = new extInboxModelUsers();
         $users = user::getAll();
 
         $i = 0;

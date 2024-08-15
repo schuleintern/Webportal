@@ -112,11 +112,11 @@ class extInboxModelMessageBody2 extends ExtensionModel
             $ret = [];
             $arr = json_decode($this->getData('receivers'), true);
 
-            include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
+            include_once PATH_EXTENSIONS. 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
             $Inbox = new extInboxModelInbox2();
 
             foreach ($arr as $item) {
-                if ( count($item['inboxs']) > 0 ) {
+                if ( $item['inboxs'] && count($item['inboxs']) > 0 ) {
 
 
                     //if (!$item['content']) {
@@ -140,11 +140,14 @@ class extInboxModelMessageBody2 extends ExtensionModel
 
                     $tmp_data = $className::getTitle($item['content']);
 
-                    $inboxCol = false;
-                    $inbox = $Inbox->getByID($item['content']);
-                    if ($inbox) {
-                        $inboxCol = $inbox->getCollection(true, false, true);
+                    $inboxCol = [];
+                    foreach ($item['inboxs'] as $inbox) {
+                        $inboxObj = $Inbox->getByID($inbox);
+                        if ($inboxObj) {
+                            $inboxCol[] = $inboxObj->getCollection(true, false, true);
+                        }
                     }
+
 
                     $ret[] = [
                         "title" => $tmp_data,

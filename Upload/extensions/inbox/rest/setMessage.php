@@ -95,7 +95,6 @@ class setMessage extends AbstractRest
         include_once PATH_EXTENSION . 'models' . DS . 'Message2.class.php';
         $class = new extInboxModelMessage2();
 
-
         if (!$class->sendMessage([
             'receiver' => $receiver,
             'receivers_cc' => $receivers_cc,

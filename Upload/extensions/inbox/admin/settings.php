@@ -53,6 +53,12 @@ class extInboxAdminSettings extends AbstractPage {
 
         $settings =  [
             [
+                'name' => "extInbox-global-messageSystem",
+                'typ' => 'BOOLEAN',
+                'title' => "Globales Nachrichtensystem",
+                'desc' => ""
+            ],
+            [
                 'name' => "extInbox-files-allowedExt",
                 'typ' => 'STRING',
                 'title' => "Erlaubte Dateitypen",
@@ -64,13 +70,16 @@ class extInboxAdminSettings extends AbstractPage {
                 'title' => "Erlaubte Dateigröße",
                 'desc' => "in Kilobyte"
             ],
+
             [
-                'name' => "extInbox-acl-verwaltung",
-                'typ' => 'ACL',
-                'title' => "Verwaltung",
-                'desc' => ""
+                'name' => "extInbox-cron-sendBatchMailCount",
+                'typ' => 'STRING',
+                'title' => "Gleichzeitiger E-Mail versand (Cronjob)",
+                'desc' => "default: 20"
             ]
+
         ];
+
         return $settings;
 
     }

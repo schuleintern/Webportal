@@ -1,7 +1,7 @@
 <?php
 
 
-class getInboxes extends AbstractRest
+class getSystemUser extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -27,34 +27,12 @@ class getInboxes extends AbstractRest
             ];
         }
 
-        $typ = (string)$input['typ'];
-        if (!$typ) {
-            return [
-                'error' => true,
-                'msg' => 'Missing Data: Typ'
-            ];
+        if ($request[2] && $request[3]) {
+            include_once PATH_LIB . 'rest' . DS. 'RestGetUser.class.php';
+            $class = new RestGetUser();
+            return $class->execute(false, [false, $request[2], $request[3] ]);
+
         }
-        $content = (string)$input['content'];
-        if (!$content) {
-            return [
-                'error' => true,
-                'msg' => 'Missing Data: Content'
-            ];
-        }
-
-        $className = explode('::', $typ);
-        $className = 'extInboxRecipient' . ucfirst($className[0]) . ucfirst($className[1]);
-
-        $typ = str_replace('::', '_', $typ);
-
-        include_once PATH_EXTENSION . 'inboxs' . DS . $typ . '.class.php';
-        $tmp_data = $className::getInboxs($content);
-
-        if ($tmp_data) {
-            return $tmp_data;
-        }
-
-        return [];
 
     }
 
@@ -67,7 +45,7 @@ class getInboxes extends AbstractRest
      */
     public function getAllowedMethod()
     {
-        return 'POST';
+        return 'GET';
     }
 
 

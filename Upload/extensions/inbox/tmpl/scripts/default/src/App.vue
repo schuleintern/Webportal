@@ -108,17 +108,12 @@ export default {
   created: function () {
 
     // INIT
-    if (this.inboxs && this.selectedInbox) {
-      this.inboxs.forEach((o) => {
-        if (o.id == this.selectedInbox) {
-          this.handlerClickInbox(o);
-          this.selectedInbox = false;
-        }
-      })
-    } else if (this.inboxs && this.inboxs[0]) {
-      this.handlerClickInbox(this.inboxs[0]);
+    if ( this.inboxs[0] ) {
+      this.initInbox();
+    } else {
+      // load Inbox ajax
+      this.loadMyInboxs();
     }
-
 
 
 
@@ -167,10 +162,16 @@ export default {
       formData.append('isPrivat', data.form.isPrivat);
       formData.append('files', JSON.stringify(data.form.files));
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
 
       axios.post(this.apiURL + '/setMessage', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -206,9 +207,16 @@ export default {
       const formData = new FormData();
       formData.append('mid', data.item.id);
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
       axios.post(this.apiURL + '/setConfirm', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -239,9 +247,16 @@ export default {
       const formData = new FormData();
       formData.append('mid', data.item.id);
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
       axios.post(this.apiURL + '/deleteMessage', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -275,6 +290,18 @@ export default {
   },
   methods: {
 
+    initInbox() {
+      if (this.inboxs && this.selectedInbox) {
+        this.inboxs.forEach((o) => {
+          if (o.id == this.selectedInbox) {
+            this.handlerClickInbox(o);
+            this.selectedInbox = false;
+          }
+        })
+      } else if (this.inboxs && this.inboxs[0]) {
+        this.handlerClickInbox(this.inboxs[0]);
+      }
+    },
     handlerForm() {
       this.$bus.$emit('page--open', {
         page: 'form'
@@ -305,6 +332,11 @@ export default {
 
       //console.log(itemID, 'folder',folder_id );
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
       if (!itemID || !folder_id) {
         return false;
       }
@@ -316,7 +348,9 @@ export default {
       formData.append('iid', this.inbox.id);
       axios.post(this.apiURL + '/setMessageFolder', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -415,9 +449,19 @@ export default {
  */
     loadRecipients() {
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
       this.loading = true;
       var that = this;
-      axios.get(this.apiURL + '/getRecipients').then(function (response) {
+      axios.get(this.apiURL + '/getRecipients', {
+        headers: {
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
+        }
+      }).then(function (response) {
         if (response.data) {
           if (response.data.error) {
             that.error = '' + response.data.msg;
@@ -434,7 +478,44 @@ export default {
       });
 
     },
+    loadMyInboxs() {
+
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
+      this.loading = true;
+      var that = this;
+      axios.get(this.apiURL + '/getMyInboxes', {
+        headers: {
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
+        }
+      }).then(function (response) {
+        if (response.data) {
+          if (response.data.error) {
+            that.error = '' + response.data.msg;
+          } else {
+            that.inboxs = response.data;
+            that.initInbox();
+          }
+        } else {
+          that.error = 'Fehler beim Laden. 01';
+        }
+      }).catch(function () {
+        that.error = 'Fehler beim Laden. 02';
+      }).finally(function () {
+        that.loading = false;
+      });
+
+    },
     loadFullMessage() {
+
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
 
       if (!this.message.id) {
         return false;
@@ -445,7 +526,9 @@ export default {
       formData.append('message_id', this.message.id);
       axios.post(this.apiURL + '/getMessage', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -475,6 +558,11 @@ export default {
     },
     loadMessages() {
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
       if (!this.inbox.id) {
         return false;
       }
@@ -488,7 +576,9 @@ export default {
       formData.append('folder_id', this.inbox.activeFolder.id);
       axios.post(this.apiURL + '/getMessages', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {

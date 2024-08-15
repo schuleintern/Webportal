@@ -65,7 +65,8 @@ class extInboxDefault extends AbstractPage
                 "apiURL" => "rest.php/inbox",
                 "data" => $ret,
                 "inbox_id" => $inbox_id,
-                "message_id" => $message_id
+                "message_id" => $message_id,
+                "apiKey" => DB::getGlobalSettings()->apiKey
 
             ]
         ]);

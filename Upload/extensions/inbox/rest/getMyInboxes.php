@@ -1,7 +1,7 @@
 <?php
 
 
-class getInboxes extends AbstractRest
+class getMyInboxes extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -27,34 +27,20 @@ class getInboxes extends AbstractRest
             ];
         }
 
-        $typ = (string)$input['typ'];
-        if (!$typ) {
-            return [
-                'error' => true,
-                'msg' => 'Missing Data: Typ'
-            ];
-        }
-        $content = (string)$input['content'];
-        if (!$content) {
-            return [
-                'error' => true,
-                'msg' => 'Missing Data: Content'
-            ];
-        }
-
-        $className = explode('::', $typ);
-        $className = 'extInboxRecipient' . ucfirst($className[0]) . ucfirst($className[1]);
-
-        $typ = str_replace('::', '_', $typ);
-
-        include_once PATH_EXTENSION . 'inboxs' . DS . $typ . '.class.php';
-        $tmp_data = $className::getInboxs($content);
+        $ret = [];
+        include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
+        $class = new extInboxModelInbox2();
+        $tmp_data = $class->getByUserID($userID);
 
         if ($tmp_data) {
-            return $tmp_data;
+            foreach ($tmp_data as $item) {
+                $ret[] = $item->getCollection(true, true, false, true);
+            }
         }
+        
 
-        return [];
+
+        return $ret;
 
     }
 
@@ -67,7 +53,7 @@ class getInboxes extends AbstractRest
      */
     public function getAllowedMethod()
     {
-        return 'POST';
+        return 'GET';
     }
 
 

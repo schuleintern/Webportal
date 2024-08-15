@@ -50,22 +50,7 @@ class getRecipients extends AbstractRest
 
         }
 
-        /*
-            Gruppen
-        */
-        /*
 
-        */
-
-        $groups = [];
-        if (EXTENSION::isActive('ext.zwiebelgasse.users')) {
-            include_once PATH_EXTENSIONS . 'users' . DS . 'models' . DS . 'Groups.class.php';
-            $class = new extUsersModelGroups();
-            $tmp_data = $class->getAll();
-            foreach ($tmp_data as $item) {
-                $groups[] = $item->getCollection();
-            }
-        }
 
 
         /*
@@ -83,21 +68,20 @@ class getRecipients extends AbstractRest
             }
         }
 
-        /*
-            Verwaltung
-        */
-        /*
-                $verwaltung = [];
 
-                if ( $this->isAllowed('extInbox-acl-verwaltung') == 1 ) {
-                    $verwaltung = [
-                        ['id' => 'schulleitung', 'title' => 'Schulleitung'],
-                        ['id' => 'sekretariat', 'title' => 'Sekretariat'],
-                        ['id' => 'personalrat', 'title' => 'Personalrat'],
-                        ['id' => 'hausmeister', 'title' => 'Hausmeister']
-                    ];
-                }
+        /*
+            Gruppen
         */
+
+        $groups = [];
+        if (EXTENSION::isActive('ext.zwiebelgasse.users')) {
+            include_once PATH_EXTENSIONS . 'users' . DS . 'models' . DS . 'Groups.class.php';
+            $class = new extUsersModelGroups();
+            $tmp_data = $class->getAll();
+            foreach ($tmp_data as $item) {
+                $groups[] = $item->getCollection();
+            }
+        }
 
         /*
             Postfach Gruppe
@@ -109,7 +93,120 @@ class getRecipients extends AbstractRest
         }
 
 
+        $userType = DB::getSession()->getUser()->getUserTyp(true);
+        $acl = [
+            'pupils' => [
+                'klassen' => $this->getUserAcl('extInbox-acl-pupils-klassen', $userType),
+                'single' => $this->getUserAcl('extInbox-acl-pupils-single', $userType),
+                'own' => $this->getUserAcl('extInbox-acl-pupils-own', $userType),
+            ],
+            'parents' => [
+                'klassen' => $this->getUserAcl('extInbox-acl-parents-klassen', $userType),
+                'single' => $this->getUserAcl('extInbox-acl-parents-single', $userType),
+                'own' => $this->getUserAcl('extInbox-acl-parents-own', $userType)
+            ],
+            'teachers' => [
+                'klassen' => $this->getUserAcl('extInbox-acl-teachers-klassen', $userType),
+                'single' => $this->getUserAcl('extInbox-acl-teachers-single', $userType),
+                'leitung' => $this->getUserAcl('extInbox-acl-teachers-leitung', $userType),
+                'fachschaft' => $this->getUserAcl('extInbox-acl-teachers-fachschaft', $userType),
+                'own' => $this->getUserAcl('extInbox-acl-teachers-own', $userType)
+            ],
+            'inboxs' => [
+                'inboxs' => $this->getUserAcl('extInbox-acl-inboxs-inboxs', $userType),
+                'groups' => $this->getUserAcl('extInbox-acl-inboxs-groups', $userType)
+            ],
+            'confirm' => $this->getUserAcl('extInbox-acl-inboxs-confirm', $userType)
+        ];
+
+        $userData = DB::getSession()->getUser()->getCollection(true);
+        $own = [
+            'klassen' => $userData['klassen'],
+            'pupils' => [],
+            'parents' => [],
+            'teachers' => []
+        ];
+        if ($userData['klassen']) {
+            include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
+            $Inbox = new extInboxModelInbox2();
+
+            foreach ($userData['klassen'] as $foo) {
+                $klassenObj = klasse::getByName((string)$foo);
+                if ($klassenObj) {
+                    $schuelers = $klassenObj->getSchueler();
+                    if ($schuelers) {
+                        $retPupil = [
+                            'title' => $foo,
+                            'inboxs' => []
+                        ];
+                        $retParents = [
+                            'title' => $foo,
+                            'inboxs' => []
+                        ];
+                        foreach ($schuelers as $schueler) {
+                            if ($schueler->getUserID()) {
+                                $inbox = $Inbox->getByUserIDFirst($schueler->getUserID());
+                                if ($inbox) {
+                                    $retPupil['inboxs'][] = $inbox->getCollection();
+                                }
+                            }
+                            $elterns = $schueler->getParentsUsers();
+                            foreach ($elterns as $eltern) {
+                                if ($eltern->getUserID()) {
+                                    $inbox = $Inbox->getByUserIDFirst($schueler->getUserID());
+                                    if ($inbox) {
+                                        $retParents['inboxs'][] = $inbox->getCollection();
+                                    }
+                                }
+                            }
+                        }
+                        $own['pupils'][] = $retPupil;
+                        $own['parents'][] = $retParents;
+                    }
+                    $retTeacher = [
+                        'title' => $foo,
+                        'inboxs' => []
+                    ];
+                    $teachers = $klassenObj->getKlassenlehrer();
+                    if ($teachers) {
+                        foreach ($teachers as $teacher) {
+                            if ($teacher->getUserID()) {
+                                $inbox = $Inbox->getByUserIDFirst($teacher->getUserID());
+                                if ($inbox) {
+                                    $retTeacher['inboxs'][] = $inbox->getCollection();
+                                }
+                            }
+                        }
+                    }
+                    $own['teachers'][] = $retTeacher;
+
+                }
+            }
+        }
+
+        if ($userType == 'isPupil') {
+            $blocklist = DB::getSettings()->getValue('extInbox-acl-inboxs-blocklist-pupils');
+            $groups = $this->onBlocklist($groups, $blocklist);
+            $inboxs = $this->onBlocklist($inboxs, $blocklist);
+        }
+        if ($userType == 'isEltern') {
+            $blocklist = DB::getSettings()->getValue('extInbox-acl-inboxs-blocklist-eltern');
+            $groups = $this->onBlocklist($groups, $blocklist);
+            $inboxs = $this->onBlocklist($inboxs, $blocklist);
+        }
+        if ($userType == 'isTeacher') {
+            $blocklist = DB::getSettings()->getValue('extInbox-acl-inboxs-blocklist-teachers');
+            $groups = $this->onBlocklist($groups, $blocklist);
+            $inboxs = $this->onBlocklist($inboxs, $blocklist);
+            $acl['teachers']['own'] = false;
+        }
+        if ($userType == 'isNone') {
+            $acl['teachers']['own'] = false;
+        }
+
         return [
+            'acl' => $acl,
+            'own' => $own,
             'klassen' => $klassen,
             'group' => $groups,
             'fachschaft' => $fachschaften,
@@ -119,9 +216,44 @@ class getRecipients extends AbstractRest
 
     }
 
+    private function onBlocklist( $data = false, $strBlocklist = false) {
+        if ($data && is_array($data) && $strBlocklist) {
+            $arr = explode(',', $strBlocklist);
+            if ($arr) {
+                foreach ($arr as $foo) {
+                    foreach ($data as $key => $item) {
+                        if ($item['title'] == $foo) {
+                            array_splice($data, $key, 1);
+                        }
+                    }
+                }
+            }
+        }
+        return $data;
+    }
+
+    private function getUserAcl($val, $userType) {
+
+        if (!$val || !$userType) {
+            return false;
+        }
+        if (DB::getSession()->getUser()->isAdmin()) {
+            return true;
+        }
+        $data = DB::getSettings()->getValue($val);
+        if ($data) {
+            $data = json_decode($data);
+            if ($data) {
+                if ($data->$userType) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    /*
     private function isAllowed($val)
     {
-
         $content = DB::getSettings()->getValue($val);
         if ($content) {
             $aclSetting = json_decode($content);
@@ -132,6 +264,7 @@ class getRecipients extends AbstractRest
         }
         return false;
     }
+    */
 
     /**
      * Set Allowed Request Method
@@ -145,6 +278,10 @@ class getRecipients extends AbstractRest
     }
 
 
+    public function needsAppAuth()
+    {
+        return true;
+    }
     /**
      * Muss der Benutzer eingeloggt sein?
      * Ist Eine Session vorhanden
@@ -152,7 +289,7 @@ class getRecipients extends AbstractRest
      */
     public function needsUserAuth()
     {
-        return true;
+        return false;
     }
 
     /**

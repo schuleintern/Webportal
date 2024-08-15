@@ -29,10 +29,7 @@
         <li class="height-50rem">
           <QuillEditor theme="snow" v-model:content="form.text" contentType="html" class=""/>
         </li>
-        <li>
-          <label>Dateianhänge</label>
-          <FormUpload class="" @done="handerUpload" @error="handerUploadError" :target="'rest.php/inbox/uploadItem/'+form.id"></FormUpload>
-        </li>
+
 
       </ul>
 
@@ -41,7 +38,7 @@
           <label>Sender</label>
           <FormSelect :input="form.sender" :options="inboxs" @submit="triggerSender"></FormSelect>
         </li>
-        <li>
+        <li v-if="recipients && recipients.acl && recipients.acl.confirm == true">
           <label>Lesebestätigung</label>
           <FormToggle :input="form.confirm" @change="triggerConfirm"></FormToggle>
         </li>
@@ -63,13 +60,16 @@
           <label>Antworten nicht erlauben?</label>
           <FormToggle :input="form.noAnswer" @change="triggerNoAnswer"></FormToggle>
         </li>
+        <li>
+          <label>Dateianhänge</label>
+          <FormUpload class="" @done="handerUpload" @error="handerUploadError"
+                      :target="'rest.php/inbox/uploadItem/'+form.id"></FormUpload>
+        </li>
         <!--
         <li>
           <label>Inhalt der Nachricht ist vertraulich?</label>
           <FormToggle :input="form.isPrivat" @change="triggerIsPrivat"></FormToggle>
         </li>-->
-
-
 
 
       </ul>
@@ -144,6 +144,7 @@ export default {
 
         if (this.answerToMsg.toCC) {
           let item = this.answerGetInbox(this.answerToMsg.toCC, this.answerToMsg);
+          console.log(item)
           this.form.inbox_cc = JSON.stringify(item[0]);
           this.cache.inbox_cc = item[1];
         }
@@ -187,16 +188,20 @@ export default {
       var str = [];
       var strLong = [];
 
-      recipient.forEach((o) => {
-        if (o.inbox && o.inbox.str && o.inbox.strLong) {
-          let strObj = JSON.parse(o.inbox.str);
-          if (strObj) {
-            str = str.concat(strObj);
-          }
-          let strLongObj = JSON.parse(o.inbox.strLong);
-          if (strLongObj) {
-            strLong = strLong.concat(strLongObj);
-          }
+      recipient.forEach((r) => {
+        if (r.inbox && r.inbox.length > 0) {
+          r.inbox.forEach((o) => {
+            if (o.str && o.strLong) {
+              let strObj = JSON.parse(o.str);
+              if (strObj) {
+                str = str.concat(strObj);
+              }
+              let strLongObj = JSON.parse(o.strLong);
+              if (strLongObj) {
+                strLong = strLong.concat(strLongObj);
+              }
+            }
+          });
         }
       });
 
@@ -211,14 +216,18 @@ export default {
       var cacheInbox = [];
 
       str.forEach((s) => {
-        if (parseInt(s.content) !== parseInt(msgObj.inbox_id)) {
-          fromInbox.push(s);
-        }
+        s.inboxs.forEach((o) => {
+          if (parseInt(o) !== parseInt(msgObj.inbox_id)) {
+            fromInbox.push(o);
+          }
+        });
       });
       strLong.forEach((s) => {
-        if (parseInt(s.content) !== parseInt(msgObj.inbox_id)) {
-          cacheInbox.push(s);
-        }
+        s.inboxs.forEach((o) => {
+          if (parseInt(o.id) !== parseInt(msgObj.inbox_id)) {
+            cacheInbox.push(o);
+          }
+        });
       });
 
       return [fromInbox, cacheInbox];
