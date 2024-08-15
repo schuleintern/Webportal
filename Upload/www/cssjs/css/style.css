@@ -369,6 +369,10 @@ button.btn-blau {
   font-weight: bold !important;
 }
 
+.text-big-1 {
+  font-size: 110%;
+}
+
 .text-big-2 {
   font-size: 140%;
 }

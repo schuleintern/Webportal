@@ -234,6 +234,12 @@ body {
 .height-50rem {
   height: 50rem;
 }
+.height-60rem {
+  height: 60rem;
+}
+.height-70rem {
+  height: 70rem;
+}
 
 .height_35 {
   max-height: 35vh !important;
@@ -246,6 +252,9 @@ body {
 }
 .height_70 {
   max-height: 70vh;
+}
+.min_height_20rem {
+  min-height: 20rem;
 }
 .min_height_70 {
   min-height: 70vh;
