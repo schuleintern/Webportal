@@ -26,6 +26,18 @@ class DB {
 
 	public static $mySettings = array();
 
+    public static function getSkinColor()
+    {
+        $skinColor = DB::$mySettings['skinColor'];
+        if (DB::getSettings()->getValue('global-skin-default-color') != '') {
+            if (DB::getSettings()->getBoolean('global-skin-force-color')) {
+                $skinColor = DB::getSettings()->getValue('global-skin-default-color');
+            } else if ($skinColor == '') {
+                $skinColor = DB::getSettings()->getValue('global-skin-default-color');
+            }
+        }
+        return $skinColor;
+    }
 
     public static function boo() {
 	    self::$globalsettings = new GlobalSettings();
