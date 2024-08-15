@@ -186,6 +186,7 @@ class user {
       if ($full == true) {
           if ($this->isPupil()) {
               $collection['klasse'] = $this->getPupilObject()->getKlasse();
+              $collection['klassen'] = [$collection['klasse']];
               $collection['gender'] = $this->getPupilObject()->getGeschlecht();
               $collection['asvid'] = $this->getPupilObject()->getAsvID();
           }
@@ -200,11 +201,13 @@ class user {
                   }
               }
               $collection['klasse'] = '[' . implode(', ', $klassen) . ']';
+              $collection['klassen'] = $klassen;
           }
           if ($this->isTeacher()) {
               $klassen = klasseDB::getByTeacher($this->getTeacherObject());
               if ($klassen) {
                   $collection['klasse'] = implode(', ', $klassen);
+                  $collection['klassen'] = $klassen;
               }
               $collection['short'] = $this->getTeacherObject()->getKuerzel();
           }
