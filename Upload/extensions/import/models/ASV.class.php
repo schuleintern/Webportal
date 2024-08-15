@@ -251,7 +251,7 @@ class extImportModelASV extends ExtensionModel
         $b = 0;
         for ($i = 0; $i < sizeof($this->faecher); $i++) {
             $data = DB::run('SELECT * FROM faecher WHERE fachID = :id', [ 'id' => $this->faecher[$i]['id'] ])->fetch();
-            if ($data && $data['fachASDID'] == $this->faecher[$i]['asdid'] ) {
+            if ($data) {
 
                 DB::getDB()->query("UPDATE faecher SET
                     fachKurzform = '" . DB::getDB()->escapeString($this->faecher[$i]['kurzform']) . "',
@@ -400,7 +400,7 @@ class extImportModelASV extends ExtensionModel
 
                         $count++;
                         $data = DB::run('SELECT * FROM unterricht WHERE unterrichtID = :id ', ['id' => $this->unterricht[$i]['id']])->fetch();
-                        if ($data && $data['unterrichtElementASVID'] == $this->unterricht[$i]['ueid'] ) {
+                        if ($data) {
 
                             DB::getDB()->query("UPDATE unterricht SET
                                 unterrichtLehrerID = " . (int)$this->unterricht[$i]['lehrer'] . ",
