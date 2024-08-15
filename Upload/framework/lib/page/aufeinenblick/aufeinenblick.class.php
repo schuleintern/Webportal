@@ -28,6 +28,11 @@ class aufeinenblick extends AbstractPage {
       $stundenplanURL = 'index.php?page=ext_stundenplan';
     }
 
+    $nachrichtenURL = 'index.php?page=ext_inbox';
+    if (DB::getSettings()->getBoolean('extInbox-global-messageSystem')) {
+      $nachrichtenURL = 'index.php?page=ext_inbox';
+    }
+
     if ( $_REQUEST['action'] == '' ) {
 
         if(!DB::getSession()->isTeacher() && !DB::getSession()->isPupil() && !DB::getSession()->isEltern()) {
