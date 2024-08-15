@@ -132,6 +132,11 @@ class email {
         $mail->Subject = $data['subject'];
         $mail->Body = $data['text'];
 
+        if ($data['body']) {
+            $mail->Body = $data['body'];
+        } else {
+            $mail->Body = $data['text'];
+        }
         $mail->isHTML();
         $mail->CharSet = 'UTF-8';
 
