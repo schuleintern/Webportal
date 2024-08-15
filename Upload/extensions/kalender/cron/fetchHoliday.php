@@ -65,12 +65,12 @@ class extKalenderCronFetchHoliday extends AbstractCron
 
     public function getName()
     {
-        return "Example Cron";
+        return "Ferien laden";
     }
 
     public function getDescription()
     {
-        return "just the example - did nothing";
+        return "ext_kalender - fetch Holidays";
     }
 
 
