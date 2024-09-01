@@ -246,8 +246,9 @@ class menu extends AbstractMenu
     private function aktuelles()
     {
 
-
-        $html .= $this->getMenuItem("aufeinenblick", " Auf einen Blick", "fa fa-calendar-check");
+        if ( !DB::getSettings()->getValue("aufeinenblick-off") ) {
+            $html .= $this->getMenuItem("aufeinenblick", " Auf einen Blick", "fa fa-calendar-check");
+        }
 
         if (DB::isLoggedIn() && $this->isActive("dashboard")) {
             $html .= $this->getMenuItem("dashboard", " Dashboard", "fa fa-th");

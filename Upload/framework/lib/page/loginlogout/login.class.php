@@ -409,7 +409,13 @@ class login extends AbstractPage {
                 'typ' => 'BILD',
                 'titel' => 'Hintergrundbild auf dem Loginbildschrim',
                 'text' => 'Achten Sie auf möglichst keine Dateigröße. (z.B. JPEG Quality kleiner 50)'
-            ]
+            ],
+            [
+                'name' => 'aufeinenblick-off',
+                'typ' => 'BOOLEAN',
+                'titel' => 'Auf Einen Blick als Startseite deaktivieren',
+                'text' => ''
+            ],
 		];
 	}
 	

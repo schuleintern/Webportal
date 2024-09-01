@@ -16,6 +16,11 @@ class aufeinenblick extends AbstractPage {
 
   public function __construct() {
 
+
+    if ( DB::getSettings()->getValue("aufeinenblick-off") ) {
+      header("Location: index.php?page=dashboard", true, 302);
+    }
+
     parent::__construct ( array (
         "Auf einen Blick"
     ) );
