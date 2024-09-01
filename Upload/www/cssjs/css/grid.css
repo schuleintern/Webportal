@@ -48,6 +48,10 @@ body {
 .flex-end {
   justify-content: flex-end;
 }
+.flex-end-end {
+  justify-content: flex-end;
+  align-content: end;
+}
 
 .flex-center-center {
   justify-content: center;
@@ -264,6 +268,10 @@ body {
 }
 .height_100 {
   max-height: 100vh !important;
+}
+
+.height_100p {
+  height: 100%;
 }
 
 
