@@ -178,13 +178,14 @@ abstract class ExtensionModel
     }
 
 
-    public function getAll()
+    public function getAll($order = '')
     {
         if (!$this->_table) {
             return false;
         }
         $ret = [];
-        $data = DB::run('SELECT * FROM ' . $this->_table )->fetchAll();
+
+        $data = DB::run('SELECT * FROM ' . $this->_table.' '.$order )->fetchAll();
         if ($data) {
             $class = get_called_class();
             foreach ($data as $item) {

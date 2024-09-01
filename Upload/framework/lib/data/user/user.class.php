@@ -174,10 +174,11 @@ class user {
           "vorname" => $this->getFirstName(),
           "nachname" => $this->getLastName(),
           "name" => $this->getDisplayName(),
-          "type" => $this->getUserTyp(true)
+          "type" => $this->getUserTyp(true),
+          "typeText" => $this->getUserTyp()
       ];
       if ($email == true) {
-          $collection["email"] = $this->getEMail();
+          $username = true;
       }
       if ($avatar == true) {
           $collection["avatar"] = $this->getAvatar();
@@ -196,7 +197,7 @@ class user {
               $childs = $this->getElternObject()->getMySchueler();
               foreach ($childs as $child) {
                   $klassen[] = $child->getKlasse();
-                  if ( $child->getCollection ) {
+                  if ( $child && method_exists($child, 'getCollection') ) {
                     $collection['childs'][] = $child->getCollection(false);
                   }
               }

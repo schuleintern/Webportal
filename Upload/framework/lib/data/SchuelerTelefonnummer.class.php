@@ -38,7 +38,22 @@ class SchuelerTelefonnummer {
 	public function getAdresseID() {
 		return $this->data['adresseID'];
 	}
-	
+
+
+    public function getCollection($full = false) {
+        $collection = [
+            "nummer" => $this->getNummer(),
+            "typAsText" => $this->getTypAsText(),
+            "typ" => $this->getTyp(),
+            "kontaktTyp" => $this->getKontaktTyp(),
+            "adresseID" => $this->getAdresseID()
+        ];
+
+        return $collection;
+    }
+
+
+
 }
 
 

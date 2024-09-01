@@ -13,7 +13,7 @@ class SchuelerAdresse {
 	}
 	
 	public function getSchuelerAsvID() {
-		return $this->data['adradresseSchuelerAsvIDesseID'];
+		return $this->data['adresseSchuelerAsvID'];
 	}
 	
 	public function isErziehungsberechtigter() {
@@ -79,7 +79,61 @@ class SchuelerAdresse {
 	public function getPersonentyp() {
 		return $this->data['adressePersonentyp'];
 	}
-	
+
+    public function getCollection($full = false, $withEmail = false) {
+        $collection = [
+            "id" => $this->getID(),
+            "schuelerASVID" => $this->getSchuelerAsvID(),
+            "isErziehungsberechtigter" => $this->isErziehungsberechtigter(),
+            "isWeitererErziehungsberechtigter" => $this->isWeitererErziehungsberechtigter(),
+            "isSchueler" => $this->isSchueler(),
+            "isWeiterer" => $this->isWeiterer(),
+            "isAuskunftsberechtigt" => $this->isAuskunftsberechtigt(),
+            "isHauptansprechpartner" => $this->isHauptansprechpartner(),
+            "strasse" => $this->getStrasse(),
+            "nummer" => $this->getNummer(),
+            "ort" => $this->getOrt(),
+            "plz" => $this->getPLZ(),
+            "anschrift" => nl2br($this->getAnschrifttext()),
+            "nachname" => $this->getFamilienname(),
+            "vorname" => $this->getVorname(),
+            "anrede" => $this->getAnrede(),
+            "anredeText" => $this->getAnredeText(),
+            "typ" => $this->getPersonentyp()
+        ];
+
+        $collection['telefon'] = [];
+        $collection['emails'] = [];
+
+        if ($full) {
+
+            if ( $this->getID() ) {
+                $telefonnummern = DB::getDB()->query("SELECT * FROM eltern_telefon WHERE adresseID=" . $this->getID());
+                while($t = DB::getDB()->fetch_array($telefonnummern)) {
+                    $foo = new SchuelerTelefonnummer($t);
+                    if ($foo) {
+                        $collection['telefon'][] = $foo->getCollection();
+                    }
+                }
+            }
+
+
+        }
+
+        if ($withEmail && $collection['schuelerASVID']) {
+            $email = DB::getDB()->query("SELECT * FROM eltern_email WHERE elternSchuelerAsvID='" . $collection['schuelerASVID'] . "'");
+            while($t = DB::getDB()->fetch_array($email)) {
+                $foo = new SchuelerElternEmail($t);
+                if ($foo) {
+                    $collection['emails'][] = $foo->getCollection();
+                }
+            }
+        }
+
+        return $collection;
+    }
+
+
 	public function getAdresseAsText() {
 		return 
 			"<p>" . ($this->isHauptansprechpartner() ? ("<p><u><strong>Hauptansprechpartner</strong></u></p>") : (""))
