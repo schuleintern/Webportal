@@ -1,9 +1,9 @@
 {
   "name": "Ganztags",
   "uniqid": "ext.zwiebelgasse.ganztags",
-  "version": "9",
+  "version": "10",
 
-  "requiredVersion": "1.7.0",
+  "requiredVersion": "1.8.0",
 
   "menu": {
     "categorie": "1",
@@ -13,6 +13,13 @@
 
   "adminGroupName": "Admin_Ext_Ganztags",
   "aclGroupName": "ext_ganztags",
+
+  "cron": [
+    {
+      "typ": "default",
+      "class": "extGanztagsCronFetchPupils"
+    }
+  ],
 
   "submenu": [
     {

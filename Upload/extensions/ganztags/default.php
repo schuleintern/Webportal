@@ -78,7 +78,7 @@ class extGanztagsDefault extends AbstractPage
             $user = user::getUserByID((int)$user_id);
             if ($user) {
 
-                $data = $user->getCollection();
+                $data = $user->getCollection(true);
 
                 //include_once 'Schueler2.class.php';
 
@@ -128,7 +128,7 @@ class extGanztagsDefault extends AbstractPage
                                     <tr>
                                         <th width="5%"></th>
                                         <th width="15%" style="font-weight: bold;">Vorname</th>
-                                        <th width="18%" style="font-weight: bold;">Name</th>
+                                        <th width="15%" style="font-weight: bold;">Name</th>
                                         <th width="5%" style="font-weight: bold;"></th>
                                         <th width="8%" style="font-weight: bold;"></th>';
 
@@ -154,7 +154,7 @@ class extGanztagsDefault extends AbstractPage
                 $html .= '<td width="5%" style="color:#ccc">' . $num . '</td>';
 
                 $html .= '<td width="15%">' . $schueler['vorname'] . '</td>';
-                $html .= '<td width="18%">' . $schueler['nachname'] . '</td>';
+                $html .= '<td width="15%">' . $schueler['nachname'] . '</td>';
 
                 $html .= '<td width="5%">';
                 if ($schueler['gender'] == 'm') {
