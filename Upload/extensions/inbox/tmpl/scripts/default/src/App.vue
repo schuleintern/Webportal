@@ -161,6 +161,7 @@ export default {
       formData.append('noAnswer', data.form.noAnswer);
       formData.append('isPrivat', data.form.isPrivat);
       formData.append('files', JSON.stringify(data.form.files));
+      formData.append('umfragen', JSON.stringify(data.form.umfragen));
 
       let sessionID = localStorage.getItem('session');
       if (sessionID) {

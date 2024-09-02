@@ -8,7 +8,6 @@
       </button>
     </div>
 
-
     <div class="si-form flex-row">
       <ul class="flex-5">
 
@@ -28,6 +27,14 @@
         </li>
         <li class="height-50rem">
           <QuillEditor theme="snow" v-model:content="form.text" contentType="html" class=""/>
+        </li>
+        <li class="" style="display: block">
+          <div v-if="umfragenToggle">
+            <h4><i class="fa fa-poll"></i> Umfragen</h4>
+            <UmfragenForm  :form="form" @finish="handlerUmfragenChange" ></UmfragenForm>
+          </div>
+          <button v-else class="si-btn" @click="handlerUmfragenToggle"><i class="fa fa-poll"></i> Umfrage Hinzufügen</button>
+
         </li>
 
 
@@ -72,6 +79,7 @@
         </li>-->
 
 
+
       </ul>
 
 
@@ -88,18 +96,21 @@ import InboxSelect from '../mixins/InboxSelect.vue'
 import FormToggle from '../mixins/FormToggle.vue'
 import FormSelect from '../mixins/FormSelect.vue'
 import FormUpload from '../mixins/FormUpload.vue'
+import UmfragenForm from '../mixins/UmfragenForm.vue'
 
 
 export default {
   name: 'FormComponent',
   components: {
     FormUpload,
-    InboxSelect, FormToggle, FormSelect
+    InboxSelect, FormToggle, FormSelect,
+    UmfragenForm
   },
   data() {
     return {
       form: {},
       cache: {},
+      umfragenToggle: false
 
     };
   },
@@ -165,6 +176,15 @@ export default {
   },
   methods: {
 
+    handlerUmfragenChange(e,data) {
+      console.log(e)
+      console.log(data)
+
+      //this.form.umfragen = data;
+    },
+    handlerUmfragenToggle() {
+      this.umfragenToggle = !this.umfragenToggle;
+    },
     handerUploadError(error, response) {
       if (response.error && response.msg) {
         this.$bus.$emit('error', {

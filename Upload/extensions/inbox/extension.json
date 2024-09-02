@@ -1,9 +1,9 @@
 {
   "name": "Inbox",
   "uniqid": "ext.zwiebelgasse.inbox",
-  "version": "9",
+  "version": "10",
 
-  "requiredVersion": "1.7.6",
+  "requiredVersion": "1.8.1",
 
   "menu": {
     "categorie": "1",

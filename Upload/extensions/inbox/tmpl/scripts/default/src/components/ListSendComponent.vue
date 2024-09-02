@@ -1,76 +1,75 @@
 <template>
   <div class="inbox-list-send">
 
-
-
-
-    <table class="si-table si-table-style-allLeft" v-if="sortList && sortList.length >= 1">
-      <thead>
-      <tr>
-        <th v-on:click="handlerSort('id')" class="curser-sort"
-            :class="{'text-orange colum-sort': sort.column == 'id'}"></th>
-        <th v-on:click="handlerSort('isRead')" class="curser-sort"
-            :class="{'text-orange colum-sort': sort.column == 'isRead'}">Status
-        </th>
-        <th >
-          Empfänger
-        </th>
-        <th v-on:click="handlerSort('subject')" class="curser-sort"
-            :class="{'text-orange colum-sort': sort.column == 'subject'}">Betreff
-        </th>
-        <th v-on:click="handlerSort('files')" class="curser-sort"
-            :class="{'text-orange colum-sort': sort.column == 'files'}">Anhang
-        </th>
-        <th v-on:click="handlerSort('date')" class="curser-sort"
-            :class="{'text-orange colum-sort': sort.column == 'date'}">Datum
-        </th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-bind:key="index" v-for="(msg, index) in  sortList" class="curser"
-          v-on:click="handlerOpen(msg)" :class="{'text-orange': msg.id == item.id}">
-        <td></td>
-        <td>
-          <div v-if="msg.isRead == 0" class="fa fa-star margin-r-m"></div>
-          <div v-if="msg.priority == 1" class="fa fa-arrow-down text-green"></div>
-          <div v-else-if="item.priority == 2" class="fa fa-arrow-up text-red"></div>
-        </td>
-        <td>
-          <span v-bind:key="i" v-for="(inbox, i) in  msg.to">
-            {{ inbox.title }} ({{ inbox.count }})
-          </span>
-          <!--
-          <div v-if="item.to && item.to.length <= 3">
-            <div v-bind:key="i" v-for="(inbox, i) in  item.to">
-              <span v-if="inbox.user">{{ inbox.user.name }}</span>
-              <span v-else>{{ inbox.title }}</span>
-              <span v-if="i+1 < item.to.length">, </span>
-            </div>
-          </div>
-          <div v-else>
-            Mehrere Empfänger ({{item.to.length}})
-          </div>
-          -->
-
-          <div v-if="msg.toCC" class="text-grey">
-            <label>CC: </label>
-            <span v-bind:key="i" v-for="(inbox, i) in  msg.toCC">
-              <span v-if="inbox.user">{{ inbox.user.name }}</span>
-              <span v-else>{{ inbox.title }}</span>
-              <span v-if="i+1 < msg.toCC.length">, </span>
+    <div :class="{'height_35 scrollable-y': item != false }">
+      <table class="si-table si-table-style-allLeft" v-if="sortList && sortList.length >= 1">
+        <thead>
+        <tr>
+          <th v-on:click="handlerSort('id')" class="curser-sort"
+              :class="{'text-orange colum-sort': sort.column == 'id'}"></th>
+          <th v-on:click="handlerSort('isRead')" class="curser-sort"
+              :class="{'text-orange colum-sort': sort.column == 'isRead'}">Status
+          </th>
+          <th >
+            Empfänger
+          </th>
+          <th v-on:click="handlerSort('subject')" class="curser-sort"
+              :class="{'text-orange colum-sort': sort.column == 'subject'}">Betreff
+          </th>
+          <th v-on:click="handlerSort('files')" class="curser-sort"
+              :class="{'text-orange colum-sort': sort.column == 'files'}">Anhang
+          </th>
+          <th v-on:click="handlerSort('date')" class="curser-sort"
+              :class="{'text-orange colum-sort': sort.column == 'date'}">Datum
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-bind:key="index" v-for="(msg, index) in  sortList" class="curser"
+            v-on:click="handlerOpen(msg)" :class="{'text-orange': msg.id == item.id}">
+          <td></td>
+          <td>
+            <div v-if="msg.isRead == 0" class="fa fa-star margin-r-m"></div>
+            <div v-if="msg.priority == 1" class="fa fa-arrow-down text-green"></div>
+            <div v-else-if="item.priority == 2" class="fa fa-arrow-up text-red"></div>
+          </td>
+          <td>
+            <span v-bind:key="i" v-for="(inbox, i) in  msg.to">
+              {{ inbox.title }} ({{ inbox.count }})
             </span>
-          </div>
+            <!--
+            <div v-if="item.to && item.to.length <= 3">
+              <div v-bind:key="i" v-for="(inbox, i) in  item.to">
+                <span v-if="inbox.user">{{ inbox.user.name }}</span>
+                <span v-else>{{ inbox.title }}</span>
+                <span v-if="i+1 < item.to.length">, </span>
+              </div>
+            </div>
+            <div v-else>
+              Mehrere Empfänger ({{item.to.length}})
+            </div>
+            -->
 
-        </td>
-        <td :class="{'text-bold': msg.isRead == 0}">{{ msg.subject }}</td>
-        <td><i v-if="msg.files" class="fa fa-paperclip"></i></td>
-        <td>{{ msg.date }}</td>
+            <div v-if="msg.toCC" class="text-grey">
+              <label>CC: </label>
+              <span v-bind:key="i" v-for="(inbox, i) in  msg.toCC">
+                <span v-if="inbox.user">{{ inbox.user.name }}</span>
+                <span v-else>{{ inbox.title }}</span>
+                <span v-if="i+1 < msg.toCC.length">, </span>
+              </span>
+            </div>
 
-      </tr>
-      </tbody>
-    </table>
-    <div v-else>
-      <div class="padding-m"><i>- Noch keine Inhalte vorhanden -</i></div>
+          </td>
+          <td :class="{'text-bold': msg.isRead == 0}">{{ msg.subject }}</td>
+          <td><i v-if="msg.files" class="fa fa-paperclip"></i></td>
+          <td>{{ msg.date }}</td>
+
+        </tr>
+        </tbody>
+      </table>
+      <div v-else>
+        <div class="padding-m"><i>- Noch keine Inhalte vorhanden -</i></div>
+      </div>
     </div>
 
   </div>

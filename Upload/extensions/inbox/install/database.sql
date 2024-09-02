@@ -11,7 +11,7 @@ CREATE TABLE `ext_inbox_folders`
 INSERT INTO `ext_inbox_folders` (`id`, `title`, `inbox_id`, `sort`)
 VALUES
     (1,'Posteingang',0,1),
-    (2,'Postausgang',0,2),
+    (2,'Gesendet',0,2),
     (3,'Archive',0,3),
     (4,'Entwurf',0,4);
 

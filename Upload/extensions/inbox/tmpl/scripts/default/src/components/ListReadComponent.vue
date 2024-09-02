@@ -44,7 +44,10 @@
           </td>
 
           <td :class="{'text-bold': msg.isRead == 0}">{{ msg.subject }}</td>
-          <td><i v-if="msg.files" class="fa fa-paperclip"></i></td>
+          <td>
+            <i v-if="msg.files" class="fa fa-paperclip"></i>
+            <i v-if="msg.umfrage" class="fa fa-poll"></i>
+          </td>
           <td>{{ msg.date }}</td>
 
         </tr>

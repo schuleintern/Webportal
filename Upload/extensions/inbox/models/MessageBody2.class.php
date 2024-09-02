@@ -16,6 +16,7 @@ class extInboxModelMessageBody2 extends ExtensionModel
         'createdTime',
         'priority',
         'files',
+        'umfrage',
         'subject',
         'text',
         'noAnswer',
@@ -40,11 +41,39 @@ class extInboxModelMessageBody2 extends ExtensionModel
 
 
 
-    public function getCollection($full = false, $withText = false)
+    public function getCollection($full = false)
     {
 
         $collection = parent::getCollection();
 
+        if ($full) {
+
+            if ($collection['umfrage']) {
+                $collection['umfragen'] = [];
+
+                include_once PATH_EXTENSIONS.'umfragen'.DS . 'models' . DS .'List.class.php';
+                $subList = new extUmfragenModelList();
+                include_once PATH_EXTENSIONS .'umfragen'.DS. 'models' . DS .'Answer.class.php';
+                $subAnswer = new extUmfragenModelAnswer();
+
+                $tmp_answers = $subList->getByID($collection['umfrage']);
+                if ($tmp_answers) {
+                    $collection['umfragen'] = $tmp_answers->getCollection(false, false, true);
+
+
+                    $answers = $subAnswer->getByParentAndUserID($collection['umfragen']['id'],  DB::getSession()->getUserID());
+                    if ($answers) {
+                        $answers_ret = [];
+                        foreach ($answers as $answer) {
+                            $answers_ret[] = $answer->getCollection();
+                        }
+                        $collection['umfragen']['answers'] = $answers_ret;
+                    }
+
+
+                }
+            }
+        }
 
         return $collection;
     }

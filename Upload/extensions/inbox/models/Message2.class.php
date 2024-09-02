@@ -58,7 +58,7 @@ class extInboxModelMessage2 extends ExtensionModel
             $classBody = new extInboxModelMessageBody2();
 
             $body = $classBody->getByID( $this->getData('body_id') );
-            $bodyCollection = $body->getCollection();
+            $bodyCollection = $body->getCollection(true);
 
             $collection['subject'] = $bodyCollection['subject'];
             $collection['from'] = $body->getSenderCollection();
@@ -67,6 +67,8 @@ class extInboxModelMessage2 extends ExtensionModel
             $collection['priority'] = $bodyCollection['priority'];
             $collection['isPrivat'] = $bodyCollection['isPrivat'];
             $collection['files'] = $bodyCollection['files'];
+            $collection['umfrage'] = $bodyCollection['umfrage'];
+            $collection['umfragen'] = $bodyCollection['umfragen'];
             $collection['date'] = date("d.m.Y H:i", strtotime($bodyCollection['createdTime']) );
 
 
@@ -303,7 +305,6 @@ class extInboxModelMessage2 extends ExtensionModel
             return false;
         }
 
-
         $subject = DB::getDB()->escapeString(trim((string)$data['subject']));
         $text = DB::getDB()->escapeString(trim((string)$data['text']));
 
@@ -367,15 +368,29 @@ class extInboxModelMessage2 extends ExtensionModel
             }
 
 
+
             if ( PUSH::active() ) {
                 include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
                 $InboxClass = new extInboxModelInbox2();
             }
 
+
+            $userlist = [];
+
             // POSTEINGANG
             foreach ($receivers_array as $inbox_group) {
                 if ($inbox_group['inboxs']) {
                     foreach ($inbox_group['inboxs'] as $item) {
+
+                        // Inbox to UserIds
+                        $inbox = $InboxClass->getByID($item);
+                        if ($inbox) {
+                            $inboxTemp = $inbox->getCollection(true);
+                            if ($inboxTemp['user_id']) {
+                                $userlist[] = $inboxTemp['user_id'];
+                            }
+                        }
+
                         if ( !$this->save([
                             'inbox_id' => $item,
                             'folder_id' => 1,
@@ -384,18 +399,18 @@ class extInboxModelMessage2 extends ExtensionModel
                         ])) {
                             return false;
                         }
-                        if ( PUSH::active() && $InboxClass ) {
-                            $inbox = $InboxClass->getByID($item);
-                            if ($inbox) {
-                                $inboxTemp = $inbox->getCollection(true);
-                                if ($inboxTemp['user_id']) {
-                                    PUSH::send( $inboxTemp['user_id'] , 'Neue Nachricht', $data['subject'] );
-                                }
+
+                        // Push
+                        if (PUSH::active() && $InboxClass && $userlist) {
+                            foreach ($userlist as $useritem) {
+                                PUSH::send($useritem, 'Neue Nachricht', $data['subject']);
                             }
                         }
                     }
                 }
             }
+
+
 
 
             // POSTEINGANG CC
@@ -405,6 +420,14 @@ class extInboxModelMessage2 extends ExtensionModel
                     foreach ($receivers_cc_array as $inbox_group) {
                         if ($inbox_group['inboxs']) {
                             foreach ($inbox_group['inboxs'] as $item) {
+                                // Inbox to UserIds
+                                $inbox = $InboxClass->getByID($item);
+                                if ($inbox) {
+                                    $inboxTemp = $inbox->getCollection(true);
+                                    if ($inboxTemp['user_id']) {
+                                        $userlist[] = $inboxTemp['user_id'];
+                                    }
+                                }
                                 if ( !$this->save([
                                     'inbox_id' => $item,
                                     'folder_id' => 1,
@@ -414,12 +437,8 @@ class extInboxModelMessage2 extends ExtensionModel
                                     return false;
                                 }
                                 if ( PUSH::active() && $InboxClass ) {
-                                    $inbox = $InboxClass->getByID($item);
-                                    if ($inbox) {
-                                        $inboxTemp = $inbox->getCollection(true);
-                                        if ($inboxTemp['user_id']) {
-                                            PUSH::send( $inboxTemp['user_id'], 'Neue Nachricht', $data['subject'] );
-                                        }
+                                    foreach ($userlist as $useritem) {
+                                        PUSH::send($useritem, 'Neue Nachricht', $data['subject']);
                                     }
                                 }
                             }
@@ -428,6 +447,30 @@ class extInboxModelMessage2 extends ExtensionModel
                     }
                 }
             }
+
+            if ($data['umfragen'] && $userlist && EXTENSION::isActive('ext.zwiebelgasse.umfragen')) {
+                include_once PATH_EXTENSIONS . 'umfragen' . DS . 'models' . DS . 'List.class.php';
+                $UmfragenClass = new extUmfragenModelList();
+                $data['umfragen'] = json_decode($data['umfragen']);
+                $umfrageID = $UmfragenClass->setListWithItems([
+                    'id' => 0,
+                    'title' => $data['subject'],
+                    'state' => 1,
+                    'createdTime' => date('Y-m-d H:i', time()),
+                    'createdUserID' => DB::getSession()->getUserID(),
+                    'userlist' => $userlist,
+                    'type' => 'ext_inbox'
+                ], $data['umfragen']);
+
+                if ($umfrageID) {
+                    $bodyClass->update([
+                        'id' => $body->lastID,
+                        'umfrage' => $umfrageID
+                    ]);
+                }
+
+            }
+
 
             // GESENDET
             if ( !$this->save([

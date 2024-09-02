@@ -11,7 +11,8 @@ class setMessage extends AbstractRest
     {
 
 
-        $userID = DB::getSession()->getUser()->getUserID();
+        $user = DB::getSession()->getUser();
+        $userID = $user->getUserID();
         if (!$userID) {
             return [
                 'error' => true,
@@ -79,6 +80,11 @@ class setMessage extends AbstractRest
             $files = 0;
         }
 
+        $umfragen = (string)$_POST['umfragen'];
+        if (!$umfragen || $umfragen == 'undefined') {
+            $umfragen = false;
+        }
+
 
         /*
         if ($files && EXTENSION::isActive('ext.zwiebelgasse.fileshare') ) {
@@ -105,7 +111,8 @@ class setMessage extends AbstractRest
             'priority' => $priority,
             'noAnswer' => $noAnswer,
             'isPrivat' => $isPrivat,
-            'files' => $files
+            'files' => $files,
+            'umfragen' => $umfragen
         ])) {
             return [
                 'error' => true,

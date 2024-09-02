@@ -111,9 +111,24 @@
             </div>
         </span>
       </li>
-      <li class="line-oddEven  padding-s padding-t-m">
-        <label>Betreff:</label>
-        <span class="text-big-2">{{ item.subject }}</span>
+      <li class="line-oddEven text-big-2 padding-s padding-t-m">
+        <label class="">Betreff:</label>
+        <span class="">{{ item.subject }}</span>
+      </li>
+      <li v-if="item.umfrage" class="line-oddEven padding-s">
+        <label>Umfrage:</label>
+        <span v-if="folder.id == 2">
+          <a class="si-btn si-btn-green" target="_blank" :href="'index.php?page=ext_umfragen&view=list&lid='+item.umfrage"><i class="fa fa-poll"></i> Antworten anzeigen</a>
+        </span>
+        <span v-else>
+          <div v-if="item.umfragen && item.umfragen.answers" class="padding-l-m">
+            <UmfragenResult :form="item.umfragen"></UmfragenResult>
+          </div>
+          <div class="si-form" v-else-if="umfragenOpen">
+            <UmfragenAnswer :form="item.umfragen" btnSave="true"></UmfragenAnswer>
+          </div>
+          <button class="si-btn" v-else @click="handlerOpenUmfrage"><i class="fa fa-poll"></i> Fragen beantworten</button>
+        </span>
       </li>
       <li class="padding-l">
         <QuillEditor theme="" enable="false" toolbar="" :content="item.text" contentType="html" readOnly="true" />
@@ -126,10 +141,16 @@
 
 <script>
 
+import UmfragenAnswer from "@/mixins/UmfragenAnswer.vue";
+import UmfragenResult from "@/mixins/UmfragenResult.vue";
+
 export default {
   name: 'ItemComponent',
+  components: {UmfragenAnswer, UmfragenResult},
   data() {
-    return {};
+    return {
+      umfragenOpen: false
+    };
   },
   props: {
     acl: Array,
@@ -141,6 +162,9 @@ export default {
   },
   methods: {
 
+    handlerOpenUmfrage() {
+      this.umfragenOpen = true;
+    },
     handlerForward() {
 
       this.$bus.$emit('page--open', {
