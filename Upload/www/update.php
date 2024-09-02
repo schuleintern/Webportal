@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.8.0
+ * Version 1.8.1
  *
  */
 
@@ -23,6 +23,12 @@ include_once '../data/config/config.php';
 
 class Updates
 {
+
+    public static function to181($root)
+    {
+        $root->update('www/cssjs');
+        return true;
+    }
 
     public static function to180($root)
     {
