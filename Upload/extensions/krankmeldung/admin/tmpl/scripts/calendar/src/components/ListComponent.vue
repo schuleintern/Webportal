@@ -9,6 +9,14 @@
       <option value="2">abgelehnt</option>
     </select>
 
+    <select class="si-input margin-l-m" v-on:change="handlerFilter($event, 'user.type')">
+      <option value="">- Benutzertyp -</option>
+      <option value="isNone">Mitarbeiter</option>
+      <option value="isTeacher">Lehrer*innen</option>
+      <option value="isPupil">Schüler*innen</option>
+      <option value="isEltern">Eltern</option>
+    </select>
+
     <div class="si-calendar margin-t-m">
       <div class="si-calendar-header">
         <button class="si-btn" @click="handlerDayPrev()"><i class="fa fa-arrow-left"></i> Zurück</button>
@@ -143,6 +151,18 @@ export default {
             let temp = data.filter((item) => {
               if (item[this.filter.colum] == this.filter.value) {
                 return true;
+              }
+              if (this.filter.colum.indexOf('.') >= 0) {
+                var deep = item;
+                let arr = this.filter.colum.split('.');
+                arr.forEach((o) => {
+                  if (deep[o]) {
+                    deep = deep[o];
+                  }
+                })
+                if (deep && deep == this.filter.value) {
+                  return true;
+                }
               }
               return false;
             });

@@ -49,8 +49,19 @@ class getCalendarAdmin extends AbstractRest
         }
 
         if ($from) {
+
+            $month = (string)date('l', $from);
+            $month = str_replace('Saturday', 'Samstag', $month);
+            $month = str_replace('Sunday', 'Sonntag', $month);
+            $month = str_replace('Monday', 'Montag', $month);
+            $month = str_replace('Tuesday', 'Dienstag', $month);
+            $month = str_replace('Wednesday', 'Mittwoch', $month);
+            $month = str_replace('Thursday', 'Donnerstag', $month);
+            $month = str_replace('Friday', 'Freitag', $month);
+
+            $todayNice = $month.date(' - d.m.Y', $from);
+
             $today = date('Y-m-d', $from);
-            $todayNice = date('l - d.m.Y', $from);
             $todayNumber = date('N', $from);
         }
 

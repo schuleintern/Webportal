@@ -1,7 +1,7 @@
 {
   "name": "Krankmeldung",
   "uniqid": "ext.zwiebelgasse.krankmeldung",
-  "version": "2",
+  "version": "3",
 
   "requiredVersion": "1.8.0",
 
