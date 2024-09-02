@@ -1,19 +1,16 @@
 <?php
 
-class extAkteModelItem extends ExtensionModel
+class extAkteModelTags extends ExtensionModel
 {
 
-    static $table = 'ext_akte_items';
+    static $table = 'ext_akte_tags';
 
     static $fields = [
         'id',
         'createdTime',
         'createdUserID',
         'state',
-        'text',
-        'user_id',
-        'tags'
-
+        'title'
     ];
 
     static $defaults = [];
@@ -24,7 +21,7 @@ class extAkteModelItem extends ExtensionModel
      */
     public function __construct($data = false)
     {
-        parent::__construct($data, self::$table ? self::$table : false, ['parent_id' => 'user_id']);
+        parent::__construct($data, self::$table ? self::$table : false);
         self::setModelFields(self::$fields, self::$defaults);
     }
    
@@ -40,10 +37,6 @@ class extAkteModelItem extends ExtensionModel
                 if ($temp_user) {
                     $collection['createdUser'] = $temp_user->getCollection();
                 }
-            }
-
-            if ($collection['tags']) {
-                $collection['tags'] = json_decode($collection['tags']);
             }
         }
 

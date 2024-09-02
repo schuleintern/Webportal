@@ -1,6 +1,6 @@
 <?php
 
-class getAnswer extends AbstractRest
+class setTags extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -24,47 +24,40 @@ class getAnswer extends AbstractRest
             ];
         }
 
-        $id = (int)$request[2];
-        if (!$id) {
+        $id = (int)$input['id'];
+
+        $title = (string)$input['title'];
+        if ( !$title || $title == 'undefined' ) {
             return [
                 'error' => true,
-                'msg' => 'Missing ID'
+                'msg' => 'Missing Data: Title'
             ];
         }
 
 
 
+        include_once PATH_EXTENSION . 'models' . DS .'Tags.class.php';
+        $class = new extAkteModelTags();
 
-        include_once PATH_EXTENSION . 'models' . DS .'Answer.class.php';
+        if ( $db = $class->save([
+            'id' => $id,
+            'title' => $title,
+            'state' => 1,
+            'createdUserID' => $user->getUserID(),
+            'createdTime' => date('Y-m-d H:i', time())
+        ]) ) {
 
-        $class = new extUmfragenModelAnswer();
-        $tmp_data = $class->getByParentID($id);
+            return [
+                'success' => true
+            ];
 
-
-        $ret = [];
-        if ($tmp_data) {
-            foreach ($tmp_data as $item) {
-                $foo = $item->getCollection();
-                if ( !is_array($ret[$foo['createdUserID']]) ) {
-
-                    $temp_user = user::getUserByID( $foo['createdUserID'] );
-                    if ($temp_user) {
-                        $temp_user = $temp_user->getCollection();
-                    }
-                    if (!$temp_user) {
-                        $temp_user = [];
-                    }
-                    
-                    $ret[$foo['createdUserID']] = [
-                        'data' => [],
-                        'user' => $temp_user
-                    ];
-                }
-                $ret[$foo['createdUserID']]['data'][] = $foo;
-            }
         }
 
-        return $ret;
+
+        return [
+            'error' => true,
+            'msg' => 'Nicht Erfolgreich!'
+        ];
 
     }
 
@@ -77,7 +70,7 @@ class getAnswer extends AbstractRest
      */
     public function getAllowedMethod()
     {
-        return 'GET';
+        return 'POST';
     }
 
 

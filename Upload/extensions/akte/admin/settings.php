@@ -2,10 +2,10 @@
 
  
 
-class extUmfragenAdminSettings extends AbstractPage {
+class extAkteAdminSettings extends AbstractPage {
 	
 	public static function getSiteDisplayName() {
-		return '<i class="fa fas fa-plug"></i> Umfragen - Einstellungen';
+		return '<i class="fa fas fa-plug"></i> Akte - Einstellungen';
 	}
 
 	public function __construct($request = [], $extension = []) {

@@ -1,6 +1,6 @@
 <?php
 
-class setAnswer extends AbstractRest
+class getItem extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -17,56 +17,35 @@ class setAnswer extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if ( !$this->canWrite() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
             ];
         }
 
-
-
-
-        
-        $childs = $_POST['childs'];
-        if ($childs) {
-            $childs = json_decode($childs);
+        $id = (int)$request[2];
+        if (!$id) {
+            return [
+                'error' => true,
+                'msg' => 'Missing ID'
+            ];
         }
 
+        include_once PATH_EXTENSION . 'models' . DS .'Item.class.php';
 
-        include_once PATH_EXTENSION . 'models' . DS .'Answer.class.php';
+        $class = new extAkteModelItem();
+        $tmp_data = $class->getByParentID($id);
 
-        $class = new extUmfragenModelAnswer();
 
-        $count = 0;
-
-        foreach($childs as $child) {
-
-            if ( $class->save([
-                'list_id' => $child->list_id,
-                'item_id' => $child->id,
-                'content' => $child->value,
-                'createdTime' => date('Y-m-d H:i', time()),
-                'createdUserID' => $user->getUserID()
-            ]) ) {
-                $count++;
+        $ret = [];
+        if ($tmp_data) {
+            foreach ($tmp_data as $item) {
+                $ret[] = $item->getCollection(true);
             }
         }
 
-
-        if ( $count == count($childs) ) {
-
-            return [
-                'success' => true
-            ];
-
-        }
-
-
-        return [
-            'error' => true,
-            'msg' => 'Nicht Erfolgreich!'
-        ];
+        return $ret;
 
     }
 
@@ -79,7 +58,7 @@ class setAnswer extends AbstractRest
      */
     public function getAllowedMethod()
     {
-        return 'POST';
+        return 'GET';
     }
 
 

@@ -1,6 +1,6 @@
 <?php
 
-class getList extends AbstractRest
+class setItem extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -24,19 +24,55 @@ class getList extends AbstractRest
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS .'List.class.php';
+        $id = (int)$input['id'];
 
-        $class = new extUmfragenModelList();
-        $tmp_data = $class->getList($user->getUserID());
-
-        $ret = [];
-        if ($tmp_data) {
-            foreach ($tmp_data as $item) {
-                $ret[] = $item->getCollection(true, true, true);
-            }
+        $user_id = (int)$input['user_id'];
+        if ( !$user_id || $user_id == 'undefined' ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: User'
+            ];
         }
 
-        return $ret;
+        $text = (string)$input['text'];
+        if ( !$text || $text == 'undefined' ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: Title'
+            ];
+        }
+
+        $tags = $_POST['tags'];
+        if ( !$tags || $tags == 'undefined' ) {
+            $tags = '';
+        }
+
+
+
+        include_once PATH_EXTENSION . 'models' . DS .'Item.class.php';
+        $class = new extAkteModelItem();
+
+        if ( $db = $class->save([
+            'id' => $id,
+            'text' => $text,
+            'user_id' => $user_id,
+            'tags' => $tags,
+            'state' => 1,
+            'createdUserID' => $user->getUserID(),
+            'createdTime' => date('Y-m-d H:i', time())
+        ]) ) {
+
+            return [
+                'success' => true
+            ];
+
+        }
+
+
+        return [
+            'error' => true,
+            'msg' => 'Nicht Erfolgreich!'
+        ];
 
     }
 
@@ -49,7 +85,7 @@ class getList extends AbstractRest
      */
     public function getAllowedMethod()
     {
-        return 'GET';
+        return 'POST';
     }
 
 

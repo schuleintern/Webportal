@@ -1,9 +1,9 @@
 {
   "name": "Akte",
   "uniqid": "ext.zwiebelgasse.akte",
-  "version": "1",
+  "version": "2",
 
-  "requiredVersion": "1.8.0",
+  "requiredVersion": "1.8.1",
 
   "menu": {
     "categorie": "1",
@@ -48,6 +48,18 @@
         "page": "ext_akte",
         "params": {
           "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Schlagworte",
+      "icon": "fa fa-tags",
+      "admin": true,
+      "url": {
+        "page": "ext_akte",
+        "params": {
+          "view": "tags",
           "admin": "true"
         }
       }

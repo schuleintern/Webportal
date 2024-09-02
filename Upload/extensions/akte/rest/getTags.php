@@ -1,6 +1,6 @@
 <?php
 
-class getMy extends AbstractRest
+class getTags extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -17,40 +17,24 @@ class getMy extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if ( !$this->canWrite() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS .'List.class.php';
-        
-        $class = new extUmfragenModelList();
-        $tmp_data = $class->getMy( $user->getUserID() );
+        include_once PATH_EXTENSION . 'models' . DS .'Tags.class.php';
 
-
-        include_once PATH_EXTENSION . 'models' . DS .'Answer.class.php';
-        $sub = new extUmfragenModelAnswer();
+        $class = new extAkteModelTags();
+        $tmp_data = $class->getAll();
 
         $ret = [];
         if ($tmp_data) {
             foreach ($tmp_data as $item) {
-                $foo = $item->getCollection(true, false, true);
-
-                $tmp_answers = $sub->getByParentAndUserID($foo['id'], $user->getUserID());
-                if ($tmp_answers) {
-                    $answers = [];
-                    foreach ($tmp_answers as $answer) {
-                        $answers[] = $answer->getCollection();
-                    }
-                    $foo['answers'] = $answers;
-                }
-                $foo['userlist'] = false;
-                $ret[] = $foo;
+                $ret[] = $item->getCollection();
             }
         }
-
 
         return $ret;
 

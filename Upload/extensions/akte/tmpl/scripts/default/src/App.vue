@@ -5,10 +5,10 @@
     <AjaxSpinner v-bind:loading="loading"></AjaxSpinner>
 
 
-    <ListComponent v-if="page === 'list'" :acl="acl" :list="list" ></ListComponent>
+    <ListComponent v-if="page === 'list'" :acl="acl"  :tags="tags"  :klassen="klassen" ></ListComponent>
+    <!--
     <ItemComponent v-if="page === 'item'" :acl="acl" :item="item" ></ItemComponent>
-    <AnswerComponent v-if="page === 'answer'" :acl="acl" :item="item" ></AnswerComponent>
-    
+  -->
 
   </div>
 </template>
@@ -19,8 +19,7 @@ import AjaxError from './mixins/AjaxError.vue'
 import AjaxSpinner from './mixins/AjaxSpinner.vue'
 
 import ListComponent from './components/ListComponent.vue'
-import ItemComponent from './components/ItemComponent.vue'
-import AnswerComponent from './components/AnswerComponent.vue'
+// import ItemComponent from './components/ItemComponent.vue'
 
 const axios = require('axios').default;
 
@@ -30,12 +29,14 @@ export default {
   name: 'App',
   components: {
     AjaxError, AjaxSpinner,
-    ListComponent, ItemComponent, AnswerComponent
+    ListComponent
   },
   data() {
     return {
       apiURL: window.globals.apiURL,
       acl: window.globals.acl,
+      klassen: window.globals.klassen,
+      tags: window.globals.tags,
       error: false,
       loading: false,
       page: 'list',
@@ -46,7 +47,7 @@ export default {
     };
   },
   created() {
-    this.loadList();
+    //this.loadList();
 
 
     this.$bus.$on('page--open', data => {
@@ -64,17 +65,19 @@ export default {
 
     this.$bus.$on('item--submit', data => {
 
-      if (!data.item.title) {
+      if (!data.item.text || !data.itemID) {
         console.log('missing');
         return false;
       }
 
       const formData = new FormData();
-      formData.append('childs', JSON.stringify(data.item.childs) );
+      formData.append('text', data.item.text );
+      formData.append('user_id', data.itemID );
+      formData.append('tags', JSON.stringify(data.item.tags) );
 
       this.loading = true;
       var that = this;
-      axios.post(this.apiURL + '/setAnswer', formData)
+      axios.post(this.apiURL + '/setItem', formData)
       .then(function (response) {
         if (response.data) {
 
@@ -82,7 +85,7 @@ export default {
             that.error = '' + response.data.msg;
           } else {
 
-            that.loadList();
+            //that.loadList();
             if (data.callback) {
               data.callback(response.data);
             }
@@ -107,32 +110,6 @@ export default {
 
   },
   methods: {
-
-    loadList() {
-
-      this.loading = true;
-      var that = this;
-      axios.get(this.apiURL + '/getMy')
-      .then(function (response) {
-        if (response.data) {
-          if (response.data.error) {
-            that.error = '' + response.data.msg;
-          } else {
-            that.list = response.data;
-          }
-        } else {
-          that.error = 'Fehler beim Laden. 01';
-        }
-      })
-      .catch(function () {
-        that.error = 'Fehler beim Laden. 02';
-      })
-      .finally(function () {
-        // always executed
-        that.loading = false;
-      });
-
-    },
 
     handlerPage(page = 'list') {
       this.page = page;

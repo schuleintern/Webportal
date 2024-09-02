@@ -1,130 +1,105 @@
 <template>
-  <div class="">
+  <div class="flex-row">
 
-    <table class="si-table " v-if="sortList && sortList.length >= 1">
-      <thead> 
-      <tr>
-        <th v-on:click="handlerSort('title')" class="curser-sort">Titel</th>
-        <th></th>
-        <th width="20%">Von</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-bind:key="index" v-for="(item, index) in  sortList" class="">
-        <td class="">{{ item.title }}</td>
-        <td>
-          <button v-if="!item.answers" class="si-btn si-btn-green" @click="handlerOpen(item)"><i class="fa fa-poll"></i> Umfrage starten</button>
-          <button v-else class="si-btn si-btn-border" @click="handlerShow(item)"><i class="fa fa-list"></i> Meine Antworten</button>
-        </td>
-        <td class=""><span v-if="item.createdUser">{{ item.createdUser.name }}</span></td>
-      </tr>
-      </tbody>
-    </table>
-    <div v-else>
-      <div class="padding-m"><i>- Noch keine Inhalte vorhanden -</i></div>
+    <div class="flex-1 ">
+      <div class="klassen" v-if="!selectedKlasse">
+        <h4><i class="fa fa-users"></i>  Klassen</h4>
+        <ul class="noListStyle ">
+          <li v-bind:key="index" v-for="(item, index) in  klassen" class="">
+            <button class="si-btn width-100p" @click="handlerSelectKlasse(item)" >{{ item.name }}</button>
+          </li>
+        </ul>
+      </div>
+      <div class="pupils" v-if="selectedKlasse">
+        <button class="si-btn si-btn-light" @click="handlerBackKlasse"><i class="fa fa-arrow-left"></i> Zurück</button>
+
+        <h3><i class="fa fa-users"></i> Klasse {{ selectedKlasse.name }}</h3>
+        <ul class="noListStyle">
+          <li v-bind:key="index" v-for="(item, index) in  selectedKlasse.pupils" class="">
+            <button class="si-btn width-100p" :class="{'si-btn-active': selectedPupil.id == item.id }" @click="handlerSelectPupil(item)">{{ item.name }}</button>
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class="flex-5 padding-l-l">
+
+      <div class="content" v-if="selectedPupil">
+
+        <div class="">
+          <h2>{{selectedPupil.name}} - {{selectedPupil.klasse}}</h2>
+        </div>
+
+        <ul class="noListStyle">
+          <li>
+            <textarea class="si-textarea width-40vw" @keyup="handlerForm" v-model="form.text" placeholder="Notiz hinzufügen ..."></textarea>
+          </li>
+          <li v-if="showForm" class="padding-t-m">
+            <label>Schlagworte</label>
+            <div class="si-btn-multiple">
+              <button v-bind:key="i" v-for="(item, i) in  tags" class="si-btn si-btn-light margin-r-s"
+                      :class="{'si-btn-active': isTag(item.id)}" @click="handlerTag(item)" >{{item.title}}</button>
+            </div>
+          </li>
+          <li class="padding-t-s">
+            <button v-if="showForm" class="si-btn si-btn-green width-20rem" @click="handlerSubmit"><i class="fa fa-save"></i> Speichern</button>
+          </li>
+        </ul>
+
+
+
+        <div class="margin-t-l">
+
+          <span v-if="list.length > 0">
+            <div v-bind:key="i" v-for="(item, i) in list" class="si-box">
+              <div class="padding-t-m padding-b-m">{{item.text}}</div>
+              <div class=" flex-row">
+                <div class="flex-1">
+                  <div class="si-btn si-btn-off si-btn-small margin-r-s" v-bind:key="t" v-for="(tag, t) in  item.tags">{{showTag(tag)}}</div>
+                </div>
+                <div class="text-grey text-small flex-1 flex-row flex-end-end">
+                  <span class="margin-r-l"><i class="fa fa-clock"></i> {{item.createdTime}}</span>
+                  <span><i class="fa fa-user"></i> {{item.createdUser.name}}</span>
+                </div>
+              </div>
+            </div>
+          </span>
+          <div v-else>- noch keine Inhalte -</div>
+
+
+        </div>
+
+      </div>
+    </div>
+
 
   </div>
 </template>
 
 <script>
 
+
+const axios = require('axios').default;
+
 export default {
   name: 'ListComponent',
   data() {
     return {
+      apiURL: window.globals.apiURL,
+      selectedKlasse: false,
+      selectedPupil: false,
+      showForm: false,
 
-      sort: {
-        column: 'id',
-        order: true
-      },
-      searchColumns: ['id', 'title'],
-      searchString: ''
+      list: false,
+      form: {}
 
     };
   },
   props: {
     acl: Array,
-    list: Array
+    klassen: Array,
+    tags: Array
   },
   computed: {
-    sortList: function () {
-      if (this.list) {
-        let data = this.list;
-        if (data.length > 0) {
-
-          // SUCHE
-          if (this.searchString != '') {
-            let split = this.searchString.toLowerCase().split(' ');
-            var search_temp = [];
-            var search_result = [];
-            this.searchColumns.forEach(function (col) {
-              search_temp = data.filter((item) => {
-                if (item[col]) {
-                  return split.every(v => item[col].toLowerCase().includes(v));
-                }
-              });
-              if (search_temp.length > 0) {
-                search_result = Object.assign(search_result, search_temp);
-              }
-            });
-            data = search_result;
-          }
-
-          // SORTIERUNG
-          if (this.sort.column) {
-            if (typeof this.sort.column === 'string') {
-              if (this.sort.column == 'date') {
-                if (this.sort.order) {
-                  return data.sort((a, b) => {
-                    let aa = a[this.sort.column].split(' ');
-                    let bb = b[this.sort.column].split(' ');
-                    let date1 = new Date(aa[0].split('.')[2], aa[0].split('.')[1] - 1, aa[0].split('.')[0], aa[1].split(':')[0], aa[1].split(':')[1])
-                    let date2 = new Date(bb[0].split('.')[2], bb[0].split('.')[1] - 1, bb[0].split('.')[0], bb[1].split(':')[0], bb[1].split(':')[1])
-                    return date1 - date2;
-                  })
-                } else {
-                  return data.sort((a, b) => {
-                    let aa = a[this.sort.column].split(' ');
-                    let bb = b[this.sort.column].split(' ');
-                    let date1 = new Date(aa[0].split('.')[2], aa[0].split('.')[1] - 1, aa[0].split('.')[0], aa[1].split(':')[0], aa[1].split(':')[1])
-                    let date2 = new Date(bb[0].split('.')[2], bb[0].split('.')[1] - 1, bb[0].split('.')[0], bb[1].split(':')[0], bb[1].split(':')[1])
-                    return date2 - date1;
-                  })
-                }
-              } else {
-                if (this.sort.order) {
-                  return data.sort((a, b) => {
-                    if ( !isNaN(a[this.sort.column]) ) {
-                      return a[this.sort.column] - b[this.sort.column];
-                    } else {
-                      return a[this.sort.column].localeCompare(b[this.sort.column])
-                    }
-                  })
-                } else {
-                  return data.sort((a, b) => {
-                    if ( !isNaN(a[this.sort.column]) ) {
-                      return b[this.sort.column] - a[this.sort.column];
-                    } else {
-                      return b[this.sort.column].localeCompare(a[this.sort.column])
-                    }
-                  })
-                }
-              }
-            } else if (typeof this.sort.column === 'object') {
-              if (this.sort.order) {
-                return data.sort((a, b) => a[this.sort.column[0]][this.sort.column[1]].localeCompare(b[this.sort.column[0]][this.sort.column[1]]))
-              } else {
-                return data.sort((a, b) => b[this.sort.column[0]][this.sort.column[1]].localeCompare(a[this.sort.column[0]][this.sort.column[0]]))
-              }
-            }
-          }
-
-          return data;
-        }
-      }
-      return [];
-    }
 
   },
   created: function () {
@@ -134,14 +109,95 @@ export default {
   },
   methods: {
 
-    handlerShow(item) {
+    showTag(itemID) {
 
-      this.$bus.$emit('page--open', {
-        page: 'answer',
-        item: item
-      });
+      let found = false;
+      if (this.tags) {
+        this.tags.forEach((obj) => {
+          if (obj.id == parseInt(itemID)) {
+            found = obj;
+          }
+        })
+      }
+      if (found && found.title) {
+        return found.title;
+      }
+      return false;
+    },
+    isTag(itemID) {
+      if (this.form.tags && this.form.tags.indexOf( String(itemID) ) >= 0) {
+        return true;
+      }
+      return false;
+    },
+    handlerTag(val) {
+      if (!this.form.tags) {
+        this.form.tags = [];
+      }
+      const index = this.form.tags.indexOf( String(val.id) );
+      if ( index >= 0 ) {
+        this.form.tags.splice( index , 1)
+      } else {
+        this.form.tags.push( String(val.id) );
+      }
 
     },
+    handlerForm() {
+      this.showForm = true;
+    },
+    handlerSubmit() {
+      const that = this;
+      this.$bus.$emit('item--submit', {
+        item: this.form,
+        itemID: this.selectedPupil.id,
+        callback: () => {
+          that.form = {};
+          that.handlerSelectPupil(this.selectedPupil);
+        }
+      });
+    },
+    handlerBackKlasse() {
+      this.selectedKlasse = false;
+    },
+    handlerSelectKlasse(item) {
+      this.selectedKlasse = item;
+    },
+    handlerSelectPupil(item) {
+
+      this.selectedPupil = item;
+      this.showForm = false;
+
+      if (this.selectedPupil.id) {
+
+        this.loading = true;
+        var that = this;
+        axios.get(this.apiURL + '/getItem/'+this.selectedPupil.id)
+            .then(function (response) {
+              if (response.data) {
+                if (response.data.error) {
+                  that.error = '' + response.data.msg;
+                } else {
+                  that.list = response.data;
+                }
+              } else {
+                that.error = 'Fehler beim Laden. 01';
+              }
+            })
+            .catch(function () {
+              that.error = 'Fehler beim Laden. 02';
+            })
+            .finally(function () {
+              // always executed
+              that.loading = false;
+            });
+
+      }
+
+
+
+    },
+
+
     handlerOpen(item) {
 
       this.$bus.$emit('page--open', {
@@ -150,16 +206,7 @@ export default {
       });
 
     },
-    handlerSort: function (column) {
-      if (column) {
-        this.sort.column = column;
-        if (this.sort.order) {
-          this.sort.order = false;
-        } else {
-          this.sort.order = true;
-        }
-      }
-    },
+
 
   }
 

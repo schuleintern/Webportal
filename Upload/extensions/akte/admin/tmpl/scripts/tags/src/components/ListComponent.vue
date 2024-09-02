@@ -5,27 +5,14 @@
     <table class="si-table" v-if="sortList && sortList.length >= 1">
       <thead>
       <tr>
-        <th v-on:click="handlerSort('title')" class="curser-sort" :class="{'text-orange': sort.column == 'title'}" width="30%">Titel</th>
-        <th v-on:click="handlerSort('state')" class="curser-sort" :class="{'text-orange': sort.column == 'state'}" width="5%">Status</th>
-        <th></th>
-        <th>Benutzer*innen</th>
-        <th>Fragen</th>
-        <th v-on:click="handlerSort('createdTime')" class="curser-sort" :class="{'text-orange': sort.column == 'createdTime'}">Erstellt</th>
+        <th v-on:click="handlerSort('title')" class="curser-sort">Titel</th>
+        <th v-on:click="handlerSort('id')" class="curser-sort">ID</th>
       </tr>
       </thead>
       <tbody>
       <tr v-bind:key="index" v-for="(item, index) in  sortList" class="">
         <td><a :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{ item.title }}</a></td>
-        <td>
-          <button v-if="item.state == 1" class="si-btn si-btn-off text-green si-btn-icon" >
-            <i class="fa fas fa-toggle-on"></i></button>
-          <button v-else class="si-btn si-btn-off si-btn-icon" >
-            <i class="fa fas fa-toggle-off"></i></button>
-        </td>
-        <td><a :href="'#answer'+item.id" v-on:click="handlerAnswer(item)" class="si-btn si-btn-border"><i class="fa fa-poll"></i> Antworten</a></td>
-        <td><span v-if="item.userlist">{{ item.userlist.length }}</span></td>
-        <td><span v-if="item.childs">{{ item.childs.length }}</span></td>
-        <td><span v-if="item.createdTime" class="text-small">{{ item.createdTime }}</span></td>
+        <td>{{ item.id }}</td>
       </tr>
       </tbody>
     </table>
@@ -44,7 +31,7 @@ export default {
     return {
 
       sort: {
-        column: 'createdTime',
+        column: 'id',
         order: true
       },
       searchColumns: ['id', 'title'],
@@ -69,7 +56,7 @@ export default {
             var search_result = [];
             this.searchColumns.forEach(function (col) {
               search_temp = data.filter((item) => {
-                if (item[col]) {
+                if (item[col] && typeof item[col] === 'string') {
                   return split.every(v => item[col].toLowerCase().includes(v));
                 }
               });
@@ -104,18 +91,22 @@ export default {
               } else {
                 if (this.sort.order) {
                   return data.sort((a, b) => {
-                    if ( !isNaN(a[this.sort.column]) ) {
-                      return a[this.sort.column] - b[this.sort.column];
-                    } else {
-                      return a[this.sort.column].localeCompare(b[this.sort.column])
+                    if (a[this.sort.column] && b[this.sort.column]) {
+                      if (!isNaN(a[this.sort.column]) && !isNaN(b[this.sort.column])) {
+                        return a[this.sort.column] - b[this.sort.column];
+                      } else {
+                        return a[this.sort.column].localeCompare(b[this.sort.column])
+                      }
                     }
                   })
                 } else {
                   return data.sort((a, b) => {
-                    if ( !isNaN(a[this.sort.column]) ) {
-                      return b[this.sort.column] - a[this.sort.column];
-                    } else {
-                      return b[this.sort.column].localeCompare(a[this.sort.column])
+                    if (b[this.sort.column] && a[this.sort.column]) {
+                      if (!isNaN(a[this.sort.column])) {
+                        return b[this.sort.column] - a[this.sort.column];
+                      } else {
+                        return b[this.sort.column].localeCompare(a[this.sort.column])
+                      }
                     }
                   })
                 }
@@ -147,14 +138,6 @@ export default {
 
       this.$bus.$emit('page--open', {
         page: 'item',
-        item: item
-      });
-
-    },
-    handlerAnswer(item) {
-
-      this.$bus.$emit('page--open', {
-        page: 'answer',
         item: item
       });
 

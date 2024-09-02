@@ -2,10 +2,10 @@
 
 
 
-class extUmfragenAdminAcl extends AbstractPage {
+class extAkteAdminAcl extends AbstractPage {
 	
 	public static function getSiteDisplayName() {
-		return '<i class="fas fa-user-shield"></i> Umfragen - Benutzerrechte';
+		return '<i class="fas fa-user-shield"></i> Akte - Benutzerrechte';
 	}
 
 	public function __construct($request = [], $extension = []) {
@@ -25,28 +25,28 @@ class extUmfragenAdminAcl extends AbstractPage {
         }
 
         $form = [
-            "title" => "Umfragen anzeigen",
-            "desc" => "Welcher Benutzer darf seinen Umfragen sehen und anlegen?",
+            "title" => "Akten anzeigen",
+            "desc" => "Welcher Benutzer darf Akten sehen und anlegen?",
             "acl" => [
                 "schueler" => [
-                    "read" => 1,
-                    "write" => 1,
-                    "delete" => 1,
+                    "read" => 0,
+                    "write" => 0,
+                    "delete" => 0,
                 ],
                 "lehrer" => [
                     "read" => 1,
                     "write" => 1,
-                    "delete" => 1,
+                    "delete" => 0,
                 ],
                 "eltern" => [
-                    "read" => 1,
-                    "write" => 1,
-                    "delete" => 1,
+                    "read" => 0,
+                    "write" => 0,
+                    "delete" => 0,
                 ],
                 "none" => [
                     "read" => 1,
                     "write" => 1,
-                    "delete" => 1,
+                    "delete" => 0,
                 ]
             ]
         ];
