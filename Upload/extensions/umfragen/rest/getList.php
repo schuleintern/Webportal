@@ -17,7 +17,7 @@ class getList extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if ( !$this->canRead() ) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'

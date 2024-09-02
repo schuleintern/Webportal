@@ -6,8 +6,8 @@
       <thead>
       <tr>
         <th v-on:click="handlerSort('title')" class="curser-sort" :class="{'text-orange': sort.column == 'title'}" width="30%">Titel</th>
-        <th v-on:click="handlerSort('state')" class="curser-sort" :class="{'text-orange': sort.column == 'state'}" width="5%">Status</th>
         <th></th>
+        <th v-on:click="handlerSort('state')" class="curser-sort" :class="{'text-orange': sort.column == 'state'}" width="5%">Status</th>
         <th>Benutzer*innen</th>
         <th>Fragen</th>
         <th v-on:click="handlerSort('createdTime')" class="curser-sort" :class="{'text-orange': sort.column == 'createdTime'}">Erstellt</th>
@@ -16,13 +16,13 @@
       <tbody>
       <tr v-bind:key="index" v-for="(item, index) in  sortList" class="">
         <td><a :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{ item.title }}</a></td>
+        <td><a :href="'#answer'+item.id" v-on:click="handlerAnswer(item)" class="si-btn si-btn-green"><i class="fa fa-poll"></i> Antworten</a></td>
         <td>
           <button v-if="item.state == 1" class="si-btn si-btn-off text-green si-btn-icon" >
             <i class="fa fas fa-toggle-on"></i></button>
           <button v-else class="si-btn si-btn-off si-btn-icon" >
             <i class="fa fas fa-toggle-off"></i></button>
         </td>
-        <td><a :href="'#answer'+item.id" v-on:click="handlerAnswer(item)" class="si-btn si-btn-border"><i class="fa fa-poll"></i> Antworten</a></td>
         <td><span v-if="item.userlist">{{ item.userlist.length }}</span></td>
         <td><span v-if="item.childs">{{ item.childs.length }}</span></td>
         <td><span v-if="item.createdTime" class="text-small">{{ item.createdTime }}</span></td>

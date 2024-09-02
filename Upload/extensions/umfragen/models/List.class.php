@@ -14,7 +14,8 @@ class extUmfragenModelList extends ExtensionModel
         'createdUserID',
         'state',
         'title',
-        'userlist'
+        'userlist',
+        'type'
     ];
 
     
@@ -70,7 +71,6 @@ class extUmfragenModelList extends ExtensionModel
                     if ($user) {
                         $ret[] = $user->getCollection(true, true);
                     }
-                    
                 }
                 $collection['userlist'] = $ret;
             }
@@ -130,6 +130,54 @@ class extUmfragenModelList extends ExtensionModel
     }
 
 
+
+    public function setListWithItems($data = false, $childs = false)
+    {
+
+        if (!$data || !$childs) {
+            return false;
+        }
+
+        include_once PATH_EXTENSIONS .DS.'umfragen'.DS. 'models' . DS .'Item.class.php';
+        $sub = new extUmfragenModelItem();
+
+        $id = $data['id'];
+
+        $userlist = [];
+        foreach( $data['userlist'] as $foo) {
+            $userlist[] = (string)$foo;
+        }
+        $data['userlist'] = json_encode($userlist);
+
+        if ( $db = $this->save($data) ) {
+
+            if (!$data['id']) {
+                $id = $db->lastID;
+            }
+
+            if ($childs && $id) {
+                $i = 1;
+                foreach($childs as $child) {
+                    if ($child->title) {
+                        $sub->save([
+                            'id' => $child->id,
+                            'list_id' => $id,
+                            'title' => $child->title,
+                            'typ' => $child->typ,
+                            'sort' => $i,
+                            'createdTime' => $data['createdTime'],
+                            'createdUserID' => $data['createdUserID']
+                        ]);
+                        $i++;
+                    }
+
+                }
+            }
+            return $id;
+        }
+
+        return false;
+    }
 
 
 

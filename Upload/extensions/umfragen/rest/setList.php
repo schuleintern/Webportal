@@ -41,6 +41,13 @@ class setList extends AbstractRest
 
         
         $childs = $_POST['childs'];
+        if ( !$childs || $childs == 'undefined' ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: Fragen'
+            ];
+        }
+
         if ($childs) {
             $childs = json_decode($childs);
         }
@@ -50,11 +57,27 @@ class setList extends AbstractRest
         if ($userlist) {
             $userlist = json_decode($userlist);
             foreach( $userlist as $foo) {
-                $users[] = $foo->id;
+                $users[] = (int)$foo->id;
             }
         }
 
+        include_once PATH_EXTENSIONS.'umfragen'.DS . 'models' . DS .'List.class.php';
+        $class = new extUmfragenModelList();
+        if ( $class->setListWithItems([
+            'id' => $id,
+            'title' => $title,
+            'state' => $state,
+            'createdTime' => date('Y-m-d H:i', time()),
+            'createdUserID' => $user->getUserID(),
+            'userlist' => $users
+        ], $childs) ) {
+            return [
+                'success' => true
+            ];
+        }
 
+
+        /*
         include_once PATH_EXTENSION . 'models' . DS .'List.class.php';
         include_once PATH_EXTENSION . 'models' . DS .'Item.class.php';
         $class = new extUmfragenModelList();
@@ -86,15 +109,12 @@ class setList extends AbstractRest
                     $i++;
                 }
             }
-            
-            
-            
-
             return [
                 'success' => true
             ];
 
         }
+        */
 
 
         return [

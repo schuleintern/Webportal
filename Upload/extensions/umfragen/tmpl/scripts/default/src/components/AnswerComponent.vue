@@ -15,25 +15,9 @@
 
       <h3>{{ form.title }}</h3>
 
-      <table class="si-table si-table-style-allLeft">
-        <thead>
-          <tr>
-            <td v-bind:key="index" v-for="(item, index) in  form.childs">
-              <h4>{{ index+1 }}. {{ item.title }}</h4>
-              <span v-if="item.typ == 'text'" class="text-small">Text</span>
-              <span v-if="item.typ == 'number'" class="text-small">Zahl</span>
-              <span v-if="item.typ == 'boolean'" class="text-small">Ja/Nein</span>
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td v-bind:key="index" v-for="(item, index) in  form.childs">
-              <AnswerBox :data="getAnswer(item.id, item.list_id)" :typ="item.typ"></AnswerBox>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <UmfragenResult :form="form"></UmfragenResult>
+
+
     </div>
   </div>
 
@@ -42,12 +26,12 @@
 <script>
 
 
-import AnswerBox from '../mixins/AnswerBox.vue'
+import UmfragenResult from '../mixins/UmfragenResult.vue'
 
 export default {
   name: 'AnswerComponent',
   components: {
-    AnswerBox
+    UmfragenResult
   },
   data() {
     return {
@@ -66,24 +50,7 @@ export default {
   },
   methods: {
 
-    getAnswer(itemID, listID) {
 
-      if (this.item.answers ) {
-          const ret = this.item.answers.find((item) => {
-            if (item.item_id == itemID && item.list_id == listID) {
-              return true;
-            }
-            return false;
-          })
-          if (ret) {
-            return ret.content;
-          }
-          return false;
-        }
-      
-      return false;
-
-    },
     
     handlerBack: function () {
       this.$bus.$emit('page--open', {

@@ -36,33 +36,9 @@
         </li>
       </ul>
     </div>
-    <div class="si-form">  
-      <ul>
-        <li v-bind:key="index" v-for="(item, index) in  form.childs"  class="flex-row">
-          <div class="flex-1">
-            <label>Sortierung</label>
-            <input type="text" v-model="item.sort" class="width-7rem" >
-          </div>
-          <div class="flex-5 flex margin-r-l">
-            <label>{{ index+1 }}. Frage</label>
-            <input type="text" v-model="item.title">
-          </div>
-          <div class="flex-1 flex">
-            <label>Typ</label>
-            <select v-model="item.typ">
-              <option value="boolean">Ja/Nein</option>
-              <option value="text">Text</option>
-              <option value="number">Zahl</option>
-            </select>
-          </div>
-        </li>
-        <li>
-          <button class="si-btn si-btn-green " @click="handlerNewItem()"><i class="fa fa-plus"></i> Neue Frage</button>
-        </li>
-      </ul>
-
+    <div class="si-form">
+      <UmfragenForm :form="form"></UmfragenForm>
     </div>
-
   </div>
 
 </template>
@@ -72,11 +48,13 @@
 import FormToggle from '../mixins/FormToggle.vue'
 import UserSelect from '../mixins/UserSelect.vue'
 import User from '../mixins/User.vue'
+import UmfragenForm from '../mixins/UmfragenForm.vue'
 
 export default {
   name: 'ItemComponent',
   components: {
-    FormToggle, UserSelect, User
+    FormToggle, UserSelect, User,
+    UmfragenForm
   },
   data() {
     return {
@@ -97,17 +75,7 @@ export default {
     handelerUserlist(data) {
       this.form.userlist = data;
     },
-    handlerNewItem() {
 
-      if (!this.form.childs) {
-        this.form.childs = [];
-      }
-      this.form.childs.push({
-        'title': '',
-        'typ': 'string'
-      });
-
-    },
     handlerState(data) {
       this.form.state = data.value; 
     },

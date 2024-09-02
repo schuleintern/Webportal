@@ -6,6 +6,7 @@
         <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück</button>
       </div>
       <div class="">
+        <a class="si-btn si-btn-light" :href="'index.php?page=ext_umfragen&view=list&task=xls&lid='+form.id"><i class="fa fa-download"></i> Xls Download</a>
       </div> 
     </div>
 
