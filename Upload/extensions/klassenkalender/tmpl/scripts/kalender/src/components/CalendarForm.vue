@@ -40,7 +40,7 @@
               <ul class="">
                 <li>
                   <label>Stunde</label>
-                  <FormSelect :input="form.stunde" :options="stunden" @submit="triggerStunden"></FormSelect>
+                  <FormMultiSelect :input="form.stunde" :options="stunden" @submit="triggerStunden"></FormMultiSelect>
                 </li>
                 <li>
                   <label>Art</label>
@@ -104,7 +104,7 @@
                 </li>
                 <li>
                   <label>Stunde</label>
-                  <FormSelect :input="form.stunde" :options="stunden" @submit="triggerStunden"></FormSelect>
+                  <FormMultiSelect :input="form.stunde" :options="stunden" @submit="triggerStunden"></FormMultiSelect>
                 </li>
                 <li>
                   <label>Uhrzeit Start</label>
@@ -175,12 +175,14 @@
 import {onMounted, ref} from "vue";
 import FormToggle from "../mixins/FormToggle";
 import FormSelect from "../mixins/FormSelect";
+import FormMultiSelect from "../mixins/FormMultiSelect";
 
 export default {
   name: 'CalendarForm',
   components: {
     FormSelect,
-    FormToggle
+    FormToggle,
+    FormMultiSelect
   },
   setup() {
 

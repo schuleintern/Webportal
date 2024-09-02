@@ -1,7 +1,9 @@
 <template>
   <div class="">
-    <div class="date">
+    <div class="date" v-if="showClock">
       <strong>
+        <div v-if="eintrag.stunde" class="margin-r-s">{{eintrag.stunde}}. Stunde</div>
+
         <span v-if="eintrag.startTime != '00:00'">
           {{ eintrag.startTime }}
         </span>
@@ -30,7 +32,8 @@ export default {
     return {};
   },
   props: {
-    eintrag: Object
+    eintrag: Object,
+    showClock: Boolean
   },
   created: function () {
 

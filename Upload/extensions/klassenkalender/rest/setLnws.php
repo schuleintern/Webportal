@@ -42,8 +42,7 @@ class setLnws extends AbstractRest
             ];
         }
 
-
-        include_once PATH_EXTENSION . 'models' . DS . 'Lnw.class.php';
+        include_once PATH_EXTENSIONS . 'klassenkalender' . DS . 'models' . DS . 'Lnw.class.php';
         $class = new extKlassenkalenderModelLnws();
         if ($insert_id = $class->add($input)) {
 
@@ -57,6 +56,7 @@ class setLnws extends AbstractRest
             'error' => true,
             'msg' => 'Error'
         ];
+
 
     }
 

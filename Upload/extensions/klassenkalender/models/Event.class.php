@@ -102,6 +102,7 @@ class extKlassenkalenderModelEvent extends ExtensionModel
 
 
             if ($collection['stunde']) {
+
                 $anzStunden = DB::getSettings()->getValue("ext-stundenplan-anzahlstunden");
                 if (!$anzStunden) {
                     $anzStunden = 6;
@@ -109,7 +110,7 @@ class extKlassenkalenderModelEvent extends ExtensionModel
                 $stundenZeiten = [];
                 for ($i = 1; $i < 6; $i++) {
                     if (DB::getSettings()->getValue("ext-stundenplan-everydayothertimes") > 0 || $i == 1) {
-                        for ($s = 1; $s <= $anzStunden; $s++) {
+                        for ($s = 1; $s <= $anzStunden+1; $s++) {
                             $stundenZeiten[] = [
                                 'begin' => DB::getSettings()->getValue("ext-stundenplan-stunde-$i-$s-start"),
                                 'ende' => DB::getSettings()->getValue("ext-stundenplan-stunde-$i-$s-ende")
@@ -117,10 +118,17 @@ class extKlassenkalenderModelEvent extends ExtensionModel
                         }
                     }
                 }
-                if ($stundenZeiten[$collection['stunde']]) {
-                    $collection['timeStart'] = $stundenZeiten[$collection['stunde']]['begin'];
-                    $collection['timeEnd'] = $stundenZeiten[$collection['stunde']]['ende'];
+
+                $stunden = explode(',', $collection['stunde']);
+                if ($stunden[0]) {
+                    if ($stundenZeiten[$stunden[0]-1]) {
+                        $collection['timeStart'] = $stundenZeiten[$stunden[0]-1]['begin'];
+                    }
+                    if ($stundenZeiten[$stunden[count($stunden)-1]-1]) {
+                        $collection['timeEnd'] = $stundenZeiten[$stunden[count($stunden)-1]-1]['ende'];
+                    }
                 }
+
             }
 
 

@@ -34,14 +34,14 @@ class extKlassenkalenderDefault extends AbstractPage {
         for ($i = 1; $i <= $anzStunden; $i++) {
             $stunden[] = [
                 'value' => $i,
-                'title' => $i.'. Stunde'
+                'title' => $i
             ];
         }
 
         include_once PATH_EXTENSION . 'models' . DS . 'Lnw.class.php';
         $LNWS = new extKlassenkalenderModelLnws();
         $lnw_options = [];
-        $lnws = $LNWS->getAll();
+        $lnws = $LNWS->getAll('ORDER BY title DESC');
         if ($lnws && count($lnws) > 0) {
             foreach ($lnws as $lnw) {
                 $lnw_options[] = [
@@ -54,12 +54,14 @@ class extKlassenkalenderDefault extends AbstractPage {
         $retFach = [];
         $fachs = fach::getAllAktive();
         foreach ($fachs as $fach) {
-
             $retFach[] = [
                 'title' => $fach->getKurzform(),
                 'value' => $fach->getID()
             ];
         }
+        usort($retFach, function($a, $b) {
+            return $a['title'] <=> $b['title'];
+        });
 
         $retTeacher = [];
         $teachers = lehrer::getAll();

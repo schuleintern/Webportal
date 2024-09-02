@@ -42,7 +42,7 @@ class getAdminKalenders extends AbstractRest {
 
         include_once PATH_EXTENSION . 'models' . DS . 'Kalender.class.php';
         $class = new extKlassenkalenderModelKalender();
-        $data = $class->getAll();
+        $data = $class->getAll('ORDER BY sort');
 
         $ret = [];
         if ($data && count($data) > 0) {

@@ -68,7 +68,7 @@
                  v-on:click="handlerClickEintrag(eintrag)"
                  v-on:mouseover="handlerMouseoverEintrag($event)"
                  v-on:mouseleave="handlerMouseleaveEintrag($event)">
-              <DayEintrag :eintrag="eintrag"></DayEintrag>
+              <DayEintrag :eintrag="eintrag" :showClock="showClock"></DayEintrag>
             </div>
 
           </td>
@@ -104,6 +104,7 @@ export default {
         //plugins: [ dayGridPlugin, interactionPlugin ],
         initialView: 'dayGridMonth'
       },
+      showClock: false,
 
       today: this.$dayjs(),
       openMonth: false,
@@ -125,6 +126,12 @@ export default {
     this.openMonth = this.$dayjs(this.today).date(1);
     this.openMonthDay = this.$dayjs(this.today).date(1);
     this.gotoToday();
+
+
+    this.$bus.$on('event-view--showClock', (data) => {
+      this.showClock = data.value;
+    });
+
 
   },
   computed: {

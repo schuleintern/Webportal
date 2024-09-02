@@ -11,7 +11,7 @@ CREATE TABLE `ext_klassenkalender`
     `acl`           int(11) DEFAULT NULL,
     `admins`        text,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- Create syntax for TABLE 'ext_klassenkalender_events'
 CREATE TABLE `ext_klassenkalender_events`
@@ -24,7 +24,7 @@ CREATE TABLE `ext_klassenkalender_events`
     `title`        varchar(255) NOT NULL DEFAULT '',
     `dateStart`    date                  DEFAULT NULL,
     `dateEnd`      date                  DEFAULT NULL,
-    `stunde`       int(11) DEFAULT NULL,
+    `stunde`       varchar(100)          DEFAULT NULL,
     `timeStart`    time                  DEFAULT NULL,
     `timeEnd`      time                  DEFAULT NULL,
     `place`        varchar(255)          DEFAULT '',
@@ -37,7 +37,7 @@ CREATE TABLE `ext_klassenkalender_events`
     `teacher`      int(11) DEFAULT NULL,
     PRIMARY KEY (`id`),
     UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- Create syntax for TABLE 'ext_klassenkalender_lnw'
 CREATE TABLE `ext_klassenkalender_lnw`
@@ -49,14 +49,4 @@ CREATE TABLE `ext_klassenkalender_lnw`
     `color`    varchar(11) DEFAULT NULL,
     PRIMARY KEY (`id`),
     UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-
-
-INSERT INTO `ext_klassenkalender_lnw` (`id`, `title`, `short`, `isPublic`, `color`)
-VALUES
-    (1, 'Schulaufgabe', 'SA', 1, '#a83632'),
-    (2, 'Nachholschulaufgabe', 'NSA', 1, '#540d0b'),
-    (3, 'Modus Test', 'MT', 0, '#ab2c6e'),
-    (4, 'Kurzarbeit', 'KA', 0, '#1a68a3'),
-    (5, 'Praktischer Leistungsnachweis', 'PLNW', 1, '#335e12'),
-    (6, 'Stegreifaufgabe', 'EX', 0, '#10209c');
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;

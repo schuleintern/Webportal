@@ -52,7 +52,7 @@ class setEvents extends AbstractRest
         }
 
         $input['id'] = (int)$input['id'];
-        $input['stunde'] = (int)$input['stunde'];
+        $input['stunde'] = (string)$input['stunde'];
         $input['kalender_id'] = (int)$input['kalender_id'];
         $input['user_id'] = (int)$userID;
 

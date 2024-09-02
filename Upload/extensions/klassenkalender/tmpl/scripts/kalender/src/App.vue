@@ -46,6 +46,7 @@ export default {
       acl: window.globals.acl,
       error: false,
       loading: false,
+      showClock: false,
 
       kalenders: false,
       selectedKalenders: [],

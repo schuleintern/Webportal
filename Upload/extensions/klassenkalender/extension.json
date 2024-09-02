@@ -1,8 +1,8 @@
 {
   "name": "Klassenkalender",
   "uniqid": "ext.zwiebelgasse.klassenkalender",
-  "version": "3",
-  "requiredVersion": "1.8.0",
+  "version": "4",
+  "requiredVersion": "1.8.1",
   "menu": {
     "categorie": "1",
     "icon": "fa fa-calendar-alt",

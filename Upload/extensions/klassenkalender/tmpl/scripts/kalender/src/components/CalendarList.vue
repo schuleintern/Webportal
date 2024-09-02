@@ -27,7 +27,16 @@
       > {{ item.title }}
       </button>
     </div>
-    <div class="flex-1 "></div>
+    <div class="flex-1 ">
+      <div class="si-btn-multiple" v-if="kalenders.length > 5">
+        <button class="si-btn si-btn-icon si-btn-border margin-r-s" @click="handelerSelectAll"><i
+            class="fa fas fa-toggle-on"></i></button>
+        <button class="si-btn si-btn-icon si-btn-border" @click="handelerDeselectAll"><i
+            class="fa fas fa-toggle-off"></i></button>
+      </div>
+      <button class="si-btn si-btn-icon si-btn-border" :class="{'si-btn-active': showClock}" @click="handelerShowClock"><i
+          class="fa far fa-clock"></i></button>
+    </div>
     <div class="flex-1 flex-end flex-row ">
       <button v-if="suggest == 1" class="si-btn si-btn-border margin-l-m" v-on:click="handlerSuggest"><i class="fa fa-plus"></i> Termin vorschlagen</button>
       <button v-if="ics == 1" class="si-btn si-btn-border margin-l-m" v-on:click="handlerICS"><i class="fa fa-rss"></i> ICS Feed</button>
@@ -44,7 +53,8 @@ export default {
     return {
       isMobile: window.globals.isMobile,
       selected: [],
-      showKalendar: false
+      showKalendar: false,
+      showClock: false
     };
   },
   props: {
@@ -61,6 +71,21 @@ export default {
 
   },
   methods: {
+    handelerShowClock() {
+      this.showClock = !this.showClock;
+      this.$bus.$emit('event-view--showClock', {
+        value: this.showClock
+      });
+    },
+    handelerDeselectAll() {
+      this.selected = [];
+    },
+    handelerSelectAll() {
+      this.selected = [];
+      this.kalenders.forEach((o) => {
+        this.selected.push(parseInt(o.id));
+      });
+    },
     handlerShowKalenders() {
       this.showKalendar = !this.showKalendar;
     },

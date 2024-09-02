@@ -30,7 +30,7 @@ class getKalenders extends AbstractRest {
 
         include_once PATH_EXTENSION . 'models' . DS . 'Kalender.class.php';
         $class = new extKlassenkalenderModelKalender();
-        $data = $class->getByState([1]);
+        $data = $class->getByState([1], 'sort');
 
         //$data = extKalenderModelKalender::getAll(1);
         $userType = DB::getSession()->getUser()->getUserTyp(true);
