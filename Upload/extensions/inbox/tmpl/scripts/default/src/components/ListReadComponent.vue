@@ -104,7 +104,7 @@ export default {
 
                 if (typeof col === 'string') {
                   if (item[col]) {
-                    return split.every(v => item[col].toLowerCase().includes(v));
+                    return split.every(v => String(item[col]).toLowerCase().includes(v));
                   }
                 } else if (typeof col === 'object') {
                   let obj = item;

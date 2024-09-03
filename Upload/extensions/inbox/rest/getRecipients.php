@@ -18,6 +18,8 @@ class getRecipients extends AbstractRest
                 'msg' => 'Missing User ID'
             ];
         }
+        $userType = DB::getSession()->getUser()->getUserTyp(true);
+
 
         $acl = $this->getAcl();
         if (!$this->canRead()) {
@@ -93,7 +95,27 @@ class getRecipients extends AbstractRest
         }
 
 
-        $userType = DB::getSession()->getUser()->getUserTyp(true);
+
+
+        /*
+            Einzelnen Accounts
+        */
+        $inboxUsers = [];
+        $dataSQL = DB::getDB()->query("SELECT inbox_id, user_id, isPublic FROM ext_inbox_user WHERE isPublic IS NOT NULL");
+        while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
+            if ($userType && $data['isPublic']) {
+                $isPublic = json_decode($data['isPublic']);
+                if ($isPublic->$userType || DB::getSession()->getUser()->isAdmin() ) {
+                    $tempUser = user::getUserByID($data['user_id']);
+                    $inboxUsers[] = [
+                        'id' => $data['inbox_id'],
+                        'title' => $tempUser->getDisplayName()
+                    ];
+                }
+            }
+        }
+
+
         $acl = [
             'pupils' => [
                 'klassen' => $this->getUserAcl('extInbox-acl-pupils-klassen', $userType),
@@ -209,6 +231,7 @@ class getRecipients extends AbstractRest
             'own' => $own,
             'klassen' => $klassen,
             'group' => $groups,
+            'inboxUsers' => $inboxUsers,
             'fachschaft' => $fachschaften,
             'inboxs' => $inboxs
         ];

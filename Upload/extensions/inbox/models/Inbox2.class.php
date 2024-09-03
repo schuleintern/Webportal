@@ -110,7 +110,17 @@ class extInboxModelInbox2 extends ExtensionModel
             if (!$collection['userName']) {
                 $collection['userName'] = '- leer -';
             }
+        }
 
+        // InboxUser
+        if ($this->getData('timeOn')) {
+            $collection['timeOn'] = $this->getData('timeOn');
+        }
+        if ($this->getData('timeOff')) {
+            $collection['timeOff'] = $this->getData('timeOff');
+        }
+        if ($this->getData('isPublic')) {
+            $collection['isPublic'] = $this->getData('isPublic');
         }
 
 
@@ -164,7 +174,7 @@ class extInboxModelInbox2 extends ExtensionModel
         }
 
         $ret = [];
-        $data = DB::run('SELECT b.*, a.user_id FROM ext_inbox_user AS a
+        $data = DB::run('SELECT b.*, a.user_id, a.timeOn, a.timeOff, a.isPublic FROM ext_inbox_user AS a
           LEFT JOIN ' . $this->getModelTable() . ' AS `b` ON a.inbox_id LIKE b.id
           WHERE b.type = "user" ')->fetchAll();
 

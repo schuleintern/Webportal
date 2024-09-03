@@ -52,7 +52,7 @@
                 <button class="si-btn text-bold" :class="{'si-btn-active':openTab=='groups'}"
                         @click="handlerOpenTab('groups')"
                         v-if="recipients.acl.inboxs.inboxs || recipients.acl.inboxs.groups">
-                  Gruppen
+                  Sonstige
                 </button>
               </div>
 
@@ -90,7 +90,7 @@
                         <div class="list padding-t-m scrollable-y height_50">
                           <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn margin-r-s"
                                   :class="{'si-btn-active': selectActive('user', item.id) }"
-                                  @click="handlerSelect('user', item.id)">{{ item.name }}
+                                  @click="handlerSelect('user', item.id)">{{ item.name }} - {{ item.klasse }}
                           </button>
                         </div>
                       </div>
@@ -140,8 +140,8 @@
                                placeholder="Max 5a"/>
                         <div class="list padding-t-m scrollable-y height_50">
                           <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn margin-r-s"
-                                  :class="{'si-btn-active': selectActive('user', item.id) }"
-                                  @click="handlerSelect('parent', item.id)">{{ item.name }}
+                                  :class="{'si-btn-active': selectActive('parent', item.id) }"
+                                  @click="handlerSelect('parent', item.id)">{{ item.name }} - {{item.klasse}}
                           </button>
                         </div>
                       </div>
@@ -174,12 +174,17 @@
                         <i v-else class="fa fa-chevron-right"></i>
                         Suche</h3>
                       <div v-if="accoTeacher == 'default'" class="padding-l-l">
-                        <button class="si-btn margin-r-s"
+                        <button class="si-btn margin-r-l"
                                 :class="{'si-btn-active': selectActive('teachers::all', 'all') }"
                                 @click="handlerSelect('teachers::all', 'all')">Alle
                         </button>
+
                         <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isTeacher')"
                                placeholder="Müller"/>
+                        <div class="si-btn-multiple blockInline margin-l-m">
+                          <button class="si-btn si-btn-icon si-btn-border margin-l-s" @click="handlerSetSearch('*','isTeacher')"><i class="fa fa-list"></i></button>
+                          <button class="si-btn si-btn-icon si-btn-border margin-l-s" @click="handlerSetSearch('','isTeacher')"><i class="fa fa-times"></i></button>
+                        </div>
                         <div class="list padding-t-m scrollable-y height_50">
                           <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn margin-r-s"
                                   :class="{'si-btn-active': selectActive('user', item.id) }"
@@ -251,24 +256,29 @@
 
                     <span v-if="recipients.acl.inboxs.inboxs">
                       <div v-if="recipients.inboxs">
-                        <h3>Postfach</h3>
                         <button v-bind:key="index" v-for="(item, index) in  recipients.inboxs" class="si-btn margin-r-s"
                                 :class="{'si-btn-active': selectActive('inbox', item.id) }"
                                 @click="handlerSelect('inbox', item.id)">{{ item.title }}
                         </button>
                       </div>
-                      <div v-else>- kein Postfach vorhanden -</div>
                     </span>
 
                     <span v-if="recipients.acl.inboxs.groups">
                       <div v-if="recipients.group">
-                        <h3>Gruppen</h3>
                         <button v-bind:key="index" v-for="(item, index) in  recipients.group" class="si-btn margin-r-s"
                                 :class="{'si-btn-active': selectActive('group', item.id) }"
                                 @click="handlerSelect('group', item.id)">{{ item.title }}
                         </button>
                       </div>
-                      <div v-else>- kein Postfach vorhanden -</div>
+                    </span>
+
+                    <span >
+                      <div v-if="recipients.inboxUsers	">
+                        <button v-bind:key="index" v-for="(item, index) in  recipients.inboxUsers" class="si-btn margin-r-s"
+                                :class="{'si-btn-active': selectActive('inbox', item.id) }"
+                                @click="handlerSelect('inbox', item.id)">{{ item.title }}
+                        </button>
+                      </div>
                     </span>
                   </div>
 
@@ -444,6 +454,10 @@ export default {
   },
   methods: {
 
+    handlerSetSearch(str, type) {
+      this.searchString = str;
+      this.handlerChangeSearch(type);
+    },
     handlerBtnSubmit: function (data) {
       //console.log('handlerBtnSubmit', data)
       if (data.typ && data.content) {
@@ -642,6 +656,7 @@ export default {
     handlerChangeSearch(type) {
 
       if (this.searchString == '') {
+        this.searchUserlist = [];
         return false;
       }
 

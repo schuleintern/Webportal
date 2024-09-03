@@ -35,13 +35,22 @@ class setMessage extends AbstractRest
                 'msg' => 'Missing SID'
             ];
         }
-        $receiver = (string)$_POST['receiver'];
-        if (!$receiver) {
-            return [
-                'error' => true,
-                'msg' => 'Missing RID'
-            ];
+
+        $folderID = (int)$input['folderID'];
+        if (!$folderID || $folderID == 'undefined') {
+            $folderID = 0;
         }
+
+        $receiver = (string)$_POST['receiver'];
+        if ($folderID != 4) { // Entwurf
+            if (!$receiver) {
+                return [
+                    'error' => true,
+                    'msg' => 'Missing RID'
+                ];
+            }
+        }
+
         $receivers_cc = (string)$_POST['receiver_cc'];
         if (!$receivers_cc) {
             $receivers_cc = '';
@@ -112,7 +121,8 @@ class setMessage extends AbstractRest
             'noAnswer' => $noAnswer,
             'isPrivat' => $isPrivat,
             'files' => $files,
-            'umfragen' => $umfragen
+            'umfragen' => $umfragen,
+            'folderID' => $folderID
         ])) {
             return [
                 'error' => true,

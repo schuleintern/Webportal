@@ -3,22 +3,24 @@
 
     <button class="si-btn margin-r-m" @click="handlerAdd()"><i class="fa fa-plus"></i> Fehlende Benutzer hinzufügen</button>
 
-    <input type="search" class="si-input" v-model="searchString" placeholder="Suche..."/>
+    <input type="search" class="si-input margin-r-m" v-model="searchString" placeholder="Suche..."/>
 
-    <!--
-    <select class="si-input" v-on:change="handlerFilter($event, 'state')">
-      <option>- Status -</option>
-      <option value="1">Offen</option>
-      <option value="2">Freigegeben</option>
+
+    <select class="si-input" v-on:change="handlerFilter($event, 'user.type')">
+      <option>- Benutzertyp -</option>
+      <option value="isPupil">Schüler*in</option>
+      <option value="isTeacher">Lehrer*in</option>
+      <option value="isEltern">Eltern</option>
+      <option value="isNone">Sonstige</option>
     </select>
-  -->
+
 
     <table class="si-table si-table-style-firstLeft" v-if="sortList && sortList.length >= 1">
       <thead>
         <tr>
           <th>ID</th>
-          <th v-on:click="handlerSort('title')" class="curser-sort">Titel</th>
-          <th>User ID</th>
+          <th v-on:click="handlerSort('title')" :class="{'text-orange': sort.column == 'title'}">Titel</th>
+          <th v-on:click="handlerSort('user_id')" :class="{'text-orange': sort.column == 'user_id'}" >User ID</th>
           <th>Typ</th>
   
         </tr>
@@ -26,7 +28,7 @@
       <tbody>
         <tr v-bind:key="index" v-for="(item, index) in  sortList" class="">
           <td>{{ item.id }}</td>
-          <td>{{item.userName}}</td>
+          <td><a :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{item.userName}}</a></td>
           <td>{{ item.user_id }}</td>
           <td>
             <button v-if="item.user.type == 'isPupil'" class="si-btn si-btn-off si-btn-small">Schüler*in</button>
@@ -74,6 +76,29 @@ export default {
         let data = this.list;
         if (data.length > 0) {
 
+          // FILTER
+          if (this.filter.colum && this.filter.value && this.filter.value != '') {
+            let temp = data.filter((item) => {
+              if (item[this.filter.colum] == this.filter.value) {
+                return true;
+              }
+              if (this.filter.colum.indexOf('.') >= 0) {
+                var deep = item;
+                let arr = this.filter.colum.split('.');
+                arr.forEach((o) => {
+                  if (deep[o]) {
+                    deep = deep[o];
+                  }
+                })
+                if (deep && deep == this.filter.value) {
+                  return true;
+                }
+              }
+              return false;
+            });
+            data = temp;
+          }
+
           // SUCHE
           if (this.searchString != '') {
             let split = this.searchString.toLowerCase().split(' ');
@@ -117,18 +142,17 @@ export default {
                 if (this.sort.order) {
                   return data.sort((a, b) => {
                     if (a[this.sort.column] && b[this.sort.column]) {
-                      if (!isNaN(a[this.sort.column])) {
+                      if (!isNaN(a[this.sort.column]) && !isNaN(b[this.sort.column])) {
                         return a[this.sort.column] - b[this.sort.column];
                       } else {
                         return a[this.sort.column].localeCompare(b[this.sort.column])
                       }
                     }
                   })
-
                 } else {
                   return data.sort((a, b) => {
                     if (b[this.sort.column] && a[this.sort.column]) {
-                      if ( !isNaN(a[this.sort.column]) ) {
+                      if (!isNaN(a[this.sort.column])) {
                         return b[this.sort.column] - a[this.sort.column];
                       } else {
                         return b[this.sort.column].localeCompare(a[this.sort.column])
@@ -158,6 +182,7 @@ export default {
 
   },
   methods: {
+
 
     handlerSet(item) {
 

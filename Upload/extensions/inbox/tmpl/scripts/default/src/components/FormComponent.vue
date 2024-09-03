@@ -2,10 +2,14 @@
   <div class="">
 
     <div class="flex-row">
-      <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück
-      </button>
-      <button v-if="showSubmit() == true" class="si-btn" @click="handlerSubmit"><i class="fa fa-envelope"></i> Senden
-      </button>
+      <div class="flex-1">
+        <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück
+        </button>
+        <button v-if="showSubmit() == true" class="si-btn" @click="handlerSubmit"><i class="fa fa-envelope"></i> Senden</button>
+      </div>
+      <div class="flex-1 flex-row flex-end">
+        <button  class="si-btn si-btn-light" @click="handlerEntwurf"><i class="fa fa-save"></i> Als Entwurf speichern</button>
+      </div>
     </div>
 
     <div class="si-form flex-row">
@@ -155,12 +159,16 @@ export default {
 
         if (this.answerToMsg.toCC) {
           let item = this.answerGetInbox(this.answerToMsg.toCC, this.answerToMsg);
-          console.log(item)
           this.form.inbox_cc = JSON.stringify(item[0]);
           this.cache.inbox_cc = item[1];
         }
         this.form.subject = 'Re: ' + this.answerToMsg.subject;
 
+      }
+
+      // User from Entwurf
+      if (this.answerToMsg.props && this.answerToMsg.props.use) {
+        this.form = this.answerToMsg;
       }
 
       if (this.answerToMsg.props && this.answerToMsg.props.forward) {
@@ -305,6 +313,12 @@ export default {
 
     },
     handlerSubmit() {
+      this.$bus.$emit('message--submit', {
+        form: this.form
+      });
+    },
+    handlerEntwurf() {
+      this.form.folderID = 4;
       this.$bus.$emit('message--submit', {
         form: this.form
       });

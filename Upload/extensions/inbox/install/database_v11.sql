@@ -1,0 +1,1 @@
+ALTER TABLE `ext_inbox_user` ADD `isPublic` VARCHAR(255)  NULL  DEFAULT NULL  AFTER `timeOff`;

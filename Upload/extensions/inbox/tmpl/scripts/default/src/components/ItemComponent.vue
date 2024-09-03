@@ -1,23 +1,29 @@
 <template>
   <div class="inbox-msg-read padding-b-l margin-b-l margin-t-m si-box">
 
-    <div class="flex-row flex-end si-btn-multiple padding-r-m padding-b-m">
+    <div class="flex-row flex-end  padding-r-m padding-b-m">
 
-      <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerAnswer()"><i class="fa fa fa-reply"></i> Antworten</button>
-      <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerAnswerAll()"><i class="fa fa fa-reply"></i> Allen Antworten</button>
-
-      <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerForward()"><i class="fa fa fa-share"></i> Weiterleiten</button>
-
-      <button class="si-btn si-btn-light si-btn-small" @click="handlerDelete()"><i class="fa fa fa-trash"></i></button>
+      <!-- Entwurf -->
+      <div v-if="folder.id == 4" class="si-btn-multiple">
+        <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerUse()"><i class="fa fa fa-reply"></i> Benutzen</button>
+        <button class="si-btn si-btn-light si-btn-small" @click="handlerDelete()"><i class="fa fa fa-trash"></i></button>
       <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerBack()"><i class="fa fa-times-circle"></i></button>
+      </div>
+      <div v-else class="si-btn-multiple">
+        <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerAnswer()"><i class="fa fa fa-reply"></i> Antworten</button>
+        <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerAnswerAll()"><i class="fa fa fa-reply"></i> Allen Antworten</button>
+        <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerForward()"><i class="fa fa fa-share"></i> Weiterleiten</button>
+        <button class="si-btn si-btn-light si-btn-small" @click="handlerDelete()"><i class="fa fa fa-trash"></i></button>
+      <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerBack()"><i class="fa fa-times-circle"></i></button>
+      </div>
+
     </div>
-
-
 
 
 
     <ul class="noListStyle mailHeader">
 
+      <!-- Gesendet -->
       <li v-if="folder.id == 2" class="margin-b-m">
         <div v-if="item.isConfirm == 1 && item.confirmList">
           <h3>Lesebestätigungen</h3>
@@ -60,17 +66,21 @@
         </div>
 
       </li>
+      <!-- Entwurf -->
+      <li v-else-if="folder.id == 4" class="margin-b-m">
+
+      </li>
       <li v-else class="  ">
 
-      <ul>
-        <li class="line-oddEven padding-s" v-if="item.isConfirm == 1">
-          <label>Lesebestätigung:</label>
-          <button class="si-btn si-btn-green" @click="handlerConfirm"><i class="fa fa-check"></i>  Senden</button>
-        </li>
-        <li class="line-oddEven padding-s " v-if="item.isConfirm > 1" >
-          <label>Lesebestätigung:</label>
-          <span>Der Empfang wurde bestätigt am {{ item.confirmTime }}</span>
-        </li>
+        <ul>
+          <li class="line-oddEven padding-s" v-if="item.isConfirm == 1">
+            <label>Lesebestätigung:</label>
+            <button class="si-btn si-btn-green" @click="handlerConfirm"><i class="fa fa-check"></i>  Senden</button>
+          </li>
+          <li class="line-oddEven padding-s " v-if="item.isConfirm > 1" >
+            <label>Lesebestätigung:</label>
+            <span>Der Empfang wurde bestätigt am {{ item.confirmTime }}</span>
+          </li>
         </ul>
       </li>
 
@@ -176,8 +186,16 @@ export default {
       });
 
     },
+    handlerUse() {
+      this.$bus.$emit('page--open', {
+        page: 'form',
+        item: this.item,
+        props: {
+          use: true
+        }
+      });
+    },
     handlerAnswer() {
-
       this.$bus.$emit('page--open', {
         page: 'form',
         item: this.item,
@@ -185,7 +203,6 @@ export default {
           answer: true
         }
       });
-
     },
     handlerAnswerAll() {
 

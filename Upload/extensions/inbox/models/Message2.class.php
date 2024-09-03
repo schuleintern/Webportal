@@ -282,9 +282,7 @@ class extInboxModelMessage2 extends ExtensionModel
             return false;
         }
 
-        if (!$data['receiver'] || $data['receiver'] == '') {
-            return false;
-        }
+
 
         $sender_id = (int)$data['sender_id'];
         if (!$sender_id) {
@@ -298,12 +296,30 @@ class extInboxModelMessage2 extends ExtensionModel
         }
         */
 
+        $send = true;
+        $folder_id_in = 1;
+        $folder_id_out = 2;
 
-        $receivers_array = json_decode($data['receiver'], true);
-
-        if ( !$receivers_array || count($receivers_array) < 1 ) {
-            return false;
+        if ($data['folderID']) {
+            if ($data['folderID'] == 4) { // Entwurf
+                $send = false;
+                $folder_id_out = 4;
+            }
         }
+
+        if ($send) {
+            if (!$data['receiver'] || $data['receiver'] == '') {
+                return false;
+            }
+            $receivers_array = json_decode($data['receiver'], true);
+            if ( !$receivers_array || count($receivers_array) < 1 ) {
+                return false;
+            }
+        }
+
+
+
+
 
         $subject = DB::getDB()->escapeString(trim((string)$data['subject']));
         $text = DB::getDB()->escapeString(trim((string)$data['text']));
@@ -341,10 +357,8 @@ class extInboxModelMessage2 extends ExtensionModel
             if ($data['files']) {
                 $filesArr = json_decode($_POST['files']);
                 if ($filesArr) {
-
                     include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'MessageFile.class.php';
                     $fileClass = new extInboxModelMessageFile();
-
                     foreach ($filesArr as $file) {
                         if ($file->path && $file->name) {
                             $tempFile = $bodyClass->uploadMove($file->path, $body->lastID);
@@ -358,52 +372,48 @@ class extInboxModelMessage2 extends ExtensionModel
                             }
                         }
                     }
-
                     $bodyClass->update([
                         'id' => $body->lastID,
                         'files' => true
                     ]);
-
                 }
             }
 
 
-
-            if ( PUSH::active() ) {
-                include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
-                $InboxClass = new extInboxModelInbox2();
-            }
-
+            include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
+            $InboxClass = new extInboxModelInbox2();
 
             $userlist = [];
 
             // POSTEINGANG
-            foreach ($receivers_array as $inbox_group) {
-                if ($inbox_group['inboxs']) {
-                    foreach ($inbox_group['inboxs'] as $item) {
+            if ($send) {
+                foreach ($receivers_array as $inbox_group) {
+                    if ($inbox_group['inboxs']) {
+                        foreach ($inbox_group['inboxs'] as $item) {
 
-                        // Inbox to UserIds
-                        $inbox = $InboxClass->getByID($item);
-                        if ($inbox) {
-                            $inboxTemp = $inbox->getCollection(true);
-                            if ($inboxTemp['user_id']) {
-                                $userlist[] = $inboxTemp['user_id'];
+                            // Inbox to UserIds
+                            $inbox = $InboxClass->getByID($item);
+                            if ($inbox) {
+                                $inboxTemp = $inbox->getCollection(true);
+                                if ($inboxTemp['user_id']) {
+                                    $userlist[] = $inboxTemp['user_id'];
+                                }
                             }
-                        }
 
-                        if ( !$this->save([
-                            'inbox_id' => $item,
-                            'folder_id' => 1,
-                            'body_id' => $body->lastID,
-                            'isConfirm' => $data['confirm']
-                        ])) {
-                            return false;
-                        }
+                            if ( !$this->save([
+                                'inbox_id' => $item,
+                                'folder_id' => $folder_id_in,
+                                'body_id' => $body->lastID,
+                                'isConfirm' => $data['confirm']
+                            ])) {
+                                return false;
+                            }
 
-                        // Push
-                        if (PUSH::active() && $InboxClass && $userlist) {
-                            foreach ($userlist as $useritem) {
-                                PUSH::send($useritem, 'Neue Nachricht', $data['subject']);
+                            // Push
+                            if ($send && PUSH::active() && $InboxClass && $userlist) {
+                                foreach ($userlist as $useritem) {
+                                    PUSH::send($useritem, 'Neue Nachricht', $data['subject']);
+                                }
                             }
                         }
                     }
@@ -414,7 +424,7 @@ class extInboxModelMessage2 extends ExtensionModel
 
 
             // POSTEINGANG CC
-            if ($data['receivers_cc']) {
+            if ($send && $data['receivers_cc']) {
                 $receivers_cc_array = json_decode($data['receivers_cc'], true);
                 if ($receivers_cc_array && (int)$receivers_cc_array[0] ) {
                     foreach ($receivers_cc_array as $inbox_group) {
@@ -430,7 +440,7 @@ class extInboxModelMessage2 extends ExtensionModel
                                 }
                                 if ( !$this->save([
                                     'inbox_id' => $item,
-                                    'folder_id' => 1,
+                                    'folder_id' => $folder_id_in,
                                     'body_id' => $body->lastID,
                                     'isConfirm' => $data['confirm']
                                 ])) {
@@ -475,13 +485,14 @@ class extInboxModelMessage2 extends ExtensionModel
             // GESENDET
             if ( !$this->save([
                 'inbox_id' => $sender_id,
-                'folder_id' => 2,
+                'folder_id' => $folder_id_out,
                 'body_id' => $body->lastID,
                 'isConfirm' => $data['confirm'],
                 'isRead' => time()
             ])) {
                 return false;
             }
+
 
             return true;
 

@@ -27,6 +27,11 @@ class extInboxCronSendMails extends AbstractCron
             $maxCount = 20;
         }
 
+
+        include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Users.class.php';
+        $User = new extInboxModelUsers();
+
+
         include_once( PATH_EXTENSIONS.'inbox'.DS.'models'.DS.'Message2.class.php' );
         $class = new extInboxModelMessage2();
         $mails = $class->getAllUnreadUnsendMessages();
@@ -36,23 +41,39 @@ class extInboxCronSendMails extends AbstractCron
             if ($count < $maxCount) {
                 $data = $mail->getCollection(true,true,false,false,true);
 
-                if ($data) {
-                    $data['email'] = false;
-                    if ( $data['inbox']['user'] && $data['inbox']['user']['email']) {
-                        $data['email'] = $data['inbox']['user']['email'];
-                    }
 
+
+
+                if ($data) {
+                    //$data['email'] = false;
+                    $data['emails'] = [];
+
+
+                    /*
                     if ( $data['inbox']['user_id'] ) {
                         $user = user::getUserByID($data['inbox']['user_id']);
                         if ($user) {
                             $data['receiveEmail'] = $user->receiveEMail();
                         }
+                    }*/
+
+                    if ($data['inbox']['type'] == 'group') {
+                        $inboxUsers = $User->getByParentID($data['inbox']['id']);
+                        foreach ($inboxUsers as $inboxUser) {
+                            $userData = $inboxUser->getCollection(true);
+                            if ($userData['user'] && $userData['user']['email']) {
+                                $data['emails'][] = $userData['user']['email'];
+                            }
+                        }
+                    } else if ($data['inbox']['type'] == 'user') {
+                        if ( $data['inbox']['user'] && $data['inbox']['user']['email']) {
+                            $data['emails'][] = $data['inbox']['user']['email'];
+                        }
                     }
+
+
                 }
 
-                if(DB::isDebug()) {
-                    $data['email'] = 'post@zwiebelgasse.de';
-                }
 
 
                 // Prepare HTML MAIL Body
@@ -97,6 +118,7 @@ class extInboxCronSendMails extends AbstractCron
                     $mail->setSend();
                     $count++;
                 }
+
 
             }
 

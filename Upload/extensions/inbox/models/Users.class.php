@@ -43,7 +43,7 @@ class extInboxModelUsers extends ExtensionModel
             if ($collection['user_id']) {
                 $user = User::getUserByID($collection['user_id']);
                 if ($user) {
-                    $ucoll = $user->getCollection();
+                    $ucoll = $user->getCollection(false,false,false,true);
                     if ($ucoll) {
                         $collection['user'] = $ucoll;
                     }

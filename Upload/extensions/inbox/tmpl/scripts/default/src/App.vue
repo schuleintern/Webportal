@@ -139,7 +139,8 @@ export default {
         return false;
       }
       if (!data.form.inbox) {
-        return false;
+        //return false;
+        data.form.inbox = '';
       }
       if (!data.form.sender) {
         return false;
@@ -162,6 +163,7 @@ export default {
       formData.append('isPrivat', data.form.isPrivat);
       formData.append('files', JSON.stringify(data.form.files));
       formData.append('umfragen', JSON.stringify(data.form.umfragen));
+      formData.append('folderID', data.form.folderID);
 
       let sessionID = localStorage.getItem('session');
       if (sessionID) {
