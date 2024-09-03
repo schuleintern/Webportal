@@ -13,8 +13,6 @@
       </div>
     </div>
 
-{{form}}
-
     <div class="flex-row">
       <div class="si-details flex-3 margin-r-l">
         <ul class="">
@@ -39,7 +37,7 @@
       <div class="si-form flex-2 margin-r-l">
         <ul class="">
           <li>
-            <label>Anschreibbar</label>
+            <label>Anschreibbar für</label>
             <FormRules :input="form.isPublic"
                 @change="triggerToggleValue($event, 'isPublic')"></FormRules>
           </li>

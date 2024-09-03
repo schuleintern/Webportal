@@ -25,7 +25,7 @@ CREATE TABLE `ext_inbox_message_body`
     `noAnswer`     tinyint(1) DEFAULT NULL,
     `isPrivat`     tinyint(1) DEFAULT NULL,
     `files`        tinyint(1) DEFAULT NULL,
-    `umfrage`      int(11) DEFAULT NULL,
+    `umfrage` int(11) DEFAULT NULL,
     `subject`      varchar(255) DEFAULT NULL,
     `text`         text,
     PRIMARY KEY (`id`)
@@ -48,8 +48,9 @@ CREATE TABLE `ext_inbox_user`
     `id`       int(11) unsigned NOT NULL AUTO_INCREMENT,
     `inbox_id` int(11) DEFAULT NULL,
     `user_id`  int(11) DEFAULT NULL,
-    `timeOn`   time DEFAULT NULL,
-    `timeOff`  time DEFAULT NULL,
+    `timeOn`   time         DEFAULT NULL,
+    `timeOff`  time         DEFAULT NULL,
+    `isPublic` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 

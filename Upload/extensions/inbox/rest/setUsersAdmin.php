@@ -29,6 +29,16 @@ class setUsersAdmin extends AbstractRest
 
         $isPublic = (string)$_POST['isPublic'];
 
+        $kill = true;
+        $isPublicObj = json_decode($isPublic);
+        foreach ($isPublicObj as $item ) {
+            if($item) {
+                $kill = false;
+            }
+        }
+        if ($kill) {
+            $isPublic = NULL;
+        }
 
 
         include_once PATH_EXTENSION . 'models' . DS . 'Users.class.php';
