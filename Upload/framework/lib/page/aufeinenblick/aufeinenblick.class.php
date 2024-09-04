@@ -33,10 +33,7 @@ class aufeinenblick extends AbstractPage {
       $stundenplanURL = 'index.php?page=ext_stundenplan';
     }
 
-    $nachrichtenURL = 'index.php?page=ext_inbox';
-    if (DB::getSettings()->getBoolean('extInbox-global-messageSystem')) {
-      $nachrichtenURL = 'index.php?page=ext_inbox';
-    }
+
 
     if ( $_REQUEST['action'] == '' ) {
 
@@ -446,6 +443,10 @@ class aufeinenblick extends AbstractPage {
         $showLehrerTagebuchButton = true;
     }
 
+    $nachrichtenURL = 'index.php?page=MessageInbox';
+    if (DB::getSettings()->getBoolean('extInbox-global-messageSystem')) {
+      $nachrichtenURL = 'index.php?page=ext_inbox';
+    }
 
     eval ( "echo(\"" . DB::getTPL ()->get ( "aufeinenblick/index" ) . "\");" );
   }
