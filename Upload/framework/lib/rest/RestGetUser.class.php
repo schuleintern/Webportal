@@ -107,6 +107,9 @@ class RestGetUser extends AbstractRest {
             return false;
         }
 
+        if ($search == '*') {
+            return true;
+        }
         if (strpos(strtolower($collection['vorname']), $search) !== false) {
             return true;
         } else if (strpos(strtolower($collection['nachname']), $search) !== false) {
