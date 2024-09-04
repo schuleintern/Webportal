@@ -76,7 +76,7 @@ class AdminUpdate extends AbstractPage
 
         $releaseID = DB::getSettings()->getValue("current-release-id");
 
-        $schulnummern = implode('-',DB::getSchulnummern());
+        $schulnummern = implode('I',DB::getSchulnummern());
 
         $infoToReleaseID = file_get_contents($updateserver . "/api/release/" . $releaseID . "/" . $schulnummern);
 
