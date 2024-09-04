@@ -26,6 +26,8 @@ class Updates
 
     public static function to181($root)
     {
+        $root->query("ALTER TABLE `lehrer` DROP INDEX `lehrerID_2`;", false);
+
         $root->update('www/cssjs');
         return true;
     }
