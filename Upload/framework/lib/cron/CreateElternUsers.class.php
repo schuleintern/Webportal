@@ -113,7 +113,7 @@ class CreateElternUsers extends AbstractCron {
                         $mailText = nl2br($mailText);
 
                         email::sendEMail([
-                            "email" => trim($create[$i]),
+                            "emails" => [trim($create[$i])],
                             "text" => $mailText,
                             "subject" => $mailSubject
                         ]);
