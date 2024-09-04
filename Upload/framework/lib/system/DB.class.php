@@ -36,6 +36,10 @@ class DB {
                 $skinColor = DB::getSettings()->getValue('global-skin-default-color');
             }
         }
+
+        if ($skinColor == 'yellow') {
+            $skinColor = '#f39c12';
+        }
         return $skinColor;
     }
 
