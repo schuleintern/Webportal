@@ -61,6 +61,10 @@ export default {
       //console.log('file complete', arguments)
     }
 
+    const fileRemoved = (a) => {
+      console.log('fileRemoved complete', a)
+    }
+
     const fileError = (error, file,message) => {
       //console.log('file fileError', message )
       emit('error', error, JSON.parse(message));
@@ -87,7 +91,8 @@ export default {
       complete,
       fileComplete,
       fileSuccess,
-      fileError
+      fileError,
+      fileRemoved
     }
   }
 }

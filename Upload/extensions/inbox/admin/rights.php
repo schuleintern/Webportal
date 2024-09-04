@@ -72,6 +72,12 @@ class extInboxAdminRights extends AbstractPage {
                 'title' => "Schüler*innen der eigenen Klassen dürfen von wem angeschrieben werden?",
                 'desc' => "Eltern: Klassen der Kinder"
             ],
+            [
+                'name' => "extInbox-acl-pupils-all",
+                'typ' => 'ACL',
+                'title' => "Alle Schüler*innen zusammen dürfen von wem angeschrieben werden?",
+                'desc' => ""
+            ],
 
             [
                 'name' => "extInbox-acl-parents-klassen",
@@ -90,6 +96,12 @@ class extInboxAdminRights extends AbstractPage {
                 'typ' => 'ACL',
                 'title' => "Eltern der eigenen Klassen dürfen von wem angeschrieben werden?",
                 'desc' => "Eltern: Klassen der Kinder"
+            ],
+            [
+                'name' => "extInbox-acl-parents-all",
+                'typ' => 'ACL',
+                'title' => "Alle Eltern zusammen dürfen von wem angeschrieben werden?",
+                'desc' => ""
             ],
 
             [
@@ -121,6 +133,12 @@ class extInboxAdminRights extends AbstractPage {
                 'typ' => 'ACL',
                 'title' => "Lehrer*innen der eigenen Klassen dürfen von wem angeschrieben werden?",
                 'desc' => "Eltern: Klassen der Kinder; Nur für Schüler*innen und Eltern"
+            ],
+            [
+                'name' => "extInbox-acl-teachers-all",
+                'typ' => 'ACL',
+                'title' => "Alle Lehrer*innen zusammen dürfen von wem angeschrieben werden?",
+                'desc' => ""
             ],
 
             [

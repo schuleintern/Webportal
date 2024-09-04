@@ -66,7 +66,8 @@ class extInboxDefault extends AbstractPage
                 "data" => $ret,
                 "inbox_id" => $inbox_id,
                 "message_id" => $message_id,
-                "apiKey" => DB::getGlobalSettings()->apiKey
+                "apiKey" => DB::getGlobalSettings()->apiKey,
+                "signature" => DB::getSession()->getUser()->getRawSignature()
 
             ]
         ]);

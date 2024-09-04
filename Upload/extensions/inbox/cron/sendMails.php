@@ -75,7 +75,6 @@ class extInboxCronSendMails extends AbstractCron
                 }
 
 
-
                 // Prepare HTML MAIL Body
                 $mailTmp = file_get_contents(PATH_EXTENSIONS.'inbox'.DS.'tmpl'.DS.'sendMail.tmpl.php');
 

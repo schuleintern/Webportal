@@ -121,18 +121,21 @@ class getRecipients extends AbstractRest
                 'klassen' => $this->getUserAcl('extInbox-acl-pupils-klassen', $userType),
                 'single' => $this->getUserAcl('extInbox-acl-pupils-single', $userType),
                 'own' => $this->getUserAcl('extInbox-acl-pupils-own', $userType),
+                'all' => $this->getUserAcl('extInbox-acl-pupils-all', $userType)
             ],
             'parents' => [
                 'klassen' => $this->getUserAcl('extInbox-acl-parents-klassen', $userType),
                 'single' => $this->getUserAcl('extInbox-acl-parents-single', $userType),
-                'own' => $this->getUserAcl('extInbox-acl-parents-own', $userType)
+                'own' => $this->getUserAcl('extInbox-acl-parents-own', $userType),
+                'all' => $this->getUserAcl('extInbox-acl-parents-all', $userType)
             ],
             'teachers' => [
                 'klassen' => $this->getUserAcl('extInbox-acl-teachers-klassen', $userType),
                 'single' => $this->getUserAcl('extInbox-acl-teachers-single', $userType),
                 'leitung' => $this->getUserAcl('extInbox-acl-teachers-leitung', $userType),
                 'fachschaft' => $this->getUserAcl('extInbox-acl-teachers-fachschaft', $userType),
-                'own' => $this->getUserAcl('extInbox-acl-teachers-own', $userType)
+                'own' => $this->getUserAcl('extInbox-acl-teachers-own', $userType),
+                'all' => $this->getUserAcl('extInbox-acl-teachers-all', $userType)
             ],
             'inboxs' => [
                 'inboxs' => $this->getUserAcl('extInbox-acl-inboxs-inboxs', $userType),

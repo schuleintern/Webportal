@@ -67,6 +67,9 @@
                 <div v-if="openTab == 'pupils'" class="tab flex-row">
 
                   <div class="flex-1 padding-l">
+                    <span v-if="recipients.acl.pupils.all">
+                      <button class="si-btn margin-r-s"  @click="handlerSelect('pupils::all', 'all')">Alle Schüler*innen</button>
+                    </span>
                     <span v-if="recipients.klassen && recipients.acl.pupils.klassen">
                       <h3 @click="handlerAccoTeacher('klassen')" class="curser line-oddEven">
                         <i v-if="accoTeacher == 'klassen'" class="fa fa-chevron-down text-small margin-r-m"></i>
@@ -117,7 +120,11 @@
                 </div>
                 <div v-if="openTab == 'parents'" class="tab flex-row">
 
+
                   <div class="flex-1 padding-l">
+                    <span v-if="recipients.acl.parents.all">
+                      <button class="si-btn margin-r-s"  @click="handlerSelect('parents::all', 'all')">Alle Eltern</button>
+                    </span>
                     <span v-if="recipients.klassen && recipients.acl.parents.klassen">
                       <h3  @click="handlerAccoTeacher('klassen')" class="curser line-oddEven">
                         <i v-if="accoTeacher == 'klassen'" class="fa fa-chevron-down text-small margin-r-m"></i>
@@ -168,17 +175,18 @@
                 <div v-if="openTab == 'teacher'" class="tab flex-row">
                   <div class="flex-1 padding-l">
 
+                    <span v-if="recipients.acl.teachers.all">
+                      <button class="si-btn margin-r-l"
+                              :class="{'si-btn-active': selectActive('teachers::all', 'all') }"
+                              @click="handlerSelect('teachers::all', 'all')">Alle Lehrer*innen
+                        </button>
+                    </span>
                     <span v-if="recipients.acl.teachers.single">
                       <h3 @click="handlerAccoTeacher('default')" class="curser line-oddEven">
                         <i v-if="accoTeacher == 'default'" class="fa fa-chevron-down"></i>
                         <i v-else class="fa fa-chevron-right"></i>
                         Suche</h3>
                       <div v-if="accoTeacher == 'default'" class="padding-l-l">
-                        <button class="si-btn margin-r-l"
-                                :class="{'si-btn-active': selectActive('teachers::all', 'all') }"
-                                @click="handlerSelect('teachers::all', 'all')">Alle
-                        </button>
-
                         <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isTeacher')"
                                placeholder="Müller"/>
                         <div class="si-btn-multiple blockInline margin-l-m">

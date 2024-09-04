@@ -114,7 +114,8 @@ export default {
     return {
       form: {},
       cache: {},
-      umfragenToggle: false
+      umfragenToggle: false,
+      signature: window.globals.signature,
 
     };
   },
@@ -175,18 +176,24 @@ export default {
         this.form.subject = 'Fw: ' + this.answerToMsg.subject;
       }
 
-
       //console.log(this.answerToMsg)
 
+    }
+
+    if (!this.form.text || this.form.text == 'undefined') {
+      this.form.text = '';
+    }
+    if ( this.signature ) {
+      this.form.text = '\n\n-----\n'+this.signature+this.form.text;
     }
 
 
   },
   methods: {
 
-    handlerUmfragenChange(e,data) {
-      console.log(e)
-      console.log(data)
+    handlerUmfragenChange() {
+      //console.log(e)
+      //console.log(data)
 
       //this.form.umfragen = data;
     },

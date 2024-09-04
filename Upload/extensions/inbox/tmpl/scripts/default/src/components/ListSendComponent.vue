@@ -100,7 +100,7 @@ export default {
     sortList: function () {
       if (this.list) {
         let data = this.list;
-        if (data.length > 0) {
+        if (data.length > 0 && data.sort) {
 
           // SUCHE
           if (this.searchString != '') {

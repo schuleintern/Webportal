@@ -173,9 +173,9 @@ class extInboxModelMessage2 extends ExtensionModel
             $classInbox = new extInboxModelInbox2();
 
             $inbox_tmp = $classInbox->getByID($this->getData('inbox_id'));
-
-            $collection['inbox'] = $inbox_tmp->getCollection(true);
-
+            if ($inbox_tmp) {
+                $collection['inbox'] = $inbox_tmp->getCollection(true);
+            }
         }
 
 
@@ -282,8 +282,6 @@ class extInboxModelMessage2 extends ExtensionModel
             return false;
         }
 
-
-
         $sender_id = (int)$data['sender_id'];
         if (!$sender_id) {
             return false;
@@ -319,8 +317,6 @@ class extInboxModelMessage2 extends ExtensionModel
 
 
 
-
-
         $subject = DB::getDB()->escapeString(trim((string)$data['subject']));
         $text = DB::getDB()->escapeString(trim((string)$data['text']));
 
@@ -346,7 +342,6 @@ class extInboxModelMessage2 extends ExtensionModel
             'noAnswer' => $data['noAnswer']
             //,'files' => $data['files']
         ]);
-
 
 
 
@@ -409,18 +404,12 @@ class extInboxModelMessage2 extends ExtensionModel
                                 return false;
                             }
 
-                            // Push
-                            if ($send && PUSH::active() && $InboxClass && $userlist) {
-                                foreach ($userlist as $useritem) {
-                                    PUSH::send($useritem, 'Neue Nachricht', $data['subject']);
-                                }
-                            }
+
+
                         }
                     }
                 }
             }
-
-
 
 
             // POSTEINGANG CC
@@ -446,11 +435,7 @@ class extInboxModelMessage2 extends ExtensionModel
                                 ])) {
                                     return false;
                                 }
-                                if ( PUSH::active() && $InboxClass ) {
-                                    foreach ($userlist as $useritem) {
-                                        PUSH::send($useritem, 'Neue Nachricht', $data['subject']);
-                                    }
-                                }
+
                             }
                         }
 
@@ -478,7 +463,6 @@ class extInboxModelMessage2 extends ExtensionModel
                         'umfrage' => $umfrageID
                     ]);
                 }
-
             }
 
 
@@ -491,6 +475,13 @@ class extInboxModelMessage2 extends ExtensionModel
                 'isRead' => time()
             ])) {
                 return false;
+            }
+
+            // Push
+            if ($send && PUSH::active() && $InboxClass && $userlist) {
+                foreach ($userlist as $useritem) {
+                    PUSH::send($useritem, 'Neue Nachricht', $data['subject']);
+                }
             }
 
 
