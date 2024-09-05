@@ -5,7 +5,7 @@
     <CalendarForm :calendars="kalenders"></CalendarForm>
     <CalendarItem :kalenders="kalenders" :acl="acl"></CalendarItem>
 
-    <CalendarList :kalenders="kalenders" :selectedKalenders="selectedKalenders" :suggest="suggest" :ics="ics"></CalendarList>
+    <CalendarList :kalenders="kalenders" :selectedKalenders="selectedKalenders" :suggest="suggest" :ics="ics" :acl="acl"></CalendarList>
     <CalendarView :events="events" :calendars="kalenders" :acl="acl" ></CalendarView>
 
     <IcsForm></IcsForm>

@@ -5,6 +5,7 @@
       <button  class="si-btn si-btn-green" @click="handlerShowKalenders" ><i class="fa fa-calendar"></i> {{selected.length}} Kalender</button>
     </div>
     <div class="flex-1 flex-end flex-row ">
+      <button v-if="acl.write == 1" class="si-btn si-btn-icon" v-on:click="handlerAdd"><i class="fa fa-plus"></i></button>
       <button v-if="suggest == 1" class="si-btn si-btn-border si-btn-icon margin-l-s" v-on:click="handlerSuggest"><i class="fa fa-plus"></i></button>
       <button v-if="ics == 1" class="si-btn si-btn-border si-btn-icon margin-l-s" v-on:click="handlerICS"><i class="fa fa-rss"></i></button>
     </div>
@@ -29,6 +30,7 @@
     </div>
     <div class="flex-1 "></div>
     <div class="flex-1 flex-end flex-row ">
+      <button v-if="acl.write == 1" class="si-btn si-btn-icon" v-on:click="handlerAdd"><i class="fa fa-plus"></i></button>
       <button v-if="suggest == 1" class="si-btn si-btn-border margin-l-m" v-on:click="handlerSuggest"><i class="fa fa-plus"></i> Termin vorschlagen</button>
       <button v-if="ics == 1" class="si-btn si-btn-border margin-l-m" v-on:click="handlerICS"><i class="fa fa-rss"></i> ICS Feed</button>
     </div>
@@ -51,7 +53,8 @@ export default {
     kalenders: Array,
     selectedKalenders: Array,
     suggest: Boolean,
-    ics: Boolean
+    ics: Boolean,
+    acl:Object
   },
   created: function () {
 
@@ -66,6 +69,14 @@ export default {
     },
     handlerICS() {
       this.$bus.$emit('ics-form--open', {
+      });
+    },
+    handlerAdd() {
+      if (this.acl.write != 1) {
+        return false;
+      }
+      this.$bus.$emit('event-form--open', {
+        form: {}
       });
     },
     handlerSuggest() {

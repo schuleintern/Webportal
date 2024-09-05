@@ -63,6 +63,19 @@ class extKalenderAdminImport extends AbstractPage
     }
 
 
+    public function taskImportFromKalender($request)
+    {
+
+        if ((int)DB::getSession()->getUser()->isAnyAdmin() !== 1) {
+            return [
+                'error' => true,
+                'msg' => 'Kein Zugriff'
+            ];
+        }
+
+        $this->reloadWithoutParam('task');
+    }
+
     public function taskImportFromAllinone($request)
     {
 

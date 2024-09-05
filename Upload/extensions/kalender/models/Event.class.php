@@ -169,8 +169,9 @@ class extKalenderModelEvent
                 ( DATE '".$date."' = dateStart AND dateEnd IS NULL )
                 OR
                 (  dateStart <= DATE '".$date."' AND DATE '".$date."' <= dateEnd ) 
-            ) AND (".$where.") AND ( status IS NULL OR status = 0)
-            ORDER BY a.dateStart ");
+            ) AND (".$where.") AND ( status IS NULL OR status = 0 OR status = '')
+            AND repeat_type = ''
+            ORDER BY a.dateStart  ");
 
         while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
             $ret[] = new self($data);

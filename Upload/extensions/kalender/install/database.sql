@@ -1,3 +1,4 @@
+-- Create syntax for TABLE 'ext_kalender'
 CREATE TABLE `ext_kalender`
 (
     `id`        int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -10,13 +11,15 @@ CREATE TABLE `ext_kalender`
     `ferien`    tinyint(1) DEFAULT '0',
     `public`    tinyint(1) NOT NULL,
     `icsfeed`   varchar(255)          DEFAULT NULL,
+    `admins`    varchar(500)          DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
+-- Create syntax for TABLE 'ext_kalender_events'
 CREATE TABLE `ext_kalender_events`
 (
     `id`           int(11) NOT NULL AUTO_INCREMENT,
-    `status`       tinyint(4) DEFAULT 0,
+    `status`       tinyint(4) DEFAULT '0',
     `kalender_id`  int(11) NOT NULL,
     `title`        varchar(255) NOT NULL DEFAULT '',
     `dateStart`    date                  DEFAULT NULL,
@@ -24,23 +27,21 @@ CREATE TABLE `ext_kalender_events`
     `dateEnd`      date                  DEFAULT NULL,
     `timeEnd`      time                  DEFAULT NULL,
     `place`        varchar(255)          DEFAULT '',
-    `comment`      text                  DEFAULT NULL,
+    `comment`      text,
     `user_id`      int(11) NOT NULL,
     `createdTime`  datetime     NOT NULL,
     `modifiedTime` datetime              DEFAULT NULL,
     `repeat_type`  varchar(10)           DEFAULT NULL,
     PRIMARY KEY (`id`),
     UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-
-
+-- Create syntax for TABLE 'ext_kalender_ics'
 CREATE TABLE `ext_kalender_ics`
 (
-    `id`          int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `id`          int(11) unsigned NOT NULL AUTO_INCREMENT,
     `createdTime` date         DEFAULT NULL,
     `user_id`     int(11) DEFAULT NULL,
     `keyCode`     varchar(100) DEFAULT NULL,
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci ROW_FORMAT=DYNAMIC;
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;

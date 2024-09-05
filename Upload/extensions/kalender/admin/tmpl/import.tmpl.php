@@ -16,8 +16,12 @@
             </div>
             <div class="flex-2 padding-l-l padding-t-l">
                 <div class="si-box">
-                    <p>Kalender und Events vom Kalender-AllInOne Importieren</p>
+                    <p>Kalender und Events vom <b>Kalender-AllInOne</b> Importieren</p>
                     <button class="si-btn" onClick="handlerImportAIO()">Importieren</button>
+                </div>
+                <div class="si-box">
+                    <p>Kalender und Events vom <b>Kalender</b> Importieren</p>
+                    <button class="si-btn" onClick="handlerImportEvents()">Importieren</button>
                 </div>
                 <div class="si-box">
                     <h3>ACHTUNG!</h3>
@@ -41,6 +45,12 @@
     var handlerImportAIO = function () {
         if (confirm("Wirklich alle Events und Kalender Importieren?") == true) {
             window.location.href = "<?= URL_SELF ?>&task=importFromAllinone";
+        }
+    }
+
+    var handlerImportEvents = function () {
+        if (confirm("Wirklich alle Events und Kalender Importieren?") == true) {
+            window.location.href = "<?= URL_SELF ?>&task=importFromKalender;
         }
     }
 

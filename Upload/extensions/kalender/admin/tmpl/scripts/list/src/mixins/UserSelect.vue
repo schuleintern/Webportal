@@ -26,10 +26,10 @@
                       <div class="flex-1 text-bold ">{{ item.nachname }}</div>
                       <div class="flex-1 text-bold ">{{ item.klasse }}</div>
                       <div class="flex-1 ">
-                        <button v-if="item.type == 'isPupil'" class="si-btn si-btn-off margin-r-m">Schüler*in</button>
-                        <button v-if="item.type == 'isEltern'" class="si-btn si-btn-off margin-r-m">Eltern</button>
-                        <button v-if="item.type == 'isNone'" class="si-btn si-btn-off margin-r-m">Sonstige</button>
-                        <button v-if="item.type == 'isTeacher'" class="si-btn si-btn-off margin-r-m">Lehrer*in</button>
+                        <div v-if="item.type == 'isPupil'" class="si-btn si-btn-off margin-r-m">Schüler*in</div>
+                        <div v-if="item.type == 'isEltern'" class="si-btn si-btn-off margin-r-m">Eltern</div>
+                        <div v-if="item.type == 'isNone'" class="si-btn si-btn-off margin-r-m">Sonstige</div>
+                        <div v-if="item.type == 'isTeacher'" class="si-btn si-btn-off margin-r-m">Lehrer*in</div>
                       </div>
                     </span>
                   </li>
@@ -59,18 +59,18 @@
                   <li>
                     <label>Filter</label>
                     <div class="si-btn-multiple">
-                      <button class="si-btn si-btn-small si-btn-light" :class="{ 'si-btn-active': filterType == '' }"
-                              v-on:click="handlerFilterType('')">Alle</button>
-                      <button class="si-btn si-btn-small si-btn-light"
+                      <div class="si-btn si-btn-small si-btn-light" :class="{ 'si-btn-active': filterType == '' }"
+                              v-on:click="handlerFilterType('')">Alle</div>
+                      <div class="si-btn si-btn-small si-btn-light"
                               :class="{ 'si-btn-active': filterType == 'isTeacher' }"
-                              v-on:click="handlerFilterType('isTeacher')">Lehrer*in</button>
-                      <button class="si-btn si-btn-small si-btn-light" :class="{ 'si-btn-active': filterType == 'isPupil' }"
-                              v-on:click="handlerFilterType('isPupil')">Schüler*in</button>
-                      <button class="si-btn si-btn-small si-btn-light"
+                              v-on:click="handlerFilterType('isTeacher')">Lehrer*in</div>
+                      <div class="si-btn si-btn-small si-btn-light" :class="{ 'si-btn-active': filterType == 'isPupil' }"
+                              v-on:click="handlerFilterType('isPupil')">Schüler*in</div>
+                      <div class="si-btn si-btn-small si-btn-light"
                               :class="{ 'si-btn-active': filterType == 'isEltern' }"
-                              v-on:click="handlerFilterType('isEltern')">Eltern</button>
-                      <button class="si-btn si-btn-small si-btn-light" :class="{ 'si-btn-active': filterType == 'isNone' }"
-                              v-on:click="handlerFilterType('isNone')">Sonstige</button>
+                              v-on:click="handlerFilterType('isEltern')">Eltern</div>
+                      <div class="si-btn si-btn-small si-btn-light" :class="{ 'si-btn-active': filterType == 'isNone' }"
+                              v-on:click="handlerFilterType('isNone')">Sonstige</div>
                     </div>
                   </li>
                   <li v-if="selected.length > 0">
@@ -89,15 +89,15 @@
                           <td class="padding-l-s vorname ">{{ item.vorname }}</td>
                           <td class=" text-bold nachname ">{{ item.nachname }}</td>
                           <td class=" ">
-                            <button v-if="item.type == 'isPupil'" class="si-btn si-btn-off margin-r-m">Schüler*in</button>
-                            <button v-if="item.type == 'isEltern'" class="si-btn si-btn-off margin-r-m">Eltern</button>
-                            <button v-if="item.type == 'isNone'" class="si-btn si-btn-off margin-r-m">Sonstige</button>
-                            <button v-if="item.type == 'isTeacher'"
-                                    class="si-btn si-btn-off margin-r-m">Lehrer*in</button>
+                            <div v-if="item.type == 'isPupil'" class="si-btn si-btn-off margin-r-m">Schüler*in</div>
+                            <div v-if="item.type == 'isEltern'" class="si-btn si-btn-off margin-r-m">Eltern</div>
+                            <div v-if="item.type == 'isNone'" class="si-btn si-btn-off margin-r-m">Sonstige</div>
+                            <div v-if="item.type == 'isTeacher'"
+                                    class="si-btn si-btn-off margin-r-m">Lehrer*in</div>
                           </td>
                           <td class=" ">
-                            <button class="si-btn si-btn-icon" v-on:click="handlerSelectUser(item)"><i
-                                class="fa fa-trash"></i></button>
+                            <div class="si-btn si-btn-icon" v-on:click="handlerSelectUser(item)"><i
+                                class="fa fa-trash"></i></div>
                           </td>
 
                         </tr>

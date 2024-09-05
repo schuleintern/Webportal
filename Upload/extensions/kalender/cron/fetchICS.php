@@ -29,7 +29,6 @@ class extKalenderCronFetchICS extends AbstractCron
 
             DB::getDB()->query("DELETE FROM ext_kalender_events WHERE kalender_id = " . intval($ferien_kalender['id']));
 
-
             $client = new GuzzleHttp\Client();
             $res = $client->request('GET', $ferien_kalender['icsfeed'], ['verify' => false ]);
 
@@ -83,14 +82,14 @@ class extKalenderCronFetchICS extends AbstractCron
                                     case 'DTEND':
                                         // 20161221T140000Z
                                         $val = $value->getValues();
-                                        $event['dateEnde'] = substr($val, 0, 4) . '-' . substr($val, 4, 2) . '-' . substr($val, 6, 2);
+                                        $event['dateEnd'] = substr($val, 0, 4) . '-' . substr($val, 4, 2) . '-' . substr($val, 6, 2);
 
                                         if (strpos($val, 'Z') > 0) $addHour = 1;
 
                                         if (strpos($val, 'T') == false) {
                                             $event['isWholeDay'] = 1;
                                             $event['timeEnd'] = '';
-                                            $event['dateEnde'] = DateFunctions::substractOneDayToMySqlDate($event['dateEnde']);
+                                            $event['dateEnd'] = DateFunctions::substractOneDayToMySqlDate($event['dateEnd']);
                                         } else {
                                             $event['isWholeDay'] = 0;
                                             // Zeit suchen
@@ -145,7 +144,7 @@ class extKalenderCronFetchICS extends AbstractCron
 
                                 $clone = $node;
                                 $clone['dateStart'] = (int)substr($clone['dateStart'], 0, 4) + $z . '-' . substr($clone['dateStart'], 5, 2) . '-' . substr($clone['dateStart'], 8, 2);
-                                $clone['dateEnde'] = (int)substr($clone['dateEnde'], 0, 4) + $z . '-' . substr($clone['dateEnde'], 5, 2) . '-' . substr($clone['dateEnde'], 8, 2);
+                                $clone['dateEnd'] = (int)substr($clone['dateEnd'], 0, 4) + $z . '-' . substr($clone['dateEnd'], 5, 2) . '-' . substr($clone['dateEnd'], 8, 2);
 
                                 $calData[] = $clone;
                                 $_debug[] = $clone;
@@ -158,9 +157,6 @@ class extKalenderCronFetchICS extends AbstractCron
 
 
                 include_once PATH_EXTENSIONS.'kalender'.DS . 'models' . DS . 'Event.class.php';
-
-                DB::getDB()->query("DELETE FROM ext_kalender_events WHERE kalender_id='" . $ferien_kalender['id'] . "'");
-
 
                 foreach ($calData as $node) {
                     $node['kalender_id'] = $ferien_kalender['id'];

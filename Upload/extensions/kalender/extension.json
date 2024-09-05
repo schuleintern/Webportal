@@ -1,8 +1,8 @@
 {
   "name": "Kalender",
   "uniqid": "ext.zwiebelgasse.kalender",
-  "version": "19",
-  "requiredVersion": "1.8.0",
+  "version": "20",
+  "requiredVersion": "1.8.1",
   "menu": {
     "categorie": "1",
     "icon": "fa fa-calendar",
