@@ -211,7 +211,7 @@
                             <table border="0" cellpadding="0" cellspacing="0">
                                 <tr class="header">
                                     <td>
-                                        <img src="{LOGO}" class="logo">
+                                        <img src="{LOGO}" class="logo" width="80px" height="auto">
                                     </td>
                                     <td>
                                         Neue Nachricht im Portal<br>{SITENAME}

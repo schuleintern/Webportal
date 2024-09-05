@@ -70,18 +70,7 @@
                     <span v-if="recipients.acl.pupils.all">
                       <button class="si-btn margin-r-s"  @click="handlerSelect('pupils::all', 'all')">Alle Schüler*innen</button>
                     </span>
-                    <span v-if="recipients.klassen && recipients.acl.pupils.klassen">
-                      <h3 @click="handlerAccoTeacher('klassen')" class="curser line-oddEven">
-                        <i v-if="accoTeacher == 'klassen'" class="fa fa-chevron-down text-small margin-r-m"></i>
-                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
-                        Klassen</h3>
-                      <div v-if="accoTeacher == 'klassen'" class="tabs-content">
-                        <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
-                          <BtnKlasse typ="pupils::klasse" :content="item" :selected="selected"
-                                     @submit="handlerBtnSubmit"></BtnKlasse>
-                        </span>
-                      </div>
-                    </span>
+
                     <span v-if="recipients.acl.pupils.single">
                       <h3 @click="handlerAccoTeacher('search')" class="curser line-oddEven">
                         <i v-if="accoTeacher == 'search'" class="fa fa-chevron-down text-small margin-r-m"></i>
@@ -96,6 +85,18 @@
                                   @click="handlerSelect('user', item.id)">{{ item.name }} - {{ item.klasse }}
                           </button>
                         </div>
+                      </div>
+                    </span>
+                    <span v-if="recipients.klassen && recipients.acl.pupils.klassen">
+                      <h3 @click="handlerAccoTeacher('klassen')" class="curser line-oddEven">
+                        <i v-if="accoTeacher == 'klassen'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
+                        Klassen</h3>
+                      <div v-if="accoTeacher == 'klassen'" class="tabs-content">
+                        <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
+                          <BtnKlasse typ="pupils::klasse" :content="item" :selected="selected"
+                                     @submit="handlerBtnSubmit"></BtnKlasse>
+                        </span>
                       </div>
                     </span>
 
@@ -125,18 +126,7 @@
                     <span v-if="recipients.acl.parents.all">
                       <button class="si-btn margin-r-s"  @click="handlerSelect('parents::all', 'all')">Alle Eltern</button>
                     </span>
-                    <span v-if="recipients.klassen && recipients.acl.parents.klassen">
-                      <h3  @click="handlerAccoTeacher('klassen')" class="curser line-oddEven">
-                        <i v-if="accoTeacher == 'klassen'" class="fa fa-chevron-down text-small margin-r-m"></i>
-                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
-                        Klassen</h3>
-                      <div v-if="accoTeacher == 'klassen'" class="tabs-content">
-                        <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
-                        <BtnKlasse typ="parents::klasse" :content="item" :selected="selected"
-                                   @submit="handlerBtnSubmit"></BtnKlasse>
-                        </span>
-                      </div>
-                    </span>
+
                     <span v-if="recipients.acl.parents.single">
                       <h3 @click="handlerAccoTeacher('search')" class="curser line-oddEven">
                         <i v-if="accoTeacher == 'search'" class="fa fa-chevron-down text-small margin-r-m"></i>
@@ -151,6 +141,18 @@
                                   @click="handlerSelect('parent', item.id)">{{ item.name }} - {{item.klasse}}
                           </button>
                         </div>
+                      </div>
+                    </span>
+                    <span v-if="recipients.klassen && recipients.acl.parents.klassen">
+                      <h3  @click="handlerAccoTeacher('klassen')" class="curser line-oddEven">
+                        <i v-if="accoTeacher == 'klassen'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
+                        Klassen</h3>
+                      <div v-if="accoTeacher == 'klassen'" class="tabs-content">
+                        <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
+                        <BtnKlasse typ="parents::klasse" :content="item" :selected="selected"
+                                   @submit="handlerBtnSubmit"></BtnKlasse>
+                        </span>
                       </div>
                     </span>
 

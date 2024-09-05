@@ -66,9 +66,18 @@ CREATE TABLE `ext_inboxs`
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `ext_inbox_folders`
+(
+    `id`       int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `title`    varchar(100) DEFAULT NULL,
+    `inbox_id` int(11) DEFAULT NULL,
+    `sort`     tinyint(1) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ext_inbox_folders` (`id`, `title`, `inbox_id`, `sort`)
 VALUES (1, 'Posteingang', 0, 1),
        (2, 'Gesendet', 0, 2),
        (3, 'Archive', 0, 3),
        (4, 'Entwurf', 0, 4);
+
