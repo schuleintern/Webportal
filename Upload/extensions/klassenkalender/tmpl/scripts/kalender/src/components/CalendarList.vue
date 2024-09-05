@@ -4,10 +4,6 @@
     <div class="flex-1 ">
       <button  class="si-btn si-btn-green" @click="handlerShowKalenders" ><i class="fa fa-calendar"></i> {{selected.length}} Kalender</button>
     </div>
-    <div class="flex-1 flex-end flex-row ">
-      <button v-if="suggest == 1" class="si-btn si-btn-border si-btn-icon margin-l-s" v-on:click="handlerSuggest"><i class="fa fa-plus"></i></button>
-      <button v-if="ics == 1" class="si-btn si-btn-border si-btn-icon margin-l-s" v-on:click="handlerICS"><i class="fa fa-rss"></i></button>
-    </div>
     <div class="si-btn-multiple padding-t-m padding-b-m" v-if="showKalendar">
       <button v-bind:key="index" v-for="(item, index) in  kalenders"
               class="si-btn si-btn-light margin-r-s"
@@ -19,27 +15,19 @@
   </div>
 
   <div v-else class="padding-b-m flex-row ">
-    <div class="si-btn-multiple">
-      <button v-bind:key="index" v-for="(item, index) in  kalenders"
-              class="si-btn si-btn-light margin-r-s"
-              :style="styleButton(item.id, item.color)"
-              @click="handlerSelect($event, item)"
-      > {{ item.title }}
-      </button>
-    </div>
+
     <div class="flex-1 ">
-      <div class="si-btn-multiple" v-if="kalenders.length > 5">
-        <button class="si-btn si-btn-icon si-btn-border margin-r-s" @click="handelerSelectAll"><i
-            class="fa fas fa-toggle-on"></i></button>
-        <button class="si-btn si-btn-icon si-btn-border" @click="handelerDeselectAll"><i
-            class="fa fas fa-toggle-off"></i></button>
+      <div class="si-btn-multiple blockInline">
+        <button v-bind:key="index" v-for="(item, index) in  kalenders"
+                class="si-btn si-btn-light margin-r-s"
+                :style="styleButton(item.id, item.color)"
+                @click="handlerSelect($event, item)"
+        > {{ item.title }}
+        </button>
+
       </div>
-      <button class="si-btn si-btn-icon si-btn-border" :class="{'si-btn-active': showClock}" @click="handelerShowClock"><i
-          class="fa far fa-clock"></i></button>
-    </div>
-    <div class="flex-1 flex-end flex-row ">
-      <button v-if="suggest == 1" class="si-btn si-btn-border margin-l-m" v-on:click="handlerSuggest"><i class="fa fa-plus"></i> Termin vorschlagen</button>
-      <button v-if="ics == 1" class="si-btn si-btn-border margin-l-m" v-on:click="handlerICS"><i class="fa fa-rss"></i> ICS Feed</button>
+
+
     </div>
   </div>
 
@@ -53,8 +41,7 @@ export default {
     return {
       isMobile: window.globals.isMobile,
       selected: [],
-      showKalendar: false,
-      showClock: false
+      showKalendar: false
     };
   },
   props: {
@@ -71,34 +58,10 @@ export default {
 
   },
   methods: {
-    handelerShowClock() {
-      this.showClock = !this.showClock;
-      this.$bus.$emit('event-view--showClock', {
-        value: this.showClock
-      });
-    },
-    handelerDeselectAll() {
-      this.selected = [];
-    },
-    handelerSelectAll() {
-      this.selected = [];
-      this.kalenders.forEach((o) => {
-        this.selected.push(parseInt(o.id));
-      });
-    },
+
+
     handlerShowKalenders() {
       this.showKalendar = !this.showKalendar;
-    },
-    handlerICS() {
-      this.$bus.$emit('ics-form--open', {
-      });
-    },
-    handlerSuggest() {
-      this.$bus.$emit('event-form--open', {
-        form: {
-          status: 2
-        }
-      });
     },
     styleButton(id, color) {
 

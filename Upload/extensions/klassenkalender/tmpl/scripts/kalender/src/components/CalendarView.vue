@@ -34,7 +34,14 @@
       <div class="si-calendar-header">
         <button class="si-btn" @click="prevMonth"><i class="fa fa-arrow-left"></i>Zurück</button>
         <button @click="gotoToday" class="si-btn si-btn-light"><i class="fa fa-home"></i>Heute</button>
+        <button class="si-btn si-btn-icon si-btn-border" :class="{'si-btn-active': showClock}" @click="handelerShowClock"><i class="fa far fa-clock"></i></button>
         <div class="title">{{ openMonthFormat }}</div>
+        <div class="si-btn-multiple blockInline margin-r-m" v-if="calendars.length > 5">
+          <button class="si-btn si-btn-icon si-btn-border" @click="handelerSelectAll"><i
+              class="fa fas fa-toggle-on"></i></button>
+          <button class="si-btn si-btn-icon si-btn-border" @click="handelerDeselectAll"><i
+              class="fa fas fa-toggle-off"></i></button>
+        </div>
         <button class="si-btn" @click="nextMonth">Weiter <i class="fa fa-arrow-right"></i></button>
       </div>
       <table  class="si-table si-table-style-allLeft">
@@ -105,6 +112,7 @@ export default {
         initialView: 'dayGridMonth'
       },
       showClock: false,
+      selected: [],
 
       today: this.$dayjs(),
       openMonth: false,
@@ -127,12 +135,6 @@ export default {
     this.openMonthDay = this.$dayjs(this.today).date(1);
     this.gotoToday();
 
-
-    this.$bus.$on('event-view--showClock', (data) => {
-      this.showClock = data.value;
-    });
-
-
   },
   computed: {
     openMonthFormat() {
@@ -146,6 +148,24 @@ export default {
     }
   },
   methods: {
+    handelerDeselectAll() {
+      this.selected = [];
+      this.$bus.$emit('kalenders--preSelected', {
+        selected: this.selected
+      });
+    },
+    handelerSelectAll() {
+      this.selected = [];
+      this.calendars.forEach((o) => {
+        this.selected.push(parseInt(o.id));
+      });
+      this.$bus.$emit('kalenders--preSelected', {
+        selected: this.selected
+      });
+    },
+    handelerShowClock() {
+      this.showClock = !this.showClock;
+    },
     showDayLabel(day) {
       return this.$dayjs(day).format("D") + '.';
     },

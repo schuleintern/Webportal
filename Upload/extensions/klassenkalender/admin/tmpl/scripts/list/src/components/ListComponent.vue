@@ -30,7 +30,6 @@
                            @change="handlerToggleChange($event, element)"></FormToggle>
             </td>
             <td>
-
               <button v-if="sort.column == 'sort'" class="sort-handle si-btn si-btn-off si-btn-icon"><i class="fa fa-sort"></i></button>
               <span v-else class="si-btn si-btn-off">{{element.sort}}</span>
             </td>
@@ -187,12 +186,11 @@ export default {
 
     },
     handlerSort: function (column) {
+      //console.log(column, this.sort.order)
       if (column) {
-        this.sort.column = column;
-        if (this.sort.order) {
-          this.sort.order = false;
-        } else {
-          this.sort.order = true;
+        this.sort = {
+          order: !this.sort.order,
+          column: column
         }
       }
     },
