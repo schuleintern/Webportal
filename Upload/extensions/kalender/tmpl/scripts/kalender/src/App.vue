@@ -379,10 +379,10 @@ export default {
     setACL() {
 
       this.kalenders.forEach((o) => {
-        if (o.acl.rights.write) {
+        if ( parseInt(o.acl.rights.write) === 1) {
           this.acl.write = 1;
         }
-        if (o.acl.rights.delete) {
+        if (parseInt(o.acl.rights.delete) === 1) {
           this.acl.delete = 1;
         }
       });

@@ -58,7 +58,7 @@ class extKalenderAdminSettings extends AbstractPage {
             [
                 'name' => "extKalender-suggest",
                 'typ' => 'BOOLEAN',
-                'title' => "Terminvorschläge aktivieren",
+                'title' => "Terminvorschläge für Lehrer*innen aktivieren",
                 'desc' => ""
             ],
             [
