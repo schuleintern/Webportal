@@ -1,9 +1,9 @@
 {
   "name": "Import",
   "uniqid": "ext.zwiebelgasse.import",
-  "version": "3",
+  "version": "4",
 
-  "requiredVersion": "1.8.0",
+  "requiredVersion": "1.8.2",
 
   "menu": {
     "categorie": "1",

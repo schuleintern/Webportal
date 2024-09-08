@@ -7,14 +7,16 @@ class extImportModelASV extends ExtensionModel
 {
 
     static $table = '';
-    static $fields = [
-    ];
-    static $defaults = [
-    ];
+    static $fields = [];
+    static $defaults = [];
 
 
     private $faecher = [];
     private $klassen = [];
+
+    private $lehrer = [];
+    private $lehrerInserts = [];
+
 
 
     private $log = [];
@@ -110,15 +112,18 @@ class extImportModelASV extends ExtensionModel
             'klassenleitung',
             'schueler',
             'unterricht_besuch',
-            'schueler_fremdsprache',
-            'schueler',
-            'schueler',
+            'schueler_fremdsprache'
         ];
 
         if ( $this->backupTables($tables) ) {
             $this->log('<h4>Datenbank Backup erfolgreich!</h4>' );
         }
 
+        if ( $this->loadLehrer($simpleXML) ) {
+            $this->log('<b>ERFOLGREICH:</b> Lehrer eingelesen.', $this->lehrer );
+        }
+
+        // TODO: DELETE stuff with Schulnummer from import
 
         if ( $this->loadFaecher($simpleXML) ) {
             $this->log('<b>ERFOLGREICH:</b> Faecher eingelesen', $this->faecher );
@@ -136,9 +141,7 @@ class extImportModelASV extends ExtensionModel
             $this->log('<b>ERFOLGREICH:</b> Klassen eingelesen.', $retKlassen );
         } // muss vor loadSchueler() !!!!
 
-        if ( $this->loadLehrer($simpleXML) ) {
-            $this->log('<b>ERFOLGREICH:</b> Lehrer eingelesen.', $this->lehrer );
-        }
+
 
         if ( $retLeitung = $this->loadKlassenleitung() ) {
             $this->log('<b>ERFOLGREICH:</b> Klassenleitungen eingelesen.', $retLeitung );
@@ -331,9 +334,20 @@ class extImportModelASV extends ExtensionModel
 
             $unterrichtKlasse = $_klassengruppen[(int)strval($unterricht->klassengruppe_id)];
 
+            /*
+            $lehrkraft_id = 0;
+            foreach ($simpleXML->schulen[0]->schule->lehrkraefte->lehrkraft as $lehrer) {
+                if ( (int)$lehrer->xml_id == (int)$unterricht->lehrkraft_id) {
+                    $lehrkraft_id = $lehrer->lehrkraftdaten_nicht_schulbezogen_id;
+                }
+            }
+            */
+            $lehrkraft_id = $this->lehrerInserts[(int)$unterricht->lehrkraft_id];
+
+
             $this->unterricht[] = array(
                 "id" => strval($unterricht->xml_id),
-                "lehrer" => strval($unterricht->lehrkraft_id),
+                "lehrer" => $lehrkraft_id,
                 "fachid" => strval($unterricht->fach_id),
                 "bezeichnung" => (strval($unterricht->bezeichnung)),
                 "unterrichtsart" => $unterrichtsartLang[strval($unterricht->unterrichtsart)],
@@ -585,10 +599,23 @@ class extImportModelASV extends ExtensionModel
             $kls = array();
             foreach ($klasse->klassenleitungen->klassenleitung as $klassenleitung) {
                 if ((int)$klassenleitung->lehrkraft_id) {
+
+                    /*
+                    $lehrkraft_id = 0;
+                    foreach ($simpleXML->schulen[0]->schule->lehrkraefte->lehrkraft as $lehrer) {
+                        if ((int)$lehrer->xml_id == (int)$klassenleitung->lehrkraft_id) {
+                            $lehrkraft_id = $lehrer->lehrkraftdaten_nicht_schulbezogen_id;
+                        }
+                    }
+                    */
+                    $lehrkraft_id = $this->lehrerInserts[(int)$klassenleitung->lehrkraft_id];
+
                     $kls[] = array(
-                        'lehrerID' => strval($klassenleitung->lehrkraft_id),
+                        'lehrerID' => $lehrkraft_id,
                         'art' => (strval($klassenleitung->klassenleitung_art) == "K") ? 1 : 2
                     );
+
+
                 }
             }
 
@@ -655,13 +682,18 @@ class extImportModelASV extends ExtensionModel
 
                     foreach ($schueler->schueleranschriften->schueleranschrift as $schueleranschrift) {
                         $kontakt = [];
-                        for ($i = 0; $i < count((array)$schueleranschrift->kommunikationsdaten->kommunikation); $i++) {
-                            $kontakt[] = array(
-                                "typ" => strval($schueleranschrift->kommunikationsdaten->kommunikation[$i]->typ),
-                                "wert" => (strval($schueleranschrift->kommunikationsdaten->kommunikation[$i]->nummer_adresse)),
-                                "anschrifttyp" => strval($schueleranschrift->anschriftstyp)
-                            );
+
+
+                        if ($schueleranschrift->kommunikationsdaten->kommunikation) {
+                            for ($i = 0; $i < count($schueleranschrift->kommunikationsdaten->kommunikation); $i++) {
+                                $kontakt[] = array(
+                                    "typ" => strval($schueleranschrift->kommunikationsdaten->kommunikation[$i]->typ),
+                                    "wert" => (strval($schueleranschrift->kommunikationsdaten->kommunikation[$i]->nummer_adresse)),
+                                    "anschrifttyp" => strval($schueleranschrift->anschriftstyp)
+                                );
+                            }
                         }
+
                         $wessenText = "";
                         switch (strval($schueleranschrift->anschrift_wessen)) {
                             case '1':
@@ -699,6 +731,9 @@ class extImportModelASV extends ExtensionModel
                             "personentyp" => (strval($schueleranschrift->person->personentyp)),
                             "kontakt" => $kontakt
                         );
+
+
+
                     }
 
                     $unterrichtListe = array();
@@ -884,6 +919,7 @@ class extImportModelASV extends ExtensionModel
         $lehrer = $this->lehrer;
 
 
+
         /*
         for($i = 0; $i < sizeof($fach->unterrichtselemente->unterrichtselement_id); $i++) {
             $unterrichtListe[] = strval($fach->unterrichtselemente->unterrichtselement_id[$i]);
@@ -894,35 +930,35 @@ class extImportModelASV extends ExtensionModel
         $b = 0;
         $count = 0;
         $log = '';
-        if ($lehrer && is_array($lehrer)) {
-            for ($i = 0; $i < sizeof($lehrer); $i++) {
+        if ($this->lehrer && is_array($this->lehrer)) {
+            for ($i = 0; $i < sizeof($this->lehrer); $i++) {
                 $count++;
                 $data = DB::run('SELECT * FROM lehrer WHERE lehrerAsvID = :id', ['id' => $lehrer[$i]['asvid'] ])->fetch();
-                if ($data) {
+                if ($data['lehrerID']) {
 
                     DB::getDB()->query("UPDATE lehrer SET
-                    lehrerKuerzel = '" . DB::getDB()->escapeString($lehrer[$i]['kuerzel']) . "',
-                    lehrerName = '" . DB::getDB()->escapeString($lehrer[$i]['name']) . "',
-                    lehrerVornamen = '" . DB::getDB()->escapeString($lehrer[$i]['vornamen']) . "',
-                    lehrerRufname = '" . DB::getDB()->escapeString($lehrer[$i]['rufname']) . "',
-                    lehrerGeschlecht = '" . DB::getDB()->escapeString($lehrer[$i]['geschlecht']) . "',
-                    lehrerZeugnisunterschrift = '" . DB::getDB()->escapeString($lehrer[$i]['zeugnisname']) . "',
-                    lehrerAmtsbezeichnung = '" . DB::getDB()->escapeString($lehrer[$i]['amtsbezeichnung']) . "',
-                    lehrerNameVorgestellt = '" . DB::getDB()->escapeString($lehrer[$i]['namevorgestellt']) . "',
-                    lehrerNameNachgestellt = '" . DB::getDB()->escapeString($lehrer[$i]['namenachgestellt']) . "',
+                    lehrerKuerzel = '" . DB::getDB()->escapeString($this->lehrer[$i]['kuerzel']) . "',
+                    lehrerName = '" . DB::getDB()->escapeString($this->lehrer[$i]['name']) . "',
+                    lehrerVornamen = '" . DB::getDB()->escapeString($this->lehrer[$i]['vornamen']) . "',
+                    lehrerRufname = '" . DB::getDB()->escapeString($this->lehrer[$i]['rufname']) . "',
+                    lehrerGeschlecht = '" . DB::getDB()->escapeString($this->lehrer[$i]['geschlecht']) . "',
+                    lehrerZeugnisunterschrift = '" . DB::getDB()->escapeString($this->lehrer[$i]['zeugnisname']) . "',
+                    lehrerAmtsbezeichnung = '" . DB::getDB()->escapeString($this->lehrer[$i]['amtsbezeichnung']) . "',
+                    lehrerNameVorgestellt = '" . DB::getDB()->escapeString($this->lehrer[$i]['namevorgestellt']) . "',
+                    lehrerNameNachgestellt = '" . DB::getDB()->escapeString($this->lehrer[$i]['namenachgestellt']) . "',
                     schulnummer = " . (int)$this->schulnummer  . "
                     WHERE lehrerID = ".$data['lehrerID']);
 
-
                     // Update USERS Table
                     DB::getDB()->query("UPDATE users SET 
-                             userFirstName = '" . DB::getDB()->escapeString($lehrer[$i]['rufname']) . "',
-                             userLastName = '" . DB::getDB()->escapeString($lehrer[$i]['name']) . "'
-                             WHERE userAsvID = '" . $lehrer[$i]['asvid'] . "'");
+                             userFirstName = '" . DB::getDB()->escapeString($this->lehrer[$i]['rufname']) . "',
+                             userLastName = '" . DB::getDB()->escapeString($this->lehrer[$i]['name']) . "'
+                             WHERE userAsvID = '" . $this->lehrer[$i]['asvid'] . "'");
 
                     $b++;
-                    $log .= '<br>Vorhanden: '.$lehrer[$i]['xmlid'].' - '.$lehrer[$i]['kuerzel'].' - '.$lehrer[$i]['vorname'].' '.$lehrer[$i]['name'];
+                    $log .= '<br>Vorhanden: '.$this->lehrer[$i]['xmlid'].' - '.$this->lehrer[$i]['kuerzel'].' - '.$this->lehrer[$i]['vorname'].' '.$this->lehrer[$i]['name'];
 
+                    $this->lehrerInserts[$this->lehrer[$i]['xmlid']] = $data['lehrerID'];
 
                 } else {
                     DB::getDB()->query("
@@ -939,24 +975,32 @@ class extImportModelASV extends ExtensionModel
                                 lehrerNameVorgestellt,
                                 lehrerNameNachgestellt,
                                 schulnummer
+                                
                             ) values(
-                                '" . DB::getDB()->escapeString($lehrer[$i]['asvid']) . "',
-                                '" . DB::getDB()->escapeString($lehrer[$i]['kuerzel']) . "',
-                                '" . DB::getDB()->escapeString($lehrer[$i]['name']) . "',
-                                '" . DB::getDB()->escapeString($lehrer[$i]['vornamen']) . "',
-                                '" . DB::getDB()->escapeString($lehrer[$i]['rufname']) . "',
-                                '" . DB::getDB()->escapeString($lehrer[$i]['geschlecht']) . "',
-                                '" . DB::getDB()->escapeString($lehrer[$i]['zeugnisname']) . "',
-                                '" . DB::getDB()->escapeString($lehrer[$i]['amtsbezeichnung']) . "',
-                                '" . DB::getDB()->escapeString($lehrer[$i]['namevorgestellt']) . "',
-                                '" . DB::getDB()->escapeString($lehrer[$i]['namenachgestellt']) . "',
+                                '" . DB::getDB()->escapeString($this->lehrer[$i]['asvid']) . "',
+                                '" . DB::getDB()->escapeString($this->lehrer[$i]['kuerzel']) . "',
+                                '" . DB::getDB()->escapeString($this->lehrer[$i]['name']) . "',
+                                '" . DB::getDB()->escapeString($this->lehrer[$i]['vornamen']) . "',
+                                '" . DB::getDB()->escapeString($this->lehrer[$i]['rufname']) . "',
+                                '" . DB::getDB()->escapeString($this->lehrer[$i]['geschlecht']) . "',
+                                '" . DB::getDB()->escapeString($this->lehrer[$i]['zeugnisname']) . "',
+                                '" . DB::getDB()->escapeString($this->lehrer[$i]['amtsbezeichnung']) . "',
+                                '" . DB::getDB()->escapeString($this->lehrer[$i]['namevorgestellt']) . "',
+                                '" . DB::getDB()->escapeString($this->lehrer[$i]['namenachgestellt']) . "',
                                 '".(int)$this->schulnummer."'
+
                             ) 
                     ");
-                    $log .= '<br>Hinzugefügt: '.$lehrer[$i]['xmlid'].' - '.$lehrer[$i]['kuerzel'].' - '.$lehrer[$i]['vorname'].' '.$lehrer[$i]['name'];
+                    $log .= '<br>Hinzugefügt: '.$this->lehrer[$i]['asvid'].' - '.$this->lehrer[$i]['kuerzel'].' - '.$this->lehrer[$i]['vorname'].' '.$this->lehrer[$i]['name'];
                     $a++;
 
+                    $this->lehrerInserts[$this->lehrer[$i]['xmlid']] = DB::getDB()->insert_id();
+                    //$this->lehrer[$i]['id'] = DB::getDB()->insert_id();
+
                 }
+
+
+
             }
         }
 
@@ -1153,46 +1197,46 @@ class extImportModelASV extends ExtensionModel
 
 						)");
 
+                    //$this->log(sizeof($insertsFremdsprachen). ' Schueler-Fremdsprechen hinzugefügt');
 
-                    // unterricht_besuch
-                    DB::getDB()->query("DELETE FROM unterricht_besuch WHERE schuelerAsvID='" . $this->klassen[$i]['schueler'][$s]['asvid'] . "'");
-                    $values = "";
-                    for ($u = 0; $u < sizeof($this->klassen[$i]['schueler'][$s]['unterricht']); $u++) {
-                        if ($u > 0) $values .= ",";
-                        $values .= "('" . $this->klassen[$i]['schueler'][$s]['unterricht'][$u] . "','" . $this->klassen[$i]['schueler'][$s]['asvid'] . "')";
-                    }
-                    if ($values != "") {
-                        DB::getDB()->query("INSERT INTO unterricht_besuch (unterrichtID, schuelerAsvID) values " . $values);
-                    }
-                    // Ganztags
-                    if ($this->klassen[$i]['schueler'][$s]['ganztag_betreuung'] != "") {
-                        DB::getDB()->query("INSERT INTO unterricht_besuch (unterrichtID, schuelerAsvID) values ('1','" . $this->klassen[$i]['schueler'][$s]['asvid'] . "')");
-                    }
+                    $a++;
+                    $log .= '<br>Hinzugefügt: '.$this->klassen[$i]['schueler'][$s]['asvid'].' - '.$this->klassen[$i]['schueler'][$s]['vornamen'].' - '.$this->klassen[$i]['schueler'][$s]['name'].' -  '.$u;
 
-                    // fremdspreachen
-                    $insertsFremdsprachen = [];
-                    for ($j = 0; $j < sizeof($this->klassen[$i]['schueler'][$s]['sprachen']); $j++) {
-                            $sprache = $this->klassen[$i]['schueler'][$s]['sprachen'][$j];
-                            $insertsFremdsprachen[] = "(
+                }
+
+
+                // unterricht_besuch
+                DB::getDB()->query("DELETE FROM unterricht_besuch WHERE schuelerAsvID='" . $this->klassen[$i]['schueler'][$s]['asvid'] . "'");
+                $values = "";
+
+                for ($u = 0; $u < sizeof($this->klassen[$i]['schueler'][$s]['unterricht']); $u++) {
+                    if ($u > 0) $values .= ",";
+                    $values .= "('" . $this->klassen[$i]['schueler'][$s]['unterricht'][$u] . "','" . $this->klassen[$i]['schueler'][$s]['asvid'] . "')";
+                }
+                if ($values != "") {
+                    DB::getDB()->query("INSERT INTO unterricht_besuch (unterrichtID, schuelerAsvID) values " . $values);
+                }
+                // Ganztags
+                if ($this->klassen[$i]['schueler'][$s]['ganztag_betreuung'] != "") {
+                    DB::getDB()->query("INSERT INTO unterricht_besuch (unterrichtID, schuelerAsvID) values ('1','" . $this->klassen[$i]['schueler'][$s]['asvid'] . "')");
+                }
+
+                // fremdspreachen
+                $insertsFremdsprachen = [];
+                for ($j = 0; $j < sizeof($this->klassen[$i]['schueler'][$s]['sprachen']); $j++) {
+                    $sprache = $this->klassen[$i]['schueler'][$s]['sprachen'][$j];
+                    $insertsFremdsprachen[] = "(
                             '" . DB::getDB()->escapeString($this->klassen[$i]['schueler'][$s]['asvid']) . "',
                             '" . DB::getDB()->escapeString($sprache['sortierung']) . "',
                             '" . DB::getDB()->escapeString($sprache['jahrgangsstufe']) . "',
                             '" . DB::getDB()->escapeString($sprache['unterrichtsfach']) . "',
                             '" . DB::getDB()->escapeString($sprache['feststellungspruefung']) . "')";
-                    }
-
-                    DB::getDB()->query("DELETE FROM schueler_fremdsprache WHERE schuelerAsvID='" . $this->klassen[$i]['schueler'][$s]['asvid'] . "'");
-                    if (sizeof($insertsFremdsprachen) > 0) {
-                        DB::getDB()->query("INSERT INTO schueler_fremdsprache (schuelerAsvID, spracheSortierung, spracheAbJahrgangsstufe, spracheFach, spracheFeststellungspruefung) values " . implode(",", $insertsFremdsprachen));
-                    }
-                    //$this->log(sizeof($insertsFremdsprachen). ' Schueler-Fremdsprechen hinzugefügt');
-
-                    $a++;
-                    $log .= '<br>Hinzugefügt: '.$this->klassen[$i]['schueler'][$s]['asvid'].' - '.$this->klassen[$i]['schueler'][$s]['vornamen'].' - '.$this->klassen[$i]['schueler'][$s]['name'].' -  '.$u.' - '.sizeof($insertsFremdsprachen);
-
                 }
 
-
+                DB::getDB()->query("DELETE FROM schueler_fremdsprache WHERE schuelerAsvID='" . $this->klassen[$i]['schueler'][$s]['asvid'] . "'");
+                if (sizeof($insertsFremdsprachen) > 0) {
+                    DB::getDB()->query("INSERT INTO schueler_fremdsprache (schuelerAsvID, spracheSortierung, spracheAbJahrgangsstufe, spracheFach, spracheFeststellungspruefung) values " . implode(",", $insertsFremdsprachen));
+                }
 
 
 
@@ -1202,7 +1246,7 @@ class extImportModelASV extends ExtensionModel
                 "anz" => $s
             ];
 
-            $this->log('<h4>Schueler der Klasse '.$this->klassen[$i]['name'].' :</h4><i>(Status: ASV ID, Vorname, Name, Anzahl Unterichte, Anzahl Fremdsprachen )</i>'. $log);
+            $this->log('<h4>Schueler der Klasse '.$this->klassen[$i]['name'].' :</h4><i>(Status: ASV ID, Vorname, Name, Anzahl Unterichte )</i>'. $log);
             $this->log($count.' Schueler durchlaufen:<br>'.$a.' Schueler hinzugefügt<br>'.$b.' Schueler waren vorhanden' );
 
 
@@ -1287,7 +1331,11 @@ class extImportModelASV extends ExtensionModel
 
         for ($i = 0; $i < sizeof($this->klassen); $i++) {
             for ($s = 0; $s < sizeof($this->klassen[$i]['schueler']); $s++) {
+
+
                 for ($a = 0; $a < sizeof($this->klassen[$i]['schueler'][$s]['adressen']); $a++) {
+
+
 
                     $wessen = "";
                     switch ($this->klassen[$i]['schueler'][$s]['adressen'][$a]['wessen']) {
@@ -1354,6 +1402,9 @@ class extImportModelASV extends ExtensionModel
                         if (filter_var(trim($this->klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['wert']), FILTER_VALIDATE_EMAIL) !== false) {
 
                             if (DB::getGlobalSettings()->elternUserMode == "ASV_MAIL") {
+
+
+
                                 $insertsEmails[] = [
                                     "email" => strtolower(trim($this->klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['wert'])),
                                     "schuelerASV" => $this->klassen[$i]['schueler'][$s]['asvid'],
@@ -1370,17 +1421,17 @@ class extImportModelASV extends ExtensionModel
                         } else {
                             $art = "";
 
-                            if ((int)$this->klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['typ'] * 1 == 3) {
+                            if ((int)$this->klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['typ'] == 3) {
                                 // Fax
                                 $art = "fax";
                             }
 
-                            if ((int)$this->klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['typ'] * 1 == 2) {
+                            if ((int)$this->klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['typ'] == 2) {
                                 // Handy
                                 $art = "mobiltelefon";
                             }
 
-                            if ((int)$this->klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['typ'] * 1 == 1) {
+                            if ((int)$this->klassen[$i]['schueler'][$s]['adressen'][$a]['kontakt'][$k]['typ'] == 1) {
                                 // Handy
                                 $art = "telefon";
                             }
