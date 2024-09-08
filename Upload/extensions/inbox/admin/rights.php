@@ -177,6 +177,12 @@ class extInboxAdminRights extends AbstractPage {
                 'typ' => 'ACL',
                 'title' => "Wer darf Lesebestätigungen anfordern?",
                 'desc' => ""
+            ],
+            [
+                'name' => "extInbox-acl-inboxs-showEmails",
+                'typ' => 'ACL',
+                'title' => "Wer darf E-Mails der Empfänger sehen?",
+                'desc' => ""
             ]
         ];
 

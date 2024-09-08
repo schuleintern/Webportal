@@ -94,6 +94,23 @@ class setMessage extends AbstractRest
             $umfragen = false;
         }
 
+        $isForwardRaw = (int)$input['isForward'];
+        if (!$isForwardRaw || $isForwardRaw == 'undefined') {
+            $isForward = false;
+        } else {
+            $isForward = time();
+            $messageParentID = $isForwardRaw;
+        }
+
+        $isAnswerRaw = (int)$input['isAnswer'];
+        if (!$isAnswerRaw || $isAnswerRaw == 'undefined') {
+            $isAnswer = false;
+        } else {
+            $isAnswer = time();
+            $messageParentID = $isAnswerRaw;
+        }
+
+
 
         /*
         if ($files && EXTENSION::isActive('ext.zwiebelgasse.fileshare') ) {
@@ -122,7 +139,10 @@ class setMessage extends AbstractRest
             'isPrivat' => $isPrivat,
             'files' => $files,
             'umfragen' => $umfragen,
-            'folderID' => $folderID
+            'folderID' => $folderID,
+            'isAnswer' => $isAnswer,
+            'isForward' => $isForward,
+            'messageParentID' => $messageParentID
         ])) {
             return [
                 'error' => true,

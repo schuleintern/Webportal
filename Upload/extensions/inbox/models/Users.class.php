@@ -45,6 +45,7 @@ class extInboxModelUsers extends ExtensionModel
                 if ($user) {
                     $ucoll = $user->getCollection(false,false,false,true);
                     if ($ucoll) {
+                        $ucoll['receiveEMail'] = $user->receiveEMail();
                         $collection['user'] = $ucoll;
                     }
                 }

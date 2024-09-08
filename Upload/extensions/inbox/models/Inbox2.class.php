@@ -57,6 +57,7 @@ class extInboxModelInbox2 extends ExtensionModel
                     if ($temp_user) {
                         $collection['user'] = $temp_user->getCollection(true, false, false, true);
                         $collection['title'] = $collection['user']['name'];
+                        //$collection['user']['receiveEMail'] = $temp_user->receiveEMail();
                     }
                 }
             }
@@ -104,8 +105,12 @@ class extInboxModelInbox2 extends ExtensionModel
         if ($this->getData('user_id')) {
             $collection['user_id'] = $this->getData('user_id');
             if ($collection['user_id']) {
-                $collection['user'] = user::getCollectionByID($collection['user_id'], false,false,false,true);
-                $collection['userName'] = $collection['user']['name'];
+                $userTemp = user::getUserByID($collection['user_id']);
+                if ($userTemp) {
+                    $collection['user'] = $userTemp->getCollection(false,false,false,true);
+                    $collection['userName'] = $collection['user']['name'];
+                    $collection['user']['receiveEMail'] = $userTemp->receiveEMail();
+                }
             }
             if (!$collection['userName']) {
                 $collection['userName'] = '- leer -';

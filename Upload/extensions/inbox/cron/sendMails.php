@@ -39,38 +39,32 @@ class extInboxCronSendMails extends AbstractCron
         foreach ($mails as $mail) {
 
             if ($count < $maxCount) {
-                $data = $mail->getCollection(true,true,false,false,true);
+                $data = $mail->getCollection('list',true,false,false,true);
 
 
 
 
                 if ($data) {
-                    //$data['email'] = false;
+
                     $data['emails'] = [];
-
-
-                    /*
-                    if ( $data['inbox']['user_id'] ) {
-                        $user = user::getUserByID($data['inbox']['user_id']);
-                        if ($user) {
-                            $data['receiveEmail'] = $user->receiveEMail();
-                        }
-                    }*/
 
                     if ($data['inbox']['type'] == 'group') {
                         $inboxUsers = $User->getByParentID($data['inbox']['id']);
                         foreach ($inboxUsers as $inboxUser) {
                             $userData = $inboxUser->getCollection(true);
                             if ($userData['user'] && $userData['user']['email']) {
-                                $data['emails'][] = $userData['user']['email'];
+                                if ($userData['user']['receiveEMail']) {
+                                    $data['emails'][] = $userData['user']['email'];
+                                }
                             }
                         }
                     } else if ($data['inbox']['type'] == 'user') {
-                        if ( $data['inbox']['user'] && $data['inbox']['user']['email']) {
-                            $data['emails'][] = $data['inbox']['user']['email'];
+                        if ( $data['inbox']['user']  && $data['inbox']['user']['email']) {
+                            if ($data['inbox']['user']['receiveEMail']) {
+                                $data['emails'][] = $data['inbox']['user']['email'];
+                            }
                         }
                     }
-
 
                 }
 
@@ -111,12 +105,15 @@ class extInboxCronSendMails extends AbstractCron
                 $mailTmp = str_replace("{IMPRESSUM}", $impressumText, $mailTmp);
 
                 $data['body'] = $mailTmp;
+                $data['text'] = true;
+
 
 
                 if ( email::sendEMail($data) ) {
                     $mail->setSend();
                     $count++;
                 }
+
 
 
             }

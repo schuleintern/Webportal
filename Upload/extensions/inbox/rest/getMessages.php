@@ -71,7 +71,7 @@ class getMessages extends AbstractRest
 
         $ret = [];
         foreach ($tmp_data as $item) {
-            $ret[] = $item->getCollection(true, false);
+            $ret[] = $item->getCollection('list');
         }
 
         return $ret;

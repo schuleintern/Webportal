@@ -73,6 +73,10 @@
         </li>
         <li>
           <label>Dateianhänge</label>
+          <div v-bind:key="index" v-for="(item, index) in  form.files">
+            <a :href="item.path" target="_blank">{{item.name}}</a>
+            <button @click="handlerRemoveUpload(item)" class="si-btn si-btn-icon si-btn-light si-btn-small margin-l-s"><i class="fa fa-trash"></i></button>
+          </div>
           <FormUpload class="" @done="handerUpload" @error="handerUploadError"
                       :target="'rest.php/inbox/uploadItem/'+form.id"></FormUpload>
         </li>
@@ -147,6 +151,7 @@ export default {
           this.cache.inbox = JSON.parse(this.answerToMsg.from.strLong);
         }
         this.form.subject = 'Re: ' + this.answerToMsg.subject;
+        this.form.isAnswer = this.answerToMsg.id;
       }
 
       // Answer to All:
@@ -164,7 +169,7 @@ export default {
           this.cache.inbox_cc = item[1];
         }
         this.form.subject = 'Re: ' + this.answerToMsg.subject;
-
+        this.form.isAnswer = this.answerToMsg.id;
       }
 
       // User from Entwurf
@@ -172,8 +177,10 @@ export default {
         this.form = this.answerToMsg;
       }
 
+      // Weiterleiten
       if (this.answerToMsg.props && this.answerToMsg.props.forward) {
         this.form.subject = 'Fw: ' + this.answerToMsg.subject;
+        this.form.isForward = this.answerToMsg.id;
       }
 
       //console.log(this.answerToMsg)
@@ -199,6 +206,18 @@ export default {
     },
     handlerUmfragenToggle() {
       this.umfragenToggle = !this.umfragenToggle;
+    },
+    handlerRemoveUpload(item) {
+      let index = false;
+      this.form.files.forEach((o,i) => {
+        console.log(o,i);
+        if (o.path == item.path) {
+          index = i;
+        }
+      })
+      if (index !== false) {
+        this.form.files.splice(index, 1);
+      }
     },
     handerUploadError(error, response) {
       if (response.error && response.msg) {

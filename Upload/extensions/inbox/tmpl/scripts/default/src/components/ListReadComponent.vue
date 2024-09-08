@@ -37,6 +37,8 @@
             <div v-if="msg.isRead == 0" class="fa fa-star margin-r-m"></div>
             <div v-if="msg.priority == 1" class="fa fa-arrow-down text-green"></div>
             <div v-else-if="msg.priority == 2" class="fa fa-arrow-up text-red"></div>
+            <div v-if="msg.isAnswer" class="fa fa-reply text-blue"></div>
+            <div v-if="msg.isForward" class="fa fa-share text-purple"></div>
           </td>
           <td>
             <span v-if="msg.from.user">{{ msg.from.user.name }}</span>

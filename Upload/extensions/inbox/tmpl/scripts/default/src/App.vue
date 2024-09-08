@@ -34,7 +34,14 @@
               {{ item.title }}
               <span v-if="item.unread" class="margin-l-s label bg-white text-grey">{{item.unread}}</span>
             </button>
-
+            <!--
+            <button @click="handlerAddFolder" class="si-btn si-btn-icon si-btn-border"><i class="fa fa-plus"></i></button>
+            <div class="padding-m">
+              <h4>Neuen Ordner erstellen</h4>
+              <input type="text" class="si-input">
+              <button class="si-btn"><i class="fa fa-plus"></i> Hinzufügen</button>
+            </div>
+            -->
           </div>
         </div>
 
@@ -112,7 +119,7 @@ export default {
       this.initInbox();
     } else {
       // load Inbox ajax
-      this.loadMyInboxs();
+      this.loadMyInboxs(true);
     }
 
 
@@ -161,6 +168,8 @@ export default {
       formData.append('priority', data.form.priority);
       formData.append('noAnswer', data.form.noAnswer);
       formData.append('isPrivat', data.form.isPrivat);
+      formData.append('isForward', data.form.isForward);
+      formData.append('isAnswer', data.form.isAnswer);
       formData.append('files', JSON.stringify(data.form.files));
       formData.append('umfragen', JSON.stringify(data.form.umfragen));
       formData.append('folderID', data.form.folderID);
@@ -293,6 +302,9 @@ export default {
   },
   methods: {
 
+    handlerAddFolder() {
+      console.log('TODO')
+    },
     initInbox() {
       if (this.inboxs && this.selectedInbox) {
         this.inboxs.forEach((o) => {
@@ -481,7 +493,7 @@ export default {
       });
 
     },
-    loadMyInboxs() {
+    loadMyInboxs(init) {
 
       let sessionID = localStorage.getItem('session');
       if (sessionID) {
@@ -501,7 +513,10 @@ export default {
             that.error = '' + response.data.msg;
           } else {
             that.inboxs = response.data;
-            that.initInbox();
+            if (init) {
+              that.initInbox();
+            }
+
           }
         } else {
           that.error = 'Fehler beim Laden. 01';

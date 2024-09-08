@@ -141,7 +141,8 @@ class getRecipients extends AbstractRest
                 'inboxs' => $this->getUserAcl('extInbox-acl-inboxs-inboxs', $userType),
                 'groups' => $this->getUserAcl('extInbox-acl-inboxs-groups', $userType)
             ],
-            'confirm' => $this->getUserAcl('extInbox-acl-inboxs-confirm', $userType)
+            'confirm' => $this->getUserAcl('extInbox-acl-inboxs-confirm', $userType),
+            'showEmails' => $this->getUserAcl('extInbox-acl-inboxs-showEmails', $userType)
         ];
 
         $userData = DB::getSession()->getUser()->getCollection(true);

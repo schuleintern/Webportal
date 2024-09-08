@@ -13,6 +13,7 @@
         <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerAnswer()"><i class="fa fa fa-reply"></i> Antworten</button>
         <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerAnswerAll()"><i class="fa fa fa-reply"></i> Allen Antworten</button>
         <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerForward()"><i class="fa fa fa-share"></i> Weiterleiten</button>
+        <button class="si-btn si-btn-light si-btn-small" @click="handlerPrint()"><i class="fa fa fa-download"></i></button>
         <button class="si-btn si-btn-light si-btn-small" @click="handlerDelete()"><i class="fa fa fa-trash"></i></button>
       <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerBack()"><i class="fa fa-times-circle"></i></button>
       </div>
@@ -21,7 +22,7 @@
 
 
 
-    <ul class="noListStyle mailHeader">
+    <ul class="noListStyle mailHeader" id="mailHeader">
 
       <!-- Gesendet -->
       <li v-if="folder.id == 2" class="margin-b-m">
@@ -111,6 +112,14 @@
         <label>Gelesen von:</label>
         <span>{{item.isReadDate}} - {{ item.isReadUser.name }}</span>
       </li>
+      <li class="line-oddEven padding-s" v-if="item.isAnswer">
+        <label>Beantwortet:</label>
+        <span>{{item.isAnswer }}</span>
+      </li>
+      <li class="line-oddEven padding-s" v-if="item.isForward">
+        <label>Weitergeleitet:</label>
+        <span>{{item.isForward }}</span>
+      </li>
       <li v-if="item.files" class="line-oddEven padding-s">
         <label>Anhang:</label>
         <span class="blockInline">
@@ -153,13 +162,18 @@
 
 import UmfragenAnswer from "@/mixins/UmfragenAnswer.vue";
 import UmfragenResult from "@/mixins/UmfragenResult.vue";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 
 export default {
   name: 'ItemComponent',
   components: {UmfragenAnswer, UmfragenResult},
   data() {
     return {
-      umfragenOpen: false
+      umfragenOpen: false,
+      printLogo: window.globals.printLogo,
+      printSystem: window.globals.printSystem,
+      printDate: window.globals.printDate
     };
   },
   props: {
@@ -172,6 +186,55 @@ export default {
   },
   methods: {
 
+    handlerPrint() {
+
+      window.html2canvas = html2canvas;
+
+      var doc = new jsPDF(
+          'p', 'mm', 'a4'
+      );
+
+      let htmlTemp = document.createElement('div');
+      htmlTemp.style.fontSize = '14pt';
+
+      let imgHead = document.createElement('img');
+      imgHead.src = this.printLogo;
+      imgHead.style.width = '20mm';
+      imgHead.style.height = '20mm';
+      imgHead.style.position = 'relative';
+      imgHead.style.display = 'block';
+      imgHead.style.marginBottom = '2rem';
+      htmlTemp.appendChild(imgHead);
+
+      let node = document.getElementById('mailHeader');
+      htmlTemp.appendChild(node.cloneNode(true));
+
+      let htmlFooter = document.createElement('div');
+      htmlFooter.innerText = this.printSystem+' - '+this.printDate;
+      htmlFooter.style.fontSize = '10pt';
+      htmlFooter.style.width = '100%';
+      htmlFooter.style.textAlign = 'center';
+      htmlFooter.style.paddingTop = '10mm';
+      htmlFooter.style.color = '#ccc';
+      htmlTemp.appendChild(htmlFooter);
+
+      //console.log(htmlTemp)
+      //node.appendChild(htmlTemp)
+
+      doc.html(htmlTemp, {
+        callback: function (doc) {
+          doc.save("Nachricht.pdf");
+        },
+        x: 20,
+        y: 10,
+        width: 170,
+        windowWidth: 1024
+      });
+
+      //doc.html(node, 10, 10);
+      //doc.save("a4.pdf");
+
+    },
     handlerOpenUmfrage() {
       this.umfragenOpen = true;
     },
@@ -248,5 +311,6 @@ export default {
 .mailHeader li label {
   width: 10vw;
   margin-bottom: 0;
+  min-width: 15rem;
 }
 </style>

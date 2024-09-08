@@ -73,7 +73,7 @@ class getMessage extends AbstractRest
         }
 
 
-        return $tmp_data->getCollection(true, true, true, true);
+        return $tmp_data->getCollection(true, true, true, true, true);
 
     }
 

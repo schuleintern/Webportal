@@ -16,7 +16,9 @@ class extInboxModelMessage2 extends ExtensionModel
         'isRead',
         'isReadUser',
         'isConfirm',
-        'isEmail'
+        'isEmail',
+        'isAnswer',
+        'isForward'
     ];
 
     
@@ -53,7 +55,6 @@ class extInboxModelMessage2 extends ExtensionModel
 
         if ($full) {
 
-
             include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'MessageBody2.class.php';
             $classBody = new extInboxModelMessageBody2();
 
@@ -61,8 +62,29 @@ class extInboxModelMessage2 extends ExtensionModel
             $bodyCollection = $body->getCollection(true);
 
             $collection['subject'] = $bodyCollection['subject'];
+
+
+            $collection['from'] = false;
+            $collection['to'] = false;
+
+
             $collection['from'] = $body->getSenderCollection();
-            $collection['to'] = $body->getReceiversShort();
+
+            if ($collection['folder_id'] == 2) { // Postausgang
+
+                if ($full === 'list') {
+                    $collection['to'] = $body->getReceiversShort();
+                } else {
+                    $collection['to'] = $body->getReceiversShort(); // vll doch LONG ?
+                }
+            } else {
+                if ($full === 'list') {
+
+                } else {
+                    $collection['to'] = $body->getReceiversLong();
+                }
+            }
+
             $collection['toCC'] = $body->getReceiversCC();
             $collection['priority'] = $bodyCollection['priority'];
             $collection['isPrivat'] = $bodyCollection['isPrivat'];
@@ -71,19 +93,23 @@ class extInboxModelMessage2 extends ExtensionModel
             $collection['umfragen'] = $bodyCollection['umfragen'];
             $collection['date'] = date("d.m.Y H:i", strtotime($bodyCollection['createdTime']) );
 
-
-
             if ($collection['isRead']) {
                 $collection['isReadDate'] = date('d.m.Y H:i',$collection['isRead']);
             }
             if ($collection['isReadUser']) {
                 $collection['isReadUser'] = User::getCollectionByID($collection['isReadUser']);
             }
-
             if ($withText) {
                 $collection['text'] = nl2br($bodyCollection['text']);
             }
-
+            if ($full !== 'list') {
+                if ($collection['isAnswer']) {
+                    $collection['isAnswer'] = date('d.m.Y H:i', $collection['isAnswer']);
+                }
+                if ($collection['isForward']) {
+                    $collection['isForward'] = date('d.m.Y H:i', $collection['isForward']);
+                }
+            }
         }
 
         if ($files) {
@@ -152,7 +178,7 @@ class extInboxModelMessage2 extends ExtensionModel
 
                         foreach($item['inboxs'] as $inbox) {
                             $msg_temp = $this->getMessageByInboxBody( $inbox, $this->getData('body_id') );
-                            $inbox_tmp = $classInbox->getByID($inbox);
+                            $inbox_tmp = PAGE::getFactory()->getInboxByID($inbox);
                             if ($msg_temp && $inbox_tmp) {
                                 $foo['inboxs'][] =  [
                                     'inbox' => $inbox_tmp->getCollection(true),
@@ -169,10 +195,10 @@ class extInboxModelMessage2 extends ExtensionModel
 
         if ($withInboxUser) {
 
-            include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
-            $classInbox = new extInboxModelInbox2();
+            //include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
+            //$classInbox = new extInboxModelInbox2();
 
-            $inbox_tmp = $classInbox->getByID($this->getData('inbox_id'));
+            $inbox_tmp = PAGE::getFactory()->getInboxByID($this->getData('inbox_id'));
             if ($inbox_tmp) {
                 $collection['inbox'] = $inbox_tmp->getCollection(true);
             }
@@ -339,8 +365,8 @@ class extInboxModelMessage2 extends ExtensionModel
             'text' => $data['text'],
             'priority' => $data['priority'],
             'isPrivat' => $data['isPrivat'],
-            'noAnswer' => $data['noAnswer']
-            //,'files' => $data['files']
+            'noAnswer' => $data['noAnswer'],
+            'files' => (int)$data['files']
         ]);
 
 
@@ -476,6 +502,20 @@ class extInboxModelMessage2 extends ExtensionModel
             ])) {
                 return false;
             }
+
+
+
+            if ($data['messageParentID'] && ($data['isAnswer'] || $data['isForward'])) {
+
+                if (!$this->update([
+                    'id' => (int)$data['messageParentID'],
+                    'isAnswer' => (int)$data['isAnswer'],
+                    'isForward' => (int)$data['isForward']
+                ])) {
+                    return false;
+                }
+            }
+
 
             // Push
             if ($send && PUSH::active() && $InboxClass && $userlist) {

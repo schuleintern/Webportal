@@ -24,8 +24,10 @@ CREATE TABLE `ext_inbox_message_body`
     `priority`     varchar(11)  DEFAULT NULL,
     `noAnswer`     tinyint(1) DEFAULT NULL,
     `isPrivat`     tinyint(1) DEFAULT NULL,
+    `isAnswer`     int(11) DEFAULT NULL,
+    `isForward`    int(11) DEFAULT NULL,
     `files`        tinyint(1) DEFAULT NULL,
-    `umfrage` int(11) DEFAULT NULL,
+    `umfrage`      int(11) DEFAULT NULL,
     `subject`      varchar(255) DEFAULT NULL,
     `text`         text,
     PRIMARY KEY (`id`)

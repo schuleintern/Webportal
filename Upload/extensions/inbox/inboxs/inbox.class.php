@@ -24,12 +24,22 @@ class extInboxRecipientInbox
         }
 
 
-        include_once PATH_EXTENSIONS.'inbox'.DS. 'models' . DS . 'Inbox2.class.php';
-        $class = new extInboxModelInbox2();
-        $inbox = $class->getByID((int)$inbox_id);
+        //include_once PATH_EXTENSIONS.'inbox'.DS. 'models' . DS . 'Inbox2.class.php';
+        //$class = new extInboxModelInbox2();
+        $inbox = PAGE::getFactory()->getInboxByID((int)$inbox_id);
 
-        if ($inbox && $inbox->getData('title')) {
-            return $inbox->getData('title');
+        if ($inbox && $inbox->getData('type') == 'user') {
+            if ($inbox->getData('parent_id')) {
+                $user = user::getUserByID($inbox->getData('parent_id'));
+                if ($user) {
+                    return $user->getDisplayName();
+                }
+
+            }
+        } else {
+            if ($inbox && $inbox->getData('title')) {
+                return $inbox->getData('title');
+            }
         }
 
 

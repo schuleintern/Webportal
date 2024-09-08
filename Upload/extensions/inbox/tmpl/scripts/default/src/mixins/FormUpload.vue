@@ -21,7 +21,8 @@
 
     </uploader-drop>
     -->
-    <uploader-list></uploader-list>
+
+    <uploader-list v-if="showDetials"></uploader-list>
   </uploader>
 </template>
 
@@ -61,9 +62,8 @@ export default {
       //console.log('file complete', arguments)
     }
 
-    const fileRemoved = (a) => {
-      console.log('fileRemoved complete', a)
-    }
+    let showDetials = ref(false);
+
 
     const fileError = (error, file,message) => {
       //console.log('file fileError', message )
@@ -71,10 +71,10 @@ export default {
     }
 
 
-
     const fileSuccess = (rootFile, file, message)  => {
       //console.log('file success', rootFile.file.name, JSON.parse(message))
       emit('done', rootFile.file.name, JSON.parse(message));
+
     }
 
 
@@ -83,6 +83,9 @@ export default {
         window.uploader = uploaderRef.value.uploader
       })
     })
+
+
+
     return {
       uploaderRef,
       options,
@@ -92,9 +95,10 @@ export default {
       fileComplete,
       fileSuccess,
       fileError,
-      fileRemoved
+      showDetials
     }
   }
+
 }
 </script>
 

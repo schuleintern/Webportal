@@ -13,12 +13,26 @@
           Empfängerliste anzeigen
         </button>
         <div v-if="selectedUserLength() < 5 || selectedUserShow == true">
-          <div v-bind:key="index" v-for="(item, index) in  cachedUserList" class="blockInline margin-r-m margin-b-s">
+          <div v-bind:key="index" v-for="(item, index) in  cachedUserList" class="blockInline margin-r-m margin-b-s"
+            @click="handlerEmpfaengerDetails">
             <span v-if="item.user">{{ item.user.name }}</span>
             <span v-else-if="item.title">{{ item.title }}</span>
           </div>
         </div>
 
+      </div>
+      <div class="si-modalblack" v-if="showEmpfaengerDetails && recipients.acl.showEmails"  v-on:click="handlerCloseModalDetails">
+        <div class="si-modalblack-box">
+          <div class="si-modalblack-content flex-row height_70 scrollable-y">
+            <div v-bind:key="index" v-for="(item, index) in  cachedUserList" class="flex-b-30">
+              <span v-if="item.user" class="text-big-m">{{ item.user.name }}</span>
+              <span v-else-if="item.title" class="text-big-m">{{ item.title }}</span>
+              <div v-if="item.inboxs" class="text-grey">
+                <div v-bind:key="index" v-for="(inbox, index) in  item.inboxs"><span v-if="inbox.user && inbox.user.email">{{inbox.user.email}}</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div v-if="state == 'form'">
@@ -309,7 +323,8 @@
               <div class="selected flex-1 margin-l-l margin-t-m height_70 scrollable-y">
                 <div v-bind:key="index" v-for="(item, index) in  selectedList"
                      :class="{'text-red': item.inboxs && item.inboxs.length < 1}"
-                     class="margin-b-s line-oddEvenDark padding-s padding-l-m">
+                     class="margin-b-s line-oddEvenDark padding-s padding-l-m curser"
+                    @click="handlerRemoveFromSelect(item)">
                   {{ item.title }} - <span v-if="item.inboxs"><i class="fa fa-users"></i> {{
                     item.inboxs.length
                   }}</span>
@@ -347,7 +362,8 @@ export default {
 
       selectedUserShow: false,
 
-      accoTeacher: 'default'
+      accoTeacher: 'default',
+      showEmpfaengerDetails: false
     };
   },
   props: {
@@ -464,6 +480,17 @@ export default {
   },
   methods: {
 
+    handlerCloseModalDetails() {
+      this.showEmpfaengerDetails = false;
+    },
+    handlerEmpfaengerDetails(item) {
+      if (this.recipients.acl.showEmails) {
+        this.showEmpfaengerDetails = !item.showEmpfaengerDetails;
+      }
+    },
+    handlerRemoveFromSelect(item) {
+      this.handlerSelect(item.typ, item.content);
+    },
     handlerSetSearch(str, type) {
       this.searchString = str;
       this.handlerChangeSearch(type);
