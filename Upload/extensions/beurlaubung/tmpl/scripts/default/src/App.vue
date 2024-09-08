@@ -78,7 +78,7 @@
             <td>{{ item.datumStart }}</td>
             <td>{{ item.user.name }} <span class="text-small" v-if="item.user.klasse">{{ item.user.klasse }}</span></td>
             <td>{{ item.stunden }}</td>
-            <td><span class="text-small">{{ item.info }}</span></td>
+            <td><span class="text-small" v-html="item.info"></span></td>
             <td>
               <div class="" v-if="item.doneInfo">{{ item.doneInfo }}</div>
               <div class="text-small" v-if="item.doneInfo">{{ item.doneDate }}</div>

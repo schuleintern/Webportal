@@ -238,14 +238,38 @@ class extBeurlaubungModelAntrag extends ExtensionModel
                 if ($dataDB['createdUserID']) {
                     $empfaenger = user::getUserByID($dataDB['createdUserID']);
                     if ($empfaenger) {
-                        $messageSender = new MessageSender();
-                        $recipientHandler = new RecipientHandler("");
-                        $recipientHandler->addRecipient(new UserRecipient($empfaenger));
-                        $messageSender->setRecipients($recipientHandler);
-                        $messageSender->setSender(new user(['userID' => 0]));
-                        $messageSender->setSubject('Ihr Beurlaubungsantrag wurde abgelehnt');
-                        $messageSender->setText('Guten Tag ' . $empfaenger->getFirstName().' '.$empfaenger->getLastName().',<br />Ihr Antrag auf Beurlaubung wurde nicht genehmigt.<br />Für Details melden Sie sich bitte im Portal an und überprüfen Sie die Beurlaubung.<br /><br /><i>Dies ist eine automatisch versendete Nachricht.</i>');
-                        $messageSender->send();
+
+                        if (EXTENSION::isActive('ext.zwiebelgasse.inbox')) {
+
+                            include_once PATH_EXTENSIONS. 'inbox' .DS . 'models' . DS . 'Inbox2.class.php';
+                            $Inbox = new extInboxModelInbox2();
+                            $inbox = $Inbox->getByUserIDFirst($dataDB['createdUserID']);
+                            include_once PATH_EXTENSIONS. 'inbox' .DS . 'models' . DS . 'Message2.class.php';
+                            $class = new extInboxModelMessage2();
+                            if (!$class->sendMessage([
+                                'receiver' => '[{"typ":"user","content":"' . $dataDB['createdUserID'] . '","inboxs":["' . $inbox->getID() . '"]}]',
+                                'sender_id' => 1,
+                                'subject' => 'Ihr Beurlaubungsantrag wurde abgelehnt',
+                                'text' => 'Guten Tag ' . $empfaenger->getFirstName().' '.$empfaenger->getLastName().',<br />Ihr Antrag auf Beurlaubung wurde nicht genehmigt.<br />Für Details melden Sie sich bitte im Portal an und überprüfen Sie die Beurlaubung.<br /><br /><i>Dies ist eine automatisch versendete Nachricht.</i>',
+                                'noAnswer' => true
+                            ])) {
+                                return false;
+                            }
+                            return true;
+
+                        } else {
+
+                            $messageSender = new MessageSender();
+                            $recipientHandler = new RecipientHandler("");
+                            $recipientHandler->addRecipient(new UserRecipient($empfaenger));
+                            $messageSender->setRecipients($recipientHandler);
+                            $messageSender->setSender(new user(['userID' => 0]));
+                            $messageSender->setSubject('Ihr Beurlaubungsantrag wurde abgelehnt');
+                            $messageSender->setText('Guten Tag ' . $empfaenger->getFirstName().' '.$empfaenger->getLastName().',<br />Ihr Antrag auf Beurlaubung wurde nicht genehmigt.<br />Für Details melden Sie sich bitte im Portal an und überprüfen Sie die Beurlaubung.<br /><br /><i>Dies ist eine automatisch versendete Nachricht.</i>');
+                            $messageSender->send();
+
+                        }
+
                     }
                 }
 

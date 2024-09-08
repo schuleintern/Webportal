@@ -39,13 +39,14 @@ class setAntrag extends AbstractRest
             ];
         }
 
-        $info = trim(nl2br($input['info']));
+        $info = nl2br(trim(strip_tags(htmlspecialchars_decode($input['info']))));
         if (DB::getSettings()->getBoolean("extBeurlaubung-form-info-required") && (!$info || $info == '')) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Info'
             ];
         }
+
 
         $schueler = (int)$input['schueler'];
         if (!$schueler) {
