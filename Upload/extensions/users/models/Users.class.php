@@ -74,14 +74,14 @@ class extUsersModelUsers extends ExtensionModel
         if (DB::getGlobalSettings()->schuelerUserMode == "ASV") {
 
             $schueler_create = [];
-            $dataSQL = DB::getDB()->query("SELECT * FROM schueler WHERE schuelerUserID=0");
+            $dataSQL = DB::getDB()->query("SELECT * FROM schueler WHERE schuelerUserID=0 LIMIT 0, 50");
             while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
                 $schueler_create[] = $data;
             }
 
 
             foreach ($schueler_create as $data) {
-                $newPassword = substr(md5(rand()), 1, 10);
+                $newPassword = substr(md5(rand(0, 3000)), 1, 10);
 
                 // Benutzeranlegen
                 DB::getDB()->query("INSERT INTO users

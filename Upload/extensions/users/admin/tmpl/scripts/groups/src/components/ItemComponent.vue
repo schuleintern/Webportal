@@ -6,7 +6,9 @@
         <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück
         </button>
         <button class="si-btn" @click="handlerSubmit"><i class="fa fa-save"></i> Speichern</button>
-
+      </div>
+      <div v-show="form.id" class="flex flex-end">
+        <button  v-on:click="handlerDelete" class="si-btn si-btn-light"><i class="far fa-trash-alt"></i> Löschen</button>
       </div>
     </div>
 
@@ -77,6 +79,19 @@ export default {
   },
   methods: {
 
+    handlerDelete() {
+
+      if (!this.form.id) {
+        return false;
+      }
+      if (confirm('Wirklich löschen?')) {
+        this.$bus.$emit('item--delete', {
+          item: this.item
+        });
+      }
+
+
+    },
     handelerUser: function (form, event) {
 
       //console.log(form,event)

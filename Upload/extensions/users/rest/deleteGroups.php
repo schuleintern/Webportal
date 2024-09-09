@@ -1,6 +1,6 @@
 <?php
 
-class setGroups extends AbstractRest
+class deleteGroups extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -9,15 +9,17 @@ class setGroups extends AbstractRest
     public function execute($input, $request)
     {
 
-        $myUser = DB::getSession()->getUser();
-        if (!$myUser) {
+        $userID = DB::getSession()->getUser()->getUserID();
+        if (!$userID) {
             return [
                 'error' => true,
-                'msg' => 'Missing User'
+                'msg' => 'Missing User ID'
             ];
         }
+
         $acl = $this->getAcl();
-        if (!$this->canWrite()) {
+
+        if (!$this->canDelete()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,65 +27,27 @@ class setGroups extends AbstractRest
         }
 
         $id = (int)$input['id'];
-        $state = (int)$input['state'];
-
-        if (!$id || !$state) {
-            $state = 1;
-        }
-
-        $title = (string)$input['title'];
-        if (!$title) {
+        if (!$id) {
             return [
                 'error' => true,
-                'msg' => 'Missing Data: Title'
+                'msg' => 'Missing Data: id'
             ];
         }
-
-        $users = json_decode((string)$_POST['users']);
-        if (!$users || count($users) < 1) {
-            return [
-                'error' => true,
-                'msg' => 'Missing Data: Users'
-            ];
-        }
-
-        $userlist = [];
-        foreach ($users as $user) {
-            if ($user->id) {
-                $userlist[] = $user->id;
-            }
-        }
-
 
         include_once PATH_EXTENSION . 'models' . DS . 'Groups.class.php';
-        $class = new extUsersModelGroups();
+        $class = new extUsersModelGroups([
+            'id' => $id
+        ]);
 
-        if ($class->save([
-            'id' => $id,
-            'title' => $title,
-            'state' => $state,
-            'users' => json_encode($userlist),
-            'createdTime' => date('Y-m-d H:i', time()),
-            'createdBy' => $myUser->getUserID()
-        ])) {
-
-
-            if (EXTENSION::isActive('ext.zwiebelgasse.inbox')) {
-                include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
-                $class = new extInboxModelInbox2();
-                //$class->syncUserGroups();
-            }
-
+        if ($class->delete()) {
             return [
                 'success' => true
             ];
-
         }
-
 
         return [
             'error' => true,
-            'msg' => 'Nicht Erfolgreich!'
+            'msg' => 'Error'
         ];
 
     }
