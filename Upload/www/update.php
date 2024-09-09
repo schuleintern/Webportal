@@ -28,6 +28,7 @@ class Updates
     {
         $root->update('www/components');
         $root->update('www/cssjs');
+        return true;
     }
 
     public static function to181($root)
