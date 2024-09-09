@@ -115,7 +115,7 @@ class AdminUpdate extends AbstractPage
     private static function updateToVersion($versionInfo)
     {
 
-        $schulnummern = implode('-',DB::getSchulnummern());
+        $schulnummern = implode('I',DB::getSchulnummern());
         $url = DB::getGlobalSettings()->updateServer . "/api/release/" . $versionInfo['id'] . "/download/" . $schulnummern;
 
         $path = PATH_ROOT.'data'.DS.'update';
