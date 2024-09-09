@@ -13,7 +13,7 @@ class extStundenplanWidgetDashboard extends Widget
 
         echo '<script>
                 window._widget_stundenplan_apiKey = "'.DB::getGlobalSettings()->apiKey.'";
-                window._widget_stundenplan_day = '.$day.'
+                window._widget_stundenplan_day = "'.$day.'";
               </script>';
 
     }
