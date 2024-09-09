@@ -377,7 +377,7 @@ abstract class ExtensionModel
             return false;
         }
 
-        $target_Path = PATH_TMP;
+        $target_Path = PATH_WWW_TMP;
         if ($folders) {
             $target_Path .= $folders.DS;
             if (!file_exists($target_Path)) {
@@ -405,7 +405,7 @@ abstract class ExtensionModel
             return false;
         }
         $newFile = basename($file);
-        $newFolder = str_replace(PATH_TMP,'',$file);
+        $newFolder = str_replace(PATH_WWW_TMP,'',$file);
         $newFolder = str_replace($newFile,'',$newFolder);
 
         $newFolders = explode('/', $newFolder);
