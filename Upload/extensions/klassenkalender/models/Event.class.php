@@ -143,6 +143,11 @@ class extKlassenkalenderModelEvent extends ExtensionModel
                 $user = DB::getSession()->getUser()->getCollection(true);
                 $userType = DB::getSession()->getUser()->getUserTyp(true);
                 if ($userType == 'isTeacher') {
+
+                    return $collection;
+
+                    // NOTWENDIG ????
+                    /*
                     if ($user['klassen'] && is_array($user['klassen']) && $collection['kalender'] && $collection['kalender']['title'] ) {
                         if ( in_array($collection['kalender']['title'], $user['klassen']) ) {
                             if ($collection['typ'] == 'event') {
@@ -152,6 +157,7 @@ class extKlassenkalenderModelEvent extends ExtensionModel
                             }
                         }
                     }
+                    */
                 } else if ($userType == 'isPupil' || $userType == 'isEltern') {
                     if ($user['klassen'] && is_array($user['klassen']) && $collection['kalender'] && $collection['kalender']['title'] ) {
                         if ( in_array($collection['kalender']['title'], $user['klassen']) ) {

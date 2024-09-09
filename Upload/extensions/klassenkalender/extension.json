@@ -1,7 +1,7 @@
 {
   "name": "Klassenkalender",
   "uniqid": "ext.zwiebelgasse.klassenkalender",
-  "version": "6",
+  "version": "8",
   "requiredVersion": "1.8.2",
   "menu": {
     "categorie": "1",

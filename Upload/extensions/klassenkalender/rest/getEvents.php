@@ -44,10 +44,9 @@ class getEvents extends AbstractRest {
 
             if ($data && count($data) > 0) {
                 foreach ($data as $item) {
-
-                    $item = $item->getCollection(true, true);
-                    if ($item) {
-                        $ret[] = $item;
+                    $col = $item->getCollection(true, true);
+                    if ($col) {
+                        $ret[] = $col;
                     }
                 }
             }

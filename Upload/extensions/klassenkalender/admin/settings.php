@@ -44,6 +44,15 @@ class extKlassenkalenderAdminSettings extends AbstractPage {
 
         $settings =  [
 
+            [
+                'name' => "extKlassenkalender-allLulAdmins",
+                'typ' => 'BOOLEAN',
+                'title' => "Alle Lehrer*innen haben in allen Klassen Adminrechte",
+                'desc' => ""
+            ]
+
+
+
         ];
         return $settings;
 

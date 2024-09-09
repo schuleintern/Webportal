@@ -5,12 +5,22 @@
       <button class="si-modal-btn-close" v-on:click="handlerClose"></button>
       <div class="si-modal-content si-form ">
         <ul>
-          <li style="padding-bottom: 0;padding-top: 0" >
-            <div class="si-btn-multiple tabs-head">
+          <li style="padding-bottom: 0;padding-top: 0" class="flex-row" >
+            <div class="si-btn-multiple tabs-head  flex-1 margin-r-l">
               <button class="si-btn" :class="{'si-btn-active':openTab=='lnw'}"
                       @click="handlerOpenTab('lnw')"><i class="fas fa-graduation-cap"></i> Leistungserhebung</button>
               <button class="si-btn" :class="{'si-btn-active':openTab=='event'}"
                       @click="handlerOpenTab('event')"><i class="fas fa-calendar-plus"></i> Termin</button>
+            </div>
+
+            <div class="flex-1 margin-l-l">
+              <Datepicker
+                  required :previewFormat="format" :format="format" v-model="form.startDay" modelType="yyyy-MM-dd"
+                  :enableTimePicker="false" locale="de" cancelText="Abbrechen"
+                  selectText="Ok"
+                  :monthChangeOnScroll="false"
+                  placeholder="Datum"
+                  class=""></Datepicker>
             </div>
           </li>
 
@@ -22,7 +32,7 @@
         <div class="tabs">
 
           <div v-if="openTab == 'lnw'"  class="tab flex-row">
-            <div class="flex-1 margin-r-l">
+            <div class="flex-2 margin-r-l">
               <div class="flex-row margin-t-l padding-l-m">
                 <div class="flex-1 padding-l-m">
                   <h4 class="margin-b-m">Kalender wählen:</h4>
@@ -30,23 +40,14 @@
                     <button v-on:click="handlerClickKalender(item.id)"
                             v-bind:style="styleButton(item.id, item.color)"
                             class="si-btn si-btn-toggle-off " :class="{'si-btn-toggle-on': activeButton(item.id)}"
-                            v-show="checkAcl(item.acl)">{{ item.title }}
+                            v-if="checkAcl(item.acl)">{{ item.title }}
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="flex-1">
+            <div class="flex-3">
               <ul class="">
-                <li>
-                  <label>Datum</label>
-                  <Datepicker
-                      required :previewFormat="format" :format="format" v-model="form.startDay" modelType="yyyy-MM-dd"
-                      :enableTimePicker="false" locale="de" cancelText="Abbrechen"
-                      selectText="Ok"
-                      :monthChangeOnScroll="false"
-                      class=""></Datepicker>
-                </li>
                 <li>
                   <label>Stunde</label>
                   <FormMultiSelect :input="form.stunde" :options="stunden" @submit="triggerStunden"></FormMultiSelect>
@@ -76,7 +77,7 @@
           </div>
 
           <div v-if="openTab == 'event'"  class="tab flex-row">
-            <div class="flex-1 margin-r-l">
+            <div class="flex-2 margin-r-l">
               <div class="flex-row margin-t-l padding-l-m">
                 <div class="flex-1 padding-l-m">
                   <h4 class="margin-b-m">Kalender wählen:</h4>
@@ -90,17 +91,8 @@
                 </div>
               </div>
             </div>
-            <div class="flex-1">
+            <div class="flex-3">
               <ul class="">
-                <li>
-                  <label>Datum</label>
-                  <Datepicker
-                      required :previewFormat="format" :format="format" v-model="form.startDay" modelType="yyyy-MM-dd"
-                      :enableTimePicker="false" locale="de" cancelText="Abbrechen"
-                      selectText="Ok"
-                      :monthChangeOnScroll="false"
-                      class=""></Datepicker>
-                </li>
                 <li>
                   <label>Bis</label>
                   <Datepicker

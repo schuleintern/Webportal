@@ -62,6 +62,7 @@ export default {
 
     this.$bus.$on('kalenders--selected', (data) => {
 
+      this.selectedKalenders = data.selected;
       this.loadEvents(data.selected);
       //this.selectedKalenders = data.selected;
     });

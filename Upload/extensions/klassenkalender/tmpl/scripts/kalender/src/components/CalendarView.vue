@@ -159,6 +159,9 @@ export default {
     },
     handelerDeselectAll() {
       this.selected = [];
+      this.$bus.$emit('kalenders--selected', {
+        selected: this.selected
+      });
       this.$bus.$emit('kalenders--preSelected', {
         selected: this.selected
       });
@@ -168,9 +171,17 @@ export default {
       this.calendars.forEach((o) => {
         this.selected.push(parseInt(o.id));
       });
+      /*
+      this.$bus.$emit('kalenders--preSelected', {
+        selected: this.selected
+      });*/
       this.$bus.$emit('kalenders--preSelected', {
         selected: this.selected
       });
+      this.$bus.$emit('kalenders--selected', {
+        selected: this.selected
+      });
+      //this.loadEvents(this.selectedKalenders);
     },
     handelerShowClock() {
       this.showClock = !this.showClock;

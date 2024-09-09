@@ -63,6 +63,11 @@ class getKalenders extends AbstractRest {
                         }
                     }
                 }
+
+                if (DB::getSettings()->getValue("extKlassenkalender-allLulAdmins") == true) {
+                    $show = true;
+                    $arr['acl']['rights'] = ['read' => 1, 'write' => 1, 'delete' => 1];
+                }
                 if ($userType == 'isPupil' || $userType == 'isEltern') {
                     if ($userCollection['klasse']) {
                         if ( in_array($arr['title'],$userCollection['klassen']) ) {
