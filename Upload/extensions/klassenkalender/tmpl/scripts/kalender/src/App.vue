@@ -5,7 +5,7 @@
     <CalendarForm :calendars="kalenders"></CalendarForm>
     <CalendarItem :kalenders="kalenders" :acl="acl"></CalendarItem>
 
-    <CalendarList :kalenders="kalenders" :selectedKalenders="selectedKalenders" :suggest="suggest" :ics="ics"></CalendarList>
+    <CalendarList :acl="acl" :kalenders="kalenders" :selectedKalenders="selectedKalenders" :suggest="suggest" :ics="ics"></CalendarList>
     <CalendarView :events="events" :calendars="kalenders" :acl="acl" ></CalendarView>
 
     <IcsForm></IcsForm>
@@ -102,7 +102,7 @@ export default {
 
       formData.append('id', data.form.id || '');
       formData.append('title', data.form.title || '');
-      formData.append('kalender_id', data.form.calenderID || '');
+      formData.append('kalender_id', JSON.stringify(data.form.calenderID) || '');
       formData.append('dateStart', data.form.startDay || '');
       formData.append('timeStart', startTime || '');
       formData.append('dateEnd', data.form.endDay || '');

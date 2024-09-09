@@ -7,10 +7,10 @@
         <ul>
           <li style="padding-bottom: 0;padding-top: 0" >
             <div class="si-btn-multiple tabs-head">
-              <button class="si-btn" :class="{'si-btn-active':openTab=='event'}"
-                      @click="handlerOpenTab('event')"><i class="fas fa-calendar-plus"></i> Termin</button>
               <button class="si-btn" :class="{'si-btn-active':openTab=='lnw'}"
                       @click="handlerOpenTab('lnw')"><i class="fas fa-graduation-cap"></i> Leistungserhebung</button>
+              <button class="si-btn" :class="{'si-btn-active':openTab=='event'}"
+                      @click="handlerOpenTab('event')"><i class="fas fa-calendar-plus"></i> Termin</button>
             </div>
           </li>
 
@@ -26,18 +26,27 @@
               <div class="flex-row margin-t-l padding-l-m">
                 <div class="flex-1 padding-l-m">
                   <h4 class="margin-b-m">Kalender wählen:</h4>
-                  <span v-bind:key="i" v-for="(item, i) in calendars" class="margin-r-s">
+                  <div v-bind:key="i" v-for="(item, i) in calendars" class="margin-r-s margin-b-s blockInline">
                     <button v-on:click="handlerClickKalender(item.id)"
                             v-bind:style="styleButton(item.id, item.color)"
-                            class="si-btn si-btn-toggle-off" :class="{'si-btn-toggle-on': activeButton(item.id)}"
+                            class="si-btn si-btn-toggle-off " :class="{'si-btn-toggle-on': activeButton(item.id)}"
                             v-show="checkAcl(item.acl)">{{ item.title }}
                     </button>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="flex-1">
               <ul class="">
+                <li>
+                  <label>Datum</label>
+                  <Datepicker
+                      required :previewFormat="format" :format="format" v-model="form.startDay" modelType="yyyy-MM-dd"
+                      :enableTimePicker="false" locale="de" cancelText="Abbrechen"
+                      selectText="Ok"
+                      :monthChangeOnScroll="false"
+                      class=""></Datepicker>
+                </li>
                 <li>
                   <label>Stunde</label>
                   <FormMultiSelect :input="form.stunde" :options="stunden" @submit="triggerStunden"></FormMultiSelect>
@@ -71,13 +80,13 @@
               <div class="flex-row margin-t-l padding-l-m">
                 <div class="flex-1 padding-l-m">
                   <h4 class="margin-b-m">Kalender wählen:</h4>
-                  <span v-bind:key="i" v-for="(item, i) in calendars" class="margin-r-s">
+                  <div v-bind:key="i" v-for="(item, i) in calendars" class="margin-r-s margin-b-s blockInline">
                     <button v-on:click="handlerClickKalender(item.id)"
                             v-bind:style="styleButton(item.id, item.color)"
                             class="si-btn si-btn-toggle-off" :class="{'si-btn-toggle-on': activeButton(item.id)}"
                             v-show="checkAcl(item.acl)">{{ item.title }}
                     </button>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -239,6 +248,7 @@ export default {
       if (data.form) {
         that.form = data.form;
 
+        that.form.calenderID = [String(that.form.calenderID)];
         if (that.form.startTime) {
           let dateStart = that.form.startTime.split(':');
           that.form.startTime = { "hours": dateStart[0], "minutes": dateStart[1], "seconds": 0 };
@@ -252,7 +262,7 @@ export default {
       if (that.form.typ) {
         this.handlerOpenTab(that.form.typ);
       } else {
-        this.handlerOpenTab('event');
+        this.handlerOpenTab('lnw');
       }
       that.open = true;
 
@@ -289,8 +299,16 @@ export default {
       return this.$dayjs(date).format(format);
     },
     handlerClickKalender(id) {
-      if (id) {
-        this.form.calenderID = id;
+      if (!this.form.calenderID) {
+        this.form.calenderID = [];
+      }
+      if (id && this.form.calenderID) {
+        //this.form.calenderID = id;
+        if(!this.form.calenderID.includes(id)){
+          this.form.calenderID.push(id);
+        }else{
+          this.form.calenderID.splice(this.form.calenderID.indexOf(id), 1);
+        }
       }
       return false;
     },
@@ -307,13 +325,20 @@ export default {
       return false;
     },
     activeButton(id) {
+      /*
       if (this.form.calenderID == id) {
+        return true;
+      }
+      */
+
+      if(this.form.calenderID && Array.isArray(this.form.calenderID) && this.form.calenderID.includes(id)){
         return true;
       }
       return false;
     },
     styleButton(id, color) {
 
+      /*
       if (this.form.calenderID == id) {
         if (color) {
           return {backgroundColor: color, borderColor: color};
@@ -322,6 +347,16 @@ export default {
       } else {
         return {borderLeft: '5px solid ' + color};
       }
+      */
+
+      if(this.form.calenderID && Array.isArray(this.form.calenderID) && this.form.calenderID.includes(id)){
+        if (color) {
+          return {backgroundColor: color, borderColor: color};
+        }
+      } else {
+        return {borderLeft: '5px solid ' + color};
+      }
+
     },
     handlerClose: function () {
       this.$bus.$emit('event-form--close');

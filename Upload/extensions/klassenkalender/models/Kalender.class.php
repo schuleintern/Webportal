@@ -75,6 +75,21 @@ class extKlassenkalenderModelKalender extends ExtensionModel
         return $collection;
     }
 
+
+    public static function deleteFromID( $id ) {
+
+        if (!$id) {
+            return false;
+        }
+
+        if (!DB::getDB()->query("DELETE FROM ext_klassenkalender WHERE id=".(int)$id)) {
+            return false;
+        }
+        return true;
+
+    }
+
+
 /*
     public function getByDate($date = false)
     {

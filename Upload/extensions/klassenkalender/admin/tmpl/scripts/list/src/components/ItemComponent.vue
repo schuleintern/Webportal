@@ -7,14 +7,10 @@
         <button class="si-btn " @click="handlerSaveForm()"><i class="fa fa fa-save"></i> Speichern</button>
       </div>
       <div class="">
-        <!--
-        <button class="si-btn si-btn-light" @click="handlerDelete()" v-if="deleteBtn === false"><i
+
+        <button class="si-btn si-btn-light" @click="handlerDelete()"><i
             class="fa fa fa-trash"></i> Löschen
         </button>
-        <button class="si-btn si-btn-red" @click="handlerDeleteDo(item)" v-if="deleteBtn === true"><i
-            class="fa fa fa-trash"></i> Wirklich Löschen ?
-        </button>
-        -->
       </div>
     </div>
 
@@ -87,7 +83,6 @@ export default {
 
       form: {},
       required: '',
-      deleteBtn: false,
       formACL: {
         'acl': {
           'schueler': {read: "1", write: "1", delete: "1"},
@@ -139,16 +134,13 @@ export default {
     },
 
     handlerDelete() {
-      this.deleteBtn = true;
+      if (confirm('Wirklich löschen?')) {
+        this.$bus.$emit('item--delete', {
+          item: this.form
+        });
+      }
     },
 
-    handlerDeleteDo(item) {
-
-      this.$bus.$emit('item--delete', {
-        item: item
-      });
-
-    },
 
     handlerToggleChange(event, item, elm) {
       item[elm] = event.value;

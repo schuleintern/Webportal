@@ -25,7 +25,7 @@ export default {
   },
   created: function () {
     if (this.input) {
-      this.value = this.input.split(',');
+      this.value = String(this.input).split(',');
     }
     if (!this.value || typeof this.value !== 'object') {
       this.value = [];

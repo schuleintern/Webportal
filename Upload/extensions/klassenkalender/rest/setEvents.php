@@ -17,7 +17,16 @@ class setEvents extends AbstractRest
             ];
         }
 
-        if (!$input['kalender_id']) {
+
+        $kalender_ids = $_POST['kalender_id'];
+        if ( !$kalender_ids ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: CalenderIDs'
+            ];
+        }
+        $kalender_ids = json_decode($kalender_ids);
+        if ( !$kalender_ids[0] ) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: CalenderID'
@@ -25,21 +34,25 @@ class setEvents extends AbstractRest
         }
 
 
+
         $acl = $this->getAcl();
 
 
         include_once PATH_EXTENSION . 'models' . DS . 'Kalender.class.php';
         $Klaender = new extKlassenkalenderModelKalender();
-        $calendar = $Klaender->getByID($input['kalender_id']);
+
 
         $access = false;
         if ($this->canWrite()) {
             $access = true;
         }
         if (!$access) {
-            if ($kadmins = $calendar->getAdmins()) {
-                if (in_array($userID, $kadmins)) {
-                    $access = true;
+            foreach($kalender_ids as $kalender_id) {
+                $calendar = $Klaender->getByID($kalender_id);
+                if ($kadmins = $calendar->getAdmins()) {
+                    if (in_array($userID, $kadmins)) {
+                        $access = true;
+                    }
                 }
             }
         }
@@ -53,7 +66,7 @@ class setEvents extends AbstractRest
 
         $input['id'] = (int)$input['id'];
         $input['stunde'] = (string)$input['stunde'];
-        $input['kalender_id'] = (int)$input['kalender_id'];
+        //$input['kalender_id'] = (int)$input['kalender_id'];
         $input['user_id'] = (int)$userID;
 
         if ($input['id']) {
@@ -98,6 +111,7 @@ class setEvents extends AbstractRest
                     'msg' => 'Missing Data: Teacher'
                 ];
             }
+            $input['title'] = true;
 
             $fach = fach::getByID($input['fach']);
             $teacher = lehrer::getByXMLID($input['teacher']);
@@ -105,7 +119,6 @@ class setEvents extends AbstractRest
             $LNWS = new extKlassenkalenderModelLnws();
             $lnw = $LNWS->getByID($input['art']);
 
-            $input['title'] = $calendar->getData('title').': '.$lnw->getData('short').' - '.$fach->getKurzform().' - '.$teacher->getKuerzel();
 
         }
 
@@ -121,12 +134,7 @@ class setEvents extends AbstractRest
                 'msg' => 'Missing Data: Date'
             ];
         }
-        if (!$input['kalender_id']) {
-            return [
-                'error' => true,
-                'msg' => 'Missing Data: Kalender'
-            ];
-        }
+
 
         $dateStart = DB::getDB()->escapeString($input['dateStart']);
         if ( !$dateStart ||$dateStart == '0000-00-00') {
@@ -150,18 +158,30 @@ class setEvents extends AbstractRest
 
         include_once PATH_EXTENSION . 'models' . DS . 'Event.class.php';
         $class = new extKlassenkalenderModelEvent();
-        if ($insert_id = $class->add($input)) {
 
-            return [
-                'success' => true,
-                'id' => $insert_id
-            ];
+        foreach($kalender_ids as $kalender_id) {
+
+            $input['kalender_id'] = (int)$kalender_id;
+            $calendar = $Klaender->getByID($kalender_id);
+            if ($input['typ'] == 'lnw') {
+                $input['title'] = $calendar->getData('title').': '.$lnw->getData('short').' - '.$fach->getKurzform().' - '.$teacher->getKuerzel();
+            }
+
+            if (!$class->add($input)) {
+                return [
+                    'error' => true,
+                    'msg' => 'Error'
+                ];
+
+            }
         }
-
         return [
-            'error' => true,
-            'msg' => 'Error'
+            'success' => true
         ];
+
+
+
+
 
     }
 

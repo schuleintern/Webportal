@@ -42,6 +42,7 @@
           <button class="si-btn si-btn-icon si-btn-border" @click="handelerDeselectAll"><i
               class="fa fas fa-toggle-off"></i></button>
         </div>
+        <button v-if="acl.write == 1" class="si-btn si-btn-icon si-btn-green" v-on:click="handlerAdd"><i class="fa fa-plus"></i></button>
         <button class="si-btn" @click="nextMonth">Weiter <i class="fa fa-arrow-right"></i></button>
       </div>
       <table  class="si-table si-table-style-allLeft">
@@ -148,6 +149,14 @@ export default {
     }
   },
   methods: {
+    handlerAdd() {
+      if (this.acl.write != 1) {
+        return false;
+      }
+      this.$bus.$emit('event-form--open', {
+        form: {}
+      });
+    },
     handelerDeselectAll() {
       this.selected = [];
       this.$bus.$emit('kalenders--preSelected', {

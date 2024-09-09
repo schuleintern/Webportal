@@ -28,6 +28,7 @@
       </div>
 
 
+
     </div>
   </div>
 
@@ -48,7 +49,8 @@ export default {
     kalenders: Array,
     selectedKalenders: Array,
     suggest: Boolean,
-    ics: Boolean
+    ics: Boolean,
+    acl:Object
   },
   created: function () {
 
