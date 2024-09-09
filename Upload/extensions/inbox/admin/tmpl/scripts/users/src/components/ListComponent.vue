@@ -31,10 +31,12 @@
           <td><a :href="'#item'+item.id" v-on:click="handlerOpen(item)">{{item.userName}}</a></td>
           <td>{{ item.user_id }}</td>
           <td>
-            <button v-if="item.user.type == 'isPupil'" class="si-btn si-btn-off si-btn-small">Schüler*in</button>
-            <button v-if="item.user.type == 'isTeacher'" class="si-btn si-btn-off si-btn-small">Lehrer*in</button>
-            <button v-if="item.user.type == 'isEltern'" class="si-btn si-btn-off si-btn-small">Eltern</button>
-            <button v-if="item.user.type == 'isNone'" class="si-btn si-btn-off si-btn-small">Sonstiges</button>
+            <span v-if="item.user">
+              <button v-if="item.user.type == 'isPupil'" class="si-btn si-btn-off si-btn-small">Schüler*in</button>
+              <button v-if="item.user.type == 'isTeacher'" class="si-btn si-btn-off si-btn-small">Lehrer*in</button>
+              <button v-if="item.user.type == 'isEltern'" class="si-btn si-btn-off si-btn-small">Eltern</button>
+              <button v-if="item.user.type == 'isNone'" class="si-btn si-btn-off si-btn-small">Sonstiges</button>
+            </span>
           </td>
         </tr>
       </tbody>
