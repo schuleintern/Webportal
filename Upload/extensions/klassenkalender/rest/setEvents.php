@@ -162,18 +162,21 @@ class setEvents extends AbstractRest
         foreach($kalender_ids as $kalender_id) {
 
             $input['kalender_id'] = (int)$kalender_id;
-            $calendar = $Klaender->getByID($kalender_id);
-            if ($input['typ'] == 'lnw') {
-                $input['title'] = $calendar->getData('title').': '.$lnw->getData('short').' - '.$fach->getKurzform().' - '.$teacher->getKuerzel();
+            if ($input['kalender_id']) {
+                $calendar = $Klaender->getByID($kalender_id);
+                if ($input['typ'] == 'lnw') {
+                    $input['title'] = $calendar->getData('title').': '.$lnw->getData('short').' - '.$fach->getKurzform().' - '.$teacher->getKuerzel();
+                }
+
+                if (!$class->add($input)) {
+                    return [
+                        'error' => true,
+                        'msg' => 'Error'
+                    ];
+
+                }
             }
 
-            if (!$class->add($input)) {
-                return [
-                    'error' => true,
-                    'msg' => 'Error'
-                ];
-
-            }
         }
         return [
             'success' => true
