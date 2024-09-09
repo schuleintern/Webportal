@@ -11,10 +11,12 @@
         :is-draggable="false"
         :is-resizable="false"
         :is-mirrored="false"
-        :vertical-compact="false"
+        :vertical-compact="true"
         :margin="[10, 10]"
         :use-css-transforms="true"
         :auto-size="true"
+        :responsive="true"
+        @breakpoint-changed="breakpointChangedEvent"
     >
 
       <grid-item v-for="item in layout"
@@ -67,13 +69,18 @@ export default {
     this.index = this.layout.length;
   },
   methods: {
-
+    breakpointChangedEvent: function(newBreakpoint, newLayout){
+      //console.log("BREAKPOINT CHANGED breakpoint=", newBreakpoint, ", layout: ", newLayout );
+    }
   }
 
 };
 </script>
 
 <style>
+.box-body {
+  width: 100%;
+}
 .vue-grid-item {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   border-radius: 1rem;
