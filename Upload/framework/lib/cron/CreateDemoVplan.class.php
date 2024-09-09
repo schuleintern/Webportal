@@ -15,7 +15,7 @@ class CreateDemoVplan extends AbstractCron {
 	}
 
 	public function execute() {
-		if(!DB::isSchulnummern(9400)) {
+		if(DB::isSchulnummern(9400)) {
 			$heute = DateFunctions::getTodayAsSQLDate();
 			
 			while(true) {
