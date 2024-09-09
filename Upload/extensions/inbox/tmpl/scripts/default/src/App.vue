@@ -683,6 +683,9 @@ export default {
             })
 
             if (that.extInboxWidgetCount) {
+              if (count == 0) {
+                count = '';
+              }
               that.extInboxWidgetCount.innerText = count;
             }
           }
@@ -702,6 +705,10 @@ export default {
 </script>
 
 <style>
+
+.isMobile .body img {
+  max-width: 100%;
+}
 
 .isMobile .body {
   padding: 0;
