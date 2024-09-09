@@ -72,14 +72,11 @@ class email {
     public static function sendEMail($data = false) {
 
 
-
-
         if (!$data || !is_array($data)) {
             return false;
         }
 
-
-        if (!$data['emails'] || count($data['emails']) < 0 || !$data['text'] || !$data['subject'] ) {
+        if (!$data['emails'] || count($data['emails']) < 0  || !$data['subject'] ) {
             return false;
         }
 
@@ -144,7 +141,6 @@ class email {
 
         if(DB::isDebug()) {
             $mail->AddAddress('post@zwiebelgasse.de');
-
         } else {
             foreach ($data['emails'] as $email) {
                 $mail->AddAddress($email);
