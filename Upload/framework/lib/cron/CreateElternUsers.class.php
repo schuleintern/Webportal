@@ -11,19 +11,21 @@ class CreateElternUsers extends AbstractCron {
 
 	public function execute() {
 
-		
+
+
 	    if(DB::getGlobalSettings()->elternUserMode == "ASV_MAIL") {
 	    	if(DB::getSettings()->getBoolean('elternmail-create-users')) {
-	    	    
+
+
+
 	    	    // Aufräumarbeiten:
 	    	    
 	    	    // E-Mailadressen zuordnen zu den Benutzern, wenn schon vorhanden, aber nicht zugordnet (elternUserID=0)
 	    	    DB::getDB()->query("UPDATE eltern_email SET elternUserID=(SELECT userID FROM users WHERE userName=elternEMail)");
-	    	    
-	    	    
-	    	    // 
-	    	    
-	    	    
+
+
+
+
 		    	//include_once(PATH_LIB."/page/abstractPage.class.php");
 		    	include_once(PATH_LIB."page/loginlogout/login.class.php");
 		    	
@@ -46,91 +48,129 @@ class CreateElternUsers extends AbstractCron {
 
                 }
 
+
 	    		// Benutzer anlegen
 	    		// Keine Elternbenutzer für Schüler anlegen
-                $newEltern = DB::getDB()->query("SELECT DISTINCT elternEMail FROM eltern_email JOIN eltern_adressen ON eltern_email.elternAdresseID=eltern_adressen.adresseID WHERE ( elternUserID = 0 OR elternUserID IS NULL ) AND adresseWessen!='S' LIMIT 0,30");
+                $newEltern = DB::getDB()->query("SELECT DISTINCT elternEMail, elternSchuelerAsvID, adresseVorname, adresseFamilienname  FROM eltern_email 
+                JOIN eltern_adressen ON eltern_email.elternAdresseID=eltern_adressen.adresseID
+                WHERE ( elternUserID = 0 OR elternUserID IS NULL ) AND adresseWessen!='S' LIMIT 0,75");
+
 
 	
 	    		$create = array();
 	
 	    		while($e = DB::getDB()->fetch_array($newEltern)) {
-	    			$create[] = $e['elternEMail'];
+	    			$create[] = $e;
 	    		}
+
+
 
 	    		// $this->listCreated = implode(", ", $create);return;
 	
 	    		$originalSubject = DB::getSettings()->getValue("elternmail-subjectnewuser");
 	    		$originalText = DB::getSettings()->getValue("elternmail-textnewuser");
 
-	
+
+
 	    		for($i = 0; $i < sizeof($create); $i++) {
 	
-	    			$currentUser = DB::getDB()->query_first("SELECT userID FROM users WHERE userName LIKE '" . DB::getDB()->escapeString(trim($create[$i])) . "'");
+	    			$currentUser = DB::getDB()->query_first("SELECT userID FROM users WHERE userName LIKE '" . DB::getDB()->escapeString(trim($create[$i]['elternEMail'])) . "'");
 	
 	    			if($currentUser['userID'] > 0) {
 	    				// Benutzer schon vorhanden
-	    				$newID = $currentUser['userID'];			
+	    				$newID = $currentUser['userID'];
+
+                        //echo '<br>Benutzer schon vorhanden :'.$newID;
+
+	    			} else {
+
+                        if ($create[$i]['elternEMail'] && $create[$i]['adresseVorname'] && $create[$i]['adresseFamilienname']) {
+
+                            $newPassword = substr(md5(rand(0,4000)), 0, 8);
+                            DB::getDB()->query("INSERT INTO users (
+                                    userName,
+                                    userFirstName,
+                                    userLastName,
+                                    userCachedPasswordHash,
+                                    userCachedPasswordHashTime,
+                                    userLastPasswordChangeRemote,
+                                    userNetwork,
+                                    userEMail) values(
+                                        '" . DB::getDB()->escapeString(trim($create[$i]['elternEMail'])) . "',
+                                        '" . DB::getDB()->escapeString(trim($create[$i]['adresseVorname'])) . "',
+                                        '" . DB::getDB()->escapeString(trim($create[$i]['adresseFamilienname'])) . "',
+                                        '" . login::hash($newPassword) . "',
+                                        UNIX_TIMESTAMP(),
+                                        UNIX_TIMESTAMP(),
+                                        'SCHULEINTERN_ELTERN',
+                                        '" . DB::getDB()->escapeString(trim($create[$i]['elternEMail']))  . "'
+                                    )
+                            ");
+
+                            $newID = DB::getDB()->insert_id();
+
+                            if ($newID) {
+
+                                $this->listCreated .= $newID . " erstellt.\r\n";
+
+                                /*
+                                $schuelerSQL = DB::getDB()->query("SELECT schuelerName, schuelerRufname, schuelerKlasse FROM eltern_email
+                                JOIN schueler ON elternSchuelerAsvID=schuelerAsvID
+                                WHERE elternEMail='" . DB::getDB()->escapeString(trim($create[$i]['elternEMail'])) . "'");
+                                */
+
+                                $schuelerSQL = DB::getDB()->query("SELECT schuelerName, schuelerRufname, schuelerKlasse FROM schueler WHERE schuelerAsvID = '".trim($create[$i]['elternSchuelerAsvID'])."';");
+
+                                $schuelerListe = "";
+                                if ($schuelerSQL) {
+                                    while($s = DB::getDB()->fetch_array($schuelerSQL)) {
+                                        $schuelerListe .= $s['schuelerName'] . ", " . $s['schuelerRufname'] . " (" . $s['schuelerKlasse'] . ")\r\n";
+                                    }
+                                }
+
+
+                                $mailText = str_replace("{BENUTZERNAME}", $create[$i]['elternEMail'], $originalText);
+                                $mailText = str_replace("{PASSWORT}", $newPassword, $mailText);
+                                $mailText = str_replace("{SCHUELER}", $schuelerListe, $mailText);
+
+                                $mailText = nl2br($mailText);
+
+
+                                /*
+                                email::sendEMail([
+                                    "emails" => [trim($create[$i]['elternEMail'])],
+                                    "text" => $mailText,
+                                    "subject" => $originalSubject
+                                ]);
+                                */
+
+
+                                //$newMail = new email(trim($create[$i]), $originalSubject, $mailText);
+                                //$newMail->send();
+                            } else {
+                                //echo '<br>INSERT NO ID!!!!';
+                            }
+
+
+                        } else {
+
+                            /*
+                            echo '<pre>';
+                            print_r($create[$i]);
+                            echo '</pre>';
+                            */
+                        }
 	    			}
-	    			else {
-	    				$newPassword = substr(md5(rand()), 0, 8);
-	    				DB::getDB()->query("INSERT INTO users (
-	    						userName,
-	    						userFirstName,
-	    						userLastName,
-	    						userCachedPasswordHash,
-	    						userCachedPasswordHashTime,
-	    						userLastPasswordChangeRemote,
-	    						userNetwork,
-	    						userEMail) values(
-	    							'" . DB::getDB()->escapeString(trim($create[$i])) . "',
-	    							'Eltern',
-	    							'Eltern',
-	    							'" . login::hash($newPassword) . "',
-	    							UNIX_TIMESTAMP(),
-	    							UNIX_TIMESTAMP(),
-	    							'SCHULEINTERN_ELTERN',
-	    							'" . DB::getDB()->escapeString(trim($create[$i]))  . "'
-	    						) ON DUPLICATE KEY UPDATE userName=userName
-	    				");
 	
-	    				$newID = DB::getDB()->insert_id();
-	    				
-	    				$this->listCreated .= $newID . " erstellt.\r\n";
-	
-	    				$schuelerSQL = DB::getDB()->query("SELECT schuelerName, schuelerRufname, schuelerKlasse FROM eltern_email JOIN schueler ON elternSchuelerAsvID=schuelerAsvID WHERE elternEMail='" . DB::getDB()->escapeString(trim($create[$i])) . "'");
-	
-	    				$schuelerListe = "";
-	    				while($s = DB::getDB()->fetch_array($schuelerSQL)) {
-	    					$schuelerListe .= $s['schuelerName'] . ", " . $s['schuelerRufname'] . " (" . $s['schuelerKlasse'] . ")\r\n";
-	    				}
-	
-	    				$mailSubject = $originalSubject;
-	
-	    				$mailText = str_replace("{BENUTZERNAME}", $create[$i], $originalText);
-	    				$mailText = str_replace("{PASSWORT}", $newPassword, $mailText);
-	    				$mailText = str_replace("{SCHUELER}", $schuelerListe, $mailText);
-
-                        $mailText = nl2br($mailText);
-
-                        email::sendEMail([
-                            "emails" => [trim($create[$i])],
-                            "text" => $mailText,
-                            "subject" => $mailSubject
-                        ]);
-
-
-	    				//$newMail = new email(trim($create[$i]), $mailSubject, $mailText);
-	    				//$newMail->send();
-	    			}
-	
-	    			DB::getDB()->query("UPDATE eltern_email SET elternUserID='" . $newID . "' WHERE elternEMail LIKE '" . DB::getDB()->escapeString(trim($create[$i])) . "'");
+	    			DB::getDB()->query("UPDATE eltern_email SET elternUserID='" . $newID . "' WHERE elternEMail LIKE '" . DB::getDB()->escapeString(trim($create[$i]['elternEMail'])) . "'");
 	
 	
 	    		}
 	    		
 	    		
 	    		// Vornamen und Namen der Benutzer aktualisieren
-	    		
+
+                /*
 	    		$mails = DB::getDB()->query("SELECT * FROM eltern_email WHERE elternUserID > 0");
 	    		
 	    		$allMailData = [];
@@ -157,6 +197,9 @@ class CreateElternUsers extends AbstractCron {
 	    			    }
 	    			}
 	    		}
+                */
+
+
 	    	}
 	    }
 
@@ -198,7 +241,7 @@ class CreateElternUsers extends AbstractCron {
 	}
 	
 	public function executeEveryXSeconds() {
-		return 7200;		// Einmal alle zwei Stunden ausführen
+		return 1800;		// Einmal alle zwei Stunden ausführen
 	}
 }
 
