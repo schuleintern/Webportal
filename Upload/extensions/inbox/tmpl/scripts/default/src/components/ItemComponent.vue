@@ -86,7 +86,7 @@
       </li>
 
 
-      <li class="line-oddEven padding-s">
+      <li class="line-oddEven padding-s" v-if="item.from">
         <label>Sender:</label>
         <span v-if="item.from.user">{{ item.from.user.name }}</span>
         <span v-else>{{ item.from.title }}</span>
@@ -130,10 +130,15 @@
             </div>
         </span>
       </li>
-      <li class="line-oddEven text-big-2 padding-s padding-t-m">
+
+      <li v-if="isMobile" class="line-oddEven text-big-2 padding-s padding-t-m">
+        <span class="">{{ item.subject }}</span>
+      </li>
+      <li v-else class="line-oddEven text-big-2 padding-s padding-t-m">
         <label class="">Betreff:</label>
         <span class="">{{ item.subject }}</span>
       </li>
+
       <li v-if="item.umfrage" class="line-oddEven padding-s">
         <label>Umfrage:</label>
         <span v-if="folder.id == 2">
@@ -149,7 +154,7 @@
           <button class="si-btn" v-else @click="handlerOpenUmfrage"><i class="fa fa-poll"></i> Fragen beantworten</button>
         </span>
       </li>
-      <li class="padding-l">
+      <li class="padding-l body">
         <QuillEditor theme="" enable="false" toolbar="" :content="item.text" contentType="html" readOnly="true" />
       </li>
     </ul>
@@ -173,7 +178,8 @@ export default {
       umfragenOpen: false,
       printLogo: window.globals.printLogo,
       printSystem: window.globals.printSystem,
-      printDate: window.globals.printDate
+      printDate: window.globals.printDate,
+      isMobile: window.globals.isMobile
     };
   },
   props: {

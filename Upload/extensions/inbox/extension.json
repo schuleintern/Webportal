@@ -3,7 +3,7 @@
   "uniqid": "ext.zwiebelgasse.inbox",
   "version": "14",
 
-  "requiredVersion": "1.8.1",
+  "requiredVersion": "1.8.2",
 
   "menu": {
     "categorie": "1",

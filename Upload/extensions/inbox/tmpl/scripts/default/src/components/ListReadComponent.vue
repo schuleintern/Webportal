@@ -1,15 +1,16 @@
 <template>
   <div class="inbox-list-read">
 
-    <div class="flex-row padding-b-s">
+    <div class="head flex-row padding-b-s">
       <input type="search" v-model="searchString" class="si-input" placeholder="Suche...">
-    </div>
 
+      <button v-if="isMobile && !isFolderList" @click="handlerFolderShow" class="si-btn si-btn-icon si-btn-border margin-l-m"><i class="fa fa-folder"></i></button>
+    </div>
     <div :class="{'height_35 scrollable-y': item != false }">
       <table class="si-table si-table-style-allLeft" v-if="sortList && sortList.length >= 1">
         <thead>
         <tr>
-          <th v-on:click="handlerSort('id')" class="curser-sort"
+          <th v-if="!isMobile" v-on:click="handlerSort('id')" class="curser-sort"
               :class="{'text-orange colum-sort': sort.column == 'id'}"></th>
           <th v-on:click="handlerSort('isRead')" class="curser-sort"
               :class="{'text-orange colum-sort': sort.column == 'isRead'}">
@@ -19,7 +20,7 @@
               :class="{'text-orange colum-sort': sort.column == 'subject'}">Betreff
           </th>
           <th v-on:click="handlerSort('files')" class="curser-sort"
-              :class="{'text-orange colum-sort': sort.column == 'files'}">Anhang
+              :class="{'text-orange colum-sort': sort.column == 'files'}"><span v-if="!isMobile">Anhang</span>
           </th>
           <th v-on:click="handlerSort('date')" class="curser-sort"
               :class="{'text-orange colum-sort': sort.column == 'date'}">Datum
@@ -31,7 +32,7 @@
         <tr v-bind:key="index" v-for="(msg, index) in  sortList" class="curser si-handler-parent"
             v-on:click="handlerOpen(msg)" :class="{'text-orange': msg.id == item.id}"
         >
-          <td><span class="si-handler" style="cursor: move" draggable="true" @dragstart="startDrag($event, msg)"><i
+          <td v-if="!isMobile"><span class="si-handler" style="cursor: move" draggable="true" @dragstart="startDrag($event, msg)"><i
               class="fa fa-grip-vertical"></i></span></td>
           <td>
             <div v-if="msg.isRead == 0" class="fa fa-star margin-r-m"></div>
@@ -75,6 +76,7 @@ export default {
   data() {
     return {
       apiURL: window.globals.apiURL,
+      isMobile: window.globals.isMobile,
       sort: {
         column: 'date',
         order: false
@@ -88,7 +90,8 @@ export default {
   props: {
     acl: Array,
     list: Array,
-    item: Array
+    item: Array,
+    isFolderList: Boolean
   },
   computed: {
     sortList: function () {
@@ -173,6 +176,9 @@ export default {
   },
   methods: {
 
+    handlerFolderShow() {
+      this.$bus.$emit('folderlist--toggle', {});
+    },
     startDrag(evt, item) {
       evt.dataTransfer.dropEffect = 'move'
       evt.dataTransfer.effectAllowed = 'move'

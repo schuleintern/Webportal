@@ -79,7 +79,10 @@ class uploadItem extends AbstractRest
             ];
         }
 
-        $maxSize = DB::getSettings()->getValue("extInbox-files-maxSize");
+        $maxSize = (int)DB::getSettings()->getValue("extInbox-files-maxSize");
+        if (!$maxSize) {
+            $maxSize = 100000;
+        }
         if ($file['size'] > ($maxSize * 1024)) { // byte to kb *1024
             $this->statusCode = 400;
             return [

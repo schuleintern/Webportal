@@ -39,7 +39,8 @@ export default {
     const options = {
       target: props.target,
       testChunks: false,
-      singleFile: false
+      singleFile: false,
+      chunkSize: 1024*1024*1024
     }
     const attrs = {
       accept: 'image/*'
@@ -62,7 +63,7 @@ export default {
       //console.log('file complete', arguments)
     }
 
-    let showDetials = ref(false);
+    let showDetials = ref(true);
 
 
     const fileError = (error, file,message) => {

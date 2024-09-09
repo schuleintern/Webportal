@@ -28,9 +28,9 @@ class extInboxWidgetCounter extends Widget
 
         $anz = $this->getCount();
         if ($anz) {
-            return '<a href="index.php?page=ext_inbox" class="btn"><i class="fa fa-envelope"></i><span class="label bg-red">'.$anz.'</span></a>';
+            return '<a href="index.php?page=ext_inbox" class="btn"><i class="fa fa-envelope"></i><span class="label bg-red" id="extInboxWidgetCount">'.$anz.'</span></a>';
         } else {
-            return '<a href="index.php?page=ext_inbox" class="btn"><i class="fa fa-envelope"></i></a>';
+            return '<a href="index.php?page=ext_inbox" class="btn"><i class="fa fa-envelope"></i><span class="label bg-red" id="extInboxWidgetCount"></span></a>';
         }
         return false;
 

@@ -13,13 +13,14 @@
           <span v-if="item.unread" class="margin-l-s label bg-white text-grey">{{item.unread}}</span>
 
         </button>
-        <button v-if="acl.write == 1" class="si-btn" @click="handlerForm()"><i class="fa fa-plus"></i> Neue Nachricht
-        </button>
+        <button v-if="acl.write == 1 && isMobile" class="si-btn si-btn-icon" @click="handlerForm()"><i class="fa fa-plus"></i></button>
+        <button v-else-if="acl.write == 1" class="si-btn" @click="handlerForm()"><i class="fa fa-plus"></i> Neue Nachricht</button>
+
       </div>
 
-      <div class="flex-row">
+      <div class="flex-row inbox">
         <div class="bar flex-2 padding-r-m">
-          <div class="flex-row">
+          <div v-if="isFolderList" class="flex-row folder-list">
 
             <button v-bind:key="index" v-for="(item, index) in  inbox.folders" @click="handlerClickFolder(item)"
                     class="si-btn si-btn-light width-100p" :class="{'si-btn-active': item == this.inbox.activeFolder}"
@@ -48,7 +49,7 @@
         <div class="main flex-10 padding-l-l" v-if="inbox.activeFolder">
 
           <ListSendComponent v-if="inbox.activeFolder.id == 2" :acl="acl" :list="messages" :item="message"></ListSendComponent>
-          <ListReadComponent v-else :acl="acl" :list="messages" :item="message"></ListReadComponent>
+          <ListReadComponent v-else :acl="acl" :list="messages" :item="message" :isFolderList="isFolderList"></ListReadComponent>
           <ItemComponent :acl="acl" v-if="message" :item="message" :folder="inbox.activeFolder"></ItemComponent>
         </div>
       </div>
@@ -83,6 +84,7 @@ export default {
     return {
       apiURL: window.globals.apiURL,
       acl: window.globals.acl,
+      isMobile: window.globals.isMobile,
       error: false,
       loading: false,
       page: 'list',
@@ -95,6 +97,7 @@ export default {
       searchString: '',
       drag: false,
       dropzone: [1],
+      isFolderList: true,
 
       inboxs: window.globals.data,
       inbox: false,
@@ -109,10 +112,13 @@ export default {
       selectedInbox: window.globals.inbox_id,
       selectedMessage: window.globals.message_id,
 
+      extInboxWidgetCount: false
     };
   },
   computed: {},
   created: function () {
+
+    this.extInboxWidgetCount = window.document.getElementById('extInboxWidgetCount');
 
     // INIT
     if ( this.inboxs[0] ) {
@@ -131,10 +137,17 @@ export default {
       this.handlerPage(data.page, data.item);
     });
 
+    this.$bus.$on('folderlist--toggle', () => {
+      this.isFolderList = !this.isFolderList;
+    });
+
     this.$bus.$on('message--read', data => {
       if (data.message) {
         this.message = data.message;
         this.loadFullMessage();
+        if (this.isMobile) {
+          this.isFolderList = false;
+        }
       } else {
         this.message = false;
       }
@@ -192,6 +205,7 @@ export default {
           } else {
             if (response.data.done == true) {
               that.handlerPage('list');
+              that.loadCounts();
             }
           }
         } else {
@@ -381,6 +395,7 @@ export default {
               });
               that.messages.splice(that.messages.indexOf(i), 1)
               that.message = false;
+              that.loadCounts();
             }
 
           }
@@ -554,15 +569,12 @@ export default {
             that.error = '' + response.data.msg;
           } else {
             that.message = response.data;
-
-
             that.messages.forEach((o) => {
               if (o.id == that.message.id) {
                 o.isRead = that.message.isRead;
               }
             });
-
-
+            that.loadCounts();
           }
         } else {
           that.error = 'Fehler beim Laden. 01';
@@ -628,10 +640,107 @@ export default {
       });
     },
 
+    loadCounts() {
+
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
+      this.loading = true;
+      var that = this;
+      axios.get(this.apiURL + '/getMyInboxesCount', {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
+        }
+      }).then(function (response) {
+        if (response.data) {
+          if (response.data.error) {
+            that.error = '' + response.data.msg;
+          } else {
+
+            //console.log(that.inbox.activeFolder )
+            let count = 0;
+            response.data.forEach((o) => {
+              that.inboxs.forEach((inbox) => {
+                if (o.id == inbox.id) {
+                  inbox.unread = o.unread;
+                  inbox.folders = o.folders
+                  if (that.inbox.activeFolder && that.inbox.activeFolder.id && that.inbox.id) {
+                    if (that.inbox.id == inbox.id) {
+                      inbox.folders.forEach((folder) => {
+                        if (folder.id == that.inbox.activeFolder.id) {
+                          that.inbox.activeFolder = folder;
+                        }
+                      });
+                    }
+                  }
+                  count += inbox.unread;
+                }
+              })
+            })
+
+            if (that.extInboxWidgetCount) {
+              that.extInboxWidgetCount.innerText = count;
+            }
+          }
+        } else {
+          that.error = 'Fehler beim Laden. 01';
+        }
+      }).catch(function () {
+        that.error = 'Fehler beim Laden. 02';
+      }).finally(function () {
+        // always executed
+        that.loading = false;
+      });
+    },
+
   }
 }
 </script>
 
 <style>
 
+.isMobile .body {
+  padding: 0;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.isMobile .ql-editor.ql-blank {
+  padding: 0;
+}
+
+.isMobile .inbox {
+  flex-direction: column !important;
+}
+.isMobile .bar {
+  padding-right: 0;
+}
+.isMobile .main {
+  padding-left: 0;
+}
+.isMobile .head {
+  margin-top: 0.6rem;
+}
+.isMobile .box {
+  padding-right: 1.3rem;
+  padding-left: 1.3rem;
+}
+
+.ql-container {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+.folder-list {
+
+}
+.folder-list button {
+
+}
 </style>
