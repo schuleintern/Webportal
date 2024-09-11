@@ -219,6 +219,50 @@ export default {
       });
     });
 
+    this.$bus.$on('message-setUnread', (data) => {
+
+      if (!data.item) {
+        return false;
+      }
+      if (!data.item.id) {
+        return false;
+      }
+
+      this.loading = true;
+      var that = this;
+      const formData = new FormData();
+      formData.append('mid', data.item.id);
+
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
+      axios.post(this.apiURL + '/setUnread', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
+        }
+      }).then(function (response) {
+        if (response.data) {
+          if (response.data.error) {
+            that.error = '' + response.data.msg;
+          } else {
+            that.message.isRead = 0;
+            that.loadCounts();
+          }
+        } else {
+          that.error = 'Fehler beim Laden. 01';
+        }
+      }).catch(function () {
+        that.error = 'Fehler beim Laden. 02';
+      }).finally(function () {
+        // always executed
+        that.loading = false;
+      });
+    });
+
     this.$bus.$on('message-confirm', (data) => {
 
       if (!data.item) {
@@ -311,7 +355,11 @@ export default {
 
     });
 
-
+    this.$bus.$on('recipients--load', data => {
+      if (data.props) {
+        this.loadRecipients(data.props);
+      }
+    });
 
   },
   methods: {
@@ -453,40 +501,21 @@ export default {
       }
       this.page = page;
     },
-/*
-    loadUploadFolder() {
 
-      this.loading = true;
-      var that = this;
-      axios.get(this.apiURL + '/getUploadFolder').then(function (response) {
-        if (response.data) {
-          if (response.data.error) {
-            that.error = '' + response.data.msg;
-          } else {
-            that.uploadFolder = response.data[0];
-          }
-        } else {
-          that.error = 'Fehler beim Laden. 01';
-        }
-      }).catch(function () {
-        that.error = 'Fehler beim Laden. 02';
-      }).finally(function () {
-        that.loading = false;
-      });
-
-    },
-
- */
-    loadRecipients() {
+    loadRecipients(props) {
 
       let sessionID = localStorage.getItem('session');
       if (sessionID) {
         sessionID = sessionID.replace('__q_strn|','');
       }
 
+      let url = this.apiURL + '/getRecipients';
+      if (props) {
+        url = url+'/'+props
+      }
       this.loading = true;
       var that = this;
-      axios.get(this.apiURL + '/getRecipients', {
+      axios.get(url, {
         headers: {
           'auth-app': window.globals.apiKey,
           'auth-session': sessionID
@@ -496,7 +525,12 @@ export default {
           if (response.data.error) {
             that.error = '' + response.data.msg;
           } else {
-            that.recipients = response.data;
+
+            if (props) {
+              that.recipients[props] = response.data[props];
+            } else {
+              that.recipients = response.data;
+            }
           }
         } else {
           that.error = 'Fehler beim Laden. 01';
@@ -706,6 +740,13 @@ export default {
 
 <style>
 
+.subject {
+  word-break: break-word;
+}
+.isMobile .inbox .date {
+  font-size: 80%;
+}
+
 .isMobile .body img {
   max-width: 100%;
 }
@@ -722,11 +763,15 @@ export default {
 .isMobile .inbox {
   flex-direction: column !important;
 }
+.isMobile .inbox-list-read {
+  max-width: 100vw;
+}
 .isMobile .bar {
   padding-right: 0;
 }
 .isMobile .main {
   padding-left: 0;
+  max-width: 100vw;
 }
 .isMobile .head {
   margin-top: 0.6rem;
@@ -744,10 +789,35 @@ export default {
   letter-spacing: inherit !important;
 }
 
-.folder-list {
 
+.isMobile .si-modalblack-box .si-modalblack-content .right {
+  margin-top: 1rem;
 }
-.folder-list button {
 
+.isMobile .si-modalblack-box {
+    width: 96vw;
 }
+.isMobile .submitBtn ,
+.isMobile .closeBtn {
+  padding-top: 2rem;
+  padding-bottom: 1.6rem;
+}
+
+.isMobile .si-modalblack-box {
+  transform: translateY(2vh);
+}
+
+.isMobile .tabs {
+  max-height: 70vh;
+}
+
+.isMobile .emailGroup {
+  width: 100%;
+}
+
+.isMobile .entwurfBtn {
+  display: block;
+}
+
+
 </style>

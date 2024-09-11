@@ -41,28 +41,40 @@ class extInboxRecipientParentsAll
                 $parents = $pupil->getParentsUsers();
                 foreach ($parents as $parent) {
 
-                        $user_id = (int)$parent->getUserID();
-                        if ($user_id) {
-                            $inbox = $class->getByUserIDFirst($user_id);
-                            if ($inbox) {
-                                $inbox_collection = $inbox->getCollection(true);
-                                if ($inbox_collection) {
+                    $user_id = (int)$parent->getUserID();
+                    if ($user_id) {
+                        $inbox = $class->getByUserIDFirst($user_id);
+                        if ($inbox) {
+                            $inbox_collection = $inbox->getCollection(true);
+                            if ($inbox_collection) {
+                                if (self::findInCollection($ret, $inbox_collection)) {
                                     $ret[] = $inbox_collection;
                                 }
                             }
                         }
-
+                    }
                 }
-
             }
-
-
         }
 
         return [
             "title" => 'Alle Eltern',
             "data" => $ret
         ];
+    }
+
+    private static function findInCollection($arr, $col)
+    {
+        if ($col && $col['user'] && $col['user']['email']) {
+            foreach ($arr as $foo) {
+                if ($foo['user'] && $foo['user']['email']) {
+                    if ($foo['user']['email'] == $col['user']['email']) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
 

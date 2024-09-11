@@ -31,26 +31,51 @@ class getRecipients extends AbstractRest
 
 
         /*
-            Fachschaften
-        */
-        $fachschaften = [];
-        $faecher = fach::getAll();
-        foreach ($faecher as $fach) {
-            /*
-            $users = [];
-            $teachers = $fach->getFachLehrer();
-            foreach($teachers as $teacher) {
-                $foo = $teacher->getUser()->getCollection();
-                $users[] = $foo['id'];
+             Fachschaften
+         */
+        if ($request[2] == 'fachschaft') {
+
+            $fachschaften = [];
+            $faecher = fach::getAll();
+            foreach ($faecher as $fach) {
+                $fachschaften[] = [
+                    'id' => $fach->getID(),
+                    'title' => $fach->getKurzform()
+                    //,'users' => $users
+                ];
+
             }
-            */
-            $fachschaften[] = [
-                'id' => $fach->getID(),
-                'title' => $fach->getKurzform()
-                //,'users' => $users
+            return [
+                'fachschaft' => $fachschaften
+            ];
+            exit;
+        }
+
+        /*
+             Unterrichte
+         */
+        if ($request[2] == 'unterrichte') {
+
+            $unterrichte = [];
+            if (EXTENSION::isActive('ext.zwiebelgasse.faecher')) {
+                include_once PATH_EXTENSIONS.'faecher'.DS . 'models' . DS . 'Unterricht.class.php';
+                $class = new extFaecherModelUnterricht();
+                $tmp_data = $class->getAll();
+                foreach ($tmp_data as $item) {
+                    $unterrichte[] = [
+                        'id' => $item->getData('unterrichtID'),
+                        'title' => $item->getData('unterrichtBezeichnung')
+                    ];
+                }
+            }
+            return [
+                'unterrichte' => $unterrichte
             ];
 
+            exit;
         }
+
+
 
 
 
@@ -76,70 +101,107 @@ class getRecipients extends AbstractRest
         */
 
         $groups = [];
-        if (EXTENSION::isActive('ext.zwiebelgasse.users')) {
-            include_once PATH_EXTENSIONS . 'users' . DS . 'models' . DS . 'Groups.class.php';
-            $class = new extUsersModelGroups();
-            $tmp_data = $class->getAll();
-            foreach ($tmp_data as $item) {
-                $groups[] = $item->getCollection();
+        $aclInboxsGroups = $this->getUserAcl('extInbox-acl-inboxs-groups', $userType);
+        if ($aclInboxsGroups) {
+            if (EXTENSION::isActive('ext.zwiebelgasse.users')) {
+                include_once PATH_EXTENSIONS . 'users' . DS . 'models' . DS . 'Groups.class.php';
+                $class = new extUsersModelGroups();
+                $tmp_data = $class->getAll();
+                foreach ($tmp_data as $item) {
+                    $groups[] = $item->getCollection();
+                }
             }
         }
+
 
         /*
             Postfach Gruppe
         */
         $inboxs = [];
-        $dataSQL = DB::getDB()->query("SELECT id, title FROM ext_inboxs WHERE type = 'group'");
-        while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
-            $inboxs[] = $data;
+        $aclInboxsInboxs = $this->getUserAcl('extInbox-acl-inboxs-inboxs', $userType);
+        if ($aclInboxsInboxs) {
+            $dataSQL = DB::getDB()->query("SELECT id, title FROM ext_inboxs WHERE type = 'group'");
+            while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
+                $inboxs[] = $data;
+            }
         }
-
-
 
 
         /*
             Einzelnen Accounts
         */
         $inboxUsers = [];
-        $dataSQL = DB::getDB()->query("SELECT inbox_id, user_id, isPublic FROM ext_inbox_user WHERE isPublic IS NOT NULL");
-        while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
-            if ($userType && $data['isPublic']) {
-                $isPublic = json_decode($data['isPublic']);
-                if ($isPublic->$userType || DB::getSession()->getUser()->isAdmin() ) {
-                    $tempUser = user::getUserByID($data['user_id']);
-                    $inboxUsers[] = [
-                        'id' => $data['inbox_id'],
-                        'title' => $tempUser->getDisplayName()
-                    ];
+        $aclPupilsSingle = $this->getUserAcl('extInbox-acl-pupils-single', $userType);
+        $aclParentsSingle = $this->getUserAcl('extInbox-acl-parents-single', $userType);
+        $aclTeachersSingle = $this->getUserAcl('extInbox-acl-teachers-single', $userType);
+        if ($aclPupilsSingle || $aclParentsSingle || $aclTeachersSingle) {
+            $dataSQL = DB::getDB()->query("SELECT inbox_id, user_id, isPublic FROM ext_inbox_user WHERE isPublic IS NOT NULL");
+            while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
+                if ($userType && $data['isPublic']) {
+                    $isPublic = json_decode($data['isPublic']);
+                    if ($isPublic->$userType || DB::getSession()->getUser()->isAdmin() ) {
+                        $tempUser = user::getUserByID($data['user_id']);
+                        $inboxUsers[] = [
+                            'id' => $data['inbox_id'],
+                            'title' => $tempUser->getDisplayName()
+                        ];
+                    }
                 }
             }
         }
 
 
+        if ($userType == 'isPupil') {
+            $blocklist = DB::getSettings()->getValue('extInbox-acl-inboxs-blocklist-pupils');
+            $groups = $this->onBlocklist($groups, $blocklist);
+            $inboxs = $this->onBlocklist($inboxs, $blocklist);
+        }
+        if ($userType == 'isEltern') {
+            $blocklist = DB::getSettings()->getValue('extInbox-acl-inboxs-blocklist-eltern');
+            $groups = $this->onBlocklist($groups, $blocklist);
+            $inboxs = $this->onBlocklist($inboxs, $blocklist);
+        }
+        if ($userType == 'isTeacher') {
+            $blocklist = DB::getSettings()->getValue('extInbox-acl-inboxs-blocklist-teachers');
+            $groups = $this->onBlocklist($groups, $blocklist);
+            $inboxs = $this->onBlocklist($inboxs, $blocklist);
+            $acl['teachers']['own'] = false;
+        }
+
+        $inboxs = array_merge_recursive($groups,$inboxs,$inboxUsers);
+        $keys = array_column($inboxs, 'title');
+        array_multisort($keys, SORT_ASC, $inboxs);
+
+        $aclUnterrichte = false;
+        if (EXTENSION::isActive('ext.zwiebelgasse.faecher')) {
+            $aclUnterrichte = $this->getUserAcl('extInbox-acl-parents-unterrichte', $userType);
+        }
+
         $acl = [
             'pupils' => [
                 'klassen' => $this->getUserAcl('extInbox-acl-pupils-klassen', $userType),
-                'single' => $this->getUserAcl('extInbox-acl-pupils-single', $userType),
+                'single' => $aclPupilsSingle,
                 'own' => $this->getUserAcl('extInbox-acl-pupils-own', $userType),
                 'all' => $this->getUserAcl('extInbox-acl-pupils-all', $userType)
             ],
             'parents' => [
                 'klassen' => $this->getUserAcl('extInbox-acl-parents-klassen', $userType),
-                'single' => $this->getUserAcl('extInbox-acl-parents-single', $userType),
+                'single' => $aclParentsSingle,
                 'own' => $this->getUserAcl('extInbox-acl-parents-own', $userType),
-                'all' => $this->getUserAcl('extInbox-acl-parents-all', $userType)
+                'all' => $this->getUserAcl('extInbox-acl-parents-all', $userType),
+                'unterrichte' => $aclUnterrichte
             ],
             'teachers' => [
                 'klassen' => $this->getUserAcl('extInbox-acl-teachers-klassen', $userType),
-                'single' => $this->getUserAcl('extInbox-acl-teachers-single', $userType),
+                'single' => $aclTeachersSingle,
                 'leitung' => $this->getUserAcl('extInbox-acl-teachers-leitung', $userType),
                 'fachschaft' => $this->getUserAcl('extInbox-acl-teachers-fachschaft', $userType),
                 'own' => $this->getUserAcl('extInbox-acl-teachers-own', $userType),
                 'all' => $this->getUserAcl('extInbox-acl-teachers-all', $userType)
             ],
             'inboxs' => [
-                'inboxs' => $this->getUserAcl('extInbox-acl-inboxs-inboxs', $userType),
-                'groups' => $this->getUserAcl('extInbox-acl-inboxs-groups', $userType)
+                'inboxs' => $aclInboxsInboxs,
+                'groups' => $aclInboxsGroups
             ],
             'confirm' => $this->getUserAcl('extInbox-acl-inboxs-confirm', $userType),
             'showEmails' => $this->getUserAcl('extInbox-acl-inboxs-showEmails', $userType)
@@ -210,22 +272,7 @@ class getRecipients extends AbstractRest
             }
         }
 
-        if ($userType == 'isPupil') {
-            $blocklist = DB::getSettings()->getValue('extInbox-acl-inboxs-blocklist-pupils');
-            $groups = $this->onBlocklist($groups, $blocklist);
-            $inboxs = $this->onBlocklist($inboxs, $blocklist);
-        }
-        if ($userType == 'isEltern') {
-            $blocklist = DB::getSettings()->getValue('extInbox-acl-inboxs-blocklist-eltern');
-            $groups = $this->onBlocklist($groups, $blocklist);
-            $inboxs = $this->onBlocklist($inboxs, $blocklist);
-        }
-        if ($userType == 'isTeacher') {
-            $blocklist = DB::getSettings()->getValue('extInbox-acl-inboxs-blocklist-teachers');
-            $groups = $this->onBlocklist($groups, $blocklist);
-            $inboxs = $this->onBlocklist($inboxs, $blocklist);
-            $acl['teachers']['own'] = false;
-        }
+
         if ($userType == 'isNone') {
             $acl['teachers']['own'] = false;
         }
@@ -234,10 +281,9 @@ class getRecipients extends AbstractRest
             'acl' => $acl,
             'own' => $own,
             'klassen' => $klassen,
-            'group' => $groups,
-            'inboxUsers' => $inboxUsers,
-            'fachschaft' => $fachschaften,
-            'inboxs' => $inboxs
+            'fachschaft' => false,
+            'inboxs' => $inboxs,
+            'unterrichte' => false
         ];
 
 

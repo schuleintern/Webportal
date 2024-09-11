@@ -92,6 +92,12 @@ class extInboxAdminRights extends AbstractPage {
                 'desc' => ""
             ],
             [
+                'name' => "extInbox-acl-parents-unterrichte",
+                'typ' => 'ACL',
+                'title' => "Wer darf allen Eltern der Unterrichte schreiben/suchen?",
+                'desc' => "Nur in Verbindung mit der Erweiterung Faecher und Unterrichte!"
+            ],
+            [
                 'name' => "extInbox-acl-parents-own",
                 'typ' => 'ACL',
                 'title' => "Eltern der eigenen Klassen dürfen von wem angeschrieben werden?",

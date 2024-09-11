@@ -1,7 +1,7 @@
 <?php
 
 
-class getMessage extends AbstractRest
+class setUnread extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -27,27 +27,14 @@ class getMessage extends AbstractRest
             ];
         }
 
-        $message_id = (int)$input['message_id'];
+        $message_id = (int)$input['mid'];
         if (!$message_id) {
             return [
                 'error' => true,
-                'msg' => 'Missing Data: ID'
+                'msg' => 'Missing ID'
             ];
         }
 
-
-        /*
-        include_once PATH_EXTENSION . 'models' . DS . 'Message.class.php';
-        $tmp_data = extInboxModelMessage::getMessageByID($message_id);
-
-        include_once PATH_EXTENSION . 'models' . DS . 'Inbox.class.php';
-        if ( !extInboxModelInbox::isInboxFromUser($tmp_data->getInboxID(), $userID) ) {
-            return [
-                'error' => true,
-                'msg' => 'Kein Zugriff auf das Postfach'
-            ];
-        }
-        */
 
         include_once PATH_EXTENSION . 'models' . DS . 'Message2.class.php';
         $class = new extInboxModelMessage2();
@@ -63,17 +50,18 @@ class getMessage extends AbstractRest
         }
 
 
-        if ( (int)$tmp_data->getData('isRead') <= 1 ) {
-            if (!$tmp_data->setRead($userID)) {
-                return [
-                    'error' => true,
-                    'msg' => 'Nachricht konnte nicht als gelesen markiert werden'
-                ];
-            }
+        if (!$tmp_data->setUnread()) {
+            return [
+                'error' => true,
+                'msg' => 'Nachricht konnte nicht bearbeitet werden'
+            ];
         }
 
 
-        return $tmp_data->getCollection(true, true, true, true, true);
+        return [
+            'done' => true
+            //'isConfirm' => $tmp_data->getIsConfirm()
+        ];
 
     }
 

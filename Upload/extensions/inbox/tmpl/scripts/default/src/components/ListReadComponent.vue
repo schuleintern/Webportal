@@ -35,7 +35,7 @@
           <td v-if="!isMobile"><span class="si-handler" style="cursor: move" draggable="true" @dragstart="startDrag($event, msg)"><i
               class="fa fa-grip-vertical"></i></span></td>
           <td>
-            <div v-if="msg.isRead == 0" class="fa fa-star margin-r-m"></div>
+            <div v-if="msg.isRead <= 1" class="fa fa-star margin-r-m"></div>
             <div v-if="msg.priority == 1" class="fa fa-arrow-down text-green"></div>
             <div v-else-if="msg.priority == 2" class="fa fa-arrow-up text-red"></div>
             <div v-if="msg.isAnswer" class="fa fa-reply text-blue"></div>
@@ -46,12 +46,12 @@
             <span v-else>{{ msg.from.title }}</span>
           </td>
 
-          <td :class="{'text-bold': msg.isRead == 0}">{{ msg.subject }}</td>
+          <td  :class="{'text-bold': msg.isRead <= 0}" class="subject">{{ msg.subject }}</td>
           <td>
             <i v-if="msg.files" class="fa fa-paperclip"></i>
             <i v-if="msg.umfrage" class="fa fa-poll"></i>
           </td>
-          <td>{{ msg.date }}</td>
+          <td class="date">{{ msg.date }}</td>
 
         </tr>
 

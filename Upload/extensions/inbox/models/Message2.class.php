@@ -88,10 +88,12 @@ class extInboxModelMessage2 extends ExtensionModel
             $collection['toCC'] = $body->getReceiversCC();
             $collection['priority'] = $bodyCollection['priority'];
             $collection['isPrivat'] = $bodyCollection['isPrivat'];
+            $collection['noAnswer'] = $bodyCollection['noAnswer'];
             $collection['files'] = $bodyCollection['files'];
             $collection['umfrage'] = $bodyCollection['umfrage'];
             $collection['umfragen'] = $bodyCollection['umfragen'];
             $collection['date'] = date("d.m.Y H:i", strtotime($bodyCollection['createdTime']) );
+
 
             if ($collection['isRead']) {
                 $collection['isReadDate'] = date('d.m.Y H:i',$collection['isRead']);
@@ -264,7 +266,7 @@ class extInboxModelMessage2 extends ExtensionModel
             return false;
         }
         $ret = [];
-        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE inbox_id = :inbox_id AND folder_id = :folder_id AND isRead = 0 ORDER BY id DESC', ['inbox_id' => $inbox_id, 'folder_id' => $folder_id])->fetchAll();
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE inbox_id = :inbox_id AND folder_id = :folder_id AND (isRead = 0 OR isRead = 1) ORDER BY id DESC', ['inbox_id' => $inbox_id, 'folder_id' => $folder_id])->fetchAll();
 
         foreach($data as $item) {
             $ret[] = new self($item);
@@ -278,7 +280,7 @@ class extInboxModelMessage2 extends ExtensionModel
             return false;
         }
         $ret = [];
-        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE folder_id = 1 AND isRead = 0 ORDER BY id ')->fetchAll();
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE folder_id = 1 AND (isRead = 0 OR isRead = 1) ORDER BY id ')->fetchAll();
 
         foreach($data as $item) {
             $ret[] = new self($item);
@@ -292,7 +294,7 @@ class extInboxModelMessage2 extends ExtensionModel
             return false;
         }
         $ret = [];
-        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE folder_id = 1 AND isRead = 0 AND isEmail = 0 ORDER BY id DESC ')->fetchAll();
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE folder_id = 1 AND (isRead = 0 OR isRead = 1) AND isEmail = 0 ORDER BY id DESC ')->fetchAll();
 
         foreach($data as $item) {
             $ret[] = new self($item);
@@ -535,6 +537,22 @@ class extInboxModelMessage2 extends ExtensionModel
 
 
 
+    public function setUnread($userID = false)
+    {
+        $id = $this->getData('id');
+        if (!(int)$id) {
+            return false;
+        }
+        $time = time();
+
+        if ( DB::run('UPDATE ' . $this->getModelTable() . ' SET isRead = :time
+        WHERE id = :id  ', ['id' => $id, 'time' => 1 ]) ) {
+            $this->setValue('isRead', $time);
+            return true;
+        }
+        return false;
+    }
+
     public function setRead($userID = false)
     {
         $id = $this->getData('id');
@@ -561,7 +579,6 @@ class extInboxModelMessage2 extends ExtensionModel
 
         if ( DB::run('UPDATE ' . $this->getModelTable() . ' SET isConfirm = :time
         WHERE id = :id  ', ['id' => $id, 'time' => $time ]) ) {
-            //$this->data['isRead'] = $time;
             $this->setValue('isConfirm', $time);
             return true;
         }

@@ -5,14 +5,15 @@
 
       <!-- Entwurf -->
       <div v-if="folder.id == 4" class="si-btn-multiple">
-        <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerUse()"><i class="fa fa fa-reply"></i> Benutzen</button>
+        <button v-if="allowAnswer(item)" class="si-btn si-btn-light si-btn-small" @click="handlerUse()"><i class="fa fa fa-reply"></i> Benutzen</button>
         <button class="si-btn si-btn-light si-btn-small" @click="handlerDelete()"><i class="fa fa fa-trash"></i></button>
       <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerBack()"><i class="fa fa-times-circle"></i></button>
       </div>
       <div v-else class="si-btn-multiple">
-        <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerAnswer()"><i class="fa fa fa-reply"></i> Antworten</button>
-        <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerAnswerAll()"><i class="fa fa fa-reply"></i> Allen Antworten</button>
-        <button v-if="!item.isPrivat" class="si-btn si-btn-light si-btn-small" @click="handlerForward()"><i class="fa fa fa-share"></i> Weiterleiten</button>
+        <button v-if="allowAnswer(item)" class="si-btn si-btn-light si-btn-small" @click="handlerAnswer()"><i class="fa fa fa-reply"></i> Antworten</button>
+        <button v-if="allowAnswer(item)" class="si-btn si-btn-light si-btn-small" @click="handlerAnswerAll()"><i class="fa fa fa-reply"></i> Allen Antworten</button>
+        <button v-if="allowAnswer(item)" class="si-btn si-btn-light si-btn-small" @click="handlerForward()"><i class="fa fa fa-share"></i> Weiterleiten</button>
+        <button class="si-btn si-btn-light si-btn-small" @click="handlerSetUnred()"><i class="fa fa fa-envelope-open"></i></button>
         <button class="si-btn si-btn-light si-btn-small" @click="handlerPrint()"><i class="fa fa fa-download"></i></button>
         <button class="si-btn si-btn-light si-btn-small" @click="handlerDelete()"><i class="fa fa fa-trash"></i></button>
       <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerBack()"><i class="fa fa-times-circle"></i></button>
@@ -148,10 +149,10 @@
           <div v-if="item.umfragen && item.umfragen.answers" class="padding-l-m">
             <UmfragenResult :form="item.umfragen"></UmfragenResult>
           </div>
-          <div class="si-form" v-else-if="umfragenOpen">
+          <div class="si-form" v-else-if="umfragenOpen && item.umfragen.childs">
             <UmfragenAnswer :form="item.umfragen" btnSave="true"></UmfragenAnswer>
           </div>
-          <button class="si-btn" v-else @click="handlerOpenUmfrage"><i class="fa fa-poll"></i> Fragen beantworten</button>
+          <button class="si-btn" v-else-if="item.umfragen.childs" @click="handlerOpenUmfrage"><i class="fa fa-poll"></i> Fragen beantworten</button>
         </span>
       </li>
       <li class="padding-l body">
@@ -192,6 +193,15 @@ export default {
   },
   methods: {
 
+    allowAnswer(item) {
+      if (item.isPrivat) {
+        return false;
+      }
+      if (item.noAnswer) {
+        return false;
+      }
+      return true;
+    },
     handlerPrint() {
 
       window.html2canvas = html2canvas;
@@ -243,6 +253,13 @@ export default {
     },
     handlerOpenUmfrage() {
       this.umfragenOpen = true;
+    },
+    handlerSetUnred() {
+
+      this.$bus.$emit('message-setUnread', {
+        item: this.item
+      });
+
     },
     handlerForward() {
 

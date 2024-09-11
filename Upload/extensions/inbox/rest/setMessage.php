@@ -131,7 +131,7 @@ class setMessage extends AbstractRest
             'receiver' => $receiver,
             'receivers_cc' => $receivers_cc,
             'sender_id' => $sender_id,
-            'subject' => $subject,
+            'subject' => htmlspecialchars_decode($subject),
             'text' => $text,
             'confirm' => $confirm,
             'priority' => $priority,

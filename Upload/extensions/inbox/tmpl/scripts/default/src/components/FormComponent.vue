@@ -1,14 +1,14 @@
 <template>
   <div class="">
 
-    <div class="flex-row">
+    <div class="flex-row-wrap">
       <div class="flex-1">
         <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück
         </button>
         <button v-if="showSubmit() == true" class="si-btn" @click="handlerSubmit"><i class="fa fa-envelope"></i> Senden</button>
       </div>
-      <div class="flex-1 flex-row flex-end">
-        <button  class="si-btn si-btn-light" @click="handlerEntwurf"><i class="fa fa-save"></i> Als Entwurf speichern</button>
+      <div class="flex-1 flex-row flex-end entwurfBtn">
+        <button  class="si-btn si-btn-light " @click="handlerEntwurf"><i class="fa fa-save"></i> Als Entwurf speichern</button>
       </div>
     </div>
 
