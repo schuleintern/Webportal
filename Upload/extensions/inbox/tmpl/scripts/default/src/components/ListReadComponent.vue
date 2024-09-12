@@ -46,7 +46,7 @@
             <span v-else>{{ msg.from.title }}</span>
           </td>
 
-          <td  :class="{'text-bold': msg.isRead <= 0}" class="subject">{{ msg.subject }}</td>
+          <td  :class="{'text-bold': msg.isRead <= 1}" class="subject">{{ msg.subject }}</td>
           <td>
             <i v-if="msg.files" class="fa fa-paperclip"></i>
             <i v-if="msg.umfrage" class="fa fa-poll"></i>

@@ -10,13 +10,13 @@
       <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerBack()"><i class="fa fa-times-circle"></i></button>
       </div>
       <div v-else class="si-btn-multiple">
-        <button v-if="allowAnswer(item)" class="si-btn si-btn-light si-btn-small" @click="handlerAnswer()"><i class="fa fa fa-reply"></i> Antworten</button>
-        <button v-if="allowAnswer(item)" class="si-btn si-btn-light si-btn-small" @click="handlerAnswerAll()"><i class="fa fa fa-reply"></i> Allen Antworten</button>
-        <button v-if="allowAnswer(item)" class="si-btn si-btn-light si-btn-small" @click="handlerForward()"><i class="fa fa fa-share"></i> Weiterleiten</button>
-        <button class="si-btn si-btn-light si-btn-small" @click="handlerSetUnred()"><i class="fa fa fa-envelope-open"></i></button>
-        <button class="si-btn si-btn-light si-btn-small" @click="handlerPrint()"><i class="fa fa fa-download"></i></button>
-        <button class="si-btn si-btn-light si-btn-small" @click="handlerDelete()"><i class="fa fa fa-trash"></i></button>
-      <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerBack()"><i class="fa fa-times-circle"></i></button>
+        <button v-if="allowAnswer(item)" class="si-btn si-btn-light si-btn-small" @click="handlerAnswer()"><i class="fa fa-reply"></i> Antworten</button>
+        <button v-if="allowAnswer(item)" class="si-btn si-btn-light si-btn-small" @click="handlerAnswerAll()"><i class="fa fa-reply"></i> Allen Antworten</button>
+        <button v-if="allowAnswer(item)" class="si-btn si-btn-light si-btn-small" @click="handlerForward()"><i class="fa fa-share"></i> Weiterleiten</button>
+        <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerSetUnred()" title="Als ungelesen markieren"><i class="far fa-envelope"></i></button>
+        <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerPrint()" title="Als pdf Speichern"><i class="fa fa-download"></i></button>
+        <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerDelete()" title="Löschen"><i class="fa fa-trash"></i></button>
+      <button class="si-btn si-btn-light si-btn-small si-btn-icon" @click="handlerBack()"><i class="far fa-times-circle"></i></button>
       </div>
 
     </div>

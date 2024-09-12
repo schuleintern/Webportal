@@ -61,6 +61,12 @@ class extInboxModelInbox2 extends ExtensionModel
                     }
                 }
             }
+            if ($this->getData('type') == 'group') {
+                include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Users.class.php';
+                $classUser = new extInboxModelUsers();
+                $temp_inboxUser = $classUser->getByParentID($this->getID());
+                
+            }
         }
 
         if ($folder) {

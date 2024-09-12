@@ -151,9 +151,6 @@ class extInboxModelMessage2 extends ExtensionModel
             if ($this->getData('isConfirm') == 1) {
 
 
-                include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
-                $classInbox = new extInboxModelInbox2();
-
                 $collection['confirmList'] = [
                     'to' => [],
                     'toCC' => [],
@@ -163,24 +160,17 @@ class extInboxModelMessage2 extends ExtensionModel
 
                 $arr = $body->getReceiversLong();
                 foreach ($arr as $item) {
-                    if ($item['inboxs']) {
 
-
-                        $className = explode('::', $item['typ']);
-                        $className = 'extInboxRecipient'.ucfirst($className[0]).ucfirst($className[1]);
-                        $typ = str_replace('::','_', $item['typ']);
-                        include_once PATH_EXTENSIONS.'inbox'.DS . 'inboxs' . DS . $typ.'.class.php';
-                        $tmp_data = $className::getTitle($item['content']);
-
+                    if ($item['title'] && $item['inbox']) {
 
                         $foo = [
-                            "title" => $tmp_data,
+                            "title" => $item['title'],
                             "inboxs" => []
                         ];
 
-                        foreach($item['inboxs'] as $inbox) {
-                            $msg_temp = $this->getMessageByInboxBody( $inbox, $this->getData('body_id') );
-                            $inbox_tmp = PAGE::getFactory()->getInboxByID($inbox);
+                        foreach($item['inbox'] as $inbox) {
+                            $msg_temp = $this->getMessageByInboxBody( $inbox['id'], $this->getData('body_id') );
+                            $inbox_tmp = PAGE::getFactory()->getInboxByID($inbox['id']);
                             if ($msg_temp && $inbox_tmp) {
                                 $foo['inboxs'][] =  [
                                     'inbox' => $inbox_tmp->getCollection(true),
@@ -196,9 +186,6 @@ class extInboxModelMessage2 extends ExtensionModel
         }
 
         if ($withInboxUser) {
-
-            //include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
-            //$classInbox = new extInboxModelInbox2();
 
             $inbox_tmp = PAGE::getFactory()->getInboxByID($this->getData('inbox_id'));
             if ($inbox_tmp) {
@@ -418,6 +405,7 @@ class extInboxModelMessage2 extends ExtensionModel
                             $inbox = $InboxClass->getByID($item);
                             if ($inbox) {
                                 $inboxTemp = $inbox->getCollection(true);
+
                                 if ($inboxTemp['user_id']) {
                                     $userlist[] = $inboxTemp['user_id'];
                                 }
@@ -438,6 +426,8 @@ class extInboxModelMessage2 extends ExtensionModel
                     }
                 }
             }
+
+
 
 
             // POSTEINGANG CC
@@ -471,10 +461,20 @@ class extInboxModelMessage2 extends ExtensionModel
                 }
             }
 
+/*
+            echo '<pre>Userlist:';
+            print_r($userlist);
+            echo '</pre>';
+
+            echo '<pre>';
+            print_r($data['umfragen']);
+            echo '</pre>';
+*/
             if ($data['umfragen'] && $userlist && EXTENSION::isActive('ext.zwiebelgasse.umfragen')) {
                 include_once PATH_EXTENSIONS . 'umfragen' . DS . 'models' . DS . 'List.class.php';
                 $UmfragenClass = new extUmfragenModelList();
                 $data['umfragen'] = json_decode($data['umfragen']);
+
                 $umfrageID = $UmfragenClass->setListWithItems([
                     'id' => 0,
                     'title' => $data['subject'],
