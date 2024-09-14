@@ -19,19 +19,34 @@ class extAkteDefault extends AbstractPage
     public function execute()
     {
 
-        $klassen = klasse::getAllKlassen();
-        $ret = [];
-        foreach ($klassen as $klasse) {
-            $foo = [
-                'name' => $klasse->getKlassenName(),
-                'pupils' => []
-            ];
-            $pupils = $klasse->getSchueler();
-            foreach ($pupils as $pupil) {
-                $foo['pupils'][] = $pupil->getCollection(true);
-            }
-            $ret[] = $foo;
+        $user = DB::getSession()->getUser();
+
+        $klassen = false;
+
+        if ($user->isAdmin()) {
+            $klassen = klasse::getAllKlassen();
+        } else {
+            $klassen = klasse::getMyKlassen();
         }
+
+        if ($klassen && count($klassen) > 0) {
+            $ret = [];
+            foreach ($klassen as $klasse) {
+                if ($klasse->getKlassenName()) {
+                    $foo = [
+                        'name' => $klasse->getKlassenName(),
+                        'pupils' => []
+                    ];
+                    $pupils = $klasse->getSchueler();
+                    foreach ($pupils as $pupil) {
+                        $foo['pupils'][] = $pupil->getCollection(true);
+                    }
+                    $ret[] = $foo;
+                }
+            }
+        }
+
+
 
 
         include_once PATH_EXTENSION . 'models' . DS .'Tags.class.php';
@@ -61,7 +76,8 @@ class extAkteDefault extends AbstractPage
                 "apiURL" => "rest.php/akte",
                 "acl" => $acl['rights'],
                 "klassen" => $ret,
-                "tags" => $tags
+                "tags" => $tags,
+                "vorlagen" => DB::getSettings()->getValue('extAkte-text-vorlagen')
             ]
         ]);
     }

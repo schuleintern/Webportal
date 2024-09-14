@@ -1,6 +1,6 @@
 <?php
 
-class getItem extends AbstractRest
+class addItemCount extends AbstractRest
 {
 
     protected $statusCode = 200;
@@ -24,28 +24,41 @@ class getItem extends AbstractRest
             ];
         }
 
-        $id = (int)$request[2];
-        if (!$id) {
-            return [
-                'error' => true,
-                'msg' => 'Missing ID'
-            ];
-        }
+        $id = (int)$input['id'];
+
+
 
         include_once PATH_EXTENSION . 'models' . DS .'Item.class.php';
-
         $class = new extAkteModelItem();
-        $tmp_data = $class->getByParentID($id,'id DESC');
 
-
-        $ret = [];
-        if ($tmp_data) {
-            foreach ($tmp_data as $item) {
-                $ret[] = $item->getCollection(true);
+        $item = $class->getByID($id);
+        if ($item) {
+            $count = (int)$item->getData('count');
+            if (!$count) {
+                $count = 1;
             }
+
+            $count++;
+
+            if ( $db = $class->update([
+                'id' => $id,
+                'count' => $count
+            ]) ) {
+
+                return [
+                    'success' => true
+                ];
+
+            }
+
         }
 
-        return $ret;
+
+
+        return [
+            'error' => true,
+            'msg' => 'Nicht Erfolgreich!'
+        ];
 
     }
 
@@ -58,7 +71,7 @@ class getItem extends AbstractRest
      */
     public function getAllowedMethod()
     {
-        return 'GET';
+        return 'POST';
     }
 
 

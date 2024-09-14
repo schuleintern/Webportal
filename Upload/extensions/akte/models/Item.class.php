@@ -12,7 +12,8 @@ class extAkteModelItem extends ExtensionModel
         'state',
         'text',
         'user_id',
-        'tags'
+        'tags',
+        'count'
 
     ];
 

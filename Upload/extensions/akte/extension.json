@@ -1,9 +1,9 @@
 {
   "name": "Akte",
   "uniqid": "ext.zwiebelgasse.akte",
-  "version": "2",
+  "version": "3",
 
-  "requiredVersion": "1.8.1",
+  "requiredVersion": "1.8.2",
 
   "menu": {
     "categorie": "1",

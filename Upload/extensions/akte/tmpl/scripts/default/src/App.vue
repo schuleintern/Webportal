@@ -4,7 +4,6 @@
     <AjaxError v-bind:error="error"></AjaxError>
     <AjaxSpinner v-bind:loading="loading"></AjaxSpinner>
 
-
     <ListComponent v-if="page === 'list'" :acl="acl"  :tags="tags"  :klassen="klassen" ></ListComponent>
     <!--
     <ItemComponent v-if="page === 'item'" :acl="acl" :item="item" ></ItemComponent>
@@ -105,6 +104,9 @@ export default {
 
 
     });
+
+
+
 
 
 

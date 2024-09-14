@@ -36,7 +36,7 @@ class extAkteAdminAcl extends AbstractPage {
                 "lehrer" => [
                     "read" => 1,
                     "write" => 1,
-                    "delete" => 0,
+                    "delete" => 1,
                 ],
                 "eltern" => [
                     "read" => 0,
@@ -46,7 +46,7 @@ class extAkteAdminAcl extends AbstractPage {
                 "none" => [
                     "read" => 1,
                     "write" => 1,
-                    "delete" => 0,
+                    "delete" => 1,
                 ]
             ]
         ];

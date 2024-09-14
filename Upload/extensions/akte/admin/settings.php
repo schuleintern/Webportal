@@ -53,14 +53,14 @@ class extAkteAdminSettings extends AbstractPage {
 
         $settings =  [
 
-            /*
+
             [
-                'name' => "extFinanzen-antrag-freigeben",
-                'typ' => 'BOOLEAN',
-                'title' => "Anträge werden automatisch freigegeben",
+                'name' => "extAkte-text-vorlagen",
+                'typ' => 'TEXT',
+                'title' => "Vorlagentext (Trennen mit Semikolon)",
                 'desc' => ""
             ]
-            */
+
             
             
         ];
