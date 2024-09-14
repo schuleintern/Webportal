@@ -29,7 +29,7 @@
           <label>Betreff</label>
           <input v-model="form.subject" required>
         </li>
-        <li class="height-50rem">
+        <li class="height-50rem" style="padding-bottom: 50px;">
           <QuillEditor theme="snow" v-model:content="form.text" contentType="html" class=""/>
         </li>
         <li class="" style="display: block">

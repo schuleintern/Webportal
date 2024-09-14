@@ -21,7 +21,7 @@ class extInboxModelMessage2 extends ExtensionModel
         'isForward'
     ];
 
-    
+
     static $defaults = [
         'isRead' => 0,
         'isEmail' => 0
@@ -59,69 +59,73 @@ class extInboxModelMessage2 extends ExtensionModel
             $classBody = new extInboxModelMessageBody2();
 
             $body = $classBody->getByID( $this->getData('body_id') );
-            $bodyCollection = $body->getCollection(true, $this->getData('id') );
+            if ($body) {
+                $bodyCollection = $body->getCollection(true, $this->getData('id') );
 
-            $collection['subject'] = $bodyCollection['subject'];
+                $collection['subject'] = $bodyCollection['subject'];
+
+                $collection['from'] = false;
+                $collection['to'] = false;
 
 
-            $collection['from'] = false;
-            $collection['to'] = false;
+                $collection['from'] = $body->getSenderCollection();
 
+                if ($collection['folder_id'] == 2) { // Postausgang
 
-            $collection['from'] = $body->getSenderCollection();
-
-            if ($collection['folder_id'] == 2) { // Postausgang
-
-                if ($full === 'list') {
-                    $collection['to'] = $body->getReceiversShort();
+                    if ($full === 'list') {
+                        $collection['to'] = $body->getReceiversShort();
+                    } else {
+                        $collection['to'] = $body->getReceiversShort(); // vll doch LONG ?
+                    }
                 } else {
-                    $collection['to'] = $body->getReceiversShort(); // vll doch LONG ?
-                }
-            } else {
-                if ($full === 'list') {
+                    if ($full === 'list') {
 
-                } else {
-                    $collection['to'] = $body->getReceiversLong();
-                }
-            }
-
-            $collection['toCC'] = $body->getReceiversCC();
-            $collection['priority'] = $bodyCollection['priority'];
-            $collection['isPrivat'] = $bodyCollection['isPrivat'];
-            $collection['noAnswer'] = $bodyCollection['noAnswer'];
-            $collection['files'] = $bodyCollection['files'];
-            $collection['umfrage'] = $bodyCollection['umfrage'];
-            $collection['umfragen'] = $bodyCollection['umfragen'];
-            $collection['date'] = date("d.m.Y H:i", strtotime($bodyCollection['createdTime']) );
-
-
-            if ($collection['isRead']) {
-                $collection['isReadDate'] = date('d.m.Y H:i',$collection['isRead']);
-            }
-            if ($collection['isReadUser']) {
-                $collection['isReadUser'] = User::getCollectionByID($collection['isReadUser']);
-            }
-            if ($withText) {
-                $collection['text'] = nl2br($bodyCollection['text']);
-            }
-            if ($full !== 'list') {
-                if ($collection['isAnswer']) {
-                    $collection['isAnswer'] = date('d.m.Y H:i', $collection['isAnswer']);
-                }
-                if ($collection['isForward']) {
-                    $collection['isForward'] = date('d.m.Y H:i', $collection['isForward']);
-                }
-
-                include_once PATH_EXTENSION . 'models' . DS . 'MessageIsRead.class.php';
-                $MessageIsRead = new extInboxModelMessageIsRead();
-                $isReads = $MessageIsRead->getByParentID($collection['id']);
-                if ($isReads) {
-                    $collection['isReadList'] = [];
-                    foreach ($isReads as $isRead) {
-                        $collection['isReadList'][] = $isRead->getCollection();
+                    } else {
+                        $collection['to'] = $body->getReceiversLong();
                     }
                 }
 
+                $collection['toCC'] = $body->getReceiversCC();
+                $collection['priority'] = $bodyCollection['priority'];
+                $collection['isPrivat'] = $bodyCollection['isPrivat'];
+                $collection['noAnswer'] = $bodyCollection['noAnswer'];
+                $collection['files'] = $bodyCollection['files'];
+                $collection['umfrage'] = $bodyCollection['umfrage'];
+                $collection['umfragen'] = $bodyCollection['umfragen'];
+                $collection['date'] = date("d.m.Y H:i", strtotime($bodyCollection['createdTime']) );
+
+
+                if ($collection['isRead']) {
+                    $collection['isReadDate'] = date('d.m.Y H:i',$collection['isRead']);
+                }
+                if ($collection['isReadUser']) {
+                    $collection['isReadUser'] = User::getCollectionByID($collection['isReadUser']);
+                }
+                if ($withText) {
+                    $collection['text'] = nl2br($bodyCollection['text']);
+                }
+                if ($full !== 'list') {
+                    if ($collection['isAnswer']) {
+                        $collection['isAnswer'] = date('d.m.Y H:i', $collection['isAnswer']);
+                    }
+                    if ($collection['isForward']) {
+                        $collection['isForward'] = date('d.m.Y H:i', $collection['isForward']);
+                    }
+
+                    if ($collection['folder_id'] != 2) { // Nicht Gesendet Folder
+                        include_once PATH_EXTENSION . 'models' . DS . 'MessageIsRead.class.php';
+                        $MessageIsRead = new extInboxModelMessageIsRead();
+                        $isReads = $MessageIsRead->getByParentID($collection['id']);
+                        if ($isReads) {
+                            $collection['isReadList'] = [];
+                            foreach ($isReads as $isRead) {
+                                $collection['isReadList'][] = $isRead->getCollection();
+                            }
+                        }
+                    }
+
+
+                }
             }
         }
 
@@ -479,15 +483,15 @@ class extInboxModelMessage2 extends ExtensionModel
                 }
             }
 
-/*
-            echo '<pre>Userlist:';
-            print_r($userlist);
-            echo '</pre>';
+            /*
+                        echo '<pre>Userlist:';
+                        print_r($userlist);
+                        echo '</pre>';
 
-            echo '<pre>';
-            print_r($data['umfragen']);
-            echo '</pre>';
-*/
+                        echo '<pre>';
+                        print_r($data['umfragen']);
+                        echo '</pre>';
+            */
             if ($data['umfragen']  && EXTENSION::isActive('ext.zwiebelgasse.umfragen')) {
                 include_once PATH_EXTENSIONS . 'umfragen' . DS . 'models' . DS . 'List.class.php';
                 $UmfragenClass = new extUmfragenModelList();

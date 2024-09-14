@@ -84,7 +84,7 @@
         <div v-if="item.isConfirm == 1 && item.confirmList" class="flex-row">
           <label>Lesebestätigungen</label>
           <div class="blockInline">
-            <ul v-if="item.showConfirm || item.confirmList.to.length == 1" class="noListStyle">
+            <ul v-if="item.showConfirm" class="noListStyle">
               <li v-if="item.confirmList.to.length > 0">
                 <label>Empfänger:</label>
 
@@ -130,7 +130,7 @@
 
       </li>
       <!-- Lesebestätigung -->
-      <li v-else class="  ">
+      <li v-else-if="item.isConfirm > 1" class="  ">
 
         <ul class="noListStyle">
           <li class="line-oddEven padding-s" v-if="item.isConfirm == 1">

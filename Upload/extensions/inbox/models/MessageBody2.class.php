@@ -152,28 +152,29 @@ class extInboxModelMessageBody2 extends ExtensionModel
 
             foreach ($arr as $item) {
                 if ( $item['inboxs'] && count($item['inboxs']) > 0 ) {
+                    if ($item['content'] && $item['typ']) {
+                        $className = explode('::', $item['typ']);
+                        $className = 'extInboxRecipient' . ucfirst($className[0]) . ucfirst($className[1]);
+                        $typ = str_replace('::', '_', $item['typ']);
+                        include_once PATH_EXTENSIONS . 'inbox' . DS . 'inboxs' . DS . $typ . '.class.php';
 
-                    $className = explode('::', $item['typ']);
-                    $className = 'extInboxRecipient'.ucfirst($className[0]).ucfirst($className[1]);
-                    $typ = str_replace('::','_', $item['typ']);
-                    include_once PATH_EXTENSIONS.'inbox'.DS . 'inboxs' . DS . $typ.'.class.php';
+                        $tmp_data = $className::getTitle($item['content']);
 
-                    $tmp_data = $className::getTitle($item['content']);
-
-                    $inboxCol = [];
-                    foreach ($item['inboxs'] as $inbox) {
-                        $inboxObj = PAGE::getFactory()->getInboxByID($inbox);
-                        if ($inboxObj) {
-                            $inboxCol[] = $inboxObj->getCollection(true, false, true);
+                        $inboxCol = [];
+                        foreach ($item['inboxs'] as $inbox) {
+                            $inboxObj = PAGE::getFactory()->getInboxByID($inbox);
+                            if ($inboxObj) {
+                                $inboxCol[] = $inboxObj->getCollection(true, false, true);
+                            }
                         }
+
+
+                        $ret[] = [
+                            "title" => $tmp_data,
+                            "count" => count($item['inboxs']),
+                            "inbox" => $inboxCol
+                        ];
                     }
-
-
-                    $ret[] = [
-                        "title" => $tmp_data,
-                        "count" => count($item['inboxs']),
-                        "inbox" => $inboxCol
-                    ];
                 }
 
             }
@@ -190,23 +191,25 @@ class extInboxModelMessageBody2 extends ExtensionModel
             foreach ($arr as $item) {
                 if ( count($item['inboxs']) > 0) {
 
-                    $className = explode('::', $item['typ']);
-                    $className = 'extInboxRecipient'.ucfirst($className[0]).ucfirst($className[1]);
-                    $typ = str_replace('::','_', $item['typ']);
-                    include_once PATH_EXTENSIONS.'inbox'.DS . 'inboxs' . DS . $typ.'.class.php';
+                    if ($item['content'] && $item['typ']) {
+                        $className = explode('::', $item['typ']);
+                        $className = 'extInboxRecipient'.ucfirst($className[0]).ucfirst($className[1]);
+                        $typ = str_replace('::','_', $item['typ']);
+                        include_once PATH_EXTENSIONS.'inbox'.DS . 'inboxs' . DS . $typ.'.class.php';
 
-                    $tmp_data = $className::getTitle($item['content']);
-                    if (!$tmp_data) {
-                        $tmp_data = $item['typ'].'::'.$item['content'];
+                        $tmp_data = $className::getTitle($item['content']);
+                        if (!$tmp_data) {
+                            $tmp_data = $item['typ'].'::'.$item['content'];
+                        }
+
+                        $ret[] = [
+                            "title" => $tmp_data,
+                            "count" => count($item['inboxs']),
+                            //"typ" => $item['typ'],
+                            //"content" => $item['content'],
+                            //"inboxs" => $item['inboxs']
+                        ];
                     }
-
-                    $ret[] = [
-                        "title" => $tmp_data,
-                        "count" => count($item['inboxs']),
-                        //"typ" => $item['typ'],
-                        //"content" => $item['content'],
-                        //"inboxs" => $item['inboxs']
-                    ];
                 }
 
             }
