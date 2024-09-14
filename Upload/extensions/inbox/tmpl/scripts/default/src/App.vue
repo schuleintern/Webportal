@@ -763,7 +763,8 @@ export default {
 .isMobile .inbox {
   flex-direction: column !important;
 }
-.isMobile .inbox-list-read {
+.isMobile .inbox-list-read,
+.isMobile .inbox-list-send {
   max-width: 100vw;
 }
 .isMobile .bar {

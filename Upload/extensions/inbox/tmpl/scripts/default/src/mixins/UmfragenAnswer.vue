@@ -47,7 +47,8 @@ export default {
   },
   props: {
     form: Object,
-    btnSave: Boolean
+    btnSave: Boolean,
+    parent_id: Number
   },
   created: function () {
     this.item = this.form;
@@ -61,6 +62,7 @@ export default {
       var that = this;
       const formData = new FormData();
       formData.append('childs', JSON.stringify(this.item.childs) );
+      formData.append('parent_id', this.parent_id );
 
       let sessionID = localStorage.getItem('session');
       if (sessionID) {

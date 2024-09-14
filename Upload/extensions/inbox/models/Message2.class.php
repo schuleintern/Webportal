@@ -59,7 +59,7 @@ class extInboxModelMessage2 extends ExtensionModel
             $classBody = new extInboxModelMessageBody2();
 
             $body = $classBody->getByID( $this->getData('body_id') );
-            $bodyCollection = $body->getCollection(true);
+            $bodyCollection = $body->getCollection(true, $this->getData('id') );
 
             $collection['subject'] = $bodyCollection['subject'];
 
@@ -111,6 +111,17 @@ class extInboxModelMessage2 extends ExtensionModel
                 if ($collection['isForward']) {
                     $collection['isForward'] = date('d.m.Y H:i', $collection['isForward']);
                 }
+
+                include_once PATH_EXTENSION . 'models' . DS . 'MessageIsRead.class.php';
+                $MessageIsRead = new extInboxModelMessageIsRead();
+                $isReads = $MessageIsRead->getByParentID($collection['id']);
+                if ($isReads) {
+                    $collection['isReadList'] = [];
+                    foreach ($isReads as $isRead) {
+                        $collection['isReadList'][] = $isRead->getCollection();
+                    }
+                }
+
             }
         }
 
@@ -394,6 +405,7 @@ class extInboxModelMessage2 extends ExtensionModel
             $InboxClass = new extInboxModelInbox2();
 
             $userlist = [];
+            $inboxlist = [];
 
             // POSTEINGANG
             if ($send) {
@@ -409,6 +421,9 @@ class extInboxModelMessage2 extends ExtensionModel
                                 if ($inboxTemp['user_id']) {
                                     $userlist[] = $inboxTemp['user_id'];
                                 }
+                            }
+                            if (!in_array($item, $inboxlist)) {
+                                $inboxlist[] = $item;
                             }
 
                             if ( !$this->save([
@@ -445,6 +460,9 @@ class extInboxModelMessage2 extends ExtensionModel
                                         $userlist[] = $inboxTemp['user_id'];
                                     }
                                 }
+                                if (!in_array($item, $inboxlist)) {
+                                    $inboxlist[] = $item;
+                                }
                                 if ( !$this->save([
                                     'inbox_id' => $item,
                                     'folder_id' => $folder_id_in,
@@ -470,7 +488,7 @@ class extInboxModelMessage2 extends ExtensionModel
             print_r($data['umfragen']);
             echo '</pre>';
 */
-            if ($data['umfragen'] && $userlist && EXTENSION::isActive('ext.zwiebelgasse.umfragen')) {
+            if ($data['umfragen']  && EXTENSION::isActive('ext.zwiebelgasse.umfragen')) {
                 include_once PATH_EXTENSIONS . 'umfragen' . DS . 'models' . DS . 'List.class.php';
                 $UmfragenClass = new extUmfragenModelList();
                 $data['umfragen'] = json_decode($data['umfragen']);
@@ -481,7 +499,7 @@ class extInboxModelMessage2 extends ExtensionModel
                     'state' => 1,
                     'createdTime' => date('Y-m-d H:i', time()),
                     'createdUserID' => DB::getSession()->getUserID(),
-                    'userlist' => $userlist,
+                    'userlist' => 0,
                     'type' => 'ext_inbox'
                 ], $data['umfragen']);
 

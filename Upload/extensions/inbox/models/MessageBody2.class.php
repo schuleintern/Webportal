@@ -41,7 +41,7 @@ class extInboxModelMessageBody2 extends ExtensionModel
 
 
 
-    public function getCollection($full = false)
+    public function getCollection($full = false, $parent_id = false)
     {
 
         $collection = parent::getCollection();
@@ -61,14 +61,19 @@ class extInboxModelMessageBody2 extends ExtensionModel
                     $collection['umfragen'] = $tmp_answers->getCollection(false, false, true);
 
 
-                    $answers = $subAnswer->getByParentAndUserID($collection['umfragen']['id'],  DB::getSession()->getUserID());
-                    if ($answers) {
-                        $answers_ret = [];
-                        foreach ($answers as $answer) {
-                            $answers_ret[] = $answer->getCollection();
+                    if ($parent_id) {
+                        $answers = $subAnswer->getByIdAndParent($collection['umfragen']['id'],  $parent_id);
+                        if ($answers) {
+                            $answers_ret = [];
+                            foreach ($answers as $answer) {
+                                $answers_ret[] = $answer->getCollection();
+                            }
+                            $collection['umfragen']['answers'] = $answers_ret;
+                        } else {
+                            $collection['umfragen']['answers'] = false;
                         }
-                        $collection['umfragen']['answers'] = $answers_ret;
                     }
+
 
 
                 }
@@ -210,6 +215,19 @@ class extInboxModelMessageBody2 extends ExtensionModel
         return false;
     }
 
+
+
+    public  function getByUmfrage($umfrage_id = false)
+    {
+        if (!(int)$umfrage_id) {
+            return false;
+        }
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE umfrage = :umfrage_id   ', ['umfrage_id' => $umfrage_id])->fetch();
+        if ($data) {
+            return new self($data);
+        }
+        return false;
+    }
 
 
 

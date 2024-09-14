@@ -272,18 +272,17 @@ export default {
       str.forEach((s) => {
         s.inboxs.forEach((o) => {
           if (parseInt(o) !== parseInt(msgObj.inbox_id)) {
-            fromInbox.push(o);
+            fromInbox.push(s);
           }
         });
       });
       strLong.forEach((s) => {
         s.inboxs.forEach((o) => {
           if (parseInt(o.id) !== parseInt(msgObj.inbox_id)) {
-            cacheInbox.push(o);
+            cacheInbox.push(s);
           }
         });
       });
-
       return [fromInbox, cacheInbox];
     },
 
