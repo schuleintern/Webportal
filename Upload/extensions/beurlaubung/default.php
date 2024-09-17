@@ -113,7 +113,10 @@ class extBeurlaubungDefault extends AbstractPage
                 "hinweisAntragOpen" => nl2br(DB::getSettings()->getValue("extBeurlaubung-antrag-open")),
                 "hinweisAntragOpenFinish" => nl2br(DB::getSettings()->getValue("extBeurlaubung-antrag-finish")),
                 "formGanztags" => (int)DB::getSettings()->getValue("extBeurlaubung-form-ganztag"),
-                "formGanztagsLabel" => (string)DB::getSettings()->getValue("extBeurlaubung-form-ganztag-label")
+                "formGanztagsLabel" => (string)DB::getSettings()->getValue("extBeurlaubung-form-ganztag-label"),
+                "printLogo" => PAGE::logo(),
+                "printSystem" => DB::getGlobalSettings()->siteNamePlain,
+                "printDate" => date('d.m.Y H:i', time()),
 
             ]
         ]);

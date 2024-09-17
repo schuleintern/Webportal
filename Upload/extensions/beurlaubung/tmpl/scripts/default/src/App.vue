@@ -60,6 +60,7 @@
             <th v-on:click="handlerSort('userID')" class="curser-sort"
               :class="{ 'text-orange colum-sort': sort.column == 'userID' }">Benutzer*in</th>
             <th>Stunden</th>
+            <th></th>
             <th width="30%">Begründung</th>
             <th>Hinweis</th>
           </tr>
@@ -78,6 +79,9 @@
             <td>{{ item.datumStart }}</td>
             <td>{{ item.user.name }} <span class="text-small" v-if="item.user.klasse">{{ item.user.klasse }}</span></td>
             <td>{{ item.stunden }}</td>
+            <td>
+              <button class="si-btn si-btn-light si-btn-icon" @click="handlerPrint(item)"><i class="fa fa fa-download"></i></button>
+            </td>
             <td><span class="text-small" v-html="item.info"></span></td>
             <td>
               <div class="" v-if="item.doneInfo">{{ item.doneInfo }}</div>
@@ -172,6 +176,9 @@ import AjaxSpinner from './mixins/AjaxSpinner.vue'
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
+
 const axios = require('axios').default;
 
 import { ref, onMounted } from 'vue';
@@ -245,7 +252,11 @@ export default {
         date: false,
         stunden: [],
         info: ''
-      }
+      },
+
+      printLogo: window.globals.printLogo,
+      printSystem: window.globals.printSystem,
+      printDate: window.globals.printDate,
 
 
     };
@@ -253,6 +264,7 @@ export default {
   computed: {
     sortList: function () {
 
+      /*
       function getDates(a, b) {
         const dmyA = a[that.sort.column].split(".");
         const date1 = new Date(dmyA[2], dmyA[1] - 1, dmyA[0]);
@@ -260,6 +272,7 @@ export default {
         const date2 = new Date(dmyB[2], dmyB[1] - 1, dmyB[0]);
         return [date1, date2];
       }
+      */
 
       if (this.list) {
         let data = this.list;
@@ -356,6 +369,105 @@ export default {
 
   },
   methods: {
+
+    handlerPrint(item) {
+
+      window.html2canvas = html2canvas;
+
+      var doc = new jsPDF(
+          'p', 'mm', 'a4'
+      );
+
+      let htmlTemp = document.createElement('div');
+      htmlTemp.style.fontSize = '14pt';
+
+
+      let imgHead = document.createElement('img');
+      imgHead.src = this.printLogo;
+      imgHead.style.width = '20mm';
+      imgHead.style.height = '20mm';
+      imgHead.style.position = 'relative';
+      imgHead.style.display = 'block';
+      imgHead.style.marginBottom = '2rem';
+      htmlTemp.appendChild(imgHead);
+
+      //let node = document.getElementById('mailHeader');
+      //htmlTemp.appendChild(node.cloneNode(true));
+
+
+      //let htmltable = document.createElement('table');
+
+      const tbl = document.createElement('table');
+      tbl.classList.add('si-table');
+      tbl.classList.add('si-table-style-allLeft');
+
+      let tr = tbl.insertRow();
+      let td = tr.insertCell();
+      td.appendChild(document.createTextNode('Datum:'));
+      td = tr.insertCell();
+      let date = String(item.datumStart);
+      if (item.datumEnde) {
+        date = String(item.datumStart)+' '+String(item.datumEnde);
+      }
+      td.appendChild(document.createTextNode(date));
+
+      tr = tbl.insertRow();
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode('Benutzer*in:'));
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode(String(item.username)));
+
+      tr = tbl.insertRow();
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode('Stunden:'));
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode(String(item.stunden)));
+
+      tr = tbl.insertRow();
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode('Begründung:'));
+      td = tr.insertCell();
+      let node = document.createElement('div');
+      node.innerHTML = item.info;
+      td.appendChild(node);
+
+
+      tr = tbl.insertRow();
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode('Erstellt am:'));
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode(String(item.createdTime)));
+
+
+      htmlTemp.appendChild(tbl);
+
+      let htmlFooter = document.createElement('div');
+      htmlFooter.innerText = this.printSystem+' - '+this.printDate;
+      htmlFooter.style.fontSize = '10pt';
+      htmlFooter.style.width = '100%';
+      htmlFooter.style.textAlign = 'center';
+      htmlFooter.style.paddingTop = '10mm';
+      htmlFooter.style.color = '#ccc';
+      htmlTemp.appendChild(htmlFooter);
+
+
+      //console.log(htmlTemp)
+      //node.appendChild(htmlTemp)
+
+      doc.html(htmlTemp, {
+        callback: function (doc) {
+          doc.save("Beurlaubungsantrag.pdf");
+        },
+        x: 20,
+        y: 10,
+        width: 170,
+        windowWidth: 1024
+      });
+
+      //doc.html(node, 10, 10);
+      //doc.save("a4.pdf");
+
+    },
 
     setDateYear: function (e) {
       e.preventDefault();
