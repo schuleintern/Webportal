@@ -80,9 +80,9 @@
       </li>
 
       <!-- Lesebestätigung:  Gesendet -->
-      <li v-if="folder.id == 2" class="margin-b-m">
+      <li v-if="folder.id == 2" class="margin-b-m padding-s ">
         <div v-if="item.isConfirm == 1 && item.confirmList" class="flex-row">
-          <label>Lesebestätigungen</label>
+          <label>Lesebestätigung:</label>
           <div class="blockInline">
             <ul v-if="item.showConfirm" class="noListStyle">
               <li v-if="item.confirmList.to.length > 0">
@@ -130,7 +130,7 @@
 
       </li>
       <!-- Lesebestätigung -->
-      <li v-else-if="item.isConfirm > 1" class="  ">
+      <li v-else-if="item.isConfirm >= 1" class="  ">
 
         <ul class="noListStyle">
           <li class="line-oddEven padding-s" v-if="item.isConfirm == 1">

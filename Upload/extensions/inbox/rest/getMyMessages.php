@@ -48,7 +48,7 @@ class getMyMessages extends AbstractRest
             if ($inboxTemp['id']) {
                 $messages = $Message->getUnreadMessages($inboxTemp['id'], 1);
                 foreach ($messages as $item) {
-                    $retInbox[] = $item->getCollection(true);
+                    $retInbox[] = $item->getCollection('list');
                 }
                 if (count($retInbox) > 0) {
                     $ret[] = [

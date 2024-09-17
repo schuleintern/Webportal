@@ -108,7 +108,10 @@ class getRecipients extends AbstractRest
                 $class = new extUsersModelGroups();
                 $tmp_data = $class->getAll();
                 foreach ($tmp_data as $item) {
-                    $groups[] = $item->getCollection();
+                    $foo = $item->getCollection();
+                    $foo['type'] = 'group';
+                    $foo['icon'] = 'fa fa-users';
+                    $groups[] = $foo;
                 }
             }
         }
@@ -122,6 +125,8 @@ class getRecipients extends AbstractRest
         if ($aclInboxsInboxs) {
             $dataSQL = DB::getDB()->query("SELECT id, title FROM ext_inboxs WHERE type = 'group'");
             while ($data = DB::getDB()->fetch_array($dataSQL, true)) {
+                $data['type'] = 'inbox';
+                $data['icon'] = 'fa fa-paper-plane';
                 $inboxs[] = $data;
             }
         }
@@ -143,7 +148,9 @@ class getRecipients extends AbstractRest
                         $tempUser = user::getUserByID($data['user_id']);
                         $inboxUsers[] = [
                             'id' => $data['inbox_id'],
-                            'title' => $tempUser->getDisplayName()
+                            'title' => $tempUser->getDisplayName(),
+                            'type' => 'inbox',
+                            'icon' => 'fa fa-user'
                         ];
                     }
                 }

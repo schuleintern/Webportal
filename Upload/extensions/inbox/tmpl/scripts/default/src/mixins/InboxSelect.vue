@@ -315,7 +315,8 @@
                       <div v-if="recipients.inboxs">
                         <button v-bind:key="index" v-for="(item, index) in  recipients.inboxs" class="si-btn margin-r-s"
                                 :class="{'si-btn-active': selectActive('inbox', item.id) }"
-                                @click="handlerSelect('inbox', item.id)">{{ item.title }}
+                                @click="handlerSelect(item.type, item.id)">
+                          <i v-if="item.icon" :class="item.icon"></i>{{ item.title }}
                         </button>
                       </div>
                     </span>

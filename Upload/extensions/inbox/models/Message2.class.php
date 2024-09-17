@@ -496,22 +496,23 @@ class extInboxModelMessage2 extends ExtensionModel
                 include_once PATH_EXTENSIONS . 'umfragen' . DS . 'models' . DS . 'List.class.php';
                 $UmfragenClass = new extUmfragenModelList();
                 $data['umfragen'] = json_decode($data['umfragen']);
+                if (is_array($data['umfragen']) && count($data['umfragen']) > 0) {
+                    $umfrageID = $UmfragenClass->setListWithItems([
+                        'id' => 0,
+                        'title' => $data['subject'],
+                        'state' => 1,
+                        'createdTime' => date('Y-m-d H:i', time()),
+                        'createdUserID' => DB::getSession()->getUserID(),
+                        'userlist' => 0,
+                        'type' => 'ext_inbox'
+                    ], $data['umfragen']);
 
-                $umfrageID = $UmfragenClass->setListWithItems([
-                    'id' => 0,
-                    'title' => $data['subject'],
-                    'state' => 1,
-                    'createdTime' => date('Y-m-d H:i', time()),
-                    'createdUserID' => DB::getSession()->getUserID(),
-                    'userlist' => 0,
-                    'type' => 'ext_inbox'
-                ], $data['umfragen']);
-
-                if ($umfrageID) {
-                    $bodyClass->update([
-                        'id' => $body->lastID,
-                        'umfrage' => $umfrageID
-                    ]);
+                    if ($umfrageID) {
+                        $bodyClass->update([
+                            'id' => $body->lastID,
+                            'umfrage' => $umfrageID
+                        ]);
+                    }
                 }
             }
 
