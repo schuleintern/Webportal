@@ -40,27 +40,67 @@ class getAnswer extends AbstractRest
         $class = new extUmfragenModelAnswer();
         $tmp_data = $class->getByParentID($id);
 
+        //include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'MessageBody2.class.php';
+        //$MessageBodyClass = new extInboxModelMessageBody2();
+        //include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Message2.class.php';
+        //$MessageClass = new extInboxModelMessage2();
 
         $ret = [];
         if ($tmp_data) {
             foreach ($tmp_data as $item) {
                 $foo = $item->getCollection();
-                if ( !is_array($ret[$foo['createdUserID']]) ) {
 
-                    $temp_user = user::getUserByID( $foo['createdUserID'] );
-                    if ($temp_user) {
-                        $temp_user = $temp_user->getCollection();
+    /*
+                $body = $MessageBodyClass->getByUmfrage($foo['parent_id']);
+                if ($body) {
+                    $messages = $MessageClass->getMessagesByBody($body->getID());
+                    if ($messages) {
+                        foreach ($messages as $message) {
+                            if ($message->getData('folder_id') != 2) { // nicht aus den "gesendet" Ordner
+                                $inbox_tmp = PAGE::getFactory()->getInboxByID($message->getData('inbox_id'));
+                                $collection_tmp = $inbox_tmp->getCollection(true);
+
+                                echo '<pre>';
+                                print_r($collection_tmp);
+                                echo '</pre>';
+                            }
+                        }
                     }
-                    if (!$temp_user) {
-                        $temp_user = [];
-                    }
-                    
-                    $ret[$foo['createdUserID']] = [
-                        'data' => [],
-                        'user' => $temp_user
-                    ];
                 }
-                $ret[$foo['createdUserID']]['data'][] = $foo;
+                */
+
+
+
+                if (!$foo['parent_id']) {
+                    $foo['parent_id'] = $foo['createdUserID'];
+                }
+
+
+                if (!is_array($ret[$foo['parent_id']])) {
+
+                    $inbox = PAGE::getFactory()->getInboxByID($foo['parent_id']);
+                    if ($inbox) {
+                        $inbox_coll = $inbox->getCollection(true);
+                        if ($inbox_coll['user_id']) {
+                            $temp_user = user::getUserByID($inbox_coll['user_id']);
+                            if ($temp_user) {
+                                $temp_user = $temp_user->getCollection();
+                            }
+                            if (!$temp_user) {
+                                $temp_user = [];
+                            }
+
+                            $ret[$foo['parent_id']] = [
+                                'data' => [],
+                                'user' => $temp_user
+                            ];
+                        }
+                    }
+
+                }
+
+
+                $ret[$foo['parent_id']]['data'][] = $foo;
             }
         }
 

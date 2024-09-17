@@ -18,7 +18,7 @@ class setAnswer extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if (!$this->canRead()) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -28,6 +28,14 @@ class setAnswer extends AbstractRest
         $childs = $_POST['childs'];
         if ($childs) {
             $childs = json_decode($childs);
+        }
+
+        $parent_id = (string)$input['parent_id'];
+        if ( !$parent_id || $parent_id == 'undefined' ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: Parent ID'
+            ];
         }
 
 
@@ -40,6 +48,7 @@ class setAnswer extends AbstractRest
             if ($class->save([
                 'list_id' => $child->list_id,
                 'item_id' => $child->id,
+                'parent_id' => $parent_id,
                 'content' => $child->value,
                 'createdTime' => date('Y-m-d H:i', time()),
                 'createdUserID' => $user->getUserID()

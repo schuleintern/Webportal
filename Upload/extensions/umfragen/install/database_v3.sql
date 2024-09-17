@@ -1,0 +1,1 @@
+ALTER TABLE `ext_umfragen_answer` ADD `parent_id` INT(11)  NULL  DEFAULT NULL  AFTER `item_id`;

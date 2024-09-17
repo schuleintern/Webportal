@@ -14,7 +14,8 @@ class extUmfragenModelAnswer extends ExtensionModel
         'createdUserID',
         'list_id',
         'item_id',
-        'content'
+        'content',
+        'parent_id'
     ];
 
     
@@ -52,24 +53,42 @@ class extUmfragenModelAnswer extends ExtensionModel
                     $collection['createdUser'] = $temp_user->getCollection();
                 }
             }
+        }
 
-            
+        if (!$collection['content']) {
+            $collection['content'] = '';
         }
 
         return $collection;
     }
 
 
-    public function getByParentAndUserID($list_id = false, $userID = false)
+    public function getByIdAndParent($list_id = false, $parent_id = false)
     {
         if (!self::$table) {
             return false;
         }
-        if (!$userID || !$list_id ) {
+        if (!$parent_id || !$list_id ) {
             return false;
         }
         $ret = [];
-        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE createdUserID = :userID AND list_id = :list_id', ['userID' => $userID, 'list_id' => $list_id])->fetchAll();
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE parent_id = :parent_id AND list_id = :list_id', ['parent_id' => $parent_id, 'list_id' => $list_id])->fetchAll();
+        foreach($data as $item) {
+            $ret[] = new self($item);
+        }
+        return $ret;
+    }
+
+    public function getByParentAndUserID($list_id = false, $parent_id = false)
+    {
+        if (!self::$table) {
+            return false;
+        }
+        if (!$parent_id || !$list_id ) {
+            return false;
+        }
+        $ret = [];
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE createdUserID = :parent_id AND list_id = :list_id', ['parent_id' => $parent_id, 'list_id' => $list_id])->fetchAll();
         foreach($data as $item) {
             $ret[] = new self($item);
         }

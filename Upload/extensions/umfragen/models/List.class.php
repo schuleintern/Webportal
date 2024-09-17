@@ -64,15 +64,59 @@ class extUmfragenModelList extends ExtensionModel
         }
 
         if ($showUserlist) {
-            if ($collection['userlist']) {
+            if ($collection['type'] == 'ext_inbox') {
+
+                include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'MessageBody2.class.php';
+                $MessageBodyClass = new extInboxModelMessageBody2();
+                $body = $MessageBodyClass->getByUmfrage($collection['id']);
                 $ret = [];
-                foreach($collection['userlist'] as $foo) {
-                    $user = user::getUserByID($foo);
-                    if ($user) {
-                        $ret[] = $user->getCollection(true, true);
+                if ($body) {
+                    include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Message2.class.php';
+                    $MessageClass = new extInboxModelMessage2();
+                    $messages = $MessageClass->getMessagesByBody($body->getID());
+                    if ($messages) {
+                        foreach($messages as $message) {
+                            if ($message->getData('folder_id') != 2) { // nicht aus den "gesendet" Ordner
+                                $inbox_tmp = PAGE::getFactory()->getInboxByID($message->getData('inbox_id'));
+                                $collection_tmp = $inbox_tmp->getCollection(true);
+
+                                $ret[] = [
+                                    'type' => 'inbox',
+                                    'title' => $collection_tmp['title'],
+                                    'inbox_id' => $collection_tmp['id'],
+                                    'mid' => $message->getData('id'),
+                                    'user' => $collection_tmp['user']
+
+                                ];
+                            }
+
+                        }
                     }
+
                 }
                 $collection['userlist'] = $ret;
+            } else {
+
+
+                if ($collection['userlist'] && count($collection['userlist']) > 0) {
+                    $ret = [];
+                    foreach($collection['userlist'] as $foo) {
+
+                        $user = user::getUserByID($foo);
+                        if ($user) {
+                            //$ret[] = $user->getCollection(true, true);
+
+                            $ret[] = [
+                                'type' => 'user',
+                                'title' => $user->getDisplayName(),
+                                'inbox_id' => false,
+                                'mid' => $user->getUserID(),
+                                'user' => $user->getCollection(true)
+                            ];
+                        }
+                    }
+                    $collection['userlist'] = $ret;
+                }
             }
         }
         if ($showChilds) {
