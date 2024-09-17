@@ -24,7 +24,7 @@ class extUsersModelEltern extends ExtensionModel
     {
         parent::__construct($data, self::$table ? self::$table : false,
             [
-                'parent_id' => 'elternUserID'
+                'parent_id' => 'elternEMail'
             ]);
         self::setModelFields(self::$fields, self::$defaults);
     }
