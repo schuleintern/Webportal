@@ -2,8 +2,9 @@
   <div class="flex-row">
 
     <div class="flex-1 ">
+      <span id="extAkteHeaderAnchor"></span>
       <div class="klassen" v-if="!selectedKlasse">
-        <h4><i class="fa fa-users"></i>  Klassen</h4>
+        <h4 ><i class="fa fa-users"></i>  Klassen</h4>
         <ul class="noListStyle ">
           <li v-bind:key="index" v-for="(item, index) in  klassen" class="">
             <button class="si-btn width-100p" @click="handlerSelectKlasse(item)" >{{ item.name }}</button>
@@ -36,14 +37,14 @@
             </div>
             <div v-if="showForm" class="flex-1 padding-l-l">
               <button v-bind:key="i" v-for="(item, i) in  vorlagenObj" class="blockInline si-btn si-btn-border si-btn-small margin-r-s"
-                      @click="handlerVorlage(item)" >{{item}}</button>
+                      @click="handlerVorlage(i)" >{{item}}</button>
             </div>
           </li>
 
           <li v-if="showForm && tags && tags.length > 0" class="padding-t-m">
             <label>Schlagworte</label>
             <div class="si-btn-multiple">
-              <button v-bind:key="i" v-for="(item, i) in  tags" class="si-btn si-btn-light margin-r-s"
+              <button v-bind:key="i" v-for="(item, i) in  tags" class="si-btn si-btn-light si-btn-small margin-r-s"
                       :class="{'si-btn-active': isTag(item.id)}" @click="handlerTag(item)" >{{item.title}}</button>
             </div>
           </li>
@@ -128,8 +129,10 @@ export default {
   },
   methods: {
 
-    handlerVorlage(str) {
+    handlerVorlage(i) {
 
+      const obj = this.vorlagen.split(';')
+      const str = obj[i];
       if (str) {
         if (this.form.text && this.form.text.length > 0) {
           if ( confirm('Den vorhanden Text überschreiben?') == true ) {
@@ -192,6 +195,7 @@ export default {
     },
     handlerSelectKlasse(item) {
       this.selectedKlasse = item;
+      document.getElementById('extAkteHeaderAnchor').scrollIntoView();
     },
     handlerSelectPupil(item) {
 
@@ -200,6 +204,7 @@ export default {
 
       if (this.selectedPupil.id) {
         this.loadItems(this.selectedPupil.id);
+        document.getElementById('extAkteHeaderAnchor').scrollIntoView();
       }
 
     },

@@ -37,6 +37,7 @@ class deleteItem extends AbstractRest {
         include_once PATH_EXTENSION . 'models' . DS . 'Item.class.php';
         $class = new extAkteModelItem();
         $data = $class->getByID($id);
+
         if ($data) {
             if ( $data->delete() ) {
 
@@ -82,7 +83,7 @@ class deleteItem extends AbstractRest {
      */
     public function needsAdminAuth()
     {
-        return true;
+        return false;
     }
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
