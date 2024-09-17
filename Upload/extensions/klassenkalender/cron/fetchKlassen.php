@@ -30,7 +30,9 @@ class extKlassenkalenderCronFetchKlassen extends AbstractCron
             $admins = [];
             $teachers = $klasse->getTeachers();
             foreach ($teachers as $teacher) {
-                $admins[] = $teacher->getUserID();
+                if ($teacher->getUserID()) {
+                    $admins[] = $teacher->getUserID();
+                }
             }
             $admins = array_unique($admins);
 
@@ -61,11 +63,20 @@ class extKlassenkalenderCronFetchKlassen extends AbstractCron
 
             } else {
 
-                $foundCalender->setValue('admins',json_encode($admins));
-                // Update
-                if (!$class->save($foundCalender)) {
 
+                if ($foundCalender && $admins) {
+
+                    $coll = $foundCalender->getCollection();
+                    $coll['admins'] = json_encode($admins);
+                    // Update
+                    if (!$class->update([
+                        'id' => $foundCalender->getID(),
+                        'admins' => json_encode($admins)
+                    ])) {
+
+                    }
                 }
+
             }
 
         }

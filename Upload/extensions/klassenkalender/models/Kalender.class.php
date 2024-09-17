@@ -68,7 +68,7 @@ class extKlassenkalenderModelKalender extends ExtensionModel
         }
 
         $collection['preSelect'] = 0;
-        if (DB::getSession()->getUser()->isAdmin()) {
+        if (DB::getSession() && DB::getSession()->getUser() && DB::getSession()->getUser()->isAdmin()) {
             $collection['preSelect'] = 1;
         }
 
