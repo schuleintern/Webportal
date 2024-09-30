@@ -5,7 +5,7 @@
 <div class="box">
 	<div class="box-header">
 		<h3 class="box-title"><i class="fa fa-arrow-up"></i> Ausleihe</h3>
-		<a href="index.php?page=schulbuecher&mode=generateAusleihBarcodes"><i class="fa fa-file-pdf"></i> Schülerbarcodes ausdrucken</a>
+		<a href="index.php?page=schulbuecher&mode=generateAusleihBarcodes" target="_blank"><i class="fa fa-file-pdf"></i> Schülerbarcodes ausdrucken</a>
 	</div>
 	<div class="box-body">
 		<form action="index.php?page=schulbuecher&mode=ausleihe&action=selectPupil" method="post">
@@ -26,7 +26,7 @@
 <div class="box">
 	<div class="box-header">
 		<h3 class="box-title"><i class="fa fa-arrow-up"></i> Ausleihe - Schüler: {$schueler->getCompleteSchuelerName()} (Klasse {$schueler->getKlasse()})</h3>
-		<a href="index.php?page=schulbuecher&mode=generateAusleihBarcodes"><i class="fa fa-file-pdf"></i> Schülerbarcodes ausdrucken</a>
+		<a href="index.php?page=schulbuecher&mode=generateAusleihBarcodes" target="_blank"><i class="fa fa-file-pdf"></i> Schülerbarcodes ausdrucken</a>
 	</div>
 	<div class="box-body">
 		<form action="index.php?page=schulbuecher&mode=ausleihe&action=scanBarcode" method="post">

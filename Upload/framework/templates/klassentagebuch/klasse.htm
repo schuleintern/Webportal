@@ -219,7 +219,7 @@
               </div>
           </div>
           <div class="box-body">
-			
+
 			<div id="klassentermine"></div>
 			
 						
@@ -612,28 +612,30 @@ function inArray(needle, haystack) {
     <script src="cssjs/plugins/fullcalendar/fullcalendar.min.js"></script>
     <script src="cssjs/plugins/fullcalendar/de.js"></script>
 	<script>
-	
+
 	$(document).ready(function() {
 		
 
 		$('#klassentermine').fullCalendar({
 			header: {
-				right: 'listDay'
+				right: 'listDay',
+                left: false
 			},
 			views: {
 		        listDay: { buttonText: 'Terminliste' }
 		    },
+            timeZone: 'local',
 		    defaultView: 'listDay',
 		    defaultDate: '{$this->currentDateSQL}',
 			title: '{$klasse->getKlassenName()}',
-			selectable: false,     
+			selectable: false,
 			editable: false,
 			eventLimit: false,
 			events: 'index.php?page=klassenkalender&grade={$_REQUEST['grade']}&action=getJSONData',
 			eventRender: function(event, element) {
 				if(event.eventType == 'lnw') {
 					if(event.lnwtype == 'STEGREIFAUFGABE' && !$("#showUnangekuendigt").prop('checked')) return false;
-					if(event.lnwtype == 'PLNW' && !$("#showUnangekuendigt").prop('checked')) return false;				
+					if(event.lnwtype == 'PLNW' && !$("#showUnangekuendigt").prop('checked')) return false;
 				}
 			}
 		});
