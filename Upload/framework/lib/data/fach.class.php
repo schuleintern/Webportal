@@ -110,7 +110,18 @@ class fach {
 
     $answer = [];
 
-    while($l = DB::getDB()->fetch_array($alleLehrer)) $answer[] = new lehrer($l);
+    while($l = DB::getDB()->fetch_array($alleLehrer)) {
+        $answer[] = new lehrer($l);
+    }
+
+    $db = DB::getSettings()->getValue("schulinfo-fachbetreuer-" . $this->getASDID() . "-1");
+    if ($db) {
+        $itemDB = DB::getDB()->query_first("SELECT * FROM lehrer WHERE lehrerAsvID = '" . $db . "'");
+        if ($itemDB) {
+            $answer[] = new lehrer($itemDB);
+        }
+    }
+
 
     return $answer;
   }
