@@ -215,7 +215,7 @@ abstract class ExtensionModel
         return false;
     }
 
-    public function getByParentID($id = false)
+    public function getByParentID($id = false, $order = false)
     {
         if ( !$this->_table || !$this->_table_parent_id) {
             return false;
@@ -223,7 +223,10 @@ abstract class ExtensionModel
         if (!$id) {
             $id = 0;
         }
-        $data = DB::run('SELECT * FROM ' . $this->_table . ' WHERE '.$this->_table_parent_id.' = :id', ['id' => $id ])->fetchAll();
+        if (!$order) {
+            $order = $this->_table_parent_id;
+        }
+        $data = DB::run('SELECT * FROM ' . $this->_table . ' WHERE '.$this->_table_parent_id.' = :id  ORDER BY '.$order, ['id' => $id ])->fetchAll();
         if ($data) {
             $class = get_called_class();
             foreach ($data as $item) {
