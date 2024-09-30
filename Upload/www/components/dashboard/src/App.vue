@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     breakpointChangedEvent: function(newBreakpoint, newLayout){
-      //console.log("BREAKPOINT CHANGED breakpoint=", newBreakpoint, ", layout: ", newLayout );
+      // console.log("BREAKPOINT CHANGED breakpoint=", newBreakpoint, ", layout: ", newLayout );
     }
   }
 
