@@ -10,14 +10,17 @@ class EXTENSION
 {
 
 
-  public static function isActive($uniqid = false) {
+  public static function isActive($uniqid = false, $return = false) {
 
 
-    $data = DB::run( 'SELECT * FROM extensions WHERE uniqid = :uniqid ', ["uniqid" => (string)$uniqid] )->fetch();
+    $data = DB::run( 'SELECT * FROM extensions WHERE uniqid = :uniqid AND active = 1', ["uniqid" => (string)$uniqid] )->fetch();
 
     if ($data) {
-      $data['json'] = self::getJSON(PATH_EXTENSIONS.$data['folder'].DS.'extension.json');
-      return $data;
+        if ($return) {
+            $data['json'] = self::getJSON(PATH_EXTENSIONS.$data['folder'].DS.'extension.json');
+            return $data;
+        }
+        return true;
     }
     return false;
 

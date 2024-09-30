@@ -209,7 +209,7 @@ class FACTORY {
   
   public function getUserByID($id = false) {
 
-    if ($id) {
+    if ($id && $this->DATA_users) {
       foreach($this->DATA_users as $item) {
         if ($item['userID'] == $id) {
           return $item;
