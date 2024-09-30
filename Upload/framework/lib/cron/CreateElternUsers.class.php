@@ -52,7 +52,7 @@ class CreateElternUsers extends AbstractCron {
 	    		// Benutzer anlegen
 	    		// Keine Elternbenutzer für Schüler anlegen
                 $newEltern = DB::getDB()->query("SELECT DISTINCT elternEMail, elternSchuelerAsvID, adresseVorname, adresseFamilienname  FROM eltern_email 
-                JOIN eltern_adressen ON eltern_email.elternAdresseID=eltern_adressen.adresseID
+                JOIN eltern_adressen ON eltern_email.elternAdresseID = eltern_adressen.adresseID
                 WHERE ( elternUserID = 0 OR elternUserID IS NULL ) AND adresseWessen!='S' LIMIT 0,75");
 
 
@@ -86,7 +86,7 @@ class CreateElternUsers extends AbstractCron {
 
                         if ($create[$i]['elternEMail'] && $create[$i]['adresseVorname'] && $create[$i]['adresseFamilienname']) {
 
-                            $newPassword = substr(md5(rand(0,4000)), 0, 8);
+                            $newPassword = substr(md5(rand(100,1000)), 0, 8);
                             DB::getDB()->query("INSERT INTO users (
                                     userName,
                                     userFirstName,
@@ -136,13 +136,11 @@ class CreateElternUsers extends AbstractCron {
                                 $mailText = nl2br($mailText);
 
 
-                                /*
                                 email::sendEMail([
                                     "emails" => [trim($create[$i]['elternEMail'])],
                                     "text" => $mailText,
                                     "subject" => $originalSubject
                                 ]);
-                                */
 
 
                                 //$newMail = new email(trim($create[$i]), $originalSubject, $mailText);
