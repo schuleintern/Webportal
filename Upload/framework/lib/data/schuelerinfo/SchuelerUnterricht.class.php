@@ -41,8 +41,10 @@ class SchuelerUnterricht {
 		// Schüler zusammenstellen
 		
 		$daten = DB::getDB()->query("SELECT * FROM unterricht_besuch NATURAL JOIN schueler WHERE unterrichtID IN ('" . implode("','",$unterrichtIDsSelbeLehrer) . "') ORDER BY schuelerName ASC, schuelerRufname ASC");
-				
-		while($s = DB::getDB()->fetch_array($daten)) $this->schueler[] = new schueler($s);
+
+		while($s = DB::getDB()->fetch_array($daten)) {
+            $this->schueler[] = new schueler($s);
+        }
 		
 		
 		// Klassen
@@ -154,6 +156,15 @@ class SchuelerUnterricht {
 
 		
 		return $this->schueler;
+	}
+    public function loadSchueler() {
+
+        $this->schueler = [];
+        $daten = DB::getDB()->query("SELECT * FROM unterricht_besuch NATURAL JOIN schueler WHERE unterrichtID = ".$this->data['unterrichtID']." ORDER BY schuelerName ASC, schuelerRufname ASC");
+        while($s = DB::getDB()->fetch_array($daten)) {
+            $this->schueler[] = new schueler($s);
+        }
+        return $this->getSchueler();
 	}
 	
 	/**
