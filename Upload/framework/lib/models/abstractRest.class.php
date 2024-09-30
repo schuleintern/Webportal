@@ -8,6 +8,8 @@ abstract class AbstractRest {
     static $type = false;
     static $extension = false;
 
+    public $isMobile = false;
+
 	/**
 	 * @var user
 	 */
@@ -24,6 +26,7 @@ abstract class AbstractRest {
     public function __construct($type = false) {
 
         $this->type = $type;
+        $this->isMobile = $this->isMobileDevice();
 
         if ( $this->type == 'extension' && PATH_EXTENSION ) {
             $path = str_replace(DS.'admin','',PATH_EXTENSION);
@@ -235,6 +238,15 @@ abstract class AbstractRest {
             return true;
         }
         return false;
+    }
+
+    public function isMobileDevice()
+    {
+        return preg_match(
+            "/(android|avantgo|blackberry|bolt|boost|cricket|docomo
+    |fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i",
+            $_SERVER["HTTP_USER_AGENT"]
+        );
     }
 
 
