@@ -198,7 +198,9 @@ class user {
               foreach ($childs as $child) {
                   $klassen[] = $child->getKlasse();
                   if ( $child && method_exists($child, 'getCollection') ) {
-                    $collection['childs'][] = $child->getCollection(false);
+                      $foo = $child->getCollection(false);
+                      $foo['klasse'] = $child->getKlasse();
+                      $collection['childs'][] = $foo;
                   }
               }
               $collection['klasse'] = '[' . implode(', ', $klassen) . ']';
