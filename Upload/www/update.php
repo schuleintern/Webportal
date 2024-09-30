@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.8.2
+ * Version 1.8.3
  *
  */
 
@@ -23,6 +23,16 @@ include_once '../data/config/config.php';
 
 class Updates
 {
+
+    public static function to183($root)
+    {
+        $root->update('www/components');
+        $root->update('www/cssjs');
+
+        $root->query("ALTER TABLE `unterricht_besuch` ADD `type` VARCHAR(10)  NULL  DEFAULT NULL  AFTER `schuelerAsvID`;", false);
+
+        return true;
+    }
 
     public static function to182($root)
     {
