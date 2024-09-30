@@ -127,8 +127,10 @@ class AngemeldeteEltern extends AbstractPage {
 		$klassenData = DB::getDB()->query("SELECT DISTINCT schuelerKlasse FROM schueler ORDER BY LENGTH(schuelerKlasse) ASC, schuelerKlasse ASC");
 		
 		$klassen = array();
+        $klassen_blank = array();
 		while($klasse = DB::getDB()->fetch_array($klassenData)) {
 			$klassen[] = $klasse['schuelerKlasse'];
+            $klassen_blank[] = str_replace('/','-',$klasse['schuelerKlasse']);
 		}
 		
 		for($i = 0; $i < sizeof($klassen); $i++) {
