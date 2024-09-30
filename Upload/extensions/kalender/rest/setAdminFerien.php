@@ -23,16 +23,6 @@ class setAdminFerien extends AbstractRest {
                 'msg' => 'Kein Zugriff'
             ];
         }
-        /*
-        if ( (int)$acl['rights']['write'] !== 1 || DB::getSession()->isAdminOrGroupAdmin($this->extension['adminGroupName']) !== true ) {
-        //if ((int)DB::getSession()->getUser()->isAnyAdmin() !== 1 ) {
-            return [
-                'error' => true,
-                'msg' => 'Kein Zugriff'
-            ];
-        }
-        */
-
 
 
         include_once PATH_EXTENSION . 'models' . DS . 'Kalender.class.php';

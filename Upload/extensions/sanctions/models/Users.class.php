@@ -143,6 +143,14 @@ class extSanctionsModelUser
                 }
 
             }
+            if (!$collection["userName"]) {
+                $collection["userName"] = "- ausgetreten -";
+            }
+            if (!$collection["user"]) {
+                $collection["user"] = [
+                    "name" => "- ausgetreten -"
+                ];
+            }
         }
 
         return $collection;

@@ -28,7 +28,7 @@ class getMyBoards extends AbstractRest
 
         $ret = [];
         foreach($tmp_data as $item) {
-            $collection = $item->getCollection(true, true, true, $this->getAdminGroup() );
+            $collection = $item->getCollection(true, true, true, $this->getAdminGroup(), true );
             if ($collection) {
                 $ret[] = $collection;
             }

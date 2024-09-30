@@ -656,6 +656,19 @@
     width: 20vw;
 }
 
+.si-table tfoot {
+
+    font-size: 80%;
+    color: #738b96;
+    background-color: #fff;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.06);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+}
+.si-table tfoot td {
+    padding: 0.3rem;
+    padding-top: 0.6rem;
+}
 
 .si-table-small thead td,
 .si-table-small .thead .td,
@@ -808,7 +821,8 @@
     border-color: #f39c12;
     color: #fff;
 }
-.si-btn-active:hover {
+.si-btn-active:hover,
+.si-btn-active-hover {
     background-color: #e08e0b;
 }
 
@@ -1077,4 +1091,11 @@
 }
 .si-handler-parent:hover .si-handler {
     opacity: 1;
+}
+
+.si-checkbox {
+
+}
+.si-checkbox:hover {
+    color: #e08e0b;
 }

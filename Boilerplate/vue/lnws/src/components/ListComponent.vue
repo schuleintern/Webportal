@@ -63,6 +63,29 @@ export default {
         let data = this.list;
         if (data.length > 0) {
 
+          // FILTER
+          if (this.filter.colum && this.filter.value && this.filter.value != '') {
+            let temp = data.filter((item) => {
+              if (item[this.filter.colum] == this.filter.value) {
+                return true;
+              }
+              if (this.filter.colum.indexOf('.') >= 0) {
+                var deep = item;
+                let arr = this.filter.colum.split('.');
+                arr.forEach((o) => {
+                  if (deep[o]) {
+                    deep = deep[o];
+                  }
+                })
+                if (deep && deep == this.filter.value) {
+                  return true;
+                }
+              }
+              return false;
+            });
+            data = temp;
+          }
+
           // SUCHE
           if (this.searchString != '') {
             let split = this.searchString.toLowerCase().split(' ');

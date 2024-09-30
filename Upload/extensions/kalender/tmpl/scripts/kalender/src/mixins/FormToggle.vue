@@ -1,9 +1,11 @@
 <template>
   <div>
-    <button v-if="status == 1" class="si-btn si-btn-toggle-on" :class="{'si-btn-hide': parseInt(disable) === 0  }"   v-on:click="handlerClick">
-      <i class="fa fas fa-toggle-on"></i> An</button>
-    <button v-else class="si-btn si-btn-toggle-off" :class="{'si-btn-hide': parseInt(disable) === 0  }" v-on:click="handlerClick">
-      <i class="fa fas fa-toggle-off"></i> Aus</button>
+    <button v-if="status == 1" class="si-btn si-btn-toggle-on" :class="{ 'si-btn-hide': parseInt(disable) === 0, 'si-btn-curser-off' : disable == false }"
+            v-on:click="handlerClick">
+      <i class="fa fas fa-toggle-on"></i> {{label_true}}</button>
+    <button v-else class="si-btn si-btn-toggle-off" :class="{ 'si-btn-hide': parseInt(disable) === 0, 'si-btn-curser-off' : disable == false }"
+            v-on:click="handlerClick">
+      <i class="fa fas fa-toggle-off"></i> {{label_false}}</button>
   </div>
 </template>
 
@@ -12,19 +14,35 @@
 export default {
   data() {
     return {
-      status: 0
+      status: 0,
+      label_true: 'An',
+      label_false: 'Aus'
     };
   },
   props: {
     input: Number,
-    disable: Number
+    disable: Number,
+    labelTrue: String,
+    labelFalse: String
   },
   created: function () {
-    this.status = this.input;
+    this.status = parseInt(this.input);
+    if (this.labelTrue) {
+      this.label_true = this.labelTrue;
+    }
+    if (this.labelFalse) {
+      this.label_false = this.labelFalse;
+    }
+  },
+  watch: {
+    input: function () {
+      this.status = parseInt(this.input);
+    }
   },
   methods: {
     handlerClick: function () {
-      if (this.disable == 0) { // AUS
+      //console.log(this.disable)
+      if (this.disable == false || this.disable == 0 || this.disable == 'false') { // AUS
         return false;
       }
       if (this.status == 1) {
@@ -42,6 +60,4 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

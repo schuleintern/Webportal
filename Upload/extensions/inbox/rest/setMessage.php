@@ -11,7 +11,8 @@ class setMessage extends AbstractRest
     {
 
 
-        $userID = DB::getSession()->getUser()->getUserID();
+        $user = DB::getSession()->getUser();
+        $userID = $user->getUserID();
         if (!$userID) {
             return [
                 'error' => true,
@@ -34,13 +35,22 @@ class setMessage extends AbstractRest
                 'msg' => 'Missing SID'
             ];
         }
-        $receiver = (string)$_POST['receiver'];
-        if (!$receiver) {
-            return [
-                'error' => true,
-                'msg' => 'Missing RID'
-            ];
+
+        $folderID = (int)$input['folderID'];
+        if (!$folderID || $folderID == 'undefined') {
+            $folderID = 0;
         }
+
+        $receiver = (string)$_POST['receiver'];
+        if ($folderID != 4) { // Entwurf
+            if (!$receiver) {
+                return [
+                    'error' => true,
+                    'msg' => 'Missing RID'
+                ];
+            }
+        }
+
         $receivers_cc = (string)$_POST['receiver_cc'];
         if (!$receivers_cc) {
             $receivers_cc = '';
@@ -79,6 +89,28 @@ class setMessage extends AbstractRest
             $files = 0;
         }
 
+        $umfragen = (string)$_POST['umfragen'];
+        if (!$umfragen || $umfragen == 'undefined') {
+            $umfragen = false;
+        }
+
+        $isForwardRaw = (int)$input['isForward'];
+        if (!$isForwardRaw || $isForwardRaw == 'undefined') {
+            $isForward = false;
+        } else {
+            $isForward = time();
+            $messageParentID = $isForwardRaw;
+        }
+
+        $isAnswerRaw = (int)$input['isAnswer'];
+        if (!$isAnswerRaw || $isAnswerRaw == 'undefined') {
+            $isAnswer = false;
+        } else {
+            $isAnswer = time();
+            $messageParentID = $isAnswerRaw;
+        }
+
+
 
         /*
         if ($files && EXTENSION::isActive('ext.zwiebelgasse.fileshare') ) {
@@ -95,18 +127,22 @@ class setMessage extends AbstractRest
         include_once PATH_EXTENSION . 'models' . DS . 'Message2.class.php';
         $class = new extInboxModelMessage2();
 
-
         if (!$class->sendMessage([
             'receiver' => $receiver,
             'receivers_cc' => $receivers_cc,
             'sender_id' => $sender_id,
-            'subject' => $subject,
+            'subject' => htmlspecialchars_decode($subject),
             'text' => $text,
             'confirm' => $confirm,
             'priority' => $priority,
             'noAnswer' => $noAnswer,
             'isPrivat' => $isPrivat,
-            'files' => $files
+            'files' => $files,
+            'umfragen' => $umfragen,
+            'folderID' => $folderID,
+            'isAnswer' => $isAnswer,
+            'isForward' => $isForward,
+            'messageParentID' => $messageParentID
         ])) {
             return [
                 'error' => true,

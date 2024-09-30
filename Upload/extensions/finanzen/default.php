@@ -7,7 +7,7 @@ class extFinanzenDefault extends AbstractPage
 
     public static function getSiteDisplayName()
     {
-        return '<i class="fa fas fa-sun"></i> Finanzen';
+        return '<i class="fa fa-wallet"></i> Meine Finanzen';
     }
 
     public function __construct($request = [], $extension = [])

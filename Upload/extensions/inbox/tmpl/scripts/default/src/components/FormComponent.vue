@@ -1,13 +1,16 @@
 <template>
   <div class="">
 
-    <div class="flex-row">
-      <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück
-      </button>
-      <button v-if="showSubmit() == true" class="si-btn" @click="handlerSubmit"><i class="fa fa-envelope"></i> Senden
-      </button>
+    <div class="flex-row-wrap">
+      <div class="flex-1">
+        <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i> Zurück
+        </button>
+        <button v-if="showSubmit() == true" class="si-btn" @click="handlerSubmit"><i class="fa fa-envelope"></i> Senden</button>
+      </div>
+      <div class="flex-1 flex-row flex-end entwurfBtn">
+        <button  class="si-btn si-btn-light " @click="handlerEntwurf"><i class="fa fa-save"></i> Als Entwurf speichern</button>
+      </div>
     </div>
-
 
     <div class="si-form flex-row">
       <ul class="flex-5">
@@ -26,13 +29,18 @@
           <label>Betreff</label>
           <input v-model="form.subject" required>
         </li>
-        <li class="height-50rem">
+        <li class="height-50rem" style="padding-bottom: 50px;">
           <QuillEditor theme="snow" v-model:content="form.text" contentType="html" class=""/>
         </li>
-        <li>
-          <label>Dateianhänge</label>
-          <FormUpload class="" @done="handerUpload" @error="handerUploadError" :target="'rest.php/inbox/uploadItem/'+form.id"></FormUpload>
+        <li class="" style="display: block">
+          <div v-if="umfragenToggle">
+            <h4><i class="fa fa-poll"></i> Umfragen</h4>
+            <UmfragenForm  :form="form" @finish="handlerUmfragenChange" ></UmfragenForm>
+          </div>
+          <button v-else class="si-btn" @click="handlerUmfragenToggle"><i class="fa fa-poll"></i> Umfrage Hinzufügen</button>
+
         </li>
+
 
       </ul>
 
@@ -41,7 +49,7 @@
           <label>Sender</label>
           <FormSelect :input="form.sender" :options="inboxs" @submit="triggerSender"></FormSelect>
         </li>
-        <li>
+        <li v-if="recipients && recipients.acl && recipients.acl.confirm == true">
           <label>Lesebestätigung</label>
           <FormToggle :input="form.confirm" @change="triggerConfirm"></FormToggle>
         </li>
@@ -63,12 +71,20 @@
           <label>Antworten nicht erlauben?</label>
           <FormToggle :input="form.noAnswer" @change="triggerNoAnswer"></FormToggle>
         </li>
+        <li>
+          <label>Dateianhänge</label>
+          <div v-bind:key="index" v-for="(item, index) in  form.files">
+            <a :href="item.path" target="_blank">{{item.name}}</a>
+            <button @click="handlerRemoveUpload(item)" class="si-btn si-btn-icon si-btn-light si-btn-small margin-l-s"><i class="fa fa-trash"></i></button>
+          </div>
+          <FormUpload class="" @done="handerUpload" @error="handerUploadError"
+                      :target="'rest.php/inbox/uploadItem/'+form.id"></FormUpload>
+        </li>
         <!--
         <li>
           <label>Inhalt der Nachricht ist vertraulich?</label>
           <FormToggle :input="form.isPrivat" @change="triggerIsPrivat"></FormToggle>
         </li>-->
-
 
 
 
@@ -88,18 +104,22 @@ import InboxSelect from '../mixins/InboxSelect.vue'
 import FormToggle from '../mixins/FormToggle.vue'
 import FormSelect from '../mixins/FormSelect.vue'
 import FormUpload from '../mixins/FormUpload.vue'
+import UmfragenForm from '../mixins/UmfragenForm.vue'
 
 
 export default {
   name: 'FormComponent',
   components: {
     FormUpload,
-    InboxSelect, FormToggle, FormSelect
+    InboxSelect, FormToggle, FormSelect,
+    UmfragenForm
   },
   data() {
     return {
       form: {},
       cache: {},
+      umfragenToggle: false,
+      signature: window.globals.signature,
 
     };
   },
@@ -131,6 +151,7 @@ export default {
           this.cache.inbox = JSON.parse(this.answerToMsg.from.strLong);
         }
         this.form.subject = 'Re: ' + this.answerToMsg.subject;
+        this.form.isAnswer = this.answerToMsg.id;
       }
 
       // Answer to All:
@@ -148,22 +169,56 @@ export default {
           this.cache.inbox_cc = item[1];
         }
         this.form.subject = 'Re: ' + this.answerToMsg.subject;
-
+        this.form.isAnswer = this.answerToMsg.id;
       }
 
+      // User from Entwurf
+      if (this.answerToMsg.props && this.answerToMsg.props.use) {
+        this.form = this.answerToMsg;
+      }
+
+      // Weiterleiten
       if (this.answerToMsg.props && this.answerToMsg.props.forward) {
         this.form.subject = 'Fw: ' + this.answerToMsg.subject;
+        this.form.isForward = this.answerToMsg.id;
       }
-
 
       //console.log(this.answerToMsg)
 
+    }
+
+    if (!this.form.text || this.form.text == 'undefined') {
+      this.form.text = '';
+    }
+    if ( this.signature ) {
+      this.form.text = '\n\n-----\n'+this.signature+this.form.text;
     }
 
 
   },
   methods: {
 
+    handlerUmfragenChange() {
+      //console.log(e)
+      //console.log(data)
+
+      //this.form.umfragen = data;
+    },
+    handlerUmfragenToggle() {
+      this.umfragenToggle = !this.umfragenToggle;
+    },
+    handlerRemoveUpload(item) {
+      let index = false;
+      this.form.files.forEach((o,i) => {
+        console.log(o,i);
+        if (o.path == item.path) {
+          index = i;
+        }
+      })
+      if (index !== false) {
+        this.form.files.splice(index, 1);
+      }
+    },
     handerUploadError(error, response) {
       if (response.error && response.msg) {
         this.$bus.$emit('error', {
@@ -187,16 +242,20 @@ export default {
       var str = [];
       var strLong = [];
 
-      recipient.forEach((o) => {
-        if (o.inbox && o.inbox.str && o.inbox.strLong) {
-          let strObj = JSON.parse(o.inbox.str);
-          if (strObj) {
-            str = str.concat(strObj);
-          }
-          let strLongObj = JSON.parse(o.inbox.strLong);
-          if (strLongObj) {
-            strLong = strLong.concat(strLongObj);
-          }
+      recipient.forEach((r) => {
+        if (r.inbox && r.inbox.length > 0) {
+          r.inbox.forEach((o) => {
+            if (o.str && o.strLong) {
+              let strObj = JSON.parse(o.str);
+              if (strObj) {
+                str = str.concat(strObj);
+              }
+              let strLongObj = JSON.parse(o.strLong);
+              if (strLongObj) {
+                strLong = strLong.concat(strLongObj);
+              }
+            }
+          });
         }
       });
 
@@ -211,16 +270,19 @@ export default {
       var cacheInbox = [];
 
       str.forEach((s) => {
-        if (parseInt(s.content) !== parseInt(msgObj.inbox_id)) {
-          fromInbox.push(s);
-        }
+        s.inboxs.forEach((o) => {
+          if (parseInt(o) !== parseInt(msgObj.inbox_id)) {
+            fromInbox.push(s);
+          }
+        });
       });
       strLong.forEach((s) => {
-        if (parseInt(s.content) !== parseInt(msgObj.inbox_id)) {
-          cacheInbox.push(s);
-        }
+        s.inboxs.forEach((o) => {
+          if (parseInt(o.id) !== parseInt(msgObj.inbox_id)) {
+            cacheInbox.push(s);
+          }
+        });
       });
-
       return [fromInbox, cacheInbox];
     },
 
@@ -276,6 +338,12 @@ export default {
 
     },
     handlerSubmit() {
+      this.$bus.$emit('message--submit', {
+        form: this.form
+      });
+    },
+    handlerEntwurf() {
+      this.form.folderID = 4;
       this.$bus.$emit('message--submit', {
         form: this.form
       });

@@ -71,7 +71,7 @@ class getMessages extends AbstractRest
 
         $ret = [];
         foreach ($tmp_data as $item) {
-            $ret[] = $item->getCollection(true, false);
+            $ret[] = $item->getCollection('list');
         }
 
         return $ret;
@@ -91,6 +91,9 @@ class getMessages extends AbstractRest
     }
 
 
+    public function needsAppAuth() {
+        return true;
+    }
     /**
      * Muss der Benutzer eingeloggt sein?
      * Ist Eine Session vorhanden
@@ -98,7 +101,7 @@ class getMessages extends AbstractRest
      */
     public function needsUserAuth()
     {
-        return true;
+        return false;
     }
 
     /**

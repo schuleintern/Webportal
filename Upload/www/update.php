@@ -14,7 +14,7 @@
  * \_______)(_______/|/     \|(_______)(_______/(_______/\_______/|/    )_)   )_(   (_______/|/   \__/|/    )_)
  *
  *
- * Version 1.8.0
+ * Version 1.8.3
  *
  */
 
@@ -24,36 +24,73 @@ include_once '../data/config/config.php';
 class Updates
 {
 
+    public static function to183($root)
+    {
+        $root->update('www/components');
+        $root->update('www/cssjs');
+
+        $root->query("ALTER TABLE `unterricht_besuch` ADD `type` VARCHAR(10)  NULL  DEFAULT NULL  AFTER `schuelerAsvID`;", false);
+
+        return true;
+    }
+
+    public static function to182($root)
+    {
+        $root->update('www/components');
+        $root->update('www/cssjs');
+        return true;
+    }
+
+    public static function to181($root)
+    {
+        $root->query("ALTER TABLE `lehrer` DROP INDEX `lehrerID_2`;", false);
+
+        $root->update('www/cssjs');
+        return true;
+    }
+
     public static function to180($root)
     {
-        $root->query("ALTER TABLE `lehrer` CHANGE `lehrerID` `lehrerID` INT(11)  NOT NULL  AUTO_INCREMENT  COMMENT 'XML ID aus ASV';", false);
+
+
+        $root->update('www/index.php');
+        $root->update('www/components');
+        $root->update('www/cssjs');
+
+
+
+        // CONFIG: Schulnummer zu Array
+        $path = '../data/config/config.php';
+        if (file_exists($path)) {
+            $fp = fopen($path,"r");
+            if($fp)  {
+                $config_neu = '';
+                while(!feof($fp))  {
+                    $zeile = fgets($fp, 4096);
+
+                    if (strpos($zeile, "public \$schulnummer")) {
+                        $txt = '    // '.trim($zeile).'
+    public $schulnummern = ["'.$root->getSetting('schulnummer').'"];
+    ';
+
+                    } else {
+                        $txt = $zeile;
+                    }
+                    $config_neu .= $txt;
+                }
+                fclose($fp);
+                file_put_contents($path, $config_neu);
+            }
+        }
+
 
         $root->query("ALTER TABLE `faecher` ADD `schulnummer` INT  NULL  DEFAULT NULL  AFTER `fachOrdnung`;", false);
         $root->query("ALTER TABLE `unterricht` ADD `schulnummer` INT  NULL  DEFAULT NULL  AFTER `unterrichtKlassen`;", false);
         $root->query("ALTER TABLE `klassen` ADD `schulnummer` INT  NULL  DEFAULT NULL  AFTER `aussenklasse`;", false);
         $root->query("ALTER TABLE `lehrer` ADD `schulnummer` INT  NULL  DEFAULT NULL  AFTER `lehrerNameNachgestellt`;", false);
         $root->query("ALTER TABLE `schueler` ADD `schulnummer` INT  NULL  DEFAULT NULL  AFTER `schuelerNameNachgestellt`;", false);
-
-
-        // CONFIG: Schulnummer zu Array
-        $path = '../data/config/config.php';
-        $fp = fopen($path,"r");
-        if($fp)  {
-            $config_neu = '';
-            while(!feof($fp))  {
-                $zeile = fgets($fp, 4096);
-
-                if (strpos($zeile, "public \$schulnummer")) {
-                    $txt = '    // '.trim($zeile).'
-    public $schulnummern = ["'.DB::getGlobalSettings()->schulnummer.'"];';
-                } else {
-                    $txt = $zeile;
-                }
-                $config_neu .= $txt;
-            }
-            fclose($fp);
-            file_put_contents($path, $config_neu);
-        }
+        $root->query("ALTER TABLE `lehrer` ADD UNIQUE (`lehrerID`); ", false);
+        $root->query("ALTER TABLE `lehrer` CHANGE `lehrerID` `lehrerID` INT(11)  NOT NULL  AUTO_INCREMENT  COMMENT 'XML ID aus ASV';", false);
 
         return true;
     }
@@ -386,6 +423,7 @@ class Update
 
     private $lastVersion = '';
     private $nextVersion = '';
+    private $nextReleaseID = '';
     private $settings = false;
     private $mysqli = false;
 
@@ -397,6 +435,9 @@ class Update
         }
         if ($data['nextVersion']) {
             $this->nextVersion = $data['nextVersion'];
+        }
+        if ($data['nextReleaseID']) {
+            $this->nextReleaseID = $data['nextReleaseID'];
         }
         $this->folder .= '-' . $this->lastVersion . '-' . date('Y-m-d-H-i-s', time());
 
@@ -466,6 +507,23 @@ class Update
         return true;
     }
 
+    public function executeFinish()
+    {
+        file_put_contents("../data/wartungsmodus/status.dat", "");
+
+        $this->query("UPDATE settings SET settingValue='" . $this->nextReleaseID . "' WHERE settingName = 'current-release-id'; ", false);
+        $this->query("UPDATE settings SET settingValue='" . $this->nextVersion . "' WHERE settingName = 'currentVersion'; ", false);
+
+        return true;
+    }
+
+    public function getSetting($value = false)
+    {
+        if ( $this->settings->{$value} ) {
+            return $this->settings->{$value};
+        }
+        return false;
+    }
 
     public function query($query = false, $fetch = true)
     {
@@ -496,7 +554,7 @@ if ($wartungsmodus != "") {
 
     $updateInfo = file_get_contents("../data/update.json");
     if ($updateInfo === false) {
-        echo("update fail. (not availible)");
+        echo("update fail. (not availible) #1");
         exit(0);
     }
     $updateInfo = json_decode($updateInfo, true);
@@ -505,7 +563,8 @@ if ($wartungsmodus != "") {
 
         $Update = new Update([
             "lastVersion" => $updateInfo['updateFromVersion'],
-            "nextVersion" => $updateInfo['updateToVersion']
+            "nextVersion" => $updateInfo['updateToVersion'],
+            "nextReleaseID" => $updateInfo['updateToReleaseID']
         ]);
 
     } else {
@@ -551,14 +610,16 @@ if ($wartungsmodus != "") {
                     <?php if ($Update->executeVersion()): ?>
                         <li class="text-green">Versionsupdate erfolgreich durchgeführt</li>
                         <li class="text-green"><b>Einspielen der neuen Programmversion erfolgreich!</b></li>
-                        <?php file_put_contents("../data/wartungsmodus/status.dat", "") ?>
+                        <?php if ($Update->executeFinish()): ?>
                         <li class="text-green">Wartungsmodus deaktiviert!</li>
-
+                            <li class="text-green"><h2>Update abgeschlossen!</h2></li>
                         <li>
                             <h2><a class="si-btn"
-                                   href="index.php?page=Update&toVersion=<?= urlencode($updateInfo['updateToVersion']) ?>&key=<?= $updateInfo['updateKey'] ?>">
-                                    Update abschließen</a></h2>
+                                   href="index.php?page=administration">Zurück zum System</a></h2>
                         </li>
+                        <?php else: ?>
+                            <li class="text-red">FEHLER: Wartungsmodus konnte nicht beendet werden!</li>
+                        <?php endif ?>
                     <?php else: ?>
                         <li class="text-red">FEHLER: Neue Version konnte nicht eingespielt werden!</li>
                     <?php endif ?>

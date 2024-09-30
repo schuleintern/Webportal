@@ -14,7 +14,8 @@ class extUmfragenModelList extends ExtensionModel
         'createdUserID',
         'state',
         'title',
-        'userlist'
+        'userlist',
+        'type'
     ];
 
     
@@ -63,16 +64,59 @@ class extUmfragenModelList extends ExtensionModel
         }
 
         if ($showUserlist) {
-            if ($collection['userlist']) {
+            if ($collection['type'] == 'ext_inbox') {
+
+                include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'MessageBody2.class.php';
+                $MessageBodyClass = new extInboxModelMessageBody2();
+                $body = $MessageBodyClass->getByUmfrage($collection['id']);
                 $ret = [];
-                foreach($collection['userlist'] as $foo) {
-                    $user = user::getUserByID($foo);
-                    if ($user) {
-                        $ret[] = $user->getCollection(true, true);
+                if ($body) {
+                    include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Message2.class.php';
+                    $MessageClass = new extInboxModelMessage2();
+                    $messages = $MessageClass->getMessagesByBody($body->getID());
+                    if ($messages) {
+                        foreach($messages as $message) {
+                            if ($message->getData('folder_id') != 2) { // nicht aus den "gesendet" Ordner
+                                $inbox_tmp = PAGE::getFactory()->getInboxByID($message->getData('inbox_id'));
+                                $collection_tmp = $inbox_tmp->getCollection(true);
+
+                                $ret[] = [
+                                    'type' => 'inbox',
+                                    'title' => $collection_tmp['title'],
+                                    'inbox_id' => $collection_tmp['id'],
+                                    'mid' => $message->getData('id'),
+                                    'user' => $collection_tmp['user']
+
+                                ];
+                            }
+
+                        }
                     }
-                    
+
                 }
                 $collection['userlist'] = $ret;
+            } else {
+
+
+                if ($collection['userlist'] && count($collection['userlist']) > 0) {
+                    $ret = [];
+                    foreach($collection['userlist'] as $foo) {
+
+                        $user = user::getUserByID($foo);
+                        if ($user) {
+                            //$ret[] = $user->getCollection(true, true);
+
+                            $ret[] = [
+                                'type' => 'user',
+                                'title' => $user->getDisplayName(),
+                                'inbox_id' => false,
+                                'mid' => $user->getUserID(),
+                                'user' => $user->getCollection(true)
+                            ];
+                        }
+                    }
+                    $collection['userlist'] = $ret;
+                }
             }
         }
         if ($showChilds) {
@@ -130,6 +174,54 @@ class extUmfragenModelList extends ExtensionModel
     }
 
 
+
+    public function setListWithItems($data = false, $childs = false)
+    {
+
+        if (!$data || !$childs) {
+            return false;
+        }
+
+        include_once PATH_EXTENSIONS .DS.'umfragen'.DS. 'models' . DS .'Item.class.php';
+        $sub = new extUmfragenModelItem();
+
+        $id = $data['id'];
+
+        $userlist = [];
+        foreach( $data['userlist'] as $foo) {
+            $userlist[] = (string)$foo;
+        }
+        $data['userlist'] = json_encode($userlist);
+
+        if ( $db = $this->save($data) ) {
+
+            if (!$data['id']) {
+                $id = $db->lastID;
+            }
+
+            if ($childs && $id) {
+                $i = 1;
+                foreach($childs as $child) {
+                    if ($child->title) {
+                        $sub->save([
+                            'id' => $child->id,
+                            'list_id' => $id,
+                            'title' => $child->title,
+                            'typ' => $child->typ,
+                            'sort' => $i,
+                            'createdTime' => $data['createdTime'],
+                            'createdUserID' => $data['createdUserID']
+                        ]);
+                        $i++;
+                    }
+
+                }
+            }
+            return $id;
+        }
+
+        return false;
+    }
 
 
 

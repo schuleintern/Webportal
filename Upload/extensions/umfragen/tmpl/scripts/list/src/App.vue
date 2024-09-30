@@ -37,6 +37,7 @@ export default {
     return {
       apiURL: window.globals.apiURL,
       acl: window.globals.acl,
+      lid: window.globals.lid,
       error: false,
       loading: false,
       page: 'list',
@@ -79,7 +80,7 @@ export default {
       formData.append('id', data.item.id);
       formData.append('title', data.item.title);
       formData.append('state', data.item.state);
-      formData.append('childs', JSON.stringify(data.item.childs) );
+      formData.append('childs', JSON.stringify(data.item.umfragen) );
       formData.append('userlist', JSON.stringify(data.item.userlist) );
 
       this.loading = true;
@@ -194,6 +195,21 @@ export default {
             that.error = '' + response.data.msg;
           } else {
             that.list = response.data;
+
+            if (that.lid) {
+              //console.log(that.lid)
+              that.list.forEach((o) => {
+                if (o.id == that.lid) {
+                  that.$bus.$emit('page--open', {
+                    page: 'answer',
+                    item: o
+                  });
+                }
+              })
+
+
+            }
+
           }
         } else {
           that.error = 'Fehler beim Laden. 01';

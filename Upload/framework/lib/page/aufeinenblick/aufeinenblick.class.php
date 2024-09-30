@@ -16,6 +16,11 @@ class aufeinenblick extends AbstractPage {
 
   public function __construct() {
 
+
+    if ( DB::getSettings()->getValue("aufeinenblick-off") ) {
+      header("Location: index.php?page=dashboard", true, 302);
+    }
+
     parent::__construct ( array (
         "Auf einen Blick"
     ) );
@@ -27,6 +32,8 @@ class aufeinenblick extends AbstractPage {
     if (DB::getSettings()->getBoolean('ext-stundenplan-global')) {
       $stundenplanURL = 'index.php?page=ext_stundenplan';
     }
+
+
 
     if ( $_REQUEST['action'] == '' ) {
 
@@ -436,6 +443,10 @@ class aufeinenblick extends AbstractPage {
         $showLehrerTagebuchButton = true;
     }
 
+    $nachrichtenURL = 'index.php?page=MessageInbox';
+    if (DB::getSettings()->getBoolean('extInbox-global-messageSystem')) {
+      $nachrichtenURL = 'index.php?page=ext_inbox';
+    }
 
     eval ( "echo(\"" . DB::getTPL ()->get ( "aufeinenblick/index" ) . "\");" );
   }

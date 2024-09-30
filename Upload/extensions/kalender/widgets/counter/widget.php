@@ -33,7 +33,7 @@ class extKalenderWidgetCounter extends Widget
             $anz = count($events);
             return '<a href="index.php?page=ext_kalender&view=default" class="btn">
                     <i class="fa fa-calendar"></i>
-                    <span class="label bg-red">'.$anz.'</span>
+                    <span class="label">'.$anz.'</span>
                 </a>';
         }
 

@@ -14,33 +14,11 @@
     <div class="">
 
       <h3>{{ form.title }}</h3>
-      
-      <div class="si-form">  
-        <ul>
-          <li v-bind:key="index" v-for="(item, index) in  form.childs"  class="flex" :class="{'required': !item.value}">
-            <h4>{{ index+1 }}. {{ item.title }}</h4>
 
-            <div v-if="item.typ == 'text'" class="flex">
-              <input type="text" v-model="item.value" >
-            </div>
-
-            <div v-if="item.typ == 'number'" class="flex">
-              <input type="number" v-model="item.value">
-            </div>
-
-            <div v-if="item.typ == 'boolean'" class="flex-row flex-center-center">
-              
-              <button class="si-btn si-btn-toggle-off margin-r-m" v-on:click="handlerBoolean(1, item)" :class="{'si-btn-active': item.value == 1}">
-                <i class="fa fas fa-toggle-on"></i> Ja</button>
-
-              <button class="si-btn si-btn-toggle-off" v-on:click="handlerBoolean(2,item)"  :class="{'si-btn-active': item.value == 2}">
-                <i class="fa fas fa-toggle-off"></i> Nein</button>
-
-            </div>
-            
-          </li>
-        </ul>
+      <div class="si-form">
+        <UmfragenAnswer :form="form"></UmfragenAnswer>
       </div>
+
 
     </div>
   </div>
@@ -49,10 +27,13 @@
 
 <script>
 
+import UmfragenAnswer from '../mixins/UmfragenAnswer.vue'
+
+
 export default {
   name: 'ItemComponent',
   components: {
-
+    UmfragenAnswer
   },
   data() {
     return {
@@ -70,9 +51,7 @@ export default {
   },
   methods: {
 
-    handlerBoolean(val,item) {
-      item.value = val;
-    },
+
     
     handlerBack: function () {
       this.$bus.$emit('page--open', {

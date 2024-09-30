@@ -17,6 +17,8 @@ class FACTORY {
   private $DATA_users_groups_own;
   private $DATA_menu_item;
 
+  private $DATA_ext_inboxs;
+
   public function __construct() {
 
     $this->DATA_users = $this->load_users();
@@ -26,8 +28,45 @@ class FACTORY {
     $this->DATA_lehrer = $this->load_lehrer();
     $this->DATA_users_groups = $this->load_users_groups();
     $this->DATA_menu_item = $this->load_menue_item_active();
-    
+
   }
+
+    private function load_ext_inbox() {
+
+      if (EXTENSION::isActive('ext.zwiebelgasse.inbox')) {
+        if ($this->DATA_ext_inboxs) {
+            return $this->DATA_ext_inboxs;
+        } else {
+            $this->DATA_ext_inboxs = [];
+            include_once PATH_EXTENSIONS. 'inbox' .DS . 'models' . DS . 'Inbox2.class.php';
+            $class = new extInboxModelInbox2();
+            $all = $class->getAll();
+            foreach ($all as $item) {
+                $this->DATA_ext_inboxs[$item->getData('id')] = $item;
+            }
+            return $this->DATA_ext_inboxs;
+        }
+      }
+    }
+
+
+    public function getInboxAll($name = false) {
+        $data = $this->load_ext_inbox();
+        if ($data) {
+            return $data;
+        }
+        return false;
+    }
+    public function getInboxByID($id = false) {
+        $data = $this->load_ext_inbox();
+        if ($data && $id) {
+            if ($data[$id]) {
+                return $data[$id];
+            }
+        }
+        return false;
+    }
+
 
 
   public static function sendMessage($data = false) {
@@ -170,7 +209,7 @@ class FACTORY {
   
   public function getUserByID($id = false) {
 
-    if ($id) {
+    if ($id && $this->DATA_users) {
       foreach($this->DATA_users as $item) {
         if ($item['userID'] == $id) {
           return $item;
@@ -219,6 +258,7 @@ class FACTORY {
     }
     return false;
   }
+
 
   private function load_users_groups_own() {
 

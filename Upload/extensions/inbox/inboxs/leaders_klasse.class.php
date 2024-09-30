@@ -36,7 +36,7 @@ class extInboxRecipientLeadersKlasse
         }
 
 
-        include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
+        include_once PATH_EXTENSIONS.'inbox'.DS . 'models' . DS . 'Inbox2.class.php';
         $class = new extInboxModelInbox2();
 
         $ret = [];

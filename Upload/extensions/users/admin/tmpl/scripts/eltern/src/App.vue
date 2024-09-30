@@ -105,6 +105,47 @@ export default {
 
     });
 
+    this.$bus.$on('item--reset', data => {
+
+      console.log(data.data)
+      if (!data.data.elternEMail) {
+        console.log('missing');
+        return false;
+      }
+
+      const formData = new FormData();
+      formData.append('email', data.data.elternEMail);
+      formData.append('asvid', data.data.elternSchuelerAsvID);
+
+      this.loading = true;
+      var that = this;
+      axios.post(this.apiURL + '/resetEltern', formData)
+          .then(function (response) {
+            if (response.data) {
+
+              if (response.data.error) {
+                that.error = '' + response.data.msg;
+              } else {
+                that.loadList();
+                //that.handlerPage();
+              }
+            } else {
+              that.error = 'Fehler beim Speichern. 01';
+            }
+          })
+          .catch(function (e) {
+            console.log(e);
+            that.error = 'Fehler beim Speichern. 02';
+          })
+          .finally(function () {
+            // always executed
+            that.loading = false;
+          });
+
+    });
+
+
+
 
     this.$bus.$on('item--delete', data => {
 

@@ -22,16 +22,24 @@
           <div v-if="child.textHTML" v-html="child.textHTML" class="padding-t-m" :style="boxStyle(child)"></div>
 
           <div class="margin-t-m">
-            <button v-if="child.textHTML && !child.open" @click="handlerReadMore(child)" class="si-btn si-btn-green "><i
+            <button v-if="child.textHTML && !child.open && child.textHTML.length > 200" @click="handlerReadMore(child)" class="si-btn si-btn-green "><i
                 class="fa fa-arrow-right"></i> Weiterlesen
             </button>
           </div>
+
           <div v-if="child.pdfURL" class="margin-t-m">
             <a :href="child.pdfURL" class="si-btn "><i class="fa fa-download"></i> Download PDF</a>
           </div>
 
-          <div v-if="child.enddate" class="padding-t-m text-grey text-right">Bis {{ child.enddate }}</div>
+          <div v-if="child.url" class="">
+            <a class="si-btn" :href="child.url" target="_blank"><i class="fas fa-external-link-alt"></i> Website</a>
+          </div>
 
+          <div class="flex-row flex-end">
+            <div v-if="child.enddate" class="padding-t-m text-grey text-right margin-r-l">Bis {{ child.enddate }}</div>
+            <button v-if="!child.read" @click="handlerReadDone(child)" class="si-btn si-btn-border si-btn-icon"><i class="fa fa-check"></i></button>
+            <button v-if="child.read == true"  class="si-btn si-btn-off si-btn-icon text-green"><i class="fas fa-check-double"></i></button>
+          </div>
         </div>
 
       </div>
@@ -78,6 +86,13 @@ export default {
         page: 'list'
       });
     },
+    handlerReadDone: function (child) {
+      this.$bus.$emit('page--read', {
+        item: child
+      });
+      child.read = true;
+    },
+
 
 
   }

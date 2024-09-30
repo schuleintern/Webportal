@@ -1,6 +1,25 @@
 <template>
-  <div class="padding-b-m flex-row ">
 
+  <div v-if="isMobile" class="flex-row margin-b-s">
+    <div class="flex-1 ">
+      <button  class="si-btn si-btn-green" @click="handlerShowKalenders" ><i class="fa fa-calendar"></i> {{selected.length}} Kalender</button>
+    </div>
+    <div class="flex-1 flex-end flex-row ">
+      <button v-if="acl.write == 1" class="si-btn si-btn-icon" v-on:click="handlerAdd"><i class="fa fa-plus"></i></button>
+      <button v-if="suggest == 1" class="si-btn si-btn-border si-btn-icon margin-l-s" v-on:click="handlerSuggest"><i class="fa fa-plus"></i></button>
+      <button v-if="ics == 1" class="si-btn si-btn-border si-btn-icon margin-l-s" v-on:click="handlerICS"><i class="fa fa-rss"></i></button>
+    </div>
+    <div class="si-btn-multiple padding-t-m padding-b-m" v-if="showKalendar">
+      <button v-bind:key="index" v-for="(item, index) in  kalenders"
+              class="si-btn si-btn-light margin-r-s"
+              :style="styleButton(item.id, item.color)"
+              @click="handlerSelect($event, item)"
+      > {{ item.title }}
+      </button>
+    </div>
+  </div>
+
+  <div v-else class="padding-b-m flex-row ">
     <div class="si-btn-multiple">
       <button v-bind:key="index" v-for="(item, index) in  kalenders"
               class="si-btn si-btn-light margin-r-s"
@@ -11,10 +30,10 @@
     </div>
     <div class="flex-1 "></div>
     <div class="flex-1 flex-end flex-row ">
+      <button v-if="acl.write == 1" class="si-btn si-btn-icon" v-on:click="handlerAdd"><i class="fa fa-plus"></i></button>
       <button v-if="suggest == 1" class="si-btn si-btn-border margin-l-m" v-on:click="handlerSuggest"><i class="fa fa-plus"></i> Termin vorschlagen</button>
       <button v-if="ics == 1" class="si-btn si-btn-border margin-l-m" v-on:click="handlerICS"><i class="fa fa-rss"></i> ICS Feed</button>
     </div>
-
   </div>
 
 </template>
@@ -25,14 +44,17 @@ export default {
   name: 'CalendarList',
   data() {
     return {
-      selected: []
+      isMobile: window.globals.isMobile,
+      selected: [],
+      showKalendar: false
     };
   },
   props: {
     kalenders: Array,
     selectedKalenders: Array,
     suggest: Boolean,
-    ics: Boolean
+    ics: Boolean,
+    acl:Object
   },
   created: function () {
 
@@ -42,8 +64,19 @@ export default {
 
   },
   methods: {
+    handlerShowKalenders() {
+      this.showKalendar = !this.showKalendar;
+    },
     handlerICS() {
       this.$bus.$emit('ics-form--open', {
+      });
+    },
+    handlerAdd() {
+      if (this.acl.write != 1) {
+        return false;
+      }
+      this.$bus.$emit('event-form--open', {
+        form: {}
       });
     },
     handlerSuggest() {

@@ -47,6 +47,7 @@ class setItem extends AbstractRest
 
         $text = trim((string)$input['text']);
         $pdf = trim((string)$input['pdf']);
+        $url = trim((string)$input['url']);
         $cover = trim((string)$input['cover']);
         $enddate = $input['enddate'];
         if ( !$enddate ) {
@@ -64,7 +65,8 @@ class setItem extends AbstractRest
             'createdTime' => date('Y-m-d', time()),
             'createdUserID' => $user->getUserID(),
             'text' => $text,
-            'enddate' => $enddate
+            'enddate' => $enddate,
+            'url' => $url
         ];
 
         if ($id) {

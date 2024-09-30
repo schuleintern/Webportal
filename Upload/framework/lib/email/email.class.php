@@ -72,14 +72,11 @@ class email {
     public static function sendEMail($data = false) {
 
 
-
-
         if (!$data || !is_array($data)) {
             return false;
         }
 
-
-        if (!$data['email'] || !$data['text'] || !$data['subject'] ) {
+        if (!$data['emails'] || count($data['emails']) < 0  || !$data['subject'] ) {
             return false;
         }
 
@@ -132,6 +129,11 @@ class email {
         $mail->Subject = $data['subject'];
         $mail->Body = $data['text'];
 
+        if ($data['body']) {
+            $mail->Body = $data['body'];
+        } else {
+            $mail->Body = $data['text'];
+        }
         $mail->isHTML();
         $mail->CharSet = 'UTF-8';
 
@@ -140,10 +142,10 @@ class email {
         if(DB::isDebug()) {
             $mail->AddAddress('post@zwiebelgasse.de');
         } else {
-            $mail->AddAddress($data['email']);
+            foreach ($data['emails'] as $email) {
+                $mail->AddAddress($email);
+            }
         }
-
-
 
 
         $mail->addCustomHeader("List-Unsubscribe","<" . DB::getGlobalSettings()->urlToIndexPHP . "?index.php?page=userprofile" . ">");

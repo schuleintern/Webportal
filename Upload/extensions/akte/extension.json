@@ -1,0 +1,72 @@
+{
+  "name": "Akte",
+  "uniqid": "ext.zwiebelgasse.akte",
+  "version": "4",
+
+  "requiredVersion": "1.8.2",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-id-card",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Akte",
+  "aclGroupName": "ext_akte",
+
+
+  "submenu": [
+
+    {
+      "title": "Akten",
+      "icon": "fa fa-list",
+      "url": {
+        "page": "ext_akte",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+   
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_akte",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_akte",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Schlagworte",
+      "icon": "fa fa-tags",
+      "admin": true,
+      "url": {
+        "page": "ext_akte",
+        "params": {
+          "view": "tags",
+          "admin": "true"
+        }
+      }
+    }
+    
+  ]
+
+
+
+}

@@ -1,9 +1,9 @@
 {
   "name": "Umfragen",
   "uniqid": "ext.zwiebelgasse.umfragen",
-  "version": "1",
+  "version": "4",
 
-  "requiredVersion": "1.6.3",
+  "requiredVersion": "1.8.2",
 
   "menu": {
     "categorie": "3",

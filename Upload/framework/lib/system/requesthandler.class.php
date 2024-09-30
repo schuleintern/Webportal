@@ -198,7 +198,6 @@ class requesthandler {
       'GetMathCaptcha',
       'index',
       'info',
-      'Update'
     ],
     'userprofile' => [
       //'changeuseridinsession',

@@ -20,7 +20,7 @@ class getListAdmin extends AbstractRest
         }
 
         //$acl = $this->getAcl();
-        if ( DB::getSession()->isAdminOrGroupAdmin($this->extension['adminGroupName']) !== true ) {
+        if (DB::getSession()->isAdminOrGroupAdmin($this->extension['adminGroupName']) !== true) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -29,9 +29,8 @@ class getListAdmin extends AbstractRest
 
 
         include_once PATH_EXTENSION . 'models' . DS . 'Antrag.class.php';
-
-
-        $tmp_data = extBeurlaubungModelAntrag::getByStatus($status);
+        $class = new extBeurlaubungModelAntrag();
+        $tmp_data = $class->getByStatus($status);
 
 
         foreach ($tmp_data as $item) {

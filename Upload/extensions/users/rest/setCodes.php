@@ -1,5 +1,6 @@
 <?php
 
+
 class setCodes extends AbstractRest
 {
 
@@ -17,7 +18,7 @@ class setCodes extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,14 +26,14 @@ class setCodes extends AbstractRest
         }
 
         $userID = (int)$input['userID'];
-        if ( !$userID ) {
+        if (!$userID) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: ID'
             ];
         }
 
-        include_once PATH_EXTENSION . 'models' . DS .'Schueler.class.php';
+        include_once PATH_EXTENSION . 'models' . DS . 'Schueler.class.php';
         $Schueler = new extUsersModelSchueler();
         $schueler = $Schueler->getByParentID($userID);
 
@@ -48,19 +49,19 @@ class setCodes extends AbstractRest
             ];
         }
 
-        $code = substr(md5($asvID),0,5) . "-" . substr(md5(rand()),0,10);
+        $code = substr(md5($asvID), 0, 5) . "-" . substr(md5(rand()), 0, 10);
 
 
-        include_once PATH_EXTENSION . 'models' . DS .'Codes.class.php';
+        include_once PATH_EXTENSION . 'models' . DS . 'Codes.class.php';
         $class = new extUsersModelCodes();
 
 
-        if ( $class->save([
+        if ($class->save([
             'codeSchuelerAsvID' => $asvID,
             'codeText' => $code,
             'codeUserID' => 0,
             'codePrinted' => 0
-        ]) ) {
+        ])) {
 
             return [
                 'success' => true

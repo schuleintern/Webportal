@@ -60,6 +60,7 @@
             <th v-on:click="handlerSort('userID')" class="curser-sort"
               :class="{ 'text-orange colum-sort': sort.column == 'userID' }">Benutzer*in</th>
             <th>Stunden</th>
+            <th></th>
             <th width="30%">Begründung</th>
             <th>Hinweis</th>
           </tr>
@@ -78,7 +79,10 @@
             <td>{{ item.datumStart }}</td>
             <td>{{ item.user.name }} <span class="text-small" v-if="item.user.klasse">{{ item.user.klasse }}</span></td>
             <td>{{ item.stunden }}</td>
-            <td><span class="text-small">{{ item.info }}</span></td>
+            <td>
+              <button class="si-btn si-btn-light si-btn-icon" @click="handlerPrint(item)"><i class="fa fa fa-download"></i></button>
+            </td>
+            <td><span class="text-small" v-html="item.info"></span></td>
             <td>
               <div class="" v-if="item.doneInfo">{{ item.doneInfo }}</div>
               <div class="text-small" v-if="item.doneInfo">{{ item.doneDate }}</div>
@@ -172,6 +176,9 @@ import AjaxSpinner from './mixins/AjaxSpinner.vue'
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
+
 const axios = require('axios').default;
 
 import { ref, onMounted } from 'vue';
@@ -245,7 +252,11 @@ export default {
         date: false,
         stunden: [],
         info: ''
-      }
+      },
+
+      printLogo: window.globals.printLogo,
+      printSystem: window.globals.printSystem,
+      printDate: window.globals.printDate,
 
 
     };
@@ -253,6 +264,7 @@ export default {
   computed: {
     sortList: function () {
 
+      /*
       function getDates(a, b) {
         const dmyA = a[that.sort.column].split(".");
         const date1 = new Date(dmyA[2], dmyA[1] - 1, dmyA[0]);
@@ -260,6 +272,7 @@ export default {
         const date2 = new Date(dmyB[2], dmyB[1] - 1, dmyB[0]);
         return [date1, date2];
       }
+      */
 
       if (this.list) {
         let data = this.list;
@@ -272,7 +285,9 @@ export default {
             var search_result = [];
             this.searchColumns.forEach(function (col) {
               search_temp = data.filter((item) => {
-                return split.every(v => item[col].toLowerCase().includes(v));
+                if (item[col] && typeof item[col] === 'string') {
+                  return split.every(v => item[col].toLowerCase().includes(v));
+                }
               });
               if (search_temp.length > 0) {
                 search_result = Object.assign(search_result, search_temp);
@@ -282,28 +297,55 @@ export default {
           }
 
           // SORTIERUNG
-          var that = this;
           if (this.sort.column) {
-            if (this.sort.order) {
-              //return data.sort((a, b) => a[this.sort.column].localeCompare(b[this.sort.column]))
-              return data.sort(function (a, b) {
-                if (that.sortDates.includes(that.sort.column)) {
-                  var dates = getDates(a, b);
-                  return dates[0] - dates[1];
+            if (typeof this.sort.column === 'string') {
+              if (this.sort.column == 'date') {
+                if (this.sort.order) {
+                  return data.sort((a, b) => {
+                    let aa = a[this.sort.column].split(' ');
+                    let bb = b[this.sort.column].split(' ');
+                    let date1 = new Date(aa[0].split('.')[2], aa[0].split('.')[1] - 1, aa[0].split('.')[0], aa[1].split(':')[0], aa[1].split(':')[1])
+                    let date2 = new Date(bb[0].split('.')[2], bb[0].split('.')[1] - 1, bb[0].split('.')[0], bb[1].split(':')[0], bb[1].split(':')[1])
+                    return date1 - date2;
+                  })
                 } else {
-                  return a[that.sort.column].localeCompare(b[that.sort.column]);
+                  return data.sort((a, b) => {
+                    let aa = a[this.sort.column].split(' ');
+                    let bb = b[this.sort.column].split(' ');
+                    let date1 = new Date(aa[0].split('.')[2], aa[0].split('.')[1] - 1, aa[0].split('.')[0], aa[1].split(':')[0], aa[1].split(':')[1])
+                    let date2 = new Date(bb[0].split('.')[2], bb[0].split('.')[1] - 1, bb[0].split('.')[0], bb[1].split(':')[0], bb[1].split(':')[1])
+                    return date2 - date1;
+                  })
                 }
-              });
-            } else {
-              //return data.sort((a, b) => b[this.sort.column].localeCompare(a[this.sort.column]))
-              return data.sort(function (a, b) {
-                if (that.sortDates.includes(that.sort.column)) {
-                  var dates = getDates(a, b);
-                  return dates[1] - dates[0];
+              } else {
+                if (this.sort.order) {
+                  return data.sort((a, b) => {
+                    if (a[this.sort.column] && b[this.sort.column]) {
+                      if (!isNaN(a[this.sort.column]) && !isNaN(b[this.sort.column])) {
+                        return a[this.sort.column] - b[this.sort.column];
+                      } else {
+                        return a[this.sort.column].localeCompare(b[this.sort.column])
+                      }
+                    }
+                  })
                 } else {
-                  return b[that.sort.column].localeCompare(a[that.sort.column]);
+                  return data.sort((a, b) => {
+                    if (b[this.sort.column] && a[this.sort.column]) {
+                      if (!isNaN(a[this.sort.column])) {
+                        return b[this.sort.column] - a[this.sort.column];
+                      } else {
+                        return b[this.sort.column].localeCompare(a[this.sort.column])
+                      }
+                    }
+                  })
                 }
-              });
+              }
+            } else if (typeof this.sort.column === 'object') {
+              if (this.sort.order) {
+                return data.sort((a, b) => a[this.sort.column[0]][this.sort.column[1]].localeCompare(b[this.sort.column[0]][this.sort.column[1]]))
+              } else {
+                return data.sort((a, b) => b[this.sort.column[0]][this.sort.column[1]].localeCompare(a[this.sort.column[0]][this.sort.column[0]]))
+              }
             }
           }
 
@@ -327,6 +369,105 @@ export default {
 
   },
   methods: {
+
+    handlerPrint(item) {
+
+      window.html2canvas = html2canvas;
+
+      var doc = new jsPDF(
+          'p', 'mm', 'a4'
+      );
+
+      let htmlTemp = document.createElement('div');
+      htmlTemp.style.fontSize = '14pt';
+
+
+      let imgHead = document.createElement('img');
+      imgHead.src = this.printLogo;
+      imgHead.style.width = '20mm';
+      imgHead.style.height = '20mm';
+      imgHead.style.position = 'relative';
+      imgHead.style.display = 'block';
+      imgHead.style.marginBottom = '2rem';
+      htmlTemp.appendChild(imgHead);
+
+      //let node = document.getElementById('mailHeader');
+      //htmlTemp.appendChild(node.cloneNode(true));
+
+
+      //let htmltable = document.createElement('table');
+
+      const tbl = document.createElement('table');
+      tbl.classList.add('si-table');
+      tbl.classList.add('si-table-style-allLeft');
+
+      let tr = tbl.insertRow();
+      let td = tr.insertCell();
+      td.appendChild(document.createTextNode('Datum:'));
+      td = tr.insertCell();
+      let date = String(item.datumStart);
+      if (item.datumEnde) {
+        date = String(item.datumStart)+' '+String(item.datumEnde);
+      }
+      td.appendChild(document.createTextNode(date));
+
+      tr = tbl.insertRow();
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode('Benutzer*in:'));
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode(String(item.username)));
+
+      tr = tbl.insertRow();
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode('Stunden:'));
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode(String(item.stunden)));
+
+      tr = tbl.insertRow();
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode('Begründung:'));
+      td = tr.insertCell();
+      let node = document.createElement('div');
+      node.innerHTML = item.info;
+      td.appendChild(node);
+
+
+      tr = tbl.insertRow();
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode('Erstellt am:'));
+      td = tr.insertCell();
+      td.appendChild(document.createTextNode(String(item.createdTime)));
+
+
+      htmlTemp.appendChild(tbl);
+
+      let htmlFooter = document.createElement('div');
+      htmlFooter.innerText = this.printSystem+' - '+this.printDate;
+      htmlFooter.style.fontSize = '10pt';
+      htmlFooter.style.width = '100%';
+      htmlFooter.style.textAlign = 'center';
+      htmlFooter.style.paddingTop = '10mm';
+      htmlFooter.style.color = '#ccc';
+      htmlTemp.appendChild(htmlFooter);
+
+
+      //console.log(htmlTemp)
+      //node.appendChild(htmlTemp)
+
+      doc.html(htmlTemp, {
+        callback: function (doc) {
+          doc.save("Beurlaubungsantrag.pdf");
+        },
+        x: 20,
+        y: 10,
+        width: 170,
+        windowWidth: 1024
+      });
+
+      //doc.html(node, 10, 10);
+      //doc.save("a4.pdf");
+
+    },
 
     setDateYear: function (e) {
       e.preventDefault();
@@ -409,6 +550,12 @@ export default {
               } else {
                 that.handlerPage();
               }
+              that.form = {
+                schueler: false,
+                date: false,
+                stunden: [],
+                info: ''
+              };
               //data.item.favorite = response.data.favorite;
             }
           } else {

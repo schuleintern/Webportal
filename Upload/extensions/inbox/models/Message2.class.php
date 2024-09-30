@@ -16,10 +16,12 @@ class extInboxModelMessage2 extends ExtensionModel
         'isRead',
         'isReadUser',
         'isConfirm',
-        'isEmail'
+        'isEmail',
+        'isAnswer',
+        'isForward'
     ];
 
-    
+
     static $defaults = [
         'isRead' => 0,
         'isEmail' => 0
@@ -53,35 +55,78 @@ class extInboxModelMessage2 extends ExtensionModel
 
         if ($full) {
 
-
             include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'MessageBody2.class.php';
             $classBody = new extInboxModelMessageBody2();
 
             $body = $classBody->getByID( $this->getData('body_id') );
-            $bodyCollection = $body->getCollection();
+            if ($body) {
+                $bodyCollection = $body->getCollection(true, $this->getData('id') );
 
-            $collection['subject'] = $bodyCollection['subject'];
-            $collection['from'] = $body->getSenderCollection();
-            $collection['to'] = $body->getReceiversShort();
-            $collection['toCC'] = $body->getReceiversCC();
-            $collection['priority'] = $bodyCollection['priority'];
-            $collection['isPrivat'] = $bodyCollection['isPrivat'];
-            $collection['files'] = $bodyCollection['files'];
-            $collection['date'] = date("d.m.Y H:i", strtotime($bodyCollection['createdTime']) );
+                $collection['subject'] = $bodyCollection['subject'];
+
+                $collection['from'] = false;
+                $collection['to'] = false;
 
 
+                $collection['from'] = $body->getSenderCollection();
 
-            if ($collection['isRead']) {
-                $collection['isReadDate'] = date('d.m.Y H:i',$collection['isRead']);
+                if ($collection['folder_id'] == 2) { // Postausgang
+
+                    if ($full === 'list') {
+                        $collection['to'] = $body->getReceiversShort();
+                    } else {
+                        $collection['to'] = $body->getReceiversShort(); // vll doch LONG ?
+                    }
+                } else {
+                    if ($full === 'list') {
+
+                    } else {
+                        $collection['to'] = $body->getReceiversLong();
+                    }
+                }
+
+                $collection['toCC'] = $body->getReceiversCC();
+                $collection['priority'] = $bodyCollection['priority'];
+                $collection['isPrivat'] = $bodyCollection['isPrivat'];
+                $collection['noAnswer'] = $bodyCollection['noAnswer'];
+                $collection['files'] = $bodyCollection['files'];
+                $collection['umfrage'] = $bodyCollection['umfrage'];
+                $collection['umfragen'] = $bodyCollection['umfragen'];
+                $collection['date'] = date("d.m.Y H:i", strtotime($bodyCollection['createdTime']) );
+
+
+                if ($collection['isRead']) {
+                    $collection['isReadDate'] = date('d.m.Y H:i',$collection['isRead']);
+                }
+                if ($collection['isReadUser']) {
+                    $collection['isReadUser'] = User::getCollectionByID($collection['isReadUser']);
+                }
+                if ($withText) {
+                    $collection['text'] = nl2br($bodyCollection['text']);
+                }
+                if ($full !== 'list') {
+                    if ($collection['isAnswer']) {
+                        $collection['isAnswer'] = date('d.m.Y H:i', $collection['isAnswer']);
+                    }
+                    if ($collection['isForward']) {
+                        $collection['isForward'] = date('d.m.Y H:i', $collection['isForward']);
+                    }
+
+                    if ($collection['folder_id'] != 2) { // Nicht Gesendet Folder
+                        include_once PATH_EXTENSION . 'models' . DS . 'MessageIsRead.class.php';
+                        $MessageIsRead = new extInboxModelMessageIsRead();
+                        $isReads = $MessageIsRead->getByParentID($collection['id']);
+                        if ($isReads) {
+                            $collection['isReadList'] = [];
+                            foreach ($isReads as $isRead) {
+                                $collection['isReadList'][] = $isRead->getCollection();
+                            }
+                        }
+                    }
+
+
+                }
             }
-            if ($collection['isReadUser']) {
-                $collection['isReadUser'] = User::getCollectionByID($collection['isReadUser']);
-            }
-
-            if ($withText) {
-                $collection['text'] = nl2br($bodyCollection['text']);
-            }
-
         }
 
         if ($files) {
@@ -121,9 +166,6 @@ class extInboxModelMessage2 extends ExtensionModel
             if ($this->getData('isConfirm') == 1) {
 
 
-                include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
-                $classInbox = new extInboxModelInbox2();
-
                 $collection['confirmList'] = [
                     'to' => [],
                     'toCC' => [],
@@ -133,24 +175,17 @@ class extInboxModelMessage2 extends ExtensionModel
 
                 $arr = $body->getReceiversLong();
                 foreach ($arr as $item) {
-                    if ($item['inboxs']) {
 
-
-                        $className = explode('::', $item['typ']);
-                        $className = 'extInboxRecipient'.ucfirst($className[0]).ucfirst($className[1]);
-                        $typ = str_replace('::','_', $item['typ']);
-                        include_once PATH_EXTENSIONS.'inbox'.DS . 'inboxs' . DS . $typ.'.class.php';
-                        $tmp_data = $className::getTitle($item['content']);
-
+                    if ($item['title'] && $item['inbox']) {
 
                         $foo = [
-                            "title" => $tmp_data,
+                            "title" => $item['title'],
                             "inboxs" => []
                         ];
 
-                        foreach($item['inboxs'] as $inbox) {
-                            $msg_temp = $this->getMessageByInboxBody( $inbox, $this->getData('body_id') );
-                            $inbox_tmp = $classInbox->getByID($inbox);
+                        foreach($item['inbox'] as $inbox) {
+                            $msg_temp = $this->getMessageByInboxBody( $inbox['id'], $this->getData('body_id') );
+                            $inbox_tmp = PAGE::getFactory()->getInboxByID($inbox['id']);
                             if ($msg_temp && $inbox_tmp) {
                                 $foo['inboxs'][] =  [
                                     'inbox' => $inbox_tmp->getCollection(true),
@@ -167,13 +202,10 @@ class extInboxModelMessage2 extends ExtensionModel
 
         if ($withInboxUser) {
 
-            include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
-            $classInbox = new extInboxModelInbox2();
-
-            $inbox_tmp = $classInbox->getByID($this->getData('inbox_id'));
-
-            $collection['inbox'] = $inbox_tmp->getCollection(true);
-
+            $inbox_tmp = PAGE::getFactory()->getInboxByID($this->getData('inbox_id'));
+            if ($inbox_tmp) {
+                $collection['inbox'] = $inbox_tmp->getCollection(true);
+            }
         }
 
 
@@ -236,7 +268,7 @@ class extInboxModelMessage2 extends ExtensionModel
             return false;
         }
         $ret = [];
-        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE inbox_id = :inbox_id AND folder_id = :folder_id AND isRead = 0 ORDER BY id DESC', ['inbox_id' => $inbox_id, 'folder_id' => $folder_id])->fetchAll();
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE inbox_id = :inbox_id AND folder_id = :folder_id AND (isRead = 0 OR isRead = 1) ORDER BY id DESC', ['inbox_id' => $inbox_id, 'folder_id' => $folder_id])->fetchAll();
 
         foreach($data as $item) {
             $ret[] = new self($item);
@@ -250,7 +282,7 @@ class extInboxModelMessage2 extends ExtensionModel
             return false;
         }
         $ret = [];
-        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE folder_id = 1 AND isRead = 0 ORDER BY id ')->fetchAll();
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE folder_id = 1 AND (isRead = 0 OR isRead = 1) ORDER BY id ')->fetchAll();
 
         foreach($data as $item) {
             $ret[] = new self($item);
@@ -264,7 +296,7 @@ class extInboxModelMessage2 extends ExtensionModel
             return false;
         }
         $ret = [];
-        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE folder_id = 1 AND isRead = 0 AND isEmail = 0 ORDER BY id DESC ')->fetchAll();
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE folder_id = 1 AND (isRead = 0 OR isRead = 1) AND isEmail = 0 ORDER BY id DESC ')->fetchAll();
 
         foreach($data as $item) {
             $ret[] = new self($item);
@@ -280,10 +312,6 @@ class extInboxModelMessage2 extends ExtensionModel
             return false;
         }
 
-        if (!$data['receiver'] || $data['receiver'] == '') {
-            return false;
-        }
-
         $sender_id = (int)$data['sender_id'];
         if (!$sender_id) {
             return false;
@@ -296,12 +324,27 @@ class extInboxModelMessage2 extends ExtensionModel
         }
         */
 
+        $send = true;
+        $folder_id_in = 1;
+        $folder_id_out = 2;
 
-        $receivers_array = json_decode($data['receiver'], true);
-
-        if ( !$receivers_array || count($receivers_array) < 1 ) {
-            return false;
+        if ($data['folderID']) {
+            if ($data['folderID'] == 4) { // Entwurf
+                $send = false;
+                $folder_id_out = 4;
+            }
         }
+
+        if ($send) {
+            if (!$data['receiver'] || $data['receiver'] == '') {
+                return false;
+            }
+            $receivers_array = json_decode($data['receiver'], true);
+            if ( !$receivers_array || count($receivers_array) < 1 ) {
+                return false;
+            }
+        }
+
 
 
         $subject = DB::getDB()->escapeString(trim((string)$data['subject']));
@@ -326,10 +369,9 @@ class extInboxModelMessage2 extends ExtensionModel
             'text' => $data['text'],
             'priority' => $data['priority'],
             'isPrivat' => $data['isPrivat'],
-            'noAnswer' => $data['noAnswer']
-            //,'files' => $data['files']
+            'noAnswer' => $data['noAnswer'],
+            'files' => (int)$data['files']
         ]);
-
 
 
 
@@ -340,10 +382,8 @@ class extInboxModelMessage2 extends ExtensionModel
             if ($data['files']) {
                 $filesArr = json_decode($_POST['files']);
                 if ($filesArr) {
-
                     include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'MessageFile.class.php';
                     $fileClass = new extInboxModelMessageFile();
-
                     foreach ($filesArr as $file) {
                         if ($file->path && $file->name) {
                             $tempFile = $bodyClass->uploadMove($file->path, $body->lastID);
@@ -357,71 +397,85 @@ class extInboxModelMessage2 extends ExtensionModel
                             }
                         }
                     }
-
                     $bodyClass->update([
                         'id' => $body->lastID,
                         'files' => true
                     ]);
-
                 }
             }
 
 
-            if ( PUSH::active() ) {
-                include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
-                $InboxClass = new extInboxModelInbox2();
-            }
+            include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
+            $InboxClass = new extInboxModelInbox2();
+
+            $userlist = [];
+            $inboxlist = [];
 
             // POSTEINGANG
-            foreach ($receivers_array as $inbox_group) {
-                if ($inbox_group['inboxs']) {
-                    foreach ($inbox_group['inboxs'] as $item) {
-                        if ( !$this->save([
-                            'inbox_id' => $item,
-                            'folder_id' => 1,
-                            'body_id' => $body->lastID,
-                            'isConfirm' => $data['confirm']
-                        ])) {
-                            return false;
-                        }
-                        if ( PUSH::active() && $InboxClass ) {
+            if ($send) {
+                foreach ($receivers_array as $inbox_group) {
+                    if ($inbox_group['inboxs']) {
+                        foreach ($inbox_group['inboxs'] as $item) {
+
+                            // Inbox to UserIds
                             $inbox = $InboxClass->getByID($item);
                             if ($inbox) {
                                 $inboxTemp = $inbox->getCollection(true);
+
                                 if ($inboxTemp['user_id']) {
-                                    PUSH::send( $inboxTemp['user_id'] , 'Neue Nachricht', $data['subject'] );
+                                    $userlist[] = $inboxTemp['user_id'];
                                 }
                             }
+                            if (!in_array($item, $inboxlist)) {
+                                $inboxlist[] = $item;
+                            }
+
+                            if ( !$this->save([
+                                'inbox_id' => $item,
+                                'folder_id' => $folder_id_in,
+                                'body_id' => $body->lastID,
+                                'isConfirm' => $data['confirm']
+                            ])) {
+                                return false;
+                            }
+
+
+
                         }
                     }
                 }
             }
 
 
+
+
             // POSTEINGANG CC
-            if ($data['receivers_cc']) {
+            if ($send && $data['receivers_cc']) {
                 $receivers_cc_array = json_decode($data['receivers_cc'], true);
                 if ($receivers_cc_array && (int)$receivers_cc_array[0] ) {
                     foreach ($receivers_cc_array as $inbox_group) {
                         if ($inbox_group['inboxs']) {
                             foreach ($inbox_group['inboxs'] as $item) {
+                                // Inbox to UserIds
+                                $inbox = $InboxClass->getByID($item);
+                                if ($inbox) {
+                                    $inboxTemp = $inbox->getCollection(true);
+                                    if ($inboxTemp['user_id']) {
+                                        $userlist[] = $inboxTemp['user_id'];
+                                    }
+                                }
+                                if (!in_array($item, $inboxlist)) {
+                                    $inboxlist[] = $item;
+                                }
                                 if ( !$this->save([
                                     'inbox_id' => $item,
-                                    'folder_id' => 1,
+                                    'folder_id' => $folder_id_in,
                                     'body_id' => $body->lastID,
                                     'isConfirm' => $data['confirm']
                                 ])) {
                                     return false;
                                 }
-                                if ( PUSH::active() && $InboxClass ) {
-                                    $inbox = $InboxClass->getByID($item);
-                                    if ($inbox) {
-                                        $inboxTemp = $inbox->getCollection(true);
-                                        if ($inboxTemp['user_id']) {
-                                            PUSH::send( $inboxTemp['user_id'], 'Neue Nachricht', $data['subject'] );
-                                        }
-                                    }
-                                }
+
                             }
                         }
 
@@ -429,16 +483,72 @@ class extInboxModelMessage2 extends ExtensionModel
                 }
             }
 
+            /*
+                        echo '<pre>Userlist:';
+                        print_r($userlist);
+                        echo '</pre>';
+
+                        echo '<pre>';
+                        print_r($data['umfragen']);
+                        echo '</pre>';
+            */
+            if ($data['umfragen']  && EXTENSION::isActive('ext.zwiebelgasse.umfragen')) {
+                include_once PATH_EXTENSIONS . 'umfragen' . DS . 'models' . DS . 'List.class.php';
+                $UmfragenClass = new extUmfragenModelList();
+                $data['umfragen'] = json_decode($data['umfragen']);
+                if (is_array($data['umfragen']) && count($data['umfragen']) > 0) {
+                    $umfrageID = $UmfragenClass->setListWithItems([
+                        'id' => 0,
+                        'title' => $data['subject'],
+                        'state' => 1,
+                        'createdTime' => date('Y-m-d H:i', time()),
+                        'createdUserID' => DB::getSession()->getUserID(),
+                        'userlist' => 0,
+                        'type' => 'ext_inbox'
+                    ], $data['umfragen']);
+
+                    if ($umfrageID) {
+                        $bodyClass->update([
+                            'id' => $body->lastID,
+                            'umfrage' => $umfrageID
+                        ]);
+                    }
+                }
+            }
+
+
             // GESENDET
             if ( !$this->save([
                 'inbox_id' => $sender_id,
-                'folder_id' => 2,
+                'folder_id' => $folder_id_out,
                 'body_id' => $body->lastID,
                 'isConfirm' => $data['confirm'],
                 'isRead' => time()
             ])) {
                 return false;
             }
+
+
+
+            if ($data['messageParentID'] && ($data['isAnswer'] || $data['isForward'])) {
+
+                if (!$this->update([
+                    'id' => (int)$data['messageParentID'],
+                    'isAnswer' => (int)$data['isAnswer'],
+                    'isForward' => (int)$data['isForward']
+                ])) {
+                    return false;
+                }
+            }
+
+
+            // Push
+            if ($send && PUSH::active() && $InboxClass && $userlist) {
+                foreach ($userlist as $useritem) {
+                    PUSH::send($useritem, 'Neue Nachricht', $data['subject']);
+                }
+            }
+
 
             return true;
 
@@ -449,6 +559,22 @@ class extInboxModelMessage2 extends ExtensionModel
     }
 
 
+
+    public function setUnread($userID = false)
+    {
+        $id = $this->getData('id');
+        if (!(int)$id) {
+            return false;
+        }
+        $time = time();
+
+        if ( DB::run('UPDATE ' . $this->getModelTable() . ' SET isRead = :time
+        WHERE id = :id  ', ['id' => $id, 'time' => 1 ]) ) {
+            $this->setValue('isRead', $time);
+            return true;
+        }
+        return false;
+    }
 
     public function setRead($userID = false)
     {
@@ -476,7 +602,6 @@ class extInboxModelMessage2 extends ExtensionModel
 
         if ( DB::run('UPDATE ' . $this->getModelTable() . ' SET isConfirm = :time
         WHERE id = :id  ', ['id' => $id, 'time' => $time ]) ) {
-            //$this->data['isRead'] = $time;
             $this->setValue('isConfirm', $time);
             return true;
         }

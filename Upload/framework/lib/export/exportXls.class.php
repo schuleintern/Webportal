@@ -51,7 +51,7 @@ class exportXls
     public function output($filename = 'Datei.xls', $path = 'php://output')
     {
 // Redirect output to a client’s web browser (Xls)
-        header('Content-Type: application/vnd.ms-excel');
+        // header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment;filename="'.$filename.'"');
         header('Cache-Control: max-age=0');
 // If you're serving to IE 9, then the following may be needed

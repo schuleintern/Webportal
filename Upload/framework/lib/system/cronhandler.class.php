@@ -13,7 +13,6 @@ class cronhandler
         'ElternMailSenderCron',
         'MailSender',
         'ElternMailReceiver',
-        'CreateDemoVplan',
         'UpdateExterneKalender',
         'CreateOffice365Users',
         'TagebuchFehlSucher',
@@ -201,13 +200,12 @@ class cronhandler
                 }
 
                 if ($execute) {
-                    $startTime = time();
-                    $cron->execute();
-                    $endTime = time();
-
-                    $result = $cron->getCronResult();
-
-                    DB::getDB()->query("INSERT INTO cron_execution (
+                    try {
+                        $startTime = time();
+                        $cron->execute();
+                        $endTime = time();
+                        $result = $cron->getCronResult();
+                        DB::getDB()->query("INSERT INTO cron_execution (
     						cronName,
     						cronStartTime,
     						cronEndTime,
@@ -221,6 +219,10 @@ class cronhandler
     							'" . DB::getDB()->escapeString($result['resultText']) . "'
     						)
     				");
+
+                    } catch (Exception $e) {
+                        echo 'Exception abgefangen: '.$cronList[$i] ,  $e->getMessage(), "\n";
+                    }
                 }
 
                 $jsonAntwort['crons'][] = [

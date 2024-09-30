@@ -31,7 +31,6 @@ $classes = [
 		'ElternMailSenderCron',
 		'MailSender',
 		'SyncUsers',
-		'CreateDemoVplan',
 		'UpdateExterneKalender',
 	    'CreateOffice365Users',
 	    'HeartbeatToManagementPortal',
@@ -154,7 +153,10 @@ $classes = [
 		'phpmailer',
 	],
     'export' => [
-        'exportXls'
+        'exportXls',
+        'exportXlsx',
+        'exportPdf',
+        'exportCsv'
     ],
 	'exception' => [
 		'DbException',

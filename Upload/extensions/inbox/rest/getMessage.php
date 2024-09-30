@@ -54,8 +54,9 @@ class getMessage extends AbstractRest
         $tmp_data = $class->getByID($message_id);
 
         include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
-        $Inbox = new extInboxModelInbox2();
-        if (!$Inbox->isInboxFromUser($tmp_data->getData('inbox_id'), $userID)) {
+        $InboxClass = new extInboxModelInbox2();
+        $inbox = $InboxClass->isInboxFromUser($tmp_data->getData('inbox_id'), $userID);
+        if (!$inbox || !$inbox->getID()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff auf das Postfach'
@@ -63,17 +64,33 @@ class getMessage extends AbstractRest
         }
 
 
-        if (!(int)$tmp_data->getData('isRead')) {
+        if ( (int)$tmp_data->getData('isRead') <= 1 ) {
             if (!$tmp_data->setRead($userID)) {
                 return [
                     'error' => true,
                     'msg' => 'Nachricht konnte nicht als gelesen markiert werden'
                 ];
             }
+        } else {
+            if ($inbox->getData('type') == 'group') {
+                if ($tmp_data->getData('isReadUser') != $userID) {
+                    include_once PATH_EXTENSION . 'models' . DS . 'MessageIsRead.class.php';
+                    $MessageIsRead = new extInboxModelMessageIsRead();
+                    $isRead = $MessageIsRead->getByMessageAndUser($message_id, $userID);
+                    if (!$isRead) {
+                        $MessageIsRead->save([
+                            'message_id' => $message_id,
+                            'isRead' => time(),
+                            'isReadUser' => $userID
+                        ]);
+                    }
+                }
+            }
         }
 
 
-        return $tmp_data->getCollection(true, true, true, true);
+
+        return $tmp_data->getCollection(true, true, true, true, true);
 
     }
 
@@ -90,6 +107,9 @@ class getMessage extends AbstractRest
     }
 
 
+    public function needsAppAuth() {
+        return true;
+    }
     /**
      * Muss der Benutzer eingeloggt sein?
      * Ist Eine Session vorhanden
@@ -97,7 +117,7 @@ class getMessage extends AbstractRest
      */
     public function needsUserAuth()
     {
-        return true;
+        return false;
     }
 
     /**

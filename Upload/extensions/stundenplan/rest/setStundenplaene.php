@@ -1,11 +1,14 @@
 <?php
 
-class setStundenplaene extends AbstractRest {
-	
-	protected $statusCode = 200;
+
+class setStundenplaene extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
 
         $userID = DB::getSession()->getUser()->getUserID();
@@ -17,7 +20,7 @@ class setStundenplaene extends AbstractRest {
         }
 
         $acl = $this->getAcl();
-        if ( !$this->canWrite() ) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,15 +28,15 @@ class setStundenplaene extends AbstractRest {
         }
 
         $title = (string)$input['title'];
-        if ( !$title || $title == 'undefined' ) {
+        if (!$title || $title == 'undefined') {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Title'
             ];
         }
-        
+
         $start = (string)$input['start'];
-        if ( !$start || $start == 'undefined' ) {
+        if (!$start || $start == 'undefined') {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: Start'
@@ -47,7 +50,7 @@ class setStundenplaene extends AbstractRest {
         ];
 
         $end = (string)$input['end'];
-        if ( $end && $end != 'undefined' ) {
+        if ($end && $end != 'undefined') {
             $data['stundenplanBis'] = $end;
         } else {
             unset($data['stundenplanBis']);
@@ -56,9 +59,9 @@ class setStundenplaene extends AbstractRest {
         include_once PATH_EXTENSION . 'models' . DS . 'Stundenplaene.class.php';
         $class = new extStundenplanModelStundenplaene();
 
-        if ( $db = $class->save($data) ) {
+        if ($db = $class->save($data)) {
 
-     
+
             return [
                 'error' => false,
                 'success' => true
@@ -70,18 +73,19 @@ class setStundenplaene extends AbstractRest {
             'msg' => 'Error'
         ];
 
-	}
+    }
 
 
-	/**
-	 * Set Allowed Request Method
-	 * (GET, POST, ...)
-	 * 
-	 * @return String
-	 */
-	public function getAllowedMethod() {
-		return 'POST';
-	}
+    /**
+     * Set Allowed Request Method
+     * (GET, POST, ...)
+     *
+     * @return String
+     */
+    public function getAllowedMethod()
+    {
+        return 'POST';
+    }
 
 
     /**
@@ -89,7 +93,8 @@ class setStundenplaene extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -102,15 +107,17 @@ class setStundenplaene extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 
-}	
+}
 
 ?>

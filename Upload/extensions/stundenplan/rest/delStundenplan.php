@@ -1,11 +1,13 @@
 <?php
 
-class delStundenplan extends AbstractRest {
-	
-	protected $statusCode = 200;
+class delStundenplan extends AbstractRest
+{
+
+    protected $statusCode = 200;
 
 
-	public function execute($input, $request) {
+    public function execute($input, $request)
+    {
 
         $userID = DB::getSession()->getUser()->getUserID();
         if (!$userID) {
@@ -17,7 +19,7 @@ class delStundenplan extends AbstractRest {
 
         $acl = $this->getAcl();
 
-        if ( !$this->canDelete() ) {
+        if (!$this->canDelete()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -25,7 +27,7 @@ class delStundenplan extends AbstractRest {
         }
 
         $id = (int)$input['id'];
-        if ( !$id ) {
+        if (!$id) {
             return [
                 'error' => true,
                 'msg' => 'Missing Data: id'
@@ -37,7 +39,7 @@ class delStundenplan extends AbstractRest {
             'id' => $id
         ]);
 
-        if ( $class->delete() ) {
+        if ($class->delete()) {
             return [
                 'success' => true
             ];
@@ -48,18 +50,19 @@ class delStundenplan extends AbstractRest {
             'msg' => 'Error'
         ];
 
-	}
+    }
 
 
-	/**
-	 * Set Allowed Request Method
-	 * (GET, POST, ...)
-	 * 
-	 * @return String
-	 */
-	public function getAllowedMethod() {
-		return 'POST';
-	}
+    /**
+     * Set Allowed Request Method
+     * (GET, POST, ...)
+     *
+     * @return String
+     */
+    public function getAllowedMethod()
+    {
+        return 'POST';
+    }
 
 
     /**
@@ -67,7 +70,8 @@ class delStundenplan extends AbstractRest {
      * Ist Eine Session vorhanden
      * @return Boolean
      */
-    public function needsUserAuth() {
+    public function needsUserAuth()
+    {
         return true;
     }
 
@@ -80,15 +84,17 @@ class delStundenplan extends AbstractRest {
     {
         return false;
     }
+
     /**
      * Ist eine System Authentifizierung nötig? (mit API key)
      * only if : needsUserAuth = false
      * @return Boolean
      */
-    public function needsSystemAuth() {
+    public function needsSystemAuth()
+    {
         return false;
     }
 
-}	
+}
 
 ?>

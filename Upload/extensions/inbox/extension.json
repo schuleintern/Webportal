@@ -1,9 +1,9 @@
 {
   "name": "Inbox",
   "uniqid": "ext.zwiebelgasse.inbox",
-  "version": "8",
+  "version": "21",
 
-  "requiredVersion": "1.7.4",
+  "requiredVersion": "1.8.2",
 
   "menu": {
     "categorie": "1",
@@ -13,6 +13,10 @@
 
   "adminGroupName": "Admin_Ext_Inbox",
   "aclGroupName": "ext_inbox",
+
+  "dependencies": [
+    "ext.zwiebelgasse.umfragen"
+  ],
 
   "cron": [
     {
@@ -78,6 +82,18 @@
         "page": "ext_inbox",
         "params": {
           "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Versandberechtigungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_inbox",
+        "params": {
+          "view": "rights",
           "admin": "true"
         }
       }

@@ -25,7 +25,7 @@
           <td>{{ item.datumStart }}<span v-if="item.datumEnde && item.datumEnde != item.datumStart"> - {{ item.datumEnde }}</span></td>
           <td><span v-if="item.user">{{item.user.name}} <span class="text-small" v-if="item.user.klasse">( {{item.user.klasse}} )</span></span></td>
           <td>{{ item.stunden }}</td>
-          <td>{{ item.info }}</td>
+          <td><span v-html="item.info"></span></td>
           <td v-if="item.status == 1">
             <button class="si-btn si-btn-off text-orange"><i class="fa fa-question"></i> Offen</button>
           </td>
@@ -99,10 +99,22 @@ export default {
     sortList: function () {
 
       function getDates(a, b) {
-        const dmyA = a[that.sort.column].split(".");
-        const date1 = new Date(dmyA[2], dmyA[1] - 1, dmyA[0]);
-        const dmyB = b[that.sort.column].split(".");
-        const date2 = new Date(dmyB[2], dmyB[1] - 1, dmyB[0]);
+
+        const dmyA = a[that.sort.column].split(" ");
+        const dmyA1 = dmyA[0].split(".");
+        let  dmyA2 = [0,0];
+        if (dmyA[1]) {
+          dmyA2 = dmyA[1].split(":");
+        }
+        const date1 = new Date(dmyA1[2], dmyA1[1] - 1, dmyA1[0], dmyA2[0], dmyA2[1]);
+
+        const dmyB = b[that.sort.column].split(" ");
+        const dmyB1 = dmyB[0].split(".");
+        let dmyB2 = [0,0];
+        if (dmyB[1]) {
+          dmyB2 = dmyB[1].split(":");
+        }
+        const date2 = new Date(dmyB1[2], dmyB1[1] - 1, dmyB1[0], dmyB2[0], dmyB2[1]);
         return [date1, date2];
       }
       if (this.list) {

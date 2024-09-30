@@ -68,6 +68,8 @@ class oAuth2Auth extends AbstractPage {
                 }
 
 
+            } else {
+                new errorPage("Leider wurde kein Lehrerbenutzer gefunden.)");
             }
         }
 

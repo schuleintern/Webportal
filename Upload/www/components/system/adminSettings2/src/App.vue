@@ -104,7 +104,7 @@ export default {
 
     triggerToggleValue(data, item) {
 
-      console.log('triggerToggleEvent', 'neu:',data.value, item);
+      //console.log('triggerToggleEvent', 'neu:',data.value, item);
       item.value = data.value;
       this.saveData();
 

@@ -3,7 +3,7 @@
     <div v-if="size == 'line'" class="si-user si-user-line" :class="data.type" v-on:click="handlerOpen">
       {{ data.name }}
     </div>
-    <div v-if="size == 'icon'" class="si-user si-user-icon" :class="data.type" v-on:click="handlerOpen">
+    <div v-else-if="size == 'icon'" class="si-user si-user-icon" :class="data.type" v-on:click="handlerOpen">
       <i class="fa fa-user padding-r-s"></i>{{ data.name }}
     </div>
     <div v-else class="si-user" :class="data.type" v-on:click="handlerOpen">

@@ -6,61 +6,64 @@
         <button class="si-btn si-btn-light margin-r-m" @click="handlerBack()"><i class="fa fa fa-angle-left"></i>
           Zurück
         </button>
-        <button class="si-btn" @click="handlerSaveForm()"><i class="fa fa fa-save"></i> Speichern</button>
+        <button class="si-btn" v-if="showSubmit" @click="handlerSaveForm()"><i class="fa fa fa-save"></i> Speichern</button>
       </div>
       <div class="flex-1 flex-row flex-end">
-        <button class="si-btn si-btn-light" @click="handlerDelete()" v-if="deleteBtn === false"><i
-            class="fa fa fa-trash"></i> Löschen
-        </button>
-        <button class="si-btn si-btn-red" @click="handlerDeleteDo(item)" v-if="deleteBtn === true"><i
-            class="fa fa fa-trash"></i> Wirklich Löschen ?
-        </button>
+
       </div>
     </div>
 
-    <div class="si-form flex-row">
-
-      <ul class="flex-5">
-        <li :class="required">
-          <label>Title</label>
-          <input type="text" v-model="form.title" required>
-        </li>
-
-
-        <li v-bind:key="index" v-for="(item, index) in  form.childs" class="margin-b-s margin-r-s blockInline">
-          <User v-if="item.user" v-bind:data="item.user"></User>
-          <UserSelect maxAnzahl="1" @submit="handelerUser(item, $event)" :preselected="item.user"></UserSelect>
-
-
-        </li>
-        <li>
-          <button class="si-btn" @click="handlerAddLine"><i class="fa fa-plus"></i>Neue Benutzer*in</button>
-        </li>
-
-
-      </ul>
-
-
+    <div class="flex-row">
+      <div class="si-details flex-3 margin-r-l">
+        <ul class="">
+          <li>
+            <label>Title</label>
+            {{form.title}}
+          </li>
+          <li >
+            <label>Type</label>
+            {{form.type}}
+          </li>
+          <li>
+            <label>Name</label>
+            {{form.userName}}
+          </li>
+          <li v-if="form.user">
+            <label>E-Mail</label>
+            {{form.user.email}}
+          </li>
+        </ul>
+      </div>
+      <div class="si-form flex-2 margin-r-l">
+        <ul class="">
+          <li>
+            <label>Anschreibbar für</label>
+            <FormRules :input="form.isPublic"
+                @change="triggerToggleValue($event, 'isPublic')"></FormRules>
+          </li>
+        </ul>
+      </div>
     </div>
+
 
   </div>
 </template>
 
 <script>
 
-import User from '../mixins/User.vue'
-import UserSelect from '../mixins/UserSelect.vue'
+import FormRules from '../mixins/FormRules.vue'
+
 
 export default {
   name: 'ItemComponent',
   components: {
-    UserSelect, User
+    FormRules
   },
   data() {
     return {
       form: {},
       required: '',
-      deleteBtn: false
+      showSubmit: false
     };
   },
   setup() {
@@ -75,30 +78,9 @@ export default {
   },
   methods: {
 
-    handelerUser: function (item, select) {
-
-      if (select[0]) {
-        item.user = select[0]
-        item.user_id = item.user.id
-      }
-
-    },
-    handlerAddLine: function () {
-      if (!this.form.childs) {
-        this.form.childs = [];
-      }
-      this.form.childs.push({
-        inbox_id: this.form.id,
-        user_id: false
-      });
-    },
-    handelerUsers: function (data) {
-      this.form.childs = data;
-    },
-    handlerBack: function () {
-      this.$bus.$emit('page--open', {
-        page: 'list'
-      });
+    triggerToggleValue(data, item) {
+      this.form[item] = data.value;
+      this.showSubmit = true;
     },
 
     handlerSaveForm() {
@@ -118,17 +100,15 @@ export default {
       });
       return false;
     },
-
-    handlerDelete() {
-      this.deleteBtn = true;
+    handlerBack: function () {
+      this.$bus.$emit('page--open', {
+        'page': 'list'
+      });
     },
-
-    handlerDeleteDo(item) {
-
+    handlerDelete(item) {
       this.$bus.$emit('item--delete', {
         item: item
       });
-
     }
 
   }

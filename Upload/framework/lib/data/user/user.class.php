@@ -174,10 +174,11 @@ class user {
           "vorname" => $this->getFirstName(),
           "nachname" => $this->getLastName(),
           "name" => $this->getDisplayName(),
-          "type" => $this->getUserTyp(true)
+          "type" => $this->getUserTyp(true),
+          "typeText" => $this->getUserTyp()
       ];
       if ($email == true) {
-          $collection["email"] = $this->getEMail();
+          $username = true;
       }
       if ($avatar == true) {
           $collection["avatar"] = $this->getAvatar();
@@ -186,6 +187,7 @@ class user {
       if ($full == true) {
           if ($this->isPupil()) {
               $collection['klasse'] = $this->getPupilObject()->getKlasse();
+              $collection['klassen'] = [$collection['klasse']];
               $collection['gender'] = $this->getPupilObject()->getGeschlecht();
               $collection['asvid'] = $this->getPupilObject()->getAsvID();
           }
@@ -195,16 +197,20 @@ class user {
               $childs = $this->getElternObject()->getMySchueler();
               foreach ($childs as $child) {
                   $klassen[] = $child->getKlasse();
-                  if ( $child->getCollection ) {
-                    $collection['childs'][] = $child->getCollection(false);
+                  if ( $child && method_exists($child, 'getCollection') ) {
+                      $foo = $child->getCollection(false);
+                      $foo['klasse'] = $child->getKlasse();
+                      $collection['childs'][] = $foo;
                   }
               }
               $collection['klasse'] = '[' . implode(', ', $klassen) . ']';
+              $collection['klassen'] = $klassen;
           }
           if ($this->isTeacher()) {
               $klassen = klasseDB::getByTeacher($this->getTeacherObject());
               if ($klassen) {
                   $collection['klasse'] = implode(', ', $klassen);
+                  $collection['klassen'] = $klassen;
               }
               $collection['short'] = $this->getTeacherObject()->getKuerzel();
           }

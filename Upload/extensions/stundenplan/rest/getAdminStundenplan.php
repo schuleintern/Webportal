@@ -1,5 +1,6 @@
 <?php
 
+
 class getAdminStundenplan extends AbstractRest
 {
 
@@ -25,7 +26,7 @@ class getAdminStundenplan extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canRead()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
@@ -38,7 +39,7 @@ class getAdminStundenplan extends AbstractRest
         $tmp_data = $class->getByParentID($id);
 
         $ret = [];
-        foreach($tmp_data as $item) {
+        foreach ($tmp_data as $item) {
             $ret[] = $item->getCollection(true);
         }
 
@@ -94,7 +95,7 @@ class getAdminStundenplan extends AbstractRest
         return false;
     }
 
-    
+
 }
 
 ?>

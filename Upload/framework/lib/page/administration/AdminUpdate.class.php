@@ -76,7 +76,7 @@ class AdminUpdate extends AbstractPage
 
         $releaseID = DB::getSettings()->getValue("current-release-id");
 
-        $schulnummern = implode('-',DB::getSchulnummern());
+        $schulnummern = implode('I',DB::getSchulnummern());
 
         $infoToReleaseID = file_get_contents($updateserver . "/api/release/" . $releaseID . "/" . $schulnummern);
 
@@ -115,7 +115,7 @@ class AdminUpdate extends AbstractPage
     private static function updateToVersion($versionInfo)
     {
 
-        $schulnummern = implode('-',DB::getSchulnummern());
+        $schulnummern = implode('I',DB::getSchulnummern());
         $url = DB::getGlobalSettings()->updateServer . "/api/release/" . $versionInfo['id'] . "/download/" . $schulnummern;
 
         $path = PATH_ROOT.'data'.DS.'update';

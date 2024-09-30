@@ -13,9 +13,15 @@ class extKalenderWidgetDashboard extends Widget
         $kalenders = extKalenderModelKalender::getAllAllowed(1);
 
         $today = date('Y-m-d', time());
+        $data = self::loadDate("today", $today, $kalenders);
 
-        return 'window._widget_kalender_events = {};';
-        //self::loadDate("today", $today, $kalenders);
+        if ($data) {
+            echo '<script>window._widget_kalender_events = '.json_encode($data).';</script>';
+        } else {
+            echo '<script>window._widget_kalender_events = {};</script>';
+        }
+
+
     }
 
     public function render($dashboard = false) {
@@ -33,14 +39,17 @@ class extKalenderWidgetDashboard extends Widget
     static function loadDate($var, $date, $kalenders) {
         $events = extKalenderModelEvent::getDayByKalender($date, $kalenders);
 
+        $ret = [];
+
         if ( $events ) {
             $eventsCollection = [];
             foreach($events as $event) {
                 $eventsCollection[] = $event->getCollection();
             }
-
-            echo '<script>window._widget_kalender_events.'.$var.' = '.json_encode($eventsCollection).';</script>';
+            $ret[$var] = $eventsCollection;
+            //echo '<script>>window._widget_kalender_events.'.$var.' = '.json_encode($eventsCollection).';</script>';
         }
+        return $ret;
     }
 
 

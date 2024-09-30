@@ -91,21 +91,37 @@ export default {
               } else {
                 if (this.sort.order) {
                   return data.sort((a, b) => {
-                    if (a[this.sort.column] && b[this.sort.column]) {
-                      if (!isNaN(a[this.sort.column]) && !isNaN(b[this.sort.column])) {
-                        return a[this.sort.column] - b[this.sort.column];
+                    let aa = a[this.sort.column];
+                    if (!aa) {
+                      aa = 0;
+                    }
+                    let bb = b[this.sort.column];
+                    if (!bb) {
+                      bb = 0;
+                    }
+                    if (aa || bb) {
+                      if (!isNaN(aa) || !isNaN(bb)) {
+                        return parseInt(aa) - parseInt(bb);
                       } else {
-                        return a[this.sort.column].localeCompare(b[this.sort.column])
+                        return aa.localeCompare(bb)
                       }
                     }
                   })
                 } else {
                   return data.sort((a, b) => {
-                    if (b[this.sort.column] && a[this.sort.column]) {
-                      if (!isNaN(a[this.sort.column])) {
-                        return b[this.sort.column] - a[this.sort.column];
+                    let aa = a[this.sort.column];
+                    if (!aa) {
+                      aa = 0;
+                    }
+                    let bb = b[this.sort.column];
+                    if (!bb) {
+                      bb = 0;
+                    }
+                    if (aa || bb) {
+                      if (!isNaN(aa) || !isNaN(bb)) {
+                        return parseInt(bb) - parseInt(aa);
                       } else {
-                        return b[this.sort.column].localeCompare(a[this.sort.column])
+                        return bb.localeCompare(aa)
                       }
                     }
                   })

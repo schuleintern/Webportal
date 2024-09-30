@@ -29,6 +29,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "vue-axios": "^3.2.0",
-    "vue-grid-layout": "^2.3.12"
+    "vue-grid-layout": "^2.4.0"
   }
 }

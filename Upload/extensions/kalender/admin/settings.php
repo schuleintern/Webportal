@@ -40,6 +40,7 @@ class extKalenderAdminSettings extends AbstractPage {
 
     public static function getSettingsDescription() {
 
+        /*
         $userGroups = usergroup::getAllOwnGroups();
 
         $options = [];
@@ -50,13 +51,14 @@ class extKalenderAdminSettings extends AbstractPage {
                 'name' => $userGroups[$i]->getName()
             ];
         }
+        */
 
         $settings =  [
 
             [
                 'name' => "extKalender-suggest",
                 'typ' => 'BOOLEAN',
-                'title' => "Terminvorschläge aktivieren",
+                'title' => "Terminvorschläge für Lehrer*innen aktivieren",
                 'desc' => ""
             ],
             [

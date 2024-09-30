@@ -1,0 +1,96 @@
+{
+  "name": "Krankmeldung",
+  "uniqid": "ext.zwiebelgasse.krankmeldung",
+  "version": "3",
+
+  "requiredVersion": "1.8.0",
+
+  "menu": {
+    "categorie": "1",
+    "icon": "fa fas fa-bed",
+    "params": ""
+  },
+
+  "adminGroupName": "Admin_Ext_Krankmeldung",
+  "aclGroupName": "ext_krankmeldung",
+
+
+  "widgets": [
+    {
+      "title": "Counter",
+      "uniqid": "krankmeldung.counter",
+      "position": "header",
+      "class": "extKrankmeldungWidgetCounter",
+      "params": {}
+    }
+  ],
+
+
+
+  "submenu": [
+    {
+      "title": "Meine Anträge",
+      "icon": "fa fa-bed",
+      "url": {
+        "page": "ext_krankmeldung",
+        "params": {
+          "view": "default"
+        }
+      }
+    },
+
+
+
+    {
+      "title": "Einstellungen",
+      "icon": "fa fa-cogs",
+      "admin": true,
+      "url": {
+        "page": "ext_krankmeldung",
+        "params": {
+          "view": "settings",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "ACL",
+      "icon": "fa fa-user-shield",
+      "admin": true,
+      "url": {
+        "page": "ext_krankmeldung",
+        "params": {
+          "view": "acl",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Alle Anträge",
+      "icon": "fa fa-list",
+      "admin": true,
+      "url": {
+        "page": "ext_krankmeldung",
+        "params": {
+          "view": "list",
+          "admin": "true"
+        }
+      }
+    },
+    {
+      "title": "Kalender",
+      "icon": "fa fa-calendar",
+      "admin": true,
+      "url": {
+        "page": "ext_krankmeldung",
+        "params": {
+          "view": "calendar",
+          "admin": "true"
+        }
+      }
+    }
+  ]
+
+
+
+}

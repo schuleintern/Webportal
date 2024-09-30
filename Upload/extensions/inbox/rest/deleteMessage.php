@@ -67,12 +67,31 @@ class deleteMessage extends AbstractRest
             $Body = new extInboxModelMessageBody2();
             $body = $Body->getByID($body_id);
 
+            if ($body->getData('files')) {
+                include_once PATH_EXTENSION . 'models' . DS . 'MessageFile.class.php';
+                $File = new extInboxModelMessageFile();
+                $files = $File->getByParentID($body_id);
+                if ($files) {
+                    foreach ($files as $file) {
+                        if (!$file->deleteWithFile()) {
+                            return [
+                                'error' => true,
+                                'msg' => 'Ein Anhang der Nachricht konnte nicht gelöscht werden!'
+                            ];
+                        }
+                    }
+                }
+            }
+
             if (!$body->delete()) {
                 return [
                     'error' => true,
                     'msg' => 'Nachrichttext konnte nicht gelöscht werden!'
                 ];
             }
+
+
+
 
             // TODO: anhänge löschen ?
             // TODO: umfragen löschen?
@@ -100,6 +119,9 @@ class deleteMessage extends AbstractRest
     }
 
 
+    public function needsAppAuth() {
+        return true;
+    }
     /**
      * Muss der Benutzer eingeloggt sein?
      * Ist Eine Session vorhanden
@@ -107,7 +129,7 @@ class deleteMessage extends AbstractRest
      */
     public function needsUserAuth()
     {
-        return true;
+        return false;
     }
 
     /**

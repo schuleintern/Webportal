@@ -13,195 +13,341 @@
           Empfängerliste anzeigen
         </button>
         <div v-if="selectedUserLength() < 5 || selectedUserShow == true">
-          <div v-bind:key="index" v-for="(item, index) in  cachedUserList" class="blockInline margin-r-m margin-b-s">
+          <div v-bind:key="index" v-for="(item, index) in  cachedUserList" class="blockInline margin-r-m margin-b-s"
+            @click="handlerEmpfaengerDetails">
             <span v-if="item.user">{{ item.user.name }}</span>
             <span v-else-if="item.title">{{ item.title }}</span>
           </div>
         </div>
 
       </div>
-    </div>
-    <div v-if="state == 'form'">
-      <div class="si-modalblack_2" v-on:click.self="handlerCloseForm">
+      <div class="si-modalblack" v-if="showEmpfaengerDetails && recipients.acl.showEmails"  v-on:click="handlerCloseModalDetails">
         <div class="si-modalblack-box">
-          <div class="si-modalblack-content flex padding-l" style="overflow: hidden">
-
-            <div class="flex-row flex-space-between">
-              <div class="si-btn-multiple">
-                <button class="si-btn" :class="{'si-btn-active':openTab=='pupils'}" @click="handlerOpenTab('pupils')">
-                  Schüler*innen
-                </button>
-                <button class="si-btn" :class="{'si-btn-active':openTab=='parents'}" @click="handlerOpenTab('parents')">
-                  Eltern
-                </button>
-                <button class="si-btn" :class="{'si-btn-active':openTab=='teacher'}" @click="handlerOpenTab('teacher')">
-                  Lehrer*innen
-                </button>
-                <button class="si-btn" :class="{'si-btn-active':openTab=='groups'}" @click="handlerOpenTab('groups')">
-                  Gruppen
-                </button>
-              </div>
-              <div class="si-btn-multiple">
-                <button class="si-btn si-btn-green" @click="handlerSubmit"><i class="fa fa-check"></i>
-                  {{ selectedList.length }} Empfänger wählen
-                </button>
-                <button class="si-btn si-btn-border si-btn-icon" @click="handlerCloseForm"><i class="fa fa-times"></i>
-                </button>
+          <div class="si-modalblack-content flex-row height_70 scrollable-y">
+            <div v-bind:key="index" v-for="(item, index) in  cachedUserList" class="flex-b-30 emailGroup">
+              <span v-if="item.user" class="text-big-m">{{ item.user.name }}</span>
+              <span v-else-if="item.title" class="text-big-m">{{ item.title }}</span>
+              <div v-if="item.inboxs" class="text-grey">
+                <div v-bind:key="index" v-for="(inbox, index) in  item.inboxs"><span v-if="inbox.user && inbox.user.email">{{inbox.user.email}}</span></div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="state == 'form'">
+      <div class="si-modalblack" v-on:click.self="handlerCloseForm">
+        <div class="si-modalblack-box">
+          <div class="si-modalblack-content flex-row flex-space-between" style="overflow: hidden">
+
+            <div v-if="!showMobileSubmit" class="left flex-1 margin-r-l">
 
 
-            <div class="flex-row">
-              <div class="tabs flex-4">
+              <div class="si-btn-multiple tabs-head">
+                <button class="si-btn margin-r-s text-bold" :class="{'si-btn-active':openTab=='default'}"
+                        @click="handlerOpenTab('default')">
+                  <i class="fa fa-home margin-l-m"></i>
+                </button>
+                <button class="si-btn margin-r-s text-bold" :class="{'si-btn-active':openTab=='pupils'}"
+                        @click="handlerOpenTab('pupils')"
+                        v-if="recipients.acl.pupils.klassen || recipients.acl.pupils.single || recipients.acl.pupils.own">
+                  Schüler*innen
+                </button>
+                <button class="si-btn margin-r-s text-bold" :class="{'si-btn-active':openTab=='parents'}"
+                        @click="handlerOpenTab('parents')"
+                        v-if="recipients.acl.parents.klassen || recipients.acl.parents.single || recipients.acl.parents.own">
+                  Eltern
+                </button>
+                <button class="si-btn margin-r-s text-bold" :class="{'si-btn-active':openTab=='teacher'}"
+                        @click="handlerOpenTab('teacher')"
+                        v-if="recipients.acl.teachers.klassen || recipients.acl.teachers.single  || recipients.acl.teachers.leitung  || recipients.acl.teachers.fachschaft || recipients.acl.teachers.own">
+                  Lehrer*innen
+                </button>
+                <button class="si-btn text-bold" :class="{'si-btn-active':openTab=='groups'}"
+                        @click="handlerOpenTab('groups')"
+                        v-if="recipients.acl.inboxs.inboxs || recipients.acl.inboxs.groups">
+                  Sonstige
+                </button>
+              </div>
+
+              <div class="tabs flex-4 bg-white text-black">
+                <div v-if="openTab == 'default'" class="tab flex-row">
+                  <div class="padding-l ">
+                    
+                    <span v-if="recipients.acl.pupils.all">
+                      <button class="si-btn margin-r-s"  @click="handlerSelect('pupils::all', 'all')">Alle Schüler*innen</button>
+                    </span>
+                    <span v-if="recipients.acl.parents.all">
+                      <button class="si-btn margin-r-s"  @click="handlerSelect('parents::all', 'all')">Alle Eltern</button>
+                    </span>
+                    <span v-if="recipients.acl.teachers.all">
+                      <button class="si-btn margin-r-l"
+                              :class="{'si-btn-active': selectActive('teachers::all', 'all') }"
+                              @click="handlerSelect('teachers::all', 'all')">Alle Lehrer*innen
+                        </button>
+                    </span>
+
+                  </div>
+                </div>
                 <div v-if="openTab == 'pupils'" class="tab flex-row">
 
-                  <div class="flex-1" v-if="recipients.klassen">
-                    <h3>Schüler*in der Klasse</h3>
-                    <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
-                      <BtnKlasse typ="pupils::klasse" :content="item" :selected="selected"
-                                 @submit="handlerBtnSubmit"></BtnKlasse>
+                  <div class="flex-1 padding-l">
+
+                    <span v-if="recipients.acl.pupils.single">
+                      <h3 @click="handlerAccordion('search')" class="curser line-oddEven">
+                        <i v-if="acco == 'search'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
+                        Suchen</h3>
+                      <div v-if="acco == 'search'" class="tabs-content">
+                        <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isPupil')"
+                               placeholder="Max 5a"/>
+                        <div class="list padding-t-m scrollable-y height_50">
+                          <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn margin-r-s"
+                                  :class="{'si-btn-active': selectActive('user', item.id) }"
+                                  @click="handlerSelect('user', item.id)">{{ item.name }} - {{ item.klasse }}
+                          </button>
+                        </div>
+                      </div>
+                    </span>
+                    <span v-if="recipients.klassen && recipients.acl.pupils.klassen">
+                      <h3 @click="handlerAccordion('klassen')" class="curser line-oddEven">
+                        <i v-if="acco == 'klassen'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
+                        Klassen</h3>
+                      <div v-if="acco == 'klassen'" class="tabs-content">
+                        <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
+                          <BtnKlasse typ="pupils::klasse" :content="item" :selected="selected"
+                                     @submit="handlerBtnSubmit"></BtnKlasse>
+                        </span>
+                      </div>
+                    </span>
+
+                    <span v-if="recipients.acl.pupils.own && recipients.own.pupils">
+                      <div v-bind:key="index" v-for="(items, index) in  recipients.own.pupils">
+                        <h3>Klasse: {{items.title}}</h3>
+                        <div class="si-btn-multiple">
+                        <button class="si-btn margin-r-s si-btn-border"
+                                :class="{'si-btn-active': selectActive('pupils::klasse', items.title) }"
+                                @click="handlerSelect('pupils::klasse', items.title)">Alle Schüler*innen der Klasse {{items.title}}</button>
+
+                        <button v-bind:key="i" v-for="(item, i) in  items.inboxs"
+                                class="si-btn margin-r-s"
+                                :class="{'si-btn-active': selectActive('user', item.user_id) }"
+                                @click="handlerSelect('user', item.user_id)">{{ item.userName }}</button>
+                        </div>
+                      </div>
                     </span>
                   </div>
 
-                  <div class="flex-1">
-                    <h3>Schüler*in</h3>
-                    <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isPupil')"
-                           placeholder="Max 5a"/>
-                    <div class="list padding-t-m scrollable-y height_70">
-                      <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn margin-r-s"
-                              :class="{'si-btn-active': selectActive('user', item.id) }"
-                              @click="handlerSelect('user', item.id)">{{ item.name }}
-                      </button>
-                    </div>
-                  </div>
 
                 </div>
-
                 <div v-if="openTab == 'parents'" class="tab flex-row">
 
-                  <div class="flex-1" v-if="recipients.klassen">
-                    <h3>Eltern der Klasse</h3>
-                    <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
-                      <BtnKlasse typ="parents::klasse" :content="item" :selected="selected"
-                                 @submit="handlerBtnSubmit"></BtnKlasse>
-                    </span>
-                  </div>
-                  <div v-else class="flex-1">- kein Postfach vorhanden -</div>
 
-                  <div class="flex-1">
-                    <h3>Eltern von</h3>
-                    <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isPupil')"
-                           placeholder="Max 5a"/>
-                    <div class="list padding-t-m scrollable-y height_70">
-                      <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn"
-                              :class="{'si-btn-active': selectActive('user', item.id) }"
-                              @click="handlerSelect('parent', item.id)">{{ item.name }}
-                      </button>
-                    </div>
+                  <div class="flex-1 padding-l">
+
+                    <span v-if="recipients.acl.parents.single">
+                      <h3 @click="handlerAccordion('search')" class="curser line-oddEven">
+                        <i v-if="acco == 'search'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
+                        Suchen</h3>
+                      <div v-if="acco == 'search'" class="tabs-content">
+                        <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isPupil')"
+                               placeholder="Max 5a"/>
+                        <div class="list padding-t-m scrollable-y height_50">
+                          <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn margin-r-s"
+                                  :class="{'si-btn-active': selectActive('parent', item.id) }"
+                                  @click="handlerSelect('parent', item.id)">{{ item.name }} - {{item.klasse}}
+                          </button>
+                        </div>
+                      </div>
+                    </span>
+                    <span v-if="recipients.klassen && recipients.acl.parents.klassen">
+                      <h3  @click="handlerAccordion('klassen')" class="curser line-oddEven">
+                        <i v-if="acco == 'klassen'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
+                        Klassen</h3>
+                      <div v-if="acco == 'klassen'" class="tabs-content">
+                        <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
+                        <BtnKlasse typ="parents::klasse" :content="item" :selected="selected"
+                                   @submit="handlerBtnSubmit"></BtnKlasse>
+                        </span>
+                      </div>
+                    </span>
+                    <span v-if="recipients.acl.parents.unterrichte">
+                      <h3 @click="handlerAccordion('unterrichte')" class="curser line-oddEven">
+                        <i v-if="acco == 'unterrichte'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
+                        Unterrichte</h3>
+                      <div v-if="acco == 'unterrichte'" class="tabs-content">
+                        <span v-if="recipients.unterrichte">
+                          <button v-bind:key="index" v-for="(item, index) in  recipients.unterrichte" class="si-btn margin-r-s"
+                                  :class="{'si-btn-active': selectActive('parents::unterricht', item.id) }"
+                                  @click="handlerSelect('parents::unterricht', item.id)">{{ item.title }}
+                          </button>
+                        </span>
+                        <span v-else ><i class="fa fas fa-sync-alt fa-spin"></i> loading ...</span>
+                      </div>
+                    </span>
+
+                    <span v-if="recipients.acl.parents.own && recipients.own.parents">
+                      <div v-bind:key="index" v-for="(items, index) in  recipients.own.parents">
+                        <h3>Klasse: {{items.title}}</h3>
+                        <div class="si-btn-multiple">
+                        <button class="si-btn margin-r-s si-btn-border"
+                                :class="{'si-btn-active': selectActive('parents::klasse', items.title) }"
+                                @click="handlerSelect('parents::klasse', items.title)">Alle Eltern der Klasse {{items.title}}</button>
+
+                        <button v-bind:key="i" v-for="(item, i) in  items.inboxs"
+                                class="si-btn margin-r-s"
+                                :class="{'si-btn-active': selectActive('parent', item.user_id) }"
+                                @click="handlerSelect('parent', item.user_id)">{{ item.userName }}</button>
+                        </div>
+                      </div>
+                    </span>
                   </div>
 
                 </div>
                 <div v-if="openTab == 'teacher'" class="tab flex-row">
-                  <div class="flex-1 padding-r-l">
-                    <h3 @click="handlerAccoTeacher('default')" class="curser">
-                      <i v-if="accoTeacher == 'default'" class="fa fa-chevron-down"></i>
-                      <i v-else class="fa fa-chevron-right"></i>
-                      Lehrer*innen</h3>
-                    <div v-if="accoTeacher == 'default'" class="padding-l-l">
-                      <button class="si-btn margin-r-s"
-                              :class="{'si-btn-active': selectActive('teachers::all', 'all') }"
-                              @click="handlerSelect('teachers::all', 'all')">Alle Lehrer*innen
-                      </button>
-                    </div>
-                    <h3 @click="handlerAccoTeacher('klassen')" class="curser">
-                      <i v-if="accoTeacher == 'klassen'" class="fa fa-chevron-down"></i>
-                      <i v-else class="fa fa-chevron-right"></i>
-                      Lehrer*innen der Klasse</h3>
-                    <div v-if="accoTeacher == 'klassen'" class="padding-l-l">
-                      <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
-                        <BtnKlasse typ="teachers::klasse" :content="item" :selected="selected"
-                                   @submit="handlerBtnSubmit"></BtnKlasse>
-                      </span>
-                    </div>
-                    <h3 @click="handlerAccoTeacher('leader')" class="curser">
-                      <i v-if="accoTeacher == 'leader'" class="fa fa-chevron-down"></i>
-                      <i v-else class="fa fa-chevron-right"></i>
-                      Klassenleitung</h3>
-                    <div v-if="accoTeacher == 'leader'" class="padding-l-l">
-                      <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
-                        <BtnKlasse typ="leaders::klasse" :content="item" :selected="selected"
-                                   @submit="handlerBtnSubmit"></BtnKlasse>
-                      </span>
-                    </div>
-                    <h3 @click="handlerAccoTeacher('fachschaft')" class="curser">
-                      <i v-if="accoTeacher == 'fachschaft'" class="fa fa-chevron-down"></i>
-                      <i v-else class="fa fa-chevron-right"></i>
-                      Fachschaften</h3>
-                    <div v-if="accoTeacher == 'fachschaft'" class="padding-l-l">
-                      <button v-bind:key="index" v-for="(item, index) in  recipients.fachschaft"
-                              class="si-btn margin-r-s"
-                              :class="{'si-btn-active': selectActive('fachschaft', item.id) }"
-                              @click="handlerSelect('fachschaft', item.id)">{{ item.title }}
-                      </button>
-                    </div>
+                  <div class="flex-1 padding-l">
+
+                    <span v-if="recipients.acl.teachers.single">
+                      <h3 @click="handlerAccordion('default')" class="curser line-oddEven">
+                        <i v-if="acco == 'default'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
+                        Suche</h3>
+                      <div v-if="acco == 'default'" class="padding-l-l">
+                        <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isTeacher')"
+                               placeholder="Müller"/>
+                        <div class="si-btn-multiple blockInline margin-l-m">
+                          <button class="si-btn si-btn-icon si-btn-border margin-l-s" @click="handlerSetSearch('*','isTeacher')"><i class="fa fa-list"></i></button>
+                          <button class="si-btn si-btn-icon si-btn-border margin-l-s" @click="handlerSetSearch('','isTeacher')"><i class="fa fa-times"></i></button>
+                        </div>
+                        <div class="list padding-t-m scrollable-y height_50">
+                          <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn margin-r-s"
+                                  :class="{'si-btn-active': selectActive('user', item.id) }"
+                                  @click="handlerSelect('user', item.id)">{{ item.name }}
+                          </button>
+                        </div>
+                      </div>
+                    </span>
+                    <span v-if="recipients.klassen && recipients.acl.teachers.klassen">
+                      <h3 @click="handlerAccordion('klassen')" class="curser line-oddEven">
+                        <i v-if="acco == 'klassen'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right  text-small margin-r-m"></i>
+                        Klassen</h3>
+                      <div v-if="acco == 'klassen'" class="padding-l-l">
+                        <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
+                          <BtnKlasse typ="teachers::klasse" :content="item" :selected="selected"
+                                     @submit="handlerBtnSubmit"></BtnKlasse>
+                        </span>
+                      </div>
+                    </span>
+                    <span v-if="recipients.klassen && recipients.acl.teachers.leitung">
+                      <h3 @click="handlerAccordion('leader')" class="curser line-oddEven">
+                        <i v-if="acco == 'leader'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right  text-small margin-r-m"></i>
+                        Klassenleitung</h3>
+                      <div v-if="acco == 'leader'" class="padding-l-l">
+                        <span v-bind:key="index" v-for="(item, index) in  recipients.klassen">
+                          <BtnKlasse typ="leaders::klasse" :content="item" :selected="selected"
+                                     @submit="handlerBtnSubmit"></BtnKlasse>
+                        </span>
+                      </div>
+                    </span>
+                    <!--
+                    <span v-if="recipients.fachschaft && recipients.acl.teachers.fachschaft">
+                      <h3 @click="handlerAccordion('fachschaft')" class="curser line-oddEven">
+                        <i v-if="acco == 'fachschaft'" class="fa fa-chevron-down"></i>
+                        <i v-else class="fa fa-chevron-right"></i>
+                        Fachschaften</h3>
+                      <div v-if="acco == 'fachschaft'" class="padding-l-l">
+                        <button v-bind:key="index" v-for="(item, index) in  recipients.fachschaft"
+                                class="si-btn margin-r-s"
+                                :class="{'si-btn-active': selectActive('fachschaft', item.id) }"
+                                @click="handlerSelect('fachschaft', item.id)">{{ item.title }}
+                        </button>
+                      </div>
+                    </span>
+                    -->
+
+                    <span v-if="recipients.acl.teachers.fachschaft">
+                      <h3 @click="handlerAccordion('fachschaft')" class="curser line-oddEven">
+                        <i v-if="acco == 'fachschaft'" class="fa fa-chevron-down text-small margin-r-m"></i>
+                        <i v-else class="fa fa-chevron-right text-small margin-r-m"></i>
+                        Fachschaften</h3>
+                      <div v-if="acco == 'fachschaft'" class="tabs-content">
+                        <span v-if="recipients.fachschaft">
+                          <button v-bind:key="index" v-for="(item, index) in  recipients.fachschaft" class="si-btn margin-r-s"
+                                  :class="{'si-btn-active': selectActive('fachschaft', item.id) }"
+                                  @click="handlerSelect('fachschaft', item.id)">{{ item.title }}
+                          </button>
+                        </span>
+                        <span v-else ><i class="fa fas fa-sync-alt fa-spin"></i> loading ...</span>
+                      </div>
+                    </span>
+
+
+                    <span v-if="recipients.acl.teachers.own && recipients.own.teachers">
+                      <div v-bind:key="index" v-for="(items, index) in  recipients.own.teachers">
+                        <h3>Klasse: {{items.title}}</h3>
+                        <div class="si-btn-multiple">
+                        <button class="si-btn margin-r-s si-btn-border"
+                                :class="{'si-btn-active': selectActive('teachers::klasse', items.title) }"
+                                @click="handlerSelect('teachers::klasse', items.title)">Alle Lehrer*innen der Klasse {{items.title}}</button>
+
+                        <button v-bind:key="i" v-for="(item, i) in  items.inboxs"
+                                class="si-btn margin-r-s"
+                                :class="{'si-btn-active': selectActive('user', item.user_id) }"
+                                @click="handlerSelect('user', item.user_id)">{{ item.userName }}</button>
+                        </div>
+                      </div>
+                    </span>
 
                   </div>
-                  <div class="flex-1">
-                    <h3>Lehrer*in</h3>
 
-                    <input type="text" v-model="searchString" v-on:keyup="handlerChangeSearch('isTeacher')"
-                           placeholder="Müller"/>
-                    <div class="list padding-t-m scrollable-y height_70">
-                      <button v-bind:key="index" v-for="(item, index) in  searchUserlist" class="si-btn"
-                              :class="{'si-btn-active': selectActive('user', item.id) }"
-                              @click="handlerSelect('user', item.id)">{{ item.name }}
-                      </button>
-                    </div>
-
-
-                  </div>
                 </div>
                 <div v-if="openTab == 'groups'" class="tab">
 
-                  <div class="">
-                    <h3>Postfach</h3>
+                  <div class="flex-1 padding-l">
 
-                    <div v-if="recipients.inboxs">
-                      <button v-bind:key="index" v-for="(item, index) in  recipients.inboxs" class="si-btn margin-r-s"
-                              :class="{'si-btn-active': selectActive('inbox', item.id) }"
-                              @click="handlerSelect('inbox', item.id)">{{ item.title }}
-                      </button>
-                    </div>
-                    <div v-else>- kein Postfach vorhanden -</div>
-                  </div>
+                    <span v-if="recipients.acl.inboxs.inboxs">
+                      <div v-if="recipients.inboxs">
+                        <button v-bind:key="index" v-for="(item, index) in  recipients.inboxs" class="si-btn margin-r-s"
+                                :class="{'si-btn-active': selectActive('inbox', item.id) }"
+                                @click="handlerSelect(item.type, item.id)">
+                          <i v-if="item.icon" :class="item.icon"></i>{{ item.title }}
+                        </button>
+                      </div>
+                    </span>
 
-                  <div class="">
-                    <h3>Gruppen</h3>
-
-                    <div v-if="recipients.group">
-                      <button v-bind:key="index" v-for="(item, index) in  recipients.group" class="si-btn margin-r-s"
-                              :class="{'si-btn-active': selectActive('group', item.id) }"
-                              @click="handlerSelect('group', item.id)">{{ item.title }}
-                      </button>
-                    </div>
-                    <div v-else>- kein Postfach vorhanden -</div>
                   </div>
 
                 </div>
 
               </div>
 
+            </div>
 
-              <div class="selected flex-1 margin-l-l">
-
-
+            <div class="right">
+              <div class="si-btn-multiple empfaengerBtn">
+                <button  class="si-btn si-btn-green text-bold submitBtn" @click="handlerSubmit(!showMobileSubmit)"><i class="fa fa-check"></i>
+                  {{ selectedList.length }} Empfänger wählen
+                </button>
+                <button class="si-btn si-btn-border si-btn-icon closeBtn" @click="handlerCloseForm"><i class="fa fa-times"></i>
+                </button>
+              </div>
+              <div v-if="!isMobile || showMobileSubmit" class="selected flex-1 margin-l-l margin-t-m height_70 scrollable-y">
                 <div v-bind:key="index" v-for="(item, index) in  selectedList"
-                     class="margin-b-s line-oddEvenDark padding-s padding-l-m">
-                  {{ item.title }} - <span v-if="item.inboxs"><i class="fa fa-users"></i>{{ item.inboxs.length }}</span>
+                     :class="{'text-red': item.inboxs && item.inboxs.length < 1}"
+                     class="margin-b-s line-oddEvenDark padding-s padding-l-m curser"
+                    @click="handlerRemoveFromSelect(item)">
+                  {{ item.title }} - <span v-if="item.inboxs"><i class="fa fa-users"></i> {{
+                    item.inboxs.length
+                  }}</span>
                 </div>
-
-
               </div>
+
             </div>
 
 
@@ -226,7 +372,7 @@ export default {
     return {
       apiURL: window.globals.apiURL,
       state: false,
-      openTab: false,
+      openTab: 'default',
       selected: [],
 
       searchString: '',
@@ -234,7 +380,10 @@ export default {
 
       selectedUserShow: false,
 
-      accoTeacher: 'default'
+      acco: 'default',
+      showEmpfaengerDetails: false,
+      isMobile: window.globals.isMobile,
+      showMobileSubmit: false
     };
   },
   props: {
@@ -324,16 +473,16 @@ export default {
 
       //this.selected = JSON.parse(this.preselect);
 
-/*
+      /*
 
-            let obj = JSON.parse(this.preselect);
-            //console.log(obj)
-            obj.forEach((o) => {
-              //console.log('TODO no cahce? ')
-              this.handlerSelect(o.typ, o.content);
-              //this.loadRecipients(o.typ, o.content);
-            })
-      */
+                  let obj = JSON.parse(this.preselect);
+                  //console.log(obj)
+                  obj.forEach((o) => {
+                    //console.log('TODO no cahce? ')
+                    this.handlerSelect(o.typ, o.content);
+                    //this.loadRecipients(o.typ, o.content);
+                  })
+            */
 
 
       //this.handlerSubmit();
@@ -351,6 +500,21 @@ export default {
   },
   methods: {
 
+    handlerCloseModalDetails() {
+      this.showEmpfaengerDetails = false;
+    },
+    handlerEmpfaengerDetails(item) {
+      if (this.recipients.acl.showEmails) {
+        this.showEmpfaengerDetails = !item.showEmpfaengerDetails;
+      }
+    },
+    handlerRemoveFromSelect(item) {
+      this.handlerSelect(item.typ, item.content);
+    },
+    handlerSetSearch(str, type) {
+      this.searchString = str;
+      this.handlerChangeSearch(type);
+    },
     handlerBtnSubmit: function (data) {
       //console.log('handlerBtnSubmit', data)
       if (data.typ && data.content) {
@@ -366,12 +530,23 @@ export default {
 
       }
     },
-    handlerAccoTeacher: function (item) {
+    handlerAccordion: function (item) {
 
-      if (this.accoTeacher == item) {
-        this.accoTeacher = false;
+      if (this.acco == item) {
+        this.acco = false;
       } else {
-        this.accoTeacher = item;
+        this.acco = item;
+      }
+      
+      if (item == 'unterrichte') {
+        this.$bus.$emit('recipients--load', {
+          props: 'unterrichte'
+        });
+      }
+      if (item == 'fachschaft') {
+        this.$bus.$emit('recipients--load', {
+          props: 'fachschaft'
+        });
       }
     },
     selectedUserLength: function () {
@@ -381,21 +556,21 @@ export default {
       }
       return 0;
 
-  /*
-      let ret = 0;
-      if (this.cache) {
-        this.cache.forEach((o) => {
-          if (o.inboxs) {
-            o.inboxs.forEach((user) => {
-              if (user.id == user.id) {
-                ret++;
+      /*
+          let ret = 0;
+          if (this.cache) {
+            this.cache.forEach((o) => {
+              if (o.inboxs) {
+                o.inboxs.forEach((user) => {
+                  if (user.id == user.id) {
+                    ret++;
+                  }
+                })
               }
             })
           }
-        })
-      }
-      return ret;
-      */
+          return ret;
+          */
 
 
     },
@@ -403,49 +578,45 @@ export default {
     handlerShowSelectedtUserList() {
       this.selectedUserShow = !this.selectedUserShow;
     },
-    handlerSubmit() {
+    handlerSubmit(force) {
 
 
-      //console.log(this.selected);
+      if (!force) {
+        force = false;
+      }
+      if (this.isMobile && force == true ) {
+        this.showMobileSubmit = true;
+      } else {
 
+        let list = [];
 
-      let list = [];
+        this.selected.forEach((o) => {
+          if (o.typ && o.content) {
 
-      this.selected.forEach((o) => {
-        if (o.typ && o.content) {
+            let inboxs = [];
+            if (o.inboxs) {
+              o.inboxs.forEach((inbox) => {
+                if (inbox.id) {
+                  inboxs.push(inbox.id);
+                }
+              });
+            }
 
-          let inboxs = [];
-          if (o.inboxs) {
-            o.inboxs.forEach((inbox) => {
-              if (inbox.id) {
-                inboxs.push(inbox.id);
-              }
+            list.push({
+              typ: o.typ,
+              content: o.content,
+              inboxs: inboxs
             });
           }
+        })
 
-          list.push({
-            typ: o.typ,
-            content: o.content,
-            inboxs: inboxs
-          });
-        }
-      })
+        this.$emit('submit', list, this.selected)
+        this.handlerCloseForm();
 
-
-      //console.log(list);
-
-      this.$emit('submit', list, this.selected)
-
-
-      this.handlerCloseForm();
-
-      //this.state = 'done';
-
-      /*
-      if (this.selected.length < 1) {
-        this.state = false;
       }
-      */
+
+
+
 
     },
     selectActive(typ, content) {
@@ -456,7 +627,7 @@ export default {
         }
         if (o.inboxs && typ == 'user') {
           o.inboxs.forEach((o) => {
-            if (o.id == content) {
+            if (o.user_id == content) {
               ret = true;
             }
           })
@@ -490,9 +661,16 @@ export default {
       formData.append('typ', typ);
       formData.append('content', content);
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|', '');
+      }
+
       axios.post(this.apiURL + '/getInboxes', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -542,6 +720,7 @@ export default {
     handlerChangeSearch(type) {
 
       if (this.searchString == '') {
+        this.searchUserlist = [];
         return false;
       }
 
@@ -558,8 +737,18 @@ export default {
       }
 
       //let filterType = 'isPupil';
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|', '');
+      }
+      axios.get(this.apiURL + '/getSystemUser/' + this.searchString + '/' + type, {
+        cancelToken: this.ajaxRequest.token,
+        headers: {
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
+        }
 
-      axios.get('rest.php/GetUser/' + this.searchString + '/' + type, {cancelToken: this.ajaxRequest.token}).then(function (response) {
+      }).then(function (response) {
         if (response.data) {
           if (response.data.error) {
             that.error = '' + response.data.msg;
@@ -589,12 +778,19 @@ export default {
     },
     handlerOpenTab(tab) {
       if (tab) {
+
+        if (tab == 'teacher') {
+          this.searchUserlist = [];
+          this.searchString = '';
+        }
+        if (this.openTab == 'teacher' && (tab == 'pupils' || tab == 'parents')) {
+          this.searchUserlist = [];
+          this.searchString = '';
+        }
+
         this.openTab = tab;
       }
-      if (tab == 'teacher') {
-        this.searchUserlist = [];
-        this.searchString = '';
-      }
+
     },
     handlerOpenForm() {
 
@@ -629,4 +825,40 @@ export default {
 
 <style scoped>
 
+.tabs-head button {
+  padding-top: 2rem;
+  padding-bottom: 1.6rem;
+}
+
+.tabs-head button:first-child {
+  border-bottom-left-radius: 0;
+}
+
+.tabs-head button:last-child {
+  border-bottom-right-radius: 0;
+}
+
+.tabs {
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  border-top-right-radius: 3rem;
+
+}
+
+.tabs h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1.3rem;
+}
+
+.tabs-content {
+  padding: 1rem;
+  padding-left: 5rem;
+}
+
+.tab {
+  min-height: 10vh;
+  max-height: 70vh;
+  overflow-y: scroll;
+}
 </style>

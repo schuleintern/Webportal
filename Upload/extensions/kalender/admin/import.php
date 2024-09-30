@@ -63,6 +63,55 @@ class extKalenderAdminImport extends AbstractPage
     }
 
 
+    public function taskImportFromKalender($request)
+    {
+
+        if ((int)DB::getSession()->getUser()->isAnyAdmin() !== 1) {
+            return [
+                'error' => true,
+                'msg' => 'Kein Zugriff'
+            ];
+        }
+
+        include_once PATH_EXTENSIONS . 'kalender' . DS . 'models' . DS . 'Kalender.class.php';
+        include_once PATH_EXTENSIONS . 'kalender' . DS . 'models' . DS . 'Event.class.php';
+
+
+        $result = DB::getDB()->query("SELECT * FROM andere_kalender ");
+        while ($row = DB::getDB()->fetch_array($result, true)) {
+
+
+            $iid = extKalenderModelKalender::submitData([
+                "title" => $row['kalenderName'],
+                "state" => 1,
+                "color" => '',
+                "sort" => 0,
+                "preSelect" => 0,
+                "acl" => '',
+                "ferien" => 0,
+                "public" => 0
+            ]);
+
+            $result2 = DB::getDB()->query("SELECT * FROM kalender_andere WHERE kalenderID = ".$row['kalenderID']);
+            while ($row2 = DB::getDB()->fetch_array($result2, true)) {
+
+                extKalenderModelEvent::submitData([
+                    "id" => null,
+                    "kalender_id" => $iid,
+                    "title" => $row2['eintragTitel'],
+                    "dateStart" => $row2['eintragDatumStart'],
+                    "timeStart" => $row2['eintragUhrzeitStart'],
+                    "dateEnd" => $row2['eintragDatumEnde'],
+                    "timeEnd" => $row2['eintragUhrzeitEnde'],
+                    "place" => $row2['eintragOrt'],
+                    "comment" => $row2['eintragKommentar']
+                ], $row2['eintragUser']);
+            }
+        }
+
+        $this->reloadWithoutParam('task');
+    }
+
     public function taskImportFromAllinone($request)
     {
 

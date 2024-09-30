@@ -115,7 +115,7 @@ export default {
 
       this.loading = true;
       var that = this;
-      axios.post(this.apiURL + '/deleteActivity', formData)
+      axios.post(this.apiURL + '/deleteGroups', formData)
       .then(function (response) {
         if (response.data) {
 

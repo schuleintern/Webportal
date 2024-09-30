@@ -45,6 +45,18 @@ class setAdminKalender extends AbstractRest {
             ];
         }
 
+        $admins = $_POST['admins'];
+        if ( $admins ) {
+            $foo = [];
+            $admins = json_decode($admins);
+            foreach ($admins as $admin) {
+                if ($admin->id) {
+                    $foo[] = $admin->id;
+                }
+            }
+            $input['admins'] = json_encode($foo);
+        }
+
 
         include_once PATH_EXTENSION . 'models' . DS . 'Kalender.class.php';
 

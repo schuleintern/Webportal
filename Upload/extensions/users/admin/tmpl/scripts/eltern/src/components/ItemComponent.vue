@@ -11,33 +11,37 @@
     <div class="width-70vw">
       <div class="si-form ">
         <ul class="">
-          <li>
-            <User v-if="form.id" :data="form"></User>
+          <li v-if="form.elternUserID">
+            <User v-if="form.elternUser" :data="form.elternUser"></User>
+          </li>
+          <li v-if="form.elternUserID">
+            <label>User ID</label>
+            <input type="text" v-model="form.elternUserID" readonly>
+          </li>
+          <li v-if="form.elternUserID">
+            <label>Benutzername</label>
+            <input type="text" v-model="form.elternUserName" readonly>
+          </li>
+          <li v-if="form.elternUserID || form.elternUserID === 0" class="flex-row">
+            <button class="si-btn" @click="handlerResetUser"><i class="fa fa-sync"></i> Benutzer zurücksetzen</button>
+          </li>
+          <li v-else>
+            Kein Benutzer angelegt!
           </li>
           <li>
-            <label>ID</label>
-            <input type="text" v-model="form.id" readonly>
+            <label>E-Mail</label>
+            <input type="text" v-model="form.elternEMail" readonly>
           </li>
           <li>
-            <label>Vorname</label>
-            <input type="text" v-model="form.vorname" readonly>
+            <label>ASV ID</label>
+            <input type="text" v-model="form.elternSchuelerAsvID" readonly>
           </li>
           <li>
-            <label>Nachname</label>
-            <input type="text" v-model="form.nachname" readonly>
-          </li>
-          <li>
-            <label>Type</label>
-            <input type="text" v-model="form.type" readonly>
+            <label>Schüler*in</label>
+            <input type="text" v-model="form.schuelerUserName" readonly>
+            <User v-if="form.schuelerUser" :data="form.schuelerUser" class="margin-t-m"></User>
           </li>
 
-          <td>{{ item.schuelerGeburtsort }}</td>
-          <td>{{ item.schuelerGeburtsland }}</td>
-          <td>{{ item.schulerEintrittJahrgangsstufe }}</td>
-          <td>{{ item.schuelerEintrittDatum }}</td>
-          <td>{{ item.schuelerFoto }}</td>
-          <td>{{ item.schuelerGanztagBetreuung }}</td>
-          <td>{{ item.schuelerGeburtsdatum }}</td>
 
         </ul>
 
@@ -65,7 +69,7 @@ export default {
     };
   },
   props: {
-    acl: Array,
+    acl: Object,
     item: []
   },
   created: function () {
@@ -73,6 +77,11 @@ export default {
   },
   methods: {
 
+    handlerResetUser: function () {
+      this.$bus.$emit('item--reset', {
+        data: this.form
+      });
+    },
     handlerBack: function () {
       this.$bus.$emit('page--open', {
         page: 'list'

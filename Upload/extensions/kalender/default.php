@@ -25,9 +25,13 @@ class extKalenderDefault extends AbstractPage {
             new errorPage('Kein Zugriff');
         }
 
-        $suggest = DB::getSettings()->getValue('extKalender-suggest');
+
         $ics = DB::getSettings()->getValue('extKalender-ics');
 
+        $suggest = false;
+        if (DB::getSession()->getUser()->isTeacher() || DB::getSession()->getUser()->isNone() || DB::getSession()->getUser()->isAdmin()) {
+            $suggest = DB::getSettings()->getValue('extKalender-suggest');
+        }
 
         $this->render([
             "tmpl" => "default",
@@ -40,7 +44,8 @@ class extKalenderDefault extends AbstractPage {
                 "acl" => $acl['rights'],
                 "suggest" => $suggest,
                 "ics" => $ics,
-                "apiKey" => DB::getGlobalSettings()->apiKey
+                "apiKey" => DB::getGlobalSettings()->apiKey,
+                "isMobile" => $this->isMobile
             ],
             "dropdown" => [
                 [

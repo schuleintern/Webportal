@@ -44,7 +44,7 @@ class extUserModelUser extends ExtensionModel
 
 
 
-    public function getCollection()
+    public function getCollection($full = false)
     {
 
         $collection = parent::getCollection([]);
@@ -52,7 +52,44 @@ class extUserModelUser extends ExtensionModel
         if ($collection['userID']) {
             $user = User::getUserByID($collection['userID']);
             if ($user) {
-                $collection['user'] = $user->getCollection(true, true);
+                $collection['user'] = $user->getCollection(true, true, true, true);
+
+                if ( $collection['user']['type'] == 'isEltern' ) {
+                    $obj = $user->getElternObject();
+
+                    /*
+                    $collection['adressen'] = [];
+                    $adressen = $user->getAdressen();
+                    foreach ($adressen as $adresse) {
+                        $collection['adressen'][] = $adresse->getCollection(true);
+                    }
+                    */
+                }
+
+                if ( $collection['user']['type'] == 'isPupil' ) {
+
+                    $obj = $user->getPupilObject();
+                    $collection['user']['geburtstag'] = $obj->getGeburtstagAsNaturalDate();
+                    $collection['user']['alter'] = $obj->getAlter();
+                    $collection['user']['ort'] = $obj->getWohnort();
+                    $collection['user']['bekenntnis'] = $obj->getBekenntnis();
+                    $collection['user']['ausbildungsrichtung'] = $obj->getAusbildungsrichtung();
+
+                    $collection['adressen'] = [];
+                    $adressen = $obj->getAdressen();
+                    foreach ($adressen as $adresse) {
+                        $collection['adressen'][] = $adresse->getCollection(true);
+                    }
+
+                    $collection['emails'] = [];
+                    $emails = $obj->getElternEMail();
+                    foreach ($emails as $email) {
+                        if ($email) {
+                            $collection['emails'][] = $email->getCollection();
+                        }
+                    }
+
+                }
             }
         }
 

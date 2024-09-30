@@ -24,7 +24,7 @@ class extUsersModelEltern extends ExtensionModel
     {
         parent::__construct($data, self::$table ? self::$table : false,
             [
-                'parent_id' => 'elternUserID'
+                'parent_id' => 'elternEMail'
             ]);
         self::setModelFields(self::$fields, self::$defaults);
     }
@@ -41,6 +41,9 @@ class extUsersModelEltern extends ExtensionModel
                 if ($collection['elternUser']) {
                     $collection['elternUserName'] = $collection['elternUser']['name'];
                 }
+            }
+            if (!$collection['elternUserName']) {
+                $collection['elternUserName'] = "";
             }
             if ($this->getData('elternSchuelerAsvID')) {
                 $user = user::getByASVID($this->getData('elternSchuelerAsvID'));

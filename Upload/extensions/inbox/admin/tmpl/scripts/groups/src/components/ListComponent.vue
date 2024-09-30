@@ -17,15 +17,22 @@
       <thead>
         <tr>
           <th v-on:click="handlerSort('title')" class="curser-sort">Titel</th>
-          <th>Info</th>
-  
+          <th>Anzahl</th>
+          <th>Mitglieder*innen</th>
         </tr>
       </thead>
       <tbody>
         <tr v-bind:key="index" v-for="(item, index) in  sortList" class="">
           <td><a :href="'#item' + item.id" v-on:click="handlerOpen(item)">{{ item.title }}</a></td>
-          <td>{{ item.createdTime }} - {{ item.createdUserID }}</td>
-
+          <td>{{ item.childs.length }}</td>
+          <td>
+            <span v-if="item.childs.length < 4">
+              <span v-bind:key="i" v-for="(child, i) in  item.childs" class="margin-r-m" style="float: left" >
+                <User v-if="child.user" v-bind:data="child.user"></User>
+              </span>
+            </span>
+            <span v-else>...</span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -38,8 +45,12 @@
 
 <script>
 
+import User from '../mixins/User.vue'
 export default {
   name: 'ListComponent',
+  components: {
+    User
+  },
   data() {
     return {
 

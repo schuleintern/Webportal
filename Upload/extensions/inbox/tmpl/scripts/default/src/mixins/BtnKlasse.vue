@@ -1,13 +1,15 @@
 <template>
 
-  <div>
-    <button v-if="jahrgang(content)" class="si-btn" @click="handlerSelectGroup(typ, content)">{{jahrgang(content)}}. Jahrgangstufe</button>
-    <div>
-      <button v-bind:key="index" v-for="(item, index) in  content"
-              class="si-btn margin-r-s" :class="{'si-btn-active': selectActive(typ, item) }"
-              @click="handlerSelect($event, typ, item)">{{item}}
-      </button>
-    </div>
+  <div class="si-btn-multiple">
+    <button v-if="jahrgang(content)" class="si-btn margin-r-s si-btn-border" @click="handlerSelectGroup(typ, content)">{{ jahrgang(content) }}.
+      Jahrgangstufe
+    </button>
+
+    <button v-bind:key="index" v-for="(item, index) in  content"
+            class="si-btn margin-r-s" :class="{'si-btn-active': selectActive(typ, item) }"
+            @click="handlerSelect($event, typ, item)">{{ item }}
+    </button>
+
   </div>
 
 </template>
@@ -25,9 +27,7 @@ export default {
     content: Array,
     selected: Object
   },
-  computed: {
-
-  },
+  computed: {},
   mounted: function () {
 
   },

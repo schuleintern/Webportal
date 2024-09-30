@@ -1,14 +1,13 @@
 <template>
   <div class="si-userselect">
-
     <AjaxError v-bind:error="error"></AjaxError>
     <AjaxSpinner v-bind:loading="loading"></AjaxSpinner>
 
     <div v-if="!state">
       <button v-if="selected.length == 0" class="si-btn si-btn-green" v-on:click="handlerOpenForm"><i
-          class="fas fa-plus"></i> Benutzer hinzufügen</button>
-      <button v-else class="si-btn" v-on:click="handlerOpenForm"><i class="fas fa-plus"></i> Benutzerliste
-        bearbeiten</button>
+          class="fas fa-plus"></i> Benutzer auswählen</button>
+      <button v-else class="si-btn" v-on:click="handlerOpenForm"><i class="fas fa-edit"></i>
+        Bearbeiten</button>
     </div>
 
     <div v-if="state == 'form'">
@@ -157,9 +156,10 @@ export default {
     };
   },
   props: {
+    prefilter: String,
     preselected: Array,
-    minAnzahl: Boolean,
-    maxAnzahl: Boolean
+    minAnzahl: Number,
+    maxAnzahl: Number
   },
   watch: {
     preselected: function (newVal) {
@@ -167,10 +167,18 @@ export default {
     }
   },
   mounted: function () {
-    this.selected = this.preselected;
+    if (this.preselected && this.preselected[0] != false) {
+      this.selected = this.preselected;
+    }
     if (!this.selected) {
       this.selected = [];
     }
+
+    if (this.prefilter) {
+      this.filterType = this.prefilter;
+    }
+
+
   },
   created: function () {
 
@@ -217,7 +225,7 @@ export default {
       return false;
     },
     handlerSubmit: function () {
-      this.$emit('submit', this.selected, this.selected)
+      this.$emit('submit', this.selected)
       this.handlerCloseForm();
     },
     handlerSelectUser: function (user) {

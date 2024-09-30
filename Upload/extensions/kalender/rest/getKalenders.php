@@ -69,6 +69,17 @@ class getKalenders extends AbstractRest {
                         $arr['acl']['rights'] = ['read' => 1, 'write' => $write, 'delete' => $write];
                     }
                     $ret[] = $arr;
+                } else if ($item->getAdmins()) {
+                    $kadmins = $item->getAdmins();
+                    if ($kadmins) {
+                        foreach ($kadmins as $kadmin) {
+                            if ($kadmin == $userID) {
+                                $arr['acl']['rights'] = ['read' => 1, 'write' => 1, 'delete' => 1];
+                                $ret[] = $arr;
+                            }
+                        }
+                    }
+
                 }
             }
         }

@@ -16,6 +16,7 @@ class extInboxModelMessageBody2 extends ExtensionModel
         'createdTime',
         'priority',
         'files',
+        'umfrage',
         'subject',
         'text',
         'noAnswer',
@@ -40,11 +41,44 @@ class extInboxModelMessageBody2 extends ExtensionModel
 
 
 
-    public function getCollection($full = false, $withText = false)
+    public function getCollection($full = false, $parent_id = false)
     {
 
         $collection = parent::getCollection();
 
+        if ($full) {
+
+            if ($collection['umfrage']) {
+                $collection['umfragen'] = [];
+
+                include_once PATH_EXTENSIONS.'umfragen'.DS . 'models' . DS .'List.class.php';
+                $subList = new extUmfragenModelList();
+                include_once PATH_EXTENSIONS .'umfragen'.DS. 'models' . DS .'Answer.class.php';
+                $subAnswer = new extUmfragenModelAnswer();
+
+                $tmp_answers = $subList->getByID($collection['umfrage']);
+                if ($tmp_answers) {
+                    $collection['umfragen'] = $tmp_answers->getCollection(false, false, true);
+
+
+                    if ($parent_id) {
+                        $answers = $subAnswer->getByIdAndParent($collection['umfragen']['id'],  $parent_id);
+                        if ($answers) {
+                            $answers_ret = [];
+                            foreach ($answers as $answer) {
+                                $answers_ret[] = $answer->getCollection();
+                            }
+                            $collection['umfragen']['answers'] = $answers_ret;
+                        } else {
+                            $collection['umfragen']['answers'] = false;
+                        }
+                    }
+
+
+
+                }
+            }
+        }
 
         return $collection;
     }
@@ -56,6 +90,7 @@ class extInboxModelMessageBody2 extends ExtensionModel
             include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
             $class = new extInboxModelInbox2();
             $inbox = $class->getByID($this->getData('sender'));
+            //$inbox = PAGE::getFactory()->getInboxByID($this->getData('sender'));
             if ($inbox) {
                 return $inbox->getCollection(true, false, true);
             }
@@ -69,8 +104,8 @@ class extInboxModelMessageBody2 extends ExtensionModel
     {
 
         if ($this->getData('receivers_cc')) {
-            include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
-            $class = new extInboxModelInbox2();
+            //include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
+            //$class = new extInboxModelInbox2();
             $ret = [];
             $arr = json_decode($this->getData('receivers_cc'), true);
             foreach ($arr as $item) {
@@ -83,7 +118,7 @@ class extInboxModelMessageBody2 extends ExtensionModel
                         if (method_exists($className, 'getTitle')) {
                             $tmp_data = $className::getTitle($item['content']);
                             $inboxCol = false;
-                            $inbox = $class->getByID($item['content']);
+                            $inbox = PAGE::getFactory()->getInboxByID($item['content']);
                             if ($inbox) {
                                 $inboxCol = $inbox->getCollection(true, false, true);
                             }
@@ -105,52 +140,41 @@ class extInboxModelMessageBody2 extends ExtensionModel
 
     }
 
-    public function getReceiversShort()
+    public function getReceiversLong()
     {
         if ($this->getData('receivers')) {
 
             $ret = [];
             $arr = json_decode($this->getData('receivers'), true);
 
-            include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
-            $Inbox = new extInboxModelInbox2();
+            //include_once PATH_EXTENSIONS. 'inbox' . DS . 'models' . DS . 'Inbox2.class.php';
+            //$Inbox = new extInboxModelInbox2();
 
             foreach ($arr as $item) {
-                if ( count($item['inboxs']) > 0 ) {
+                if ( $item['inboxs'] && count($item['inboxs']) > 0 ) {
+                    if ($item['content'] && $item['typ']) {
+                        $className = explode('::', $item['typ']);
+                        $className = 'extInboxRecipient' . ucfirst($className[0]) . ucfirst($className[1]);
+                        $typ = str_replace('::', '_', $item['typ']);
+                        include_once PATH_EXTENSIONS . 'inbox' . DS . 'inboxs' . DS . $typ . '.class.php';
+
+                        $tmp_data = $className::getTitle($item['content']);
+
+                        $inboxCol = [];
+                        foreach ($item['inboxs'] as $inbox) {
+                            $inboxObj = PAGE::getFactory()->getInboxByID($inbox);
+                            if ($inboxObj) {
+                                $inboxCol[] = $inboxObj->getCollection(true, false, true);
+                            }
+                        }
 
 
-                    //if (!$item['content']) {
-                        //$item['content'] = $item['inboxs'][0];
-                    //}
-
-                    /*
-                    $temp = [];
-                    foreach($item['inboxs'] as $inbox) {
-                        $temp_inbox = $class->getByID($inbox);
-                        $temp_collection = $temp_inbox->getCollection(true);
-                        $temp[] = $temp_collection['title'];
+                        $ret[] = [
+                            "title" => $tmp_data,
+                            "count" => count($item['inboxs']),
+                            "inbox" => $inboxCol
+                        ];
                     }
-                    $tmp_data = join(', ',$temp);
-                    */
-
-                    $className = explode('::', $item['typ']);
-                    $className = 'extInboxRecipient'.ucfirst($className[0]).ucfirst($className[1]);
-                    $typ = str_replace('::','_', $item['typ']);
-                    include_once PATH_EXTENSIONS.'inbox'.DS . 'inboxs' . DS . $typ.'.class.php';
-
-                    $tmp_data = $className::getTitle($item['content']);
-
-                    $inboxCol = false;
-                    $inbox = $Inbox->getByID($item['content']);
-                    if ($inbox) {
-                        $inboxCol = $inbox->getCollection(true, false, true);
-                    }
-
-                    $ret[] = [
-                        "title" => $tmp_data,
-                        "count" => count($item['inboxs']),
-                        "inbox" => $inboxCol
-                    ];
                 }
 
             }
@@ -159,20 +183,33 @@ class extInboxModelMessageBody2 extends ExtensionModel
         return false;
     }
 
-    public function getReceiversLong()
+    public function getReceiversShort()
     {
         if ($this->getData('receivers')) {
             $ret = [];
             $arr = json_decode($this->getData('receivers'), true);
             foreach ($arr as $item) {
                 if ( count($item['inboxs']) > 0) {
-                    $ret[] = [
-                        "title" => $item['typ'].'::'.$item['content'],
-                        "count" => count($item['inboxs']),
-                        "typ" => $item['typ'],
-                        "content" => $item['content'],
-                        "inboxs" => $item['inboxs']
-                    ];
+
+                    if ($item['content'] && $item['typ']) {
+                        $className = explode('::', $item['typ']);
+                        $className = 'extInboxRecipient'.ucfirst($className[0]).ucfirst($className[1]);
+                        $typ = str_replace('::','_', $item['typ']);
+                        include_once PATH_EXTENSIONS.'inbox'.DS . 'inboxs' . DS . $typ.'.class.php';
+
+                        $tmp_data = $className::getTitle($item['content']);
+                        if (!$tmp_data) {
+                            $tmp_data = $item['typ'].'::'.$item['content'];
+                        }
+
+                        $ret[] = [
+                            "title" => $tmp_data,
+                            "count" => count($item['inboxs']),
+                            //"typ" => $item['typ'],
+                            //"content" => $item['content'],
+                            //"inboxs" => $item['inboxs']
+                        ];
+                    }
                 }
 
             }
@@ -181,6 +218,19 @@ class extInboxModelMessageBody2 extends ExtensionModel
         return false;
     }
 
+
+
+    public  function getByUmfrage($umfrage_id = false)
+    {
+        if (!(int)$umfrage_id) {
+            return false;
+        }
+        $data = DB::run('SELECT * FROM ' . $this->getModelTable() . ' WHERE umfrage = :umfrage_id   ', ['umfrage_id' => $umfrage_id])->fetch();
+        if ($data) {
+            return new self($data);
+        }
+        return false;
+    }
 
 
 

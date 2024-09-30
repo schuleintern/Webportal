@@ -369,6 +369,10 @@ button.btn-blau {
   font-weight: bold !important;
 }
 
+.text-big-1 {
+  font-size: 110%;
+}
+
 .text-big-2 {
   font-size: 140%;
 }
@@ -564,6 +568,7 @@ button.btn-blau {
     flex-direction: column;
     height: 3rem;
     padding-top: 3rem;
+    margin-right: 1rem;
     overflow: hidden;
     background-image: url('./images/mobileUI-site-nav-opener-bg.svg');
     background-size: auto 80%;

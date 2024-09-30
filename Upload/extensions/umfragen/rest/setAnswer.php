@@ -9,6 +9,7 @@ class setAnswer extends AbstractRest
     public function execute($input, $request)
     {
 
+
         $user = DB::getSession()->getUser();
         if (!$user) {
             return [
@@ -17,44 +18,47 @@ class setAnswer extends AbstractRest
             ];
         }
         $acl = $this->getAcl();
-        if ( !$this->canRead() ) {
+        if (!$this->canWrite()) {
             return [
                 'error' => true,
                 'msg' => 'Kein Zugriff'
             ];
         }
 
-
-
-
-        
         $childs = $_POST['childs'];
         if ($childs) {
             $childs = json_decode($childs);
         }
 
+        $parent_id = (string)$input['parent_id'];
+        if ( !$parent_id || $parent_id == 'undefined' ) {
+            return [
+                'error' => true,
+                'msg' => 'Missing Data: Parent ID'
+            ];
+        }
 
-        include_once PATH_EXTENSION . 'models' . DS .'Answer.class.php';
 
+        include_once PATH_EXTENSION . 'models' . DS . 'Answer.class.php';
         $class = new extUmfragenModelAnswer();
 
         $count = 0;
+        foreach ($childs as $child) {
 
-        foreach($childs as $child) {
-
-            if ( $class->save([
+            if ($class->save([
                 'list_id' => $child->list_id,
                 'item_id' => $child->id,
+                'parent_id' => $parent_id,
                 'content' => $child->value,
                 'createdTime' => date('Y-m-d H:i', time()),
                 'createdUserID' => $user->getUserID()
-            ]) ) {
+            ])) {
                 $count++;
             }
         }
 
 
-        if ( $count == count($childs) ) {
+        if ($count == count($childs)) {
 
             return [
                 'success' => true

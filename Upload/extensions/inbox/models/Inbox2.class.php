@@ -57,8 +57,35 @@ class extInboxModelInbox2 extends ExtensionModel
                     if ($temp_user) {
                         $collection['user'] = $temp_user->getCollection(true, false, false, true);
                         $collection['title'] = $collection['user']['name'];
+                        //$collection['user']['receiveEMail'] = $temp_user->receiveEMail();
                     }
                 }
+            }
+            if ($this->getData('type') == 'group') {
+                //$collection['title'] = 'aaa';
+                //$collection['user_id'] = 1;
+
+                /*
+                include_once PATH_EXTENSIONS . 'inbox' . DS . 'models' . DS . 'Users.class.php';
+                $classUser = new extInboxModelUsers();
+                $temp_inboxUsers = $classUser->getByParentID($this->getID());
+                foreach($temp_inboxUsers as $temp_inboxUser) {
+                    if ($temp_inboxUser->getData('user_id')) {
+
+                        $this->setValue('user_id', $temp_inboxUser->getData('user_id'));
+                        $collection['user_id'] = $this->getData('user_id');
+                        //$collection['userName'] = 'aaa';
+
+                        $temp_user = user::getUserByID($temp_inboxUser->getData('user_id'));
+                        if ($temp_user) {
+                            $collection['user'] = $temp_user->getCollection(true, false, false, true);
+                            $collection['title'] = $collection['user']['name'];
+                            //$collection['user']['receiveEMail'] = $temp_user->receiveEMail();
+                        }
+                    }
+                }
+                */
+                
             }
         }
 
@@ -104,13 +131,27 @@ class extInboxModelInbox2 extends ExtensionModel
         if ($this->getData('user_id')) {
             $collection['user_id'] = $this->getData('user_id');
             if ($collection['user_id']) {
-                $collection['user'] = user::getCollectionByID($collection['user_id'], false,false,false,true);
-                $collection['userName'] = $collection['user']['name'];
+                $userTemp = user::getUserByID($collection['user_id']);
+                if ($userTemp) {
+                    $collection['user'] = $userTemp->getCollection(false,false,false,true);
+                    $collection['userName'] = $collection['user']['name'];
+                    $collection['user']['receiveEMail'] = $userTemp->receiveEMail();
+                }
             }
             if (!$collection['userName']) {
                 $collection['userName'] = '- leer -';
             }
+        }
 
+        // InboxUser
+        if ($this->getData('timeOn')) {
+            $collection['timeOn'] = $this->getData('timeOn');
+        }
+        if ($this->getData('timeOff')) {
+            $collection['timeOff'] = $this->getData('timeOff');
+        }
+        if ($this->getData('isPublic')) {
+            $collection['isPublic'] = $this->getData('isPublic');
         }
 
 
@@ -164,7 +205,7 @@ class extInboxModelInbox2 extends ExtensionModel
         }
 
         $ret = [];
-        $data = DB::run('SELECT b.*, a.user_id FROM ext_inbox_user AS a
+        $data = DB::run('SELECT b.*, a.user_id, a.timeOn, a.timeOff, a.isPublic FROM ext_inbox_user AS a
           LEFT JOIN ' . $this->getModelTable() . ' AS `b` ON a.inbox_id LIKE b.id
           WHERE b.type = "user" ')->fetchAll();
 
@@ -197,7 +238,7 @@ class extInboxModelInbox2 extends ExtensionModel
             return false;
         }
 
-        $data = DB::run('SELECT a.id FROM ' . $this->getModelTable() . ' AS a
+        $data = DB::run('SELECT a.id, a.type FROM ' . $this->getModelTable() . ' AS a
         LEFT JOIN ext_inbox_user AS b ON a.id = b.inbox_id
         WHERE a.id = :inbox_id  AND b.user_id = :user_id ', ['inbox_id' => $inbox_id, 'user_id' => $userID])->fetch();
 

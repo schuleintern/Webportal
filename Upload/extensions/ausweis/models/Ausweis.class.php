@@ -306,7 +306,7 @@ class extAusweisModelAusweis
     }
 
 
-    public function makeAusweis($data = false)
+    public static function makeAusweis($data = false)
     {
 
         if (!$data) {

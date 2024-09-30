@@ -13,13 +13,14 @@
           <span v-if="item.unread" class="margin-l-s label bg-white text-grey">{{item.unread}}</span>
 
         </button>
-        <button v-if="acl.write == 1" class="si-btn" @click="handlerForm()"><i class="fa fa-plus"></i> Neue Nachricht
-        </button>
+        <button v-if="acl.write == 1 && isMobile" class="si-btn si-btn-icon" @click="handlerForm()"><i class="fa fa-plus"></i></button>
+        <button v-else-if="acl.write == 1" class="si-btn" @click="handlerForm()"><i class="fa fa-plus"></i> Neue Nachricht</button>
+
       </div>
 
-      <div class="flex-row">
+      <div class="flex-row inbox">
         <div class="bar flex-2 padding-r-m">
-          <div class="flex-row">
+          <div v-if="isFolderList" class="flex-row folder-list">
 
             <button v-bind:key="index" v-for="(item, index) in  inbox.folders" @click="handlerClickFolder(item)"
                     class="si-btn si-btn-light width-100p" :class="{'si-btn-active': item == this.inbox.activeFolder}"
@@ -34,14 +35,21 @@
               {{ item.title }}
               <span v-if="item.unread" class="margin-l-s label bg-white text-grey">{{item.unread}}</span>
             </button>
-
+            <!--
+            <button @click="handlerAddFolder" class="si-btn si-btn-icon si-btn-border"><i class="fa fa-plus"></i></button>
+            <div class="padding-m">
+              <h4>Neuen Ordner erstellen</h4>
+              <input type="text" class="si-input">
+              <button class="si-btn"><i class="fa fa-plus"></i> Hinzufügen</button>
+            </div>
+            -->
           </div>
         </div>
 
         <div class="main flex-10 padding-l-l" v-if="inbox.activeFolder">
 
           <ListSendComponent v-if="inbox.activeFolder.id == 2" :acl="acl" :list="messages" :item="message"></ListSendComponent>
-          <ListReadComponent v-else :acl="acl" :list="messages" :item="message"></ListReadComponent>
+          <ListReadComponent v-else :acl="acl" :list="messages" :item="message" :isFolderList="isFolderList"></ListReadComponent>
           <ItemComponent :acl="acl" v-if="message" :item="message" :folder="inbox.activeFolder"></ItemComponent>
         </div>
       </div>
@@ -76,6 +84,7 @@ export default {
     return {
       apiURL: window.globals.apiURL,
       acl: window.globals.acl,
+      isMobile: window.globals.isMobile,
       error: false,
       loading: false,
       page: 'list',
@@ -88,6 +97,7 @@ export default {
       searchString: '',
       drag: false,
       dropzone: [1],
+      isFolderList: true,
 
       inboxs: window.globals.data,
       inbox: false,
@@ -102,23 +112,21 @@ export default {
       selectedInbox: window.globals.inbox_id,
       selectedMessage: window.globals.message_id,
 
+      extInboxWidgetCount: false
     };
   },
   computed: {},
   created: function () {
 
-    // INIT
-    if (this.inboxs && this.selectedInbox) {
-      this.inboxs.forEach((o) => {
-        if (o.id == this.selectedInbox) {
-          this.handlerClickInbox(o);
-          this.selectedInbox = false;
-        }
-      })
-    } else if (this.inboxs && this.inboxs[0]) {
-      this.handlerClickInbox(this.inboxs[0]);
-    }
+    this.extInboxWidgetCount = window.document.getElementById('extInboxWidgetCount');
 
+    // INIT
+    if ( this.inboxs[0] ) {
+      this.initInbox();
+    } else {
+      // load Inbox ajax
+      this.loadMyInboxs(true);
+    }
 
 
 
@@ -129,10 +137,17 @@ export default {
       this.handlerPage(data.page, data.item);
     });
 
+    this.$bus.$on('folderlist--toggle', () => {
+      this.isFolderList = !this.isFolderList;
+    });
+
     this.$bus.$on('message--read', data => {
       if (data.message) {
         this.message = data.message;
         this.loadFullMessage();
+        if (this.isMobile) {
+          this.isFolderList = false;
+        }
       } else {
         this.message = false;
       }
@@ -144,7 +159,8 @@ export default {
         return false;
       }
       if (!data.form.inbox) {
-        return false;
+        //return false;
+        data.form.inbox = '';
       }
       if (!data.form.sender) {
         return false;
@@ -165,12 +181,22 @@ export default {
       formData.append('priority', data.form.priority);
       formData.append('noAnswer', data.form.noAnswer);
       formData.append('isPrivat', data.form.isPrivat);
+      formData.append('isForward', data.form.isForward);
+      formData.append('isAnswer', data.form.isAnswer);
       formData.append('files', JSON.stringify(data.form.files));
+      formData.append('umfragen', JSON.stringify(data.form.umfragen));
+      formData.append('folderID', data.form.folderID);
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
 
       axios.post(this.apiURL + '/setMessage', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -179,7 +205,52 @@ export default {
           } else {
             if (response.data.done == true) {
               that.handlerPage('list');
+              that.loadCounts();
             }
+          }
+        } else {
+          that.error = 'Fehler beim Laden. 01';
+        }
+      }).catch(function () {
+        that.error = 'Fehler beim Laden. 02';
+      }).finally(function () {
+        // always executed
+        that.loading = false;
+      });
+    });
+
+    this.$bus.$on('message-setUnread', (data) => {
+
+      if (!data.item) {
+        return false;
+      }
+      if (!data.item.id) {
+        return false;
+      }
+
+      this.loading = true;
+      var that = this;
+      const formData = new FormData();
+      formData.append('mid', data.item.id);
+
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
+      axios.post(this.apiURL + '/setUnread', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
+        }
+      }).then(function (response) {
+        if (response.data) {
+          if (response.data.error) {
+            that.error = '' + response.data.msg;
+          } else {
+            that.message.isRead = 0;
+            that.loadCounts();
           }
         } else {
           that.error = 'Fehler beim Laden. 01';
@@ -206,9 +277,16 @@ export default {
       const formData = new FormData();
       formData.append('mid', data.item.id);
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
       axios.post(this.apiURL + '/setConfirm', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -239,9 +317,16 @@ export default {
       const formData = new FormData();
       formData.append('mid', data.item.id);
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
       axios.post(this.apiURL + '/deleteMessage', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -270,11 +355,30 @@ export default {
 
     });
 
-
+    this.$bus.$on('recipients--load', data => {
+      if (data.props) {
+        this.loadRecipients(data.props);
+      }
+    });
 
   },
   methods: {
 
+    handlerAddFolder() {
+      console.log('TODO')
+    },
+    initInbox() {
+      if (this.inboxs && this.selectedInbox) {
+        this.inboxs.forEach((o) => {
+          if (o.id == this.selectedInbox) {
+            this.handlerClickInbox(o);
+            this.selectedInbox = false;
+          }
+        })
+      } else if (this.inboxs && this.inboxs[0]) {
+        this.handlerClickInbox(this.inboxs[0]);
+      }
+    },
     handlerForm() {
       this.$bus.$emit('page--open', {
         page: 'form'
@@ -305,6 +409,11 @@ export default {
 
       //console.log(itemID, 'folder',folder_id );
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
       if (!itemID || !folder_id) {
         return false;
       }
@@ -316,7 +425,9 @@ export default {
       formData.append('iid', this.inbox.id);
       axios.post(this.apiURL + '/setMessageFolder', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -332,6 +443,7 @@ export default {
               });
               that.messages.splice(that.messages.indexOf(i), 1)
               that.message = false;
+              that.loadCounts();
             }
 
           }
@@ -389,17 +501,36 @@ export default {
       }
       this.page = page;
     },
-/*
-    loadUploadFolder() {
 
+    loadRecipients(props) {
+
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
+      let url = this.apiURL + '/getRecipients';
+      if (props) {
+        url = url+'/'+props
+      }
       this.loading = true;
       var that = this;
-      axios.get(this.apiURL + '/getUploadFolder').then(function (response) {
+      axios.get(url, {
+        headers: {
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
+        }
+      }).then(function (response) {
         if (response.data) {
           if (response.data.error) {
             that.error = '' + response.data.msg;
           } else {
-            that.uploadFolder = response.data[0];
+
+            if (props) {
+              that.recipients[props] = response.data[props];
+            } else {
+              that.recipients = response.data;
+            }
           }
         } else {
           that.error = 'Fehler beim Laden. 01';
@@ -411,18 +542,30 @@ export default {
       });
 
     },
+    loadMyInboxs(init) {
 
- */
-    loadRecipients() {
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
 
       this.loading = true;
       var that = this;
-      axios.get(this.apiURL + '/getRecipients').then(function (response) {
+      axios.get(this.apiURL + '/getMyInboxes', {
+        headers: {
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
+        }
+      }).then(function (response) {
         if (response.data) {
           if (response.data.error) {
             that.error = '' + response.data.msg;
           } else {
-            that.recipients = response.data;
+            that.inboxs = response.data;
+            if (init) {
+              that.initInbox();
+            }
+
           }
         } else {
           that.error = 'Fehler beim Laden. 01';
@@ -436,6 +579,11 @@ export default {
     },
     loadFullMessage() {
 
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
       if (!this.message.id) {
         return false;
       }
@@ -445,7 +593,9 @@ export default {
       formData.append('message_id', this.message.id);
       axios.post(this.apiURL + '/getMessage', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -453,15 +603,12 @@ export default {
             that.error = '' + response.data.msg;
           } else {
             that.message = response.data;
-
-
             that.messages.forEach((o) => {
               if (o.id == that.message.id) {
                 o.isRead = that.message.isRead;
               }
             });
-
-
+            that.loadCounts();
           }
         } else {
           that.error = 'Fehler beim Laden. 01';
@@ -474,6 +621,11 @@ export default {
 
     },
     loadMessages() {
+
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
 
       if (!this.inbox.id) {
         return false;
@@ -488,7 +640,9 @@ export default {
       formData.append('folder_id', this.inbox.activeFolder.id);
       axios.post(this.apiURL + '/getMessages', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
         }
       }).then(function (response) {
         if (response.data) {
@@ -520,10 +674,151 @@ export default {
       });
     },
 
+    loadCounts() {
+
+      let sessionID = localStorage.getItem('session');
+      if (sessionID) {
+        sessionID = sessionID.replace('__q_strn|','');
+      }
+
+      this.loading = true;
+      var that = this;
+      axios.get(this.apiURL + '/getMyInboxesCount', {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'auth-app': window.globals.apiKey,
+          'auth-session': sessionID
+        }
+      }).then(function (response) {
+        if (response.data) {
+          if (response.data.error) {
+            that.error = '' + response.data.msg;
+          } else {
+
+            //console.log(that.inbox.activeFolder )
+            let count = 0;
+            response.data.forEach((o) => {
+              that.inboxs.forEach((inbox) => {
+                if (o.id == inbox.id) {
+                  inbox.unread = o.unread;
+                  inbox.folders = o.folders
+                  if (that.inbox.activeFolder && that.inbox.activeFolder.id && that.inbox.id) {
+                    if (that.inbox.id == inbox.id) {
+                      inbox.folders.forEach((folder) => {
+                        if (folder.id == that.inbox.activeFolder.id) {
+                          that.inbox.activeFolder = folder;
+                        }
+                      });
+                    }
+                  }
+                  count += inbox.unread;
+                }
+              })
+            })
+
+            if (that.extInboxWidgetCount) {
+              if (count == 0) {
+                count = '';
+              }
+              that.extInboxWidgetCount.innerText = count;
+            }
+          }
+        } else {
+          that.error = 'Fehler beim Laden. 01';
+        }
+      }).catch(function () {
+        that.error = 'Fehler beim Laden. 02';
+      }).finally(function () {
+        // always executed
+        that.loading = false;
+      });
+    },
+
   }
 }
 </script>
 
 <style>
+
+.subject {
+  word-break: break-word;
+}
+.isMobile .inbox .date {
+  font-size: 80%;
+}
+
+.isMobile .body img {
+  max-width: 100%;
+}
+
+.isMobile .body {
+  padding: 0;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.isMobile .ql-editor.ql-blank {
+  padding: 0;
+}
+
+.isMobile .inbox {
+  flex-direction: column !important;
+}
+.isMobile .inbox-list-read,
+.isMobile .inbox-list-send {
+  max-width: 100vw;
+}
+.isMobile .bar {
+  padding-right: 0;
+}
+.isMobile .main {
+  padding-left: 0;
+  max-width: 100vw;
+}
+.isMobile .head {
+  margin-top: 0.6rem;
+}
+.isMobile .box {
+  padding-right: 1.3rem;
+  padding-left: 1.3rem;
+}
+
+.ql-container {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+
+.isMobile .si-modalblack-box .si-modalblack-content .right {
+  margin-top: 1rem;
+}
+
+.isMobile .si-modalblack-box {
+    width: 96vw;
+}
+.isMobile .submitBtn ,
+.isMobile .closeBtn {
+  padding-top: 2rem;
+  padding-bottom: 1.6rem;
+}
+
+.isMobile .si-modalblack-box {
+  transform: translateY(2vh);
+}
+
+.isMobile .tabs {
+  max-height: 70vh;
+}
+
+.isMobile .emailGroup {
+  width: 100%;
+}
+
+.isMobile .entwurfBtn {
+  display: block;
+}
+
 
 </style>

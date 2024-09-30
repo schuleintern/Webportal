@@ -21,12 +21,12 @@ class extInboxCronMakeInboxs extends AbstractCron
 
     public function getName()
     {
-        return "Make User Inboxs";
+        return "Postfächer anlegen";
     }
 
     public function getDescription()
     {
-        return "generate inbox_user from user table";
+        return "Erzeugt die Postfächer anhand der Benutzer und der Gruppen";
     }
 
 

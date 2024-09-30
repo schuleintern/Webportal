@@ -7,7 +7,7 @@ class extFinanzenAntrag extends AbstractPage
 
     public static function getSiteDisplayName()
     {
-        return '<i class="fa fas fa-sun"></i> Finanzen - Antrag';
+        return '<i class="fa fa-wallet"></i> Finanzen - Meine Anträge';
     }
 
     public function __construct($request = [], $extension = [])

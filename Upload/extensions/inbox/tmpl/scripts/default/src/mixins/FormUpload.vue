@@ -21,7 +21,8 @@
 
     </uploader-drop>
     -->
-    <uploader-list></uploader-list>
+
+    <uploader-list v-if="showDetials"></uploader-list>
   </uploader>
 </template>
 
@@ -38,7 +39,8 @@ export default {
     const options = {
       target: props.target,
       testChunks: false,
-      singleFile: false
+      singleFile: false,
+      chunkSize: 1024*1024*1024
     }
     const attrs = {
       accept: 'image/*'
@@ -61,16 +63,19 @@ export default {
       //console.log('file complete', arguments)
     }
 
+    let showDetials = ref(true);
+
+
     const fileError = (error, file,message) => {
       //console.log('file fileError', message )
       emit('error', error, JSON.parse(message));
     }
 
 
-
     const fileSuccess = (rootFile, file, message)  => {
       //console.log('file success', rootFile.file.name, JSON.parse(message))
       emit('done', rootFile.file.name, JSON.parse(message));
+
     }
 
 
@@ -79,6 +84,9 @@ export default {
         window.uploader = uploaderRef.value.uploader
       })
     })
+
+
+
     return {
       uploaderRef,
       options,
@@ -87,9 +95,11 @@ export default {
       complete,
       fileComplete,
       fileSuccess,
-      fileError
+      fileError,
+      showDetials
     }
   }
+
 }
 </script>
 

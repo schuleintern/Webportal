@@ -9,6 +9,7 @@ class extFinanzenModelBuchung extends ExtensionModel
     static $table = 'ext_finanzen_buchung';
 
     static $fields = [
+        'id',
         'state',
         'createdTime',
         'createdUserID',

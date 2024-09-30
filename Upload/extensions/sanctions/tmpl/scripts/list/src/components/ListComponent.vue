@@ -16,7 +16,7 @@
       </thead>
       <tbody>
       <tr v-bind:key="index" v-for="(item, index) in  sortList" class="">
-        <td><span v-if="item.user">{{ item.user.name }}</span></td>
+        <td><span v-if="item.user && item.user.name">{{ item.user.name }}</span></td>
         <td v-bind:key="i" v-for="(strike, i) in  count">
 
           <div class="si-btn-multiple" v-if="showBtnSet(item.counts, i)" >

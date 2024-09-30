@@ -142,6 +142,7 @@ export default {
       formData.append('pdf', data.pdf || '');
       formData.append('cover', data.cover || '');
       formData.append('enddate', data.enddate || '');
+      formData.append('url', data.url || '');
 
 
       this.loading = true;

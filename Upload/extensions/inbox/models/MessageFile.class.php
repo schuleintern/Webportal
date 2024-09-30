@@ -44,9 +44,6 @@ class extInboxModelMessageFile extends ExtensionModel
     }
 
 
-
-
-
     public function getByUniqidID($id = false)
     {
         if (!self::$table) {
@@ -61,6 +58,32 @@ class extInboxModelMessageFile extends ExtensionModel
         }
         return false;
     }
+
+    public function deleteWithFile()
+    {
+        if ($this->getData('file')) {
+            if (file_exists($this->getData('file'))) {
+                if ( !unlink($this->getData('file')) ) {
+                    return false;
+                }
+            }
+            $folder = explode('/', $this->getData('file'));
+            array_pop($folder);
+            $folder = implode('/', $folder);
+            if (file_exists($folder) && is_dir($folder)) {
+                if ( count(scandir($folder)) <= 2) {
+                    FILE::removeFolder($folder);
+                }
+
+            }
+        }
+        if ( $this->delete() ) {
+            return true;
+        }
+
+        return false;
+    }
+
 
 
 

@@ -2,34 +2,40 @@
 
   <div>
 
-    <div class="flex-row">
-      <h4 class="flex-1"><i class="fas fa fa-envelope"></i> Nachrichten</h4>
-      <div>
-        <a class="si-btn si-btn-border si-btn-icon si-btn-small" href="index.php?page=ext_inbox"><i class="fas fa-external-link-alt"></i></a>
+
+      <div class="flex-row">
+        <h4 class="flex-1"><i class="fas fa fa-envelope"></i> Nachrichten</h4>
+        <div>
+          <a class="si-btn si-btn-border si-btn-icon si-btn-small" href="index.php?page=ext_inbox"><i class="fas fa-external-link-alt"></i></a>
+        </div>
       </div>
+    <div v-if="loading" class="margin-l padding-l">
+      <i class="fa fas fa-sync-alt fa-spin"></i> laden...
     </div>
-    <ul v-if="list && list.length >= 1" class="noListStyle">
-      <li v-bind:key="index" v-for="(item, index) in  list" class="line-oddEven padding-m">
-
-        <h4 class="title blockInline"><i class="fas fa fa-envelope-open"></i> {{ item.title }} </h4>
-        <span class=" margin-l-m label bg-red" v-if="item.data && item.data.length >= 1">{{item.data.length}}</span>
-
-        <table class="si-table si-table-style-allLeft">
-        <tbody v-if="item.data && item.data.length >= 1" class="noListStyle">
-          <tr v-bind:key="i" v-for="(message, i) in  item.data" class="line-oddEven padding-m">
-
-            <td class="">{{ message.date }}</td>
-            <td class="">{{ message.from.title }}</td>
-            <td class=""><a :href="'index.php?page=ext_inbox&iid='+message.inbox_id+'&mid='+message.id">{{ message.subject }}</a></td>
-
-          </tr>
-        </tbody>
-        </table>
-
-      </li>
-    </ul>
     <div v-else>
-      <div class="padding-m"><i>- Keine neuen Nachrichten -</i></div>
+      <ul v-if="list && list.length >= 1" class="noListStyle">
+        <li v-bind:key="index" v-for="(item, index) in  list" class="line-oddEven padding-m">
+
+          <h4 class="title blockInline"><i class="fas fa fa-envelope-open"></i> {{ item.title }} </h4>
+          <span class=" margin-l-m label bg-red" v-if="item.data && item.data.length >= 1">{{item.data.length}}</span>
+
+          <table class="si-table si-table-style-allLeft">
+          <tbody v-if="item.data && item.data.length >= 1" class="noListStyle">
+            <tr v-bind:key="i" v-for="(message, i) in  item.data" class="line-oddEven padding-m">
+
+              <td class="">{{ message.date }}</td>
+              <td class="">{{ message.from.title }}</td>
+              <td class=""><a :href="'index.php?page=ext_inbox&iid='+message.inbox_id+'&mid='+message.id">{{ message.subject }}</a></td>
+
+            </tr>
+          </tbody>
+          </table>
+
+        </li>
+      </ul>
+      <div v-else>
+        <div class="padding-m"><i>- Keine neuen Nachrichten -</i></div>
+      </div>
     </div>
 
 
@@ -47,6 +53,7 @@ export default {
   data() {
     return {
 
+      loading: false,
       apiURL: 'rest.php/inbox',
       list: []
 

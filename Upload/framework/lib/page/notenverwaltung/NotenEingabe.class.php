@@ -1144,12 +1144,24 @@ class NotenEingabe extends AbstractPage {
       $allGewicht = NoteGewichtung::getAll();
       
       for($i = 0; $i < sizeof($allGewicht); $i++) {
-          $gewichtungHTML .= "<tr><td>" . $allGewicht[$i]->getFach()->getKurzform() . "</td>";
+          $gewichtungHTML .= "<tr>";
+          $gewichtungHTML .= "<td>";
+          if ( $allGewicht[$i]->getFach() ) {
+              $gewichtungHTML .= $allGewicht[$i]->getFach()->getKurzform();
+          }
+          $gewichtungHTML .= "</td>";
           $gewichtungHTML .= "<td>" . $allGewicht[$i]->getJGS() . "</td>";
           $gewichtungHTML .= "<td>" . $allGewicht[$i]->getGewichtGross() . "</td>";
           
           $gewichtungHTML .= "<td>" . $allGewicht[$i]->getGewichtKlein() . "</td>";
-          $gewichtungHTML .= "<td><button class=\"btn btn-xs btn-danger\" type=\"button\" onclick=\"confirmAction('Soll die Gewichtung wirklich gelöscht werden?','$selfURL&mode=delete&fach=" . urlencode($allGewicht[$i]->getFach()->getKurzform()) . "&jgs=" . $allGewicht[$i]->getJGS() . "')\"><i class=\"fa fa-trash\"></i></button></td>";
+
+          $gewichtungHTML .= "<td>";
+          if ( $allGewicht[$i]->getFach() ) {
+              $gewichtungHTML .= "<button class=\"btn btn-xs btn-danger\" type=\"button\" onclick=\"confirmAction('Soll die Gewichtung wirklich gelöscht werden?','$selfURL&mode=delete&fach=" . urlencode($allGewicht[$i]->getFach()->getKurzform()) . "&jgs=" . $allGewicht[$i]->getJGS() . "')\"><i class=\"fa fa-trash\"></i></button>";
+          }
+          $gewichtungHTML .= "</td>";
+
+
           $gewichtungHTML .= "</tr>";
           
           

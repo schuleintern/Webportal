@@ -30,10 +30,7 @@ class setGroupsAdmin extends AbstractRest
         }
 
         include_once PATH_EXTENSION . 'models' . DS . 'Inbox2.class.php';
-
-
         $class = new extInboxModelInbox2();
-
 
         if ($db = $class->save([
             'id' => $id,
@@ -46,11 +43,25 @@ class setGroupsAdmin extends AbstractRest
                 $id = $db->lastID;
             }
             $childs = (string)$_POST['childs'];
-            if ($childs) {
+            if (isset($childs)) {
                 include_once PATH_EXTENSION . 'models' . DS . 'Users.class.php';
                 $Users = new extInboxModelUsers();
                 $childs_obj = json_decode($childs);
-                if ($childs_obj) {
+                //if ($childs_obj) {
+                    $oldData = $Users->getByParentID($id);
+                    if ($oldData) {
+                        foreach ($oldData as $oldChild) {
+                            $found = false;
+                            foreach ($childs_obj as $child) {
+                                if ($oldChild->getID() == $child->id) {
+                                    $found = true;
+                                }
+                            }
+                            if ($found === false) {
+                                $oldChild->delete();
+                            }
+                        }
+                    }
                     foreach ($childs_obj as $child) {
 
                         $Users->save([
@@ -60,7 +71,7 @@ class setGroupsAdmin extends AbstractRest
                         ]);
 
                     }
-                }
+                //}
             }
 
             return ['succeed' => true];

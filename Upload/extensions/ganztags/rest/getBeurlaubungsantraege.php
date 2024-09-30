@@ -39,7 +39,8 @@ class getBeurlaubungsantraege extends AbstractRest {
             ExtensionsPages::loadModules( $extension['folder'] );
 
 
-            $data = extBeurlaubungModelAntrag::getByUserID($pupilID);
+            $class = new extBeurlaubungModelAntrag();
+            $data = $class->getByUserID($pupilID);
 
             if (count($data) > 0) {
                 foreach ($data as $item) {

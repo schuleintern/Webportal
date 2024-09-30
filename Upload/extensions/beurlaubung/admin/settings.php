@@ -1,57 +1,61 @@
 <?php
 
 
+class extBeurlaubungAdminSettings extends AbstractPage
+{
 
-class extBeurlaubungAdminSettings extends AbstractPage {
-	
-	public static function getSiteDisplayName() {
-		return '<i class="fa fas fa-plug"></i> Beurlaubung - Einstellungen';
-	}
+    public static function getSiteDisplayName()
+    {
+        return '<i class="fa fas fa-plug"></i> Beurlaubung - Einstellungen';
+    }
 
-	public function __construct($request = [], $extension = []) {
-		parent::__construct(array( self::getSiteDisplayName() ), false, false, false, $request, $extension);
-		$this->checkLogin();
-	}
+    public function __construct($request = [], $extension = [])
+    {
+        parent::__construct(array(self::getSiteDisplayName()), false, false, false, $request, $extension);
+        $this->checkLogin();
+    }
 
-	public function execute() {
+    public function execute()
+    {
 
-		//$this->getRequest();
-		//$this->getAcl();
+        //$this->getRequest();
+        //$this->getAcl();
 
-        if ( !$this->canWrite() ) {
+        if (!$this->canWrite()) {
             new errorPage('Kein Zugriff');
         }
-		
-		$this->render([
-			"tmplHTML" => '<div class="box"><div class="box-body"><div id=app></div></div></div>',
-			"scripts" => [
-                PATH_COMPONENTS.'system/adminSettings2/dist/js/chunk-vendors.js',
-                PATH_COMPONENTS.'system/adminSettings2/dist/js/app.js'
-			],
-			"data" => [
-				"selfURL" => URL_SELF,
-				"settings" => $this->getSettings()
-			]
 
-		]);
+        $this->render([
+            "tmplHTML" => '<div class="box"><div class="box-body"><div id=app></div></div></div>',
+            "scripts" => [
+                PATH_COMPONENTS . 'system/adminSettings2/dist/js/chunk-vendors.js',
+                PATH_COMPONENTS . 'system/adminSettings2/dist/js/app.js'
+            ],
+            "data" => [
+                "selfURL" => URL_SELF,
+                "settings" => $this->getSettings()
+            ]
 
-	}
+        ]);
+
+    }
 
 
-    public static function getSettingsDescription() {
+    public static function getSettingsDescription()
+    {
 
         $userGroups = usergroup::getAllOwnGroups();
 
         $options = [];
 
-        for($i = 0; $i < sizeof($userGroups); $i++) {
+        for ($i = 0; $i < sizeof($userGroups); $i++) {
             $options[] = [
                 'value' => md5($userGroups[$i]->getName()),
                 'name' => $userGroups[$i]->getName()
             ];
         }
 
-        $settings =  [
+        $settings = [
             [
                 'name' => "extBeurlaubung-form-info-required",
                 'typ' => 'BOOLEAN',
@@ -65,21 +69,9 @@ class extBeurlaubungAdminSettings extends AbstractPage {
                 'desc' => ""
             ],
             [
-                'name' => "extBeurlaubung-klassenleitung-nachricht",
-                'typ' => 'BOOLEAN',
-                'title' => "Klassenleitung bei neuen Anträgen per Nachricht informieren?",
-                'desc' => ""
-            ],
-            [
                 'name' => "extBeurlaubung-schulleitung-freigabe",
                 'typ' => 'BOOLEAN',
                 'title' => "Beurlaubungen müssen von der Schulleitung freigegeben werden?",
-                'desc' => ""
-            ],
-            [
-                'name' => "extBeurlaubung-schulleitung-nachricht",
-                'typ' => 'BOOLEAN',
-                'title' => "Schulleitung bei neuen Anträgen per Nachricht informieren?",
                 'desc' => ""
             ],
             [
@@ -112,25 +104,32 @@ class extBeurlaubungAdminSettings extends AbstractPage {
                 'title' => "Formular - Ganztag Button Label",
                 'desc' => ""
             ],
+            [
+                'name' => "extBeurlaubung-done-vorlagen",
+                'typ' => 'TEXT',
+                'title' => "Vorlagen für das Zustimmen oder Ablehnen",
+                'desc' => "Trennung durch Semikolon"
+            ]
         ];
         return $settings;
 
     }
 
-    public function taskSave($postData) {
+    public function taskSave($postData)
+    {
 
         $request = $this->getRequest();
         if ($request['page'] && $postData['settings']) {
-            foreach($postData['settings'] as $item) {
+            foreach ($postData['settings'] as $item) {
 
                 echo "INSERT INTO settings (settingName, settingValue, settingsExtension)
-				values ('" .DB::getDB()->escapeString($item['name']) . "',
+				values ('" . DB::getDB()->escapeString($item['name']) . "',
 				'" . DB::getDB()->escapeString(($item['value'])) . "'
 				,'" . DB::getDB()->escapeString(($request['page'])) . "')
 				ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($item['value']) . "'";
 
                 DB::getDB()->query("INSERT INTO settings (settingName, settingValue, settingsExtension)
-				values ('" .DB::getDB()->escapeString($item['name']) . "',
+				values ('" . DB::getDB()->escapeString($item['name']) . "',
 				'" . DB::getDB()->escapeString(($item['value'])) . "'
 				,'" . DB::getDB()->escapeString(($request['page'])) . "')
 				ON DUPLICATE KEY UPDATE settingValue='" . DB::getDB()->escapeString($item['value']) . "'");
@@ -140,7 +139,6 @@ class extBeurlaubungAdminSettings extends AbstractPage {
             echo json_encode(['error' => 'Fehler beim Speichern!']);
         }
     }
-
 
 
 }

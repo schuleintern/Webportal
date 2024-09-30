@@ -1,13 +1,13 @@
 {
   "name": "App-Connector",
   "uniqid": "ext.zwiebelgasse.app",
-  "version": "1",
+  "version": "2",
 
-  "requiredVersion": "1.6.3",
+  "requiredVersion": "1.8.0",
 
   "menu": {
     "categorie": "1",
-    "icon": "fa fas fa-plug",
+    "icon": "fa fas fa-mobile-alt",
     "params": ""
   },
 
@@ -18,7 +18,7 @@
   "submenu": [
     {
       "title": "App",
-      "icon": "fa fa-cogs",
+      "icon": "fa fas fa-mobile-alt",
       "url": {
         "page": "ext_app",
         "params": {

@@ -1,6 +1,5 @@
 <?php
 
-
 class extStundenplanDefault extends AbstractPage
 {
 
@@ -23,6 +22,8 @@ class extStundenplanDefault extends AbstractPage
             new errorPage('Kein Zugriff');
         }
 
+        $image_file = PAGE::logo();
+
         $this->render([
             "tmpl" => "default",
             "scripts" => [
@@ -33,7 +34,13 @@ class extStundenplanDefault extends AbstractPage
                 "apiURL" => "rest.php/stundenplan",
                 "acl" => $acl['rights'],
                 "isMobile" => $this->isMobile,
-                "apiKey" => DB::getGlobalSettings()->apiKey
+                "apiKey" => DB::getGlobalSettings()->apiKey,
+                "stundeLabel" => DB::getSettings()->getValue("ext-stundenplan-stunde-label"),
+                "showVplanBtn" => DB::getSettings()->getValue("ext-stundenplan-vplanBtn"),
+                "showPrintBtn" => DB::getSettings()->getValue("ext-stundenplan-printBtn"),
+                "printLogo" => $image_file,
+                "printSystem" => DB::getGlobalSettings()->siteNamePlain,
+                "printDate" => date('d.m.Y H:i', time())
             ]
         ]);
     }
@@ -54,7 +61,7 @@ class extStundenplanDefault extends AbstractPage
         $plan = $currentPlan->getPlan([$key, $value]);
 
         $arr = [];
-        foreach($plan as $d => $day) {
+        foreach ($plan as $d => $day) {
 
             foreach ($day as $s => $stunde) {
                 if (!is_array($arr[$s])) {
@@ -93,24 +100,24 @@ background-color: red !important;
         $html = '<table class="mainTable si-table" border="0" ><tbody>';
 
 
-    foreach ($arr as $d => $day) {
+        foreach ($arr as $d => $day) {
             $html .= '<tr>';
-            $html .= '<td class="stunde">#'.$d.'</td>';
+            $html .= '<td class="stunde">#' . $d . '</td>';
             foreach ($day as $s => $stunden) {
                 $html .= '<td class="">';
 
                 $html .= '<div class="col12" >';
-                foreach ($stunden as  $stunde) {
+                foreach ($stunden as $stunde) {
 
                     $html .= '<div class="hourBox col6" >';
 
                     $html .= '<div>';
-                    $html .= '<span class="stundeBox">'.$stunde['subject'].'-</span>';
-                    $html .= '<span class="stundeBox">'.$stunde['grade'].'</span>';
+                    $html .= '<span class="stundeBox">' . $stunde['subject'] . '-</span>';
+                    $html .= '<span class="stundeBox">' . $stunde['grade'] . '</span>';
                     $html .= '</div>';
                     $html .= '<div>';
-                    $html .= '<span class="stundeBox">'.$stunde['teacher'].'-</span>';
-                    $html .= '<span class="stundeBox">'.$stunde['room'].'</span>';
+                    $html .= '<span class="stundeBox">' . $stunde['teacher'] . '-</span>';
+                    $html .= '<span class="stundeBox">' . $stunde['room'] . '</span>';
                     $html .= '</div>';
 
                     $html .= '</div>';
@@ -143,7 +150,6 @@ background-color: red !important;
                     */
 
 
-
                 }
                 $html .= '</div>';
                 $html .= '</td>';
@@ -169,7 +175,7 @@ background-color: red !important;
             $stylesheet1 = file_get_contents('cssjs/css/si-components.css');
             $mpdf->WriteHTML($stylesheet1, 1);
             $mpdf->WriteHTML($stylesheet2, 1);
-            $mpdf->WriteHTML($html,2);
+            $mpdf->WriteHTML($html, 2);
             $mpdf->Output();
 
 
@@ -191,7 +197,6 @@ background-color: red !important;
         $print->send();
 */
         //echo $html;
-
 
 
     }

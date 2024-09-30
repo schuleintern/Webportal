@@ -65,7 +65,13 @@ class extInboxDefault extends AbstractPage
                 "apiURL" => "rest.php/inbox",
                 "data" => $ret,
                 "inbox_id" => $inbox_id,
-                "message_id" => $message_id
+                "message_id" => $message_id,
+                "apiKey" => DB::getGlobalSettings()->apiKey,
+                "signature" => DB::getSession()->getUser()->getRawSignature(),
+                "printLogo" => PAGE::logo(),
+                "printSystem" => DB::getGlobalSettings()->siteNamePlain,
+                "printDate" => date('d.m.Y H:i', time()),
+                "isMobile" => $this->isMobile
 
             ]
         ]);

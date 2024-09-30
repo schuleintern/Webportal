@@ -181,7 +181,8 @@ export default {
       formData.append('ferien', data.item.ferien);
       formData.append('public', data.item.public);
       formData.append('acl', JSON.stringify(data.item.acl));
-      formData.append('icsfeed', data.item.icsfeed);
+      formData.append('icsfeed', data.item.icsfeed || '');
+      formData.append('admins', JSON.stringify(data.item.admins));
 
       this.loading = true;
       var that = this;

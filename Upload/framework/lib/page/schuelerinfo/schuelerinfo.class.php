@@ -1249,6 +1249,7 @@ class schuelerinfo extends AbstractPage {
 
   private function schuelerubersicht() {
     $klasse = klasse::getByName($_REQUEST['klasse']);
+    $schueler = [];
 
     if($klasse != null) {
 
@@ -1258,8 +1259,11 @@ class schuelerinfo extends AbstractPage {
 
       // Unterricht
 
-      if($_REQUEST['klasse'] == 'ANDEREKLASSE') $unterricht = SchuelerUnterricht::getSonstigenUnterricht();
-      else $unterricht = SchuelerUnterricht::getUnterrichtForKlasse($klasse);
+      if($_REQUEST['klasse'] == 'ANDEREKLASSE') {
+        $unterricht = SchuelerUnterricht::getSonstigenUnterricht();
+      } else {
+        $unterricht = SchuelerUnterricht::getUnterrichtForKlasse($klasse);
+      }
 
       $faecherHTML = "";
 
@@ -1287,21 +1291,25 @@ class schuelerinfo extends AbstractPage {
           $currentUnterricht = $unterricht[$i];
         }
 
-
         $faecherHTML .= "<tr><td$highlight><a href=\"index.php?page=schuelerinfo&mode=klasse&klasse=" . $klasse->getKlassenName() . "&unterrichtID=" . $unterricht[$i]->getID() . "\">" . $fach  . "</a>" . ((sizeof($koppelStatus) > 0) ? ("<br ><small>Koppel mit: " . implode(", ",$koppelStatus) . "</small>") : ("")) . "</td><td$highlight>" . $lehrer . "</td></tr>\r\n";
 
       }
 
-      $schueler = [];
 
-      if($_REQUEST['doPrint'] > 0) {
+      if($_REQUEST['unterrichtID']) {
+        $schueler = $currentUnterricht->loadSchueler();
+      } else if ($_REQUEST['doPrint'] > 0) {
         $schueler = $klasse->getSchueler(false);
-      }
-      else {
-        if(!$showUnterrichtListe) $schueler = $klasse->getSchueler(true);
+      } else {
+        if(!$showUnterrichtListe) {
+          $schueler = $klasse->getSchueler(true);
+        }
       }
 
-      if($currentUnterricht != null) $schueler = $currentUnterricht->getSchueler();
+      if($currentUnterricht != null) {
+        $schueler = $currentUnterricht->getSchueler();
+      }
+
 
 
 
@@ -1360,15 +1368,20 @@ class schuelerinfo extends AbstractPage {
       			$schuelerListe .= "</tr>";
       		break;
 
-      		case 'simpleList':
-      			$schuelerListe .= "<tr><td width=\"10%\">" . ($i+1) . "</td>";
+          case 'simpleList':
+
+              $schuelerListe .= "<tr><td width=\"10%\">" . ($i+1) . "</td>";
+              $schuelerListe .= "<td width=\"10%\">" . $schueler[$i]->getKlasse() . "</td>";
+
+              if ( $schueler[$i]->isAusgetreten() ) {
+                $schuelerListe .= "<td width=\"80%\">" . $schueler[$i]->getCompleteSchuelerName()." - Ausgetreten zum " . DateFunctions::getNaturalDateFromMySQLDate($schueler[$i]->getAustrittDatumAsMySQLDate()) ."</td>";
+              } else {
+                $schuelerListe .= "<td width=\"80%\">" . $schueler[$i]->getCompleteSchuelerName(). "</td>";
+              }
+              $schuelerListe .= "</tr>";
 
 
-      			$schuelerListe .= "<td width=\"10%\">" . $schueler[$i]->getKlasse() . "</td>";
-      			$schuelerListe .= "<td width=\"80%\">" . $schueler[$i]->getCompleteSchuelerName(). "</td>";
-
-            $schuelerListe .= "</tr>";
-      		break;
+          break;
 
       		case 'listWithNA':
       			$schuelerListe .= "<tr><td width=\"10%\">" . ($i+1) . "</td>";

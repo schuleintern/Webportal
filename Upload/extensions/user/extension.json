@@ -1,9 +1,9 @@
 {
   "name": "Profil",
   "uniqid": "ext.core.user",
-  "version": "2",
+  "version": "3",
 
-  "requiredVersion": "1.6.1",
+  "requiredVersion": "1.8.1",
 
   "menu": {
     "categorie": "1",
